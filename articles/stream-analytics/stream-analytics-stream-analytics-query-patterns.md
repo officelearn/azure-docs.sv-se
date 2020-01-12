@@ -1,20 +1,21 @@
 ---
 title: Vanliga fråge mönster i Azure Stream Analytics
-description: Den här artikeln beskriver ett antal vanliga fråge mönster och design som är användbara i Azure Stream Analytics-jobb.
-author: jseb225
-ms.author: jeanb
+description: I den här artikeln beskrivs flera vanliga fråge mönster och design som är användbara i Azure Stream Analytics-jobb.
+services: stream-analytics
+author: rodrigoaatmicrosoft
+ms.author: rodrigoa
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/16/2019
-ms.openlocfilehash: 61f9e128fa9299a743012e18882fe32591fdd3f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 12/18/2019
+ms.openlocfilehash: 54d1b640a4067cf65fc28501840b4926455ec259
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369957"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903464"
 ---
-# <a name="query-examples-for-common-stream-analytics-usage-patterns"></a>Fråge exempel för vanliga Stream Analytics användnings mönster
+# <a name="common-query-patterns-in-azure-stream-analytics"></a>Vanliga fråge mönster i Azure Stream Analytics
 
 Frågor i Azure Stream Analytics uttrycks i ett SQL-liknande frågespråk. Språk konstruktionerna dokumenteras i referens hand boken för [Stream Analytics-frågespråket](/stream-analytics-query/stream-analytics-query-language-reference) . 
 
@@ -22,401 +23,517 @@ Frågans design kan uttrycka enkel direkt sändnings logik för att flytta händ
 
 Den här artikeln beskriver lösningar på flera vanliga fråge mönster baserade på verkliga scenarier.
 
-## <a name="work-with-complex-data-types-in-json-and-avro"></a>Arbeta med komplexa datatyper i JSON och AVRO
+## <a name="supported-data-formats"></a>Data format som stöds
 
 Azure Stream Analytics stöder bearbetning av händelser i CSV-, JSON-och Avro data format.
 
 Både JSON och Avro kan innehålla komplexa typer som kapslade objekt (poster) eller matriser. Mer information om hur du arbetar med dessa komplexa data typer finns i artikeln [parsa JSON och Avro data](stream-analytics-parsing-json.md) .
 
-## <a name="query-example-convert-data-types"></a>Exempel på frågor: konvertera data typer
+## <a name="simple-pass-through-query"></a>Enkel direkt fråga
 
-**Beskrivning**: definiera olika typer av egenskaper för indataströmmen. Exempelvis kommer bilens vikt att skickas till indataströmmen som strängar och måste konverteras till **heltal** för att utföra **Sum**.
+Du kan använda en enkel direkt sändnings fråga för att kopiera data Ströms data till utdata. Om t. ex. en data ström som innehåller information om vehikel måste sparas i en SQL-databas för bokstavs analys, kommer en enkel direkt fråga att utföra jobbet.
 
 **Inmatade**:
 
 | Skapa | Tid | Vikt |
 | --- | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |"1000" |
-| Honda |2015-01-01T00:00:02.0000000 Z |"2000" |
+| Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
+
+**Utdata**:
+
+| Skapa | Tid | Vikt |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
+
+**Fråga**:
+
+```SQL
+SELECT
+    *
+INTO Output
+FROM Input
+```
+
+En **Select** *-fråga projekterar alla fält i en inkommande händelse och skickar dem till utdata. På samma sätt kan du också **välja** att endast använda projekt som krävs för att ange fält från indatatyperna. I det här exemplet, om fordons *märke* och- *tid* är de enda obligatoriska fält som ska sparas, kan dessa fält anges i **Select** -instruktionen.
+
+**Inmatade**:
+
+| Skapa | Tid | Vikt |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |1 000 |
+| Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
+| Make2 |2015-01-01T00:00:04.0000000 Z |1500 |
+
+**Utdata**:
+
+| Skapa | Tid |
+| --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:04.0000000 Z |
+
+**Fråga**:
+
+```SQL
+SELECT
+    Make, Time
+INTO Output
+FROM Input
+```
+## <a name="data-aggregation-over-time"></a>Data agg regering över tid
+
+Om du vill beräkna information över ett tidsfönster kan data aggregeras tillsammans. I det här exemplet beräknas ett antal under de senaste 10 minuterna för varje bestämd bil.
+
+**Inmatade**:
+
+| Skapa | Tid | Vikt |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |1 000 |
+| Make1 |2015-01-01T00:00:02.0000000 Z |2000 |
+| Make2 |2015-01-01T00:00:04.0000000 Z |1500 |
+
+**Utdata**:
+
+| Skapa | Antal |
+| --- | --- |
+| Make1 | 2 |
+| Make2 | 1 |
+
+**Fråga**:
+
+```SQL
+SELECT
+    Make,
+    COUNT(*) AS Count
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+```
+
+Den här agg regeringen grupperar bilaren genom *att göra* och räknar dem var tionde sekund. Resultatet har *fabrikatet* och *antalet* bilar som gick via avgift.
+
+TumblingWindow är en fönster funktion som används för att gruppera händelser tillsammans. En agg regering kan tillämpas på alla grupperade händelser. Mer information finns i [fönster funktioner](stream-analytics-window-functions.md).
+
+Mer information om agg regering finns i [mängd funktioner](/stream-analytics-query/aggregate-functions-azure-stream-analytics).
+
+## <a name="data-conversion"></a>Datakonvertering
+
+Data kan omvandlas i real tid med hjälp av **Cast** -metoden. Bil vikt kan till exempel konverteras från Type **nvarchar (max)** för att skriva **bigint** och användas i en numerisk beräkning.
+
+**Inmatade**:
+
+| Skapa | Tid | Vikt |
+| --- | --- | --- |
+| Make1 |2015-01-01T00:00:01.0000000 Z |"1000" |
+| Make1 |2015-01-01T00:00:02.0000000 Z |"2000" |
 
 **Utdata**:
 
 | Skapa | Vikt |
 | --- | --- |
-| Honda |3000 |
+| Make1 |3000 |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    SELECT
-        Make,
-        SUM(CAST(Weight AS BIGINT)) AS Weight
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Make,
-        TumblingWindow(second, 10)
+SELECT
+    Make,
+    SUM(CAST(Weight AS BIGINT)) AS Weight
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
 ```
 
-**Förklaring**: Använd ett **Cast** -uttryck i fältet **vikt** för att ange dess datatyp. Se listan över data typer som stöds i [data typer (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
+Använd en **Cast** -instruktion för att ange dess datatyp. Se listan över data typer som stöds i [data typer (Azure Stream Analytics)](/stream-analytics-query/data-types-azure-stream-analytics).
 
-## <a name="query-example-use-likenot-like-to-do-pattern-matching"></a>Exempel på frågor: Använd LIKE/inte gilla för att matcha mönster matchning
+Mer information om [data konverterings funktioner](/stream-analytics-query/conversion-functions-azure-stream-analytics).
 
-**Beskrivning**: kontrol lera att ett fält värde i händelsen matchar ett visst mönster.
-Kontrol lera till exempel att resultatet returnerar licens plattor som börjar med A och slutar med 9.
+## <a name="string-matching-with-like-and-not-like"></a>Sträng matchning med gilla och inte gilla
+
+**Gilla** och **inte gilla** kan användas för att kontrol lera om ett fält matchar ett visst mönster. Ett filter kan till exempel skapas för att endast returnera de licens plattor som börjar med bokstaven A och slutar med siffran 9.
 
 **Inmatade**:
 
-| Skapa | LicensePlate | Tid |
+| Skapa | License_plate | Tid |
 | --- | --- | --- |
-| Honda |ABC-123 |2015-01-01T00:00:01.0000000 Z |
-| Toyota |AAA-999 |2015-01-01T00:00:02.0000000 Z |
-| Nissan |ABC-369 |2015-01-01T00:00:03.0000000 Z |
+| Make1 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Make3 |ABC-369 |2015-01-01T00:00:03.0000000 Z |
 
 **Utdata**:
 
-| Skapa | LicensePlate | Tid |
+| Skapa | License_plate | Tid |
 | --- | --- | --- |
-| Toyota |AAA-999 |2015-01-01T00:00:02.0000000 Z |
-| Nissan |ABC-369 |2015-01-01T00:00:03.0000000 Z |
+| Make2 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Make3 |ABC-369 |2015-01-01T00:00:03.0000000 Z |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    SELECT
-        *
-    FROM
-        Input TIMESTAMP BY Time
-    WHERE
-        LicensePlate LIKE 'A%9'
+SELECT
+    *
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    License_plate LIKE 'A%9'
 ```
 
-**Förklaring**: Använd instruktionen **like** för att kontrol lera värdet för fältet **LicensePlate** . Den ska börja med bokstaven A, sedan ha en sträng på noll eller flera tecken och sedan sluta med siffran 9. 
+Använd **like** -instruktionen för att kontrol lera värdet för **License_plate** fältet. Den måste börja med bokstaven "A" och har en sträng på noll eller flera tecken, som slutar med siffran 9.
 
-## <a name="query-example-specify-logic-for-different-casesvalues-case-statements"></a>Exempel på frågor: Ange logik för olika fall/värden (CASE-instruktioner)
+## <a name="specify-logic-for-different-casesvalues-case-statements"></a>Ange logik för olika fall/värden (CASE-instruktioner)
 
-**Beskrivning**: Ange en annan beräkning för ett fält baserat på ett visst kriterium. Du kan till exempel ange en sträng beskrivning för hur många bilar av samma som skickas, med ett specialfall för 1.
+**Case** -instruktioner kan ge olika beräkningar för olika fält, baserat på specifika kriterier. Du kan till exempel tilldela Lane "A" till bilar av *Make1* och Lane "B" till något annat.
 
 **Inmatade**:
 
 | Skapa | Tid |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |
-| Toyota |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:03.0000000 Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
 **Utdata**:
 
-| CarsPassed | Tid |
-| --- | --- |
-| 1 Honda |2015-01-01T00:00:10.0000000 Z |
-| 2 Toyotas |2015-01-01T00:00:10.0000000 Z |
+| Skapa |Dispatch_to_lane | Tid |
+| --- | --- | --- |
+| Make1 |En |2015-01-01T00:00:01.0000000 Z |
+| Make2 |T |2015-01-01T00:00:02.0000000 Z |
 
 **Lösning**:
 
 ```SQL
-    SELECT
-        CASE
-            WHEN COUNT(*) = 1 THEN CONCAT('1 ', Make)
-            ELSE CONCAT(CAST(COUNT(*) AS NVARCHAR(MAX)), ' ', Make, 's')
-        END AS CarsPassed,
-        System.TimeStamp() AS AsaTime
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Make,
-        TumblingWindow(second, 10)
+SELECT
+    Make
+    CASE
+        WHEN Make = "Make1" THEN "A"
+        ELSE "B"
+    END AS Dispatch_to_lane,
+    System.TimeStamp() AS Time
+FROM
+    Input TIMESTAMP BY Time
 ```
 
-**Förklaring**: **Case** -uttrycket jämför ett uttryck med en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet gör fordonet med ett antal 1 returnerat en annan sträng beskrivning än vehikeln med ett annat antal än 1.
+**Case** -uttrycket jämför ett uttryck med en uppsättning enkla uttryck för att fastställa resultatet. I det här exemplet skickas fordon av *Make1* till Lane "A" medan fordon av andra fabrikat tilldelas Lane ' B '.
 
-## <a name="query-example-send-data-to-multiple-outputs"></a>Exempel på frågor: skicka data till flera utdata
+Mer information finns i Case- [uttryck](/stream-analytics-query/case-azure-stream-analytics).
 
-**Beskrivning**: skicka data till flera utgående mål från ett enda jobb. Analysera till exempel data för en tröskel-baserad avisering och arkivera alla händelser till Blob Storage.
+## <a name="send-data-to-multiple-outputs"></a>Skicka data till flera utdata
+
+Flera **Select** -uttryck kan användas för att mata ut data till olika utgående mottagare. En **Select** kan till exempel generera en tröskel-baserad avisering medan en annan kan spara händelser till Blob Storage.
 
 **Inmatade**:
 
 | Skapa | Tid |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |
-| Honda |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:01.0000000 Z |
-| Toyota |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:03.0000000 Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Output1**:
+**Utgående ArchiveOutput**:
 
 | Skapa | Tid |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |
-| Honda |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:01.0000000 Z |
-| Toyota |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:03.0000000 Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
-**Output2**:
+**Utgående AlertOutput**:
 
 | Skapa | Tid | Antal |
 | --- | --- | --- |
-| Toyota |2015-01-01T00:00:10.0000000 Z |3 |
+| Make2 |2015-01-01T00:00:10.0000000 Z |3 |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
+SELECT
+    *
+INTO
+    ArchiveOutput
+FROM
+    Input TIMESTAMP BY Time
+
+SELECT
+    Make,
+    System.TimeStamp() AS Time,
+    COUNT(*) AS [Count]
+INTO
+    AlertOutput
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+HAVING
+    [Count] >= 3
+```
+
+**Into** -satsen visar Stream Analytics vilka utdata som data ska skrivas till. Den första **Select** definierar en direkt fråga som tar emot data från indata och skickar den till utdata med namnet **ArchiveOutput**. Den andra frågan gör viss enkel agg regering och filtrering innan resultatet skickas till en underordnad varnings system utdata som kallas **AlertOutput**.
+
+Observera att **with** -satsen kan användas för att definiera flera under frågor. Det här alternativet har fördelen att öppna färre läsare till Indatakällan.
+
+**Fråga**:
+
+```SQL
+WITH ReaderQuery AS (
     SELECT
         *
-    INTO
-        ArchiveOutput
     FROM
         Input TIMESTAMP BY Time
+)
 
-    SELECT
-        Make,
-        System.TimeStamp() AS AsaTime,
-        COUNT(*) AS [Count]
-    INTO
-        AlertOutput
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Make,
-        TumblingWindow(second, 10)
-    HAVING
-        [Count] >= 3
+SELECT * INTO ArchiveOutput FROM ReaderQuery
+
+SELECT 
+    Make,
+    System.TimeStamp() AS Time,
+    COUNT(*) AS [Count] 
+INTO AlertOutput 
+FROM ReaderQuery
+GROUP BY
+    Make,
+    TumblingWindow(second, 10)
+HAVING [Count] >= 3
 ```
 
-**Förklaring**: **into** -satsen visar Stream Analytics vilka utdata som data ska skrivas till från den här instruktionen. Den första frågan är en direkt uppspelning av de data som tagits emot till utdata med namnet **ArchiveOutput**. Den andra frågan gör viss enkel agg regering och filtrering, och skickar resultatet till ett underordnat varnings system, **AlertOutput**.
+Mer information finns i [ **with** -satsen](/stream-analytics-query/with-azure-stream-analytics).
 
-Observera att du också kan återanvända resultatet av de vanliga tabell uttrycken (CTE) (till exempel **with** -instruktioner) i flera output-uttryck. Det här alternativet har extra fördelen att öppna färre läsare till Indatakällan.
+## <a name="count-unique-values"></a>Räkna unika värden
 
-Ett exempel: 
-
-```SQL
-    WITH AllRedCars AS (
-        SELECT
-            *
-        FROM
-            Input TIMESTAMP BY Time
-        WHERE
-            Color = 'red'
-    )
-    SELECT * INTO HondaOutput FROM AllRedCars WHERE Make = 'Honda'
-    SELECT * INTO ToyotaOutput FROM AllRedCars WHERE Make = 'Toyota'
-```
-
-## <a name="query-example-count-unique-values"></a>Exempel på frågor: räkna unika värden
-
-**Beskrivning**: räkna antalet unika fält värden som visas i data strömmen i ett tids fönster. Till exempel hur många unika bilar som skickas via avgiftsbelagt monter i ett 2-sekunders fönster?
+**Count** och **DISTINCT** kan användas för att räkna antalet unika fält värden som visas i data strömmen i ett tids fönster. En fråga kan skapas för att beräkna hur *många unika bilar av bilar som skickas* genom väg-och ett 2-sekunders fönster.
 
 **Inmatade**:
 
 | Skapa | Tid |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |
-| Honda |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:01.0000000 Z |
-| Toyota |2015-01-01T00:00:02.0000000 Z |
-| Toyota |2015-01-01T00:00:03.0000000 Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:03.0000000 Z |
 
 **Utdata:**
 
-| CountMake | Tid |
+| Count_make | Tid |
 | --- | --- |
 | 2 |2015-01-01T00:00:02.000 Z |
 | 1 |2015-01-01T00:00:04.000 Z |
 
-**Lösning:**
+**Fråga:**
 
 ```SQL
 SELECT
-     COUNT(DISTINCT Make) AS CountMake,
-     System.TIMESTAMP() AS AsaTIME
+     COUNT(DISTINCT Make) AS Count_make,
+     System.TIMESTAMP() AS Time
 FROM Input TIMESTAMP BY TIME
 GROUP BY 
      TumblingWindow(second, 2)
 ```
 
+**Count (DISTINCT-fabrikat)** returnerar antalet distinkta värden i kolumnen **skapa** i ett tids fönster.
+Mer information finns i [mängd funktionen **Count** ](/stream-analytics-query/count-azure-stream-analytics).
 
-**Förklaring:** 
-**Count (DISTINCT-fabrikat)** returnerar antalet distinkta värden i kolumnen **skapa** i ett tidsfönster.
+## <a name="calculation-over-past-events"></a>Beräkning över tidigare händelser
 
-## <a name="query-example-determine-if-a-value-has-changed"></a>Exempel på frågor: avgör om ett värde har ändrats
-
-**Beskrivning**: titta på ett tidigare värde för att avgöra om det skiljer sig från det aktuella värdet. Är till exempel föregående bil på väg vägen samma sak som den nuvarande bilen?
+Du kan använda funktionen **fördröjning** för att titta på tidigare händelser i ett tids fönster och jämföra dem med den aktuella händelsen. Till exempel kan den aktuella bil-varan vara utlämnad om den skiljer sig från den sista bilen som gick igenom avgifts meddelandet.
 
 **Inmatade**:
 
 | Skapa | Tid |
 | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |
-| Toyota |2015-01-01T00:00:02.0000000 Z |
+| Make1 |2015-01-01T00:00:01.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
 
 **Utdata**:
 
 | Skapa | Tid |
 | --- | --- |
-| Toyota |2015-01-01T00:00:02.0000000 Z |
+| Make2 |2015-01-01T00:00:02.0000000 Z |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    SELECT
-        Make,
-        Time
-    FROM
-        Input TIMESTAMP BY Time
-    WHERE
-        LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
+SELECT
+    Make,
+    Time
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    LAG(Make, 1) OVER (LIMIT DURATION(minute, 1)) <> Make
 ```
 
-**Förklaring**: Använd **fördröjning** för att titta på indata strömmar en händelse tillbaka och hämta **värdet.** Jämför det sedan med värdet **gör** i den aktuella händelsen och mata ut händelsen om de skiljer sig åt.
+Använd **fördröjning** för att Visa indataströmmen en händelse tillbaka, hämtar värdet och jämför det *med värdet för* att *göra* -värdet för den aktuella händelsen och mata ut händelsen.
 
-## <a name="query-example-find-the-first-event-in-a-window"></a>Exempel på frågor: hitta den första händelsen i ett fönster
+Mer information finns i [**fördröjning**](/stream-analytics-query/lag-azure-stream-analytics).
 
-**Beskrivning**: hitta den första bilen under varje 10-minuters intervall.
+## <a name="retrieve-the-first-event-in-a-window"></a>Hämta den första händelsen i ett fönster
+
+**IsFirst** kan användas för att hämta den första händelsen i ett tids fönster. Du kan till exempel placera den första bil informationen i intervallet 10: e minut.
 
 **Inmatade**:
 
-| LicensePlate | Skapa | Tid |
+| License_plate | Skapa | Tid |
 | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
-| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
-| RMV 8282 |Honda |2015-07-27T00:05:01.0000000 Z |
-| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000 Z |
-| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000 Z |
-| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
-| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
+| RMV 8282 |Make1 |2015-07-27T00:05:01.0000000 Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000 Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
 
 **Utdata**:
 
-| LicensePlate | Skapa | Tid |
+| License_plate | Skapa | Tid |
 | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
-| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
+SELECT 
+    License_plate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) = 1
+```
+
+**IsFirst** kan också partitionera data och beräkna den första händelsen för varje *enskild bil som du hittar* vid varje 10-minuters intervall.
+
+**Utdata**:
+
+| License_plate | Skapa | Tid |
+| --- | --- | --- |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000 Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
+
+**Fråga**:
+
+```SQL
+SELECT 
+    License_plate,
+    Make,
+    Time
+FROM 
+    Input TIMESTAMP BY Time
+WHERE 
+    IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
+```
+
+Mer information finns på [**IsFirst**](/stream-analytics-query/isfirst-azure-stream-analytics).
+
+## <a name="return-the-last-event-in-a-window"></a>Returnera den sista händelsen i ett fönster
+
+När händelser används av systemet i real tid, finns det ingen funktion som kan avgöra om en händelse är den sista som ska tas emot för tids perioden. För att uppnå detta måste indataströmmen vara ansluten till en annan där tiden för en händelse är den maximala tiden för alla händelser i fönstret.
+
+**Inmatade**:
+
+| License_plate | Skapa | Tid |
+| --- | --- | --- |
+| DXE 5291 |Make1 |2015-07-27T00:00:05.0000000 Z |
+| YZK 5704 |Make3 |2015-07-27T00:02:17.0000000 Z |
+| RMV 8282 |Make1 |2015-07-27T00:05:01.0000000 Z |
+| YHN 6970 |Make2 |2015-07-27T00:06:00.0000000 Z |
+| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
+| QYF 9358 |Make1 |2015-07-27T00:12:02.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
+
+**Utdata**:
+
+| License_plate | Skapa | Tid |
+| --- | --- | --- |
+| VFE 1616 |Make2 |2015-07-27T00:09:31.0000000 Z |
+| MDR 6128 |Make4 |2015-07-27T00:13:45.0000000 Z |
+
+**Fråga**:
+
+```SQL
+WITH LastInWindow AS
+(
     SELECT 
-        LicensePlate,
-        Make,
-        Time
+        MAX(Time) AS LastEventTime
     FROM 
         Input TIMESTAMP BY Time
-    WHERE 
-        IsFirst(minute, 10) = 1
+    GROUP BY 
+        TumblingWindow(minute, 10)
+)
+
+SELECT 
+    Input.License_plate,
+    Input.Make,
+    Input.Time
+FROM
+    Input TIMESTAMP BY Time 
+    INNER JOIN LastInWindow
+    ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
+    AND Input.Time = LastInWindow.LastEventTime
 ```
 
-Nu ska vi ändra problemet och hitta den första bilen i ett visst intervall under 10 minuter.
+Det första steget i frågan hittar den maximala tidsstämpeln i 10-minuters fönster, det vill säga tidsstämpeln för den senaste händelsen för fönstret. I det andra steget kopplas resultatet från den första frågan med den ursprungliga data strömmen för att hitta den händelse som matchar de senaste tidsstämplar i varje fönster. 
 
-| LicensePlate | Skapa | Tid |
-| --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
-| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
-| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000 Z |
-| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
-| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
+**DateDiff** är en programbestämd funktion som jämför och returnerar tids skillnaden mellan två DATETIME-fält, för mer information, se [datum funktioner](https://docs.microsoft.com/stream-analytics-query/date-and-time-functions-azure-stream-analytics).
 
-**Lösning**:
+Mer information om att ansluta till strömmar finns i [**delta**](/stream-analytics-query/join-azure-stream-analytics).
 
-```SQL
-    SELECT 
-        LicensePlate,
-        Make,
-        Time
-    FROM 
-        Input TIMESTAMP BY Time
-    WHERE 
-        IsFirst(minute, 10) OVER (PARTITION BY Make) = 1
-```
 
-## <a name="query-example-find-the-last-event-in-a-window"></a>Exempel på frågor: hitta sista händelsen i ett fönster
+## <a name="correlate-events-in-a-stream"></a>Korrelera händelser i en ström
 
-**Beskrivning**: hitta den sista bilen under varje 10-minuters intervall.
+Att korrelera händelser i samma data ström kan göras genom att titta på tidigare händelser med funktionen **lag** . Till exempel kan en utmatning skapas varje gång två på varandra följande bilar *från samma sätt* gå igenom avgift under de senaste 90 sekunderna.
 
 **Inmatade**:
 
-| LicensePlate | Skapa | Tid |
+| Skapa | License_plate | Tid |
 | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:05.0000000 Z |
-| YZK 5704 |Ford |2015-07-27T00:02:17.0000000 Z |
-| RMV 8282 |Honda |2015-07-27T00:05:01.0000000 Z |
-| YHN 6970 |Toyota |2015-07-27T00:06:00.0000000 Z |
-| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000 Z |
-| QYF 9358 |Honda |2015-07-27T00:12:02.0000000 Z |
-| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
+| Make1 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |AAA-999 |2015-01-01T00:00:02.0000000 Z |
+| Make2 |DEF-987 |2015-01-01T00:00:03.0000000 Z |
+| Make1 |GHI-345 |2015-01-01T00:00:04.0000000 Z |
 
 **Utdata**:
 
-| LicensePlate | Skapa | Tid |
-| --- | --- | --- |
-| VFE 1616 |Toyota |2015-07-27T00:09:31.0000000 Z |
-| MDR 6128 |BMW |2015-07-27T00:13:45.0000000 Z |
-
-**Lösning**:
-
-```SQL
-    WITH LastInWindow AS
-    (
-        SELECT 
-            MAX(Time) AS LastEventTime
-        FROM 
-            Input TIMESTAMP BY Time
-        GROUP BY 
-            TumblingWindow(minute, 10)
-    )
-    SELECT 
-        Input.LicensePlate,
-        Input.Make,
-        Input.Time
-    FROM
-        Input TIMESTAMP BY Time 
-        INNER JOIN LastInWindow
-        ON DATEDIFF(minute, Input, LastInWindow) BETWEEN 0 AND 10
-        AND Input.Time = LastInWindow.LastEventTime
-```
-
-**Förklaring**: det finns två steg i frågan. Den första, hittar den senaste tidsstämpeln i 10 minuters fönster. I det andra steget kopplas resultatet från den första frågan med den ursprungliga data strömmen för att hitta de händelser som matchar de senaste tidsstämplar i varje fönster. 
-
-## <a name="query-example-locate-correlated-events-in-a-stream"></a>Exempel på frågor: hitta korrelerade händelser i en ström
-
-**Beskrivning**: hitta korrelerade händelser i en data ström. Du kan till exempel ha två på varandra följande bilar från samma fabrikat som du angav på väg inom de senaste 90 sekunderna?
-
-**Inmatade**:
-
-| Skapa | LicensePlate | Tid |
-| --- | --- | --- |
-| Honda |ABC-123 |2015-01-01T00:00:01.0000000 Z |
-| Honda |AAA-999 |2015-01-01T00:00:02.0000000 Z |
-| Toyota |DEF-987 |2015-01-01T00:00:03.0000000 Z |
-| Honda |GHI-345 |2015-01-01T00:00:04.0000000 Z |
-
-**Utdata**:
-
-| Skapa | Tid | CurrentCarLicensePlate | FirstCarLicensePlate | FirstCarTime |
+| Skapa | Tid | Current_car_license_plate | First_car_license_plate | First_car_time |
 | --- | --- | --- | --- | --- |
-| Honda |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
+| Make1 |2015-01-01T00:00:02.0000000 Z |AAA-999 |ABC-123 |2015-01-01T00:00:01.0000000 Z |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    SELECT
-        Make,
-        Time,
-        LicensePlate AS CurrentCarLicensePlate,
-        LAG(LicensePlate, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarLicensePlate,
-        LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS FirstCarTime
-    FROM
-        Input TIMESTAMP BY Time
-    WHERE
-        LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
+SELECT
+    Make,
+    Time,
+    License_plate AS Current_car_license_plate,
+    LAG(License_plate, 1) OVER (LIMIT DURATION(second, 90)) AS First_car_license_plate,
+    LAG(Time, 1) OVER (LIMIT DURATION(second, 90)) AS First_car_time
+FROM
+    Input TIMESTAMP BY Time
+WHERE
+    LAG(Make, 1) OVER (LIMIT DURATION(second, 90)) = Make
 ```
 
-**Förklaring**: Använd **fördröjning** för att titta på indata strömmar en händelse tillbaka och hämta **värdet.** Jämför det med värdet **gör** i den aktuella händelsen och mata sedan ut händelsen om de är samma. Du kan också använda en **fördröjning** för att hämta data om föregående bil.
+**Fördröjnings** funktionen kan titta på data strömmen en händelse tillbaka och *Hämta värdet för att jämföra* med att *göra* -värdet för den aktuella händelsen.  När villkoret är uppfyllt kan data från föregående händelse projiceras med en **fördröjning** i **Select** -uttrycket.
 
-## <a name="query-example-detect-the-duration-between-events"></a>Exempel på frågor: identifiera varaktigheten mellan händelser
+Mer information finns i [fördröjning](/stream-analytics-query/lag-azure-stream-analytics).
 
-**Beskrivning**: hitta varaktigheten för en specifik händelse. Om du till exempel har en webb-klick Ströms bestämmer du hur lång tid en funktion får ta.
+## <a name="detect-the-duration-between-events"></a>Identifiera varaktigheten mellan händelser
+
+Varaktigheten för en händelse kan beräknas genom att titta på den sista start händelsen när en slut händelse tas emot. Den här frågan kan vara användbar för att avgöra hur lång tid en användare lägger på en sida eller en funktion.
 
 **Inmatade**:  
 
@@ -431,76 +548,77 @@ Nu ska vi ändra problemet och hitta den första bilen i ett visst intervall und
 | --- | --- | --- |
 | user@location.com |RightMenu |7 |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    SELECT
-        [user],
+SELECT
+    [user],
     feature,
     DATEDIFF(
         second,
         LAST(Time) OVER (PARTITION BY [user], feature LIMIT DURATION(hour, 1) WHEN Event = 'start'),
         Time) as duration
-    FROM input TIMESTAMP BY Time
-    WHERE
-        Event = 'end'
+FROM input TIMESTAMP BY Time
+WHERE
+    Event = 'end'
 ```
 
-**Förklaring**: Använd den **sista** funktionen för att hämta det senaste **tid** svärdet när händelse typen **startades**. Den **sista** funktionen använder **partition av [användare]** för att indikera att resultatet beräknas per unik användare. Frågan har ett maximalt 1 timmes tröskelvärde för tids skillnaden mellan **Start** -och **stopp** händelser, men kan konfigureras efter behov **(gräns längd (timme, 1)** .
+Den **sista** funktionen kan användas för att hämta den sista händelsen inom ett angivet villkor. I det här exemplet är villkoret en händelse av typen Start som partitionerar sökningen efter **partition efter** användare och funktion. På så sätt behandlas varje användare och funktion separat när du söker efter händelsen starta. **Gräns för tids gräns** begränsar Sök tiden till 1 timme mellan slut-och start händelserna.
 
-## <a name="query-example-detect-the-duration-of-a-condition"></a>Exempel på frågor: identifiera varaktigheten för ett villkor
-**Beskrivning**: ta reda på hur länge ett villkor har inträffat.
-Anta till exempel att en bugg ledde till att alla bilar har en felaktig vikt (över 20 000 kg) och varaktigheten för denna bugg måste beräknas.
+## <a name="detect-the-duration-of-a-condition"></a>Identifiera varaktigheten för ett villkor
+
+För villkor som sträcker sig över flera händelser kan du använda funktionen **fördröjning** för att identifiera villkorets varaktighet. Anta till exempel att en bugg ledde till att alla bilar har en felaktig vikt (över 20 000 kg) och varaktigheten för denna bugg måste beräknas.
 
 **Inmatade**:
 
 | Skapa | Tid | Vikt |
 | --- | --- | --- |
-| Honda |2015-01-01T00:00:01.0000000 Z |2000 |
-| Toyota |2015-01-01T00:00:02.0000000 Z |25000 |
-| Honda |2015-01-01T00:00:03.0000000 Z |26000 |
-| Toyota |2015-01-01T00:00:04.0000000 Z |25000 |
-| Honda |2015-01-01T00:00:05.0000000 Z |26000 |
-| Toyota |2015-01-01T00:00:06.0000000 Z |25000 |
-| Honda |2015-01-01T00:00:07.0000000 Z |26000 |
-| Toyota |2015-01-01T00:00:08.0000000 Z |2000 |
+| Make1 |2015-01-01T00:00:01.0000000 Z |2000 |
+| Make2 |2015-01-01T00:00:02.0000000 Z |25000 |
+| Make1 |2015-01-01T00:00:03.0000000 Z |26000 |
+| Make2 |2015-01-01T00:00:04.0000000 Z |25000 |
+| Make1 |2015-01-01T00:00:05.0000000 Z |26000 |
+| Make2 |2015-01-01T00:00:06.0000000 Z |25000 |
+| Make1 |2015-01-01T00:00:07.0000000 Z |26000 |
+| Make2 |2015-01-01T00:00:08.0000000 Z |2000 |
 
 **Utdata**:
 
-| StartFault | EndFault |
+| Start_fault | End_fault |
 | --- | --- |
 | 2015-01-01T00:00:02.000 Z |2015-01-01T00:00:07.000 Z |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    WITH SelectPreviousEvent AS
-    (
-    SELECT
+WITH SelectPreviousEvent AS
+(
+SELECT
     *,
-        LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previousTime,
-        LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previousWeight
-    FROM input TIMESTAMP BY [time]
-    )
+    LAG([time]) OVER (LIMIT DURATION(hour, 24)) as previous_time,
+    LAG([weight]) OVER (LIMIT DURATION(hour, 24)) as previous_weight
+FROM input TIMESTAMP BY [time]
+)
 
-    SELECT 
-        LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previousWeight < 20000 ) [StartFault],
-        previousTime [EndFault]
-    FROM SelectPreviousEvent
-    WHERE
-        [weight] < 20000
-        AND previousWeight > 20000
+SELECT 
+    LAG(time) OVER (LIMIT DURATION(hour, 24) WHEN previous_weight < 20000 ) [Start_fault],
+    previous_time [End_fault]
+FROM SelectPreviousEvent
+WHERE
+    [weight] < 20000
+    AND previous_weight > 20000
 ```
+Den första **Select** -instruktionen korrelerar den aktuella vikt mätningen med föregående mått, och projicerar den tillsammans med den aktuella mätningen. Den andra **väljer** ser tillbaka till den senaste händelsen där *previous_weight* är mindre än 20000, där den aktuella vikten är mindre än 20000 och *previous_weight* för den aktuella händelsen var större än 20000.
 
-**Förklaring**: Använd **fördröjning** för att Visa indataströmmen i 24 timmar och leta efter instanser där **StartFault** och **StopFault** sträcker sig över vikt < 20000.
+End_fault är den aktuella händelsen utan fel där föregående händelse var trasig och Start_fault är den senaste händelse som inte är fel före.
 
-## <a name="query-example-fill-missing-values"></a>Exempel på frågor: fylla i saknade värden
+## <a name="periodically-output-values"></a>Jämna ut värden
 
-**Beskrivning**: för data strömmen med händelser som saknar värden skapar du en ström med händelser med regelbundna intervall. Du kan till exempel generera en händelse var femte sekund som rapporterar den senast visade data punkten.
+I händelse av oregelbundna eller saknade händelser kan ett vanligt intervall med utdata genereras från en mer sparse-indata. Du kan till exempel generera en händelse var femte sekund som rapporterar den senast visade data punkten.
 
 **Inmatade**:
 
-| t | värde |
+| Tid | Värde |
 | --- | --- |
 | "2014-01-01T06:01:00" |1 |
 | "2014-01-01T06:01:05" |2 |
@@ -511,7 +629,7 @@ Anta till exempel att en bugg ledde till att alla bilar har en felaktig vikt (ö
 
 **Utdata (första 10 raderna)** :
 
-| windowend | lastevent. t | lastevent. Value |
+| Window_end | Last_event. Tid | Last_event. Värde |
 | --- | --- | --- |
 | 2014-01-01T14:01:00.000 Z |2014-01-01T14:01:00.000 Z |1 |
 | 2014-01-01T14:01:05.000 Z |2014-01-01T14:01:05.000 Z |2 |
@@ -524,109 +642,39 @@ Anta till exempel att en bugg ledde till att alla bilar har en felaktig vikt (ö
 | 2014-01-01T14:01:40.000 Z |2014-01-01T14:01:35.000 Z |6 |
 | 2014-01-01T14:01:45.000 Z |2014-01-01T14:01:35.000 Z |6 |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
-    SELECT
-        System.Timestamp() AS windowEnd,
-        TopOne() OVER (ORDER BY t DESC) AS lastEvent
-    FROM
-        input TIMESTAMP BY t
-    GROUP BY HOPPINGWINDOW(second, 300, 5)
+SELECT
+    System.Timestamp() AS Window_end,
+    TopOne() OVER (ORDER BY Time DESC) AS Last_event
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    HOPPINGWINDOW(second, 300, 5)
 ```
 
-**Förklaring**: den här frågan genererar händelser var femte sekund och matar ut den senaste händelsen som togs emot tidigare. [Hoppande-fönstrets](/stream-analytics-query/hopping-window-azure-stream-analytics) varaktighet avgör hur långt tillbaka frågan söker efter den senaste händelsen (300 sekunder i det här exemplet).
+Den här frågan genererar händelser var femte sekund och matar ut den senaste händelsen som togs emot tidigare. **HOPPINGWINDOW** varaktighet avgör hur långt tillbaka frågan ser ut för att hitta den senaste händelsen.
 
+Mer information finns i hoppande- [fönstret](/stream-analytics-query/hopping-window-azure-stream-analytics).
 
-## <a name="query-example-correlate-two-event-types-within-the-same-stream"></a>Exempel på frågor: korrelera två händelse typer inom samma data ström
+## <a name="process-events-with-independent-time-substreams"></a>Bearbeta händelser med oberoende tid (under strömmar)
 
-**Beskrivning**: ibland måste aviseringar genereras baserat på flera händelse typer som har inträffat under ett visst tidsintervall. I ett IoT-scenario för hem ugnar måste en avisering till exempel genereras när fläkt temperaturen är mindre än 40 och den högsta kraften under de senaste 3 minuterna är mindre än 10.
-
-**Inmatade**:
-
-| time | deviceId | sensorName | värde |
-| --- | --- | --- | --- |
-| "2018-01-01T16:01:00" | "Oven1" | styr |120 |
-| "2018-01-01T16:01:00" | "Oven1" | befogenhet |15 |
-| "2018-01-01T16:02:00" | "Oven1" | styr |100 |
-| "2018-01-01T16:02:00" | "Oven1" | befogenhet |15 |
-| "2018-01-01T16:03:00" | "Oven1" | styr |70 |
-| "2018-01-01T16:03:00" | "Oven1" | befogenhet |15 |
-| "2018-01-01T16:04:00" | "Oven1" | styr |50 |
-| "2018-01-01T16:04:00" | "Oven1" | befogenhet |15 |
-| "2018-01-01T16:05:00" | "Oven1" | styr |30 |
-| "2018-01-01T16:05:00" | "Oven1" | befogenhet |8 |
-| "2018-01-01T16:06:00" | "Oven1" | styr |20 |
-| "2018-01-01T16:06:00" | "Oven1" | befogenhet |8 |
-| "2018-01-01T16:07:00" | "Oven1" | styr |20 |
-| "2018-01-01T16:07:00" | "Oven1" | befogenhet |8 |
-| "2018-01-01T16:08:00" | "Oven1" | styr |20 |
-| "2018-01-01T16:08:00" | "Oven1" | befogenhet |8 |
-
-**Utdata**:
-
-| eventTime | deviceId | styr | Alertmessage som | maxPowerDuringLast3mins |
-| --- | --- | --- | --- | --- | 
-| "2018-01-01T16:05:00" | "Oven1" |30 | "" Korts matnings element " |15 |
-| "2018-01-01T16:06:00" | "Oven1" |20 | "" Korts matnings element " |15 |
-| "2018-01-01T16:07:00" | "Oven1" |20 | "" Korts matnings element " |15 |
-
-**Lösning**:
-
-```SQL
-WITH max_power_during_last_3_mins AS (
-    SELECT 
-        System.TimeStamp() AS windowTime,
-        deviceId,
-        max(value) as maxPower
-    FROM
-        input TIMESTAMP BY t
-    WHERE 
-        sensorName = 'power' 
-    GROUP BY 
-        deviceId, 
-        SlidingWindow(minute, 3) 
-)
-
-SELECT 
-    t1.t AS eventTime,
-    t1.deviceId, 
-    t1.value AS temp,
-    'Short circuit heating elements' as alertMessage,
-    t2.maxPower AS maxPowerDuringLast3mins
-    
-INTO resultsr
-
-FROM input t1 TIMESTAMP BY t
-JOIN max_power_during_last_3_mins t2
-    ON t1.deviceId = t2.deviceId 
-    AND t1.t = t2.windowTime
-    AND DATEDIFF(minute,t1,t2) between 0 and 3
-    
-WHERE
-    t1.sensorName = 'temp'
-    AND t1.value <= 40
-    AND t2.maxPower > 10
-```
-
-**Förklaring**: den första frågan `max_power_during_last_3_mins`använder [fönstret glidande](/stream-analytics-query/sliding-window-azure-stream-analytics) för att hitta det högsta värdet för ström sensorn för varje enhet under de senaste 3 minuterna. Den andra frågan är kopplad till den första frågan för att hitta det energi värde i det senaste fönstret som är relevant för den aktuella händelsen. Under förutsättning att villkoren uppfylls genereras en avisering för enheten.
-
-## <a name="query-example-process-events-independent-of-device-clock-skew-substreams"></a>Exempel på frågor: Bearbeta händelser oberoende av enhetens klock skevning (under strömmar)
-
-**Beskrivning**: händelser kan komma in i försenat eller ur ordning på grund av klock sneda mellan händelse producenter, klockor mellan partitioner eller nätverks fördröjning. I följande exempel är enhets klockan för TollID 2 fem sekunder bakom TollID 1 och enhets klockan för TollID 3 är tio sekunder bakom TollID 1. 
+Händelser kan komma in i försenat eller ur ordning på grund av fördröjningar mellan evenemangs producenter, klockor mellan partitioner eller nätverks fördröjning.
+Till exempel är enhets klockan för *TollID* 2 fem sekunder bakom *TollID* 1 och enhets klockan för *TollID* 3 är tio sekunder bakom *TollID* 1. En beräkning kan ske oberoende för varje avgift, och endast överväger sina egna klock data som en tidsstämpel.
 
 **Inmatade**:
 
 | LicensePlate | Skapa | Tid | TollID |
 | --- | --- | --- | --- |
-| DXE 5291 |Honda |2015-07-27T00:00:01.0000000 Z | 1 |
-| YHN 6970 |Toyota |2015-07-27T00:00:05.0000000 Z | 1 |
-| QYF 9358 |Honda |2015-07-27T00:00:01.0000000 Z | 2 |
-| GXF 9462 |BMW |2015-07-27T00:00:04.0000000 Z | 2 |
-| VFE 1616 |Toyota |2015-07-27T00:00:10.0000000 Z | 1 |
-| RMV 8282 |Honda |2015-07-27T00:00:03.0000000 Z | 3 |
-| MDR 6128 |BMW |2015-07-27T00:00:11.0000000 Z | 2 |
-| YZK 5704 |Ford |2015-07-27T00:00:07.0000000 Z | 3 |
+| DXE 5291 |Make1 |2015-07-27T00:00:01.0000000 Z | 1 |
+| YHN 6970 |Make2 |2015-07-27T00:00:05.0000000 Z | 1 |
+| QYF 9358 |Make1 |2015-07-27T00:00:01.0000000 Z | 2 |
+| GXF 9462 |Make3 |2015-07-27T00:00:04.0000000 Z | 2 |
+| VFE 1616 |Make2 |2015-07-27T00:00:10.0000000 Z | 1 |
+| RMV 8282 |Make1 |2015-07-27T00:00:03.0000000 Z | 3 |
+| MDR 6128 |Make3 |2015-07-27T00:00:11.0000000 Z | 2 |
+| YZK 5704 |Make4 |2015-07-27T00:00:07.0000000 Z | 3 |
 
 **Utdata**:
 
@@ -639,7 +687,7 @@ WHERE
 | 2 | 1 |
 | 3 | 1 |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
 SELECT
@@ -650,11 +698,13 @@ FROM input
 GROUP BY TUMBLINGWINDOW(second, 5), TollId
 ```
 
-**Förklaring**: [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering) -satsen tittar på varje enhets tids linje separat med hjälp av under strömmar. Utmatnings händelserna för varje TollID genereras när de beräknas, vilket innebär att händelserna är i ordning för varje TollID i stället för att omordnas som om alla enheter var på samma klocka.
+**Tidsstämpeln över efter** -satsen tittar på varje enhets tids linje oberoende av under strömmar. Händelsen utdata för varje *TollID* genereras när de beräknas, vilket innebär att händelserna är i ordning för varje *TollID* i stället för att omordnas som om alla enheter var på samma klocka.
 
-## <a name="query-example-remove-duplicate-events-in-a-window"></a>Exempel på frågor: ta bort duplicerade händelser i ett fönster
+Mer information finns i [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics#over-clause-interacts-with-event-ordering).
 
-**Beskrivning**: när du utför en åtgärd, till exempel beräkning av genomsnitt över händelser inom ett angivet tidsintervall, ska duplicerade händelser filtreras. I följande exempel är den andra händelsen en dubblett av den första.
+## <a name="remove-duplicate-events-in-a-window"></a>Ta bort duplicerade händelser i ett fönster
+
+När du utför en åtgärd, till exempel beräkning av genomsnitt över händelser inom ett angivet tidsintervall, ska duplicerade händelser filtreras. I följande exempel är den andra händelsen en dubblett av den första.
 
 **Inmatade**:  
 
@@ -674,20 +724,20 @@ GROUP BY TUMBLINGWINDOW(second, 5), TollId
 | 70 | 1 |
 |45 | 2 |
 
-**Lösning**:
+**Fråga**:
 
 ```SQL
 With Temp AS (
-    SELECT
-        COUNT(DISTINCT Time) AS CountTime,
-        Value,
-        DeviceId
-    FROM
-        Input TIMESTAMP BY Time
-    GROUP BY
-        Value,
-        DeviceId,
-        SYSTEM.TIMESTAMP()
+SELECT
+    COUNT(DISTINCT Time) AS CountTime,
+    Value,
+    DeviceId
+FROM
+    Input TIMESTAMP BY Time
+GROUP BY
+    Value,
+    DeviceId,
+    SYSTEM.TIMESTAMP()
 )
 
 SELECT
@@ -697,16 +747,186 @@ FROM Temp
 GROUP BY DeviceId,TumblingWindow(minute, 5)
 ```
 
-**Förklaring**: [Count (DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics) returnerar antalet distinkta värden i kolumnen Time i ett tids fönster. Du kan sedan använda utdata från det här steget för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
+**Count (distinkt tid)** returnerar antalet distinkta värden i kolumnen Time i ett tids fönster. Resultatet från det första steget kan sedan användas för att beräkna genomsnitt per enhet genom att ta bort dubbletter.
+
+Mer information finns i [Count (DISTINCT Time)](/stream-analytics-query/count-azure-stream-analytics).
+
+## <a name="session-windows"></a>Session Windows
+
+Ett sessions fönster är ett fönster som håller på att expanderas när händelser inträffar och stängs för beräkning om ingen händelse tas emot efter en angiven tids period eller om perioden når maximal varaktighet.
+Det här fönstret är särskilt användbart när du beräknar användar interaktions data. Ett fönster startar när en användare börjar interagera med systemet och stängs när inga fler händelser observeras, vilket innebär att användaren har slutat fungera.
+Till exempel är en användare som interagerar med en webb sida där antalet klickningar loggas, ett session-fönster som kan användas för att ta reda på hur lång tid användaren interagerar med webbplatsen.
+
+**Inmatade**:
+
+| User_id | Tid | URL |
+| --- | --- | --- |
+| 0 | 2017-01-26T00:00:00.0000000 Z | "www.example.com/a.html" |
+| 0 | 2017-01-26T00:00:20.0000000 Z | "www.example.com/b.html" |
+| 1 | 2017-01-26T00:00:55.0000000 Z | "www.example.com/c.html" |
+| 0 | 2017-01-26T00:01:10.0000000 Z | "www.example.com/d.html" |
+| 1 | 2017-01-26T00:01:15.0000000 Z | "www.example.com/e.html" |
+
+**Utdata**:
+
+| User_id | StartTime | EndTime | Duration_in_seconds |
+| --- | --- | --- | --- |
+| 0 | 2017-01-26T00:00:00.0000000 Z | 2017-01-26T00:01:10.0000000 Z | 70 |
+| 1 | 2017-01-26T00:00:55.0000000 Z | 2017-01-26T00:01:15.0000000 Z | 20 |
+
+**Fråga**:
+
+``` SQL
+SELECT
+    user_id,
+    MIN(time) as StartTime,
+    MAX(time) as EndTime,
+    DATEDIFF(second, MIN(time), MAX(time)) AS duration_in_seconds
+FROM input TIMESTAMP BY time
+GROUP BY
+    user_id,
+    SessionWindow(minute, 1, 60) OVER (PARTITION BY user_id)
+```
+
+I **Välj** projekt visas de data som är relevanta för användar interaktionen tillsammans med varaktigheten för interaktionen. Gruppera data efter användare och en **SessionWindow** som stängs om ingen interaktion sker inom 1 minut, med en maximal fönster storlek på 60 minuter.
+
+Mer information om **SessionWindow**finns i session- [fönstret](/stream-analytics-query/session-window-azure-stream-analytics) .
+
+## <a name="language-extensibility-with-user-defined-function-in-javascript-and-c"></a>Språk utöknings Bart med användardefinierad funktion i Java Script ochC#
+
+Azure Stream Analytics frågespråk kan utökas med anpassade funktioner skrivna antingen i Java Script eller C# språk. UDF (User Defined Functions) är anpassade/komplexa beräkningar som inte lätt kan uttryckas med **SQL** -språket. Dessa UDF: er kan definieras en gång och användas flera gånger i en fråga. En UDF kan till exempel användas för att konvertera ett hexadecimalt *nvarchar (max)* -värde till ett *bigint* -värde.
+
+**Inmatade**:
+
+| Device_id | HexValue |
+| --- | --- |
+| 1 | Cell |
+| 2 | "11B" |
+| 3 | "121" |
+
+**Utdata**:
+
+| Device_id | Decimal |
+| --- | --- |
+| 1 | 180 |
+| 2 | 283 |
+| 3 | 289 |
+
+```JavaScript
+function hex2Int(hexValue){
+    return parseInt(hexValue, 16);
+}
+```
+
+```C#
+public static class MyUdfClass {
+    public static long Hex2Int(string hexValue){
+        return int.Parse(hexValue, System.Globalization.NumberStyles.HexNumber);
+    }
+}
+```
+
+```SQL
+SELECT
+    Device_id,
+    udf.Hex2Int(HexValue) AS Decimal
+From
+    Input
+```
+
+Den användardefinierade funktionen beräknar *bigint* -värdet från HexValue vid varje händelse som används.
+
+Mer information finns i [Java Script](/stream-analytics/stream-analytics-javascript-user-defined-functions) och [C#](/stream-analytics/stream-analytics-edge-csharp-udf).
+
+## <a name="advanced-pattern-matching-with-match_recognize"></a>Avancerad mönster matchning med MATCH_RECOGNIZE
+
+**MATCH_RECOGNIZE** är en avancerad mönster matchnings funktion som kan användas för att matcha en sekvens med händelser till ett väldefinierat mönster för reguljära uttryck.
+Till exempel övervakas en ATM i real tid för fel, under driften av ATM om det finns två varnings meddelanden i följd som administratören måste meddelas.
+
+**Inmatade**:
+
+| ATM_id | Operation_id | Return_Code | Tid |
+| --- | --- | --- | --- |
+| 1 | "Ange PIN-kod" | ”Lyckades” | 2017-01-26T00:10:00.0000000 Z |
+| 2 | "Ingående Money-kortplats" | ”Lyckades” | 2017-01-26T00:10:07.0000000 Z |
+| 2 | "Sluten Money-fack" | ”Lyckades” | 2017-01-26T00:10:11.0000000 Z |
+| 1 | "Ange åter kallelse antal" | ”Lyckades” | 2017-01-26T00:10:08.0000000 Z |
+| 1 | "Ingående Money-kortplats" | Honom | 2017-01-26T00:10:14.0000000 Z |
+| 1 | "Skriva ut bank saldo" | Honom | 2017-01-26T00:10:19.0000000 Z |
+
+**Utdata**:
+
+| ATM_id | First_Warning_Operation_id | Warning_Time |
+| --- | --- | --- |
+| 1 | "Ingående Money-kortplats" | 2017-01-26T00:10:14.0000000 Z |
+
+```SQL
+SELECT *
+FROM intput TIMESTAMP BY time OVER ATM_id
+MATCH_RECOGNIZE (
+    PARTITON BY ATM_id
+    LIMIT DURATION(minute, 1)
+    MEASURES
+        First(Warning.ATM_id) AS ATM_id,
+        First(Warning.Operation_Id) AS First_Warning_Operation_id,
+        First(Warning.Time) AS Warning_Time
+    AFTER MATCH SKIP TO NEXT ROW
+    PATTERN (Success* Warning{2,})
+    DEFINE
+        Success AS Succes.Return_Code = 'Success',
+        Failure AS Warning.Return_Code <> 'Success'
+) AS patternMatch
+```
+
+Den här frågan matchar minst två efterföljande fel händelser och genererar ett larm när villkoren är uppfyllda.
+**Pattern** definierar det reguljära uttryck som ska användas för matchning, i det här fallet ett valfritt antal lyckade åtgärder följt av minst två efterföljande avbrott.
+Lyckade och misslyckade åtgärder definieras med Return_Code värde och när villkoret är uppfyllt projiceras **måtten** med *ATM_id*, den första varningen och första varnings tiden.
+
+Mer information finns i [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics).
 
 ## <a name="geofencing-and-geospatial-queries"></a>Polystaket och geospatiala frågor
-Azure Stream Analytics innehåller inbyggda geospatiala funktioner som kan användas för att implementera scenarier som hantering av flottan, delning av delning, anslutna bilar och till gångs spårning. Geospatiala data kan matas in i antingen interjson-eller well-format som en del av händelse data strömmen eller referens data. Mer information finns i avsnittet om [avgränsnings-och geospatiala agg regerings scenarier med Azure Stream Analytics](geospatial-scenarios.md) artikel.
+Azure Stream Analytics innehåller inbyggda geospatiala funktioner som kan användas för att implementera scenarier som hantering av flottan, delning av delning, anslutna bilar och till gångs spårning.
+Geospatiala data kan matas in i antingen interjson-eller well-format som en del av händelse data strömmen eller referens data.
+Till exempel ett företag som är specialiserat på Manufacturing Machines för att skriva ut Passport, leasa sina datorer till myndigheter och Consulates. Platsen för dessa datorer är kraftigt kontrollerad för att undvika problem med att placera och kunna använda för förfalskning av Passport. Varje dator är utrustad med en GPS-Spårare, den informationen vidarebefordras tillbaka till ett Azure Stream Analytics jobb.
+Tillverkningen vill hålla koll på platsen för dessa datorer och bli aviserad om en av dem lämnar ett godkänt område, på det här sättet att de fjärrinaktiverar, varnar myndigheterna och hämtar utrustningen.
 
-## <a name="language-extensibility-through-javascript-and-c"></a>Språk utökning via Java Script ochC#
-Azure Stream ananlytics Query langugae kan utökas med anpassade funktioner skrivna i Java Script C# eller språk. Mer information finns i foolowing-artiklarna:
-* [Azure Stream Analytics JavaScript-användardefinierade funktioner](stream-analytics-javascript-user-defined-functions.md)
-* [Azure Stream Analytics användardefinierade JavaScript-mängder](stream-analytics-javascript-user-defined-aggregates.md)
-* [Utveckla .NET standard-användardefinierade funktioner för Azure Stream Analytics Edge-jobb](stream-analytics-edge-csharp-udf-methods.md)
+**Inmatade**:
+
+| Equipment_id | Equipment_current_location | Tid |
+| --- | --- | --- |
+| 1 | "PUNKT (-122.13288797982818 47.64082002051315)" | 2017-01-26T00:10:00.0000000 Z |
+| 1 | "PUNKT (-122.13307252987875 47.64081350934929)" | 2017-01-26T00:11:00.0000000 Z |
+| 1 | "PUNKT (-122.13308862313283 47.6406508603241)" | 2017-01-26T00:12:00.0000000 Z |
+| 1 | "PUNKT (-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000 Z |
+
+**Referens data inmatning**:
+
+| Equipment_id | Equipment_lease_location |
+| --- | --- |
+| 1 | "POLYGON ((-122.13326028450979 47.6409833866794,-122.13261655434621 47.6409833866794,-122.13261655434621 47.64061471602751,-122.13326028450979 47.64061471602751,-122.13326028450979 47.6409833866794))" |
+
+**Utdata**:
+
+| Equipment_id | Equipment_alert_location | Tid |
+| --- | --- | --- |
+| 1 | "PUNKT (-122.13341048821462 47.64043760861279)" | 2017-01-26T00:13:00.0000000 Z |
+
+```SQL
+SELECT
+    input.Equipment_id AS Equipment_id,
+    input.Equipment_current_location AS Equipment_current_location,
+    input.Time AS Time
+FROM input TIMESTAMP BY time
+JOIN
+    referenceInput 
+    ON input.Equipment_id = referenceInput.Equipment_id
+    WHERE 
+        ST_WITHIN(input.Equipment_currenct_location, referenceInput.Equipment_lease_location) = 1
+```
+
+Frågan gör att tillverkaren kan övervaka datorernas plats automatiskt och få aviseringar när en dator lämnar det tillåtna avgränsnings gränsen. Den inbyggda geospatiala funktionen gör det möjligt för användare att använda GPS-data i frågan utan bibliotek från tredje part.
+
+Mer information finns i avsnittet om [avgränsnings-och geospatiala agg regerings scenarier med Azure Stream Analytics](geospatial-scenarios.md) artikel.
 
 ## <a name="get-help"></a>Få hjälp
 
@@ -718,4 +938,3 @@ För mer hjälp kan du prova vår [Azure Stream Analytics-forum](https://social.
 * [Skala Azure Stream Analytics-jobb](stream-analytics-scale-jobs.md)
 * [Referens för Azure Stream Analytics-frågespråket](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referens för Azure Stream Analytics Management REST API](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

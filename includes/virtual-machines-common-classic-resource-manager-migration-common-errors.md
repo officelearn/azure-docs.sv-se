@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 9b47d3bde4c4c5ef7fd3d41c038ea078c19db900
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e590c07c3969865d573838352a8a778caa1cc799
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005736"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901601"
 ---
 I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-resurser från Azures klassiska distributionsmodell till Azure Resource Manager-stacken.
 
@@ -19,9 +19,9 @@ I den här artikeln visas vanliga fel och åtgärder under migrering av IaaS-res
 
 | Felsträng | Åtgärd |
 | --- | --- |
-| Internt serverfel |I vissa fall är det här ett tillfälligt fel som försvinner vid ett nytt försök. Om felet kvarstår kan du [kontakta Azure-supporten](../articles/azure-supportability/how-to-create-azure-support-request.md) så att plattformsloggarna kan undersökas. <br><br> **OBS!** När supporten väl har spårat incidenten bör du inte göra några egna försök att åtgärda problemet eftersom det kan få oönskade konsekvenser för din miljö. |
+| Internt serverfel |I vissa fall är det här ett tillfälligt fel som försvinner vid ett nytt försök. Om felet kvarstår kan du [kontakta Azure-supporten](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) så att plattformsloggarna kan undersökas. <br><br> **OBS!** När supporten väl har spårat incidenten bör du inte göra några egna försök att åtgärda problemet eftersom det kan få oönskade konsekvenser för din miljö. |
 | Migrering stöds inte för distributionen {deployment-name} i HostedService {hosted-service-name} eftersom det är en PaaS-distribution (Web/Worker). |Det här inträffar när en distribution innehåller en web/worker-roll. Eftersom migrering bara stöds för Virtual Machines bör du ta bort web/worker-rollen från distributionen. Försök sedan igen. |
-| Det gick inte att distribuera mallen {template-name}. CorrelationId={guid} |I serverdelen av migreringstjänsten använder vi Azure Resource Manager-mallar för att skapa resurser i Azure Resource Manager-stacken. Eftersom mallar är idempotenta kan du vanligtvis lugnt göra ett nytt migreringsförsök för att komma förbi felet. Om felet kvarstår kan du [kontakta Azure-supporten](../articles/azure-supportability/how-to-create-azure-support-request.md) och ge dem CorrelationId. <br><br> **OBS!** När supporten väl har spårat incidenten bör du inte göra några egna försök att åtgärda problemet eftersom det kan få oönskade konsekvenser för din miljö. |
+| Det gick inte att distribuera mallen {template-name}. CorrelationId={guid} |I serverdelen av migreringstjänsten använder vi Azure Resource Manager-mallar för att skapa resurser i Azure Resource Manager-stacken. Eftersom mallar är idempotenta kan du vanligtvis lugnt göra ett nytt migreringsförsök för att komma förbi felet. Om felet kvarstår kan du [kontakta Azure-supporten](../articles/azure-portal/supportability/how-to-create-azure-support-request.md) och ge dem CorrelationId. <br><br> **OBS!** När supporten väl har spårat incidenten bör du inte göra några egna försök att åtgärda problemet eftersom det kan få oönskade konsekvenser för din miljö. |
 | Det virtuella nätverket {virtual-network-name} finns inte. |Det här kan inträffa om du har skapat det virtuella nätverket på nya Azure Portal. Det faktiska Virtual Network namnet följer mönstret "grupp * \<VNET-namn >" |
 | Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget {extension-name} som inte stöds i Azure Resource Manager. Du bör avinstallera det från den virtuella datorn innan du fortsätter med migreringen. |XML-tillägg som BGInfo 1.\* stöds inte i Azure Resource Manager. Därför kan de inte heller migreras. Om tilläggen är kvar på den virtuella datorn avinstalleras de automatiskt innan migreringen slutförs. |
 | Den virtuella datorn {vm-name} i HostedService {hosted-service-name} innehåller tillägget VMSnapshot/VMSnapshotLinux, som för närvarande inte stöds för migrering. Avinstallera det från den virtuella datorn och lägg tillbaka det via Azure Resource Manager när migreringen är klar |I det här fallet är den virtuella datorn konfigurerad för Azure Backup. Eftersom det för närvarande är ett scenario som inte stöds följer du lösningen på https://aka.ms/vmbackupmigration |

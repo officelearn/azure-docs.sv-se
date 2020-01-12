@@ -8,18 +8,15 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a5aa6a2e2578a995e4ef00489557fc02623e2d6a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744822"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903294"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal (för hands version)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för kryptering av Azure Event Hubs-data i vila med hjälp av Azure Portal
 Azure Event Hubs tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Event Hubs förlitar sig på Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
-
->[!NOTE]
-> Den här funktionen är för närvarande en förhandsversion. Vi rekommenderar att du inte använder i en produktions miljö.
 
 ## <a name="overview"></a>Översikt
 Azure Event Hubs stöder nu möjligheten att kryptera data i vila med antingen Microsoft-hanterade nycklar eller Kundhanterade nycklar (Bring Your Own Key – BYOK). Med den här funktionen kan du skapa, rotera, inaktivera och återkalla åtkomst till de Kundhanterade nycklar som används för att kryptera Azure Event Hubs data i vila.
@@ -41,7 +38,7 @@ Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
 1. Navigera till Event Hubs Dedicated klustret.
 1. Välj det namn område som du vill aktivera BYOK på.
-1. På sidan **Inställningar** i Event Hubs namn området väljer du **kryptering (för hands version)** . 
+1. På sidan **Inställningar** i Event Hubs namn området väljer du **kryptering**. 
 1. Välj den **Kundhanterade nyckel krypteringen i vila** , som visas i följande bild. 
 
     ![Aktivera kundhanterad nyckel](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -72,8 +69,6 @@ När du har aktiverat Kundhanterade nycklar måste du associera kundens hanterad
         ![Välj nyckel från Key Vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
     1. Fyll i informationen om nyckeln och klicka på **Välj**. Detta möjliggör kryptering av data i vila i namn området med en kundhanterad nyckel. 
 
-        > [!NOTE]
-        > För för hands versionen kan du bara välja en enskild nyckel. 
 
 ## <a name="rotate-your-encryption-keys"></a>Rotera dina krypterings nycklar
 Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för Azure Key Vault. Mer information finns i [Konfigurera nyckel rotation och granskning](../key-vault/key-vault-key-rotation-log-monitoring.md). Aktiverings-och utgångs datum kan också ställas in för att automatisera nyckel rotationen. Tjänsten Event Hubs identifierar nya nyckel versioner och börjar använda dem automatiskt.
@@ -82,9 +77,6 @@ Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för
 Om du återkallar åtkomst till krypterings nycklarna rensas inte data från Event Hubs. Men det går inte att komma åt data från namn området Event Hubs. Du kan återkalla krypterings nyckeln via åtkomst principen eller genom att ta bort nyckeln. Läs mer om åtkomst principer och skydda nyckel valvet från [säker åtkomst till ett nyckel valv](../key-vault/key-vault-secure-your-key-vault.md).
 
 När krypterings nyckeln har återkallats går Event Hubss tjänsten på det krypterade namn området inte att fungera. Om åtkomsten till nyckeln är aktive rad eller om borttagnings nyckeln återställs, kommer Event Hubs-tjänsten att välja nyckeln så att du kan komma åt data från namn området krypterad Event Hubs.
-
-> [!NOTE]
-> Om du tar bort en befintlig krypterings nyckel från nyckel valvet och ersätter den med en ny nyckel i Event Hubs namn området, eftersom borttagnings nyckeln fortfarande är giltig (eftersom den cachelagras) i upp till en timme, kan dina gamla data (som krypterades med den gamla nyckeln) fortfarande vara tillgängliga tillsammans  med nya data, som nu är åtkomliga med den nya nyckeln. Det här beteendet är avsiktligt i för hands versionen av funktionen. 
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar 
 Genom att ställa in diagnostikloggar för BYOK-aktiverade namn rymder får du nödvändig information om åtgärder när ett namn område krypteras med Kundhanterade nycklar. Dessa loggar kan aktive ras och senare strömmas till en Event Hub eller analyseras via Log Analytics eller strömmas till lagring för att utföra anpassad analys. Mer information om diagnostiska loggar finns i [Översikt över Azure Diagnostic-loggar](../azure-monitor/platform/platform-logs-overview.md).
@@ -171,10 +163,6 @@ Nedan visas vanliga felkoder som du kan titta efter när BYOK-kryptering är akt
 
 > [!IMPORTANT]
 > Om du vill aktivera geo-DR på ett namn område som använder BYOK-krypteringen måste det sekundära namn området för länkning vara i ett dedikerat kluster och måste ha en systemtilldelad hanterad identitet aktive rad. Mer information finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
-
-> [!NOTE]
-> Om tjänst slut punkter för virtuella nätverk (VNet) konfigureras på Azure Key Vault för din Event Hubs-namnrymd, stöds inte BYOK. 
-
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

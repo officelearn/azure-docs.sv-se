@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/11/2019
 ms.author: cynthn;azcspmt;jonbeck
 ms.custom: include file
-ms.openlocfilehash: 9b08dd60020dad6f747167f35e8d172fdc24a59e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b9637265d263a75949d5a70c3e4f0ce06044d93c
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75752047"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901654"
 ---
 GPU-optimerade VM-storlekar är specialiserade virtuella datorer som är tillgängliga med enkla eller flera NVIDIA GPU: er. De här storlekarna är utformade för beräknings intensiva, grafik intensiva och visualiserings arbets belastningar. Den här artikeln innehåller information om antalet och typen av GPU, virtuella processorer, data diskar och nätverkskort. Lagrings data flöde och nätverks bandbredd ingår också för varje storlek i grupperingen.
 
@@ -56,7 +56,7 @@ Virtuella datorer i NCv2-serien drivs av [NVIDIA Tesla P100](https://www.nvidia.
 NC24rs v2-konfigurationen ger ett nätverks gränssnitt med låg fördröjning och hög genom strömning som är optimerat för tätt sammansatta parallella dator arbets belastningar.
 
 > [!IMPORTANT]
-> För den här storleks familjen anges vCPU-kvoten (kärnor) i din prenumeration till 0 i varje region. [Begär en vCPU kvot ökning](../articles/azure-supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
+> För den här storleks familjen anges vCPU-kvoten (kärnor) i din prenumeration till 0 i varje region. [Begär en vCPU kvot ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
 
 | Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
@@ -79,7 +79,7 @@ Premium Storage caching: stöds
 Virtuella datorer i NCv3-serien drivs av [NVIDIA Tesla V100](https://www.nvidia.com/en-us/data-center/tesla-v100/) -GPU: er. Dessa GPU: er kan ge 1,5 x beräknings prestanda i NCv2-serien. Kunderna kan dra nytta av dessa uppdaterade GPU: er för traditionella HPC-arbetsbelastningar som till exempel behållar modellering, DNA-sekvensering, protein analys, Monte Carlo-simuleringar och andra. NC24rs v3-konfigurationen ger ett nätverks gränssnitt med låg fördröjning och hög genom strömning som är optimerat för tätt sammansatta parallella data behandlings arbets belastningar. Förutom GPU: er är virtuella datorer i NCv3-serien också baserade på Broadwell-processorer (Intel Xeon E5-2690 v4).
 
 > [!IMPORTANT]
-> För den här storleks familjen anges vCPU-kvoten (kärnor) i din prenumeration till 0 i varje region. [Begär en vCPU kvot ökning](../articles/azure-supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
+> För den här storleks familjen anges vCPU-kvoten (kärnor) i din prenumeration till 0 i varje region. [Begär en vCPU kvot ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
 
 | Storlek | vCPU | Minne: GiB | Temp-lagring (SSD): GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |
@@ -131,7 +131,7 @@ Premium Storage caching: stöds
 De virtuella datorerna i ND-serien är ett nytt tillägg till GPU-familjen som är utformad för AI-och djup inlärnings arbets belastningar. De erbjuder utmärkt prestanda för utbildning och härledning. ND-instanser drivs av [NVIDIA Tesla P40](https://images.nvidia.com/content/pdf/tesla/184427-Tesla-P40-Datasheet-NV-Final-Letter-Web.pdf) -GPU: er och Intel Xeon E5-2690 v4-processorer (Broadwell). Dessa instanser ger utmärkta prestanda för flytt ALS åtgärder med enkel precision, för AI-arbetsbelastningar som använder Microsoft Cognitive Toolkit, TensorFlow, caffe och andra ramverk. ND-serien erbjuder även en mycket större GPU-minnesstorlek (24 GB), vilket gör det möjligt att passa större neurala nätverksmodeller. I likhet med NC-serien erbjuder ND-serien en konfiguration med ett sekundärt nätverk med låg latens, högt data flöde via RDMA och InfiniBand-anslutning så att du kan köra storskaliga utbildnings jobb över flera GPU: er.
 
 > [!IMPORTANT]
-> För den här storleks familjen ställs vCPU (Core)-kvoten per region i din prenumeration till 0. [Begär en vCPU kvot ökning](../articles/azure-supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
+> För den här storleks familjen ställs vCPU (Core)-kvoten per region i din prenumeration till 0. [Begär en vCPU kvot ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för den här familjen i en [tillgänglig region](https://azure.microsoft.com/regions/services/).
 >
 
 | Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | GPU | GPU-minne: GiB | Max antal datadiskar | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Maximalt antal nätverkskort |

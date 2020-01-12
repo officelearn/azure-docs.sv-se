@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 60d9c7fb57e079fde54d60df9b90266ccb94acdc
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 83a1f3921272f5ec15ae4d1f4220652f56679c96
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895818"
+ms.locfileid: "75903197"
 ---
 # <a name="handling-planned-maintenance-notifications"></a>Hantera meddelanden om planerat underhåll
 
@@ -29,7 +29,7 @@ Azure utför med jämna mellanrum uppdateringar för att förbättra värdinfras
 
 Planerat underhåll som kräver en omstart är schemalagt i vågor. Varje våg har olika omfång (regioner).
 
-- En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till Prenumerationens ägare och medägare. Du kan lägga till fler mottagare och meddelande alternativ, t. ex. e-post, SMS och Webhooks, med [aktivitets logg aviseringar](../service-health/alerts-activity-log-service-notifications.md).  
+- En våg börjar med ett meddelande till kunderna. Som standard skickas ett meddelande till tjänsten administratör och medadministratörer. Du kan lägga till fler mottagare och meddelande alternativ, t. ex. e-post, SMS och Webhooks, med [aktivitets logg aviseringar](../service-health/alerts-activity-log-service-notifications.md).  
 - När ett meddelande skickas görs ett *självbetjänings fönster* tillgängligt. Under det här fönstret kan du fråga vilka av dina virtuella datorer som påverkas och starta underhållet utifrån dina egna schemaläggnings behov. Självbetjänings fönstret är normalt cirka 35 dagar.
 - Efter självbetjänings fönstret startar en *schemalagd underhålls period* . Vid något tillfälle under det här fönstret schemalägger Azure och tillämpar det nödvändiga underhållet på den virtuella datorn. 
 
@@ -84,7 +84,7 @@ Mer information om hög tillgänglighet finns i [tillgänglighet för virtuella 
 
 **F: Hur gör jag för att få ett meddelande om planerat underhåll?**
 
-**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till Prenumerationens ägare (ett e-postmeddelande per prenumeration). Ytterligare kanaler och mottagare för det här meddelandet kan konfigureras med aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts, får du inte meddelandet, utan du behöver kontrol lera underhålls statusen för den virtuella datorn.
+**A:** En planerad underhålls våg börjar genom att ange ett schema för en eller flera Azure-regioner. Strax efter skickas ett e-postmeddelande till prenumerations administratörerna (ett e-postmeddelande per prenumeration). Ytterligare kanaler och mottagare för det här meddelandet kan konfigureras med aktivitets logg aviseringar. Om du distribuerar en virtuell dator till en region där planerat underhåll redan har schemalagts, får du inte meddelandet, utan du behöver kontrol lera underhålls statusen för den virtuella datorn.
 
 **F: Jag ser inga uppgifter om planerat underhåll i portalen, PowerShell eller CLI. Vad är fel?**
 

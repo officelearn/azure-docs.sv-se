@@ -8,14 +8,14 @@ author: axisc
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: aschhab
-ms.openlocfilehash: 356f825524192c3b6cf7df7f0460975f23ea4f7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6d20d4031f0ed4d1be4dddf9e33946251d6dd523
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852294"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903326"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal-preview"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal (förhands granskning)
+# <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal
 Azure Service Bus Premium tillhandahåller kryptering av data i vila med Azure Storage Service Encryption (Azure SSE). Service Bus Premium är beroende av Azure Storage för att lagra data och som standard krypteras alla data som lagras med Azure Storage med hjälp av Microsoft-hanterade nycklar. 
 
 ## <a name="overview"></a>Översikt
@@ -27,7 +27,6 @@ Att aktivera funktionen BYOK är en tids inställnings process i namn området.
 > Det finns vissa varningar om kundens hanterade nyckel för kryptering på tjänst sidan. 
 >   * Den här funktionen stöds av [Azure Service Bus Premium](service-bus-premium-messaging.md) -nivån. Det går inte att aktivera den för standard nivå Service Bus namn områden.
 >   * Kryptering kan bara aktive ras för nya eller tomma namn områden. Om namn området innehåller data kommer krypterings åtgärden att Miss sen.
->   * Om [tjänst slut punkter för virtuella nätverk (VNet)](service-bus-service-endpoints.md) konfigureras på Azure Key Vault för din Service Bus-namnrymd, stöds inte BYOK. 
 
 Du kan använda Azure Key Vault för att hantera dina nycklar och granska din nyckel användning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Mer information om Azure Key Vault finns i [Vad är Azure Key Vault?](../key-vault/key-vault-overview.md)
 
@@ -40,7 +39,7 @@ Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade ny
 Följ dessa steg om du vill aktivera Kundhanterade nycklar i Azure Portal:
 
 1. Gå till ditt Service Bus Premium-namnområde.
-2. På sidan **Inställningar** i Service Bus namn området väljer du **kryptering (för hands version)** .
+2. På sidan **Inställningar** i Service Bus namn området väljer du **kryptering**.
 3. Välj den **Kundhanterade nyckel krypteringen i vila** , som visas i följande bild.
 
     ![Aktivera kundhanterad nyckel](./media/configure-customer-managed-key/enable-customer-managed-key.png)
@@ -106,9 +105,6 @@ Du kan rotera din nyckel i nyckel valvet med hjälp av rotations funktionen för
 Om du återkallar åtkomst till krypterings nycklarna rensas inte data från Service Bus. Men det går inte att komma åt data från namn området Service Bus. Du kan återkalla krypterings nyckeln via åtkomst principen eller genom att ta bort nyckeln. Läs mer om åtkomst principer och skydda nyckel valvet från [säker åtkomst till ett nyckel valv](../key-vault/key-vault-secure-your-key-vault.md).
 
 När krypterings nyckeln har återkallats går Service Buss tjänsten på det krypterade namn området inte att fungera. Om åtkomsten till nyckeln är aktive rad eller om den borttagna nyckeln återställs, kommer Service Bus-tjänsten att välja nyckeln så att du kan komma åt data från namn området krypterad Service Bus.
-
-> [!NOTE]
-> Om du tar bort en befintlig krypterings nyckel från nyckel valvet och ersätter den med en ny nyckel i Service Bus namn området, eftersom borttagnings nyckeln fortfarande är giltig (eftersom den cachelagras) i upp till en timme, kan dina gamla data (som krypterades med den gamla nyckeln) fortfarande vara tillgängliga Alon g med nya data som nu är åtkomliga med den nya nyckeln. Det här beteendet är avsiktligt i för hands versionen av funktionen. 
 
 ## <a name="next-steps"></a>Nästa steg
 Se följande artiklar:

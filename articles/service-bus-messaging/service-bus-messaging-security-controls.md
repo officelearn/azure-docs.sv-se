@@ -7,12 +7,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: spelluru
-ms.openlocfilehash: d0118f815a2ceb149c62363fa334c16d28c6d615
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: af119ef026b70fcb4a56b4f823d20c0e9eddddc8
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894408"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903254"
 ---
 # <a name="security-controls-for-azure-service-bus-messaging"></a>Säkerhets kontroller för Azure Service Bus meddelanden
 
@@ -25,9 +25,9 @@ I den här artikeln dokumenteras säkerhets kontroller som är inbyggda i Azure 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
 | Stöd för tjänst slut punkt| Ja (endast Premium-nivå) | VNet-tjänstens slut punkter stöds endast för [Service Bus Premium-nivån](service-bus-premium-messaging.md) . |  |
-| Stöd för VNet-injektering| Nej | |  |
+| Stöd för VNet-injektering| Inga | |  |
 | Stöd för nätverks isolering och brand vägg| Ja (endast Premium-nivå) |  |  |
-| Stöd för Tvingad tunnel trafik| Nej |  |  |
+| Stöd för Tvingad tunnel trafik| Inga |  |  |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
 
@@ -35,7 +35,7 @@ I den här artikeln dokumenteras säkerhets kontroller som är inbyggda i Azure 
 |---|---|--|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Stöds via [Azure Monitor och aviseringar](service-bus-metrics-azure-monitor.md). |  |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Det finns tillgängliga åtgärds loggar.  | [Service Bus diagnostikloggar](service-bus-diagnostic-logs.md) |
-| Loggning och granskning av data planet| Nej |  |
+| Loggning och granskning av data planet| Inga |  |
 
 ## <a name="identity"></a>Identitet
 
@@ -49,7 +49,7 @@ I den här artikeln dokumenteras säkerhets kontroller som är inbyggda i Azure 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
 | Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Ja för kryptering på Server sidan – rest som standard. |  |  |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja. För hands version | En kundhanterad nyckel i Azure-valv kan användas för att kryptera data i namn området Service Bus i vila. | [Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal (förhands granskning)](configure-customer-managed-key.md)  |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja. | En kundhanterad nyckel i Azure-valv kan användas för att kryptera data i namn området Service Bus i vila. | [Konfigurera Kundhanterade nycklar för att kryptera Azure Service Bus data i vila med hjälp av Azure Portal](configure-customer-managed-key.md)  |
 | Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |   |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Stöder standard-HTTPS/TLS-mekanismen. |   |
 | Krypterade API-anrop| Ja | API-anrop görs via [Azure Resource Manager](../azure-resource-manager/index.yml) och https. |   |

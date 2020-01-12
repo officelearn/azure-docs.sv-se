@@ -1,14 +1,14 @@
 ---
 title: 'Snabb start: ny princip tilldelning med Azure CLI'
 description: I den här snabb starten använder du Azure CLI för att skapa en Azure Policy tilldelning för att identifiera icke-kompatibla resurser.
-ms.date: 11/25/2019
+ms.date: 01/11/2020
 ms.topic: quickstart
-ms.openlocfilehash: 80dbccdb728da94d9f9fdd0aeb506ade40fd7394
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2bc5c77ac5c2ac0a1f4c80d9b770d9e95d7864cf
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482639"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903521"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med Azure CLI
 
@@ -33,13 +33,13 @@ Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden
 
   Läs mer om att registrera och visa resursprovidrar i [(Resursprovidrar och typer)](../../azure-resource-manager/resource-manager-supported-services.md)
 
-- Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-förfrågningar till Azure Resource Manager-baserade API:er.
+- Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
-I den här snabbstarten skapar du en principtilldelning och tilldelar definitionen **Granska virtuella datorer som inte använder hanterade diskar**. Den här principdefinitionen ska identifiera resurser som inte uppfyller villkoren i principdefinitionen.
+I den här snabbstarten skapar du en principtilldelning och tilldelar definitionen **Granska virtuella datorer som inte använder hanterade diskar**. Den här principdefinitionen identifierar resurser som inte uppfyller villkoren i principdefinitionen.
 
 Kör följande kommando för att skapa en ny principtilldelning:
 
@@ -49,8 +49,8 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 Föregående kommando använder följande information:
 
-- **Namn** - det faktiska namnet på tilldelningen. I det här exemplet användes _audit-vm-manageddisks_.
-- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du _tilldelningen Granska virtuella datorer utan hanterade diskar_.
+- **Namn** – det faktiska namnet på tilldelningen. I det här exemplet användes _audit-vm-manageddisks_.
+- **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du _tilldelningen Granska virtuella datorer utan Managed Disks_.
 - **Policy** – Principdefinitions-ID:t som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID _Granska virtuella datorer som inte använder hanterade diskar_. För att hämta principdefinitionens ID kör du det här kommandot: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.
 
@@ -58,17 +58,16 @@ Föregående kommando använder följande information:
 
 Om du vill visa de resurser som inte är kompatibla under den nya tilldelningen hämtar du principtilldelnings-ID:t genom att köra följande kommandon:
 
-```azurepowershell-interactive
-$policyAssignment = Get-AzPolicyAssignment | Where-Object { $_.Properties.DisplayName -eq 'Audit VMs without managed disks Assignment' }
-$policyAssignment.PolicyAssignmentId
+```azurecli-interactive
+az policy assignment list --query "[?displayName=='Audit VMs without managed disks Assignment'].id"
 ```
 
-Mer information om principtilldelnings-ID:n finns i [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment).
+Mer information om policy tilldelnings-ID: n finns i [AZ princip tilldelning](/cli/azure/policy/assignment).
 
 Kör sedan följande kommando för att hämta resurs-ID:n för de icke-kompatibla resurserna som matas ut till en JSON-fil:
 
 ```console
-armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2017-12-12-preview&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
+armclient post "/subscriptions/<subscriptionID>/resourceGroups/<rgName>/providers/Microsoft.PolicyInsights/policyStates/latest/queryResults?api-version=2019-09-01&$filter=IsCompliant eq false and PolicyAssignmentId eq '<policyAssignmentID>'&$apply=groupby((ResourceId))" > <json file to direct the output with the resource IDs into>
 ```
 
 Ditt resultat liknar följande exempel:
@@ -111,7 +110,7 @@ az policy assignment delete --name 'audit-vm-manageddisks' --scope '/subscriptio
 
 I den här snabbstarten har du tilldelat en principdefinition för att identifiera icke-kompatibla resurser i Azure-miljön.
 
-Om du vill ha mer information om tilldelning av principer för att kontrollera att de nya resurserna är kompatibla fortsätter du till självstudiekursen för att:
+Om du vill ha mer information om tilldelning av principer för att validera att de nya resurserna är kompatibla fortsätter du till självstudien för att:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./tutorials/create-and-manage.md)

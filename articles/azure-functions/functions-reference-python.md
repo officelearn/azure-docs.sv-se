@@ -3,12 +3,12 @@ title: Python Developer-referens för Azure Functions
 description: Förstå hur du utvecklar funktioner med python
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: adea5603c997380dde6731b53bc99ba7443e310b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 374770c50300b9ca37253b3323a02c3371bfa521
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769013"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903241"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -382,7 +382,7 @@ För lokal utveckling underhålls program inställningarna [i filen Local. Setti
 
 ## <a name="python-version"></a>Python-version 
 
-Azure Functions stöder för närvarande både python 3.6. x och 3.7. x (officiella CPython-distributioner). När den körs lokalt använder körningen den tillgängliga python-versionen. Om du vill begära en speciell python-version när du skapar din Function-app i Azure, använder du alternativet `--runtime-version` i kommandot [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) .  
+Azure Functions stöder för närvarande både python 3.6. x och 3.7. x (officiella CPython-distributioner). När den körs lokalt använder körningen den tillgängliga python-versionen. Om du vill begära en speciell python-version när du skapar din Function-app i Azure, använder du alternativet `--runtime-version` i kommandot [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) . Versions ändring är endast tillåten vid skapande av Funktionsapp.  
 
 ## <a name="package-management"></a>Pakethantering
 

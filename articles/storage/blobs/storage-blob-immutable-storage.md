@@ -9,16 +9,16 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 9d0919651842a6f6f935c9f1e338c9d335b80f47
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 61a8cf366d5ae03f5267718f8ab20580295ddab5
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749153"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903446"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
-Oföränderlig lagring för Azure Blob Storage gör det möjligt för användare att lagra affärs kritiska data objekt i en mask (Skriv en gång, läsa många). Det här läget gör att data inte kan raderas och inte kan ändras för ett användardefinierat intervall. För varaktigheten för kvarhållningsintervallet kan blobbar skapas och läsas, men kan inte ändras eller tas bort. Oföränderlig lagring är tillgängligt för generella v2-och Blob Storage-konton i alla Azure-regioner.
+Oföränderlig lagring för Azure Blob Storage gör det möjligt för användare att lagra affärs kritiska data objekt i en mask (Skriv en gång, läsa många). Det här läget gör att data inte kan raderas och inte kan ändras för ett användardefinierat intervall. För varaktigheten för kvarhållningsintervallet kan blobbar skapas och läsas, men kan inte ändras eller tas bort. Oföränderlig lagring är tillgängligt för generell användning v1, General-Purpose v2, BlobStorage och BlockBlobStorage-konton i alla Azure-regioner.
 
 Information om hur du ställer in och rensar juridiska undantag eller skapar en tidsbaserad bevarande princip med hjälp av Azure Portal, PowerShell eller Azure CLI finns i [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md).
 
@@ -48,53 +48,77 @@ Oföränderlig lagring stöder följande funktioner:
 
 ## <a name="how-it-works"></a>Så här fungerar det
 
-I den oföränderliga lagringen för Azure-blobar finns stöd för två olika typer av WORM- eller oföränderliga policyer: tidsbaserad kvarhållning och kvarhållning av juridiska skäl. När en tidsbaserad bevarande princip eller ett juridiskt undantag tillämpas på en behållare flyttas alla befintliga blobar till ett oföränderligt WORM-tillstånd på mindre än 30 sekunder. Alla nya blobbar som överförs till behållaren flyttas också till det oföränderliga läget. När alla blobbar har flyttats till det oföränderliga läget bekräftas den oföränderliga principen och alla Skriv-och borttagnings åtgärder för befintliga och nya objekt i den oföränderliga behållaren är inte tillåtna.
+I den oföränderliga lagringen för Azure-blobar finns stöd för två olika typer av WORM- eller oföränderliga policyer: tidsbaserad kvarhållning och kvarhållning av juridiska skäl. När en tidsbaserad bevarande princip eller ett juridiskt undantag tillämpas på en behållare flyttas alla befintliga blobar till ett oföränderligt WORM-tillstånd på mindre än 30 sekunder. Alla nya blobbar som överförs till den princip skyddade behållaren kommer också att flyttas till ett oföränderligt tillstånd. När alla blobbar har ett oföränderligt tillstånd bekräftas den oföränderliga principen och eventuella Skriv-eller borttagnings åtgärder i den oföränderliga behållaren är inte tillåtna.
 
-Borttagning av behållare och lagrings konto tillåts inte om det finns blobbar i behållaren eller lagrings kontot som skyddas av en princip som inte kan ändras. Det går inte att ta bort containern om det finns minst en blob med en låst tidsbaserad bevarande princip eller ett juridiskt undantag. Det går inte att ta bort lagrings kontot om det finns minst en WORM-behållare med ett juridiskt undantag eller en blob med ett aktivt kvarhållningsintervall.
+Borttagning av behållare och lagrings konto tillåts inte heller om det finns blobbar i en behållare som skyddas av ett juridiskt undantag eller en låst tidsbaserad princip. En juridisk undantags princip skyddar mot borttagning av BLOB, container och lagrings konto. Både olåsta och låsta tidsbaserade principer skyddar mot BLOB-borttagning under den angivna tiden. Både olåsta och låsta tidsbaserade principer skyddar mot borttagning av behållare endast om det finns minst en BLOB i behållaren. Endast en behållare med *låst* tidsbaserad princip skyddar mot lagrings konto borttagningar. behållare med upplåsta Time-based-principer erbjuder inte lagrings kontots borttagnings skydd eller efterlevnad.
 
-### <a name="time-based-retention-policies"></a>Tidsbaserade bevarande principer
+Mer information om hur du ställer in och låser tidsbaserade bevarande principer finns i [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md).
+
+## <a name="time-based-retention-policies"></a>Tidsbaserade bevarande principer
 
 > [!IMPORTANT]
 > En tidsbaserad bevarande princip måste vara *låst* för att blobben ska vara i ett inkompatibelt läge (Write and delete Protected) för SEC 17a-4 (f) och annan myndighets efterlevnad. Vi rekommenderar att du låser principen inom rimlig tid, vanligt vis mindre än 24 timmar. Det ursprungliga läget för en tillämpad tidsbaserad bevarande princip *låses upp*, så att du kan testa funktionen och göra ändringar i principen innan du låser den. Även om det *upplåsta* läget ger oföränderlighets skydd rekommenderar vi inte att du använder det *upplåsta* läget för något annat ändamål än kortsiktiga funktions försök. 
 
-När en tidsbaserad bevarande princip tillämpas på en behållare kommer alla blobar i behållaren att stanna kvar i det oföränderliga läget under den *gällande* kvarhållningsperioden. Den effektiva kvarhållningsperioden för befintliga blobbar är lika med skillnaden mellan tiden för skapandet av bloben och det användardefinierade kvarhållningsintervallet.
+När en tidsbaserad bevarande princip tillämpas på en behållare kommer alla blobar i behållaren att stanna kvar i det oföränderliga läget under den *gällande* kvarhållningsperioden. Den effektiva kvarhållningsperioden för blobbar är lika med skillnaden mellan blobens **skapande tid** och det användardefinierade kvarhållningsintervallet. Eftersom användarna kan utöka kvarhållningsintervallet används det senaste värdet för det användardefinierade kvarhållningsintervallet när den effektiva kvarhållningsperioden ska beräknas.
 
-För nya blobbar är den effektiva kvarhållningsperioden lika med det kvarhållningsintervall som angetts av användaren. Eftersom användarna kan utöka kvarhållningsintervallet används det senaste värdet för det användardefinierade kvarhållningsintervallet när den effektiva kvarhållningsperioden ska beräknas.
+Anta till exempel att en användare skapar en tidsbaserad bevarande princip med ett kvarhållningsintervall på fem år. En befintlig BLOB i behållaren, _testblob1_, har skapats för ett år sedan; Därför är den effektiva Retentions perioden för _testblob1_ fyra år. När en ny BLOB, _testblob2_, överförs till behållaren, är den effektiva kvarhållningsperioden för _testblob2_ fem år från tidpunkten då den skapades.
 
-Anta till exempel att en användare skapar en tidsbaserad bevarande princip med ett kvarhållningsintervall på fem år. En befintlig BLOB i behållaren, _testblob1_, har skapats för ett år sedan. Den effektiva kvarhållningsperioden för _testblob1_ är fyra år. När en ny BLOB, _testblob2_, överförs till behållaren, är den effektiva kvarhållningsperioden för den nya blobben fem år.
-
-En upplåst tidsbaserad bevarande princip rekommenderas endast för funktions testning och en princip måste vara låst för att vara kompatibel med s 17a-4 (f) och annan myndighets efterlevnad. När en tidsbaserad bevarande princip är låst går det inte att ta bort principen och maximalt fem ökningar tillåts för den gällande kvarhållningsperioden. Mer information om hur du ställer in och låser tidsbaserade bevarande principer finns i [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md).
+En upplåst tidsbaserad bevarande princip rekommenderas endast för funktions testning och en princip måste vara låst för att vara kompatibel med s 17a-4 (f) och annan myndighets efterlevnad. När en tidsbaserad bevarande princip är låst går det inte att ta bort principen och maximalt fem ökningar tillåts för den gällande kvarhållningsperioden.
 
 Följande begränsningar gäller för bevarande principer:
 
-- För ett lagrings konto är det maximala antalet behållare med låsta tidsbaserade, oföränderliga principer som är 1 000.
+- För ett lagrings konto är det maximala antalet behållare med låsta tidsbaserade, oföränderliga principer som är 10 000.
 - Det minsta kvarhållningsintervallet är en dag. Det maximala värdet är 146 000 dagar (400 år).
 - För en behållare är det maximala antalet redigeringar som utökar ett kvarhållningsintervall för låsta tidsbaserade, oföränderliga principer 5.
 - För en behållare behålls högst sju tidsbaserade tidsbaserade logg gransknings loggar för en låst princip.
 
-### <a name="legal-holds"></a>Bevarande av juridiska skäl
+### <a name="allow-protected-append-blobs-writes"></a>Tillåt att skyddade bifogade blobbar skrivs
 
-När du ställer in ett juridiskt undantag förblir alla befintliga och nya blobbar i det oföränderliga läget tills det juridiska undantaget är avmarkerat. Mer information om hur du ställer in och rensar juridiska undantag finns i [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md).
+Tillägg av blobar består av data block och är optimerade för data tilläggs åtgärder som krävs av gransknings-och loggnings scenarier. Genom att lägga till blobar tillåts du bara lägga till nya block till slutet av blobben. Oavsett oföränderlighets, är det grundläggande inte tillåtet att ändra eller ta bort befintliga block i en tilläggs-blob. Mer information om hur du lägger till blobar finns i avsnittet [om att lägga till blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
+
+Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites`-inställning som gör det möjligt att skriva nya block till en append-BLOB samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Om aktive rad, kan du skapa en tilläggs-BLOB direkt i den skyddade behållaren och fortsätta att lägga till nya data block i slutet av befintliga tilläggs-blobar med hjälp av *AppendBlock* -API: et. Det går bara att lägga till nya block och befintliga block kan inte ändras eller tas bort. Oföränderlighets-skydd för tids kvarhållning gäller fortfarande, vilket förhindrar borttagning av tilläggs-bloben tills den gällande kvarhållningsperioden har förflutit.  
+
+Eftersom den här inställningen är en del av en tidsbaserad bevarande princip stannar de bifogade Blobbarna kvar i det oföränderliga läget för varaktigheten för den *gällande* kvarhållningsperioden. Eftersom nya data kan läggas till utöver den inledande skapandet av tilläggs-bloben, finns det en liten skillnad i hur kvarhållningsperioden fastställs. Den effektiva kvarhållning är skillnaden mellan bifogad blobs **senaste ändrings tid** och det användardefinierade kvarhållningsintervall. På samma sätt som kvarhållningsintervallet är utökad använder oföränderlig lagring det senaste värdet för det användardefinierade kvarhållningsintervallet för att beräkna den effektiva kvarhållningsperioden.
+
+Anta till exempel att en användare skapar en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad och ett kvarhållningsintervall på 90 dagar. En tilläggs-BLOB, _logblob1_, skapas i behållaren idag, nya loggar fortsätter att läggas till i tilläggs-bloben under de närmaste 10 dagarna. den effektiva kvarhållningsperioden för _logblob1_ är alltså 100 dagar från idag (tidpunkten för senaste ändring/tillägg).
+
+Vid låsning av tidsbaserade tidsbaserade bevarande principer kan `allowProtectedAppendWrites` inställningen aktive ras och inaktive ras när som helst. När tidsbaserad bevarande princip är låst går det inte att ändra `allowProtectedAppendWrites`s inställningen.
+
+Principer för juridiskt bevarande kan inte aktivera `allowProtectedAppendWrites` och tillåter inte att nya block läggs till för att lägga till blobbar. Om ett juridiskt undantag används för en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad, Miss *AppendBlock* API: et tills det juridiska undantaget lyfts upp.
+
+> [!IMPORTANT] 
+> Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig i följande regioner:
+> - USA, östra
+> - USA, södra centrala
+> - USA, västra 2
+>
+> För närvarande rekommenderar vi starkt att du inte aktiverar `allowProtectedAppendWrites` i andra regioner än de som anges, eftersom det kan orsaka tillfälliga fel och påverka efterlevnaden av bifogade blobbar. Mer information om hur du ställer in och låser tidsbaserade bevarande principer finns i [Aktivera Tillåt skyddade bifogade BLOB-skrivningar](storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes).
+
+## <a name="legal-holds"></a>Bevarande av juridiska skäl
+
+Juridiska undantag är temporära undantag som kan användas för juridisk undersökning eller allmänna skydds principer. Varje princip för juridiskt bevarande måste associeras med en eller flera taggar. Taggar används som en namngiven identifierare, t. ex. ett ärende-ID eller en händelse, för att kategorisera och beskriva syftet med undantagen.
 
 En behållare kan ha både ett juridiskt undantag och en tidsbaserad bevarande princip på samma gång. Alla blobar i containern förblir då i det oföränderliga tillståndet tills alla juridiska skäl tas bort, även om den effektiva kvarhållningsperioden har upphört. På motsvarande sätt förblir blobarna i det oföränderliga tillståndet tills den effektiva kvarhållningsperioden upphör även om alla juridiska skäl tas bort.
 
-I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverats för olika scenarier. Mer information finns i REST API dokumentationen för [Azure Blob service](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
-
-|Scenario  |BLOB-tillstånd  |BLOB-åtgärder tillåts inte  |
-|---------|---------|---------|
-|Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia av BLOB, tilläggs block         |
-|Effektivt kvarhållningsintervall på blobben har upphört att gälla     |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tilläggs block         |
-|Alla juridiska undantag rensas och ingen tidsbaserad bevarande princip har angetts på behållaren     |Föränderlig         |Inget         |
-|Ingen mask policy skapas (tidsbaserad kvarhållning eller juridiskt undantag)     |Föränderlig         |Inget         |
-
-<sup>1</sup> programmet tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
-
 Följande begränsningar gäller för juridiska undantag:
 
-- För ett lagrings konto är det maximala antalet behållare med en juridisk undantags inställning 1 000.
+- För ett lagrings konto är det maximala antalet behållare med en juridisk undantags inställning 10 000.
 - För en behållare är det maximala antalet juridiska undantags etiketter 10.
 - Den minsta längden för en juridiskt Hold-tagg består av tre alfanumeriska tecken. Den maximala längden är 23 alfanumeriska tecken.
 - För en behållare behålls det maximala antalet gransknings loggar för den här principen.
+
+## <a name="scenarios"></a>Scenarier
+I följande tabell visas de typer av Blob Storage-åtgärder som har inaktiverats för olika scenarier. Mer information finns i REST API dokumentationen för [Azure Blob service](https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api) .
+
+|Scenario  |BLOB-tillstånd  |Nekade BLOB-åtgärder  |Skydd av behållare och konto
+|---------|---------|---------|---------|
+|Effektivt kvarhållningsintervall för blobben har ännu inte gått ut och/eller bevarande av juridiska skäl har angetts     |Oåterkallelig: både ta bort- och skrivskyddad         | Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ta bort behållare, ta bort BLOB, ange BLOB-metadata, sätt sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis Copy-BLOB, Lägg till block<sup>2</sup>         |Borttagning av container nekad; Borttagning av lagrings konto nekades         |
+|Det gällande kvarhållningsintervallet i blobben har upphört att gälla och inget juridiskt undantag har angetts    |Skrivskyddad endast (ta bort tillåts)         |Lägg till BLOB<sup>1</sup>, sätt block<sup>1</sup>, list block lista<sup>1</sup>, ange BLOB-metadata, placerings sida, ange BLOB-egenskaper, ögonblicks bilds-BLOB, stegvis kopia-BLOB, tillägg block<sup>2</sup>         |Borttagning av behållare nekas om det finns minst 1 BLOB i den skyddade behållaren. Borttagning av lagrings konto nekas endast för *låsta* tidsbaserade principer         |
+|Ingen WORM-princip har tillämpats (ingen tidsbaserad kvarhållning och inget juridiskt undantags märke)     |Föränderlig         |Inget         |Inget         |
+
+<sup>1</sup> Blob-tjänsten tillåter dessa åtgärder att skapa en ny BLOB en gång. Alla efterföljande överskrivnings åtgärder på en befintlig BLOB-sökväg i en oföränderlig container är inte tillåtna.
+
+<sup>2</sup> append-block tillåts endast för tidsbaserade bevarande principer med egenskapen `allowProtectedAppendWrites` aktive rad. Mer information finns i avsnittet [Tillåt att skyddade bifogade blobbar skrivs](#allow-protected-append-blobs-writes) .
 
 ## <a name="pricing"></a>Prissättning
 
@@ -104,15 +128,15 @@ Det kostar inget extra att använda den här funktionen. Oföränderliga data pr
 
 **Kan du ge dokumentation om WORM-kompatibilitet?**
 
-Ja. För att dokumentera efterlevnaden har Microsoft bevarat en ledande oberoende utvärderings verksamhet som specialiserar sig på hantering av registrering och informations styrning, Cohassete Associates, för att utvärdera oföränderligt blob-lagring och dess efterlevnad av krav som är särskilt kopplade till finans Services-bransch. Cohasset validerade att den oföränderliga blob-lagringen, när den används för att bevara tidsbaserade blobbar i ett WORM-tillstånd, uppfyller relevanta lagrings krav för CFTC Rule 1.31 (c)-(d), FINRA-regel 4511 och SEC-regel 17a-4. Microsoft riktade sig på den här uppsättningen regler eftersom de representerar de mest förenklade vägledningarna globalt för poster som kvarhålls för finansiella institutioner. Cohasset-rapporten finns i [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Kontakta Azure-supporten om du vill begära en skrivelse från Microsoft angående WORM-efterlevnad.
+Ja. För att dokumentera efterlevnaden har Microsoft bevarat en ledande oberoende utvärderings verksamhet som specialiserar sig på hantering av registrering och informations styrning, Cohassete Associates, för att utvärdera oföränderligt blob-lagring och dess efterlevnad av krav som är särskilt kopplade till finans Services-bransch. Cohasset validerade att den oföränderliga blob-lagringen, när den används för att bevara tidsbaserade blobbar i ett WORM-tillstånd, uppfyller relevanta lagrings krav för CFTC Rule 1.31 (c)-(d), FINRA-regel 4511 och SEC-regel 17a-4. Microsoft riktade sig på den här uppsättningen regler eftersom de representerar de mest förenklade vägledningarna globalt för poster som kvarhålls för finansiella institutioner. Cohasset-rapporten finns i [Microsoft Service Trust Center](https://aka.ms/AzureWormStorage). Kontakta Azure-supporten om du vill begära en skrivelse från Microsoft avseende WORM oföränderlighets-kompatibilitet.
 
-**Gäller funktionen bara block-blobbar, eller till sid-och bifogade blobbar.**
+**Gäller funktionen bara block-blobbar och bifoga blobbar, eller till sid-blobar också?**
 
-Oåterkalleligt lagrings utrymme kan användas med valfri Blob-typ som anges på behållar nivån, men vi rekommenderar att du använder mask för behållare som huvudsakligen lagrar block-blobbar. Till skillnad från block-blobbar måste eventuella nya sid-blobar och bifogade blobbar skapas utanför en WORM-behållare och sedan kopieras i. När du har kopierat dessa blobbar till en WORM-behållare tillåts inga ytterligare *tillägg* till en tilläggs-BLOB eller ändringar av en sid-blob. Att ställa in en mask princip på en behållare som lagrar virtuella hård diskar (Page blobbar) för aktiva virtuella datorer, rekommenderas inte eftersom den kommer att låsa den virtuella dator disken.
+Oåterkalleligt lagrings utrymme kan användas med valfri Blob-typ som anges på behållar nivån, men vi rekommenderar att du använder mask för behållare som huvudsakligen lagrar block-blobbar och bifogade blobbar. Befintliga blobbar i en behållare skyddas av en Nydefinierad WORM-princip. Men eventuella nya sid-blobar måste skapas utanför mask behållaren och kopieras sedan i. När du har kopierat till en WORM-behållare tillåts inga ytterligare ändringar i en sid-blob. Att ställa in en mask princip på en behållare som lagrar virtuella hård diskar (Page blobbar) för aktiva virtuella datorer, rekommenderas inte eftersom den kommer att låsa den virtuella dator disken. Vi rekommenderar att du noga läser igenom dokumentationen och testar dina scenarier innan du låser eventuella tidsbaserade principer.
 
 **Måste jag skapa ett nytt lagrings konto för att använda den här funktionen?**
 
-Nej, du kan använda oföränderligt lagrings utrymme med befintliga eller nyligen skapade redovisnings-eller Blob Storage-konton som skapats av generell användning. Den här funktionen är avsedd för användning med block-blobbar i GPv2-och Blob Storage-konton. Generella v1-lagrings konton stöds inte, men de kan enkelt uppgraderas till generell användning v2. Information om hur du uppgraderar ett befintligt allmänt v1-lagrings konto finns i [uppgradera ett lagrings konto](../common/storage-account-upgrade.md).
+Nej, du kan använda oföränderligt lagrings utrymme med befintliga eller nyligen skapade allmänna v1-, BlobStorage-eller BlockBlobStorage-konton. Generella v1-lagrings konton stöds, men vi rekommenderar att du uppgraderar till General-Purpose v2 så att du kan dra nytta av fler funktioner. Information om hur du uppgraderar ett befintligt allmänt v1-lagrings konto finns i [uppgradera ett lagrings konto](../common/storage-account-upgrade.md).
 
 **Kan jag använda både en juridisk princip för kvarhållning och tidsbaserad lagring?**
 
@@ -126,15 +150,15 @@ Nej, juridiskt bevarande är bara den allmänna termen som används för en icke
 
 Endast upplåsta tidsbaserade bevarande principer kan tas bort från en behållare. När en tidsbaserad bevarande princip är låst kan den inte tas bort. endast tillägg för gällande kvarhållningsperiod är tillåtna. Juridiska undantags taggar kan tas bort. När alla juridiska taggar tas bort tas det juridiska undantaget bort.
 
-**Vad händer om jag försöker ta bort en container med en *låst* tidsbaserade bevarandeprincip eller bevarande av juridiska skäl?**
+**Vad händer om jag försöker ta bort en behållare med en tidsbaserad bevarande princip eller ett juridiskt undantag?**
 
-Det går inte att ta bort container om det finns minst en blob med en låst tidsbaserad bevarande princip eller ett juridiskt undantag. Åtgärden för att ta bort behållare lyckas bara om det inte finns någon BLOB med ett aktivt kvarhållningsintervall och det inte finns några juridiska undantag. Du måste ta bort Blobbarna innan du kan ta bort behållaren.
+Det går inte att ta bort container om det finns minst en BLOB i behållaren med antingen en låst eller olåst tidsbaserad bevarande princip eller om behållaren har ett juridiskt undantag. Åtgärden för att ta bort behållare lyckas bara om det inte finns några blobbar i behållaren och det inte finns några juridiska undantag. 
 
-**Vad händer om jag försöker ta bort ett lagringskonto med en WORM-container som har en *låst* tidsbaserad bevarandeprincip eller ett bevarande av juridiska skäl?**
+**Vad händer om jag försöker ta bort ett lagrings konto med en behållare som har en tidsbaserad bevarande princip eller ett juridiskt undantag?**
 
-Borttagningen av lagringskontot misslyckas om det finns minst en WORM-container med bevarande av juridiska skäl eller en blob med ett aktivt kvarhållningsintervall. Du måste ta bort alla mask behållare innan du kan ta bort lagrings kontot. Information om borttagning av behållare finns i föregående fråga.
+Det går inte att ta bort lagrings kontot om det finns minst en behållare med en juridisk undantags uppsättning eller en **låst** tidsbaserad princip. En behållare med en upplåst tidsbaserad princip skyddar inte mot borttagning av lagrings kontot. Du måste ta bort alla juridiska undantag och ta bort alla **låsta** behållare innan du kan ta bort lagrings kontot. Information om borttagning av behållare finns i föregående fråga. Du kan också använda ytterligare borttagnings skydd för ditt lagrings konto med [Azure Resource Manager lås](../../azure-resource-manager/resource-group-lock-resources.md).
 
-**Kan jag flytta data över olika blob-nivåer (frekvent, lågfrekvent, kall) när blobben är i oförändrat tillstånd?**
+**Kan jag flytta data mellan olika BLOB-nivåer (frekvent, låg frekvent, arkivera) när blobben är i läget oföränderligt?**
 
 Ja, du kan använda kommandot Set BLOB Tier för att flytta data mellan BLOB-nivåerna samtidigt som data hålls i ett kompatibelt tillstånd. Oföränderligt lagrings utrymme stöds på BLOB-nivåer för frekvent, låg frekvent och arkiv.
 
@@ -148,12 +172,11 @@ Ja. När en tidsbaserad bevarande princip först skapas är den i ett *låst* l�
 
 **Kan jag använda mjuk borttagning tillsammans med oföränderliga BLOB-principer?**
 
-Ja. [Mjuk borttagning för Azure Blob Storage](storage-blob-soft-delete.md) gäller för alla behållare i ett lagrings konto, oavsett en juridisk undantags-eller tidsbaserad bevarande princip. Vi rekommenderar att du aktiverar mjuk borttagning för ytterligare skydd innan eventuella mask principer som inte kan användas och bekräftas.
-
-**Var finns funktionen?**
-
-Oåterkalleligt lagrings utrymme är tillgängligt i Azures offentliga, Kina och myndighets regioner. Om oföränderlig lagring inte är tillgängligt i din region kan du kontakta support och e-azurestoragefeedback@microsoft.com.
+Ja, om dina krav för efterlevnad tillåter att mjuk borttagning aktive ras. [Mjuk borttagning för Azure Blob Storage](storage-blob-soft-delete.md) gäller för alla behållare i ett lagrings konto, oavsett en juridisk undantags-eller tidsbaserad bevarande princip. Vi rekommenderar att du aktiverar mjuk borttagning för ytterligare skydd innan eventuella mask principer som inte kan användas och bekräftas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md)
+- [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md)
+- [Ange regler för att automatiskt nivå och ta bort BLOB-data med livs cykel hantering](storage-lifecycle-management-concepts.md)
+- [Mjuk borttagning för Azure Storage-blobar](../blobs/storage-blob-soft-delete.md)
+- [Skydda prenumerationer, resurs grupper och resurser med Azure Resource Manager lås](../../azure-resource-manager/resource-group-lock-resources.md).

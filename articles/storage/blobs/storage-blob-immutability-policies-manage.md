@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 79d7454722900eb1d9d6280e35313ef2f4a5cd54
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 68b144a838f0c6e65f3e399f610644315d109fde
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555683"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903484"
 ---
 # <a name="set-and-manage-immutability-policies-for-blob-storage"></a>Ange och hantera oföränderlighets-principer för Blob Storage
 
@@ -57,7 +57,7 @@ Den här artikeln visar hur du ställer in och hanterar oföränderlighets-princ
 
     ![Rutan taggnamn under princip typen](media/storage-blob-immutability-policies-manage/portal-image-set-legal-hold-tags.png)
 
-9. Ta bort ett juridiskt undantag genom att helt enkelt ta bort den använda taggen för juridiskt undantag.
+9. Ta bort en juridisk spärr genom att ta bort den använda taggen för juridiskt bevarande.
 
 ### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -165,6 +165,20 @@ Remove-AzRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 ```
 
 ---
+
+## <a name="enabling-allow-protected-append-blobs-writes"></a>Aktivera Tillåt att skyddade bifogade blobbar skrivs
+
+För tillfället kan du bara komma åt `allowProtectedAppendWrites` inställningen för tidsbaserade bevarande principer via den här [Portal länken](https://aka.ms/immutableappendblobs). 
+
+> [!IMPORTANT] 
+>  Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig och endast synlig i följande regioner:
+> - USA, östra
+> - USA, södra centrala
+> - USA, västra 2
+>
+> Mer information finns i [Tillåt skyddade bifogade BLOB-skrivningar](storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
+
+![Tillåt ytterligare append-skrivningar](media/storage-blob-immutability-policies-manage/immutable-allow-additional-append-writes.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

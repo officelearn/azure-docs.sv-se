@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: tutorial
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: de2b79c5016b44011a14c1071eab6579f3a0b6df
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e756617a700d258078e84a3fa11c8aceb6f4dd88
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75650256"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903269"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>Skapa och publicera en definition för det hanterade programmet
 
@@ -18,7 +18,7 @@ ms.locfileid: "75650256"
 
 Du kan skapa och publicera Azure-[hanterade program](overview.md) som är avsedda för medlemmar i din organisation. En IT-avdelning kan exempelvis publicera hanterade program som säkerställer efterlevnaden av organisationens standarder. Dessa hanterade program är tillgängliga via tjänstkatalogen, inte på Azure Marketplace.
 
-Om du vill publicera ett hanterat program för tjänstkatalogen måste du:
+Om du vill publicera ett hanterat program i din Azure-tjänst katalog måste du:
 
 * Skapa en mall som definierar resurserna som ska distribueras med det hanterade programmet.
 * Definiera användargränssnittselementen för portalen när du distribuerar det hanterade programmet.
@@ -207,6 +207,108 @@ New-AzManagedApplicationDefinition `
   -Authorization "${groupID}:$ownerID" `
   -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
 ```
+
+## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Ta med din egen lagring för definitionen av det hanterade programmet
+Du kan välja att lagra definitionen för det hanterade programmet i ett lagrings konto som du har angett under skapandet, så att platsen och åtkomsten kan hanteras helt av dig efter dina krav.
+
+> [!NOTE]
+> Det finns bara stöd för att ta med din egen lagring med ARM-mall eller REST API distributioner av definitionen för hanterade program.
+
+### <a name="select-your-storage-account"></a>Välj ditt lagrings konto
+Du måste [skapa ett lagrings konto](../../storage/common/storage-account-create.md) som innehåller din definition av hanterade program för användning med tjänst katalogen.
+
+Kopiera lagrings kontots resurs-ID. Den kommer att användas senare när du distribuerar definitionen.
+
+### <a name="set-the-role-assignment-for-appliance-resource-provider-in-your-storage-account"></a>Ange roll tilldelningen för "utrustnings resurs leverantör" i ditt lagrings konto
+Innan din definition av hanterade program kan distribueras till ditt lagrings konto måste du ge deltagar behörighet till enhets **resurs leverantörs** rollen så att den kan skriva definitions filerna till lagrings kontots behållare.
+
+1. Navigera till ditt lagringskonto på [Azure-portalen](https://portal.azure.com).
+1. Välj **åtkomst kontroll (IAM)** om du vill visa inställningarna för åtkomst kontroll för lagrings kontot. Välj fliken **roll tilldelningar** om du vill se en lista över roll tilldelningar.
+1. I fönstret **Lägg till roll tilldelning** väljer du rollen **deltagare** . 
+1. I fältet **tilldela åtkomst till väljer du** **Azure AD-användare, grupp eller tjänstens huvud namn**.
+1. Under **Välj** Sök efter enhets **resurs leverantörs** roll och markera den.
+1. Spara roll tilldelningen.
+
+### <a name="deploy-the-managed-application-definition-with-an-arm-template"></a>Distribuera den hanterade program definitionen med en ARM-mall 
+
+Använd följande ARM-mall för att distribuera ditt paketerade hanterade program som en ny definition för hanterade program i tjänst katalogen vars definitionsfiler lagras och bevaras i ditt eget lagrings konto:
+   
+```json
+    {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "applicationName": {
+            "type": "string",
+            "metadata": {
+                "description": "Managed Application name"
+            }
+        },
+        "storageAccountType": {
+      "type": "string",
+      "defaultValue": "Standard_LRS",
+      "allowedValues": [
+        "Standard_LRS",
+        "Standard_GRS",
+        "Standard_ZRS",
+        "Premium_LRS"
+      ],
+      "metadata": {
+        "description": "Storage Account type"
+      }
+    },
+        "definitionStorageResourceID": {
+            "type": "string",
+            "metadata": {
+                "description": "Storage account resource ID for where you're storing your definition"
+            }
+        },
+        "_artifactsLocation": {
+            "type": "string",
+            "metadata": {
+                "description": "The base URI where artifacts required by this template are located."
+            }
+        }
+    },
+    "variables": {
+        "lockLevel": "None",
+        "description": "Sample Managed application definition",
+        "displayName": "Sample Managed application definition",
+        "managedApplicationDefinitionName": "[parameters('applicationName')]",
+        "packageFileUri": "[parameters('_artifactsLocation')]",
+        "defLocation": "[parameters('definitionStorageResourceID')]",
+        "managedResourceGroupId": "[concat(subscription().id,'/resourceGroups/', concat(parameters('applicationName'),'_managed'))]",
+        "applicationDefinitionResourceId": "[resourceId('Microsoft.Solutions/applicationDefinitions',variables('managedApplicationDefinitionName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Solutions/applicationDefinitions",
+            "apiVersion": "2019-07-01",
+            "name": "[variables('managedApplicationDefinitionName')]",
+            "location": "[parameters('location')]",
+            "properties": {
+                "lockLevel": "[variables('lockLevel')]",
+                "description": "[variables('description')]",
+                "displayName": "[variables('displayName')]",
+                "packageFileUri": "[variables('packageFileUri')]",
+                "storageAccountId": "[variables('defLocation')]"
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
+Vi har lagt till en ny egenskap med namnet **storageAccountId** i dina applicationDefintion egenskaper och ange det lagrings konto-ID som du vill lagra definitionen i som dess värde:
+
+Du kan kontrol lera att programdefinitions-filerna sparas i det tillhandahållna lagrings kontot i en behållare med namnet **applicationdefinitions**.
+
+> [!NOTE]
+> För ökad säkerhet kan du skapa en definition för hanterade program i en [Azure Storage-konto-BLOB där kryptering är aktiverat](../../storage/common/storage-service-encryption.md). Definitions innehållet krypteras via lagrings kontots krypterings alternativ. Endast användare med behörighet till filen kan se definitionen i tjänst katalogen.
 
 ### <a name="make-sure-users-can-see-your-definition"></a>Kontrollera att användare kan se din definition
 

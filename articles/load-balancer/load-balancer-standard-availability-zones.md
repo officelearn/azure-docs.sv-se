@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: e7ddb548d8dad5bdcc3021941877903377af9318
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771486"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903339"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -209,10 +209,6 @@ Zon-redundant kan ge en enkelhet med ett oberoende alternativ och samtidigt elas
 Zonindelade kan ge en uttrycklig garanti till en zon, som uttryckligen delar in överlappande med hälso tillståndet för zonen. Att skapa en Load Balancer regel med en zonindelade IP-adress-frontend eller zonindelade intern Load Balancer-frontend kan vara ett bra tillägg, särskilt om din anslutna resurs är en zonindelade virtuell dator i samma zon.  Eller så kanske ditt program kräver uttrycklig kunskap om vilken zon en resurs finns i förväg och du vill veta mer om tillgänglighet i separata zoner.  Du kan välja att exponera flera zonindelade-frontend-enheter för en slutpunkt-till-slutpunkt-tjänst som distribueras mellan zoner (det vill säga per zon zonindelade-frontend för flera zonindelade Virtual Machine Scale set).  Och om dina zonindelade-frontend-klienter är offentliga IP-adresser kan du använda dessa flera zonindelade-frontend-klienter för att exponera tjänsten med [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Eller så kan du använda flera zonindelade-frontend-klienter för att få kunskap om hälso tillstånd och prestanda i olika zoner genom att övervaka lösningar från tredje part och exponera den övergripande tjänsten med en zon redundant klient del. Du bör bara hantera zonindelade-resurser med zonindelade-frontend-platser justerade till samma zon och undvika potentiellt skadliga kors zons scenarier för zonindelade-resurser.  Zonindelade-resurser finns bara i regioner där tillgänglighets zoner finns.
 
 Det finns ingen allmän vägledning om att ett är ett bättre alternativ än den andra utan att känna till tjänst arkitekturen.  Gå igenom [design mönster för molnet i molnet](https://docs.microsoft.com/azure/architecture/patterns/) för att förbättra återhämtningen hos ditt program till haveri situationer.
-
-## <a name="limitations"></a>Begränsningar
-
-- Medan data planet är helt zoner – redundant (om inte zonindelade-garanti har angetts), är kontroll Plans åtgärder inte helt zoner-redundanta.
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs mer om [Tillgänglighetszoner](../availability-zones/az-overview.md)

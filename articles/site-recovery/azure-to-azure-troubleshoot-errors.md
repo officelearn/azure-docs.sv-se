@@ -1,18 +1,18 @@
 ---
 title: Felsöka Azure VM-replikering i Azure Site Recovery
 description: Felsök fel vid replikering av virtuella Azure-datorer för haveri beredskap.
-author: asgang
+author: rochakm
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
-ms.author: asgangal
-ms.openlocfilehash: efa05f5769bcd174992a7a91a522c5f30ce6e448
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.author: rochakm
+ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895014"
+ms.locfileid: "75902558"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Felsöka fel med Azure-till-Azure VM-replikering
 
@@ -66,7 +66,7 @@ Mer information finns i [Konfigurera betrodda rötter och otillåtna certifikat]
 
 Följ de rikt linjer som tillhandahålls av distributören av Linux-operativsystemet för att hämta de senaste betrodda rot certifikaten och den senaste listan över återkallade certifikat på den virtuella datorn.
 
-Eftersom SuSE Linux använder symboliska länkar (eller *symlinks*) för att underhålla en certifikat lista, följer du dessa steg:
+Eftersom SUSE Linux använder symboliska länkar (eller *symlinks*) för att underhålla en certifikat lista, följer du dessa steg:
 
 1. Logga in som en rotanvändare.
 

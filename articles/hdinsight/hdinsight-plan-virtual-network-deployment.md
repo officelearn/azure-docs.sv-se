@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: d337d026e89d2383e25498288ba11a9c60f77b39
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bb60d22c62096725e29b9351bf304504861d9bf1
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228998"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902523"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -252,6 +252,12 @@ Mer information om brand Väggs regler för virtuella enheter finns i [scenario]
 ## <a name="load-balancing"></a>Belastningsutjämning
 
 När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/load-balancer-overview.md#skus) som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+
+## <a name="transport-layer-security"></a>Transport Layer Security
+
+Anslutningar till klustret via den offentliga kluster slut punkten `https://<clustername>.azurehdinsight.net` är via proxy via klusternoder. Dessa anslutningar skyddas med hjälp av ett protokoll som kallas TLS. Att framtvinga högre versioner av TLS på gateways förbättrar säkerheten för dessa anslutningar. Mer information om varför du bör använda nyare versioner av TLS finns i [lösa problemet med tls 1,0](https://docs.microsoft.com/security/solving-tls1-problem).
+
+Du kan kontrol lera de lägsta TLS-versioner som stöds på Gateway-noderna för ditt HDInsight-kluster med hjälp av egenskapen *minSupportedTlsVersion* i en Resource Manager-mall vid distributions tillfället. En exempel-mall finns i [snabb starts mal len för HDInsight-lägsta TLS 1,2](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls). Den här egenskapen stöder tre värden: "1,0", "1,1" och "1,2", som motsvarar TLS 1.0 +, TLS 1.1 + och TLS 1.2 + respektive. Som standard, utan att ange den här egenskapen, accepterar Azure HDInsight-kluster TLS 1,2-anslutningar på offentliga HTTPS-slutpunkter, samt äldre versioner för bakåtkompatibilitet. Slutligen kommer HDInsight att verkställa TLS 1,2 eller senare på alla gateway-noder.
 
 ## <a name="next-steps"></a>Nästa steg
 

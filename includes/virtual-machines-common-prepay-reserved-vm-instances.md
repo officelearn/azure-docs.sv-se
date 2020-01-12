@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11/21/2019
-ms.openlocfilehash: f583796fc353852ef3898e28fa96524e08cfb4ad
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9bed0a47c6c13b3c209f593509b71aa697c6eb4a
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414626"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75901728"
 ---
 När du genomför en virtuell Azure-instans kan du spara pengar. Reservations rabatten tillämpas automatiskt på antalet virtuella datorer som körs och som matchar reservations omfånget och attributen. Du behöver inte tilldela en reservation till en virtuell dator för att få rabatterna. En reserverad instans köps bara täcker beräknings delen av din virtuella dator användning. Användnings mätaren delas upp i två separata meter för virtuella Windows-datorer. Det finns en beräknings mätare, som är samma som Linux-mätaren och en Windows IP-mätare. De kostnader som du ser när du gör köpet är bara för beräknings kostnader. Avgifter omfattar inte kostnader för Windows-programvara. Mer information om program varu kostnader finns i [program varu kostnader som inte ingår i Azure Reserved VM instances](../articles/billing/billing-reserved-instance-windows-software-costs.md).
 
@@ -36,8 +36,8 @@ Inställningen för flexibel instansstorlek avgör vilka tjänster som får raba
 
 Oavsett om inställningen är på eller av tillämpas reservationsrabatter automatiskt på matchande VM-användning när *ConsumedService* är `Microsoft.Compute`. Kontrollera därför dina användningsdata med avseende på värdet för *ConsumedService*. Några exempel är:
 
-- Virtuella datorer
-- Skalningsuppsättningar för virtuella datorer
+- Virtuella maskiner
+- VM-skalningsuppsättningar
 - Containertjänst
 - Azure Batch-distributioner (i användarprenumerationsläge)
 - Azure Kubernetes Service (AKS)
@@ -72,7 +72,7 @@ Reserverade VM-instanser är tillgängliga för de flesta VM-storlekar med vissa
 
 - **Moln** – reservationer är inte tillgängliga för köp i Tyskland eller regioner i Kina.
 
-- **Otillräcklig kvot** – en reservation som är begränsad till en enskild prenumeration måste ha vCPU-kvot tillgänglig i prenumerationen för den nya RI. Om mål prenumerationen till exempel har en kvot gräns på 10 virtuella processorer för D-serien kan du inte köpa en reservation för 11 Standard_D1 instanser. Kvot kontrollen för reservationer omfattar de virtuella datorer som redan har distribuerats i prenumerationen. Om prenumerationen till exempel har en kvot på 10 virtuella processorer för D-serien och har två standard_D1-instanser distribuerade, kan du köpa en reservation för 10 standard_D1 instanser i den här prenumerationen. Du kan [skapa en begäran om offert ökning](../articles/azure-supportability/resource-manager-core-quotas-request.md) för att lösa problemet.
+- **Otillräcklig kvot** – en reservation som är begränsad till en enskild prenumeration måste ha vCPU-kvot tillgänglig i prenumerationen för den nya RI. Om mål prenumerationen till exempel har en kvot gräns på 10 virtuella processorer för D-serien kan du inte köpa en reservation för 11 Standard_D1 instanser. Kvot kontrollen för reservationer omfattar de virtuella datorer som redan har distribuerats i prenumerationen. Om prenumerationen till exempel har en kvot på 10 virtuella processorer för D-serien och har två standard_D1-instanser distribuerade, kan du köpa en reservation för 10 standard_D1 instanser i den här prenumerationen. Du kan [skapa en begäran om offert ökning](../articles/azure-portal/supportability/resource-manager-core-quotas-request.md) för att lösa problemet.
 
 - **Kapacitets begränsningar** – i sällsynta fall begränsar Azure inköpet av nya reservationer för en delmängd av VM-storlekar, på grund av låg kapacitet i en region.
 
@@ -87,7 +87,7 @@ Dessa krav gäller för att köpa en reserverad VM-instans:
 
 Så här köper du en instans:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Alla tjänster** > **Reservationer**.
 1. Välj **Lägg till** för att köpa en ny reservation och klicka sedan på **virtuell dator**.
 1. Fyll i obligatoriska fält. Om du kör virtuella datorinstanser som matchar de attribut du väljer gäller det för att hämta reservationsrabatten. Det faktiska antalet virtuella datorinstanser som erhåller rabatten beror på omfattning och vald kvantitet.
@@ -95,12 +95,12 @@ Så här köper du en instans:
 Om du har ett EA-avtal kan du använda **alternativet Lägg till fler** för att snabbt lägga till fler instanser. Alternativet är inte tillgängligt för andra prenumerations typer.
 
 
-| Fält      | Beskrivning|
+| Field      | Beskrivning|
 |------------|--------------|
 |Prenumeration|Prenumerationen som används för att betala för reservationen. Betalnings metoden för prenumerationen debiteras kostnaderna för reservationen. Prenumerations typen måste vara ett Enterprise-avtal (erbjudande nummer: MS-AZR-0017P eller MS-AZR-0148P) eller Microsoft-kundavtal eller en enskild prenumeration med priser enligt principen betala per användning (erbjudande nummer: MS-AZR-0003P eller MS-AZR-0023P). Avgifterna dras av från betalnings åtagande beloppet, om det är tillgängligt eller debiteras som överanvändning. För en prenumeration med priser enligt principen betala per användning debiteras avgifterna till kredit kortet eller faktura betalnings metoden för prenumerationen.|    
-|Omfång       |Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>**Omfång för enskild resursgrupp** – reservationsrabatten tillämpas endast på matchande resurser i den valda resursgruppen.</li><li>**Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.</li><li>**Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med betalning per användning är faktureringsomfånget alla berättigade prenumerationer som kontoadministratören har skapat.</li></ul>|
+|Omfång       |Reservationens omfång kan omfatta en prenumeration eller flera prenumerationer (delad omfattning). Om du väljer: <ul><li>**Omfång för enskild resursgrupp** – tillämpar reservationsrabatten på de matchande resurserna enkom i den valda resursgruppen.</li><li>**Omfång för enskild prenumeration** – reservationsrabatten tillämpas på matchande resurser i den valda prenumerationen.</li><li>**Delat omfång** – reservationsrabatten tillämpas på matchande resurser i berättigade prenumerationer i faktureringskontexten. För EA-kunder är fakturerings kontexten registreringen. För enskilda prenumerationer med Betala per användning-priser är faktureringsomfånget alla berättigade prenumerationer som skapats av kontoadministratören.</li></ul>|
 |Region    |Den Azure-region som omfattas av reservationen.|    
-|Storlek på virtuell dator     |Storleken på de virtuella dator instanserna.|
+|VM-storlek     |Storleken på de virtuella dator instanserna.|
 |Optimera för     |Flexibilitet för storlek på virtuell dator instans är markerad som standard. Klicka på **Avancerade inställningar** för att ändra storlek på flexibiliteten för instans storlek för att tillämpa reservations rabatten på andra virtuella datorer i samma [storleks grupp för virtuell dator](../articles/virtual-machines/windows/reserved-vm-instance-size-flexibility.md). Om du prioriterar kapaciteten prioriteras datacenterkapaciteten för dina distributioner. Det ger ytterligare förtroende för möjligheten att starta de virtuella dator instanserna när du behöver dem. Kapacitets prioritet är bara tillgängligt när reservations omfånget är en enskild prenumeration. |
 |Period        |Ett år eller tre år.|
 |Kvantitet    |Antalet instanser som köps i reservationen. Antalet är antalet aktiva VM-instanser som kan hämta fakturerings rabatten. Om du till exempel kör 10 Standard_D2 virtuella datorer i USA, kan du ange kvantitet som 10 för att maximera fördelarna med alla virtuella datorer som körs. |
@@ -119,7 +119,7 @@ Du kan göra följande typer av ändringar i en reservation efter köpet:
 
 - Uppdatera reservationsomfång
 - Flexibilitet för instans storlek (om tillämpligt)
-- Kap
+- Äganderätt
 
 Du kan också dela upp en reservation i mindre segment och slå samman redan delade reservationer. Ingen av ändringarna orsakar en ny kommersiell transaktion eller ändrar slut datumet för reservationen.
 
@@ -128,7 +128,7 @@ Du kan inte göra följande typer av ändringar efter köpet, direkt:
 - En befintlig reservations region
 - SKU
 - Kvantitet
-- Varaktighet
+- Längd
 
 Du kan dock *byta* ut en reservation om du vill göra ändringar.
 

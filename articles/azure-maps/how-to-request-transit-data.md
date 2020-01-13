@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b28788ac7b3ce4e1997b71c683f8e0445406a391
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
-ms.translationtype: MT
+ms.openlocfilehash: 47952421c50979a014507c81ef5bc3217df7d860
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915619"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75432939"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Begär offentlig överförings information med tjänsten Azure Maps Mobility 
 
@@ -28,16 +28,17 @@ I den här artikeln får du lära dig hur du:
 * Begär transiterings flödets geometri och ett detaljerat schema för vägen med hjälp av [API: et get transit itinerary](https://aka.ms/https://azure.microsoft.com/services/azure-maps/).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Om du vill göra anrop till API: erna för Azure Maps offentlig överföring behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta en primär prenumerations nyckel för ditt konto.
+Om du vill göra anrop till API: erna för Azure Maps offentlig överföring behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto och hämtar en nyckel följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps konto prenumeration och följer stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta primär nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+
 
 I den här artikeln används [Postman-appen](https://www.getpostman.com/apps) för att bygga rest-anrop. Du kan använda valfri API utvecklings miljö som du föredrar.
 
 
 ## <a name="get-a-metro-area-id"></a>Hämta ett rikt linje-ID
 
-För att begära överförings information för ett visst lib-utrymme behöver `metroId` du för det utrymme du vill begära överförings data för. Med [Hämta tunnel Bane områdes-API](https://aka.ms/AzureMapsMobilityMetro) kan du begära att Metro-områden som Azure Maps mobilitets tjänsten är tillgänglig för. Svaret innehåller information `metroId`, till exempel `metroName` och en representation av en geometri i formatet för Metro-ytan.
+För att kunna begära överförings information för ett visst lib-utrymme behöver du `metroId` för det utrymme som du vill begära överförings data för. Med [Hämta tunnel Bane områdes-API](https://aka.ms/AzureMapsMobilityMetro) kan du begära att Metro-områden som Azure Maps mobilitets tjänsten är tillgänglig för. Svaret innehåller information som `metroId`, `metroName` och en åter givning av geometrin för tunnel Bane ytan i formatet i det lokala JSON-formatet.
 
 Nu ska vi göra en begäran om att hämta Metro-arean för Seattle-Tacoma för Metro-ytans ID. Slutför följande steg för att begära ID för ett tunnelbane utrymme:
 
@@ -110,15 +111,15 @@ Nu ska vi göra en begäran om att hämta Metro-arean för Seattle-Tacoma för M
     }
     ```
 
-5. `metroId`Kopiera, om du vill använda den senare.
+5. Kopiera `metroId`för att använda den senare.
 
 ## <a name="request-nearby-transit-stops"></a>Begäran i närheten av överföring upphör
 
-Med Azure Maps [Hämta närbelägen överförings](https://aka.ms/AzureMapsMobilityNearbyTransit) tjänst kan du söka i överförings objekt, t. ex. att offentlig transitering stoppas och delade cyklar runt en bestämd plats som returnerar information om överförings objekt. Nu ska vi göra en begäran till tjänsten för att söka efter en närliggande offentlig överföring i 300 meters radie runt den aktuella platsen. I begäran måste vi ta med den `metroId` hämtade i tidigare.
+Med Azure Maps [Hämta närbelägen överförings](https://aka.ms/AzureMapsMobilityNearbyTransit) tjänst kan du söka i överförings objekt, t. ex. att offentlig transitering stoppas och delade cyklar runt en bestämd plats som returnerar information om överförings objekt. Nu ska vi göra en begäran till tjänsten för att söka efter en närliggande offentlig överföring i 300 meters radie runt den aktuella platsen. I begäran måste vi ta med `metroId` som hämtades tidigare.
 
 Följ stegen nedan om du vill göra en begäran till den i [närheten](https://aka.ms/AzureMapsMobilityNearbyTransit):
 
-1. I Postman klickar du på **ny begäran** | **Get-begäran** och namn den **får nära stopp**.
+1. I Postman, klickar du på **ny begäran** | **Hämta begäran** och namn den **får nära**till i närheten.
 
 2. På fliken Builder väljer du metoden **Hämta** http, anger följande URL-adress för API-slutpunkten och klickar på **Skicka**.
 
@@ -213,9 +214,9 @@ Följ stegen nedan om du vill göra en begäran till den i [närheten](https://a
     }   
     ```
 
-Om du ser svars strukturen noggrant kan du se att den innehåller parametrar varje överförings objekt, till exempel `id` `mainTransitType` `type` `stopName` `mainAgencyName` ,,, och objektets position (koordinater).
+Om du ser svars strukturen noggrant kan du se att den innehåller parametrar varje överförings objekt, till exempel `id`, `type`, `stopName`, `mainTransitType`, `mainAgencyName` och placering (koordinater) för objektet.
 
-För att förstå detta kommer vi att använda `id` en av bussarna som slutar som ursprung för vår väg i nästa avsnitt.  
+För att förstå detta kommer vi att använda `id` för en av buss stoppas som ursprung för vår väg i nästa avsnitt.  
 
 
 ## <a name="request-a-transit-route"></a>Begär en överförings väg
@@ -228,7 +229,7 @@ För att kunna hämta plats koordinater för en plats, kan du använda Azure Map
 
 Följ stegen nedan om du vill göra en begäran till fuzzy Search-tjänsten:
 
-1. I Postman klickar du på **ny begäran** | **Hämta begäran** och namnger den för att **hitta platsens koordinater**.
+1. I Postman, klicka på **ny begäran** | **Hämta begäran** och ge den namnet **plats koordinater**.
 
 2.  På fliken Builder väljer du metoden **Hämta** http, anger följande URL för begäran och klickar på **Skicka**.
  
@@ -236,7 +237,7 @@ Följ stegen nedan om du vill göra en begäran till fuzzy Search-tjänsten:
     https://atlas.microsoft.com/search/fuzzy/json?subscription-key={subscription-key}&api-version=1.0&query=space needle
     ```
     
-3. Om du tittar på svaret noggrant, innehåller det flera platser i nål för utrymmet och innehåller också platsens koordinater information för var och en av dem under **position**. `lat` Kopiera och `lon` från positionen för det första resultatet.
+3. Om du tittar på svaret noggrant, innehåller det flera platser i nål för utrymmet och innehåller också platsens koordinater information för var och en av dem under **position**. Kopiera `lat` och `lon` från position för det första resultatet.
     
    ```JSON
    {
@@ -336,11 +337,11 @@ Följ stegen nedan om du vill göra en begäran till fuzzy Search-tjänsten:
 
 Följ stegen nedan om du vill göra en cirkulations förfrågan:
 
-1. I Postman klickar du på **ny begäran** | **Hämta begäran** och namnge den **hämtar routningsinformation**.
+1. I Postman, klicka på **ny begäran** | **Hämta begäran** och ge den namnet **information om routning**.
 
 2. På fliken Builder väljer du metoden **Hämta** http, anger följande URL-adress för API-slutpunkten och klickar på **Skicka**.
 
-    Vi begär offentliga överförings vägar för Bus genom att `modeType` ange parametrarna och. `transitType` URL: en för begäran innehåller de platser som hämtades i föregående avsnitt. Nu har vi stopId och vi har **beställningen.** `destionationType` `originType`
+    Vi kommer att begära offentliga överförings vägar för Bus genom att ange `modeType` och `transitType` parametrar. URL: en för begäran innehåller de platser som hämtades i föregående avsnitt. Som `originType` har vi nu **stopId** och har be`destionationType`t **platsen**.
 
     Se [listan över URI-parametrar](https://aka.ms/AzureMapsMobilityTransitRoute#uri-parameters) som du kan använda i din begäran till [API: et för att hämta överförings vägar](https://aka.ms/AzureMapsMobilityTransitRoute). 
   
@@ -493,17 +494,17 @@ Följ stegen nedan om du vill göra en cirkulations förfrågan:
     }
     ```
 
-4. Om du ser noggrant, finns det flera **buss** vägar i svaret. Varje väg har ett unikt **färdväg-ID** och en sammanfattning som beskriver varje steg i vägen. Härnäst ska vi begära information om den snabbaste vägen med `itineraryId` i svaret.
+4. Om du ser noggrant, finns det flera **buss** vägar i svaret. Varje väg har ett unikt **färdväg-ID** och en sammanfattning som beskriver varje steg i vägen. Härnäst ska vi begära information om den snabbaste vägen med hjälp av `itineraryId` i svaret.
 
 ## <a name="request-fastest-route-itinerary"></a>Begär snabbast väg färdväg
 
 Med tjänsten Azure Maps [Hämta transit](https://aka.ms/AzureMapsMobilityTransitItinerary) rutter kan du begära data för en viss väg med hjälp av vägens **res-ID** som returnerades av API-tjänsten [Hämta överförings vägar](https://aka.ms/AzureMapsMobilityTransitRoute) . Slutför följande steg för att göra en begäran:
 
-1. I Postman klickar du på **ny begäran** | **Hämta begäran** och namnger den för att **få information om transport**.
+1. I Postman klickar du på **ny begäran** | **Get-begäran** och namnger den för att ge information om **transport**.
 
 2. På fliken Builder väljer du metoden **Hämta** http, anger följande URL-adress för API-slutpunkten och klickar på **Skicka**.
 
-    Vi ställer in `detailType` parametern till **Geometry** så att svaret innehåller stopp information för offentlig överföring och inaktive rad navigering för steg-och cykel benen i vägen.
+    Vi ställer in `detailType` parameter till **Geometry** så att svaret innehåller stopp information för offentlig överföring och inaktive rad navigering för steg-och cykel benen i vägen.
 
     ```HTTP
     https://atlas.microsoft.com/mobility/transit/itinerary/json?api-version=1.0&subscription-key={subscription-key}&query={itineraryId}&detailType=geometry

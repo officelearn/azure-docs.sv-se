@@ -82,6 +82,8 @@
       href: resource-manager-samples.md
 - name: Begrepp
   items:
+    - name: NoSQL jämfört med relationsdatabaser
+      href: relational-nosql.md
     - name: Global distribution
       items:
         - name: Översikt
@@ -976,6 +978,8 @@
           href: certificate-based-authentication.md
         - name: Begränsa användaråtkomst till endast dataåtgärder
           href: how-to-restrict-user-data.md
+        - name: Konfigurera kundhanterade nycklar
+          href: how-to-setup-cmk.md
     - name: Företagsberedskap
       items:
         - name: Återställa data från en säkerhetskopia
@@ -1058,6 +1062,8 @@
           href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Migrera hundratals terabyte data till Azure Cosmos DB
           href: migrate-cosmosdb-data.md
+        - name: Migrera få relationsdata
+          href: migrate-relational-to-cosmos-db-sql-api.md
     - name: Massexecutor-bibliotek
       items:
         - name: Om bibliotek för massexecutor

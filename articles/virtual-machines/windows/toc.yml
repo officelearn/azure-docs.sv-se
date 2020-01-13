@@ -184,7 +184,7 @@
           items:
             - name: GPU-optimerad
               href: sizes-gpu.md
-            - name: Konfigurera GPU-drivrutiner
+            - name: Konfigurera NVIDIA GPU-drivrutiner
               href: n-series-driver-setup.md
             - name: Konfigurera AMD GPU-drivrutiner
               href: n-series-amd-driver-setup.md

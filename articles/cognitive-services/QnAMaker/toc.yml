@@ -147,6 +147,8 @@
       href: troubleshooting.md
     - name: Filformat
       items:
+        - name: Markdown-referens
+          href: reference-markdown-format.md
         - name: TSV-batchtestning
           href: reference-tsv-format-batch-testing.md
     - name: Referens för REST API

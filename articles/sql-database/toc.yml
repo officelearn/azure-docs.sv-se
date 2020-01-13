@@ -337,6 +337,8 @@
               href: sql-database-design-first-database-csharp.md
         - name: Läs in och flytta data
           items:
+            - name: Importera eller exportera från en virtuell Azure-dator
+              href: import-export-from-vm.md
             - name: Importera en databas från en BACPAC-fil
               href: sql-database-import.md
             - name: Exportera en databas till en BACPAC-fil

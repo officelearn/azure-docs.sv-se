@@ -229,6 +229,8 @@
           href: certificate-rotation.md
         - name: Skapa ett privat kluster
           href: private-clusters.md
+        - name: BYOK för diskar
+          href: azure-disk-customer-managed-keys.md
     - name: Övervakning och loggning
       items:
         - name: Azure Monitor för containrar

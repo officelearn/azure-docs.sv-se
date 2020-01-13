@@ -32,6 +32,30 @@
       href: azure-portal-export-delete-settings.md
     - name: Instruktionsvideoserie om Azure-portalen
       href: azure-portal-video-series.md
+    - name: Skapa och hantera supportförfrågningar
+      items:
+        - name: Skapa en Azure-supportbegäran
+          href: supportability/how-to-create-azure-support-request.md
+        - name: Ladda upp filer för en supportbegäran
+          href: supportability/how-to-use-file-uploader.md
+        - name: Begär kvotökningar
+          items:
+            - name: Utöka vCPU-gräns för beräkning
+              items:
+                - name: Distributionsmodell med Resource Manager
+                  items:
+                    - name: Utöka vCPU-gräns för VM-serie
+                      href: supportability/per-vm-quota-requests.md
+                    - name: Utöka gräns för totalt antal regionala vCPU
+                      href: supportability/regional-quota-requests.md
+                    - name: Utöka gräns för punktkvot
+                      href: supportability/low-priority-quota.md
+                - name: Klassisk distributionsmodell
+                  href: supportability/classic-deployment-model-quota-increase-requests.md
+            - name: Utöka nätverksgränser
+              href: supportability/networking-quota-requests.md
+        - name: Felsök region eller problem med SKU-prenumeration
+          href: supportability/sku-series-unavailable.md
 - name: Referens
   items:
     - name: Kortkommandon

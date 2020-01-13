@@ -617,6 +617,8 @@
           href: solution-template-copy-new-files-lastmodifieddate.md
         - name: Masskopiera från databas
           href: solution-template-bulk-copy-with-control-table.md
+        - name: Masskopiera från filer till databas
+          href: solution-template-bulk-copy-from-files-to-database.md
         - name: Deltakopiera från databas
           href: solution-template-delta-copy-with-control-table.md
         - name: Migrera data från Amazon S3 till Azure Storage

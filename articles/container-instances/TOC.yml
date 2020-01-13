@@ -51,14 +51,18 @@
       href: container-instances-orchestrator-relationship.md
     - name: Säkerhetsöverväganden
       href: container-instances-image-security.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Distribuera
       items:
-        - name: Distribuera i ett virtuellt nätverk (förhandsversion)
+        - name: Distribuera i ett virtuellt nätverk
           href: container-instances-vnet.md
         - name: Distribuera från Azure Container Registry
           href: container-instances-using-azure-container-registry.md
+        - name: Kryptera distributionsdata
+          href: container-instances-encrypt-data.md
+        - name: Distribuera på dedikerade värdar
+          href: container-instances-dedicated-hosts.md
     - name: Containerscenarier
       items:
         - name: Konfigurera omstartsprincipen för åtgärder som endast körs en gång

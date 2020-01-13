@@ -177,6 +177,8 @@
               href: azure-to-azure-how-to-enable-replication.md
             - name: Aktivera Azure till Azure-replikering för krypterade virtuella datorer
               href: azure-to-azure-how-to-enable-replication-ade-vms.md
+            - name: Aktivera Azure till Azure-replikering för virtuella datorer med CMK-aktiverade diskar
+              href: azure-to-azure-how-to-enable-replication-cmk-disks.md
             - name: Aktivera Azure till Azure-replikering för virtuella S2D-datorer
               href: azure-to-azure-how-to-enable-replication-s2d-vms.md
             - name: Aktivera replikering för en tillagd disk

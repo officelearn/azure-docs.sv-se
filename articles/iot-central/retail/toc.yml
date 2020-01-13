@@ -36,11 +36,13 @@
       href: architecture-smart-inventory-management-pnp.md
     - name: Arkitektur för lageranalys
       href: store-analytics-architecture.md
+    - name: Arkitektur för mall för mikrofullgörelsecenter
+      href: architecture-micro-fulfillment-center-pnp.md
     - name: Anslutning
       href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Vad är programmallar?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ansluta enheter
       items:

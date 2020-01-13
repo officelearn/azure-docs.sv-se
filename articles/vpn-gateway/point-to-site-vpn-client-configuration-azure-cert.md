@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: cherylmc
-ms.openlocfilehash: ad6e912f976095ae7d8fd5276b0f1365566c181a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4df22108591fe3f80078bce050081c4953443847
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143793"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75903003"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -95,7 +95,7 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 
    **Gränssnittets** värde är "VPN" och värdet för **VPN-typ** är IKEv2. Ange ett namn för profilen i fältet **tjänst namn** och klicka sedan på **skapa** för att skapa anslutnings profilen för VPN-klienten.
 
-   ![nätverks](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![nätverk](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. I den **allmänna** mappen, i filen **VpnSettings. XML** , kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -107,10 +107,10 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
    ![certifikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **Välj en identitet** visar en lista över certifikat som du kan välja bland. Välj rätt certifikat och klicka sedan på **Fortsätt**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![identitet](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. I fältet **lokalt ID** anger du namnet på certifikatet (från steg 6). I det här exemplet är det "ikev2Client.com". Klicka sedan på knappen **tillämpa** för att spara ändringarna.
 
-   ![använt](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![ansök](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. I dialog rutan **nätverk** klickar du på **tillämpa** för att spara alla ändringar. Klicka sedan på **Anslut** för att starta P2s-anslutningen till det virtuella Azure-nätverket.
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)

@@ -1,30 +1,30 @@
 ---
-title: 'Azure-VPN Gateway: kryptografiska krav'
-description: Den här artikeln beskriver kryptografiska krav och Azure VPN-gatewayer
+title: 'Azure VPN Gateway: Cryptographic requirements'
+description: This article discusses cryptographic requirements and Azure VPN gateways
 services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 93e13592d9c434b159ad4f4c10ef30328941c64e
+ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666502"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75902828"
 ---
-# <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>Om kryptografiska krav och Azure VPN-gatewayer
+# <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>About cryptographic requirements and Azure VPN gateways
 
-Den här artikeln beskriver hur du kan konfigurera Azure VPN-gatewayer för att uppfylla dina kryptografiska krav för både lokala S2S VPN-tunnlar och VNet-till-VNet-anslutningar i Azure.
+This article discusses how you can configure Azure VPN gateways to satisfy your cryptographic requirements for both cross-premises S2S VPN tunnels and VNet-to-VNet connections within Azure.
 
-## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Om IKEv1 och IKEv2 för Azure VPN-anslutningar
+## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>About IKEv1 and IKEv2 for Azure VPN connections
 
-Traditionellt tillåtna endast IKEv1-anslutningar för grundläggande SKU: er och tillåtna IKEv2-anslutningar för alla VPN gateway-SKU: er som inte är grundläggande. De grundläggande SKU: erna tillåter endast 1 anslutning och tillsammans med andra begränsningar, till exempel prestanda, kunder som använder äldre enheter som endast stöder IKEv1-protokoll har begränsad erfarenhet. För att förbättra upplevelsen av kunder med IKEv1-protokoll tillåter vi nu IKEv1-anslutningar för alla VPN gateway-SKU: er, förutom Basic SKU. Mer information finns i [VPN gateway SKU: er](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
+Traditionally we allowed IKEv1 connections for Basic SKUs only and allowed IKEv2 connections for all VPN gateway SKUs other than Basic SKUs. The Basic SKUs allow only 1 connection and along with other limitations such as performance, customers using legacy devices that support only IKEv1 protocols were having limited experience. In order to enhance the experience of customers using IKEv1 protocols, we are now allowing IKEv1 connections for all of the VPN gateway SKUs, except Basic SKU. For more information, see [VPN Gateway SKUs](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku).
 
-![Azure VPN Gateway IKEv1-och IKEv2-anslutningar](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
+![Azure VPN Gateway IKEv1 and IKEv2 connections](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 
-När IKEv1-och IKEv2-anslutningar används på samma VPN-gateway, är överföringen mellan dessa två anslutningar automatiskt aktive rad.
+When IKEv1 and IKEv2 connections are applied to the same VPN gateway, the transit between these two connections is auto-enabled.
 
 ## <a name="about-ipsec-and-ike-policy-parameters-for-azure-vpn-gateways"></a>Om IPsec-och IKE-principinställningar för Azure VPN-gatewayer
 
@@ -34,7 +34,7 @@ Standard principen som har angetts för Azure VPN-gatewayen visas i artikeln: [o
 
 ## <a name="cryptographic-requirements"></a>Krypterings krav
 
-För kommunikation som kräver särskilda kryptografiska algoritmer eller parametrar, vanligt vis på grund av efterlevnad eller säkerhets krav, kan du nu konfigurera deras Azure VPN-gatewayer så att de använder en anpassad IPsec/IKE-princip med särskilda krypteringsalgoritmer och viktiga styrkor i stället för standard princip uppsättningarna i Azure.
+För kommunikation som kräver särskilda kryptografiska algoritmer eller parametrar, vanligt vis på grund av efterlevnad eller säkerhets krav, kan du nu konfigurera deras Azure VPN-gatewayer så att de använder en anpassad IPsec/IKE-princip med särskilda krypteringsalgoritmer och viktiga styrkor, i stället för Azures standard princip uppsättningar.
 
 IKEv2 huvud läges principer för Azure VPN-gatewayer använder till exempel bara Diffie-Hellman-grupp 2 (1024 bitar), men du kan behöva ange starkare grupper som ska användas i IKE, till exempel grupp 14 (2048-bitars), grupp 24 (2048-bitars MODP-grupp) eller ECP (Elliptic-kurva grupper) 256 eller 384 bit (grupp 19 respektive grupp 20 respektive). Liknande krav gäller även IPsec-principer för snabb läge.
 
@@ -42,7 +42,7 @@ IKEv2 huvud läges principer för Azure VPN-gatewayer använder till exempel bar
 
 Azure VPN-gatewayer stöder nu per anslutning, anpassad IPsec/IKE-princip. För en plats-till-plats-eller VNet-till-VNet-anslutning kan du välja en speciell kombination av krypteringsalgoritmer för IPsec och IKE med önskad nyckel längd, som du ser i följande exempel:
 
-![IPSec-IKE – princip](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
+![ipsec-ike-policy](./media/vpn-gateway-about-compliance-crypto/ipsecikepolicy.png)
 
 Du kan skapa en IPsec/IKE-princip och tillämpa den på en ny eller befintlig anslutning.
 

@@ -3,12 +3,12 @@ title: Azure Resource Health vanliga frågor och svar
 description: Översikt över Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 5a15ded1c279e700fb71e5ea7aa866e5afc29f8a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f626dc4366cbdd9215704de97bb03fad19422eb
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426509"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912774"
 ---
 # <a name="azure-resource-health-faq"></a>Azure Resource Health vanliga frågor och svar
 Lär dig svaren på vanliga frågor om Azure Resource Health.
@@ -46,7 +46,7 @@ Ja, om en resurs inte är tillgänglig, kan Resource Health identifiera rotor sa
 På portalen visas användaren initierade åtgärder med hjälp av en blå meddelande ikon, medan planerade och oplanerade händelser visas med en röd varnings ikon. Mer information finns i [Översikt över Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>Kan jag integrera Resource Health med mina övervaknings verktyg?
-Resurs hälsan har för [hands versions stöd](resource-health-alert-arm-template-guide.md) för aviseringar i aktivitets loggen. Aktivitets logg aviseringar använder [Åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) för att meddela användare om att en avisering har utlösts. Åtgärds grupper har stöd för en rad aviserings kanaler, till exempel e-post, SMS, webhook och ITSM-åtgärder.
+Resource Health har [stöd](resource-health-alert-arm-template-guide.md) för aktivitetsbaserade aviseringar som baseras på aktivitets loggen. Aktivitets logg aviseringar använder [Åtgärds grupper](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) för att meddela användare om att en avisering har utlösts. Åtgärds grupper har stöd för en rad aviserings kanaler, till exempel e-post, SMS, webhook och ITSM-åtgärder.
 
 ## <a name="where-do-i-find-resource-health"></a>Var hittar jag Resource Health?
 När du har loggat in på Azure Portal kan du komma åt Resource Health på flera sätt:

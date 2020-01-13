@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 5ab4281f1ad591befda5a439906604331a1ab323
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872153"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913079"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Säkerhets kontroller för Azure Cosmos DB
 
@@ -48,17 +48,17 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/Nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Alla Azure Cosmos-databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). Kryptering på Server sidan med Kundhanterade nycklar stöds inte. |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej |  |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja | Alla Azure Cosmos-databaser och säkerhets kopior krypteras som standard. Se [data kryptering i Azure Cosmos DB](database-encryption-at-rest.md). |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Se [Konfigurera Kundhanterade nycklar för ditt Azure Cosmos DB-konto](how-to-setup-cmk.md)  |
 | Kryptering på kolumn nivå (Azure Data Services)| Ja | Endast i Tables API Premium. Alla API: er stöder inte den här funktionen. Se [Introduktion till Azure Cosmos DB: tabell-API](table-introduction.md). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Alla Azure Cosmos DB data krypteras vid överföring. |
-| Krypterade API-anrop| Ja | Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2-anslutningar, men detta är inte tvingande än. Om kunderna stänger av lågnivå-TLS på deras sida, kan de se till att de ansluter till Cosmos DB.  |
+| Krypterade API-anrop| Ja | Alla anslutningar till Azure Cosmos DB stöd för HTTPS. Azure Cosmos DB stöder även TLS 1,2.<br>Det är möjligt att framtvinga en lägsta TLS-version på Server sidan. Om du vill göra det kontaktar du [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com]). |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Konfigurations hanterings stöd (konfigurations version osv.)| Nej  | | 
+| Konfigurations hanterings stöd (konfigurations version osv.)| Inga  | | 
 
 ## <a name="additional-security-controls-for-cosmos-db"></a>Ytterligare säkerhets kontroller för Cosmos DB
 

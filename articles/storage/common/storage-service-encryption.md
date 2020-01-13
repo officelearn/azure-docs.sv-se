@@ -4,17 +4,17 @@ description: Azure Storage skyddar dina data genom att automatiskt kryptera dem 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 01/03/2020
+ms.date: 01/10/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 35a5bfd582c9717b062d42d86e7581029861fd0c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: b74943ce3e3e67855a07fa32f15612bbb2351170
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665438"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75913099"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage kryptering för vilande data
 
@@ -38,7 +38,7 @@ Mer information om de kryptografiska modulerna underliggande Azure Storage krypt
 
 Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av ditt lagrings konto, eller så kan du hantera kryptering med dina egna nycklar. Om du väljer att hantera kryptering med dina egna nycklar har du två alternativ:
 
-- Du kan ange en *kundhanterad nyckel* med Azure Key Vault som ska användas för att kryptera och dekryptera data i Blob Storage och i Azure Files.
+- Du kan ange en *kundhanterad nyckel* med Azure Key Vault som ska användas för att kryptera och dekryptera data i Blob Storage och i Azure Files. <sup>1, 2</sup>
 - Du kan ange en *anpassad nyckel* för Blob Storage-åtgärder. En klient som gör en Läs-eller skrivbegäran mot Blob Storage kan inkludera en krypterings nyckel på begäran om detaljerad kontroll över hur BLOB-data krypteras och dekrypteras.
 
 I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kryptering.
@@ -46,11 +46,14 @@ I följande tabell jämförs nyckel hanterings alternativ för Azure Storage kry
 |                                        |    Microsoft-hanterade nycklar                             |    Kundhanterade nycklar                                                                                                                        |    Kund-tillhandahållna nycklar                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    Kryptering/dekryptering    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    Azure Storage tjänster som stöds    |    Alla                                                |    Blob Storage, Azure Files                                                                                                               |    Blobb-lagring                                                                  |
+|    Azure Storage tjänster som stöds    |    Alla                                                |    Blob Storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blobb-lagring                                                                  |
 |    Nyckel lagring                         |    Microsoft nyckel lager    |    Azure Key Vault                                                                                                                              |    Azure Key Vault eller något annat nyckel Arkiv                                                                 |
 |    Största ansvar för nyckel rotation         |    Microsoft                                          |    Kund                                                                                                                                     |    Kund                                                                      |
 |    Nyckelanvändning                           |    Microsoft                                          |    Azure Portal, Provider för lagrings resurs REST API, Azure Storage hanterings bibliotek, PowerShell, CLI        |    Azure Storage REST API (Blob Storage), Azure Storage klient bibliotek    |
 |    Nyckel åtkomst                          |    Endast Microsoft                                     |    Microsoft, kund                                                                                                                    |    Endast kund                                                                 |
+
+<sup>1</sup> information om hur du skapar ett konto som stöder användning av Kundhanterade nycklar med Queue Storage finns i [skapa ett konto som stöder Kundhanterade nycklar för köer](account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).<br />
+<sup>2</sup> mer information om hur du skapar ett konto som stöder användning av Kundhanterade nycklar med Table Storage finns i [skapa ett konto som stöder Kundhanterade nycklar för tabeller](account-encryption-key-create.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
 
 I följande avsnitt beskrivs de olika alternativen för nyckel hantering i större detalj.
 

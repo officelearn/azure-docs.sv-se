@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 61a8cf366d5ae03f5267718f8ab20580295ddab5
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903446"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912803"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -80,7 +80,7 @@ Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites`-inst
 
 Eftersom den här inställningen är en del av en tidsbaserad bevarande princip stannar de bifogade Blobbarna kvar i det oföränderliga läget för varaktigheten för den *gällande* kvarhållningsperioden. Eftersom nya data kan läggas till utöver den inledande skapandet av tilläggs-bloben, finns det en liten skillnad i hur kvarhållningsperioden fastställs. Den effektiva kvarhållning är skillnaden mellan bifogad blobs **senaste ändrings tid** och det användardefinierade kvarhållningsintervall. På samma sätt som kvarhållningsintervallet är utökad använder oföränderlig lagring det senaste värdet för det användardefinierade kvarhållningsintervallet för att beräkna den effektiva kvarhållningsperioden.
 
-Anta till exempel att en användare skapar en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad och ett kvarhållningsintervall på 90 dagar. En tilläggs-BLOB, _logblob1_, skapas i behållaren idag, nya loggar fortsätter att läggas till i tilläggs-bloben under de närmaste 10 dagarna. den effektiva kvarhållningsperioden för _logblob1_ är alltså 100 dagar från idag (tidpunkten för senaste ändring/tillägg).
+Anta till exempel att en användare skapar en tidsbaserad bevarande princip med `allowProtectedAppendWrites` aktive rad och ett kvarhållningsintervall på 90 dagar. En tilläggs-BLOB, _logblob1_, skapas i behållaren idag, nya loggar fortsätter att läggas till i tilläggs-bloben under de närmaste 10 dagarna. den effektiva kvarhållningsperioden för _logblob1_ är alltså 100 dagar från idag (tidpunkten för senaste tillägg + 90 dagar).
 
 Vid låsning av tidsbaserade tidsbaserade bevarande principer kan `allowProtectedAppendWrites` inställningen aktive ras och inaktive ras när som helst. När tidsbaserad bevarande princip är låst går det inte att ändra `allowProtectedAppendWrites`s inställningen.
 

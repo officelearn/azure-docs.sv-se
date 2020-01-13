@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 1eebb41c83071f34cf367826a21c4bfbf0189394
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c556f726cd63971abe1e9b6d8b87117bb3e378db
+ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748981"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75912841"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Smart identifiering – fel avvikelser
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) automatiskt varna dig i nära real tid om din webbapp upplever en onormal ökning av antalet misslyckade förfrågningar. Den identifierar en ovanlig ökning i frekvensen av HTTP-begäranden eller beroende anrop som rapporteras som misslyckade. För förfrågningar har misslyckade förfrågningar vanligt vis svars koder på 400 eller högre. För att hjälpa dig att prioritering och diagnostisera problemet finns en analys av egenskaperna för fel och relaterade program data i aviserings informationen. Det finns också länkar till Application Insights Portal för ytterligare diagnos. Funktionen behöver inte konfigureras eller konfigureras eftersom den använder Machine Learning-algoritmer för att förutsäga den normala felfrekvensen.
@@ -48,13 +48,11 @@ När en analys utlöses utför tjänsten en kluster analys på den misslyckade b
 
 I exemplet ovan har analysen identifierat att de flesta felen är en viss resultat kod, namn på begäran, server-URL-värd och roll instans. 
 
-Analysen har som kontrast identifierat att egenskapen för klientens operativ system är distribuerad över flera värden och att den inte visas i listan.
-
 När din tjänst instrumenteras med dessa anrop, söker Analyzer efter ett undantag och ett beroende fel som är associerat med begär anden i klustret. det har identifierats tillsammans med ett exempel på alla spårnings loggar som är kopplade till dessa förfrågningar.
 
 Den resulterande analysen skickas till dig som avisering, om du inte har konfigurerat den inte till.
 
-Precis som [aviseringarna som du anger manuellt](../../azure-monitor/app/alerts.md)kan du kontrol lera status för aviseringen och konfigurera den på sidan aviseringar i Application Insights resursen. Men till skillnad från andra aviseringar behöver du inte konfigurera eller konfigurera Smart identifiering. Om du vill kan du inaktivera den eller ändra dess mål-e-postadresser.
+Precis som [aviseringarna som du anger manuellt](../../azure-monitor/app/alerts.md)kan du kontrol lera statusen för den utlöst aviseringen, som kan lösas om problemet är löst. Konfigurera varnings reglerna på sidan aviseringar i din Application Insights-resurs. Men till skillnad från andra aviseringar behöver du inte konfigurera eller konfigurera Smart identifiering. Om du vill kan du inaktivera den eller ändra dess mål-e-postadresser.
 
 ### <a name="alert-logic-details"></a>Information om aviserings logik
 
@@ -63,6 +61,7 @@ Aviseringarna utlöses av vår leverantörsspecifika Machine Learning-algoritm s
 * Analys av misslyckad procent andel begär Anden/beroenden i en rullande tids period på 20 minuter.
 * En jämförelse av antalet misslyckade procent av de senaste 20 minuterna i priset under de senaste 40 minuterna och de senaste sju dagarna och letar efter betydande avvikelser som överstiger X-gånger som standard avvikelsen.
 * Använder en anpassad gräns för minsta antal misslyckade procent, vilket varierar beroende på appens volym för begär Anden/beroenden.
+* Det finns logik som automatiskt kan lösa det utlösma aviserings övervaknings villkoret, om problemet inte längre upptäcks i 8-24 timmar.
 
 ## <a name="configure-alerts"></a>Konfigurera varningar
 
@@ -83,7 +82,7 @@ Klicka på aviseringen för att konfigurera den.
 
 [![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
 
-Observera att du kan inaktivera Smart identifiering, men du kan inte ta bort den (eller skapa en annan).
+Observera att du kan inaktivera eller ta bort en varnings regel för fel avvikelser, men du kan inte skapa en annan på samma Application Insights-resurs.
 
 ## <a name="example-of-failure-anomalies-alert-webhook-payload"></a>Exempel på fel avvikelser avisering webhook nytto Last
 

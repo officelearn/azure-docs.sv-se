@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 01/10/2020
 ms.author: radeltch
-ms.openlocfilehash: 059937cc390a15c986724b3107a7f64fb789fc92
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 975f4940590bfbdab559122c68488c51c65d868e
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480286"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75896308"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-red-hat-enterprise-linux"></a>Distribuera ett SAP HANA skalbart system med noden vänte läge på virtuella Azure-datorer med Azure NetApp Files på Red Hat Enterprise Linux 
 
@@ -435,7 +435,11 @@ Konfigurera och Förbered ditt operativ system genom att utföra följande steg:
     mount 10.9.0.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
     echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
-    </code></pre>`
+    # Make the configuration permanent
+    echo "options nfs nfs4_disable_idmapping=Y" >> /etc/modprobe.d/nfs.conf
+    </code></pre>
+
+   Mer information om hur du ändrar `nfs4_disable_idmapping` parameter finns https://access.redhat.com/solutions/1749883.
 
 6. **[A]** montera de delade Azure NetApp Files volymerna.  
 
@@ -569,14 +573,14 @@ I det här exemplet för att distribuera SAP HANA i en skalbar konfiguration med
      * För **Välj system användning/ange index [4]** : ange **4** (för anpassad)
      * För **plats för data volymer** [/Hana/data/HN1]: Tryck på RETUR för att acceptera standardvärdet
      * För **plats för logg volymer** [/Hana/log/HN1]: Tryck på RETUR för att acceptera standardvärdet
-     * **Begränsa maximal minnesallokering?** [n]\: ange **n**
+     * **Begränsa maximal minnesallokering?** [n]: ange **n**
      * För **certifikat värd namnet för värd hanadb1** [hanadb1]: Tryck på RETUR för att acceptera standardvärdet
      * För **certifikat värd namnet för värd hanadb2** [hanadb2]: Tryck på RETUR för att acceptera standardvärdet
      * För **certifikat värd namnet för värd hanadb3** [hanadb3]: Tryck på RETUR för att acceptera standardvärdet
      * För **system administratörs lösen ord (hn1adm)** : Ange lösen ordet
      * För **lösen ord för system databas användare (system)** : Ange systemets lösen ord
      * För **Bekräfta System-Password (system Database User)** : Ange systemets lösen ord
-     * För **omstart av systemet efter omstart av datorn?** [n]\: ange **n** 
+     * För **omstart av systemet efter omstart av datorn?** [n]: ange **n** 
      * För vill **du fortsätta (j/n)** : validera sammanfattningen och om allt ser bra ut anger du **y**
 
 

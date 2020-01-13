@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2019
-ms.openlocfilehash: f55b6e743ff82d4192cbdd91ba54c92efef432bc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 81e232e37e437c4fa9d23a49a720b88511423905
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838742"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75427565"
 ---
 # <a name="getting-started-with-the-r-programming-language-in-azure-machine-learning-studio-classic"></a>Komma igång med R-programmeringsspråket i Azure Machine Learning Studio (klassisk)
 
@@ -23,9 +23,9 @@ ms.locfileid: "73838742"
 
 ## <a name="introduction"></a>Introduktion
 
-Den här självstudien hjälper dig att börja utöka Azure Machine Learning Studio (klassisk) med hjälp av R-programmeringsspråket. Följ den här vägledningen för R-programmering för att skapa, testa och köra R-kod i Studio (klassisk). När du arbetar med självstudier skapar du en komplett prognos lösning med hjälp av R-språket i den klassiska versionen av Studio.  
+Den här självstudien hjälper dig att börja utöka Azure Machine Learning Studio (klassisk) med hjälp av R-programmeringsspråket. Följ den här vägledningen för R-programmering för att skapa, testa och köra R-kod i Studio (klassisk). När du arbetar med självstudierna skapar du en komplett prognos lösning med hjälp av R-språket i Studio (klassisk).  
 
-Den klassiska versionen av Azure Machine Learning Studio innehåller många kraftfulla moduler för maskin inlärning och data manipulation. Det kraftfulla R-språket har beskrivits som lingua-franca för analys. Happily, analys och data behandling i den klassiska versionen av Studio kan utökas med R. Den här kombinationen ger skalbarhet och enkel distribution av den klassiska versionen av Studio med flexibilitet och djup analys av R.
+Azure Machine Learning Studio (klassisk) innehåller många kraftfulla moduler för maskin inlärning och data manipulation. Det kraftfulla R-språket har beskrivits som lingua-franca för analys. Happily, analys och data behandling i Studio (klassisk) kan utökas med hjälp av R. Den här kombinationen ger skalbarhet och enkel distribution av Studio (klassisk) med flexibiliteten och djup analysen av R.
 
 ### <a name="forecasting-and-the-dataset"></a>Prognoser och data uppsättningen
 
@@ -39,23 +39,23 @@ De data som används i den här artikeln, tillsammans med R-skript, kan hämtas 
 
 ### <a name="organization"></a>Organisation
 
-Vi går igenom flera steg för att lära dig att skapa, testa och köra analys-och data manipulation R-kod i den klassiska versionen av Azure Machine Learning Studios miljö.  
+Vi går igenom flera steg för att lära dig att skapa, testa och köra analys-och data manipulation R-kod i den Azure Machine Learning Studio (klassiska) miljön.  
 
-* Först ska vi utforska grunderna för att använda R-språket i den klassiska versionen av Azure Machine Learning Studios miljö.
-* Sedan kommer vi att diskutera olika aspekter av I/O för data, R-kod och grafik i den klassiska versionen av Azure Machine Learning Studios miljö.
+* Först ska vi utforska grunderna för att använda R-språket i den Azure Machine Learning Studio (klassiska) miljön.
+* Sedan kommer vi att diskutera olika aspekter av I/O för data, R-kod och grafik i den Azure Machine Learning Studio (klassiska) miljön.
 * Vi skapar sedan den första delen av vår prognos lösning genom att skapa kod för data rensning och transformering.
 * Med våra data för beredd kommer vi att utföra en analys av korrelationerna mellan flera av variablerna i vår data uppsättning.
 * Slutligen kommer vi att skapa en prognos modell för säsongs tids serier för mjölk produktion.
 
 ## <a id="mlstudio"></a>Interagera med R-språk i Machine Learning Studio (klassisk)
 
-Det här avsnittet beskriver grunderna i hur du interagerar med R-programmeringsspråket i den Machine Learning Studio (klassiska) miljön. R-språket är ett kraftfullt verktyg för att skapa anpassade moduler för analys och data manipulation i den klassiska versionen av Azure Machine Learning Studios miljö.
+Det här avsnittet beskriver grunderna i hur du interagerar med R-programmeringsspråket i den Machine Learning Studio (klassiska) miljön. R-språket är ett kraftfullt verktyg för att skapa anpassade moduler för analys och datamanipulering i den Azure Machine Learning Studio (klassiska) miljön.
 
-Jag kommer att använda RStudio för att utveckla, testa och felsöka R-kod på en liten skala. Koden klipps sedan och klistras in i en [execute R script][execute-r-script] -modul som är klar att köras i den klassiska versionen av Machine Learning Studio.  
+Jag kommer att använda RStudio för att utveckla, testa och felsöka R-kod på en liten skala. Koden klipps sedan och klistras in i en [execute R script][execute-r-script] -modul som är redo att köras i Azure Machine Learning Studio (klassisk).  
 
 ### <a name="the-execute-r-script-module"></a>Kör R-skript-modulen
 
-I den klassiska versionen av Machine Learning Studio körs R-skript i modulen [Kör R-skript][execute-r-script] . Ett exempel på modulen [Kör R-skript][execute-r-script] i den klassiska versionen av Machine Learning Studio visas i bild 1.
+I Machine Learning Studio (klassisk) körs R-skript i modulen [Kör R-skript][execute-r-script] . Ett exempel på modulen [Kör R-skript][execute-r-script] i Machine Learning Studio (klassisk) visas i bild 1.
 
  ![R-programmeringsspråk: modulen kör R-skript som valts i Machine Learning Studio (klassisk)](./media/r-quickstart/fig1.png)
 
@@ -69,7 +69,7 @@ Vi hänvisar till bild 1, vi ska titta på några av de viktigaste delarna i den
 
 Vi kommer naturligtvis att diskutera [execute R-skriptet][execute-r-script] i större detalj i resten av den här artikeln.
 
-När du arbetar med komplexa R-funktioner rekommenderar vi att du redigerar, testar och felsöker i RStudio. Precis som med all program utveckling utökar du koden stegvis och testar den på små enkla test fall. Klipp sedan ut och klistra in funktionerna i R-skript fönstret i modulen [Kör R-skript][execute-r-script] . Med den här metoden kan du utnyttja både RStudio-Integrated Development Environment (IDE) och kraften i den klassiska versionen av Azure Machine Learning Studio.  
+När du arbetar med komplexa R-funktioner rekommenderar vi att du redigerar, testar och felsöker i RStudio. Precis som med all program utveckling utökar du koden stegvis och testar den på små enkla test fall. Klipp sedan ut och klistra in funktionerna i R-skript fönstret i modulen [Kör R-skript][execute-r-script] . Med den här metoden kan du utnyttja både RStudio-Integrated Development Environment (IDE) och kraften i Azure Machine Learning Studio (klassisk).  
 
 #### <a name="execute-r-code"></a>Kör R-kod
 
@@ -77,17 +77,17 @@ All R-kod i modulen [Kör R-skript][execute-r-script] körs när du kör experim
 
 #### <a name="defensive-r-coding-for-azure-machine-learning"></a>Försvars-R-kodning för Azure Machine Learning
 
-Om du utvecklar R-kod för, t. ex. en webb tjänst med hjälp av den klassiska versionen av Azure Machine Learning Studio bör du definitivt planera hur din kod kommer att hantera en oväntad data inmatning och undantag. För att upprätthålla klarhet har jag inte inkluderat mycket på sättet att kontrol lera eller hantera undantag i de flesta kod exemplen som visas. Medan vi fortsätter får du dock flera exempel på funktioner med hjälp av R s undantags hanterings funktion.  
+Om du utvecklar R-kod för, t. ex. en webb tjänst med hjälp av Azure Machine Learning Studio (klassisk) bör du planera hur din kod ska hantera en oväntad data inmatning och undantag. För att upprätthålla klarhet har jag inte inkluderat mycket på sättet att kontrol lera eller hantera undantag i de flesta kod exemplen som visas. Medan vi fortsätter får du dock flera exempel på funktioner med hjälp av R s undantags hanterings funktion.  
 
 Om du behöver en mer fullständig behandling av R undantags hantering rekommenderar vi att du läser de relevanta avsnitten i boken enligt Wickham nedan och [läser vidare](#appendixb).
 
 #### <a name="debug-and-test-r-in-machine-learning-studio-classic"></a>Felsöka och testa R i Machine Learning Studio (klassisk)
 
-För att kunna upprepa igen rekommenderar vi att du testar och felsöker din R-kod på en liten skala i RStudio. Det finns dock fall där du kommer att behöva spåra R-kod problem i själva [execute r-skriptet][execute-r-script] . Dessutom är det en bra idé att kontrol lera resultaten i den klassiska versionen av Machine Learning Studio.
+För att kunna upprepa igen rekommenderar vi att du testar och felsöker din R-kod på en liten skala i RStudio. Det finns dock fall där du kommer att behöva spåra R-kod problem i själva [execute r-skriptet][execute-r-script] . Dessutom är det en bra idé att kontrol lera resultaten i Machine Learning Studio (klassisk).
 
-Utdata från körningen av din R-kod och den klassiska versionen av Azure Machine Learning Studios plattformen identifieras främst i output. log. Ytterligare information visas i error. log.  
+Utdata från körningen av R-koden och på den Azure Machine Learning Studio (klassiska)-plattformen identifieras främst i output. log. Ytterligare information visas i error. log.  
 
-Om det uppstår ett fel i den klassiska versionen av Machine Learning Studio när du kör R-koden bör din första åtgärd vara att titta på error. log. Den här filen kan innehålla användbara fel meddelanden som hjälper dig att förstå och korrigera felet. Om du vill visa fel. log väljer du **Visa fel logg** i **rutan Egenskaper** för det [Kör R-skript][execute-r-script] som innehåller felet.
+Om ett fel inträffar i Machine Learning Studio (klassisk) när du kör R-koden bör din första åtgärd vara att titta på error. log. Den här filen kan innehålla användbara fel meddelanden som hjälper dig att förstå och korrigera felet. Om du vill visa fel. log väljer du **Visa fel logg** i **rutan Egenskaper** för det [Kör R-skript][execute-r-script] som innehåller felet.
 
 Till exempel kördes följande R-kod, med en odefinierad variabel i y, i en [execute R-skript][execute-r-script] -modul:
 
@@ -149,9 +149,9 @@ Den fullständiga koden för det här avsnittet är i [MachineLearningSamples-No
 
 #### <a id="loading"></a>Läs in data uppsättningen
 
-Vi kommer att börja med att läsa in filen **csdairydata. csv** i den klassiska versionen av Azure Machine Learning Studio.
+Vi börjar med att läsa in filen **csdairydata. csv** i Azure Machine Learning Studio (klassisk).
 
-1. Starta den klassiska versionen av Azure Machine Learning Studios miljö.
+1. Starta din Azure Machine Learning Studio (klassiska) miljö.
 1. Välj **+ ny** längst ned till vänster på skärmen och välj **data uppsättning**.
 1. Välj **från lokal fil**och **Bläddra** sedan för att välja filen.
 1. Kontrol lera att du har valt en **allmän CSV-fil med sidhuvud (. csv)** som typ för data uppsättningen.
@@ -160,7 +160,7 @@ Vi kommer att börja med att läsa in filen **csdairydata. csv** i den klassiska
 
 #### <a name="create-an-experiment"></a>Skapa ett experiment
 
-Nu när vi har några data i den klassiska versionen av Machine Learning Studio behöver vi skapa ett experiment för att utföra analysen.  
+Nu när vi har några data i Machine Learning Studio (klassisk) måste vi skapa ett experiment för att utföra analysen.  
 
 1. Välj **+ ny** längst ned till vänster och välj **experiment**och sedan **Tom experiment**.
 1. Du kan namnge experimentet genom att välja, och ändra, **experimentet som skapades på...** title överst på sidan. Du kan till exempel ändra den till **ca mejeri analyser**.
@@ -185,11 +185,11 @@ Låt oss ta en titt på de data vi har läst in i vårt experiment. I experiment
 
 *Bild 4. Översikt över data uppsättningen cadairydata. csv.*
 
-I den här vyn ser vi mycket värdefull information. Vi kan se de första flera raderna i data uppsättningen. Om vi väljer en kolumn, visas mer information om kolumnen i statistik avsnittet. Till exempel visar raden typ av information om vilka data typer som den klassiska versionen av Azure Machine Learning Studio tilldelats till kolumnen. Se till att det här är en korrekt Sanity-kontroll innan vi börjar göra seriöst arbete.
+I den här vyn ser vi mycket värdefull information. Vi kan se de första flera raderna i data uppsättningen. Om vi väljer en kolumn, visas mer information om kolumnen i statistik avsnittet. Till exempel visar raden typ av data typer Azure Machine Learning Studio (klassisk) som har tilldelats till kolumnen. Se till att det här är en korrekt Sanity-kontroll innan vi börjar göra seriöst arbete.
 
 ### <a name="first-r-script"></a>Första R-skript
 
-Nu ska vi skapa ett enkelt första R-skript för att experimentera med i den klassiska versionen av Azure Machine Learning Studio. Jag har skapat och testat följande skript i RStudio.  
+Nu ska vi skapa ett enkelt första R-skript för att experimentera i Azure Machine Learning Studio (klassisk). Jag har skapat och testat följande skript i RStudio.  
 
 ```R
 ## Only one of the following two lines should be used
@@ -204,7 +204,7 @@ pairs(~ Cotagecheese.Prod + Icecream.Prod + Milk.Prod + N.CA.Fat.Price, data = c
 maml.mapOutputPort('cadairydata')
 ```
 
-Jag måste nu överföra det här skriptet till den klassiska versionen av Azure Machine Learning Studio. Jag kan helt enkelt klippa ut och klistra in. I det här fallet ska jag dock överföra R-skriptet via en zip-fil.
+Jag måste nu överföra det här skriptet till Azure Machine Learning Studio (klassisk). Jag kan helt enkelt klippa ut och klistra in. I det här fallet ska jag dock överföra R-skriptet via en zip-fil.
 
 ### <a name="data-input-to-the-execute-r-script-module"></a>Data inmatning i modulen kör R-skript
 
@@ -224,7 +224,7 @@ load("src/yourData.rdata") # Reads a zipped R data file
 ```
 
 > [!NOTE]
-> Den klassiska versionen av Azure Machine Learning Studio behandlar filer i zip-filen som om de finns i src/Directory, så du måste använda prefixet för fil namnen med detta katalog namn. Till exempel, om zip-filen innehåller filerna `yourfile.R` och `yourData.rdata` i zip-roten, kan du hantera dessa som `src/yourfile.R` och `src/yourData.rdata` när du använder `source` och `load`.
+> Azure Machine Learning Studio (klassisk) behandlar filer i zip-filen som om de finns i src/Directory, så du måste använda prefixet för fil namnen med detta katalog namn. Till exempel, om zip-filen innehåller filerna `yourfile.R` och `yourData.rdata` i zip-roten, kan du hantera dessa som `src/yourfile.R` och `src/yourData.rdata` när du använder `source` och `load`.
 
 Vi har redan diskuterat inläsning av data uppsättningar i [läsa in data uppsättningen](#loading). När du har skapat och testat R-skriptet som visas i föregående avsnitt gör du följande:
 
@@ -245,7 +245,7 @@ Vi har redan diskuterat inläsning av data uppsättningar i [läsa in data upps�
 
 1. Skapa en zip-fil och kopiera skriptet till den här zip-filen. I Windows kan du högerklicka på filen och välja **Skicka till**, och sedan på **komprimerad mapp**. Då skapas en ny zip-fil som innehåller kommandot "simpleplot. R "-fil.
 
-1. Lägg till din fil till **data uppsättningarna** i den klassiska versionen av Machine Learning Studio och ange typen som **zip**. Du bör nu se zip-filen i dina data uppsättningar.
+1. Lägg till din fil till **data uppsättningarna** i Azure Machine Learning Studio (klassisk) och ange typ som **zip**. Du bör nu se zip-filen i dina data uppsättningar.
 
 1. Dra och släpp zip-filen från **data uppsättningar** till den **ml Studio (klassiska) arbets ytan**.
 
@@ -374,7 +374,7 @@ Syntaxen för någon av dessa konverteringar är enkel: `as.datatype()`. De här
 
 Titta på data typerna för kolumnerna som du har angett i föregående avsnitt: alla kolumner är av typen numerisk, förutom kolumnen "månad", som är av typen "månad". Vi konverterar detta till en faktor och testar resultatet.  
 
-Jag har tagit bort raden som skapade scatterplot-matrisen och lagt till en rad som konverterar kolumnen månad till en faktor. I mitt experiment klipper du bara ut och klistrar in R-koden i fönstret kod i modulen [Kör R-skript][execute-r-script] . Du kan också uppdatera zip-filen och ladda upp den till den klassiska versionen av Azure Machine Learning Studio, men detta tar flera steg.  
+Jag har tagit bort raden som skapade scatterplot-matrisen och lagt till en rad som konverterar kolumnen månad till en faktor. I mitt experiment klipper du bara ut och klistrar in R-koden i fönstret kod i modulen [Kör R-skript][execute-r-script] . Du kan också uppdatera zip-filen och ladda upp den till Azure Machine Learning Studio (klassisk), men det tar flera steg.  
 
 ```R
 ## Only one of the following two lines should be used
@@ -468,7 +468,7 @@ R-dataframes stöder kraftfulla filtrerings funktioner. Data uppsättningar kan 
 Det finns en filtrerings bit som vi bör göra på vår data uppsättning. Om du tittar på kolumnerna i cadairydata-dataframe visas två onödiga kolumner. Den första kolumnen innehåller bara ett rad nummer som inte är användbart. Den andra kolumnen år. månad innehåller redundant information. Vi kan enkelt undanta dessa kolumner genom att använda följande R-kod.
 
 > [!NOTE]
-> I det här avsnittet visar jag bara den ytterligare kod som jag lägger till i modulen [Kör R-skript][execute-r-script] . Jag lägger till varje ny rad **före** `str()`-funktionen. Jag använder den här funktionen för att verifiera mina resultat i den klassiska versionen av Azure Machine Learning Studio.
+> I det här avsnittet visar jag bara den ytterligare kod som jag lägger till i modulen [Kör R-skript][execute-r-script] . Jag lägger till varje ny rad **före** `str()`-funktionen. Jag använder den här funktionen för att verifiera mina resultat i Azure Machine Learning Studio (klassisk).
 
 Jag lägger till följande rad i min R-kod i modulen [Kör R-skript][execute-r-script] .
 
@@ -756,7 +756,7 @@ Kör den här koden och se vad som händer. Observations området som skapas på
 
 Det finns en viss struktur med udda utseende i relationerna mellan dessa variabler. Detta kan bero på trender i data och från det faktum att vi inte har standardiserat variablerna.
 
-### <a name="correlation-analysis"></a>Korrelations analys
+### <a name="correlation-analysis"></a>Korrelationsanalys
 
 För att utföra korrelations analys behöver vi både ta bort och standardisera variablerna. Vi kan bara använda R `scale()`-funktionen, som båda centrerar och skalar variabler. Den här funktionen kan köras snabbare. Jag vill dock visa ett exempel på försvars program i R.
 
@@ -1030,7 +1030,7 @@ Om du kör koden skapas en serie med tids serie kurvor från R-enhetens utdata s
 
 När du har skapat ett Time Series-objekt och har haft en titt på data kan vi börja konstruera en trend modell för produktion data från Kalifornien. Vi kan göra detta med en Time Series-regression. Det är dock tydligt från observations området att vi behöver mer än en lutning och en spärr för att korrekt modellera den observerade trenden i tränings data.
 
-Med tanke på den små skalan av data kommer jag att bygga modellen för trend i RStudio och sedan klippa ut och klistra in den resulterande modellen i den klassiska versionen av Azure Machine Learning Studio. RStudio tillhandahåller en interaktiv miljö för den här typen av interaktiva analyser.
+Med tanke på den små skalan av data kommer jag att bygga modellen för trend i RStudio och sedan klippa ut och klistra in den resulterande modellen i Azure Machine Learning Studio (klassisk). RStudio tillhandahåller en interaktiv miljö för den här typen av interaktiva analyser.
 
 Ett första försök är att prova en polynom regression med en behörighet på upp till 3. Det finns en riktig risk för överanpassning av de här typerna av modeller. Därför är det bäst att undvika hög ordnings villkor. Funktionen `I()` hämmar tolkningen av innehållet (tolkar innehållet) och gör att du kan skriva en bokstavligen tolkad funktion i en Regressions ekvation.
 
@@ -1094,7 +1094,7 @@ Detta genererar följande.
 
 Detta ser bättre ut. Alla villkor är viktiga. 2e-16-värdet är dock ett standardvärde och bör inte tas för allvarligt.  
 
-Som ett Sanity-test, ska vi göra en tids serie kurva om produktions data från California mejeri produkter med den trend kurva som visas. Jag har lagt till följande kod i den klassiska versionen av Azure Machine Learning Studio [Kör R-skript][execute-r-script] modell (inte RStudio) för att skapa modellen och skapa en rityta. Resultatet visas i bild 23.
+Som ett Sanity-test, ska vi göra en tids serie kurva om produktions data från California mejeri produkter med den trend kurva som visas. Jag har lagt till följande kod i Azure Machine Learning Studio (klassisk) [Kör R skript][execute-r-script] modell (inte RStudio) för att skapa modellen och skapa en rityta. Resultatet visas i bild 23.
 
 ```R
 milk.lm <- lm(Milk.Prod ~ Time + I(Month.Count^3), data = cadairytrain)
@@ -1156,7 +1156,7 @@ Detta genererar följande.
 
 Vi ser att modellen inte längre har en spärr period och har 12 signifikanta månads faktorer. Det är precis vad vi ville se.
 
-Låt oss göra en annan Time Series-kurva om produktions data från Kalifornien för att se hur väl säsongs modellen fungerar. Jag har lagt till följande kod i den klassiska versionen av Azure Machine Learning Studio [köra R-skript][execute-r-script] för att skapa modellen och skapa en rityta.
+Låt oss göra en annan Time Series-kurva om produktions data från Kalifornien för att se hur väl säsongs modellen fungerar. Jag har lagt till följande kod i Azure Machine Learning Studio (klassisk) [Kör R-skriptet][execute-r-script] för att skapa modellen och skapa en rityta.
 
 ```R
 milk.lm2 <- lm(Milk.Prod ~ Time + I(Month.Count^3) + Month - 1, data = cadairytrain)
@@ -1165,7 +1165,7 @@ plot(cadairytrain$Time, cadairytrain$Milk.Prod, xlab = "Time", ylab = "Log CA Mi
 lines(cadairytrain$Time, predict(milk.lm2, cadairytrain), lty = 2, col = 2)
 ```
 
-Genom att köra den här koden i den klassiska versionen av Azure Machine Learning Studio skapar du ritytan som visas i bild 24.
+Genom att köra den här koden i Azure Machine Learning Studio (klassisk) skapar du ritytan som visas i bild 24.
 
 ![Kalifornien mjölk produktion med modell inklusive säsongs effekter](./media/r-quickstart/unnamed-chunk-20.png)
 
@@ -1310,7 +1310,7 @@ RStudio är väl väldokumenterat. Här följer några länkar till de viktigast
 
 ## <a id="appendixb"></a>Mer läsning
 
-Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med den klassiska versionen av Azure Machine Learning Studio. Om du inte är bekant med R finns två introduktioner på CRAN:
+Den här själv studie kursen beskriver grunderna om vad du behöver för att använda R-språket med Azure Machine Learning Studio (klassisk). Om du inte är bekant med R finns två introduktioner på CRAN:
 
 * [R för nybörjare](https://cran.r-project.org/doc/contrib/Paradis-rdebuts_en.pdf) av Emmanuel paradis är en bra plats att börja på.  
 * [En introduktion till R](https://cran.r-project.org/doc/manuals/R-intro.html) med W. N. Venables et. Al. är lite mer djup.

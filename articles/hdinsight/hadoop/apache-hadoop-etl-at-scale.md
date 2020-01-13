@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: ashishth
-ms.openlocfilehash: d19640d19c3b7fa611f5bfe0e4fd0868924650c5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
+ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066928"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75435777"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
@@ -51,11 +51,11 @@ Mer information om Azure Data Factory finns i [dokumentationen](../../data-facto
 
 ## <a name="ingest-file-storage-and-result-storage"></a>Hämta fil lagring och resultat lagring
 
-Källfiler för data läses vanligt vis in på en plats i Azure Storage eller Azure Data Lake Storage. Filerna kan vara i valfritt format, men vanligt vis är de flata filer som CSV: er. 
+Källfiler för data läses vanligt vis in på en plats i Azure Storage eller Azure Data Lake Storage. Filerna kan vara i valfritt format, men vanligt vis är de flata filer som CSV: er.
 
-### <a name="azure-storage"></a>Azure Storage 
+### <a name="azure-storage"></a>Azure Storage
 
-[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) har [vissa skalbarhets mål](../../storage/common/storage-scalability-targets.md).  För de flesta analytiska noder skalas Azure Storage bäst vid hantering av många mindre filer.  Azure Storage garanterar samma prestanda, oavsett hur många filer eller hur stora filer (så länge du befinner sig inom gränserna).  Det innebär att du kan lagra flera terabyte data och fortfarande få konsekventa prestanda, oavsett om du använder en delmängd av data eller data.
+[Azure Storage](https://azure.microsoft.com/services/storage/blobs/) har vissa skalbarhets mål. Mer information finns i [skalbarhets-och prestanda mål för Blob Storage](../../storage/blobs/scalability-targets.md). För de flesta analytiska noder skalas Azure Storage bäst vid hantering av många mindre filer.  Azure Storage garanterar samma prestanda, oavsett hur många filer eller hur stora filer (så länge du befinner sig inom gränserna).  Det innebär att du kan lagra flera terabyte data och fortfarande få konsekventa prestanda, oavsett om du använder en delmängd av data eller data.
 
 Azure Storage har flera olika typer av blobbar.  En *tilläggs-BLOB* är ett bra alternativ för att lagra webb loggar eller sensor data.  
 
@@ -77,7 +77,7 @@ ADLS är också optimerad för händelse inmatning med Azure Event Hub eller Apa
 
 För att ladda upp data uppsättningar i terabyte-intervallet kan nätverks fördröjningen vara ett större problem, särskilt om data kommer från en lokal plats.  I sådana fall kan du använda alternativen nedan:
 
-* Azure-ExpressRoute:  Med Azure ExpressRoute kan du skapa privata anslutningar mellan Azure-datacenter och din lokala infrastruktur. Dessa anslutningar ger ett tillförlitligt alternativ för överföring av stora mängder data. Mer information finns i [dokumentationen om Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
+* Azure ExpressRoute: med Azure ExpressRoute kan du skapa privata anslutningar mellan Azure-datacenter och din lokala infrastruktur. Dessa anslutningar ger ett tillförlitligt alternativ för överföring av stora mängder data. Mer information finns i [dokumentationen om Azure ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 * "Frånkopplad" överföring av data. Du kan använda [Azure import/export-tjänsten](../../storage/common/storage-import-export-service.md) för att leverera hård diskar med dina data till ett Azure-datacenter. Dina data laddas först upp till Azure Storage blobbar. Du kan sedan använda [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md) eller [AdlCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md) -verktyget för att kopiera data från Azure Storage blobbar till data Lake Storage.
 
@@ -129,7 +129,7 @@ Apache FLUME är en distribuerad, tillförlitlig och tillgänglig tjänst för a
 
 Apache FLUME kan inte användas med Azure HDInsight.  En lokal Hadoop-installation kan använda FLUME för att skicka data till antingen Azure Storage blobbar eller Azure Data Lake Storage.  Mer information finns i [using Apache FLUME med HDInsight](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/).
 
-## <a name="transform"></a>Transformering
+## <a name="transform"></a>Transformera
 
 När data finns på den valda platsen måste du rensa den, kombinera den eller förbereda den för ett särskilt användnings mönster.  Hive, gris och Spark SQL är alla lämpliga alternativ för den typen av arbete.  De stöds i HDInsight. 
 

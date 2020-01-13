@@ -113,6 +113,8 @@
       items:
         - name: Säkerhetsöversikt
           href: search-security-overview.md
+        - name: Skapa en privat slutpunkt
+          href: service-create-private-endpoint.md
         - name: Hantering av servicenycklar
           href: search-security-api-keys.md
         - name: Rollbaserad administratörsåtkomst
@@ -333,7 +335,7 @@
       items:
         - name: API-version 2019-05-06-Preview
           href: search-api-preview.md
-        - name: ResetSkills-API
+        - name: Återställ kompetens-API
           href: preview-api-resetskills.md
     - name: Resource Manager-mall
       href: /azure/templates/microsoft.search/searchservices

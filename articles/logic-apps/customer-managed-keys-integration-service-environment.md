@@ -1,0 +1,223 @@
+---
+title: Konfigurera Kundhanterade nycklar för att kryptera data i vila i ISEs
+description: Skapa och hantera dina egna krypterings nycklar för att skydda data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, rarayudu, logicappspm
+ms.topic: conceptual
+ms.date: 01/14/2020
+ms.openlocfilehash: 6f4e0744aad5f053cdda0a52b382ad3c86982c2f
+ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75904985"
+---
+# <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Konfigurera Kundhanterade nycklar för att kryptera data i vila för integrerings tjänst miljöer (ISEs) i Azure Logic Apps
+
+Azure Logic Apps förlitar sig på Azure Storage för att lagra och automatiskt [kryptera data i vila](../storage/common/storage-service-encryption.md). Den här krypteringen skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Som standard använder Azure Storage Microsoft-hanterade nycklar för att kryptera dina data. Mer information om hur Azure Storage kryptering fungerar finns i [Azure Storage kryptering för data i vila](../storage/common/storage-service-encryption.md) och [Azure Data Encryption – i vila](../security/fundamentals/encryption-atrest.md).
+
+När du skapar en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) som är värd för dina Logi Kap par, och du vill ha mer kontroll över de krypterings nycklar som används av Azure Storage, kan du konfigurera, använda och hantera din egen nyckel med hjälp av [Azure Key Vault](../key-vault/key-vault-overview.md). Den här funktionen kallas även "Bring Your Own Key" (BYOK) och din nyckel kallas för "kundhanterad nyckel".
+
+I det här avsnittet visas hur du konfigurerar och anger din egen krypterings nyckel som ska användas när du skapar din ISE. 
+
+## <a name="considerations"></a>Överväganden
+
+* För närvarande är kundhanterad nyckel support för en ISE endast tillgänglig i dessa Azure-regioner: USA, västra 2, östra USA och södra centrala USA
+
+* Du kan bara ange en kundhanterad nyckel *när du skapar din ISE*, inte senare. Du kan inte inaktivera den här nyckeln när du har skapat din ISE. För närvarande finns det inget stöd för att rotera en kundhanterad nyckel för en ISE.
+
+* För att stödja Kundhanterade nycklar kräver din ISE att den [systemtilldelade hanterade identiteten](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) är aktive rad. Med den här identiteten kan ISE autentisera åtkomst till resurser i andra Azure Active Directory (Azure AD)-klient organisationer så att du inte behöver logga in med dina autentiseringsuppgifter.
+
+* För närvarande måste du anropa Logic Apps REST API genom att använda en HTTPS-begäran om du vill skapa en ISE som stöder Kundhanterade nycklar och har den systemtilldelade identiteten aktive rad.
+
+* Inom *30 minuter* efter att du skickat https-begäran som skapar din ISE måste du [ge nyckel valv åtkomst till din ISES systemtilldelade identitet](#identity-access-to-key-vault). Annars Miss lyckas ISE-skapande och genererar ett behörighets fel.
+
+## <a name="prerequisites"></a>Krav
+
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
+
+* Ett Azure Key Vault som har den **mjuka borttagningen** och **inte rensa** egenskaper aktiverat
+
+  Mer information om hur du aktiverar dessa egenskaper finns i [Azure Key Vault översikt över mjuk borttagning](../key-vault/key-vault-ovw-soft-delete.md) och [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Om du inte har använt Azure Key Vault kan du lära dig [hur du skapar ett nyckel valv](../key-vault/quick-create-portal.md#create-a-vault) med hjälp av Azure Portal eller genom att använda kommandot Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+
+* I ditt nyckel valv är en nyckel som skapas med följande egenskaps värden:
+
+  | Egenskap | Värde |
+  |----------|-------|
+  | **Nyckel typ** | RSA |
+  | **Nyckel storlek för RSA** | 2048 |
+  | **Aktiverad** | Ja |
+  |||
+
+  ![Skapa din kund hanterade krypterings nyckel](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
+
+  Mer information finns i [Konfigurera Kundhanterade nycklar med Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) eller Azure PowerShell kommandot [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+
+* Ett verktyg som du kan använda för att skapa din ISE genom att anropa Logic Apps REST API med en begäran om HTTPS-begäran. Du kan till exempel använda [Postman](https://www.getpostman.com/downloads/), eller så kan du bygga en logisk app som utför den här uppgiften.
+
+<a name="enable-support-key-system-identity"></a>
+
+## <a name="create-ise-with-key-vault-and-managed-identity-support"></a>Skapa ISE med Key Vault och stöd för hanterad identitet
+
+Om du vill skapa din ISE genom att anropa Logic Apps REST API, gör du denna HTTPS-begäran:
+
+`PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/integrationServiceEnvironments/{integrationServiceEnvironmentName}?api-version=2019-05-01`
+
+> [!IMPORTANT]
+> Logic Apps REST API 2019-05-01-versionen kräver att du gör en egen HTTP-begäran för ISE-anslutningar.
+
+### <a name="request-header"></a>Begärandehuvud
+
+I begär ande huvudet inkluderar du följande egenskaper:
+
+* `Content-type`: Ange det här egenskap svärdet som `application/json`.
+
+* `Authorization`: Ange det här egenskap svärdet till Bearer-token för den kund som har åtkomst till den Azure-prenumeration eller resurs grupp som du vill använda.
+
+### <a name="request-body"></a>Begärandetext
+
+I begär ande texten aktiverar du stöd för dessa ytterligare objekt genom att ange informationen i din ISE-definition:
+
+* Den systemtilldelade hanterade identitet som din ISE använder för att få åtkomst till ditt nyckel valv
+* Ditt nyckel valv och den Kundhanterade nyckel som du vill använda
+
+#### <a name="request-body-syntax"></a>Syntax för begär ande text
+
+Här är syntaxen för begär ande texten, som beskriver de egenskaper som ska användas när du skapar din ISE:
+
+```json
+{
+   "id": "/subscriptions/{Azure-subscription-ID/resourceGroups/{Azure-resource-group}/providers/Microsoft.Logic/integrationServiceEnvironments/{ISE-name}",
+   "name": "{ISE-name}",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "{Azure-region}",
+   "sku": {
+      "name": "Premium",
+      "capacity": 1
+   },
+   "identity": {
+      "type": "SystemAssigned"
+   },
+   "properties": {
+      "networkConfiguration": {
+         "accessEndpoint": {
+            // Your ISE can use the "External" or "Internal" endpoint. This example uses "External".
+            "type": "External"
+         },
+         "subnets": [
+            {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-1}",
+            },
+            {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-2}",
+            },
+            {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-3}",
+            },
+            {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Network/virtualNetworks/{virtual-network-name}/subnets/{subnet-4}",
+            }
+         ]
+      },
+      "encryptionConfiguration": {
+         "encryptionKeyReference": {
+            "keyVault": {
+               "id": "subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.KeyVault/vaults/{key-vault-name}",
+            },
+            "keyName": "{customer-managed-key-name}",
+            "keyVersion": "{key-version-number}"
+         }
+      }
+   }
+}
+```
+
+#### <a name="request-body-example"></a>Exempel på begär ande text
+
+Den här exempel texten visar exempel värden:
+
+```json
+{
+   "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Logic/integrationServiceEnvironments/Fabrikam-ISE",
+   "name": "Fabrikam-ISE",
+   "type": "Microsoft.Logic/integrationServiceEnvironments",
+   "location": "WestUS2",
+   "identity": {
+      "type": "SystemAssigned"
+   },
+   "sku": {
+      "name": "Premium",
+      "capacity": 1
+   },
+   "properties": {
+      "networkConfiguration": {
+         "accessEndpoint": {
+            // Your ISE can use the "External" or "Internal" endpoint. This example uses "External".
+            "type": "External"
+         },
+         "subnets": [
+            {
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-1",
+            },
+            {
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-2",
+            },
+            {
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-3",
+            },
+            {
+               "id": "/subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.Network/virtualNetworks/Fabrikam-VNET/subnets/subnet-4",
+            }
+         ]
+      },
+      "encryptionConfiguration": {
+         "encryptionKeyReference": {
+            "keyVault": {
+               "id": "subscriptions/********************/resourceGroups/Fabrikam-RG/providers/Microsoft.KeyVault/vaults/FabrikamKeyVault",
+            },
+            "keyName": "Fabrikam-Encryption-Key",
+            "keyVersion": "********************"
+         }
+      }
+   }
+}
+```
+
+<a name="identity-access-to-key-vault"></a>
+
+## <a name="grant-access-to-your-key-vault"></a>Bevilja åtkomst till ditt nyckel valv
+
+Inom *30 minuter* efter att du skickat http-begäran för att skapa din ISE måste du lägga till en åtkomst princip i nyckel valvet för din ISE: s systemtilldelade identitet. Annars Miss lyckas skapande av ISE och du får ett behörighets fel. 
+
+För den här uppgiften kan du använda antingen kommandot Azure PowerShell [set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) , eller så kan du följa de här stegen i Azure Portal:
+
+1. Öppna Azure Key Vault i [Azure Portal](https://portal.azure.com).
+
+1. På menyn Key Vault väljer du **åtkomst principer** > **Lägg till åtkomst princip**, till exempel:
+
+   ![Lägg till åtkomst princip för systemtilldelad hanterad identitet](./media/customer-managed-keys-integration-service-environment/add-ise-access-policy-key-vault.png)
+
+1. När fönstret **Lägg till åtkomst princip** har öppnats följer du dessa steg:
+
+   1. Välj följande alternativ:
+
+      | Inställning | Värden |
+      |---------|--------|
+      | **Konfigurera från mall (valfritt) lista** | Nyckel hantering |
+      | **Nyckel behörigheter** | - **nyckel hanterings åtgärder**: get, list <p><p>- **kryptografiska åtgärder**: unwrap Key, wrap Key |
+      |||
+
+      ![Välj nyckel hantering > nyckel behörigheter](./media/customer-managed-keys-integration-service-environment/select-key-permissions.png)
+
+   1. För **Välj huvud konto**väljer du **ingen vald**. När **huvud** fönstret öppnas går du till sökrutan och söker efter och väljer din ISE. När du är klar väljer du **välj** > **Lägg till**.
+
+      ![Välj den ISE som ska användas som huvud konto](./media/customer-managed-keys-integration-service-environment/select-service-principal-ise.png)
+
+   1. När du är klar med fönstret **åtkomst principer** väljer du **Spara**.
+
+Mer information finns i [tillhandahålla Key Vault autentisering med en hanterad identitet](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
+
+## <a name="next-steps"></a>Nästa steg
+
+* Läs mer om [Azure Key Vault](../key-vault/key-vault-overview.md)

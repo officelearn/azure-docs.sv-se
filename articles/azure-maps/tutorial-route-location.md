@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: hitta en väg med Azure Maps'
-description: 'Självstudie: dirigera till en orienterings punkt med hjälp av Azure Maps'
+title: 'Självstudie: hitta en väg till en plats | Microsoft Azure Maps'
+description: Den här självstudien visar hur du återger vägen till en plats (orienterings punkt) på en karta som använder Microsoft Azure Maps-routningstjänsten.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: efc60acae78c96983e79044ae1ba7399154f3568
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 7f13e5342e880a9ed5e2cb35ebaf558a1641618b
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613609"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910840"
 ---
 # <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Självstudie: dirigera till en orienterings punkt med hjälp av Azure Maps
 
@@ -168,7 +168,7 @@ I den här självstudien renderas en enkel väg med hjälp av en symbolikon för
 
 3. Spara filen **MapRoute.html** och uppdatera webbläsaren. Nu centreras kartan över Seattle och du kan se att den blå fäst punkten markerar start punkten och den runda blå PIN-koden för att markera slut punkten.
 
-   ![Visa karta med start- och slutpunkterna markerade](media/tutorial-route-location/map-pins.png)
+   ![Visa vägarnas start-och slut punkt på kartan](media/tutorial-route-location/map-pins.png)
 
 <a id="getroute"></a>
 

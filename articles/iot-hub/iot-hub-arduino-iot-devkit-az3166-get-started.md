@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: 3cdeecd5b7698274b899832d7a66a5572a114e4b
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 139d1a470c67d5dab310c4fa2a9171f433df2061
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954504"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912364"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
@@ -75,7 +75,7 @@ En enhet måste vara registrerad vid din IoT-hubb innan den kan ansluta. I den h
 
    **YourIoTHubName** : Ersätt platshållaren nedan med det namn du väljer för din IoT-hubb.
 
-   **MyNodeDevice**: namnet på enheten som du registrerar. Använd **MyNodeDevice** såsom det visas. Om du väljer ett annat namn för din enhet behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
+   **MyNodeDevice**: namnet på enheten som du registrerar. Använd **MyNodeDevice** såsom det visas. Om du väljer ett annat namn för enheten behöver du använda det namnet i hela artikeln och uppdatera enhetsnamnet i exempelprogrammen innan du kör dem.
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyNodeDevice
@@ -174,7 +174,7 @@ Följ de här stegen för att förbereda utvecklings miljön för DevKit:
     > [Installera tilläggs paketet för Azure IoT-verktyg](vscode:extension/vsciot-vscode.azure-iot-tools)
 
     > [!NOTE]
-    > Tillägget Azure IoT-verktyg innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. [Azure IoT Hub Toolkit](https://aka.ms/iot-toolkit), som också ingår i tillägget Azure IoT tools, används för att hantera och interagera med Azure IoT-hubbar.
+    > Tillägget Azure IoT-verktyg innehåller [Azure IoT Device Workbench](https://aka.ms/iot-workbench) som används för att utveckla och felsöka på olika IoT devkit-enheter. [Azure IoT Hub-tillägget](https://aka.ms/iot-toolkit), som också ingår i tillägget Azure IoT tools, används för att hantera och interagera med Azure IoT-hubbar.
 
 5. Konfigurera VS Code med Arduino-inställningar.
 
@@ -328,7 +328,7 @@ Du kan använda [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?i
 
 1. Logga in [Azure Portal](https://portal.azure.com/), leta upp IoT Hub som du har skapat.
 
-    ![Azure Portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
+    ![Azure portal](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/azure-iot-hub-portal.png)
 
 1. I fönstret **principer för delad åtkomst** klickar du på **iothubowner-principen**och skriver ned anslutnings strängen för din IoT Hub.
 

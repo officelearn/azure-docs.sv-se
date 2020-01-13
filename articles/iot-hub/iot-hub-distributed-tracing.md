@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: 4cd4cffdb0357b1cd73b1613e52c2a6c1a60f71e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc861126cd723bbb0f7c43d5d2db4eed1503605a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457046"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911902"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Spåra Azure IoT-meddelanden från enhet till moln med distribuerad spårning (för hands version)
 
@@ -208,15 +208,15 @@ Om du vill ändra procent andelen meddelanden som ska spåras från molnet måst
 
 1. Valfritt Ändra samplings frekvensen till ett annat värde och Observera ändringen i frekvensen som meddelanden innehåller `tracestate` i program egenskaperna.
 
-### <a name="update-using-azure-iot-hub-toolkit-for-vs-code"></a>Uppdatera med Azure IoT Hub Toolkit för VS Code
+### <a name="update-using-azure-iot-hub-for-vs-code"></a>Uppdatera med Azure IoT Hub for VS Code
 
-1. Installera VS Code och installera sedan den senaste versionen av Azure IoT Hub Toolkit för VS-kod [här](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
+1. Installera VS Code och installera den senaste versionen av Azure IoT Hub for VS Code [härifrån.](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
 
 1. Öppna VS Code och [konfigurera IoT Hub anslutnings sträng](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit#user-content-prerequisites).
 
 1. Expandera enheten och Sök efter **Distributed tracing-inställning (för hands version)** . Under det klickar du på **Uppdatera Distributed tracing Setting (för hands version)** av undernoden.
 
-    ![Aktivera distribuerad spårning i Azure IoT Hub Toolkit](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
+    ![Aktivera distribuerad spårning i Azure IoT Hub-tillägget](./media/iot-hub-distributed-tracing/update-distributed-tracing-setting-1.png)
 
 1. I popup-fönstret väljer du **Aktivera**och trycker sedan på RETUR för att bekräfta 100 som samplings frekvens.
 

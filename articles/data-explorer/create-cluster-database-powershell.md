@@ -1,23 +1,23 @@
 ---
 title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av PowerShell
 description: Lär dig hur du skapar ett Azure Datautforskaren-kluster och-databas med hjälp av PowerShell
-author: oflipman
-ms.author: oflipman
+author: lucygoldbergmicrosoft
+ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 1975125dd3bcd327ae7520e4cc413718e48d6ba9
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b855fde88173fe9a14a964ba1f9fd07aa74d85eb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326760"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911979"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av PowerShell
 
 > [!div class="op_single_selector"]
-> * [Portal](create-cluster-database-portal.md)
+> * [Portalen](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
@@ -26,7 +26,7 @@ ms.locfileid: "71326760"
 
 Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av PowerShell. Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](../cloud-shell/overview.md) med [AZ. Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto) för att skapa och konfigurera Azure datautforskaren-kluster och-databaser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -67,8 +67,8 @@ Följande steg krävs inte om du kör kommandon i Azure Cloud Shell. Om du kör 
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
-   | Name | *mykustocluster* | Önskat namn på klustret.|
-   | SKU | *D13_v2* | Den SKU som ska användas för klustret. |
+   | Namn | *mykustocluster* | Önskat namn på klustret.|
+   | Sku | *D13_v2* | Den SKU som ska användas för klustret. |
    | ResourceGroupName | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
 
     Det finns ytterligare parametrar som du kan använda, till exempel kapaciteten för klustret.
@@ -91,8 +91,8 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
 
    |**Inställning** | **Föreslaget värde** | **Fältbeskrivning**|
    |---|---|---|
-   | clusterName | *mykustocluster* | Namnet på det kluster där databasen ska skapas.|
-   | Name | *mykustodatabase* | Namn på databasen.|
+   | ClusterName | *mykustocluster* | Namnet på det kluster där databasen ska skapas.|
+   | Namn | *mykustodatabase* | Namn på databasen.|
    | ResourceGroupName | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
    | SoftDeletePeriod | *3650:00:00:00* | Hur lång tid data ska behållas för att vara tillgängliga för frågor. |
    | HotCachePeriod | *3650:00:00:00* | Hur lång tid data ska behållas i cache. |

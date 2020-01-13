@@ -1,6 +1,6 @@
 ---
-title: Lokaliserings stöd i Azure Maps | Microsoft Docs
-description: Lär dig mer om språk som stöds för tjänsterna i Azure Maps
+title: Lokaliserings stöd | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om språk som stöds för tjänsterna i Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 64197cc85822997926a8011af8cb3b981fa9064d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: 4926cb2bb4cb1aa15b212cc7130e0db995a24ed9
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286424"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910439"
 ---
 # <a name="localization-support-in-azure-maps"></a>Lokaliserings stöd i Azure Maps
 
@@ -25,7 +25,7 @@ Azure Maps stöder olika språk och vyer baserat på land/region. Den här artik
 Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabell innehåller de språk koder som stöds för varje tjänst.  
   
 
-| ID         | Namn                   |  Maps | Search | Routning | Väder | Trafik incidenter | JS-kart kontroll |
+| ID         | Namn                   |  Kartor | Sök | Routning | Väder | Trafik incidenter | JS-kart kontroll |
 |------------|------------------------|:-----:|:------:|:-------:|:--------:|:-----------------:|:--------------:|
 | af-ZA      | Afrikaans              |       |    ✓   |    ✓    |         |                   |                |
 | ar-SA      | Arabiska                 |   ✓   |    ✓   |    ✓    |    ✓      |         ✓         |        ✓       |
@@ -46,7 +46,7 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 | SV-Australien      | Engelska (Australien)    |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en NZ      | Engelska (Nya Zeeland)  |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
 | en-GB      | Engelska (Storbritannien) |   ✓   |    ✓   |    ✓    |     ✓     |         ✓         |        ✓       |
-| en-US      | Engelska (USA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
+| sv-SE      | Engelska (USA)          |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
 | et-EE      | Estniska               |       |    ✓   |         |      ✓    |         ✓         |                |
 | fil-PH     | Filippinska               |       |       |         |     ✓    |                   |                |
 | fi-FI      | Finska                |   ✓   |    ✓   |    ✓    |      ✓    |         ✓         |        ✓       |
@@ -72,7 +72,7 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 | MK – MK      | Makedonska             |       |       |         |     ✓    |                   |                |
 | MS-Mina      | Malajiska (latinsk)          |   ✓   |    ✓   |    ✓    |    ✓   |                   |        ✓       |
 | Mr-IN      | Marathi                 |       |       |         |     ✓    |                   |                |
-| NB-NO      | Norska, bokmål       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
+| NB-NO      | Norska (bokmål)       |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | NGT        | Neutrala mark sanningen-officiella språk för alla regioner i lokala skript om det är tillgängligt |   ✓     |        |         |       |        |      ✓          |
 | NGT-Latn   | Neutral mark sanningen – Latin exonyms. Latinska skript kommer att användas om det är tillgängligt |   ✓     |        |         |         |                |        ✓         |
 | pl-PL      | Polska                 |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -82,7 +82,7 @@ Azure Maps har lokaliserats på flera olika språk i tjänsterna. Följande tabe
 | RO-RO      | Rumänska               |       |    ✓    |         |     ✓    |         ✓         |                |
 | ru-RU      | Ryska                |   ✓   |    ✓   |    ✓    |      ✓   |         ✓         |        ✓       |
 | sr-Cyrl-RS | Serbiska (kyrillisk)     |       |   SR-RS  |         |    SR-RS     |                   |                |
-| SR-latn-RS | Serbiska (latinsk)        |       |       |         |     SR-latn    |                   |                |
+| sr-Latn-RS | Serbiska (latinsk)        |       |       |         |     SR-latn    |                   |                |
 | sk-SK      | Slovakiska             |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
 | sl-SL      | Slovenska              |   ✓   |    ✓   |    ✓    |     ✓    |                   |        ✓       |
 | es-ES      | Spanska                |   ✓   |    ✓   |    ✓    |     ✓    |         ✓         |        ✓       |
@@ -148,7 +148,7 @@ Som standard har parametern View värdet **Unified**, även om du inte har defin
 
 Följande tabell innehåller vyer som stöds.
 
-| Visa         | Beskrivning                            |  Maps | Search | JS-Kartkontroll |
+| Visa         | Beskrivning                            |  Kartor | Sök | JS-Kartkontroll |
 |--------------|----------------------------------------|:-----:|:------:|:--------------:|
 | AE           | Förenade Arabemiraten (arabisk vy)    |   ✓   |        |     ✓          |
 | AR           | Argentina (argentinsk vy)           |   ✓   |    ✓   |     ✓          |
@@ -166,5 +166,5 @@ Följande tabell innehåller vyer som stöds.
 | SA           | Saudiarabien (arabisk vy)            |   ✓   |        |     ✓          |
 | SY           | Syrien (arabisk vy)                   |   ✓   |        |     ✓          |
 | CHANSEN           | Jemen (arabisk vy)                   |   ✓   |        |     ✓          |
-| disk         | Returnera mappnings data baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
+| Auto         | Returnera mappnings data baserat på IP-adressen för begäran.|   ✓   |    ✓   |     ✓          |
 | Enhetligt      | Enhetlig vy (andra)                  |   ✓   |   ✓     |     ✓          |

@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett panel lager till Android Maps i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett panel lager till en karta med Azure Maps Android SDK
+title: Lägg till ett panel lager till Android Maps | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du återger ett panel lager på en karta med hjälp av Microsoft Azure Maps Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 5d5f50a38db95f6e62bdd8c51aefd5957041e682
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e54eeaa6dafd60e5fc481f2f4b45929edda77c44
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68886616"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911513"
 ---
 # <a name="add-a-tile-layer-to-a-map-using-the-azure-maps-android-sdk"></a>Lägg till ett panel lager till en karta med Azure Maps Android SDK
 
@@ -30,14 +30,14 @@ Ett panel lager läses in i paneler från en server. Dessa avbildningar kan anti
 
 Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`-X position i rutan. Du måste `{y}` också `{z}`ha och.
-* `{y}`-Y position i panelen. Du måste `{x}` också `{z}`ha och.
-* `{z}`-Zoomnings nivå i panelen. Du måste `{x}` också `{y}`ha och.
-* `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
-* `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
-* `{subdomain}`– En plats hållare där under domän värden om de anges kommer att läggas till.
+* panelens `{x}`-X-position. Behöver också `{y}` och `{z}`.
+* panelens `{y}`-Y-position. Behöver också `{x}` och `{z}`.
+* panelens `{z}` zoomnings nivå. Behöver också `{x}` och `{y}`.
+* quadkey-identifierare för `{quadkey}` panel baserat på Bing Maps-panelens system namngivnings konvention.
+* `{bbox-epsg-3857}`-en sträng med en avgränsnings ruta med formatet `{west},{south},{east},{north}` i rums referens systemet EPSG 3857.
+* `{subdomain}` – en plats hållare där under domän värden om de anges kommer att läggas till.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra processen i den här artikeln måste du installera [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) för att läsa in en karta.
 
@@ -71,7 +71,7 @@ Du kan lägga till ett panel lager till kartan genom att följa stegen nedan.
     </FrameLayout>
     ```
 
-2. Kopiera följande kodfragment till **onCreate ()-** metoden för `MainActivity.java` klassen.
+2. Kopiera följande kodfragment till metoden **onCreate ()** i `MainActivity.java`-klassen.
 
     ```Java
     mapControl.onReady(map -> {
@@ -84,9 +84,9 @@ Du kan lägga till ett panel lager till kartan genom att följa stegen nedan.
     });
     ```
     
-    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Det skapar sedan ett `TileLayer` objekt och skickar en formaterad **XYZ** -URL till `tileUrl` alternativet. Lager opaciteten är inställt på `0.8` och eftersom panelerna från panel tjänsten används är 256 pixel paneler överförs den här informationen `tileSize` till alternativet. Panel lagret skickas sedan till Maps Layer Manager.
+    Kodfragmentet ovan hämtar först en Azure Maps kart kontroll instans med återanrops metoden **onReady ()** . Sedan skapas ett `TileLayer`-objekt och en formaterad **XYZ** -panel skickas till `tileUrl` alternativet. Lager opaciteten är inställt på `0.8` och eftersom panelerna från panel tjänsten används är 256 pixel paneler överförs den här informationen till alternativet `tileSize`. Panel lagret skickas sedan till Maps Layer Manager.
 
-    När du har `MainActivity.java` lagt till kodfragmentet ovan bör det se ut som det som visas nedan:
+    När du har lagt till kodfragmentet ovan bör `MainActivity.java` se ut så här:
     
     ```Java
     package com.example.myapplication;
@@ -172,7 +172,7 @@ Om du kör programmet nu bör du se en linje på kartan som visas nedan:
 
 <center>
 
-![Android-kart linje](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center> för ![Android-mappning
 
 ## <a name="next-steps"></a>Nästa steg
 

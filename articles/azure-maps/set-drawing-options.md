@@ -1,6 +1,6 @@
 ---
-title: Använd modulen rit verktyg i Azure Maps | Microsoft Docs
-description: Ange ritnings alternativ data med Azure Maps Web SDK
+title: Modul för rit verktyg | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du ställer in ritnings alternativ data med hjälp av Microsoft Azure Maps-webbsdk
 author: walsehgal
 ms.author: v-musehg
 ms.date: 09/04/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0ac9bc775798a14e6431718bc602d8ff41288c10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2f23d4d7962fc4a01ac2f9d20dc834bcd2f08be5
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408157"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910593"
 ---
 # <a name="use-the-drawing-tools-module"></a>Använda modulen för ritningsverktyg
 

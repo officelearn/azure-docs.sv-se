@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett polygon-skikt i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett polygon-lager i Azure Maps Web SDK.
+title: Lägg till ett polygon-lager till en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du återger en polygon och flera polygoner på en karta i Microsoft Azure Maps-webbsdk.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: ca6c0f5e6fde5a31655ed17f4a016bf44216643f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 77d952666be12d7dea780b3aa8f094cf5f70f2d3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976145"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911135"
 ---
 # <a name="add-a-polygon-layer-to-the-map"></a>Lägg till ett polygon-lager till kartan
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du återger områdena i `Polygon` och `MultiPolygon`
 
 ## <a name="use-a-polygon-layer"></a>Använda ett polygon-lager 
 
-När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges delen av en `Polygon` - `MultiPolygon` och-funktioner. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med ett polygon-lager med hjälp av klassen [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) .
+När ett polygon-lager är anslutet till en data källa och läses in på kartan, återges arean för en `Polygon` och `MultiPolygon` funktioner. Följande kod visar hur du skapar en polygon, lägger till den i en data källa och återger den med ett polygon-lager med hjälp av klassen [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,29 +51,29 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägg till en polygon till en karta ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Lägg till en polygon till en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägg till en polygon till en karta ' src='//codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/yKbOvZ/'>Lägg till en polygon till en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="use-a-polygon-and-line-layer-together"></a>Använda ett polygon-och linje lager tillsammans
 
 Ett linje lager kan användas för att återge konturen för polygoner. I följande kod exempel återges en polygon som i föregående exempel, men nu läggs ett linje lager till som ett andra lager som är anslutet till data källan.  
 
-<iframe height='500' scrolling='no' title='Polygon och linje skikt för att lägga till polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'><a href='https://codepen.io/azuremaps/pen/aRyEPy/'>Lägg till polygon</a> med Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>i Pen-polygonen och linje lagret.
+<iframe height='500' scrolling='no' title='Polygon och linje skikt för att lägga till polygon' src='//codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Lägg till polygon genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>i Pen- <a href='https://codepen.io/azuremaps/pen/aRyEPy/'>polygonen och linje lagret</a> .
 </iframe>
 
 ## <a name="fill-a-polygon-with-a-pattern"></a>Fylla en polygon med ett mönster
 
-Förutom att fylla en polygon med en färg kan du också använda ett bild mönster. Läs in ett bild mönster i Maps-avbildningen Sprite-resurser och referera sedan `fillPattern` till den här avbildningen med egenskapen för polygon-lagret.
+Förutom att fylla en polygon med en färg kan du också använda ett bild mönster. Läs in ett bild mönster i Maps-avbildningen Sprite-resurser och referera sedan till den här bilden med egenskapen `fillPattern` för polygon-lagret.
 
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="Fyllnings mönster för polygon" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-Se fyllnings <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>mönstret</a> för pen-polygonen<a href='https://codepen.io/azuremaps'>@azuremaps</a>genom att Azure Maps () på <a href='https://codepen.io'>CodePen</a>.
+Se <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>Fyllnings mönstret</a> för pen-polygonen genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 
 > [!TIP]
-> Azure Maps Web SDK innehåller flera anpassningsbara bildmallar som du kan använda som fyllnings mönster. Mer information finns i dokumentet om [att använda](how-to-use-image-templates-web-sdk.md) bildmallar.
+> Azure Maps Web SDK innehåller flera anpassningsbara bildmallar som du kan använda som fyllnings mönster. Mer information finns i dokumentet om [att använda bildmallar](how-to-use-image-templates-web-sdk.md) .
 
 ## <a name="customize-a-polygon-layer"></a>Anpassa ett polygon-lager
 
@@ -81,14 +81,14 @@ Polygon-lagret har bara några få format alternativ. Här är ett verktyg för 
 
 <br/>
 
-<iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpg</a> av Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='LXvxpg' src='//codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se Pen- <a href='https://codepen.io/azuremaps/pen/LXvxpg/'>LXvxpgen</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 <a id="addACircle"></a>
 
 ## <a name="add-a-circle-to-the-map"></a>Lägg till en cirkel till kartan
 
-Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](extend-geojson.md#circle). En cirkel kan återges på kartan genom `Point` att skapa en funktion som har en `subType` `"Circle"` egenskap med värdet och en `radius` egenskap som har ett tal som representerar radien i meter. Exempel:
+Azure Maps använder en utökad version av det injson-schema som tillhandahåller en definition för cirklar som anges [här](extend-geojson.md#circle). En cirkel kan återges på kartan genom att skapa en `Point`-funktion som har en `subType`-egenskap med värdet `"Circle"` och en `radius`-egenskap som har ett tal som representerar radien i meter. Ett exempel:
 
 ```javascript
 {
@@ -104,11 +104,11 @@ Azure Maps använder en utökad version av det injson-schema som tillhandahålle
 }  
 ```
 
-Azure Maps Web SDK konverterar dessa `Point` funktioner till `Polygon` funktioner under försättsblad och kan återges på kartan med hjälp av polygon-och linje lager som visas i följande kod exempel.
+Azure Maps Web SDK konverterar dessa `Point`s funktioner till `Polygon` funktioner under försättsblad och kan återges på kartan med hjälp av polygon-och linje lager som visas i följande kod exempel.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Lägga till en cirkel till en karta' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Lägg till en cirkel till en karta</a> efter Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Lägga till en cirkel till en karta' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se pennan <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Lägg till en cirkel till en karta</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="make-a-geometry-easy-to-update"></a>Gör en geometri lätt att uppdatera
@@ -127,7 +127,7 @@ Följande kod exempel visar hur du omsluter ett cirkel-interjson-objekt med en S
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Uppdatera form egenskaper' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se egenskaperna för Penn <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>uppdaterings formen</a> genom Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Uppdatera form egenskaper' src='//codepen.io/azuremaps/embed/ZqMeQY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se egenskaperna för Penn <a href='https://codepen.io/azuremaps/pen/ZqMeQY/'>uppdaterings formen</a> genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

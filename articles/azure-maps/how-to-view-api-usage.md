@@ -1,6 +1,6 @@
 ---
-title: Så här visar du Azure Maps-API-användning | Microsoft Docs
-description: Lär dig hur du visar mått för dina Azure Maps-API-anrop i portalen.
+title: Visa Azure Maps användnings statistik för API | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du visar måtten för dina Microsoft Azure Maps API-anrop i Azure Portal.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/06/2018
@@ -8,62 +8,62 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 716f9fbc02905a8981771c2fd9dd2be0baeb8196
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 7ba50f63fb015a8696904df3decd13c811625459
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67460199"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911341"
 ---
-# <a name="view-azure-maps-api-usage"></a>Visa Azure Maps-API-användning
+# <a name="view-azure-maps-api-usage-metrics"></a>Visa användningsstatistik för Azure Maps API
 
-Den här artikeln visar hur du visar användningsstatistik för API för Azure Maps-konto i den [portal](https://portal.azure.com). Mått som visas i praktiskt diagramformat längs en anpassningsbar varaktighet.
+Den här artikeln visar hur du visar användnings måtten för API: er för ditt Azure Maps-konto i [portalen](https://portal.azure.com). Måtten visas i ett användbart diagram format längs en anpassad tids period.
 
-## <a name="view-metric-snapshot"></a>Visa mått ögonblicksbild
+## <a name="view-metric-snapshot"></a>Visa mått ögonblicks bild
 
-Du kan se vissa vanliga mått på den **översikt** för Maps-konto. Den visar för närvarande *förfrågningarna*, *Totalt antal fel*, och *tillgänglighet* över valbara varaktighet.
+Du kan se några vanliga mått på **översikts** sidan för ditt Maps-konto. Den visar för närvarande *Totalt antal förfrågningar*, *Totalt antal fel*och *tillgänglighet* under en tids period som kan väljas.
 
-![Översikt över Azure Maps-mått](media/how-to-view-api-usage/portal-overview.png)
+![Översikt över Azure Maps användnings statistik](media/how-to-view-api-usage/portal-overview.png)
 
-Fortsätta till nästa avsnitt om du vill anpassa dessa diagram för din specifika analys.
+Fortsätt till nästa avsnitt om du behöver anpassa diagrammen för just din analys.
 
-## <a name="view-detailed-metrics"></a>Visa detaljerade mätvärden
+## <a name="view-detailed-metrics"></a>Visa detaljerade mått
 
-1. Logga in på Azure-prenumerationen i den [portal](https://portal.azure.com).
+1. Logga in på din Azure-prenumeration i [portalen](https://portal.azure.com).
 
-2. Klicka på den **alla resurser** menyn på vänster sida för konfigurationsobjektet och navigera till din *Azure Maps-konto*.
+2. Klicka på meny alternativet **alla resurser** till vänster och navigera till ditt *Azure Maps-konto*.
 
-3. När ditt Maps-konto är öppet klickar du på den **mått** på vänstra menyn.
+3. När ditt Maps-konto är öppet klickar du på **mått** menyn till vänster.
 
-4. På den **mått** fönstret, välja mellan något av följande:
+4. I fönstret **mått** väljer du något av följande:
 
-   1. **Tillgänglighet** – som visar den *genomsnittlig* API tillgänglighet under en viss tidsperiod.
-   2. **Användning** – som visar hur användningen *antal* för ditt konto.
+   1. **Tillgänglighet** – som visar *genomsnitt* av API-tillgänglighet under en viss tids period.
+   2. **Användning** – som visar hur användnings *antalet* används för ditt konto.
 
-      ![Fönstret för Azure Maps-mått](media/how-to-view-api-usage/portal-metrics.png)
+      ![Fönstret Azure Maps användnings statistik](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Du kan sedan välja den *tidsintervall* genom att klicka på **senaste 24 timmarna (automatisk)** . Tidsintervallet anges som standard till 24 timmar. När du klickar på, visas alla valbara tidsintervall. Du kan välja den *tidskornighet* och väljer att visa tiden som *lokala* eller *GMT* i samma listrutan. Klicka på **Verkställ**.
+5. Sedan kan du välja *tidsintervallet* genom att klicka på de **senaste 24 timmarna (automatiskt)** . Som standard är tidsintervallet inställt på 24 timmar. När du har klickat visas alla Selectable Time-intervall. Du kan välja *tids kornig het* och välja att visa tiden som *lokal* eller *GMT* i samma listruta. Klicka på **Använd**.
 
-    ![Azure Maps mått tidsintervall](media/how-to-view-api-usage/time-range.png)
+    ![Tidsintervallet Azure Maps mått](media/how-to-view-api-usage/time-range.png)
 
-6. När du lägger till din mått, kan du sedan **Lägg till filter** bland egenskaperna som är relevanta för som mått och välj sedan värdet för egenskapen som du vill se diagrammet för.
+6. När du har lagt till ditt mått kan du sedan **lägga till filter** från bland de egenskaper som är relevanta för det måttet och sedan välja värdet för den egenskap som du vill visa grafen för.
 
-    ![Filter för Azure Maps-mått](media/how-to-view-api-usage/filter.png)
+    ![Filter för Azure Maps användnings statistik](media/how-to-view-api-usage/filter.png)
 
-7. Du kan också **gäller dela** för dina mått baserat på ditt valda mått egenskapen. På så sätt kan grafen som ska delas upp i flera diagram, ett för varje värde för egenskapen. I följande bild motsvarar färgen för varje diagram egenskapsvärdet visas längst ned i diagrammet.
+7. Du kan också **använda delning** för ditt mått baserat på din valda mått egenskap. Detta gör att grafen kan delas upp i flera grafer, ett för varje värde för egenskapen. I följande bild motsvarar färgen på varje diagram det egenskaps värde som visas längst ned i diagrammet.
 
-    ![Azure Maps-mått dela](media/how-to-view-api-usage/splitting.png)
+    ![Delning av Azure Maps användnings statistik](media/how-to-view-api-usage/splitting.png)
 
-8. Du kan också notera flera mått på samma diagram genom att klicka på den **Lägg till mått** längst upp.
+8. Du kan också titta på flera mått i samma graf, helt enkelt genom att klicka på knappen **Lägg till mått** överst.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Azure Maps API: er du vill spåra användning för:
+Läs mer om de Azure Maps-API: er som du vill spåra användningen för:
 > [!div class="nextstepaction"] 
-> [Azure Maps Web SDK anvisningar](how-to-use-map-control.md)
+> [Azure Maps Web SDK How-to](how-to-use-map-control.md)
 
 > [!div class="nextstepaction"] 
-> [Azure Maps Android SDK-anvisningar](how-to-use-android-map-control-library.md)
+> [Azure Maps Android SDK How-to](how-to-use-android-map-control-library.md)
 
 > [!div class="nextstepaction"]
 > [Azure Maps REST API-dokumentation](https://docs.microsoft.com/rest/api/maps)

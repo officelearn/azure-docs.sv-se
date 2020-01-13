@@ -1,6 +1,6 @@
 ---
-title: Webbläsare som stöds av Web SDK – Azure Maps | Microsoft Docs
-description: Lär dig mer om webbläsare som stöds för Azure Maps Web SDK
+title: Webbläsare som stöds av Web SDK | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om webbläsare som stöds för Microsoft Azure Maps-webbsdk och hur du kontrollerar om en webbläsare är en webbläsare som stöds.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 03/25/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 6aa256f026033a8b204b3c2ab1080f9f63ef63d7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a67a358d45ac61c955c26f495169f7cd8364074
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432795"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910450"
 ---
 # <a name="web-sdk-supported-browsers"></a>Webbläsare som stöds av webb-SDK
 

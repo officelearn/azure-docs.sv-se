@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: Sök med Azure Maps'
-description: 'Självstudie: Sök efter intresse punkt i närheten med Azure Maps'
+title: 'Självstudie: Sök efter närliggande platser på en karta | Microsoft Azure Maps'
+description: I den här självstudien får du lära dig att söka efter närliggande platser (intressanta punkter) på en karta med hjälp av Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ae2d7b3d855f1c06397d4eb0f977dd04aa841942
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432753"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910817"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
-Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här självstudiekursen får du lära du dig att:
+Den här självstudiekursen visar hur du skapar ett konto med Azure Maps och sedan använder API:er för Maps för att söka efter en orienteringspunkt. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Maps-konto
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -49,7 +49,7 @@ Skapa ett nytt Maps-konto med följande steg:
     * Läs *licensen* och *sekretesspolicy* och markera kryssrutan för att godkänna villkoren.
     * Klicka på knappen **Skapa**.
 
-![Skapa Maps-konto i portalen](./media/tutorial-search-location/create-account.png)
+![Skapa Azure Maps konto i Azure Portal](./media/tutorial-search-location/create-account.png)
 
 <a id="getkey"></a>
 
@@ -61,7 +61,7 @@ När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga A
 2. I avsnittet Inställningar väljer du **autentisering**.
 3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
 
-![Hämta primärnyckel i portalen](./media/tutorial-search-location/get-key.png)
+![Hämta primär nyckel i Azure Portal](./media/tutorial-search-location/get-key.png)
 
 Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](how-to-manage-authentication.md).
 

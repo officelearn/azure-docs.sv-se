@@ -8,16 +8,16 @@ ms.service: internet-peering
 ms.topic: overview
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: c5fd37c532e2abf2697c741e4dab10a945926e2b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 576bc3e37711851acd7d6c7ac811a10e40080710
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775693"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908922"
 ---
 # <a name="internet-peering-overview"></a>Översikt över Internet-peering
 
-Peering är en sammanlänkning mellan Microsofts globala nätverk (AS8075) och ditt nätverk för att kunna utbyta Internet trafik från/till Microsoft onlinetjänster och Microsoft Azure-tjänster. Leverantörer eller tjänst leverantörer kan begära att ansluta till Microsoft på någon av våra gräns platser. Varje begäran granskas av Microsoft Azure nätverk för att säkerställa att den följer vår peering-princip. Du kan konfigurera en peering med Microsoft Network på två sätt:
+Peering är en sammanlänkning mellan Microsofts globala nätverk (AS8075) och ditt nätverk för att kunna utbyta Internet trafik från/till Microsoft onlinetjänster och Microsoft Azure-tjänster. Leverantörer eller tjänst leverantörer kan begära att ansluta till Microsoft på någon av våra gräns platser. Varje begäran granskas av Microsoft för att säkerställa att den följer vår peering-princip. Du kan konfigurera en peering med Microsoft Network på två sätt:
 
 * **Direkt peering:**
 
@@ -33,7 +33,7 @@ Peering är en sammanlänkning mellan Microsofts globala nätverk (AS8075) och d
 * Skydda kund trafik mot problem i nätverket eller transit leverantörens nätverk genom peering med Microsoft på redundanta platser.
 * Lär dig prestanda mått om dina peering-anslutningar och Använd insikter för att felsöka nätverket.
 
-## <a name="benefits-of-using-azure"></a>Fördelar med att använda Azure
+## <a name="benefits-of-using-azure-to-set-up-peering"></a>Fördelar med att använda Azure för att konfigurera peering
 
 Du kan begära peering med Microsoft med hjälp av Azure PowerShell eller portalen. Peering-konfiguration på det här sättet hanteras som en Azure-resurs och ger följande fördelar:
 * Förenklade och automatiserade steg för att konfigurera och hantera peering med Microsoft.

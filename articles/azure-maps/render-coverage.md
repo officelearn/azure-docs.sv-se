@@ -1,6 +1,6 @@
 ---
-title: Rendera täckning i Azure Maps | Microsoft Docs
-description: Läs mer om åter givnings täckning i Azure Maps
+title: Rendera täckning | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om regioner med Microsoft Azure Maps rendera täckning tillsammans med deras nivå av återgivna uppgifter.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 03/22/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 5affc9952cfe13ebfeede126051f2236499d1343
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 84d5d7fc6490420857032ead964f5bccea8f397a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934298"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910674"
 ---
 # <a name="azure-maps-render-coverage"></a>Azure Maps återge täckning
 
@@ -21,9 +21,9 @@ Azure Maps använder både raster paneler och vektor paneler för att skapa kart
 
 Maps har dock inte samma nivå av information och exakthet för alla regioner. Följande tabeller innehåller information om vilken nivå av återgiven information som du kan förväntar dig från varje region.
 
-## <a name="legend"></a>Mönstret
+## <a name="legend"></a>Förklaring
 
-| Hakparentes | Betydelse |
+| Symbol | Betydelse |
 |--------|---------|
 | ✓ | Regionen visas med detaljerade data.   |
 | Ø | Regionen representeras med förenklade data. |
@@ -74,7 +74,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Rwanda                           | ✓ | ✓ |
-| Sankta Helena, Ascension och Tristan da Cunha | ✓ | Ø |
+| Saint Helena, Ascension och Tristan da Cunha | ✓ | Ø |
 | São Tomé och Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
 | Sierra Leone                     | ✓ | ✓ |
@@ -115,7 +115,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Dominica                  | ✓ | ✓ |
 | Dominikanska republiken        | ✓ | ✓ |
 | Ecuador                   | ✓ | ✓ |
-| Falk lands öarna (Malvinas) | ✓ | ✓ |
+| Falklandsöarna | ✓ | ✓ |
 | Franska Guyana             | ✓ | ✓ |
 | Grönland                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
@@ -161,12 +161,12 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Bangladesh                |   | Ø |
 | Bhutan                    |   | Ø |
 | Brittiska territoriet i Indiska oceanen |   | Ø |
-| Darussalam                    | ✓ | ✓ |
+| Brunei                    | ✓ | ✓ |
 | Kambodja                  |   | Ø |
 | Kina                     |   | Ø |
-| Kokos öarna   |   | Ø |
+| Kokosöarna   |   | Ø |
 | Demokratiska folkrepubliken Korea |   | Ø |
-| Hong Kong SAR             | ✓ | ✓ |
+| Hongkong SAR             | ✓ | ✓ |
 | Indien                     | Ø | ✓ | 
 | Indonesien                 | ✓ | ✓ |
 | Iran                      |   | Ø |
@@ -189,9 +189,9 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Pakistan                  |   | Ø |
 | Filippinerna               | ✓ | ✓ |
 | Qatar                     | ✓ | ✓ |
-| Republiken Korea         | ✓ | Ø |
+| Sydkorea         | ✓ | Ø |
 | Saudiarabien              | ✓ | ✓ |
-| Senkaku öarna           |   | ✓ |
+| Senkaku-öarna/Diaoyutai-öarna i Oceanien och Västindien           |   | ✓ |
 | Singapore                 | ✓ | ✓|
 | Sri Lanka                 |   | Ø |
 | Arabrepubliken Syrien      |   | Ø |
@@ -217,7 +217,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Franska Polynesien          |   | Ø |
 | Guam                      | ✓ | ✓ |
 | Kiribati                  |   | Ø |
-| Marshall öarna          |   | Ø |
+| Marshallöarna          |   | Ø |
 | Mikronesien                |   | Ø |
 | Nauru                     |   | Ø |
 | Nya Kaledonien             |   | Ø |
@@ -227,7 +227,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Palau                     |   | Ø |
 | Papua Nya Guinea          |   | Ø |
 | Pitcairn                  |   | Ø |
-| Samoa                     |   | Ø |
+| Samoaöarna                     |   | Ø |
 | Salomonöarna           |   | Ø|
 | Tokelauöarna                   |   | Ø |
 | Tonga                     |   | Ø |
@@ -261,7 +261,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Tyskland                   | ✓ | ✓ |
 | Gibraltar                 | ✓ | ✓ |
 | Grekland                    | ✓ | ✓ |
-| Guernseypund                  | ✓ | ✓ |
+| Guernsey                  | ✓ | ✓ |
 | Ungern                   | ✓ | ✓ |
 | Island                   | ✓ | ✓ |
 | Irland                   | ✓ | ✓ |
@@ -273,7 +273,7 @@ Maps har dock inte samma nivå av information och exakthet för alla regioner. F
 | Liechtenstein             | ✓ | ✓ |
 | Litauen                 | ✓ | ✓ |
 | Luxemburg                | ✓ | ✓ |
-| Nord Makedonien           | ✓ | ✓ |
+| Nordmakedonien           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldavien                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

@@ -1,6 +1,6 @@
 ---
-title: Begrepp för väder tjänster i Azure Maps | Microsoft Docs
-description: Lär dig mer om väder tjänster i Azure Maps
+title: Koncept för väder tjänster | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om de begrepp som gäller för Microsoft Azure Maps väder tjänster.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/20/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 9d464ab172fcb375d62b9928818362574a485231
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382460"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911028"
 ---
 # <a name="weather-services-in-azure-maps"></a>Väder tjänster i Azure Maps
 
@@ -26,8 +26,8 @@ Vissa av API: erna för väder tjänster låter användaren ange om data returne
 |unitType|Beskrivning         |
 |--------|--------------------|
 |0       |fot                |
-|1       |mm              |
-|2       |tillryggalagda               |
+|1       |Mm              |
+|2       |miles               |
 |3       |millimeter          |
 |4       |tum          |
 |5       |mätare               |
@@ -54,48 +54,48 @@ Vissa av API: erna för väder tjänster låter användaren ange om data returne
 
 Några av väder tjänstens API: er returnerar ikon koder (iconCode) i svaret, ett numeriskt värde som kan användas för att definiera ikonen. Länka inte direkt till dessa bilder från dina program, så kan webb adresserna och ändras.
 
-| Ikon nummer |Ikon| Dag | natten | Text |
+| Ikon nummer |Ikon| Day | Natten | Text |
 |-------------|:----:|-----|-------|------|
-| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Ja |  Nej    | Solig|
-| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Ja |  Nej    | Mest solig|
-| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Ja |  Nej    | Delvis solig|
-| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Ja |  Nej    | Tillfälligt moln|
-| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Ja |  Nej    | Hazy solsken |
-| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Ja |  Nej    | Mest moln|
+| 1           |![](./media/weather-services-concepts/sunny-i.png)                      | Ja |  Inga    | Solig|
+| 2           |![](./media/weather-services-concepts/mostly-sunny.png)                | Ja |  Inga    | Mest solig|
+| 3           |![](./media/weather-services-concepts/partly-sunny.png)                | Ja |  Inga    | Delvis solig|
+| 4           |![](./media/weather-services-concepts/intermittent-clouds.png)         | Ja |  Inga    | Tillfälligt moln|
+| 5           |![](./media/weather-services-concepts/hazy-sunshine.png)               | Ja |  Inga    | Hazy solsken |
+| 6           |![](./media/weather-services-concepts/mostly-cloudy.png)               | Ja |  Inga    | Mest moln|
 | 7           |![](./media/weather-services-concepts/cloudy-i.png)                     | Ja |  Ja   | Molnet |
 | 8           |![](./media/weather-services-concepts/dreary-overcast.png)             | Ja |  Ja   | Dreary (Overcast)|
 | 11           |![](./media/weather-services-concepts/fog-i.png)                       | Ja |  Ja   | Strålkastar|
 | 12           |![](./media/weather-services-concepts/showers-i.png)                   | Ja |  Ja   | Dusch|
-| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Ja |  Nej    | Mest moln med duschar|
-| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Ja |  Nej    | Delvis solig med duschar|
+| 13           |![](./media/weather-services-concepts/mostly-cloudy-showers.png)       | Ja |  Inga    | Mest moln med duschar|
+| 14           |![](./media/weather-services-concepts/partly-sunny-showers.png)        | Ja |  Inga    | Delvis solig med duschar|
 | 15           |![](./media/weather-services-concepts/tstorms-i.png)                   | Ja |  Ja   | Thunderstorms|
-| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Ja |  Nej    | Mest moln med thunderstorms|
-| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Ja |  Nej    | Delvis solig med thunderstorms|
+| 16           |![](./media/weather-services-concepts/mostly-cloudy-tstorms.png)       | Ja |  Inga    | Mest moln med thunderstorms|
+| 17           |![](./media/weather-services-concepts/partly-sunny-tstorms.png)        | Ja |  Inga    | Delvis solig med thunderstorms|
 | 18           |![](./media/weather-services-concepts/rain-i.png)                      | Ja |  Ja   | Regn|
 | 19           |![](./media/weather-services-concepts/flurries-i.png)                  | Ja |  Ja   | Flurries|
-| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Ja |  Nej    | Mest moln med Flurries|
-| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Ja |  Nej    | Delvis solig med Flurries|
+| 20           |![](./media/weather-services-concepts/mostly-cloudy-flurries.png)      | Ja |  Inga    | Mest moln med Flurries|
+| 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | Ja |  Inga    | Delvis solig med Flurries|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | Ja |  Ja   | Snö|
-| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Ja |  Nej    | Mest moln med snö|
+| 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Ja |  Inga    | Mest moln med snö|
 | 24           |![](./media/weather-services-concepts/ice-i.png)                       | Ja |  Ja   | Ice |
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | Ja |  Ja   | Sleet|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | Ja |  Ja   | Frysning av regn|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | Ja |  Ja   | Regn och snö|
 | 30           |![](./media/weather-services-concepts/hot-i.png)                       | Ja |  Ja   | Frekvent|
-| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Ja |  Ja   | Kalla|
+| 31           |![](./media/weather-services-concepts/cold-i.png)                      | Ja |  Ja   | Kall|
 | 32           |![](./media/weather-services-concepts/windy-i.png)                     | Ja |  Ja   | Lindning|
-| 33           |![](./media/weather-services-concepts/clear-night.png)                | Nej  |  Ja   | Rensa|
-| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Nej  |  Ja   | Oftast rensa|
-| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Nej  |  Ja   | Delvis Molnt|
-| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Nej  |  Ja   | Tillfälligt moln|
-| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Nej  |  Ja   | Hazy Moonlight|
-| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Nej  |  Ja   | Mest moln|
-| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Nej  |  Ja   | Delvis moln med duschar|
-| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Nej  |  Ja   | Mest moln med duschar|
-| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Nej  |  Ja   | Delvis moln med thunderstorms|
-| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Nej  |  Ja   | Mest moln med thunderstorms|
-| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Nej  |  Ja   | Mest moln med Flurries|
-| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Nej  |  Ja   | Mest moln med snö|
+| 33           |![](./media/weather-services-concepts/clear-night.png)                | Inga  |  Ja   | Rensa|
+| 34           |![](./media/weather-services-concepts/mostly-clear-night.png)          | Inga  |  Ja   | Oftast rensa|
+| 35           |![](./media/weather-services-concepts/partly-cloudy-night.png)         | Inga  |  Ja   | Delvis Molnt|
+| 36           |![](./media/weather-services-concepts/intermittent-clouds-Night.png)   | Inga  |  Ja   | Tillfälligt moln|
+| 37           |![](./media/weather-services-concepts/hazymoon-light.png)             | Inga  |  Ja   | Hazy Moonlight|
+| 38           |![](./media/weather-services-concepts/mostly-cloudy-night.png)         | Inga  |  Ja   | Mest moln|
+| 39           |![](./media/weather-services-concepts/partly-cloudy-showers-night.png)  | Inga  |  Ja   | Delvis moln med duschar|
+| 40           |![](./media/weather-services-concepts/mostly-cloudy-showers-night.png)  | Inga  |  Ja   | Mest moln med duschar|
+| 41           |![](./media/weather-services-concepts/partly-cloudy-tstorms-night.png)  | Inga  |  Ja   | Delvis moln med thunderstorms|
+| 42           |![](./media/weather-services-concepts/mostly-cloudy-tstorms-night.png)  | Inga  |  Ja   | Mest moln med thunderstorms|
+| 43           |![](./media/weather-services-concepts/mostly-cloudy-flurries-night.png) | Inga  |  Ja   | Mest moln med Flurries|
+| 44           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | Inga  |  Ja   | Mest moln med snö|
 
 
 ## <a name="radar-and-satellite-imagery-color-scale"></a>Färg skala för polärdiagram och satellit bilder

@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett symbol lager i Azure Maps | Microsoft Docs
-description: Så här lägger du till symboler i Azure Maps Web SDK.
+title: Lägg till ett symbol lager till en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig mer om hur du använder symbol lagret för att anpassa och lägga till symboler på en karta med hjälp av Microsoft Azure Maps-webbsdk.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480616"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911166"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägga till ett symbol lager till en karta
 
@@ -26,9 +26,9 @@ En symbol kan vara ansluten till en data källa och används för att återge en
 Kart hanteraren Maps bild Sprite, som används för att läsa in anpassade bilder som används av symbol skiktet, stöder följande bild format:
 
 - -
-- KÄLLFIL
+- PNG
 - SVG
-- BITMAPPSBILD
+- BMP
 - GIF (inga animeringar)
 
 ## <a name="add-a-symbol-layer"></a>Lägga till ett symbolskikt

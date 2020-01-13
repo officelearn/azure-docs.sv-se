@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 3d748e1625f27be27b7f403fbab3e213b16c4dd6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c5de7b7bf30726dbfbf165799280ad892eca628a
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890168"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912000"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb till Azure Logic Apps
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du kan schemalägga engångs-och återkommande jobb 
 
 Mer information finns i [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller prova att skapa din första Logic-app i den här snabb starten: [skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -191,9 +191,9 @@ Om standard åtgärden inte kan köras i Azure Scheduler kan du köra en alterat
 
 1. När du är klar väljer du **Klar**.
 
-Mer information om undantags hantering finns i avsnittet [hantera fel och undantag-RunAfter](../logic-apps/logic-apps-exception-handling.md#catch-and-handle-failures-with-the-runafter-property).
+Mer information om undantags hantering finns i avsnittet [hantera fel och undantag-RunAfter](../logic-apps/logic-apps-exception-handling.md#control-run-after-behavior).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 <a name="retire-date"></a>
 
@@ -212,7 +212,7 @@ Mer information om undantags hantering finns i avsnittet [hantera fel och undant
 **F**: var kan jag få support för att migrera mina jobb I Schemaläggaren? <br>
 **A**: här är några sätt att få support: 
 
-**Azure Portal**
+**Azure-portalen**
 
 Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en teknisk supportbegäran i Azure Portal. Annars kan du välja ett annat support alternativ.
 
@@ -223,7 +223,7 @@ Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en tek
    | Egenskap | Värde |
    |---------|-------|
    | **Typ av problem** | **Produkt** |
-   | **Prenumeration** | <*din-Azure-prenumeration*> |
+   | **Prenumeration** | <*your-Azure-subscription*> |
    | **Tjänst** | Välj **Scheduler**Under **övervakning & hantering**. Om du inte hittar **Scheduler**väljer du **alla tjänster** först. |
    ||| 
 

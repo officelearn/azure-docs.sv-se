@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: skapa ett geografiskt avgränsnings tecken med Azure Maps'
-description: 'Självstudie: Konfigurera en avgränsning med hjälp av Azure Maps.'
+title: 'Självstudie: skapa en inhägnad och spåra enheter på en karta | Microsoft Azure Maps'
+description: I den här självstudien får du lära dig hur du ställer in en avgränsning och spårar enheter i förhållande till den här inställningen med hjälp av Microsoft Azure mappar spatial tjänst.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 2998c67bf00c74422baa19af0b389118600ba1c7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0e408adfe1daed402ef690224368e846bd0a97c8
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407835"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910949"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geografiskt avgränsnings tecken genom att använda Azure Maps
 
@@ -58,7 +58,7 @@ Vi använder postman-programmet för att ladda upp geofence för byggarbetsplats
 
 3. Klicka på **Params** och ange följande nyckel/värde-par som ska användas för POST-begäran-URL. Ersätt prenumerations nyckel värde med din Azure Maps nyckel.
    
-    ![Key-Value-parametrar för Postman](./media/tutorial-geofence/postman-key-vals.png)
+    ![Parametrar för överföring av data (avgränsning) i Postman](./media/tutorial-geofence/postman-key-vals.png)
 
 4. Klicka på **Body** (Brödtext), välj raw-indataformatet och välj JSON som indataformat i den nedrullningsbara listan. Ange följande JSON som data som ska laddas upp:
 
@@ -177,7 +177,7 @@ Mer information finns i avsnittet om [händelsehanterare som stöds](https://doc
 
 1. Skapa en logikapp i Azure-portalen
 
-   ![skapa logikappar](./media/tutorial-geofence/logic-app.png)
+   ![Skapa Azure Logic Apps för att hantera polystängsel-händelser](./media/tutorial-geofence/logic-app.png)
 
 2. Välj en HTTP-begärandeutlösare och välj sedan ”Send an email” (Skicka ett e-postmeddelande) som en åtgärd i Outlook-anslutningsappen
   
@@ -185,7 +185,7 @@ Mer information finns i avsnittet om [händelsehanterare som stöds](https://doc
 
 3. Spara logikappen för att generera HTTP-URL-slutpunkten och kopiera HTTP-URL:en.
 
-   ![Logic Apps-slutpunkt](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Generera en Logic Apps-slutpunkt](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Skapa en prenumeration för Azure Maps-händelser
@@ -196,15 +196,15 @@ Följ stegen nedan för att skapa en händelseprenumeration för geofence-inträ
 
 1. Gå till ditt Azure Maps-konto via [den här portallänken](https://ms.portal.azure.com/#@microsoft.onmicrosoft.com/dashboard/) och välj fliken Events (Händelser).
 
-   ![Azure Maps-händelser](./media/tutorial-geofence/events-tab.png)
+   ![Navigera till Azure Maps konto händelser](./media/tutorial-geofence/events-tab.png)
 
 2. För att skapa en händelseprenumeration väljer du Event Subscription (Händelseprenumeration) på sidan Events (Händelser).
 
-   ![Prenumeration för Azure Maps-händelser](./media/tutorial-geofence/create-event-subscription.png)
+   ![Skapa en prenumeration för Azure Maps-händelser](./media/tutorial-geofence/create-event-subscription.png)
 
 3. Namnge händelseprenumerationen och prenumerera på händelsetypen Enter (Inträde). Välj nu Web Hook som ”Endpoint Type” (Slutpunktstyp) och kopiera din logikapps HTTP-URL-slutpunkt till ”Endpoint” (Slutpunkt)
 
-   ![Händelseprenumeration](./media/tutorial-geofence/events-subscription.png)
+   ![Prenumerations information för Azure Maps händelser](./media/tutorial-geofence/events-subscription.png)
 
 
 ## <a name="use-geofence-api"></a>Använda geofence-API
@@ -214,7 +214,7 @@ Du kan använda geofence-API:et för att kontrollera huruvida en **device** (enh
 > [!Note]
 > Ovanstående scenario och beteende baseras på samma **enhets-ID** så att det speglar de fem olika platserna som på bilden nedan.
 
-![Geofence-karta](./media/tutorial-geofence/geofence.png)
+![Gräns karta i Azure Maps](./media/tutorial-geofence/geofence.png)
 
 I Postman-appen öppnar du en ny flik i samma samling som du skapade ovan. Välj GET HTTP-metoden på fliken Builder (Byggare):
 

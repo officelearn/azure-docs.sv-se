@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707749"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912269"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudie: skapa simulerade enhets data
 
@@ -123,7 +123,7 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
 1. Du kan visa meddelanden som skickas till hubben genom att högerklicka på valfri enhet och välja **starta övervakning inbyggd händelse slut punkt**. Meddelandena visas i fönstret utdata i Visual Studio Code.
 
-1. Stoppa övervakningen genom att klicka på fönstret utdata i **Azure IoT Hub Toolkit** och välj **stoppa övervakning inbyggd händelse slut punkt**.
+1. Stoppa övervakningen genom att klicka i fönstret för **Azure IoT Hub** utdata och välj **stoppa övervakning inbyggd händelse slut punkt**.
 
 1. Låt programmet köras klart, vilket tar några minuter.
 
@@ -153,7 +153,7 @@ De data som vi precis skickade till din IoT Hub dirigerades till lagrings behål
 
 1. Klicka i någon av dessa mappar för att söka efter datafiler med etiketten **00** och **01** som motsvarar partitionen.
 
-1. Filerna skrivs i [Avro](https://avro.apache.org/) -format, men om du dubbelklickar på en av dessa filer öppnas en annan webbläsare-flik som delvis återger data. Om du i stället uppmanas att öppna filen i ett program kan du välja VS Code och den kommer att återges på rätt sätt.
+1. Filerna skrivs i [Avro](https://avro.apache.org/) -format, men om du dubbelklickar på en av dessa filer öppnas en annan webbläsare-flik som delvis återger data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS Code och det renderas korrekt.
 
 1. Du behöver inte försöka att läsa eller tolka data just nu. Vi kommer att göra det i nästa artikel.
 

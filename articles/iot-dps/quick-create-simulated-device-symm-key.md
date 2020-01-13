@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 73d2e075dd4d3cf9e9b37aa9131ab5f4c822e140
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4e84a43f8984e2adeac916e467a8cac693ee453d
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895910"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912440"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
 
@@ -51,6 +51,8 @@ SDK innehåller exempelkod för en simulerad enhet. Den här simulerade enheten 
 1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
+
+    Äldre versioner av CMake build-systemet kan inte generera lösnings filen som används i den här artikeln. Se till att använda en nyare version av CMake.
 
 2. Klicka på **taggar** och hitta taggnamnet för den senaste versionen på [sidan release i Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
@@ -136,6 +138,8 @@ I det här avsnittet uppdaterar du exempelkoden för att skicka enhetens startse
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
     ```
+
+    Om filen inte genererades i cmake-katalogen ser du till att du har använt en ny version av CMake-build-systemet.
 
 3. I fönstret *Solution Explorer* i Visual Studio går du till mappen **Provision (Etablera)\_Exempel**. Expandera exempelprojektet som heter **prov\_dev\_client\_sample**. Expandera **Källfiler** och öppna **prov\_dev\_client\_sample.c**.
 

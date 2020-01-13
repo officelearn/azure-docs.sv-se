@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett panel lager i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett panel lager i Azure Maps Web SDK.
+title: Lägga till ett panel lager till en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig att täcka ett panel lager på en karta med hjälp av Microsoft Azure Maps-webbsdk. Med panel lager kan du återge bilder på en karta.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,14 +9,14 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3f047ec1aced55038384cbe29bd3a4b8a948dce9
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 83e8f6d684d6d39102fd682653cd19816a9f7b10
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976456"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911098"
 ---
-# <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panel lager till en karta
+# <a name="add-a-tile-layer-to-a-map"></a>Lägga till ett panelskikt till en karta
 
 Den här artikeln visar hur du kan täcka ett panel lager på kartan. Med panel lager kan du placera bilder ovanpå Azure Maps bas kart paneler. Mer information om Azure Maps displacerings systemet finns i dokumentationen för [zoomnings nivåer och Brick rutnät](zoom-levels-and-tile-grid.md) .
 
@@ -31,16 +31,16 @@ Ett panel lager läses in i paneler från en server. Dessa avbildningar kan anti
 
 Panel-URL: en som skickas till ett panel lager måste vara en HTTP/HTTPS-URL till en TileJSON-resurs eller en panel-URL-mall som använder följande parametrar: 
 
-* `{x}`-X position i rutan. Du måste `{y}` också `{z}`ha och.
-* `{y}`-Y position i panelen. Du måste `{x}` också `{z}`ha och.
-* `{z}`-Zoomnings nivå i panelen. Du måste `{x}` också `{y}`ha och.
-* `{quadkey}`-Panel quadkey identifierare baserat på Bing Maps-panelens system namngivnings konvention.
-* `{bbox-epsg-3857}`– En sträng med avgränsnings rutor med formatet `{west},{south},{east},{north}` i EPSG 3857 rums referens system.
-* `{subdomain}`– En plats hållare där under domän värden om de anges kommer att läggas till.
+* panelens `{x}`-X-position. Behöver också `{y}` och `{z}`.
+* panelens `{y}`-Y-position. Behöver också `{x}` och `{z}`.
+* panelens `{z}` zoomnings nivå. Behöver också `{x}` och `{y}`.
+* quadkey-identifierare för `{quadkey}` panel baserat på Bing Maps-panelens system namngivnings konvention.
+* `{bbox-epsg-3857}`-en sträng med en avgränsnings ruta med formatet `{west},{south},{east},{north}` i rums referens systemet EPSG 3857.
+* `{subdomain}` – en plats hållare där under domän värden om de anges kommer att läggas till.
 
 ## <a name="add-a-tile-layer"></a>Lägga till ett panelskikt
 
- Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). När du visar radar data kan användarna tydligt se etiketter för städer när de navigerar i kartan, vilket kan göras genom att infoga panel lagret under `labels` lagret.
+ Det här exemplet visar hur du skapar ett panel lager som pekar på en uppsättning paneler som använder systemet x, y, zoom-inpassning. Källan till det här panel lagret är ett väderleks överlägg av [Iowa-miljön för Mesonet i Iowa State University](https://mesonet.agron.iastate.edu/ogc/). När du visar radar data kan användarna tydligt se etiketter för städer när de navigerar i kartan, vilket kan göras genom att infoga panel lagret under `labels` skiktet.
 
 ```javascript
 //Create a tile layer and add it to the map below the label layer.
@@ -65,7 +65,7 @@ Panel skikts klassen har många format alternativ. Här är ett verktyg för att
 
 <br/>
 
-<iframe height='700' scrolling='no' title='Alternativ för panel lager' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativ för Penn <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>panels lager</a> efter Azure Maps<a href='https://codepen.io/azuremaps'>@azuremaps</a>() på <a href='https://codepen.io'>CodePen</a>.
+<iframe height='700' scrolling='no' title='Alternativ för panel lager' src='//codepen.io/azuremaps/embed/xQeRWX/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se alternativ för Penn <a href='https://codepen.io/azuremaps/pen/xQeRWX/'>panels lager</a> genom Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="next-steps"></a>Nästa steg

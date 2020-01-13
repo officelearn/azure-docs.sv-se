@@ -1,6 +1,6 @@
 ---
-title: 'Självstudie: skapa en Store-positionerare med hjälp av Azure Maps'
-description: 'Självstudie: skapa en Store-positionerare med hjälp av Azure Maps.'
+title: 'Självstudie: skapa ett program för Store Locator med Azure Maps | Microsoft Azure Maps'
+description: I den här självstudien får du lära dig hur du skapar en app Locator-webbapp med hjälp av Microsoft Azure Maps-webbsdk.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/12/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b5ce78e95d139cf16b6193fedffc563513b39719
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 830641ae1421b799ab8e7d8b47a1c1a6e38419cf
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408030"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910956"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Självstudie: skapa en Store-lokaliserare med hjälp av Azure Maps
 
@@ -43,13 +43,13 @@ Innan du sätter igång i koden är det en bra idé att börja med en design. Di
 
 <center>
 
-![tråd block för en butiks Locator för Contoso kaffe kaffe handlande platser](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+![tråd block för ett Store Locator-program för Contoso kaffe Shop-platser](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 För att maximera butikslokaliserarens användbarhet använder vi en dynamisk layout som anpassar sig när en användares skärmbredd är mindre än 700 bildpunkter. En dynamisk layout gör det enklare att använda butikslokaliseraren på en liten skärm, som på en mobil enhet. Här är ett trådblock i en layout för liten skärm:  
 
 <center>
 
-![trådram för Contoso kaffe Store Locator på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+![tråd block för Contoso kaffe Store Locator-programmet på en mobil enhet](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 Trådblocken visar ett ganska enkelt program. Programmet har en sökruta, en lista över närliggande butiker, en karta som har vissa markörer (symboler) och ett popup-fönster som visar ytterligare information när användaren väljer en markör. Närmare bestämt följer här de funktioner som vi bygger in i den här butikslokaliseraren i den här självstudien:
 

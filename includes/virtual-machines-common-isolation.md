@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: 78b73688306fb51278afba7283a1ea82af603349
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7705ea3b60d8c8e2b189ad555d1b53fa395aa1fb
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459171"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912518"
 ---
 Azure Compute ger VM-storlekar som isoleras till en specifik maskinvarutyp och dedikerad till en enda kund.  Dessa VM-storlekar passar bäst för arbetsbelastningar som kräver en hög grad av isolering från andra kunder för arbetsbelastningar som innehåller element som efterlevnad och regelkrav.  Kunder kan också välja att ytterligare dela upp resurserna i de isolerade virtuella datorerna med hjälp av [Azure-stöd för kapslade virtuella datorer](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
@@ -30,7 +30,7 @@ Användning av en isolerad storlek garanterar att den virtuella datorn är den e
 Du kan lära dig mer om var och en av de tillgängliga isolerade storlekarna [här](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
 ## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>Ta bort D15_v2/DS15_v2-isolering den 15 februari 2020
-Den dedikerade Azure-värden är nu GA, som gör att du kan köra din organisations virtuella Linux-och Windows-datorer på fysiska servrar för enskild klient. Vi planerar att helt ersätta isolerade virtuella Azure-datorer med dedikerad Azure-värd. Efter **15 februari 2020** kanske de virtuella Azure-datorerna i D15_v2/DS15_v2 inte längre vara isolerade.
+Den dedikerade Azure-värden är nu GA, som gör att du kan köra din organisations virtuella Linux-och Windows-datorer på fysiska servrar för enskild klient. Vi planerar att helt ersätta isolerade virtuella Azure-datorer med dedikerad Azure-värd. Efter den **15 februari 2020** kommer de virtuella Azure DS15_v2-D15_v2 datorerna inte längre vara isolerade.
 
 ## <a name="how-does-this-affect-me"></a>Hur påverkar det här mig?
 Efter den 15 februari 2020 kommer vi inte längre att tillhandahålla en isolerings garanti för dina D15_v2/DS15_v2 Azure Virtual Machines. 

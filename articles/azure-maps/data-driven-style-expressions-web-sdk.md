@@ -1,6 +1,6 @@
 ---
-title: Data drivna format uttryck i Azure Maps Web SDK | Microsoft Docs
-description: Använda data drivna format uttryck i Azure Maps Web SDK.
+title: Data drivna format uttryck i Azure Maps Web SDK | Microsoft Azure Maps
+description: 'I den här artikeln får du lära dig mer om hur du använder data drivna format uttryck i Microsoft Azure Maps-webbsdk: n.'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 4/4/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 6cd69ba8abe243daadf5d517ab7c5a224953cc99
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 8372012734d937da99c32d2d18fed91ae52c7444
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480643"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911769"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Uttryck för data drivna format (webb-SDK)
 
@@ -87,8 +87,8 @@ Data uttryck ger till gång till egenskaps data i en funktion.
 | `['geometry-type']` | sträng | Hämtar funktionens geometri typ: punkt, MultiPoint, lin Est ring, MultiLineString, polygon, multipolygon. |
 | `['get', string]` | värde | Hämtar egenskap svärdet från den aktuella funktionens egenskaper. Returnerar null om den begärda egenskapen saknas. |
 | `['get', string, object]` | värde | Hämtar egenskap svärdet från egenskaperna för det angivna objektet. Returnerar null om den begärda egenskapen saknas. |
-| `['has', string]` | boolesk | Anger om egenskaperna för en funktion har den angivna egenskapen. |
-| `['has', string, object]` | boolesk | Anger om egenskaperna för objektet har den angivna egenskapen. |
+| `['has', string]` | boolean | Anger om egenskaperna för en funktion har den angivna egenskapen. |
+| `['has', string, object]` | boolean | Anger om egenskaperna för objektet har den angivna egenskapen. |
 | `['id']` | värde | Hämtar funktionens ID om det har en sådan. |
 | `['length', string | array]` | nummer | Hämtar längden för en sträng eller matris. |
 
@@ -196,15 +196,15 @@ När värden jämförs skrivs jämförelsen strikt. Värden av olika typer betra
 
 | Uttryck | Returtyp | Beskrivning |
 |------------|-------------|-------------|
-| `['! ', boolean]` | boolesk | Logisk negation. Returnerar `true` om indatatypen är `false`och `false` om indatatypen är `true`. |
-| `['!= ', value, value]` | boolesk | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
-| `['<', value, value]` | boolesk | Returnerar `true` om den första indatamängden är strikt mindre än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['<=', value, value]` | boolesk | Returnerar `true` om den första indatamängden är mindre än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['==', value, value]` | boolesk | Returnerar `true` Om indatavärdena är lika, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['>', value, value]` | boolesk | Returnerar `true` om den första indatamängden är exakt större än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['>=' value, value]` | boolesk | Returnerar `true` om den första indatamängden är större än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
-| `['all', boolean, boolean, …]` | boolesk | Returnerar `true` om alla indata är `true``false` annars. |
-| `['any', boolean, boolean, …]` | boolesk | Returnerar `true` om några indata är `true``false` annars. |
+| `['! ', boolean]` | boolean | Logisk negation. Returnerar `true` om indatatypen är `false`och `false` om indatatypen är `true`. |
+| `['!= ', value, value]` | boolean | Returnerar `true` Om indatavärdena inte är lika, `false` annars. |
+| `['<', value, value]` | boolean | Returnerar `true` om den första indatamängden är strikt mindre än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['<=', value, value]` | boolean | Returnerar `true` om den första indatamängden är mindre än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['==', value, value]` | boolean | Returnerar `true` Om indatavärdena är lika, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['>', value, value]` | boolean | Returnerar `true` om den första indatamängden är exakt större än den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['>=' value, value]` | boolean | Returnerar `true` om den första indatamängden är större än eller lika med den andra, `false` annars. Argumenten måste vara antingen båda strängarna eller båda talen. |
+| `['all', boolean, boolean, …]` | boolean | Returnerar `true` om alla indata är `true``false` annars. |
+| `['any', boolean, boolean, …]` | boolean | Returnerar `true` om några indata är `true``false` annars. |
 
 ## <a name="conditional-expressions"></a>Villkorliga uttryck
 
@@ -401,7 +401,7 @@ Typ uttryck innehåller verktyg för att testa och konvertera olika data typer, 
 |------------|-------------|-------------|
 | `['literal', array]`<br/><br/>`['literal', object]` | matris \| objekt | Returnerar en literal matris eller ett objekt värde. Använd det här uttrycket för att förhindra att en matris eller ett objekt utvärderas som ett uttryck. Detta är nödvändigt när en matris eller ett objekt måste returneras av ett uttryck. |
 | `['image', string]` | sträng | Kontrollerar om ett angivet bild-ID läses in i Maps-avbildningen Sprite. Om så är fallet returneras ID, annars returneras null. |
-| `['to-boolean', value]` | boolesk | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indatatypen är en tom sträng, `0`, `false`, `null`eller `NaN`. annars `true`. |
+| `['to-boolean', value]` | boolean | Konverterar indatavärdet till ett booleskt värde. Resultatet är `false` när indatatypen är en tom sträng, `0`, `false`, `null`eller `NaN`. annars `true`. |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Konverterar indatavärdet till en färg. Om flera värden anges utvärderas var och en i ordning tills den första lyckade konverteringen erhålls. Om ingen av indatana kan konverteras, är uttrycket ett fel. |
 | `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | nummer | Konverterar indatavärdet till ett tal, om möjligt. Om indatatypen är `null` eller `false`är resultatet 0. Om indatatypen är `true`är resultatet 1. Om indatatypen är en sträng konverteras den till ett tal med hjälp av funktionen [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) -sträng i språk specifikationen ECMAScript. Om flera värden anges utvärderas var och en i ordning tills den första lyckade konverteringen erhålls. Om ingen av indatana kan konverteras, är uttrycket ett fel. |
 | `['to-string', value]` | sträng | Konverterar indatavärdet till en sträng. Om indatatypen är `null`är resultatet `""`. Om indatatypen är ett booleskt värde är resultatet `"true"` eller `"false"`. Om indatatypen är ett tal, konverteras den till en sträng med hjälp av funktionen [toString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) Number i språk specifikationen ECMAScript. Om indatatypen är en färg konverteras den till CSS RGBA-färgsträng `"rgba(r,g,b,a)"`. Annars konverteras inmatarna till en sträng med hjälp av [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) -funktionen i språk specifikationen ECMAScript. |
@@ -823,8 +823,8 @@ Variabel bindnings uttryck lagrar resultatet av en beräkning i en variabel så 
 
 | Uttryck | Returtyp | Beskrivning |
 |--------------|---------------|--------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;...<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var`-uttrycket i det underordnade uttrycket som returnerar resultatet. |
-| `['var', name: string]` | helst | Refererar till en variabel som skapats med `let`-uttrycket. |
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;"Let",<br/>&nbsp;&nbsp;&nbsp;&nbsp;name1: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;value1: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;name2: sträng,<br/>&nbsp;&nbsp;&nbsp;&nbsp;värde2: any,<br/>&nbsp;&nbsp;&nbsp;&nbsp;…<br/>&nbsp;&nbsp;&nbsp;&nbsp;childExpression<br/>\] | | Lagrar ett eller flera värden som variabler som används av `var`-uttrycket i det underordnade uttrycket som returnerar resultatet. |
+| `['var', name: string]` | valfri | Refererar till en variabel som skapats med `let`-uttrycket. |
 
 **Exempel**
 

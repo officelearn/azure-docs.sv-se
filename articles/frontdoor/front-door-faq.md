@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 39051014e5e474264a44983fb366bc08f02c31e0
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dd315277e6e8f29a103760d605a7da4603190c20
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639862"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908876"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Vanliga frågor och svar om Azure-tjänsten för front dörr
 
@@ -99,7 +99,7 @@ Om du vill låsa ditt program så att det bara accepterar trafik från din speci
     > Front dörrens IP-utrymme kan ändras senare, men vi kommer att se till att vi har integrerat med [Azure IP-intervall och service Taggar](https://www.microsoft.com/download/details.aspx?id=56519)innan det inträffar. Vi rekommenderar att du prenumererar på [Azure IP-intervall och service märken](https://www.microsoft.com/download/details.aspx?id=56519) för ändringar eller uppdateringar.
 
 -   Filtrera på värdena för det inkommande huvudet "**X-forwarded-Host**", som skickats av front dörren. De enda tillåtna värdena för rubriken bör vara alla klient dels värdar som har definierats i din konfiguration av din front dörr. I själva verket är det bara de värdnamn för vilka du vill acceptera trafik från, på just den här server delen av din.
-    - Exempel – låt oss säga att konfigurationen av den främre dörren har följande klient dels värdar _`contoso.azurefd.net`_ (a), _`www.contoso.com`_ (B), _ (C) och _`notifications.contoso.com`_ (D). Vi antar att du har två server delar X och Y. 
+    - Exempel – anta att konfigurationen av den främre dörren har följande klient dels värdar _`contoso.azurefd.net`_ (a), _`www.contoso.com`_ (B), _`api.contoso.com`_ (C) och _`notifications.contoso.com`_ (D). Vi antar att du har två server delar X och Y. 
     - Server del X ska bara ta trafik från värdnamn A och B. backend Y kan ta trafik från A, C och D.
     - På Server sidan X bör du bara acceptera trafik som har värdet "**X-forwarded-Host**" inställd på antingen _`contoso.azurefd.net`_ eller _`www.contoso.com`_ . För allt annat ska Server del X avvisa trafiken.
     - På backend-sidan bör du på Server sidan bara acceptera trafik med rubriken "**X-forwarded-Host**" inställd på antingen _`contoso.azurefd.net`_ , _`api.contoso.com`_ eller _`notifications.contoso.com`_ . För allt annat bör backend Y avvisa trafiken.

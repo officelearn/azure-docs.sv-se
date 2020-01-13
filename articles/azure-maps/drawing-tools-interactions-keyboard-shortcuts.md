@@ -1,6 +1,6 @@
 ---
-title: Funktions typer och kortkommandon för rit verktyg i Azure Maps | Microsoft Docs
-description: Rita och redigera former med hjälp av en mus, touch-skärm eller tangent bord i Azure Maps Web SDK
+title: Funktions typer och kortkommandon för rit verktyg på kartan | Microsoft Azure Maps
+description: Rita och redigera former med hjälp av en mus, touch-skärm eller tangent bord i Microsoft Azure Maps-webbsdk
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 8385f294426f6d793f7b539006eafd0b2cb940ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 267579f7b4bbfe026f3aa01b00f01f3b872cf4a6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75481950"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911660"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Interaktions typer och kortkommandon i modulen rit verktyg
 

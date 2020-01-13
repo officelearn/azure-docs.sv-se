@@ -1,6 +1,6 @@
 ---
-title: Kart format som stöds i Azure Maps | Microsoft Docs
-description: Kart format som stöds av Azure Maps
+title: Kart format som stöds | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om olika typer av kart åter givning som stöds av Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 5368aec04eb0a57654adf5b0d5914282a979dcfd
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 92e48486777d82589a56074790dd709c5d525859
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325398"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910630"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
 Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
@@ -21,7 +21,7 @@ Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
 ## <a name="road"></a>utanför
 En **väg** karta är en standard karta som visar vägar, naturliga och artificiella funktioner tillsammans med etiketter för dessa funktioner.
 
-![utanför](./media/supported-map-styles/road.png)
+![kart stil för vägar](./media/supported-map-styles/road.png)
 
 **Tillämpliga API: er:**
 * [Kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -39,10 +39,10 @@ De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yt
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
 
-## <a name="satellite"></a>satellit 
+## <a name="satellite"></a>satellite 
 **Satellit** stilen är en kombination av satellit-och antenn bilder.
 
-![satellit](./media/supported-map-styles/satellite.png)
+![kart stil för satellit panel](./media/supported-map-styles/satellite.png)
 
 **Tillämpliga API: er:**
 * [Satellit panel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,7 +52,7 @@ De **tomma** och **blank_accessible** kart formaten innehåller en tom arbets yt
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå satellit-och antenn bilder.
 
-![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
+![satellite_road_labels kart stil](./media/supported-map-styles/satellite_road_labels.png)
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
@@ -61,7 +61,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 ## <a name="grayscale_dark"></a>grayscale_dark
 **gråskala** är en mörk version av vägens kart stil.
 
-![gray_scale](./media/supported-map-styles/grayscale_dark.png)
+![gray_scale kart stil](./media/supported-map-styles/grayscale_dark.png)
 
 **Tillämpliga API: er:**
 * [Kart bild](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,17 +73,17 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 ## <a name="grayscale_light"></a>grayscale_light
 **grå Skale lampor** är en låg version av vägens kart stil.
 
-![grå ljus](./media/supported-map-styles/grayscale_light.png)
+![format för grå tons indikator](./media/supported-map-styles/grayscale_light.png)
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
 
 
-## <a name="night"></a>natten
+## <a name="night"></a>natt
 **natt** är en mörk version av kart formatet för vägar med färgade vägar och symboler.
 
-![natten](./media/supported-map-styles/night.png)
+![stil för natt karta](./media/supported-map-styles/night.png)
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
@@ -92,7 +92,7 @@ Den här kart stilen är en hybrid av vägar och etiketter som finns ovanpå sat
 ## <a name="road_shaded_relief"></a>road_shaded_relief
 en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts med hjälp av jordens profiler.
 
-![skuggad reducering](./media/supported-map-styles/shaded-relief.png)
+![skuggad avbilds stil](./media/supported-map-styles/shaded-relief.png)
 
 **Tillämpliga API: er:**
 * [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)

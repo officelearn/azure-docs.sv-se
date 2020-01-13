@@ -1,6 +1,6 @@
 ---
-title: Lägg till ett verktygsfält för ritning i Azure Maps | Microsoft Docs
-description: Så här lägger du till ett verktygsfält för ritning i en karta med Azure Maps Web SDK
+title: Lägg till ett verktygsfält för ritning i en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du lägger till ett verktygsfält för ritning till en karta med Microsoft Azure Maps-webbsdk
 author: rbrundritt
 ms.author: richbrun
 ms.date: 12/05/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 63848ecf92daecf28f6e0046e87da15355aa35c1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: fd235f3f39d67f86c8387add79ca0dbf17dc5906
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561838"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911673"
 ---
 # <a name="drawing-tool-events"></a>Rit verktygs händelser
 

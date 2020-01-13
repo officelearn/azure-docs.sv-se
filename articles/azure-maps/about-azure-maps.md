@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Maps | Microsoft Docs
-description: En introduktion till Azure Maps
+title: Översikt | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om tjänster och funktioner i Microsoft Azure Maps och hur du använder dem i dina program.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/04/2019
@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: dbcb0e87159efc7cc33101cdd5eee55afbdf3c10
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 353850cacb06dcc8a0db1b957114db314d7002a3
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516643"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911835"
 ---
 # <a name="what-is-azure-maps"></a>Vad är Azure Maps?
 
-Azure Maps är en samling geospatiala tjänster som använder nya mappnings data för att tillhandahålla korrekt geografisk kontext till webb-och mobil program. Azure Maps tillhandahåller:
+Azure Maps är en samling geospatiala tjänster som använder nya kartdata för att tillhandahålla en korrekt geografisk kontext till webb- och mobilprogram. Azure Maps tillhandahåller:
 
 * REST API: er för åter givning av kartor i flera format och i satellit-bilder.
 * Söker efter adresser, platser och punkter av intresse runtom i världen.
@@ -38,7 +38,7 @@ I följande video beskriver vi Azure Maps mer ingående:
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
-## <a name="map-controls"></a>Kart kontroller
+## <a name="map-controls"></a>Kartkontroller
 
 ### <a name="web-sdk"></a>Web SDK
 
@@ -74,7 +74,7 @@ Mer information om tjänsten finns i [dokumentationen för Mobility API](https:/
 
 ![Exempel på en karta från åter givnings tjänsten](media/about-azure-maps/Introduction_Map.png)
 
-Nu finns förhandsversions-API:er med återgivningstjänsten, så att utvecklare kan arbeta med satellitbilder. Mer information finns i rendera [API-dokumentationen](https://docs.microsoft.com/rest/api/maps/render).
+Nu finns förhandsversions-API:er med återgivningstjänsten, så att utvecklare kan arbeta med satellitbilder. Mer information finns i [rendera API-dokumentationen](https://docs.microsoft.com/rest/api/maps/render).
 
 ### <a name="route-service"></a>Routningstjänst
 
@@ -92,7 +92,7 @@ Mer information om routningsfunktioner finns i [Route API-dokumentationen](https
 
 ### <a name="search-service"></a>Söktjänst
 
-Sök tjänsten hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Sök tjänsten kan omvända hår [kod](https://en.wikipedia.org/wiki/Reverse_geocoding) adresser och korsade gator utifrån latitud och longitud.
+Sök tjänsten hjälper utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Sök tjänsten kan [omvända hår kod](https://en.wikipedia.org/wiki/Reverse_geocoding) adresser och korsade gator utifrån latitud och longitud.
 
 ![Exempel på en sökning på en karta](media/about-azure-maps/Introduction_Search.png)
 
@@ -145,8 +145,8 @@ Mer information om den här tjänsten finns i [API-dokumentationen för Time Zon
 
 Traffic service är en uppsättning webb tjänster som utvecklare kan använda för att skapa webb-och mobil program som kräver trafik information. Tjänsten tillhandahåller två typer av data:
 
-* Trafikflöde: Real tids hastighet och res tider för alla nyckel vägar i nätverket.
-* Trafik incidenter: En uppdaterad vy över trafiken sylt och incidenter runt vägtrafik nätverket.
+* Trafikflöde: real tids observerade hastigheter och res tider för alla nyckel vägar i nätverket.
+* Trafik incidenter: en uppdaterad vy över trafiken sylt och incidenter runt vägtrafik nätverket.
 
 ![Exempel på en karta med trafik information](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -184,7 +184,7 @@ Kontrollera att platsen för din aktuella IP-adress inte är i någon av de län
 Prova en exempel app som demonstrerar Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa en webbapp](quick-demo-map-app.md)
+> [Snabb start: skapa en webbapp](quick-demo-map-app.md)
 
 Håll dig uppdaterad om Azure Maps: 
 

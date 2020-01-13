@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: interaktiv kart sökning med Azure Maps'
-description: Azure-snabbstart – Skapa en demonstration av en interaktiv kartsökning med Azure Maps
+title: 'Snabb start: interaktiv kart sökning med Azure Maps | Microsoft Azure Maps'
+description: Lär dig hur du skapar ett demonstrations webb program för interaktiv kart sökning genom att använda Microsoft Azure Maps-webbsdk.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7553499dc9aba8d20bee126204b6d19f2386d295
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75408437"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910681"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
 
@@ -57,7 +57,7 @@ När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga A
 2. I avsnittet Inställningar väljer du **autentisering**.
 3. Kopiera **Primärnyckel** till Urklipp. Spara den lokalt för senare användning i den här självstudien.
 
-![Hämta primärnyckel i portalen](./media/quick-demo-map-app/get-key.png)
+![Hämta primär nyckel Azure Maps nyckel i Azure Portal](./media/quick-demo-map-app/get-key.png)
 
 ## <a name="download-the-application"></a>Hämta programmet
 
@@ -73,7 +73,7 @@ När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga A
 4. Prova den interaktiva sökupplevelsen. I sökrutan i det övre vänstra hörnet i demowebbappen söker du efter **restauranger**.
 5. Flytta musen över listan med adresser och platser som visas under sökrutan. Observera hur motsvarande nål på kartan visar information om den platsen. Observera att namnen och adresserna som visas är fiktiva för att skydda privata företag.
 
-    ![Interaktiv sökning i webbapp](./media/quick-demo-map-app/interactive-search.png)
+    ![Webb program för interaktiv kart sökning](./media/quick-demo-map-app/interactive-search.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

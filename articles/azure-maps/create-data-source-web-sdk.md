@@ -1,6 +1,6 @@
 ---
-title: Skapa en data källa i Azure Maps | Microsoft Docs
-description: Så här skapar du en data källa och använder den med Azure Maps Web SDK.
+title: Skapa en data källa för en karta | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du skapar en data källa och lägger till den i en karta med hjälp av Microsoft Azure Maps-webbsdk.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/08/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen
-ms.openlocfilehash: b83a66296d54a179a56e37de199ec900ae23a1db
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 74b45d3f7fa7d0e13b8767d4a887d8a22cad3a30
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433020"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911718"
 ---
 # <a name="create-a-data-source"></a>Skapa en datakälla
 

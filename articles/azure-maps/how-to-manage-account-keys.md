@@ -1,6 +1,6 @@
 ---
-title: Hantera ditt Azure Maps konto | Microsoft Docs
-description: Du kan använda Azure Portal för att hantera ditt Azure Maps-konto.
+title: Hantera ditt Azure Maps-konto på Azure-portalen | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du använder Azure Portal för att hantera ditt Microsoft Azure Maps-konto.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 02/14/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: a5697989696d0d375e52baeb9f7332e7013d16bf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 92c76780473372c3e2ef87cdf4da0f21a22d9ac6
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768851"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911501"
 ---
 # <a name="manage-your-azure-maps-account"></a>Hantera ditt Azure Maps konto
 
@@ -31,13 +31,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 4. Ange informationen för ditt nya konto.
 
-![Ange konto information i portalen](./media/how-to-manage-account-keys/new-account-portal.png)
+![Ange Azure Maps konto information i Azure Portal](./media/how-to-manage-account-keys/new-account-portal.png)
 
 ## <a name="delete-an-account"></a>Ta bort ett konto
 
 Du kan ta bort ett konto från Azure Portal. Gå till sidan konto översikt och välj **ta bort**.
 
-![Ta bort ditt konto i portalen](./media/how-to-manage-account-keys/account-delete-portal.png)
+![Ta bort ditt Azure Maps-konto i Azure Portal](./media/how-to-manage-account-keys/account-delete-portal.png)
 
 Sedan visas en bekräftelse sida. Du kan bekräfta borttagningen av ditt konto genom att skriva dess namn.
 

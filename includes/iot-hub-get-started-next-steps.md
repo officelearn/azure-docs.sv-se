@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 02/14/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: fc4b613eb9e77acef4568ef93b7606fb43568f82
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c8bf7f3a423b97f6cd84f0b575d00d60776c598c
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66476008"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911912"
 ---
-Om du vill fortsätta att komma igång med Azure IoT Hub och utforska alla utökade IoT-scenarier finns här:
+Om du vill fortsätta att komma igång med Azure IoT Hub och utforska alla utökade IoT-scenarier, se följande:
 
-- [Hantera cloud enhet meddelanden med Azure IoT Hub Toolkit-tillägget för Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
+- [Hantera meddelanden från moln enheten med Azure IoT Hub-tillägget för Visual Studio Code](../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)
 
-- [Hantera enheter med Azure IoT Hub Toolkit-tillägget för Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
+- [Hantera enheter med Azure IoT Hub-tillägget för Visual Studio Code](../articles/iot-hub/iot-hub-device-management-iot-toolkit.md)
 
 - [Konfigurera meddelanderoutning](../articles/iot-hub/tutorial-routing.md)
 
 - [Använd Power BI för att visualisera sensordata i realtid från IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-power-bi.md)
 
-- [Använd en webbapp för att visualisera sensordata i realtid från IoT hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
+- [Använd en webbapp för att visualisera sensor data i real tid från IoT Hub](../articles/iot-hub/iot-hub-live-data-visualization-in-web-apps.md)
 
 - [Skapa väderprognoser med sensordata från IoT Hub i Azure Machine Learning](../articles/iot-hub/iot-hub-weather-forecast-machine-learning.md)
 

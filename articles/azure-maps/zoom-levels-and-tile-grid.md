@@ -1,6 +1,6 @@
 ---
-title: Zoomnings nivåer och panel rutnät i Azure Maps | Microsoft Docs
-description: Lär dig mer om zoomnings nivåer och panel rutnät i Azure Maps
+title: Zoomnings nivåer och panels rutnät | Microsoft Azure Maps
+description: I den här artikeln får du lära dig om zoomnings nivåer och panel rutnät i Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 05/07/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 68fbb9b8cd65e24d0fea0c571e5cf01b53560ba7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407570"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75910780"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
@@ -26,7 +26,7 @@ För att optimera prestanda för kart hämtning och visning är kartan indelad i
 
 <center>
 
-![världs panel](./media/zoom-levels-and-tile-grid/world0.png)</center>
+![global kart panel](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 Zoomnings nivå 1 använder fyra paneler för att rendera världen: en fyrkant på 2 x 2
 

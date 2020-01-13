@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: d3737be5a3186774f230aef9d932464a27a764f4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: cee548aff49cd5e4a57eed994b8ade2d157c6313
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775646"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912153"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-the-portal"></a>Koppla peer-ASN till Azure-prenumerationen med hjälp av portalen
 
@@ -25,6 +25,34 @@ Om du vill kan du slutföra den här guiden med hjälp av [PowerShell](howto-sub
 
 ### <a name="sign-in-to-the-portal"></a>Logga in på portalen
 [!INCLUDE [Account](./includes/account-portal.md)]
+
+### <a name="register-for-peering-resource-provider"></a>Registrera dig för peering Resource Provider
+Registrera dig för peering Resource Provider i prenumerationen genom att följa stegen nedan. Om du inte kör det går det inte att komma åt de Azure-resurser som krävs för att konfigurera peering.
+
+1. Klicka på **prenumerationer** i det övre vänstra hörnet i portalen. Om du inte ser det klickar du på **fler tjänster** och söker efter den.
+
+    > [!div class="mx-imgBorder"]
+    > ![öppna prenumerationer](./media/rp-subscriptions-open.png)
+
+1. Klicka på den prenumeration som du vill använda för peering.
+
+    > [!div class="mx-imgBorder"]
+    > ![starta prenumeration](./media/rp-subscriptions-launch.png)
+
+1. När prenumerationen har öppnats klickar du på **resurs leverantörer**till vänster. Sök sedan efter *peering* i sökfönstret i den högra rutan eller Använd rullnings listen för att hitta **Microsoft. peering** och titta på **status**. Om statusen är ***registrerad***, hoppar du över stegen nedan och fortsätter till avsnittet **skapa PeerAsn**. Om statusen är ***NotRegistered***väljer du **Microsoft. peering** och klickar på **Registrera**.
+
+    > [!div class="mx-imgBorder"]
+    > Start](./media/rp-register-start.png) för ![registrering
+
+1. Observera att statusen ändras till ***registrering***.
+
+    > [!div class="mx-imgBorder"]
+    > ![registrering pågår](./media/rp-register-progress.png)
+
+1. Vänta en stund och slutför registreringen. Klicka sedan på **Uppdatera** och kontrol lera att statusen är ***registrerad***.
+
+    > [!div class="mx-imgBorder"]
+    > ![registreringen har slutförts](./media/rp-register-completed.png)
 
 ### <a name="create-peerasn"></a>Skapa PeerAsn
 Du kan skapa en ny PeerAsn-resurs för att associera ett autonomt system nummer (ASN) med Azure-prenumerationen. Du kan koppla flera ASN: er till en prenumeration genom att skapa en **PeerAsn** för varje ASN som du behöver associera.

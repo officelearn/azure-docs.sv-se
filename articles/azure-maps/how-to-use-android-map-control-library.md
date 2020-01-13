@@ -1,6 +1,6 @@
 ---
-title: Komma igång med Android Map-kontroll i Azure Maps | Microsoft Docs
-description: Kontrollen Android Map i Azure Maps.
+title: Komma igång med Android Map-kontroll | Microsoft Azure Maps
+description: I den här artikeln lär du dig hur du kommer igång med Android Map-kontrollen med Microsoft Azure Maps Android SDK.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cb79b24a37758307657c1245622fa980123cc5c9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb9dc16eabbd6065e05d26258c1421aa7a46dbd7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432922"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75911404"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Komma igång med Azure Maps Android SDK
 
@@ -43,7 +43,7 @@ Börja med att skapa ett nytt projekt med en tom aktivitet. Utför de här stege
 
 Se [Android Studio-dokumentationen](https://developer.android.com/studio/intro/) för att få hjälp med att installera Android Studio och skapa ett nytt projekt.
 
-![Skapa ett projekt](./media/how-to-use-android-map-control-library/form-factor-android.png)
+![Skapa ett projekt i Android Studio ](./media/how-to-use-android-map-control-library/form-factor-android.png)
 
 ## <a name="set-up-a-virtual-device"></a>Konfigurera en virtuell enhet
 
@@ -217,7 +217,7 @@ Android Studio tar några sekunder att skapa programmet. När versionen har slut
 
 <center>
 
-](./media/how-to-use-android-map-control-library/android-map.png)</center> för ![Android-mappning
+![Azure Maps i Android-program](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
 ## <a name="localizing-the-map"></a>Lokalisera kartan
 
@@ -263,7 +263,7 @@ Här är ett exempel på Azure Maps med språket "fr-FR" och regional View inst�
 
 <center>
 
-![kart bild som visar etiketter på franska](./media/how-to-use-android-map-control-library/android-localization.png)
+![Azure Maps kart bild som visar etiketter på franska](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
 En fullständig lista över språk som stöds och nationella vyer beskrivs [här](supported-languages.md).

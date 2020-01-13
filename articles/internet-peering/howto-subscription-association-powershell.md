@@ -8,12 +8,12 @@ ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: e7239fdedafedc96a382de6c3c2f90b5da4df00c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 77cc4732e017d95cbae19578cf26b1111b08fdde
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774255"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75908991"
 ---
 # <a name="associate-peer-asn-to-azure-subscription-using-powershell"></a>Koppla peer-ASN till Azure-prenumeration med hjälp av PowerShell
 
@@ -29,7 +29,24 @@ Om du vill kan du slutföra den här guiden med hjälp av [portalen](howto-subsc
 ### <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Logga in på ditt Azure-konto och välj din prenumeration
 [!INCLUDE [Account](./includes/account-powershell.md)]
 
+### <a name="register-for-peering-resource-provider"></a>Registrera dig för peering Resource Provider
+Registrera dig för peering Resource Provider i prenumerationen med hjälp av kommandot nedan. Om du inte kör det går det inte att komma åt de Azure-resurser som krävs för att konfigurera peering.
+
+```powershell
+Register-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+Du kan kontrol lera registrerings statusen med hjälp av kommandona nedan:
+```powershell
+Get-AzResourceProvider -ProviderNamespace Microsoft.Peering
+```
+
+> [!IMPORTANT]
+> Vänta tills *RegistrationState* har aktiverat "registrerad" innan du fortsätter. Det kan ta 5 till 30 minuter innan du kör kommandot.
+
 ### <a name="update-the-peer-information-associated-with-this-subscription"></a>Uppdatera peer-informationen som är associerad med den här prenumerationen
+
+Nedan visas ett exempel på hur du uppdaterar peer-information.
 
 ```powershell
 New-AzPeerAsn `

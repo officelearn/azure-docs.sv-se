@@ -3,7 +3,7 @@ title: Uppdatera Azure Linux-agenten från GitHub
 description: Lär dig hur du uppdaterar Azure Linux-agenten för din virtuella Linux-dator i Azure
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
-ms.author: akjosh
-ms.openlocfilehash: 02180af0b388a8f10e0689bc4ea176ee60974666
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 03e1689ca495d3fd3c8efce6b039386711a49472
+ms.sourcegitcommit: d48afd9a09f850b230709826d4a5cd46e57d19fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359016"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75904911"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>Så här uppdaterar du Azure Linux-agenten på en virtuell dator
 
@@ -88,77 +88,6 @@ initctl restart walinuxagent
 
 ```bash
 systemctl restart walinuxagent.service
-```
-
-## <a name="debian"></a>Debian
-
-### <a name="debian-7-wheezy"></a>Debian 7 "Wheezy"
-
-#### <a name="check-your-current-package-version"></a>Kontrol lera den aktuella paket versionen
-
-```bash
-dpkg -l | grep waagent
-```
-
-#### <a name="update-package-cache"></a>Uppdatera paket-cache
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>Installera den senaste paket versionen
-
-```bash
-sudo apt-get install waagent
-```
-
-#### <a name="enable-agent-auto-update"></a>Aktivera automatisk uppdatering av agent
-Den här versionen av Debian har inte någon version > = 2.0.16, och därför är AutoUpdate inte tillgängligt för den. Utdata från kommandot ovan visar dig om paketet är uppdaterat.
-
-### <a name="debian-8-jessie--debian-9-stretch"></a>Debian 8 "Jessie"/Debian 9 "Sträck ut"
-
-#### <a name="check-your-current-package-version"></a>Kontrol lera den aktuella paket versionen
-
-```bash
-apt list --installed | grep waagent
-```
-
-#### <a name="update-package-cache"></a>Uppdatera paket-cache
-
-```bash
-sudo apt-get -qq update
-```
-
-#### <a name="install-the-latest-package-version"></a>Installera den senaste paket versionen
-
-```bash
-sudo apt-get install waagent
-```
-#### <a name="ensure-auto-update-is-enabled"></a>Se till att automatisk uppdatering är aktiverat 
-
-Kontrol lera först om den är aktive rad:
-
-```bash
-cat /etc/waagent.conf
-```
-
-Hitta AutoUpdate. enabled. Om du ser dessa utdata är de aktiverade:
-
-```bash
-# AutoUpdate.Enabled=y
-AutoUpdate.Enabled=y
-```
-
-Så här aktiverar du körning:
-
-```bash
-sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
-```
-
-### <a name="restart-the-waagent-service"></a>Starta om waagent-tjänsten
-
-```
-sudo systemctl restart walinuxagent.service
 ```
 
 ## <a name="red-hat--centos"></a>Red Hat/CentOS

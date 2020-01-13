@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 01/18/2019
 ms.author: junhan
-ms.openlocfilehash: 785c6f2b36396558cc21ce6c025be59c456ff32d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 0b081229dcb382786fea03dff358b5cc47d77ee7
+ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083261"
+ms.lasthandoff: 01/12/2020
+ms.locfileid: "75912007"
 ---
 # <a name="use-azure-iot-tools-for-visual-studio-code-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Använd Azure IoT-verktyg för Visual Studio Code för att skicka och ta emot meddelanden mellan enheten och IoT Hub
 
@@ -64,7 +64,7 @@ Följ dessa steg om du vill övervaka meddelanden som skickas från enheten till
 
 1. Högerklicka på enheten och välj **starta övervakning inbyggd händelse slut punkt**.
 
-2. De övervakade meddelandena visas i **utdata** > **Azure IoT Hub Toolkit** -vyn.
+2. De övervakade meddelandena visas i **utdata** > **Azure IoT Hub** View.
 
 3. Om du vill stoppa övervakningen högerklickar du på vyn **utdata** och väljer **stoppa övervakning inbyggd händelse slut punkt**.
 
@@ -76,7 +76,7 @@ Följ dessa steg om du vill skicka ett meddelande från din IoT-hubb till din en
 
 2. Ange meddelandet i rutan indatamängd.
 
-3. Resultaten visas i **utdata** > **Azure IoT Hub Toolkit** -vyn.
+3. Resultaten visas i **utdata** > **Azure IoT Hub** View.
 
 ## <a name="next-steps"></a>Nästa steg
 

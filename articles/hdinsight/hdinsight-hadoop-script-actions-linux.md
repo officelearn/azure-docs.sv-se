@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/28/2019
-ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ad9b4b69b0be34c89d03b677c1889e486aae0379
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687730"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931701"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Utveckling av skript åtgärder med HDInsight
 
@@ -161,13 +161,13 @@ HDInsight loggar skript utdata som skrivs till STDOUT och STDERR. Du kan visa de
 > [!NOTE]  
 > Apache Ambari är endast tillgängligt om klustret har skapats. Om du använder en skript åtgärd när klustret skapas, och det inte går att skapa, kan du läsa avsnittet för fel sökning [Anpassa HDInsight-kluster med hjälp av skript åtgärder](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) för andra sätt att komma åt loggad information.
 
-De flesta verktyg och installations paket har redan skrivit information till STDOUT och STDERR, men du kanske vill lägga till ytterligare loggning. Använd `echo`om du vill skicka text till STDOUT. Exempel:
+De flesta verktyg och installations paket har redan skrivit information till STDOUT och STDERR, men du kanske vill lägga till ytterligare loggning. Använd `echo`om du vill skicka text till STDOUT. Ett exempel:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Som standard skickar `echo` strängen till STDOUT. Lägg till `>&2` innan du `echo`för att dirigera den till STDERR. Exempel:
+Som standard skickar `echo` strängen till STDOUT. Lägg till `>&2` innan du `echo`för att dirigera den till STDERR. Ett exempel:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -322,10 +322,7 @@ Mer information om hur du använder varje metod finns i [så här använder du s
 
 ## <a name="sampleScripts"></a>Anpassade skript exempel
 
-Microsoft tillhandahåller exempel skript för att installera komponenter i ett HDInsight-kluster. Se följande länkar för fler exempel på skript åtgärder.
-
-* [Installera och använda nyans i HDInsight-kluster](hdinsight-hadoop-hue-linux.md)
-* [Installera och använda Apache Giraph i HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
+Microsoft tillhandahåller exempel skript för att installera komponenter i ett HDInsight-kluster. Se [Installera och använda nyanser i HDInsight-kluster](hdinsight-hadoop-hue-linux.md) som ett exempel på en skript åtgärd.
 
 ## <a name="troubleshooting"></a>Felsöka
 

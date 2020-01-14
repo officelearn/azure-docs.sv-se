@@ -1,19 +1,19 @@
 ---
 title: Regions koder för medförsäljning | Azure Marketplace
 description: Använd dessa delstat-/provins koder när du tillhandahåller kontakt information på ditt erbjudandes samarbets sida.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c64fc161108560e893ef7b207782d79b6c3c01d4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73812861"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934369"
 ---
 # <a name="co-sell-state-codes"></a>Status koder för samförsäljning
 
@@ -21,7 +21,7 @@ Om det är tillämpligt använder du dessa koder för att ange information om de
 
 ## <a name="stateprovince-table"></a>Stat/provins tabell
 
-|   Namn på region               |   Kod    |
+|   Namn på region               |   Programmera    |
 |-------------------------------------|-----------|
 | Alabama                             | USA-AL     |
 | Alaska                              | US-AK     |
@@ -51,26 +51,26 @@ Om det är tillämpligt använder du dessa koder för att ange information om de
 | Montana                             | US-MT     |
 | Nebraska                            | US-NE     |
 | Nevada                              | US-NV     |
-| Ny Hampshire                       | US-NH     |
-| Ny Jersey                          | US-NJ     |
-| Ny Mexiko                          | USA – NM     |
+| New Hampshire                       | US-NH     |
+| New Jersey                          | US-NJ     |
+| New Mexico                          | USA – NM     |
 | New York                            | USA – NY     |
 | North Carolina                      | USA – NC     |
-| Norra Dakota                        | US-ND     |
+| North Dakota                        | US-ND     |
 | Ohio                                | OSS-OH     |
 | Oklahoma                            | US – OK     |
 | Oregon                              | USA ELLER     |
 | Pennsylvania                        | USA – PA     |
-| Rhode, Julön                        | USA – RI     |
-| Södra Carolina                      | US-SC     |
-| Södra Dakota                        | USA – SD     |
+| Rhode Island                        | USA – RI     |
+| South Carolina                      | US-SC     |
+| South Dakota                        | USA – SD     |
 | Tennessee                           | USA – TN     |
 | Texas                               | US-TX     |
 | Utah                                | US-UT     |
 | Vermont                             | US – VT     |
 | Virginia                            | USA-VA     |
 | Washington                          | USA – WA     |
-| Västra Virginia                       | US-WV     |
+| West Virginia                       | US-WV     |
 | Wisconsin                           | USA – WI     |
 | Wyoming                             | US-WY     |
 | District of Columbia                | USA – DC     |

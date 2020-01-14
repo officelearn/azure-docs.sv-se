@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: ac62ec49803bf55bbe61e08e60b648dd6c268510
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f58bb534728660b85f7d16910dde7a37914fd571
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358015"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933949"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Hög tillgänglighet och haveriberedskap för SQL Server på Azure Virtual Machines
 
@@ -77,7 +77,7 @@ Du kan ha en katastrof återställnings lösning för SQL Server databaser i en 
 
 ## <a name="free-dr-replica-in-azure"></a>Kostnads fri DR-replikering i Azure
 
-Om du har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)kan du implementera återställnings planer för Hybrid haveri beredskap (Dr) med SQL Server att använda Always on-tillgänglighets grupper eller instanser av redundanskluster utan att det medför ytterligare licens kostnader för den PASSIVa Dr-instansen.
+Om du har [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?rtc=1&activetab=software-assurance-default-pivot:primaryr3)kan du implementera återställnings planer för Hybrid haveri beredskap (Dr) med SQL Server utan att det uppstår ytterligare licens kostnader för den PASSIVa Dr-instansen.
 
 I bilden nedan använder installations programmet SQL Server som körs på en virtuell Azure-dator som använder 12 kärnor som en haveri beredskaps replik för en lokal SQL Server-distribution med 12 kärnor. Tidigare var du tvungen att licensiera 12 kärnor av SQL Server för den lokala och distributionen av virtuella Azure-datorer. Den nya fördelen ger passiva replik-fördelar som körs på en virtuell Azure-dator. Nu behöver du bara licens 12 kärnor i SQL Server som körs lokalt så länge Disaster Recovery-kriterierna för den passiva repliken på den virtuella Azure-datorn är uppfyllda.
 

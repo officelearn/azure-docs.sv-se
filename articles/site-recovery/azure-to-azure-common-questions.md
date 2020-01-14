@@ -1,18 +1,18 @@
 ---
 title: Vanliga frågor om haveri beredskap för virtuella Azure-datorer med Azure Site Recovery
 description: I den här artikeln besvaras vanliga frågor om haveri beredskap för virtuella Azure-datorer till en annan Azure-region med Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621072"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929902"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 
@@ -163,7 +163,7 @@ Du kan replikera 16 virtuella datorer tillsammans i en replikeringsgrupp.
 Eftersom det är processor intensivt, kan det påverka arbets Belastningens prestanda genom att aktivera konsekvens för flera virtuella datorer. Den bör endast användas om datorer kör samma arbets belastning och du behöver konsekvens på flera datorer. Om du till exempel har två SQL Server instanser och två webb servrar i ett program, bör du bara ha konsekvens för flera virtuella datorer för de SQL Server instanserna.
 
 
-## <a name="failover"></a>Redundans
+## <a name="failover"></a>växling vid fel
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Hur är kapaciteten säkerställd i mål regionen för virtuella Azure-datorer?
 Site Recoverys teamet arbetar med Azure Capacity Management-teamet för att planera för tillräcklig infrastruktur kapacitet för att se till att de virtuella datorer som är aktiverade för haveri beredskap distribueras korrekt i mål regionen När redundansväxlingen initieras.
@@ -203,7 +203,7 @@ Du kan utlösa en redundansväxling efter avbrottet. Site Recovery behöver inte
 ### <a name="what-is-a-rto-of-a-vm-failover-"></a>Vad är en RTO för en VM-redundans?
 Site Recovery har ett [RTO-SLA på 2 timmar](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Men det mesta av tiden Site Recovery redundansväxla virtuella datorer på några minuter. Du kan beräkna RTO genom att gå till jobben med redundans som visar hur lång tid det tog att ta upp den virtuella datorn. För återställnings planens RTO, se avsnittet nedan.
 
-## <a name="recovery-plans"></a>Återställnings planer
+## <a name="recovery-plans"></a>Återställningsplaner
 
 ### <a name="what-is-a-recovery-plan"></a>Vad är en återställnings plan?
 En återställnings plan i Site Recovery dirigerar redundansväxlingen av virtuella datorer. Det hjälper dig att göra återställningen konsekvent korrekt, upprepnings bar och automatiserad. En återställnings plan hanterar följande behov för användaren:

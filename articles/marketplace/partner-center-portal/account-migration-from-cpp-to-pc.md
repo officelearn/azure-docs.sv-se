@@ -1,19 +1,19 @@
 ---
 title: Konto migrering från Cloud Partner Portal till Partner Center – kommersiell marknads plats för Azure
 description: Så här migrerar du ditt konto från CPP till Partner Center. – Kommersiell marknads plats för Azure
-author: ChJenk
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: f8644a2aa989b7013cbbd64e8a8194bc08f40251
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 076250444989d4edb3ec86039ab25887ff1e206b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73813106"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931323"
 ---
 # <a name="account-migration-from-cloud-partner-portal-to-partner-center"></a>Konto migrering från Cloud Partner Portal till Partner Center
 

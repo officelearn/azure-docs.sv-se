@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: 110a8e86fc1916254ab914630ce10d2b7ae073b7
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bcf2f97e855126c86dbb1d74cd430704e2af3af1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775341"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932142"
 ---
 # <a name="debug-apache-spark-jobs-running-on-azure-hdinsight"></a>Felsöka Apache Spark jobb som körs på Azure HDInsight
 
@@ -116,7 +116,7 @@ När ett jobb har slutförts sparas informationen om jobbet på Spark-historik s
 * [Apache Spark med Machine Learning: använda spark i HDInsight för att förutsäga resultatet av livsmedels inspektionen](apache-spark-machine-learning-mllib-ipython.md)
 * [Webbplats logg analys med Apache Spark i HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Program insiktering telemetri data analys med Apache Spark i HDInsight](apache-spark-analyze-application-insight-logs.md)
-* [Använda Caffe på Azure HDInsight Spark för distribuerad djup inlärning](apache-spark-deep-learning-caffe.md)
+
 
 ### <a name="for-spark-developers"></a>För Spark-utvecklare
 

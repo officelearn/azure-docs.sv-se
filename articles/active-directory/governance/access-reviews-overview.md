@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 08/05/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9922f1c4cbb0afca74c911d9b2bc9f0eab0714
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7e77f507f2a3bd89069f25bf984cf4059009faa6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422780"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932643"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -97,27 +97,34 @@ Om du är redo att distribuera åtkomst granskningar i din organisation följer 
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-### <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
+### <a name="how-many-licenses-must-you-have"></a>Hur många licenser måste du ha?
 
-Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Till exempel:
+Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har anställda som ska utföra följande uppgifter:
 
-- Administratörer som skapar en åtkomst granskning
+- Medlem och gäst användare som tilldelas som granskare
+- Medlem och gäst användare som utför en själv granskning
 - Grupp ägare som utför en åtkomst granskning
-- Användare som tilldelats som granskare
-- Användare som utför en själv granskning
+- Program ägare som utför en åtkomst granskning
 
-Du kan också be gäst användare att granska sin egen åtkomst. För varje betald Azure AD Premium P2-licens som du tilldelar till en av dina egna organisations användare kan du använda Azure AD Business-to-Business (B2B) för att bjuda in upp till fem gäst användare under tilldelningen av externa användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 
-Här följer några exempel scenarier som hjälper dig att avgöra antalet licenser som du måste ha.
+- Det krävs inga licenser för användarna med rollerna global administratör eller användar administratör som konfigurerar åtkomst granskningar, konfigurerar inställningar eller tillämpar besluten från granskningarna.
 
-| Scenario | Beräkning | Antalet licenser som krävs |
+För varje betald Azure AD Premium P2-licens som du tilldelar till en av dina egna organisations användare kan du använda Azure AD Business-to-Business (B2B) för att bjuda in upp till fem gäst användare under tilldelningen av externa användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+
+Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Exempel på licens scenarier
+
+Här följer några exempel på licens scenarier som hjälper dig att fastställa antalet licenser som du måste ha.
+
+| Scenario | Beräkning | Antal licenser |
 | --- | --- | --- |
-| En administratör skapar en åtkomst granskning av grupp A med 500-användare. Tilldelar 3 grupp ägare som granskare. | 1 licens för administratörs-och 3-licenser för varje grupp ägare som granskare. | 4 |
-| En administratör skapar en åtkomst granskning av grupp A med 500-användare. Gör det till en själv granskning. | 1 licens för administratör + 500-licenser för varje användare som självgranskare. | 501 |
-| En administratör skapar en åtkomst granskning av grupp B med 5 användare och 25 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare.<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 6 |
-| En administratör skapar en åtkomst granskning av grupp C med 5 användare och 108 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare och 16 ytterligare licenser för att se alla 108 gäst användare i det obligatoriska 1:5-förhållandet.<br/>1 + 5 = 6 licenser, som avser 5\*6 = 30 gäst användare. För återstående (108-5\*6) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs. Därför krävs 6 + 16 = 22 licenser. | 22 |
-
-Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
+| En administratör skapar en åtkomst granskning av grupp A med 75 användare och 1 grupp ägare och tilldelar grupp ägaren som granskaren. | 1 licens för grupp ägaren som granskare | 1 |
+| En administratör skapar en åtkomst granskning av grupp B med 500 användare och tre grupp ägare och tilldelar de tre grupp ägarna som granskare. | 3 licenser för varje grupp ägare som granskare | 3 |
+| En administratör skapar en åtkomst granskning av grupp B med 500 användare. Gör det till en själv granskning. | 500 licenser för varje användare som självgranskare | 500 |
+| En administratör skapar en åtkomst granskning av grupp C med 50 medlems användare och 25 gäst användare. Gör det till en själv granskning. | 50 licenser för varje användare som självgranskare.<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 50 |
+| En administratör skapar en åtkomst granskning av grupp D med 6 medlems användare och 108 gäst användare. Gör det till en själv granskning. | 6 licenser för varje användare som självgranskare och 16 ytterligare licenser för att hantera alla 108 gäst användare i det begärda 1:5-förhållandet. 6 licenser, som avser 6\*5 = 30 gäst användare. För återstående (108-6\*5) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs. Därför krävs 6 + 16 = 22 licenser. | 22 |
 
 ## <a name="next-steps"></a>Nästa steg
 

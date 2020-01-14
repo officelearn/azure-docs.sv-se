@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/28/2019
-ms.openlocfilehash: 8a644beede4089133f88b824fd8d34dddec3b15e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 69acfd4f2edab9be1b1dcfbb52eafbd00aec712f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751112"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934568"
 ---
 # <a name="install-and-use-hue-on-hdinsight-hadoop-clusters"></a>Installera och använda nyans på HDInsight Hadoop-kluster
 
@@ -127,6 +127,4 @@ SSH-tunnlar är det enda sättet att få åtkomst till en nyans i klustret när 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Installera Apache Giraph på HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md). Använd kluster anpassning för att installera Giraph på HDInsight Hadoop-kluster. Med Giraph kan du utföra diagram bearbetning med Hadoop och det kan användas med Azure HDInsight.
-
-* [Installera R på HDInsight-kluster](hdinsight-hadoop-r-scripts-linux.md). Installera R på HDInsight Hadoop-kluster med hjälp av kluster anpassning. R är ett språk och en miljö med öppen källkod för statistik bearbetning. Det ger hundratals inbyggda statistiska funktioner och ett eget programmeringsspråk som kombinerar aspekter av funktionell och objektorienterad programmering. Den innehåller också omfattande grafiska funktioner.
+[Installera R på HDInsight-kluster](hdinsight-hadoop-r-scripts-linux.md). Installera R på HDInsight Hadoop-kluster med hjälp av kluster anpassning. R är ett språk och en miljö med öppen källkod för statistik bearbetning. Det ger hundratals inbyggda statistiska funktioner och ett eget programmeringsspråk som kombinerar aspekter av funktionell och objektorienterad programmering. Den innehåller också omfattande grafiska funktioner.

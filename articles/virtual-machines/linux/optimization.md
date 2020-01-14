@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: ea0d284b8220e4f8bc7bc1b91684654b32da7065
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a042e768ef6693d2ced6d679947a6fe321d259bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035380"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934723"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Optimera din virtuella Linux-dator på Azure
 Det är enkelt att skapa en virtuell Linux-dator (VM) från kommando raden eller från portalen. Den här självstudien visar hur du ser till att du har konfigurerat för att optimera prestandan på Microsoft Azures plattformen. I det här avsnittet används en virtuell Ubuntu-Server, men du kan också skapa en virtuell Linux-dator med [dina egna avbildningar som mallar](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
@@ -33,7 +33,7 @@ Det här avsnittet förutsätter att du redan har en fungerande Azure-prenumerat
 När du har skapat en virtuell Linux-dator i Azure har den två diskar kopplade till sig. **/dev/SDA** är din OS-disk, **/dev/SDB** är den tillfälliga disken.  Använd inte **/dev/SDA**(Main OS disk) för något annat än operativ systemet eftersom det är optimerat för snabb start av virtuell dator och inte ger dig höga prestanda för dina arbets belastningar. Du vill koppla en eller flera diskar till din virtuella dator för att få beständig och optimerad lagring för dina data. 
 
 ## <a name="adding-disks-for-size-and-performance-targets"></a>Lägga till diskar för storleks-och prestanda mål
-Baserat på storleken på den virtuella datorn kan du ansluta upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serie och 64-diskar på en dator i G-serien – varje upp till 1 TB i storlek. Du lägger till extra diskar efter behov enligt dina krav på ditt space och IOps. Varje disk har ett prestanda mål på 500 IOps för standard lagring och upp till 5000 IOps per disk för Premium Storage.
+Baserat på storleken på den virtuella datorn kan du ansluta upp till 16 ytterligare diskar på en A-serien, 32 diskar på en D-serie och 64-diskar på en dator i G-serien – varje upp till 32 TB i storlek. Du lägger till extra diskar efter behov enligt dina krav på ditt space och IOps. Varje disk har ett prestanda mål på 500 IOps för standard lagring och upp till 20 000 IOps per disk för Premium Storage.
 
 För att uppnå högsta IOps på Premium Storage diskar där deras cacheinställningar har angetts till antingen **ReadOnly** eller **ingen**, måste du inaktivera **barriärer** när du monterar fil systemet i Linux. Du behöver inte hinder eftersom skrivningarna till Premium Storage de säkerhetskopierade diskarna är varaktiga för dessa cacheinställningar.
 
@@ -129,7 +129,7 @@ Om dina arbets belastningar kräver mer IOps än en enskild disk kan du behöva 
 
 Som ett alternativ till en traditionell RAID-konfiguration kan du också välja att installera Logical Volume Manager (LVM) för att konfigurera ett antal fysiska diskar i en enda stripe-volym för logisk lagring. I den här konfigurationen distribueras läsningar och skrivningar till flera diskar som ingår i volym gruppen (liknar RAID0). Av prestanda skäl är det troligt att du vill ta bort dina logiska volymer så att läsningar och skrivningar använder alla dina anslutna data diskar.  Mer information om hur du konfigurerar en striped logisk volym på din virtuella Linux-dator i Azure finns i **[Konfigurera LVM på en virtuell Linux-dator i Azure](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** -dokument.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Kom ihåg, precis som med alla optimerings diskussioner, måste du utföra tester före och efter varje ändring för att mäta effekten av ändringen.  Optimering är en steg-för-steg-process som har olika resultat på olika datorer i din miljö.  Det som fungerar för en konfiguration kanske inte fungerar för andra.
 
 Några användbara länkar till ytterligare resurser:

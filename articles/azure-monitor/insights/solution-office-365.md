@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: c3251cb26f5ab6dc211c61bc0a6d02b283de6ae5
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770347"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932961"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -30,7 +30,7 @@ ms.locfileid: "75770347"
 > Insamlingen av Azure AD-loggen omfattas Azure Monitor prissättning.  Mer information finns i [Azure Monitor prissättning](https://azure.microsoft.com/pricing/details/monitor/) .
 >
 > Använda Azure Sentinel Office 365-lösningen:
-> 1. Om du använder den här anslutningen påverkas prissättningen för din arbets yta. Mer information finns i [priser för Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
+> 1. Om du använder Office 365-anslutaren i Azure Sentinel påverkas prissättningen för din arbets yta. Mer information finns i [priser för Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/).
 > 2. Om du redan använder Azure Monitor Office 365-lösningen måste du först avinstallera den med hjälp av skriptet i [avsnittet Avinstallera nedan](#uninstall).
 > 3. [Aktivera Azure Sentinel-lösningen](../../sentinel/quickstart-onboard.md) på din arbets yta.
 > 4. Gå till sidan **data anslutningar** i Azure Sentinel och aktivera **Office 365** -anslutaren.

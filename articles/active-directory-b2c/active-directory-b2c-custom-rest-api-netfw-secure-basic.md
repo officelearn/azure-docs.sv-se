@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a956638e8bd74c974012834ca650195e5bee37e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 24aa0d3d3f12934c54ac9aaa5ab8ae5c0d710825
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949448"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930512"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Skydda dina RESTful-tjänster med hjälp av HTTP Basic-autentisering
 
@@ -303,17 +303,19 @@ När din RESTful-tjänst skyddas av klient-ID: t (username) och hemligheten mås
 
 ## <a name="step-5-upload-the-policy-to-your-tenant"></a>Steg 5: Ladda upp principen till din klient organisation
 
-1. I [Azure Portal](https://portal.azure.com)växlar du till [kontexten för din Azure AD B2C klient](active-directory-b2c-navigate-to-b2c-context.md)och öppnar sedan **Azure AD B2C**.
+1. I [Azure Portal](https://portal.azure.com)väljer du ikonen **katalog + prenumeration** i portalens verktygsfält och väljer sedan den katalog som innehåller Azure AD B2C-klienten.
 
-2. Välj **ramverk för identitets upplevelse**.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
-3. Öppna **alla principer**.
+1. Välj **ramverk för identitets upplevelse**.
 
-4. Välj **Ladda upp princip**.
+1. Öppna **alla principer**.
 
-5. Markera kryss rutan **Skriv över principen om den finns** .
+1. Välj **Ladda upp princip**.
 
-6. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
+1. Markera kryss rutan **Skriv över principen om den finns** .
+
+1. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Steg 6: testa den anpassade principen med hjälp av kör nu
 

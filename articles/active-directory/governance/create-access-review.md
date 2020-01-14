@@ -15,12 +15,12 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 583eb62e6eeaaa799d2ea75261ee511fb8ddb7ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422678"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932630"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Skapa en åtkomst granskning av grupper och program i åtkomst granskningar för Azure AD
 
@@ -33,7 +33,7 @@ Den här artikeln beskriver hur du skapar en eller flera åtkomst granskningar f
 - Azure AD Premium P2
 - Global administratör eller användar administratör
 
-Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
+Mer information finns i [licens krav](access-reviews-overview.md#license-requirements).
 
 ## <a name="create-one-or-more-access-reviews"></a>Skapa en eller flera åtkomst granskningar
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: alzam
-ms.openlocfilehash: e2d0227f7481f75c1b0a4e3fe9d0fa3134a7261c
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 732f4b460a3a97f84dd79a37715aff972e8482ed
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778608"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934535"
 ---
 # <a name="set-up-alerts-on-diagnostic-log-events-from-vpn-gateway"></a>Konfigurera aviseringar för diagnostiska logg händelser från VPN Gateway
 
@@ -56,6 +56,10 @@ Följande exempel steg skapar en avisering för en från kopplings händelse som
 6. Fyll i informationen och kontrol lera att **Skicka till Log Analytics** och **TunnelDiagnosticLog** är markerat. Välj Log Analytics arbets ytan som du skapade i steg 3.
 
    ![Markerade kryss rutor](./media/vpn-gateway-howto-setup-alerts-virtual-network-gateway-log/log-alert5.png  "Välj")
+   
+> [!NOTE]
+> Det kan ta några timmar innan data visas initialt.
+>
 
 7. Gå till översikten för den virtuella nätverks-Gateway-resursen och välj **aviseringar** från fliken **övervakning** . Skapa sedan en ny varnings regel eller redigera en befintlig aviserings regel.
 

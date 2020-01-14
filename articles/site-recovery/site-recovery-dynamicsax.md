@@ -1,18 +1,18 @@
 ---
 title: Haveri beredskap för en Dynamics AX-distribution på flera nivåer med Azure Site Recovery | Microsoft Docs
 description: I den här artikeln beskrivs hur du konfigurerar haveri beredskap för Dynamics AX med Azure Site Recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: asgang
-ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620744"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930176"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera katastrof återställning för ett Dynamics AX-program med flera nivåer   
 
@@ -27,7 +27,7 @@ Den här artikeln förklarar hur du kan skapa en katastrof återställnings lös
 
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Att implementera haveri beredskap för Dynamics AX-program genom att använda Site Recovery kräver följande krav:
 
@@ -92,7 +92,7 @@ Du kan välja den virtuella datorn i de replikerade objekten för att konfigurer
 
 * Om du använder en statisk IP-adress anger du den IP-adress som du vill att den virtuella datorn ska ta i text rutan **mål-IP** .
 
-    ![Nätverks inställningar](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
+    ![Nätverksinställningar](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. skapa en återställnings plan

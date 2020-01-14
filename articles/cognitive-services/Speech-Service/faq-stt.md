@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: a96a3de7c8ad309986417e21a13d5e18f56cbd24
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74814853"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934130"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Vanliga frågor och svar om tal till text
 
@@ -77,9 +77,9 @@ Om du har anpassat och distribuerat en modell med baseline V 1.0, kommer distrib
 
 S **: REST API**begränsar begär anden till 25 per 5 sekunder. Information finns på våra sidor för [tal till text](speech-to-text.md).
 
-**F: hur jag debiteras för ljud med dubbla kanaler?**
+**F: Hur debiteras jag för ljud med dubbla kanaler?**
 
-**A**: om du skickar varje kanal separat (varje kanal i en egen fil) debiteras du per fil varaktighet. Om du skickar en enskild fil med varje kanal som är multiplexad tillsammans debiteras du för den enskilda filens varaktighet.
+**A**: om du skickar varje kanal separat (varje kanal i en egen fil) debiteras du för varje fils varaktighet. Om du skickar en enskild fil med varje kanal som är multiplexad tillsammans debiteras du för den enskilda filens varaktighet. Mer information om priser finns på sidan med [priser för Azure Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 > [!IMPORTANT]
 > Om du har ytterligare sekretess problem som hindrar dig från att använda tjänsten för anpassad röst kontaktar du en av support kanalerna.

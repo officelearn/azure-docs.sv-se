@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ae29a068ef29898c3fa27d3620d1e6be0be4bf3b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950246"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931206"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: konfigurera användar gränssnittet med dynamiskt innehåll med anpassade principer
 
@@ -217,17 +217,19 @@ Gör så här för att konfigurera `ContentDefinition`:
     ![Exempel på XML-kodfragment med LoadUri-element markerat](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-content-definition.png)
 
 ## <a name="step-6-upload-the-policy-to-your-tenant"></a>Steg 6: överför principen till din klient organisation
-1. I [Azure Portal](https://portal.azure.com)växlar du till [kontexten för din Azure AD B2C klient](active-directory-b2c-navigate-to-b2c-context.md)och väljer sedan **Azure AD B2C**.
+1. I [Azure Portal](https://portal.azure.com)väljer du ikonen **katalog + prenumeration** i portalens verktygsfält och väljer sedan den katalog som innehåller Azure AD B2C-klienten.
 
-2. Välj **ramverk för identitets upplevelse**.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
-3. Välj **alla principer**.
+1. Välj **ramverk för identitets upplevelse**.
 
-4. Välj **Ladda upp princip**.
+1. Välj **alla principer**.
 
-5. Markera kryss rutan **Skriv över principen om den finns** .
+1. Välj **Ladda upp princip**.
 
-6. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
+1. Markera kryss rutan **Skriv över principen om den finns** .
+
+1. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
 
 ## <a name="step-7-test-the-custom-policy-by-using-run-now"></a>Steg 7: testa den anpassade principen med hjälp av kör nu
 1. Välj **Azure AD B2C inställningar**och välj sedan **Identity Experience Framework**.
@@ -345,7 +347,3 @@ Om du väljer länken **Registrera dig nu** på inloggnings sidan, visar webblä
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>Valfritt Ladda ned fullständiga principfiler och kod
 * När du har slutfört guiden [komma igång med anpassade principer](active-directory-b2c-get-started-custom.md) rekommenderar vi att du skapar ditt scenario genom att använda dina egna anpassade principfiler. Vi har angett [exempel på principfiler](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)för din referens.
 * Du kan ladda ned den fullständiga koden från [exempel Visual Studio-lösningen för referens](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization).
-
-
-
-

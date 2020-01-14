@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 01/03/2020
-ms.openlocfilehash: 333d7faacfb5965e74eae69f07ff974a8fff8f25
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/13/2020
+ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894001"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934397"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ Använd följande steg om du inte vill använda de utgående standard reglerna o
    - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. Region_Name__ (till exempel lagring. öster)
    - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. Region_Name__ (till exempel AzureContainerRegistry. öster)
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
-   - I händelse av beräknings instans, Azure-moln med hjälp av __service tag gen__ för __AzureCloud. Region_Name__ (till exempel AzureCloud. usanorracentrala)
+   - I händelse av beräknings instans, Azure-moln med hjälp av __service tag gen__ för __AzureResourceManager__
 
 Regel konfigurationen för NSG i Azure Portal visas i följande bild:
 

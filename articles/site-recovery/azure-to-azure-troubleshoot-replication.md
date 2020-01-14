@@ -2,22 +2,22 @@
 title: Felsök kontinuerlig replikering av virtuella Azrue-datorer med Azure Site Recovery
 description: Fel sökning av fel och problem vid replikering av virtuella Azure-datorer för katastrof återställning
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: asgang
-ms.openlocfilehash: 7b9da202704b20e5770343f857c044ea19ae696a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.author: carmonm
+ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620891"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930745"
 ---
 # <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Felsöka pågående problem i Azure-till-Azure VM-replikering
 
-I den här artikeln beskrivs vanliga problem i Azure Site Recovery när du replikerar och återställer virtuella Azure-datorer från en region till en annan region. Det beskriver också hur du felsöker dem. Mer information om konfigurationer som stöds finns i [support mat ris för replikering av virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md).
+I den här artikeln beskrivs vanliga problem i Azure Site Recovery när du replikerar och återställer virtuella Azure-datorer från en region till en annan region. Det beskriver också hur du felsöker dem. Mer information om konfigurationer som stöds finns i den [stöd matrix för att replikera virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md).
 
 Azure Site Recovery replikerar konsekvent data från käll regionen till katastrof återställnings regionen och skapar en kraschad återställnings punkt var 5: e minut. Om Site Recovery inte kan skapa återställnings punkter i 60 minuter, aviseras du med den här informationen:
 
@@ -78,8 +78,8 @@ Om du vill söka efter ett problem som rör svars tiden använder du [AzCopy](ht
 
 Vi rekommenderar att du skapar en nätverks tjänst slut punkt i ditt virtuella nätverk för "lagring" så att replikeringstrafiken inte går till NVA. Mer information finns i [konfiguration av virtuell nätverks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)installation.
 
-### <a name="network-connectivity"></a>Nätverks anslutning
-För att Site Recovery replikering ska fungera krävs utgående anslutning till vissa URL-adresser eller IP-intervall från den virtuella datorn. Om den virtuella datorn ligger bakom en brand vägg eller använder regler för nätverks säkerhets grupper (NSG) för att kontrol lera utgående anslutningar kan det hända att du stöter på något av dessa problem. För att se till att alla webb adresser är anslutna, se [utgående anslutning för Site Recovery-URL: er](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+### <a name="network-connectivity"></a>Nätverksanslutning
+För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn ligger bakom en brand vägg eller använder regler för nätverks säkerhets grupper (NSG) för att kontrol lera utgående anslutningar kan det hända att du stöter på något av dessa problem. För att se till att alla webb adresser är anslutna, se [utgående anslutning för Site Recovery-URL: er](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 153006 – ingen programkonsekvent återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
 
@@ -124,19 +124,19 @@ Se [artikeln om fel sökning av VSS Writer-installation](https://docs.microsoft.
     - Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Automatisk**.
     - Starta om följande tjänster:
         - VSS-tjänst
-        - Azure Site Recovery VSS-Provider
+        - Azure Site Recovery VSS Provider
         - VDS-tjänst
 
-####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS-PROVIDERns NOT_REGISTERED – fel 2147754756
+####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS-PROVIDER NOT_REGISTERED-fel 2147754756
 
 **Så här åtgärdar**du: om du vill skapa en program konsekvenss etikett använder Azure Site Recovery Microsoft Volume Shadow Copy Service (VSS). Kontrol lera om tjänsten Azure Site Recovery VSS Provider är installerad eller inte. </br>
 
 - Försök att installera providern med följande kommandon:
-- Avinstallera befintlig provider: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Uninstall.cmd
-- Installera om: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd
+- Avinstallera befintlig provider: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Uninstall. cmd
+- Installera om: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install. cmd
  
 Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Automatisk**.
     - Starta om följande tjänster:
         - VSS-tjänst
-        - Azure Site Recovery VSS-Provider
+        - Azure Site Recovery VSS Provider
         - VDS-tjänst

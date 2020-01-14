@@ -2,19 +2,19 @@
 title: Stöd för Azure Marketplace och AppSource | Azure
 description: Support information och länkar för Azure Marketplace och AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 7/25/2019
-ms.author: v-qiwe
-ms.openlocfilehash: b036f7f7455d265849db3c0b82a21471ed1a902c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 40d466bd4e5959453f8c3042c4b14f6c3ef605bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822625"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933465"
 ---
 # <a name="support-for-the-marketplace"></a>Support för Marketplace  
 Här är en lista över support alternativ för Marketplace.  
@@ -31,7 +31,7 @@ Dessutom kan du få många av dina frågor besvarade på [Marketplace-kanalen f�
 |:--- |:--- |:--- |  
 | Om du behöver hjälp kan du gå till sidan Skapa en incident som finns på [Marketplace-support](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Stöd för partner Center eller Cloud Partner Portal. | Support tillhandahålls mellan 06:00-. 18:00 PST. |  
 
-## <a name="technical"></a>Produkt  
+## <a name="technical"></a>Teknisk  
 
 | Support kanal | Beskrivning |  
 |:--- |:--- |  

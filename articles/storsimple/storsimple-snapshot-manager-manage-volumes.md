@@ -1,9 +1,9 @@
 ---
 title: StorSimple Snapshot Manager och volymer | Microsoft Docs
-description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen att visa och hantera volymer och konfigurera säkerhetskopieringar.
+description: Beskriver hur du använder snapin-modulen StorSimple Snapshot Manager MMC för att visa och hantera volymer och konfigurera säkerhets kopior.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: carmonm
 editor: ''
 ms.assetid: 78896323-e57c-431e-bbe2-0cbde1cf43a2
@@ -13,201 +13,201 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/18/2016
-ms.author: v-sharos
-ms.openlocfilehash: 260dfdd4b8fe7c277358fa5773029ea9a532740a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: f09d4dd46a50f1794e51342a939b8919c5c523ef
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61078363"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931620"
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-volumes"></a>Använd StorSimple Snapshot Manager för att visa och hantera volymer
 ## <a name="overview"></a>Översikt
-Du kan använda StorSimple Snapshot Manager **volymer** node (på den **omfång** fönstret) välja volymer och visa information om dem. Volymerna visas som enheter som relaterar till volymer som monterats av värden. Den **volymer** noden visar lokala volymer och volymtyper som stöds av StorSimple, inklusive volymer som identifieras med hjälp av iSCSI- och en enhet. 
+Du kan använda noden StorSimple Snapshot Manager **volymer** (i fönstret **omfång** ) för att välja volymer och Visa information om dem. Volymerna presenteras som enheter som motsvarar de volymer som monteras av värden. Noden **volymer** visar lokala volymer och volym typer som stöds av StorSimple, inklusive volymer som identifieras genom användning av iSCSI och en enhet. 
 
-Mer information om volymer som stöds går du till [stöd för flera volymtyper av](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
+Mer information om volymer som stöds finns i [stöd för flera volym typer](storsimple-what-is-snapshot-manager.md#support-for-multiple-volume-types).
 
-![Volymlistan i resultatfönstret](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
+![Volym lista i resultat fönstret](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Volume_node.png)
 
-Den **volymer** noden kan du skanna om eller ta bort volymer när StorSimple Snapshot Manager identifierar dem också. 
+Med noden **volymer** kan du också genomsöka om eller ta bort volymer när StorSimple Snapshot Manager identifiera dem. 
 
-Den här självstudien beskrivs hur du kan montera, initiera, och formatera volymer och sedan använda StorSimple Snapshot Manager till:
+I den här självstudien beskrivs hur du kan montera, initiera och formatera volymer och sedan använda StorSimple Snapshot Manager för att:
 
 * Visa information om volymer 
 * Ta bort volymer
-* Genomsök igen volymer 
+* Genomsök volymer på nytt 
 * Konfigurera en enkel volym och säkerhetskopiera den
 * Konfigurera en dynamisk speglad volym och säkerhetskopiera den
 
 > [!NOTE]
-> Alla de **volym** noden åtgärder är även tillgängliga i den **åtgärder** fönstret.
+> Alla **noder i** noden är också tillgängliga i **Åtgärds** fönstret.
 > 
 > 
 
-## <a name="mount-volumes"></a>Monteringsvolymer
-Använd följande procedur för att montera, initiera och formatera StorSimple-volymer. Den här proceduren använder Diskhantering, ett systemverktyg som används för att hantera hårddiskar och motsvarande volymer eller partitioner. Mer information om Diskhantering går du till [Diskhantering](https://technet.microsoft.com/library/cc770943.aspx) på webbplatsen Microsoft TechNet.
+## <a name="mount-volumes"></a>Montera volymer
+Använd följande procedur för att montera, initiera och formatera StorSimple-volymer. I den här proceduren används disk hantering, ett system verktyg för att hantera hård diskar och motsvarande volymer eller partitioner. Mer information om disk hantering finns i [disk hantering](https://technet.microsoft.com/library/cc770943.aspx) på webbplatsen för Microsoft TechNet.
 
 #### <a name="to-mount-volumes"></a>Montera volymer
-1. Starta Microsoft iSCSI-initieraren på din värddator.
-2. Ange en av gränssnittet IP-adresser som målportal eller identifiering av IP-adress och ansluta till enheten. När enheten är ansluten, vara volymerna tillgängliga i Windows-systemet. Mer information om hur du använder Microsofts iSCSI-initierare finns i avsnittet ”ansluta till en iSCSI-målet enhet” i [installera och konfigurera Microsoft iSCSI Initiator][1].
-3. Använd någon av följande alternativ för att starta Diskhantering:
+1. Starta Microsoft iSCSI Initiator på värddatorn.
+2. Ange en av gränssnitts-IP-adresserna som mål portal eller IP-adress för identifiering och Anslut till enheten. När enheten är ansluten kommer volymerna att vara tillgängliga för ditt Windows-system. Mer information om hur du använder Microsoft iSCSI-initieraren finns i avsnittet "ansluta till en iSCSI-målenhet" i [Installera och konfigurera Microsoft iSCSI Initiator][1].
+3. Använd något av följande alternativ för att starta disk hantering:
    
-   * Skriv Diskmgmt.msc i den **kör** box.
-   * Starta Serverhanteraren, expandera den **Storage** noden och välj sedan **Diskhantering**.
-   * Starta **Administrationsverktyg**, expandera den **Datorhantering** noden och välj sedan **Diskhantering**. 
+   * Skriv diskmgmt. msc i rutan **Kör** .
+   * Starta Serverhanteraren, expandera noden **lagring** och välj sedan **disk hantering**.
+   * Starta **administrations verktyg**, expandera noden **dator hantering** och välj sedan **disk hantering**. 
      
      > [!NOTE]
-     > Du måste använda administratörsbehörighet för att köra Diskhantering.
+     > Du måste använda administratörs behörighet för att köra disk hantering.
      > 
      > 
 4. Ta volymerna online:
    
-   1. I Diskhantering högerklickar du på en volym som markerats **Offline**.
-   2. Klicka på **reaktivera Disk**. Disken bör markeras **Online** när disken återaktiveras.
-5. Initiera den eller de volymen:
+   1. I disk hantering högerklickar du på en volym som marker ATS som **offline**.
+   2. Klicka på **Reaktivera disk**. Disken ska markeras som **online** när disken har återaktiverats.
+5. Initiera volym (er):
    
    1. Högerklicka på de identifierade volymerna.
-   2. På menyn, Välj **initiera Disk**.
-   3. I den **initiera Disk** dialogrutan, Välj de diskar som du vill initiera och klicka sedan på **OK**.
+   2. På menyn väljer du **initiera disk**.
+   3. I dialog rutan **initiera disk** väljer du de diskar som du vill initiera och klickar sedan på **OK**.
 6. Formatera enkla volymer:
    
    1. Högerklicka på en volym som du vill formatera.
-   2. På menyn, Välj **ny enkel volym**.
+   2. På menyn väljer du **Ny enkel volym**.
    3. Använd guiden Ny enkel volym för att formatera volymen:
       
-      * Ange volymens storlek.
-      * Ange en enhetsbeteckning.
-      * Välj NTFS-filsystemet.
+      * Ange volym storleken.
+      * Ange en enhets beteckning.
+      * Välj NTFS-filsystem.
       * Ange en storlek på allokeringsenheterna på 64 KB.
       * Utför en snabbformatering.
-7. Formatera partition flera volymer. Anvisningar finns i avsnittet ”partitioner och volymer” [implementera Diskhantering](https://msdn.microsoft.com/library/dd163556.aspx).
+7. Formatera volymer med flera partitioner. Instruktioner finns i avsnittet "partitioner och volymer" i [implementera disk hantering](https://msdn.microsoft.com/library/dd163556.aspx).
 
 ## <a name="view-information-about-your-volumes"></a>Visa information om dina volymer
-Använd följande procedur om du vill visa information om lokala och Azure StorSimple-volymer.
+Använd följande procedur för att visa information om lokala och Azure StorSimple-volymer.
 
-#### <a name="to-view-volume-information"></a>Visa volyminformation
-1. Klicka på ikonen skrivbord för att starta StorSimple Snapshot Manager. 
-2. I den **omfång** fönstret klickar du på den **volymer** noden. En lista över lokala och monterade volymer, inklusive alla Azure StorSimple-volymer, visas i den **resultat** fönstret. Kolumnerna i den **resultat** fönstret kan konfigureras. (Högerklicka på den **volymer** noden **visa**, och välj sedan **Lägg till/ta bort kolumner**.)
+#### <a name="to-view-volume-information"></a>Visa volym information
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager. 
+2. I fönstret **omfattning** klickar du på noden **volymer** . En lista över lokala och monterade volymer, inklusive alla Azure StorSimple-volymer, visas i **resultat** fönstret. Kolumnerna i **resultat** fönstret kan konfigureras. (Högerklicka på noden **volymer** , Välj **Visa**och välj sedan **Lägg till/ta bort kolumner**.)
    
-    ![Konfigurera kolumner](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
+    ![Konfigurera kolumnerna](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_View_volumes.png)
    
-   | Resultaten kolumn | Beskrivning |
+   | Resultat kolumn | Beskrivning |
    |:--- |:--- |
-   |  Namn |Den **namn** kolumnen innehåller enhetsbeteckningen som tilldelats varje identifierad volym. |
-   |  Enhet |Den **enhet** kolumnen innehåller IP-adressen för den enhet som är anslutna till värddatorn. |
-   |  Enhetsnamn för volym |Den **volym enhetsnamn** kolumnen innehåller namnet på enheten volymen som tillhör den valda volymen. Det här är volymens namn som definierats i Azure-portalen för den specifika volymen. |
-   |  Åtkomstsökvägar |Den **Åtkomstsökvägar** kolumnen visar åtkomstsökvägen till volymen. Detta är den enhet enhetsbeteckning eller monteringspunkt där volymen finns tillgänglig på värddatorn. |
+   |  Namn |Kolumnen **namn** innehåller den enhets beteckning som tilldelats varje identifierad volym. |
+   |  Enhet |Kolumnen **enhet** innehåller IP-adressen för enheten som är ansluten till värddatorn. |
+   |  Enhetens volym namn |Kolumnen **enhetens volym namn** innehåller namnet på den enhets volym som den valda volymen tillhör. Detta är volym namnet som definierats i Azure Portal för den aktuella volymen. |
+   |  Åtkomst Sök vägar |I kolumnen **åtkomst Sök vägar** visas åtkomst Sök vägen till volymen. Detta är enhets beteckningen eller monterings punkten där volymen är tillgänglig på värddatorn. |
 
 ## <a name="delete-a-volume"></a>Ta bort en volym
 Använd följande procedur för att ta bort en volym från StorSimple Snapshot Manager.
 
 > [!NOTE]
-> Du kan inte ta bort en volym om det är en del av en volym-grupp. (Alternativet Ta bort är inte tillgänglig för volymer som är medlemmar i en grupp för volymen.) Du måste ta bort gruppen hela volymen om du vill ta bort volymen.
+> Du kan inte ta bort en volym om den är en del av en volym grupp. (Borttagnings alternativet är inte tillgängligt för volymer som är medlemmar i en volym grupp.) Du måste ta bort hela volym gruppen för att ta bort volymen.
 
-#### <a name="to-delete-a-volume"></a>Att ta bort en volym
-1. Klicka på ikonen skrivbord för att starta StorSimple Snapshot Manager.
-2. I den **omfång** fönstret klickar du på den **volymer** noden. 
-3. I den **resultat** fönstret högerklickar du på den volym som du vill ta bort.
+#### <a name="to-delete-a-volume"></a>Ta bort en volym
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. I fönstret **omfattning** klickar du på noden **volymer** . 
+3. I **resultat** fönstret högerklickar du på den volym som du vill ta bort.
 4. På menyn klickar du på **ta bort**. 
    
     ![Ta bort en volym](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Delete_volume.png) 
-5. Den **ta bort volym** dialogrutan visas. Typ **Bekräfta** i textrutan och klicka sedan på **OK**.
-6. Som standard säkerhetskopierar StorSimple Snapshot Manager en volym innan den tas bort. Den här försiktighetsåtgärden skydda dig mot dataförlust om borttagningen inte släpptes avsiktligt. StorSimple Snapshot Manager visar en **automatiska ögonblicksbilder** förloppsmeddelande medan den säkerhetskopierar volymen. 
+5. Dialog rutan **ta bort volym** visas. Skriv **Confirm** i text rutan och klicka sedan på **OK**.
+6. StorSimple Snapshot Manager säkerhetskopierar som standard en volym innan den tas bort. Den här försiktighets åtgärden kan skydda dig mot data förlust om borttagningen var oavsiktlig. I StorSimple Snapshot Manager visas ett meddelande om **Automatisk ögonblicks bilds** förlopp medan volymen säkerhets kopie ras. 
    
-    ![Automatiska ögonblicksbilder meddelande](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
+    ![Automatiskt ögonblicks bild meddelande](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Automatic_snap.png) 
 
-## <a name="rescan-volumes"></a>Genomsök igen volymer
-Använd följande procedur för att skanna volymer som är anslutna till StorSimple Snapshot Manager.
+## <a name="rescan-volumes"></a>Genomsök volymer på nytt
+Använd följande procedur för att skanna om de volymer som är anslutna till StorSimple Snapshot Manager.
 
-#### <a name="to-rescan-the-volumes"></a>Skanna volymerna
-1. Klicka på ikonen skrivbord för att starta StorSimple Snapshot Manager.
-2. I den **omfång** fönstret högerklickar du på **volymer**, och klicka sedan på **Genomsök igen volymer**.
+#### <a name="to-rescan-the-volumes"></a>Så här genomsöker du om volymerna
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. I fönstret **omfattning** högerklickar du på **volymer**och klickar sedan på **Genomsök volymer igen**.
    
-    ![Genomsök igen volymer](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
+    ![Genomsök volymer på nytt](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Rescan_volumes.png)
    
-    Den här proceduren synkroniserar volymlistan med StorSimple Snapshot Manager. Alla ändringar, till exempel nya volymer eller borttagna volymer visas i resultaten.
+    Den här proceduren synkroniserar volym listan med StorSimple Snapshot Manager. Eventuella ändringar, till exempel nya volymer eller borttagna volymer, visas i resultatet.
 
-## <a name="configure-and-back-up-a-basic-volume"></a>Konfigurera och säkerhetskopiering av en enkel volym
-Använd följande procedur för att konfigurera en säkerhetskopia av en enkel volym och sedan starta en säkerhetskopiering omedelbart eller skapa en princip för schemalagda säkerhetskopieringar.
+## <a name="configure-and-back-up-a-basic-volume"></a>Konfigurera och säkerhetskopiera en enkel volym
+Använd följande procedur för att konfigurera en säkerhets kopia av en standard volym och starta sedan en säkerhets kopiering direkt eller skapa en princip för schemalagda säkerhets kopieringar.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 Innan du börjar:
 
-* Se till att StorSimple-enhets- och datorn är rätt konfigurerade. Mer information går du till [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
-* Installera och konfigurera StorSimple Snapshot Manager. Mer information går du till [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* Kontrol lera att StorSimple-enheten och värddatorn är korrekt konfigurerade. Mer information finns i [distribuera din lokala StorSimple-enhet](storsimple-deployment-walkthrough-u2.md).
+* Installera och konfigurera StorSimple Snapshot Manager. Mer information finns i [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
-#### <a name="to-configure-backup-of-a-basic-volume"></a>Att konfigurera säkerhetskopiering för en enkel volym
-1. Skapa en enkel volym på StorSimple-enheten.
-2. Montera, initiera och formatera volymen som beskrivs i [Monteringsvolymer](#mount-volumes). 
-3. Klicka på ikonen StorSimple Snapshot Manager på skrivbordet. StorSimple Snapshot Manager-fönster visas. 
-4. I den **omfång** fönstret högerklickar du på den **volymer** noden och välj sedan **Genomsök igen volymer**. När genomsökningen är klar visas en lista över volymer ska visas i den **resultat** fönstret. 
-5. I den **resultat** , högerklicka på volymen och välj sedan **Create volym Group**. 
+#### <a name="to-configure-backup-of-a-basic-volume"></a>Så här konfigurerar du en säkerhets kopia av en standard volym
+1. Skapa en standard volym på StorSimple-enheten.
+2. Montera, initiera och formatera volymen enligt beskrivningen i [monterings volymer](#mount-volumes). 
+3. Klicka på ikonen StorSimple Snapshot Manager på Skriv bordet. Fönstret StorSimple Snapshot Manager visas. 
+4. I fönstret **omfattning** högerklickar du på noden **volymer** och väljer sedan **Genomsök volymer**på nytt. När genomsökningen är färdig ska en lista med volymer visas i **resultat** fönstret. 
+5. I **resultat** fönstret högerklickar du på volymen och väljer sedan **Skapa volym grupp**. 
    
-    ![Skapa volymen grupp](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
-6. I den **Create volym Group** dialogrutan Skriv ett namn för gruppen volym, tilldela volymer till den och klicka sedan på **OK**.
-7. I den **omfång** fönstret expanderar den **Volymgrupper** noden. Den nya volym gruppen bör visas under den **Volymgrupper** noden. 
-8. Högerklicka på namnet på volymen.
+    ![Skapa volym grupp](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Create_volume_group.png) 
+6. I dialog rutan **Skapa volym grupp** anger du ett namn för volym gruppen, tilldelar volymer till den och klickar sedan på **OK**.
+7. Expandera noden **volym grupper** i rutan **omfattning** . Den nya volym gruppen bör visas under noden **volym grupper** . 
+8. Högerklicka på volym gruppens namn.
    
-   * Starta en säkerhetskopiering för interaktiva (på begäran), klicka på **ta säkerhetskopiering**. 
-   * Om du vill schemalägga en automatisk säkerhetskopiering, klickar du på **skapa Säkerhetskopieringsprincipen**. På den **Allmänt** markerar du en volym-grupp i listan. På den **schema** anger du information om Jobbschema. När du är klar klickar du på **OK**. 
-9. För att bekräfta att säkerhetskopieringsjobbet har startats, expandera den **jobb** nod i den **omfång** fönstret och klicka sedan på den **kör** noden. Listan över jobb som körs för närvarande visas i den **resultat** fönstret. 
+   * För att starta ett interaktivt säkerhets kopierings jobb (på begäran) klickar du på **gör säkerhets kopiering**. 
+   * Om du vill schemalägga en automatisk säkerhets kopiering klickar du på **skapa säkerhets kopierings princip**. På sidan **Allmänt** väljer du en volym grupp i listan. Ange schema information på sidan **schema** . Klicka på **OK**när du är klar. 
+9. För att bekräfta att säkerhets kopierings jobbet har startat expanderar du noden **jobb** i fönstret **omfattning** och klickar sedan på noden som **körs** . Listan över jobb som körs för tillfället visas i **resultat** fönstret. 
 
-## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Konfigurera och säkerhetskopierar en dynamisk speglad volym
-Utför följande steg för att konfigurera säkerhetskopiering för en dynamisk speglad volym:
+## <a name="configure-and-back-up-a-dynamic-mirrored-volume"></a>Konfigurera och säkerhetskopiera en dynamisk speglad volym
+Utför följande steg för att konfigurera säkerhets kopiering av en dynamisk speglad volym:
 
-* Steg 1: Använd Diskhantering för att skapa en dynamisk speglad volym. 
-* Steg 2: Använd StorSimple Snapshot Manager för att konfigurera säkerhetskopiering.
+* Steg 1: Använd disk hantering för att skapa en dynamisk speglad volym. 
+* Steg 2: Använd StorSimple Snapshot Manager för att konfigurera säkerhets kopiering.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 Innan du börjar:
 
-* Se till att StorSimple-enhets- och datorn är rätt konfigurerade. Mer information går du till [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
-* Installera och konfigurera StorSimple Snapshot Manager. Mer information går du till [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
-* Konfigurera två volymer på StorSimple-enheten. (I exemplen är de tillgängliga volymerna är **Disk 1** och **Disk 2**.) 
+* Kontrol lera att StorSimple-enheten och värddatorn är korrekt konfigurerade. Mer information finns i [distribuera din lokala StorSimple-enhet](storsimple-8000-deployment-walkthrough-u2.md).
+* Installera och konfigurera StorSimple Snapshot Manager. Mer information finns i [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* Konfigurera två volymer på StorSimple-enheten. (I exemplen är tillgängliga volymer **disk 1** och **disk 2**.) 
 
-### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Steg 1: Använda Diskhantering för att skapa en dynamisk speglad volym
-Diskhantering är ett systemverktyg som används för att hantera hårddiskar och volymer eller partitioner som de innehåller. Mer information om Diskhantering går du till [Diskhantering](https://technet.microsoft.com/library/cc770943.aspx) på webbplatsen Microsoft TechNet.
+### <a name="step-1-use-disk-management-to-create-a-dynamic-mirrored-volume"></a>Steg 1: Använd disk hantering för att skapa en dynamisk speglad volym
+Disk hantering är ett system verktyg för att hantera hård diskar och de volymer eller partitioner som de innehåller. Mer information om disk hantering finns i [disk hantering](https://technet.microsoft.com/library/cc770943.aspx) på webbplatsen för Microsoft TechNet.
 
-#### <a name="to-create-a-dynamic-mirrored-volume"></a>Skapa en dynamisk speglad volym
-1. Använd någon av följande alternativ för att starta Diskhantering: 
+#### <a name="to-create-a-dynamic-mirrored-volume"></a>Så här skapar du en dynamisk speglad volym
+1. Använd något av följande alternativ för att starta disk hantering: 
    
-   * Öppna den **kör** skriver **Diskmgmt.msc**, och tryck på RETUR.
-   * Starta Serverhanteraren, expandera den **Storage** noden och välj sedan **Diskhantering**. 
-   * Starta **Administrationsverktyg**, expandera den **Datorhantering** noden och välj sedan **Diskhantering**. 
-2. Se till att du har två volymer som är tillgängliga på StorSimple-enheten. (I det här exemplet är de tillgängliga volymerna **Disk 1** och **Disk 2**.) 
-3. I fönstret Diskhantering i den högra kolumnen i den nedre rutan högerklickar du på **Disk 1** och välj **ny speglad volym**. 
+   * Öppna rutan **Kör** , Skriv **diskmgmt. msc**och tryck på RETUR.
+   * Starta Serverhanteraren, expandera noden **lagring** och välj sedan **disk hantering**. 
+   * Starta **administrations verktyg**, expandera noden **dator hantering** och välj sedan **disk hantering**. 
+2. Se till att du har två tillgängliga volymer på StorSimple-enheten. (I exemplet är tillgängliga volymer **disk 1** och **disk 2**.) 
+3. I fönstret disk hantering i den högra kolumnen i det nedre fönstret högerklickar du på **disk 1** och väljer **ny speglad volym**. 
    
     ![Ny speglad volym](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_New_mirrored_volume.png) 
-4. På den **ny speglad volym** sidan i guiden klickar du på **nästa**.
-5. På den **Välj diskar** väljer **Disk 2** i den **valda** fönstret klickar du på **Lägg till**, och klicka sedan på **nästa**. 
-6. På den **tilldela enhetsbeteckning eller sökväg** sidan, acceptera standardinställningarna och klicka sedan på **nästa**. 
-7. På den **Format volym** sidan den **storlek på allokeringsenhet** väljer **64 kB**. Välj den **utför en snabbformatering** och klicka sedan på **nästa**. 
-8. På den **nya speglad volym slutförs** sidan, granskar du inställningarna och klicka sedan på **Slutför**. 
-9. Det visas ett meddelande som anger att en grundläggande disk kommer att konverteras till en dynamisk disk. Klicka på **Ja**.
+4. Klicka på **Nästa**på sidan **ny speglad volym** i guiden.
+5. På sidan **Välj diskar** väljer du **disk 2** i den **valda** rutan, klickar på **Lägg till**och klickar sedan på **Nästa**. 
+6. På sidan **tilldela enhets beteckning eller sökväg** accepterar du standardvärdena och klickar sedan på **Nästa**. 
+7. På sidan **Formatera volym** i rutan storlek på **allokeringsenhet** väljer du **64K**. Markera kryss rutan **utför ett snabb format** och klicka sedan på **Nästa**. 
+8. På sidan **Slutför den nya speglade volymen** granskar du inställningarna och klickar sedan på **Slutför**. 
+9. Ett meddelande visas som anger att den grundläggande disken kommer att konverteras till en dynamisk disk. Klicka på **Ja**.
    
-    ![Meddelande för konvertering av dynamisk disk](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
-10. Kontrollera att Disk 1 och Disk 2 visas dynamiska speglade volymer i Diskhantering. (**Dynamisk** ska visas i statuskolumnen och kapacitet fältet färgen bör ändras till rött, som anger en speglad volym.) 
+    ![Dynamiskt disk konverterings meddelande](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Disk_management_msg.png) 
+10. I disk hantering kontrollerar du att disk 1 och disk 2 visas som dynamiska speglade volymer. (**Dynamisk** ska visas i kolumnen Status och kapacitets fältets färg ska ändras till röd, vilket indikerar en speglad volym.) 
     
-    ![Disk Management speglad dynamiska diskar](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
+    ![Disk hantering speglade dynamiska diskar](./media/storsimple-snapshot-manager-manage-volumes/HCS_SSM_Verify_dynamic_disks_2.png) 
 
-### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Steg 2: Använd StorSimple Snapshot Manager för att konfigurera säkerhetskopiering
-Använd följande procedur för att konfigurera en dynamisk speglad volym, och sedan starta en säkerhetskopiering omedelbart eller skapa en princip för schemalagda säkerhetskopieringar.
+### <a name="step-2-use-storsimple-snapshot-manager-to-configure-backup"></a>Steg 2: Använd StorSimple Snapshot Manager för att konfigurera säkerhets kopiering
+Använd följande procedur för att konfigurera en dynamisk speglad volym och sedan antingen starta en säkerhets kopiering direkt eller skapa en princip för schemalagda säkerhets kopieringar.
 
-#### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Att konfigurera säkerhetskopiering för en dynamisk speglad volym
-1. Klicka på ikonen StorSimple Snapshot Manager på skrivbordet. StorSimple Snapshot Manager-fönster visas. 
-2. I den **omfång** fönstret högerklickar du på den **volymer** noden och väljer **Genomsök igen volymer**. När genomsökningen är klar visas en lista över volymer ska visas i den **resultat** fönstret. Den dynamiska speglade volymen har listats som en enskild volym. 
-3. I den **resultat** fönstret högerklickar du på den dynamiska speglade volymen och klicka sedan på **Create volym Group**. 
-4. I den **Create volym Group** dialogrutan Skriv ett namn för gruppen volym, tilldela den dynamiska speglade volymen till den här gruppen och klicka sedan på **OK**. 
-5. I den **omfång** fönstret expanderar den **Volymgrupper** noden. Den nya volym gruppen bör visas under den **Volymgrupper** noden. 
-6. Högerklicka på namnet på volymen. 
+#### <a name="to-configure-backup-of-a-dynamic-mirrored-volume"></a>Konfigurera säkerhets kopiering av en dynamisk speglad volym
+1. Klicka på ikonen StorSimple Snapshot Manager på Skriv bordet. Fönstret StorSimple Snapshot Manager visas. 
+2. I fönstret **omfattning** högerklickar du på noden **volymer** och väljer **Genomsök volymer**på nytt. När genomsökningen är färdig ska en lista med volymer visas i **resultat** fönstret. Den dynamiska speglade volymen visas som en enskild volym. 
+3. I **resultat** fönstret högerklickar du på den dynamiska speglade volymen och klickar sedan på **Skapa volym grupp**. 
+4. I dialog rutan **Skapa volym grupp** anger du ett namn för volym gruppen, tilldelar den dynamiska speglade volymen till den här gruppen och klickar sedan på **OK**. 
+5. Expandera noden **volym grupper** i rutan **omfattning** . Den nya volym gruppen bör visas under noden **volym grupper** . 
+6. Högerklicka på volym gruppens namn. 
    
-   * Starta en säkerhetskopiering för interaktiva (på begäran), klicka på **ta säkerhetskopiering**. 
-   * Om du vill schemalägga en automatisk säkerhetskopiering, klickar du på **skapa Säkerhetskopieringsprincipen**. På den **Allmänt** markerar du den volym-gruppen i listan. På den **schema** anger du information om Jobbschema. När du är klar klickar du på **OK**. 
-7. Du kan övervaka säkerhetskopieringen när den körs. I den **omfång** fönstret expanderar den **jobb** noden och klicka sedan på **kör**, Jobbinformationen visas i den **resultat** fönstret. När säkerhetskopieringen är klar information överförs till den **senaste 24** timmar jobb-listan. 
+   * För att starta ett interaktivt säkerhets kopierings jobb (på begäran) klickar du på **gör säkerhets kopiering**. 
+   * Om du vill schemalägga en automatisk säkerhets kopiering klickar du på **skapa säkerhets kopierings princip**. På sidan **Allmänt** väljer du volym gruppen i listan. Ange schema information på sidan **schema** . Klicka på **OK**när du är klar. 
+7. Du kan övervaka säkerhets kopierings jobbet när det körs. I fönstret **omfattning** expanderar du noden **jobb** och klickar sedan på **Kör**. jobb informationen visas i **resultat** fönstret. När säkerhets kopierings jobbet är klart överförs informationen till de **senaste 24** timmarna jobb listan. 
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [använda StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
-* Lär dig hur du [använda StorSimple Snapshot Manager för att skapa och hantera volymgrupper](storsimple-snapshot-manager-manage-volume-groups.md).
+* Lär dig hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
+* Lär dig hur du [använder StorSimple-Snapshot Manager för att skapa och hantera volym grupper](storsimple-snapshot-manager-manage-volume-groups.md).
 
 <!--Reference links-->
 [1]: https://msdn.microsoft.com/library/ee338480(v=ws.10).aspx

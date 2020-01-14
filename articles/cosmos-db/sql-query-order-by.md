@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5cae2bdd7d1f2f26e626c81ea95d2cee3cc8ae13
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc5c875f4ae54ed334318efc5a1d5610b89bdda5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444798"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929587"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>ORDER BY-sats i Azure Cosmos DB
 
@@ -52,7 +52,7 @@ ORDER BY <sort_specification>
    ORDER BY-satsen kräver att indexerings principen inkluderar ett index för fälten som sorteras. Azure Cosmos DB Query runtime stöder sortering mot ett egenskaps namn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera ORDER BY-egenskaper. För att kunna köra en fråga med flera ORDER BY-egenskaper bör du definiera ett [sammansatt index](index-policy.md#composite-indexes) för fälten som sorteras.
    
 > [!Note] 
-> När du använder .NET SDK-3.4.0 eller senare, och om egenskaperna som sorteras mot kan vara odefinierade för vissa dokument, måste du uttryckligen skapa ett index för dessa egenskaper. Standard indexerings principen tillåter inte hämtning av dokument där sorterings egenskapen är odefinierad.
+> Om egenskaperna som sorteras mot kan vara odefinierade för vissa dokument och du vill hämta dem i en ORDER BY-fråga, måste du uttryckligen skapa ett index för dessa egenskaper. Standard indexerings principen tillåter inte hämtning av dokument där sorterings egenskapen är odefinierad.
 
 ## <a name="examples"></a>Exempel
 

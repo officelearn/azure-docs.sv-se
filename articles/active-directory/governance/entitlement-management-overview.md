@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/10/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a99b9089e568351cf736310e778ba477441407
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d1faf501aff8960a4b1961b34164be07b1d685d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422577"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932480"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Vad är berättigandehantering i Azure AD?
 
@@ -134,17 +134,32 @@ För att bättre förstå hantering av rättigheter och dess dokumentation kan d
 
 Specialiserade moln, till exempel Azure Government, Azure Germany och Azure Kina 21Vianet, är inte tillgängliga för användning.
 
-### <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
+### <a name="how-many-licenses-must-you-have"></a>Hur många licenser måste du ha?
 
-Klienten måste ha minst lika många Azure AD Premium P2-licenser när medlems användare är aktiva i hantering av rättigheter. Aktiva medlems användare i hantering av rättigheter är:
+Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har anställda som ska utföra följande uppgifter:
 
-- En användare som initierar eller godkänner en begäran om ett Access-paket.
-- En användare som har tilldelats ett Access-paket.
-- En användare som hanterar åtkomst paket.
+- Medlems användare som **kan** begära ett åtkomst paket.
+- Medlem och gäst användare som begär ett åtkomst paket.
+- Medlem och gäst användare som godkänner begär Anden för ett Access-paket.
 
-Som en del av licenserna för medlems användare kan du också tillåta att ett antal gäst användare interagerar med rättighets hantering. Information om hur du beräknar antalet gäst användare som du kan ta med finns i [rikt linjer för Azure Active Directory B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
 
-Information om hur du tilldelar licenser till dina användare finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md). Observera att rättighets hantering för närvarande inte tillämpar licens tilldelning för användare.
+- Inga licenser krävs för användare med rollen global administratör som konfigurerar de första katalogerna, åtkomst paket och principer, samt delegerar administrativa uppgifter till andra användare.
+- Inga licenser krävs för användare som har delegerats administrativa uppgifter, t. ex. katalog skapare, katalog ägare och Access Package Manager.
+- Det krävs inga licenser för gäster som **kan** begära åtkomst paket, men begär **inte** ett Access-paket.
+
+För varje betalat Azure AD Premium P2-licens som du köper för medlems användare (anställda) kan du använda Azure AD B2B för att bjuda in upp till fem gäst användare. Dessa gäst användare kan också använda Azure AD Premium P2-funktioner. Mer information finns i [rikt linjer för Azure AD B2B-samarbets licensiering](../b2b/licensing-guidance.md).
+
+Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
+
+### <a name="example-license-scenarios"></a>Exempel på licens scenarier
+
+Här följer några exempel på licens scenarier som hjälper dig att fastställa antalet licenser som du måste ha.
+
+| Scenario | Beräkning | Antal licenser |
+| --- | --- | --- |
+| En global administratör på Sparbanken skapar inledande kataloger och delegerar administrativa uppgifter till 6 andra användare. En av principerna anger att **alla anställda** (2 000 anställda) kan begära en speciell uppsättning åtkomst paket. 150 anställda begär åtkomst paketen. | 2 000 anställda som **kan** begära åtkomst paket | 2,000 |
+| En global administratör på Sparbanken skapar inledande kataloger och delegerar administrativa uppgifter till 6 andra användare. En av principerna anger att **alla anställda** (2 000 anställda) kan begära en speciell uppsättning åtkomst paket. En annan princip anger att vissa användare från **användare från partner contoso** (gäster) kan begära samma åtkomst paket som omfattas av godkännande. Contoso har 30 000 användare. 150 anställda begär åtkomst paketen och 10 500-användare från contoso begär åtkomst. | 2 000 anställda + 500 gäst användare från Contoso som överstiger 1:5-förhållandet (10 500-(2 000 * 5)) | 2,500 |
 
 ## <a name="next-steps"></a>Nästa steg
 

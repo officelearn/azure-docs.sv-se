@@ -1,71 +1,63 @@
 ---
 title: Steg före migrering för datamigrering till Azure Cosmos DBs API för MongoDB
 description: Det här dokumentet innehåller en översikt över förutsättningarna för en datamigrering från MongoDB till Cosmos DB.
-author: roaror
+author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: roaror
-ms.openlocfilehash: 4dc7038d0ff5180f15a43268fd3f3aa0cbb0c7a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/09/2020
+ms.author: lbosq
+ms.openlocfilehash: ef3d56b4ec7e4dbe5f6f4097fdd5d8d125b074dc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445203"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932292"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
-Innan du migrerar dina data från MongoDB (antingen lokalt eller i molnet (IaaS)) till Azure Cosmos DB s API för MongoDB, bör du:
+Innan du migrerar dina data från MongoDB (antingen lokalt eller i molnet) till Azure Cosmos DB s API för MongoDB, bör du:
 
-1. [Skapa ett Azure Cosmos DB-konto](#create-account)
-2. [Beräkna det data flöde som krävs för dina arbets belastningar](#estimate-throughput)
-3. [Välj en optimal partitionsnyckel för dina data](#partitioning)
-4. [Förstå indexerings principen som du kan ange för dina data](#indexing)
+1. [Läs viktiga överväganden om hur du använder Azure Cosmos DBs API för MongoDB](#considerations)
+2. [Välj ett alternativ för att migrera dina data](#options)
+3. [Beräkna det data flöde som krävs för dina arbets belastningar](#estimate-throughput)
+4. [Välj en optimal partitionsnyckel för dina data](#partitioning)
+5. [Förstå indexerings principen som du kan ange för dina data](#indexing)
 
-Om du redan har slutfört ovanstående krav för migrering, se [migrera MongoDB-data till Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) för de faktiska stegen för data migrering. Annars innehåller det här dokumentet instruktioner för att hantera dessa krav. 
+Om du redan har slutfört ovanstående krav för migrering kan du [migrera MongoDB-data till Azure Cosmos DB s API för MongoDB med hjälp av Azure Database migration service](../dms/tutorial-mongodb-cosmos-db.md). Om du inte har skapat ett konto kan du dessutom bläddra i alla [snabb starter](create-mongodb-dotnet.md).
 
-## <a id="create-account"></a>Skapa ett Azure Cosmos DB konto 
+## <a id="considerations"></a>Viktiga överväganden när du använder Azure Cosmos DBs API för MongoDB
 
-Innan du påbörjar migreringen måste du [skapa ett Azure Cosmos-konto med hjälp av Azure Cosmos DB s API för MongoDB](create-mongodb-dotnet.md). 
+Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
+- **Kapacitets modell**: databasens kapacitet på Azure Cosmos DB baseras på en data flödes-baserad modell. Den här modellen är baserad på [enheter för programbegäran per sekund](request-units.md), som är en enhet som representerar antalet databas åtgärder som kan utföras mot en samling per sekund. Den här kapaciteten kan allokeras på [en databas eller samlings nivå](set-throughput.md)och kan tillhandahållas i en fördelnings modell, eller med hjälp av [autopilot-modellen](provision-throughput-autopilot.md).
+- **Enheter för programbegäran**: varje databas åtgärd har en ru: er-kostnad (associerad Request units) i Azure Cosmos dB. Vid körning subtraheras detta från den tillgängliga enhets enhets nivån på en specifik sekund. Om en begäran kräver mer ru: er än vad som för närvarande har allokerats, ökar mängden ru: er, eller väntar tills nästa andra startar och försöker sedan igen.
+- **Elastisk kapacitet**: kapaciteten för en specifik samling eller databas kan ändras när som helst. Detta gör att databasen kan anpassas elastiskt till data flödes kraven för din arbets belastning.
+- **Automatisk horisontell partitionering**: Azure Cosmos DB tillhandahåller ett automatiskt partitionerings system som bara kräver en Shard (eller partitionerings nyckel). [Mekanismen för automatisk partitionering](partition-data.md) delas över alla Azure Cosmos DB-API: er och möjliggör sömlös data och genom att skalas genom horisontell distribution.
 
-När kontot skapas kan du välja inställningar för att [globalt distribuera](distribute-data-globally.md) dina data. Du kan också välja att aktivera flera region skrivningar (eller multi-master-konfiguration), vilket gör att varje region kan vara både en Skriv-och Läs region.
+## <a id="options"></a>Migrations alternativ för Azure Cosmos DBs API för MongoDB
 
-![Skapa konto](./media/mongodb-pre-migration/account-creation.png)
+[Azure Database migration service för Azure Cosmos DB s API för MongoDB](../dms/tutorial-mongodb-cosmos-db.md) ger en mekanism som fören klar migreringen av data genom att tillhandahålla en helt hanterad värd plattform, alternativ för migrerings övervakning och automatisk begränsnings hantering. Den fullständiga listan med alternativ är följande:
+
+|**Typ av migrering**|**Lösning**|**Överväganden**|
+|---------|---------|---------|
+|Offline|[Datamigreringsverktyget](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; enkelt att konfigurera och stödja flera källor <br/>&bull; passar inte för stora data mängder.|
+|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; enkelt att konfigurera och stödja flera källor <br/>&bull; använder Azure Cosmos DB bulk utförar-biblioteket <br/>&bull; lämplig för stora data uppsättningar <br/>&bull; brist på kontroll punkter innebär att eventuella problem under migreringen skulle kräva en omstart av hela migreringsprocessen<br/>&bull; avsaknad av en kö för obeställbara meddelanden skulle innebära att några felaktiga filer kan stoppa hela migreringsprocessen <br/>&bull; behöver anpassad kod för att öka Läs data flödet för vissa data källor|
+|Offline|[Befintliga Mongo-verktyg (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; enkel att konfigurera och integrera <br/>&bull; behöver anpassad hantering för begränsningar|
+|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; fullständigt hanterad migreringstjänster.<br/>&bull; tillhandahåller värdbaserade och övervaknings lösningar för migreringen. <br/>&bull; lämpligt för stora data uppsättningar och tar hand om att replikera Live-ändringar <br/>&bull; fungerar endast med andra MongoDB-källor|
+
 
 ## <a id="estimate-throughput"></a>Beräkna data flödes behovet för dina arbets belastningar
 
-Innan du påbörjar migreringen med hjälp av [Database migration service (DMS)](../dms/dms-overview.md)bör du uppskatta mängden data flöde som ska etableras för dina Azure Cosmos-databaser och samlingar.
+I Azure Cosmos DB allokeras data flödet i förväg och mäts i enheter för programbegäran (RU) per sekund. Till skillnad från virtuella datorer eller lokala servrar är ru: er enkelt att skala upp och ned när som helst. Du kan ändra antalet etablerade ru: er direkt. Mer information finns i [enheter för programbegäran i Azure Cosmos DB](request-units.md).
 
-Data flödet kan tillhandahållas på något av följande:
-
-- Samling
-
-- Databas
-
-> [!NOTE]
-> Du kan också ha en kombination av ovanstående, där vissa samlingar i en databas kan ha dedikerat allokerat data flöde och andra kan dela data flödet. Mer information finns [på sidan Ange data flöde på en databas och en behållar](set-throughput.md) sida.
->
-
-Först bör du bestämma om du vill etablera data flöde för databaser eller samlings nivåer, eller en kombination av båda. I allmänhet rekommenderar vi att du konfigurerar ett dedikerat data flöde på samlings nivå. Genom att tillhandahålla data flöde på databas nivå kan samlingar i databasen dela det tillhandahållna data flödet. Med delat data flöde finns det dock ingen garanti för ett specifikt data flöde på varje enskild samling och du får inte förutsägbara prestanda för någon viss samling.
-
-Om du inte är säker på hur mycket data flöde som ska vara dedicerat till varje enskild samling kan du välja data flöde på databas nivå. Du kan tänka på det etablerade data flödet som kon figurer ATS i din Azure Cosmos-databas som en logisk motsvarighet till beräknings kapaciteten för en MongoDB-VM eller en fysisk server, men mer kostnads effektivt med möjligheten att göra en elastisk skalning. Mer information finns i [etablera data flöde på Azure Cosmos-behållare och databaser](set-throughput.md).
-
-Om du etablerar data flöde på databas nivå måste alla samlingar som skapats i databasen skapas med en partition/Shard-nyckel. Mer information om partitionering finns [i partitionering och horisontell skalning i Azure Cosmos DB](partition-data.md). Om du inte anger en partition/Shard-nyckel under migreringen, fyller Azure Database Migration Service automatiskt i fältet Shard-nyckel med ett *_ID* -attribut som genereras automatiskt för varje dokument.
-
-### <a name="optimal-number-of-request-units-rus-to-provision"></a>Optimalt antal begär ande enheter (ru: er) för att etablera
-
-I Azure Cosmos DB allokeras data flödet i förväg och mäts i enheter för programbegäran (RU) per sekund. Om du har arbets belastningar som kör MongoDB på en virtuell dator eller lokalt, Tänk på att RU är som en enkel abstraktion för fysiska resurser, t. ex. för storleken på en virtuell dator eller på en lokal server och de resurser som de har, t. ex. minne, CPU, IOPs. 
-
-Till skillnad från virtuella datorer eller lokala servrar är ru: er enkelt att skala upp och ned när som helst. Du kan ändra antalet etablerade ru: er inom några sekunder och du debiteras bara för det maximala antalet ru: er som du etablerar för en viss period på en timme. Mer information finns i [enheter för programbegäran i Azure Cosmos DB](request-units.md).
+Du kan använda [Azure Cosmos DB kapacitets kalkylatorn](https://cosmos.azure.com/capacitycalculator/) för att fastställa hur många enheter för programbegäran som baseras på databas konto konfigurationen, mängden data, dokument storlek och nödvändiga läsningar och skrivningar per sekund.
 
 Följande är viktiga faktorer som påverkar antalet ru: er som krävs:
-- **Objekt storlek (t. ex. dokument) storlek**: när ett objekts eller dokuments storlek ökar ökar antalet ru: er som förbrukas för att läsa eller skriva objektet/dokumentet också.
-- **Antal objekt egenskaper**: förutsatt att [standard indexeringen](index-overview.md) används för alla egenskaper ökar antalet ru: er som används för att skriva ett objekt när antalet objekt egenskaper ökar. Du kan minska användningen av begär ande enheter för Skriv åtgärder genom [att begränsa antalet indexerade egenskaper](index-policy.md).
-- **Samtidiga åtgärder**: enheter som för bruk ATS beror också på den frekvens med vilken olika CRUD åtgärder (t. ex. skrivningar, läsningar, uppdateringar, borttagningar) och mer komplexa frågor körs. Du kan använda [mongostat](https://docs.mongodb.com/manual/reference/program/mongostat/) för att generera de samtidiga behoven för dina aktuella MongoDB-data.
-- **Fråga mönster**: en frågas komplexitet påverkar hur många enheter för programbegäran som används av frågan.
+- **Dokument storlek**: när ett objekts eller dokuments storlek ökar ökar antalet ru: er som förbrukas för att läsa eller skriva objektet/dokumentet också att öka.
+- **Antal dokument egenskaper**: antalet ru: er som används för att skapa eller uppdatera ett dokument är relaterat till antal, komplexitet och längd på egenskaperna. Du kan minska användningen av begär ande enheter för Skriv åtgärder genom [att begränsa antalet indexerade egenskaper](mongodb-indexing.md).
+- **Fråga mönster**: en frågas komplexitet påverkar hur många enheter för programbegäran som används av frågan. 
 
-Om du exporterar JSON-filer med [mongoexport](https://docs.mongodb.com/manual/reference/program/mongoexport/) och förstår hur många skrivningar, läser, uppdaterar och tar bort som sker per sekund, kan du använda [Azure Cosmos DB Capacity Planner](https://www.documentdb.com/capacityplanner) för att beräkna det ursprungliga antalet ru: er som ska etableras. Kapacitets planeraren kostar inte mer komplexa frågor. Så om du har komplexa frågor om dina data används ytterligare ru: er. Kalkylatorn förutsätter också att alla fält är indexerade och att konsekvens används i sessionen. Det bästa sättet att förstå kostnaden för frågor är att migrera dina data (eller exempel data) till Azure Cosmos DB, [ansluta till Cosmos DB slut punkten](connect-mongodb-account.md) och köra en exempel fråga från MongoDB-gränssnittet med hjälp av `getLastRequestStastistics` kommandot för att hämta begär ande avgiften, vilket kommer att returnera antalet ru: er som förbrukas:
+Det bästa sättet att förstå kostnaden för frågor är att använda exempel data i Azure Cosmos DB [och köra exempel frågor från MongoDB-gränssnittet](connect-mongodb-account.md) med hjälp av kommandot `getLastRequestStastistics` för att hämta begär ande avgiften, vilket kommer att returnera antalet ru: er som förbrukas:
 
 `db.runCommand({getLastRequestStatistics: 1})`
 
@@ -73,13 +65,15 @@ Det här kommandot kommer att skriva ut ett JSON-dokument som liknar följande:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-När du har förstått antalet ru: er som förbrukas av en fråga och samtidigheten för den frågan, kan du justera antalet etablerade ru: er. Optimering av ru: er är inte en engångs händelse – du bör kontinuerligt optimera eller skala upp den ru: er som tillhandahålls, beroende på om du inte förväntar dig en tung trafik, i stället för en kraftig arbets belastning eller importera data.
+Du kan också använda [diagnostikinställningar](cosmosdb-monitor-resource-logs.md) för att förstå frekvensen och mönstren för de frågor som körs mot Azure Cosmos dB. Resultaten från diagnostikloggar kan skickas till ett lagrings konto, en EventHub-instans eller Azure- [Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
 
 ## <a id="partitioning"></a>Välj partitionsnyckel
-Partitionering är en viktig aspekt innan du migrerar till en globalt distribuerad databas som Azure Cosmos DB. Azure Cosmos DB använder partitionering för att skala enskilda behållare i en databas för att uppfylla ditt programs skalbarhet och prestanda behov. I partitionering är objekten i en behållare indelade i distinkta del mängder som kallas logiska partitioner. Mer information och rekommendationer om hur du väljer rätt partitionsnyckel för dina data finns i [avsnittet välja en partitionsnyckel](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+Partitionering, även kallat horisontell partitionering, är en viktig faktor innan data migreras. Azure Cosmos DB använder fullständigt hanterad partitionering för att öka kapaciteten i en databas för att uppfylla kraven för lagring och data flöde. Den här funktionen behöver inte vara värd för eller konfigurering av routningsservrar.   
+
+På ett liknande sätt lägger partitionerings kapaciteten automatiskt till kapacitet och återskapar data enligt detta. Mer information och rekommendationer om hur du väljer rätt partitionsnyckel för dina data finns i artikeln om [att välja en partitionsnyckel](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
 
 ## <a id="indexing"></a>Indexera dina data
-Som standard indexerar Azure Cosmos DB alla data fält vid inmatning. Du kan ändra [indexerings principen](index-policy.md) i Azure Cosmos DB när du vill. I själva verket rekommenderar vi ofta att du inaktiverar indexering när du migrerar data och sedan aktiverar det igen när data redan finns i Cosmos DB. Om du vill ha mer information om indexering kan du läsa mer om det i avsnittet [indexering i Azure Cosmos DB](index-overview.md) . 
+Som standard tillhandahåller Azure Cosmos DB automatisk indexering för alla data som infogas. De indexerings funktioner som tillhandahålls av Azure Cosmos DB inkluderar att lägga till sammansatta index, unika index och Time to Live (TTL) index. Index hanterings gränssnittet mappas till `createIndex()`-kommandot. Läs mer vid [indexering i Azure Cosmos DBS API för MongoDB](mongodb-indexing.md).
 
 [Azure Database migration service](../dms/tutorial-mongodb-cosmos-db.md) migrerar automatiskt MongoDB-samlingar med unika index. Däremot måste de unika indexen skapas innan migreringen. Azure Cosmos DB har inte stöd för att skapa unika index när det redan finns data i samlingarna. Mer information finns i [unika nycklar i Azure Cosmos DB](unique-keys.md).
 

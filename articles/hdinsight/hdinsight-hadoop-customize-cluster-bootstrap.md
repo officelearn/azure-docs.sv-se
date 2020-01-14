@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/21/2019
-ms.openlocfilehash: baef54fc5c8fd03ea190da2023dcba2e96abb982
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e641340ac04415ee4a20cda2bc09bbdbef9802a6
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406285"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931406"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Anpassa HDInsight-kluster med hjälp av bootstrap
 
@@ -21,7 +21,7 @@ Med Bootstrap-skript kan du installera och konfigurera komponenter i Azure HDIns
 
 Det finns tre metoder för att ange inställningar för konfigurations fil när HDInsight-klustret skapas:
 
-* Använda Azure PowerShell
+* Använd Azure PowerShell
 * Använda .NET SDK
 * Använd Azure Resource Manager-mallar
 
@@ -50,7 +50,7 @@ Information om hur du installerar ytterligare komponenter i HDInsight-kluster un
 
 * Om du använder PowerShell behöver du AZ- [modulen](https://docs.microsoft.com/powershell/azure/overview).
 
-## <a name="use-azure-powershell"></a>Använda Azure PowerShell
+## <a name="use-azure-powershell"></a>Använd Azure PowerShell
 
 Följande PowerShell-kod anpassar en [Apache Hive](https://hive.apache.org/) -konfiguration:
 
@@ -108,7 +108,7 @@ $OozieConfigValues = @{ "oozie.service.coord.normal.default.timeout"="150" }  # 
 
 ## <a name="use-net-sdk"></a>Använda .NET SDK
 
-Se [skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-bootstrap).
+Se [Azure HDInsight SDK för .net](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet).
 
 ## <a name="use-resource-manager-template"></a>Använda Resource Manager-mallar
 
@@ -126,7 +126,7 @@ Du kan använda bootstrap i Resource Manager-mallen:
 
 ![Hadoop anpassar start Azure Resource Manager mall för kluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * [Skapa Apache Hadoop kluster i HDInsight](hdinsight-hadoop-provision-linux-clusters.md) innehåller instruktioner om hur du skapar ett HDInsight-kluster med hjälp av andra anpassade alternativ.
 * [Utveckla skript åtgärds skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)

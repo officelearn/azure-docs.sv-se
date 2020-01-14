@@ -1,9 +1,9 @@
 ---
-title: Principer för säkerhetskopiering av StorSimple Snapshot Manager | Microsoft Docs
-description: Beskriver hur du använder StorSimple Snapshot Manager MMC-snapin-modulen för att skapa och hantera principer för säkerhetskopiering som styr schemalagda säkerhetskopieringar.
+title: Principer för StorSimple Snapshot Manager säkerhets kopiering | Microsoft Docs
+description: Beskriver hur du använder snapin-modulen StorSimple Snapshot Manager MMC för att skapa och hantera säkerhets kopierings principer som styr schemalagda säkerhets kopieringar.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 04415d0b-42f0-4737-8afa-257fb2dbe5d0
@@ -13,84 +13,84 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: v-sharos
-ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: twooley
+ms.openlocfilehash: 7b2df6c8384e78094d80a17d8982b0db9edf73e1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687285"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933363"
 ---
-# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Använd StorSimple Snapshot Manager för att skapa och hantera principer för säkerhetskopiering
+# <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Använd StorSimple Snapshot Manager för att skapa och hantera säkerhets kopierings principer
 ## <a name="overview"></a>Översikt
-En princip för säkerhetskopiering skapar ett schema för säkerhetskopiering av volymdata lokalt eller i molnet. När du skapar en princip för säkerhetskopiering kan ange du också en bevarandeprincip. (Du kan lagra högst 64 ögonblicksbilder.) Läs mer om principer för säkerhetskopiering, [säkerhetskopiera typer](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) i [StorSimple 8000-serien: en hybridmolnlösning](storsimple-overview.md).
+En säkerhets kopierings princip skapar ett schema för säkerhets kopiering av volym data lokalt eller i molnet. När du skapar en säkerhets kopierings princip kan du också ange en bevarande princip. (Du kan behålla högst 64 ögonblicks bilder.) Mer information om säkerhets kopierings principer finns i [säkerhets kopierings typer](storsimple-what-is-snapshot-manager.md#backup-types-and-backup-policies) i [StorSimple 8000-serien: en hybrid moln lösning](storsimple-overview.md).
 
 I den här självstudien beskrivs hur du:
 
 * Skapa en säkerhetskopieringspolicy
-* Redigera en princip för säkerhetskopiering
-* Ta bort en princip för säkerhetskopiering
+* Redigera en princip för säkerhets kopiering
+* Ta bort en princip för säkerhets kopiering
 
 ## <a name="create-a-backup-policy"></a>Skapa en säkerhetskopieringspolicy
-Använd följande procedur för att skapa en ny säkerhetskopieringsprincip.
+Använd följande procedur för att skapa en ny säkerhets kopierings princip.
 
-#### <a name="to-create-a-backup-policy"></a>Skapa en princip för säkerhetskopiering
-1. Klicka på ikonen skrivbord för att starta StorSimple Snapshot Manager.
-2. I den **omfång** fönstret högerklickar du på **principer för säkerhetskopiering**, och klicka på **skapa Säkerhetskopieringspolicyn**.
+#### <a name="to-create-a-backup-policy"></a>Så här skapar du en säkerhets kopierings princip
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. I fönstret **omfattning** högerklickar du på **säkerhets kopierings principer**och klickar på **skapa säkerhets kopierings princip**.
 
     ![Skapa en säkerhetskopieringspolicy](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_BU_policy.png)
 
-    Den **skapa en princip** dialogrutan visas.
+    Dialog rutan **skapa en princip** visas.
 
     ![Skapa en princip – fliken Allmänt](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_general.png)
-3. På den **allmänna** och ange följande information:
+3. På fliken **Allmänt** fyller du i följande information:
 
-   1. I den **namn** anger du ett namn för principen.
-   2. I den **volym grupp** textrutan, skriver du in namnet på gruppen volym som är associerade med principen.
-   3. Välj antingen **lokal ögonblicksbild** eller **ögonblicksbild i molnet**.
-   4. Välj antalet ögonblicksbilder att behålla. Om du väljer **alla**, 64 ögonblicksbilder kommer att bevaras (maximalt).
-4. Klicka på den **schema** fliken.
+   1. I text rutan **namn** anger du ett namn för principen.
+   2. I text rutan **volym grupp** skriver du namnet på den volym grupp som är kopplad till principen.
+   3. Välj antingen **lokal ögonblicks bild** eller **moln ögonblicks bild**.
+   4. Välj det antal ögonblicks bilder som ska behållas. Om du väljer **alla**kommer 64 ögonblicks bilder att bevaras (max).
+4. Klicka på fliken **Schemalägg** .
 
-    ![Skapa en princip – fliken schema](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
-5. På den **schema** och ange följande information:
+    ![Skapa en princip – fliken schemaläggning](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Create_policy_schedule.png)
+5. På fliken **Schemaläggning** slutför du följande information:
 
-   1. Klicka på den **aktivera** kryssrutan för att schemalägga nästa säkerhetskopiering.
-   2. Under **inställningar**väljer **en gång**, **dagliga**, **veckovisa**, eller **månatliga**.
-   3. I den **starta** textrutan, klicka på kalenderikonen och välj ett startdatum.
-   4. Under **avancerade inställningar**, du kan ange valfri Upprepa scheman och ett slutdatum.
+   1. Klicka på kryss rutan **Aktivera** för att schemalägga nästa säkerhets kopiering.
+   2. Under **Inställningar**väljer du **en tid**, **varje dag**, **varje vecka**eller **varje månad**.
+   3. I text rutan **Starta** klickar du på kalender ikonen och väljer ett start datum.
+   4. Under **Avancerade inställningar**kan du ange valfria upprepnings scheman och slutdatum.
    5. Klicka på **OK**.
 
-När du har skapat en princip för säkerhetskopiering, visas följande information i den **resultat** fönstret:
+När du har skapat en säkerhets kopierings princip visas följande information i **resultat** fönstret:
 
-* **Namn på** – namnet på säkerhetskopieringsprincipen.
-* **Typ** – lokal ögonblicksbild eller ögonblicksbild i molnet.
-* **Volymen grupp** – gruppen volym som är associerade med principen.
-* **Kvarhållning** – antalet ögonblicksbilder bevaras; det maximala värdet är 64.
-* **Skapade** – det datum som den här principen har skapats.
-* **Aktiverad** – om principen är för närvarande i kraft: **SANT** indikerar att det är aktivt; **FALSKT** indikerar att det inte är i kraft.
+* **Namn** – namnet på säkerhets kopierings policyn.
+* **Typ** – lokal ögonblicks bild eller moln ögonblicks bild.
+* **Volym grupp** – den volym grupp som är associerad med principen.
+* **Kvarhållning** – antalet sparade ögonblicks bilder. det maximala värdet är 64.
+* **Skapat** – det datum då den här principen skapades.
+* **Aktive rad** – oavsett om principen gäller för närvarande: **Sant** anger att den är aktive rad. **Falskt** anger att den inte är aktiv.
 
-## <a name="edit-a-backup-policy"></a>Redigera en princip för säkerhetskopiering
-Använd följande procedur om du vill redigera en befintlig säkerhetskopieringspolicy.
+## <a name="edit-a-backup-policy"></a>Redigera en princip för säkerhets kopiering
+Använd följande procedur för att redigera en befintlig säkerhets kopierings princip.
 
-#### <a name="to-edit-a-backup-policy"></a>Så här redigerar du en princip för säkerhetskopiering
-1. Klicka på ikonen skrivbord för att starta StorSimple Snapshot Manager.
-2. I den **omfång** fönstret klickar du på den **principer för säkerhetskopiering** noden. Alla principer för säkerhetskopiering visas i den **resultat** fönstret.
-3. Högerklicka på den princip som du vill redigera och klicka sedan på **redigera**.
+#### <a name="to-edit-a-backup-policy"></a>Så här redigerar du en säkerhets kopierings princip
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. I fönstret **omfattning** klickar du på noden **säkerhets kopierings principer** . Alla säkerhets kopierings principer visas i **resultat** fönstret.
+3. Högerklicka på den princip som du vill redigera och klicka sedan på **Redigera**.
 
-    ![Redigera en princip för säkerhetskopiering](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
-4. När den **skapa en princip** fönster visas anger du dina ändringar och klicka sedan på **OK**.
+    ![Redigera en princip för säkerhets kopiering](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Edit_BU_policy.png)
+4. När fönstret **skapa en princip** visas anger du dina ändringar och klickar sedan på **OK**.
 
-## <a name="delete-a-backup-policy"></a>Ta bort en princip för säkerhetskopiering
-Använd följande procedur för att ta bort en princip för säkerhetskopiering.
+## <a name="delete-a-backup-policy"></a>Ta bort en princip för säkerhets kopiering
+Använd följande procedur för att ta bort en säkerhets kopierings princip.
 
-#### <a name="to-delete-a-backup-policy"></a>Att ta bort en princip för säkerhetskopiering
-1. Klicka på ikonen skrivbord för att starta StorSimple Snapshot Manager.
-2. I den **omfång** fönstret klickar du på den **principer för säkerhetskopiering** noden. Alla principer för säkerhetskopiering visas i den **resultat** fönstret.
-3. Högerklicka på principen för säkerhetskopiering som du vill ta bort och klicka sedan på **ta bort**.
-4. När bekräftelsemeddelandet visas, klickar du på **Ja**.
+#### <a name="to-delete-a-backup-policy"></a>Ta bort en princip för säkerhets kopiering
+1. Klicka på Skriv bords ikonen för att starta StorSimple Snapshot Manager.
+2. I fönstret **omfattning** klickar du på noden **säkerhets kopierings principer** . Alla säkerhets kopierings principer visas i **resultat** fönstret.
+3. Högerklicka på den säkerhets kopierings princip som du vill ta bort och klicka sedan på **ta bort**.
+4. Klicka på **Ja**när bekräftelse meddelandet visas.
 
-    ![Ta bort säkerhetskopieringsprincipen bekräftelse](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
+    ![Bekräfta borttagning av säkerhets kopierings princip](./media/storsimple-snapshot-manager-manage-backup-policies/HCS_SSM_Delete_BU_policy.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* Lär dig hur du [använda StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
-* Lär dig hur du [använda StorSimple Snapshot Manager för att visa och hantera säkerhetskopieringsjobb](storsimple-snapshot-manager-manage-backup-jobs.md).
+* Lär dig hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
+* Lär dig hur du [använder StorSimple-Snapshot Manager för att visa och hantera säkerhets kopierings jobb](storsimple-snapshot-manager-manage-backup-jobs.md).

@@ -13,45 +13,50 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 01/10/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6e336ec40ba2b9f6d3018e6a4f5b2ac721077aa
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 70696cdb95fffc1e5faa46ca1b5f2180633ed63a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895120"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932325"
 ---
 # <a name="license-requirements-to-use-privileged-identity-management"></a>Licens krav för att använda Privileged Identity Management
 
 Om du vill använda Azure Active Directory (Azure AD) Privileged Identity Management (PIM) måste en katalog ha en giltig licens. Dessutom måste licenser tilldelas till administratörer och relevanta användare. I den här artikeln beskrivs licens kraven för att använda Privileged Identity Management.
 
-## <a name="prerequisites"></a>Krav
+## <a name="valid-licenses"></a>Giltiga licenser
 
-Om du vill använda Privileged Identity Management måste katalogen ha någon av följande betalda eller utvärderings licenser:
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5
-- Microsoft 365 M5
+## <a name="how-many-licenses-must-you-have"></a>Hur många licenser måste du ha?
 
-Mer information finns i [Vad är Azure Active Directory?](../fundamentals/active-directory-whatis.md).
+Se till att katalogen har minst så många Azure AD Premium P2-licenser som du har anställda som ska utföra följande uppgifter:
 
-## <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
-
-Varje administratör eller användare som interagerar med eller får en förmån från Privileged Identity Management måste ha en licens. Till exempel:
-
-- Administratörer med Azure AD-roller som hanteras med PIM
-- Administratörer med Azure-resurs roller som hanteras med PIM
-- Administratörer som har tilldelats rollen privilegie rad roll administratör
 - Användare som är behöriga för Azure AD-roller som hanteras med PIM
-- Användare som kan godkänna/avvisa begär anden i PIM
+- Användare kan godkänna eller avvisa aktiverings begär anden i PIM
 - Användare som tilldelats en Azure-resurs roll med just-in-Time-eller Direct (tidsbaserad) tilldelningar  
 - Användare som tilldelats åtkomst granskning
 - Användare som utför åtkomst granskningar
 
-Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
+Azure AD Premium P2-licenser krävs **inte** för följande uppgifter:
+
+- Inga licenser krävs för användare med administratörs rollerna global administratör eller privilegie rad roll som konfigurerar PIM, konfigurerar principer, tar emot aviseringar och ställer in åtkomst granskningar.
+
+Mer information om licenser finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
+
+## <a name="example-license-scenarios"></a>Exempel på licens scenarier
+
+Här följer några exempel på licens scenarier som hjälper dig att fastställa antalet licenser som du måste ha.
+
+| Scenario | Beräkning | Antal licenser |
+| --- | --- | --- |
+| Sparbanken bank har 10 administratörer för olika avdelningar och 2 globala administratörer som konfigurerar och hanterar PIM. De gör fem administratörer berättigade. | Fem licenser för administratörer som är berättigade | 5 |
+| Graphic Design Institute har 25 administratörer av vilka 14 hanteras via PIM. Roll aktivering kräver godkännande och det finns tre olika användare i organisationen som kan godkänna aktiveringar. | 14 licenser för berättigade roller + tre god kännare | 17 |
+| Contoso har 50 administratörer av vilka 42 hanteras via PIM. Roll aktivering kräver godkännande och det finns fem olika användare i organisationen som kan godkänna aktiveringar. Contoso visar också månads Visa de användare som har tilldelats administratörs roller och granskare, där de sex inte finns i administratörs roller som hanteras av PIM. | 42 licenser för de berättigade rollerna + fem god kännare + sex granskare | 53 |
 
 ## <a name="what-happens-when-a-license-expires"></a>Vad händer när en licens upphör att gälla?
 

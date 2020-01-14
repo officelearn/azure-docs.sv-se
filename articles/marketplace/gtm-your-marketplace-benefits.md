@@ -2,18 +2,18 @@
 title: Go-to-Marketing-tjänster – dina kommersiella Marketplace-förmåner | Azure
 description: Go-to-Marketing-tjänster – Microsoft-resurser som utgivare kan använda beskrivs i det här avsnittet.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
-author: qianw211
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
-ms.author: v-qiwe
-ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818651"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933929"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -103,7 +103,7 @@ Microsoft förbehåller sig rätten att återkalla och säga upp förmåner till
 
 Det här erbjudandet utförs på engelska för alla partner med ett Live-erbjudande i Azure Marketplace eller Microsoft AppSource.
 
-Transaktioner som är beprövade att vara bedrägliga räknas inte över till en utgivares [nivå för fakturerings program](https://aka.ms/marketplacepublisherrewards)som anges i avsnittet [lista, utvärdering, rådgivning](#list-trial-and-consulting-benefits) , avsnittet om [förmåner i Transact-partner](#marketplace-rewards-for-transact-partners) och det [detaljerade programmet ](https://aka.ms/marketplacepublisherrewards). Microsoft kommer att allokera partners till kvalificerings nivåer baserat på den faktiska fakturerade försäljningen efter att bedrägerien har tagits bort. 
+Transaktioner som är beprövade att vara bedrägliga räknas inte över till en utgivares [nivå för fakturerings program](https://aka.ms/marketplacepublisherrewards)som anges i [avsnittet lista, utvärdering, rådgivning](#list-trial-and-consulting-benefits) , avsnittet [förmåner för Transact-partner](#marketplace-rewards-for-transact-partners) och den [detaljerade program däcken](https://aka.ms/marketplacepublisherrewards). Microsoft kommer att allokera partners till kvalificerings nivåer baserat på den faktiska fakturerade försäljningen efter att bedrägerien har tagits bort. 
 
 ## <a name="next-steps"></a>Nästa steg
 

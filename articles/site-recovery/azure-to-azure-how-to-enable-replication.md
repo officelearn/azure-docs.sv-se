@@ -2,18 +2,18 @@
 title: Konfigurera replikering för virtuella Azure-datorer i Azure Site Recovery | Microsoft Docs
 description: Den här artikeln beskriver hur du konfigurerar replikering för virtuella Azure-datorer, från en Azure-region till en annan med hjälp av Site Recovery.
 services: site-recovery
-author: asgang
+author: carmonmills
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/29/2018
-ms.author: asgang
-ms.openlocfilehash: 7559bfd3d97f7b430b92578473501b519eb0a07f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: carmonm
+ms.openlocfilehash: 4dbac05ddf747ccaf483e547a2070505487a3706
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934565"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929865"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -22,7 +22,7 @@ I den här artikeln beskrivs hur du aktiverar replikering av virtuella Azure-dat
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har för berett för Site Recovery distribution, enligt beskrivningen i självstudien om [Azure till Azure haveri beredskap](azure-to-azure-tutorial-enable-replication.md).
+Den här artikeln förutsätter att du har för berett för Site Recovery distribution, enligt beskrivningen i [självstudien om Azure till Azure haveri beredskap](azure-to-azure-tutorial-enable-replication.md).
 
 Förutsättningarna bör vara på plats och du måste ha skapat ett Recovery Services-valv.
 
@@ -33,32 +33,32 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
 
 1. Klicka på **+ Replikera**i valvet.
 2. Observera följande fält:
-   - **Källa**: Ursprungs platsen för de virtuella datorerna, som i det här fallet är **Azure**.
-   - **Käll plats**: Den Azure-region som du vill skydda dina virtuella datorer från. I den här bilden är käll platsen "Asien, östra"
-   - **Distributions modell**: Käll datorernas distributions modell för Azure.
-   - **Käll prenumeration**: Den prenumeration som dina virtuella käll datorer tillhör. Detta kan vara en prenumeration i samma Azure Active Directory-klientorganisation som dina valv i återställningstjänsten finns i.
-   - **Resursgrupp**: Resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer under den valda resurs gruppen visas som skydd i nästa steg.
+   - **Källa**: den virtuella datorns start punkt, som i det här fallet är **Azure**.
+   - **Käll plats**: Azure-regionen från vilken du vill skydda dina virtuella datorer. I den här bilden är käll platsen "Asien, östra"
+   - **Distributions modell**: Azures distributions modell för käll datorerna.
+   - **Käll prenumeration**: den prenumeration som de virtuella käll datorerna tillhör. Detta kan vara en prenumeration i samma Azure Active Directory-klientorganisation som dina valv i återställningstjänsten finns i.
+   - **Resurs grupp**: resurs gruppen som de virtuella käll datorerna tillhör. Alla virtuella datorer under den valda resurs gruppen visas som skydd i nästa steg.
 
      ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
 
-3. I **Virtual Machines > Välj virtuella datorer**klickar du på och väljer varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka sedan på **OK**.
+3. I **Virtual Machines > Välj virtuella datorer**klickar du på och väljer varje virtuell dator som du vill replikera. Du kan bara välja datorer som stöder replikering. Klicka på **OK**.
     ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/virtualmachine_selection.png)
 
 4. I **Inställningar**kan du välja att konfigurera mål plats inställningar:
 
-   - **Målplats**: Den plats där data för den virtuella käll datorn kommer att replikeras. Beroende på vilken plats du har valt för datorer visas en lista över lämpliga mål regioner i Site Recovery. Vi rekommenderar att du behåller mål platsen samma som platsen för Recovery Services valv.
-   - **Målprenumeration**: Den målprenumeration som används för haveriberedskap. Som standard är målprenumerationen samma som källprenumerationen.
-   - **Målresursgrupp**: Resurs gruppen som alla dina replikerade virtuella datorer tillhör.
+   - **Målplats**: den plats där dina virtuella käll dator data kommer att replikeras. Beroende på vilken plats du har valt för datorer visas en lista över lämpliga mål regioner i Site Recovery. Vi rekommenderar att du behåller mål platsen samma som platsen för Recovery Services valv.
+   - **Målprenumeration**: Målprenumerationen som används för haveriberedskap. Som standard är målprenumerationen samma som källprenumerationen.
+   - **Mål resurs grupp**: resurs gruppen som alla dina replikerade virtuella datorer tillhör.
        - Som standard skapar Site Recovery en ny resurs grupp i mål regionen med suffixet "ASR" i namnet.
        - Om resurs gruppen som skapats av Site Recovery redan finns återanvänds den.
        - Du kan anpassa resurs grupps inställningarna.
        - Platsen för mål resurs gruppen kan vara vilken Azure-region som helst, förutom den region där de virtuella käll datorerna finns.
-   - **Virtuellt målnätverk**: Som standard skapar Site Recovery ett nytt virtuellt nätverk i mål regionen med ett "ASR"-suffix i namnet. Detta mappas till ditt käll nätverk och används för alla framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverks mappning.
-   - **Mål lagrings konton (den virtuella käll datorn använder inte hanterade diskar)** : Som standard skapar Site Recovery ett nytt mål lagrings konto mimicking för din käll-VM-lagring. Om lagrings kontot redan finns återanvänds det.
-   - **Replik-hanterade diskar (virtuell käll dator använder Managed Disks)** : Site Recovery skapar nya replik hanterade diskar i mål regionen för att spegla den virtuella käll datorns hanterade diskar med samma lagrings typ (standard eller Premium) som den virtuella käll datorns hanterade disk.
-   - **Cachelagra lagrings konton**: Site Recovery behöver ett extra lagrings konto som heter cache Storage i käll regionen. Alla ändringar som sker på de virtuella käll datorerna spåras och skickas till cache Storage-kontot innan de replikeras till mål platsen. Det här lagrings kontot bör vara standard.
-   - **Tillgänglighetsuppsättningar för mål**: Site Recovery skapar som standard en ny tillgänglighets uppsättning i mål regionen med suffixet "ASR" i namnet, för virtuella datorer som ingår i en tillgänglighets uppsättning i käll regionen. Om tillgänglighets uppsättningen som skapats av Site Recovery redan finns återanvänds den.
-   - **Tillgänglighetszoner för mål**: Som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner.
+   - **Virtuellt mål nätverk**: Site Recovery skapar som standard ett nytt virtuellt nätverk i mål regionen med ett "ASR"-suffix i namnet. Detta mappas till ditt käll nätverk och används för alla framtida skydd. [Läs mer](site-recovery-network-mapping-azure-to-azure.md) om nätverks mappning.
+   - **Mål lagrings konton (den virtuella käll datorn använder inte hanterade diskar)** : som standard skapar Site Recovery ett nytt mål lagrings konto mimicking din käll konfiguration för VM-lagring. Om lagrings kontot redan finns återanvänds det.
+   - **Replik-hanterade diskar (virtuell käll dator använder Managed Disks)** : Site Recovery skapar nya replikbaserade diskar i mål regionen för att spegla den virtuella käll datorns hanterade diskar med samma lagrings typ (standard eller Premium) som den virtuella käll datorn för den virtuella datorn.
+   - **Cache-lagrings konton**: Site Recovery behöver ett extra lagrings konto som heter cache Storage i käll regionen. Alla ändringar som sker på de virtuella käll datorerna spåras och skickas till cache Storage-kontot innan de replikeras till mål platsen. Det här lagrings kontot bör vara standard.
+   - **Tillgänglighets uppsättningar för mål**: som standard skapar Site Recovery en ny tillgänglighets uppsättning i mål regionen med suffixet "ASR" i namnet, för virtuella datorer som ingår i en tillgänglighets uppsättning i käll regionen. Om tillgänglighets uppsättningen som skapats av Site Recovery redan finns återanvänds den.
+   - **Tillgänglighetszoner för mål**: som standard tilldelar Site Recovery samma zonnummer som källregionen i målregionen om målregionen har stöd för tillgänglighetszoner.
 
      Om målregionen inte har stöd för tillgänglighetszoner konfigureras de virtuella måldatorerna som enskilda instanser som standard. Om det behövs kan du konfigurera sådana virtuella datorer att bli en del av tillgänglighetsuppsättningarna i målregionen genom att klicka på ”Anpassa”.
 
@@ -66,7 +66,7 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
      >Du kan inte ändra tillgänglighetstypen enskild instans, tillgänglighetsuppsättningen eller tillgänglighetszonen efter att du har aktiverat replikering. Du måste inaktivera och aktivera replikering för att ändra tillgänglighetstypen.
      >
     
-   - **Replikeringsprincip**: Den definierar inställningarna för kvarhållning av återställnings punkts historik och frekvens för programkonsekventa ögonblicks bilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningar på 24 timmar för kvarhållning av återställnings punkter och 4 timmar för en konsekvent frekvens för programkonsekventa ögonblicks bilder.
+   - **Replikeringsprincip**: den definierar inställningarna för kvarhållning av återställnings punkts historik och frekvens för programkonsekventa ögonblicks bilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningar på 24 timmar för kvarhållning av återställnings punkter och 4 timmar för en konsekvent frekvens för programkonsekventa ögonblicks bilder.
 
      ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 

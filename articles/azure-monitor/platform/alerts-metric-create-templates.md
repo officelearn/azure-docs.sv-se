@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 12/5/2019
+ms.date: 1/13/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 7b2751957bf341b37527697f92931bacfb425c09
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397344"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932885"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
@@ -555,7 +555,12 @@ az group deployment create \
 
 Nya mått aviseringar stöder aviseringar om flerdimensionella mått och stöd för flera villkor. Du kan använda följande mall för att skapa en mer avancerad mått varnings regel för mått och ange flera kriterier.
 
-Observera att när aviserings regeln innehåller flera villkor, är användningen av dimensioner begränsad till ett värde per dimension i varje kriterium.
+Observera följande begränsningar när du använder dimensioner i en varnings regel som innehåller flera villkor:
+- Du kan bara välja ett värde per dimension i varje kriterium.
+- Du kan inte använda "\*" som dimensions värde.
+- När mått som kon figurer ATS i olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta kriterierna).
+    - I exemplet nedan, eftersom både **transaktionerna** och **SuccessE2ELatency** -mått har en **API** -dimension, och *criterion1* anger värdet *"GetBlob"* för dimensionen API- **namn** , måste *Criterion2* även ange ett *"GetBlob"* -värde för dimensionen API- **namn** .
+
 
 Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom gången.
 
@@ -784,9 +789,6 @@ az group deployment create \
     --parameters @advancedstaticmetricalert.parameters.json
 ```
 
->[!NOTE]
->
-> När en varnings regel innehåller flera villkor är användningen av dimensioner begränsad till ett värde per dimension i varje kriterium.
 
 ## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>Mall för en statisk mått avisering som övervakar flera dimensioner
 

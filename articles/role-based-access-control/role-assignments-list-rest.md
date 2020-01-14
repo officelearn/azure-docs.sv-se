@@ -12,21 +12,24 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/25/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e20edcb5e2406c216711a2e0f696ef06e19fe21e
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a9841e2a8a8ec0aede94f849b7818c86f9862df
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74710404"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934087"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lista roll tilldelningar med hjälp av Azure RBAC och REST API
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] den här artikeln beskriver hur du visar roll tilldelningar med hjälp av REST API.
 
-## <a name="list-role-assignments"></a>Lista roll tilldelningar
+> [!NOTE]
+> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
+
+## <a name="list-role-assignments"></a>Visa lista över rolltilldelningar
 
 I RBAC, för att lista åtkomst, listas roll tilldelningarna. Om du vill lista roll tilldelningar använder du en av REST-API: erna för [roll tilldelningar](/rest/api/authorization/roleassignments/list) . Du kan förfina resultaten genom att ange ett omfång och ett valfritt filter.
 

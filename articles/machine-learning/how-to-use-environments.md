@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: af6848e85db5d2a557835b063a499e3439557eb6
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 93a70bf0d9189368135b8007e95627fc64064c51
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690435"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932189"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Återanvänd miljöer för utbildning & distribution med Azure Machine Learning.
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -344,6 +344,34 @@ service = Model.deploy(
 ## <a name="example-notebooks"></a>Exempel-anteckningsböcker
 
 Den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) expanderas efter koncept och metoder som visas i den här artikeln.
+
+## <a name="create-and-manage-environments-with-the-cli"></a>Skapa och hantera miljöer med CLI
+
+[Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) speglar majoriteten av funktionerna i python SDK och kan användas för att skapa och hantera miljöer. Följande kommandon demonstrerar de grundläggande funktionerna.
+
+Följande kommando autogenererar filerna för en standard miljö definition i den angivna katalogen. De här filerna är JSON-filer som liknar varandra i motsvarande klass i SDK och som kan användas för att skapa nya miljöer med anpassade inställningar. 
+
+```azurecli-interactive
+az ml environment scaffold -n myenv -d myenvdir
+```
+
+Kör följande kommando för att registrera en miljö från en angiven katalog.
+
+```azurecli-interactive
+az ml environment register -d myenvdir
+```
+
+Om du kör följande kommando visas en lista över alla registrerade miljöer.
+
+```azurecli-interactive
+az ml environment list
+```
+
+Ladda ned en registrerad miljö med följande kommando.
+
+```azurecli-interactive
+az ml environment download -n myenv -d downloaddir
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

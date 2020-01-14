@@ -13,19 +13,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2585457d22b773407c41bb6ea82c30a25fbfb88e
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847155"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932367"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management
 
 Med Azure Active Directory (Azure AD) Privileged Identity Management (PIM) kan du Visa aktivitet, aktiveringar och gransknings historik för Azure-resurser i din organisation. Detta omfattar prenumerationer, resurs grupper och till och med virtuella datorer. Alla resurser i Azure Portal som utnyttjar RBAC-funktionen (rollbaserad åtkomst kontroll) i Azure kan dra nytta av funktionerna för säkerhet och livs cykel hantering i Privileged Identity Management.
+
+> [!NOTE]
+> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
 ## <a name="view-activity-and-activations"></a>Visa aktivitet och aktiveringar
 

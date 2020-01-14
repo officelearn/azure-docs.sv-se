@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/13/2019
+ms.date: 01/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6ab9d0ae07978e69bebb0fc24c8965cce971cfd5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c85db05e6feeea43023c2391998f837348caed4e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082350"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929643"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägga till blobbar till objekt i Azure Digitals, dubbla
 
@@ -36,7 +36,7 @@ Förutom **Content-Type** och **Content-disposition**måste Azure Digitals, dubb
 
 De fyra huvudsakliga JSON-scheman är:
 
-[![JSON-scheman](media/how-to-add-blobs/blob-models-img.png)](media/how-to-add-blobs/blob-models-img.png#lightbox)
+[![JSON-scheman](media/how-to-add-blobs/blob-models-swagger-img.png)](media/how-to-add-blobs/blob-models-swagger-img.png#lightbox)
 
 JSON-BLOB-metadata följer följande modell:
 
@@ -53,14 +53,14 @@ JSON-BLOB-metadata följer följande modell:
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| **parentId** | Sträng | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
-| **name** |Sträng | Ett människo eget namn för blobben |
-| **typ** | Sträng | Typ av BLOB-kan inte använda *typ* och *typeId*  |
+| **parentId** | String | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
+| **Namn** |String | Ett människo eget namn för blobben |
+| **typ** | String | Typ av BLOB-kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
-| **subtype** | Sträng | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
+| **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
-| **description** | Sträng | Anpassad Beskrivning av blobben |
-| **sharing** | Sträng | Om blobben kan delas med [`None``Tree``Global`] |
+| **description** | String | Anpassad Beskrivning av blobben |
+| **sharing** | String | Om blobben kan delas med [`None``Tree``Global`] |
 
 BLOB-metadata anges alltid som det första segmentet med **innehålls typ** `application/json` eller som en `.json` fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
 
@@ -108,18 +108,18 @@ Individuellt returnerade blobbar följer följande JSON-schema:
 
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
-| **ID** | Sträng | Unikt ID för blobben |
-| **name** |Sträng | Ett människo eget namn för blobben |
-| **parentId** | Sträng | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
-| **typ** | Sträng | Typ av BLOB-kan inte använda *typ* och *typeId*  |
+| **ID** | String | Unikt ID för blobben |
+| **Namn** |String | Ett människo eget namn för blobben |
+| **parentId** | String | Den överordnade entiteten för att associera blobben med (utrymmen, enheter eller användare) |
+| **typ** | String | Typ av BLOB-kan inte använda *typ* och *typeId*  |
 | **typeId** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
-| **subtype** | Sträng | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
+| **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
-| **sharing** | Sträng | Om blobben kan delas med [`None``Tree``Global`] |
-| **description** | Sträng | Anpassad Beskrivning av blobben |
+| **sharing** | String | Om blobben kan delas med [`None``Tree``Global`] |
+| **description** | String | Anpassad Beskrivning av blobben |
 | **contentInfos** | Matris | Anger ostrukturerad metadatainformation, inklusive version |
-| **fullName** | Sträng | Det fullständiga namnet på blobben |
-| **spacePaths** | Sträng | Utrymmes Sök väg |
+| **fullName** | String | Det fullständiga namnet på blobben |
+| **spacePaths** | String | Utrymmes Sök väg |
 
 BLOB-metadata anges alltid som det första segmentet med **innehålls typ** `application/json` eller som en `.json` fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
 
@@ -196,7 +196,7 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | ID för utrymmet att associera blobben med |
 | PATH_TO_FILE | Sökvägen till text filen |
 
-[exempel på ![-spiral](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[exempel på ![-spiral](media/how-to-add-blobs/http-blob-post-through-curl-img.png)](media/how-to-add-blobs/http-blob-post-through-curl-img.png#lightbox)
 
 Ett lyckat inlägg returnerar ID: t för den nya blobben.
 
@@ -208,7 +208,7 @@ I följande avsnitt beskrivs de grundläggande BLOB-relaterade API-slutpunkterna
 
 Du kan koppla blobbar till enheter. Följande bild visar Swagger-referens dokumentationen för dina hanterings-API: er. Den anger enhets-relaterade API-slutpunkter för BLOB-konsumtion och eventuella obligatoriska Sök vägs parametrar som ska skickas till dem.
 
-[![enhets-blobbar](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![enhets-blobbar](media/how-to-add-blobs/blobs-device-api-swagger-img.png)](media/how-to-add-blobs/blobs-device-api-swagger-img.png#lightbox)
 
 Om du till exempel vill uppdatera eller skapa en blob och bifoga blobben till en enhet gör du en autentiserad HTTP-PATCH-begäran till:
 
@@ -226,7 +226,7 @@ Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#
 
 Du kan också bifoga blobbar till blank steg. Följande bild visar en lista över alla blank stegs-API-slutpunkter som ansvarar för hantering av blobbar. Den visar också alla Sök vägs parametrar som skickas till dessa slut punkter.
 
-[![utrymmes blobbar](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[![utrymmes blobbar](media/how-to-add-blobs/blobs-space-api-swagger-img.png)](media/how-to-add-blobs/blobs-space-api-swagger-img.png#lightbox)
 
 Om du till exempel vill returnera en blob som är ansluten till ett utrymme gör du en autentiserad HTTP GET-begäran till:
 
@@ -246,7 +246,7 @@ En PATCH-begäran till samma slut punkt uppdaterar metadata-beskrivningar och sk
 
 Du kan koppla blobbar till användar modeller (till exempel för att associera en profil bild). Följande bild visar relevanta användar-API-slutpunkter och eventuella obligatoriska Sök vägs parametrar, t. ex. `id`:
 
-[![användar-blobar](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![användar-blobar](media/how-to-add-blobs/blobs-users-api-swagger-img.png)](media/how-to-add-blobs/blobs-users-api-swagger-img.png#lightbox)
 
 Om du till exempel vill hämta en blob som är kopplad till en användare gör du en autentiserad HTTP GET-begäran med alla nödvändiga formulär data för att:
 
@@ -262,23 +262,41 @@ Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#
 
 ## <a name="common-errors"></a>Vanliga fel
 
-Ett vanligt fel innebär att du inte anger rätt rubrik information:
+* Ett vanligt fel innebär att du inte anger rätt rubrik information:
 
-```JSON
-{
-    "error": {
-        "code": "400.600.000.000",
-        "message": "Invalid media type in first section."
-    }
-}
-```
+  ```JSON
+  {
+      "error": {
+          "code": "400.600.000.000",
+          "message": "Invalid media type in first section."
+      }
+  }
+  ```
 
-Du kan lösa det här felet genom att kontrol lera att den övergripande begäran har ett lämpligt **innehålls typs** huvud:
+  Du kan lösa det här felet genom att kontrol lera att den övergripande begäran har ett lämpligt **innehålls typs** huvud:
 
-* `multipart/mixed`
-* `multipart/form-data`
+     * `multipart/mixed`
+     * `multipart/form-data`
 
-Kontrol lera också att varje multipart-segment har en motsvarande **innehålls typ** efter behov.
+  Kontrol lera också att varje *multipart-segment* har lämplig motsvarande **innehålls typ**.
+
+* Ett andra vanligt fel uppstår när flera blobbar tilldelas samma resurs i ditt [rums informations diagram](concepts-objectmodel-spatialgraph.md):
+
+  ```JSON
+  {
+      "error": {
+          "code": "400.600.000.000",
+          "message": "SpaceBlobMetadata already exists."
+      }
+  }
+  ```
+
+  > [!NOTE]
+  > Attributet **Message** varierar beroende på resursen. 
+
+  Endast en BLOB (av varje typ) kan kopplas till varje resurs i det spatiala diagrammet. 
+
+  Lös det här felet genom att uppdatera den befintliga blobben med hjälp av lämplig API HTTP PATCH-åtgärd. Då ersätts befintliga BLOB-data med önskade data.
 
 ## <a name="next-steps"></a>Nästa steg
 

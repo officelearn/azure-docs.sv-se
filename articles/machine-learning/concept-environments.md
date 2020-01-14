@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: trbye
 author: trevorbye
 ms.date: 01/06/2020
-ms.openlocfilehash: ad520c7e6503f28de0bd5538662c223575a078fa
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 3216248943ccc0dba788816cdba38732f9e43e14
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692737"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930753"
 ---
 # <a name="what-are-azure-machine-learning-environments"></a>Vad är Azure Machine Learning miljöer?
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,6 +44,7 @@ Miljöer kan skapas av:
 * Definiera nya `Environment` objekt, antingen med hjälp av en granskad miljö eller genom att definiera egna beroenden
 * Använda befintliga `Environment` objekt från din arbets yta. Detta ger konsekvens och reproducerbarhet med dina beroenden
 * Importera från en befintlig Anaconda-miljö definition.
+* Använda Azure Machine Learning CLI
 
 Se [anvisningar](how-to-use-environments.md#create-an-environment) för vissa kod exempel. Miljöer hanteras också enkelt genom din arbets yta och innehåller följande funktioner:
 

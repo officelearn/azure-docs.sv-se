@@ -5,21 +5,20 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: msangapu
-ms.openlocfilehash: 0a1e811787a43be76f94b13a6ec9886510c47d1d
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 752c9dfd1ae67397713cdffce9ba530ad6a2c159
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75866961"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930019"
 ---
 # <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Hantera innehåll från Azure Storage i App Service på Linux
 
-Den här guiden visar hur du kopplar Azure Storage till App Service i Linux. Fördelarna är skyddat innehåll, innehålls portabilitet, beständig lagring, åtkomst till flera appar och flera överförings metoder.
-
-
-> [!IMPORTANT]
-> Azure Storage i App Service på Linux är en **förhands gransknings** funktion. Den här funktionen **stöds inte i produktions scenarier**.
+> [!NOTE]
+> Den här artikeln gäller Linux-behållare. Information om hur du distribuerar till anpassade Windows-behållare finns i [konfigurera Azure Files i en Windows-behållare på App Service](../configure-connect-to-azure-storage.md). Azure Storage i App Service på Linux är en **förhands gransknings** funktion. Den här funktionen **stöds inte i produktions scenarier**.
 >
+
+Den här guiden visar hur du kopplar Azure Storage till App Service i Linux. Fördelarna är skyddat innehåll, innehålls portabilitet, beständig lagring, åtkomst till flera appar och flera överförings metoder.
 
 ## <a name="prerequisites"></a>Krav
 

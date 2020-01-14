@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 9081f74aee7ff503c7fe29cef6ca76e6d6b46a4f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 543573610c2ea3ab0bcd89e1b8f4ee5f5a34dbc0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564275"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934434"
 ---
 # <a name="security-control-identity-and-access-control"></a>Säkerhets kontroll: identitet och Access Control
 
@@ -63,9 +63,11 @@ Läs mer: https://docs.microsoft.com/azure/active-directory/privileged-identity-
 
 När det är möjligt ska du använda Azure Active Directory SSO i stället för att konfigurera enskilda fristående autentiseringsuppgifter per tjänst. Använd rekommendationer för Azure Security Center identitets-och åtkomst hantering.
 
-Förstå SSO med Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Förstå SSO med Azure AD:
 
-## <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory-baserad åtkomst.
+https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+
+## <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3,5: Använd Multi-Factor Authentication för all Azure Active Directory baserad åtkomst
 
 | Azure-ID | CIS-ID: n | Ansvar |
 |--|--|--|
@@ -89,9 +91,13 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 Använd Paw (Privileged Access Workstation) med MFA konfigurerat för att logga in på och konfigurera Azure-resurser.
 
-Lär dig mer om arbets stationer med privilegie rad åtkomst: https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+Lär dig mer om arbets stationer med privilegie rad åtkomst:
 
-Så här aktiverar du MFA i Azure: https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations
+
+Så här aktiverar du MFA i Azure:
+
+https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
 
 
 ## <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3,7: Logga och Avisera om misstänkt aktivitet från administrativa konton
@@ -130,19 +136,25 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-
 
 Använd Azure Active Directory (AAD) som central autentiserings-och auktoriserings system. AAD skyddar data genom att använda stark kryptering för data i vila och under överföring. AAD är också salter, hashar och lagrar användarautentiseringsuppgifter på ett säkert sätt.
 
-Så här skapar och konfigurerar du en AAD-instans: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+Så här skapar och konfigurerar du en AAD-instans:
+
+https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3,10: granska och stäm regelbundet av användar åtkomst
 
 | Azure-ID | CIS-ID: n | Ansvar |
 |--|--|--|
-| 3.1 | 16,9, 16,10 | Kund |
+| 3,10 | 16,9, 16,10 | Kund |
 
 Azure AD innehåller loggar som hjälper till att identifiera inaktuella konton. Dessutom kan du använda Azure Identity Access-granskningar för att effektivt hantera grupp medlemskap, åtkomst till företags program och roll tilldelningar. Användar åtkomst kan granskas regelbundet för att se till att endast rätt användare har fortsatt åtkomst. 
 
-Azure AD repor ting- https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Azure AD-rapportering:
 
-Så här använder du granskningar av Azure Identity Access: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+
+Så här använder du granskningar av Azure Identity Access:
+
+https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
 ## <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3,11: övervaka försök att komma åt inaktiverade konton
 

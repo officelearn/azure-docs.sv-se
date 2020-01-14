@@ -8,12 +8,12 @@ ms.author: magottei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d1efd44614cc2384043b32da20f38c91f006459c
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 5f646b4cef782b569910bdf881208c9984194589
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863112"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931111"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-cognitive-search"></a>Felsöka vanliga indexerings problem i Azure Kognitiv sökning
 
@@ -30,7 +30,7 @@ Indexerare kan köra ett antal problem när de indexerar data i Azure Kognitiv s
 >
 > Du kan ta reda på IP-adressen för din Sök tjänst genom att pinga det fullständigt kvalificerade domän namnet (t. ex. `<your-search-service-name>.search.windows.net`).
 >
-> Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i den region där Azure kognitiv sökning-tjänsten finns genom att antingen använda [NEDLADDNINGs bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller via [API för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
+> Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) genom att antingen använda [NEDLADDNINGs bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
 
 ### <a name="configure-firewall-rules"></a>Konfigurera brand Väggs regler
 

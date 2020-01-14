@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: f763ad9afd2238ebe63bf878882011eb3745df5c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08b21ccd7f7958f00546583f680ecb8cde4a20c8
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517116"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932606"
 ---
 # <a name="policy-settings-for-web-application-firewall-on-azure-front-door"></a>Princip inställningar för brand vägg för webbaserade program på Azures front dörr
 
@@ -48,7 +48,7 @@ Anpassad svars status kod och svars meddelande är en princip nivå inställning
 
 ## <a name="uri-for-redirect-action"></a>URI för omdirigerings åtgärd
 
-Du måste definiera en URI för att omdirigera begär anden till om åtgärden **omdirigera** har valts för någon av reglerna som finns i en WAF-princip. Den här omdirigerings-URI: n måste vara en giltig HTTP (S)-plats och när den har kon figurer ATS omdirigeras alla regler för begär Ande som matchar en åtgärd för att OMDIRIGERA till den angivna platsen.
+Du måste definiera en URI för att omdirigera begär anden till om åtgärden **omdirigera** har valts för någon av de regler som finns i en WAF-princip. Den här omdirigerings-URI: n måste vara en giltig HTTP (S)-plats och när den har kon figurer ATS omdirigeras alla regler för begär Ande som matchar en åtgärd för att OMDIRIGERA till den angivna platsen.
 
 
 ## <a name="next-steps"></a>Nästa steg

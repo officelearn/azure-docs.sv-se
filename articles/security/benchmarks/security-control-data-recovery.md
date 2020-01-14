@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1cd3e39fd504b5095a83192a4a6314c71d3ca980
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c585ebd903d4070f6247456e06efffbc6ec45270
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564301"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934497"
 ---
 # <a name="security-control-data-recovery"></a>Säkerhets kontroll: Data återställning
 
@@ -27,7 +27,9 @@ Se till att alla system data, konfigurationer och hemligheter säkerhets kopie r
 
 Aktivera Azure Backup och konfigurera säkerhets kopierings källan (virtuella Azure-datorer, SQL Server eller fil resurser) samt önskad frekvens och kvarhållningsperiod.
 
-Så här aktiverar du Azure Backup: https://docs.microsoft.com/azure/backup/
+Så här aktiverar du Azure Backup:
+
+https://docs.microsoft.com/azure/backup/
 
 ## <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9,2: Utför fullständig säkerhets kopiering av systemet och säkerhetskopiera alla Kundhanterade nycklar
 
@@ -37,9 +39,13 @@ Så här aktiverar du Azure Backup: https://docs.microsoft.com/azure/backup/
 
 Aktivera Azure Backup och mål-VM: er samt önskade frekvens-och kvarhållningsperiod. Säkerhetskopiera kund hanterade nycklar inom Azure Key Vault.
 
-Så här aktiverar du Azure Backup: https://docs.microsoft.com/azure/backup/
+Så här aktiverar du Azure Backup:
 
-Så här säkerhetskopierar du nyckel valv nycklar i Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/azure/backup/
+
+Så här säkerhetskopierar du nyckel valv nycklar i Azure:
+
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
 ## <a name="93-validate-all-backups-including-customer-managed-keys"></a>9,3: validera alla säkerhets kopior inklusive Kundhanterade nycklar
 

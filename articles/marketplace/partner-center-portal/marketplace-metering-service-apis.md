@@ -1,19 +1,19 @@
 ---
 title: 'API: er för Marketplace-avläsning | Azure Marketplace'
 description: Användnings händelse för SaaS-erbjudanden på Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dea950ff72eff2372fc10f989d4ce77fa746c4bf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825481"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933573"
 ---
 # <a name="marketplace-metering-service-apis"></a>API:er för Marketplace Metering Service
 
@@ -31,7 +31,7 @@ Med API: et för användnings händelser kan du generera användnings händelser
 
 *Begärandehuvuden:*
 
-| innehålls typ       | `application/json`    |
+| Innehålls typ       | `application/json`    |
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras och anges ett i svarshuvuden. |
@@ -131,7 +131,7 @@ Med event API för batch-användning kan du generera användnings händelser fö
 
 *Begärandehuvuden:*
 
-| innehålls typ       | `application/json`       |
+| Innehålls typ       | `application/json`       |
 | ------------------ | ------ |
 | `x-ms-requestid`     | Unikt sträng värde för spårning av begäran från klienten, helst en GUID. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |
 | `x-ms-correlationid` | Unikt sträng värde för åtgärden på klienten. Den här parametern korrelerar alla händelser från klient åtgärden med händelser på Server sidan. Om det här värdet inte anges genereras ett och anges i svarshuvuden. |

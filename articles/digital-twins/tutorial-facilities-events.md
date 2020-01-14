@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 11/12/2019
-ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/10/2020
+ms.openlocfilehash: 1cd617204bbc12a99b6ae9e3b55fbc59b0e0578a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790343"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933717"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudie: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
@@ -24,7 +24,7 @@ I [den första självstudien](tutorial-facilities-setup.md) konfigurerade du den
 
 Den här självstudien visar hur du kan integrera dessa meddelanden med Azure Logic Apps för att skicka e-postmeddelanden när det finns ett sådant rum tillgängligt. En kontorsadministratör kan använda den här informationen för att hjälpa medarbetarna att boka det mest produktiva mötesrummet.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Integrera händelser med Azure Event Grid.
@@ -65,7 +65,7 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
 1. Välj **Åtkomstnycklar** och kopiera **Key 1** och **Key 2** (nyckel 1 och nyckel 2) till en temporär fil. Du behöver dessa värden för att skapa slutpunkten i nästa avsnitt.
 
-    [![Event Grid nycklar](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
+    [![Event Grid nycklar](./media/tutorial-facilities-events/tutorial-event-grid-keys.png)](./media/tutorial-facilities-events/tutorial-event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Skapa en slutpunkt för Event Grid-ämnet
 
@@ -114,7 +114,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
 1. Ange ett **namn** för logikappresursen och välj sedan din **prenumeration**, din **resursgrupp** samt **plats**. Välj **Skapa**.
 
-    [![skapa en Logic Apps resurs](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
+    [![skapa en Logic Apps resurs](./media/tutorial-facilities-events/tutorial-create-logic-app.png)](./media/tutorial-facilities-events/tutorial-create-logic-app.png#lightbox)
 
 1. Öppna din Logic Apps-resurs när den har distribuerats och öppna sedan fönstret **Logic Apps designer** . 
 
@@ -172,7 +172,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    c. I den textrutan med **Välj ett värde** anger du `UdfCustom`.
 
-   [![valda villkor](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
+   [![valda villkor](./media/tutorial-facilities-events/tutorial-logic-app-condition.png)](./media/tutorial-facilities-events/tutorial-logic-app-condition.png#lightbox)
 
 1. I fönstret **If true** (Om sant):
 
@@ -182,9 +182,9 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    c. I rutan **Till** anger du ditt e-post-ID för att få meddelanden. I **Ämne** anger du texten **Digital Twins notification for poor air quality in space** (Digital Twins-meddelande för dålig luftkvalitet i utrymmet). Välj sedan **TopologyObjectId** på listan **Dynamiskt innehåll** för **Parsa JSON**.
 
-   d. I **Brödtext** i samma fönster anger du text som liknar detta: **Dålig luftkvalitet har identifierats i ett rum och temperatur behöver justeras**. Du kan utveckla detta med element från listan **Dynamiskt innehåll**.
+   d. Under **brödtext** i samma fönster anger du text som liknar följande: **dålig luft kvalitet i ett rum och temperatur måste justeras**. Du kan utveckla detta med element från listan **Dynamiskt innehåll**.
 
-   [![Logic Apps "Skicka ett e-postmeddelande"](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
+   [![Logic Apps "Skicka ett e-postmeddelande"](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png)](./media/tutorial-facilities-events/tutorial-logic-app-send-email.png#lightbox)
 
 1. Välj knappen **Spara** längst upp i fönstret **Logic App Designer** .
 
@@ -212,7 +212,7 @@ Om du inte vill utforska Azure Digital Twins nu kan du ta bort resurser som du h
 Du kan gå till nästa självstudie och lära dig att visualisera dina sensordata, analysera trender och upptäcka avvikelser:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins -utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
+> [Självstudie: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights](tutorial-facilities-analyze.md)
 
 Du kan även lära dig mer om diagram för spatial intelligens och objektmodeller i Azure Digital Twins:
 

@@ -11,19 +11,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 12ecca5873ac7c2c3bfa30d4c73c7d8e268aabfb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 92281fee92b0689fdf5f96c96320a7d9e2408ef5
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355722"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931167"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-azure-cli"></a>Lista roll tilldelningar med Azure RBAC och Azure CLI
 
 [!INCLUDE [Azure RBAC definition list access](../../includes/role-based-access-control-definition-list.md)] den här artikeln beskriver hur du visar roll tilldelningar med hjälp av Azure CLI.
+
+> [!NOTE]
+> Om din organisation har funktioner som har hanterats av en tjänst leverantör som använder [Azure-delegerad resurs hantering](../lighthouse/concepts/azure-delegated-resource-management.md), visas inte roll tilldelningar som har auktoriserats av tjänste leverantören här.
 
 ## <a name="prerequisites"></a>Krav
 

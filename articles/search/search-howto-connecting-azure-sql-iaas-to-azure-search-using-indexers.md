@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 12e642e59a1341926a0c4d66533465cecfc21709
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 7933e2608ae0b59a6dce89169f4bb1faba0aa25e
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863146"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934135"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Konfigurera en anslutning från en Azure Kognitiv sökning-indexerare till SQL Server på en virtuell Azure-dator
 
@@ -77,7 +77,7 @@ Vi rekommenderar starkt att du begränsar åtkomsten till IP-adressen för Sök 
 
 Du kan ta reda på IP-adressen genom att pinga FQDN (till exempel `<your-search-service-name>.search.windows.net`) för Sök tjänsten.
 
-Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) i den region där din Azure kognitiv sökning-tjänst befinner sig genom att antingen använda [NEDLADDNINGs bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller via [API: et för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
+Du kan ta reda på IP-adressintervallet för `AzureCognitiveSearch` [service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) genom att antingen använda [NEDLADDNINGs bara JSON-filer](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files) eller genom att använda [API: et för identifiering av service tag](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview). IP-adressintervallet uppdateras varje vecka.
 
 #### <a name="managing-ip-address-fluctuations"></a>Hantera IP-adressernas fluktuationer
 Om Sök tjänsten bara har en Sök enhet (det vill säga en replik och en partition) ändras IP-adressen när rutin tjänsten startas om, vilket gör att en befintlig ACL verifieras med Sök tjänstens IP-adress.

@@ -1,19 +1,19 @@
 ---
 title: Så här köper du program vara på AppSource | Azure Marketplace
 description: Steg för en att köpa program vara på AppSource | Azure Marketplace.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/05/2019
-ms.openlocfilehash: 3ca07f060aebcea82895f0463cac693c66f0c629
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 70e51d7c05e93e7d5f4451fa383023605a02af99
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827740"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933502"
 ---
 # <a name="how-to-purchase-software-on-microsoft-appsource"></a>Så här köper du program vara på Microsoft AppSource
 
@@ -23,7 +23,7 @@ Med Microsoft [AppSource](https://appsource.microsoft.com/) kan kunder prenumere
 
 För att köpa SaaS-erbjudanden behöver du:
 
-- Ett arbets-eller skol konto.
+- Ett arbets- eller skolkonto.
 
     > [!Note]
     > Om du inte har något arbets-eller skol konto måste du skapa en Azure Active Directory-klient som ett arbets-eller skol konto kan läggas till i. Mer information finns i [snabb start: skapa en ny klient i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant).

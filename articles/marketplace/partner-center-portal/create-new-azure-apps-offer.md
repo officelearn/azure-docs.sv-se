@@ -1,19 +1,19 @@
 ---
 title: Skapa ett nytt Azure Apps-erbjudande på den kommersiella Marketplace
 description: Så här skapar du ett nytt Azure Apps-erbjudande för att lista eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace på Microsoft Partner Center.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: d7e05f12c04136c8394dbcb27b7a950fc5ce85d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281277"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930716"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -67,7 +67,7 @@ Läs följande dokumentation om Azure-program, som innehåller snabb starter, sj
     * [Skapa definitionsfiler](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Publicera marknadsplatsprogram](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-* Stickprov
+* Prov:
 
     * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
@@ -179,7 +179,7 @@ Du måste definiera Marketplace-information (erbjudande namn, beskrivning, bilde
 > [!NOTE]
 > Erbjudande för List innehåll (till exempel beskrivning, dokument, skärm bilder, användnings villkor osv.) behöver inte vara på engelska, förutsatt att beskrivningen börjar med frasen, "det här programmet är endast tillgängligt på [språk som inte är engelska]". Det är också acceptabelt att tillhandahålla en *användbar länk-URL* för att erbjuda innehåll på ett annat språk än det som används i innehålls förteckningen för erbjudandet.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Det namn som du anger här visas för kunder som rubrik på din erbjudande lista. Det här fältet fylls i automatiskt med texten du angav för **erbjud alias** när du skapade erbjudandet, men du kan ändra det här värdet. Det här namnet kan vara ett varumärke (och du kan inkludera varumärkes-eller Copyright-symboler). Namnet får innehålla högst 50 tecken och får inte innehålla några emojis.
 
@@ -222,7 +222,7 @@ Ange URL: en till din organisations sekretess policy. Du ansvarar för att se ti
 
 Ange valfria kompletterande online-dokument om din lösning.  Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en länk**.
 
-### <a name="contacts"></a>Kontakter
+### <a name="contacts"></a>Contacts
 
 I det här avsnittet måste du ange namn, e-postadress och telefonnummer för en **support kontakt** och en **teknisk kontakt**. Den här informationen visas inte för kunder, men är tillgänglig för Microsoft och kan tillhandahållas till CSP-partner.
 
@@ -287,7 +287,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 
 På fliken **plan konfiguration** kan du ange en hög nivå konfiguration för typen av plan, om den återanvänder paket från ett annat abonnemang och vilka moln planen ska vara tillgänglig i.  Dina svar på den här fliken kommer att påverka vilka fält som visas på andra flikar för samma plan.
 
-#### <a name="plan-type"></a>Typ av plan
+#### <a name="plan-type"></a>Plantyp
 
 Som beskrivs i [typerna av Azure-programplaner](#types-of-azure-application-plans)väljer du om din plan ska innehålla en lösnings mall eller ett hanterat program.
 
@@ -319,7 +319,7 @@ Azure Government Services hanterar data som omfattas av vissa myndighets bestäm
 
 På fliken **plan List** visas den plan-/regionsspecifika registrerings informationen som kan skilja sig mellan olika planer för samma erbjudande.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Namn
 
 Fylldes i automatiskt baserat på ditt namn du tilldelade din plan när du skapade den.  Det här namnet visas som rubrik för den här "program planen" som visas i Marketplace.  Får innehålla upp till 100 tecken.
 
@@ -352,7 +352,7 @@ Du har möjlighet att konfigurera varje plan så att den blir synlig för alla e
 
 Om din lösnings mall är avsedd att distribueras endast indirekt när den refereras till, även om en annan lösning eller ett hanterat program, markerar du den här kryss rutan om du vill publicera din lösnings mall men dölja den från kunder som söker efter den direkt.
 
-## <a name="pricing-and-availability"></a>Priser och tillgänglighet
+## <a name="pricing-and-availability"></a>Pris och tillgänglighet
 
 Fliken **priser och tillgänglighet** är endast synlig för hanterade program planer.  Du kan konfigurera de marknader som den här planen kommer att vara tillgänglig i, priset per månad för hantering av lösningen och om du vill göra planen synlig för alla eller bara för specifika kunder (en privat mål grupp).
 
@@ -461,7 +461,7 @@ För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (
 
 Använd [Azure-principer](https://docs.microsoft.com/azure/governance/policy/overview) för det hanterade programmet för att ange krav för kompatibilitet för den distribuerade lösningen.  Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](https://docs.microsoft.com/azure/governance/policy/samples/index).  Du kan konfigurera högst fem principer och bara en instans av varje princip alternativ.  Vissa principer kräver ytterligare parametrar.  Standard-SKU: n krävs för gransknings principer.  Princip namnet är begränsat till 50 tecken.
 
-## <a name="co-sell"></a>Co-försäljning
+## <a name="co-sell"></a>Säljsamarbete
 
 Att tillhandahålla information på fliken förs är helt valfritt för att publicera erbjudandet. Det krävs för att uppnå en färdig status för alla färdiga och IP-adresser för samtidig försäljning. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om din lösning när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna.
 

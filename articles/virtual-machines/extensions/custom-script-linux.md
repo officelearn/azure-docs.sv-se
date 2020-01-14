@@ -3,7 +3,7 @@ title: Köra anpassade skript på virtuella Linux-datorer i Azure
 description: Automatisera konfigurations uppgifter för virtuella Linux-datorer med hjälp av det anpassade skript tillägget v2
 services: virtual-machines-linux
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
-ms.author: akjosh
-ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: mimckitt
+ms.openlocfilehash: da7ade4b4724f8d155deb1c109587a311d03375c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073234"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931021"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Använd Azures anpassade skript tillägg version 2 med virtuella Linux-datorer
 Det anpassade skript tillägget version 2 laddar ned och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, program varu installation eller andra konfigurations-och hanterings åtgärder. Du kan hämta skript från Azure Storage eller en annan tillgänglig Internet plats, eller så kan du ange dem till tilläggets körnings miljö. 
@@ -61,7 +61,7 @@ Om ditt skript finns på en lokal server kanske du fortfarande behöver fler bra
 * När skriptet körs visas tillägget med övergångsstatus på Azure-portalen eller i CLI. Om du vill ha mer frekventa status uppdateringar för ett skript som körs måste du skapa en egen lösning.
 * Anpassat skript tillägg stöder inte proxyservrar, men du kan använda ett fil överförings verktyg som stöder proxyservrar i skriptet, till exempel *vändning*. 
 * Var medveten om icke-standardkataloger som skripten eller kommandona kan vara beroende av, har logik för att hantera detta.
-
+*  När du distribuerar anpassat skript till produktion VMSS-instanser rekommenderar vi att du distribuerar via JSON-mallen och lagrar ditt skript lagrings konto där du har kontroll över SAS-token. 
 
 
 ## <a name="extension-schema"></a>Tilläggsschema
@@ -108,19 +108,20 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Namn | Värdet / exempel | Datatyp | 
 | ---- | ---- | ---- |
-| apiVersion | 2019-03-01 | datum |
+| apiVersion | 2019-03-01 | date |
 | publisher | Microsoft. Compute. Extensions | sträng |
 | typ | CustomScript | sträng |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (t. ex.) | https://github.com/MyProject/Archive/MyPythonScript.py | matris |
 | commandToExecute (t. ex.) | python-MyPythonScript.py \<param1 > | sträng |
 | -skriptet | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | sträng |
-| skipDos2Unix (t. ex.) | false | boolesk |
+| skipDos2Unix (t. ex.) | false | boolean |
 | timestamp (t.ex.) | 123456789 | 32-bitars heltal |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
 
 ### <a name="property-value-details"></a>Information om egenskaps värde
+* `apiVersion`: den mest aktuella API version kan hittas med [Resursläsaren](https://resources.azure.com/) eller från Azure CLI med hjälp av följande kommando `az provider list -o json`
 * `skipDos2Unix`: (valfritt, boolesk) hoppa över dos2unix-konvertering av skriptbaserade fil-URL: er eller skript.
 * `timestamp` (valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en ny körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
   * `commandToExecute`: (**krävs** om skript inte har angetts, sträng) Start punkt skriptet som ska köras. Använd det här fältet i stället om kommandot innehåller hemligheter som lösen ord.
@@ -328,7 +329,7 @@ az vm extension set \
   --protected-settings ./protected-config.json
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 När det anpassade skript tillägget körs, skapas eller laddas skriptet ned till en katalog som liknar följande exempel. Kommandots utdata sparas också i den här katalogen i `stdout` och `stderr` filer.
 
 ```bash

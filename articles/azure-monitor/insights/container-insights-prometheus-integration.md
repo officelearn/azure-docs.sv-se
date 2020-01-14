@@ -1,14 +1,14 @@
 ---
 title: Konfigurera Azure Monitor för containers Prometheus-integrering | Microsoft Docs
-description: Den här artikeln beskriver hur du kan konfigurera Azure Monitor för behållare agent för att kassera mått från Prometheus med ditt Azure Kubernetes service-kluster.
+description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att kassera mått från Prometheus med ditt Kubernetes-kluster.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: f1da2142f287bde83be7cede282bd854ce822d23
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.openlocfilehash: b774bf042778ca9118a7bc9f051655b200d87659
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403518"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931427"
 ---
 # <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Konfigurera kasse ring av Prometheus-mått med Azure Monitor för behållare
 
@@ -17,7 +17,46 @@ ms.locfileid: "75403518"
 ![Arkitektur för övervakning av behållare för Prometheus](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
 >[!NOTE]
->Den lägsta agent version som stöds för att kassera Prometheus-mått är ciprod07092019 eller senare och agent versionen som stöds för att skriva konfigurations-och agent fel i `KubeMonAgentEvents`s tabellen är ciprod10112019. För ytterligare information om agent versionerna och vad som ingår i varje utgåva, se [agent viktig](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod)information. Om du vill verifiera agent versionen går du till fliken **Node** och väljer en nod. i rutan Egenskaper noterar du värdet för egenskapen för **agentens avbildnings tag** .
+>Den lägsta agent version som stöds för att kassera Prometheus-mått är ciprod07092019 eller senare och agent versionen som stöds för att skriva konfigurations-och agent fel i `KubeMonAgentEvents`s tabellen är ciprod10112019. Mer information om agent versionerna och vad som ingår i varje utgåva finns i [agent viktig information](https://github.com/microsoft/Docker-Provider/tree/ci_feature_prod). Om du vill verifiera agent versionen går du till fliken **Node** och väljer en nod. i rutan Egenskaper noterar du värdet för egenskapen för **agentens avbildnings tag** .
+
+Det finns stöd för att kassera Prometheus-mått med Kubernetes-kluster som finns på:
+
+- Azure Kubernetes Service (AKS)
+- Azure Container Instances
+- Azure Stack eller lokalt
+- Azure Red Hat OpenShift
+
+>[!NOTE]
+>För Azure Red Hat OpenShift skapas en mall ConfigMap-fil i *OpenShift-Azure-Logging-* namnområdet. Den har inte kon figurer ATS för att aktivt kassera mått eller data insamling från agenten.
+>
+
+## <a name="azure-red-hat-openshift-prerequisites"></a>Förutsättningar för att OpenShift i Azure Red Hat
+
+Innan du börjar bekräftar du att du är medlem i rollen kund kluster administratör för ditt Azure Red Hat OpenShift-kluster för att konfigurera behållarens agent och Prometheus. Kontrol lera att du är medlem i gruppen *OSA-Customer admins* genom att köra följande kommando:
+
+``` bash
+  oc get groups
+```
+
+Utdata ska likna följande:
+
+``` bash
+NAME                  USERS
+osa-customer-admins   <your-user-account>@<your-tenant-name>.onmicrosoft.com
+```
+
+Om du är medlem i gruppen *OSA-Customer admins* bör du kunna lista `container-azm-ms-agentconfig`-ConfigMap med hjälp av följande kommando:
+
+``` bash
+oc get configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
+
+Utdata ska likna följande:
+
+``` bash
+NAME                           DATA      AGE
+container-azm-ms-agentconfig   4         56m
+```
 
 ### <a name="prometheus-scraping-settings"></a>Prometheus OLE-inställningar
 
@@ -53,11 +92,22 @@ ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämp
 
 ## <a name="configure-and-deploy-configmaps"></a>Konfigurera och distribuera ConfigMaps
 
-Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigurationsfil till klustret.
+Utför följande steg för att konfigurera konfigurations filen för ConfigMap för Kubernetes-kluster.
 
 1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml.
 
-2. Redigera ConfigMap yaml-filen med dina anpassningar för att kassera Prometheus-mått.
+   >[!NOTE]
+   >Det här steget krävs inte när du arbetar med Azure Red Hat OpenShift eftersom ConfigMap-mallen redan finns i klustret.
+
+2. Redigera ConfigMap yaml-filen med dina anpassningar för att kassera Prometheus-mått. Om du redigerar ConfigMap yaml-filen för Azure Red Hat OpenShift kör du först kommandot `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` för att öppna filen i en text redigerare.
+
+    >[!NOTE]
+    >Följande antecknings `openshift.io/reconcile-protect: "true"` måste läggas till under metadata för *container-AZM-MS-agentconfig* ConfigMap för att förhindra avstämning. 
+    >```
+    >metadata:
+    >   annotations:
+    >       openshift.io/reconcile-protect: "true"
+    >```
 
     - För att samla in Kubernetes Services Cluster-wide konfigurerar du ConfigMap-filen med hjälp av följande exempel.
 
@@ -121,21 +171,35 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
     
           Om du vill begränsa övervakningen till vissa namn områden för poddar som har anteckningar, till exempel bara inkludera poddar som är dedikerade för produktions arbets belastningar, anger du `monitor_kubernetes_pod` `true` i ConfigMap och lägger till namn områdes filtret `monitor_kubernetes_pods_namespaces` anger de namn områden som ska tas med i. Till exempel, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
-3. Skapa ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. Kör följande kubectl-kommando för andra kluster än Azure Red Hat OpenShift: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Exempel: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created`.
+
+    Spara ändringarna i redigeraren för Azure Red Hat OpenShift.
+
+Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created`.
+
+Du kan visa den uppdaterade ConfigMap för Azure Red Hat OpenShift genom att köra kommandot `oc describe configmaps container-azm-ms-agentconfig -n openshift-azure-logging`. 
 
 ## <a name="applying-updated-configmap"></a>Använder uppdaterad ConfigMap
 
-Om du redan har distribuerat en ConfigMap till klustret och du vill uppdatera det med en nyare konfiguration kan du redigera ConfigMap-filen som du tidigare har använt och sedan använda samma kommando som tidigare, `kubectl apply -f <configmap_yaml_file.yaml`.
+Om du redan har distribuerat en ConfigMap till klustret och du vill uppdatera det med en nyare konfiguration kan du redigera ConfigMap-filen som du tidigare har använt och sedan använda samma kommandon som tidigare.
+
+Kör kommandot `kubectl apply -f <configmap_yaml_file.yaml`för andra Kubernetes-kluster än Azure Red Hat OpenShift. 
+
+Kör kommandot `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` för att öppna filen i standard redigeraren för att ändra i Azure Red Hat OpenShift-kluster och spara den.
 
 Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" updated`.
 
-## <a name="verify-configuration"></a>Verifiera konfigurationen 
+## <a name="verify-configuration"></a>Verifiera konfigurationen
 
-Verifiera att konfigurationen har tillämpats genom att använda följande kommando för att granska loggarna från en agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. Om det finns konfigurations fel från omsagent-poddar visas fel som liknar följande i utdata:
+För att verifiera att konfigurationen har tillämpats på ett kluster, använder du följande kommando för att granska loggarna från en agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. 
+
+>[!NOTE]
+>Det här kommandot kan inte användas för Azure Red Hat OpenShift-kluster.
+> 
+
+Om det finns konfigurations fel från omsagent-poddar visas fel som liknar följande i utdata:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -144,17 +208,24 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 Fel som rör tillämpning av konfigurations ändringar är också tillgängliga för granskning. Följande alternativ är tillgängliga för att utföra ytterligare fel sökning av konfigurations ändringar och skrot av Prometheus-mått:
 
-- Från en agents Pod loggar med samma `kubectl logs`-kommando. 
+- Från en agents Pod loggar med samma `kubectl logs`-kommando 
+    >[!NOTE]
+    >Det här kommandot kan inte användas för Azure Red Hat OpenShift-kluster.
+    > 
 
-- Från Live-loggar. Live-loggar visar fel som liknar följande:
+- Från real tids data (för hands version). Real tids data (för hands version) loggar visar fel som liknar följande:
 
     ```
     2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
     ```
 
-- Från tabellen **KubeMonAgentEvents** i din Log Analytics-arbetsyta. Data skickas varje timme med *varnings* allvarlighets grad för kassations fel och *fel* allvarlighets grad för konfigurations fel. Om det inte finns några fel innehåller posten i tabellen data med allvarlighets grad *information*som inte rapporterar några fel. Egenskapen **Tags** innehåller mer information om Pod och behållar-ID: t där felet inträffade och även den första förekomsten, senaste förekomst och antal under den senaste timmen.
+- Från tabellen **KubeMonAgentEvents** i din Log Analytics-arbetsyta. Data skickas varje timme med *varnings* allvarlighets grad för kassations fel och *fel* allvarlighets grad för konfigurations fel. Om det inte finns några fel innehåller posten i tabellen data med allvarlighets grad *information*som inte rapporterar några fel. Egenskapen **Tags** innehåller mer information om Pod och behållar-ID: t där felet inträffade och även första förekomst, senaste förekomst och antal under den senaste timmen.
 
-Fel förhindrar omsagent från att parsa filen, vilket gör att den startas om och använder standard konfigurationen. När du har korrigerat felen i ConfigMap sparar du yaml-filen och använder den uppdaterade ConfigMaps genom att köra kommandot: `kubectl apply -f <configmap_yaml_file.yaml`.
+- För Azure Red Hat OpenShift kontrollerar du omsagent-loggarna genom att söka i **ContainerLog** -tabellen för att kontrol lera om logg insamling av OpenShift-Azure-loggning är aktiverat.
+
+Fel förhindrar omsagent från att parsa filen, vilket gör att den startas om och använder standard konfigurationen. När du har korrigerat felen i ConfigMap på andra kluster än Azure Red Hat OpenShift, sparar du yaml-filen och tillämpar den uppdaterade ConfigMaps genom att köra kommandot: `kubectl apply -f <configmap_yaml_file.yaml`. 
+
+Redigera och spara den uppdaterade ConfigMaps för Azure Red Hat OpenShift genom att köra kommandot: `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging`.
 
 ## <a name="query-prometheus-metrics-data"></a>Fråga Prometheus Metrics-data
 

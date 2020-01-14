@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 1354bd2895a8fe6e8aa1f12cd92295c77ca2d4b2
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564171"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930033"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Säkerhets kontroll: loggning och övervakning
 
@@ -79,9 +79,13 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 Om beräknings resursen ägs av Microsoft ansvarar Microsoft för att övervaka den. Om beräknings resursen ägs av din organisation är det ditt ansvar att övervaka den. Du kan använda Azure Security Center för att övervaka operativ systemet. Data som samlas in av Security Center från operativ systemet innehåller OS-typ och version, OS (Windows-händelseloggen), processer som körs, dator namn, IP-adresser och inloggad användare. Log Analytics agent samlar även in krasch dum par-filer.
 
-Så här samlar du in interna värd loggar för virtuella Azure-datorer med Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+Så här samlar du in interna värd loggar för virtuella Azure-datorer med Azure Monitor:
 
-Förstå Azure Security Center data insamling: https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
+https://docs.microsoft.com/azure/azure-monitor/learn/quick-collect-azurevm
+
+Förstå Azure Security Center data insamling:
+
+https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection
 
 ## <a name="25-configure-security-log-storage-retention"></a>2,5: Konfigurera säkerhets logg lagrings kvarhållning
 
@@ -91,7 +95,9 @@ Förstå Azure Security Center data insamling: https://docs.microsoft.com/azure/
 
 I Azure Monitor anger Log Analytics du arbets ytans lagrings period enligt organisationens regler för efterlevnad. Använd Azure Storage konton för långsiktig/Arkiv lagring.
 
-Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Så här ställer du in logg lagrings parametrar för Log Analytics arbets ytor:
+
+https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 ## <a name="26-monitor-and-review-logs"></a>2,6: övervaka och granska loggar
 
@@ -153,7 +159,7 @@ Så här konfigurerar du Microsoft Antimalware för Cloud Services:
 
 https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0
 
-Förstå Microsoft Antimalware:
+Förstå Microsofts program mot skadlig kod:
 
 https://docs.microsoft.com/azure/security/fundamentals/antimalware
 

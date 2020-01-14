@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: akjosh
-ms.openlocfilehash: 2b69a17c7f9de62187d9dc99f7c1d5c5b74c25ad
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8a5b54131210d243015b37bf234408fd9d2b4c12
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073188"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933614"
 ---
 # <a name="chef-vm-extension-for-linux-and-windows"></a>Kock VM-tillägg för Linux och Windows
 
@@ -151,6 +151,9 @@ C:\Packages\Plugins\Chef.Bootstrap.WindowsAzure.ChefClient\
 | 51 | Det här tillägget stöds inte på den virtuella datorns operativ system | |
 
 Ytterligare felsöknings information finns i [filen chef VM Extension](https://github.com/chef-partners/azure-chef-extension).
+
+> [!NOTE]
+> Kontakta [chefens support](https://www.chef.io/support/)för allt annat som är direkt relaterat till chef.
 
 ## <a name="next-steps"></a>Nästa steg
 

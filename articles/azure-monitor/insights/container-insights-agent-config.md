@@ -2,19 +2,23 @@
 title: Konfigurera Azure Monitor för behållare agent data insamling | Microsoft Docs
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare agent för att styra logg insamling för STDOUT/stderr och miljövariabler.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: 0bde696f39af22f864500e0c79b5e03ca66cc7f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.openlocfilehash: 28b93190298ae61732ff7d2e297899af4ba0e5f2
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405669"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933027"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
 
-Azure Monitor för behållare samlar in STDOUT-, stderr-och miljövariabler från behållar arbets belastningar som distribueras till hanterade Kubernetes-kluster som finns i Azure Kubernetes service (AKS) från behållarens agent. Du kan konfigurera inställningar för data insamling för agenter genom att skapa en anpassad Kubernetes-ConfigMaps för att styra den här upplevelsen. 
+Azure Monitor för behållare samlar in STDOUT-, stderr-och miljövariabler från behållar arbets belastningar som distribueras till hanterade Kubernetes-kluster från behållarens agent. Du kan konfigurera inställningar för data insamling för agenter genom att skapa en anpassad Kubernetes-ConfigMaps för att styra den här upplevelsen. 
 
 Den här artikeln visar hur du skapar ConfigMap och konfigurerar data insamling utifrån dina krav.
+
+>[!NOTE]
+>För Azure Red Hat OpenShift skapas en mall ConfigMap-fil i *OpenShift-Azure-Logging-* namnområdet. 
+>
 
 ## <a name="configmap-file-settings-overview"></a>Översikt över ConfigMap-fil inställningar
 
@@ -44,9 +48,12 @@ ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämp
 
 Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigurationsfil till klustret.
 
-1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml.  
+1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml. 
 
-2. Redigera ConfigMap yaml-filen med dina anpassningar för att samla in STDOUT-, stderr-och/eller miljövariabler.
+   >[!NOTE]
+   >Det här steget krävs inte när du arbetar med Azure Red Hat OpenShift eftersom ConfigMap-mallen redan finns i klustret.
+
+2. Redigera ConfigMap yaml-filen med dina anpassningar för att samla in STDOUT-, stderr-och/eller miljövariabler. Om du redigerar ConfigMap yaml-filen för Azure Red Hat OpenShift kör du först kommandot `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` för att öppna filen i en text redigerare.
 
     - Om du vill undanta vissa namn rymder för STDOUT-logg samling konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -54,15 +61,17 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
     
     - Om du vill inaktivera stderr-logg samling i hela klustret konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stderr] enabled = false`.
 
-3. Skapa ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
+3. För andra kluster än Azure Red Hat OpenShift skapar du ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>` på andra kluster än Azure Red Hat OpenShift. 
     
     Exempel: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created`.
 
-## <a name="verify-configuration"></a>Verifiera konfigurationen 
+    Spara ändringarna i redigeraren för Azure Red Hat OpenShift.
 
-Verifiera att konfigurationen har tillämpats genom att använda följande kommando för att granska loggarna från en agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. Om det finns konfigurations fel från omsagent-poddar visas fel som liknar följande i utdata:
+Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" created`.
+
+## <a name="verify-configuration"></a>Verifiera konfigurationen
+
+För att verifiera att konfigurationen har tillämpats på ett annat kluster än Azure Red Hat OpenShift, använder du följande kommando för att granska loggarna från en agent pod: `kubectl logs omsagent-fdf58 -n=kube-system`. Om det finns konfigurations fel från omsagent-poddar visas fel som liknar följande i utdata:
 
 ``` 
 ***************Start Config Processing******************** 
@@ -73,6 +82,10 @@ Fel som rör tillämpning av konfigurations ändringar är också tillgängliga 
 
 - Från en agents Pod loggar med samma `kubectl logs`-kommando. 
 
+    >[!NOTE]
+    >Det här kommandot kan inte användas för Azure Red Hat OpenShift-kluster.
+    > 
+
 - Från Live-loggar. Live-loggar visar fel som liknar följande:
 
     ```
@@ -81,11 +94,21 @@ Fel som rör tillämpning av konfigurations ändringar är också tillgängliga 
 
 - Från tabellen **KubeMonAgentEvents** i din Log Analytics-arbetsyta. Data skickas varje timme med *fel* allvarlighets grad för konfigurations fel. Om det inte finns några fel innehåller posten i tabellen data med allvarlighets grad *information*som inte rapporterar några fel. Egenskapen **Tags** innehåller mer information om Pod och behållar-ID: t där felet inträffade och även den första förekomsten, senaste förekomst och antal under den senaste timmen.
 
-Fel förhindrar omsagent från att parsa filen, vilket gör att den startas om och använder standard konfigurationen. När du har korrigerat felen i ConfigMap sparar du yaml-filen och använder den uppdaterade ConfigMaps genom att köra kommandot: `kubectl apply -f <configmap_yaml_file.yaml`.
+- Med Azure Red Hat OpenShift kontrollerar du omsagent-loggarna genom att söka i **ContainerLog** -tabellen för att kontrol lera om logg insamling av OpenShift-Azure-loggning är aktiverat.
+
+När du har korrigerat felen i ConfigMap på andra kluster än Azure Red Hat OpenShift, sparar du yaml-filen och tillämpar den uppdaterade ConfigMaps genom att köra kommandot: `kubectl apply -f <configmap_yaml_file.yaml`. Redigera och spara den uppdaterade ConfigMaps för Azure Red Hat OpenShift genom att köra kommandot:
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
 
 ## <a name="applying-updated-configmap"></a>Använder uppdaterad ConfigMap
 
-Om du redan har distribuerat en ConfigMap till klustret och du vill uppdatera det med en nyare konfiguration kan du redigera ConfigMap-filen som du tidigare har använt och sedan använda samma kommando som tidigare, `kubectl apply -f <configmap_yaml_file.yaml`.
+Om du redan har distribuerat en ConfigMap i andra kluster än Azure Red Hat OpenShift och du vill uppdatera det med en nyare konfiguration, kan du redigera ConfigMap-filen som du tidigare har använt och sedan använda samma kommando som tidigare, `kubectl apply -f <configmap_yaml_file.yaml`. Redigera och spara den uppdaterade ConfigMaps för Azure Red Hat OpenShift genom att köra kommandot:
+
+``` bash
+oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging
+```
 
 Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" updated`.
 

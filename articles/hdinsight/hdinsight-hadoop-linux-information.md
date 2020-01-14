@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: 21acbde147d5c1751480332e5cd9c89cdb43f8e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3d9dec0065bb62821fcedcbc4f6e5b578c061caf
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644961"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934545"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -254,11 +254,7 @@ HDInsight är en hanterad tjänst. Om Azure identifierar ett problem med klustre
 * Installera och konfigurera en tjänst eller webbplats.
 * Installera och konfigurera en komponent som kräver konfigurations ändringar på flera noder i klustret.
 
-Skript åtgärder är Bash-skript. Skripten körs när klustret skapas och används för att installera och konfigurera ytterligare komponenter. Exempel skript finns för att installera följande komponenter:
-
-* [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
-
-Information om hur du utvecklar dina egna skriptåtgärder finns i [Utveckling av skriptåtgärder med HDInsight](hdinsight-hadoop-script-actions-linux.md).
+Skript åtgärder är Bash-skript. Skripten körs när klustret skapas och används för att installera och konfigurera ytterligare komponenter. Information om hur du utvecklar dina egna skriptåtgärder finns i [Utveckling av skriptåtgärder med HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 ### <a name="jar-files"></a>Jar-filer
 

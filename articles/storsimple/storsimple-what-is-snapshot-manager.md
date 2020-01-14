@@ -1,9 +1,9 @@
 ---
 title: Vad är StorSimple Snapshot Manager? | Microsoft Docs
-description: Beskriver StorSimple Snapshot Manager, dess arkitektur och dess funktioner.
+description: Beskriver StorSimple-Snapshot Manager, dess arkitektur och dess funktioner.
 services: storsimple
 documentationcenter: NA
-author: SharS
+author: twooley
 manager: timlt
 editor: ''
 ms.assetid: 6094c31e-e2d9-4592-8a15-76bdcf60a754
@@ -13,131 +13,131 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/27/2017
-ms.author: v-sharos
+ms.author: twooley
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f7436bb63f52c9c2b697c8e7031922ce89d786b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e58e2d929dd1e4db16ce495ad54045e9dc3a6fb1
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60789628"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933638"
 ---
 # <a name="an-introduction-to-storsimple-snapshot-manager"></a>En introduktion till StorSimple Snapshot Manager
 
 ## <a name="overview"></a>Översikt
-StorSimple Snapshot Manager är en snapin-modul i Microsoft Management Console (MMC) som förenklar dataskydd och hantering av säkerhetskopiering i en miljö med Microsoft Azure StorSimple. Med StorSimple Snapshot Manager hantera Microsoft Azure StorSimple data i datacentret och i molnet som en enda integrerad lagringslösning, vilket förenklar säkerhetskopiering processer och minska kostnaderna.
+StorSimple Snapshot Manager är en snapin-modul för Microsoft Management Console (MMC) som fören klar data skydd och säkerhets kopierings hantering i en Microsoft Azure StorSimple miljö. Med StorSimple Snapshot Manager kan du hantera Microsoft Azure StorSimple data i Data Center och i molnet som en enda integrerad lagrings lösning, vilket fören klar säkerhets kopierings processerna och minskar kostnaderna.
 
-Den här översikten beskriver StorSimple Snapshot Manager, beskriver funktioner och förklarar dess roll i Microsoft Azure StorSimple. 
+Den här översikten beskriver StorSimple-Snapshot Manager, beskriver dess funktioner och förklarar dess roll i Microsoft Azure StorSimple. 
 
-En översikt över hela Microsoft Azure StorSimple-systemet, inklusive StorSimple-enheten, StorSimple Manager-tjänsten, StorSimple Snapshot Manager och StorSimple Adapter för SharePoint, finns i [StorSimple 8000-serien: ett hybridmoln lagringslösning](storsimple-overview.md). 
+En översikt över hela Microsoft Azure StorSimple system, inklusive StorSimple-enheten, StorSimple Manager service, StorSimple Snapshot Manager och StorSimple Adapter för SharePoint finns i [StorSimple 8000-serien: en hybrid moln lagrings lösning](storsimple-overview.md). 
 
 > [!NOTE]
-> * Du kan inte använda StorSimple Snapshot Manager för att hantera Microsoft Azure StorSimple Virtual Array (även kallat StorSimple lokala virtuella enheter).
-> * Om du planerar att installera StorSimple Update 2 på StorSimple-enheten, måste du hämta den senaste versionen av StorSimple Snapshot Manager och installera den **innan du installerar StorSimple Update 2**. Den senaste versionen av StorSimple Snapshot Manager är bakåtkompatibla och fungerar med alla versioner av Microsoft Azure StorSimple. Om du använder den tidigare versionen av StorSimple Snapshot Manager behöver du uppdatera den (du inte behöver avinstallera den tidigare versionen innan du installerar den nya versionen).
+> * Du kan inte använda StorSimple Snapshot Manager för att hantera Microsoft Azure StorSimple virtuella matriser (även kallade StorSimple lokala virtuella enheter).
+> * Om du planerar att installera StorSimple uppdatering 2 på din StorSimple-enhet måste du ladda ned den senaste versionen av StorSimple Snapshot Manager och installera den **innan du installerar StorSimple uppdatering 2**. Den senaste versionen av StorSimple Snapshot Manager är bakåtkompatibel och fungerar med alla utgivna versioner av Microsoft Azure StorSimple. Om du använder den tidigare versionen av StorSimple-Snapshot Manager måste du uppdatera den (du behöver inte avinstallera den tidigare versionen innan du installerar den nya versionen).
 > 
 > 
 
 ## <a name="storsimple-snapshot-manager-purpose-and-architecture"></a>StorSimple Snapshot Manager syfte och arkitektur
-StorSimple Snapshot Manager innehåller en central hantering-konsol som du kan använda för att skapa enhetliga, point-in-time-säkerhetskopior av lokala och data i molnet. Du kan till exempel använda konsolen för att:
+StorSimple Snapshot Manager tillhandahåller en central hanterings konsol som du kan använda för att skapa konsekventa säkerhets kopior av lokala data och moln data vid en viss tidpunkt. Du kan till exempel använda-konsolen för att:
 
 * Konfigurera, säkerhetskopiera och ta bort volymer.
-* Konfigurera volymgrupper så säkerhetskopierade data är konsekventa.
-* Hantera principer för säkerhetskopiering så att data säkerhetskopieras enligt ett förutbestämt schema.
-* Skapa lokala och molnbaserade ögonblicksbilder som kan lagras i molnet och används för haveriberedskap.
+* Konfigurera volym grupper för att säkerställa att säkerhetskopierade data är programkonsekventa.
+* Hantera säkerhets kopierings principer så att data säkerhets kopie ras enligt ett förutbestämt schema.
+* Skapa lokala och molnbaserade ögonblicks bilder, som kan lagras i molnet och används för haveri beredskap.
 
-StorSimple Snapshot Manager hämtar listan över program som är registrerade med VSS-providern på värden. För att skapa programkonsekventa säkerhetskopior, kontrollerar de volymer som används av ett program och föreslår volymgrupper att konfigurera. StorSimple Snapshot Manager använder grupperna volym för att generera säkerhetskopior som är konsekventa. (Programkonsekvens finns när alla relaterade filer och databaser synkroniseras och återger SANT tillståndet för programmet vid en viss tidpunkt). 
+StorSimple-Snapshot Manager hämtar listan över program som har registrerats med VSS-providern på värden. För att skapa programkonsekventa säkerhets kopieringar kontrollerar den sedan vilka volymer som används av ett program och föreslår volym grupper som ska konfigureras. StorSimple Snapshot Manager använder dessa volym grupper för att skapa säkerhets kopior som är programkonsekventa. (Program konsekvens finns när alla relaterade filer och databaser synkroniseras och representerar programmets sanna tillstånd vid en viss tidpunkt.) 
 
-StorSimple Snapshot Manager säkerhetskopior bestå av inkrementella ögonblicksbilder som samlar in endast ändringar sedan den senaste säkerhetskopieringen. Därför kan säkerhetskopior kräver mindre lagringsutrymme och skapas och återställa snabbt. StorSimple Snapshot Manager använder Windows Volume Shadow Copy Service (VSS) för att se till att hårdiskdata programkonsekvent data. (Mer information finns på integrering med Windows Volume Shadow Copy Service-avsnittet.) Med StorSimple Snapshot Manager, som du kan skapa scheman för säkerhetskopiering eller göra säkerhetskopior av omedelbart efter behov. Om du behöver återställa data från en säkerhetskopiering, StorSimple Snapshot Manager kan välja du från en katalog med lokal eller ögonblicksbilder av molnet. Azure StorSimple återställer endast de data som krävs när det behövs, vilket förhindrar fördröjningar i datatillgänglighet under återställningsåtgärder.)
+StorSimple Snapshot Manager säkerhets kopieringar tar form av stegvisa ögonblicks bilder, som bara fångar in ändringarna sedan den senaste säkerhets kopieringen. Därför kräver säkerhets kopieringar mindre lagrings utrymme och kan skapas och återställas snabbt. StorSimple Snapshot Manager använder Windows tjänsten Volume Shadow Copy (VSS) för att säkerställa att ögonblicks bilder fångar programkonsekventa data. (Mer information finns i avsnittet integration med Windows tjänsten Volume Shadow Copy.) Med StorSimple Snapshot Manager kan du skapa säkerhets kopierings scheman eller vidta omedelbara säkerhets kopieringar vid behov. Om du behöver återställa data från en säkerhets kopia kan StorSimple Snapshot Manager välja från en katalog med lokala eller molnbaserade ögonblicks bilder. Azure StorSimple återställer bara de data som behövs vid behov, vilket förhindrar fördröjningar i data tillgänglighet under återställnings åtgärder.)
 
-![Arkitektur för StorSimple Snapshot Manager](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
+![StorSimple Snapshot Manager-arkitektur](./media/storsimple-what-is-snapshot-manager/HCS_SSM_Overview.png)
 
-**Arkitektur för StorSimple Snapshot Manager** 
+**StorSimple Snapshot Manager-arkitektur** 
 
-## <a name="support-for-multiple-volume-types"></a>Stöd för flera volymtyper av
-Du kan använda StorSimple Snapshot Manager för att konfigurera och säkerhetskopiera följande typer av volymer: 
+## <a name="support-for-multiple-volume-types"></a>Stöd för flera volym typer
+Du kan använda StorSimple-Snapshot Manager för att konfigurera och säkerhetskopiera följande typer av volymer: 
 
-* **Enkla volymer** – en enkel volym är en enskild partition på en standarddisk. 
-* **Enkla volymer** – en enkel volym är en dynamisk volym som innehåller diskutrymmet från en enda dynamisk disk. En enkel volym består av en enda region på en disk eller flera regioner länkas samman på samma disk. (Du kan skapa enkla volymer på dynamiska diskar.) Enkla volymer är inte feltoleranta.
-* **Dynamiska volymer** – en dynamisk volym är en volym som har skapats på en dynamisk disk. Dynamiska diskar använder en databas för att spåra information om volymer som finns på dynamiska diskar på en dator. 
-* **Dynamiska volymer med spegling** – dynamiska volymer med spegling bygger på RAID 1-arkitektur. Med RAID 1 skrivs identiska data på två eller flera disk, producera en speglad uppsättning. En läsbegäran kan sedan hanteras av en disk som innehåller data som begärdes.
-* **Klusterdelade volymer** – med klusterdelade volymer (CSV), flera noder i ett failover-kluster kan samtidigt läsa eller skriva till samma disk. Redundans från en nod till en annan nod kan inträffa snabbt, utan en ändring i ägandet eller montera demontera och ta bort en volym. 
+* **Standard volymer** – en enkel volym är en enda partition på en standard disk. 
+* **Enkla volymer** – en enkel volym är en dynamisk volym som innehåller disk utrymme från en enda dynamisk disk. En enkel volym består av en enda region på en disk eller flera regioner som är länkade till varandra på samma disk. (Du kan bara skapa enkla volymer på dynamiska diskar.) Enkla volymer är inte feltoleranta.
+* **Dynamiska volymer** – en dynamisk volym är en volym som skapas på en dynamisk disk. Dynamiska diskar använder en databas för att spåra information om volymer som finns på dynamiska diskar på en dator. 
+* **Dynamiska volymer med spegling** – dynamiska volymer med spegling bygger på RAID 1-arkitekturen. Med RAID 1 skrivs identiska data på två eller flera diskar, vilket genererar en speglad uppsättning. En Read-begäran kan sedan hanteras av vilken disk som helst som innehåller begärda data.
+* **Klusterdelade volymer** – med klusterdelade volymer (CSV: er) kan flera noder i ett redundanskluster samtidigt läsa eller skriva till samma disk. Redundans från en nod till en annan nod kan ske snabbt, utan att det krävs någon förändring av ägarskapet eller monteringen av enheten, demontering och borttagning av en volym. 
 
 > [!IMPORTANT]
-> Blanda inte CSV: er och icke-CSV: er i samma ögonblicksbild. Blanda CSV: er och icke-CSV: er i en ögonblicksbild stöds inte. 
+> Blanda inte CSV: er och icke-CSV: er i samma ögonblicks bild. Det finns inte stöd för att blanda CSV: er och icke-CSV: er i en ögonblicks bild. 
 > 
 > 
 
-Du kan använda StorSimple Snapshot Manager för att återställa hela volymgrupper eller klona enskilda volymer och återställa enskilda filer.
+Du kan använda StorSimple Snapshot Manager för att återställa hela volym grupper eller klona enskilda volymer och återställa enskilda filer.
 
-* [Volymer och volymgrupper](#volumes-and-volume-groups) 
-* [Säkerhetskopieringstyper och principer för säkerhetskopiering](#backup-types-and-backup-policies) 
+* [Volymer och volym grupper](#volumes-and-volume-groups) 
+* [Säkerhets kopierings typer och säkerhets kopierings principer](#backup-types-and-backup-policies) 
 
-Mer information om StorSimple Snapshot Manager-funktioner och hur de används finns i [StorSimple Snapshot Manager-användargränssnittet](storsimple-use-snapshot-manager.md).
+Mer information om StorSimple Snapshot Manager funktioner och hur du använder dem finns i [StorSimple Snapshot Manager User Interface](storsimple-use-snapshot-manager.md).
 
-## <a name="volumes-and-volume-groups"></a>Volymer och volymgrupper
-Med StorSimple Snapshot Manager, som du skapar volymer och konfigurera dem i volymgrupper. 
+## <a name="volumes-and-volume-groups"></a>Volymer och volym grupper
+Med StorSimple Snapshot Manager skapar du volymer och konfigurerar dem sedan till volym grupper. 
 
-StorSimple Snapshot Manager använder volymgrupper för att skapa säkerhetskopior som är konsekventa. Programkonsekvens finns när alla relaterade filer och databaser synkroniseras och återger SANT tillståndet för ett program vid en viss tidpunkt. Volymgrupper (som kallas även *konsekvensgrupper*) utgör grunden för en säkerhetskopia eller återställa jobbet.
+StorSimple Snapshot Manager använder volym grupper för att skapa säkerhets kopior som är programkonsekventa. Program konsekvens finns när alla relaterade filer och databaser synkroniseras och representerar det sanna läget för ett program vid en specifik tidpunkt. Volym grupper (som även kallas *konsekvens grupper*) utgör grunden för en säkerhets kopierings-eller återställnings jobb.
 
-Volymgrupper är inte samma som volymbehållare. En volymbehållare innehåller en eller flera volymer som delar ett molnlagringskonto och andra attribut, till exempel kryptering och bandbredd. En enskild volym-behållare kan innehålla upp till 256 tunt allokerade StorSimple-volymer. Mer information om volymbehållare går du till [hantera din volymbehållare](storsimple-manage-volume-containers.md). Volymgrupper är samlingar av volymer som du konfigurerar för att underlätta säkerhetskopiering. Om du väljer två volymer som tillhör olika volymbehållare, placera dem i en enda volym-grupp och sedan skapa en princip för säkerhetskopiering för den volym gruppen säkerhetskopieras varje volym i lämplig volymbehållaren med hjälp av lämplig storage-konto.
+Volym grupper är inte desamma som volym behållare. En volym container innehåller en eller flera volymer som delar ett moln lagrings konto och andra attribut, t. ex. kryptering och bandbredds användning. En behållare med en enda volym kan innehålla upp till 256 tunt allokerade StorSimple-volymer. Mer information om volym behållare finns i [Hantera dina volym behållare](storsimple-manage-volume-containers.md). Volym grupper är samlingar av volymer som du konfigurerar för att under lätta säkerhets kopierings åtgärder. Om du väljer två volymer som tillhör olika volym behållare placerar du dem i en enda volym grupp och skapar sedan en säkerhets kopierings princip för volym gruppen. varje volym säkerhets kopie ras i lämplig volym behållare med hjälp av lämpligt lagrings konto.
 
 > [!NOTE]
-> Alla volymer i en volym-grupp måste komma från en enda molntjänstleverantör.
+> Alla volymer i en volym grupp måste komma från en enda moln tjänst leverantör.
 > 
 > 
 
-## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integrering med Windows Volume Shadow Copy-tjänsten
-StorSimple Snapshot Manager använder Windows Volume Shadow Copy Service (VSS) för att samla in programkonsekvent data. VSS underlättar programkonsekvens genom att kommunicera med VSS-medvetna program att samordna skapandet av inkrementella ögonblicksbilder. VSS säkerställer att programmen är tillfälligt inaktiv eller overksamt, när ögonblicksbilder tas. 
+## <a name="integration-with-windows-volume-shadow-copy-service"></a>Integrering med Windows tjänsten Volume Shadow Copy
+StorSimple Snapshot Manager använder Windows tjänsten Volume Shadow Copy (VSS) för att avbilda programkonsekventa data. VSS underlättar program konsekvens genom att kommunicera med VSS-medvetna program för att koordinera skapandet av stegvisa ögonblicks bilder. VSS säkerställer att programmen är tillfälligt inaktiva eller quiescent när ögonblicks bilder tas. 
 
-StorSimple Snapshot Manager-implementeringen av VSS fungerar med SQL Server och allmän NTFS-volymer. Processen är följande: 
+StorSimple Snapshot Manager implementering av VSS fungerar med SQL Server och allmänna NTFS-volymer. Processen ser ut så här: 
 
-1. En begärande som är vanligtvis en datahantering och lösning för skydd av (till exempel StorSimple Snapshot Manager) eller ett program för säkerhetskopiering, anropar VSS och frågar den för att samla in information från skrivaren programvaran i målprogrammet.
-2. VSS kontaktar writer-komponenten för att hämta en beskrivning av data. Skrivar returnerar beskrivningen av de data som ska säkerhetskopieras. 
-3. VSS signalerar att skrivaren kan förbereda ett program för säkerhetskopiering. Skrivar förbereder data för säkerhetskopiering genom att slutföra öppna transaktioner uppdaterar transaktionsloggar och så vidare och meddelar VSS.
-4. VSS instruerar skrivaren kan tillfälligt stoppa programmets datalager och se till att inga data skrivs till volymen medan skuggkopian skapas. Det här steget säkerställer att datakonsekvens och tar mer än 60 sekunder.
-5. VSS instruerar provider för att skapa en skuggkopia. Leverantörer, som kan vara program - eller maskinvarubaserade, hantera de volymer som körs för tillfället och skapa skuggkopior av dem på begäran. Providern skapar skuggkopian och meddelar VSS när den har slutförts.
-6. VSS kontaktar skrivaren att meddela programmet i/o kan återuppta och även för att bekräfta att i/o paus under skapandet av skuggkopian. 
-7. Om kopieringen har slutförts, returnerar VSS den kopieringsplatsen till begäranden. 
-8. Om data har skrivits när ögonblicksbilden har skapats, kommer säkerhetskopian inte överensstämmer. VSS tar bort skuggkopian och meddelar begäranden. Begäranden kan upprepa säkerhetskopieringsprocessen automatiskt eller meddela administratören försöka igen vid ett senare tillfälle.
+1. En beställare, som vanligt vis är en data hanterings-och skydds lösning (t. ex. StorSimple Snapshot Manager) eller ett program för säkerhets kopiering, anropar VSS och ber det att samla in information från skrivar program varan i mål programmet.
+2. VSS kontaktar skrivar komponenten för att hämta en beskrivning av data. Skrivaren returnerar beskrivningen av de data som ska säkerhets kopie ras. 
+3. VSS signalerar skrivaren för att förbereda programmet för säkerhets kopiering. Skrivaren förbereder data för säkerhets kopiering genom att fylla i öppna transaktioner, uppdatera transaktions loggar och så vidare och sedan meddela VSS.
+4. VSS instruerar skrivaren att tillfälligt stoppa programmets data lager och se till att inga data skrivs till volymen medan skugg kopian skapas. Det här steget säkerställer data konsekvens och tar högst 60 sekunder.
+5. VSS instruerar providern att skapa skugg kopian. Leverantörer, som kan vara program varu-eller maskin varubaserade, hanterar de volymer som för närvarande körs och skapar skugg kopior av dem på begäran. Providern skapar skugg kopian och meddelar VSS när den har slutförts.
+6. VSS kontaktar skrivaren för att meddela programmet att I/O kan återupptas och bekräfta att I/O har pausats under skapandet av skugg kopian. 
+7. Om kopieringen lyckades, returnerar VSS kopians plats till beställaren. 
+8. Om data skrevs medan skugg kopian skapades, kommer säkerhets kopieringen att vara inkonsekvent. VSS tar bort skugg kopian och meddelar begär Anden. Beställaren kan antingen upprepa säkerhets kopierings processen automatiskt eller meddela administratören om detta vid ett senare tillfälle.
 
 Se följande bild.
 
-![VSS-processen](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
+![VSS-process](./media/storsimple-what-is-snapshot-manager/HCS_SSM_VSS_process.png)
 
-**Tjänsten Windows Volume Shadow Copy-processen** 
+**Process för Windows-tjänsten Volume Shadow Copy** 
 
-## <a name="backup-types-and-backup-policies"></a>Säkerhetskopieringstyper och principer för säkerhetskopiering
-Med StorSimple Snapshot Manager kan du säkerhetskopiera data och lagra den lokalt och i molnet. Du kan använda StorSimple Snapshot Manager för att säkerhetskopiera data direkt, eller du kan använda en princip för säkerhetskopiering för att skapa ett schema för säkerhetskopiering automatiskt. Principer för säkerhetskopiering kan du ange hur många ögonblicksbilder ska behållas. 
+## <a name="backup-types-and-backup-policies"></a>Säkerhets kopierings typer och säkerhets kopierings principer
+Med StorSimple Snapshot Manager kan du säkerhetskopiera data och lagra dem lokalt och i molnet. Du kan använda StorSimple Snapshot Manager för att säkerhetskopiera data direkt, eller så kan du använda en säkerhets kopierings princip för att skapa ett schema för att säkerhetskopiera automatiskt. Med säkerhets kopierings principer kan du också ange hur många ögonblicks bilder som ska behållas. 
 
 ### <a name="backup-types"></a>Typer av säkerhetskopiering
-Du kan använda StorSimple Snapshot Manager för att skapa följande typer av säkerhetskopiering:
+Du kan använda StorSimple-Snapshot Manager för att skapa följande typer av säkerhets kopieringar:
 
-* **Lokala ögonblicksbilder** – lokala ögonblicksbilder är point-in-time-kopior av volymdata som lagrats på StorSimple-enheten. Normalt kan den här typen av säkerhetskopiering skapas och återställa snabbt. Du kan använda en lokal ögonblicksbild precis som en lokal säkerhetskopia.
-* **Molnbaserade ögonblicksbilder** – molnögonblicksbilder är point-in-time-kopior av volymdata som lagras i molnet. En ögonblicksbild i molnet motsvarar en ögonblicksbild som replikerats på ett annat, externa lagringssystem. Ögonblicksbilder av molnet som är särskilt användbart i scenarier för haveriberedskap.
+* **Lokala ögonblicks bilder** – lokala ögonblicks bilder är tidpunkts kopior av volym data som lagras på StorSimple-enheten. Den här typen av säkerhets kopiering kan vanligt vis skapas och återställas snabbt. Du kan använda en lokal ögonblicks bild som en lokal säkerhets kopia.
+* **Moln ögonblicks bilder** – moln ögonblicks bilder är tidpunkts kopior av volym data som lagras i molnet. En moln ögonblicks bild motsvarar en ögonblicks bild som replikeras på ett annat lagrings system utanför platsen. Moln ögonblicks bilder är särskilt användbara i scenarier med haveri beredskap.
 
-### <a name="on-demand-and-scheduled-backups"></a>På begäran och schemalagda säkerhetskopieringar
-Du kan initiera en tidsbegränsad säkerhetskopia skapas direkt med StorSimple Snapshot Manager eller du kan använda en princip för säkerhetskopiering för att schemalägga återkommande säkerhetskopieringsåtgärder.
+### <a name="on-demand-and-scheduled-backups"></a>Säkerhets kopieringar på begäran och schemalagda
+Med StorSimple Snapshot Manager kan du initiera en enstaka säkerhets kopia som skapas direkt, eller så kan du använda en säkerhets kopierings princip för att schemalägga återkommande säkerhets kopierings åtgärder.
 
-En princip för säkerhetskopiering är en uppsättning automatiska regler som du kan använda för att schemalägga regelbundna säkerhetskopieringar. En princip för säkerhetskopiering kan du definiera frekvensen och parametrar för att ta ögonblicksbilder av en specifik volym-grupp. Du kan använda principer för att ange start-och förfallodatum, tider, frekvenser och krav på datalagring, för både lokala och molnbaserade ögonblicksbilder. En princip tillämpas omedelbart när du har definierat den. 
+En säkerhets kopierings policy är en uppsättning automatiserade regler som du kan använda för att schemalägga regelbundna säkerhets kopieringar. Med en princip för säkerhets kopiering kan du definiera frekvensen och parametrarna för att ta ögonblicks bilder av en speciell volym grupp. Du kan använda principer för att ange start-och utgångs datum, tider, frekvenser och bevarande krav för både lokala och molnbaserade ögonblicks bilder. En princip tillämpas direkt efter att du har definierat den. 
 
-Du kan använda StorSimple Snapshot Manager för att konfigurera eller ändra principer för säkerhetskopiering när det behövs. 
+Du kan använda StorSimple Snapshot Manager för att konfigurera eller konfigurera om säkerhets kopierings principer när det behövs. 
 
-Du kan konfigurera följande information för varje princip för säkerhetskopiering som du skapar:
+Du konfigurerar följande information för varje säkerhets kopierings princip som du skapar:
 
-* **Namn på** – det unika namnet för den valda säkerhetskopieringsprincipen.
-* **Typ** – typ av princip för säkerhetskopiering, antingen lokal ögonblicksbild eller ögonblicksbild i molnet.
-* **Volymen grupp** – gruppen volym som den valda säkerhetskopieringsprincipen är tilldelad.
-* **Kvarhållning** – antal säkerhetskopior att behålla. Om du markerar den **alla** rutan alla säkerhetskopiorna ska bevaras tills det maximala antalet säkerhetskopior per volym har uppnåtts, då principen misslyckas och genererar ett felmeddelande. Du kan också ange ett antal säkerhetskopieringar att behålla (mellan 1 och 64).
-* **Datum** – det datum när säkerhetskopieringspolicyn har skapats.
+* **Namn** – det unika namnet för den valda säkerhets kopierings principen.
+* **Typ** – typ av säkerhets kopierings princip. antingen lokal ögonblicks bild eller moln ögonblicks bild.
+* **Volym grupp** – den volym grupp som den valda säkerhets kopierings principen tilldelas till.
+* **Kvarhållning** – antalet säkerhets kopior som ska behållas. Om du markerar kryss rutan **alla** behålls alla säkerhets kopior tills det högsta antalet säkerhets kopior per volym nås. då Miss söker principen och genererar ett fel meddelande. Alternativt kan du ange ett antal säkerhets kopior som ska behållas (mellan 1 och 64).
+* **Datum** – datumet då säkerhets kopierings policyn skapades.
 
-Information om hur du konfigurerar principer för säkerhetskopiering, går du till [Använd StorSimple Snapshot Manager för att skapa och hantera principer för säkerhetskopiering](storsimple-snapshot-manager-manage-backup-policies.md).
+Information om hur du konfigurerar säkerhets kopierings principer finns i [använda StorSimple Snapshot Manager för att skapa och hantera säkerhets kopierings principer](storsimple-snapshot-manager-manage-backup-policies.md).
 
-### <a name="backup-job-monitoring-and-management"></a>Säkerhetskopieringsjobbet övervakning och hantering
-Du kan använda StorSimple Snapshot Manager för att övervaka och hantera kommande, schemalagda och slutförda jobb. Dessutom ger StorSimple Snapshot Manager en katalog med upp till 64 slutförda säkerhetskopieringar. Du kan använda katalogen för att hitta och återställa volymer eller enskilda filer. 
+### <a name="backup-job-monitoring-and-management"></a>Övervakning och hantering av säkerhets kopierings jobb
+Du kan använda StorSimple-Snapshot Manager för att övervaka och hantera kommande, schemalagda och slutförda säkerhets kopierings jobb. Dessutom tillhandahåller StorSimple Snapshot Manager en katalog med upp till 64 slutförda säkerhets kopieringar. Du kan använda katalogen för att hitta och återställa volymer eller enskilda filer. 
 
-Gå till information om hur du övervakar säkerhetskopieringsjobb [Använd StorSimple Snapshot Manager för att visa och hantera säkerhetskopieringsjobb](storsimple-snapshot-manager-manage-backup-jobs.md).
+Information om övervakning av säkerhets kopierings jobb finns i [använda StorSimple Snapshot Manager för att visa och hantera säkerhets kopierings jobb](storsimple-snapshot-manager-manage-backup-jobs.md).
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer om [med StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
-* Ladda ned [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
+* Lär dig mer om hur du [använder StorSimple Snapshot Manager för att administrera din StorSimple-lösning](storsimple-snapshot-manager-admin.md).
+* Hämta [StorSimple Snapshot Manager](https://www.microsoft.com/download/details.aspx?id=44220).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: d052226470042d374544de0b7e1ced4ca0f48a14
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 376d7c1a9d2fe2ebce857362fd216e2047eb1f7b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564158"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934337"
 ---
 # <a name="security-control-network-security"></a>Säkerhets kontroll: nätverks säkerhet
 
@@ -27,9 +27,11 @@ Nätverks säkerhets rekommendationer fokusera på att ange vilka nätverks prot
 
 Se till att alla distributioner av Virtual Network undernät har en nätverks säkerhets grupp som tillämpas med nätverks åtkomst kontroller som är specifika för programmets betrodda portar och källor. Använd Azure-tjänster med privat länk aktiverat, distribuera tjänsten i ditt VNet eller Anslut privat med privata slut punkter. Information om tjänstspecifika krav finns i säkerhets rekommendationer för den aktuella tjänsten.
 
-Om du har ett speciellt användnings fall kan du uppfylla kraven genom att implementera Azure-brandväggen.
+Om du har ett speciellt användnings fall kan krav uppfyllas genom att implementera Azure-brandväggen.
 
-Allmän information om privat länk: https://docs.microsoft.com/azure/private-link/private-link-overview
+Allmän information om privat länk:
+
+https://docs.microsoft.com/azure/private-link/private-link-overview
 
 Så här skapar du en Virtual Network:
 
@@ -97,11 +99,11 @@ Förstå Azure Security Center integrerad Hot information:
 
 https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
-Förstå Azure Security Center anpassad nätverks härdning
+Förstå Azure Security Center anpassad nätverks härdning:
 
 https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening
 
-Förstå Azure Security Center just-in-Time-nätverk Access Control
+Förstå Azure Security Center just-in-Time-nätverk Access Control:
 
 https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
@@ -113,9 +115,13 @@ https://docs.microsoft.com/azure/security-center/security-center-just-in-time
 
 Registrera NSG Flow-loggar i ett lagrings konto för att generera flödes poster. Om det behövs för att undersöka avvikande aktivitet aktiverar du Network Watcher paket fångst.
 
-Så här aktiverar du NSG Flow-loggar: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+Så här aktiverar du NSG Flow-loggar:
 
-Så här aktiverar du Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+
+Så här aktiverar du Network Watcher:
+
+https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ## <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1,6: Distribuera Network-baserad intrångs identifiering/intrångs skydd system (ID/IP-adresser)
 
@@ -137,11 +143,17 @@ Konfigurera aviseringar med Azure Firewall: https://docs.microsoft.com/azure/fir
 
 Distribuera Azure Application Gateway för webb program med HTTPS/SSL aktiverat för betrodda certifikat.
 
-Så här distribuerar du Application Gateway: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+Så här distribuerar du Application Gateway:
 
-Så här konfigurerar du Application Gateway att använda HTTPS: https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+https://docs.microsoft.com/azure/application-gateway/quick-create-portal
 
-Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway: https://docs.microsoft.com/azure/application-gateway/overview
+Så här konfigurerar du Application Gateway att använda HTTPS:
+
+https://docs.microsoft.com/azure/application-gateway/create-ssl-portal
+
+Förstå belastnings utjämning för Layer 7 med Azure Web Application gateways:
+
+https://docs.microsoft.com/azure/application-gateway/overview
 
 ## <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1,8: minimera komplexitet och administrativa kostnader för nätverks säkerhets regler
 
@@ -149,9 +161,11 @@ Förstå belastnings utjämning för Layer 7 med Azure Web Application Gateway: 
 |--|--|--|
 | 1.8 | 1.5 | Kund |
 
-Använd Virtual Network Service tag-&nbsp;för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. API Management) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
+Använd Virtual Network Service-taggar för att definiera nätverks åtkomst kontroller i nätverks säkerhets grupper eller Azure-brandvägg. Du kan använda tjänsttaggar i stället för specifika IP-adresser när du skapar säkerhetsregler. Genom att ange service tag-namnet (t. ex. API Management) i lämpligt käll-eller mål fält för en regel kan du tillåta eller neka trafiken för motsvarande tjänst. Microsoft hanterar de adressprefix som omfattas av tjänst tag gen och uppdaterar automatiskt tjänst tag gen när adresser ändras.
 
-Förstå och använda service märken: https://docs.microsoft.com/azure/virtual-network/service-tags-overview
+Förstå och använda service märken:
+
+https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ## <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1,9: underhåll standardkonfigurationer för nätverks enheter
 
@@ -161,7 +175,7 @@ Förstå och använda service märken: https://docs.microsoft.com/azure/virtual-
 
 Definiera och implementera standardinställda säkerhetskonfigurationer för nätverks resurser med Azure Policy.
 
-Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, RBAC-kontroller och principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och miljöer och finjustera kontroll och hantering genom versions hantering.
+Du kan också använda Azure-ritningar för att förenkla storskaliga Azure-distributioner genom att paketera viktiga miljö artefakter, till exempel Azure Resource Manager mallar, RBAC-kontroller och principer, i en enda skiss definition. Du kan använda skissen för nya prenumerationer och finjustera kontroll och hantering genom versions hantering.
 
 Så här konfigurerar och hanterar du Azure Policy:
 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 108294e3f125da9fb009eb0a85585dab026c8d01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925185"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75933326"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions värme utlösare
 
@@ -30,7 +30,7 @@ Den här artikeln förklarar hur du arbetar med uppvärmnings-utlösaren i Azure
 
 ## <a name="trigger"></a>Utlösare
 
-Med uppvärmnings-utlösaren kan du definiera en funktion som ska köras på en instans när den läggs till i appen som körs. Du kan använda en uppvärmnings-funktion för att öppna anslutningar, läsa in beroenden eller köra någon annan anpassad logik innan appen tar emot trafik. 
+Med uppvärmnings-utlösaren kan du definiera en funktion som ska köras på en ny instans när den läggs till i appen som körs. Du kan använda en uppvärmnings-funktion för att öppna anslutningar, läsa in beroenden eller köra någon annan anpassad logik innan appen tar emot trafik. 
 
 Uppvärmnings-utlösaren är avsedd att skapa delade beroenden som kommer att användas av andra funktioner i din app. [Se exempel på delade beroenden här](./manage-connections.md#client-code-examples).
 

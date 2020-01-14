@@ -1,19 +1,19 @@
 ---
 title: Check lista för att skapa SaaS – kommersiell marknads plats för Azure
 description: Den information som du kan ange i SaaS för att skapa erbjudandet. – Kommersiell marknads plats för Azure
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 1643a1e309ecc2bcfc440e3553fcffef54cfb038
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8b01f15673f68bcc3fb0b205b9dd85a276c9b972
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824631"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930308"
 ---
 # <a name="saas-offer-creation-checklist"></a>Checklista för skapande av SaaS-erbjudande
 
@@ -67,7 +67,7 @@ På sidan egenskaper definierar du de kategorier och branscher som används för
 
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------|  
-| Kategori och under kategori | Krävs 1 och max 3. Standard: inget har valts. |
+| Kategori och underkategori | Krävs 1 och max 3. Standard: inget har valts. |
 | Branscher och under branscher | Valfri. högst 2 L1-branscher och högst 2 under branscher inom varje L1-bransch, standard: ingen vald |
 | Appversion  | Valfri. Standard: ingen. |
 | Använd standard kontrakt  | Valfri. Standard: inte valt.  | |
@@ -111,7 +111,7 @@ På sidan teknisk konfiguration anger du de tekniska uppgifter som används av M
 | :---------------- | :-----------| 
 | URL för landnings sida | Krävs om du säljer via Microsoft. |
 | Anslutning-webhook | Krävs om du säljer via Microsoft. |
-| ID för Azure AD-klient | Krävs om du säljer via Microsoft. |
+| Azure AD-klient-ID | Krävs om du säljer via Microsoft. |
 | ID för Azure AD-App | Krävs om du säljer via Microsoft. |
 
 ## <a name="plan-identity-modal"></a>Planera identitet, modal
@@ -159,7 +159,7 @@ Endast tillgängligt om du väljer att erbjuda en testen het för ditt erbjudand
 
 | **Fält namn**    | **Anteckningar**   | 
 | :---------------- | :-----------| 
-| Kommentarer för certifiering  | Valfri. |
+| Information om certifiering  | Valfri. |
 
 ## <a name="next-steps"></a>Nästa steg
 

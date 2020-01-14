@@ -2,19 +2,19 @@
 title: Vanliga problem vid skapande av VHD (FAQ) för Azure Marketplace
 description: Vanliga frågor och svar om att skapa virtuella hård diskar och relaterade problem.
 services: Azure Marketplace
-author: HannibalSII
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
-ms.author: hascipio
+ms.author: evansma
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 152a2f6fda081b2612197cc4848207b336adf8dc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826621"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934267"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>Vanliga problem vid skapande av virtuell hård disk (FAQ)
 
@@ -73,7 +73,7 @@ Följande artikel beskriver hur du använder tillägget för anpassat skript med
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Är 32-bitars program eller tjänster som stöds på Azure Marketplace?
 
-I allmänhet är nej.  De operativ system och standard tjänster som stöds för virtuella Azure-datorer är alla 64-bitars.  Men från en teknisk synpunkt har de flesta 64-bitars operativ system stöd för att köra 32-bitars versioner av program för bakåtkompatibilitet.  Användning av 32-bitars program som en del av din VM-lösning stöds dock inte *och rekommenderas därför inte.*  Kompilera i stället ditt program som ett 64-bitars projekt.
+Nej. I allmänhet inte.  De operativ system och standard tjänster som stöds för virtuella Azure-datorer är alla 64-bitars.  Men från en teknisk synpunkt har de flesta 64-bitars operativ system stöd för att köra 32-bitars versioner av program för bakåtkompatibilitet.  Användning av 32-bitars program som en del av din VM-lösning stöds dock inte *och rekommenderas därför inte.*  Kompilera i stället ditt program som ett 64-bitars projekt.
 
 Mer information finns i följande artiklar:
 - [Köra 32-bitars program](https://docs.microsoft.com/windows/desktop/WinProg64/running-32-bit-applications)

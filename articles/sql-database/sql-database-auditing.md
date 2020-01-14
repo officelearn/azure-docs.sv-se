@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 0266c08052cd3db7d9081d6b617da94703b9ab77
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896327"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931937"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -88,7 +88,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 5. **Ny** – nu har du flera alternativ för att konfigurera var gransknings loggar ska skrivas. Du kan skriva loggar till ett Azure Storage-konto till en Log Analytics arbets yta för användning genom att Azure Monitor loggar eller till Event Hub för användning med Event Hub. Du kan konfigurera valfri kombination av dessa alternativ och gransknings loggarna skrivs till var och en.
   
   > [!NOTE]
-   >Kunden vill konfigurera ett oåterkalleligt logg Arkiv för deras server-eller databas nivå gransknings händelser bör följa de [instruktioner som tillhandahålls av Azure Storage] (https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage)
+   >Kunden vill konfigurera ett oåterkalleligt logg Arkiv för gransknings händelser på Server-eller databas nivå genom att följa [anvisningarna som anges i Azure Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes)
   
   > [!WARNING]
    > Om du aktiverar granskning till Log Analytics debiteras kostnaden baserat på inmatnings taxan. Var medveten om den associerade kostnaden med hjälp av det här [alternativet](https://azure.microsoft.com/pricing/details/monitor/)eller Överväg att lagra gransknings loggarna i ett Azure Storage-konto.

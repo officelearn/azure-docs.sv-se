@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: df5dbfc9c86294c7ec046d3a02832192bf67b4ce
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 555596ba1040fcbd5c9131869fd275d749e0d734
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747084"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934029"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -148,7 +148,6 @@ HDInsight innehåller skript för att installera följande komponenter i HDInsig
 | --- | --- |
 | Lägg till ett Azure Storage konto |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Se [lägga till ytterligare lagrings konton i HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installera Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Se [Installera och använda nyans på HDInsight Hadoop-kluster](hdinsight-hadoop-hue-linux.md). |
-| Installera Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Se [installera Apache Giraph på HDInsight Hadoop-kluster](hdinsight-hadoop-giraph-install-linux.md). |
 | Förhandsladda Hive-bibliotek |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Se [Lägg till anpassade Apache Hive-bibliotek när du skapar ett HDInsight-kluster](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Använd en skript åtgärd när klustret skapas
@@ -221,7 +220,7 @@ Det kan ta flera minuter innan klustret skapas.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Använd en skript åtgärd när du skapar kluster från HDInsight .NET SDK
 
-HDInsight .NET SDK innehåller klient bibliotek som gör det enklare att arbeta med HDInsight från ett .NET-program. Ett kod exempel finns i [skapa Linux-baserade kluster i HDInsight med hjälp av .NET SDK](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action).
+HDInsight .NET SDK innehåller klient bibliotek som gör det enklare att arbeta med HDInsight från ett .NET-program. Ett kod exempel finns i [skript åtgärder](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#script-actions).
 
 ## <a name="apply-a-script-action-to-a-running-cluster"></a>Tillämpa en skript åtgärd på ett kluster som körs
 
@@ -507,7 +506,6 @@ Det finns två undantag:
 ## <a name="next-steps"></a>Nästa steg
 
 * [Utveckla skript åtgärds skript för HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Installera och använda Apache Giraph i HDInsight-kluster](hdinsight-hadoop-giraph-install-linux.md)
 * [Lägg till ytterligare lagrings utrymme i ett HDInsight-kluster](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/cluster-provisioning-states.png "Steg när klustret skapas"

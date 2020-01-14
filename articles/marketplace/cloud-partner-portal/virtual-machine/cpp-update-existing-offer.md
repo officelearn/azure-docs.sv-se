@@ -2,18 +2,18 @@
 title: Uppdatera ett befintligt VM-erbjudande på Azure Marketplace
 description: Förklarar hur du uppdaterar ett befintligt VM-erbjudande på Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: ansud
-ms.openlocfilehash: 5cbee909b4bd6353ad8fbe9fcbc126dc4a245012
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.author: evansma
+ms.openlocfilehash: 1ba2abb3fbeb1d08ed780669fb94a2ef83cbfb1b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823987"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934252"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Uppdatera ett befintligt VM-erbjudande på Azure Marketplace
 
@@ -157,7 +157,7 @@ Om du har några frågor om den här ändringen kan du kontakta [supporten för 
 
 ## <a name="compare-feature"></a>Jämför funktion
 
-När du gör ändringar i ett redan publicerat erbjudande kan du utnyttja funktionen **Jämför** för att granska de ändringar som har gjorts. För att använda den här funktionen:
+När du gör ändringar i ett redan publicerat erbjudande kan du utnyttja funktionen **Jämför** för att granska de ändringar som har gjorts. Gör så här för att använda funktionen:
 
 1.  Klicka på knappen **Jämför** för ditt erbjudande när som helst i redigerings processen.
 

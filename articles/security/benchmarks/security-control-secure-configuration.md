@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 08458777d8a8c5c74ac20a63245135ffaf0a5c04
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 03564effeee36ddb3316d48329ccab8ccfce75b9
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564119"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934298"
 ---
 # <a name="security-control-secure-configuration"></a>Säkerhets kontroll: säker konfiguration
 
@@ -27,7 +27,9 @@ Upprätta, implementera och aktivt hantera (spåra, rapportera om, korrigera) s�
 
 Använd Azure Policy eller Azure Security Center för att underhålla säkerhetskonfigurationer för alla Azure-resurser.
 
-Så här konfigurerar och hanterar du Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Så här konfigurerar och hanterar du Azure Policy:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 ## <a name="72-establish-secure-operating-system-configurations"></a>7,2: upprätta säkra konfigurationer för operativ system
 
@@ -85,7 +87,7 @@ https://docs.microsoft.com/azure/virtual-machines/extensions/dsc-overview
 |--|--|--|
 | 7.5 | 5.3 | Kund |
 
-Om du använder anpassade definitioner för Azure-principer använder du Azure Azure DevOps eller Azure databaser för att lagra och hantera din kod på ett säkert sätt.
+Om du använder anpassade definitioner för Azure-principer använder du Azure DevOps eller Azure databaser för att lagra och hantera din kod på ett säkert sätt.
 
 Så här lagrar du kod i Azure DevOps:
 
@@ -171,11 +173,17 @@ https://docs.microsoft.com/azure/security-center/security-center-container-recom
 
 Använd Hanterad tjänstidentitet tillsammans med Azure Key Vault för att förenkla och skydda hemlig hantering för dina moln program.
 
-Så här integrerar du med Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
+Så här integrerar du med Azure Managed Identities:
 
-Så här skapar du en Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Så här ger Key Vault autentisering med en hanterad identitet: https://docs.microsoft.com/azure/key-vault/managed-identity
+Så här skapar du en Key Vault:
+
+https://docs.microsoft.com/azure/key-vault/quick-create-portal
+
+Så här ger Key Vault autentisering med en hanterad identitet:
+
+https://docs.microsoft.com/azure/key-vault/managed-identity
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7,12: hantera identiteter säkert och automatiskt
 
@@ -185,7 +193,9 @@ Så här ger Key Vault autentisering med en hanterad identitet: https://docs.mic
 
 Använd hanterade identiteter för att tillhandahålla Azure-tjänster med en automatiskt hanterad identitet i Azure AD. Med hanterade identiteter kan du autentisera till vilken tjänst som helst som stöder Azure AD-autentisering, inklusive Key Vault utan autentiseringsuppgifter i din kod.
 
-Konfigurera hanterade identiteter: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
+Så här konfigurerar du hanterade identiteter:
+
+https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
 ## <a name="713-eliminate-unintended-credential-exposure"></a>7,13: eliminera oavsiktlig exponering för autentiseringsuppgifter
 
@@ -195,7 +205,9 @@ Konfigurera hanterade identiteter: https://docs.microsoft.com/azure/active-direc
 
 Implementera autentiseringsuppgifterna för inloggning för att identifiera autentiseringsuppgifter inom koden. Den här skannern uppmuntrar också att flytta identifierade autentiseringsuppgifter till säkrare platser som Azure Key Vault. 
 
-Konfigurera inloggnings skannern: https://secdevtools.azurewebsites.net/helpcredscan.html
+Konfigurera inloggnings skannern:
+
+https://secdevtools.azurewebsites.net/helpcredscan.html
 
 ## <a name="next-steps"></a>Nästa steg
 

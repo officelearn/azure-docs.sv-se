@@ -1,18 +1,18 @@
 ---
 title: Sammanfattning för utbetalning av handels Marketplace | Azure Marketplace
 description: Sammanfattningen av utbetalningen visar information om de pengar som du har fått med erbjudandet. Du kan också se när du får betalningar och hur mycket du betalar.
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 3836e815d296456ff95f87f0592e3277503420fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427150"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75931807"
 ---
 # <a name="payout-reporting"></a>Utbetalnings rapportering
 
@@ -74,11 +74,11 @@ Till exempel om kunden köper med ett kredit kort.
 |Slut period (månad)   | 30 aug 2019 | | |
 |Fakturerings datum | 1 september 2019 | | |
 |Kund betalnings datum | 1 september 2019 | | |
-|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
+|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
 |Start för samlings period | 1 september 2019 | | |
 |Samlings period slut (maximalt 30 dagar) | 30 september 2019 | | |
-|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
-|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
+|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
+|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise Agreement (kvartals Visa/månads kunder)
 
@@ -93,7 +93,7 @@ Till exempel om kunden köper med ett kredit kort.
 |Samlings period slut (maximalt 90 dagar) | 15 Jan 2020 | | |
 |Kund betalnings datum | 30 december 2019 | | |
 |Beräkning av utbetalning | 15 Jan 2020 | | |
-|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
+|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
 
 ## <a name="transaction-history-download-export"></a>Hämta export av transaktions historik
 

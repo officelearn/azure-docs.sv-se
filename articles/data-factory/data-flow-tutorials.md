@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/08/2020
-ms.openlocfilehash: d656099f98d75b192d02d185b2ba51a90abb4efc
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3f2dcce4a3907084f8cb1b5ace1ace6ab795f85a
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778591"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75929462"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Video kurser för kartning av data flöde
 
@@ -122,3 +122,5 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 [Data maskning för känsliga data](https://www.youtube.com/watch?v=OFd4LeiTmfs)
 
 [Logiska modeller kontra fysiska modeller](http://youtu.be/K5tgzLjEE9Q)
+
+[Identifiera ändringar av käll data](http://youtu.be/CaxIlI7oXfI?hd=1)

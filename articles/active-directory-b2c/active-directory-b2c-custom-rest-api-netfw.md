@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3bea04ba077aebe9a52400a1292c5cd27c15b72e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 8bc6a9c8910c25f5fdb403e7f45c5f567f7c1224
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950926"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930665"
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrera REST API Claims-utbyten i Azure AD B2C användar resa som validering av användarindata
 
@@ -337,7 +337,9 @@ När du har lagt till det nya anspråket ser koden för den förlitande parten u
 
 ## <a name="step-7-upload-the-policy-to-your-tenant"></a>Steg 7: överför principen till din klient organisation
 
-1. I [Azure Portal](https://portal.azure.com)växlar du till [kontexten för din Azure AD B2C klient](active-directory-b2c-navigate-to-b2c-context.md)och öppnar sedan **Azure AD B2C**.
+1. I [Azure Portal](https://portal.azure.com)väljer du ikonen **katalog + prenumeration** i portalens verktygsfält och väljer sedan den katalog som innehåller Azure AD B2C-klienten.
+
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
 1. Välj **ramverk för identitets upplevelse**.
 

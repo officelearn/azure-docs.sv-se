@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 844b62f9575249c7b99672e9e67c94cea7ec9f99
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 32897994e4ef22845b1d19d6e0eb3e6b2c968c01
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931468"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930719"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Fakturerings modell för Azure Active Directory B2C
 
@@ -58,7 +58,7 @@ Så här gör du för att växla till MAU fakturering för en befintlig Azure AD
 
 MAU-baserad avläsning aktive ras så snart du, prenumerationen/resurs ägaren, bekräftar ändringen. Din månads faktura visar de enheter med autentisering som faktureras tills ändringen och nya enheter av MAU börjar med ändringen.
 
-Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Exempel:
+Användarna är inte dubbelt räknade under över gångs månaden. Unika aktiva användare som autentiseras innan ändringen debiteras per autentisering under en kalender månad. Samma användare ingår inte i MAU-beräkningen för resten av prenumerationens fakturerings period. Ett exempel:
 
 * Contoso B2C-klienten har 1 000 användare. 250 användare är aktiva under en månad. Prenumerations administratören ändras från per autentisering till månatliga aktiva användare (MAU) den 10: a i månaden.
 * Faktureringen för 1 – 10 – 10 faktureras med modellen per autentisering.
@@ -76,11 +76,11 @@ Den senaste informationen om fakturering och priser för användning för Azure 
 
 ## <a name="link-an-azure-ad-b2c-tenant-to-a-subscription"></a>Länka en Azure AD B2C-klient till en prenumeration
 
-Användnings kostnader för Azure Active Directory B2C (Azure AD B2C) faktureras till en Azure-prenumeration. När en Azure AD B2C-klient skapas måste klient organisationens administratör uttryckligen länka Azure AD B2C klient till en Azure-prenumeration.
+Användnings kostnader för Azure Active Directory B2C (Azure AD B2C) faktureras till en Azure-prenumeration. När en Azure AD B2C-klient har skapats kan måste klientadministratören uttryckligen länka Azure AD B2C-klient till en Azure-prenumeration.
 
 Prenumerations länken uppnås genom att skapa en Azure AD B2C- *resurs* i Azure-målets Azure-prenumeration. Flera Azure AD B2C-resurser kan skapas i en enda Azure-prenumeration, tillsammans med andra Azure-resurser som virtuella datorer, lagrings konton och Logic Apps. Du kan se alla resurser i en prenumeration genom att gå till den Azure Active Directory (Azure AD) som prenumerationen är associerad med.
 
-En prenumeration som är länkad till en Azure AD B2C-klient kan användas för fakturering av Azure AD B2C användning eller andra Azure-resurser, inklusive ytterligare Azure AD B2C resurser. Det kan inte användas för att lägga till andra Azure licensbaserade tjänster eller Office 365-licenser inom Azure AD B2C klient organisationen.
+En prenumeration som är länkad till en Azure AD B2C-klient kan användas för fakturering av Azure AD B2C användning eller andra Azure-resurser, inklusive ytterligare Azure AD B2C resurser. Det kan inte användas för att lägga till andra Azure-licens-baserade tjänster eller Office 365-licenser i Azure AD B2C-klient.
 
 ### <a name="prerequisites"></a>Krav
 
@@ -104,11 +104,11 @@ En prenumeration som är länkad till en Azure AD B2C-klient kan användas för 
 
 När du har slutfört de här stegen för en Azure AD B2C klient faktureras din Azure-prenumeration i enlighet med dina Azure Direct-eller Enterprise-avtal-uppgifter, om så är tillämpligt.
 
-### <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Hantera dina Azure AD B2C klient resurser
+### <a name="manage-your-azure-ad-b2c-tenant-resources"></a>Hantera dina resurser för Azure AD B2C-klient
 
 När du har skapat Azure AD B2C resursen i en Azure-prenumeration bör du se en ny resurs av typen "B2C Tenant" med dina andra Azure-resurser.
 
-Du kan använda den här resursen för att:
+Du kan använda den här resursen till:
 
 * Gå till prenumerationen för att granska fakturerings information
 * Hämta Azure AD B2C innehavarens klient-ID i GUID-format
@@ -134,7 +134,7 @@ Hanteringen av Azure AD B2C med hjälp av rollbaserad åtkomst kontroll påverka
 
 Azure AD B2C klienter kan flyttas till en annan prenumeration om käll-och mål prenumerationerna finns inom samma Azure Active Directory klient.
 
-Information om hur du flyttar Azure-resurser som din Azure AD B2C-klient till en annan prenumeration finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Information om hur du flyttar Azure-resurser som din Azure AD B2C-klient till en annan prenumeration finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Innan du börjar flytta måste du läsa hela artikeln för att kunna förstå begränsningarna och kraven för en sådan flytt. Förutom instruktioner för att flytta resurser innehåller den viktig information, till exempel en check lista för förflyttning och hur du verifierar flytt åtgärden.
 

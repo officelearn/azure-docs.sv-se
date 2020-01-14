@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Direkt autentisering – vanliga frågor och svar | Microsoft Docs'
+title: 'Azure AD Connect: direkt autentisering – vanliga frågor och svar | Microsoft Docs'
 description: Svar på vanliga frågor om Azure Active Directory direktautentisering
 services: active-directory
 keywords: Azure AD Connect direktautentisering, installera Active Directory, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
@@ -16,14 +16,14 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 06dfe1e76682d70170bfea104050b1000269c38f
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290763"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75932397"
 ---
-# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: Vanliga frågor och svar
+# <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: vanliga frågor och svar
 
 Den här artikeln behandlar vanliga frågor om Azure Active Directory (Azure AD) genom strömnings-autentisering. Fortsätt att söka efter uppdaterat innehåll.
 
@@ -44,7 +44,7 @@ Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azur
 Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direkt autentisering "alternativ-ID" som användar namn, i stället för "userPrincipalName"?
-I begränsad utsträckning stöder direktautentisering autentisering ett alternativt ID som användar namn när det konfigureras i Azure AD Connect. Som en förutsättning måste Azure AD Connect synkronisera det lokala Active Directory `UserPrincipalName` -attributet till Azure AD. Detta gör att `UserPrincipalName` den lokala AD-platsen och Azure AD blir identiska. Om du vill använda ett annat attribut för att synkronisera från lokal AD som UPN till Azure AD måste du antingen använda Password hash Sync eller AD FS. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla stöd `Alternate ID`för Office 365-program. Läs det specifika programmets dokumentations stöd.
+I begränsad utsträckning stöder direktautentisering autentisering ett alternativt ID som användar namn när det konfigureras i Azure AD Connect. Som en förutsättning måste Azure AD Connect synkronisera attributet lokalt Active Directory `UserPrincipalName` till Azure AD. Detta gör att `UserPrincipalName` på den lokala AD-miljön och Azure AD blir identiska. Om du vill använda ett annat attribut för att synkronisera från lokal AD som UPN till Azure AD måste du antingen använda Password hash Sync eller AD FS. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Alla Office 365-program stöder inte `Alternate ID`. Läs det specifika programmets dokumentations stöd.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Fungerar hash-synkronisering av lösen ord som reserv för direktautentisering?
 
@@ -66,7 +66,7 @@ För att den här funktionen ska fungera måste du ha version 1.1.750.0 eller se
 
 Om du har konfigurerat [tillbakaskrivning av lösen ord](../authentication/concept-sspr-writeback.md) för en speciell användare, och om användaren loggar in med hjälp av direktautentisering, kan de ändra eller återställa sina lösen ord. Lösen orden skrivs tillbaka till den lokala Active Directory som förväntat.
 
-Om du inte har konfigurerat tillbakaskrivning av lösen ord för en särskild användare eller om användaren inte har någon giltig Azure AD-licens tilldelad, kan användaren inte uppdatera sitt lösen ord i molnet. De kan inte uppdatera sina lösen ord, även om deras lösen ord har upphört att gälla. Användaren ser i stället det här meddelandet: "Din organisation tillåter inte att du uppdaterar ditt lösen ord på den här webbplatsen. Uppdatera den enligt den metod som organisationen rekommenderar eller be administratören om hjälp. " Användaren eller administratören måste återställa sina lösen ord i lokala Active Directory.
+Om du inte har konfigurerat tillbakaskrivning av lösen ord för en särskild användare eller om användaren inte har någon giltig Azure AD-licens tilldelad, kan användaren inte uppdatera sitt lösen ord i molnet. De kan inte uppdatera sina lösen ord, även om deras lösen ord har upphört att gälla. Användaren ser i stället det här meddelandet: "din organisation tillåter inte att du uppdaterar ditt lösen ord på den här webbplatsen. Uppdatera den enligt den metod som organisationen rekommenderar eller be administratören om hjälp. " Användaren eller administratören måste återställa sina lösen ord i lokala Active Directory.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hur skyddar direkt autentiseringen mot brute-force-angrepp för lösen ord?
 
@@ -78,7 +78,7 @@ Om du inte har konfigurerat tillbakaskrivning av lösen ord för en särskild an
 - Autentiserings agenter gör HTTP-förfrågningar via port 80 för att hämta listor över återkallade SSL-certifikat (CRL).
 
      >[!NOTE]
-     >De senaste uppdateringarna reducerade antalet portar som krävs av funktionen. Om du har äldre versioner av Azure AD Connect eller Authentication-agenten så kan dessa portar vara öppna även: 5671, 8080, 9090, 9091, 9350, 9352 och 10100-10120.
+     >De senaste uppdateringarna reducerade antalet portar som krävs av funktionen. Om du har äldre versioner av Azure AD Connect eller Authentication-agenten ska dessa portar vara öppna även: 5671, 8080, 9090, 9091, 9350, 9352 och 10100-10120.
 
 ## <a name="can-the-pass-through-authentication-agents-communicate-over-an-outbound-web-proxy-server"></a>Kan direktautentisering genom strömning kommunicera via en utgående webbproxyserver?
 
@@ -111,7 +111,7 @@ Kommunikationen mellan varje direktautentisering och Azure AD skyddas med certif
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hur gör jag för att ta bort en direktautentisering för direkt autentisering?
 
-Så länge en direktautentisering körs förblir den aktiv och hanterar ständigt användar inloggnings begär Anden. Om du vill avinstallera en autentiseringsnyckel går du till **kontroll panelen-> program-> program och funktioner** och avinstallerar både **Microsoft Azure AD Connect Authentication agent** och **Microsoft Azure AD Connect agent updateer** tilläggs.
+Så länge en direktautentisering körs förblir den aktiv och hanterar ständigt användar inloggnings begär Anden. Om du vill avinstallera en autentiseringsnyckel går du till **kontroll panelen-> program-> program och funktioner** och avinstallerar både **Microsoft Azure AD Connect Authentication agent** och **Microsoft Azure AD Connect agent Updater** -program.
 
 Om du markerar bladet direkt autentisering i [Azure Active Directory administrations Center](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du att Autentiseringstjänsten visas som **inaktiv**. Detta är _förväntat_. Autentiseringstjänsten tas automatiskt bort från listan efter några dagar.
 
@@ -134,7 +134,7 @@ Att installera flera direktautentisering för direktautentisering säkerställer
 Överväg den högsta och genomsnittliga belastningen för de inloggnings begär Anden som du förväntar dig att se på din klient. Som riktmärke kan en enda autentiserings-agent hantera 300 till 400-autentiseringar per sekund på en standard processor på 4 kärnor, 16 GB RAM-Server.
 
 Använd följande vägledning för att beräkna nätverks trafik:
-- Varje begäran har en nytto Last storlek på (0,5 K + num_of_agents) byte; t. ex. data från Azure AD till Authentication agent. Här anger "num_of_agents" antalet autentiseringsscheman som har registrerats för din klient.
+- Varje begäran har en nytto Last storlek på (0,5 K + 1 KB * num_of_agents) byte; t. ex. data från Azure AD till Authentication agent. Här anger "num_of_agents" det antal autentiseringspaket som har registrerats för din klient.
 - Varje svar har en nytto Last storlek på 1 kB byte; dvs. data från Authentication agent till Azure AD.
 
 För de flesta kunder räcker två eller tre autentiseringsscheman för hög tillgänglighet och kapacitet. Du bör installera autentiseringsprinciper nära domän kontrol Lanterna för att förbättra inloggnings fördröjningen.
@@ -160,7 +160,7 @@ Om du avinstallerar en direktautentisering från en server kan servern sluta att
 
 ## <a name="i-have-an-older-tenant-that-was-originally-setup-using-ad-fs--we-recently-migrated-to-pta-but-now-are-not-seeing-our-upn-changes-synchronizing-to-azure-ad--why-are-our-upn-changes-not-being-synchronized"></a>Jag har en äldre klient som ursprungligen konfigurerades med hjälp av AD FS.  Vi migrerade nyligen till PTA, men nu ser vi inte våra ändringar i UPN-ändringar till Azure AD.  Varför synkroniseras inte våra UPN-ändringar?
 
-S: I följande fall kanske dina lokala UPN-ändringar inte synkroniseras om:
+A: under följande omständigheter kanske dina lokala UPN-ändringar inte synkroniseras om:
 
 - Din Azure AD-klient skapades före den 15 juni 2015
 - Du förinstallerades ursprungligen med din Azure AD-klient med hjälp av AD FS för autentisering
@@ -168,7 +168,7 @@ S: I följande fall kanske dina lokala UPN-ändringar inte synkroniseras om:
 
 Detta beror på att standard beteendet för klienter som skapats före den 15 juni 2015 var att blockera ändringar i UPN.  Om du behöver avinstallera UPN-ändringar måste du köra följande PowerShell-cmdlt:  
 
-`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers-Enable $True`
+`Set-MsolDirSyncFeature -Feature SynchronizeUpnForManagedUsers -Enable $True`
 
 Innehavare som skapats efter den 15 juni 2015 har standard beteende för synkronisering av UPN-ändringar.   
 
@@ -176,12 +176,12 @@ Innehavare som skapats efter den 15 juni 2015 har standard beteende för synkron
 
 ## <a name="next-steps"></a>Nästa steg
 - [Aktuella begränsningar](how-to-connect-pta-current-limitations.md): Lär dig vilka scenarier som stöds och vilka som inte är det.
-- [Snabb start](how-to-connect-pta-quick-start.md): Kom igång med Azure AD-direktautentisering.
+- [Snabb start](how-to-connect-pta-quick-start.md): kom igång med Azure AD-direktautentisering.
 - [Migrera från AD FS till vidarekoppling](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) – en detaljerad guide för att migrera från AD FS (eller andra Federations tekniker) till vidarekoppling.
 - [Smart utelåsning](../authentication/howto-password-smart-lockout.md): Lär dig hur du konfigurerar funktionen för smart utelåsning på klienten för att skydda användar konton.
-- [Teknisk djupgående](how-to-connect-pta-how-it-works.md): Förstå hur funktionen för direkt autentisering fungerar.
+- [Teknisk djupgående](how-to-connect-pta-how-it-works.md): förstå hur funktionen för direkt autentisering fungerar.
 - [Felsöka](tshoot-connect-pass-through-authentication.md): Lär dig hur du löser vanliga problem med funktionen för direkt autentisering.
-- [Djupgående säkerhets nivå](how-to-connect-pta-security-deep-dive.md): Få djupgående teknisk information om funktionen för direkt autentisering.
-- [Azure AD sömlös SSO](how-to-connect-sso.md): Läs mer om den här kompletterande funktionen.
+- [Djupgående säkerhets](how-to-connect-pta-security-deep-dive.md)information: få djupgående teknisk information om funktionen för direkt autentisering.
+- [Azure AD sömlös SSO](how-to-connect-sso.md): Lär dig mer om den här kompletterande funktionen.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Använd Azure Active Directory-forumet för att fil nya funktions begär Anden.
 

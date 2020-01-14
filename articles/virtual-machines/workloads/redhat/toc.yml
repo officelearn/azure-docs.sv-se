@@ -1,5 +1,5 @@
 - name: Översikt
-  href: redhat-overview.md
+  href: overview.md
 - name: Red Hat Enterprise Linux-avbildningar
   items:
     - name: Red Hat Enterprise Linux-översikt
@@ -9,4 +9,4 @@
 - name: Red Hat Update Infrastructure i Azure
   href: redhat-rhui.md
 - name: Erbjudande för Red Hat Enterprise Linux BYOS-avbildning
-  href: redhat-byos.md
+  href: byos.md

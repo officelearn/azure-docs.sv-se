@@ -73,8 +73,6 @@
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md
             - name: Skapa kluster med hjälp av REST API
               href: ./hdinsight-hadoop-create-linux-clusters-curl-rest.md
-            - name: Skapa kluster med hjälp av .NET
-              href: ./hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
             - name: Fel vid skapande av kluster
               href: ./create-cluster-error-dictionary.md
               title: null
@@ -102,8 +100,6 @@
               href: hdinsight-hadoop-script-actions-linux.md
             - name: Lägga till Apache Hive-bibliotek
               href: hdinsight-hadoop-add-hive-libraries.md
-            - name: Använda Apache Giraph
-              href: hdinsight-hadoop-giraph-install-linux.md
             - name: Använd Hue
               href: hdinsight-hadoop-hue-linux.md
             - name: Skapa HDInsight-program
@@ -330,8 +326,6 @@
                   href: ./spark/apache-spark-machine-learning-mllib-ipython.md
                 - name: Analysera webbplatsloggar
                   href: ./spark/apache-spark-custom-library-website-log-analysis.md
-                - name: Använda Caffe för djupinlärning
-                  href: ./spark/apache-spark-deep-learning-caffe.md
                 - name: Använda med Microsoft Cognitive Toolkit
                   href: ./spark/apache-spark-microsoft-cognitive-toolkit.md
                 - name: Skapa en Apache Spark-maskininlärningspipeline

@@ -7,7 +7,17 @@
 - name: Dokumentation om VM-tillägg
   href: ./extensions/overview.md
 - name: Arbetsbelastningar
-  href: ./workloads/workloads.md
+  items:
+    - name: Red Hat
+      href: /redhat/redhat-overview.md
+    - name: Beräkning med höga prestanda
+      href: /hpc/overview.md
+    - name: SAP
+      href: /sap/get-started.md
+    - name: Oracle
+      href: /oracle/oracle-considerations.md
+    - name: Byta värd för stordator
+      href: /mainframe-rehosting/overview.md
 - name: Klassiska distributioner
   items:
     - name: Virtuella Linux-datorer med klassisk distribution

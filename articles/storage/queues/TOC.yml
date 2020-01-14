@@ -142,20 +142,20 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
                 - name: Använda Azure Storage REST API
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-            - name: Hantera Azure Storage-kryptering
+        - name: Hantera Azure Storage-kryptering
+          items:
+            - name: Skapa ett konto som har stöd för kundhanterade nycklar
+              href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Konfigurera kundhanterade nycklar
               items:
-                - name: Skapa ett konto som har stöd för kundhanterade nycklar
-                  href: ../common/account-encryption-key-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Konfigurera kundhanterade nycklar
-                  items:
-                    - name: Portalen
-                      href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                    - name: PowerShell
-                      href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                    - name: Azure CLI
-                      href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-                - name: Kontrollera krypteringsnyckelmodellen för kontot
-                  href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Portalen
+                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: PowerShell
+                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+                - name: Azure CLI
+                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+            - name: Kontrollera krypteringsnyckelmodellen för kontot
+              href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Konfigurera kryptering på klientsidan
           items:
             - name: .NET

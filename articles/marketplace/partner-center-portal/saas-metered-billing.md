@@ -1,19 +1,19 @@
 ---
 title: Avgiftsbelagd fakturering med Marketplace-avläsning | Azure Marketplace
 description: 'Den här dokumentationen är en guide för ISV: er som publicerar SaaS-erbjudanden med flexibla fakturerings modeller.'
-author: qianw211
+author: MaggiePucciEvans
 manager: evansma
-ms.author: v-qiwe
+ms.author: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f1b60831e08383ee455cd3afbfbc21ed27445ffc
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827934"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75934175"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Avgiftsbelagd fakturering med Marketplace-avläsning
 
@@ -51,7 +51,7 @@ Contoso är till exempel en utgivare med en SaaS-tjänst som heter Contoso Notif
     * Skicka 10000 e-postmeddelanden och 1000 texter i $0/månad
     * Utöver 10000 e-postmeddelanden betalar du $1 för varje 100 e-post
     * Utöver 1000-texterna betalar du $0,02 för varje text
-* Premiumplan
+* Premium-plan
     * Skicka 50000 e-postmeddelanden och 10000 texter i $350/månad
     * Utöver 50000 e-postmeddelanden betalar du $0,5 för varje 100 e-post
     * Utöver 10000-texterna betalar du $0,01 för varje text
@@ -73,7 +73,7 @@ Fakturerings dimensioner delas i alla planer för ett erbjudande.  Vissa attribu
 
 De attribut som definierar själva dimensionen delas i alla planer för ett erbjudande.  Innan du publicerar erbjudandet påverkar en ändring av dessa attribut från kontexten för varje plan dimensions definitionen för alla planer.  När du har publicerat erbjudandet kan dessa attribut inte längre redige ras.  Dessa attribut är:
 
-* Beteckning
+* identifierare
 * Namn
 * Måttenhet
 
@@ -103,7 +103,7 @@ Eftersom en dimension som används med Marketplace-mätnings tjänsten represent
   
 När ett erbjudande publiceras med en dimension kan informationen om erbjudande nivå för den dimensionen inte längre ändras:
 
-* Beteckning
+* identifierare
 * Namn
 * Måttenhet
 

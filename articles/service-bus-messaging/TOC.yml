@@ -112,7 +112,7 @@
                   href: authenticate-application.md
         - name: Inbyggda säkerhetskontroller
           href: service-bus-messaging-security-controls.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skapa ett namnområde
       href: service-bus-create-namespace-portal.md
@@ -205,7 +205,7 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Skydda
       items:
-        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data (förhandsversion)
+        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data
           href: configure-customer-managed-key.md
     - name: Felsöka
       items:

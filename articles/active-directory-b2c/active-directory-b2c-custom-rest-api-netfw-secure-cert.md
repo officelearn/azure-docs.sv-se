@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 0201c0947c2f6052182721294e8972e29479825d
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949865"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75930647"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Skydda din RESTful-tjänst genom att använda klient certifikat
 
@@ -100,17 +100,19 @@ Om du vill ha stöd för autentisering av klient certifikat i den anpassade prin
 
 ## <a name="step-4-upload-the-policy-to-your-tenant"></a>Steg 4: överför principen till din klient organisation
 
-1. I [Azure Portal](https://portal.azure.com)växlar du till [kontexten för din Azure AD B2C klient](active-directory-b2c-navigate-to-b2c-context.md)och väljer sedan **Azure AD B2C**.
+1. I [Azure Portal](https://portal.azure.com)väljer du ikonen **katalog + prenumeration** i portalens verktygsfält och väljer sedan den katalog som innehåller Azure AD B2C-klienten.
 
-2. Välj **ramverk för identitets upplevelse**.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 
-3. Välj **alla principer**.
+1. Välj **ramverk för identitets upplevelse**.
 
-4. Välj **Ladda upp princip**.
+1. Välj **alla principer**.
 
-5. Markera kryss rutan **Skriv över principen om den finns** .
+1. Välj **Ladda upp princip**.
 
-6. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
+1. Markera kryss rutan **Skriv över principen om den finns** .
+
+1. Ladda upp filen *TrustFrameworkExtensions. XML* och kontrol lera att den klarar verifieringen.
 
 ## <a name="step-5-test-the-custom-policy-by-using-run-now"></a>Steg 5: testa den anpassade principen med hjälp av kör nu
 1. Öppna **Azure AD B2C inställningar**och välj sedan **Identity Experience Framework**.

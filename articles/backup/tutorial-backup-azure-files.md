@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera Azure Files fil resurser
 description: I den här självstudien får du lära dig hur du använder Azure Portal för att konfigurera ett Recovery Services-valv och säkerhetskopiera Azure-filresurser.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171875"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921635"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Säkerhetskopiera Azure-filresurser i Azure Portal
 
@@ -28,7 +28,6 @@ Innan du kan säkerhetskopiera en Azure-filresurs bör du kontrollera att den fi
 
 Säkerhetskopiering för Azure-filresurser finns i förhandsversion. Azure-filresurser i både general-purpose v1- och general-purpose v2-lagringskonton stöds. Följande säkerhetskopieringsscenarier stöds inte för Azure-filresurser:
 
-* Du kan inte skydda av Azure-filresurser i lagringskonton som har virtuella nätverk eller brandvägg aktiverade.
 * Det finns ingen tillgänglig CLI som skyddar Azure Files med hjälp av Azure Backup.
 * Det maximala antalet schemalagda säkerhetskopieringar per dag är en.
 * Det maximala antalet säkerhetskopieringar på begäran per dag är fyra.

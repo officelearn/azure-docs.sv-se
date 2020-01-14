@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230487"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920668"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
@@ -83,7 +83,7 @@ func kubernetes remove --namespace keda
 
 KEDA har stöd för följande Azure Function-utlösare:
 
-* [Azure Storage köer](functions-bindings-storage-queue.md)
+* [Azure Storage-köer](functions-bindings-storage-queue.md)
 * [Azure Service Bus köer](functions-bindings-service-bus.md)
 * [Azure Event/IoT-hubbar](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
@@ -93,7 +93,7 @@ KEDA har stöd för följande Azure Function-utlösare:
 
 Du kan använda Azure Functions som exponerar HTTP-utlösare, men KEDA inte direkt hanterar dem.  Azure Functions Core Tools installerar ett relaterat projekt, Osiris, som möjliggör skalning av HTTP-slutpunkter från 0 till 1.  Skalning från 1 till *n* förlitar sig på traditionella skalnings principer för Kubernetes.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 Mer information finns i följande resurser:
 
 * [Skapa en funktion med en anpassad avbildning](functions-create-function-linux-custom-image.md)

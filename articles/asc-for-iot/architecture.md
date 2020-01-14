@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: a013d4cfcfddc709e60e91adf57bc27c98934a96
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 2e55f98f8c7b6ddbc21f7ea8633467461ea5be29
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596550"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922168"
 ---
-# <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center för IoT-arkitektur
+# <a name="azure-security-center-for-iot-architecture"></a>Arkitektur för Azure Security Center for IoT
 
 I den här artikeln beskrivs den funktionella system arkitekturen i Azure Security Center för IoT-lösningen. 
 
@@ -36,15 +36,15 @@ Azure Security Center for IoT består av följande komponenter:
  
 ### <a name="azure-security-center-for-iot-workflows"></a>Azure Security Center för IoT-arbetsflöden
 
-Azure Security Center for IoT fungerar i ett av två funktions arbets flöden: Inbyggd och förbättrad  
+Azure Security Center for IoT fungerar i ett av två funktions arbets flöden: inbyggda och förbättrade  
 
-### <a name="built-in"></a>Inbyggt
-I det **inbyggda** läget är Azure Security Center for IoT aktiverat när du väljer att aktivera **säkerhets** alternativet i IoT Hub. Vi erbjuder real tids övervakning, rekommendationer och aviseringar, inbyggt läge erbjuder enkel och detaljerad enhets synlighet och oöverträffad säkerhet. Det krävs ingen agent installation på några enheter och det går inte att använda avancerad analys av loggade aktiviteter för att analysera och skydda fält enheten. 
+### <a name="built-in"></a>Inbyggd
+I det **inbyggda** läget är Azure Security Center for IoT aktiverat när du väljer att aktivera **säkerhets** alternativet i IoT Hub. Vi erbjuder övervakning i real tid, rekommendationer och aviseringar, det inbyggda läget erbjuder en synlighet för enskilda steg och en oöverträffad säkerhet. Det krävs ingen agent installation på några enheter och det går inte att använda avancerad analys av loggade aktiviteter för att analysera och skydda fält enheten. 
 
 ### <a name="enhanced"></a>Optimerad 
 I **utökat** läge, när du aktiverar **säkerhets** alternativet i din IoT Hub och installerat Azure Security Center för IoT-enhetens agenter på dina enheter, samlar agenterna samman, sammanställer och analyserar säkerhets händelser från dina enheter. Rå säkerhets händelser kan omfatta IP-anslutningar, process skapande, användar inloggningar och annan säkerhetsrelaterad information. Azure Security Center för IoT-enhets agenter hanterar också händelse agg regering för att undvika hög nätverks data flöde. Agenterna är mycket anpassningsbara, så att du kan använda dem för olika uppgifter, t. ex. genom att bara skicka viktig information till det snabbaste service avtalet, eller för att samla in omfattande säkerhets information och kontext i större segment, vilket kan undvika högre tjänste kostnader.
 
-![Azure Security Center för IoT-arkitektur](./media/architecture/azure-iot-security-architecture.png)
+![Arkitektur för Azure Security Center for IoT](./media/architecture/azure-iot-security-architecture.png)
  
 Enhets agenter och andra program använder Azure-funktionen för att **Skicka säkerhets meddelande-SDK** för att skicka säkerhets information till Azure IoT Hub. IoT Hub hämtar informationen och vidarebefordrar den till Azure Security Center för IoT-tjänsten.
 
@@ -65,4 +65,4 @@ I den här artikeln har du lärt dig om den grundläggande arkitekturen och arbe
 - [Konfigurera din lösning](quickstart-configure-your-solution.md)
 - [Aktivera säkerhet i IoT Hub](quickstart-onboard-iot-hub.md)
 - [Vanliga frågor och svar om Azure Security Center för IoT](resources-frequently-asked-questions.md)
-- [Azure Security Center för IoT-säkerhetsaviseringar](concept-security-alerts.md)
+- [Azure Security Center for IoT-säkerhetsaviseringar](concept-security-alerts.md)

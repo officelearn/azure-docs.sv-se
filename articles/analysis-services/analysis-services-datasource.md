@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b08a124ade6e2db8ca27ef61c7f5a6b3fe839885
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442768"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922294"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -120,7 +120,9 @@ För moln data Källor:
 
 ## <a name="oauth-credentials"></a>Autentiseringsuppgifter för OAuth
 
-För tabell modeller på nivån 1400 och högre kompatibilitetsnivå Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 och SharePoint-listan stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
+För tabell modeller på nivån 1400 och högre med i-minnes läge, Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 och SharePoint-listan stöder OAuth-autentiseringsuppgifter. Azure Analysis Services hanterar token-uppdatering för OAuth-datakällor för att undvika tids gränser för tids krävande uppdaterings åtgärder. Ange autentiseringsuppgifter genom att använda SSMS för att generera giltiga tokens.
+
+Direct Query-läget stöds inte med OAuth-autentiseringsuppgifter.
 
 ## <a name="next-steps"></a>Nästa steg
 [Lokal gateway](analysis-services-gateway.md)   

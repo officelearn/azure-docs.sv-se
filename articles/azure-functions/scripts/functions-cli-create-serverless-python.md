@@ -4,12 +4,12 @@ description: Skapa en server lös python-Function-app med hjälp av Azure CLI
 ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 11/23/2019
-ms.openlocfilehash: d077c775ec6a182260d5ab75c4562acca9f9cc4c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c55934c42db6bb7248db107b97fb8998163fae8b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74536262"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922630"
 ---
 # <a name="create-a-serverless-python-function-app-using-azure-cli"></a>Skapa en server lös python-Function-app med Azure CLI
 
@@ -26,9 +26,9 @@ Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI v
 
 ## <a name="sample-script"></a>Exempelskript
 
-Det här skriptet skapar en Azure Function-app med hjälp av [förbrukningsplanen](../functions-scale.md#consumption-plan).
+Det här skriptet skapar en Azure Function-app med hjälp av [förbruknings planen](../functions-scale.md#consumption-plan).
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a consumption plan")]
+[!code-azurecli-interactive[main](../../../cli_scripts/azure-functions/create-function-app-consumption-python/create-function-app-consumption-python.sh "Create an Azure Function on a Consumption plan")]
 
 [!INCLUDE [cli-script-clean-up](../../../includes/cli-script-clean-up.md)]
 

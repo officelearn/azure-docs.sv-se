@@ -10,12 +10,12 @@ ms.date: 01/10/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c501dda60b65f78bb82649bed6bca4b031ad8a6b
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 39568d65978592b360512db2e556cfa6b59760b6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913165"
+ms.locfileid: "75921208"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Skapa ett konto som stöder Kundhanterade nycklar för tabeller och köer
 
@@ -75,7 +75,7 @@ az provider register --namespace 'Microsoft.Storage'
 
 Du måste konfigurera ett nytt lagrings konto för att kunna använda kontots krypterings nyckel för köer och tabeller vid den tidpunkt då du skapar lagrings kontot. Det går inte att ändra omfånget för krypterings nyckeln när kontot har skapats.
 
-Lagrings kontot måste vara av typen General-Purpose v2 och måste konfigureras för lokalt redundant lagring (LRS). Du kan skapa lagrings kontot och konfigurera det så att det förlitar sig på konto krypterings nyckeln med hjälp av antingen Azure CLI eller en Azure Resource Manager mall.
+Lagrings kontot måste vara av typen General-Purpose v2. Du kan skapa lagrings kontot och konfigurera det så att det förlitar sig på konto krypterings nyckeln med hjälp av antingen Azure CLI eller en Azure Resource Manager mall.
 
 > [!NOTE]
 > Det går bara att konfigurera kö-och tabell lagring för att kryptera data med konto krypterings nyckeln när lagrings kontot skapas. Blob Storage och Azure Files alltid använda kontots krypterings nyckel för att kryptera data.

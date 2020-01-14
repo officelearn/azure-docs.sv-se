@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: a0731a66af32b45215145c1d4f4404eb008cf897
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d70b05842fc7f251af6aefd743f064c037f63b7b
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75410050"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922361"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid-bindningar
 
@@ -27,9 +27,6 @@ SendGrid-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. SendGrid](
 ## <a name="packages---functions-2x-and-higher"></a>Paket-funktioner 2. x och högre
 
 SendGrid-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) lagringsplatsen.
-
-> [!NOTE]
-> Version 2. x och högre skapar inte ämnet eller prenumerationen som kon figurer ATS i `ServiceBusTrigger`-instansen. De här versionerna är baserade på [Microsoft. Azure. Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) , som inte hanterar hantering av köer.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -351,10 +348,10 @@ I följande tabell visas de egenskaper för bindnings konfiguration som är till
 
 | *Function. JSON* -egenskap | Attribut/antecknings egenskap | Beskrivning | Valfritt |
 |--------------------------|-------------------------------|-------------|----------|
-| typ || Måste anges till `sendGrid`.| Inga |
-| riktning || Måste anges till `out`.| Inga |
-| namn || Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | Inga |
-| apiKey | ApiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| Inga |
+| typ |Ej tillämpligt| Måste anges till `sendGrid`.| Inga |
+| riktning |Ej tillämpligt| Måste anges till `out`.| Inga |
+| namn |Ej tillämpligt| Variabel namnet som används i funktions koden för begäran eller begär ande texten. Det här värdet är `$return` när det bara finns ett retur värde. | Inga |
+| apiKey | apiKey | Namnet på en app-inställning som innehåller din API-nyckel. Om den inte anges är standardinställnings namnet för appen *AzureWebJobsSendGridApiKey*.| Inga |
 | till| Till | Mottagarens e-postadress. | Ja |
 | från| Från | Avsändarens e-postadress. |  Ja |
 | subject| Ämne | E-postmeddelandets ämne. | Ja |

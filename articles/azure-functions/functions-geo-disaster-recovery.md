@@ -6,12 +6,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: db072d90c39b3856127925306cb1407c5837a0bb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bdeff0194bda620250481a215c145b1ec3b2207e
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226961"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920783"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>Azure Functions geo-haveri beredskap
 
@@ -34,7 +34,7 @@ För att kunna uppnå aktiva/aktiva distributioner av funktioner krävs en del k
 
 ## <a name="activeactive-for-non-https-functions"></a>Aktiva/aktiva för icke-HTTPS-funktioner
 
-Du kan fortfarande nå aktiva/aktiva distributioner för icke-HTTPS-funktioner.  Du måste dock överväga hur de två regionerna ska interagera eller koordineras med varandra.  Om du har distribuerat samma Function-app i två regioner, som varje utlöses i samma Service Bus kö, agerar de som konkurrerande konsumenter om att köa kön.  Det innebär att varje meddelande bara bearbetas av en av instanserna, men det innebär också att det fortfarande finns en enskild felpunkt på den enskilda Service Bus-bussen.  Om du distribuerar två Service Bus-köer (en i en primär region, en i en sekundär region) och de två Function-appar som pekar på sin regions Queue, kommer utmaningen nu att visas i hur Queue meddelanden distribueras mellan de två regionerna.  Det innebär ofta att varje utgivare försöker publicera ett meddelande till *båda* regionerna och varje meddelande bearbetas av båda aktiva funktions appar.  Även om detta skapar ett aktivt/aktivt mönster, skapar den andra utmaningar kring duplicering av beräkning och när eller hur data konsol IDE ras.  Av dessa skäl rekommenderar vi att icke-HTTPS-utlösare använder det aktiva/passiva mönstret.
+Du kan fortfarande nå aktiva/aktiva distributioner för icke-HTTPS-funktioner.  Du måste dock överväga hur de två regionerna ska interagera eller koordineras med varandra.  Om du har distribuerat samma Function-app i två regioner, som varje utlöses i samma Service Bus kö, agerar de som konkurrerande konsumenter om att köa kön.  Det innebär att varje meddelande endast bearbetas av en av instanserna, men det innebär också att det fortfarande finns en enskild felpunkt på den enskilda Service Bus.  Om du distribuerar två Service Bus köer (en i en primär region, en i en sekundär region) och de två Function-appar som pekas på sin regions Queue, kommer utmaningen nu att visas i hur köa meddelanden distribueras mellan de två regionerna.  Det innebär ofta att varje utgivare försöker publicera ett meddelande till *båda* regionerna och varje meddelande bearbetas av båda aktiva funktions appar.  Även om detta skapar ett aktivt/aktivt mönster, skapar den andra utmaningar kring duplicering av beräkning och när eller hur data konsol IDE ras.  Av dessa skäl rekommenderar vi att icke-HTTPS-utlösare använder det aktiva/passiva mönstret.
 
 ## <a name="activepassive-for-non-https-functions"></a>Aktiva/passiva för icke-HTTPS-funktioner
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: bd21d55583489ead3ce82d0df685806ce63fad98
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 696bba195ac3902a3a90a82bcc7665591eba643f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780036"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922346"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -48,13 +48,21 @@ Under tabellen aviseringar finns en tabell som beskriver den Azure Security Cent
 |**Potentiell port vidarebefordran till extern IP-adress**|Värd data analys identifierade initieringen av port vidarebefordran till en extern IP-adress.|Exfiltrering/CommandAndControl|
 ||<a name="alerts-azureappserv"></a><h3>Azure Apptjänst</h3> [Mer information och anmärkningar](security-center-alerts-compute.md#azure-app-service-)||
 |**Ett misstänkt WordPress-tema har påträffats**|App Service aktivitets loggen indikerar en möjlig kod inmatnings aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten liknar aktivitet som manipulerar ett WordPress-tema som stöder körning av kod på Server sidan, följt av en direkt webbegäran om att anropa den manipulerade tema filen. Den här typen av aktivitet kan vara en del av en angrepps kampanj över WordPress.|-|
-|**En IP-adress som är ansluten till Azure App Service FTP-gränssnittet hittades i Hot information**|App Service FTP-loggar har identifierat en anslutning från en käll adress som hittades i Hot intelligens-flödet. Under den här anslutningen har en användare till gång till de sidor som listats.|-|
-|**Webb-finger avtryck upptäckt**|I aktivitets loggen för App Service anges en möjlig webb finger avtrycks aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten är associerad med ett verktyg som kallas blind elefant. Verktyget finger avtrycks webb servrar och försöker identifiera installerade program och deras versioner. Angripare använder ofta verktyget för att söka efter sårbarheter i webb programmen. |-|
+|**Webb-finger avtryck upptäckt**<br>(NMAP/blind elefant)|I aktivitets loggen för App Service anges en möjlig webb finger avtrycks aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten är associerad med ett verktyg som kallas blind elefant. Verktyget finger avtrycks webb servrar och försöker identifiera installerade program och deras versioner. Angripare använder ofta verktyget för att söka efter sårbarheter i webb programmen. |-|
 |**Misstänkt åtkomst till möjligen sårbar webb sida upptäcktes**|App Service aktivitets loggen anger att en webb sida som verkar vara känslig har öppnats.<br>Den här misstänkta aktiviteten härstammar från en käll adress vars åtkomst mönster liknar en webb skanner. Den här typen av aktivitet är ofta kopplad till ett försök från en angripare att söka igenom nätverket och försöka få åtkomst till känsliga eller sårbara webb sidor. |-|
+|**En IP-adress som är ansluten till Azure App Service FTP-gränssnittet hittades i Hot information**|App Service FTP-loggar har identifierat en anslutning från en käll adress som hittades i Hot intelligens-flödet. Under den här anslutningen har en användare till gång till de sidor som listats.|-|
 |**Ett försök att köra Linux-kommandon på en Windows App Service**|Analyser av App Service processer upptäckte ett försök att köra ett Linux-kommando på en Windows-App Service. Den här åtgärden kördes av webb programmet. Det här beteendet visas ofta under kampanjer som utnyttjar en sårbarhet i ett gemensamt webb program.|-|
 |**Misstänkt PHP-körning har identifierats**|Dator loggar indikerar att en misstänkt PHP-process körs. Åtgärden innehöll ett försök att köra operativ Systems kommandon eller PHP-kod från kommando raden med hjälp av PHP-processen. Även om det här beteendet kan vara legitimt kan det här beteendet tyda på skadliga aktiviteter i webb program, till exempel försök att infektera webbplatser med webb gränssnitt.|Körning|
 |**Process körning från tillfällig mapp**|Analys av App Service processer har identifierat en körning av en process från appens tillfälliga mapp. Även om det här beteendet kan vara legitimt kan det hända att det här beteendet visar skadliga aktiviteter i webb program.|-|
 |**Försök att köra kommandot med hög behörighet upptäcktes**|Analyser av App Service processer har identifierat ett försök att köra ett kommando som kräver hög behörighet. Kommandot kördes i webb program kontexten. Även om det här beteendet kan vara legitimt kan det hända att det här beteendet visar skadliga aktiviteter i webb program.|-|
+|**Spara typografiska utdata till disk upptäcktes**|Analys av App Service processer upptäckte körningen av ett spiral kommando där utdata sparades på disken. Även om det här beteendet kan vara legitimt i webb program, observeras även det här beteendet i skadliga aktiviteter som försök att infektera webbplatser med webb gränssnitt.|-|
+|**Hämtning av rå data upptäcktes**|Analyser av App Service processer upptäckte ett försök att hämta kod från rå data webbplatser som pastebin. Den här åtgärden kördes av en PHP-process. Det här beteendet är associerat med försök att ladda ned webb gränssnitt eller andra skadliga komponenter till App Service.|-|
+|**Säkerhets genomsökning har identifierats**<br>(Joomla/WordPress/CMS)|Azure App Service aktivitets loggen anger att en möjlig säkerhets kopierings skanner användes på din App Service-resurs. Den misstänkta aktiviteten identifierade liknar de verktyg som är riktade mot Joomla program/WordPress-program/ett innehålls hanterings system (CMS).|-|
+|**Referent identifierad i mappen spam**|Azure App Service aktivitets logg anger webb aktivitet som har identifierats som härstammar från en webbplats som är kopplad till skräp post. Detta kan inträffa om webbplatsen komprometteras och används för skräp post.|-|
+|**Anslutning till webb sida från avvikande IP-adress upptäcktes**|Azure App Service aktivitets loggen anger en anslutning till en känslig webb sida från en käll-IP-adress (% {Source IP-adress}) som aldrig ansluter till den. Detta kan tyda på att någon försöker göra ett brutet Force-angrepp till webbappens administrations sidor. Det kan också vara resultatet av en ny IP-adress som används av en legitim användare.|-|
+|**Misstänkt användar agent identifierad**|Azure App Service aktivitets loggen anger begär Anden med misstänkt användar agent. Detta kan tyda på att försök att utnyttja ett säkerhets problem i App Service-programmet.|-|
+|**PHP-fil i upload-mapp**|Azure App Service aktivitets loggen visar en åtkomst till en misstänkt PHP-sida som finns i upload-mappen. Den här typen av mapp innehåller vanligt vis PHP-filer. Förekomsten av den här typen av fil kan tyda på att det finns ett utnyttjande av eventuella sårbarheter för fil uppladdning.|-|
+|**Mönster för avvikande begär Anden upptäcktes**|Aktivitets loggen för Azure App Service anger en avvikande HTTP-aktivitet till App Service från% {source IP}. Den här aktiviteten liknar ett mönster för att göra en suddiga Force-aktivitet.|-|
 ||<a name="alerts-akscluster"></a><h3>AKS kluster nivå</h3> [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)||
 |**För hands version – roll bindning till rollen kluster-admin har identifierats**|Kubernetes gransknings loggs analys upptäckte en ny bindning till kluster administratörs rollen som resulterade i administratörs behörighet. Onödigt att ge administratörs behörighet kan leda till problem med eskalering av privilegier i klustret.|Bevarande|
 |**För hands VERSIONs Kubernetes-instrumentpanelen har identifierats**|Kubernetes Gransknings logg analys upptäckte exponering av Kubernetes-instrumentpanelen av en LoadBalancer-tjänst. Exponerade instrument paneler tillåter oautentiserad åtkomst till kluster hantering och utgör en säkerhets risk.|Bevarande|

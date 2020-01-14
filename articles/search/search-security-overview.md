@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e509535473fa50fd3150965e1513e056ead18a6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1949aca26f68f12dfb133da8ef45662294140c25
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794334"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922551"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och data sekretess i Azure Kognitiv sökning
 
@@ -43,7 +43,7 @@ Kryptering utökar hela hela indexerings pipelinen: från anslutningar, via öve
 |----------------|-------------|
 | Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Kognitiv sökning lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster på plattformen är krypterade. <br/><br/>Alla Azure Kognitiv sökning-interaktioner från klient till tjänst är SSL/TLS 1,2-kompatibel.  Se till att använda TLSv 1.2 för SSL-anslutningar till din tjänst.|
 | Vilande kryptering <br>Microsoft-hanterade nycklar | Kryptering är helt inaktive ras i indexerings processen, utan mätbar påverkan på indexerings tiden för slut för ande eller index storlek. Det sker automatiskt vid all indexering, inklusive för stegvisa uppdateringar av ett index som inte är fullständigt krypterat (skapat före januari 2018).<br><br>Internt är kryptering baserat på [Azure Storage tjänst kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)med 256-bitars AES- [kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Kryptering är intern för Azure Kognitiv sökning, med certifikat och krypterings nycklar som hanteras internt av Microsoft och som används av universellt. Du kan inte aktivera eller inaktivera kryptering, hantera eller ersätta dina egna nycklar eller Visa krypterings inställningar i portalen eller program mässigt.<br><br>Kryptering i vila presenterades den 24 januari 2018 och gäller för alla tjänst nivåer, inklusive den kostnads fria nivån, i alla regioner. För fullständig kryptering måste index som skapats före det datumet släppas och återskapas för att krypteringen ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.|
-| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med kund hanterade nycklar är en **förhands gransknings** funktion som inte är tillgänglig för kostnads fria tjänster. För betalda tjänster är det bara tillgängligt för Sök tjänster som skapats den 2019 januari, med den senaste för hands versionen av API-versionen (API-version = 2019-05 -06 – för hands version).<br><br>Azure Kognitiv sökning index och synonym Maps kan nu krypteras i vila med kund nycklar hanterade nycklar i Azure Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).<br>Den här funktionen ersätter inte standard krypteringen i vilo läge, utan gäller även för den.<br>Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
+| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med Kundhanterade nycklar är nu allmänt tillgänglig.<br><br>Azure Kognitiv sökning index och synonym Maps kan nu krypteras i vila med kund nycklar hanterade nycklar i Azure Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).<br>Den här funktionen ersätter inte standard krypteringen i vilo läge, utan gäller även för den.<br>Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure-wide User Access-kontroller
 
@@ -91,7 +91,7 @@ Som standard bestäms användar åtkomst till ett index av åtkomst nyckeln för
 
 Om du behöver detaljerad kontroll över innehåll för varje användare kan du bygga säkerhets filter för dina frågor och returnera dokument som är associerade med en viss säkerhets identitet. I stället för fördefinierade roller och roll tilldelningar implementeras identitetsbaserade åtkomst kontroller som ett *filter* som trimmar Sök Resultat för dokument och innehåll baserat på identiteter. I följande tabell beskrivs två metoder för att trimma Sök Resultat av obehörigt innehåll.
 
-| Form | Beskrivning |
+| Metoden | Beskrivning |
 |----------|-------------|
 |[Säkerhets trimning baserat på identitets filter](search-security-trimming-for-azure-search.md)  | Dokumenterar det grundläggande arbets flödet för att implementera åtkomst kontroll för användar identitet. Det omfattar att lägga till säkerhets identifierare i ett index och sedan förklarar filtreringen för fältet för att trimma resultat från otillåtet innehåll. |
 |[Säkerhets trimning baserat på Azure Active Directory identiteter](search-security-trimming-for-azure-search-with-aad.md)  | Den här artikeln är utökad i föregående artikel, som innehåller steg för att hämta identiteter från Azure Active Directory (AAD), en av de [kostnads fria tjänsterna](https://azure.microsoft.com/free/) i Azure Cloud Platform. |

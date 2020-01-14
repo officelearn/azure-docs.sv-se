@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: 2627e4be20d80251e3753e46624c58a0c6244aba
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863095"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921019"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -33,7 +33,11 @@ API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Dina 
 
 + [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med hjälp av `api-version=2019-05-06`. För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
 
-+ *Begränsad IP-åtkomst och privat slut punkt (för hands version)* på en Sök tjänst slut punkt är nu tillgängligt i **API-version = 2019-10 01 – för hands version**. Du kan konfigurera en säker slut punkt med hjälp av de nya egenskaperna **IpRule** och **NetworkRuleSet** i REST API för att [skapa eller uppdatera](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate) hantering. Mer information om API-versioner och regional tillgänglighet finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
++ Privat åtkomst till en Sök tjänst är tillgänglig via två mekanismer:
+
+  + Du kan begränsa åtkomsten till vissa IP-adresser med hjälp av hanterings REST API `api-version=2019-10-01-Preview` för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
+
+  + För närvarande tillgängligt via en begränsad till gång kan du etablera en Azure Search-tjänst som stöder Azures privata slut punkter för anslutningar från klienter i samma virtuella nätverk. Mer information finns i [skapa en privat slut punkt för en säker anslutning](service-create-private-endpoint.md).
 
 ### <a name="december-2019"></a>December 2019
 

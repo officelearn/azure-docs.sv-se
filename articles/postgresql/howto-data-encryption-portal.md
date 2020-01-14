@@ -6,21 +6,20 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 51c99ca0788900397c922e31e44f121a7ae9caa6
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: e579866b1df6d32dc2b90a19ac001c381da625a6
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904268"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922804"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-using-portal"></a>Data kryptering för Azure Database for PostgreSQL enskild server med hjälp av portalen
 
 I den här artikeln får du lära dig hur du konfigurerar och hanterar för att använda Azure Portal för att konfigurera data kryptering för Azure Database for PostgreSQL enskild server.
 
-## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
+## <a name="prerequisites-for-cli"></a>Krav för CLI
 
 * Du måste ha en Azure-prenumeration och vara administratör för den prenumerationen.
-* Du måste ha Azure PowerShell installerat och igång.
 * Skapa en Azure Key Vault och nyckel som ska användas för kundhanterad nyckel.
 * Nyckel valvet måste ha följande egenskap för att kunna användas som kundhanterad nyckel
     * [Mjuk borttagning](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
@@ -46,7 +45,7 @@ I den här artikeln får du lära dig hur du konfigurerar och hanterar för att 
 
    ![Översikt över åtkomst princip](media/concepts-data-access-and-security-data-encryption/show-access-policy-overview.png)
 
-2. Under **nyckel behörigheter** väljer du **Hämta**, **Radbryt**, **packa** upp och **huvudobjektet** som är namnet på postgresql-servern.
+2. Under **nyckel behörigheter** väljer du **Hämta**, **Radbryt**, **packa** upp och **huvudobjektet**, vilket är namnet på postgresql-servern. Om ditt Server huvud namn inte finns i listan över befintliga huvud konton, måste du registrera det genom att försöka konfigurera data kryptering för första gången. det kommer att Miss lyckas.  
 
    ![Översikt över åtkomst princip](media/concepts-data-access-and-security-data-encryption/access-policy-warp-unwrap.png)
 
@@ -64,9 +63,9 @@ I den här artikeln får du lära dig hur du konfigurerar och hanterar för att 
 
 3. **Spara** inställningarna.
 
-4. För att se till att alla filer (inklusive temporära filer) är fullständigt krypterade måste du starta om servern.
+4. För att se till att alla filer (inklusive **temporära filer**) är fullständigt **krypterade måste du** **starta om** servern.
 
-## <a name="restoring-or-creating-replica-of-the-server-which-has-data-encryption-enabled"></a>Återställa eller skapa en replik av servern som har data kryptering aktiverat
+## <a name="restoring-or-creating-replica-of-the-server-which-has-data-encryption-enabled"></a>Återställa eller skapa en replik av servern, som har data kryptering aktiverat
 
 När en Azure Database for PostgreSQL enskild server är krypterad med kundens hanterade nyckel lagrad i Key Vault, kommer alla nyligen skapade kopior av servern antingen med lokal eller geo-återställning eller en replik (lokal/över region) åtgärd. För en krypterad PostgreSQL-Server kan du följa stegen nedan för att skapa en krypterad återställd Server.
 
@@ -83,16 +82,18 @@ När en Azure Database for PostgreSQL enskild server är krypterad med kundens h
    ![Markera servern otillgänglig](media/concepts-data-access-and-security-data-encryption/show-restore-data-encryption.png)
 
 
-3. För att kunna åtgärda otillgängligt läge måste du verifiera om nyckeln på den återställda servern.
+3. För att kunna åtgärda otillgängligt läge måste du verifiera om nyckeln på den återställda servern. Klicka på bladet **data kryptering** och sedan på knappen för att **validera nyckeln** igen.
+
+   > [!NOTE]
+   > Det första försöket att validera kommer att Miss lyckas eftersom den nya serverns tjänst huvud namn måste ges åtkomst till nyckel valvet. Om du vill generera tjänstens huvud namn klickar du på **Verifiera om nyckeln**, vilket ger upphov till fel men genererar tjänstens huvud namn. Därefter läser du stegen [i avsnitt 2](https://docs.microsoft.com/azure/postgresql/howto-data-encryption-portal#setting-the-right-permissions-for-key-operations) ovan.
 
    ![verifiera Server](media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png)
 
    Du måste ge åtkomst till den nya servern till Key Vault. 
 
-4. När du har verifierat nyckeln igen fortsätter servern sin normala funktion.
+4. När du har registrerat tjänstens huvud namn måste du verifiera om nyckeln igen och servern återupptar sin normala funktion.
 
    ![Den normala servern har återställts](media/concepts-data-access-and-security-data-encryption/restore-successful.png)
-
 
 ## <a name="next-steps"></a>Nästa steg
 

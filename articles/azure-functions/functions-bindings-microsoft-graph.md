@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 77915409e3c44a01e26c35c0facb2d577c331fd8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914918"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922429"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
@@ -668,7 +668,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 |Microsoft Graph|Läsa användarfiler|
 
 Bindningen visar följande typer av .NET-funktioner:
-- byte
+- byte[]
 - Stream
 - sträng
 - Microsoft.Graph.DriveItem
@@ -816,7 +816,7 @@ Den här bindningen kräver följande Azure AD-behörigheter:
 |Microsoft Graph|Ha fullständig åtkomst till användarfiler|
 
 Bindningen visar följande typer av .NET-funktioner:
-- byte
+- byte[]
 - Stream
 - sträng
 - Microsoft.Graph.DriveItem

@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 473f1d12188a8686748d19c8c35d4421f9477ae9
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912803"
+ms.locfileid: "75921225"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -76,7 +76,7 @@ Följande begränsningar gäller för bevarande principer:
 
 Tillägg av blobar består av data block och är optimerade för data tilläggs åtgärder som krävs av gransknings-och loggnings scenarier. Genom att lägga till blobar tillåts du bara lägga till nya block till slutet av blobben. Oavsett oföränderlighets, är det grundläggande inte tillåtet att ändra eller ta bort befintliga block i en tilläggs-blob. Mer information om hur du lägger till blobar finns i avsnittet [om att lägga till blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites`-inställning som gör det möjligt att skriva nya block till en append-BLOB samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Om aktive rad, kan du skapa en tilläggs-BLOB direkt i den skyddade behållaren och fortsätta att lägga till nya data block i slutet av befintliga tilläggs-blobar med hjälp av *AppendBlock* -API: et. Det går bara att lägga till nya block och befintliga block kan inte ändras eller tas bort. Oföränderlighets-skydd för tids kvarhållning gäller fortfarande, vilket förhindrar borttagning av tilläggs-bloben tills den gällande kvarhållningsperioden har förflutit.  
+Endast tidsbaserade bevarande principer har en `allowProtectedAppendWrites`-inställning som gör det möjligt att skriva nya block till en append-BLOB samtidigt som oföränderlighets skydd och efterlevnad upprätthålls. Om aktive rad, kan du skapa en tilläggs-BLOB direkt i den skyddade behållaren och fortsätta att lägga till nya data block i slutet av befintliga tilläggs-blobar med hjälp av *AppendBlock* -API: et. Det går bara att lägga till nya block och befintliga block kan inte ändras eller tas bort. Oföränderlighets-skydd för tids kvarhållning gäller fortfarande, vilket förhindrar borttagning av tilläggs-bloben tills den gällande kvarhållningsperioden har förflutit. Aktivering av den här inställningen påverkar inte oföränderlighets beteendet för block-blobbar eller Page blobbar.
 
 Eftersom den här inställningen är en del av en tidsbaserad bevarande princip stannar de bifogade Blobbarna kvar i det oföränderliga läget för varaktigheten för den *gällande* kvarhållningsperioden. Eftersom nya data kan läggas till utöver den inledande skapandet av tilläggs-bloben, finns det en liten skillnad i hur kvarhållningsperioden fastställs. Den effektiva kvarhållning är skillnaden mellan bifogad blobs **senaste ändrings tid** och det användardefinierade kvarhållningsintervall. På samma sätt som kvarhållningsintervallet är utökad använder oföränderlig lagring det senaste värdet för det användardefinierade kvarhållningsintervallet för att beräkna den effektiva kvarhållningsperioden.
 

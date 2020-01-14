@@ -106,7 +106,7 @@
     - name: AMQP 1.0-protokollguide
       href: ../service-bus-messaging/service-bus-amqp-protocol-guide.md
       maintainContext: true
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Utveckla
       items:
@@ -164,7 +164,7 @@
           href: event-hubs-service-endpoints.md
         - name: Aktivera integrering av virtuella nätverk och brandväggar på Event Hubs-namnområde
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data (förhandsversion)
+        - name: Konfigurera kundhanterade nycklar för kryptering av vilande data
           href: configure-customer-managed-key.md
     - name: Felsöka
       items:

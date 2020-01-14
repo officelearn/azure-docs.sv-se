@@ -3,12 +3,12 @@ title: Referens C# för Azure Functions-utvecklare
 description: Lär dig hur du utvecklar Azure Functions C#med hjälp av.
 ms.topic: reference
 ms.date: 09/12/2018
-ms.openlocfilehash: f412e5ea358fe7b97476802f432616c37b05dbd9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 89b3ae927b14454ac3f58fb510626e315842240f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975490"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921050"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referens C# för Azure Functions-utvecklare
 
@@ -378,7 +378,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>Exempel på flera attribut
 
-I föregående exempel hämtas app-inställningen för funktionens huvud anslutnings sträng för lagrings kontot (som är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()`. Använd en `Binder` parameter, inte `IBinder`.  Exempel:
+I föregående exempel hämtas app-inställningen för funktionens huvud anslutnings sträng för lagrings kontot (som är `AzureWebJobsStorage`). Du kan ange en anpassad app-inställning som ska användas för lagrings kontot genom att lägga till [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) och skicka attributhierarkin till `BindAsync<T>()`. Använd en `Binder` parameter, inte `IBinder`.  Ett exempel:
 
 ```cs
 public static class IBinderExampleMultipleAttributes

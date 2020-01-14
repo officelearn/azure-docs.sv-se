@@ -1,14 +1,14 @@
 ---
 title: Exempel kontroller för ISO 27001 ASE/SQL-arbetsbelastning
 description: Styra mappningen av exempel på arbets belastningen ISO 27001 App Service-miljön/SQL Database till Azure Policy och RBAC.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5c5b83669a477255f0cdce45993a5871b5a9c6f8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bc370170374654bf8bc9ae9ed3f1b545f4db8cba
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546781"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75920709"
 ---
 # <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Kontroll mappning av exemplet ISO 27001 ASE/SQL arbets belastnings skiss
 
@@ -53,7 +53,7 @@ Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtk
 - \[för hands version\]: granska konton med Skriv behörighet som inte är MFA-aktiverade för en prenumeration
 - \[för hands version\]: granska externa konton med ägar behörigheter för en prenumeration
 - \[för hands version\]: granska externa konton med Skriv behörighet för en prenumeration
-- Granska etablering av en Azure Active Directory administratör för SQL Server
+- Granska tillhandahållare av Azure Active Directory-administratör för SQL-servrar
 - Granska användning av Azure Active Directory för klientautentisering i Service Fabric
 - Granska användningen av anpassade RBAC-regler
 

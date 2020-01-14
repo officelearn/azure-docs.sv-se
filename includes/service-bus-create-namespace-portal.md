@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a95f5ee5105c45ba9e5b1705e83d60bf24b1dc12
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187572"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75928206"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Skapa ett namnområde i Azure Portal
 För att komma igång med Service Bus-meddelandeentiteter i Azure måste du först skapa ett namnområde med ett namn som är unikt i Azure. Ett namnområde innehåller en omfattningscontainer för adressering av Service Bus-resurser i ditt program.
@@ -25,10 +25,10 @@ Så här skapar du ett namnområde:
 
     ![Skapa en resurs -> Integration -> Service Bus](./media/service-bus-create-namespace-portal/create-resource-service-bus-menu.png)
 3. I dialogrutan **Skapa namnrymd** utför du följande steg: 
-    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt. En lista över regler för namngivning namnområden finns i [skapa Namespace REST API](/rest/api/servicebus/create-namespace).
+    1. Ange ett **namn för namnrymden**. Systemet kontrollerar omedelbart om namnet är tillgängligt. En lista över regler för namngivning av namn områden finns i [skapa namn område REST API](/rest/api/servicebus/create-namespace).
     2. Välj prisnivå (Basic, Standard eller Premium) för namnrymden. Om du vill använda [ämnen och prenumerationer](../articles/service-bus-messaging/service-bus-queues-topics-subscriptions.md#topics-and-subscriptions) väljer du antingen Standard eller Premium. Ämnen/prenumerationer stöds inte på Basic-prisnivån.
     3. Om du valde prisnivån **Premium** utför du följande steg: 
-        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. En Premium-namnrymd har minst en meddelandefunktionsenhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
+        1. Ange antalet **meddelandefunktionsenheter**. Premium-nivån ger resursisolering på processor- och minnesnivå så att varje arbetsbelastning körs självständigt. Den här resurscontainern kallas för en meddelandefunktionsenhet. Ett Premium-namnområde har minst en meddelande enhet. Du kan välja 1, 2 eller 4 meddelandefunktionsenheter för varje Service Bus Premium-namnrymd. Mer information finns i [Service Bus Premium-meddelanden](../articles/service-bus-messaging/service-bus-premium-messaging.md).
         2. Ange huruvida du vill göra namnrymden **zonredundant**. Zonredundans ger förbättrad tillgänglighet genom att sprida repliker över tillgänglighetszoner inom en region utan extra kostnad. Mer information finns i [Tillgänglighetszoner i Azure](../articles/availability-zones/az-overview.md).
     4. För **Prenumeration** väljer du en Azure-prenumeration där du ska skapa namnrymden.
     5. För **Resursgrupp** väljer du en befintlig resursgrupp där namnrymden ska finnas, eller så skapar du en ny.      
@@ -54,7 +54,7 @@ Om du skapar ett nytt namnområde så genereras en automatiskt en ursprunglig re
 3. I fönstret **Principer för delad åtkomst**, klickar du på **RootManageSharedAccessKey**.
    
     ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
-4. I **principen: RootManageSharedAccessKey** klickar du på kopieringsknappen intill **Primär anslutningssträng** för att kopiera anslutningssträngen till Urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
+4. I fönstret **Princip: RootManageSharedAccessKey** klickar du på knappen Kopiera bredvid **Primär anslutningssträng** för att kopiera anslutningssträngen till dina urklipp för senare användning. Klistra in det här värdet i Anteckningar eller på en tillfällig plats.
    
     ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Upprepa föregående steg, kopiera och klistra in värdet för **primärnyckeln** till en tillfällig plats för senare användning.

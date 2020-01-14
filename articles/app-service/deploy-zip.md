@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28bd45b0e9bdaf87c29b0118c47595db9179edc5
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670231"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921157"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuera din app till Azure App Service med en ZIP-eller WAR-fil
 
@@ -88,6 +88,8 @@ Mer information finns i [Kudu-dokumentationen](https://github.com/projectkudu/ku
 ## <a name="deploy-war-file"></a>Distribuera WAR-fil
 
 Om du vill distribuera en WAR-fil till App Service skickar du en POST-begäran till `https://<app_name>.scm.azurewebsites.net/api/wardeploy`. Din POST-begäran måste innehålla .war-filen i meddelandetexten. Autentiseringsuppgifterna för distribution för din app tillhandahålls i begäran med hjälp av grundläggande HTTP-autentisering.
+
+Använd alltid `/api/wardeploy` när du distribuerar WAR-filer. Detta API expanderar WAR-filen och placerar den på den delade fil enheten. användning av andra distributions-API: er kan resultera i inkonsekvent beteende. 
 
 För den grundläggande HTTP-autentiseringen behöver du autentiseringsuppgifterna för App Service distribution. Information om hur du anger autentiseringsuppgifter för distributionen finns i [Ange och återställa autentiseringsuppgifter på användar nivå](deploy-configure-credentials.md#userscope).
 

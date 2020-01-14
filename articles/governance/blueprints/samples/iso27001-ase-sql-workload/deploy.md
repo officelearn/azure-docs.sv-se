@@ -1,14 +1,14 @@
 ---
 title: Distribuera exempel på arbets belastnings skiss för ISO 27001 ASE/SQL
 description: Distribuera steg i exemplet ISO 27001 App Service-miljön/SQL Database arbets belastnings skiss, inklusive information om skiss artefakt parameter.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: 3cf3c062b1e8b69a6a0b9eb585b30ce2d5c4acfb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6b8f3b753f1dd8cfbc247a77f2004e3c4d3423bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546755"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922583"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuera exempel på arbets belastnings skiss för ISO 27001 App Service-miljön/SQL Database
 
@@ -112,12 +112,12 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Log Analytics resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-workload-log-rg` för att göra resurs gruppen unik.|
-|Log Analytics resurs grupp|Resursgrupp|Plats|**Locked** – använder skiss parametern.|
+|Log Analytics resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
 |Log Analytics mall|Resource Manager-mall|Tjänstnivå|Anger nivån för Log Analytics arbets ytan. Standardvärdet är _PerNode_.|
 |Log Analytics mall|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
-|Log Analytics mall|Resource Manager-mall|Plats|Region som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
+|Log Analytics mall|Resource Manager-mall|Location|Region som används för att skapa Log Analytics-arbetsytan. Standardvärdet är _USA, västra 2_.|
 |Nätverks resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-workload-net-rg` för att göra resurs gruppen unik.|
-|Nätverks resurs grupp|Resursgrupp|Plats|**Locked** – använder skiss parametern.|
+|Nätverks resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
 |Mall för nätverks säkerhets grupp|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Azure Firewall privat IP|Konfigurerar den privata IP-adressen för [Azure-brandväggen](../../../../firewall/overview.md). Ska ingå i CIDR-notationen som definieras i _ISO 27001:_ artefakt parameter för delade tjänster **Azure Firewall Subnet Address prefix**. Standardvärdet är _10.0.4.4_.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Prenumerations-ID för delade tjänster|Värde som används för att aktivera VNET-peering mellan en arbets belastning och delade tjänster.|
@@ -125,13 +125,13 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för standard under nätet|CIDR-notering för det virtuella nätverkets standard under nät. Standardvärdet är _10.1.0.0/16_.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Lägger till IP-adress|IP-adressen för den första lägger till den virtuella datorn. Det här värdet används som anpassat VNET DNS.|
 |Key Vault resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-workload-kv-rg` för att göra resurs gruppen unik.|
-|Key Vault resurs grupp|Resursgrupp|Plats|**Locked** – använder skiss parametern.|
+|Key Vault resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
 |Key Vault mall|Resource Manager-mall|AAD-objekt-ID|AAD-objektmodellen för det konto som kräver åtkomst till Key Vault-instansen. Inget standardvärde och får inte vara tomt. Du hittar det här värdet från Azure Portal genom att söka efter och välja "användare" under _tjänster_. Använd rutan _namn_ om du vill filtrera efter konto namnet och välj det kontot. På sidan _användar profil_ väljer du ikonen "Klicka för att kopiera" bredvid _objekt-ID_.|
 |Key Vault mall|Resource Manager-mall|Kvarhållning av logg i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
 |Key Vault mall|Resource Manager-mall|Key Vault SKU|Anger SKU: n för den Key Vault som skapas. Standardvärdet är _Premium_.|
 |Key Vault mall|Resource Manager-mall|Användar namn för Azure SQL Server Admin|Det användar namn som används för att få åtkomst till Azure-SQL Server. Måste matcha samma egenskaps värde i **Azure SQL Database-mallen**. Standardvärdet är _SQL-admin-user_.|
 |Azure SQL Database resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-workload-azsql-rg` för att göra resurs gruppen unik.|
-|Azure SQL Database resurs grupp|Resursgrupp|Plats|**Locked** – använder skiss parametern.|
+|Azure SQL Database resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
 |Azure SQL Database mall|Resource Manager-mall|Användar namn för Azure SQL Server Admin|Användar namn för Azure-SQL Server. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet är _SQL-admin-user_.|
 |Azure SQL Database mall|Resource Manager-mall|Azure SQL Server admin-lösenord (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" och ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med skiss parametern **organisations namn** .|
 |Azure SQL Database mall|Resource Manager-mall|Azure SQL Server admin-lösenord (Key Vault hemligt namn)|SQL Server administratörens användar namn. Måste överensstämma med värdet i **Key Vault Template** -egenskapen **Azure SQL Server Admin användar namn**.|
@@ -139,7 +139,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Azure SQL Database mall|Resource Manager-mall|AAD admin-objekt-ID|AAD-objekt-ID för den användare som ska tilldelas som Active Directory administratör. Inget standardvärde och får inte vara tomt. Du hittar det här värdet från Azure Portal genom att söka efter och välja "användare" under _tjänster_. Använd rutan _namn_ om du vill filtrera efter konto namnet och välj det kontot. På sidan _användar profil_ väljer du ikonen "Klicka för att kopiera" bredvid _objekt-ID_.|
 |Azure SQL Database mall|Resource Manager-mall|AAD admin-inloggning|För närvarande kan Microsoft-konton (t. ex. live.com eller outlook.com) inte anges som administratör. Endast användare och säkerhets grupper inom organisationen kan anges som administratör. Inget standardvärde och får inte vara tomt. Du hittar det här värdet från Azure Portal genom att söka efter och välja "användare" under _tjänster_. Använd rutan _namn_ om du vill filtrera efter konto namnet och välj det kontot. På sidan _användar profil_ kopierar du _användar namnet_.|
 |App Service-miljön resurs grupp|Resursgrupp|Namn|**Locked** -sammanfogar **organisations namnet** med `-workload-ase-rg` för att göra resurs gruppen unik.|
-|App Service-miljön resurs grupp|Resursgrupp|Plats|**Locked** – använder skiss parametern.|
+|App Service-miljön resurs grupp|Resursgrupp|Location|**Locked** – använder skiss parametern.|
 |App Service-miljön mall|Resource Manager-mall|Domännamn|Namnet på Active Directory som skapats av exemplet. Standardvärdet är _contoso.com_.|
 |App Service-miljön mall|Resource Manager-mall|ASE-plats|App Service-miljön plats. Standardvärdet är _USA, västra 2_.|
 |App Service-miljön mall|Resource Manager-mall|Application Gateway logg kvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|

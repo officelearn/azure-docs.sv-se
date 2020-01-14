@@ -9,19 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/17/2019
-ms.openlocfilehash: 4a8a548e6a073c38dbc1f5600d721a7cdb97f120
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 01/09/2019
+ms.openlocfilehash: dafcdaa1ac014dbe4d45be58477bb3b9010b857f
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762832"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921079"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
 I den här artikeln får du lära dig om säkerhetsfunktioner som är tillgängliga för Azure Machine Learning.
 
 När du använder en moln tjänst är det bästa sättet att begränsa åtkomsten till de användare som behöver den. Börja med att förstå autentiserings-och auktoriserings modellen som används av tjänsten. Du kanske också vill begränsa nätverks åtkomsten eller på ett säkert sätt ansluta resurser i ditt lokala nätverk till molnet. Data kryptering är också viktigt, både i vila och medan data flyttas mellan tjänster. Slutligen måste du kunna övervaka tjänsten och skapa en Gransknings logg för all aktivitet.
+
+> [!NOTE]
+> Informationen i den här artikeln fungerar med Azure Machine Learning python SDK-version 1.0.83.1 eller högre.
 
 ## <a name="authentication"></a>Autentisering
 
@@ -33,7 +36,8 @@ Multi-Factor Authentication stöds om Azure Active Directory (Azure AD) har kon 
 
 [![autentisering i Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
-Mer information om hur du konfigurerar autentisering finns i avsnittet [Konfigurera autentisering](how-to-setup-authentication.md) med information om hur du konfigurerar autentisering, inklusive tjänstens huvud namns autentisering för automatiserade arbets flöden.
+Mer information finns i [Konfigurera autentisering för Azure Machine Learning resurser och arbets flöden](how-to-setup-authentication.md). Den här artikeln innehåller information och exempel på autentisering, inklusive att använda tjänstens huvud namn och automatiserade arbets flöden.
+
 
 ### <a name="authentication-for-web-service-deployment"></a>Autentisering för webb tjänst distribution
 
@@ -44,7 +48,7 @@ Azure Machine Learning stöder två typer av autentisering för webb tjänster: 
 |Nyckel|Nycklar är statiska och behöver inte uppdateras. Nycklar kan återskapas manuellt.|Inaktiverat som standard| Aktiverad som standard|
 |Token|Token upphör att gälla efter en viss tids period och behöver uppdateras.| Inte tillgänglig| Inaktiverat som standard |
 
-Se [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication) för kod exempel för autentisering till webb tjänster i Azure Machine Learning.
+Kod exempel finns i [avsnittet Web-Service Authentication](how-to-setup-authentication.md#web-service-authentication).
 
 ## <a name="authorization"></a>Autentisering
 
@@ -93,7 +97,7 @@ Mer information om hanterade identiteter finns i [hanterade identiteter för Azu
 
 Vi rekommenderar inte att administratörer återkallar åtkomsten av den hanterade identiteten till de resurser som anges i tabellen ovan. Du kan återställa åtkomsten med hjälp av åtgärden omsynkronisera nycklar.
 
-Azure Machine Learning skapar ett ytterligare program (namnet börjar med `aml-` eller `Microsoft-AzureML-Support-App-`) med åtkomst på deltagar nivå i din prenumeration för varje region för arbets yta. Om du till exempel har en arbets yta i östra USA och en annan arbets yta i Nord Europa i samma prenumeration, ser du två av dessa program. Med dessa program kan Azure Machine Learning hjälpa dig att hantera beräknings resurser.
+Azure Machine Learning skapar ett ytterligare program (namnet börjar med `aml-` eller `Microsoft-AzureML-Support-App-`) med åtkomst på deltagar nivå i din prenumeration för varje region för arbets yta. Om du till exempel har en arbets yta i USA, östra och en i Nord Europa i samma prenumeration, ser du två av dessa program. Med dessa program kan Azure Machine Learning hjälpa dig att hantera beräknings resurser.
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 
@@ -105,29 +109,86 @@ Mer information finns i [så här kör du experiment och härledning i ett virtu
 
 ### <a name="encryption-at-rest"></a>Vilande kryptering
 
+> [!IMPORTANT]
+> Om din arbets yta innehåller känsliga data rekommenderar vi att du ställer in [hbi_workspace flagga](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) när du skapar din arbets yta. Detta styr mängden data som Microsoft samlar in i diagnostiska syfte och möjliggör ytterligare kryptering i Microsoft-hanterade miljöer.
+
+
 #### <a name="azure-blob-storage"></a>Azure Blob Storage
 
 Azure Machine Learning lagrar ögonblicks bilder, utdata och loggar i Azure Blob Storage-kontot som är knutet till Azure Machine Learning arbets ytan och din prenumeration. Alla data som lagras i Azure Blob Storage krypteras i vila med Microsoft-hanterade nycklar.
 
-Information om hur du använder dina egna nycklar för data som lagras i Azure Blob Storage finns i [Azure Storage kryptering med Kundhanterade nycklar i Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
+Information om hur du använder dina egna nycklar för data som lagras i Azure Blob Storage finns i [Azure Storage kryptering med Kundhanterade nycklar i Azure Key Vault](../storage/common/storage-encryption-keys-portal.md).
 
 Tränings data lagras vanligt vis i Azure Blob Storage så att det är tillgängligt för att träna beräknings mål. Den här lagringen hanteras inte av Azure Machine Learning men monteras för att beräkna mål som ett fjärrfilsystem.
 
-Information om hur du återskapar åtkomst nycklar för Azure Storage-konton som används med din arbets yta finns i [Återskapa lagrings åtkomst nycklar](how-to-change-storage-access-key.md).
+Information om hur du återskapar åtkomst nycklarna finns i [Återskapa lagrings åtkomst nycklar](how-to-change-storage-access-key.md).
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Azure Machine Learning lagrar mått och metadata i Azure Cosmos DB-instansen som associeras med en Microsoft-prenumeration som hanteras av Azure Machine Learning. Alla data som lagras i Azure Cosmos DB krypteras i vila med Microsoft-hanterade nycklar.
+Azure Machine Learning lagrar mått och metadata i en Azure Cosmos DB-instans. Den här instansen är associerad med en Microsoft-prenumeration som hanteras av Azure Machine Learning. Alla data som lagras i Azure Cosmos DB krypteras i vila med Microsoft-hanterade nycklar.
+
+Om du vill använda egna (Kundhanterade) nycklar för att kryptera Azure Cosmos DB-instansen kan du skapa en dedikerad Cosmos DB-instans för användning med din arbets yta. Vi rekommenderar den här metoden om du vill lagra dina data, t. ex. information om körnings historik, utanför Cosmos DB-instansen för flera innehavare som finns i vår Microsoft-prenumeration. 
+
+> [!NOTE]
+> Den här funktionen är för närvarande endast tillgänglig i östra USA, västra USA 2, södra centrala USA.
+
+Om du vill aktivera etablering av en Cosmos DB instans i din prenumeration med Kundhanterade nycklar utför du följande åtgärder:
+
+* Aktivera Kundhanterade nyckel funktioner för Cosmos DB. För tillfället måste du begära åtkomst för att använda den här funktionen. Om du vill göra det kontaktar du [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com).
+
+* Registrera Azure Machine Learning och Azure Cosmos DB resurs leverantörer i din prenumeration, om de inte redan har gjort det.
+
+* Auktorisera Machine Learning-appen (i identitets-och åtkomst hantering) med deltagar behörigheter för din prenumeration.
+
+    ![Auktorisera Azure Machine Learning app i identitets-och åtkomst hantering i portalen](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
+
+* Använd följande parametrar när du skapar arbets ytan Azure Machine Learning. Båda parametrarna är obligatoriska och stöds i SDK, CLI, REST API: er och Resource Manager-mallar.
+
+    * `resource_cmk_uri`: den här parametern är fullständig resurs-URI för kundens hanterade nyckel i ditt nyckel valv, inklusive [versions informationen för nyckeln](../key-vault/about-keys-secrets-and-certificates.md#objects-identifiers-and-versioning). 
+
+    * `cmk_keyvault`: den här parametern är resurs-ID för nyckel valvet i din prenumeration. Det här nyckel valvet måste finnas i samma region och prenumeration som du ska använda för Azure Machine Learning-arbetsytan. 
+    
+        > [!NOTE]
+        > Den här Key Vault-instansen kan vara annorlunda än nyckel valvet som skapas av Azure Machine Learning när du etablerar arbets ytan. Om du vill använda samma Key Vault-instans för arbets ytan skickar du samma nyckel valv medan du konfigurerar arbets ytan med hjälp av [parametern key_vault](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-). 
+
+Den här Cosmos DB-instansen skapas i en Microsoft-hanterad resurs grupp i din prenumeration. 
+
+> [!IMPORTANT]
+> * Om du behöver ta bort den här Cosmos DB-instansen måste du ta bort arbets ytan Azure Machine Learning som använder den. 
+> * [__Standardenheterna för programbegäran__](../cosmos-db/request-units.md) för Cosmos DB-kontot anges till __8000__. Det finns inte stöd för att ändra det här värdet. 
+
+Mer information om kund hanterade nycklar med Cosmos DB finns i [Konfigurera Kundhanterade nycklar för ditt Azure Cosmos DB-konto](../cosmos-db/how-to-setup-cmk.md).
 
 #### <a name="azure-container-registry"></a>Azure Container Registry
 
-Alla behållar avbildningar i registret (Azure Container Registry) är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den i farten när Azure Machine Learning hämtar avbildningen.
+Alla behållar avbildningar i registret (Azure Container Registry) är krypterade i vila. Azure krypterar automatiskt en avbildning innan den lagras och dekrypterar den när Azure Machine Learning hämtar avbildningen.
+
+Om du vill använda dina egna (Kundhanterade) nycklar för att kryptera din Azure Container Registry måste du skapa en egen ACR och koppla den medan du konfigurerar arbets ytan eller kryptera standard instansen som skapas vid tidpunkten för etablering av arbets ytor.
+
+Ett exempel på hur du skapar en arbets yta med en befintlig Azure Container Registry finns i följande artiklar:
+
+* [Skapa en arbets yta för Azure Machine Learning med Azure CLI](how-to-manage-workspace-cli.md).
+* [Använd en Azure Resource Manager mall för att skapa en arbets yta för Azure Machine Learning](how-to-create-workspace-template.md)
+
+#### <a name="azure-container-instance"></a>Azure Container-instans
+
+Azure Container instance stöder inte disk kryptering. Om du behöver disk kryptering rekommenderar vi [att du distribuerar till en Azure Kubernetes-tjänstinstans](how-to-deploy-azure-kubernetes-service.md) i stället. I det här fallet kanske du också vill använda Azure Machine Learning support för rollbaserade åtkomst kontroller för att förhindra distributioner till en Azure Container instance i din prenumeration.
+
+#### <a name="azure-kubernetes-service"></a>Azure Kubernetes Service
+
+Du kan kryptera en distribuerad Azure Kubernetes service-resurs med hjälp av Kundhanterade nycklar när som helst. Mer information finns på [https://aka.ms/aks/byok](https://aka.ms/aks/byok). 
+
+Med den här processen kan du kryptera både data och OS-disken för de distribuerade virtuella datorerna i Kubernetes-klustret.
+
+> [!IMPORTANT]
+> Den här processen fungerar bara med AKS K8s version 1,16 eller senare. Azure Machine Learning lade till stöd för AKS 1,16 den 13 januari 2020.
 
 #### <a name="machine-learning-compute"></a>Machine Learning-beräkning
 
 OS-disken för varje Compute-nod som lagras i Azure Storage krypteras med Microsoft-hanterade nycklar i Azure Machine Learning lagrings konton. Detta beräknings mål är tillfälligt och kluster skalas vanligt vis ned när inga körningar placeras i kö. Den underliggande virtuella datorn är avetablerad och OS-disken tas bort. Azure Disk Encryption stöds inte för OS-disken.
 
-Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om du vill kan du använda disken för att mellanlagra tränings data. Disken är inte krypterad.
+Varje virtuell dator har också en lokal temporär disk för OS-åtgärder. Om du vill kan du använda disken för att mellanlagra tränings data. Disken är krypterad som standard för arbets ytor med parametern `hbi_workspace` inställd på `TRUE`. Den här miljön är endast kort livs längd under körningen och krypterings stödet är begränsat till endast systemhanterade nycklar.
+
 Mer information om hur kryptering i vila fungerar i Azure finns i [Azure Data Encryption i vila](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
@@ -147,6 +208,22 @@ Azure Machine Learning använder Azure Key Vault-instansen som är kopplad till 
 SSH-lösenord och nycklar för att beräkna mål som Azure HDInsight och virtuella datorer lagras i ett separat nyckel valv som är associerat med Microsoft-prenumerationen. Azure Machine Learning lagrar inte lösen ord eller nycklar som tillhandahålls av användarna. I stället genererar, auktoriserar och lagrar sina egna SSH-nycklar för att ansluta till virtuella datorer och HDInsight för att köra experimenten.
 
 Varje arbets yta har en associerad systemtilldelad hanterad identitet som har samma namn som arbets ytan. Den här hanterade identiteten har åtkomst till alla nycklar, hemligheter och certifikat i nyckel valvet.
+
+## <a name="data-collection-and-handling"></a>Insamling och hantering av data
+
+### <a name="microsoft-collected-data"></a>Microsoft-insamlade data
+
+Microsoft kan samla in information om icke-användare, t. ex. resurs namn (till exempel data uppsättningens namn eller namnet på Machine Learning-experimentet) eller jobbets miljövariabler för diagnostisk användning. Alla sådana data lagras med Microsoft-hanterade nycklar i lagring som finns i Microsofts ägda prenumerationer och följer [Microsofts standard sekretess policy och data hanterings standarder](https://privacy.microsoft.com/privacystatement).
+
+Microsoft rekommenderar även att inte lagra känslig information (till exempel konto nyckel hemligheter) i miljövariabler. Miljövariabler loggas, krypteras och lagras av oss.
+
+Du kan välja att inte använda diagnostikdata som samlas in genom att ange parametern `hbi_workspace` för att `TRUE` när arbets ytan har skapats. Den här funktionen stöds när du använder AzureML python SDK, CLI, REST API: er eller Azure Resource Manager mallar.
+
+### <a name="microsoft-generated-data"></a>Microsoft-genererade data
+
+När du använder tjänster som automatiserade Machine Learning kan Microsoft generera en tillfällig, förbehandlad data för att träna flera modeller. Dessa data lagras i ett data lager i din arbets yta, vilket gör att du kan tillämpa åtkomst kontroller och kryptering på lämpligt sätt.
+
+Du kanske också vill kryptera [diagnostikinformation som loggats från den distribuerade slut punkten](how-to-enable-app-insights.md) till din Azure Application insikter-instans.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -168,7 +245,15 @@ Den här skärm bilden visar aktivitets loggen för en arbets yta:
 
 [![skärm bild som visar aktivitets loggen för en arbets yta](media/concept-enterprise-security/workspace-activity-log.png)](media/concept-enterprise-security/workspace-activity-log-expanded.png#lightbox)
 
-Information om bedömnings förfrågningar lagras i Application Insights. Application Insights skapas i prenumerationen när du skapar en arbets yta. Loggad information innehåller fält som HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId och varaktighet.
+Information om bedömnings förfrågningar lagras i Application Insights. Application Insights skapas i prenumerationen när du skapar en arbets yta. Loggad information innehåller fält som:
+
+* HTTPMethod
+* UserAgent
+* ComputeType
+* RequestUrl
+* StatusCode
+* RequestId
+* Längd
 
 > [!IMPORTANT]
 > Vissa åtgärder i Azure Machine Learning-arbetsytan loggar inte information i aktivitets loggen. Exempelvis loggas inte starten av en utbildnings körning och registreringen av en modell.
@@ -181,8 +266,8 @@ Information om bedömnings förfrågningar lagras i Application Insights. Applic
 
 I följande diagram visas arbets ytan skapa arbets yta.
 
-* Användaren loggar in på Azure AD från en av de Azure Machine Learning klienter som stöds (Azure CLI, python SDK, Azure Portal) och begär rätt Azure Resource Manager-token.
-* Användaren anropar Azure Resource Manager för att skapa arbets ytan. 
+* Du loggar in på Azure AD från någon av de Azure Machine Learning klienter som stöds (Azure CLI, python SDK, Azure Portal) och begär rätt Azure Resource Manager-token.
+* Du anropar Azure Resource Manager för att skapa arbets ytan. 
 * Azure Resource Manager kontaktar Azure Machine Learning Resource Provider för att etablera arbets ytan.
 
 Ytterligare resurser skapas i användarens prenumeration när arbets ytan skapas:
@@ -210,7 +295,7 @@ I följande diagram visas arbets flödet för utbildning.
 
 * Azure Machine Learning anropas med ögonblicks bild-ID: t för kod ögonblicks bilden som sparades i föregående avsnitt.
 * Azure Machine Learning skapar ett körnings-ID (valfritt) och en Machine Learning-nyckeltoken som senare används av beräknings mål som Machine Learning-beräkning/VM: ar för att kommunicera med Machine Learning-tjänsten.
-* Du kan välja antingen ett hanterat beräknings mål (till exempel Machine Learning-beräkning) eller ett ohanterat beräknings mål (t. ex. virtuella datorer) för att köra dina utbildnings jobb. Här är data flöden för båda scenarierna:
+* Du kan välja antingen ett hanterat beräknings mål (till exempel Machine Learning-beräkning) eller ett ohanterat beräknings mål (t. ex. virtuella datorer) för att köra utbildnings jobb. Här är data flöden för båda scenarierna:
    * VM/HDInsight, som används av SSH-autentiseringsuppgifter i ett nyckel valv i Microsoft-prenumerationen. Azure Machine Learning kör hanterings kod på Compute-målet som:
 
    1. Förbereder miljön. (Docker är ett alternativ för virtuella datorer och lokala datorer. Se följande steg för att Machine Learning-beräkning förstå hur du kan köra experiment i Docker-behållare fungerar.)

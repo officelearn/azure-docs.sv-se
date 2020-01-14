@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 0eeb9c0c938793bb13218c5407f2a3fa117880e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226997"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921027"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Distributions tekniker i Azure Functions
 
@@ -32,7 +32,7 @@ Varje plan har olika beteenden. Alla distributions tekniker är inte tillgängli
 | URL för externt paket<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip-distribution |✔|✔|✔|✔|✔|✔|
 | Docker-behållare | | | | |✔|✔|
-| Webb distribution |✔|✔|✔| | | |
+| Webbdistribuera |✔|✔|✔| | | |
 | Källkontroll |✔|✔|✔| |✔|✔|
 | Lokal git<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Molnbaserad synkronisering<sup>1</sup> |✔|✔|✔| |✔|✔|
@@ -114,7 +114,7 @@ Använd zip Deploy för att skicka en. zip-fil som innehåller din Function-app 
 
 Du kan distribuera en Linux container-avbildning som innehåller din Function-app.
 
->__Så här använder du den:__ Skapa en Linux Function-app i Premium-eller dedikerade planen och ange vilken behållar avbildning som ska köras från. Du kan göra detta på två sätt:
+>__Så här använder du den:__ Skapa en Linux Function-app i Premium-eller dedikerade planen och ange vilken behållar avbildning som ska köras från. Du kan göra det här på två sätt:
 >
 >* Skapa en Linux Function-app i en Azure App Service plan i Azure Portal. För **publicera**väljer du **Docker-avbildning**och konfigurerar sedan behållaren. Ange den plats där avbildningen finns.
 >* Skapa en Linux Function-app på en App Service plan med hjälp av Azure CLI. Mer information finns i [skapa en funktion i Linux med hjälp av en anpassad avbildning](functions-create-function-linux-custom-image.md#create-a-premium-plan).

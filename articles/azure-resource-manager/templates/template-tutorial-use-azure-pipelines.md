@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2dfe17b99c1a9b1130695c8e5cd9c65ca7681d35
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e7d6b23aa3f35c99cf03f855152b2b231a60a965
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472452"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75921623"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Självstudie: kontinuerlig integrering av Azure Resource Manager mallar med Azure-pipelines
 
@@ -194,7 +194,7 @@ Så här skapar du en pipeline med ett steg för att distribuera en mall:
 
     Gör följande ändringar:
 
-    * **deloymentScope**: Välj distributions område från alternativen: `Management Group``Subscription` och `Resource Group`. Använd **resurs grupp** i den här självstudien. Mer information om omfattningarna finns i [distributions omfång](deploy-rest.md#deployment-scope).
+    * **deploymentScope**: Välj distributions område från alternativen: `Management Group``Subscription` och `Resource Group`. Använd **resurs grupp** i den här självstudien. Mer information om omfattningarna finns i [distributions omfång](deploy-rest.md#deployment-scope).
     * **ConnectedServiceName**: Ange namnet på tjänst anslutningen som du skapade tidigare.
     * **SubscriptionName**: Ange PRENUMERATIONS-ID för mål.
     * **åtgärd**: åtgärden **skapa eller uppdatera resurs grupp** utför 2 åtgärder-1. skapa en resurs grupp om ett nytt resurs grupps namn har angetts. 11.2. distribuera den angivna mallen.

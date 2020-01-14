@@ -1,14 +1,14 @@
 ---
 title: ISO 27001-skisser för delade tjänster
 description: Kontroll mappning för ISO 27001-skiss exemplet för delade tjänster. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
-ms.date: 11/18/2019
+ms.date: 01/13/2020
 ms.topic: sample
-ms.openlocfilehash: b484bdc2fdaa346e5137b31e3225dc913f43ed0c
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 6c03da7d5d4caada9ef47a828163a79a003bea93
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546716"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922525"
 ---
 # <a name="control-mapping-of-the-iso-27001-shared-services-blueprint-sample"></a>Kontroll mappning för ISO 27001-skiss exemplet för delade tjänster
 
@@ -53,7 +53,7 @@ Den här skissen hjälper dig att begränsa och kontrol lera privilegierade åtk
 - \[för hands version\]: granska konton med Skriv behörighet som inte är MFA-aktiverade för en prenumeration
 - \[för hands version\]: granska externa konton med ägar behörigheter för en prenumeration
 - \[för hands version\]: granska externa konton med Skriv behörighet för en prenumeration
-- Granska etablering av en Azure Active Directory administratör för SQL Server
+- Granska tillhandahållare av Azure Active Directory-administratör för SQL-servrar
 - Granska användning av Azure Active Directory för klientautentisering i Service Fabric
 - Granska användningen av anpassade RBAC-regler
 

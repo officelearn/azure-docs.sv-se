@@ -4,16 +4,16 @@ description: Skapa en funktionsapp och distribuera funktionskod från Azure DevO
 ms.date: 07/03/2018
 ms.topic: sample
 ms.custom: mvc
-ms.openlocfilehash: 3fa11d5cd81d93b89b6e8ae63fd491842be78633
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d10c3987aef6e0a32081acd17425517f5109c4bb
+ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74532787"
+ms.lasthandoff: 01/13/2020
+ms.locfileid: "75922648"
 ---
 # <a name="create-a-function-in-azure-that-is-deployed-from-azure-devops"></a>Skapa en funktion i Azure som distribueras från Azure DevOps
 
-Det här avsnittet beskrivs hur du använder Azure Functions för att skapa en [serverlös](https://azure.microsoft.com/solutions/serverless/) funktionsapp med hjälp av [förbrukningsplanen](../functions-scale.md#consumption-plan). Function-appen, som är en behållare för dina funktioner, distribueras kontinuerligt från en Azure DevOps-lagringsplats. 
+Det här avsnittet visar hur du använder Azure Functions för att skapa en [Server](https://azure.microsoft.com/solutions/serverless/) lös Function-app med hjälp av [förbruknings planen](../functions-scale.md#consumption-plan). Function-appen, som är en behållare för dina funktioner, distribueras kontinuerligt från en Azure DevOps-lagringsplats. 
 
 För att slutföra det här avsnittet måste du ha följande:
 
@@ -42,7 +42,7 @@ I det här skriptet används följande kommandon för att skapa en resursgrupp, 
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Skapar en resursgrupp där alla resurser lagras. |
 | [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Skapar lagringskontot för funktionsappen. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en funktionsapp i den serverfria [förbrukningsplanen](../functions-scale.md#consumption-plan). |
+| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Skapar en Function-app i [förbruknings planen](../functions-scale.md#consumption-plan)utan server. |
 | [az functionapp deployment source config](/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config) | Kopplar en funktionsapp till en Git- eller Mercurial-lagringsplats. |
 
 ## <a name="next-steps"></a>Nästa steg

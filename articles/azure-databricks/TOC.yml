@@ -730,6 +730,9 @@
                 - name: Hyperopt med HorovodRunner
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-distributed-ml
                   maintainContext: true
+                - name: Metodtips för Hyperopt
+                  href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-best-practices
+                  maintainContext: true
                 - name: Modellsökning med distribuerad Hyperopt
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
                   maintainContext: true
@@ -993,6 +996,12 @@
             - name: Exempel på hemligt arbetsflöde
               href: /azure/databricks/security/secrets/example-secret-workflow
               maintainContext: true
+        - name: Kryptera trafik mellan klusterarbetsnoder
+          href: /azure/databricks/security/encrypt-otw
+        - name: Aktivera kundhanterade nycklar för notebooks
+          href: /azure/databricks/security/customer-managed-key-notebook
+        - name: Aktivera kundhanterade nycklar för DBFS
+          href: /azure/databricks/security/customer-managed-keys-dbfs
     - name: Administration
       items:
         - name: Administrationsöversikt

@@ -9,26 +9,32 @@
   items:
     - name: 'Använd C#'
       href: Quickstart.md
+    - name: Använda Node.js
+      href: quickstart-nodejs.md
     - name: Använda Swift (iOS)
       href: ios-quickstart.md
 - name: Självstudier
   items:
-    - name: Starta Avancerad läsare (Node.js)
-      href: tutorial-nodejs.md
     - name: Starta Avancerad läsare (Python)
       href: tutorial-python.md
-    - name: Bild till avancerad läsare (Swift)
-      href: tutorial-ios-picture-immersive-reader.md
 - name: Instruktioner
   items:
-    - name: Azure Active Directory-autentisering
-      href: azure-active-directory-authentication.md
+    - name: Skapa resurs för Avancerad läsare
+      href: how-to-create-immersive-reader.md
+    - name: Ange cookie-princip
+      href: how-to/set-cookie-policy.md
+    - name: Visa matematik
+      href: how-to/display-math.md
+    - name: Starta Avancerad läsare med HTML-innehåll
+      href: how-to-launch-with-html.md
+    - name: Anpassa Avancerad läsare-knappen
+      href: how-to-customize-launch-button.md
+    - name: Cachelagra autentiseringstoken
+      href: how-to-cache-token.md
 - name: Referens
   items:
     - name: SDK-referens
       href: reference.md
-    - name: iOS SDK-referens
-      href: ios-reference.md
 - name: Resurser
   items:
     - name: Azure-översikt

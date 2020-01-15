@@ -869,6 +869,9 @@
         - name: Hitta avgifter för begäransenheter
           displayName: 'request units, RUs, RU, charge, consumption'
           href: find-request-unit-charge.md
+        - name: Skala med Azure Functions-timer
+          displayName: 'request units, RUs, RU, timer'
+          href: scale-on-schedule.md
     - name: Arbeta med containrar och objekt
       items:
         - name: Arbeta med Cosmos DB-data

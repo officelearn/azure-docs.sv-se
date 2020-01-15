@@ -31,9 +31,9 @@
         - name: Java
           href: event-hubs-java-get-started-send.md
         - name: Python
-          href: event-hubs-python-get-started-send.md
+          href: get-started-python-send-v2.md
         - name: Node.js
-          href: event-hubs-node-get-started-send.md
+          href: get-started-node-send-v2.md
         - name: Go
           href: event-hubs-go-get-started-send.md
         - name: C (skickar endast)
@@ -49,7 +49,7 @@
         - name: Använda en Resource Manager-mall för att aktivera Event Hubs Capture
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
         - name: Samla in Event Hubs-data med hjälp av Python
-          href: event-hubs-capture-python.md
+          href: get-started-capture-python-v2.md
     - name: Strömma till Event Hubs för Apache Kafka
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
     - name: Skapa ett dedikerat kluster
@@ -114,10 +114,22 @@
           href: event-hubs-get-connection-string.md
         - name: Utbyta händelser mellan program med olika protokoll
           href: event-hubs-exchange-events-different-protocols.md
-        - name: .NET-programmeringsguide
-          href: event-hubs-programming-guide.md
-        - name: 'Skicka, ta emot och samla in händelser med hjälp av Python'
-          href: event-hubs-python.md
+        - name: Programmeringsguider
+          items:
+            - name: Python
+              href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
+            - name: JavaScript
+              href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
+            - name: .NET-programmeringsguide
+              href: event-hubs-programming-guide.md
+        - name: Läsa insamlade data med Python (äldre)
+          href: event-hubs-capture-python.md
+        - name: Skicka och ta emot händelser (äldre)
+          items:
+            - name: Python (äldre)
+              href: event-hubs-python-get-started-send.md
+            - name: Node.js (äldre)
+              href: event-hubs-node-get-started-send.md
     - name: Bearbeta data
       items:
         - name: Bearbeta data med Azure Stream Analytics
@@ -193,7 +205,15 @@
         - name: Microsoft.Azure.Management.EventHub
           href: /dotnet/api/microsoft.azure.management.eventhub
     - name: Node.js
-      href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+      items:
+        - name: Migrera från version 2 till version 5
+          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
+        - name: API-referens
+          href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+    - name: Python
+      items:
+        - name: Migrera från version 1 till version 5
+          href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
     - name: REST
       href: /rest/api/eventhub
     - name: Resource Manager-mall

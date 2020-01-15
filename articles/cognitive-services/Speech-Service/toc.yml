@@ -7,7 +7,7 @@
       href: overview.md
     - name: Stöd för språk och region
       href: language-support.md
-      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code'
+      displayName: 'languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice'
 - name: Tal till text
   expanded: false
   items:
@@ -27,6 +27,8 @@
       items:
         - name: Byta källspråk för taligenkänning
           href: how-to-specify-source-language.md
+        - name: Välj taligenkänningsläge
+          href: how-to-choose-recognition-mode.md
         - name: Förbättra noggrannheten med anpassat tal
           href: how-to-custom-speech.md
         - name: Förbättra noggrannheten med fraslistor
@@ -102,6 +104,7 @@
           href: speech-synthesis-markup.md
         - name: Förbättra utdata med anpassade röster
           href: how-to-custom-voice.md
+          displayName: custom voice
         - name: Syntetisera tal med API för långt ljud
           href: long-audio-api.md
         - name: Använda talsyntes med Docker-containrar
@@ -363,6 +366,7 @@
           items:
             - name: Komma igång med Custom Voice
               href: how-to-custom-voice.md
+              displayName: 'custom voice, neural voice'
             - name: Förbereda data
               href: how-to-custom-voice-prepare-data.md
             - name: Skapa och använda Custom Voice-modeller

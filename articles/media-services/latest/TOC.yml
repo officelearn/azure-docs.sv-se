@@ -77,7 +77,7 @@
         - name: Generera anpassningsbar bithastighetsstege automatiskt
           href: autogen-bitrate-ladder.md
         - name: Innehållsmedveten kodning
-          href: cae-experimental.md
+          href: content-aware-encoding.md
     - name: Analysera innehåll (Video Indexer)
       items:
         - name: Översikt
@@ -178,9 +178,9 @@
     - name: Vägledning för migrering från v2 till v3
       href: migrate-from-v2-to-v3.md
       displayName: naming
-- name: Instruktionsguider
+- name: Anvisningar
   items:
-    - name: Komma igång
+    - name: Kom igång
       items:
         - name: Skapa ett konto – CLI
           href: create-account-cli-how-to.md

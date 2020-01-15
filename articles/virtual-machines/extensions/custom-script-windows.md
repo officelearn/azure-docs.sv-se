@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9fe0875f34745b0b5b8b1b7e8b352116b6cbf997
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073827"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941913"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
 
@@ -81,7 +81,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
     "properties": {
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
-        "typeHandlerVersion": "1.9",
+        "typeHandlerVersion": "1.10",
         "autoUpgradeMinorVersion": true,
         "settings": {
             "fileUris": [
@@ -92,11 +92,15 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
         "protectedSettings": {
             "commandToExecute": "myExecutionCommand",
             "storageAccountName": "myStorageAccountName",
-            "storageAccountKey": "myStorageAccountKey"
+            "storageAccountKey": "myStorageAccountKey",
+            "managedIdentity" : {}
         }
     }
 }
 ```
+
+> [!NOTE]
+> Egenskapen managedIdentity **får inte** användas tillsammans med storageAccountName-eller storageAccountKey-egenskaper
 
 > [!NOTE]
 > Endast en version av ett tillägg kan installeras på en virtuell dator vid en viss tidpunkt, vilket innebär att det inte går att ange ett anpassat skript två gånger i samma Resource Manager-mall för samma virtuella dator.
@@ -108,15 +112,16 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | sträng |
 | typ | CustomScriptExtension | sträng |
-| typeHandlerVersion | 1.9 | int |
+| typeHandlerVersion | 1.10 | int |
 | fileUris (t. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
 | timestamp (t.ex.) | 123456789 | 32-bitars heltal |
 | commandToExecute (t. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | sträng |
 | storageAccountName (t. ex.) | examplestorageacct | sträng |
 | storageAccountKey (t. ex.) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | sträng |
+| managedIdentity (t. ex.) | {} eller {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} eller {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | JSON-objekt |
 
 >[!NOTE]
 >Dessa egenskaps namn är Skift läges känsliga. Använd de namn som visas här för att undvika distributions problem.
@@ -128,6 +133,9 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 * `timestamp` (valfritt, 32-bitars heltal) Använd endast det här fältet för att utlösa en körning av skriptet genom att ändra värdet för det här fältet.  Alla heltals värden är acceptabla. Det får bara vara ett annat än det tidigare värdet.
 * `storageAccountName`: (valfritt, sträng) namnet på lagrings kontot. Om du anger autentiseringsuppgifter för lagring måste alla `fileUris` vara URL: er för Azure-blobar.
 * `storageAccountKey`: (valfri, sträng) åtkomst nyckeln för lagrings kontot
+* `managedIdentity`: (valfritt, JSON-objekt) den [hanterade identiteten](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för nedladdning av fil (er)
+  * `clientId`: (valfritt, sträng) klient-ID: t för den hanterade identiteten
+  * `objectId`: (valfritt, sträng) objekt-ID för den hanterade identiteten
 
 Följande värden kan anges i offentliga eller skyddade inställningar. tillägget kommer att neka alla konfigurationer där värdena nedan anges i både offentliga och skyddade inställningar.
 
@@ -136,6 +144,46 @@ Följande värden kan anges i offentliga eller skyddade inställningar. tillägg
 Användning av offentliga inställningar kan vara användbart för fel sökning, men vi rekommenderar att du använder skyddade inställningar.
 
 Offentliga inställningar skickas i klartext till den virtuella dator där skriptet ska köras.  Skyddade inställningar krypteras med en nyckel som endast är känd för Azure och den virtuella datorn. Inställningarna sparas på den virtuella datorn när de skickades, det vill säga om inställningarna har krypterats som de har sparats krypterade på den virtuella datorn. Certifikatet som används för att dekryptera de krypterade värdena lagras på den virtuella datorn och används för att dekryptera inställningar (vid behov) vid körning.
+
+####  <a name="property-managedidentity"></a>Egenskap: managedIdentity
+
+CustomScript (version 1.10.4 och senare) har stöd för [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) baserad RBAC för nedladdning av filer från URL: er som anges i inställningen "fileUris". Det ger CustomScript åtkomst till Azure Storage privata blobbar/behållare utan att användaren måste skicka hemligheter som SAS-token eller lagrings konto nycklar.
+
+Om du vill använda den här funktionen måste användaren lägga till en [tilldelad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) eller [användardefinierad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identitet till den virtuella datorn eller VMSS där CustomScript förväntas köras, och [ge hanterad identitets åtkomst till Azure Storage containern eller blobben](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+
+Om du vill använda den systemtilldelade identiteten på den virtuella mål datorn/VMSS anger du fältet managedidentity till ett tomt JSON-objekt. 
+
+> Exempel:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : {}
+> }
+> ```
+
+Om du vill använda den användardefinierade identiteten på den virtuella mål datorn/VMSS konfigurerar du fältet managedidentity med klient-ID: t eller objekt-ID: t för den hanterade identiteten.
+
+> Exempel:
+>
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232" }
+> }
+> ```
+> ```json
+> {
+>   "fileUris": ["https://mystorage.blob.core.windows.net/privatecontainer/script1.ps1"],
+>   "commandToExecute": "powershell.exe script1.ps1",
+>   "managedIdentity" : { "objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b" }
+> }
+> ```
+
+> [!NOTE]
+> Egenskapen managedIdentity **får inte** användas tillsammans med storageAccountName-eller storageAccountKey-egenskaper
 
 ## <a name="template-deployment"></a>Malldistribution
 
@@ -181,7 +229,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "buildserver1" `
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -Settings $settings    `
     -ProtectedSettings $protectedSettings `
 ```
@@ -199,7 +247,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
     -Name "serverUpdate"
     -Publisher "Microsoft.Compute" `
     -ExtensionType "CustomScriptExtension" `
-    -TypeHandlerVersion "1.9" `
+    -TypeHandlerVersion "1.10" `
     -ProtectedSettings $protectedSettings
 
 ```
@@ -225,7 +273,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 Om du vill distribuera tillägget för anpassat skript på klassiska virtuella datorer kan du använda Azure Portal eller de klassiska Azure PowerShell-cmdletarna.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Navigera till den klassiska VM-resursen. Välj **tillägg** under **Inställningar**.
 
@@ -253,7 +301,7 @@ $vm | Update-AzureVM
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Kör följande kommando för att se distributions status för tillägg för en virtuell dator:
 
@@ -277,7 +325,7 @@ där `<n>` är ett decimal tal som kan ändras mellan körningar av tillägget. 
 
 När du kör kommandot `commandToExecute`, anger tillägget den här katalogen (till exempel `...\Downloads\2`) som den aktuella arbets katalogen. Den här processen gör det möjligt att använda relativa sökvägar för att hitta filerna som hämtats via egenskapen `fileURIs`. Se tabellen nedan för exempel.
 
-Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Exempel:
+Eftersom den absoluta nedladdnings Sök vägen kan variera med tiden är det bättre att välja relativa skript-och fil Sök vägar i `commandToExecute` strängen, närhelst det är möjligt. Ett exempel:
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

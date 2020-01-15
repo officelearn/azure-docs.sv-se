@@ -8,39 +8,42 @@ ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: ded2c83bc648e509c8cf00236cdf453b9c61af53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39087b189c424866fffcc3ea8723c712883f288c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720575"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940713"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med Node. js
 
-Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här självstudien beskrivs hur du skapar Node. js-program för att skicka händelser till eller ta emot händelser från en händelsehubben.
+
+> [!IMPORTANT]
+> I den här snabb starten används version 2 av Azure Event Hubs Java Script SDK. Om du är nybörjare på Azure Event Hubs använder du version 5 av Java Script SDK. En snabb start som använder version 5 av Java Script SDK finns i [den här artikeln](get-started-node-send-v2.md). Om du behöver migrera befintlig kod från version 2 till version 5, se [migreringsguiden](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
 
 > [!NOTE]
 > Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 - Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) innan du börjar.
-- Node. js version 8. x och högre. Ladda ned den senaste LTS-versionen från [https://nodejs.org](https://nodejs.org).
-- Visual Studio Code (rekommenderas) eller någon annan IDE
+- Node.js-version 8.x och högre. Hämta den senaste versionen LTS från [ https://nodejs.org ](https://nodejs.org).
+- Visual Studio Code (rekommenderas) eller andra IDE
 - **Skapa ett Event Hubs-namnområde och en Event Hub**. Det första steget är att använda [Azure Portal](https://portal.azure.com) till att skapa ett namnområde av typen Event Hubs och hämta de autentiseringsuppgifter för hantering som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namn område och en Event Hub följer du stegen i [den här artikeln](event-hubs-create.md)och fortsätter sedan med följande steg i den här självstudien. Hämta sedan anslutnings strängen för Event Hub-namnområdet genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du kan använda anslutningssträngen senare i den här självstudien.
 
 
 ### <a name="install-npm-package"></a>Installera NPM-paket
-Om du vill installera [NPM-paketet för Event Hubs](https://www.npmjs.com/package/@azure/event-hubs)öppnar du en kommando tolk som har `npm` i sökvägen, ändrar katalogen till den mapp där du vill ha dina exempel och kör sedan kommandot
+Om du vill installera [NPM-paketet för Event Hubs](https://www.npmjs.com/package/@azure/event-hubs/v/2.1.0)öppnar du en kommando tolk som har `npm` i sökvägen, ändrar katalogen till den mapp där du vill ha dina exempel och kör sedan kommandot
 
 ```shell
-npm install @azure/event-hubs
+npm install @azure/event-hubs@2
 ```
 
 Om du vill installera [NPM-paketet för Event processor-värden](https://www.npmjs.com/package/@azure/event-processor-host)kör du kommandot nedan i stället
@@ -54,10 +57,10 @@ npm install @azure/event-processor-host
 Det här avsnittet visar hur du skapar ett Node. js-program som skickar händelser till en händelsehubben. 
 
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
-2. Skapa en fil med namnet `send.js` och klistra in nedanstående kod i den. Hämta anslutnings strängen för Event Hub-namnområdet genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
+2. Skapa en fil med namnet `send.js` och klistra in nedanstående kod i den. Hämta anslutningssträngen för händelsehubbens namnområde genom att följa anvisningarna i artikeln: [hämta anslutningssträngen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 
 
     ```javascript
-    const { EventHubClient } = require("@azure/event-hubs");
+    const { EventHubClient } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -95,7 +98,7 @@ Det här avsnittet visar hur du skapar ett Node. js-program som tar emot händel
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
 2. Skapa en fil med namnet `receive.js` och klistra in nedanstående kod i den.
     ```javascript
-    const { EventHubClient, delay } = require("@azure/event-hubs");
+    const { EventHubClient, delay } = require("@azure/event-hubs@2");
 
     // Connection string - primary key of the Event Hubs namespace. 
     // For example: Endpoint=sb://myeventhubns.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -133,7 +136,7 @@ Grattis! Du har nu tagit emot händelser från händelsehubben.
 
 ## <a name="receive-events-using-event-processor-host"></a>Ta emot händelser med hjälp av värden för händelsebearbetning
 
-I det här avsnittet visas hur du tar emot händelser från en Event Hub med hjälp av Azure [EventProcessorHost](event-hubs-event-processor-host.md) i ett Node. js-program. EventProcessorHost (EPH) hjälper dig att effektivt ta emot händelser från en händelsehubben genom att skapa mottagare över alla partitioner i konsument gruppen för en Event Hub. Den kontroll punkten tar emot metadata på mottagna meddelanden med jämna mellanrum i en Azure Storage Blob. Den här metoden gör det enkelt att fortsätta ta emot meddelanden där du slutade vid ett senare tillfälle.
+I det här avsnittet visas hur du tar emot händelser från en Event Hub med hjälp av Azure [EventProcessorHost](event-hubs-event-processor-host.md) i ett Node. js-program. EventProcessorHost (EPH) hjälper dig att effektivt ta emot händelser från en händelsehubb genom att skapa mottagare för alla partitioner i konsumentgrupp i en händelsehubb. Den mottagna meddelanden med jämna mellanrum i en Azure Storage Blob metadata kontrollpunkter. Den här metoden gör det enkelt att fortsätta att få meddelanden från där du slutade vid ett senare tillfälle.
 
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
 2. Skapa en fil med namnet `receiveAll.js` och klistra in nedanstående kod i den.

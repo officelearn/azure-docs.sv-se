@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997062"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940908"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -71,6 +71,7 @@ Tillsammans med den här egenskapen stöder attribut-mappningar även följande 
 
 - **Källattribut** – attributet användare från käll systemet (exempel: Azure Active Directory).
 - **Target** -attribut – användarattribut i mål systemet (exempel: ServiceNow).
+- **Standardvärde om null (valfritt)** – det värde som skickas till mål systemet om källattributet är null. Det här värdet kommer endast att tillhandahållas när en användare skapas. "Standardvärdet när null" kommer inte att tillhandahållas när en befintlig användare uppdateras. Om du till exempel vill etablera alla befintliga användare i mål systemet med en viss befattning (när det är null i käll systemet) kan du använda följande [uttryck](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): switch (IsPresent ([befattning]), "DefaultValue", "true", [befattning]). Se till att ersätta "standardvärde" med det du vill etablera när null i käll systemet. 
 - **Matcha objekt med det här attributet** – om mappningen ska användas för att unikt identifiera användare mellan käll-och mål systemen. Den anges vanligt vis på userPrincipalName-eller e-postattributet i Azure AD, som vanligt vis mappas till ett användar namns fält i ett mål program.
 - **Matchnings prioritet** – flera matchande attribut kan anges. När det finns flera, utvärderas de i den ordning som definieras av det här fältet. Så fort en matchning hittas utvärderas inga ytterligare matchande attribut.
 - **Använd den här mappningen**

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Starta den fördjupade läsaren med python'
+title: 'Självstudie: starta den fördjupade läsaren med python'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du ett python-program som startar den fördjupade läsaren.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326401"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945233"
 ---
-# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudier: Starta den fördjupade läsaren med python-exempelprojektet
+# <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudie: starta den fördjupade läsaren med python-exempelprojektet
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett python-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en python-webbapp med pip, kolv, Jinja och virtuell miljö med ett exempel projekt
@@ -28,9 +28,9 @@ I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren �
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En fördjupad läsar resurs som kon figurer ATS för autentisering med Azure Active Directory (Azure AD). Följ [dessa instruktioner](./azure-active-directory-authentication.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
+* En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Git](https://git-scm.com/)
 * [SDK för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk)
 * [Python](https://www.python.org/downloads/) och [pip](https://docs.python.org/3/installing/index.html). Från och med python 3,4 ingår pip som standard med de binära installations programmen för python.
@@ -40,20 +40,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 * [modulen begär Anden](https://pypi.org/project/requests/2.7.0/)
 * En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Hämta en Azure AD-autentiseringstoken
+## <a name="configure-authentication-credentials"></a>Konfigurera autentiseringsuppgifter för autentisering
 
-Skriv ett Server dels-API för att hämta en Azure AD-autentiseringstoken.
-
-Du behöver vissa värden från det nödvändiga steget för Azure AD auth Configuration ovan för den här delen. Se tillbaka till text filen som du sparade i sessionen.
-
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
-
-När du har dessa värden skapar du en ny fil med namnet _. kuvert_och klistrar in följande kod i den och anger dina egna egenskaps värden ovan. Ersätt _. kuvert_ . fil i exempel appen med den nya filen som skapats.
+Skapa en ny fil med namnet _. kuvert_och klistra in följande kod i den, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
 
 ```text
 TENANT_ID={YOUR_TENANT_ID}
@@ -88,7 +77,7 @@ Lägg till valfria funktioner genom att markera kryss rutorna och klicka sedan p
 
 ![Dialog rutan python Windows-installation steg 2](./media/pythoninstalltwo.jpg)
 
-Välj anpassad installation och ange installations Sök vägen som rotmapp, t. ex. `C:\Python37-32\` och klicka sedan på knappen Installera.
+Välj anpassad installation och ange installations Sök vägen som rotmapp, t. ex. `C:\Python37-32\` klicka sedan på knappen Installera.
 
 ![Dialog rutan python Windows-installation steg 3](./media/pythoninstallthree.jpg)
 
@@ -140,7 +129,7 @@ Skapa en virtuell miljö
 mkvirtualenv advanced-python
 ```
 
-`cd` till rotmappen för exempel projekt.
+`cd` till rotmappen för exempelprojektet.
 
 ```cmd
 cd C:\immersive-reader-sdk\js\samples\advanced-python
@@ -168,7 +157,7 @@ deactivate
 
 Prefixet `(advanced-python)` bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Om du vill återaktivera miljön kör `workon advanced-python` från rotmappen för ett exempel projekt.
+Om du vill återaktivera miljön kör `workon advanced-python` från rotmappen för exempelprojektet.
 
 ```cmd
 workon advanced-python
@@ -176,7 +165,7 @@ workon advanced-python
 
 ### <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för ett exempel projekt.
+När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för exempel projekt.
 
 ```cmd
 flask run
@@ -224,9 +213,9 @@ sudo nano /etc/paths
 
 - Ange ditt lösen ord när du uppmanas till det.
 - Lägg till sökvägen till din pip-installation till din PATH-variabel.
-- Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, t. ex. `PATH=$PATH:/usr/local/bin`.
+- Gå till slutet av filen och ange den sökväg som du vill lägga till som det sista objektet i listan, t. ex. `PATH=$PATH:/usr/local/bin`.
 - Tryck på CTRL-x för att avsluta.
-- Ange `Y` om du vill spara den ändrade bufferten.
+- Ange `Y` för att spara den ändrade bufferten.
 - Klart! Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH`.
 
 Installations flaska.
@@ -305,7 +294,7 @@ deactivate
 
 Prefixet `(advanced-python)` bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Om du vill återaktivera miljön kör `workon advanced-python` från rotmappen för ett exempel projekt.
+Om du vill återaktivera miljön kör `workon advanced-python` från rotmappen för exempelprojektet.
 
 ```bash
 workon advanced-python
@@ -313,7 +302,7 @@ workon advanced-python
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för ett exempel projekt.
+När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för exempel projekt.
 
 ```bash
 flask run

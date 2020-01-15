@@ -1,6 +1,6 @@
 ---
-title: Använd PowerShell för att ändra storlek på en virtuell Windows-dator i Azure
-description: Ändra storlek på en virtuell Windows-dator som skapats i Resource Manager-distributions modellen med hjälp av Azure PowerShell.
+title: Ändra storlek på en virtuell Windows-dator i Azure
+description: Ändra den virtuella dator storleken som används för en virtuell Azure-dator.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -12,26 +12,34 @@ ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 01/13/2020
 ms.author: cynthn
-ms.openlocfilehash: 4b30f2fd8e095b00898e083e33c23c7c9a915b99
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6718804d4635edb2628b53017ab9d377928afad8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073357"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941723"
 ---
 # <a name="resize-a-windows-vm"></a>Ändra storlek på en virtuell Windows-dator
 
-Den här artikeln visar hur du flyttar en virtuell dator till en annan [storlek](sizes.md) med hjälp av Azure PowerShell.
+Den här artikeln visar hur du flyttar en virtuell dator till en annan [VM-storlek](sizes.md).
 
 När du har skapat en virtuell dator (VM) kan du skala upp eller ned den virtuella datorn genom att ändra storleken på den virtuella datorn. I vissa fall måste du frigöra den virtuella datorn först. Detta kan inträffa om den nya storleken inte är tillgänglig i det maskin varu kluster som för närvarande är värd för den virtuella datorn.
 
 Om din virtuella dator använder Premium Storage, se till att du väljer en **s** -version av storleken för att få Premium Storage support. Välj till exempel Standard_E4**s**_v3 i stället för Standard_E4_v3.
 
- 
+## <a name="use-the-portal"></a>Använda portalen
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator som inte finns i en tillgänglighets uppsättning
+1. Öppna [Azure-portalen](https://portal.azure.com).
+1. Öppna sidan för den virtuella datorn.
+1. I den vänstra menyn väljer du **storlek**.
+1. Välj en ny storlek i listan över tillgängliga storlekar och välj sedan **ändra storlek**.
+
+
+Om den virtuella datorn körs för tillfället kommer den att startas om om du ändrar storlek på den. Att stoppa den virtuella datorn kan visa fler storlekar.
+
+## <a name="use-powershell-to-resize-a-vm-not-in-an-availability-set"></a>Använd PowerShell för att ändra storlek på en virtuell dator som inte finns i en tillgänglighets uppsättning
 
 Ange några variabler. Ersätt värdena med din egen information.
 
@@ -69,7 +77,7 @@ Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 > 
 > 
 
-## <a name="resize-a-windows-vm-in-an-availability-set"></a>Ändra storlek på en virtuell Windows-dator i en tillgänglighets uppsättning
+## <a name="use-powershell-to-resize-a-vm-in-an-availability-set"></a>Använd PowerShell för att ändra storlek på en virtuell dator i en tillgänglighets uppsättning
 
 Om den nya storleken för en virtuell dator i en tillgänglighets uppsättning inte är tillgänglig på det maskin varu kluster som är värd för den virtuella datorn, måste alla virtuella datorer i tillgänglighets uppsättningen frigöras för att ändra storlek på den virtuella datorn. Du kan också behöva uppdatera storleken på andra virtuella datorer i tillgänglighets uppsättningen när storleken på en virtuell dator har ändrats. Utför följande steg för att ändra storlek på en virtuell dator i en tillgänglighets uppsättning.
 

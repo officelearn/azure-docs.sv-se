@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: ade4aa79b2de005bfecd7a5882f06cb491ea4e6d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e81871e27c04f8a43f678110d7f44cc9c3be149c
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717854"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940747"
 ---
 # <a name="quickstart-event-hubs-capture-walkthrough-python"></a>Snabb start: Event Hubs Infångnings genom gång: python
 
-Capture är en funktion i Azure Event Hubs. Du kan använda Capture för att automatiskt leverera strömmande data i händelsehubben till ett Azure Blob Storage-konto som du väljer. Den här funktionen gör det enkelt att utföra batchbearbetning vid strömnings data i real tid. Den här artikeln beskriver hur du använder Event Hubs Capture med python. Mer information om Event Hubs avbildning finns i [avbilda händelser via Azure Event Hubs][Overview of Event Hubs Capture].
+Avbildning är en funktion i Azure Event Hubs. Du kan använda Capture för att automatiskt leverera strömmande data i händelsehubben till ett Azure Blob Storage-konto som du väljer. Den här funktionen gör det enkelt att utföra batchbearbetning vid strömnings data i real tid. Den här artikeln beskriver hur du använder Event Hubs Capture med Python. Mer information om Event Hubs avbildning finns i [avbilda händelser via Azure Event Hubs][Overview of Event Hubs Capture].
 
 I den här genom gången används [Azure python SDK](https://azure.microsoft.com/develop/python/) för att demonstrera insamlings funktionen. *Sender.py* -programmet skickar simulerad miljö telemetri till Event HUBS i JSON-format. Händelsehubben använder insamlings funktionen för att skriva dessa data till blob-lagring i batchar. *Capturereader.py* -appen läser dessa blobbar, skapar en tilläggs fil för var och en av dina enheter och skriver data till *CSV* -filer på varje enhet.
+
+> [!IMPORTANT]
+> I den här snabb starten används version 1 av Azure Event Hubs python SDK. Om du är nybörjare på Azure Event Hubs använder du version 5 av python SDK. En snabb start som använder version 5 av python SDK finns i [den här artikeln](get-started-capture-python-v2.md). Om du behöver migrera befintlig kod från version 1 till version 5, se [migreringsguiden](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
 
 I den här genom gången ska du: 
 
@@ -36,7 +39,7 @@ I den här genom gången ska du:
 > * Skicka data till händelsehubben med hjälp av ett Python-skript.
 > * Läsa och bearbeta filer från Event Hubs avbildning med hjälp av ett annat Python-skript.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Python 3,4 eller senare, med `pip` installerat och uppdaterat.
   
@@ -54,7 +57,7 @@ I den här genom gången ska du:
 
 Skapa ett lagrings konto och en behållare som ska användas för avbildningen. 
 
-1. Logga in på [Azure Portal][Azure portal].
+1. Logga in på [Azure-portalen][Azure portal].
 2. I det vänstra navigerings fältet väljer du **lagrings konton**och på skärmen **lagrings konton** väljer du **Lägg till**.
 3. På skärmen skapa lagrings konto väljer du en prenumeration och en resurs grupp och ger lagrings kontot ett namn. Du kan lämna övriga val som standard. Välj **Granska + skapa**, granska inställningarna och välj sedan **skapa**. 
    
@@ -74,7 +77,7 @@ Skapa ett lagrings konto och en behållare som ska användas för avbildningen.
 5. På **avbildnings** skärmen väljer du **Spara ändringar**. 
 
 ## <a name="create-a-python-script-to-send-events-to-event-hub"></a>Skapa ett Python-skript för att skicka händelser till Event Hub
-Det här skriptet skickar 200-händelser till händelsehubben. Händelserna är enkla miljö läsningar som skickas i JSON.
+Det här skriptet skickar 200 händelser till din event hub. Händelserna är enkla miljö läsningar som skickas i JSON.
 
 1. Öppna din favorit-eller python-redigerare, t. ex. [Visual Studio Code][Visual Studio Code].
 2. Skapa en ny fil med namnet *Sender.py*. 

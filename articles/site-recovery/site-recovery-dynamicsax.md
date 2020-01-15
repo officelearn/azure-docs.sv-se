@@ -1,18 +1,16 @@
 ---
-title: Haveri beredskap för en Dynamics AX-distribution på flera nivåer med Azure Site Recovery | Microsoft Docs
-description: I den här artikeln beskrivs hur du konfigurerar haveri beredskap för Dynamics AX med Azure Site Recovery
-author: carmonmills
+title: Haveri beredskap för Dynamics AX med Azure Site Recovery
+description: Lär dig hur du konfigurerar haveri beredskap för Dynamics AX med Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 089edd1f408494f59c8f0042b57d2d79c7faffae
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0b32f00374aa8ce6c41415e28f319e3e7d5abddb
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930176"
+ms.locfileid: "75941595"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>Konfigurera katastrof återställning för ett Dynamics AX-program med flera nivåer   
 
@@ -39,7 +37,7 @@ Att implementera haveri beredskap för Dynamics AX-program genom att använda Si
 
 ## <a name="site-recovery-support"></a>Site Recovery-stöd
 
-För att kunna skapa den här artikeln använde vi virtuella VMware-datorer med Dynamics AX 2012 R3 på Windows Server 2012 R2 Enterprise. Eftersom Site Recovery-replikering är Application oberoende, förväntar vi rekommendationerna som finns här för följande scenarier.
+För att kunna skapa den här artikeln använde vi virtuella VMware-datorer med Dynamics AX 2012 R3 på Windows Server 2012 R2 Enterprise. Eftersom Site Recovery replikeringen är en oberoende för program, förväntar vi rekommendationerna som finns här för följande scenarier.
 
 ### <a name="source-and-target"></a>Källa och mål
 

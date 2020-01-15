@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 09244b634fa2603a7dc92af3c78d171f8d6bd9df
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903113"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945284"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
@@ -43,12 +43,12 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
-| `token` | sträng | Azure AD-autentiseringstoken. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
-| `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
+| `token` | sträng | Azure AD-autentiseringstoken. |
+| `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
 | `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
 
-### <a name="returns"></a>Avkastning
+### <a name="returns"></a>Returnerar
 
 Returnerar ett `Promise<HTMLDivElement>`som löses när den fördjupade läsaren läses in. `Promise` matchar ett `div`-element vars enda underordnade är ett `iframe`-element som innehåller fördjupad läsar sidan.
 
@@ -97,7 +97,7 @@ Innehåller det innehåll som ska visas i den fördjupade läsaren.
 }
 ```
 
-### <a name="chunk"></a>Omdirigeringstabell
+### <a name="chunk"></a>Segment
 
 Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 
@@ -109,13 +109,21 @@ Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 }
 ```
 
+### <a name="cookiepolicy-enum"></a>CookiePolicy Enum
+
+En uppräkning som används för att ange principen för avancerad läsares cookie-användning. Se [alternativ](#options).
+
+```typescript
+enum CookiePolicy { Disable, Enable }
+```
+
 #### <a name="supported-mime-types"></a>MIME-typer som stöds
 
 | MIME-typ | Beskrivning |
 | --------- | ----------- |
-| text/ren | Oformaterad text. |
+| text/oformaterat | Oformaterad text. |
 | text/html | HTML-innehåll. [Läs mer](#html-support)|
-| program/mathml + XML | MathML (matematiskt Markup Language). [Läs mer](https://developer.mozilla.org/en-US/docs/Web/MathML).
+| program/mathml + XML | MathML (matematiskt Markup Language). [Läs mer](./how-to/display-math.md).
 | Application/VND. openxmlformats-officedocument. WordprocessingML. Document | Dokument för Microsoft Word. docx-format.
 
 ### <a name="html-support"></a>HTML-stöd
@@ -142,6 +150,7 @@ Innehåller egenskaper som konfigurerar vissa beteenden för den fördjupade lä
     customDomain?: string;     // Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null).
     allowFullscreen?: boolean; // The ability to toggle fullscreen (default is true).
     hideExitButton?: boolean;  // Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow).
+    cookiePolicy?: CookiePolicy; // Setting for the Immersive Reader's cookie usage (default is CookiePolicy.Disable). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy.
 }
 ```
 
@@ -171,7 +180,7 @@ Innehåller information om felet.
 | Programmera | Beskrivning |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
-| Standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
 | TokenExpired | Angiven token har upphört att gälla. |
 | Begränsas | Anrops frekvens gränsen har överskridits. |
 
@@ -189,11 +198,11 @@ Använd följande attribut för att konfigurera utseendet och utseendet på knap
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller `iconAndText`. Standardvärdet är `icon`. |
+| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller `iconAndText`. Som standard `icon`. |
 | `data-locale` | Anger språkvarianten. Exempel: `en-US` eller `fr-FR`. Standardvärdet är engelska `en`. |
 | `data-icon-px-size` | Anger storleken på ikonen i bild punkter. Standardvärdet är 20px. |
 
-## <a name="browser-support"></a>Webb läsar stöd
+## <a name="browser-support"></a>Stöd för webbläsare
 
 Använd de senaste versionerna av följande webbläsare för bästa möjliga upplevelse med avancerad läsare.
 

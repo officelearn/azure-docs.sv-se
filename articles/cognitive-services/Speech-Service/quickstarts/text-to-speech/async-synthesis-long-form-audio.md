@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 1558b2eb12b1d4745cdfeab41fc2d1bd829b3d9c
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: eef9a99e4c94fa45e21abfc9d19fcef1230ffe76
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816684"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944683"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>Snabb start: asynkron syntes för lång Forms ljud i python (för hands version)
 
-I den här snabb starten använder du den långa ljud-API: n för att konvertera text till tal asynkront och hämta ljud resultatet från en URI som tillhandahålls av tjänsten. Den här REST API är idealisk för innehålls leverantörer som behöver konvertera textfiler som är större än 10 000 tecken eller 50 stycken till syntetiskt tal. Mer information finns i avsnittet om [långa ljud-API](../../long-audio-api.md).
+I den här snabb starten använder du den långa ljud-API: n för att konvertera text till tal asynkront och hämta ljud resultatet från en URI som tillhandahålls av tjänsten. Den här REST API är idealisk för innehålls leverantörer som behöver syntetisera ljud från text som är större än 5 000 tecken (eller mer än 10 minuter långt). Mer information finns i avsnittet om [långa ljud-API](../../long-audio-api.md).
 
 > [!NOTE]
 > Asynkron syntes för lång Forms ljud kan bara användas med [anpassade neurala-röster](../../how-to-custom-voice.md#custom-neural-voices).
@@ -50,13 +50,13 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> Om du inte har använt de här modulerna behöver du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests urllib3`.
+> Om du inte har använt de här modulerna måste du installera dem innan du kör programmet. För att installera de här paketen kör du: `pip install requests urllib3`.
 
 Dessa moduler används för att parsa argument, konstruera HTTP-begäran och anropa text-till-tal-lång ljud REST API.
 
 ## <a name="get-a-list-of-supported-voices"></a>Hämta en lista över röster som stöds
 
-Den här koden hämtar en lista över tillgängliga röster som du kan använda för att konvertera text till tal. Lägg till den här koden `voice_synthesis_client.py`:
+Den här koden hämtar en lista över tillgängliga röster som du kan använda för att konvertera text till tal. Lägg till koden i `voice_synthesis_client.py`:
 
 ```python
 parser = argparse.ArgumentParser(description='Cris client tool to submit voice synthesis requests.')
@@ -80,13 +80,18 @@ if args.voices:
 
 ### <a name="test-your-code"></a>Testa koden
 
-Vi testar vad du har gjort hittills. Kör det här kommandot, Ersätt `<your_key>` med din tal prenumerations nyckel och `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+Vi testar vad du har gjort hittills. Du måste uppdatera några saker i begäran nedan:
+
+* Ersätt `<your_key>` med din prenumerations nyckel för röst tjänst. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+
+Kör följande kommando:
 
 ```console
 python voice_synthesis_client.py --voices -key <your_key> -region <Region>
 ```
 
-Du bör få utdata som ser ut så här:
+Du ser ett utdata som ser ut så här:
 
 ```console
 There are xx voices available:
@@ -95,14 +100,16 @@ Name: Microsoft Server Speech Text to Speech Voice (en-US, xxx), Description: xx
 Name: Microsoft Server Speech Text to Speech Voice (zh-CN, xxx), Description: xxx , Id: xxx, Locale: zh-CN, Gender: Female, PublicVoice: xxx, Created: 2019-08-26T04:55:39Z
 ```
 
+## <a name="prepare-input-files"></a>Förbered indatafiler
+
+Förbered en textfil för indata. Det kan vara antingen oformaterad text eller SSML text. Information om krav för indatafiler finns i så här [förbereder du innehåll för syntes](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#prepare-content-for-synthesis).
+
 ## <a name="convert-text-to-speech"></a>Omvandla text till tal
 
-Nästa steg är att förbereda en textfil för indata. Det kan vara antingen oformaterad text eller SSML, men det måste vara mer än 10 000 tecken eller 50 stycken. En fullständig lista över kraven finns i [långa ljud-API](../../long-audio-api.md).
-
-När du har för berett text filen. Nästa steg är att lägga till kod för tal syntes i projektet. Lägg till den här koden i `voice_synthesis_client.py`:
+När du har bearbetat in text filen lägger du till den här koden för tal syntes till `voice_synthesis_client.py`:
 
 > [!NOTE]
-> Som standard är ljud uppspelningen inställd på riff-16khz-bitarsläge-mono-PCM. Mer information om ljud utdata som stöds finns i [långa ljud-API](../../long-audio-api.md#audio-output-formats).
+> ' concatenateResult ' är en valfri parameter. Om den här parametern inte anges genereras ljud utmatningarna per stycke. Du kan också sammanfoga ljuden till 1 utdata genom att ange parametern. Som standard är ljud uppspelningen inställd på riff-16khz-bitarsläge-mono-PCM. Mer information om ljud utdata som stöds finns i [format för ljud uppspelning](https://docs.microsoft.com/azure/cognitive-services/speech-service/long-audio-api#audio-output-formats).
 
 ```python
 parser.add_argument('--submit', action="store_true", default=False, help='submit a synthesis request')
@@ -123,7 +130,7 @@ def submitSynthesis():
         files = {'script': (scriptfilename, open(args.file, 'rb'), 'text/plain')}
     response = requests.post(baseAddress+"voicesynthesis", data, headers={"Ocp-Apim-Subscription-Key":args.key}, files=files, verify=False)
     if response.status_code == 202:
-        location = response.headers['Operation-Location']
+        location = response.headers['Location']
         id = location.split("/")[-1]
         print("Submit synthesis request successful")
         return id
@@ -165,13 +172,13 @@ if args.submit:
 
 ### <a name="test-your-code"></a>Testa koden
 
-Nu ska vi prova att göra en begäran om att syntetisera text med hjälp av indatafilen som en källa. Du måste uppdatera några saker i begäran nedan:
+Vi gör en begäran om att syntetisera text med hjälp av indatafilen som källa. Du måste uppdatera några saker i begäran nedan:
 
 * Ersätt `<your_key>` med din prenumerations nyckel för röst tjänst. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
 * Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
-* Ersätt `<input>` med sökvägen till text filen som du vill konvertera från text till tal.
+* Ersätt `<input>` med sökvägen till text filen som du har för berett för text till tal.
 * Ersätt `<locale>` med önskat utmatnings språk. Mer information finns i [språk stöd](../../language-support.md#neural-voices).
-* Ersätt `<voice_guid>` med den önskade rösten för ljud uppspelningen. Använd en av rösterna som returneras av [Hämta en lista över röster som stöds](#get-a-list-of-supported-voices) eller Använd listan över neurala-röster som finns i [språk stöd](../../language-support.md#neural-voices).
+* Ersätt `<voice_guid>` med önskad utdata-röst. Använd en av de röster som returneras av [Hämta en lista över röster som stöds](#get-a-list-of-supported-voices).
 
 Konvertera text till tal med det här kommandot:
 
@@ -180,9 +187,11 @@ python voice_synthesis_client.py --submit -key <your_key> -region <Region> -file
 ```
 
 > [!NOTE]
-> ' concatenateResult ' är en valfri parameter, om den här parametern inte anges kommer utdata att tillhandahållas som flera wave-filer, en för varje rad.
+> Om du har fler än 1 indatafiler måste du skicka flera begär Anden. Det finns vissa begränsningar som måste vara medvetna. 
+> * Klienten får skicka upp till **5** förfrågningar till server per sekund för varje Azure-prenumerations konto. Om den överskrider begränsningen får klienten en 429-felkod (för många begär Anden). Minska antalet begär Anden per sekund
+> * Servern kan köra och köa upp till **120** förfrågningar för varje Azure-prenumerations konto. Om den överskrider begränsningen returnerar servern en 429-felkod (för många begär Anden). Vänta och Undvik att skicka ny begäran förrän vissa begär Anden har slutförts
 
-Du bör få utdata som ser ut så här:
+Du ser ett utdata som ser ut så här:
 
 ```console
 Submit synthesis request successful
@@ -200,13 +209,13 @@ Checking status
 Succeeded... Result file downloaded : xxxx.zip
 ```
 
-Det angivna resultatet innehåller inmatnings texten och de ljudutdata som genererats av tjänsten. Dessa hämtas som ett zip.
+Resultatet innehåller inmatnings texten och de ljudutdata som genereras av tjänsten. Du kan ladda ned dessa filer i ett zip.
 
 ## <a name="remove-previous-requests"></a>Ta bort tidigare begär Anden
 
-Det finns en gräns på 2 000-begäranden för varje prenumeration. Därför kommer det att finnas tillfällen då du måste ta bort tidigare skickade förfrågningar innan du kan göra nya. Om du inte tar bort befintliga förfrågningar får du ett fel meddelande när du överskrider 2 000.
+Servern kommer att behålla upp till **20 000** förfrågningar för varje Azure-prenumerations konto. Om ditt begär ande belopp överskrider den här begränsningen kan du ta bort tidigare begär Anden innan du gör nya. Om du inte tar bort befintliga förfrågningar får du ett fel meddelande.
 
-Lägg till den här koden i `voice_synthesis_client.py`:
+Lägg till koden i `voice_synthesis_client.py`:
 
 ```python
 parser.add_argument('--syntheses', action="store_true", default=False, help='print synthesis list')
@@ -239,13 +248,18 @@ if args.delete:
 
 ### <a name="test-your-code"></a>Testa koden
 
-Kör det här kommandot, Ersätt `<your_key>` med din tal prenumerations nyckel och `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+Nu ska vi kontrol lera vilka begär Anden som du har skickat. Innan du fortsätter måste du uppdatera några saker i denna begäran:
+
+* Ersätt `<your_key>` med din prenumerations nyckel för röst tjänst. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+
+Kör följande kommando:
 
 ```console
-python voice_synthesis_client.py – syntheses -key <your_key> -region <Region>
+python voice_synthesis_client.py --syntheses -key <your_key> -region <Region>
 ```
 
-Då returneras en lista över syntheses som du har begärt. Du bör få utdata som ser ut så här:
+Detta returnerar en lista över syntes förfrågningar som du har gjort. Du ser utdata som liknar följande:
 
 ```console
 There are <number> synthesis requests submitted:
@@ -254,16 +268,22 @@ ID : xxx , Name : xxx, Status : Running
 ID : xxx , Name : xxx : Succeeded
 ```
 
-Nu ska vi använda några av dessa värden för att ta bort/ta bort tidigare skickade förfrågningar. Kör det här kommandot, Ersätt `<your_key>` med din tal prenumerations nyckel och `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal). `<synthesis_id>` ska vara ett av de värden som returnerades i den tidigare begäran.
+Nu ska vi ta bort en tidigare skickad begäran. Du måste uppdatera några saker i koden nedan:
+
+* Ersätt `<your_key>` med din prenumerations nyckel för röst tjänst. Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<region>` med den region där din tal resurs skapades (till exempel: `eastus` eller `westus`). Den här informationen finns på fliken **Översikt** för resursen i [Azure Portal](https://aka.ms/azureportal).
+* Ersätt `<synthesis_id>` med det värde som returnerades i föregående begäran.
 
 > [!NOTE]
 > Begär Anden med statusen "körs"/"väntar" kan inte tas bort eller tas bort.
 
+Kör följande kommando:
+
 ```console
-python voice_synthesis_client.py – delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
+python voice_synthesis_client.py --delete -key <your_key> -region <Region> -synthesisId <synthesis_id>
 ```
 
-Du bör få utdata som ser ut så här:
+Du ser utdata som liknar följande:
 
 ```console
 delete voice synthesis xxx
@@ -272,7 +292,7 @@ delete successful
 
 ## <a name="get-the-full-client"></a>Hämta den fullständiga klienten
 
-Hela `voice_synthesis_client.py` kan laddas ned på [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
+Den slutförda `voice_synthesis_client.py` kan laddas ned på [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/blob/master/CustomVoice-API-Samples/Python/voiceclient.py).
 
 ## <a name="next-steps"></a>Nästa steg
 

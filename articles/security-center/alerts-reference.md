@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 696bba195ac3902a3a90a82bcc7665591eba643f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4ef2987ee72348fb4353ba735d6da76fb218f01e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922346"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942145"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -97,6 +97,7 @@ Under tabellen aviseringar finns en tabell som beskriver den Azure Security Cent
 |**Ovanlig mängd data som extraheras från ett lagrings konto**|Anger att en ovanligt stor mängd data har extraherats jämfört med senaste aktivitet på den här lagrings behållaren. En möjlig orsak är att en angripare har extraherat en stor mängd data från en behållare som innehåller blob-lagring.|Exfiltrering|
 |**Ovanlig borttagning i ett lagrings konto**|Indikerar att en eller flera oväntade borttagnings åtgärder har inträffat i ett lagrings konto, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har tagit bort data från ditt lagrings konto.|Exfiltrering|
 |**Ovanlig uppladdning av. cspkg till ett lagrings konto**|Indikerar att ett Azure Cloud Services-paket (. cspkg-fil) har överförts till ett lagrings konto på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har förberett att distribuera skadlig kod från ditt lagrings konto till en Azure-moln tjänst.|LateralMovement/körning|
+|**Ovanlig uppladdning av. exe till ett lagrings konto**|Anger att en exe-fil har överförts till ett lagrings konto på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har laddat upp en skadlig körbar fil till ditt lagrings konto, eller att en legitim användare har överfört en körbar fil.|LateralMovement/körning|
 |**Ovanliga ändringar av åtkomst behörigheter i ett lagrings konto**|Anger att åtkomst behörigheterna för den här lagrings behållaren har ändrats på ett onormalt sätt. En möjlig orsak är att en angripare har ändrat behållar behörigheter för att begränsa dess säkerhets position eller få beständighet.|Bevarande|
 |**Ovanlig åtkomst kontroll i ett lagrings konto**|Anger att åtkomst behörigheterna för ett lagrings konto har inspekterats på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har genomfört rekognosering för framtida angrepp.|Samling|
 |**Ovanlig data utforskning i ett lagrings konto**|Anger att blobbar eller behållare i ett lagrings konto har räknats upp på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har genomfört rekognosering för framtida angrepp.|Samling|

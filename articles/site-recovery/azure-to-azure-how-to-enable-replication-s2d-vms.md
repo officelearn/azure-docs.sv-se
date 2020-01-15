@@ -1,19 +1,16 @@
 ---
 title: Replikera virtuella Azure-datorer som kör Lagringsdirigering med Azure Site Recovery
-description: Den här artikeln beskriver hur du replikerar virtuella Azure-datorer som kör Lagringsdirigering med Azure Site Recovery.
-services: site-recovery
-author: carmonmills
+description: Lär dig hur du replikerar virtuella Azure-datorer som kör Lagringsdirigering med Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/29/2019
-ms.author: carmonm
-ms.openlocfilehash: 49a4f59e68a409696480f89ee4b606fbed2b77ed
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 465c0ddd91e81bb597a996637fdc2147e90464de
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929847"
+ms.locfileid: "75942219"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replikera virtuella Azure-datorer som kör Lagringsdirigering till en annan region
 
@@ -23,13 +20,13 @@ I den här artikeln beskrivs hur du aktiverar haveri beredskap för virtuella Az
 >Endast kraschbaserade återställnings punkter stöds för lagrings Dirigerings kluster.
 >
 
-## <a name="introduction"></a>Introduktion 
-[Lagrings dirigering (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) är en programdefinierad lagring som gör det möjligt att skapa [gäst kluster](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) i Azure.  Ett gäst kluster i Microsoft Azure är ett kluster för växling vid fel som består av virtuella IaaS-datorer. Den gör det möjligt för värdar för virtuella datorer att redundansväxla över gäst kluster som uppnår service avtal med högre tillgänglighet för program än en enskild virtuell Azure-dator kan tillhandahålla. Det är användbart i scenarier där VM är värd för ett kritiskt program som SQL eller skalbar fil Server osv.
+[Lagrings dirigering (S2D)](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct) är ett Programdefinierat lagrings utrymme som gör det möjligt att skapa [gäst kluster](https://blogs.msdn.microsoft.com/clustering/2017/02/14/deploying-an-iaas-vm-guest-clusters-in-microsoft-azure) i Azure.  Ett gäst kluster i Microsoft Azure är ett kluster för växling vid fel som består av virtuella IaaS-datorer. Den gör det möjligt för värdar för virtuella datorer att redundansväxla över gäst kluster, vilket ger service avtal med hög tillgänglighet för program, än en enda virtuell Azure-dator kan tillhandahålla. Det är användbart i scenarier där en virtuell dator är värd för ett kritiskt program som SQL eller skalbar fil server.
 
-## <a name="disaster-recovery-of-azure-virtual-machines-using-storage-spaces-direct"></a>Haveri beredskap för Azure Virtual Machines med hjälp av lagrings dirigering
+## <a name="disaster-recovery-with-storage-spaces-direct"></a>Haveri beredskap med lagrings dirigering
+
 I ett typiskt scenario kan du ha virtuella datorer i Azure för högre återhämtning av ditt program som skalbar fil server. Även om detta kan ge ditt program högre tillgänglighet, vill du skydda dessa program med hjälp av Site Recovery för ett region nivå haveri. Site Recovery replikerar data från en region till en annan Azure-region och tar upp klustret i haveri beredskaps region i händelse av redundans.
 
-Diagrammet nedan visar bild representationen av två redundanskluster för virtuella Azure-datorer med lagrings dirigering.
+I diagrammet nedan visas ett Azure VM-redundanskluster med två noder som använder lagrings dirigering.
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
@@ -42,7 +39,7 @@ Diagrammet nedan visar bild representationen av två redundanskluster för virtu
 **Överväganden vid haveri beredskap**
 
 1. När du ställer in [moln vittne](https://docs.microsoft.com/windows-server/failover-clustering/deploy-cloud-witness#CloudWitnessSetUp) för klustret ska du behålla vittnet i haveri beredskaps regionen.
-2. Om du växlar över de virtuella datorerna till under nätet i den DR-region som skiljer sig från käll regionen måste kluster-IP-adressen ändras efter redundansväxlingen.  Om du vill ändra IP-adress för klustret måste du använda skript för ASR- [återställnings plan.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
+2. Om du växlar över de virtuella datorerna till under nätet i den DR-region som skiljer sig från käll regionen måste kluster-IP-adressen ändras efter redundansväxlingen.  Om du vill ändra IP-adress för klustret måste du använda [skriptet Site Recovery återställnings plan.](https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)</br>
 [Exempel skript](https://github.com/krnese/azure-quickstart-templates/blob/master/asr-automation-recovery/scripts/ASR-Wordpress-ChangeMysqlConfig.ps1) för att köra kommando i virtuell dator med anpassat skript tillägg 
 
 ### <a name="enabling-site-recovery-for-s2d-cluster"></a>Aktivera Site Recovery för S2D-kluster:
@@ -69,11 +66,11 @@ En återställnings plan stöder sekvenseringen av olika nivåer i ett program m
 
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>Lägga till skript i återställnings planen
-För att dina program ska fungera korrekt kan du behöva utföra några åtgärder på de virtuella Azure-datorerna efter redundansväxlingen eller under ett redundanstest. Du kan automatisera vissa åtgärder efter redundans. Här lägger vi till exempel till Loadbalancer och ändrar kluster-IP.
+För att dina program ska fungera korrekt kan du behöva utföra några åtgärder på de virtuella Azure-datorerna efter redundansväxlingen eller under ett redundanstest. Du kan automatisera vissa åtgärder efter redundans. Här lägger vi till exempel till belastningsutjämnare och ändrar kluster-IP.
 
 
 ### <a name="failover-of-the-virtual-machines"></a>Redundansväxling av de virtuella datorerna 
-Båda noderna för de virtuella datorerna måste växlas över med [ASR-återställnings planen](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
+Både noderna för de virtuella datorerna måste redundansväxla med Site Recovery [återställnings plan](https://docs.microsoft.com/azure/site-recovery/site-recovery-create-recovery-plans) 
 
 ![storagespacesdirect skydd](./media/azure-to-azure-how-to-enable-replication-s2d-vms/recoveryplan.PNG)
 

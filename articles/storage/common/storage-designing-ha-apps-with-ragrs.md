@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/04/2019
+ms.date: 01/14/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: bab95f6494fad86c9fdfc0b8fb044c22a7c5a628
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895346"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945454"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet
 
@@ -99,7 +99,7 @@ Det finns många sätt att hantera uppdaterings begär anden när de körs i skr
 
 ## <a name="handling-retries"></a>Hanterings försök
 
-Azure Storage klient biblioteket hjälper dig att avgöra vilka fel som kan göras. Till exempel kan ett 404-fel (resurs hittades inte) göras om, eftersom det inte troligt vis uppstår något att försöka igen. Å andra sidan kan ett 500-fel inte göras igen eftersom det är ett Server fel, och det kan bara vara ett tillfälligt problem. Mer information finns i den [Öppna käll koden för ExponentialRetry-klassen](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i klient biblioteket för .net-lagring. (Leta efter ShouldRetry-metoden.)
+Azure Storage klient biblioteket hjälper dig att avgöra vilka fel som kan göras. Till exempel går det inte att göra ett nytt försök med 404-fel (resursen hittades inte) på grund av att det inte är troligt att ett nytt försök har gjorts. Å andra sidan kan ett 500-fel göras igen eftersom det är ett Server fel och problemet kan vara ett tillfälligt problem. Mer information finns i den [Öppna käll koden för ExponentialRetry-klassen](https://github.com/Azure/azure-storage-net/blob/87b84b3d5ee884c7adc10e494e2c7060956515d0/Lib/Common/RetryPolicies/ExponentialRetry.cs) i klient biblioteket för .net-lagring. (Leta efter ShouldRetry-metoden.)
 
 ### <a name="read-requests"></a>Läs begär Anden
 
@@ -204,8 +204,8 @@ I följande tabell visas ett exempel på vad som kan hända när du uppdaterar i
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktion A: <br> Infoga medarbetare <br> entitet i primär |                                   |                    | Transaktion A infogad till primär,<br> ännu inte repliker ATS. |
 | T1       |                                                            | Transaktion A <br> replikeras till<br> alternativ | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |
-| T2       | Transaktion B:<br>Uppdatera<br> Anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
-| T3       | Transaktion C:<br> Uppdatera <br>administratör<br>roll entitet i<br>huvud |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
+| T2       | Transaktion B:<br>Uppdatering<br> anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
+| T3       | Transaktion C:<br> Uppdatering <br>administratör<br>roll entitet i<br>huvud |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
 | *T4*     |                                                       | Transaktion C <br>replikeras till<br> alternativ | T1         | Transaktion C replikerad till sekundär.<br>LastSyncTime har inte uppdaterats eftersom <br>transaktion B har ännu inte repliker ATS.|
 | *T*     | Läs entiteter <br>från sekundär                           |                                  | T1                 | Du får det inaktuella värdet för anställda <br> entitet eftersom transaktion B inte har <br> har repliker ATS än. Du får det nya värdet för<br> administratörs roll entitet eftersom C har<br> replikeras. Tiden för senaste synkroniseringen är fortfarande inte<br> uppdaterats eftersom transaktion B<br> har inte repliker ATS. Du kan se att<br>administratörs rollens entitet är inkonsekvent <br>eftersom entitetens datum/tid är efter <br>Tid för senaste synkronisering. |
 | *T6*     |                                                      | Transaktion B<br> replikeras till<br> alternativ | T6                 | *T6* – alla transaktioner via C har <br>replikerad, tid för senaste synkronisering<br> har uppdaterats. |
@@ -267,7 +267,7 @@ Du kan utöka det här exemplet för att fånga upp ett större antal förfrågn
 
 Om du har gjort tröskelvärdena för att växla ditt program till skrivskyddat läge, blir det enklare att testa beteendet med icke-produktions transaktions volymer.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Mer information om hur du läser från den sekundära regionen, inklusive ett annat exempel på hur den senaste synkroniseringstid-egenskapen anges finns [Azure Storage alternativ för redundans och Geo-redundant lagring med Läs behörighet](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 

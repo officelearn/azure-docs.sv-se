@@ -1,54 +1,54 @@
 ---
-title: Ansluta till Azure Cosmos DB med kompass
+title: Ansluta till Azure Cosmos DB med hjälp av kompass
 description: Lär dig hur du använder MongoDB kompass för att lagra och hantera data i Azure Cosmos DB.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 06/24/2019
-author: roaror
-ms.author: roaror
-ms.openlocfilehash: 102d3fdc2e36f812e9a86286383a06f9930a1947
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+author: LuisBosquez
+ms.author: lbosq
+ms.openlocfilehash: 5c01bd02b1fef7c7b27a3119465cad53155b9bbf
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67665916"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940979"
 ---
-# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB kompass för att ansluta till Azure Cosmos DB API för MongoDB 
+# <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Använd MongoDB kompass för att ansluta till Azure Cosmos DB s API för MongoDB 
 
-Den här självstudien visar hur du använder [MongoDB kompass](https://www.mongodb.com/products/compass) när lagring och/eller hantera data i Cosmos DB. Vi använder Azure Cosmos DB: s API för MongoDB för den här genomgången. För dem som inte vet är kompass ett grafiskt användargränssnitt för MongoDB. Det används ofta för att visualisera dina data genom att köra ad hoc-frågor, tillsammans med hantering av dina data. 
+Den här självstudien visar hur du använder [MongoDB kompass](https://www.mongodb.com/products/compass) när du lagrar och/eller hanterar data i Cosmos dB. Vi använder Azure Cosmos DBs API för MongoDB för den här genom gången. För dem som inte är välkända är kompass ett GUI för MongoDB. Den används ofta för att visualisera dina data, köra Ad hoc-frågor, tillsammans med hantera dina data. 
 
-Cosmos DB är Microsofts globalt distribuerade databas för flera modeller tjänst. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
+Cosmos DB är Microsofts globalt distribuerade databas tjänst för flera modeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
 
 ## <a name="pre-requisites"></a>Förutsättningar 
-För att ansluta till ditt Cosmos DB-konto med Robo 3T, måste du:
+Om du vill ansluta till ditt Cosmos DB-konto med Robo 3T måste du:
 
-* Ladda ned och installera [kompass](https://www.mongodb.com/download-center/compass?jmp=hero)
-* Har ditt Cosmos DB [anslutningssträngen](connect-mongodb-account.md) information
+* Hämta och installera [kompass](https://www.mongodb.com/download-center/compass?jmp=hero)
+* Ha information om Cosmos DB- [anslutningssträng](connect-mongodb-account.md)
 
-## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Anslut till Cosmos DB: s API för MongoDB 
-För att ansluta ditt Cosmos DB-konto till kompass, kan du följa den stegen nedan:
+## <a name="connect-to-cosmos-dbs-api-for-mongodb"></a>Ansluta till Cosmos DB s API för MongoDB 
+Om du vill ansluta ditt Cosmos DB konto till kompass kan du följa stegen nedan:
 
-1. Hämta anslutningsinformationen för ditt Cosmos-konto som har konfigurerats med Azure Cosmos DB API MongoDB med hjälp av anvisningarna [här](connect-mongodb-account.md).
+1. Hämta anslutnings informationen för ditt Cosmos-konto som kon figurer ATS med Azure Cosmos DB API-MongoDB med hjälp av instruktionerna [här](connect-mongodb-account.md).
 
-    ![Skärmbild av bladet för anslutningssträng](./media/mongodb-compass/mongodb-compass-connection.png)
+    ![Skärm bild av bladet anslutnings sträng](./media/mongodb-compass/mongodb-compass-connection.png)
 
-2. Klicka på knappen som säger **kopiera till Urklipp** bredvid din **primär/sekundär anslutningssträng** i Cosmos DB. Den här knappen kommer att kopiera hela anslutningssträngen till Urklipp. 
+2. Klicka på knappen med texten **Kopiera till Urklipp** bredvid din **primära/sekundära anslutnings sträng** i Cosmos dB. Om du klickar på den här knappen kopieras hela anslutnings strängen till Urklipp. 
 
-    ![Skärmbild av den knappen kopieringen till Urklipp](./media/mongodb-compass/mongodb-connection-copy.png)
+    ![Skärm bild av knappen Kopiera till Urklipp](./media/mongodb-compass/mongodb-connection-copy.png)
 
-3. Öppna kompass på desktop/datorn och klicka på **Connect** och sedan **ansluta till...** . 
+3. Öppna kompassen på Skriv bordet/datorn och klicka på **Anslut** och **Anslut sedan till.** ... 
 
-4. Kompass identifierar automatiskt en anslutning sträng i Urklipp och så uppmanas du för att fråga om du vill använda den för att ansluta. Klicka på **Ja** som visas i skärmbilden nedan.
+4. Kompass identifierar automatiskt en anslutnings sträng i Urklipp och frågar om du vill använda den för att ansluta. Klicka på **Ja** så som visas på skärm bilden nedan.
 
-    ![Skärmbild av kompass-prompten för att ansluta](./media/mongodb-compass/mongodb-compass-detect.png)
+    ![Skärm bild av kompass-prompten för att ansluta](./media/mongodb-compass/mongodb-compass-detect.png)
 
-5. När du klickar på **Ja** i steget ovan din information från anslutningssträngen automatiskt fylls i. Ta bort värdet fylls automatiskt i den **ange namn** fält så som är tomt. 
+5. När du klickar på **Ja** i ovanstående steg fylls informationen från anslutnings strängen i automatiskt. Ta bort värdet som fylls i automatiskt i fältet **namn på replik uppsättning** för att se till att det lämnas tomt. 
 
-    ![Skärmbild av kompass-prompten för att ansluta](./media/mongodb-compass/mongodb-compass-replica.png)
+    ![Skärm bild av kompass-prompten för att ansluta](./media/mongodb-compass/mongodb-compass-replica.png)
 
-6. Klicka på **Connect** längst ned på sidan. Ska nu visas i MongoDB kompass ditt Cosmos DB-konto och databaser.
+6. Klicka på **Anslut** längst ned på sidan. Ditt Cosmos DB konto och databaser bör nu vara synligt i MongoDB kompass.
 
 ## <a name="next-steps"></a>Nästa steg
 

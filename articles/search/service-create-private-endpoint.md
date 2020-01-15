@@ -8,22 +8,26 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: cfa8db0d00f351f5ab2bda96744305ca83cccb19
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 2664b1abd4131cf1dca186c7b044e338bf1efa84
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922455"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945828"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search-preview"></a>Skapa en privat slut punkt för en säker anslutning till Azure Kognitiv sökning (för hands version)
 
-[Privata slut punkter](../private-link/private-endpoint-overview.md) för Azure kognitiv sökning tillåta en klient i ett virtuellt nätverk att på ett säkert sätt få åtkomst till data i ett Sök index över en [privat länk](../private-link/private-link-overview.md). Den privata slut punkten använder en IP-adress från det [virtuella nätverkets adress utrymme](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) för Sök tjänsten. Nätverks trafiken mellan klienten och Sök tjänsten passerar över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. För en lista över andra PaaS-tjänster som stöder privat länk, se [avsnittet tillgänglighet](../private-link/private-link-overview.md#availability) i produkt dokumentationen.
+I den här artikeln använder du portalen för att skapa en ny Azure Kognitiv sökning-tjänstinstans som inte går att komma åt via en offentlig IP-adress. Konfigurera sedan en virtuell Azure-dator i samma virtuella nätverk och Använd den för att få åtkomst till Sök tjänsten via en privat slut punkt.
 
 > [!Important]
-> Stöd för privata slut punkter för Azure Kognitiv sökning är tillgängligt som en för hands version med begränsad åtkomst och är för närvarande inte avsett för användning i produktion. Fyll i och skicka [formuläret](https://aka.ms/SearchPrivateLinkRequestAccess) åtkomstbegäran om du vill ha åtkomst till förhands granskningen. Formuläret efterfrågar information om dig, ditt företag och den allmänna program arkitekturen. När vi har granskat din begäran får du ett bekräftelse meddelande med ytterligare instruktioner.
+> Stöd för privata slut punkter för Azure Kognitiv sökning finns [på begäran](https://aka.ms/SearchPrivateLinkRequestAccess) som en för hands version av begränsad åtkomst. För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 >
-> När du har beviljats åtkomst till för hands versionen kan du konfigurera privata slut punkter för tjänsten med hjälp av Azure Portal och REST API version [2019-10-06 – för hands](search-api-preview.md)version.
+> När du har beviljats åtkomst till för hands versionen kan du konfigurera privata slut punkter för tjänsten med hjälp av Azure Portal eller [hanterings REST API version 2019-10-06-för hands version](https://docs.microsoft.com/rest/api/searchmanagement/).
 >   
+
+## <a name="why-use-private-endpoint-for-secure-access"></a>Varför ska jag använda privat slut punkt för säker åtkomst?
+
+[Privata slut punkter](../private-link/private-endpoint-overview.md) för Azure kognitiv sökning tillåta en klient i ett virtuellt nätverk att på ett säkert sätt få åtkomst till data i ett Sök index över en [privat länk](../private-link/private-link-overview.md). Den privata slut punkten använder en IP-adress från det [virtuella nätverkets adress utrymme](../virtual-network/virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) för Sök tjänsten. Nätverks trafiken mellan klienten och Sök tjänsten passerar över det virtuella nätverket och en privat länk i Microsoft stamnät nätverket, vilket eliminerar exponering från det offentliga Internet. För en lista över andra PaaS-tjänster som stöder privat länk, se [avsnittet tillgänglighet](../private-link/private-link-overview.md#availability) i produkt dokumentationen.
 
 Med privata slut punkter för Sök tjänsten kan du:
 
@@ -36,16 +40,18 @@ Med privata slut punkter för Sök tjänsten kan du:
 > * Endast tillgängligt för search Services på **Basic** -nivån. 
 > * Tillgängligt i västra USA 2, västra centrala USA, östra USA, södra centrala USA, östra Australien och sydöstra Australien-regioner.
 > * När tjänstens slut punkt är privat är vissa Portal funktioner inaktiverade. Du kan visa och hantera information om service nivå, men Portal åtkomst till index data och de olika komponenterna i tjänsten, till exempel index, indexerare och färdigheter definitioner, är begränsad av säkerhets skäl.
-> * När tjänstens slut punkt är privat måste du använda Sök-API: et för att ladda upp dokument till indexet.
+> * När tjänstens slut punkt är privat måste du använda [sök REST API](https://docs.microsoft.com/rest/api/searchservice/) för att ladda upp dokument till indexet.
 > * Du måste använda följande länk för att se alternativet för privat slut punkt support i Azure Portal: https://portal.azure.com/?feature.enablePrivateEndpoints=true
 
-I den här artikeln får du lära dig hur du använder portalen för att skapa en ny Azure Kognitiv sökning-tjänstinstans som inte går att komma åt via en offentlig IP-adress, konfigurerar en virtuell Azure-dator i samma virtuella nätverk och använder den för att få åtkomst till Sök tjänsten via en privat Endpoint.
 
 
-## <a name="create-a-vm"></a>Skapa en virtuell dator
+## <a name="request-access"></a>Begär åtkomst 
+
+Klicka på [begär åtkomst](https://aka.ms/SearchPrivateLinkRequestAccess) för att registrera dig för den här förhands gransknings funktionen. Formuläret efterfrågar information om dig, ditt företag och den allmänna nätverk sto pol Ogin. När vi har granskat din begäran får du ett bekräftelse meddelande med ytterligare instruktioner.
+
+## <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
+
 I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät som är värd för den virtuella datorn som ska användas för att få åtkomst till Sök tjänstens privata slut punkt.
-
-### <a name="create-the-virtual-network"></a>Skapa det virtuella nätverket
 
 1. På fliken Azure Portal start väljer du **skapa en resurs** > **nätverk** > **virtuella nätverk**.
 
@@ -65,7 +71,7 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och ett undernät som �
 1. Lämna resten som standard och välj **skapa**.
 
 
-## <a name="create-your-search-service-with-a-private-endpoint"></a>Skapa din Sök tjänst med en privat slut punkt
+## <a name="create-a-search-service-with-a-private-endpoint"></a>Skapa en Sök tjänst med en privat slut punkt
 
 I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en privat slut punkt. 
 
@@ -119,9 +125,9 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 
 1. Välj **nycklar** på menyn till vänster innehåll.
 
-1. Kopiera den **primära administratörs nyckeln** för senare.
+1. Kopiera den **primära administratörs nyckeln** för senare när du ansluter till tjänsten.
 
-### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
+## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
 1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **Compute** > **virtuell dator**.
 
@@ -170,9 +176,9 @@ I det här avsnittet ska du skapa en ny Azure Kognitiv sökning-tjänst med en p
 1. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
 
 
-## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
+## <a name="connect-to-the-vm"></a>Anslut till VM:en
 
-Anslut till VM- *myVm* från Internet på följande sätt:
+Ladda ned och Anslut till VM- *myVm* på följande sätt:
 
 1. Skriv *myVm*i portalens Sök fält.
 
@@ -196,9 +202,11 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 1. När virtuella datorns skrivbord visas kan du minimera det att gå tillbaka till din lokala dator.  
 
 
-## <a name="access-the-search-service-privately-from-the-vm"></a>Få åtkomst till Sök tjänsten privat från den virtuella datorn
+## <a name="test-connections"></a>Test anslutningar
 
 I det här avsnittet ska du verifiera privat nätverks åtkomst till Sök tjänsten och ansluta privat till med hjälp av den privata slut punkten.
+
+Kom ihåg från introduktionen att all interaktion med Sök tjänsten kräver [sök REST API](https://docs.microsoft.com/rest/api/searchservice/). Portalen och .NET SDK stöds inte i den här för hands versionen.
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
@@ -213,14 +221,14 @@ I det här avsnittet ska du verifiera privat nätverks åtkomst till Sök tjäns
     Address:  10.0.0.5
     Aliases:  [search service name].search.windows.net
     ```
-1. Följ den här [snabb](search-get-started-postman.md) starten från den virtuella datorn för att skapa ett nytt Sök index i din tjänst i Postman med hjälp av REST API.  Använd den nyckel som du kopierade i föregående steg för att autentisera till tjänsten.
 
-1. Prova flera av dessa förfrågningar i Postman på din lokala arbets Station.
+1. Från den virtuella datorn ansluter du till Sök tjänsten och skapar ett index. Du kan följa den här [snabb](search-get-started-postman.md) starten för att skapa ett nytt Sök index i din tjänst i Postman med hjälp av REST API. Att ställa in begär Anden från Postman kräver Sök tjänstens slut punkt (https://[Sök tjänstens namn]. search. Windows. net) och den Admin API-nyckel som du kopierade i föregående steg.
 
-1. Om du kan slutföra snabb starten från den virtuella datorn, men får ett fel meddelande om att fjärrservern inte finns på din lokala arbets Station, har du konfigurerat en privat slut punkt för Sök tjänsten.
+1. Att slutföra snabb starten från den virtuella datorn är din bekräftelse på att tjänsten är fullt fungerande.
 
 1. Stäng fjärr skrivbords anslutningen till *myVM*. 
 
+1. Du kan kontrol lera att tjänsten inte är tillgänglig på en offentlig slut punkt genom att öppna Postman på den lokala arbets stationen och försöka utföra de första uppgifterna i snabb starten. Om du får ett fel meddelande om att fjärrservern inte finns har du konfigurerat en privat slut punkt för Sök tjänsten.
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 När du är klar med den privata slut punkten, Sök tjänsten och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller:

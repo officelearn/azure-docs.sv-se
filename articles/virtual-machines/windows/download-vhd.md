@@ -12,50 +12,51 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 01/13/2019
 ms.author: cynthn
-ms.openlocfilehash: c5891d7ea2b53ab3524cfff267e71b4f05779cfc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d1c98fa4f3572c40279978d787b1719746478a06
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033598"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940442"
 ---
 # <a name="download-a-windows-vhd-from-azure"></a>Hämta en Windows-VHD från Azure
 
 I den här artikeln får du lära dig hur du hämtar en Windows virtuell hård disk fil (VHD) från Azure med hjälp av Azure Portal.
 
+## <a name="optional-generalize-the-vm"></a>Valfritt: generalisera den virtuella datorn
+
+Om du vill använda den virtuella hård disken som en [avbildning](tutorial-custom-images.md) för att skapa andra virtuella datorer bör du använda [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) för att generalisera operativ systemet. 
+
+Om du vill använda den virtuella hård disken som en avbildning för att skapa andra virtuella datorer, generaliserar du den virtuella datorn.
+
+1. Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/).
+2. [Anslut till den virtuella datorn](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+3. Öppna kommando tolkens fönster som administratör på den virtuella datorn.
+4. Ändra katalogen till *%WINDIR%\system32\sysprep* och kör Sysprep. exe.
+5. I dialog rutan system förberedelse verktyg väljer du **Skriv system out-of-Box Experience (OOBE)** och kontrollerar att **generalize** är markerat.
+6. I avslutnings alternativ väljer du **shutdown**och klickar sedan på **OK**. 
+
+
 ## <a name="stop-the-vm"></a>Stoppa den virtuella datorn
 
-En virtuell hård disk kan inte laddas ned från Azure om den är ansluten till en virtuell dator som körs. Du måste stoppa den virtuella datorn för att kunna ladda ned en virtuell hård disk. Om du vill använda en virtuell hård disk som en [avbildning](tutorial-custom-images.md) för att skapa andra virtuella datorer med nya diskar, använder du [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) för att generalisera operativ systemet som finns i filen och sedan stoppa den virtuella datorn. Om du vill använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk, behöver du bara stoppa och frigöra den virtuella datorn.
+En virtuell hård disk kan inte laddas ned från Azure om den är ansluten till en virtuell dator som körs. Du måste stoppa den virtuella datorn för att kunna ladda ned en virtuell hård disk. 
 
-Slutför följande steg för att använda den virtuella hård disken som en avbildning för att skapa andra virtuella datorer:
+1. Klicka på **Virtual Machines**på menyn hubb i Azure Portal.
+1. Välj den virtuella datorn i listan.
+1. Klicka på **stoppa**på bladet för den virtuella datorn.
 
-1.  Om du inte redan gjort det loggar du in på [Azure Portal](https://portal.azure.com/).
-2.  [Anslut till den virtuella datorn](connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
-3.  Öppna kommando tolkens fönster som administratör på den virtuella datorn.
-4.  Ändra katalogen till *%WINDIR%\system32\sysprep* och kör Sysprep. exe.
-5.  I dialog rutan system förberedelse verktyg väljer du **Skriv system out-of-Box Experience (OOBE)** och kontrollerar att **generalize** är markerat.
-6.  I avslutnings alternativ väljer du **shutdown**och klickar sedan på **OK**. 
 
-Slutför följande steg för att använda den virtuella hård disken som en disk för en ny instans av en befintlig virtuell dator eller data disk:
-
-1.  Klicka på **Virtual Machines**på menyn hubb i Azure Portal.
-2.  Välj den virtuella datorn i listan.
-3.  Klicka på **stoppa**på bladet för den virtuella datorn.
-
-    ![Stoppa virtuell dator](./media/download-vhd/export-stop.png)
-
-## <a name="generate-sas-url"></a>Skapa SAS-URL
+## <a name="generate-download-url"></a>Generera nedladdnings-URL
 
 Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad åtkomst (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) . När URL: en genereras tilldelas URL: en förfallo tid.
 
-1.  På menyn på bladet för den virtuella datorn klickar du på **diskar**.
-2.  Välj operativ system disk för den virtuella datorn och klicka sedan på **disk export**.
-3.  Ange förfallo tiden för URL: en till *36000*.
-4.  Klicka på **skapa URL**.
-
-    ![Generera URL](./media/download-vhd/export-generate-new.png)
+1. På sidan för den virtuella datorn klickar du på **diskar** på den vänstra menyn.
+1. Välj operativ system disk för den virtuella datorn.
+1. På sidan för disken väljer du **disk export** på den vänstra menyn.
+1. Standard förfallo tiden för URL: en är *3600* sekunder. Öka till **36000** för Windows OS-diskar.
+1. Klicka på **skapa URL**.
 
 > [!NOTE]
 > Förfallo tiden höjs från standardvärdet för att tillhandahålla tillräckligt med tid för att ladda ned den stora VHD-filen för ett Windows Server-operativsystem. Du kan vänta på att en VHD-fil som innehåller operativ systemet Windows Server ta flera timmar att ladda ned beroende på din anslutning. Om du hämtar en virtuell hård disk för en datadisk är standard tiden tillräckligt. 
@@ -64,13 +65,8 @@ Om du vill hämta VHD-filen måste du generera en URL för [signatur för delad 
 
 ## <a name="download-vhd"></a>Hämta VHD
 
-1.  Under den URL som genererades klickar du på Hämta VHD-filen.
-
-    ![Hämta VHD](./media/download-vhd/export-download.png)
-
-2.  Du kan behöva klicka på **Spara** i webbläsaren för att starta nedladdningen. Standard namnet för VHD-filen är *ABCD*.
-
-    ![Klicka på Spara i webbläsaren](./media/download-vhd/export-save.png)
+1. Under den URL som genererades klickar du på Hämta VHD-filen.
+1. Du kan behöva klicka på **Spara** i webbläsaren för att starta nedladdningen. Standard namnet för VHD-filen är *ABCD*.
 
 ## <a name="next-steps"></a>Nästa steg
 

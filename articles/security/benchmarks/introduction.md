@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 3169959250eb45346456c64e606f25efb0ea44f0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8f65eb008d5df6ea3f2f85778d538023e6ce98eb
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934232"
+ms.locfileid: "75945325"
 ---
 # <a name="azure-security-benchmark-introduction"></a>Introduktion till Azure Security benchmark
 
@@ -27,7 +27,7 @@ Azures säkerhets benchmark innehåller en samling med högkvalitativa säkerhet
 
 I dokumentationen för Azures säkerhets benchmark anges säkerhets kontroller och tjänst rekommendationer.
 
-- **Säkerhets kontroller**: rekommendationer för Azures säkerhets benchmark kategoriseras av säkerhets kontroller. Säkerhets kontroller representerar oberoende säkerhets krav på hög nivå, till exempel nätverks säkerhet och data skydd. Varje säkerhets kontroll har en uppsättning säkerhets rekommendationer och anvisningar som hjälper dig att Implment rekommendationerna. 
+- **Säkerhets kontroller**: rekommendationer för Azures säkerhets benchmark kategoriseras av säkerhets kontroller. Säkerhets kontroller representerar oberoende säkerhets krav på hög nivå, till exempel nätverks säkerhet och data skydd. Varje säkerhets kontroll har en uppsättning säkerhets rekommendationer och anvisningar som hjälper dig att implementera dessa rekommendationer. 
 - **Tjänst rekommendationer**: när det är tillgängligt kommer benchmark-rekommendationer för Azure-tjänster att omfatta rekommendationer för Azure Security benchmark som skräddarsys specifikt för den tjänsten. 
 
 Termerna "kontroll", "benchmark" och "bas linje" används ofta i Azures säkerhets benchmark-dokumentation och det är viktigt att förstå hur Azure använder dessa villkor. 

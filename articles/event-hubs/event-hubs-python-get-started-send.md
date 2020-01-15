@@ -7,14 +7,14 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/08/2020
 ms.author: shvija
-ms.openlocfilehash: 9b6c3fb03f696f4142721284a14001eb51153a77
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720544"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939959"
 ---
 # <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Snabb start: skicka och ta emot händelser med Event Hubs med python
 
@@ -22,10 +22,14 @@ Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings
 
 Den här snabb starten visar hur du skapar python-program som skickar händelser till och tar emot händelser från en händelsehubben. 
 
+> [!IMPORTANT]
+> I den här snabb starten används version 1 av Azure Event Hubs python SDK. Om du är nybörjare på Azure Event Hubs använder du version 5 av python SDK. En snabb start som använder version 5 av python SDK finns i [den här artikeln](get-started-python-send-v2.md). Information om hur du migrerar en befintlig kod från version 1 till version 5 finns i [migreringsguiden](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+
+
 > [!NOTE]
 > I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString` och `EventHubName` strängar med Event Hub-värdena. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
@@ -47,7 +51,7 @@ För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 Så här skapar du ett python-program som skickar händelser till en Event Hub:
 
 1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100-händelser till händelsehubben.
+2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100 händelser till din event hub.
 3. Klistra in följande kod i *send.py*, ersätt Event Hubs \<namn område >, \<eventhub >, \<AccessKeyName > och \<primär nyckel värde > med dina värden: 
    
    ```python

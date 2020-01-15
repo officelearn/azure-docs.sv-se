@@ -3,12 +3,12 @@ title: YAML-referens – ACR-uppgifter
 description: Referens för att definiera aktiviteter i YAML för ACR-aktiviteter, inklusive aktivitets egenskaper, steg typer, steg egenskaper och inbyggda variabler.
 ms.topic: article
 ms.date: 10/23/2019
-ms.openlocfilehash: da1b1613d880b9edf6ec6d6018011f43a7ac69a5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d86eb0e24233afb536d27f5d0938d4748941e88a
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445695"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945732"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referens för ACR-uppgifter: YAML
 
@@ -79,7 +79,7 @@ Aktivitets egenskaper visas vanligt vis överst i en `acr-task.yaml`-fil och är
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
 | `version` | sträng | Ja | Versionen av `acr-task.yaml`-filen som parsas av tjänsten ACR Tasks. Medan ACR-aktiviteter strävar efter bakåtkompatibilitet, tillåter det här värdet ACR-aktiviteter för att upprätthålla kompatibilitet inom en definierad version. Om inget anges används den senaste versionen som standard. | Inga | Inget |
 | `stepTimeout` | int (sekunder) | Ja | Det maximala antalet sekunder som ett steg kan köras. Om egenskapen anges för en uppgift, anges standard `timeout` egenskapen för alla steg. Om egenskapen `timeout` anges i ett steg, åsidosätts den egenskap som anges av uppgiften. | Ja | 600 (10 minuter) |
-| `workingDirectory` | sträng | Ja | Arbets katalogen i behållaren under körning. Om egenskapen anges för en uppgift, anges standard `workingDirectory` egenskapen för alla steg. Om den anges i ett steg åsidosätts den egenskap som anges av uppgiften. | Ja | `$HOME` |
+| `workingDirectory` | sträng | Ja | Arbets katalogen i behållaren under körning. Om egenskapen anges för en uppgift, anges standard `workingDirectory` egenskapen för alla steg. Om den anges i ett steg åsidosätts den egenskap som anges av uppgiften. | Ja | `/workspace` |
 | `env` | [sträng, sträng,...] | Ja |  Sträng mat ris i `key=value` format som definierar miljövariabler för aktiviteten. Om egenskapen anges för en uppgift, anges standard `env` egenskapen för alla steg. Om det anges i ett steg åsidosätts alla miljövariabler som ärvts från uppgiften. | Inget |
 | `secrets` | [hemligt, hemligt,...] | Ja | Matris med [hemliga](#secret) objekt. | Inget |
 | `networks` | [nätverk, nätverk,...] | Ja | Matris med [nätverks](#network) objekt. | Inget |
@@ -379,7 +379,7 @@ Varje typ av steg stöder flera egenskaper som passar för typen. I följande ta
 | `timeout` | int (sekunder) | Ja | Maximalt antal sekunder som ett steg kan utföras innan det avslutas. | 600 |
 | [`when`](#example-when) | [sträng, sträng,...] | Ja | Konfigurerar ett stegs beroende av ett eller flera andra steg i aktiviteten. | Inget |
 | `user` | sträng | Ja | Användar namnet eller UID för en behållare | Inget |
-| `workingDirectory` | sträng | Ja | Anger arbets katalogen för ett steg. Som standard skapar ACR-aktiviteter en rot Katalog som arbets katalog. Men om din version har flera steg, kan tidigare steg dela artefakter med senare steg genom att ange samma arbets katalog. | `$HOME` |
+| `workingDirectory` | sträng | Ja | Anger arbets katalogen för ett steg. Som standard skapar ACR-aktiviteter en rot Katalog som arbets katalog. Men om din version har flera steg, kan tidigare steg dela artefakter med senare steg genom att ange samma arbets katalog. | `/workspace` |
 
 ### <a name="examples-task-step-properties"></a>Exempel: egenskaper för aktivitets steg
 

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 01/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 6dd0734d39237545b7a9bc2553fcd9dea75b8ee0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3d3a1704b75de53bf65012329fba5f8522adff3a
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892821"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941758"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Kopiera data från DB2 med hjälp av Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -46,11 +46,6 @@ I synnerhet stöder denna DB2-anslutning följande IBM DB2-plattformar och versi
 * IBM DB2 för LUW 10,5
 * IBM DB2 för LUW 10,1
 
-> [!TIP]
-> Om du får ett fel meddelande om att det inte gick att hitta paketet som motsvarar en körnings förfrågan för SQL-instruktionen. SQLSTATE = 51002 SQLCODE =-805 ", orsaken är att ett nödvändigt paket inte skapas för normal användare på ett sådant operativ system. Följ de här instruktionerna enligt typen av DB2-Server:
-> - DB2 för i (AS400): låt Power User skapa samling för inloggnings användaren innan du använder kopierings aktiviteten. Kommando: `create collection <username>`
-> - DB2 för z/OS eller LUW: Använd ett konto med hög behörighet – privilegierade användare eller administratörer med paket utfärdare och BIND, BINDADD, bevilja körning till offentliga behörigheter – för att köra kopierings aktiviteten en gång, skapas det paket som krävs automatiskt under kopieringen. Sedan kan du växla tillbaka till normal användare för din efterföljande kopierings körning.
-
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
@@ -75,9 +70,12 @@ Följande egenskaper stöds för DB2-länkad tjänst:
 | authenticationType |Typ av autentisering som används för att ansluta till DB2-databasen.<br/>Tillåtet värde är: **Basic**. |Ja |
 | användarnamn |Ange användar namnet för att ansluta till DB2-databasen. |Ja |
 | password |Ange lösen ordet för det användar konto som du har angett för användar namnet. Markera det här fältet som en SecureString ska lagras på ett säkert sätt i Data Factory, eller [refererar till en hemlighet som lagras i Azure Key Vault](store-credentials-in-key-vault.md). |Ja |
-| packageCollection | Ange under där de nödvändiga paketen skapas automatiskt av ADF när du frågar databasen | Inga |
+| packageCollection | Ange under där de nödvändiga paketen skapas automatiskt av ADF när du frågar databasen. | Inga |
 | certificateCommonName | När du använder Secure Sockets Layer (SSL) eller Transport Layer Security kryptering (TLS) måste du ange ett värde för certifikatets egna namn. | Inga |
 | connectVia | Den [Integration Runtime](concepts-integration-runtime.md) som används för att ansluta till datalagret. Läs mer från avsnittet [krav](#prerequisites) . Om den inte anges används standard Azure Integration Runtime. |Inga |
+
+> [!TIP]
+> Om du får ett fel meddelande om att tillstånden `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805`är orsaken till att ett nödvändigt paket inte skapas för användaren. Som standard försöker ADF skapa ett paket under samlingen med namnet som den användare som du använde för att ansluta till DB2. Ange egenskapen för paket samling för att ange under var du vill att ADF ska skapa nödvändiga paket när du frågar databasen.
 
 **Exempel:**
 

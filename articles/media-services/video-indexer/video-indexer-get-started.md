@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: 957acc25c3218069a20e90fe83e00e441b6303d6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 3a5ddf5bd4614b68e97e7616173a3e0640007530
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839563"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941560"
 ---
 # <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
@@ -32,6 +32,12 @@ När du vill börja utveckla med Video Indexer går du till [Video Indexer](http
 > [!NOTE]
 > Ett namn på videon får inte vara större än 80 tecken.
 
+### <a name="supported-file-formats-for-video-indexer"></a>Fil format som stöds för Video Indexer
+
+I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-formats.md#input-containerfile-formats) finns en lista över fil format som du kan använda med video Indexer.
+
+### <a name="upload-a-video"></a>Ladda upp en video
+
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
 2. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
 
@@ -45,7 +51,9 @@ När du vill börja utveckla med Video Indexer går du till [Video Indexer](http
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu kan du använda [Video Indexer](video-indexer-view-edit.md)-webbplatsen eller [Video Indexer-utvecklarportalen](video-indexer-use-apis.md) för att visa insikterna för videon. 
+Mer information finns i [Ladda upp och indexera videor](upload-index-videos.md) .
+
+När du har laddat upp och indexerat en video kan du börja använda [video Indexer](video-indexer-view-edit.md) webbplats eller [video Indexer Developer-portalen](video-indexer-use-apis.md) för att se insikterna för videon. 
 
 ## <a name="see-also"></a>Se också
 

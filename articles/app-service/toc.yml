@@ -117,6 +117,8 @@
       items:
         - name: Distribuera appen
           items:
+            - name: Kör från paketet
+              href: deploy-run-package.md
             - name: Distribuera en ZIP- eller WAR-fil
               href: deploy-zip.md
             - name: Distribuera via FTP

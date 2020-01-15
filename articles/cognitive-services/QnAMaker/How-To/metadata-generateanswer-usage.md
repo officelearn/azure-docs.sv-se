@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e84a6c93ad8757b302670af202f9d4b407f3ef57
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422696"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945307"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -41,7 +41,7 @@ Du kan använda [GenerateAnswer-API: et](https://docs.microsoft.com/rest/api/cog
 
 <a name="generateanswer-endpoint"></a>
 
-## <a name="publish-to-get-generateanswer-endpoint"></a>Publicera för att hämta GenerateAnswer-slutpunkt 
+## <a name="publish-to-get-generateanswer-endpoint"></a>Publicera för att hämta GenerateAnswer-slutpunkt
 
 När du har publicerat din kunskaps bas, antingen från [QNA Maker-portalen](https://www.qnamaker.ai)eller med hjälp av API: [et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish), kan du hämta information om din GenerateAnswer-slutpunkt.
 
@@ -59,15 +59,15 @@ Du kan också hämta information om slut punkt från fliken **Inställningar** i
 
 ## <a name="generateanswer-request-configuration"></a>Konfiguration av GenerateAnswer-begäran
 
-Du anropar GenerateAnswer med en HTTP POST-begäran. Exempel kod som visar hur du anropar GenerateAnswer finns i [snabb starterna](../quickstarts/create-publish-kb-csharp-sdk.md#generate-an-answer-from-the-knowledge-base). 
+Du anropar GenerateAnswer med en HTTP POST-begäran. Exempel kod som visar hur du anropar GenerateAnswer finns i [snabb starterna](../quickstarts/quickstart-sdk.md#generate-an-answer-from-the-knowledge-base).
 
 POST-begäran använder:
 
 * Obligatoriska [URI-parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
 * Obligatorisk [huvud egenskap](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, för säkerhet
-* Egenskaper för nödvändig [brödtext](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
+* Egenskaper för nödvändig [brödtext](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto).
 
-GenerateAnswer-URL: en har följande format: 
+GenerateAnswer-URL: en har följande format:
 
 ```
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
@@ -95,7 +95,7 @@ Ett exempel på en JSON-text ser ut så här:
 
 Läs mer om [rankerType](../concepts/best-practices.md#choosing-ranker-type).
 
-Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen. 
+Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen.
 
 <a name="generateanswer-response"></a>
 
@@ -125,7 +125,7 @@ Föregående JSON begärde bara svar som är 30% eller högre än tröskel poän
 }
 ```
 
-Föregående JSON svarade med ett svar med en poäng på 38,5%. 
+Föregående JSON svarade med ett svar med en poäng på 38,5%.
 
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Använda QnA Maker med en robot iC#
 
@@ -144,7 +144,7 @@ qnaOptions.ScoreThreshold = 0.3F;
 var response = await _services.QnAServices[QnAMakerKey].GetAnswersAsync(turnContext, qnaOptions);
 ```
 
-Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen. 
+Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen.
 
 Support-roboten innehåller [ett exempel](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-support/csharp_dotnetcore/Service/SupportBotService.cs#L418) med den här koden.
 
@@ -164,7 +164,7 @@ var qnaMakerOptions = {
 var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOptions);
 ```
 
-Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen. 
+Föregående JSON begärde bara svar som är 30% eller högre än tröskel poängen.
 
 Support-roboten innehåller [ett exempel](https://github.com/microsoft/BotBuilder-Samples/blob/master/experimental/qnamaker-activelearning/javascript_nodejs/Helpers/dialogHelper.js#L36) med den här koden.
 
@@ -200,7 +200,7 @@ Eftersom resultat endast krävs för restaurang "Paradise" kan du ange ett filte
 
 ## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Använd fråge-och svars resultat för att hålla konversations kontext
 
-Svaret på GenerateAnswer innehåller motsvarande metadatainformation för den matchade frågan och svars uppsättningen. Du kan använda den här informationen i klient programmet för att lagra kontexten för den tidigare konversationen för användning i senare konversationer. 
+Svaret på GenerateAnswer innehåller motsvarande metadatainformation för den matchade frågan och svars uppsättningen. Du kan använda den här informationen i klient programmet för att lagra kontexten för den tidigare konversationen för användning i senare konversationer.
 
 ```json
 {
@@ -245,7 +245,7 @@ Du kan söka igenom det publicerade KB, använda `isTest=false`eller i test-KB m
 
 ## <a name="common-http-errors"></a>Vanliga HTTP-fel
 
-|Kod|Förklaring|
+|Programmera|Förklaring|
 |:--|--|
 |2xx|Lyckades|
 |400|begärans-parametrarna är felaktiga vilket innebär att de obligatoriska parametrarna är saknas, är för stor eller har en felaktig|

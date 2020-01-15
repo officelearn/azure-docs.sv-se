@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f5be34a58d8f0416a31cd575ef0fea614b3d43e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768730"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940999"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -97,7 +97,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | --- | --- | --- |
 | city |Valfritt sträng värde eller *Null* |(User. City-EQ "värde") |
 | land |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
-| CompanyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
+| companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
 | displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
 | Anställnings |Valfritt sträng värde |(User. Anställningsnr-EQ "value")<br>(User. Anställningsnr-Ne *Null*) |
@@ -321,7 +321,12 @@ Du kan skapa en grupp som innehåller alla användare i en klient som använder 
 Regeln "alla användare" är konstruerad med ett enda uttryck med operatorn-Ne och värdet null. Den här regeln lägger till B2B-gäst användare samt medlems användare i gruppen.
 
 ```
-user.objectid -ne null
+user.objectId -ne null
+```
+Om du vill att din grupp ska undanta gäst användare och bara inkludera medlemmar i din klient organisation kan du använda följande syntax:
+
+```
+(user.objectId -ne null) -and (user.userType -eq “Member”)
 ```
 
 ### <a name="create-an-all-devices-rule"></a>Skapa en regel för alla enheter
@@ -331,7 +336,7 @@ Du kan skapa en grupp som innehåller alla enheter i en klient som använder en 
 Regeln "alla enheter" är konstruerad med ett enda uttryck med operatorn-Ne och värdet null:
 
 ```
-device.objectid -ne null
+device.objectId -ne null
 ```
 
 ## <a name="extension-properties-and-custom-extension-properties"></a>Egenskaper för tillägg och anpassade tilläggs egenskaper
@@ -372,12 +377,12 @@ Följande enhets egenskaper kan användas.
  Enhets attribut  | Värden | Exempel
  ----- | ----- | ----------------
  accountEnabled | Sant falskt | (Device. accountEnabled-EQ true)
- displayName | valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
- deviceOSType | valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
- deviceOSVersion | valfritt sträng värde | (device.deviceOSVersion -eq "9.1")
+ displayName | Valfritt sträng värde |(Device. displayName-EQ "Anders iPhone")
+ deviceOSType | Valfritt sträng värde | (Device. deviceOSType-EQ "iPad")-eller (Device. deviceOSType-EQ "iPhone")<br>(Device. deviceOSType-innehåller "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
+ deviceOSVersion | Valfritt sträng värde | (device.deviceOSVersion -eq "9.1")
  deviceCategory | ett giltigt namn på enhets kategori | (Device. deviceCategory-EQ "BYOD")
- deviceManufacturer | valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
- deviceModel | valfritt sträng värde | (device.deviceModel -eq "iPad Air")
+ deviceManufacturer | Valfritt sträng värde | (Device. deviceManufacturer-EQ "Samsung")
+ deviceModel | Valfritt sträng värde | (device.deviceModel -eq "iPad Air")
  deviceOwnership | Personlig, företag, okänd | (Device. deviceOwnership-EQ "Company")
  enrollmentProfileName | Registrerings profil för Apples enhet, enhets registrering-identifierare för företags enheter (Android-kiosk) eller Windows autopilot-profil namn | (Device. enrollmentProfileName-EQ "DEP iPhone")
  isRooted | Sant falskt | (Device. isRooted-EQ true)

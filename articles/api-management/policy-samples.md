@@ -13,12 +13,12 @@ ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: f8bd768dc7c01310874cd484f59869fbafcf3fe7
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bdcf9ea247adb8d5941c75f90f7db3915af20bc
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074197"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75940949"
 ---
 # <a name="api-management-policy-samples"></a>API Management-principexempel
 
@@ -33,6 +33,7 @@ ms.locfileid: "70074197"
 | [Auktorisera åtkomstbaserat på JWT-anspråk](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json)                                              | Visar hur du beviljar åtkomst till specifika HTTP-metoder på en API som baseras på JWT-anspråk.                                                                                                                                       |
 | [Auktorisera begäran med extern auktoriserare](./policies/authorize-request-using-external-authorizer.md)                                                   | Visar hur du använder en extern auktoriserare för att skydda API-åtkomst.                                                                                                                                                               |
 | [Auktorisera åtkomst med hjälp av Google OAuth-token](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json)                                            | Visar hur du beviljar åtkomst till dina slutpunkter med Google som en OAuth-tokenprovider.                                                                                                                                    |
+| [Filtrera IP-adresser när du använder en Application Gateway](./policies/filter-ip-addresses-when-using-appgw.md) | Visar hur IP-filter i principer när API Management-instansen nås via en Application Gateway
 | [Generera en signatur för delad åtkomst och vidarebefordra begäran till Azure-lagring](./policies/generate-shared-access-signature.md?toc=api-management/toc.json)                  | Visar hur du skapar [Signatur för delad åtkomst](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) med uttryck och vidarebefordrar begäran till Azure-lagring med principer för omarbetnings-uri. |
 | [Hämta OAuth2-token från AAD och vidarebefordra den till serverdelen](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json)                             | Ger exempel på hur du använder OAuth2 för auktorisering mellan gateway och en serverdel. Det visar hur du får en åtkomsttoken från AAD och vidarebefordrar den till serverdelen.                                                    |
 | [Hämta X-CSRF-token från SAP-gateway med hjälp av sändarbegärandeprincip](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json)                           | Visar hur du implementerar X CSRF-mönster som används av många API:er. Det här exemplet är specifikt för SAP-gateway.                                                                                                                           |

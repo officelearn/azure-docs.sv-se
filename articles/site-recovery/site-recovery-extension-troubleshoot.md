@@ -1,20 +1,18 @@
 ---
-title: Felsöka problem med Azure Site Recoverys agenter | Microsoft Docs
-description: Innehåller information om symptom, orsaker och lösningar på Azure Site Recovery agent fel.
-author: carmonmills
+title: Felsök Azure VM-tillägget för haveri beredskap med Azure Site Recovery
+description: Felsök problem med Azure VM-tillägget för haveri beredskap med Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: carmonm
-ms.openlocfilehash: 0de5a9843b8029c1e1926ae296f43fc95b48106c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 7f9ae32b95d629ef79f085ed590d9057b0414911
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930134"
+ms.locfileid: "75941543"
 ---
-# <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Felsök problem med Azure Site Recovery agent
+# <a name="troubleshoot-azure-vm-extension-issues"></a>Felsök problem med Azure VM-tillägg
 
 Den här artikeln innehåller fel söknings steg som kan hjälpa dig att lösa Azure Site Recovery fel som rör VM-agenten och tillägget.
 
@@ -30,7 +28,7 @@ Felkod: "151076"
 **Orsak 2: [agenten som är installerad på den virtuella datorn är inaktuell (för virtuella Linux-datorer)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **Orsak 3: [Site Recovery-tillägget kan inte uppdateras eller läsas in](#the-site-recovery-extension-fails-to-update-or-load)**  
 
-Fel meddelande: "föregående åtgärd för Site Recovery-tillägg tar längre tid än förväntat."<br>
+Fel meddelande: "föregående Site Recovery tilläggs åtgärd tar längre tid än förväntat."<br>
 Felkod: "150066"<br>
 
 **Orsak 1: [agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**     

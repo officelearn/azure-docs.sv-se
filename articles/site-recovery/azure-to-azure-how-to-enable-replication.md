@@ -1,19 +1,16 @@
 ---
-title: Konfigurera replikering för virtuella Azure-datorer i Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskriver hur du konfigurerar replikering för virtuella Azure-datorer, från en Azure-region till en annan med hjälp av Site Recovery.
-services: site-recovery
-author: carmonmills
+title: Konfigurera replikering för virtuella Azure-datorer i Azure Site Recovery
+description: Lär dig hur du konfigurerar replikering till en annan region för virtuella Azure-datorer med hjälp av Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/29/2018
-ms.author: carmonm
-ms.openlocfilehash: 4dbac05ddf747ccaf483e547a2070505487a3706
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929865"
+ms.locfileid: "75942324"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 

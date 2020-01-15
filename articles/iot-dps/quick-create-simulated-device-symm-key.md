@@ -3,18 +3,18 @@ title: Snabb start – Använd symmetrisk nyckel för att etablera simulerad enh
 description: I den här snabb starten ska du använda C-enhetens SDK för att skapa en simulerad enhet som använder symmetrisk nyckel med Azure-IoT Hub Device Provisioning Service (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/08/2019
+ms.date: 01/14/2020
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 4e84a43f8984e2adeac916e467a8cac693ee453d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6047051a36459d61bb5f02907dde9e73a70e86ec
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912440"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945203"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Snabbstart: Etablera en simulerad enhet med symmetriska nycklar
 

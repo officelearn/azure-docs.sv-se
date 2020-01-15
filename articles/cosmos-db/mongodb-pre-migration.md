@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: lbosq
-ms.openlocfilehash: ef3d56b4ec7e4dbe5f6f4097fdd5d8d125b074dc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 73ac1a6ffd5fc2b2d52f169e1e0332044638f9f7
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932292"
+ms.locfileid: "75942084"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Steg före migrering för datamigrering från MongoDB till Azure Cosmos DB s API för MongoDB
 
@@ -24,15 +24,19 @@ Innan du migrerar dina data från MongoDB (antingen lokalt eller i molnet) till 
 4. [Välj en optimal partitionsnyckel för dina data](#partitioning)
 5. [Förstå indexerings principen som du kan ange för dina data](#indexing)
 
-Om du redan har slutfört ovanstående krav för migrering kan du [migrera MongoDB-data till Azure Cosmos DB s API för MongoDB med hjälp av Azure Database migration service](../dms/tutorial-mongodb-cosmos-db.md). Om du inte har skapat ett konto kan du dessutom bläddra i alla [snabb starter](create-mongodb-dotnet.md).
+Om du redan har slutfört ovanstående krav för migrering kan du [migrera MongoDB-data till Azure Cosmos DB s API för MongoDB med hjälp av Azure Database migration service](../dms/tutorial-mongodb-cosmos-db.md). Om du inte har skapat ett konto kan du dessutom bläddra bland de [snabb starter](create-mongodb-dotnet.md) som visar stegen för att skapa ett konto.
 
-## <a id="considerations"></a>Viktiga överväganden när du använder Azure Cosmos DBs API för MongoDB
+## <a id="considerations"></a>Att tänka på när du använder Azure Cosmos DBs API för MongoDB
 
 Följande är särskilda egenskaper för Azure Cosmos DB s API för MongoDB:
+
 - **Kapacitets modell**: databasens kapacitet på Azure Cosmos DB baseras på en data flödes-baserad modell. Den här modellen är baserad på [enheter för programbegäran per sekund](request-units.md), som är en enhet som representerar antalet databas åtgärder som kan utföras mot en samling per sekund. Den här kapaciteten kan allokeras på [en databas eller samlings nivå](set-throughput.md)och kan tillhandahållas i en fördelnings modell, eller med hjälp av [autopilot-modellen](provision-throughput-autopilot.md).
-- **Enheter för programbegäran**: varje databas åtgärd har en ru: er-kostnad (associerad Request units) i Azure Cosmos dB. Vid körning subtraheras detta från den tillgängliga enhets enhets nivån på en specifik sekund. Om en begäran kräver mer ru: er än vad som för närvarande har allokerats, ökar mängden ru: er, eller väntar tills nästa andra startar och försöker sedan igen.
+
+- **Enheter för programbegäran**: varje databas åtgärd har en ru: er-kostnad (associerad Request units) i Azure Cosmos dB. Vid körning subtraheras detta från den tillgängliga enhets enhets nivån på en specifik sekund. Om en begäran kräver mer ru: er än den för närvarande allokerade RU/s finns det två alternativ för att lösa problemet, öka mängden ru: er eller vänta tills nästa sekund startar och försök sedan igen.
+
 - **Elastisk kapacitet**: kapaciteten för en specifik samling eller databas kan ändras när som helst. Detta gör att databasen kan anpassas elastiskt till data flödes kraven för din arbets belastning.
-- **Automatisk horisontell partitionering**: Azure Cosmos DB tillhandahåller ett automatiskt partitionerings system som bara kräver en Shard (eller partitionerings nyckel). [Mekanismen för automatisk partitionering](partition-data.md) delas över alla Azure Cosmos DB-API: er och möjliggör sömlös data och genom att skalas genom horisontell distribution.
+
+- **Automatisk horisontell partitionering**: Azure Cosmos DB tillhandahåller ett automatiskt partitionerings system som bara kräver en Shard (eller en partitionsnyckel). [Mekanismen för automatisk partitionering](partition-data.md) delas över alla Azure Cosmos DB-API: er och möjliggör sömlös data och genom hela skalan genom horisontell distribution.
 
 ## <a id="options"></a>Migrations alternativ för Azure Cosmos DBs API för MongoDB
 
@@ -54,7 +58,9 @@ Du kan använda [Azure Cosmos DB kapacitets kalkylatorn](https://cosmos.azure.co
 
 Följande är viktiga faktorer som påverkar antalet ru: er som krävs:
 - **Dokument storlek**: när ett objekts eller dokuments storlek ökar ökar antalet ru: er som förbrukas för att läsa eller skriva objektet/dokumentet också att öka.
+
 - **Antal dokument egenskaper**: antalet ru: er som används för att skapa eller uppdatera ett dokument är relaterat till antal, komplexitet och längd på egenskaperna. Du kan minska användningen av begär ande enheter för Skriv åtgärder genom [att begränsa antalet indexerade egenskaper](mongodb-indexing.md).
+
 - **Fråga mönster**: en frågas komplexitet påverkar hur många enheter för programbegäran som används av frågan. 
 
 Det bästa sättet att förstå kostnaden för frågor är att använda exempel data i Azure Cosmos DB [och köra exempel frågor från MongoDB-gränssnittet](connect-mongodb-account.md) med hjälp av kommandot `getLastRequestStastistics` för att hämta begär ande avgiften, vilket kommer att returnera antalet ru: er som förbrukas:

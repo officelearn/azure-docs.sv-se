@@ -3,14 +3,14 @@ title: Uppdateringshantering lösning i Azure
 description: Den här artikeln beskriver hur du använder Azure Uppdateringshantering-lösningen för att hantera uppdateringar för dina Windows-och Linux-datorer.
 services: automation
 ms.subservice: update-management
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 924f5bee94544c533f3a2548d931fce292469567
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0cf47538f7db1cef629c2b58a9fbde16640a50ae
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75420339"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945131"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -237,7 +237,9 @@ För Linux kan Uppdateringshantering skilja mellan kritiska uppdateringar och s�
 sudo yum -q --security check-update
 ```
 
-Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För tillfället tillhandahålls kunder som kanske har aktiverat detta på egen hand support.
+Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För tillfället tillhandahålls kunder som kanske har aktiverat detta på egen hand support. 
+
+Om du vill klassificera uppdateringar i Red Hat Enterprise version 6 måste du installera plugin-programmet yum-Security. På Red Hat Enterprise Linux 7 är plugin-programmet redan en del av yum, men du behöver inte installera något. Mer information finns i följande artiklar om Red Hat- [kunskap](https://access.redhat.com/solutions/10021).
 
 ## <a name="integrate-with-system-center-configuration-manager"></a>Integrera med System Center Configuration Manager
 
@@ -251,7 +253,7 @@ Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen 
 
 ## <a name="patch-linux-machines"></a>Korrigera Linux-datorer
 
-I följande avsnitt beskrivs eventuella problem med Linux-korrigeringar.
+I följande avsnitt beskrivs eventuella problem med att korrigera Linux-distributioner.
 
 ### <a name="unexpected-os-level-upgrades"></a>Oväntade uppgraderingar på operativ Systems nivå
 

@@ -1,32 +1,25 @@
 ---
-title: 'Snabb start: identifiera tal som lagras i BLOB C# Storage,-tal service'
-titleSuffix: Azure Cognitive Services
-description: Inte klart
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b8b650920c03b14c7d55aafd6ecdb43dafaafafe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: 1022a744564ed61a90973f7bba3eb32e9a632b46
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75466825"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942775"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
+> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=vs&pivots=programmming-language-csharp)
+> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?pivots=programmming-language-csharp)
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-> * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md?tabs=dotnet)
-> * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md?tabs=dotnet)
 
 ## <a name="open-your-project-in-visual-studio"></a>Öppna projektet i Visual Studio
 
@@ -35,7 +28,7 @@ Det första steget är att se till att projektet är öppet i Visual Studio.
 1. Starta Visual Studio 2019.
 2. Läs in projektet och öppna `Program.cs`.
 
-## <a name="add-a-reference-to-newtonsoftjson"></a>Lägg till en referens till NewtonSoftJSon
+## <a name="add-a-reference-to-newtonsoftjson"></a>Lägg till en referens till Newtonsoft. JSON
 
 1. I Solution Explorer högerklickar du på projektet **HelloWorld** och väljer sedan **Hantera NuGet-paket** för att Visa NuGet Package Manager.
 
@@ -45,7 +38,7 @@ Det första steget är att se till att projektet är öppet i Visual Studio.
 
 1. Skriv *Newtonsoft. JSON* i rutan Sök och välj **RETUR**.
 
-1. Från Sök resultaten väljer du paketet **Newtonsoft. JSON** och väljer sedan **Installera** för att installera den senaste stabila versionen.
+1. Från Sök resultaten väljer du paketet [**Newtonsoft. JSON**](https://www.nuget.org/packages/Newtonsoft.Json) och väljer sedan **Installera** för att installera den senaste stabila versionen.
 
 1. Acceptera alla avtal och licenser för att starta installationen.
 
@@ -56,7 +49,9 @@ Det första steget är att se till att projektet är öppet i Visual Studio.
 Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 [!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/from-blob/program.cs?range=6-43,138,277)]
-(Du måste ersätta värdena för `YourSubscriptionKey`, `YourServiceRegion`och `YourFileUrl` med dina egna värden.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
+
 ## <a name="json-wrappers"></a>JSON-omslutningar
 
 Som REST API utföra begär anden i JSON-format och även returnera resultat i JSON kan vi interagera med dem med enbart strängar, men det rekommenderas inte.

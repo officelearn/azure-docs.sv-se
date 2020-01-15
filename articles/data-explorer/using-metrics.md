@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: f5b47a5ae9d13711233d0e4852ec487af7344622
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1bc63ac4dc3930ad0423baa98453bd927c295a72
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173796"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945761"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Övervaka Azure Datautforskaren prestanda, hälsa och användning med mått
 
@@ -42,18 +42,22 @@ I fönstret mått:
 
     **Mått** | **Processor** | **Aggregering** | **Mått Beskrivning**
     |---|---|---|---|
-    | Användning av cache | Procent | Genomsn, Max, min | Procent andel allokerade cache-resurser som för närvarande används av klustret. Cache syftar på storleken på SSD som allokerats för användar aktivitet enligt den definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Om den genomsnittliga användningen av cacheminnet är över 80% ska klustret [skalas upp](manage-cluster-vertical-scaling.md) till en optimerad lagrings nivå eller [skala ut](manage-cluster-horizontal-scaling.md) till fler instanser. Du kan också anpassa cache-principen (färre dagar i cacheminnet). Om cache användningen är över 100% är storleken på data som ska cachelagras, enligt principen för cachelagring, större än den totala storleken på cachen i klustret. |
-    | Processor | Procent | Genomsn, Max, min | Procent andel allokerade beräknings resurser som för närvarande används av datorerna i klustret. En genomsnittlig CPU på 80% eller mindre är hållbart för ett kluster. Det maximala värdet för CPU är 100% vilket innebär att det inte finns några ytterligare beräknings resurser för att bearbeta data. När ett kluster inte fungerar bra kontrollerar du det maximala värdet för processorn för att avgöra om det finns några angivna processorer som är blockerade. |
+    | Användning av cache | Procent | Genomsn, Max, min | Procent andel allokerade cache-resurser som för närvarande används av klustret. Cache är storleken på SSD som allokerats för användar aktivitet enligt den definierade cache-principen. En genomsnittlig cache-användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Om den genomsnittliga användningen av cacheminnet är över 80% ska klustret [skalas upp](manage-cluster-vertical-scaling.md) till en optimerad lagrings nivå eller [skala ut](manage-cluster-horizontal-scaling.md) till fler instanser. Du kan också anpassa cache-principen (färre dagar i cacheminnet). Om cache användningen är över 100% är storleken på data som ska cachelagras, enligt principen för cachelagring, större än den totala storleken på cachen i klustret. |
+    | Processor | Procent | Genomsn, Max, min | Procent andel allokerade beräknings resurser som för närvarande används av datorerna i klustret. En genomsnittlig CPU på 80% eller mindre är hållbart för ett kluster. Det maximala värdet för CPU är 100%, vilket innebär att det inte finns några ytterligare beräknings resurser för att bearbeta data. När ett kluster inte fungerar bra kontrollerar du det maximala värdet för processorn för att avgöra om det finns några angivna processorer som är blockerade. |
     | Bearbetade händelser (för Event Hubs) | Antal | Max, min, Summa | Totalt antal händelser som lästs från Event Hub och bearbetas av klustret. Händelserna delas upp i avvisade händelser och händelser som accepteras av kluster motorn. |
     | Inmatnings svars tid | Sekunder | Genomsn, Max, min | Svars tiden för data som hämtas från den tidpunkt då data togs emot i klustret tills de är redo för fråga. Inmatnings svars tiden beror på inmatnings scenariot. |
     | Inmatnings resultat | Antal | Antal | Totalt antal inmatnings åtgärder som misslyckats och slutförts. Använd **Använd uppdelning** för att skapa Bucket-lyckade och underkänna resultat och analysera dimensionerna (**värde** > **status**).|
     | Förbruknings användning | Procent | Genomsn, Max, min | Procent andel faktiska resurser som används för att mata in data från den totala mängden allokerade resurser, i kapacitets principen, för att utföra inmatningen. Standard kapacitets principen är högst 512 samtidiga inmatnings åtgärder eller 75% av kluster resurserna som investerat i inmatningen. Genomsnittligt intag av användning på 80% eller mindre är ett hållbart tillstånd för ett kluster. Det maximala värdet för förbruknings användningen är 100%, vilket innebär att alla kluster inmatnings funktioner används och att en inmatnings kö kan resultera i detta. |
     | Inmatnings volym (i MB) | Antal | Max, min, Summa | Den totala storleken på data som matas in i klustret (i MB) före komprimering. |
-    | Behåll Alive | Antal | Gmsn | Spårar klustrets svars tider. Ett fullständigt besvarat kluster returnerar värde 1 och ett blockerat eller frånkopplat kluster returnerar 0. |
+    | Behåll Alive | Antal | Genomsn | Spårar klustrets svars tider. Ett fullständigt besvarat kluster returnerar värde 1 och ett blockerat eller frånkopplat kluster returnerar 0. |
     | Frågevaraktighet | Sekunder | Count, AVG, min, Max, sum | Total tid tills frågeresultaten tas emot (omfattar inte nätverks svars tid). |
-    | | | |
+    | Totalt antal samtidiga frågor | Antal | AVG, Max, min, sum | Antalet frågor som körs parallellt i klustret. Detta mått är ett bra sätt att uppskatta belastningen på klustret. |
+    | Totalt antal begränsade frågor | Antal | AVG, Max, min, sum | Antalet begränsade (avvisade) frågor i klustret. Det högsta antalet samtidiga (parallella) frågor som tillåts definieras i den samtidiga Frågeparametern. |
+    | Totalt antal begränsade kommandon | Antal | AVG, Max, min, sum | Antalet begränsade (avvisade) kommandon i klustret, eftersom det maximalt tillåtna antalet samtidiga (parallella) kommandon nåddes. |
+    | Totalt antal omfattningar | Antal | AVG, Max, min, sum | Totalt antal data omfång i klustret. Ändringar i det här måttet kan innebära stora data struktur ändringar och hög belastning på klustret, eftersom sammanfogning av data omfång är en processor kraftig aktivitet. |
+    | | | | |
 
-    Ytterligare information om [Azure datautforskaren-kluster mått som stöds](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
+    Mer information om [Azure datautforskaren-kluster mått som stöds](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)
 
 2. Välj knappen **Lägg till mått** om du vill se flera mått som är ritade i samma diagram.
 3. Välj knappen **+ ny diagram** om du vill se flera diagram i en vy.

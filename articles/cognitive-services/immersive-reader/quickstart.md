@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa en webbapp som startar den fördjupade läsaren medC#'
+title: 'Snabb start: skapa en webbapp som startar den fördjupade läsaren medC#'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten skapar du en webbapp från grunden och lägger till API-funktionen för avancerad läsare.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: immersive-reader
 ms.topic: quickstart
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: ed49f834cb7cd4f649d84aea9e549e212771eead
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: dd3e1e6de886b24a2912fe6a12b47a852d8956d0
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899353"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945352"
 ---
-# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Snabbstart: Skapa en webbapp som startar den fördjupade läsarenC#()
+# <a name="quickstart-create-a-web-app-that-launches-the-immersive-reader-c"></a>Snabb start: skapa en webbapp som startar den fördjupadeC#läsaren ()
 
 Den [fördjupade läsaren](https://www.onenote.com/learningtools) är ett särskilt utformat verktyg som implementerar beprövade tekniker för att förbättra läsningen av förståelse.
 
@@ -25,186 +25,269 @@ I den här snabb starten skapar du en webbapp från grunden och integrerar den f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads)
-* En fördjupad läsar resurs som kon figurer ATS för autentisering med Azure Active Directory (Azure AD). Följ [dessa instruktioner](./azure-active-directory-authentication.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads)
+* En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar exempel projekt egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 
 ## <a name="create-a-web-app-project"></a>Skapa ett webbapp
 
-Skapa ett nytt projekt i Visual Studio med hjälp av mallen ASP.NET Core Web App med inbyggd modell-View-Controller.
+Skapa ett nytt projekt i Visual Studio med hjälp av mallen ASP.NET Core Web App med inbyggd modell-View-Controller och ASP.NET Core 2,1. Ge projektet namnet "QuickstartSampleWebApp".
 
-![Nytt projekt](./media/vswebapp.png)
+![Nytt projekt](./media/quickstart-csharp/1-createproject.png)
 
-![Nytt ASP.NET Core-webbprogram](./media/vsmvc.png)
+![Konfigurera nytt projekt](./media/quickstart-csharp/2-configureproject.png)
 
-## <a name="acquire-an-azure-ad-authentication-token"></a>Hämta en Azure AD-autentiseringstoken
+![Nytt ASP.NET Core-webbprogram](./media/quickstart-csharp/3-createmvc.png)
 
-Du behöver vissa värden från det nödvändiga steget för Azure AD-autentisering ovan för den här delen. Se tillbaka till text filen som du sparade i sessionen.
+## <a name="set-up-authentication"></a>Konfigurera autentisering
 
-````text
-TenantId     => Azure subscription TenantId
-ClientId     => Azure AD ApplicationId
-ClientSecret => Azure AD Application Service Principal password
-Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-````
+### <a name="configure-authentication-values"></a>Konfigurera värden för autentisering
 
-Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar hemligheter**. Då öppnas en fil med namnet _hemligheter. JSON_. Ersätt innehållet i filen med följande, och ange dina egna egenskaps värden ovan.
+Högerklicka på projektet i _Solution Explorer_ och välj **hantera användar hemligheter**. Då öppnas en fil med namnet _hemligheter. JSON_. Den här filen är inte markerad i käll kontrollen. Lär dig mer [här](https://docs.microsoft.com/aspnet/core/security/app-secrets?view=aspnetcore-3.1&tabs=windows). Ersätt innehållet i _hemligheter. JSON_ med följande, och ange de värden som anges när du skapade din fördjupade läsare-resurs.
 
 ```json
 {
-  "TenantId": YOUR_TENANT_ID,
-  "ClientId": YOUR_CLIENT_ID,
-  "ClientSecret": YOUR_CLIENT_SECRET,
-  "Subdomain": YOUR_SUBDOMAIN
+  "TenantId": "YOUR_TENANT_ID",
+  "ClientId": "YOUR_CLIENT_ID",
+  "ClientSecret": "YOUR_CLIENT_SECRET",
+  "Subdomain": "YOUR_SUBDOMAIN"
 }
 ```
 
-Öppna _Controllers\HomeController.cs_och Ersätt filen med följande kod.
+### <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Lägg till Microsoft. IdentityModel. clients. ActiveDirectory NuGet-paketet
 
-```csharp
-using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Clients.ActiveDirectory;
+I följande kod används objekt från **Microsoft. IdentityModel. clients. ActiveDirectory** NuGet-paketet så du måste lägga till en referens till det paketet i projektet.
 
-namespace QuickstartSampleWebApp.Controllers
-{
-    public class HomeController : Controller
-    {
-        private readonly string TenantId;     // Azure subscription TenantId
-        private readonly string ClientId;     // Azure AD ApplicationId
-        private readonly string ClientSecret; // Azure AD Application Service Principal password
-        private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
-
-        public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
-        {
-            TenantId = configuration["TenantId"];
-            ClientId = configuration["ClientId"];
-            ClientSecret = configuration["ClientSecret"];
-            Subdomain = configuration["Subdomain"];
-
-            if (string.IsNullOrWhiteSpace(TenantId))
-            {
-                throw new ArgumentNullException("TenantId is null! Did you add that info to secrets.json?");
-            }
-
-            if (string.IsNullOrWhiteSpace(ClientId))
-            {
-                throw new ArgumentNullException("ClientId is null! Did you add that info to secrets.json?");
-            }
-
-            if (string.IsNullOrWhiteSpace(ClientSecret))
-            {
-                throw new ArgumentNullException("ClientSecret is null! Did you add that info to secrets.json?");
-            }
-
-            if (string.IsNullOrWhiteSpace(Subdomain))
-            {
-                throw new ArgumentNullException("Subdomain is null! Did you add that info to secrets.json?");
-            }
-        }
-
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        [Route("subdomain")]
-        public string GetSubdomain()
-        {
-            return Subdomain;
-        }
-
-        [Route("token")]
-        public async Task<string> GetToken()
-        {
-            return await GetTokenAsync();
-        }
-
-        /// <summary>
-        /// Get an Azure AD authentication token
-        /// </summary>
-        private async Task<string> GetTokenAsync()
-        {
-            string authority = $"https://login.windows.net/{TenantId}";
-            const string resource = "https://cognitiveservices.azure.com/";
-
-            AuthenticationContext authContext = new AuthenticationContext(authority);
-            ClientCredential clientCredential = new ClientCredential(ClientId, ClientSecret);
-
-            AuthenticationResult authResult = await authContext.AcquireTokenAsync(resource, clientCredential);
-
-            return authResult.AccessToken;
-        }
-    }
-}
-```
-
-## <a name="add-the-microsoftidentitymodelclientsactivedirectory-nuget-package"></a>Lägg till Microsoft. IdentityModel. clients. ActiveDirectory NuGet-paketet
-
-I koden ovan används objekt från **Microsoft. IdentityModel. clients. ActiveDirectory** NuGet-paketet så du måste lägga till en referens till det paketet i projektet.
-
-Öppna NuGet Package Manager-konsolen från **verktyg-> NuGet Package Manager – > Package Manager-konsolen** och skriv följande:
+Öppna NuGet Package Manager-konsolen från **verktyg-> NuGet Package Manager – > Package Manager-konsolen** och kör följande kommando:
 
 ```powershell
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 5.1.0
 ```
 
-## <a name="add-sample-content"></a>Lägg till exempel innehåll
+### <a name="update-the-controller-to-acquire-the-token"></a>Uppdatera styrenheten för att hämta token 
 
-Nu ska vi lägga till lite exempel innehåll till den här webb programmet. Öppna _Views\Home\Index.cshtml_ och ersätt den automatiskt genererade koden med det här exemplet:
+Öppna _Controllers\HomeController.cs_och Lägg till följande kod efter _using_ -instruktionerna överst i filen.
+
+```csharp
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+```
+
+Nu ska vi konfigurera kontrollanten för att hämta Azure AD-värden från _hemligheter. JSON_. Lägg till följande kod överst i _HomeController_ -klassen efter ```public class HomeController : Controller {```.
+
+```csharp
+private readonly string TenantId;     // Azure subscription TenantId
+private readonly string ClientId;     // Azure AD ApplicationId
+private readonly string ClientSecret; // Azure AD Application Service Principal password
+private readonly string Subdomain;    // Immersive Reader resource subdomain (resource 'Name' if the resource was created in the Azure portal, or 'CustomSubDomain' option if the resource was created with Azure CLI Powershell. Check the Azure portal for the subdomain on the Endpoint in the resource Overview page, for example, 'https://[SUBDOMAIN].cognitiveservices.azure.com/')
+
+public HomeController(Microsoft.Extensions.Configuration.IConfiguration configuration)
+{
+    TenantId = configuration["TenantId"];
+    ClientId = configuration["ClientId"];
+    ClientSecret = configuration["ClientSecret"];
+    Subdomain = configuration["Subdomain"];
+
+    if (string.IsNullOrWhiteSpace(TenantId))
+    {
+        throw new ArgumentNullException("TenantId is null! Did you add that info to secrets.json?");
+    }
+
+    if (string.IsNullOrWhiteSpace(ClientId))
+    {
+        throw new ArgumentNullException("ClientId is null! Did you add that info to secrets.json?");
+    }
+
+    if (string.IsNullOrWhiteSpace(ClientSecret))
+    {
+        throw new ArgumentNullException("ClientSecret is null! Did you add that info to secrets.json?");
+    }
+
+    if (string.IsNullOrWhiteSpace(Subdomain))
+    {
+        throw new ArgumentNullException("Subdomain is null! Did you add that info to secrets.json?");
+    }
+}
+
+/// <summary>
+/// Get an Azure AD authentication token
+/// </summary>
+private async Task<string> GetTokenAsync()
+{
+    string authority = $"https://login.windows.net/{TenantId}";
+    const string resource = "https://cognitiveservices.azure.com/";
+
+    AuthenticationContext authContext = new AuthenticationContext(authority);
+    ClientCredential clientCredential = new ClientCredential(ClientId, ClientSecret);
+
+    AuthenticationResult authResult = await authContext.AcquireTokenAsync(resource, clientCredential);
+
+    return authResult.AccessToken;
+}
+
+[HttpGet]
+public async Task<JsonResult> GetTokenAndSubdomain()
+{
+    try
+    {
+        string tokenResult = await GetTokenAsync();
+
+        return new JsonResult(new { token = tokenResult, subdomain = Subdomain });
+    }
+    catch (Exception e)
+    {
+        string message = "Unable to acquire Azure AD token. Check the debugger for more information.";
+        Debug.WriteLine(message, e);
+        return new JsonResult(new { error = message });
+    }
+}
+```
+
+## <a name="add-sample-content"></a>Lägg till exempel innehåll
+Börja med att öppna _Views\Shared\Layout.cshtml_. Lägg till följande kod innan raden ```</head>```:
 
 ```html
-<h1 id='title'>Geography</h1>
-<span id='content'>
-    <p>The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers. Landforms are sometimes called physical features. It is important for students to know about the physical geography of Earth. The seasons, the atmosphere and all the natural processes of Earth affect where people are able to live. Geography is one of a combination of factors that people use to decide where they want to live.</p>
-</span>
+@RenderSection("Styles", required: false)
+```
 
-<div class='immersive-reader-button' data-button-style='iconAndText' onclick='launchImmersiveReader()'></div>
+Nu ska vi lägga till exempel innehåll till den här webbappen. Öppna _Views\Home\Index.cshtml_ och ersätt all automatiskt genererad kod med det här exemplet:
 
-@section scripts {
-    <script type='text/javascript' src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js'></script>
-    <script type='text/javascript' src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
-    <script type='text/javascript'>
-    function getImmersiveReaderTokenAsync() {
-        return new Promise((resolve) => {
-            $.ajax({
-                url: '/token',
-                type: 'GET',
-                success: token => {
-                    resolve(token);
-                }
+```html
+@{
+    ViewData["Title"] = "Immersive Reader C# Quickstart";
+}
+
+@section Styles {
+    <style type="text/css">
+        .immersive-reader-button {
+            background-color: white;
+            margin-top: 5px;
+            border: 1px solid black;
+            float: right;
+        }
+    </style>
+}
+
+<div class="container">
+    <button class="immersive-reader-button" data-button-style="iconAndText" data-locale="en"></button>
+
+    <h1 id="ir-title">About Immersive Reader</h1>
+    <div id="ir-content" lang="en-us">
+        <p>
+            Immersive Reader is a tool that implements proven techniques to improve reading comprehension for emerging readers, language learners, and people with learning differences.
+            The Immersive Reader is designed to make reading more accessible for everyone. The Immersive Reader
+            <ul>
+                <li>
+                    Shows content in a minimal reading view
+                </li>
+                <li>
+                    Displays pictures of commonly used words
+                </li>
+                <li>
+                    Highlights nouns, verbs, adjectives, and adverbs
+                </li>
+                <li>
+                    Reads your content out loud to you
+                </li>
+                <li>
+                    Translates your content into another language
+                </li>
+                <li>
+                    Breaks down words into syllables
+                </li>
+            </ul>
+        </p>
+        <h3>
+            The Immersive Reader is available in many languages.
+        </h3>
+        <p lang="es-es">
+            El Lector inmersivo está disponible en varios idiomas.
+        </p>
+        <p lang="zh-cn">
+            沉浸式阅读器支持许多语言
+        </p>
+        <p lang="de-de">
+            Der plastische Reader ist in vielen Sprachen verfügbar.
+        </p>
+        <p lang="ar-eg" dir="rtl" style="text-align:right">
+            يتوفر \"القارئ الشامل\" في العديد من اللغات.
+        </p>
+    </div>
+</div>
+```
+
+Observera att all text har ett **lang** -attribut som beskriver språk i texten. Det här attributet hjälper den fördjupade läsaren att tillhandahålla relevanta språk-och grammatiska funktioner.
+
+## <a name="add-javascript-to-handle-launching-the-immersive-reader"></a>Lägg till java script i hantering starta den fördjupade läsaren
+
+Biblioteket för avancerad läsare innehåller funktioner som att starta den fördjupade läsaren och återge knappar för avancerad läsare. Lär dig mer [här](https://docs.microsoft.com/azure/cognitive-services/immersive-reader/reference).
+
+Lägg till följande kod längst ned i _Views\Home\Index.cshtml_:
+
+```html
+@section Scripts
+{
+    <script src="https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.1.0.0.js"></script>
+    <script>
+        function getTokenAndSubdomainAsync() {
+            return new Promise(function (resolve, reject) {
+                $.ajax({
+                    url: "@Url.Action("GetTokenAndSubdomain", "Home")",
+                    type: "GET",
+                    success: function (data) {
+                        if (data.error) {
+                            reject(data.error);
+                        } else {
+                            resolve(data);
+                        }
+                    },
+                    error: function (err) {
+                        reject(err);
+                    }
+                });
             });
+        }
+    
+        $(".immersive-reader-button").click(function () {
+            handleLaunchImmersiveReader();
         });
-    }
-
-    function getSubdomainAsync() {
-        return new Promise((resolve) => {
-            $.ajax({
-                url: '/subdomain',
-                type: 'GET',
-                success: subdomain => {
-                    resolve(subdomain);
-                }
-            });
-        });
-    }
-
-    async function launchImmersiveReader() {
-        const content = {
-            title: document.getElementById('title').innerText,
-            chunks: [ {
-                content: document.getElementById('content').innerText,
-                lang: 'en'
-            } ]
-        };
-
-        const token = await getImmersiveReaderTokenAsync();
-        var subdomain = await getSubdomainAsync();
-
-        ImmersiveReader.launchAsync(token, subdomain, content, { uiZIndex: 1000000 });
-    }
+    
+        function handleLaunchImmersiveReader() {
+            getTokenAndSubdomainAsync()
+                .then(function (response) {
+                    const token = response["token"];
+                    const subdomain = response["subdomain"];
+    
+                    // Learn more about chunk usage and supported MIME types https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#chunk
+                    const data = {
+                        title: $("#ir-title").text(),
+                        chunks: [{
+                            content: $("#ir-content").html(),
+                            mimeType: "text/html"
+                        }]
+                    };
+    
+                    // Learn more about options https://docs.microsoft.com/en-us/azure/cognitive-services/immersive-reader/reference#options
+                    const options = {
+                        "onExit": exitCallback,
+                        "uiZIndex": 2000
+                    };
+    
+                    ImmersiveReader.launchAsync(token, subdomain, data, options)
+                        .catch(function (error) {
+                            alert("Error in launching the Immersive Reader. Check the console.");
+                            console.log(error);
+                        });
+                })
+                .catch(function (error) {
+                    alert("Error in getting the Immersive Reader token and subdomain. Check the console.");
+                    console.log(error);
+                });
+        }
+    
+        function exitCallback() {
+            console.log("This is the callback function. It is executed when the Immersive Reader closes.");
+        }
     </script>
 }
 ```
@@ -215,15 +298,17 @@ I meny raden väljer du **felsök > starta fel sökning**eller trycker på **F5*
 
 I webbläsaren bör du se:
 
-![Exempel App](./media/quickstart-result.png)
+![Exempelapp](./media/quickstart-csharp/4-buildapp.png)
+
+## <a name="launch-the-immersive-reader"></a>Starta den fördjupade läsaren
 
 När du klickar på knappen "avancerad läsare" visas den fördjupade läsaren som lanserades med innehållet på sidan.
 
-![Avancerad läsare](./media/quickstart-immersive-reader.png)
+![Avancerad läsare](./media/quickstart-csharp/5-viewimmersivereader.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* I självstudien om [Node. js](./tutorial-nodejs.md) kan du se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
-* Visa [python](./tutorial-python.md) -självstudien för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
-* Visa [iOS](./tutorial-ios-picture-immersive-reader.md) -självstudien för att se vad mer du kan göra med SDK: n för avancerad läsare med Swift
+* Visa snabb starten för [Node. js](./quickstart-nodejs.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
+* Visa [python-självstudien](./tutorial-python.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
+* Visa [iOS-självstudien](./tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med SDK: n för avancerad läsare med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)

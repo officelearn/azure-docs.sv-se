@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007282"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945589"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>En värld utan lösen ord med Azure Active Directory
 
@@ -242,7 +242,7 @@ Förutom att välja maskinvaru-token som standard metod för Multi-Factor Authen
 
 #### <a name="user-using-fido2-security-key-for-sign-in"></a>Användare som använder FIDO2 säkerhets nyckel för inloggning
 
-FIDO2 tillhandahåller ett abstraktions lager mellan den form faktor som används som autentiserare och offentlig/privat nyckel kryptering för att aktivera inbyggda plattforms autentiserare, till exempel Windows Hello-och säkerhets nycklar för att matcha till en privat nyckel och leverera en offentlig nyckel som kan användas som identifierare för att komma åt externa resurser. FIDO2-säkerhetsnycklar är utrustade med sina egna inbyggda säkra enklaven som lagrar den privata nyckeln och kräver bio metrisk eller PIN-kod för att låsa upp den. Autentiseringsuppgifterna kan inte återanvändas, spelas upp eller delas mellan tjänster och omfattas inte av phishing-och MiTM-attacker eller Server intrång.
+FIDO2 tillhandahåller ett abstraktions lager mellan den form faktor som används som autentiserare och offentlig/privat nyckel kryptering för att aktivera inbyggda plattforms autentiserare, till exempel Windows Hello-och säkerhets nycklar för att matcha en privat nyckel och leverera en offentlig nyckel som kan användas som identifierare för att få åtkomst till externa resurser. FIDO2-säkerhetsnycklar är utrustade med sina egna inbyggda säkra enklaven som lagrar den privata nyckeln och kräver bio metrisk eller PIN-kod för att låsa upp den. Autentiseringsuppgifterna kan inte återanvändas, spelas upp eller delas mellan tjänster och omfattas inte av phishing-och MiTM-attacker eller Server intrång.
 
 ![FIDO2-inloggning](./media/ad-passwordless/azure-ad-pwdless-image6.png)
 
@@ -284,7 +284,7 @@ Här följer några faktorer som du bör tänka på när du väljer Microsoft Pa
 ||**Windows Hello för företag**|**Lösen ords återsignering med Microsoft Authenticator-appen**|**FIDO2 säkerhets nycklar**|
 |:-|:-|:-|:-|
 |**Krav**| Windows 10, version 1809 eller senare<br>Azure Active Directory| Microsoft Authenticator-appen<br>Telefon (iOS-och Android-enheter som kör Android 6,0 eller senare)|Windows 10, version 1809 eller senare<br>Azure Active Directory|
-|**Offline**|Plattform|Programvara|Maskinvara|
+|**Mode**|Plattform|Programvara|Maskinvara|
 |**System och enheter**|PC med inbyggd Trusted Platform Module (TPM)<br>PIN-kod och biometrik-igenkänning |PIN-kod och biometrik-igenkänning på telefon|FIDO2 säkerhets enheter som är Microsoft-kompatibla|
 |**Användar upplevelse**|Logga in med en PIN-kod eller bio metrisk igenkänning (ansikts, iris eller finger avtryck) med Windows-enheter.<br>Windows Hello-autentisering är knuten till enheten. användaren behöver både enheten och en inloggnings komponent som en PIN-kod eller bio metrisk faktor för att få åtkomst till företags resurser.|Logga in med en mobil telefon med finger avtrycks skanning, ansikts-eller iris eller PIN-kod.<br>Användarna loggar in på arbetet eller det personliga kontot från sin dator eller mobil telefon.|Logga in med FIDO2-säkerhetsenheten (biometrik, PIN och NFC)<br>Användaren kan komma åt enheten baserat på organisations kontroller och autentiseras baserat på PIN-kod, biometrik med enheter som USB-säkerhetsnycklar och NFC-aktiverade smartkort, nycklar eller wearables.|
 |**Aktiverade scenarier**| Lösen ords lös upplevelse med Windows-enheter.<br>Gäller för dedikerade arbets datorer med möjlighet till enkel inloggning till enhet och program.|Lösen ords lös lösningen överallt med mobil telefon.<br>Gäller för åtkomst till arbets-eller personliga program på webben från vilken enhet som helst.|Lösen ords lös upplevelse för arbetare som använder biometrik, PIN och NFC.<br>Gäller för delade datorer och där en mobil telefon inte är ett lämpligt alternativ (t. ex. för support personal, offentlig kiosk eller sjukhus lag)|
@@ -311,7 +311,7 @@ Lösen ords lös autentisering är den långsammare i framtiden och sökvägen t
 
 * Distribuera Microsoft Authenticator app för mobilitet.
 
-* Distribuera Windows Hello för företag (1903: Håll dig uppdaterad).
+* Distribuera Windows Hello för företag (1909: Håll dig uppdaterad).
 
 * Distribuera FIDO2-enheter för användare som inte kan använda telefoner.
 
@@ -334,7 +334,7 @@ För att uppnå dessa mål rekommenderar vi följande:
 > [!NOTE]
 > På [sidan Azure Active Directory licensiering](https://azure.microsoft.com/pricing/details/active-directory/) finns mer information om licensierings kraven för lösen ords lös metoder.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Under de senaste åren har Microsoft fortsatt engagemang för att aktivera en värld utan lösen ord. Med Windows 10 lanserade Microsoft Windows Hello för företag, en stark, maskin vara som skyddas av två faktorer som möjliggör enkel inloggning till Azure Active Directory och Active Directory. På samma sätt som med Windows Hello för företag, använder Microsoft Authenticator-appen nyckelbaserad autentisering för att aktivera autentiseringsuppgifter som är knutna till en mobil enhet och använder bio metrisk eller PIN-kod. Med FIDO2 säkerhets nycklar kan du överföra dina autentiseringsuppgifter med dig och logga in på Azure AD genom att välja säkerhets nyckeln som Credential-Provider på Lås skärmen för Windows 10. Alla tre av dessa lösningar för lösen ords lösa minskar risken för nätfiske, lösen ords sprutning och repetitions attacker och ger användare ett mycket säkert och bekvämt sätt att logga in och komma åt data från var som helst.
 

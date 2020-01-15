@@ -1,21 +1,18 @@
 ---
-title: Felsök kontinuerlig replikering av virtuella Azrue-datorer med Azure Site Recovery
-description: Fel sökning av fel och problem vid replikering av virtuella Azure-datorer för katastrof återställning
-services: site-recovery
-author: carmonmills
+title: Felsöka replikering av virtuella Azure-datorer med Azure Site Recovery
+description: Felsök replikering i haveri beredskap för Azure VM med Azure Site Recovery
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.author: carmonm
-ms.openlocfilehash: b738ffc36334fc540582ba29e803eb2790e2119e
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930745"
+ms.locfileid: "75941571"
 ---
-# <a name="troubleshoot-ongoing-problems-in-azure-to-azure-vm-replication"></a>Felsöka pågående problem i Azure-till-Azure VM-replikering
+# <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
 
 I den här artikeln beskrivs vanliga problem i Azure Site Recovery när du replikerar och återställer virtuella Azure-datorer från en region till en annan region. Det beskriver också hur du felsöker dem. Mer information om konfigurationer som stöds finns i den [stöd matrix för att replikera virtuella Azure-datorer](site-recovery-support-matrix-azure-to-azure.md).
 
@@ -67,7 +64,7 @@ Om en insamling är från en tillfällig data burst och data ändrings takten ä
     - Gå till bladet diskar på den berörda replikerade datorn och kopiera replik diskens namn
     - Navigera till den här replik hanterade disken
     - Du kan se en banderoll på bladet översikt som anger att en SAS-webbadress har skapats. Klicka på den här banderollen och Avbryt exporten. Ignorera det här steget om du inte ser banderollen.
-    - Så snart SAS-URL: en har återkallats går du till konfigurations bladet för den hanterade disken och ökar storleken så att ASR stöder den observerade omsättnings takten på käll disken
+    - Så snart SAS-URL: en har återkallats går du till konfigurations bladet för den hanterade disken och ökar storleken så att Site Recovery stöder den observerade omsättnings takten på käll disken
 
 ## <a name="Network-connectivity-problem"></a>Problem med nätverks anslutningen
 

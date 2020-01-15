@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4788dc700324637d69ffbcb4308df3a323b9590c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: c1a800ceb12c2e7ad69329d0391478a8e2ae268b
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934080"
+ms.locfileid: "75945692"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och data sekretess i Azure Kognitiv sökning
 
@@ -43,7 +43,7 @@ Kryptering utökar hela hela indexerings pipelinen: från anslutningar, via öve
 |----------------|-------------|
 | Kryptering under överföring <br>(HTTPS/SSL/TLS) | Azure Kognitiv sökning lyssnar på HTTPS-port 443. Anslutningar till Azure-tjänster på plattformen är krypterade. <br/><br/>Alla Azure Kognitiv sökning-interaktioner från klient till tjänst är SSL/TLS 1,2-kompatibel.  Se till att använda TLSv 1.2 för SSL-anslutningar till din tjänst.|
 | Vilande kryptering <br>Microsoft-hanterade nycklar | Kryptering är helt inaktive ras i indexerings processen, utan mätbar påverkan på indexerings tiden för slut för ande eller index storlek. Det sker automatiskt vid all indexering, inklusive för stegvisa uppdateringar av ett index som inte är fullständigt krypterat (skapat före januari 2018).<br><br>Internt är kryptering baserat på [Azure Storage tjänst kryptering](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)med 256-bitars AES- [kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Kryptering är intern för Azure Kognitiv sökning, med certifikat och krypterings nycklar som hanteras internt av Microsoft och som används av universellt. Du kan inte aktivera eller inaktivera kryptering, hantera eller ersätta dina egna nycklar eller Visa krypterings inställningar i portalen eller program mässigt.<br><br>Kryptering i vila presenterades den 24 januari 2018 och gäller för alla tjänst nivåer, inklusive den kostnads fria nivån, i alla regioner. För fullständig kryptering måste index som skapats före det datumet släppas och återskapas för att krypteringen ska ske. Annars krypteras endast nya data som lagts till efter 24 januari.|
-| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med Kundhanterade nycklar är nu allmänt tillgängligt för Sök tjänster som skapats den 2019 januari.<br><br>Azure Kognitiv sökning index och synonym Maps kan nu krypteras i vila med kund nycklar hanterade nycklar i Azure Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).<br><br>Den här funktionen ersätter inte standard krypteringen i vilo läge, utan gäller även för den.<br><br>Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
+| Vilande kryptering <br>Kundhanterade nycklar | Kryptering med Kundhanterade nycklar är nu allmänt tillgängligt för Sök tjänster som skapats den 2019 januari. Det stöds inte på kostnads fria (delade) tjänster.<br><br>Azure Kognitiv sökning index och synonym Maps kan nu krypteras i vila med kund nycklar hanterade nycklar i Azure Key Vault. Läs mer i [Hantera krypterings nycklar i Azure kognitiv sökning](search-security-manage-encryption-keys.md).<br><br>Den här funktionen ersätter inte standard krypteringen i vilo läge, utan gäller även för den.<br><br>Om du aktiverar den här funktionen ökar du antalet index och försämrar frågans prestanda. Utifrån observationer som datum kan du vänta på att se en ökning på 30%-60% i fråge tiderna, även om den faktiska prestandan varierar beroende på index definitionen och typer av frågor. På grund av den här prestandan rekommenderar vi att du bara aktiverar den här funktionen på index som verkligen kräver det.
 
 ## <a name="azure-wide-user-access-controls"></a>Azure-wide User Access-kontroller
 

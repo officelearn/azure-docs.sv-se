@@ -9,16 +9,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/13/2019
-ms.openlocfilehash: 394c674da63bbda643246c3d61fb670d6ac8d1f7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d1a59e7ad86191bcc30b7d898d00f327c20fbc5e
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928623"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945627"
 ---
 # <a name="azure-hybrid-benefit"></a>Azure Hybrid-förmån
 
-I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan du byta ut dina befintliga licenser för rabatterade priser på SQL Database genom att använda [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Med den här Azure-förmånen kan du Spara upp till 30 procent på Azure SQL Database genom att använda dina lokala SQL Server licenser med Software Assurance. 
+I den etablerade beräknings nivån för den vCore-baserade inköps modellen kan du byta ut dina befintliga licenser för rabatterade priser på SQL Database genom att använda [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/). Med den här Azure-förmånen kan du Spara upp till 30 procent eller ännu högre på Azure SQL Database genom att använda dina lokala SQL Server licenser med Software Assurance. Använd Azure Hybrid-förmån kalkylatorn med den länk som anges före för korrekta värden. 
 
 > [!NOTE]
 > Att ändra till Azure Hybrid-förmån kräver ingen stillestånds tid.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/18/2019
 ms.author: alsin
-ms.openlocfilehash: 61991e271a68c9160a34d0de99fe4c9259ca41cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32df17ffed400af80eadadbdeaafbaa1e3e1dbce
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486344"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941705"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Red Hat Enterprise Linux-avbildningar (RHEL) som är tillgängliga i Azure
 Azure erbjuder en rad olika RHEL-avbildningar för olika användnings fall.
@@ -66,5 +66,5 @@ RHEL – BYOS     |RHEL – lvm74| LVM    | Linux-agent | RHEL 7,4 BYOS-avbildni
 ## <a name="next-steps"></a>Nästa steg
 * Lär dig mer om [Red Hat-avbildningarna i Azure](./redhat-images.md).
 * Läs mer om den [Red Hat-uppdateringen av infrastrukturen](./redhat-rhui.md).
-* Läs mer om [RHEL BYOS-erbjudandet](./redhat-byos.md).
+* Läs mer om [RHEL BYOS-erbjudandet](./byos.md).
 * Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .

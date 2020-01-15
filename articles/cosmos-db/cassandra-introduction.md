@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 05/21/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 63a85e86b1882bdaf4e5b85601a7deabe5b3bbef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc6b1a2516a454c843f176e947cc3a56186b0b47
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442136"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75939945"
 ---
 # <a name="introduction-to-the-azure-cosmos-db-cassandra-api"></a>Introduktion till Cassandra-API:et för Azure Cosmos DB
 
-Cassandra-API:et för Azure Cosmos DB kan användas som datalager för appar som är skrivna för [Apache Cassandra](https://cassandra.apache.org/). Det betyder att ditt befintliga Cassandra-program, genom att använda befintliga [Apache-drivrutiner](https://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) som är kompatibla med CQLv4, nu kan kommunicera med Cassandra-API:et för Azure Cosmos DB. Ofta kan du växla från att använda Apache Cassandra till att använda Cassandra-API:et för Azure Cosmos DB genom att bara ändra en anslutningssträng. 
+Cassandra-API:et för Azure Cosmos DB kan användas som datalager för appar som är skrivna för [Apache Cassandra](http://cassandra.apache.org). Det betyder att ditt befintliga Cassandra-program, genom att använda befintliga [Apache-drivrutiner](http://cassandra.apache.org/doc/latest/getting_started/drivers.html?highlight=driver) som är kompatibla med CQLv4, nu kan kommunicera med Cassandra-API:et för Azure Cosmos DB. Ofta kan du växla från att använda Apache Cassandra till att använda Cassandra-API:et för Azure Cosmos DB genom att bara ändra en anslutningssträng. 
 
 Cassandra-API:t låter dig interagera med data som lagras i Azure Cosmos DB med hjälp av Cassandra Query Language (CQL), Cassandra-baserade verktyg (till exempel cqlsh) och de Cassandra-klientdrivrutiner som du redan är bekant med.
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3a9300148f4ac2adf6b95ef0afb500af5bc9284
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a9136ce26f0070c8822292c741be59de537d3667
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027039"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941060"
 ---
 # <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Framtvinga en namngivnings princip på Office 365-grupper i Azure Active Directory
 
@@ -65,7 +65,12 @@ Blockerade ord List regler:
 - Det finns inga begränsningar för tecknen på blockerade ord.
 - Det finns en övre gräns på 5000 fraser som kan konfigureras i listan blockerade ord. 
 
-### <a name="administrator-override"></a>Åsidosätt administratör
+### <a name="roles-and-permissions"></a>Roller och behörigheter
+
+En av följande roller krävs för att konfigurera namngivnings principen:
+- Global administratör
+- Grupp administratör
+- Användar administratör
 
 De valda administratörerna kan undantas från dessa principer, i alla grupp arbets belastningar och slut punkter, så att de kan skapa grupper med hjälp av blockerade ord och med egna namngivnings konventioner. Följande är en lista över administratörs roller som är undantagna från grupp namngivnings principen.
 
@@ -77,7 +82,7 @@ De valda administratörerna kan undantas från dessa principer, i alla grupp arb
 
 ## <a name="configure-naming-policy-in-azure-portal"></a>Konfigurera namngivnings princip i Azure Portal
 
-1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett globalt administratörs konto.
+1. Logga in på [administrations centret för Azure AD](https://aad.portal.azure.com) med ett grupp administratörs konto.
 1. Välj **grupper**och välj sedan **namngivnings princip** för att öppna sidan namngivnings princip.
 
     ![Öppna sidan namngivnings princip i administrations centret](./media/groups-naming-policy/policy.png)
@@ -167,7 +172,7 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-Klart! Du har angett en namngivnings princip och lagt till dina blockerade ord.
+Det var allt. Du har angett en namngivnings princip och lagt till dina blockerade ord.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Exportera eller importera anpassade blockerade ord
 
@@ -250,7 +255,7 @@ StaffHub  | StaffHub-team följer inte namngivnings principen, men den underligg
 Exchange PowerShell | Exchange PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings principen i grupp namn och grupp Ali Aset (smek namn).
 Azure Active Directory PowerShell-cmdletar | Azure Active Directory PowerShell-cmdletar är kompatibla med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och gruppalias.
 Administrations Center för Exchange | Exchange administrations Center är kompatibelt med namngivnings principen. Användare får rätt fel meddelanden med föreslagna prefix och suffix och för anpassade blockerade ord om de inte följer namngivnings konventionen i grupp namn och alias.
-Microsoft 365 administrations Center | Microsoft 365 administrations Center är kompatibelt med namngivnings principen. När en användare skapar eller redigerar grupp namn tillämpas namngivnings principen automatiskt och användarna får rätt fel när de anger anpassade blockerade ord. Microsoft 365 administrations Center visar inte ännu en förhands granskning av namngivnings principen och returnerar inte anpassade blockerade Word-fel när användaren anger grupp namnet.
+Administrationscenter för Microsoft 365 | Microsoft 365 administrations Center är kompatibelt med namngivnings principen. När en användare skapar eller redigerar grupp namn tillämpas namngivnings principen automatiskt och användarna får rätt fel när de anger anpassade blockerade ord. Microsoft 365 administrations Center visar inte ännu en förhands granskning av namngivnings principen och returnerar inte anpassade blockerade Word-fel när användaren anger grupp namnet.
 
 ## <a name="next-steps"></a>Nästa steg
 

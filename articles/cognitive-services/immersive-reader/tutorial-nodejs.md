@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Starta den fördjupade läsaren med Node. js'
+title: 'Självstudie: starta den fördjupade läsaren med Node. js'
 titleSuffix: Azure Cognitive Services
 description: I den här självstudien skapar du ett Node. js-program som startar den fördjupade läsaren.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 2a07e392170fb9e6993f4c560a4896a468d90820
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 37453e1fdd8fdcfc89468731980581652027343c
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338506"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75945246"
 ---
-# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudier: Starta Avancerad läsare (Node.js)
+# <a name="tutorial-launch-the-immersive-reader-nodejs"></a>Självstudie: starta den fördjupade läsaren (Node. js)
 
-I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node. js-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig att:
+I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren är och hur den implementerar beprövade tekniker för att förbättra läsningen av förståelse för språkstuderande, nya läsare och studenter med inlärnings skillnader. Den här självstudien beskriver hur du skapar ett Node. js-webbprogram som startar den fördjupade läsaren. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en Node. js-webbapp med Express
@@ -31,15 +31,15 @@ I [översikten](./overview.md)har du lärt dig om vad den fördjupade läsaren �
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* En fördjupad läsar resurs som kon figurer ATS för autentisering med Azure Active Directory (Azure AD). Följ [dessa instruktioner](./azure-active-directory-authentication.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
+* En fördjupad läsar resurs som kon figurer ATS för Azure Active Directory autentisering. Följ [dessa instruktioner](./how-to-create-immersive-reader.md) för att konfigurera. Du behöver några av de värden som skapas här när du konfigurerar miljö egenskaperna. Spara utdata från sessionen i en textfil för framtida bruk.
 * [Node. js](https://nodejs.org/) och [garn](https://yarnpkg.com)
 * En IDE, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 
 ## <a name="create-a-nodejs-web-app-with-express"></a>Skapa en Node. js-webbapp med Express
 
-Skapa en Node. js-webbapp med `express-generator` verktyget.
+Skapa en Node. js-webbapp med `express-generator`-verktyget.
 
 ```bash
 npm install express-generator -g
@@ -47,7 +47,7 @@ express --view=pug myapp
 cd myapp
 ```
 
-Installera garn beroenden och Lägg till `request` beroenden och `dotenv`, som kommer att användas senare i självstudien.
+Installera garn beroenden och Lägg till beroenden `request` och `dotenv`, som kommer att användas senare i självstudien.
 
 ```bash
 yarn
@@ -111,14 +111,14 @@ router.get('/getimmersivereaderlaunchparams', function(req, res) {
                 if (err) {
                     return res.status(500).send('CogSvcs IssueToken error');
                 }
-        
+
                 const token = JSON.parse(tokenResponse).access_token;
                 const subdomain = process.env.SUBDOMAIN;
                 return res.send({token: token, subdomain: subdomain});
         }
   );
 });
- 
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -132,7 +132,7 @@ module.exports = router;
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-1. Öppna _views\layout.pug_och Lägg till följande kod under `head` `body` taggen innan taggen. Dessa `script` Taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
+1. Öppna _views\layout.pug_och Lägg till följande kod under taggen `head` innan `body`-taggen. Dessa `script` Taggar läser in SDK-och jQuery för [Avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) .
 
     ```pug
     script(src='https://contentstorage.onenote.office.net/onenoteltir/immersivereadersdk/immersive-reader-sdk.0.0.2.js')
@@ -149,7 +149,7 @@ module.exports = router;
           p(id='content') The study of Earth's landforms is called physical geography. Landforms can be mountains and valleys. They can also be glaciers, lakes or rivers.
           div(class='immersive-reader-button' data-button-style='iconAndText' data-locale='en-US' onclick='launchImmersiveReader()')
           script.
-        
+
             function getImmersiveReaderLaunchParamsAsync() {
                     return new Promise((resolve, reject) => {
                         $.ajax({
@@ -165,7 +165,7 @@ module.exports = router;
                         });
                     });
             }
-        
+
             async function launchImmersiveReader() {
                     const content = {
                             title: document.getElementById('title').innerText,
@@ -174,11 +174,11 @@ module.exports = router;
                                     lang: 'en'
                             }]
                     };
-            
+
                     const launchParams = await getImmersiveReaderLaunchParamsAsync();
                     const token = launchParams.token;
                     const subdomain = launchParams.subdomain;
-            
+
                     ImmersiveReader.launchAsync(token, subdomain, content);
             }
     ```
@@ -195,7 +195,7 @@ module.exports = router;
 
 Den fördjupade läsaren har stöd för många olika språk. Du kan ange språket för ditt innehåll genom att följa stegen nedan.
 
-1. Öppna _views\index.pug_ och Lägg till följande kod under den `p(id=content)` tagg som du lade till i föregående steg. Den här koden lägger till innehåll spanska innehåll på din sida.
+1. Öppna _views\index.pug_ och Lägg till följande kod under den `p(id=content)`-tagg som du lade till i föregående steg. Den här koden lägger till innehåll spanska innehåll på din sida.
 
     ```pug
     p(id='content-spanish') El estudio de las formas terrestres de la Tierra se llama geografía física. Los accidentes geográficos pueden ser montañas y valles. También pueden ser glaciares, lagos o ríos.

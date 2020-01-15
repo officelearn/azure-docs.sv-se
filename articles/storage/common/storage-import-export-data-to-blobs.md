@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: bd15e406cdbee57112ff8ecba158d503e908b73f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: cab9d309d052acca493e112965c8477a325d8c88
+ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73178010"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75944758"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Använd Azure import/export-tjänsten för att importera data till Azure Blob Storage
 
@@ -25,13 +25,13 @@ Innan du skapar ett import jobb för att överföra data till Azure Blob Storage
 
 - Ha en aktiv Azure-prenumeration som kan användas för import/export-tjänsten.
 - Ha minst ett Azure Storage konto med en lagrings behållare. Se listan över [lagrings konton och lagrings typer som stöds för import/export-tjänsten](storage-import-export-requirements.md). 
-    - Information om hur du skapar ett nytt lagrings konto finns i [så här skapar du ett lagrings konto](storage-quickstart-create-account.md). 
+    - Information om hur du skapar ett nytt lagringskonto finns i [hur du skapar ett Lagringskonto](storage-quickstart-create-account.md). 
     - Information om lagrings behållare finns i [skapa en lagrings behållare](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Har tillräckligt många diskar av [typer som stöds](storage-import-export-requirements.md#supported-disks). 
 - Ha ett Windows-system som kör en [operativ system version som stöds](storage-import-export-requirements.md#supported-operating-systems). 
 - Aktivera BitLocker på Windows-systemet. Se [hur du aktiverar BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Ladda ned WAImportExport version 1](https://www.microsoft.com/download/details.aspx?id=42659) på Windows-systemet. Zippa upp till standardmappen `waimportexportv1`. Till exempel `C:\WaImportExportV1`.
-- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL, kontaktar du Azure Data Box Operations team på `adbops@microsoft.com`.  
+- Ha ett FedEx-/DHL-konto. Om du vill använda en annan operatör än FedEx/DHL kontaktar du Azure Data Box Operations team på `adbops@microsoft.com`.  
     - Kontot måste vara giltigt, måste ha ett saldo och måste ha funktioner för retur leverans.
     - Generera ett spårnings nummer för export jobbet.
     - Varje jobb bör ha ett separat spårnings nummer. Det finns inte stöd för flera jobb med samma spårnings nummer.
@@ -66,13 +66,13 @@ Utför följande steg för att förbereda enheterna.
 
     |Alternativ  |Beskrivning  |
     |---------|---------|
-    |/j     |Namnet på Journal filen med fil namns tillägget. jrn. En journal fil skapas per enhet. Vi rekommenderar att du använder diskens serie nummer som Journal fil namn.         |
+    |/j:     |Namnet på Journal filen med fil namns tillägget. jrn. En journal fil skapas per enhet. Vi rekommenderar att du använder diskens serie nummer som Journal fil namn.         |
     |/ID     |Sessions-ID. Använd ett unikt sessions nummer för varje instans av kommandot.      |
-    |/t     |Enhets beteckningen för den disk som ska levereras. Till exempel enhets `D`.         |
+    |/t:     |Enhets beteckningen för den disk som ska levereras. Till exempel enhets `D`.         |
     |/bk:     |Enhetens BitLocker-nyckel. Det numeriska lösen ordet från utdata från `manage-bde -protectors -get D:`      |
     |/srcdir:     |Enhets beteckningen för disken som ska levereras följt av `:\`. Till exempel `D:\`.         |
     |/dstdir:     |Namnet på mål behållaren i Azure Storage.         |
-    |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar är det `PagaBlob`.         |
+    |/blobtype:     |Det här alternativet anger vilken typ av blobbar som du vill importera data till. För block-blobbar är detta `BlockBlob` och för sid blobbar är det `PageBlob`.         |
     |/skipwrite:     |Alternativet som anger att det inte finns några nya data som behöver kopieras och befintliga data på disken måste förberedas.          |
     |/enablecontentmd5:     |Alternativet när det är aktiverat, säkerställer att MD5 beräknas och anges som `Content-md5` egenskap på varje blob. Använd bara det här alternativet om du vill använda `Content-md5` fältet när data har överförts till Azure. <br> Det här alternativet påverkar inte data integritets kontrollen (som inträffar som standard). Inställningen ökar den tid det tar att ladda upp data till molnet.          |
 7. Upprepa föregående steg för varje disk som måste levereras. En journal fil med det angivna namnet skapas för varje körning av kommando raden.
@@ -114,7 +114,7 @@ Utför följande steg för att skapa ett import jobb i Azure Portal.
 
 4. I **information om retur leverans**:
 
-   - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med informationen om den operatör som du planerar att använda.
+   - Välj operatören i list rutan. Om du vill använda en annan operatör än FedEx/DHL väljer du ett befintligt alternativ i list rutan. Kontakta Azure Data Box drifts teamet på `adbops@microsoft.com` med information om den operatör som du planerar att använda.
    - Ange ett giltigt transportföretags konto nummer som du har skapat med transport företaget. Microsoft använder det här kontot för att skicka tillbaka enheterna till dig när ditt import jobb har slutförts. Om du inte har ett konto nummer skapar du ett [FedEx](https://www.fedex.com/us/oadr/) -eller [DHL](https://www.dhl.com/) -konto.
    - Ange ett fullständigt och giltigt kontakt namn, telefon, e-postadress, gatuadress, ort, post, delstat/provins och land/region. 
         

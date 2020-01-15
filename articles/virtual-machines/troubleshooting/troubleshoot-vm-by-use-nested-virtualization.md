@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 4565eb86727e768ba894d701cbc5e0073c07ee01
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185513"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942187"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem med en virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
 
@@ -29,8 +29,6 @@ Den här artikeln visar hur du skapar en kapslad virtualiseringslösning i Micro
 För att montera den virtuella datorns problem måste den virtuella datorn uppfylla följande krav:
 
 -   Den virtuella räddnings datorn måste finnas på samma plats som det virtuella problemet.
-
--   Den virtuella räddnings datorn måste finnas i samma resurs grupp som den virtuella datorns problem.
 
 -   Den räddande virtuella datorn måste använda samma typ av lagrings konto (standard eller Premium) som den virtuella datorns problem.
 

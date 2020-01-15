@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 32c1ca95c01edec74f22fc051e453f2ac0dbd03f
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 88b19257a6a7d335e6a928a9eaf7526fbfd5b02e
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75564743"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942791"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -126,7 +126,7 @@ Mer information om storlekar på virtuella datorer och om IOPS, data flöde och 
 | **I/o-storlek** |Mindre IO-storlek ger högre IOPS. |Större IO-storlek för att ge högre data flöde. | &nbsp;|
 | **Storlek på virtuell dator** |Använd en VM-storlek som erbjuder IOPS som är större än ditt program krav. |Använd en VM-storlek med en data flödes gräns som är större än ditt program krav. |Använd en VM-storlek som ger större skalnings gränser än ditt program krav. |
 | **Disk storlek** |Använd en disk storlek som erbjuder IOPS som är större än ditt program krav. |Använd en disk storlek med data flödes gräns som är större än ditt program krav. |Använd en disk storlek som ger större skalnings gränser än ditt program krav. |
-| **Begränsningar för virtuell dator och disk skala** |IOPS-gränsen för den valda virtuella dator storleken ska vara större än det totala antalet IOPS som styrs av Premium Storage-diskar som är anslutna till den. |Data flödes gränsen för den valda virtuella dator storleken ska vara större än det totala data flödet som styrs av Premium Storage-diskar som är anslutna till den |Skalnings gränserna för den valda virtuella dator storleken måste vara större än de sammanlagda skalnings gränserna för anslutna Premium Storage-diskar. |
+| **Begränsningar för virtuell dator och disk skala** |IOPS-gränsen för den valda virtuella dator storleken ska vara större än det totala antalet IOPS som är kopplade till den. |Data flödes gränsen för den valda virtuella dator storleken ska vara större än det totala data flödet som styrs av Premium Storage-diskar som är anslutna till den |Skalnings gränserna för den valda virtuella dator storleken måste vara större än de sammanlagda skalnings gränserna för anslutna Premium Storage-diskar. |
 | **Diskcachelagring** |Aktivera ReadOnly-cache på Premium Storage-diskar med Läs tung-åtgärder för att få högre Läs-IOPS. | &nbsp; |Aktivera ReadOnly-cache på Premium Storage-diskar med klara tung åtgärder för att få mycket låg Läs fördröjning. |
 | **Disk randning** |Använd flera diskar och ta bort dem tillsammans för att få en kombination av högre IOPS och data flödes gräns. Den kombinerade gränsen per virtuell dator måste vara högre än de sammanlagda gränserna för anslutna Premium diskar. | &nbsp; | &nbsp; |
 | **Rand storlek** |Mindre rand storlek för slumpmässiga små IO-mönster som visas i OLTP-program. Använd till exempel stripe-storlek på 64 KB för SQL Server OLTP-program. |Större rand storlek för sekventiellt stort IO-mönster visas i data lager program. Använd till exempel 256 KB stripe-storlek för SQL Server data lager program. | &nbsp; |
@@ -265,7 +265,7 @@ Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan 
 *ReadWrite*  
 Som standard har OS-diskar ReadWrite-cachelagring aktiverat. Vi har nyligen lagt till stöd för ReadWrite-cachelagring på data diskar även. Om du använder ReadWrite-cachelagring måste du ha ett korrekt sätt att skriva data från cache till beständiga diskar. SQL Server hanterar till exempel att skriva cachelagrade data till de beständiga lagrings diskarna. Att använda ReadWrite cache med ett program som inte hanterar beständiga data kan leda till data förlust, om den virtuella datorn kraschar.
 
-*Ingen*  
+*Inga*  
 För närvarande stöds **ingen** på data diskar. Den stöds inte på OS-diskar. Om du anger **ingen** på en operativ system disk åsidosätts detta internt och anges som **skrivskyddad**.
 
 Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på Premium Storage genom att göra följande:

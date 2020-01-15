@@ -1,18 +1,16 @@
 ---
 title: Vanliga frågor om haveri beredskap för virtuella Azure-datorer med Azure Site Recovery
-description: I den här artikeln besvaras vanliga frågor om haveri beredskap för virtuella Azure-datorer till en annan Azure-region med Azure Site Recovery
-author: carmonmills
+description: I den här artikeln besvaras vanliga frågor om haveri beredskap för Azure VM med Azure Site Recovery.
+author: sideeksh
 manager: rochakm
-ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
-ms.author: carmonm
-ms.openlocfilehash: 2e1689a4f6d3a2271da868350263bef098562127
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 8ed5df15b8ae8e9836c5b8ac8e7d6ad0111f63e1
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/14/2020
-ms.locfileid: "75929902"
+ms.locfileid: "75941897"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Vanliga frågor: katastrof återställning från Azure till Azure
 

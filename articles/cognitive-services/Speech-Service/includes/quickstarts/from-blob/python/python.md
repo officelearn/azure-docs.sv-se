@@ -1,32 +1,25 @@
 ---
-title: 'Snabb start: identifiera tal som lagras i BLOB C# Storage,-tal service'
-titleSuffix: Azure Cognitive Services
-description: Inte klart
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
-ms.author: erhopf
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2f06d0015bd80b37407df28045d4ced4a128e47e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/13/2020
+ms.author: dapine
+ms.openlocfilehash: bfecfa1918d2e9199971b2f9738530dc1b4e3c4c
+ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467347"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75942736"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du se till att:
 
 > [!div class="checklist"]
-> * [Skapa en Azure tal-resurs](../../../../get-started.md)
-> * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md)
+> * [Skapa en Azure tal-resurs](../../../../get-started.md)
+> * [Ladda upp en källfil till en Azure-Blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 ## <a name="download-and-install-the-api-client-library"></a>Hämta och installera API-klient biblioteket
 
@@ -43,7 +36,8 @@ Följ de här stegen för installationen:
 1. Installera den extraherade python-client-modulen i python-miljön med hjälp av pip: `pip install path/to/package/python-client`.
 1. Det installerade paketet har namnet `swagger_client`. Du kan kontrol lera att installationen fungerade med kommandot `python -c "import swagger_client"`.
 
-> **Obs:** På grund av ett [känt fel i Swagger autogenerering](https://github.com/swagger-api/swagger-codegen/issues/7541)kan du stöta på fel vid import av `swagger_client`-paketet.
+> [!NOTE]
+> På grund av ett [känt fel i Swagger autogenerering](https://github.com/swagger-api/swagger-codegen/issues/7541)kan du stöta på fel vid import av `swagger_client`-paketet.
 > Dessa kan åtgärdas genom att raden tas bort med innehållet
 > ```py
 > from swagger_client.models.model import Model  # noqa: F401,E501
@@ -67,7 +61,8 @@ pip install requests
 Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/from-blob/python-client/main.py?range=1-2,7-34,115-119)]
-(Du måste ersätta värdena för `YourSubscriptionKey`, `YourServiceRegion`och `YourFileUrl` med dina egna värden.)
+
+[!INCLUDE [placeholder-replacements](../placeholder-replacement.md)]
 
 ## <a name="create-and-configure-an-http-client"></a>Skapa och konfigurera en http-klient
 Det första vi behöver är en http-klient som har rätt bas-URL och autentisering.

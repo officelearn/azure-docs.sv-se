@@ -2,19 +2,19 @@
 title: Azure Compute – Linux-diagnostiskt tillägg
 description: Så här konfigurerar du LAD (Azure Linux Diagnostic Extension) för att samla in mått och logg händelser från virtuella Linux-datorer som körs i Azure.
 services: virtual-machines-linux
-author: abhijeetgaiha
+author: MicahMcKittrick-MSFT
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: gwallace
-ms.openlocfilehash: 046e61d82893bf1fcdb2d6697cfaaa9f5bde8c2c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimckitt
+ms.openlocfilehash: 96ec4f2a76616cf4bb1d824faa4e4ca0fff1ff62
+ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359370"
+ms.lasthandoff: 01/14/2020
+ms.locfileid: "75941881"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux-diagnostiskt tillägg för att övervaka mått och loggar
 
@@ -197,7 +197,7 @@ Om du har skapat ett SAS-värde till och med midnatt UTC den 1 januari 2018 kan 
 https://contosohub.servicebus.windows.net/syslogmsgs?sr=contosohub.servicebus.windows.net%2fsyslogmsgs&sig=xxxxxxxxxxxxxxxxxxxxxxxxx&se=1514764800&skn=writer
 ```
 
-Mer information om hur du skapar SAS-token för Event Hubs finns på [den här webb sidan](../../event-hubs/event-hubs-authentication-and-security-model-overview.md).
+Mer information om att skapa och hämta information om SAS-token för Event Hubs finns på [den här webb sidan](https://docs.microsoft.com/rest/api/eventhub/generate-sas-token#powershell).
 
 #### <a name="the-jsonblob-sink"></a>JsonBlob-mottagare
 

@@ -1,17 +1,14 @@
 ---
 title: Välj ett alternativ för VMware-migrering med Azure Migrate Server-migrering | Microsoft Docs
 description: Innehåller en översikt över alternativ för att migrera virtuella VMware-datorer till Azure med Azure Migrate Server-migrering
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: raynew
-ms.openlocfilehash: 68026af5b96728ea66fd9e584e67e5e596e690fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 52e7103ea3ebcd83369a866cc3f75b0bf0e889a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974673"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028715"
 ---
 # <a name="select-a-vmware-migration-option"></a>Välj ett alternativ för VMware-migrering
 
@@ -25,7 +22,7 @@ Du kan migrera virtuella VMware-datorer till Azure med hjälp av verktyget för 
 
 ## <a name="compare-migration-methods"></a>Jämför metoder för migrering
 
-Använd de här valda jämförelserna för att bestämma vilken metod som ska användas. Du kan också granska fullständiga support krav för [agent utan agent](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) och [agent-baserad](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) migrering.
+Använd de här valda jämförelserna för att bestämma vilken metod som ska användas. Du kan också granska fullständiga support krav för [agent utan agent](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) och [agent-baserad](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) migrering.
 
 **Inställning** | **Utan agent** | **Agent-baserad**
 --- | --- | ---

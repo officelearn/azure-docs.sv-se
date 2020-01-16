@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34dd15ee638335048c983fbb752bd812291456ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a1761eebe51c5ccb4d30b93ad4122dfc185d216e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418044"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028254"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Hantera Azure Automation kör som-konton
 
@@ -20,19 +20,19 @@ När du skapar ett Kör som-konto skapas en ny tjänst huvud användare i Azure 
 
 Det finns två typer av kör som-konton:
 
-* **Kör som-konto i Azure** – det här kontot används för att hantera resurser för [distributions modeller i Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) .
+* **Kör som-konto i Azure** – det här kontot används för att hantera resurser för [distributions modeller i Resource Manager](../azure-resource-manager/management/deployment-models.md) .
   * Skapar ett Azure AD-program med ett självsignerat certifikat och ett tjänstobjektskonto för programmet i Azure AD och rollen Deltagare tilldelas för kontot i din aktuella prenumeration. Du kan ändra den här inställningen till Ägare eller en annan roll. Mer information finns i [Rollbaserad åtkomstkontroll i Azure Automation](automation-role-based-access-control.md).
   * Skapar en Automation-certifikattillgång med namnet *AzureRunAsCertificate* i det angivna Automation-kontot. Certifikattillgången innehåller certifikatets privata nyckel som används av Azure AD-programmet.
   * Skapar en Automation-anslutningstillgång med namnet *AzureRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller applicationId, tenantId, subscriptionId och certifikatets tumavtryck.
 
-* Det **klassiska kör som-kontot i Azure** – det här kontot används för att hantera klassiska resurser för [distributions modeller](../azure-resource-manager/resource-manager-deployment-model.md) .
+* Det **klassiska kör som-kontot i Azure** – det här kontot används för att hantera klassiska resurser för [distributions modeller](../azure-resource-manager/management/deployment-models.md) .
   * Skapar ett hanterings certifikat i prenumerationen
   * Skapar en Automation-certifikattillgång med namnet *AzureClassicRunAsCertificate* i det angivna Automation-kontot. Certifikattillgången innehåller den privata nyckelns certifikat som används av hanteringscertifikatet.
   * Skapar en Automation-anslutningstillgång med namnet *AzureClassicRunAsConnection* i det angivna Automation-kontot. Anslutningstillgången innehåller prenumerationsnamnet, subscriptionId och certifikattillgångens namn.
   * Måste vara en medadministratör för prenumerationen för att kunna skapa eller förnya
 
   > [!NOTE]
-  > Azure-prenumerationer för moln lösningar (Azure CSP) stöder endast Azure Resource Manager-modellen, icke-Azure Resource Manager-tjänster är inte tillgängliga i programmet. När du använder en CSP-prenumeration skapas inte det klassiska kör som-kontot i Azure. Kör som-kontot i Azure skapas fortfarande. Mer information om CSP-prenumerationer finns i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
+  > Azure-prenumerationer för moln lösningar (Azure CSP) stöder endast Azure Resource Manager-modellen, icke-Azure Resource Manager-tjänster är inte tillgängliga i programmet. När du använder en CSP-prenumeration skapas inte det klassiska kör som-kontot i Azure. Kör som-kontot i Azure skapas fortfarande. Mer information om CSP-prenumerationer finns i [tillgängliga tjänster i CSP-prenumerationer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services).
 
   > [!NOTE]
   > Tjänstens huvud namn för ett Kör som-konto har inte behörighet att läsa Azure Active Directory som standard. Om du vill lägga till behörigheter för att läsa eller hantera Azure Active Directory måste du bevilja den behörigheten för tjänstens huvud namn under **API-behörigheter**. Läs mer i [lägga till behörigheter för åtkomst till webb-API: er](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).

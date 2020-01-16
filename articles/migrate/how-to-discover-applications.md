@@ -1,17 +1,14 @@
 ---
-title: Identifiera appar, roller och funktioner som är installerade på lokala servrar med hjälp av Azure Migrate Server bedömning
-description: Beskriver hur du identifierar appar, roller och funktioner på lokala servrar med hjälp av Azure Migrate Server bedömning.
-author: snehaamicrosoft
-ms.service: azure-migrate
+title: Identifiera appar, roller och funktioner på lokala servrar med Azure Migrate
+description: Lär dig hur du identifierar appar, roller och funktioner på lokala servrar med Azure Migrate Server bedömning.
 ms.topic: article
 ms.date: 11/20/2019
-ms.author: snehaa
-ms.openlocfilehash: 279e326ace308b354d7bcb8366d3286980e7b8c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: adc22925d1152639babe2377a1eae440e0ce418e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278477"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029071"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
@@ -30,14 +27,14 @@ Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. In
 1. Granska [support begränsningarna](migrate-support-matrix-vmware.md#application-discovery) för identifiering på App-nivå.
 2. Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
 3. Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
-4. Kontrol lera [VMware-kraven](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) för att identifiera och utvärdera virtuella VMware-datorer med Azure Migrate-installationen.
-4. Kontrol lera [kraven](migrate-support-matrix-vmware.md#assessment-appliance-requirements) för att distribuera Azure Migrate-enheten.
+4. Kontrol lera [VMware-kraven](migrate-support-matrix-vmware.md#vmware-requirements) för att identifiera och utvärdera virtuella VMware-datorer med Azure Migrate-installationen.
+4. Kontrol lera [kraven](migrate-appliance.md) för att distribuera Azure Migrate-enheten.
 
 ## <a name="prepare-for-app-discovery"></a>Förbered för identifiering av appar
 
-1. [Förbered för distribution av installationer](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware). Förberedelsen omfattar att verifiera inställningar för enheten och att konfigurera ett konto som ska användas för att få åtkomst till vCenter Server.
+1. [Förbered för distribution av installationer](tutorial-prepare-vmware.md). Förberedelsen omfattar att verifiera inställningar för enheten och att konfigurera ett konto som ska användas för att få åtkomst till vCenter Server.
 2. Se till att du har ett användar konto (ett för Windows-och Linux-servrar) med administratörs behörighet för datorer där du vill identifiera appar, roller och funktioner.
-3. [Distribuera VMware](how-to-set-up-appliance-vmware.md) -installationen för att starta identifieringen. För att distribuera installationen kan du hämta och importera en ägg-mall till VMware för att skapa installationen som en virtuell VMware-dator. Du konfigurerar installationen och registrerar den sedan med Azure Migrate.
+3. [Distribuera Azure Migrate-apparaten](how-to-set-up-appliance-vmware.md) för att starta identifieringen. För att distribuera installationen kan du hämta och importera en ägg-mall till VMware för att skapa installationen som en virtuell VMware-dator. Du konfigurerar installationen och registrerar den sedan med Azure Migrate.
 2. När du distribuerar installationen kan du starta kontinuerlig identifiering genom att ange följande:
     - Namnet på vCenter Server som du vill ansluta till.
     - Autentiseringsuppgifter som du har skapat för installationen av för att ansluta till vCenter Server.

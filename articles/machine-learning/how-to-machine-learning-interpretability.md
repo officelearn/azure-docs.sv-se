@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 7101cef6acd7c7b321fbd31c614063a1fa8fe17a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 339ab811969a3de6ce87d529e1bf77f325be4071
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771878"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968491"
 ---
 # <a name="model-interpretability-in-azure-machine-learning"></a>Modell tolkning i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -77,7 +77,7 @@ Det här paketet använder tolknings tekniker som har utvecklats i [tolkning –
 * **Imitera förklaring**: imitera förklaring är baserad på idén med att träna [globala surrogat modeller](https://christophm.github.io/interpretable-ml-book/global.html) för att efterlikna blackbox-modeller. En global surrogat modell är en modell med en inbyggd tolkning som är tränad att approximera förutsägelserna av en svart Box-modell så fort som möjligt. Data expert kan tolka surrogat modellen för att rita slut satser om den svarta Box-modellen. Du kan använda någon av följande tolknings bara modeller som surrogat modell: LightGBM (LGBMExplainableModel), linjär regression (LinearExplainableModel), Stochastic gradient brantaste-modell (SGDExplainableModel) och besluts träd ( DecisionTreeExplainableModel).
 
 
-* **Förklaring av permutation-funktions prioritet**: permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/%7Ebreiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen.
+* **Förklaring av permutation-funktions prioritet**: permutations funktionens betydelse är en teknik som används för att förklara klassificerings-och Regressions modeller som inspireras av [Breiman-bladet för slumpmässiga skogar](https://www.stat.berkeley.edu/~breiman/randomforest2001.pdf) (se avsnitt 10). På en hög nivå är det sättet som det fungerar genom att slumpmässigt blandning data en funktion i taget för hela data uppsättningen och att beräkna hur mycket prestanda måtten för räntan förändras. Ju större ändringen är, desto viktigare är funktionen.
 
 * **Lime-förklaring** (`contrib`): baserad på [lime](https://github.com/marcotcr/lime), kalk förklarar den avancerade oberoende förklaringarna (kalk) för att skapa lokala surrogat modeller. Till skillnad från globala surrogat modeller fokuserar kalk på att träna lokala surrogat modeller för att förklara enskilda förutsägelser.
 * **Text förklaring** (`contrib`): han text-förklaring använder ett hierarkiskt Attention-nätverk för att få modell förklaringar från text data för en specifik text modell i svart ruta. Det tränar till HAN-surrogat-modellen på en viss svart Box-modells förväntade utdata. Efter att ha tränat över texten sökkorpus lägger det till ett fin justerings steg för ett särskilt dokument för att förbättra noggrannheten i förklaringarna. HAN använder en dubbelriktad RNN med två åtgärds lager, för mening och ord uppmärksamhet. När DNN har tränats på en svart Box-modell och finjusteras för ett specifikt dokument kan användaren extrahera ordets betydelse från åtgärds lagren. HAN har visat sig vara mer exakt än kalk eller SHAP för text data, men mer kostsamhet vad gäller inlärnings tiden. Förbättringar har gjorts för att ge användaren möjlighet att initiera nätverket med assisterad Word-inbäddningar för att minska inlärnings tiden. Inlärnings tiden kan förbättras avsevärt genom att köra HAN på en virtuell dator med Azure GPU. Implementeringen av HAN beskrivs i ["hierarkiska Attention-nätverk för dokument klassificering (Yang et al., 2016)"](https://www.researchgate.net/publication/305334401_Hierarchical_Attention_Networks_for_Document_Classification).

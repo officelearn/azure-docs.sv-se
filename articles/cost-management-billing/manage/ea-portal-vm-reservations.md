@@ -1,0 +1,87 @@
+---
+title: Reserverade instanser av virtuella Azure EA-datorer
+description: I den här artikeln går vi igenom hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure.
+keywords: ''
+author: bandersmsft
+ms.author: banders
+ms.date: 01/02/2020
+ms.topic: conceptual
+ms.service: cost-management-billing
+manager: boalcsva
+ms.openlocfilehash: 26c132d42bfc89c9b6e887c8ca02232848513698
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75992080"
+---
+# <a name="azure-ea-vm-reserved-instances"></a>Reserverade instanser av virtuella Azure EA-datorer
+
+I den här artikeln går vi igenom hur du kan spara pengar i din företagsregistrering med hjälp av reserverade VM-instanser i Azure. Du kan läsa mer om reservationer i [Vad är Azure-reservationer?](../reservations/save-compute-costs-reservations.md)
+
+## <a name="reservation-exchanges-and-refunds"></a>Utbyten och återbetalningar för reservationer
+
+Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den. Du kan byta ut och få återbetalning för reservationer i Azure-portalen. Läs mer i [Byten och återbetalning för Azure-reservationer via självbetjäning](../reservations/exchange-and-refund-azure-reservations.md).
+
+## <a name="reservation-costs-and-usage"></a>Kostnader för och användning av reservationer
+
+Kunder med företagsavtal kan visa information om kostnader och användning i Azure-portalen och via REST-API:er. När det gäller kostnader för och användning av reservationer kan du göra följande:
+
+- Hämta data om reservationsköp.
+- Se vilken prenumeration, resursgrupp eller resurs som förbrukat en reservation.
+- Allokera reservationsförbrukning.
+- Beräkna reservationsbesparingar.
+- Hämta data om underutnyttjade reservationer.
+- Amortera reservationskostnader.
+
+Mer information om kostnader för och användning av reservationer finns i [Hämta kostnader för och användning av EA-reservationer](../reservations/understand-reserved-instance-usage-ea.md).
+
+Information om priser finns i [Prissättning för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) eller [Prissättning för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+
+## <a name="reserved-instances-api-support"></a>API-stöd för reserverade instanser
+
+Du kan använda Azures API:er till att programmatiskt hämta information om organisationens reservationer av tjänster eller programvara i Azure. Mer information finns i [API:er för automatisk reservation i Azure](../reservations/reservation-apis.md).
+
+## <a name="azure-reserved-virtual-machine-instances"></a>Reserverade instanser för virtuella Azure-datorer
+
+Med reserverade instanser kan du minska dina kostnader för virtuella datorer med upp till 72 procent jämfört med Betala per användning-priser på alla virtuella datorer eller upp till 82 procent besparingar när de kombineras med Azure Hybrid-förmånen. Du kan prioritera arbetsbelastningar, budgetar och prognoser på ett bättre sätt med direkt betalning för ett eller tre år. Du kan också byta eller avboka reservationer i takt med att affärsbehoven ändras.
+
+### <a name="how-to-buy-reserved-virtual-machine-instances"></a>Så köper du reserverade instanser för virtuella datorer
+
+Om du vill köpa en reserverad instans för virtuell Azure-dator måste en Enterprise Azure-registreringsadministratör aktivera köpalternativet _Reserve Instance_ (Reservera instans) i avsnittet _Enrollment Detail_ (Registreringsinformation) på fliken _Enrollment_ (Registrering) i [Azure EA-portalen](https://ea.azure.com/).
+
+När EA-registreringen har aktiverats för att lägga till reserverade instanser kan alla kontoinnehavare med en aktiv prenumeration associerad kopplad till EA-registreringen köpa en reserverad instans för virtuell dator i [Azure-portalen](https://aka.ms/reservations). Mer information finns i [Prepay for virtual machines and save money with Reserved Virtual Machine Instances](https://go.microsoft.com/fwlink/?linkid=861721) (Förskottsbetala för virtuella datorer och spara pengar med reserverade instanser för virtuell dator).
+
+### <a name="how-to-view-reserved-instance-purchase-details"></a>Så här visar du köpinformation om reserverade instanser
+
+Du kan visa köpinformationen om reserverade instanser via menyn _Reservationer_ på den vänstra sidan av [Azure-portalen](https://aka.ms/reservations) eller via [Azure EA-portalen](https://ea.azure.com/). Välj **rapporter** på menyn i den vänstra menyn och rulla ned till avsnittet _avgifter per tjänster_ på fliken _användnings översikt_ . Rulla längst ned i avsnittet och dina reserverade inköpare och användning visas i slutet som anges av beteckningen "1 år" eller "3 år" bredvid tjänst namnet, till exempel: Standard_DS1_v2 öster 1 år eller Standard_D2s_v3 eastus2 3 år.
+
+### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>Hur ändrar jag prenumerationen som är kopplad till reserverad instans eller överföra mina reserverad instans-förmåner till en prenumeration under samma konto?
+
+Vid en specifik tidpunkt kan bara en prenumeration ta emot reserverad instans-förmåner. Du kan ändra den prenumeration som tar emot reserverad instans-förmåner genom att göra följande:
+
+- Logga in på [Azure-portalen](https://aka.ms/reservations).
+- Uppdatera det tillämpade prenumerationsomfånget genom ett koppla en annan prenumeration under samma konto.
+
+### <a name="how-to-view-reserved-instance-usage-details"></a>Så här visar du användningsinformation om reserverade instanser
+
+Du kan visa din reserverad instans-användningsinformation i [Azure-portalen](https://aka.ms/reservations) eller i [Azure EA-portalen](https://ea.azure.com/) (för EA-kunder som har åtkomst till att visa faktureringsinformation) under _Reports_ > _Usage Summary_ > _Charges by Services_ (Rapporter > Användningsöversikt > Avgifter per tjänst). Reserverade instanser kan identifieras som tjänst namn som innehåller "reservation", till exempel: Reserverade instanser – bas-VM eller Virtual Machines reservation-Windows Server instanser (1 kärna).
+
+Din nedladdningsfil i CSV-format med användningsinformation och avancerad rapport innehåller ytterligare användningsinformation om reserverad instans. Fältet _Additional Info_ (Mer information) gör det enklare att identifiera reserverad instans-användningen.
+
+Om du inte har använt Azure Hybrid-förmånen för att köpa reserverad instans för virtuell Azure-dator så genererar reserverade instanser två mätare (maskinvara och programvara). Om du har använt Azure Hybrid-förmånen för att köpa reserverad instans visas inte programvarumätaren i användningsinformationen för reserverad instans.
+
+### <a name="reserved-instance-billing"></a>Fakturering för reserverad instans
+
+För företagskunder kan betalningsåtaganden användas för att köpa reserverade instanser för virtuell Azure-dator. Om registreringen har ett tillräckligt stort betalningsåtagandesaldo för att täcka köpet av den reserverade instansen dras beloppet av från betalningsåtagandesaldot och du får ingen faktura för köpet.
+
+Om Azure EA-kunder redan har använt alla sina betalningsåtaganden kan reserverade VM-instanser ändå köpas. Dessa inköp faktureras då på nästa faktura för överförbrukning. Om det finns överförbrukning av reserverade instanser blir den en del av din vanliga överförbrukningsfaktura.
+
+### <a name="reserved-instance-expiration"></a>Upphörande av reserverad instans
+
+Du får e-postaviseringar 30 dagar innan reservationen och när den upphör att gälla. När reservationen går ut fortsätter de distribuerade virtuella datorerna att köras och debiteras enligt avgifterna för betalning per användning. Mer information finns i [Reserverade VM-instanser (RI) i Azure](https://azure.microsoft.com/pricing/reserved-vm-instances/).
+
+## <a name="next-steps"></a>Nästa steg
+- Du kan läsa mer om Azure-reservationer i [Vad är Azure-reservationer?](../reservations/save-compute-costs-reservations.md)
+- Du ka läsa mer om kostnader för och användning av reservationer i [Hämta kostnader för och användning av EA-reservationer](../reservations/understand-reserved-instance-usage-ea.md).
+- Information om priser finns i [Prissättning för virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) eller [Prissättning för virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).

@@ -3,7 +3,7 @@ title: Använd Azure Active Directory för att autentisera lösningar för batch
 description: Program som skapats med Azure Resource Manager och batch-resurs-providern autentiseras med Azure AD.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: lahugh
-ms.openlocfilehash: 2fd5867d910d29533eb17a4660039cc7b9610290
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: 19aac0e25f9a036ce52d72a51e1ab7270eaaf3e5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449842"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029846"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autentisera lösningar för batch-hantering med Active Directory
 

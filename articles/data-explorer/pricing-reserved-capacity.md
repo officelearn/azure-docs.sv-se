@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.openlocfilehash: c728f3b9a4c10d52d7361ca76e9b40198a6a0dba
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: bbb2108967353b851a0fa0ee610ec30380e3fc50
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769106"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969273"
 ---
 # <a name="prepay-for-azure-data-explorer-markup-units-with-azure-data-explorer-reserved-capacity"></a>Förskottsbetala för Azure Datautforskaren Markup-enheter med Azure Datautforskaren reserverad kapacitet
 
@@ -27,8 +27,8 @@ Du kan köpa Azure Datautforskaren reserverad kapacitet i [Azure Portal](https:/
 * För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure Datautforskaren reserverad kapacitet.
 
 Mer information om hur företags kunder och kunder som betalar per användning debiteras för reservations köp finns i:
-* [Förstå Azure reservation-användning för företagets registrering](../billing/billing-understand-reserved-instance-usage-ea.md) 
-* [Förstå Azure reservation-användning för din prenumeration enligt principen betala per](../billing/billing-understand-reserved-instance-usage.md)användning.
+* [Förstå Azure reservation-användning för företagets registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) 
+* [Förstå Azure reservation-användning för din prenumeration enligt principen betala per](../cost-management-billing/reservations/understand-reserved-instance-usage.md)användning.
 
 ## <a name="determine-the-right-markup-usage-before-purchase"></a>Fastställ rätt märknings användning före köp
 
@@ -54,7 +54,7 @@ Om du behöver avbryta din Azure-Datautforskaren reserverade kapacitets reservat
 
 Om du behöver ändra din Azure Datautforskaren reserverad kapacitet reservation till en annan period kan du utbyta den för en annan reservation som är lika med eller högre. Startdatumet för den nya reservationen överförs inte från den utbytta reservationen. Villkoret 1 eller 3 år börjar från när du skapar den nya reservationen. Om du vill begära ett utbyte går du till reservationen i Azure Portal och väljer **Exchange** för att skapa en support förfrågan.
 
-Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+Mer information om hur du utbyter eller återbetalar reservationer finns i [reservations utbyte och åter betalningar](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="manage-your-reserved-capacity-reservation"></a>Hantera din reserverade kapacitets reservation
 
@@ -63,17 +63,17 @@ Reservations rabatten för Azure Datautforskaren Markup-enheter tillämpas autom
 
 > [!NOTE]
 > * Du kan uppdatera omfånget för Azure Datautforskaren reserverad kapacitets reservation via [Azure Portal](https://portal.azure.com), POWERSHELL, CLI eller via API: et.
-> * Information om hur du hanterar reservationen för reserverad Azure Datautforskaren finns i [Hantera Azure-datautforskaren reserverad kapacitet](../billing/billing-understand-kusto-azuredataexplorer-reservation-charges.md).
+> * Information om hur du hanterar reservationen för reserverad Azure Datautforskaren finns i [Hantera Azure-datautforskaren reserverad kapacitet](../cost-management-billing/reservations/understand-azure-data-explorer-reservation-charges.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-* [Vad är Azure-reservationer?](../billing/billing-save-compute-costs-reservations.md)
-* [Hantera Azure Reservations](../billing/billing-manage-reserved-vm-instance.md)
-* [Förstå reservationsrabatter i Azure](../billing/billing-understand-reservation-charges.md)
-* [Förstå reservationsanvändning för din Betala per användning-prenumeration](../billing/billing-understand-reserved-instance-usage.md)
-* [Förstå reservationsanvändning för din Enterprise-registrering](../billing/billing-understand-reserved-instance-usage-ea.md)
+* [Vad är Azure-reservationer?](../cost-management-billing/reservations/save-compute-costs-reservations.md)
+* [Hantera Azure Reservations](../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+* [Förstå reservationsrabatter i Azure](../cost-management-billing/reservations/understand-reservation-charges.md)
+* [Förstå reservationsanvändning för din Betala per användning-prenumeration](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+* [Förstå reservationsanvändning för din Enterprise-registrering](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)
 * [Azure-reservationer i ett CSP-program (Cloud Solution Provider) i Partnercenter](https://docs.microsoft.com/partner-center/azure-reservations)
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss

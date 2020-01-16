@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: 6eeabb279f5bd5165ebb249651b8bc926deb92a6
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: a385d3ed7ef46389f96de72c98ffc29cebf60ec4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530926"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978827"
 ---
 # <a name="manage-azure-cache-for-redis-with-azure-powershell"></a>Hantera Azure cache för Redis med Azure PowerShell
 > [!div class="op_single_selector"]
@@ -26,7 +26,7 @@ Det här avsnittet visar hur du utför vanliga uppgifter som att skapa, uppdater
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-Mer information om den klassiska distributions modellen finns i [Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser](../azure-resource-manager/resource-manager-deployment-model.md).
+Mer information om den klassiska distributions modellen finns i [Azure Resource Manager vs. klassisk distribution: förstå distributions modeller och status för dina resurser](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="prerequisites"></a>Krav
 Om du redan har installerat Azure PowerShell måste du ha Azure PowerShell version 1.0.0 eller senare. Du kan kontrol lera vilken version av Azure PowerShell som du har installerat med det här kommandot i Azure PowerShell kommando tolken.
@@ -776,7 +776,7 @@ Mer information om hur du använder Windows PowerShell med Azure finns i följan
 
 * [Dokumentation om Azure cache för Redis-cmdlet på MSDN](https://docs.microsoft.com/powershell/module/az.rediscache)
 * [Azure Resource Manager-cmdlet](https://go.microsoft.com/fwlink/?LinkID=394765): ar: Lär dig att använda cmdletarna i modulen Azure Resource Manager.
-* [Använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/resource-group-template-deploy-portal.md): Lär dig hur du skapar och hanterar resurs grupper i Azure Portal.
+* [Använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/templates/deploy-portal.md): Lär dig hur du skapar och hanterar resurs grupper i Azure Portal.
 * [Azure-blogg](https://azure.microsoft.com/blog/): Lär dig om nya funktioner i Azure.
 * [Windows PowerShell-blogg](https://blogs.msdn.com/powershell): Lär dig om nya funktioner i Windows PowerShell.
 * ["Hej, Scripting Guy!" Blogg](https://blogs.technet.com/b/heyscriptingguy/): få tips och knep från Windows PowerShell-communityn.

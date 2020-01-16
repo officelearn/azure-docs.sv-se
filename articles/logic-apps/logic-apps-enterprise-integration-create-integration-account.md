@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 2738e7be6ae40afd5f0d94f1ad32b7b4cda0417f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cdabbd5f527934492ce7ff37ae7d0f756d91fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453419"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979424"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Skapa och hantera integrations konton för B2B Enterprise-integration i Azure Logic Apps
 
@@ -77,7 +77,7 @@ För den här uppgiften kan du använda antingen Azure Portal genom att följa s
 
 ## <a name="link-to-logic-app"></a>Länka till Logic app
 
-Om du vill ge dina Logi Kap par åtkomst till ett integrations konto som innehåller dina B2B-artefakter måste du först länka ditt integrations konto till din Logic app. Både Logic app-och integrations kontot måste finnas i samma region. Du kan utföra den här uppgiften med hjälp av Azure Portal. Om du använder Visual Studio och din Logic-app finns i ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)kan du [Länka din Logic app till ett integrations konto med hjälp av Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
+Om du vill ge dina Logi Kap par åtkomst till ett integrations konto som innehåller dina B2B-artefakter måste du först länka ditt integrations konto till din Logic app. Både Logic app-och integrations kontot måste finnas i samma region. Du kan utföra den här uppgiften med hjälp av Azure Portal. Om du använder Visual Studio och din Logic-app finns i ett [Azure Resource Group-projekt](../azure-resource-manager/templates/create-visual-studio-deployment-project.md)kan du [Länka din Logic app till ett integrations konto med hjälp av Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md#link-integration-account).
 
 1. Leta upp och öppna din Logic app i Azure Portal.
 

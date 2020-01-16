@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 40aa35e9f9d40a8a021797a0a2a4af9216d90618
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 92d7522c8382ded182c5f482df3f3d917b4b3a14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898175"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982386"
 ---
 # <a name="private-link-for-azure-database-for-mariadb-preview"></a>Privat länk för Azure Database for MariaDB (förhands granskning)
 
@@ -28,7 +28,7 @@ Data vid filtrering i Azure Database for MariaDB är när en behörig användare
 
 Överväg ett scenario med en användare som kör MariaDB Workbench i en virtuell Azure-dator som ansluter till en Azure Database for MariaDB-instans. Den här MariaDB-instansen är i data centret västra USA. Exemplet nedan visar hur du begränsar åtkomsten med offentliga slut punkter på Azure Database for MariaDB med hjälp av nätverks åtkomst kontroller.
 
-* Inaktivera all Azure Service-trafik för att Azure Database for MariaDB via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster STÄNGs av. Se till att inga IP-adresser eller intervall får åtkomst till servern antingen via [brand Väggs regler](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) eller [tjänst slut punkter för virtuella nätverk](https://docs.microsoft.com/azure/mariadb/concepts-data-access-and-security-vnet).
+* Inaktivera all Azure Service-trafik för att Azure Database for MariaDB via den offentliga slut punkten genom att ställa in Tillåt att Azure-tjänster STÄNGs av. Se till att inga IP-adresser eller intervall får åtkomst till servern antingen via [brand Väggs regler](https://docs.microsoft.com/azure/mariadb/concepts-firewall-rules) eller [tjänst slut punkter för virtuella nätverk](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet).
 
 * Tillåt endast trafik till Azure Database for MariaDB med den virtuella datorns privata IP-adress. Mer information finns i artikeln om [service Endpoint](concepts-data-access-security-vnet.md) och [VNet brand Väggs regler](howto-manage-vnet-portal.md).
 

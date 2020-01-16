@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 1/15/2017
 ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: 4cd5fde2f47cca1b03efbc217d7764ac429d15fb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: aaceee65ae91a22dc658d185a874e2040b1e0f04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973942"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975674"
 ---
 # <a name="using-the-azure-importexport-tool-classic-deployment-model"></a>Använda Azure import/export-verktyget (klassisk distributions modell)
 
@@ -25,10 +25,10 @@ Följande artiklar visar hur du:
 
 - Installera och konfigurera import/export-verktyget.
 - Förbered dina hård diskar för ett jobb där du importerar data från dina enheter till Azure Blob Storage.
-- Granska status för ett jobb med kopiera loggfiler. 
-- Reparera ett import jobb. 
-- Reparera ett export jobb. 
-- Felsök verktyget Azure import/export, om det var problem under processen. 
+- Granska status för ett jobb med kopiera loggfiler.
+- Reparera ett import jobb.
+- Reparera ett export jobb.
+- Felsök verktyget Azure import/export, om det var problem under processen.
 
 ## <a name="next-steps"></a>Nästa steg
 

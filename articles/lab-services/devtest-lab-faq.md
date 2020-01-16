@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4e95cc6a724c17402ed1ed0cda83377492787a3a
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: afd6ded6dc027e118694078f8b8eeadfe8dd80e4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644927"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981484"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs vanliga frågor och svar
 Få svar på några av de vanligaste frågorna om Azure DevTest Labs.
@@ -46,13 +46,13 @@ Vår Twitter-referens: [@azlabservices](https://twitter.com/azlabservices)
 ### <a name="what-if-my-question-isnt-answered-here"></a>Vad händer om min fråga inte besvaras här?
 Om din fråga inte visas här kan vi berätta för oss, så vi kan hjälpa dig att hitta ett svar.
 
-- Publicera en fråga i slutet av dessa vanliga frågor och svar. 
+- Publicera en fråga i slutet av dessa vanliga frågor och svar.
 - Om du vill få en större mål grupp kan du publicera en fråga i [Azure DEVTEST Labs MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engagera dig med Azure DevTest Labs-teamet och andra medlemmar i communityn.
 - Skicka dina förfrågningar och idéer till [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs)för funktions förfrågningar.
 
 ### <a name="what-is-a-microsoft-account"></a>Vad är en Microsoft-konto?
 Ett Microsoft-konto är ett konto som du använder för nästan allt du gör med Microsoft-enheter och-tjänster. Det är en e-postadress och ett lösen ord som du använder för att logga in på Skype, Outlook.com, OneDrive, Windows Phone, Azure och Xbox Live. Ett enda konto innebär att dina filer, foton, kontakter och inställningar kan följa dig på vilken enhet som helst.
- 
+
 > [!NOTE]
 > Ett Microsoft-konto som används för att anropa ett Windows Live ID.
 
@@ -145,18 +145,18 @@ Slutligen måste samma typ av begränsningar tillämpas i hela organisationen, v
 ## <a name="lab-configuration"></a>Labb konfiguration
 
 ### <a name="how-do-i-create-a-lab-from-a-resource-manager-template"></a>Hur gör jag för att skapar du ett labb från en Resource Manager-mall?
-Vi erbjuder en [GitHub-lagringsplats med labb Azure Resource Manager mallar](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) som du kan distribuera som-är eller ändra för att skapa anpassade mallar för dina labb. Varje mall innehåller en länk för att distribuera labbet som i din egen Azure-prenumeration. Du kan också anpassa mallen och [distribuera med hjälp av PowerShell eller Azure CLI](../azure-resource-manager/resource-group-template-deploy.md).
+Vi erbjuder en [GitHub-lagringsplats med labb Azure Resource Manager mallar](https://azure.microsoft.com/resources/templates/101-dtl-create-lab) som du kan distribuera som-är eller ändra för att skapa anpassade mallar för dina labb. Varje mall innehåller en länk för att distribuera labbet som i din egen Azure-prenumeration. Du kan också anpassa mallen och [distribuera med hjälp av PowerShell eller Azure CLI](../azure-resource-manager/templates/deploy-powershell.md).
 
 
-### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>Kan jag ha alla virtuella datorer som ska skapas i en gemensam resurs grupp i stället för varje dator i sin egen resurs grupp? 
-Ja, som labb ägare kan du antingen låta labbet hantera resurs grupp tilldelningen åt dig eller ha alla virtuella datorer som skapats i en gemensam resurs grupp som du anger. 
+### <a name="can-i-have-all-virtual-machines-to-be-created-in-a-common-resource-group-instead-having-each-machine-in-its-own-resource-group"></a>Kan jag ha alla virtuella datorer som ska skapas i en gemensam resurs grupp i stället för varje dator i sin egen resurs grupp?
+Ja, som labb ägare kan du antingen låta labbet hantera resurs grupp tilldelningen åt dig eller ha alla virtuella datorer som skapats i en gemensam resurs grupp som du anger.
 
 Separata resurs grupps scenario:
 -   DevTest Labs skapar en ny resurs grupp för varje offentlig/privat virtuell IP-dator som du ökar
 -   DevTest Labs skapar en resurs grupp för delade IP-datorer som tillhör samma storlek.
 
 Gemensamt resurs grupps scenario:
--   Alla virtuella datorer är i den gemensamma resurs grupp som du anger. Läs mer [om allokering av resurs grupper för labbet](https://aka.ms/RGControl). 
+-   Alla virtuella datorer är i den gemensamma resurs grupp som du anger. Läs mer [om allokering av resurs grupper för labbet](https://aka.ms/RGControl).
 
 ### <a name="how-do-i-maintain-a-naming-convention-across-my-devtest-labs-environment"></a>Hur gör jag för att underhålla en namngivnings konvention i min DevTest Labs-miljö?
 Du kanske vill utöka de nuvarande konventionerna för företags namn till Azure-åtgärder och göra dem konsekventa i DevTest Labs-miljön. När du distribuerar DevTest Labs rekommenderar vi att du har vissa start principer. Du distribuerar dessa principer av ett centralt skript och JSON-mallar för att genomdriva konsekvens. Namngivnings principer kan implementeras via Azure-principer som tillämpas på prenumerations nivån. JSON-exempel för Azure Policy finns i [Azure policy exempel](../governance/policy/samples/index.md).
@@ -196,7 +196,7 @@ När du skapar en virtuell dator i DevTest Labs får du behörighet att komma å
 Du har två alternativ för att samtidigt skapa flera virtuella datorer från samma mall:
 
 - Du kan använda [Azure DevOps tasks-tillägget](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
-- Du kan [skapa en Resource Manager-mall](devtest-lab-add-vm.md#save-azure-resource-manager-template) när du skapar en virtuell dator och [distribuera Resource Manager-mallen från Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
+- Du kan [skapa en Resource Manager-mall](devtest-lab-add-vm.md#save-azure-resource-manager-template) när du skapar en virtuell dator och [distribuera Resource Manager-mallen från Windows PowerShell](../azure-resource-manager/templates/deploy-powershell.md).
 - Du kan också ange mer än en instans av en dator som ska skapas när du skapar en virtuell dator. Mer information om hur du skapar flera instanser av virtuella datorer finns i dokumentet om att [skapa en virtuell labb dator](devtest-lab-add-vm.md).
 
 ### <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Hur gör jag för att flytta mina befintliga virtuella Azure-datorer till mitt DevTest Labs labb?
@@ -252,7 +252,7 @@ foreach($labVM in $labVMs)
 }
 ```
 
-## <a name="environments"></a>Miljöer 
+## <a name="environments"></a>Miljöer
 
 ### <a name="how-can-i-use-resource-manager-templates-in-my-devtest-labs-environment"></a>Hur kan jag använda Resource Manager-mallar i min DevTest Labs-miljö?
 Du distribuerar dina Resource Manager-mallar till en DevTest labb miljö med hjälp av de steg som beskrivs i [miljö funktionen i DevTest Labs](devtest-lab-test-env.md) -artikeln. I princip kan du kontrol lera dina Resource Manager-mallar i en git-lagringsplats (antingen Azure databaser eller GitHub) och lägga till ett [privat lager för dina mallar](devtest-lab-test-env.md) i labbet. Det här scenariot kanske inte är användbart om du använder DevTest Labs för att hantera utvecklings datorer, men det kan vara användbart om du skapar en fristående miljö som är representativ för produktionen.
@@ -264,7 +264,7 @@ Det är också värt att Observera att alternativet antal virtuella datorer per 
 ### <a name="how-can-i-set-up-an-easily-repeatable-process-to-bring-my-custom-organizational-images-into-a-devtest-labs-environment"></a>Hur kan jag skapa en lätt upprepnings bar process för att överföra mina anpassade organisations bilder till en DevTest Labs-miljö?
 Se det här [videoklippet om bild fabriks mönster](https://sec.ch9.ms/ch9/8e8a/9ea0b8d4-b803-4f23-bca4-4808d9368e8a/dtlimagefactory_mid.mp4). Det här scenariot är ett avancerat scenario och de angivna skripten är endast exempel skript. Om det krävs några ändringar måste du hantera och underhålla skripten som används i din miljö.
 
-Detaljerad information om hur du skapar en avbildnings fabrik finns [i skapa en anpassad avbildnings fabrik i Azure DevTest Labs](image-factory-create.md). 
+Detaljerad information om hur du skapar en avbildnings fabrik finns [i skapa en anpassad avbildnings fabrik i Azure DevTest Labs](image-factory-create.md).
 
 ### <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Vad är skillnaden mellan en anpassad bild och en formel?
 En anpassad avbildning är en hanterad avbildning. En formel är en bild som du kan konfigurera med ytterligare inställningar och sedan Spara och återskapa. En anpassad avbildning kan vara bättre om du snabbt vill skapa flera miljöer med samma grundläggande och oföränderliga avbildning. En formel kan vara bättre om du vill återskapa konfigurationen av din virtuella dator med de senaste bitarna som en del av ett virtuellt nätverk eller undernät eller som en virtuell dator med en angiven storlek. En mer detaljerad förklaring finns i [jämföra anpassade bilder och formler i DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -285,7 +285,7 @@ Om du vill automatisera uppladdningen av VHD-filer för att skapa anpassade avbi
 
 Så här hittar du det mål lagrings konto som är associerat med ditt labb:
 
-1.  Logga in på [Azure Portal](https://portal.azure.com).
+1.  Logga in på [Azure-portalen](https://portal.azure.com).
 2.  Välj **resurs grupper**på den vänstra menyn.
 3.  Sök efter och välj den resurs grupp som är kopplad till ditt labb.
 4.  Under **Översikt**väljer du ett av lagrings kontona.
@@ -343,19 +343,19 @@ Följande blogg inlägg ger vägledning och information om hur du använder Azur
 - [Distribuera en ny virtuell dator i ett befintligt DevTest Labs labb från Azure DevOps Services](https://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
 - [Använda versions hantering i Azure DevOps Services för kontinuerlig distribution till DevTest-labb](https://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
-För andra verktygs kedjor (CI)/Continuous Delivery (CD) kan du uppnå samma scenarier genom att distribuera [Azure Resource Manager mallar](https://azure.microsoft.com/resources/templates/) genom att använda [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) och [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/): er. Du kan också använda [REST-API: er för DevTest Labs](https://aka.ms/dtlrestapis) för att integrera med din verktygskedjan.
+För andra verktygs kedjor (CI)/Continuous Delivery (CD) kan du uppnå samma scenarier genom att distribuera [Azure Resource Manager mallar](https://azure.microsoft.com/resources/templates/) genom att använda [Azure PowerShell-cmdlets](../azure-resource-manager/templates/deploy-powershell.md) och [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/): er. Du kan också använda [REST-API: er för DevTest Labs](https://aka.ms/dtlrestapis) för att integrera med din verktygskedjan.
 
 ## <a name="networking"></a>Nätverk
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>När ska jag skapa ett nytt virtuellt nätverk för min DevTest Labs-miljö jämfört med att använda ett befintligt virtuellt nätverk?
-Om dina virtuella datorer behöver interagera med en befintlig infrastruktur kan du överväga att använda ett befintligt virtuellt nätverk i din DevTest Labs-miljö. Om du använder ExpressRoute kanske du vill minimera mängden virtuella nätverk/undernät så att du inte fragmenterar ditt IP-adressutrymme som tilldelas för användning i prenumerationerna. 
+Om dina virtuella datorer behöver interagera med en befintlig infrastruktur kan du överväga att använda ett befintligt virtuellt nätverk i din DevTest Labs-miljö. Om du använder ExpressRoute kanske du vill minimera mängden virtuella nätverk/undernät så att du inte fragmenterar ditt IP-adressutrymme som tilldelas för användning i prenumerationerna.
 
-Överväg att använda VNet-peering-mönstret här ([Hub-eker modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Den här metoden aktiverar VNet/Subnet-kommunikation mellan prenumerationer. I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk. 
+Överväg att använda VNet-peering-mönstret här ([Hub-eker modell](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Den här metoden aktiverar VNet/Subnet-kommunikation mellan prenumerationer. I annat fall kan varje DevTest Labs-miljö ha sitt eget virtuella nätverk.
 
 Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md) för antalet virtuella nätverk per prenumeration. Standardvärdet är 50, men den här gränsen kan höjas till 100.
 
 ### <a name="when-should-i-use-a-shared-ip-vs-public-ip-vs-private-ip"></a>När ska jag använda en delad IP-adress eller offentlig IP-adress jämfört med privat IP?
- 
+
 Om du använder en plats-till-plats-VPN eller Express Route bör du överväga att använda privata IP-adresser så att datorerna kan nås via det interna nätverket och inte kan nås via offentliga Internet.
 
 > [!NOTE]
@@ -383,15 +383,15 @@ En möjlighet är att det virtuella nätverks namnet innehåller punkter. I så 
 ### <a name="why-do-i-get-a-parent-resource-not-found-error-when-i-provision-a-vm-from-powershell"></a>Varför visas fel meddelandet "Det gick inte att hitta den överordnade resursen" när jag etablerar en virtuell dator från PowerShell?
 När en resurs är överordnad till en annan resurs måste den överordnade resursen finnas innan du skapar den underordnade resursen. Om den överordnade resursen inte finns visas ett **ParentResourceNotFound** -meddelande. Om du inte anger ett beroende på den överordnade resursen kan den underordnade resursen distribueras före den överordnade resursen.
 
-Virtuella datorer är underordnade resurser under ett labb i en resurs grupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell bör resurs grupps namnet som anges i PowerShell-skriptet vara namnet på resurs gruppen i labbet. Mer information finns i [Felsöka vanliga](../azure-resource-manager/resource-manager-common-deployment-errors.md)problem med Azure-distribution.
+Virtuella datorer är underordnade resurser under ett labb i en resurs grupp. När du använder Resource Manager-mallar för att distribuera virtuella datorer med hjälp av PowerShell bör resurs grupps namnet som anges i PowerShell-skriptet vara namnet på resurs gruppen i labbet. Mer information finns i [Felsöka vanliga](../azure-resource-manager/templates/common-deployment-errors.md)problem med Azure-distribution.
 
 ### <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Var kan jag hitta mer fel information om det inte går att distribuera en virtuell dator?
 Distributions fel för virtuella datorer samlas in i aktivitets loggarna. Du kan hitta aktivitets loggar för labb virtuella datorer under **gransknings loggar** eller **diagnostik för virtuella datorer** på resurs menyn på sidan för labbets virtuella dator (sidan visas när du har valt den virtuella datorn från listan Mina virtuella datorer).
 
-Ibland uppstår distributions felet innan distributionen av virtuella datorer påbörjas. Ett exempel är när prenumerations gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet registreras fel informationen i aktivitets loggarna på labb nivå. Aktivitets loggar finns längst ned i **konfigurations-och princip** inställningarna. Mer information om hur du använder aktivitets loggar i Azure finns i [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
+Ibland uppstår distributions felet innan distributionen av virtuella datorer påbörjas. Ett exempel är när prenumerations gränsen för en resurs som har skapats med den virtuella datorn har överskridits. I det här fallet registreras fel informationen i aktivitets loggarna på labb nivå. Aktivitets loggar finns längst ned i **konfigurations-och princip** inställningarna. Mer information om hur du använder aktivitets loggar i Azure finns i [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="why-do-i-get-location-is-not-available-for-resource-type-error-when-trying-to-create-a-lab"></a>Varför visas fel meddelandet "platsen är inte tillgänglig för resurs typen" när jag försöker skapa ett labb?
-Du kan se ett fel meddelande som liknar följande när du försöker skapa ett labb: 
+Du kan se ett fel meddelande som liknar följande när du försöker skapa ett labb:
 
 ```
 The provided location 'australiacentral' is not available for resource type 'Microsoft.KeyVault/vaults'. List of available regions for the resource type is 'northcentralus,eastus,northeurope,westeurope,eastasia,southeastasia,eastus2,centralus,southcentralus,westus,japaneast,japanwest,australiaeast,australiasoutheast,brazilsouth,centralindia,southindia,westindia,canadacentral,canadaeast,uksouth,ukwest,westcentralus,westus2,koreacentral,koreasouth,francecentral,southafricanorth
@@ -400,9 +400,7 @@ The provided location 'australiacentral' is not available for resource type 'Mic
 Du kan lösa det här felet genom att göra något av följande:
 
 #### <a name="option-1"></a>Alternativ 1
-Kontrol lera tillgängligheten för resurs typen i Azure-regioner på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) . Om resurs typen inte är tillgänglig i en viss region har DevTest Labs inte stöd för att skapa ett labb i den regionen. Välj en annan region när du skapar labbet. 
+Kontrol lera tillgängligheten för resurs typen i Azure-regioner på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/) . Om resurs typen inte är tillgänglig i en viss region har DevTest Labs inte stöd för att skapa ett labb i den regionen. Välj en annan region när du skapar labbet.
 
 #### <a name="option-2"></a>Alternativ 2
-Om resurs typen är tillgänglig i din region kontrollerar du om den är registrerad i din prenumeration. Du kan göra det på prenumerationens ägar nivå enligt [den här artikeln](../azure-resource-manager/resource-manager-supported-services.md). 
-
-
+Om resurs typen är tillgänglig i din region kontrollerar du om den är registrerad i din prenumeration. Du kan göra det på prenumerationens ägar nivå enligt [den här artikeln](../azure-resource-manager/management/resource-providers-and-types.md).

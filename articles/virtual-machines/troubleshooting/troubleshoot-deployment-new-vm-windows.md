@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: cjiang
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6dbe4c1533aecfab4a62ce3ad90b694c0c00f4b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0bc363b87a9f5b2f013c0bae75a07d79a3a7a830
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103491"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981392"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Felsöka distributions problem när du skapar en ny virtuell Windows-dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -35,7 +35,7 @@ Andra problem och frågor om distribution av virtuella datorer finns i [Felsöka
 ## <a name="collect-activity-logs"></a>Samla in aktivitets loggar
 För att starta fel sökningen samlar du in aktivitets loggarna för att identifiera det fel som är associerat med problemet. Följande länkar innehåller detaljerad information om processen som ska följas.
 
-[Visa distributionsåtgärder](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Visa distributionsåtgärder](../../azure-resource-manager/templates/deployment-history.md)
 
 [Visa aktivitets loggar för att hantera Azure-resurser](../../resource-group-audit.md)
 
@@ -43,7 +43,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-windows-troubleshoot-deployment-new-vm-table.md)]
 
-**JA** Om operativ systemet är Windows generaliserat och har laddats upp och/eller registrerats med den generaliserade inställningen, kommer det inte att finnas några fel. Om operativ systemet är Windows specialiserat, och laddas upp och/eller fångas med den särskilda inställningen, kommer det inte att finnas några fel.
+**Y:** Om operativ systemet är Windows generaliserat och har laddats upp och/eller registrerats med den generaliserade inställningen, kommer det inte att finnas några fel. Om operativ systemet är Windows specialiserat, och laddas upp och/eller fångas med den särskilda inställningen, kommer det inte att finnas några fel.
 
 **Överförings fel:**
 
@@ -65,7 +65,7 @@ För att lösa de här felen använder du [Add-AzVhd för att överföra den urs
 
 Du kan lösa båda dessa fel genom att ta bort den aktuella avbildningen från portalen och [avbilda om den från de aktuella virtuella hård diskarna](../windows/create-vm-specialized.md) med samma inställning som för operativ systemet (generaliserat/specialiserat).
 
-## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Ärende: Anpassad/Galleri/Marketplace-avbildning; allokeringsfel
+## <a name="issue-customgallerymarketplace-image-allocation-failure"></a>Problem: anpassad/Galleri/Marketplace-avbildning; allokeringsfel
 Det här felet uppstår i situationer när den nya VM-begäran fästs i ett kluster som antingen inte stöder den virtuella dator storleken eller som inte har tillräckligt med ledigt utrymme för att hantera begäran.
 
 **Orsak 1:** Klustret har inte stöd för den begärda virtuella dator storleken.
@@ -75,7 +75,7 @@ Det här felet uppstår i situationer när den nya VM-begäran fästs i ett klus
 * Gör om begäran med en mindre VM-storlek.
 * Om det inte går att ändra storleken på den begärda virtuella datorn:
   * Stoppa alla virtuella datorer i tillgänglighets uppsättningen.
-    Klicka på **resurs grupper** > *resurs gruppen* > **resurser** > dintillgänglighetsuppsättningVirtual Machinesden > virtuelladatorn > *Stoppa.*  > 
+    Klicka på **resurs grupper** > *resurs gruppen* > **resurser** > *din tillgänglighets uppsättning* > **Virtual Machines** > *den virtuella datorn* > **stoppa**.
   * När alla virtuella datorer har stoppats skapar du den nya virtuella datorn i önskad storlek.
   * Starta den nya virtuella datorn först och välj sedan var och en av de stoppade virtuella datorerna och klicka på **Starta**.
 

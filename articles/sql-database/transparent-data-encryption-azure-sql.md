@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/01/2019
-ms.openlocfilehash: 9eebb181ed7aa1ac5898646c29e308f85dbe0f8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381dfb4fca7476d5805bff92d58ecbbf49679346
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354901"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979976"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent data kryptering för SQL Database och informations lager
 
@@ -79,7 +79,7 @@ Om du vill konfigurera transparent data kryptering via Azure Portal måste du va
 
 Du aktiverar och inaktiverar transparent data kryptering på databas nivå. Om du vill aktivera transparent data kryptering för en databas går du till [Azure Portal](https://portal.azure.com) och loggar in med ditt Azure-administratör eller deltagar konto. Hitta inställningarna för transparent data kryptering under din användar databas. Som standard används hanterad transparent data kryptering. Ett transparent data krypterings certifikat skapas automatiskt för den server som innehåller-databasen. För Azure SQL-hanterad instans använder du T-SQL för att aktivera och inaktivera transparent data kryptering på en databas.
 
-![Hanterad transparent data kryptering i tjänst](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)  
+![Hanterad transparent data kryptering i tjänst](./media/transparent-data-encryption-azure-sql/service-managed-transparent-data-encryption.png)
 
 Du ställer in huvud nyckeln för transparent data kryptering, även kallat transparent data krypterings skydd på server nivå. Om du vill använda transparent data kryptering med Bring Your Own Key stöd och skydda dina databaser med en nyckel från Key Vault, öppnar du inställningarna för transparent data kryptering under din server.
 
@@ -127,7 +127,7 @@ Anslut till databasen med en inloggning som är en administratör eller medlem a
 
 Du kan inte byta transparent data krypterings skydd till en nyckel från Key Vault med hjälp av Transact-SQL. Använd PowerShell eller Azure Portal.
 
-# <a name="rest-apitabazure-restapi"></a>[REST-API](#tab/azure-RESTAPI)
+# <a name="rest-apitabazure-restapi"></a>[REST API](#tab/azure-RESTAPI)
 Hantera transparent data kryptering med hjälp av REST API.
 
 Om du vill konfigurera transparent data kryptering via REST API måste du vara ansluten som Azure-ägare, deltagare eller SQL Security Manager.

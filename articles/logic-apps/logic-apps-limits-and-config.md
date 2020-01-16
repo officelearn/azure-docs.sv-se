@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: fe38e74d30f7eb4f0c025f14268f7d6ac7b7d88a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d34a0905973a8080ee53eeac878432db0c51128
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428677"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979060"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -62,13 +62,13 @@ Följ dessa steg om du vill ändra standard gränsen för körnings tid och lagr
 
 1. Gå till [Azure-portalen](https://portal.azure.com). I rutan Portal söker du efter **och väljer Logi**Kap par.
 
-1. Välj och öppna din Logic app i Logic Apps designer. 
+1. Välj och öppna din Logic app i Logic Apps designer.
 
 1. På menyn Logic Apps väljer du **arbets flödes inställningar**.
 
 1. Under **körnings alternativ**, från listan **körnings historik för kvarhållning i dagar** , väljer du **anpassad**.
 
-1. Ange eller dra skjutreglaget för det antal dagar som du vill ha. 
+1. Ange eller dra skjutreglaget för det antal dagar som du vill ha.
 
    > [!NOTE]
    > För logi Kap par i Azure med flera innehavare, är standard gränsen på 90 samma som den maximala gränsen. Du kan bara minska det här värdet.
@@ -84,7 +84,7 @@ Här följer gränserna för en enda Logic app-körning:
 | ---- | ----- | ----- |
 | Utlös samtidighet | * Obegränsat när samtidighets kontrollen är inaktive rad <p><p>* 25 är standard gränsen när samtidighets kontrollen är aktive rad, som inte kan återställas när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan köras samtidigt eller parallellt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt för [debatchering av matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra utlösarens samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [Utlös instansen i tur och ordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
 | Maximalt antal väntande körningar | När samtidighets kontrollen är aktive rad är det minsta antalet väntande körningar 10 plus antalet samtidiga körningar (Utlös samtidighet). Du kan ändra det maximala antalet upp till 100. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p><p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
-| Förgrunds mat ris objekt | 100 000 | Den här gränsen beskriver det högsta antalet mat ris objekt som en "for each"-loop kan bearbeta. <p><p>Du kan använda [åtgärden fråga](../connectors/connectors-native-query.md)för att filtrera större matriser. |
+| Förgrunds mat ris objekt | 100 000 | Den här gränsen beskriver det högsta antalet mat ris objekt som en "for each"-loop kan bearbeta. <p><p>Du kan använda [åtgärden fråga](logic-apps-perform-data-operations.md#filter-array-action)för att filtrera större matriser. |
 | Samtidighets samtidighet | 20 är standard gränsen när samtidighets kontrollen är inaktive rad. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen är det högsta antalet upprepningar av slingor som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra "för varje" samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [Kör "för varje" slingor i följd](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
 | SplitOn-objekt | * 100 000 utan utlösarens samtidighet <p><p>* 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt. |
 | Until-iterationer | 5 000 | |
@@ -122,7 +122,8 @@ Här är begränsningarna för data flödet för Premium SKU: n:
 Om du vill gå över dessa gränser i normal bearbetning eller köra belastnings test som kan gå över dessa gränser kan [du kontakta Logic Apps-teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav.
 
 > [!NOTE]
-> [Developer SKU: n](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) har inga publicerade gränser eftersom detta SKU inte har något service avtal (SLA) eller funktioner för att skala upp. Använd endast den här SKU: n för experimentering, utveckling och testning, inte produktion eller prestanda testning.
+> [Developer SKU: n](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) har inga publicerade gränser eftersom detta SKU inte har något service avtal (SLA) eller funktioner för att skala upp.
+> Använd endast den här SKU: n för experimentering, utveckling och testning, inte produktion eller prestanda testning.
 
 <a name="gateway-limits"></a>
 
@@ -209,7 +210,8 @@ Ytterligare kostnader gäller för integrations konton som du lägger till utöv
 
 ### <a name="artifact-limits-per-integration-account"></a>Artefakt gränser per integrations konto
 
-Här följer gränserna för antalet artefakter för varje integrations konto nivå. Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/). Information om hur priser och fakturering fungerar för integrations konton finns i [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md#integration-accounts).
+Här följer gränserna för antalet artefakter för varje integrations konto nivå.
+Pris nivåer finns i [Logic Apps prissättning](https://azure.microsoft.com/pricing/details/logic-apps/). Information om hur priser och fakturering fungerar för integrations konton finns i [Logic Apps prissättnings modell](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
 > [!NOTE]
 > Använd endast den kostnads fria nivån för exempel scenarier, inte produktions scenarier. Den här nivån begränsar data flödet och användningen och har inget service nivå avtal (SLA).
@@ -261,9 +263,12 @@ Här är de meddelande storleks gränser som gäller för B2B-protokoll:
 
 ## <a name="disabling-or-deleting-logic-apps"></a>Inaktivera eller ta bort Logic Apps
 
-När du inaktiverar en Logic app instansieras inga nya körningar. Alla pågående och väntande körningar fortsätter tills de har slutförts, vilket kan ta lång tid att slutföra.
+När du inaktiverar en Logic app instansieras inga nya körningar.
+Alla pågående och väntande körningar fortsätter tills de har slutförts, vilket kan ta lång tid att slutföra.
 
-När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
+När du tar bort en logikapp instantieras inga nya körningar.
+Alla pågående och väntande körningar avbryts.
+Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.
 
 <a name="configuration"></a>
 
@@ -276,7 +281,7 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 
 * För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggen med *alla* [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av den Logic Apps tjänsten, baserat på de regioner där dina Logi Kap par finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
 
-* För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region. 
+* För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region.
 
 * Om du vill aktivera kommunikation för logi Kap par som körs i en integrerings tjänst miljö (ISE) ser du till att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#network-ports-for-ise).
 

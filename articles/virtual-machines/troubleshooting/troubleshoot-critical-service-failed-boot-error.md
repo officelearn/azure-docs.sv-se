@@ -12,25 +12,25 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: f038e56fe4b1e6ad2737217674706eef77a39fd6
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058060"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981370"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Windows visar "kritisk tjänst misslyckades" på blå skärm vid start av en virtuell Azure-dator
 I den här artikeln beskrivs fel meddelandet "kritisk tjänst misslyckades" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller fel söknings steg som hjälper dig att lösa problemen. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
-## <a name="symptom"></a>Symtom 
+## <a name="symptom"></a>Symptom 
 
 En virtuell Windows-dator startar inte. När du kontrollerar start skärmarna i [startdiagnostik](./boot-diagnostics.md), ser du något av följande fel meddelanden på en blå skärm:
 
-- "Datorn stötte på ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och eventuella korrigeringar finns på https://windows.com/stopcode. Om du kallar en support person ger du dem denna information: Stoppkod: KRITISK TJÄNST MISSLYCKADES " 
-- "Datorn stötte på ett problem och måste startas om. Vi samlar bara in fel information och startar sedan om. Om du vill veta mer kan du söka online senare efter det här felet: CRITICAL_SERVICE_FAILED"
+- "Datorn stötte på ett problem och måste startas om. Du kan starta om. Mer information om det här problemet och möjliga korrigeringar finns https://windows.com/stopcode. Om du kallar en support person ger du dem denna information: stoppkod: felkod: kritisk tjänst misslyckades " 
+- "Datorn stötte på ett problem och måste startas om. Vi samlar bara in fel information och startar sedan om. Om du vill veta mer kan du söka online senare efter det här felet: CRITICAL_SERVICE_FAILED "
 
 ## <a name="cause"></a>Orsak
 
@@ -103,21 +103,21 @@ Kör följande skript om du vill aktivera dumpnings loggar och en serie konsol.
         bcdedit /store <OS DISK LETTER>:\boot\bcd /deletevalue {default} safeboot
 8.  Starta om den virtuella datorn. 
 
-### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Valfritt: Analysera dumpnings loggarna i dumpa krasch läge
+### <a name="optional-analyze-the-dump-logs-in-dump-crash-mode"></a>Valfritt: analysera dumpnings loggarna i dumpa krasch läge
 
 Följ dessa steg om du vill analysera dumpnings loggarna själv:
 
 1. Koppla OS-disken till en virtuell dator för återställning.
 2. På den OS-disk som du har bifogat bläddrar du till **\Windows\System32\Config**. Kopiera alla filerna som en säkerhets kopia om en återställning krävs.
 3. Starta **Registereditorn** (regedit. exe).
-4. Välj **HKEY_LOCAL_MACHINE** -nyckel. På menyn väljer du **fil** > **läsnings registrerings data**fil.
-5. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under nyckeln **HKEY_LOCAL_MACHINE** .
-6. Bläddra till **HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Control\CrashControl** och gör följande ändringar:
+4. Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil** > **läsa in Hive**.
+5. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln.
+6. Bläddra till **HKEY_LOCAL_MACHINE \brokensystem\controlset00x\control\crashcontrol** och gör följande ändringar:
 
     AutoReboot = 0
 
     CrashDumpEnabled = 2
-7.  Välj **BROKENSYSTEM**. Från menyn väljer du **Arkiv** > **ta bort Hive**.
+7.  Välj **BROKENSYSTEM**. Från menyn väljer du **fil** > **ta bort Hive**.
 8.  Ändra BCD-installationen för att starta i fel söknings läge. Kör följande kommandon från en upphöjd kommando tolk:
 
     ```cmd
@@ -137,7 +137,7 @@ Följ dessa steg om du vill analysera dumpnings loggarna själv:
 9. [Koppla från OS-disken och återanslut sedan OS-disken till den berörda virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
 10. Starta den virtuella datorn för att se om den visar dump-analys. Hitta filen som inte kan läsas in. Du måste ersätta den här filen med en fil från den aktiva virtuella datorn. 
 
-    Följande är exempel på dump-analys. Du kan se att **felen** finns på filecrypt. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt.sys".
+    Följande är exempel på dump-analys. Du kan se att **felen** finns på filecrypt. sys: "FAILURE_BUCKET_ID: 0x5A_c0000428_IMAGE_filecrypt. sys".
 
     ```
     kd> !analyze -v 

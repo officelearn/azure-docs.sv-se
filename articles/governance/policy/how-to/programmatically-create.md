@@ -3,12 +3,12 @@ title: Skapa principer programmässigt
 description: Den här artikeln vägleder dig genom program mässigt skapa och hantera principer för Azure Policy med Azure CLI, Azure PowerShell och REST API.
 ms.date: 01/31/2019
 ms.topic: how-to
-ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 08ed43a464d1dd7de8220428dbc1c61ce9fc3ad6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873071"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982471"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -20,7 +20,7 @@ Information om efterlevnad finns i [komma kompatibilitetsdata](get-compliance-da
 
 Innan du börjar måste du kontrollera att följande krav är uppfyllda:
 
-1. Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-förfrågningar till Azure Resource Manager-baserade API:er.
+1. Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
 
 1. Uppdatera Azure PowerShell-modulen till den senaste versionen. Detaljerad information finns i [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Mer information om den senaste versionen finns i [Azure PowerShell](https://github.com/Azure/azure-powershell/releases).
 
@@ -30,7 +30,7 @@ Innan du börjar måste du kontrollera att följande krav är uppfyllda:
    Register-AzResourceProvider -ProviderNamespace 'Microsoft.PolicyInsights'
    ```
 
-   Läs mer om att registrera och visa resursproviders i [Resource Providers and Types](../../../azure-resource-manager/resource-manager-supported-services.md) (Resursproviders och typer).
+   Läs mer om att registrera och visa resursproviders i [Resource Providers and Types](../../../azure-resource-manager/management/resource-providers-and-types.md) (Resursproviders och typer).
 
 1. Om du inte redan gjort installerar du Azure CLI. Du kan hämta den senaste versionen på [installera Azure CLI på Windows](/cli/azure/install-azure-cli-windows).
 

@@ -1,18 +1,14 @@
 ---
 title: Utvärdera fysiska servrar för migrering till Azure med Azure Migrate Server-utvärdering
 description: Beskriver hur du bedömer lokala fysiska servrar för migrering till Azure med hjälp av Azure Migrate Server bedömning.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: raynew
-ms.openlocfilehash: 56b7cc6e95cb85b5508199287cc77aedeebc8b81
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 10cd13831fe6cb6b843f0a79a5d5ba56814bcde0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280551"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028984"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Utvärdera fysiska servrar med Azure Migrate: Server utvärdering
 
@@ -20,7 +16,7 @@ Den här artikeln visar hur du kan utvärdera lokala fysiska servrar med hjälp 
 
 [Azure Migrate](migrate-services-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig att:
+Den här självstudien är den andra i en serie som visar hur du bedömer och migrerar fysiska servrar till Azure. I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Konfigurera ett Azure Migrate-projekt.
 > * Konfigurera en Azure Migrate-apparat som körs lokalt för att utvärdera fysiska servrar.
@@ -34,7 +30,7 @@ Den här självstudien är den andra i en serie som visar hur du bedömer och mi
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/) innan du börjar.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Slutför](tutorial-prepare-physical.md) den första självstudien i den här serien. Om du inte gör det fungerar inte instruktionerna i den här självstudien.
 - Det här är vad du behöver göra i den första självstudien:
@@ -62,7 +58,7 @@ Konfigurera ett nytt Azure Migrate-projekt enligt följande.
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-physical/migrate-project.png)
 
 
-7. Klicka på **Nästa**.
+7. Klicka på **Next**.
 8. I **Välj bedömnings verktyg**väljer du **Azure Migrate: Server utvärdering** > **Nästa**.
 
     ![Skapa ett Azure Migrate-projekt](./media/tutorial-assess-physical/assessment-tool.png)
@@ -142,7 +138,7 @@ Om det uppstår några problem kan du komma åt skript loggarna på C:\ProgramDa
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
-Kontrol lera att enheten kan ansluta till [Azure-URL: er](migrate-support-matrix-physical.md#assessment-appliance-url-access).
+Kontrol lera att enheten kan ansluta till [Azure-URL: er](migrate-appliance.md#url-access).
 
 
 ### <a name="configure-the-appliance"></a>Konfigurera installationen
@@ -199,7 +195,7 @@ Efter identifieringen kan du kontrol lera att servrarna visas i Azure Portal.
 
 Det finns två typer av utvärderingar som du kan skapa med hjälp av Azure Migrate: Server utvärdering.
 
-**Utvärdering** | **Information** | **Data**
+**Utvärdering** | **Detaljer** | **Data**
 --- | --- | ---
 **Prestanda-baserade** | Utvärderingar baserade på insamlade prestanda data | **Rekommenderad VM-storlek**: baserat på processor-och minnes användnings data.<br/><br/> **Rekommenderad disktyp (standard-eller Premium-hanterad disk)** : baserat på IOPS och data flödet för lokala diskar.
 **Som lokalt** | Utvärderingar baserade på lokal storlek. | **Rekommenderad VM-storlek**: baserat på den lokala server storleken<br/><br> **Rekommenderad disktyp**: baserat på den inställning för lagrings typ som du väljer för utvärderingen.

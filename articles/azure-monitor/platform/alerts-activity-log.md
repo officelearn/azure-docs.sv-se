@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 06/25/2019
-ms.openlocfilehash: 54122d784467bc090d82f4126e03ab688883ea7d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364806"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969528"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -197,7 +197,7 @@ Om du vill skapa en aktivitets logg avisering med hjälp av en Azure Resource Ma
   ]
 }
 ```
-Det tidigare JSON-exemplet kan sparas som, till exempel sampleActivityLogAlert. JSON för den här genom gången och kan distribueras med hjälp av [Azure Resource Manager i Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Det tidigare JSON-exemplet kan sparas som, till exempel sampleActivityLogAlert. JSON för den här genom gången och kan distribueras med hjälp av [Azure Resource Manager i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 > [!NOTE]
 > Det kan ta upp till 5 minuter innan den nya varnings regeln om aktivitets logg aktive ras.

@@ -11,16 +11,16 @@ ms.topic: conceptual
 author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
-ms.reviewer: carlrab
-ms.date: 11/14/2019
-ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.reviewer: carlrab, vanto
+ms.date: 01/14/2020
+ms.openlocfilehash: d2b56e259f551f7655936c975a7a864a27a1df79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082497"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027808"
 ---
-# <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>Arbeta med SQL Database anslutnings problem och tillfälliga fel
+# <a name="troubleshooting-transient-connection-errors-to-sql-database"></a>Felsöka tillfälliga anslutnings fel till SQL Database
 
 Den här artikeln beskriver hur du kan förhindra, felsöka, diagnostisera och minimera anslutnings fel och tillfälliga fel som klient programmet stöter på när det interagerar med Azure SQL Database. Lär dig hur du konfigurerar omprövnings logik, skapar anslutnings strängen och justerar andra anslutnings inställningar.
 
@@ -187,7 +187,7 @@ Normalt måste du se till att endast port 1433 är öppen för utgående kommuni
 
 Om ditt klient program till exempel finns på en Windows-dator kan du använda Windows-brandväggen på värden för att öppna port 1433.
 
-1. Öppna kontroll panelen.
+1. Öppna Kontrollpanelen.
 2. Välj **alla objekt på kontroll panelen** > **Windows-brandväggen** > **avancerade inställningar** > **utgående regler** > **åtgärder** > **ny regel**.
 
 Om ditt klient program finns på en virtuell Azure-dator (VM) läser du [portarna utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md).
@@ -444,7 +444,6 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Mer information om fel sökning av andra vanliga SQL Database anslutnings problem finns i [Felsöka anslutnings problem till Azure SQL Database](sql-database-troubleshoot-common-connection-issues.md).
 - [Anslutnings bibliotek för SQL Database och SQL Server](sql-database-libraries.md)
 - [SQL Server anslutningspoolen (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 - Att [ *försöka* igen är ett Apache 2,0-licensierat bibliotek för generell användning, som är skrivet i python,](https://pypi.python.org/pypi/retrying) för att förenkla uppgiften att lägga till omprövnings beteende till nästan vad som helst.

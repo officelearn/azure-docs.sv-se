@@ -3,12 +3,12 @@ title: 'Självstudie: skapa en anpassad princip definition'
 description: I den här självstudien får du en anpassad princip definition för Azure Policy att använda anpassade affärs regler på dina Azure-resurser.
 ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 51899491d7a75dc41bdab94d17769393ab4a6659
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f7c303956b209b88ce3c697b5b66243e37071c83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885457"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966029"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudie: skapa en anpassad princip definition
 
@@ -66,7 +66,7 @@ Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska tit
 
 ### <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) som innehåller egenskapen som du vill hantera.
+Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-resource-manager/templates/template-tutorial-create-encrypted-storage-accounts.md) som innehåller egenskapen som du vill hantera.
 
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 
@@ -386,7 +386,7 @@ Skapandet av [principregeln](../concepts/definition-structure.md#policy-rule) ä
 - Lagringskontots **typ** är **Microsoft.Storage/storageAccounts**
 - Att lagringskontot **supportsHttpsTrafficOnly** inte är **sant**
 
-Eftersom vi behöver att båda dessa instruktionerna är sanna använder vi den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf**. Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
+Eftersom vi behöver båda dessa instruktioner för att vara sanna använder vi den [logiska operatorn](../concepts/definition-structure.md#logical-operators) **allOf** . Vi ska skicka parametern **effectType** för effekten i stället för att göra en statisk deklaration. Vår slutförda regel ser ut som i följande exempel:
 
 ```json
 "if": {

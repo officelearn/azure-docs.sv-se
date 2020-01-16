@@ -1,6 +1,6 @@
 ---
-title: Översikt över säkerheten i Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Förstå hur Azure Data Lake Storage Gen1 är säkrare lagringsplatser för stordata
+title: Översikt över säkerhet i Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Förstå hur Azure Data Lake Storage Gen1 är en säkrare stor data lagring
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -12,105 +12,104 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
-ms.openlocfilehash: 63e538ab43eaf4a34226b0084cf55334e2cc782b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4e640aa1cb02174c935c0f7c1d61ab2fca5ea046
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60195324"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974583"
 ---
 # <a name="security-in-azure-data-lake-storage-gen1"></a>Säkerhet i Azure Data Lake Storage Gen1
-Många företag utnyttjar stordata för affärsinsikter som hjälper dem att fatta smarta beslut. En organisation kan ha en komplex och reglerade miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att affärskritiska data lagras mer säkert med rätt nivå av åtkomst till enskilda användare. Azure Data Lake Storage Gen1 är utformad för att uppfylla dessa krav på säkerhet. I den här artikeln lär du dig om de säkerhetsfunktionerna i Data Lake Storage Gen1, inklusive:
+Många företag drar nytta av stor data analys för affärs insikter för att hjälpa dem att fatta smarta beslut. En organisation kan ha en komplex och reglerad miljö med ett ökande antal olika användare. Det är viktigt för företaget att se till att viktiga affärs data lagras på ett säkert sätt med rätt åtkomst nivå för enskilda användare. Azure Data Lake Storage Gen1 är utformad för att hjälpa till att uppfylla dessa säkerhets krav. I den här artikeln får du lära dig mer om säkerhetsfunktionerna i Data Lake Storage Gen1, inklusive:
 
 * Autentisering
-* Auktorisering
+* Autentisering
 * Isolering av nätverk
 * Dataskydd
 * Granskning
 
-## <a name="authentication-and-identity-management"></a>Identitetshantering och autentisering
-Autentisering är den process som en användares identitet har verifierats när användaren interagerar med Data Lake Storage Gen1 eller med valfri tjänst som ansluter till Data Lake Storage Gen1. För Identitetshantering och autentisering, använder Data Lake Storage Gen1 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), en omfattande identitets- och åtkomsthanteringsmolnlösning som förenklar hanteringen av användare och grupper.
+## <a name="authentication-and-identity-management"></a>Autentisering och identitets hantering
+Autentisering är den process genom vilken en användares identitet verifieras när användaren interagerar med Data Lake Storage Gen1 eller med en tjänst som ansluter till Data Lake Storage Gen1. För identitets hantering och autentisering använder Data Lake Storage Gen1 [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md), en omfattande identitets-och åtkomst hanterings moln lösning som fören klar hanteringen av användare och grupper.
 
-Varje Azure-prenumeration kan associeras med en instans av Azure Active Directory. Enbart användare och tjänstidentiteter som definieras i Azure Active Directory-tjänsten som har åtkomst till ditt Data Lake Storage Gen1-konto med hjälp av Azure portal, kommandoradsverktyg, eller via klientprogram som din organisation skapar med hjälp av Data Lake Storage Gen1 SDK. Viktiga fördelar med att använda Azure Active Directory som en centraliserad åtkomstkontroll är:
+Varje Azure-prenumeration kan associeras med en instans av Azure Active Directory. Endast användare och tjänst identiteter som har definierats i Azure Active Directorys tjänsten kan komma åt ditt Data Lake Storage Gen1-konto genom att använda Azure Portal, kommando rads verktyg eller via klient program som organisationen bygger med hjälp av Data Lake Storage gen1 SDK. Viktiga fördelar med att använda Azure Active Directory som en centraliserad mekanism för åtkomst kontroll är:
 
-* Förenklad identitetslivcykelhantering. Identiteten för en användare eller en tjänst (en huvudnamn tjänstidentitet) kan skapas snabbt och snabbt återkallas av helt enkelt ta bort eller inaktivera kontot i katalogen.
-* Multifaktorautentisering. [Multifaktorautentisering](../active-directory/authentication/multi-factor-authentication.md) ger ett extra lager av säkerhet för användarinloggningar och transaktioner.
-* Autentisering från klienter via ett öppet standardprotokoll, till exempel OAuth eller OpenID.
-* Federation med enterprise-katalogtjänster och identitet molnleverantörer.
+* Förenklad identitets livs cykel hantering. Identiteten för en användare eller en tjänst (en huvud tjänst identitet) kan snabbt skapas och återkallas genom att du helt enkelt tar bort eller inaktiverar kontot i katalogen.
+* Multi-Factor Authentication. [Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) tillhandahåller ett extra säkerhets lager för användar inloggningar och transaktioner.
+* Autentisering från vilken klient som helst via ett öppet standard protokoll, till exempel OAuth eller OpenID.
+* Federation med Enterprise Directory-tjänster och moln identitets leverantörer.
 
-## <a name="authorization-and-access-control"></a>Auktorisering och åtkomstkontroll
-När en användare autentiseras i Azure Active Directory så att användaren kan komma åt Data Lake Storage Gen1, åtkomstbehörighet auktoriseringskontroller för Data Lake Storage Gen1. Data Lake Storage Gen1 skiljer auktorisering för konto-relaterade och data som är relaterade aktiviteter på följande sätt:
+## <a name="authorization-and-access-control"></a>Auktorisering och åtkomst kontroll
+När Azure Active Directory autentiserat en användare så att användaren kan komma åt Data Lake Storage Gen1, kontrollerar auktorisering åtkomst behörigheterna för Data Lake Storage Gen1. Data Lake Storage Gen1 separerar auktoriseringen för konto-och data relaterade aktiviteter på följande sätt:
 
 * [Rollbaserad åtkomstkontroll](../role-based-access-control/overview.md) (RBAC) som tillhandahålls av Azure för kontohantering
-* POSIX ACL för åtkomst till data i arkivet
+* POSIX ACL för åtkomst till data i Store
 
-### <a name="rbac-for-account-management"></a>RBAC för kontohantering
-Fyra grundläggande roller definieras för Data Lake Storage Gen1 som standard. Rollerna tillåter olika åtgärder på ett Data Lake Storage Gen1 konto via Azure portal, PowerShell-cmdletar och REST API: er. Rollerna ägare och deltagare kan utföra en mängd funktioner för administration på kontot. Du kan tilldela rollen Läsare för användare som bara visar hanteringsdata för kontot.
+### <a name="rbac-for-account-management"></a>RBAC för konto hantering
+Fyra grundläggande roller definieras för Data Lake Storage Gen1 som standard. Rollerna tillåter olika åtgärder på ett Data Lake Storage Gen1 konto via Azure Portal, PowerShell-cmdletar och REST-API: er. Rollen ägare och deltagare kan utföra olika administrations funktioner på kontot. Du kan tilldela rollen läsare rollen till användare som bara visar konto hanterings data.
 
 ![RBAC-roller](./media/data-lake-store-security-overview/rbac-roles.png "RBAC-roller")
 
-Observera att även om rollerna har tilldelats för hantering av vissa roller påverkar åtkomst till data. Du måste använda ACL: er för att styra åtkomst till åtgärder som en användare kan utföra i filsystemet. I följande tabell visas en sammanfattning av rights management och data åtkomstbehörigheter för standardroller som.
+Observera att även om roller tilldelas för konto hantering, påverkar vissa roller åtkomsten till data. Du måste använda ACL: er för att kontrol lera åtkomsten till åtgärder som en användare kan utföra i fil systemet. I följande tabell visas en sammanfattning av hanterings rättigheter och data åtkomst rättigheter för standard rollerna.
 
-| Roller | Rights Management | Åtkomstbehörighet för data | Förklaring |
+| Roller | Hanterings rättigheter | Åtkomst behörigheter för data | Förklaring |
 | --- | --- | --- | --- |
-| Ingen roll som tilldelats |Ingen |Styrs av ACL |Användaren kan inte använda Azure portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan använda endast kommandoradsverktyg. |
-| Ägare |Alla |Alla |Rollen ägare är en superanvändare. Den här rollen kan hantera allt och har fullständig åtkomst till data. |
-| Läsare |Skrivskyddad |Styrs av ACL |Rollen Läsare kan visa allt om kontohantering, till exempel vilka användare som är tilldelad till vilken roll. Med läsarrollen kan inte göra några ändringar. |
-| Deltagare |Alla utom Lägg till och ta bort roller |Styrs av ACL |Rollen som deltagare kan hantera vissa aspekter av ett konto, till exempel distributioner eller skapa och hantera aviseringar. Med deltagarrollen kan inte lägga till eller ta bort roller. |
-| Administratör för användaråtkomst |Lägga till och ta bort roller |Styrs av ACL |Rollen Administratör för användaråtkomst kan hantera användarnas åtkomst till konton. |
+| Ingen roll har tilldelats |Inget |Styrs av ACL |Användaren kan inte använda Azure Portal eller Azure PowerShell-cmdletar för att bläddra i Data Lake Storage Gen1. Användaren kan bara använda kommando rads verktyg. |
+| Ägare |Alla |Alla |Ägar rollen är en superanvändare. Den här rollen kan hantera allt och har fullständig åtkomst till data. |
+| Läsare |Skrivskyddad |Styrs av ACL |Rollen läsare kan visa allt om konto hantering, till exempel vilken användare som är tilldelad till vilken roll. Rollen läsare kan inte göra några ändringar. |
+| Deltagare |Alla utom Lägg till och ta bort roller |Styrs av ACL |Deltagar rollen kan hantera vissa aspekter av ett konto, till exempel distributioner och skapande och hantering av aviseringar. Deltagar rollen kan inte lägga till eller ta bort roller. |
+| Administratör för användaråtkomst |Lägga till och ta bort roller |Styrs av ACL |Rollen administratör för användar åtkomst kan hantera användar åtkomst till konton. |
 
-Anvisningar finns i [tilldela användare eller säkerhetsgrupper till Data Lake Storage Gen1 konton](data-lake-store-secure-data.md#assign-users-or-security-groups-to-data-lake-storage-gen1-accounts).
+Instruktioner finns i [tilldela användare eller säkerhets grupper för att data Lake Storage gen1 konton](data-lake-store-secure-data.md#assign-users-or-security-groups-to-data-lake-storage-gen1-accounts).
 
-### <a name="using-acls-for-operations-on-file-systems"></a>Med hjälp av ACL: er för åtgärder för filsystem
-Data Lake Storage Gen1 finns faktiskt hierarkiskt filsystem som Hadoop Distributed File System (HDFS) och stöder [POSIX-ACL: er](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Den kontrollerar läsa (r), skriva (w) och köra (x) behörighet till resurser för rollen ägare, för gruppen ägare och andra användare och grupper. I Data Lake Storage Gen1 aktiveras ACL: er i rotmappen, undermappar och enskilda filer. Läs mer om hur åtkomstkontrollposter fungerar i kontexten för Data Lake Storage Gen1 [åtkomstkontroll i Data Lake Storage Gen1](data-lake-store-access-control.md).
+### <a name="using-acls-for-operations-on-file-systems"></a>Använda ACL: er för åtgärder i fil system
+Data Lake Storage Gen1 är ett hierarkiskt fil system som Hadoop Distributed File System (HDFS) och stöder [POSIX ACL: er](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html#ACLs_Access_Control_Lists). Den kontrollerar läsa (r), skriva (w) och köra (x) behörigheter för resurser för ägar rollen, för gruppen ägare och för andra användare och grupper. I Data Lake Storage Gen1 kan ACL: er aktive ras i rotmappen, i undermappar och på enskilda filer. Mer information om hur ACL: er fungerar i samband med Data Lake Storage Gen1 finns i [åtkomst kontroll i data Lake Storage gen1](data-lake-store-access-control.md).
 
-Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [säkerhetsgrupper](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Lägga till användare i en säkerhetsgrupp och sedan tilldela ACL: er för en fil eller mapp till säkerhetsgruppen. Detta är användbart när du vill ge tilldelade behörigheter eftersom du är begränsad till högst 28 poster för tilldelade behörigheter. Mer information om hur du bättre skydda data som lagras i Data Lake Storage Gen1 med hjälp av Azure Active Directory-säkerhetsgrupper finns i [tilldela användare eller säkerhetsgrupp som ACL: er till filsystemet Data Lake Storage Gen1](data-lake-store-secure-data.md#filepermissions).
+Vi rekommenderar att du definierar ACL: er för flera användare med hjälp av [säkerhets grupper](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Lägg till användare i en säkerhets grupp och tilldela sedan ACL: er för en fil eller mapp till den säkerhets gruppen. Detta är användbart när du vill ge tilldelade behörigheter, eftersom du är begränsad till högst 28 poster för tilldelade behörigheter. Mer information om hur du bättre skyddar data som lagras i Data Lake Storage Gen1 genom att använda Azure Active Directory säkerhets grupper finns i [tilldela användare eller säkerhets grupp som ACL: er till data Lake Storage gen1 fil systemet](data-lake-store-secure-data.md#filepermissions).
 
-![Visa åtkomstbehörigheter](./media/data-lake-store-security-overview/adl.acl.2.png "lista behörigheter")
+![Lista åtkomst behörigheter](./media/data-lake-store-security-overview/adl.acl.2.png "Lista åtkomst behörigheter")
 
 ## <a name="network-isolation"></a>Isolering av nätverk
-Använd Data Lake Storage Gen1 för att styra åtkomsten till ditt datalager på nätverksnivå. Du kan fastställa brandväggar och definiera ett IP-adressintervall för dina betrodda klienter. Endast klienter som har en IP-adress inom det angivna intervallet kan ansluta till Data Lake Storage Gen1 med ett IP-adressintervall.
+Använd Data Lake Storage Gen1 för att kontrol lera åtkomsten till ditt data lager på nätverks nivå. Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till Data Lake Storage Gen1.
 
-![Brandväggsinställningar och IP-åtkomst till](./media/data-lake-store-security-overview/firewall-ip-access.png "brandväggen inställningar och IP-adress")
+![Brand Väggs inställningar och IP-åtkomst](./media/data-lake-store-security-overview/firewall-ip-access.png "Brand Väggs inställningar och IP-adress")
 
 ## <a name="data-protection"></a>Dataskydd
-Data Lake Storage Gen1 skyddar dina data under hela dess livscykel. För information som överförs använder Data Lake Storage Gen1 branschstandard Transport Layer Security (TLS 1.2) protokollet för att skydda data över nätverket.
+Data Lake Storage Gen1 skyddar dina data i hela livs cykeln. För data som överförs använder Data Lake Storage Gen1 protokollet bransch standard Transport Layer Security (TLS 1,2) för att skydda data över nätverket.
 
-![Kryptering i Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "kryptering i Data Lake Storage Gen1")
+![Kryptering i Data Lake Storage Gen1](./media/data-lake-store-security-overview/adls-encryption.png "Kryptering i Data Lake Storage Gen1")
 
-Data Lake Storage Gen1 innehåller också kryptering för data som lagras i kontot. Du kan välja att ha krypterade data eller välja ingen kryptering. Om du väljer i för kryptering krypteras data som lagras i Data Lake Storage Gen1 före lagring på permanenta media. I detta fall är Data Lake Storage Gen1 automatiskt krypterar data före beständig lagring och dekrypterar data för hämtning, så det är helt transparent för klienten åtkomst till data. Det finns några ändringar i koden som krävs på klientsidan för att kryptera/dekryptera data.
+Data Lake Storage Gen1 innehåller även kryptering för data som lagras i kontot. Du kan välja att ha krypterade data eller välja ingen kryptering. Om du väljer att använda kryptering krypteras data som lagras i Data Lake Storage Gen1 innan de lagras på ett beständigt medium. I sådana fall krypterar Data Lake Storage Gen1 automatiskt data innan de bevarar och dekrypterar data före hämtning, så att de är helt transparenta för klienten som har åtkomst till data. Ingen kod ändring krävs på klient sidan för att kryptera/dekryptera data.
 
-För nyckelhantering har Data Lake Storage Gen1 två lägen för att hantera din huvudkrypteringsnycklar (Huvudkrypteringsnycklar), som krävs för att dekryptera data som lagras i Data Lake Storage Gen1. Du kan antingen låta Data Lake Storage Gen1 hantera Huvudkrypteringsnycklar åt dig, eller väljer att behålla ägarskapet för Huvudkrypteringsnycklar med hjälp av Azure Key Vault-kontot. Du kan ange läget för nyckelhantering när du skapar ett Data Lake Storage Gen1-konto. Mer information om hur du skapar en krypteringsrelaterad konfiguration finns i [Kom igång med Azure Data Lake Storage Gen1 med hjälp av Azure-portalen](data-lake-store-get-started-portal.md).
+För nyckel hantering har Data Lake Storage Gen1 två lägen för att hantera dina huvud krypterings nycklar (MEKs), vilket krävs för att dekryptera data som lagras i Data Lake Storage Gen1. Du kan antingen låta Data Lake Storage Gen1 hantera MEKs åt dig eller välja att behålla ägarskapet för MEKs med ditt Azure Key Vault-konto. Du anger läget för nyckel hantering när du skapar ett Data Lake Storage Gen1-konto. Mer information om hur du tillhandahåller en krypterings-relaterad konfiguration finns i [Kom igång med Azure Data Lake Storage gen1 med hjälp av Azure Portal](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Aktivitets- och diagnostikloggar
-Du kan använda aktivitet eller diagnostikloggar, beroende på om du söker efter loggar för kontot datorhanteringsrelaterade aktiviteter eller data som är relaterade aktiviteter.
+Du kan använda aktivitets-eller diagnostikloggar, beroende på om du söker efter loggar för konto hanterings aktiviteter eller data relaterade aktiviteter.
 
-* Kontot datorhanteringsrelaterade aktiviteter API: erna för Azure Resource Manager och exponeras i Azure-portalen via aktivitetsloggar.
-* Data som är relaterade aktiviteter använder WebHDFS REST API: er och exponeras i Azure-portalen via diagnostikloggar.
+* Konto hantering-relaterade aktiviteter använder Azure Resource Manager-API: er och visas i Azure Portal via aktivitets loggar.
+* Datarelaterade aktiviteter använder WebHDFS REST API: er och visas i Azure Portal via diagnostikloggar.
 
 ### <a name="activity-log"></a>Aktivitetslogg
-För att uppfylla krav, kan en organisation kräva tillräcklig granskningshistorik för hanteringsaktiviteter för kontot om det behöver gräver djupare i särskilda incidenter. Data Lake Storage Gen1 har inbyggd övervakning och loggas alla hanteringsaktiviteter för kontot.
+För att följa regler kan en organisation kräva tillräckliga gransknings historik för konto hanterings aktiviteter om det behövs för att kunna träffa vissa incidenter. Data Lake Storage Gen1 har inbyggd övervakning och loggar alla konto hanterings aktiviteter.
 
-Visa och välj de kolumner som du vill logga för granskningshistorik för kontot management. Du kan också exportera aktivitetsloggar till Azure Storage.
+Visa och välj de kolumner som du vill logga i gransknings historiken för konto hantering. Du kan också exportera aktivitets loggar till Azure Storage.
 
-![Aktivitetsloggen](./media/data-lake-store-security-overview/activity-logs.png "aktivitetsloggen")
+![Aktivitetslogg](./media/data-lake-store-security-overview/activity-logs.png "Aktivitetslogg")
 
-Mer information om hur du arbetar med aktivitetsloggar finns [visa aktivitetsloggar till granska åtgärder på resurser](../azure-resource-manager/resource-group-audit.md).
+Mer information om hur du arbetar med aktivitets loggar finns i [Visa aktivitets loggar för att granska åtgärder på resurser](../azure-resource-manager/management/view-activity-logs.md).
 
 ### <a name="diagnostics-logs"></a>Diagnostikloggar
-Du kan aktivera granskning av data och Diagnostisk loggning i Azure portal och skicka dem till en Azure Blob storage-konto, en event hub eller Azure Monitor-loggar.
+Du kan aktivera data åtkomst granskning och diagnostisk loggning i Azure Portal och skicka loggarna till ett Azure Blob Storage-konto, en Event Hub-eller Azure Monitor-loggar.
 
-![Diagnostikloggar](./media/data-lake-store-security-overview/diagnostic-logs.png "diagnostikloggar")
+![Diagnostikloggar](./media/data-lake-store-security-overview/diagnostic-logs.png "Diagnostikloggar")
 
-Läs mer om hur du arbetar med diagnostikloggar med Data Lake Storage Gen1 [åtkomst till diagnostikloggar för Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md).
+Mer information om hur du arbetar med diagnostikloggar med Data Lake Storage Gen1 finns i [använda diagnostikloggar för data Lake Storage gen1](data-lake-store-diagnostic-logs.md).
 
 ## <a name="summary"></a>Sammanfattning
-Enterprise-kunder kräver en plattform för dataanalys molnet som är säkert och enkelt att använda. Data Lake Storage Gen1 är utformad för att uppfylla dessa krav via Identitetshantering och autentisering via Azure Active Directory-integrering, ACL-baserad auktorisering, isolering av nätverk, kryptering under överföring och i vila och granskning.
+Företags kunder kräver en moln plattform för data analys som är säker och lätt att använda. Data Lake Storage Gen1 är utformad för att hjälpa dig att åtgärda dessa krav via identitets hantering och autentisering via Azure Active Directory-integrering, ACL-baserad auktorisering, nätverks isolering, data kryptering under överföring och i vila och granskning.
 
-Om du vill se nya funktioner i Data Lake Storage Gen1 Skicka oss feedback den [Data Lake Storage Gen1 UserVoice-forum](https://feedback.azure.com/forums/327234-data-lake).
+Om du vill se nya funktioner i Data Lake Storage Gen1 skickar du oss feedback i [data Lake Storage gen1 UserVoice-forumet](https://feedback.azure.com/forums/327234-data-lake).
 
 ## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Kom igång med Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * [Skydda data i Data Lake Storage Gen1](data-lake-store-secure-data.md)
-

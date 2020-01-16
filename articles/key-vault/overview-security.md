@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: 728398aeec4715d15ebe44ae6d4e4bfa5f295df8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 74dac926ea67b9f6a31993a72dc6331aa48155b7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884784"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981575"
 ---
 # <a name="azure-key-vault-security"></a>Azure Key Vault säkerhet
 
@@ -45,16 +45,16 @@ Modellen för en enda mekanism för autentisering till båda planerna har flera 
 
 ### <a name="managing-administrative-access-to-key-vault"></a>Hantera administrativ åtkomst till Key Vault
 
-När du skapar ett nyckel valv i en resurs grupp hanterar du åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du kan bevilja åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en `key vault Contributor` fördefinierad roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en RBAC-roll:
+När du skapar ett nyckel valv i en resurs grupp hanterar du åtkomst med hjälp av Azure AD. Du beviljar användare eller grupper möjligheten att hantera nyckel valv i en resurs grupp. Du kan bevilja åtkomst på en bestämd omfattnings nivå genom att tilldela lämpliga RBAC-roller. Om du vill bevilja åtkomst till en användare för att hantera nyckel valv tilldelar du en fördefinierad `key vault Contributor` roll till användaren vid en bestämd omfattning. Följande omfattnings nivåer kan tilldelas en RBAC-roll:
 
-- **Prenumeration**: En RBAC-roll som tilldelas på prenumerations nivå gäller för alla resurs grupper och resurser i prenumerationen.
-- **Resursgrupp**: En RBAC-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
-- **Speciell resurs**: En RBAC-roll som är tilldelad för en speciell resurs gäller för resursen. I det här fallet är resursen ett särskilt nyckel valv.
+- **Prenumeration**: en RBAC-roll som tilldelas på prenumerations nivå gäller för alla resurs grupper och resurser i prenumerationen.
+- **Resurs grupp**: en RBAC-roll som tilldelas på resurs grupps nivå gäller för alla resurser i den resurs gruppen.
+- **Resurs**: en RBAC-roll som är tilldelad en angiven resurs gäller för den resursen. I det här fallet är resursen ett särskilt nyckel valv.
 
 Det finns flera fördefinierade roller. Om en fördefinierad roll inte passar dina behov kan du definiera en egen roll. Mer information finns i [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md).
 
 > [!IMPORTANT]
-> Om en användare har `Contributor` behörighet till ett nyckel valv hanterings plan kan användaren ge sig själva åtkomst till data planet genom att ange en Key Vault åtkomst princip. Du bör noggrant kontrol lera vem som `Contributor` har roll åtkomst till dina nyckel valv. Se till att endast behöriga personer kan komma åt och hantera nyckel valv, nycklar, hemligheter och certifikat.
+> Om en användare har `Contributor` behörigheter till ett hanterings plan för nyckel valv, kan användaren ge sig själva åtkomst till data planet genom att ange en Key Vault åtkomst princip. Du bör noggrant kontrol lera vem som har `Contributor` roll åtkomst till dina nyckel valv. Se till att endast behöriga personer kan komma åt och hantera nyckel valv, nycklar, hemligheter och certifikat.
 
 <a id="data-plane-access-control"></a>
 ### <a name="controlling-access-to-key-vault-data"></a>Kontrol lera åtkomsten till Key Vault data
@@ -87,15 +87,15 @@ Key Vault loggning sparar information om de aktiviteter som utförts i valvet. K
     - Signering, verifiering, kryptering, dekryptering, wrapping och unwrap-nycklar, Hämta hemligheter och Visa nycklar och hemligheter (och deras versioner).
 - Oautentiserade förfrågningar som resulterar i ett 401-svar. Exempel är begär Anden som inte har en Bearer-token, som har fel format eller som har upphört att gälla eller som har en ogiltig token.
 
-Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. Det är upp till dig att hantera dina loggar i ditt lagrings konto. 
+Loggnings information kan nås inom 10 minuter efter nyckel valvs åtgärden. Det är upp till dig att hantera dina loggar i ditt lagrings konto.
 
 - Använd standardåtkomstmetoder i Azure för att skydda loggarna genom att begränsa vem som kan komma åt dem.
 - Ta bort loggar som du inte vill behålla i ditt lagringskonto.
 
-Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../storage/common/storage-security-guide.md)
+Rekommendationer för att hantera lagrings konton på ett säkert sätt finns i [Azure Storage säkerhets guide](../storage/blobs/security-recommendations.md)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - [Tjänst slut punkter för virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)
-- [RBAC Inbyggda roller](../role-based-access-control/built-in-roles.md)
+- [RBAC: inbyggda roller](../role-based-access-control/built-in-roles.md)
 - [tjänst slut punkter för virtuella nätverk för Azure Key Vault](key-vault-overview-vnet-service-endpoints.md)

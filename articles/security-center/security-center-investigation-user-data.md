@@ -13,27 +13,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9e4c6577f0b8b18aff343ac54b31ff292632f5d0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686401"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979224"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Hantera användar data som finns i en Azure Security Center undersökning
 Den här artikeln innehåller information om hur du hanterar användar data som finns i Azure Security Centers undersöknings funktion. Gransknings data lagras i [Azure Monitor loggar](../log-analytics/log-analytics-overview.md) och exponeras i Security Center. Att hantera användar data innebär att du kan ta bort eller exportera data.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="searching-for-and-identifying-personal-data"></a>Söka efter och identifiera personliga data
+## <a name="searching-for-and-identifying-personal-data"></a>Söker efter och identifierar personuppgifter
 I Azure Portal kan du använda Security Centers [gransknings funktion](../security-center/security-center-investigation.md) för att söka efter personliga data. Undersöknings funktionen finns i **säkerhets aviseringar**.
 
 I undersöknings funktionen visas alla entiteter, användar information och data på fliken **entiteter** .
 
-## <a name="securing-and-controlling-access-to-personal-information"></a>Skydda och kontrol lera åtkomst till personlig information
+## <a name="securing-and-controlling-access-to-personal-information"></a>Skydda och kontrollera åtkomst till personuppgifter
 En Security Center användare som har tilldelats rollen läsare, ägare, deltagare eller konto administratör kan komma åt kund information i verktyget.
 
-Se [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna läsare, ägare och deltagare. Se [Azure-prenumerations administratörer](../billing/billing-add-change-azure-subscription-administrator.md) för att lära dig mer om rollen konto administratör.
+Se [inbyggda roller för rollbaserad åtkomst kontroll i Azure](../role-based-access-control/built-in-roles.md) om du vill veta mer om rollerna läsare, ägare och deltagare. Se [Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md) för att lära dig mer om rollen konto administratör.
 
 ## <a name="deleting-personal-data"></a>Ta bort personliga data
 En Security Center användare som tilldelats rollen ägare, deltagare eller konto administratör kan ta bort information om undersökningen.

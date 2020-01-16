@@ -3,7 +3,7 @@ title: Översikt för utvecklare – Azure Batch | Microsoft Docs
 description: Lär dig mer om funktionerna i Batch-tjänsten och dess API:er ur ett utvecklingsperspektiv.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 416b95f8-2d7b-4111-8012-679b0f60d204
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-compute
 ms.date: 08/29/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 6ea5ce71622e98b60d68c1680382dc63c767999d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350183"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029773"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -36,7 +36,7 @@ Oavsett om du utvecklar ett distribuerat beräknings program eller en tjänst so
 
 Följande allmänna arbetsflöde är typiskt i praktiskt taget alla program och tjänster som använder Batch-tjänsten för att bearbeta parallella arbetsbelastningar:
 
-1. Ladda upp datafilerna som du vill bearbeta till ett [Azure Storage][azure_storage] -konto. Batch innehåller inbyggt stöd för åtkomst till Azure Blob Storage, och dina aktiviteter kan hämta dessa filer till [beräkningsnoder](#compute-node) när aktiviteterna körs.
+1. Ladda upp **datafilerna** som du vill bearbeta till ett [Azure Storage][azure_storage] -konto. Batch innehåller inbyggt stöd för åtkomst till Azure Blob Storage, och dina aktiviteter kan hämta dessa filer till [beräkningsnoder](#compute-node) när aktiviteterna körs.
 2. Ladda upp **programfilerna** som dina aktiviteter ska köra. Dessa filer kan vara binärfiler eller skript och deras beroenden, och körs av aktiviteterna i dina jobb. Dina aktiviteter kan hämta dessa filer från ditt lagringskonto, eller så kan du använda funktionen för [programpaket](#application-packages) i Batch för att hantera och distribuera program.
 3. Skapa en [pool](#pool) med beräkningsnoder. När du skapar en pool anger du antalet beräkningsnoder för poolen, deras storlek och operativsystemet. När varje aktivitet i jobbet körs tilldelas det och körs på en av noderna i poolen.
 4. Skapa ett [jobb](#job). Ett jobb hanterar en samling aktiviteter. Du associerar varje jobb med en specifik pool där jobbets aktiviteter ska köras.
@@ -77,7 +77,7 @@ Du kan köra flera Batch-arbetsbelastningar i samma Batch-konto eller distribuer
 
 [!INCLUDE [batch-account-mode-include](../../includes/batch-account-mode-include.md)]
 
-## <a name="azure-storage-account"></a>Azure-lagringskonto
+## <a name="azure-storage-account"></a>Azure Storage-konto
 
 De flesta Batch-lösningar använder Azure Storage för lagring av resursfiler och utdatafiler. Till exempel brukar Batch-aktiviteterna (inklusive standardaktiviteter, startaktiviteter, jobbförberedelse- och jobbpubliceringsaktiviteter) definiera resursfiler som finns i ett lagringskonto.
 
@@ -89,13 +89,13 @@ Batch stöder följande typer av Azure Storage-konton:
 
 Mer information om lagringskonton finns i [kontoöversikten för Azure Storage](../storage/common/storage-account-overview.md).
 
-Du kan associera ett lagringskonto till Batch-kontot när du skapar Batch-kontot, eller senare. Betänk dina kostnads- och prestandakrav när du väljer lagringskonto. Till exempel har alternativen med GPv2- och blob storage-konto stöd för större [kapacitet och skalbarhet](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) jämfört med GPv1. (Kontakta Azure-supporten för att begära en ökning av en lagringsgräns.) De här alternativen kan förbättra prestandan för Batch-lösningar som innehåller ett stort antal parallella uppgifter som kan läsa från eller skriva till lagringskontot.
+Du kan associera ett lagringskonto till Batch-kontot när du skapar Batch-kontot, eller senare. Betänk dina kostnads- och prestandakrav när du väljer lagringskonto. Till exempel har alternativen med GPv2- och blob storage-konto stöd för större [kapacitet och skalbarhet](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) jämfört med GPv1. (Kontakta Azure-supporten om du vill begära en ökning av en lagrings gräns.) Dessa konto alternativ kan förbättra prestanda för batch-lösningar som innehåller ett stort antal parallella aktiviteter som läser från eller skriver till lagrings kontot.
 
 ## <a name="compute-node"></a>Beräkningsnod
 
 En beräkningsnod är en virtuell Azure-dator eller molntjänstdator som är dedikerad för bearbetning av en del av ditt programs arbetsbelastning. Storleken på en nod avgör antalet CPU-kärnor, minneskapaciteten och storleken på det lokala filsystemet som allokeras till noden. Du kan skapa pooler för Windows-eller Linux-noder med hjälp av Azure Cloud Services bilder från [azure Virtual Machines Marketplace][vm_marketplace]eller anpassade avbildningar som du förbereder. Mer information om dessa alternativ finns i följande [poolavsnitt](#pool).
 
-Noder kan köra alla körbara filer eller skript som stöds av nodens operativsystemmiljö, Körbara filer eller skript \*inkluderar. exe \*,. cmd \*,. bat och PowerShell-skript för Windows-och binärfiler, Shell och Python-skript för Linux.
+Noder kan köra alla körbara filer eller skript som stöds av nodens operativsystemmiljö, Körbara filer eller skript är \*. exe, \*. cmd, \*. bat och PowerShell-skript för Windows-och binärfiler, Shell och Python-skript för Linux.
 
 Alla beräkningsnoder i Batch innehåller också:
 
@@ -117,7 +117,7 @@ När du skapar en pool kan du ange följande attribut:
 * Typ av beräkningsnod och antal målnoder
 * Beräkningsnodernas storlek
 * Skalningsprincip
-* Princip för schemaläggning av uppgifter
+* Schemaläggningsprincip för aktiviteter
 * Kommunikationsstatus för beräkningsnoder
 * Startaktiviteter för beräkningsnoder
 * Programpaket
@@ -247,7 +247,7 @@ Schemaläggningen av jobb mellan pooler är oberoende av varandra. Mellan olika 
 
 Med [jobb scheman][rest_job_schedules] kan du skapa återkommande jobb i batch-tjänsten. Ett jobbschema anger när jobb ska köras och innehåller specifikationerna för jobben som ska köras. Du kan ange schemats varaktighet – hur länge och när schemat gäller – och hur ofta jobb skapas under den schemalagda perioden.
 
-## <a name="task"></a>Uppgift
+## <a name="task"></a>Aktivitet
 
 En aktivitet är en beräkningsenhet som associeras med ett jobb. Den körs på en nod. Aktiviteter tilldelas till en nod för körning eller placeras i kö tills en nod blir ledig. Enkelt beskrivet kör en aktivitet ett eller flera program eller skript på en beräkningsnod för att utföra det arbete som du vill ha gjort.
 
@@ -322,8 +322,8 @@ En Job Manager-aktivitet startar innan alla andra aktiviteter. Den tillhandahål
 
 Batch innehåller jobbförberedelseaktiviteter för konfiguration av jobb före körningen. Jobbpubliceringsaktiviteter är avsedda för underhåll och rensning när jobbet har körts.
 
-* **Jobbförberedelseuppgift**: En jobbförberedelseuppgift körs på alla beräkningsnoder som schemalagts att köra aktiviteter, innan andra jobbuppgifter körs. Du kan till exempel använda en jobbförberedelseaktivitet för att kopiera data som delas av alla aktiviteter, men som är unika för jobbet.
-* **Jobbpubliceringsuppgift**: När ett jobb har slutförts körs en jobbpubliceringsuppgift på alla noder i poolen som har kört minst en uppgift. Du kan till exempel använda en jobbpubliceringsaktivitet om du vill ta bort data som kopieras av jobbförberedelseaktiviteten, eller för att komprimera och ladda upp loggar med diagnostikdata.
+* **Jobbförberedelseaktivitet**: En jobbförberedelseaktivitet körs på alla beräkningsnoder som schemalagts att köra aktiviteter, innan andra jobbaktiviteter körs. Du kan till exempel använda en jobbförberedelseaktivitet för att kopiera data som delas av alla aktiviteter, men som är unika för jobbet.
+* **Jobbpubliceringsaktivitet**: När ett jobb har slutförts körs en jobbpubliceringsaktivitet på alla noder i poolen som har kört minst en aktivitet. Du kan till exempel använda en jobbpubliceringsaktivitet om du vill ta bort data som kopieras av jobbförberedelseaktiviteten, eller för att komprimera och ladda upp loggar med diagnostikdata.
 
 Du kan ange en kommandorad som ska köras när aktiviteten anropas både med jobbförberedelse- och jobbpubliceringsaktiviteter. De stöder funktioner som filhämtning, upphöjd körning, anpassade miljövariabler, högsta körningstid, antal omförsök och kvarhållningstid för filer.
 
@@ -335,7 +335,7 @@ En [aktivitet med flera instanser](batch-mpi.md) är en aktivitet som är konfig
 
 Detaljerad information om hur du kör MPI-jobb i Batch med hjälp av Batch .NET-biblioteket finns i [Använda aktiviteter med flera instanser för att köra MPI-program (Message Passing Interface) i Azure Batch](batch-mpi.md).
 
-### <a name="task-dependencies"></a>Aktivitetssamband
+### <a name="task-dependencies"></a>Uppgiftsberoenden
 
 Med [aktivitetsberoenden](batch-task-dependencies.md) kan du, som namnet antyder, ange att en aktivitet är beroende av att andra aktiviteter slutförs innan den kan köras. Den här funktionen har stöd för situationer där en ”underordnad” aktivitet använder utdata från en ”överordnad” aktivitet, eller där en överordnad aktiviteten utför viss initiering som krävs av en underordnad aktivitet. Innan du kan använda den här funktionen måste du aktivera aktivitetsberoenden i Batch-jobbet. För varje aktivitet som är beroende av en annan (eller många andra) anger du sedan de aktiviteter som aktiviteten är beroende av.
 
@@ -353,9 +353,9 @@ Varje aktivitet som utförs av Batch-tjänsten har åtkomst till miljövariabler
 
 Du kan ange anpassade miljövariabler på aktivitets- eller jobbnivå genom att fylla i egenskapen för *miljöinställningar* för dessa entiteter. Se till exempel egenskaperna [Lägg till en aktivitet i en jobb][rest_add_task] åtgärd (batch REST API) eller egenskaperna [CloudTask. EnvironmentSettings][net_cloudtask_env] och [CloudJob. CommonEnvironmentSettings][net_job_env] i batch .net.
 
-Ditt klient program eller din tjänst kan erhålla en aktivitets miljövariabler, både tjänstedefinierade och anpassade, genom att använda [Hämta information om en aktivitets][rest_get_task_info] åtgärd (batch rest) eller genom att komma åt egenskapen [CloudTask. EnvironmentSettings][net_cloudtask_env] ( Batch .NET). Processer som körs på en beräkningsnod kan komma åt dessa och andra miljövariabler på noden, till exempel genom att använda vanlig `%VARIABLE_NAME%`- (Windows) eller `$VARIABLE_NAME`-syntax (Linux).
+Ditt klient program eller din tjänst kan erhålla en aktivitets miljövariabler, både tjänstedefinierade och anpassade, genom att använda [Hämta information om en aktivitets][rest_get_task_info] åtgärd (batch rest) eller genom att använda egenskapen [CloudTask. EnvironmentSettings][net_cloudtask_env] (batch .net). Processer som körs på en beräkningsnod kan komma åt dessa och andra miljövariabler på noden, till exempel genom att använda vanlig `%VARIABLE_NAME%`- (Windows) eller `$VARIABLE_NAME`-syntax (Linux).
 
-Du hittar en fullständig lista över alla tjänstedefinierade miljövariabler i [Compute Node][msdn_env_vars]-miljövariabler.
+Du hittar en fullständig lista över alla tjänstedefinierade miljövariabler i [Compute Node-miljövariabler][msdn_env_vars].
 
 ## <a name="files-and-directories"></a>Filer och kataloger
 
@@ -367,23 +367,23 @@ Rotkatalogen innehåller följande katalogstruktur:
 
 ![Katalogstrukturen på beräkningsnoder][1]
 
-* **program**: Innehåller information om programpaket som har installerats på Compute-noden. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_APP_PACKAGE`-miljövariabeln.
+* **program**: innehåller information om programpaket som har installerats på Compute-noden. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_APP_PACKAGE`-miljövariabeln.
 
-* **fsmounts**: Katalogen innehåller alla fil system som är monterade på en Compute-nod. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_MOUNTS_DIR`-miljövariabeln. Mer information finns i [montera ett virtuellt fil system på en batch-pool](virtual-file-mount.md).
+* **fsmounts**: katalogen innehåller alla fil system som är monterade på en Compute-nod. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_MOUNTS_DIR`-miljövariabeln. Mer information finns i [montera ett virtuellt fil system på en batch-pool](virtual-file-mount.md).
 
-* **delad**: Den här katalogen ger läs-/skrivbehörighet till *alla* uppgifter som körs på en nod. Alla aktiviteter som körs på noden kan skapa, läsa, uppdatera och ta bort filer i den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_SHARED_DIR`-miljövariabeln.
+* **shared**: Den här katalogen ger läs-/skrivbehörighet till *alla* aktiviteter som körs på en nod. Alla aktiviteter som körs på noden kan skapa, läsa, uppdatera och ta bort filer i den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_SHARED_DIR`-miljövariabeln.
 
-* **startup**: Den här katalogen används av en startuppgift som dess arbetskatalog. Alla filer som laddas ned till noden av startaktiviteten lagras här. Startaktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_STARTUP_DIR`-miljövariabeln.
+* **startup**: Den här katalogen används av en startaktivitet som dess arbetskatalog. Alla filer som laddas ned till noden av startaktiviteten lagras här. Startaktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Aktiviteter kan komma åt den här katalogen genom att referera till `AZ_BATCH_NODE_STARTUP_DIR`-miljövariabeln.
 
-* **volatile**: Den här katalogen är avsedd för internt bruk. Det finns ingen garanti för att filer i katalogen eller själva katalogen kommer att finnas i framtiden.
+* **volatile**: den här katalogen är avsedd för internt bruk. Det finns ingen garanti för att filer i katalogen eller själva katalogen kommer att finnas i framtiden.
 
-* **WorkItems**: Den här katalogen innehåller katalogerna för jobb och deras aktiviteter på Compute-noden.
+* **WorkItems**: den här katalogen innehåller kataloger för jobb och deras aktiviteter på Compute-noden.
 
-* **Uppgifter**: I **WorkItems** -katalogen skapas en katalog för varje aktivitet som körs på noden. Den används genom att referera till `AZ_BATCH_TASK_DIR` miljövariabeln.
+* **Uppgifter**: i **WorkItems** -katalogen skapas en katalog för varje aktivitet som körs på noden. Den används genom att referera till `AZ_BATCH_TASK_DIR`-miljövariabeln.
 
     I varje aktivitetskatalog skapar Batch-tjänsten en arbetskatalog (`wd`) vars unika sökväg anges av `AZ_BATCH_TASK_WORKING_DIR`-miljövariabeln. Den här katalogen ger läs-/skrivbehörighet till aktiviteten. Aktiviteten kan skapa, läsa, uppdatera och ta bort filer under den här katalogen. Den här katalogen lagras baserat på *RetentionTime*-begränsningen som angetts för aktiviteten.
 
-    `stdout.txt` och `stderr.txt`: Dessa filer skrivs till uppgiftsmappen när uppgiften körs.
+    `stdout.txt`och `stderr.txt`: Dessa filer skrivs till aktivitetsmappen när aktiviteten körs.
 
 > [!IMPORTANT]
 > När en nod tas bort från poolen tas *alla* filer som lagras på noden bort.
@@ -533,7 +533,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
     Den här åtgärden kopplar effektivt bort noden så att den inte tilldelas några ytterligare aktiviteter, samtidigt som den kan fortsätta köras och finnas kvar i poolen. På så sätt kan du fortsätta att undersöka orsaken till felen utan att den misslyckade aktivitetens data går förlorade, och utan att noden orsakar ytterligare aktivitetsfel. Du kan till exempel inaktivera schemaläggning på noden och sedan [logga in via en fjärranslutning](#connecting-to-compute-nodes) för att granska nodens händelseloggar eller utföra annan felsökning. När du är klar med din undersökning kan du sedan ta tillbaka noden online genom att aktivera schemaläggning ([REST][rest_online] | [.net][net_online]) eller utföra någon av de andra åtgärderna som beskrivs ovan.
 
 > [!IMPORTANT]
-> Med varje åtgärd ovan – Starta om, Återställ avbildning, Ta bort, Inaktivera aktivitetsschemaläggning – kan du ange hur aktiviteter som körs på noden hanteras när du utför åtgärden. Om du t. ex. inaktiverar schemaläggning av aktiviteter på en nod med hjälp av batch .NET-klient biblioteket, kan du ange ett [DisableComputeNodeSchedulingOption][net_offline_option] Enum-värde för att ange om du vill **Avsluta** pågående aktiviteter, **köa** om dem i schemaläggning på andra noder eller Tillåt att körning av aktiviteter slutförs innan åtgärden utförs (**TaskCompletion**).
+> Med varje åtgärd ovan – Starta om, Återställ avbildning, Ta bort, Inaktivera aktivitetsschemaläggning – kan du ange hur aktiviteter som körs på noden hanteras när du utför åtgärden. Om du t. ex. inaktiverar schemaläggning av aktiviteter på en nod med hjälp av batch .NET-klient biblioteket, kan du ange ett [DisableComputeNodeSchedulingOption][net_offline_option] Enum-värde för att ange om du vill **Avsluta** pågående aktiviteter, **köa** om dem för schemaläggning på andra noder eller tillåta att aktiviteter som körs måste slutföras innan åtgärden kan utföras (**TaskCompletion**).
 >
 >
 

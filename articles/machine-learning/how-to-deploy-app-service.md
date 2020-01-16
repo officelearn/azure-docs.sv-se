@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: a8a5b8df4307d9a73477944351c2889a86bdb2b4
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75540339"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968535"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Mer information om funktioner som tillhandahålls av Azure App Service finns i [
     > * `model` – den registrerade modell som ska distribueras.
     > * `inference_config` – konfigurationens konfigurations härledning.
     >
-    > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](service/how-to-deploy-and-where.md).
+    > Mer information om hur du ställer in dessa variabler finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="prepare-for-deployment"></a>Förbered för distribution
 
@@ -67,7 +67,7 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
     >
     > Ett annat alternativ som kan fungera för ditt scenario är [batch-förutsägelser](how-to-run-batch-predictions.md), vilket ger åtkomst till data lager när poäng.
 
-    Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](service/how-to-deploy-and-where.md).
+    Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 * **Beroenden**, till exempel hjälp skript eller python/Conda-paket som krävs för att köra registrerings skriptet eller modellen
 
@@ -93,7 +93,7 @@ Dessa entiteter kapslas in i en konfiguration för en __härledning__. Inferensk
 
 Mer information om miljöer finns i [skapa och hantera miljöer för utbildning och distribution](how-to-use-environments.md).
 
-Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](service/how-to-deploy-and-where.md).
+Mer information om konfiguration av konfiguration finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 > [!IMPORTANT]
 > När du distribuerar till Azure App Service behöver du inte skapa en __distributions konfiguration__.
@@ -103,7 +103,7 @@ Mer information om konfiguration av konfiguration finns i [Distribuera modeller 
 Om du vill skapa Docker-avbildningen som distribueras till Azure App Service använder du [modell. Package](https://docs.microsoft.com//python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-). Följande kodfragment visar hur du skapar en ny avbildning från modellen och konfigurationen för konfigurations härledning:
 
 > [!NOTE]
-> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](service/how-to-deploy-and-where.md).
+> Kodfragmentet förutsätter att `model` innehåller en registrerad modell och att `inference_config` innehåller konfigurationen för härlednings miljön. Mer information finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core import Model
@@ -121,7 +121,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
 
 ## <a name="deploy-image-as-a-web-app"></a>Distribuera avbildning som en webbapp
 
-1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med e-postvärdet som returnerades tidigare från `package.location`: 
+1. Använd följande kommando för att hämta inloggnings uppgifterna för den Azure Container Registry som innehåller avbildningen. Ersätt `<acrinstance>` med e-postvärdet som returnerades tidigare från `package.location`:
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -168,7 +168,7 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     Det här kommandot returnerar information som liknar följande JSON-dokument:
 
     ```json
-    { 
+    {
     "adminSiteName": null,
     "appServicePlanName": "myplanname",
     "geoRegion": "West Europe",

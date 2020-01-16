@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 12/20/2019
-ms.openlocfilehash: e3a8048d8bcb8bb737c511a8b8bb6b57f9e81403
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750972"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977573"
 ---
 # <a name="collect-azure-activity-log-with-legacy-settings"></a>Samla in Azure aktivitets logg med äldre inställningar
 [Azure aktivitets loggen](platform-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Tills nyligen har du skapat en logg profil för att skicka aktivitets logg poster till [ett händelsehubben eller lagrings konto](activity-log-export.md) och använde en koppling för att samla in dem i en [Log Analytics-arbetsyta](activity-log-collect.md). I den här artikeln beskrivs skillnaden mellan metoderna, hur du arbetar med befintliga äldre inställningar och hur du rensar äldre inställningar som förberedelse för diagnostikinställningar.
@@ -28,7 +28,7 @@ Att använda diagnostikinställningar har följande fördelar jämfört med nuva
 - Filtrera samling för att endast samla in loggar för särskilda kategorier.
 - Samla in alla aktivitets logg kategorier. Vissa kategorier samlas inte in med hjälp av en äldre metod.
 - Snabbare svars tid för logg inmatning. Den föregående metoden har ungefär 15 minuters fördröjning medan diagnostikinställningar bara lägger till ungefär 1 minut.
-  
+
 ### <a name="considerations"></a>Överväganden
 Överväg följande information om aktivitets loggs insamling med hjälp av diagnostikinställningar innan du aktiverar den här funktionen.
 
@@ -44,7 +44,7 @@ Följande egenskaper har tagits bort:
 - ActivityStatus
 - ActivitySubstatus
 - OperationName
-- ResourceProvider 
+- ResourceProvider
 
 Följande egenskaper har lagts till:
 
@@ -57,10 +57,10 @@ Följande egenskaper har lagts till:
 
 1. Välj **aktivitets logg**på **Azure Monitor** -menyn i Azure Portal.
 3. Klicka på **Diagnostikinställningar**.
-   
+
    ![Diagnostikinställningar](media/diagnostic-settings-subscription/diagnostic-settings.png)
-   
-4. Klicka på den lila banderollen för den äldre upplevelsen. 
+
+4. Klicka på den lila banderollen för den äldre upplevelsen.
 
     ![Äldre miljö](media/diagnostic-settings-subscription/legacy-experience.png)
 
@@ -84,7 +84,7 @@ Du bör inaktivera en befintlig samling av aktiviteten innan du aktiverar den me
 ### <a name="disable-log-profile"></a>Inaktivera logg profil
 
 1. Använd proceduren som beskrivs i [arbeta med äldre inställningar](#work-with-legacy-settings) för att öppna äldre inställningar.
-2. Inaktivera alla aktuella samlingar till lagrings-eller händelse nav. 
+2. Inaktivera alla aktuella samlingar till lagrings-eller händelse nav.
 
 
 
@@ -93,5 +93,5 @@ Azure Log Analytics Monitoring-lösningen innehåller flera logg frågor och vye
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om aktivitets loggen](../../azure-resource-manager/resource-group-audit.md)
+* [Läs mer om aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md)
 * [Läs mer om diagnostikinställningar](diagnostic-settings.md)

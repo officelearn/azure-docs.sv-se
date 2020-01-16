@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: d574c5eef15c21d3d490bcfe682b87bae2856f1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2aa175d97787d82aae062a95ed519f35ff65816b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353723"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982266"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Förstå användningen av virtuella Azure-datorer
-Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../../billing/billing-understand-your-bill.md).
+Genom att analysera Azures användnings data kan kraftfulla förbruknings insikter uppnås – insikter som kan möjliggöra bättre kostnads hantering och allokering i hela organisationen. Det här dokumentet ger en detaljerad genom gång av information om din Azure Compute-förbrukning. Om du vill ha mer information om allmän Azure-användning går du till att [förstå din faktura](../../cost-management-billing/understand/review-individual-bill.md).
 
 ## <a name="download-your-usage-details"></a>Hämta din användnings information
-Börja med att [Hämta din användnings information](../../billing/billing-download-azure-invoice-daily-usage-date.md). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
+Börja med att [Hämta din användnings information](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Tabellen nedan innehåller definitionen och exempel på användnings värden för Virtual Machines som distribueras via Azure Resource Manager. Det här dokumentet innehåller ingen detaljerad information för virtuella datorer som distribueras via vår klassiska modell.
 
 
 | Fält             | Betydelse                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Exempel värden                                                                                                                                                                                                                                                                                                                                                   |
@@ -132,7 +132,7 @@ ComputeHR står för beräknings timme som representerar användnings händelsen
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Hur gör jag för att veta om jag debiteras för Premium-program?
 När du utforskar vilken VM-avbildning som passar bäst för dina behov bör du ta en titt på [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). Avbildningen har program Plans priset. Om du ser "kostnads fri" för priset finns det ingen extra kostnad för program varan. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Vad är skillnaden mellan Microsoft. ClassicCompute och Microsoft. Compute i den förbrukade tjänsten?
-Microsoft. ClassicCompute representerar klassiska resurser som distribueras via Azure-Service Manager. Om du distribuerar via Resource Manager fylls Microsoft. Compute i den förbrukade tjänsten. Läs mer om [Azures distributions modeller](../../azure-resource-manager/resource-manager-deployment-model.md).
+Microsoft. ClassicCompute representerar klassiska resurser som distribueras via Azure-Service Manager. Om du distribuerar via Resource Manager fylls Microsoft. Compute i den förbrukade tjänsten. Läs mer om [Azures distributions modeller](../../azure-resource-manager/management/deployment-models.md).
 ### <a name="why-is-the-instanceid-field-blank-for-my-virtual-machine-usage"></a>Varför är InstanceID-fältet tomt för min virtuella dator användning?
 Om du distribuerar via den klassiska distributions modellen är InstanceID-strängen inte tillgänglig.
 ### <a name="why-are-the-tags-for-my-vms-not-flowing-to-the-usage-details"></a>Varför är taggarna för mina virtuella datorer inte flödar till användnings informationen?
@@ -143,5 +143,5 @@ I den klassiska modellen sammanställs faktureringen av resurser på moln tjäns
 Virtuella datorer med Premium Storage-kapacitet debiteras enligt samma taxa som icke-Premium Storage-kompatibla virtuella datorer. Endast dina lagrings kostnader skiljer sig åt. Besök [sidan med pris för lagring](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om din användnings information finns i [förstå din faktura för Microsoft Azure.](../../billing/billing-understand-your-bill.md)
+Mer information om din användnings information finns i [förstå din faktura för Microsoft Azure.](../../cost-management-billing/understand/review-individual-bill.md)
 

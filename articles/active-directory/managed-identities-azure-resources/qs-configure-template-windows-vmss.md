@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5f006832fd1f1386adaf89b0045272a70db2df3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9854027bbdfaf22c650ae9e2e0aa1eec457f89dd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429953"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977952"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Konfigurera hanterade identiteter för Azure-resurser på en skala för virtuella Azure-datorer med hjälp av en mall
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod. 
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod.
 
 I den här artikeln får du lära dig hur du utför följande hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella Azure-datorer med hjälp av Azure Resource Manager distributions mal len:
 - Aktivera och inaktivera den systemtilldelade hanterade identiteten på en skalnings uppsättning för virtuella Azure-datorer
@@ -54,7 +54,7 @@ Precis som med Azure Portal och skript ger [Azure Resource Manager](../../azure-
    - Använda en lokal [JSON-redigerare (till exempel vs-kod)](../../azure-resource-manager/resource-manager-create-first-template.md)och ladda upp och distribuera med hjälp av POWERSHELL eller cli.
    - Använd Visual Studio [Azures resurs grupps projekt](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md) för att både skapa och distribuera en mall.  
 
-Oavsett vilket alternativ du väljer, är mallens syntax detsamma vid den första distributionen och omdistributionen. Att aktivera hanterade identiteter för Azure-resurser på en ny eller befintlig virtuell dator görs på samma sätt. Som standard gör Azure Resource Manager också en [stegvis uppdatering](../../azure-resource-manager/deployment-modes.md) av distributioner.
+Oavsett vilket alternativ du väljer, är mallens syntax detsamma vid den första distributionen och omdistributionen. Att aktivera hanterade identiteter för Azure-resurser på en ny eller befintlig virtuell dator görs på samma sätt. Som standard gör Azure Resource Manager också en [stegvis uppdatering](../../azure-resource-manager/templates/deployment-modes.md) av distributioner.
 
 ## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
@@ -66,7 +66,7 @@ I det här avsnittet ska du aktivera och inaktivera den systemtilldelade hantera
 2. Om du vill aktivera den systemtilldelade hanterade identiteten läser du in mallen i en redigerare, letar reda på `Microsoft.Compute/virtualMachinesScaleSets` resurs av intresse i avsnittet resurser och lägger till egenskapen `identity` på samma nivå som `"type": "Microsoft.Compute/virtualMachinesScaleSets"`-egenskapen. Använd följande syntax:
 
    ```JSON
-   "identity": { 
+   "identity": {
        "type": "SystemAssigned"
    }
    ```
@@ -106,14 +106,14 @@ I det här avsnittet ska du aktivera och inaktivera den systemtilldelade hantera
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
             }
         }
     ]
-   ``` 
+   ```
 
 ### <a name="disable-a-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera en systemtilldelad hanterad identitet från en skalnings uppsättning för virtuella Azure-datorer
 
@@ -129,12 +129,12 @@ Om du har en skalnings uppsättning för virtuella datorer som inte längre beh�
 
    **Microsoft. Compute/virtualMachineScaleSets API version 2018-06-01**
 
-   Om din API version är `2017-12-01` och din skalnings uppsättning för den virtuella datorn har både system-och användarspecifika hanterade identiteter, tar du bort `SystemAssigned` från identitets typen och behåller `UserAssigned` tillsammans med `identityIds` matrisen för de användare som tilldelats hanterade identiteter. 
-   
-    
+   Om din API version är `2017-12-01` och din skalnings uppsättning för den virtuella datorn har både system-och användarspecifika hanterade identiteter, tar du bort `SystemAssigned` från identitets typen och behåller `UserAssigned` tillsammans med `identityIds` matrisen för de användare som tilldelats hanterade identiteter.
+
+
 
    I följande exempel visas hur du tar bort en systemtilldelad hanterad identitet från en skalnings uppsättning för virtuella datorer utan användare tilldelade hanterade identiteter:
-   
+
    ```json
    {
        "name": "[variables('vmssName')]",
@@ -157,7 +157,7 @@ I det här avsnittet tilldelar du en användardefinierad hanterad identitet till
 ### <a name="assign-a-user-assigned-managed-identity-to-a-virtual-machine-scale-set"></a>Tilldela en användardefinierad hanterad identitet till en virtuell dators skalnings uppsättning
 
 1. Under `resources`-elementet lägger du till följande post för att tilldela en användardefinierad hanterad identitet till den virtuella datorns skalnings uppsättning.  Se till att ersätta `<USERASSIGNEDIDENTITY>` med namnet på den användare-tilldelade hanterade identitet som du har skapat.
-   
+
    **Microsoft. Compute/virtualMachineScaleSets API version 2018-06-01**
 
    Om din API version är `2018-06-01`lagras dina tilldelade hanterade identiteter i `userAssignedIdentities` ord listans format och `<USERASSIGNEDIDENTITYNAME>` svärdet måste lagras i en variabel som definierats i `variables`-avsnittet i mallen.
@@ -173,12 +173,12 @@ I det här avsnittet tilldelar du en användardefinierad hanterad identitet till
                "[resourceID('Microsoft.ManagedIdentity/userAssignedIdentities/',variables('<USERASSIGNEDIDENTITYNAME>'))]": {}
            }
        }
-    
+
    }
    ```   
 
    **Microsoft. Compute/virtualMachineScaleSets API version 2017-12-01**
-    
+
    Om din `apiVersion` är `2017-12-01` eller tidigare lagras dina tilldelade hanterade identiteter i `identityIds` matrisen och `<USERASSIGNEDIDENTITYNAME>` värdet måste lagras i en variabel som definierats i avsnittet variabler i mallen.
 
    ```json
@@ -194,12 +194,12 @@ I det här avsnittet tilldelar du en användardefinierad hanterad identitet till
        }
 
    }
-   ``` 
+   ```
 > [!NOTE]
 > Du kan välja att etablera hanterade identiteter för Azure-resursers skalnings uppsättnings tillägg för virtuella datorer genom att ange det i `extensionProfile` element i mallen. Det här steget är valfritt, som du kan använda för identitets slut punkten för Azure Instance Metadata Service (IMDS) för att hämta tokens också.  Mer information finns i [Migrera från VM-tillägg till Azure IMDS för autentisering](howto-migrate-vm-extension.md).
 
 3. När du är färdig bör mallen se ut ungefär så här:
-   
+
    **Microsoft. Compute/virtualMachineScaleSets API version 2018-06-01**   
 
    ```json
@@ -234,7 +234,7 @@ I det här avsnittet tilldelar du en användardefinierad hanterad identitet till
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -277,7 +277,7 @@ I det här avsnittet tilldelar du en användardefinierad hanterad identitet till
                                       "port": 50342
                                   }
                                 }
-                            } 
+                            }
                         ]
                     }
                 }
@@ -305,9 +305,9 @@ Om du har en skalnings uppsättning för virtuella datorer som inte längre beh�
         }
    }
    ```
-   
+
    **Microsoft. Compute/virtualMachineScaleSets API version 2018-06-01**
-    
+
    Om du vill ta bort en enskild användardefinierad hanterad identitet från en skalnings uppsättning för virtuella datorer tar du bort den från `userAssignedIdentities`-ordlistan.
 
    Om du har en systemtilldelad identitet behåller du den i `type` värdet under `identity` svärdet.
@@ -317,8 +317,7 @@ Om du har en skalnings uppsättning för virtuella datorer som inte längre beh�
    Om du vill ta bort en enskild användardefinierad hanterad identitet från en skalnings uppsättning för virtuella datorer tar du bort den från `identityIds` matrisen.
 
    Om du har en systemtilldelad hanterad identitet behåller du den i `type` värdet under `identity` svärdet.
-   
+
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över hanterade identiteter för Azure-resurser](overview.md).
-

@@ -10,12 +10,12 @@ ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
 manager: anandsub
-ms.openlocfilehash: 00d84a7f3b4a15c9278caac8c2715380dd330482
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d143992317c77c6fc3137527bea485a98c046daa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930500"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969227"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Roller och behörigheter för Azure Data Factory
 
@@ -29,7 +29,7 @@ För att skapa och hantera underordnade resurser för Data Factory – inklusive
 - För att kunna skapa och hantera underordnade resurser i Azure-portalen måste du tillhöra rollen **Data Factory-deltagare** på resursgruppsnivå eller högre.
 - För att skapa och hantera underordnade resurser med PowerShell eller SDK räcker det att du har rollen som **deltagare** på resursnivå eller högre.
 
-För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../billing/billing-add-change-azure-subscription-administrator.md).
+För exempel på instruktioner om hur du lägger till en användare till en roll läser du artikeln [Lägg till roller](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="set-up-permissions"></a>Konfigurera behörigheter
 
@@ -56,7 +56,7 @@ Behörigheter för Azure databaser och GitHub är oberoende av Data Factory beh�
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Anpassade scenarier och anpassade roller
 
-Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Exempel:
+Ibland kan du behöva ge olika åtkomst nivåer för olika data fabriks användare. Ett exempel:
 - Du kan behöva en grupp där användare bara har behörighet för en speciell data fabrik.
 - Eller så kan du behöva en grupp där användare bara kan övervaka en data fabrik (eller fabriker), men inte ändra den.
 

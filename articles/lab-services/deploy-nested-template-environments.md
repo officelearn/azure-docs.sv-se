@@ -1,6 +1,6 @@
 ---
-title: Distribuera kapslade Resource Manager-mall-miljöer i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du distribuerar kapslade Azure Resource Manager-mallar för att tillhandahålla miljöer med Azure DevTest Labs.
+title: Distribuera de kapslade Resource Manager-mallarna i Azure DevTest Labs | Microsoft Docs
+description: Lär dig hur du distribuerar kapslade Azure Resource Manager mallar för att tillhandahålla miljöer med Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: spelluru
-ms.openlocfilehash: eec0cde4a36449f85998bfb04d16f1d52c68bb19
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 675d2c670f5bc11c1d8b61bc96313e408f788dc3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65835292"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976555"
 ---
-# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Distribuera kapslade Azure Resource Manager-mallar för testmiljöer
-En kapslad distribution kan du utföra andra Azure Resource Manager-mallar från huvudsakliga Resource Manager-mall. Det kan du dela upp din distribution till en uppsättning riktade och specifika ändamål mallar. Det ger fördelar vad gäller testning, återanvändning och läsbarhet. Artikeln [använda länkade mallar när du distribuerar Azure-resurser](../azure-resource-manager/resource-group-linked-templates.md) ger en bra översikt över den här lösningen med flera kodexempel. Den här artikeln innehåller ett exempel som är specifik för Azure DevTest Labs. 
+# <a name="deploy-nested-azure-resource-manager-templates-for-testing-environments"></a>Distribuera kapslade Azure Resource Manager mallar för test miljöer
+Med en kapslad distribution kan du köra andra Azure Resource Manager mallar inifrån en huvud resurs hanterings mall. Det gör att du kan dela upp distributionen i en uppsättning riktade och språkspecifika mallar. Det ger fördelar avseende testning, åter användning och läsbarhet. Artikeln [med länkade mallar när du distribuerar Azure-resurser](../azure-resource-manager/templates/linked-templates.md) ger en bättre översikt över den här lösningen med flera kod exempel. Den här artikeln innehåller ett exempel som är speciellt för Azure DevTest Labs. 
 
-## <a name="key-parameters"></a>Nyckelparametrar
-Du kan skapa en egen Resource Manager-mall från början, rekommenderar vi att du använder den [Azure-resursgruppsprojekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) i Visual Studio, vilket gör det enkelt att utveckla och felsöka mallar. När du lägger till en resurs för kapslade distributionen azuredeploy.json, Visual Studio lägger du till flera objekt om du vill att mallen ska vara mer flexibel. Dessa objekt omfattar undermappen med filen sekundära mall och parametrar och variabelnamn i den huvudsakliga mallfilen två parametrar för lagringsplatsen för de nya filerna. Den **_artifactsLocation** och **_artifactsLocationSasToken** är de viktigaste parametrarna som använder DevTest Labs. 
+## <a name="key-parameters"></a>Nyckel parametrar
+Även om du kan skapa en egen Resource Manager-mall från början, rekommenderar vi att du använder [Azures resurs grupps projekt](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) i Visual Studio, vilket gör det enkelt att utveckla och felsöka mallar. När du lägger till en kapslad distributions resurs i azuredeploy. JSON lägger Visual Studio till flera objekt för att göra mallen mer flexibel. Dessa objekt inkluderar undermappen med den sekundära mallen och parameter filen, variabel namn i filen för huvud mal len och två parametrar för lagrings platsen för de nya filerna. **_ArtifactsLocation** och **_artifactsLocationSasToken** är de nyckel parametrar som används av DevTest Labs. 
 
-Om du inte känner till hur DevTest Labs fungerar med miljöer, se [skapa miljöer för flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md). Mallarna lagras i databasen som är länkad till labb i DevTest Labs. När du skapar en ny miljö med dessa mallar kan flyttas filerna till en Azure Storage-behållare i laboratoriet. För att kunna identifiera och kopierar de underordnade filerna, labb identifierar parametrarna _artifactsLocation och _artifactsLocationSasToken och kopierar undermappar upp till behållaren. Sedan infogas automatiskt plats och token för signatur för delad åtkomst (SaS) i parametrar. 
+Om du inte är bekant med hur DevTest Labs fungerar med miljöer kan du läsa [skapa miljöer med flera virtuella datorer och PaaS resurser med Azure Resource Manager mallar](devtest-lab-create-environment-from-arm.md). Mallarna lagras i databasen som är länkad till labbet i DevTest Labs. När du skapar en ny miljö med dessa mallar flyttas filerna till en Azure Storage behållare i labbet. För att kunna identifiera och kopiera de kapslade filerna identifierar DevTest Labs _artifactsLocation och _artifactsLocationSasToken parametrar och kopierar undermapparna till lagrings behållaren. Sedan infogas platsen och SaS-token (signaturen för delad åtkomst) i parametrar automatiskt. 
 
 ## <a name="nested-deployment-example"></a>Exempel på kapslad distribution
 Här är ett enkelt exempel på en kapslad distribution:
@@ -66,17 +66,17 @@ Här är ett enkelt exempel på en kapslad distribution:
 "outputs": {}
 ```
 
-Mappen i databasen som innehåller den här mallen har en undermapp `nestedtemplates` med filerna **NestOne.json** och **NestOne.parameters.json**. I den **azuredeploy.json**, URI: N för mallen har skapats med artefakter platsen, kapslade tjänstmall-mapp, kapslade mallnamnet. På samma sätt skapas URI för parametrar med artefakter platsen, kapslade tjänstmall-mapp och parameterfilen för den kapslade mallen. 
+Mappen i lagrings platsen som innehåller den här mallen har en undermapp `nestedtemplates` med filerna **NestOne. JSON** och **NestOne. Parameters. JSON**. I **azuredeploy. JSON**är URI: n för mallen byggd med hjälp av platsen för artefakter, kapslad mall, fil namn för nästlad mall. På samma sätt skapas URI för parametrarna med platsen för artefakter, den kapslade mallen och parameter filen för den kapslade mallen. 
 
-Här är en avbildning av samma projektstruktur i Visual Studio: 
+Här är en bild av samma projekt struktur i Visual Studio: 
 
-![Projektstruktur i Visual Studio](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
+![Projekt struktur i Visual Studio](./media/deploy-nested-template-environments/visual-studio-project-structure.png)
 
-Du kan lägga till ytterligare mappar i mappen primära men inte alla djupare än en enda nivå. 
+Du kan lägga till fler mappar i den primära mappen men inte djupare än en nivå. 
 
 ## <a name="next-steps"></a>Nästa steg
-Se följande artiklar för ytterligare information om miljöer: 
+I följande artiklar finns information om miljöer: 
 
 - [Skapa miljöer med flera virtuella datorer och PaaS-resurser med Azure Resource Manager-mallar](devtest-lab-create-environment-from-arm.md)
 - [Konfigurera och använda offentliga miljöer i Azure DevTest Labs](devtest-lab-configure-use-public-environments.md)
-- [Ansluta en miljö till ditt labb-nätverk i Azure DevTest Labs](connect-environment-lab-virtual-network.md)
+- [Anslut en miljö till ditt labbs virtuella nätverk i Azure DevTest Labs](connect-environment-lab-virtual-network.md)

@@ -10,22 +10,22 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: d34182e09bf453dbec1e9592f131cb9b3b78a086
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 0506527808892bf1ee531d892e2773d095e18560
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086475"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965633"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Så här använder du startdiagnostik för att felsöka virtuella datorer i Azure
 
-Det kan finnas många orsaker till att en virtuell dator övergår till ett icke startbart tillstånd. För att lösa problem med dina virtuella datorer som skapats med distributions modellen Resource Manager kan du använda följande fel söknings funktioner: Konsol utdata och skärm bilds stöd för Azure Virtual Machines. 
+Det kan finnas många orsaker till att en virtuell dator övergår till ett icke startbart tillstånd. För att lösa problem med dina virtuella datorer som har skapats med distributions modellen för Resource Manager kan du använda följande fel söknings funktioner: konsol utdata och skärm bilds stöd för Azure Virtual Machines. 
 
 För virtuella Linux-datorer kan du visa utdata från konsol loggen från portalen. För både virtuella Windows-och Linux-datorer kan du använda Azure för att visa en skärm bild av den virtuella datorn från hypervisorn. Båda funktionerna stöds för virtuella Azure-datorer i alla regioner. Tänk på att det kan ta upp till 10 minuter innan skärmbilder och utdata visas på lagringskontot.
 
 Du kan välja alternativet **Starta diagnostik** för att visa loggen och skärm bilden.
 
-![Resource Manager](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
+![Resurshanterare](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Vanliga startfel
 
@@ -49,7 +49,7 @@ Följande procedur gäller för en virtuell dator som skapats med Resource Manag
 
 På fliken **hantering** i avsnittet **övervakning** kontrollerar du att **startdiagnostik** är aktiverat. I list rutan **diagnostik-lagrings konto** väljer du ett lagrings konto där du vill placera diagnostikfiler.
  
-![Skapa virtuell dator](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
+![Skapa en virtuell dator](./media/virtual-machines-common-boot-diagnostics/enable-boot-diagnostics-vm.png)
 
 > [!NOTE]
 > Funktionen för att starta diagnostik har inte stöd för Premium Storage-konton. Om du använder Premium Storage-kontot för startdiagnostik kan du få ett StorageAccountTypeNotSupported-fel när du startar den virtuella datorn.
@@ -79,7 +79,7 @@ Via diagnostikprofilen kan du välja det lagringskonto där loggarna ska placera
 }
 ```
 
-Mer information om hur du distribuerar resurser med hjälp av [mallar finns i snabb start: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+Mer information om hur du distribuerar resurser med hjälp av mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ## <a name="enable-boot-diagnostics-on-existing-virtual-machine"></a>Aktivera startdiagnostik på den befintliga virtuella datorn 
 
@@ -96,5 +96,5 @@ Du måste starta om den virtuella datorn för att ändringen ska börja gälla.
 
 ### <a name="enable-boot-diagnostics-using-the-azure-cli"></a>Aktivera startdiagnostik med Azure CLI
 
-Du kan använda Azure CLI för att aktivera startdiagnostik på en befintlig virtuell Azure-dator. Mer information finns i [AZ VM Boot-Diagnostics.](
-https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest)
+Du kan använda Azure CLI för att aktivera startdiagnostik på en befintlig virtuell Azure-dator. Mer information finns i [AZ VM Boot-Diagnostics](
+https://docs.microsoft.com/cli/azure/vm/boot-diagnostics?view=azure-cli-latest).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 7f471032d69213fc11ff748e3fa9093991ee23d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449807"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982699"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 
@@ -192,7 +192,7 @@ Nästa mall visar ett exempel på hur du skapar en Azure Batch pool (backend-dat
 
 Slutligen har vi en mall som fungerar ungefär som en Orchestrator. Den här mallen ansvarar för distributionen av Capabilities-mallarna.
 
-Du kan också få mer information om hur du [skapar länkade Azure Resource Manager mallar](../azure-resource-manager/resource-manager-tutorial-create-linked-templates.md) i en separat artikel.
+Du kan också få mer information om hur du [skapar länkade Azure Resource Manager mallar](../azure-resource-manager/templates/template-tutorial-create-linked-templates.md) i en separat artikel.
 
 ```json
 {
@@ -368,7 +368,7 @@ Azure-pipelines används också för att distribuera ditt program och den underl
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Distribuera ditt program och den underliggande infrastrukturen
 
-Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi har använt [länkade mallar](../azure-resource-manager/resource-group-linked-templates.md)måste de mallarna vara tillgängliga från en offentlig slut punkt (http eller https). Detta kan vara en lagrings plats på GitHub, ett Azure Blob Storage-konto eller en annan lagrings plats. Artefakter för överförda mallar kan vara skyddade, eftersom de kan lagras i ett privat läge, men nås med hjälp av någon form av SAS-token (signatur för delad åtkomst). Följande exempel visar hur du distribuerar en infrastruktur med mallar från en Azure Storage-blob.
+Det finns ett antal steg som ingår i distributionen av infrastrukturen. Som vi har använt [länkade mallar](../azure-resource-manager/templates/linked-templates.md)måste de mallarna vara tillgängliga från en offentlig slut punkt (http eller https). Detta kan vara en lagrings plats på GitHub, ett Azure Blob Storage-konto eller en annan lagrings plats. Artefakter för överförda mallar kan vara skyddade, eftersom de kan lagras i ett privat läge, men nås med hjälp av någon form av SAS-token (signatur för delad åtkomst). Följande exempel visar hur du distribuerar en infrastruktur med mallar från en Azure Storage-blob.
 
 1. Skapa en **ny versions definition**och välj en tom definition. Sedan måste du byta namn på den nyligen skapade miljön till något som är relevant för vår pipeline.
 

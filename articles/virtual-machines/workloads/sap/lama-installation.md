@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: 6521c139463bb0de1e24783bbbdd6a2d3996be6f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430100"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978065"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
@@ -51,7 +51,7 @@ I den här guiden beskrivs hur du konfigurerar Azure Connector for SAP LaMa, ska
 
 Följande SAP-anteckningar är relaterade till ämnet i SAP LaMa på Azure:
 
-| Antecknings nummer | Rubrik |
+| Antecknings nummer | Titel |
 | --- | --- |
 | [2343511] |Microsoft Azure koppling för SAP landskaps hantering (LaMa) |
 | [2350235] |SAP landskaps hantering 3,0-Enterprise Edition |
@@ -69,18 +69,25 @@ Läs även [SAP-hjälp portalen för SAP Lama](https://help.sap.com/viewer/p/SAP
 * Om du loggar in på hanterade värdar, se till att inte blockera fil system från att demonteras  
   Om du loggar in på en virtuell Linux-dator och ändrar arbets katalogen till en katalog i en monterings punkt, till exempel/usr/sap/AH1/ASCS00/exe, går det inte att demontera volymen och en återaktivering eller avförberedelse Miss lyckas.
 
+* Se till att inaktivera CLOUD_NETCONFIG_MANAGE på SUSE SLES Linux Virtual Machines. Mer information finns i [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633).
+
 ## <a name="set-up-azure-connector-for-sap-lama"></a>Konfigurera Azure Connector för SAP-LaMa
 
-Azure-anslutaren levereras från och med SAP LaMa 3,0 SP05. Vi rekommenderar att du alltid installerar det senaste support paketet och korrigeringen för SAP LaMa 3,0. Azure-anslutaren använder ett huvud namn för tjänsten för att auktorisera mot Microsoft Azure. Följ dessa steg om du vill skapa ett tjänst huvud namn för SAP landskaps hantering (LaMa).
+Azure-anslutaren levereras från och med SAP LaMa 3,0 SP05. Vi rekommenderar att du alltid installerar det senaste support paketet och korrigeringen för SAP LaMa 3,0.
+
+Azure-anslutaren använder Azure Resource Manager API för att hantera dina Azure-resurser. SAP LaMa kan använda ett huvud namn för tjänsten eller en hanterad identitet för att autentisera mot detta API. Om din SAP-LaMa körs på en virtuell Azure-dator rekommenderar vi att du använder en hanterad identitet enligt beskrivningen i kapitlet, [använder en hanterad identitet för att få åtkomst till Azure-API: et](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d). Om du vill använda ett huvud namn för tjänsten följer du stegen i kapitlet [Använd ett tjänst objekt för att få åtkomst till Azure-API: et](lama-installation.md#913c222a-3754-487f-9c89-983c82da641e).
+
+### <a name="913c222a-3754-487f-9c89-983c82da641e"></a>Använd ett huvud namn för tjänsten för att få åtkomst till Azure-API: et
+
+Azure-anslutaren kan använda ett huvud namn för tjänsten för att auktorisera mot Microsoft Azure. Följ dessa steg om du vill skapa ett tjänst huvud namn för SAP landskaps hantering (LaMa).
 
 1. Gå till https://portal.azure.com
 1. Öppna bladet Azure Active Directory
 1. Klicka på Appregistreringar
-1. Klicka på Lägg till
-1. Ange ett namn, Välj program typ "webbapp/API", ange en inloggnings-URL (till exempel http:\//localhost) och klicka på skapa
-1. Inloggnings-URL: en används inte och kan vara vilken giltig URL
-1. Välj den nya appen och klicka på nycklar på fliken Inställningar
-1. Ange en beskrivning för en ny nyckel, välj "upphör aldrig" och klicka på Spara
+1. Klicka på ny registrering
+1. Ange ett namn och klicka på registrera
+1. Välj den nya appen och klicka på certifikat & hemligheter på fliken Inställningar
+1. Skapa en ny klient hemlighet, ange en beskrivning för en ny nyckel, Välj när hemligheten ska exire och klicka på Spara
 1. Anteckna värdet. Den används som lösen ord för tjänstens huvud namn
 1. Anteckna programmets ID. Den används som användar namn för tjänstens huvud namn
 
@@ -93,20 +100,43 @@ Tjänstens huvudnamn har inte behörighet att komma åt dina Azure-resurser som 
 1. Klicka på Lägg till roll tilldelning
 1. Välj roll deltagare
 1. Ange namnet på programmet som du skapade ovan
-1. Klicka på Spara
+1. Klicka på Spara.
 1. Upprepa steg 3 till 8 för alla resurs grupper som du vill använda i SAP LaMa
+
+### <a name="af65832e-6469-4d69-9db5-0ed09eac126d"></a>Använd en hanterad identitet för att få åtkomst till Azure-API: et
+
+För att kunna använda en hanterad identitet, måste din SAP LaMa-instans köras på en virtuell Azure-dator som har en system-eller användare som tilldelats identiteten. Mer information om hanterade identiteter finns i [Vad är hanterade identiteter för Azure-resurser?](../../../active-directory/managed-identities-azure-resources/overview.md) och [Konfigurera hanterade identiteter för Azure-resurser på en virtuell dator med hjälp av Azure Portal](../../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md).
+
+Den hanterade identiteten har inte behörighet att komma åt dina Azure-resurser som standard. Du måste ge IT-behörighet för att få åtkomst till dem.
+
+1. Gå till https://portal.azure.com
+1. Öppna bladet resurs grupper
+1. Välj den resurs grupp som du vill använda
+1. Klicka på åtkomstkontroll (IAM)
+1. Klicka på Lägg till > Lägg till roll tilldelning
+1. Välj roll deltagare
+1. Välj virtuell dator för tilldela till
+1. Välj den virtuella dator där din SAP LaMa-instans körs
+1. Klicka på Spara.
+1. Upprepa stegen för alla resurs grupper som du vill använda i SAP LaMa
+
+I din SAP LaMa Azure Connector-konfiguration väljer du Använd hanterad identitet för att aktivera användningen av den hanterade identiteten. Om du vill använda en tilldelad system identitet, måste du lämna fältet användar namn tomt. Om du vill använda en tilldelad identitet anger du användarens tilldelade identitets-ID i fältet användar namn.
+
+### <a name="create-a-new-connector-in-sap-lama"></a>Skapa en ny anslutning i SAP LaMa
 
 Öppna webbplatsen SAP LaMa och gå till infrastruktur. Gå till fliken Cloud Managers och klicka på Lägg till. Välj Microsoft Azure Molnadapter och klicka på Nästa. Ange följande information:
 
 * Etikett: Välj ett namn för anslutnings instansen
-* Användar namn: program-ID för tjänstens huvud namn
-* Lösen ord: tjänstens huvud nyckel/lösen ord
+* Användar namn: program-ID för tjänstens huvud namn eller ID för den användare som tilldelats den virtuella datorns identitet. Mer information finns i [använda en system-eller användare som tilldelats identiteter]
+* Lösen ord: tjänstens huvud nyckel/lösen ord. Du kan lämna fältet tomt om du använder en system-eller användare som tilldelats identiteten.
 * URL: Behåll standard https://management.azure.com/
 * Övervaknings intervall (sekunder): måste vara minst 300
+* Använd hanterad identitet: SAP LaMa kan använda en system-eller användare som tilldelats identitet för att autentisera mot Azure-API: et. Se kapitlet [använda en hanterad identitet för att få åtkomst till Azure-API: et](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) i den här hand boken.
 * Prenumerations-ID: ID för Azure-prenumeration
 * Azure Active Directory klient-ID: ID för Active Directory klienten
 * Proxyvärd: proxyserverns värdnamn om SAP LaMa behöver en proxyserver för att ansluta till Internet
 * Proxyserver: proxyserverns TCP-port
+* Ändra lagrings typ för att spara kostnader: Aktivera den här inställningen om Azure-kortet ska ändra lagrings typen för Managed Disks att spara kostnaderna när diskarna inte används. För data diskar som refereras till i en SAP-instans konfiguration kommer kortet att ändra disk typen till standard lagring under en instans, avförberedas och tillbaka till den ursprungliga lagrings typen under en instans förbereds. Om du stoppar en virtuell dator i SAP-LaMa, kommer kortet att ändra lagrings typen för alla anslutna diskar, inklusive OS-disken till standard lagring. Om du startar en virtuell dator i SAP-LaMa, kommer kortet att ändra lagrings typen tillbaka till den ursprungliga lagrings typen.
 
 Verifiera dina inaktuella indatatyper genom att klicka på testa konfiguration. Du bör se
 
@@ -264,7 +294,7 @@ ANF tillhandahåller NFS för Azure. I samband med SAP LaMa fören klar skapande
 
 Östra Australien, centrala USA, östra USA, östra USA 2, norra Europa, södra centrala USA, Västeuropa och västra USA 2.
 
-#### <a name="network-requirements"></a>Nätverks krav
+#### <a name="network-requirements"></a>Nätverkskrav
 
 ANF kräver ett delegerat undernät som måste vara en del av samma VNET som SAP-servrarna. Här är ett exempel på en sådan konfiguration.
 Den här skärmen visar skapandet av VNET och det första under nätet:
@@ -432,7 +462,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h as1-di
 
 Använd *AS1-di-0* som *värd namn för Pas-instansen* i dialog rutan *primär program Server instans*.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="errors-and-warnings-during-discover"></a>Fel och varningar under identifiering
 

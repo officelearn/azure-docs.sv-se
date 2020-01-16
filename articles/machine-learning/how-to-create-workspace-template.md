@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 275eb545b431085627658eb5d8ac0a065d0cb00e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867018"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75968668"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -92,7 +92,7 @@ new-azresourcegroupdeployment -name exampledeployment `
   -templatefile .\azuredeploy.json -workspaceName "exampleworkspace" -sku "basic"
 ```
 
-Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/secure-template-with-sas-token.md).
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure PowerShell](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="use-azure-cli"></a>Använda Azure CLI
 
@@ -107,7 +107,7 @@ az group deployment create \
   --parameters workspaceName=exampleworkspace location=eastus sku=basic
 ```
 
-Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/secure-template-with-sas-token.md).
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) och [distribuera en privat Resource Manager-mall med SAS-token och Azure CLI](../azure-resource-manager/templates/secure-template-with-sas-token.md).
 
 ## <a name="troubleshooting"></a>Felsöka
 
@@ -124,7 +124,7 @@ De flesta åtgärder för att skapa resurser via mallar är idempotenta, men Key
 För att undvika det här problemet rekommenderar vi en av följande metoder:
 
 * Distribuera inte mallen mer än en gång för samma parametrar. Eller ta bort de befintliga resurserna innan du använder mallen för att återskapa dem.
-  
+
 * Granska Key Vault åtkomst principer och Använd sedan dessa principer för att ange mallens `accessPolicies` egenskap. Om du vill visa åtkomst principerna använder du följande Azure CLI-kommando:
 
     ```azurecli-interactive
@@ -165,7 +165,7 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
           }
         },
         ```
-    
+
     * **Ta bort** `"[resourceId('Microsoft.KeyVault/vaults', variables('keyVaultName'))]",` raden från avsnittet `dependsOn` i arbets ytan. **Ändra** också `keyVault` posten i avsnittet `properties` i arbets ytan för att referera till `keyVaultId`-parametern:
 
         ```json
@@ -193,7 +193,7 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
           }
         }
         ```
-      
+
     Efter dessa ändringar kan du ange ID: t för den befintliga Key Vault-resursen när du kör mallen. Mallen använder sedan Key Vault igen genom att ange arbets ytans `keyVault`-egenskap till dess ID.
 
     Om du vill hämta ID: t för Key Vault kan du referera till utdata från den ursprungliga mallen, köra eller använda Azure CLI. Följande kommando är ett exempel på hur du använder Azure CLI för att hämta Key Vault resurs-ID:
@@ -210,5 +210,5 @@ För att undvika det här problemet rekommenderar vi en av följande metoder:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](../azure-resource-manager/resource-group-template-deploy-rest.md).
-* [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+* [Distribuera resurser med Resource Manager-mallar och Resource Manager-REST API](../azure-resource-manager/templates/deploy-rest.md).
+* [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).

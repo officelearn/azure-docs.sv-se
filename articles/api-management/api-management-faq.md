@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 677e38f69729bba8caf1ec3f88b2e0a1a4f8c7e8
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 21b46ba0012b71ed0e09dc09d041ceb020824843
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073673"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967447"
 ---
 # <a name="azure-api-management-faqs"></a>Vanliga frågor och svar om Azure API Management
 Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
@@ -28,7 +28,7 @@ Få svar på vanliga frågor, mönster och metod tips för Azure API Management.
 ## <a name="contact-us"></a>Kontakta oss
 * [Hur kan jag be Microsoft Azure API Management teamet om en fråga?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 * [Vad betyder det när en funktion är i för hands version?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [Hur kan jag skydda anslutningen mellan API Management-gatewayen och mina backend-tjänster?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [Hur gör jag för att kopiera min API Management-tjänstinstans till en ny instans?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)
@@ -73,7 +73,7 @@ Du har flera alternativ om du vill kopiera en API Management-instans till en ny 
 * Skapa en egen säkerhets kopierings-och återställnings funktion med hjälp av [API Management REST API](/rest/api/apimanagement/). Använd REST API för att spara och återställa entiteter från den tjänst instans du vill använda.
 * Hämta tjänst konfigurationen med hjälp av Git och ladda sedan upp den till en ny instans. Mer information finns i [så här sparar och konfigurerar du API Management tjänst konfigurationen med hjälp av Git](api-management-configuration-repository-git.md).
 
-### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Kan jag hantera min API Management-instans program mässigt?
+### <a name="can-i-manage-my-api-management-instance-programmatically"></a>Kan jag hantera min API Management-instans programmässigt?
 Ja, du kan hantera API Management program mässigt genom att använda:
 
 * [API Management REST API](/rest/api/apimanagement/).
@@ -83,15 +83,15 @@ Ja, du kan hantera API Management program mässigt genom att använda:
 ### <a name="how-do-i-add-a-user-to-the-administrators-group"></a>Hur gör jag för att lägger du till en användare i gruppen Administratörer?
 Så här kan du lägga till en användare i gruppen Administratörer:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Gå till den resurs grupp som har den API Management-instans som du vill uppdatera.
 3. I API Management tilldelar du rollen **API Management Service Contributor** till användaren.
 
-Nu kan den nyligen tillagda deltagaren [](https://docs.microsoft.com/powershell/azure/overview)använda Azure PowerShell-cmdletar. Så här loggar du in som administratör:
+Nu kan den nyligen tillagda deltagaren använda Azure PowerShell- [cmdletar](https://docs.microsoft.com/powershell/azure/overview). Så här loggar du in som administratör:
 
-1. `Connect-AzAccount` Använd cmdleten för att logga in.
+1. Använd `Connect-AzAccount`-cmdlet för att logga in.
 2. Ange kontexten till den prenumeration som har tjänsten med hjälp av `Set-AzContext -SubscriptionID <subscriptionGUID>`.
-3. Hämta en enkel inloggnings-URL med hjälp `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`av.
+3. Hämta en enkel inloggnings-URL med hjälp av `Get-AzApiManagementSsoToken -ResourceGroupName <rgName> -Name <serviceName>`.
 4. Använd URL: en för att få åtkomst till administrations portalen.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Varför är den princip som jag vill lägga till otillgänglig i princip redigeraren?
@@ -119,7 +119,7 @@ Ja. Se snabb starts mallar för [Azure API Management Service](https://aka.ms/ap
 Ja. Detta kan göras via PowerShell eller genom att skicka direkt till API: et. Detta inaktiverar verifiering av certifikat kedjan och gör att du kan använda självsignerade eller privat signerade certifikat när du kommunicerar från API Management till Server dels tjänsterna.
 
 #### <a name="powershell-method"></a>PowerShell-metod ####
-Använd (för ny server del) eller [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintlig server del) PowerShell- `-SkipCertificateChainValidation` cmdletar och ange parametern till `True`. [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) 
+Använd [`New-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/new-azapimanagementbackend) (för ny server del) eller [`Set-AzApiManagementBackend`](https://docs.microsoft.com/powershell/module/az.apimanagement/set-azapimanagementbackend) (för befintlig server del) PowerShell-cmdletar och ange `-SkipCertificateChainValidation`-parametern till `True`.
 
 ```powershell
 $context = New-AzApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
@@ -139,13 +139,13 @@ Ja. API Management fungerar med Azure ExpressRoute.
 
 ### <a name="why-do-we-require-a-dedicated-subnet-in-resource-manager-style-vnets-when-api-management-is-deployed-into-them"></a>Varför kräver vi ett dedikerat undernät i Resource Manager-formatet virtuella nätverk när API Management distribueras till dem?
 Det dedikerade under näts kravet för API Management kommer från faktumet, att det bygger på den klassiska distributions modellen (PAAS v1 Layer). Även om vi kan distribuera till ett Resource Manager VNET (v2-lager), finns det konsekvenser för det. Den klassiska distributions modellen i Azure är inte nära kopplad till Resource Manager-modellen och om du skapar en resurs i v2-skiktet vet inte v1-lagret om det och problem kan inträffa, till exempel API Management försöker använda en IP-adress som redan har tilldelats till ett nätverkskort  (byggd på v2).
-Om du vill veta mer om skillnaderna mellan klassiska modeller och Resource Manager-modeller i Azure kan du se [skillnaden i distributions modeller](../azure-resource-manager/resource-manager-deployment-model.md).
+Om du vill veta mer om skillnaderna mellan klassiska modeller och Resource Manager-modeller i Azure kan du se [skillnaden i distributions modeller](../azure-resource-manager/management/deployment-models.md).
 
 ### <a name="what-is-the-minimum-subnet-size-needed-when-deploying-api-management-into-a-vnet"></a>Vad är den minsta under näts storlek som krävs när du distribuerar API Management till ett virtuellt nätverk?
 Den minsta under näts storlek som krävs för att distribuera API Management är [/29](../virtual-network/virtual-networks-faq.md#configuration), vilket är den minsta under näts storlek som stöds av Azure.
 
 ### <a name="can-i-move-an-api-management-service-from-one-subscription-to-another"></a>Kan jag flytta en API Management tjänst från en prenumeration till en annan?
-Ja. Mer information finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Ja. Mer information finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Finns det begränsningar för eller kända problem med att importera mitt API?
 [Kända problem och begränsningar](api-management-api-import-restrictions.md) för Open API (Swagger), WSDL-och WADL-format.

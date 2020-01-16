@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 0002e61827817af958007e1f789219e9291990d8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5e410dc4e7f47223430497825dc2a26e41c6af67
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647772"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979556"
 ---
 # <a name="what-is-an-endpoint-access-control-list"></a>Vad är en slut punkts åtkomst kontrol lista?
 
 > [!IMPORTANT]
-> Azure har två olika [distributions modeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder distributions modellen för Resource Manager. 
+> Azure har två olika [distributions modeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder distributions modellen för Resource Manager. 
 
 En slut punkts åtkomst kontrol lista (ACL) är en säkerhets förbättring som är tillgänglig för Azure-distributionen. En ACL ger möjlighet att selektivt tillåta eller neka trafik för en virtuell dator slut punkt. Den här paket filtrerings funktionen ger ett extra säkerhets lager. Du kan bara ange nätverks-ACL: er för slut punkter. Du kan inte ange en ACL för ett virtuellt nätverk eller ett särskilt undernät som finns i ett virtuellt nätverk. Vi rekommenderar att du använder nätverks säkerhets grupper (NSG: er) i stället för ACL: er, närhelst det är möjligt. När du använder NSG: er ersätts slut punkts åtkomst kontrol listan och används inte längre. Mer information om NSG: er finns i [Översikt över nätverks säkerhets grupper](security-overview.md)
 

@@ -1,24 +1,27 @@
 ---
 title: Lär dig mer om Azure Service Fabric terminologi
-description: En terminologi översikt över Service Fabric. Diskuterar begrepp och termer för viktiga terminologier som används i resten av dokumentationen.
+description: Lär dig mer om viktiga Service Fabric terminologi och begrepp som används i resten av dokumentationen.
 author: masnider
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: masnider
-ms.openlocfilehash: cf2cfdad10d93bb4f28345d75a86fdcd94587410
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: a9266c2a8d2ad179cfdb12e367a14f37d1abc9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465609"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024886"
 ---
 # <a name="service-fabric-terminology-overview"></a>Översikt över Service Fabric terminologi
+
 Azure Service Fabric är en distribuerad systemplattform som gör det enkelt att paketera, distribuera och hantera skalbara och tillförlitliga mikrotjänster.  Du kan vara [värd för Service Fabric kluster var som helst](service-fabric-deploy-anywhere.md): Azure, i ett lokalt Data Center eller på någon annan moln leverantör.  Service Fabric är Orchestrator som driver [Azure Service Fabric-nät](/azure/service-fabric-mesh). Du kan använda valfritt ramverk för att skriva dina tjänster och välja var du vill köra programmet från flera miljö val. Den här artikeln beskriver den terminologi som används av Service Fabric för att förstå de termer som används i dokumentationen.
 
 ## <a name="infrastructure-concepts"></a>Infrastruktur koncept
+
 **Kluster**: en nätverksansluten uppsättning virtuella eller fysiska datorer som dina mikrotjänster distribueras och hanteras i.  Kluster kan skalas upp till tusentals datorer.
 
-**Nod**: en dator eller en virtuell dator som ingår i ett kluster kallas för en *nod*. Varje nod har tilldelats ett nodnamn (en sträng). Noder har egenskaper, till exempel placerings egenskaper. Varje dator eller virtuell dator har en Windows-tjänst som startar automatiskt `FabricHost.exe`, som börjar köras vid start och sedan startar två körbara filer: `Fabric.exe` och `FabricGateway.exe`. Dessa två körbara filer utgör noden. För testnings scenarier kan du vara värd för flera noder på en dator eller en virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe`.
+**Nod**: en dator eller en virtuell dator som ingår i ett kluster kallas för en *nod*. Varje nod tilldelas ett nodnamn (sträng). Noder har egenskaper, till exempel placerings egenskaper. Varje dator eller virtuell dator har en Windows-tjänst som startar automatiskt `FabricHost.exe`, som börjar köras vid start och sedan startar två körbara filer: `Fabric.exe` och `FabricGateway.exe`. Dessa två körbara filer utgör noden. För testnings scenarier kan du vara värd för flera noder på en dator eller en virtuell dator genom att köra flera instanser av `Fabric.exe` och `FabricGateway.exe`.
 
 ## <a name="application-and-service-concepts"></a>Program-och tjänst koncept
 
@@ -85,13 +88,14 @@ Det finns två typer av tjänster:
 
 **Konfigurations paket**: en disk katalog som innehåller tjänst typens statiska, skrivskyddade konfigurationsfiler, vanligt vis textfiler. Filerna i konfigurations paket katalogen refereras till av tjänst typens `ServiceManifest.xml` fil. När du skapar en namngiven tjänst kopieras filerna i konfigurations paketet till en eller flera noder som har valts för att köra den namngivna tjänsten. Sedan börjar koden att köras och kan nu komma åt konfigurationsfilerna.
 
-**Behållare**: som standard distribuerar Service Fabric och aktiverar tjänster som processer. Service Fabric kan även distribuera tjänster i behållar avbildningar. Behållare är en virtualiseringsteknik som virtualiserar det underliggande operativ systemet från program. Ett program och dess körning, beroenden och system bibliotek körs i en behållare. Behållaren har fullständig, privat åtkomst till behållarens egna isolerade vy av operativ systemets konstruktioner. Service Fabric stöder Docker-behållare på Linux-och Windows Server-behållare. Mer information finns i [Service Fabric och behållare](service-fabric-containers-overview.md).
+**Behållare**: som standard distribuerar Service Fabric och aktiverar tjänster som processer. Service Fabric kan även distribuera tjänster i behållar avbildningar. Behållare är en virtualiseringsteknik som sammanfattar det underliggande operativ systemet från program. Ett program och dess körning, beroenden och system bibliotek körs i en behållare. Behållaren har fullständig, privat åtkomst till behållarens egna isolerade vy av operativ systemets konstruktioner. Service Fabric stöder Windows Server-behållare och Docker-behållare i Linux. Mer information finns i [Service Fabric och behållare](service-fabric-containers-overview.md).
 
 **Partitionsschema**: när du skapar en namngiven tjänst anger du ett partitionsschema. Tjänster med stor delmängd för att dela data mellan partitioner, vilket sprider tillstånd över klustrets noder. Genom att dela data mellan partitioner kan din namngivna tjänsts tillstånd skala. Inom en partition har tillstånds lösa namngivna tjänster instanser, medan tillstånds känsliga namngivna tjänster har repliker. Vanligt vis har tillstånds lösa namngivna tjänster bara en partition, eftersom de inte har något internt tillstånd. Partition instanserna tillhandahåller tillgänglighet. Om en instans Miss lyckas fortsätter andra instanser att fungera normalt, och sedan skapar Service Fabric en ny instans. Tillstånds känsliga namngivna tjänster upprätthåller sitt tillstånd inom repliker och varje partition har en egen replik uppsättning så att statusen hålls synkroniserad. Om en replik skulle krascha skapar Service Fabric en ny replik från befintliga repliker.
 
 Mer information finns i artikeln [Partition Service Fabric Reliable Services](service-fabric-concepts-partitioning.md) .
 
 ## <a name="system-services"></a>System tjänster
+
 Det finns system tjänster som skapas i alla kluster som tillhandahåller plattforms funktionerna i Service Fabric.
 
 **Naming Service**: varje Service Fabric-kluster har en Naming Service som matchar tjänst namn till en plats i klustret. Du hanterar tjänst namn och egenskaper, t. ex. en Internet Domain Name System (DNS) för klustret. Klienter kommunicerar säkert med valfri nod i klustret med hjälp av Naming Service för att matcha ett tjänst namn och dess plats. Program flyttas i klustret. Detta kan till exempel bero på fel, resurs utjämning eller storleks ändring av klustret. Du kan utveckla tjänster och klienter som matchar den aktuella nätverks platsen. Klienterna hämtar den faktiska datorns IP-adress och port där den körs för närvarande.
@@ -105,22 +109,26 @@ Läs [förstå ImageStoreConnectionString-inställningen](service-fabric-image-s
 Läs artikeln [distribuera en program](service-fabric-deploy-remove-applications.md) -artikel om du vill ha mer information om hur du distribuerar program till avbildningsarkiv-tjänsten.
 
 **Redundanshanteraren tjänst**: varje Service Fabric-kluster har en Redundanshanteraren tjänst som ansvarar för följande åtgärder:
-   - Utför funktioner relaterade till hög tillgänglighet och konsekvens för tjänster.
-   - Dirigerar program-och kluster uppgraderingar.
-   - Interagerar med andra system komponenter.
+
+ - Utför funktioner relaterade till hög tillgänglighet och konsekvens för tjänster.
+ - Dirigerar program-och kluster uppgraderingar.
+ - Interagerar med andra system komponenter.
 
 **Repair Manager tjänst**: det här är en valfri system tjänst som gör det möjligt att utföra reparations åtgärder på ett kluster på ett sätt som är säkert, kan automatiseras och transparent. Reparations hanteraren används i:
+
    - Utföra underhålls reparationer i Azure i [silver-och Gold](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster) -arbetsService Fabric kluster.
    - Utföra reparations åtgärder för [programmet för uppdaterings dirigering](service-fabric-patch-orchestration-application.md)
 
-## <a name="deployment-and-application-models"></a>Distributions-och program modeller 
+## <a name="deployment-and-application-models"></a>Distributions-och program modeller
 
 Om du vill distribuera dina tjänster måste du beskriva hur de ska köras. Service Fabric stöder tre olika distributions modeller:
 
 ### <a name="resource-model-preview"></a>Resurs modell (för hands version)
+
 Service Fabric resurser är allt som kan distribueras individuellt för att Service Fabric; inklusive program, tjänster, nätverk och volymer. Resurser definieras med hjälp av en JSON-fil som kan distribueras till en kluster slut punkt.  För Service Fabric nät används Azures resurs modell schema. Ett YAML-filschema kan också användas för att enklare utforma definitionsfiler. Resurser kan distribueras var som helst Service Fabric körs. Resurs modellen är det enklaste sättet att beskriva Service Fabric-program. Huvud fokus är vid enkel distribution och hantering av behållare tjänster. Läs mer i [Introduktion till Service Fabric resurs modell](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### <a name="native-model"></a>Inbyggd modell
+
 Den inbyggda program modellen ger dina program fullständig åtkomst till Service Fabric. Program och tjänster definieras som registrerade typer i XML-MANIFEST filer.
 
 Den inbyggda modellen stöder Reliable Services-och Reliable Actors-ramverk, som ger åtkomst till API: erna för Service Fabric Runtime och kluster hanterings-API: er i C# och Java. Den inbyggda modellen stöder också godtyckliga behållare och körbara filer. Den inbyggda modellen stöds inte i [Service Fabric nät miljön](/azure/service-fabric-mesh/service-fabric-mesh-overview).
@@ -138,6 +146,7 @@ Du kan också köra dina befintliga program på Service Fabric:
 Mer information finns i artikeln [Välj en programmerings modell för din tjänst](service-fabric-choose-framework.md) .
 
 ### <a name="docker-compose"></a>Docker-sammanställning 
+
 [Docker Compose](https://docs.docker.com/compose/) är en del av Docker-projektet. Service Fabric ger begränsat stöd för [distribution av program med hjälp av Docker-modellen](service-fabric-docker-compose.md).
 
 ## <a name="environments"></a>Miljöer
@@ -150,6 +159,7 @@ Service Fabric är en plattforms teknik med öppen källkod som flera olika tjä
  - **Service Fabric utvecklings kluster**: tillhandahåller en lokal utvecklings miljö för Windows, Linux eller Mac för utveckling av Service Fabric program.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Support mat ris för miljö-, Ramverks-och distributions modell
+
 Olika miljöer har olika stöd nivåer för ramverk och distributions modeller. I följande tabell beskrivs kombinationerna av ramverk och distributions modeller som stöds.
 
 | Typ av program | Beskrivs av | Azure Service Fabric Mesh | Azure Service Fabric-kluster (valfritt OS)| Lokalt kluster | Fristående kluster |
@@ -164,8 +174,8 @@ I följande tabell beskrivs de olika program modellerna och de verktyg som finns
 | Service Fabric nätprogram | Resurs modell (YAML & JSON) | VS 2017 |Stöds inte |Stöds inte | Endast nät miljö som stöds | Stöds inte|
 |Service Fabric inbyggda program | Intern program modell (XML) | VS 2017 och VS 2015| Stöds|Stöds|Stöds|Stöds|
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Nästa steg
+
 Läs mer om Service Fabric:
 
 * [Översikt över Service Fabric](service-fabric-overview.md)

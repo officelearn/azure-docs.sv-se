@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 01/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83a839d75757bcee14d7f696d2d11d1d7d8fa4cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 589d8219681304242585c9fed33a4e3d364909ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422845"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978894"
 ---
 # <a name="what-are-security-defaults"></a>Vad är säkerhets inställningar?
 
@@ -28,7 +28,10 @@ Microsoft skapar säkerhets inställningar som är tillgängliga för alla. Mål
 
 ![Skärm bild av Azure Portal med växla för att aktivera säkerhets inställningar](./media/concept-fundamentals-security-defaults/security-defaults-azure-ad-portal.png)
  
-Följande säkerhetskonfigurationer aktive ras i din klient organisation. 
+> [!TIP]
+> Om din klient skapades på eller efter den 22 oktober 2019, är det möjligt att du har den nya säkraste standarden och redan har säkerhets standardvärden aktiverade i din klient. I ett arbete för att skydda alla våra användare kommer säkerhets inställningarna att distribueras till alla nya klienter som skapats.
+
+Mer information om varför säkerhets inställningar görs tillgängliga finns i blogg inlägget Alex Weinert, och [vi presenterar säkerhets inställningar](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/introducing-security-defaults/ba-p/1061414).
 
 ## <a name="unified-multi-factor-authentication-registration"></a>Enhetlig Multi-Factor Authentication registrering
 

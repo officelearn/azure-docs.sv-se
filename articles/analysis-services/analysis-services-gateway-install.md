@@ -4,15 +4,15 @@ description: Lär dig hur du installerar och konfigurerar en lokal datagateway f
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 019da1810851c730ea8bfe4cf5eea0cfa900bea0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572844"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029893"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installera och konfigurera lokal datagateway
 
@@ -20,18 +20,18 @@ En lokal datagateway krävs när en eller flera Azure Analysis Services-servrar 
 
 Om du vill veta mer om gatewayen och hur den används av Azure Analysis Services, se [ansluta till lokala data källor](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-**Minimi krav:**
+**Minimikrav**
 
-* .NET 4,5-ramverk
-* 64-bitars version av Windows 7/Windows Server 2008 R2 (eller senare)
+* .NET 4.5 Framework
+* 64-bitars version av Windows 8/Windows Server 2012 R2 (eller senare)
 
-**Rekommenderas**
+**Rekommenderas:**
 
-* PROCESSOR med 8 kärnor
+* 8 CPU-kärnor
 * 8 GB minne
-* 64-bitars version av Windows 2012 R2 (eller senare)
+* 64-bitars version av Windows 8/Windows Server 2012 R2 (eller senare)
 
 **Viktiga överväganden:**
 
@@ -127,7 +127,7 @@ När du har installerat och registrerat din gateway måste du skapa en gateway-r
 
     ![Anslutning av server till gateway-resurs lyckades](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-Klart! Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
+Det var allt. Om du behöver öppna portar eller göra en fel sökning måste du ta en titt [på den lokala datagatewayen](analysis-services-gateway.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: tarcher
 ms.subservice: common
-ms.openlocfilehash: 75b0ea106be04cd77b18bfed8487edb6a7b7f65b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f8cdd7b950a11045f795ac93d4a0904f2dc526fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839187"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970196"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Använda Azure Storage med en Hudson-baserad CI-lösning
 ## <a name="overview"></a>Översikt
@@ -35,7 +35,7 @@ Fördelarna med att använda Blob Service som värd för dina Agile-utvecklings 
 * Prestanda när dina kunder och partners laddar ned dina build-artefakter.
 * Kontroll över användar åtkomst principer, med ett val mellan anonym åtkomst, utgångs-baserade signaturer för delad åtkomst, privat åtkomst osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att kunna använda Blob Service med din Hudson CI-lösning:
 
 * En lösning för kontinuerlig integrering med Hudson.
@@ -53,7 +53,7 @@ Du behöver följande för att kunna använda Blob Service med din Hudson CI-lö
      
       Även om en typisk Hudson CI-lösning skulle konfigureras att köras som en tjänst, räcker det att köra Hudson-kriget på kommando raden för den här självstudien.
 * Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <https://www.azure.com>.
-* Ett Azure-lagringskonto. Om du inte redan har ett lagrings konto kan du skapa ett med hjälp av stegen i [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
+* Ett Azure-lagringskonto. Om du inte redan har ett lagrings konto kan du skapa ett med hjälp av stegen i [skapa ett lagrings konto](../common/storage-account-create.md).
 * Du rekommenderas att använda Hudson CI-lösningen men det är inte obligatoriskt, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob Service som lagrings plats för Hudson CI build-artefakter.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>Använda Blob Service med Hudson CI

@@ -5,27 +5,28 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 97ee10e0b286f1b007f2e807351301f2037d1754
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942732"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020983"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>Nätverks gränser – Azure Resource Manager följande begränsningar gäller endast för nätverks resurser som hanteras via **Azure Resource Manager** per region per prenumeration. Lär dig hur du [visar din aktuella resursanvändning mot dina prenumerations gränser](../articles/networking/check-usage-against-limits.md).
 
 > [!NOTE]
-> Vi har nyligen ökat alla standard gränser till sina maximala gränser. Om det inte finns någon övre gräns kolumn har inte resursen några justerbara gränser. Om du hade de här gränserna ökat med stöd tidigare och inte ser uppdaterade gränser i följande tabeller, öppnar du [en support förfrågan online för kunder utan kostnad](../articles/azure-resource-manager/resource-manager-quota-errors.md)
+> Vi har nyligen ökat alla standard gränser till sina maximala gränser. Om det inte finns någon övre gräns kolumn har inte resursen några justerbara gränser. Om du hade de här gränserna ökat med stöd tidigare och inte ser uppdaterade gränser i följande tabeller, öppnar du [en support förfrågan online för kunder utan kostnad](../articles/azure-resource-manager/templates/error-resource-quota.md)
 
 | Resurs | Standard/högsta gräns | 
 | --- | --- |
 | Virtuella nätverk |1,000 |
 | Undernät per virtuellt nätverk |3 000 |
 | Peering för virtuellt nätverk per virtuellt nätverk |500 |
-| [Virtuella nätverksgateway (VPN-gatewayer) per virtuellt nätverk](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| [Virtuella nätverksgateway (VPN-gatewayer) per virtuellt nätverk](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |1 |
+| [Virtuella nätverksgateway (ExpressRoute-gatewayer) per virtuellt nätverk](../articles/expressroute/expressroute-about-virtual-network-gateways.md#gwsku) |1 |
 | DNS-servrar per virtuellt nätverk |20 |
 | Privata IP-adresser per virtuellt nätverk |65 536 |
 | Privata IP-adresser per nätverks gränssnitt |256 |

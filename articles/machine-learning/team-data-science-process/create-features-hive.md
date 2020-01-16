@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a491f923d7755513d84adfe765d595a3a7a80715
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60399356"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982048"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
 Det här dokumentet visar hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. De här Hive-frågor använder inbäddade Hive User-Defined funktioner (UDF), skript som tillhandahålls.
@@ -27,10 +27,10 @@ Exempel på de frågor som visas är specifika för den [NYC Taxi Resedata](http
 
 Den här uppgiften är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har:
 
-* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-quickstart-create-account.md)
+* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md)
 * Etablerat en anpassade Hadoop-kluster med HDInsight-tjänsten.  Om du behöver mer information, se [anpassa Azure HDInsight Hadoop-kluster för Advanced Analytics](customize-hadoop-cluster.md).
 * Data har överförts till Hive-tabeller i Azure HDInsight Hadoop-kluster. Om den inte har följer [skapa och läsa in data till Hive-tabeller](move-hive-tables.md) först överföra data till Hive-tabeller.
 * Aktivera fjärråtkomst till klustret. Om du behöver mer information, se [åt Head noden av Hadoop-klustret](customize-hadoop-cluster.md).
@@ -89,14 +89,14 @@ Hive levereras med en uppsättning UDF: er för bearbetning av datetime-fält. I
         select day(<datetime field>), month(<datetime field>)
         from <databasename>.<tablename>;
 
-Den här Hive-frågan förutsätter att den  *\<datetime-fält >* är i standardformatet för datum/tid.
+Den här Hive-frågan förutsätter att *fältet\<datetime >* är i standardformatet för datum/tid.
 
 Om ett datetime-fält inte är i standardformatet, måste du konvertera datum / tidsfält till Unix-tidsstämpel först och sedan konvertera Unix-tidsstämpel till en datetime-sträng i standardformat. När datum/tid är i formatet kan använda användare embedded datum/tid UDF: er att extrahera funktioner.
 
         select from_unixtime(unix_timestamp(<datetime field>,'<pattern of the datetime field>'))
         from <databasename>.<tablename>;
 
-I den här frågan, om den  *\<datetime-fält >* har mönstret som *03/26/2015 12:04:39*,  *\<mönstret för datetime-fält >'* bör vara `'MM/dd/yyyy HH:mm:ss'`. Om du vill testa den kan användare som köra
+I den här frågan, om *fältet\<datetime >* har mönstret som *03/26/2015 12:04:39*, måste *\<mönstret för datetime-fältet >* vara `'MM/dd/yyyy HH:mm:ss'`. Om du vill testa den kan användare som köra
 
         select from_unixtime(unix_timestamp('05/15/2015 09:32:10','MM/dd/yyyy HH:mm:ss'))
         from hivesampletable limit 1;
@@ -130,32 +130,32 @@ Fälten som används i den här frågan är GPS-koordinater för hämtning och d
         and dropoff_latitude between 30 and 90
         limit 10;
 
-De matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hittas på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbar typ skript</a> plats, med Peter Lapisu. I den här Javascript, funktionen `toRad()` är bara *lat_or_lon*pi/180, som konverterar grader till radianer. Här kan *lat_or_lon* är latitud och longitud. Eftersom Hive inte ger funktionen `atan2`, men innehåller funktionen `atan`, `atan2` funktion implementeras av `atan` funktion i Hive frågan ovan med hjälp av definitionen i <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
+De matematiska formler som beräknar avståndet mellan två GPS-koordinater kan hittas på den <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">flyttbar typ skript</a> plats, med Peter Lapisu. I det här java script är funktionen `toRad()` bara *lat_or_lon*PI/180, vilket konverterar grader till radianer. Här kan *lat_or_lon* är latitud och longitud. Eftersom Hive inte ger funktionen `atan2`, men innehåller funktionen `atan`, `atan2` funktion implementeras av `atan` funktion i Hive frågan ovan med hjälp av definitionen i <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>.
 
 ![Skapa arbetsyta](./media/create-features-hive/atan2new.png)
 
 En fullständig lista över Hive embedded UDF: er finns i den **inbyggda funktioner** avsnittet på den <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>).  
 
-## <a name="tuning"></a> Avancerade ämnen: Justera Hive parametrar för att fråga snabbare
+## <a name="tuning"></a> Avancerade ämnen: justera Hive-parametrar för att fråga snabbare
 Standardinställning för Hive-kluster är kanske inte lämpligt för Hive-frågor och data som bearbetar frågor. Det här avsnittet beskrivs vissa parametrar som användare kan justera för att förbättra prestanda för Hive-frågor. Användare måste lägga till parametern justering frågor innan frågor för bearbetning av data.
 
-1. **Java heap utrymme**: För frågor som rör koppla stora datauppsättningar eller bearbetar långa poster **slut på utrymme heap** är en av vanliga fel. Det här felet kan undvikas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
+1. **Java heap utrymme**: för frågor som rör koppla stora datauppsättningar eller bearbetar långa poster **slut på utrymme heap** är en av vanliga fel. Det här felet kan undvikas genom att ange parametrar *mapreduce.map.java.opts* och *mapreduce.task.io.sort.mb* till önskade värden. Här är ett exempel:
    
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
     Den här parametern allokerar 4GB minne till Java heap utrymme så att det blir sortering effektivare genom att allokera mer minne för den. Det är en bra idé att experimentera med dessa allokeringar om det finns jobb felen som rör heap utrymme.
 
-1. **DFS-blockstorlek**: Den här parametern anger den minsta enheten av data som lagras i filsystemet. Till exempel om DFS-blockstorlek är 128 MB, sedan valfria data med storlek mindre än och upp till lagras 128 MB i ett enda block. Data som är större än 128 MB tilldelas extra block. 
+1. **DFS-blockstorlek**: den här parametern anger den minsta enheten av data som lagras i filsystemet. Till exempel om DFS-blockstorlek är 128 MB, sedan valfria data med storlek mindre än och upp till lagras 128 MB i ett enda block. Data som är större än 128 MB tilldelas extra block. 
 2. Välja en liten blockstorlek gör stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevant block som hör till filen. En rekommenderad inställning när gäller gigabyte (eller större) data är:
 
         set dfs.block.size=128m;
 
-2. **Optimera join-åtgärd i Hive**: Medan kopplingsåtgärder inom ramen för map/reduce vanligtvis ägde rum i minska fas, ibland kan enorma vinster uppnås genom att schemalägga kopplingar i fasen karta (kallas även ”mapjoins”). För att dirigera Hive för att göra det möjligt att ange:
+2. **Optimera join-åtgärd i Hive**: medan kopplingsåtgärder inom ramen för map/reduce vanligtvis ägde rum i minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen karta (kallas även ”mapjoins”). För att dirigera Hive för att göra det möjligt att ange:
    
        set hive.auto.convert.join=true;
 
-3. **Anger antalet Mappningskomponenter till Hive**: Med Hadoop kan användaren att ange antalet reducerare, antalet Mappningskomponenter är vanligtvis inte anges av användaren. Ett tips som gör att en viss grad av kontroll för det här numret är att välja Hadoop-variabler *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje kartan uppgift avgörs av:
+3. **Anger antalet Mappningskomponenter till Hive**: medan Hadoop gör att användaren kan ange antalet reducerare, antal Mappningskomponenter är vanligtvis inte anges av användaren. Ett tips som gör att en viss grad av kontroll för det här numret är att välja Hadoop-variabler *mapred.min.split.size* och *mapred.max.split.size* som storleken på varje kartan uppgift avgörs av:
    
         num_maps = max(mapred.min.split.size, min(mapred.max.split.size, dfs.block.size))
    

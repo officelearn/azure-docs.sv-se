@@ -9,12 +9,12 @@ ms.author: mbaldwin
 ms.service: key-vault
 ms.topic: reference
 ms.date: 12/16/2019
-ms.openlocfilehash: 1af7241094e8062185c9c000e4df08d6b59644c3
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: 9ea77a6822a851951ea7363b9cf496fa0df534ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75692828"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982100"
 ---
 # <a name="azure-key-vault-rest-api-error-codes"></a>Fel koder för Azure Key Vault REST API
  
@@ -54,7 +54,7 @@ Rubriken "Authorization" är den åtkomsttoken som krävs för varje anrop till 
 
 ### <a name="the-token-lacks-the-correct-resource-associated-with-it"></a>Token saknar rätt resurs som är kopplad till den. 
 
-När du begär en åtkomsttoken från Azure OAUTH-slutpunkten är en parameter med namnet "Resource" obligatorisk. Värdet är viktigt för token-providern eftersom det omfångerar token för den avsedda användningen. Resursen för **alla* tokens för att komma åt en Key Vault är <https://vault.keyvault.net> (utan avslutande snedstreck).
+När du begär en åtkomsttoken från Azure OAUTH-slutpunkten är en parameter med namnet "Resource" obligatorisk. Värdet är viktigt för token-providern eftersom det omfångerar token för den avsedda användningen. Resursen för **alla* tokens för att komma åt en Key Vault är <https:\//vault.keyvault.net> (utan avslutande snedstreck).
 
 ### <a name="the-token-is-expired"></a>Token har upphört att gälla
 

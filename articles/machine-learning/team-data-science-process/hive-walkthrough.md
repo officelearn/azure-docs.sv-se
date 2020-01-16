@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d26bc6044ca106b0f081cee5a39405b4b78ce7ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0549427cfc99703af9f13280cf7377106423367b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303965"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982014"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Team Data Science Process i praktiken: Använd Azure HDInsight Hadoop-kluster
 I den här genomgången använder vi den [Team Data Science Process (TDSP)](overview.md) i ett scenario för slutpunkt till slutpunkt. Vi använder en [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) att lagra, utforska, och funktion-tekniker data från de allmänt tillgängliga [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättningen, och att nedåtsampla data. Vi bygger modeller av data med Azure Machine Learning för att hantera binära och multiklass-baserad klassificering och regression förutsägande uppgifter. 
@@ -50,18 +50,18 @@ Den unika nyckeln för att ansluta till resans\_data och resans\_avgiften bestå
 ## <a name="mltasks"></a>Exempel på uppgifter för förutsägelse
 Avgör vilken typ av förutsägelser som du vill göra baserat på analys av data. På så sätt kan du tydliggöra uppgifter som du behöver ta med i processen. Här följer tre exempel på förutsägelse problem som vi bemöter i den här genomgången. De bygger på den *tips\_belopp*:
 
-- **Binär klassificering**: Förutsäga om ett tips har betalat för en resa. Det vill säga en *tips\_belopp* som är större än $0 är ett positivt exempel, medan en *tips\_belopp* $0 är ett exempel på negativt.
+- **Binär klassificering**: förutsäga om ett tips har betalat för en resa. Det vill säga en *tips\_belopp* som är större än $0 är ett positivt exempel, medan en *tips\_belopp* $0 är ett exempel på negativt.
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0
-- **Multiklass-baserad klassificering**: Förutse vilka tips belopp som har betalats för resan. Vi dela upp den *tips\_belopp* i fem klasser:
+- **Multiklass-baserad klassificering**: förutse vilka tips belopp som har betalats för resan. Vi dela upp den *tips\_belopp* i fem klasser:
    
         Class 0: tip_amount = $0
         Class 1: tip_amount > $0 and tip_amount <= $5
         Class 2: tip_amount > $5 and tip_amount <= $10
         Class 3: tip_amount > $10 and tip_amount <= $20
         Class 4: tip_amount > $20
-- **Regression uppgift**: Förutsäga mängden tips som har betalat för en resa.  
+- **Regression uppgift**: förutsäga mängden tips som har betalat för en resa.  
 
 ## <a name="setup"></a>Konfigurera ett HDInsight Hadoop-kluster för avancerad analys
 > [!NOTE]
@@ -71,12 +71,12 @@ Avgör vilken typ av förutsägelser som du vill göra baserat på analys av dat
 
 Du kan ställa in en Azure-miljö för avancerade analyser som använder ett HDInsight-kluster i tre steg:
 
-1. [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md): Det här lagringskontot används för att lagra data i Azure Blob storage. De data som används i HDInsight-kluster finns även här.
+1. [Skapa ett lagringskonto](../../storage/common/storage-account-create.md): det här lagringskontot används för att lagra data i Azure Blob storage. De data som används i HDInsight-kluster finns även här.
 2. [Anpassa Azure HDInsight Hadoop-kluster för Advanced Analytics Process and Technology](customize-hadoop-cluster.md). Det här steget skapar ett HDInsight Hadoop-kluster med 64-bitars Anaconda Python 2.7 installerat på alla noder. Det finns två viktiga steg för att komma ihåg vid anpassning av ditt HDInsight-kluster.
    
    * Kom ihåg att länka storage-konto som skapades i steg 1 med ditt HDInsight-kluster när du skapar den. Det här lagringskontot har åtkomst till data som bearbetas i klustret.
    * Aktivera fjärråtkomst till huvudnoden i klustret när du har skapat klustret. Bläddra till den **Configuration** och sedan **Aktivera Remote**. Det här steget anger de autentiseringsuppgifter som används för fjärrinloggning.
-3. [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md): Du kan använda den här arbetsytan för att skapa machine learning-modeller. Den här uppgiften riktar när du har slutfört en första datagranskning och ned-sampling, med hjälp av HDInsight-kluster.
+3. [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md): du använder den här arbetsytan för att skapa machine learning-modeller. Den här uppgiften riktar när du har slutfört en första datagranskning och ned-sampling, med hjälp av HDInsight-kluster.
 
 ## <a name="getdata"></a>Hämta data från en offentlig källa
 > [!NOTE]
@@ -88,11 +88,11 @@ Kopiera den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) dat
 
 Här beskrivs hur du använder AzCopy för att överföra filer som innehåller data. Om du vill hämta och installera AzCopy, följer du anvisningarna [komma igång med kommandoradsverktyget azcopy](../../storage/common/storage-use-azcopy.md).
 
-1. Från Kommandotolken, kör du följande AzCopy-kommandon och Ersätt  *\<path_to_data_folder >* med önskat mål:
+1. Kör följande AzCopy-kommandon i kommando tolken och Ersätt *\<path_to_data_folder >* med önskad destination:
 
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
 
-1. När kopieringen är klar visas totalt av 24 komprimerade filer i datamappen valt. Packa upp de hämtade filerna till samma katalog på den lokala datorn. Anteckna den mapp där de okomprimerade filerna finns. Den här mappen kallas den *\<sökväg\_till\_unzipped_data\_filer\>* i vilka sätt.
+1. När kopieringen är klar visas totalt av 24 komprimerade filer i datamappen valt. Packa upp de hämtade filerna till samma katalog på den lokala datorn. Anteckna den mapp där de okomprimerade filerna finns. Den här mappen kallas *\<Sök väg\_\_unzipped_data\_filer\>* i det följande.
 
 ## <a name="upload"></a>Ladda upp data till standardbehållaren för HDInsight Hadoop-kluster
 > [!NOTE]
@@ -102,10 +102,10 @@ Här beskrivs hur du använder AzCopy för att överföra filer som innehåller 
 
 I följande AzCopy-kommandon och Ersätt följande parametrar med de faktiska värdena som du angav när du skapar Hadoop-kluster och packat upp datafilerna.
 
-* ***\<path_to_data_folder >*** katalogen (tillsammans med sökväg) på datorn som innehåller de uppzippade datafilerna.  
-* ***\<lagringskontonamn för Hadoop-kluster >*** storage-konto som är associerade med ditt HDInsight-kluster.
-* ***\<standardbehållaren för Hadoop-kluster >*** behållare som standard används av klustret. Observera att namnet på behållaren som standard är vanligtvis samma namn som själva klustret. Om klustret har anropats ”abc123.azurehdinsight.net” är standardbehållaren abc123.
-* ***\<lagringskontonyckel >*** nyckeln för lagringskontot som används av ditt kluster.
+* ***\<path_to_data_folder >*** Katalogen (tillsammans med sökvägen) på datorn som innehåller de zippade datafilerna.  
+* ***\<lagrings konto namn för Hadoop-kluster >*** Det lagrings konto som är associerat med ditt HDInsight-kluster.
+* ***\<standard behållare för Hadoop-kluster >*** Standard behållaren som används av klustret. Observera att namnet på behållaren som standard är vanligtvis samma namn som själva klustret. Om klustret har anropats ”abc123.azurehdinsight.net” är standardbehållaren abc123.
+* ***\<lagrings konto nyckel >*** Nyckeln för det lagrings konto som används av klustret.
 
 Kör följande två AzCopy-kommandon från en kommandotolk eller ett Windows PowerShell-fönster.
 
@@ -376,7 +376,7 @@ Detta ger:
 
 Det totala antalet poster i båda tabellerna är också desamma. Detta ger en andra verifiering att data har lästs in korrekt.
 
-### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Resans distribution enligt medallion
+### <a name="exploration-trip-distribution-by-medallion"></a>Utforskning: Resa distribution enligt medallion
 > [!NOTE]
 > Detta är vanligtvis en data Science-aktivitet.
 > 
@@ -410,7 +410,7 @@ Från Hive directory prompten, kör du följande kommando:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
-### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Utforskning: Resans distribution enligt medallion och hack licens
+### <a name="exploration-trip-distribution-by-medallion-and-hack-license"></a>Utforskning: Resa distribution enligt medallion och hack licens
 > [!NOTE]
 > Detta är vanligtvis en data Science-aktivitet.
 > 
@@ -435,7 +435,7 @@ Från Hive directory prompten, kör du:
 
 Frågeresultatet skrivs till en lokal fil **C:\temp\queryoutput.tsv**.
 
-### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Utforskning: Utvärdera datakvaliteten genom att söka efter ogiltiga longituden eller latituden poster
+### <a name="exploration-assessing-data-quality-by-checking-for-invalid-longitude-or-latitude-records"></a>Utforskning: Utvärdera datakvaliteten genom att söka efter ogiltig longitud och latitud poster
 > [!NOTE]
 > Detta är vanligtvis en data Science-aktivitet.
 > 
@@ -459,7 +459,7 @@ Från Hive directory prompten, kör du:
 
 Den *-S* argument som ingår i det här kommandot Undertrycker status skärmen utskriften Hive Map/Reduce-jobb. Detta är användbart eftersom det gör skärmen för att skriva ut av Hive-frågeresultatet lättare att läsa.
 
-### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Utforskning: Binär klass distributioner av resans tips
+### <a name="exploration-binary-class-distributions-of-trip-tips"></a>Utforskning: Binära klass distributioner av resans tips
 > [!NOTE]
 > Detta är vanligtvis en data Science-aktivitet.
 > 
@@ -485,7 +485,7 @@ Från Hive directory prompten, kör du:
     hive -f "C:\temp\sample_hive_tipped_frequencies.hql"
 
 
-### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Utforskning: Klass-distributioner i inställningen för multiklass-baserad
+### <a name="exploration-class-distributions-in-the-multiclass-setting"></a>Utforskning: Klass distributioner i inställningen för multiklass-baserad
 > [!NOTE]
 > Detta är vanligtvis en data Science-aktivitet.
 > 
@@ -563,7 +563,7 @@ Om du vill se innehållet i en viss fil, säger **000000\_0**, använda Hadoops 
 > 
 > 
 
-En stor fördel av informationen finns i en Azure-blob är att vi kan utforska data i Machine Learning, med hjälp av den [importdata] [ import-data] modulen.
+En viktig fördel med att ha dessa data finns i en Azure-Blob är att vi kan utforska data i Machine Learning med hjälp av modulen [Importera data][import-data] .
 
 ## <a name="#downsample"></a>Nedåtsampla data och skapa modeller i Machine Learning
 > [!NOTE]
@@ -571,12 +571,12 @@ En stor fördel av informationen finns i en Azure-blob är att vi kan utforska d
 > 
 > 
 
-Efter analysfasen undersökande data är vi nu redo att nedåtsampla data för att skapa modeller i Machine Learning. I det här avsnittet visar vi hur du använder en Hive-fråga för att nedåtsampla data. Machine Learning sedan får åtkomst från den [importdata] [ import-data] modulen.
+Efter analysfasen undersökande data är vi nu redo att nedåtsampla data för att skapa modeller i Machine Learning. I det här avsnittet visar vi hur du använder en Hive-fråga för att nedåtsampla data. Machine Learning öppnas sedan från modulen [Importera data][import-data] .
 
 ### <a name="down-sampling-the-data"></a>Ned-sampling data
 Det finns två steg i den här proceduren. Först vi ansluta den **nyctaxidb.trip** och **nyctaxidb.fare** tabeller på tre nycklar som finns i alla poster: **medallion**, **hack\_ licens**, och **upphämtning\_datetime**. Vi sedan generera en binär klassificeringsetikett **lutad**, och en inom klassificeringsetikett **tips\_klass**.
 
-För att kunna använda samplas ned data direkt från den [importdata] [ import-data] modul i Machine Learning, bör du lagra resultatet av den föregående frågan till en intern Hive-tabell. I det följer vi skapa en intern Hive-tabell och fylla i dess innehåll med domänanslutna och samplas ned data.
+Om du vill kunna använda de nedsamplade data direkt från modulen [Importera data][import-data] i Machine Learning bör du lagra resultatet från föregående fråga till en intern Hive-tabell. I det följer vi skapa en intern Hive-tabell och fylla i dess innehåll med domänanslutna och samplas ned data.
 
 Frågan gäller standardfunktioner Hive direkt om du vill generera följande från den **upphämtning\_datetime** fält:
 - timme på dagen
@@ -714,27 +714,27 @@ Att köra den här frågan från Hive directory prompten:
 
     hive -f "C:\temp\sample_hive_prepare_for_aml_full.hql"
 
-Nu har vi en intern tabell **nyctaxidb.nyctaxi_downsampled_dataset**, vilka kan nås med hjälp av den [importdata] [ import-data] modul från Machine Learning. Dessutom kan vi använda den här datauppsättningen för att skapa Machine Learning-modeller.  
+Nu har vi en intern tabell, **nyctaxidb. nyctaxi_downsampled_dataset**, som kan nås med modulen [importera data][import-data] från Machine Learning. Dessutom kan vi använda den här datauppsättningen för att skapa Machine Learning-modeller.  
 
 ### <a name="use-the-import-data-module-in-machine-learning-to-access-the-down-sampled-data"></a>Använda modulen importera Data i Machine Learning för att komma åt data samplas ned
-Att skicka Hive-frågor i den [importdata] [ import-data] modulen av Machine Learning, du behöver åtkomst till en Machine Learning-arbetsytan. Du kan också ha tillgång till autentiseringsuppgifterna för klustret och dess associerade lagringskontot.
+Om du vill utfärda Hive-frågor i modulen [Importera data][import-data] i Machine Learning måste du ha åtkomst till en Machine Learning arbets yta. Du kan också ha tillgång till autentiseringsuppgifterna för klustret och dess associerade lagringskontot.
 
-Här är lite information om den [importdata] [ import-data] modulen och parametrarna för att ange:
+Här följer information om modulen [Importera data][import-data] och parametrarna för indata:
 
 **HCatalog server URI**: Om klusternamnet är **abc123**, detta är helt enkelt: https://abc123.azurehdinsight.net.
 
-**Hadoop-användarkontonamnet**: Användarnamnet som valts för klustret (inte fjärråtkomst användarnamn).
+**Hadoop-användarkontonamnet**: användarnamn som valts för klustret (inte fjärråtkomst användarnamn).
 
-**Kontolösenord för Hadoop ser**: Lösenordet du valde för klustret (inte fjärråtkomst lösenord).
+**Kontolösenord för Hadoop ser**: lösenordet du valde för klustret (inte fjärråtkomst lösenord).
 
-**Platsen för utdata**: Detta är valt att vara Azure.
+**Platsen för utdata**: Detta är valt för att vara Azure.
 
-**Azure storage-kontonamn**: Namnet på standardkontot för lagring som är associerade med klustret.
+**Azure storage-kontonamn**: namnet på standardkontot för lagring som är associerade med klustret.
 
 **Azure behållarnamn**: Detta är standard behållarens namn för klustret och är vanligtvis samma som klusternamnet. För ett kluster som heter **abc123**, detta är abc123.
 
 > [!IMPORTANT]
-> Någon tabell som vi vill fråga med hjälp av den [importdata] [ import-data] modul i Machine Learning måste vara en intern tabell.
+> Alla tabeller som vi vill fråga med hjälp av modulen [Importera data][import-data] i Machine Learning måste vara en intern tabell.
 > 
 > 
 
@@ -746,7 +746,7 @@ Om tabellen är en intern tabell och fylls det, måste innehållet visas här.
 
 Ett annat sätt att avgöra om en tabell är en intern tabell är att använda Azure Storage Explorer. Du kan använda den för att navigera till standardnamnet för behållare i klustret och sedan filtrera efter tabellnamnet. Detta bekräftar att det är en intern tabell om tabellen och dess innehåll visas.
 
-Här visas en skärmbild av Hive-frågan och [importdata] [ import-data] modulen:
+Här är en skärm bild av Hive-frågan och modulen [Importera data][import-data] :
 
 ![Skärmbild av Hive-fråga för modulen importera Data](./media/hive-walkthrough/1eTYf52.png)
 
@@ -757,11 +757,11 @@ Datauppsättningen kan nu användas som utgångspunkt för att skapa Machine Lea
 ### <a name="mlmodel"></a>Skapa modeller i Machine Learning
 Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskininlärning](https://studio.azureml.net). Data är klar så att vi kan använda i adressering förutsägelse-problem som identifierats tidigare:
 
-- **Binär klassificering**: För att förutsäga om ett tips har betalat för en resa.
+- **Binär klassificering**: för att förutsäga om ett tips har betalat för en resa.
 
-  **Learner används:** Två logistic regression
+  **Learner används:** tvåklassförhöjt logistic regression
 
-  a. Detta mål (eller klassen) etiketten är **lutad**. Den ursprungliga datauppsättningen för ned-samplas har några kolumner som är mål läckage av det här experimentet klassificering. I synnerhet **tips\_klass**, **tips\_belopp**, och **totala\_belopp** avslöjar information om mål-etiketten som är inte tillgänglig vid testning tid. Vi ta bort dessa kolumner från behandling med hjälp av den [Välj kolumner i datauppsättning] [ select-columns] modulen.
+  a. Detta mål (eller klassen) etiketten är **lutad**. Den ursprungliga datauppsättningen för ned-samplas har några kolumner som är mål läckage av det här experimentet klassificering. I synnerhet **tips\_klass**, **tips\_belopp**, och **totala\_belopp** avslöjar information om mål-etiketten som är inte tillgänglig vid testning tid. Vi tar bort dessa kolumner från överväganden med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
   Följande diagram visar våra experiment att förutsäga om ett tips har betalat för en viss resa:
 
@@ -777,13 +777,13 @@ Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskin
 
   ![Diagram över AUC värde](./media/hive-walkthrough/8JDT0F8.png)
 
-- **Multiklass-baserad klassificering**: Att förutsäga vilka tips betalat för resan, med hjälp av de tidigare definierade klasserna.
+- **Multiklass-baserad klassificering**: att förutsäga vilka tips betalat för resan, med hjälp av de tidigare definierade klasserna.
 
-  **Learner används:** Inom logistic regression
+  **Learner används:** inom logistic regression
 
-  a. För det här problemet är våra mål (eller klassen) etikett **tips\_klass**, vilket kan ta en av fem värden (0,1,2,3,4). Som i fallet med binär klassificering har vi några kolumner som är mål läckage av det här experimentet. I synnerhet **lutad**, **tips\_belopp**, och **totala\_belopp** avslöja information om det mål som inte är tillgänglig Testa tid. Vi ta bort de här kolumnerna med hjälp av den [Välj kolumner i datauppsättning] [ select-columns] modulen.
+  a. För det här problemet är våra mål (eller klassen) etikett **tips\_klass**, vilket kan ta en av fem värden (0,1,2,3,4). Som i fallet med binär klassificering har vi några kolumner som är mål läckage av det här experimentet. I synnerhet **lutad**, **tips\_belopp**, och **totala\_belopp** avslöja information om det mål som inte är tillgänglig Testa tid. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
-  Följande diagram visar experiment att förutsäga ett tips är sannolikt att hamna i vilka bin. Lagerplatserna är: Klass 0: tips = $0, klass 1: tips > $0 och tips < = 5 dollar, klass 2: tips > 5 och tips < = 10 USD, klass 3: tips > $10 och tips < = $20 och klass 4: tips > 20.
+  Följande diagram visar experiment att förutsäga ett tips är sannolikt att hamna i vilka bin. Lagerplatserna är: klass 0: tips = $0, klass 1: tips > $0 och tips < = 5 dollar, klass 2: tips > 5 och tips < = 10 USD, klass 3: tips > $10 och tips < = $20 och klass 4: tips > 20.
 
   ![Diagram över experiment att förutsäga bin för tips](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -797,11 +797,11 @@ Du kan nu fortsätta till modellskapandet och distribution av modeller i [Maskin
 
   Observera att klassen noggrannhet på vanliga klasser är ganska bra, modellen inte gör ett bra jobb med ”learning” på de sällsynta klasserna.
 
-- **Regression uppgift**: Att förutsäga mängden tips som har betalat för en resa.
+- **Regression uppgift**: att förutsäga mängden tips som har betalat för en resa.
 
-  **Learner används:** beslutsträd
+  **Learner används:** Boosted beslutsträd
 
-  a. Detta mål (eller klassen) etiketten är **tips\_belopp**. Mål-läckage i det här fallet är: **lutad**, **tips\_klass**, och **totala\_belopp**. Dessa variabler avslöja information om hur mycket av tips som normalt inte är tillgängligt vid testning tid. Vi ta bort de här kolumnerna med hjälp av den [Välj kolumner i datauppsättning] [ select-columns] modulen.
+  a. Detta mål (eller klassen) etiketten är **tips\_belopp**. Mål-läckage i det här fallet är: **lutad**, **tips\_klass**, och **totala\_belopp**. Dessa variabler avslöja information om hur mycket av tips som normalt inte är tillgängligt vid testning tid. Vi tar bort de här kolumnerna med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
   Följande diagram visar experiment till att förutse hur mycket av det angivna tipset:
 

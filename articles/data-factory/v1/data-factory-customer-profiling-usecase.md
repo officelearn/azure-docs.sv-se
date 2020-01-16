@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 866a7fdabaf51738333d8583bea5d0fa9fabf6f2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c570f988dea894b8106405f4e427edb386a3e74a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139858"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969296"
 ---
 # <a name="use-case---customer-profiling"></a>Användningsfall - Kundprofilering
 Azure Data Factory är en av många tjänster som används för att implementera Cortana Intelligence Suite av lösnings acceleratorer.  Mer information om Cortana Intelligence finns [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics). I det här dokumentet beskriver vi ett enkelt användnings fall som hjälper dig att komma igång med att förstå hur Azure Data Factory kan lösa vanliga analys problem.
@@ -29,7 +29,7 @@ Contosos mål är att identifiera affärs-och kors försäljnings möjligheter b
 I den här lösningen vill contoso utvärdera effektiviteten hos en marknadsförings kampanj som den nyligen har lanserat. Vi börjar med de obehandlade spel loggarna, bearbetar och utvärderar dem med information om geolokalisering, går med i annonserings referens data och kopierar dem slutligen till en Azure SQL Database för att analysera kampanjens påverkan.
 
 ## <a name="deploy-solution"></a>Distribuera lösning
-Allt du behöver för att komma åt och testa det här enkla användnings fallet är en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/), ett [Azure Blob Storage-konto](../../storage/common/storage-quickstart-create-account.md)och en [Azure SQL Database](../../sql-database/sql-database-get-started.md). Du distribuerar pipeline för kund profilering från panelen **exempel pipelines** på Start sidan för din data fabrik.
+Allt du behöver för att komma åt och testa det här enkla användnings fallet är en [Azure-prenumeration](https://azure.microsoft.com/pricing/free-trial/), ett [Azure Blob Storage-konto](../../storage/common/storage-account-create.md)och en [Azure SQL Database](../../sql-database/sql-database-get-started.md). Du distribuerar pipeline för kund profilering från panelen **exempel pipelines** på Start sidan för din data fabrik.
 
 1. Skapa en data fabrik eller öppna en befintlig data fabrik. Information om hur du skapar en data fabrik finns i [Kopiera data från Blob Storage till SQL Database med Data Factory](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 2. På **Data Factory** -bladet för data fabriken klickar du på panelen **exempel pipelines** .
@@ -50,7 +50,7 @@ Allt du behöver för att komma åt och testa det här enkla användnings fallet
 
     ![Bladet Datafabrik](./media/data-factory-samples/DataFactoryBladeAfter.png)
 
-## <a name="solution-overview"></a>Lösningsöversikt
+## <a name="solution-overview"></a>Lösning: översikt
 Det här enkla användnings fallet kan användas som ett exempel på hur du kan använda Azure Data Factory för att mata in, förbereda, transformera, analysera och publicera data.
 
 ![Arbetsflödet slutpunkt till slutpunkt](./media/data-factory-customer-profiling-usecase/EndToEndWorkflow.png)
@@ -63,6 +63,6 @@ Den här bilden illustrerar hur data pipelinen visas i Azure Portal när de har 
 
 I det här exemplet används Data Factory för att dirigera aktiviteter som kopierar indata, transformerar och bearbetar data och skickar ut de slutliga data till en Azure SQL Database.  Du kan också visualisera nätverket för datapipeliner, hantera dem och övervaka deras status från användar gränssnittet.
 
-## <a name="benefits"></a>Fördelar
+## <a name="benefits"></a>Erbjudande
 Genom att optimera användar profils analysen och justera den med affärs mål kan spel företaget snabbt samla in användnings mönster och analysera effektiviteten hos dess marknadsförings kampanjer.
 

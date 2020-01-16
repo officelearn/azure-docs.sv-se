@@ -3,12 +3,12 @@ title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar, till exempel princip överträdelser och skiss parameter funktioner.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406617"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982480"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
@@ -43,7 +43,7 @@ En princip kan vara i konflikt med distributionen av ett antal orsaker:
 - Den resurs som skapas begränsas av en princip (ofta SKU eller plats begränsningar)
 - Distributionen anger fält som har kon figurer ATS av en princip (common med taggar)
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Ändra skissen så att den inte hamnar i konflikt med principerna i fel informationen. Om den här ändringen inte är möjlig, är ett alternativt alternativ att omfånget för princip tilldelningen har ändrats, så att skissen inte längre strider mot principen.
 
@@ -57,9 +57,9 @@ Skiss parametrar som är funktioner bearbetas innan de skickas till artefakter.
 
 Att skicka en skiss parameter som använder en funktion, till exempel `[resourceGroup().tags.myTag]`, till en artefakt resulterar i att det behandlade resultatet av den funktion som anges i artefakten i stället för den dynamiska funktionen.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
-Om du vill skicka en funktion via som en parameter, Escape hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/template-expressions.md).
+Om du vill skicka en funktion via som en parameter, Escape hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

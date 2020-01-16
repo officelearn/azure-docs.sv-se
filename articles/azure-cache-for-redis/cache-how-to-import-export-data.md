@@ -6,15 +6,15 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: df8b65fcb4dd2b9622716052be2df59cbfa5424a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122773"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971817"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importera och exportera data i Azure cache för Redis
-Import/export är en Azure-cache för Redis data hanterings åtgärd som gör att du kan importera data till Azure cache för Redis eller exportera data från Azure cache för Redis genom att importera och exportera en Azure-cache för Redis Database (RDB) ögonblicks bild från en Premium-cache till en BLOB i ett Azure Storage-konto. 
+Import/export är en Azure-cache för Redis data hanterings åtgärd, som gör att du kan importera data till Azure cache för Redis eller exportera data från Azure cache för Redis genom att importera och exportera en Azure cache för Redis Database (RDB) ögonblicks bild från en Premium-cache till en BLOB i ett Azure Storage-konto.
 
 - **Export** – du kan exportera Azure-cachen för Redis RDB-ögonblicksbilder till en sid-blob.
 - **Importera** – du kan importera Azure-cachen för Redis RDB-ögonblicksbilder från antingen en Page BLOB eller en Block-Blob.
@@ -41,7 +41,7 @@ Import kan användas för att hämta Redis-kompatibla RDB-filer från en Redis-s
     ![Importera data](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Klicka på **Välj BLOB (er)** och välj det lagrings konto som innehåller de data som ska importeras.
 
-    ![Välj lagrings konto](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
+    ![Välj lagringskonto](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
 3. Klicka på den behållare som innehåller de data som ska importeras.
 
     ![Välj behållare](./media/cache-how-to-import-export-data/cache-import-choose-container.png)
@@ -57,7 +57,7 @@ Import kan användas för att hämta Redis-kompatibla RDB-filer från en Redis-s
 
     ![Importera](./media/cache-how-to-import-export-data/cache-import-blobs.png)
 
-    Du kan övervaka förloppet för import åtgärden genom att följa meddelanden från Azure Portal eller genom att granska händelserna i [gransknings loggen](../azure-resource-manager/resource-group-audit.md).
+    Du kan övervaka förloppet för import åtgärden genom att följa meddelanden från Azure Portal eller genom att granska händelserna i [gransknings loggen](../azure-resource-manager/management/view-activity-logs.md).
 
     ![Import förlopp](./media/cache-how-to-import-export-data/cache-import-data-import-complete.png)
 
@@ -81,7 +81,7 @@ Med export kan du exportera data som lagras i Azure cache för Redis till Redis-
 
     ![Exportera](./media/cache-how-to-import-export-data/cache-export-data.png)
 
-    Du kan övervaka förloppet för export åtgärden genom att följa meddelanden från Azure Portal eller genom att granska händelserna i [gransknings loggen](../azure-resource-manager/resource-group-audit.md).
+    Du kan övervaka förloppet för export åtgärden genom att följa meddelanden från Azure Portal eller genom att granska händelserna i [gransknings loggen](../azure-resource-manager/management/view-activity-logs.md).
 
     ![Export av data slutförd](./media/cache-how-to-import-export-data/cache-export-data-export-complete.png)
 
@@ -109,8 +109,8 @@ Ja, förutom att importera data som exporter ATS från Azure cache för Redis-in
 
 > [!IMPORTANT]
 > Om du vill importera data som exporter ATS från andra Redis-servrar än Azure cache för Redis när du använder en Page BLOB måste sidans BLOB-storlek justeras på en 512 byte-gränser. Exempel kod för att utföra en obligatorisk byte-utfyllnad finns i [exempel på sidan BLOB-uppladdning](https://github.com/JimRoberts-MS/SamplePageBlobUpload).
-> 
-> 
+>
+>
 
 ### <a name="what-rdb-versions-can-i-import"></a>Vilka RDB-versioner kan jag importera?
 

@@ -9,18 +9,18 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/31/2019
 ms.author: evansma
-ms.openlocfilehash: f4cd5083d694cb7c463596b7b45c384e0dc8b28d
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 8c0af3f059d1beb0e1d07d3494b31c674f15438d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779747"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980863"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Rikt linjer för Azure Marketplace-lista
 
 Det här dokumentet innehåller rikt linjer för krav samt en check lista för granskare för nya erbjudanden och tjänster som finns i Azure Marketplace.
 
-Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) som anges nedan. Ytterligare krav och check listor tillhandahålls för särskilda typer av listor, inklusive: erbjudanden med kopplade [utvärderings versioner](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-apps-requirements), [behållare](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)och [konsult erbjudanden](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
+Alla erbjudanden måste uppfylla [alla registrerings krav](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#all-listing-requirements) som anges nedan. Ytterligare krav och check listor tillhandahålls för särskilda typer av listor, inklusive: erbjudanden med kopplade [utvärderings versioner](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#trial-offer-requirements), [SaaS-appar](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#saas-app-requirements), [behållare](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#container-offer-requirements)och [konsult erbjudanden](https://docs.microsoft.com/azure/marketplace/marketplace-criteria-content-validation#consulting-offer-requirements).
 
 
 ## <a name="all-listing-requirements"></a>Alla registrerings krav

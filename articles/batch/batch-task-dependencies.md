@@ -3,7 +3,7 @@ title: Använd aktivitets beroenden för att köra uppgifter baserat på slut f�
 description: Skapa uppgifter som är beroende av slut för ande av andra uppgifter för att bearbeta MapReduce-format och liknande stor data arbets belastningar i Azure Batch.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a1378a5c00acbbce5e7ec73a75902ec55140575
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 875e0314c41a6bb277769361b6faa0345312db2b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094608"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026244"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa aktivitets beroenden för att köra uppgifter som är beroende av andra aktiviteter
 
@@ -40,7 +40,7 @@ Du kan skapa uppgifter som är beroende av andra uppgifter i en en-till-en-till-
 I den här artikeln diskuterar vi hur du konfigurerar aktivitets beroenden med hjälp av [batch .net][net_msdn] -biblioteket. Först visar vi hur du [aktiverar aktivitets beroenden](#enable-task-dependencies) för dina jobb och visar hur du [konfigurerar en aktivitet med beroenden](#create-dependent-tasks). Vi beskriver också hur du anger en beroende åtgärd för att köra beroende uppgifter om överordnat Miss lyckas. Slutligen diskuterar vi de [beroende scenarier](#dependency-scenarios) som batch stöder.
 
 ## <a name="enable-task-dependencies"></a>Aktivera aktivitets beroenden
-Om du vill använda aktivitets beroenden i batch-programmet måste du först konfigurera jobbet så att det använder aktivitets beroenden. I batch .NET aktiverar du det på din [CloudJob][net_cloudjob] genom att ställa [][net_usestaskdependencies] in dess UsesTaskDependencies `true`-egenskap till:
+Om du vill använda aktivitets beroenden i batch-programmet måste du först konfigurera jobbet så att det använder aktivitets beroenden. I batch .NET aktiverar du det på din [CloudJob][net_cloudjob] genom att ställa in dess [UsesTaskDependencies][net_usestaskdependencies] -egenskap till `true`:
 
 ```csharp
 CloudJob unboundJob = batchClient.JobOperations.CreateJob( "job001",
@@ -67,7 +67,7 @@ new CloudTask("Flowers", "cmd.exe /c echo Flowers")
 Det här kodfragmentet skapar en beroende uppgift med aktivitets-ID "blommor". Uppgiften "blommor" är beroende av aktiviteterna "regn" och "Sun". Uppgiften "blommor" schemaläggs att köras på en Compute-nod först efter att aktiviteterna "regn" och "Sun" har slutförts.
 
 > [!NOTE]
-> Som standard anses en aktivitet vara slutförd när den är i slutfört tillstånd och dess **slut kod** är `0`. I batch .NET innebär detta en [CloudTask][net_cloudtask]. [][net_taskstate] Värdet för egenskapen state `Completed` för och CloudTask [TaskExecutionInformation][net_taskexecutioninformation].[ ][net_exitcode]Värdet för egenskapen ExitCode `0`är. Information om hur du ändrar detta finns i avsnittet [beroende åtgärder](#dependency-actions) .
+> Som standard anses en aktivitet vara slutförd när den är i **slutfört** tillstånd och dess **slut kod** är `0`. I batch .NET innebär detta en [CloudTask][net_cloudtask]. Egenskap svärdet för [tillstånd][net_taskstate] för `Completed` och CloudTask [TaskExecutionInformation][net_taskexecutioninformation]. Värdet för egenskapen [ExitCode][net_exitcode] är `0`. Information om hur du ändrar detta finns i avsnittet [beroende åtgärder](#dependency-actions) .
 > 
 > 
 
@@ -77,8 +77,8 @@ Det finns tre grundläggande scenarier för aktivitets beroenden som du kan anv�
 | Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Exempel |  |
 |:---:| --- | --- |
 |  [En-till-en](#one-to-one) |*aktivitetb* är beroende av *uppgiften* in <p/> *aktivitetb* kommer inte att schemaläggas för körning förrän *uppgiften* i har slutförts |![Diagram: ett-till-ett-aktivitets beroende][1] |
-|  [En-till-många](#one-to-many) |*aktivitetC* är beroende av både *aktivitetA* och *aktivitetB*. <p/> *aktivitetc* kommer inte att schemaläggas för körning förrän båda aktiviteterna och *aktivitetb* har slutförts |![Diagram: ett-till-många-aktivitets beroende][2] |
-|  [Aktivitets-ID-intervall](#task-id-range) |*taskd* är beroende av en mängd aktiviteter <p/> *tasked* kommer inte att schemaläggas för körning förrän uppgifterna med ID *1* till och med *10* har slutförts |![Venndiagram Aktivitets-ID intervall beroende][3] |
+|  [En-till-många](#one-to-many) |*aktivitetC* är beroende av både *aktivitetA* och *aktivitetB*. <p/> *aktivitetc* kommer inte att schemaläggas för körning förrän båda *aktiviteterna* och *aktivitetb* har slutförts |![Diagram: ett-till-många-aktivitets beroende][2] |
+|  [Aktivitets-ID-intervall](#task-id-range) |*taskd* är beroende av en mängd aktiviteter <p/> *tasked* kommer inte att schemaläggas för körning förrän uppgifterna med ID *1* till och med *10* har slutförts |![Diagram: aktivitets-ID intervall beroende][3] |
 
 > [!TIP]
 > Du kan skapa **många-till-många-** relationer, till exempel var aktiviteterna C, D, E och F var beroende av aktiviteterna A och B. Detta är användbart, till exempel i parallella för bearbetnings scenarier där de underordnade uppgifterna är beroende av utdata från flera överordnade aktiviteter.
@@ -120,11 +120,11 @@ En aktivitet är beroende av ett antal överordnade aktiviteter, beroende på sl
 Om du vill skapa beroendet anger du det första och sista aktivitets-ID: t i intervallet till [TaskDependencies][net_taskdependencies]. [OnIdRange][net_onidrange] statisk metod när du fyller i egenskapen [DependsOn][net_dependson] för [CloudTask][net_cloudtask].
 
 > [!IMPORTANT]
-> När du använder aktivitets-ID-intervall för dina beroenden väljs endast uppgifter med ID: n som representerar heltals värden av intervallet. Det innebär att `1..10` intervallet väljer uppgifter `3` och `7`, men inte `5flamingoes`. 
+> När du använder aktivitets-ID-intervall för dina beroenden väljs endast uppgifter med ID: n som representerar heltals värden av intervallet. Intervallet `1..10` väljer aktiviteter `3` och `7`, men inte `5flamingoes`. 
 > 
-> Inledande nollor är inte signifikanta vid utvärdering av intervall beroenden, så aktiviteter med `4`sträng `04` identifierare `004` och kommer att vara *inom* intervallet och de kommer att behandlas som uppgift `4`, så det första för att slutförandet ska slutföras uppfyller beroendet.
+> Inledande nollor är inte signifikanta vid utvärdering av intervall beroenden, så uppgifter med sträng identifierare `4`, `04` och `004` kommer att vara *inom* intervallet och de kommer att behandlas som aktivitets `4`, så den första som slutföras kommer att uppfylla beroendet.
 > 
-> Varje aktivitet i intervallet måste uppfylla beroendet, antingen genom att den slutförs eller genom att ett fel som har mappats till en beroende åtgärd angetts som uppfylls. Mer information finns i avsnittet [beroende åtgärder](#dependency-actions) .
+> Varje aktivitet i intervallet måste uppfylla beroendet, antingen genom att den slutförs eller genom att ett fel som har mappats till en beroende åtgärd angetts som **uppfylls**. Mer information finns i avsnittet [beroende åtgärder](#dependency-actions) .
 >
 >
 
@@ -158,14 +158,14 @@ En beroende åtgärd baseras på ett avslutnings villkor för den överordnade a
 - När ett fil överförings fel inträffar. Om aktiviteten avslutas med en slutkod som har angetts via **exitCodes** eller **exitCodeRanges**, och sedan påträffar ett fil överförings fel, har åtgärden som anges av slut koden företräde.
 - När aktiviteten avslutas med en slutkod som definieras av egenskapen **ExitCodes** .
 - När aktiviteten avslutas med en slutkod som ligger inom ett intervall som anges av egenskapen **ExitCodeRanges** .
-- Standard fallet om aktiviteten avslutas med en slutkod som inte definieras av **ExitCodes** eller **ExitCodeRanges**, eller om aktiviteten avslutas med ett för bearbetnings fel och egenskapen **PreProcessingError** inte har angetts, eller om aktiviteten Miss lyckas med ett fil överförings fel och **FileUploadError** -egenskapen har inte angetts. 
+- Standard fallet om aktiviteten avslutas med en slutkod som inte har definierats av **ExitCodes** eller **ExitCodeRanges**, eller om aktiviteten avslutas med ett för bearbetnings fel och egenskapen **PreProcessingError** inte har angetts, eller om aktiviteten Miss lyckas med ett fil överförings fel och **FileUploadError** -egenskapen inte har angetts. 
 
 Ange en beroende åtgärd i .NET genom att ange [ExitOptions][net_exitoptions]. [DependencyAction][net_dependencyaction] -egenskap för avslutnings villkoret. Egenskapen **DependencyAction** använder ett av två värden:
 
 - Att ange egenskapen **DependencyAction** för att **tillfredsställa** anger att beroende aktiviteter är berättigade att köras om den överordnade aktiviteten avslutas med ett angivet fel.
 - Om du ställer in egenskapen **DependencyAction** på **block** anger det att beroende aktiviteter inte är berättigade att köras.
 
-Standardvärdet för egenskapen **DependencyAction** är för slutkod 0, och **blockera** för alla andra avslutnings villkor.
+Standardvärdet för egenskapen **DependencyAction** **är för** slutkod 0, och **blockera** för alla andra avslutnings villkor.
 
 I följande kodfragment anges egenskapen **DependencyAction** för en överordnad aktivitet. Om den överordnade aktiviteten avslutas med ett för bearbetnings fel, eller med de angivna fel koderna, blockeras den beroende uppgiften. Om den överordnade aktiviteten avslutas med andra fel än noll, är den beroende uppgiften giltig att köras.
 
@@ -210,7 +210,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 - Så här kör du dessa uppgifter i en pool med datornoder.
 
 ## <a name="next-steps"></a>Nästa steg
-### <a name="application-deployment"></a>Program distribution
+### <a name="application-deployment"></a>Appdistribution
 Funktionen [programpaket](batch-application-packages.md) i batch ger ett enkelt sätt att både distribuera och version av programmen som dina aktiviteter kör på Compute-noder.
 
 ### <a name="installing-applications-and-staging-data"></a>Installera program och mellanlagrings data

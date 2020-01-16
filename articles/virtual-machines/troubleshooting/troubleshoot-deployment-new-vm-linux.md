@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: troubleshooting
 ms.date: 09/09/2016
 ms.author: cjiang
-ms.openlocfilehash: f02e1f73460140c9fe9f2cf6d7ffda26533d570d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 98c3a6b14230e30ccbb103be741595696a20c236
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70090027"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981409"
 ---
 # <a name="troubleshoot-resource-manager-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Felsök distributions problem i Resource Manager med att skapa en ny Linux-virtuell dator i Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -34,7 +34,7 @@ Information om andra problem med VM-distribution samt frågor finns i [Felsöka 
 ## <a name="collect-activity-logs"></a>Samla in aktivitets loggar
 För att starta fel sökningen samlar du in aktivitets loggarna för att identifiera det fel som är associerat med problemet. Följande länkar innehåller detaljerad information om processen som ska följas.
 
-[Visa distributionsåtgärder](../../azure-resource-manager/resource-manager-deployment-operations.md)
+[Visa distributionsåtgärder](../../azure-resource-manager/templates/deployment-history.md)
 
 [Visa aktivitets loggar för att hantera Azure-resurser](../../resource-group-audit.md)
 
@@ -42,7 +42,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 [!INCLUDE [virtual-machines-linux-troubleshoot-deployment-new-vm-table](../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-table.md)]
 
-**JA** Om operativ systemet är generaliserat i Linux och det laddas upp och/eller registreras med den generaliserade inställningen, kommer det inte att finnas några fel. På samma sätt, om operativ systemet är specialiserat på Linux och laddas upp och/eller samlas in med den särskilda inställningen, kommer det inte att finnas några fel.
+**Y:** Om operativ systemet är generaliserat i Linux och det laddas upp och/eller registreras med den generaliserade inställningen, kommer det inte att finnas några fel. På samma sätt, om operativ systemet är specialiserat på Linux och laddas upp och/eller samlas in med den särskilda inställningen, kommer det inte att finnas några fel.
 
 **Överförings fel:**
 
@@ -50,7 +50,7 @@ För att starta fel sökningen samlar du in aktivitets loggarna för att identif
 
 **N<sup>2</sup>:** Om operativ systemet är specialiserat på Linux och det laddas upp som generaliserat, får du ett fel meddelande om etableringen eftersom den nya virtuella datorn körs med det ursprungliga dator namnet, användar namnet och lösen ordet.
 
-**Lösning**
+**Lösning:**
 
 För att lösa båda dessa fel kan du överföra den ursprungliga virtuella hård disken, som är tillgänglig lokalt, med samma inställning som för operativ systemet (generaliserad/specialiserad). Kom ihåg att köra avetableringen först om du vill överföra som generaliserad.
 
@@ -60,11 +60,11 @@ För att lösa båda dessa fel kan du överföra den ursprungliga virtuella hår
 
 **N<sup>4</sup>:** Om operativ systemet är specialiserat på Linux och det registreras som generaliserat får du ett fel meddelande om etableringen, eftersom den nya virtuella datorn körs med det ursprungliga dator namnet, användar namnet och lösen ordet. Dessutom går det inte att använda den ursprungliga virtuella datorn eftersom den är markerad som specialiserad.
 
-**Lösning**
+**Lösning:**
 
 Du kan lösa båda dessa fel genom att ta bort den aktuella avbildningen från portalen och [avbilda om den från de aktuella virtuella hård diskarna](../linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) med samma inställning som för operativ systemet (generaliserat/specialiserat).
 
-## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Ärende: Anpassad/Galleri/Marketplace-avbildning; allokeringsfel
+## <a name="issue-custom-gallery-marketplace-image-allocation-failure"></a>Problem: anpassad/Galleri/Marketplace-avbildning; allokeringsfel
 Det här felet uppstår i situationer när den nya VM-begäran fästs i ett kluster som antingen inte stöder den virtuella dator storleken eller som inte har tillräckligt med ledigt utrymme för att hantera begäran.
 
 **Orsak 1:** Klustret har inte stöd för den begärda virtuella dator storleken.
@@ -74,7 +74,7 @@ Det här felet uppstår i situationer när den nya VM-begäran fästs i ett klus
 * Gör om begäran med en mindre VM-storlek.
 * Om det inte går att ändra storleken på den begärda virtuella datorn:
   * Stoppa alla virtuella datorer i tillgänglighets uppsättningen.
-    Klicka på **resurs grupper** > *resurs gruppen* > **resurser** > dintillgänglighetsuppsättningVirtual Machinesden > virtuelladatorn > *Stoppa.*  > 
+    Klicka på **resurs grupper** > *resurs gruppen* > **resurser** > *din tillgänglighets uppsättning* > **Virtual Machines** > *den virtuella datorn* > **stoppa**.
   * När alla virtuella datorer har stoppats skapar du den nya virtuella datorn i önskad storlek.
   * Starta den nya virtuella datorn först och välj sedan var och en av de stoppade virtuella datorerna och klicka på **Starta**.
 

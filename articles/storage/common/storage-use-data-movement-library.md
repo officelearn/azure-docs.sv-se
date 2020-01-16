@@ -10,14 +10,14 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 22dae518a45d5c4af20044d5f3eb88e764e92c8b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895118"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978381"
 ---
-# <a name="transfer-data-with-the-data-movement-library"></a>Överföra data med bibliotek för data förflyttning
+# <a name="transfer-data-with-the-data-movement-library"></a>Överföra data med dataflyttbiblioteket
 
 Biblioteket för Azure Storage data förflyttning är ett bibliotek med öppen källkod mellan olika plattformar som har utformats för hög prestanda överföring, hämtning och kopiering av blobbar och filer. Det här biblioteket är kärnan i ramverket för data förflyttning som [AzCopy](../storage-use-azcopy.md). Data flyttnings biblioteket innehåller praktiska metoder som inte är tillgängliga i Azure Storage klient biblioteket för .NET. Dessa metoder ger möjlighet att ställa in antalet parallella åtgärder, spåra överförings förlopp, enkelt återuppta en avbruten överföring och mycket mer.
 
@@ -35,9 +35,9 @@ Det här dokumentet visar hur du skapar ett .NET Core-konsolprogram som körs p�
 ## <a name="prerequisites"></a>Krav
 
 - [Visual Studio-kod](https://code.visualstudio.com/)
-- Ett [Azure Storage-konto](storage-quickstart-create-account.md)
+- Ett [Azure Storage-konto](storage-account-create.md)
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
 1. Besök [installations guiden för .net Core](https://www.microsoft.com/net/core) för att installera .net Core. När du väljer din miljö väljer du kommando rads alternativet.
 2. Skapa en katalog för projektet från kommando raden. Navigera till den här katalogen och skriv `dotnet new console -o <sample-project-name>` för att skapa C# ett konsol projekt.

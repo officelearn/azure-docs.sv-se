@@ -1,6 +1,6 @@
 ---
-title: Vägledning om haveriberedskap för Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Vägledning om haveriberedskap för Azure Data Lake Storage Gen1
+title: Vägledning om haveri beredskap för Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Vägledning om haveri beredskap för Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: twooley
@@ -11,35 +11,35 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
-ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b33977ca5184ea07b5651be18e3a132d30ce4b39
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60878298"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966058"
 ---
-# <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Vägledning om haveriberedskap för data i Azure Data Lake Storage Gen1
+# <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Vägledning om haveri beredskap för data i Azure Data Lake Storage Gen1
 
-Azure Data Lake Storage Gen1 tillhandahåller lokalt redundant lagring (LRS). Exempelvis är data i ditt Data Lake Storage Gen1-konto motståndskraftiga mot tillfälliga maskinvarufel inom ett datacenter tack vare automatisk replikering. Detta säkerställer hållbarheten och hög tillgänglighet, vilket uppfyller SLA för Data Lake Storage Gen1. Den här artikeln innehåller råd om hur du skydda dina data ytterligare från ovanligt regionomfattande avbrott eller oavsiktliga borttagningar.
+Azure Data Lake Storage Gen1 tillhandahåller lokalt redundant lagring (LRS). Data i ditt Data Lake Storage Gen1s konto är därför elastiska mot tillfälliga maskin varu haverier inom ett Data Center genom automatiska repliker. Detta säkerställer hållbarhet och hög tillgänglighet, som uppfyller Data Lake Storage Gen1 service avtal. Den här artikeln innehåller vägledning om hur du ytterligare skyddar dina data från ovanliga avbrott i regioner eller oavsiktliga borttagningar.
 
 ## <a name="disaster-recovery-guidance"></a>Vägledning om haveriberedskap
-Det är viktigt för varje kund att förbereda en plan för haveriberedskap. Läs informationen i den här artikeln för att skapa din haveriberedskapsplan. Här finns resurser som hjälper dig att skapa ett eget schema.
+Det är viktigt för varje kund att förbereda en plan för haveriberedskap. Läs informationen i den här artikeln för att skapa en återställnings plan för haveri beredskap. Här finns resurser som hjälper dig att skapa ett eget schema.
 
 * [Haveriberedskap och hög tillgänglighet för Azure-program](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Azure-återhämtning, tekniska riktlinjer](../resiliency/resiliency-technical-guidance.md)
 
-### <a name="best-practices"></a>Bästa praxis
-Vi rekommenderar att du kopierar dina viktigaste data till ett annat Data Lake Storage Gen1 konto i en annan region med en frekvens som är anpassad efter behoven i din haveriberedskapsplan. Det finns en mängd olika metoder för att kopiera data, inklusive [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md). Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
+### <a name="best-practices"></a>Bästa metoder
+Vi rekommenderar att du kopierar viktiga data till ett annat Data Lake Storage Gen1 konto i en annan region med en frekvens som är anpassad till behoven hos din katastrof återställnings plan. Det finns en mängd olika metoder för att kopiera data, inklusive [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md). Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
 
-Om ett regionalt strömavbrott kan du sedan komma åt dina data i den region där data har kopierats. Du kan övervaka den [Hälsoinstrumentpanelen för Azure](https://azure.microsoft.com/status/) att avgöra status för Azure-tjänsten över hela världen.
+Om ett regionalt avbrott inträffar kan du sedan komma åt dina data i den region där data kopierades. Du kan övervaka [Azure Service Health-instrumentpanelen](https://azure.microsoft.com/status/) för att fastställa statusen för Azure-tjänsten över hela världen.
 
 ## <a name="data-corruption-or-accidental-deletion-recovery-guidance"></a>Skadade data eller vägledning för återställning av oavsiktligt borttagna data
-Detta förhindrar inte att appen (eller utvecklare/användare) från skada data eller oavsiktligen raderar medan Data Lake Storage Gen1 skyddar data med hjälp av automatiska repliker.
+Medan Data Lake Storage Gen1 ger data återhämtning via automatiserade repliker, förhindrar detta inte att ditt program (eller utvecklare/användare) skadar data eller tar bort den av misstag.
 
-### <a name="best-practices"></a>Bästa praxis
-Om du vill förhindra oavsiktlig borttagning rekommenderar vi att du först ställer in rätt åtkomstprinciper för ditt Data Lake Storage Gen1-konto.  Det innebär att tillämpa [Azure resurslås](../azure-resource-manager/resource-group-lock-resources.md) att låsa viktiga resurser samt tillämpa konto- och nivå åtkomstkontroll med hjälp av de tillgängliga [säkerhetsfunktioner för Data Lake Storage Gen1](data-lake-store-security-overview.md). Vi rekommenderar också att du skapar regelbundna kopior av dina viktigaste data med [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) i ett annat Data Lake Storage Gen1 konto, mapp eller Azure-prenumeration.  Detta kan användas för att återställa från skadade data eller en borttagning. Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
+### <a name="best-practices"></a>Bästa metoder
+För att förhindra oavsiktlig borttagning rekommenderar vi att du först ställer in rätt åtkomst principer för ditt Data Lake Storage Gen1-konto.  Detta omfattar att använda [Azure Resource](../azure-resource-manager/management/lock-resources.md) Locks för att låsa viktiga resurser samt att tillämpa åtkomst kontroll på konto-och filnivå med hjälp av de tillgängliga [data Lake Storage gen1 säkerhetsfunktionerna](data-lake-store-security-overview.md). Vi rekommenderar också att du regelbundet skapar kopior av dina viktiga data med [ADLCopy](data-lake-store-copy-data-azure-storage-blob.md), [Azure PowerShell](data-lake-store-get-started-powershell.md) eller [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md) i ett annat data Lake Storage gen1 konto, mapp eller Azure-prenumeration.  Detta kan användas för att återställa från skadade data eller en borttagning. Azure Data Factory är användbart för att skapa och distribuera pipelines för datarörlighet regelbundet.
 
-Organisationer kan även aktivera [diagnostikloggning](data-lake-store-diagnostic-logs.md) för sitt konto för Data Lake Storage Gen1 att samla in granskningshistorik för dataåtkomst som ger information om vem som kan ha tagits bort eller uppdaterat en fil.
+Organisationer kan också aktivera [diagnostikloggning](data-lake-store-diagnostic-logs.md) för sitt data Lake Storage gen1 konto för att samla in gransknings spårningar för data åtkomst som innehåller information om vem som kan ha tagit bort eller uppdaterat en fil.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Kom igång med Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)

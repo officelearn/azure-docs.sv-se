@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b71f5590f120e15bd4ea027bcf6132795dac3cb6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750572"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969662"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
 
 > [!WARNING]
-> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-subscription.md).
+> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-legacy.md).
 
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Förutom att Visa aktivitets loggen i Azure Portal eller kopiera den till en Log Analytics arbets yta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en logg profil för att arkivera aktivitets loggen till ett Azure Storage-konto eller strömma den till en  Event Hub.
 
@@ -28,12 +28,12 @@ Att arkivera aktivitets loggen på ett lagrings konto är användbart om du vill
 ## <a name="stream-activity-log-to-event-hub"></a>Strömma aktivitets logg till Händelsehubben
 [Azure Event Hubs](/azure/event-hubs/) är en data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Data som skickas till en händelsehubb kan omvandlas och lagras med hjälp av valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Du kan använda strömnings funktionerna för aktivitets loggen på två sätt:
 * **Strömma till system för loggning och telemetri från tredje part**: över tid blir Azure Event Hubs streaming mekanismen till att skicka in din aktivitets logg till Siem-och Log Analytics-lösningar från tredje part.
-* **Skapa en anpassad telemetri-och loggnings plattform**: om du redan har en anpassad telemetri plattform eller tänker på att skapa en, kan du med hjälp av Event Hubs på ett flexibelt sätt mata in aktivitets loggen. 
+* **Skapa en anpassad telemetri-och loggnings plattform**: om du redan har en anpassad telemetri plattform eller tänker på att skapa en, kan du med hjälp av Event Hubs på ett flexibelt sätt mata in aktivitets loggen.
 
 ## <a name="prerequisites"></a>Krav
 
 ### <a name="storage-account"></a>Lagringskonto
-Om du ska arkivera aktivitets loggen måste du [skapa ett lagrings konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också arkiverar loggar och mått till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
+Om du ska arkivera aktivitets loggen måste du [skapa ett lagrings konto](../../storage/common/storage-account-create.md) om du inte redan har ett. Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också arkiverar loggar och mått till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
 
 Lagrings kontot behöver inte finnas i samma prenumeration som den prenumeration som avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 > [!NOTE]
@@ -65,7 +65,7 @@ Om bevarande principer har ställts in, men lagrings loggar i ett lagrings konto
 
 
 > [!IMPORTANT]
-> Du kan få ett fel meddelande när du skapar en logg profil om Microsoft. Insights-resurs leverantören inte är registrerad. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md) för att registrera denna provider.
+> Du kan få ett fel meddelande när du skapar en logg profil om Microsoft. Insights-resurs leverantören inte är registrerad. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md) för att registrera denna provider.
 
 
 ### <a name="create-log-profile-using-the-azure-portal"></a>Skapa logg profil med hjälp av Azure Portal
@@ -77,7 +77,7 @@ Skapa eller redigera en logg profil med alternativet **Exportera till Event Hub*
     ![Knappen Exportera i portalen](media/activity-log-export/portal-export.png)
 
 3. I bladet som visas anger du följande:
-   * Regioner med händelser att exportera. Du bör välja alla regioner för att se till att du inte är missa viktiga händelser eftersom aktivitets loggen är en global (icke-regional) logg och att de flesta händelser inte har någon region kopplad till sig. 
+   * Regioner med händelser att exportera. Du bör välja alla regioner för att se till att du inte är missa viktiga händelser eftersom aktivitets loggen är en global (icke-regional) logg och att de flesta händelser inte har någon region kopplad till sig.
    * Om du vill skriva till lagrings kontot:
        * Lagrings kontot som du vill spara händelser i.
        * Antalet dagar som du vill behålla dessa händelser i lagringen. En inställning på 0 dagar behåller alltid loggarna.
@@ -167,5 +167,5 @@ Om det redan finns en logg profil måste du först ta bort den befintliga logg p
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Läs mer om aktivitets loggen](../../azure-resource-manager/resource-group-audit.md)
+* [Läs mer om aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md)
 * [Samla in aktivitets loggar i Azure Monitor loggar](activity-log-collect.md)

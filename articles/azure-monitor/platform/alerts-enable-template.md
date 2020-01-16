@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/27/2018
 ms.author: johnkem
 ms.subservice: metrics
-ms.openlocfilehash: dd02fe17d5225a63f352069b3c6c5a47b7cbcb73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c1cdf912f9a1e4e8ae92baa4381e9705702136f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75397282"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977594"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Skapa en klassisk måttavisering med en Resource Manager-mall
 Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att konfigurera Azure Metric-aviseringar. På så sätt kan du automatiskt konfigurera aviseringar för dina resurser när de skapas för att säkerställa att alla resurser övervakas korrekt.
@@ -27,7 +27,7 @@ Den här artikeln visar hur du kan använda en [Azure Resource Manager-mall](../
 De grundläggande stegen är följande:
 
 1. Skapa en mall som en JSON-fil som beskriver hur du skapar aviseringen.
-2. [Distribuera mallen med valfri distributions metod](../../azure-resource-manager/resource-group-template-deploy.md).
+2. [Distribuera mallen med valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
 
 Nedan beskrivs hur du skapar en Resource Manager-mall först för en avisering, sedan för en avisering när du skapar en annan resurs.
 

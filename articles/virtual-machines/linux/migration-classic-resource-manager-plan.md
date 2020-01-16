@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: d4c7bdf33ed1a35e7b27eed8baa3b96066d25dd4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 460db5a3c836ecb35fd6c5943c88d32516d91674
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369033"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969864"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planera för migrering av IaaS-resurser från klassisk till Azure Resource Manager
-Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen för att se till att saker går smidigt. När du planerar planeringen ser du till att du inte stöter på problem när du kör migreringsåtgärder. 
+Även om Azure Resource Manager erbjuder många fantastiska funktioner, är det viktigt att planera migreringen för att se till att saker går smidigt. När du planerar planeringen ser du till att du inte stöter på problem när du kör migreringsåtgärder.
 
-> [!NOTE] 
+> [!NOTE]
 > Följande rikt linjer drogs kraftigt till av Azures kund rådgivnings team och moln lösnings arkitekter som arbetar med kunder om att migrera stora miljöer. Det här dokumentet kommer även fortsättnings vis att uppdateras eftersom nya mönster på framgång visas, så kom tillbaka från tiden till gång för att se om det finns några nya rekommendationer.
 
 Det finns fyra allmänna faser för migrerings resan:
@@ -69,13 +69,13 @@ Kunder som lyckades har detaljerade planer där föregående frågor diskuteras,
 - Planera inte potentiella program avbrott för slutanvändare.  Planera tillräckligt med buffert för att varna slutanvändarna om potentiellt otillgänglig program tid.
 
 
-## <a name="lab-test"></a>Labb test 
+## <a name="lab-test"></a>Labb test
 
 **Replikera din miljö och gör en testmigrering**
   > [!NOTE]
   > Den exakta replikeringen av din befintliga miljö utförs med hjälp av ett community-verktyg som inte stöds av Microsoft Support. Därför är det ett **valfritt** steg, men det är det bästa sättet att ta reda på problem utan att behöva röra produktions miljöer. Om du inte använder ett community-verktyg som inte är ett alternativ läser du rekommendationen validera/Förbered/Avbryt torr körning nedan.
   >
-  
+
   Att utföra ett labb test av ditt exakta scenario (beräkning, nätverk och lagring) är det bästa sättet att säkerställa en smidig migrering. På så sätt kan du se till att:
 
 - Ett helt separat labb eller en befintlig icke-produktions miljö att testa. Vi rekommenderar ett helt separat labb som kan migreras upprepade gånger och kan ändras destruktivt.  Skript för att samla in/torka metadata från de verkliga prenumerationerna visas nedan.
@@ -95,19 +95,19 @@ Följande problem upptäcktes i många av de större migreringarna. Detta är in
 
 - **VM-tillägg** – tillägg för virtuella datorer är potentiellt ett av de största hindrenen för att migrera virtuella datorer som körs. Reparationen av VM-tillägg kan ta en gräns på 1-2 dagar, så planera detta.  En fungerande Azure-agent krävs för att rapportera om status för VM-tillägg som körs på virtuella datorer. Om statusen kommer tillbaka som felaktig för en virtuell dator som körs stoppar migreringen. Själva agenten behöver inte vara i arbets ordning för att aktivera migrering, men om tillägg finns på den virtuella datorn, kommer både en fungerande agent och utgående Internet anslutning (med DNS) att behövas för att migreringen ska gå framåt.
   - Om anslutningen till en DNS-server går förlorad under migreringen går alla VM-tillägg utom BGInfo v1.\* måste först tas bort från varje virtuell dator innan migreringen förbereds och sedan flyttas tillbaka till den virtuella datorn efter Azure Resource Manager migreringen.  **Detta gäller endast för virtuella datorer som kör.**  Om de virtuella datorerna är avallokerade behöver inte VM-tillägg tas bort. **Obs:** Många tillägg som Azure Diagnostics och Security Center-övervakning kommer att återinstallera sig själva efter migreringen, så det är inte ett problem med att ta bort dem.
-  - Se också till att nätverks säkerhets grupper inte begränsar utgående Internet åtkomst. Detta kan hända med vissa inställningar för nätverks säkerhets grupper. Utgående Internet åtkomst (och DNS) krävs för att VM-tillägg ska migreras till Azure Resource Manager. 
-  - Det finns två versioner av BGInfo-tillägget: v1 och v2.  Om den virtuella datorn skapades med hjälp av Azure Portal eller PowerShell, kommer den virtuella datorn förmodligen att ha v1-tillägget. Det här tillägget behöver inte tas bort och hoppas över (inte migreras) av migrerings-API: et. Men om den klassiska virtuella datorn skapades med den nya Azure Portal kommer den troligen att ha den JSON-baserade v2-versionen av BGInfo, som kan migreras till Azure Resource Manager förutsatt att agenten fungerar och har utgående Internet åtkomst (och DNS). 
-  - **Reparations alternativ 1**. Om du vet att dina virtuella datorer inte har utgående Internet åtkomst, en fungerande DNS-tjänst och arbetar med Azure-agenter på de virtuella datorerna avinstallerar du alla VM-tillägg som en del av migreringen innan du förbereder och installerar sedan om VM-tilläggen efter migreringen. 
+  - Se också till att nätverks säkerhets grupper inte begränsar utgående Internet åtkomst. Detta kan hända med vissa inställningar för nätverks säkerhets grupper. Utgående Internet åtkomst (och DNS) krävs för att VM-tillägg ska migreras till Azure Resource Manager.
+  - Det finns två versioner av BGInfo-tillägget: v1 och v2.  Om den virtuella datorn skapades med hjälp av Azure Portal eller PowerShell, kommer den virtuella datorn förmodligen att ha v1-tillägget. Det här tillägget behöver inte tas bort och hoppas över (inte migreras) av migrerings-API: et. Men om den klassiska virtuella datorn skapades med den nya Azure Portal kommer den troligen att ha den JSON-baserade v2-versionen av BGInfo, som kan migreras till Azure Resource Manager förutsatt att agenten fungerar och har utgående Internet åtkomst (och DNS).
+  - **Reparations alternativ 1**. Om du vet att dina virtuella datorer inte har utgående Internet åtkomst, en fungerande DNS-tjänst och arbetar med Azure-agenter på de virtuella datorerna avinstallerar du alla VM-tillägg som en del av migreringen innan du förbereder och installerar sedan om VM-tilläggen efter migreringen.
   - **Reparations alternativ 2**. Om de virtuella dator tilläggen är för stora av en Hurdle är ett annat alternativ att stänga av/frigöra alla virtuella datorer före migrering. Migrera de friallokerade virtuella datorerna och starta sedan om dem på Azure Resource Managers sidan. Fördelen här är att VM-tilläggen migreras. Nack delen är att alla offentliga virtuella IP-adresser går förlorade (detta kan vara ett icke-startprogram) och självklart att de virtuella datorerna stängs av, vilket ger en mycket större inverkan på arbets programmen.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Om en Azure Security Center-princip har kon figurer ATS mot de virtuella datorer som migreras måste säkerhets principen stoppas innan tillägg tas bort, annars installeras säkerhets övervaknings tillägget om automatiskt på den virtuella datorn efter att den tagits bort.
 
-- **Tillgänglighets uppsättningar** – för att ett virtuellt nätverk (vNet) ska migreras till Azure Resource Manager måste den klassiska distributions tjänsten (t. ex. moln tjänst) som innehåller virtuella datorer finnas i en tillgänglighets uppsättning, eller så måste de virtuella datorerna inte finnas i någon tillgänglighets uppsättning. Att ha mer än en tillgänglighets uppsättning i moln tjänsten är inte kompatibel med Azure Resource Manager och stoppar migreringen.  Dessutom kan det inte finnas några virtuella datorer i en tillgänglighets uppsättning och vissa virtuella datorer inte är i en tillgänglighets uppsättning. För att lösa detta måste du åtgärda eller blanda din moln tjänst.  Planera därför att det kan ta lång tid. 
+- **Tillgänglighets uppsättningar** – för att ett virtuellt nätverk (vNet) ska migreras till Azure Resource Manager måste den klassiska distributions tjänsten (t. ex. moln tjänst) som innehåller virtuella datorer finnas i en tillgänglighets uppsättning, eller så måste de virtuella datorerna inte finnas i någon tillgänglighets uppsättning. Att ha mer än en tillgänglighets uppsättning i moln tjänsten är inte kompatibel med Azure Resource Manager och stoppar migreringen.  Dessutom kan det inte finnas några virtuella datorer i en tillgänglighets uppsättning och vissa virtuella datorer inte är i en tillgänglighets uppsättning. För att lösa detta måste du åtgärda eller blanda din moln tjänst.  Planera därför att det kan ta lång tid.
 
 - **Distributioner av webb** -och arbets roller – Cloud Services som innehåller webb-och arbets roller kan inte migreras till Azure Resource Manager. Webb-/Worker-rollerna måste först tas bort från det virtuella nätverket innan migreringen kan starta.  En typisk lösning är att bara flytta webb-och arbets Rolls instanser till ett separat klassiskt virtuellt nätverk som också är länkat till en ExpressRoute-krets, eller för att migrera koden till nyare PaaS App Services (denna diskussion ligger utanför det här dokumentets omfattning). I det tidigare omdistributions fallet skapar du ett nytt klassiskt virtuellt nätverk, flyttar/distribuerar om webb-och arbets rollerna till det nya virtuella nätverket och tar sedan bort distributionerna från det virtuella nätverk som flyttas. Inga kod ändringar krävs. Den nya [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md) -funktionen kan användas för att koppla samman det klassiska virtuella nätverket som innehåller webb-och arbets roller och andra virtuella nätverk i samma Azure-region, till exempel det virtuella nätverk som migreras (efter att det**virtuella nätverket har migrerats som peer-kopplade virtuella nätverk kan inte migreras**), och därför ger samma funktioner utan prestanda förlust och ingen fördröjning/bandbredds avgifter. Förutom att [Virtual Network peering](../../virtual-network/virtual-network-peering-overview.md)kan distributioner av webb-och arbets roller nu enkelt begränsas och inte hindra migreringen till Azure Resource Manager.
 
-- **Azure Resource Manager kvoter** – Azure-regioner har separata kvoter/gränser för både klassisk och Azure Resource Manager. Även om den nya maskin varan för migrering inte används *(vi håller på att byta ut befintliga virtuella datorer från klassisk till Azure Resource Manager)* , måste Azure Resource Manager kvoter vara på plats med tillräckligt med kapacitet innan migreringen kan starta. Nedan visas de viktigaste gränserna som vi har sett orsaker till problem.  Öppna ett kvot support ärende om du vill höja gränsen. 
+- **Azure Resource Manager kvoter** – Azure-regioner har separata kvoter/gränser för både klassisk och Azure Resource Manager. Även om den nya maskin varan för migrering inte används *(vi håller på att byta ut befintliga virtuella datorer från klassisk till Azure Resource Manager)* , måste Azure Resource Manager kvoter vara på plats med tillräckligt med kapacitet innan migreringen kan starta. Nedan visas de viktigaste gränserna som vi har sett orsaker till problem.  Öppna ett kvot support ärende om du vill höja gränsen.
 
     > [!NOTE]
     > Dessa gränser måste höjas i samma region som din aktuella miljö som ska migreras.
@@ -126,26 +126,26 @@ Följande problem upptäcktes i många av de större migreringarna. Detta är in
     **Compute** *(kärnor, tillgänglighets uppsättningar)*
 
     ```bash
-    az vm list-usage -l <azure-region> -o jsonc 
+    az vm list-usage -l <azure-region> -o jsonc
     ```
 
     **Nätverk** *(virtuella nätverk, statiska offentliga IP-adresser, offentliga IP-adresser, nätverks säkerhets grupper, nätverks gränssnitt, belastnings utjämning, väg tabeller)*
-    
+
     ```bash
     az network list-usages -l <azure-region> -o jsonc
     ```
 
     **Lagring** *(lagrings konto)*
-    
+
     ```bash
     az storage account show-usage
     ```
 
 - **Begränsningar för Azure Resource Manager-API-begränsning** – om du har en stor tillräckligt stor miljö (t. ex. > 400 virtuella datorer i ett VNET) kan du trycka på standard begränsningarna för API-begränsning för skrivningar (för närvarande **1200 skrivningar/timme**) i Azure Resource Manager. Innan du påbörjar migreringen bör du anskaffa ett support ärende för att öka den här gränsen för din prenumeration.
 
-- **Tids** gränsen nåddes för etablering av VM-status – om en virtuell dator har statusen för **etablerings tids gränsen**måste det lösas innan migreringen. Det enda sättet att göra detta är med nedtid genom att ta bort/etablera den virtuella datorn (ta bort den, Behåll disken och återskapa den virtuella datorn). 
+- **Tids** gränsen nåddes för etablering av VM-status – om en virtuell dator har statusen för **etablerings tids gränsen**måste det lösas innan migreringen. Det enda sättet att göra detta är med nedtid genom att ta bort/etablera den virtuella datorn (ta bort den, Behåll disken och återskapa den virtuella datorn).
 
-- **Status för ROLESTATEUNKNOWN VM** – om migreringen stoppas på grund av ett okänt fel meddelande för **roll tillstånd** , kontrollerar du den virtuella datorn med portalen och kontrollerar att den körs. Det här felet visas vanligt vis på egen hand (ingen åtgärd krävs) efter några minuter och är ofta en tillfällig typ som ofta visas under en virtuell dator **Start**, **stopp**, **omstart** . **Rekommenderad praxis:** försök att migrera igen om några minuter. 
+- **Status för ROLESTATEUNKNOWN VM** – om migreringen stoppas på grund av ett okänt fel meddelande för **roll tillstånd** , kontrollerar du den virtuella datorn med portalen och kontrollerar att den körs. Det här felet visas vanligt vis på egen hand (ingen åtgärd krävs) efter några minuter och är ofta en tillfällig typ som ofta visas under en virtuell dator **Start**, **stopp**, **omstart** . **Rekommenderad praxis:** försök att migrera igen om några minuter.
 
 - **Fabric-klustret finns inte** – i vissa fall går det inte att migrera vissa virtuella datorer för olika udda orsaker. En av dessa kända fall är om den virtuella datorn nyligen har skapats (under den senaste veckan eller så) och hände med att landa ett Azure-kluster som ännu inte är utrustat för Azure Resource Manager arbets belastningar.  Du får ett fel meddelande som säger att **Fabric-klustret inte finns** och att den virtuella datorn inte kan migreras. Att vänta några dagar kommer vanligt vis att lösa detta problem eftersom klustret snart kommer att få Azure Resource Manager aktiverat. En omedelbar lösning är dock att `stop-deallocate` den virtuella datorn, sedan fortsätta att migrera och starta den virtuella datorn i Azure Resource Manager efter migreringen.
 
@@ -192,9 +192,9 @@ Saker att tänka på:
 Var ändamålsenlig på vilka tjänster du nu vill aktivera i Azure Resource Manager.  Många kunder hittar de nedan övertygande i sina Azure-miljöer:
 
 - [Rollbaserad Access Control](../../role-based-access-control/overview.md).
-- [Azure Resource Manager mallar för enklare och mer kontrollerad distribution](../../azure-resource-manager/template-deployment-overview.md).
-- [Taggar](../../azure-resource-manager/resource-group-using-tags.md).
-- [Aktivitets kontroll](../../azure-resource-manager/resource-group-audit.md)
+- [Azure Resource Manager mallar för enklare och mer kontrollerad distribution](../../azure-resource-manager/templates/overview.md).
+- [Taggar](../../azure-resource-manager/management/tag-resources.md).
+- [Aktivitets kontroll](../../azure-resource-manager/management/view-activity-logs.md)
 - [Azure-principer](../../governance/policy/overview.md)
 
 ### <a name="pitfalls-to-avoid"></a>Fall GRO par för att undvika

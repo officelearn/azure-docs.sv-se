@@ -4,12 +4,12 @@ description: Data åtkomst och säkerhets koncept i Azure blockchain service
 ms.date: 11/22/2019
 ms.topic: conceptual
 ms.reviewer: janders
-ms.openlocfilehash: e1a40acfec6b0dc5cdf21fb84b341b6b4987797a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 06bf4e0fa4037b07505a4f816fc7af56c14576d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455712"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982228"
 ---
 # <a name="azure-blockchain-service-security"></a>Säkerhet för Azure blockchain service
 
@@ -23,7 +23,7 @@ Azure blockchain service-resurser är isolerade i ett privat virtuellt nätverk.
 
 ## <a name="encryption"></a>Kryptering
 
-Användar data lagras i Azure Storage. Användar data krypteras i rörelse och i vila för säkerhet och konfidentialitet. Mer information finns i: [Azure Storage säkerhets guide](../../storage/common/storage-security-guide.md).
+Användar data lagras i Azure Storage. Användar data krypteras i rörelse och i vila för säkerhet och konfidentialitet. Mer information finns i: [Azure Storage säkerhets guide](../../storage/blobs/security-recommendations.md).
 
 ## <a name="authentication"></a>Autentisering
 

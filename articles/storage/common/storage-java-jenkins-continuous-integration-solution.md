@@ -9,12 +9,12 @@ ms.service: storage
 custom: jenkins
 ms.date: 08/13/2019
 ms.subservice: common
-ms.openlocfilehash: 72756bd3eb12ca80f419a0d53db76e6637d884fc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0e426dcead5d1f315717fbc19cf7f7bdac62d563
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839136"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970176"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Använda Azure Storage med en Jenkins-lösning för kontinuerlig integrering
 
@@ -35,7 +35,7 @@ Fördelarna med att använda Blob Service som värd för dina Agile-utvecklings 
 * Prestanda när dina kunder och partners laddar ned dina build-artefakter.
 * Kontroll över användar åtkomst principer, med ett val mellan anonym åtkomst, utgångs-baserade signaturer för delad åtkomst, privat åtkomst osv.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * En lösning för kontinuerlig integrering med Jenkins.
   
     Om du för närvarande inte har en Jenkins CI-lösning kan du köra en Jenkins CI-lösning med hjälp av följande metod:
@@ -49,7 +49,7 @@ Fördelarna med att använda Blob Service som värd för dina Agile-utvecklings 
      
       Även om en typisk Jenkins CI-lösning skulle konfigureras att köras som en tjänst, räcker det att köra Jenkins-kriget på kommando raden för den här självstudien.
 * Ett Azure-konto. Du kan registrera dig för ett Azure-konto på <https://www.azure.com>.
-* Ett Azure-lagringskonto. Om du inte redan har ett lagrings konto kan du skapa ett med hjälp av stegen i [skapa ett lagrings konto](../common/storage-quickstart-create-account.md).
+* Ett Azure-lagringskonto. Om du inte redan har ett lagrings konto kan du skapa ett med hjälp av stegen i [skapa ett lagrings konto](../common/storage-account-create.md).
 * Du rekommenderas att använda Jenkins CI-lösningen men det är inte obligatoriskt, eftersom följande innehåll kommer att använda ett grundläggande exempel för att visa de steg som krävs när du använder Blob Service som lagrings plats för Jenkins CI build-artefakter.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>Använda Blob Service med Jenkins CI

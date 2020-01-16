@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: rohogue
-ms.openlocfilehash: 19f31a2fafc112f499ff87eed23843915cab32a2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28278f76497d6e9d0fee221bb4ef32fe6d369db0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414225"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966654"
 ---
 # <a name="disaster-recovery-guidance-for-avere-vfxt-for-azure"></a>Vägledning för haveri beredskap för AVERT vFXT för Azure
 
@@ -60,7 +60,7 @@ Det här avsnittet innehåller tips om hur du ytterligare skyddar dina data i Bl
 Metod tips för att skydda data i Azure Blob Storage är:
 
 * Kopiera dina viktiga data till ett annat lagrings konto i en annan region ofta (så ofta som det bestäms av din katastrof återställnings plan).
-* Kontrol lera åtkomsten till data på alla mål system för att förhindra oavsiktlig borttagning eller skada. Överväg att använda [resurs lås](../azure-resource-manager/resource-group-lock-resources.md) på data lagring.
+* Kontrol lera åtkomsten till data på alla mål system för att förhindra oavsiktlig borttagning eller skada. Överväg att använda [resurs lås](../azure-resource-manager/management/lock-resources.md) på data lagring.
 * Aktivera funktionen aver vFXT för [ögonblicks bilder](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cloud_snapshot_policies.html>) av Azure-molnet för dina BLOB core-filer.
 
 ### <a name="copy-avere-vfxt-core-filer-data-to-a-backup-account"></a>Kopiera aver vFXT core-filer till ett säkerhets kopierings konto

@@ -8,26 +8,26 @@ author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 517b9768c1df928012c34a4dcdd2dfa6b0c94d0c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401590"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977696"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Skapa en hanterings lösnings fil i Azure (för hands version)
 > [!NOTE]
 > Det här är en preliminär dokumentation för att skapa hanterings lösningar i Azure som för närvarande är en för hands version. Alla scheman som beskrivs nedan kan komma att ändras.  
 
-Hanterings lösningar i Azure implementeras som [Resource Manager-mallar](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Den viktigaste uppgiften i hur du skapar hanterings lösningar är att lära dig hur du [skapar en mall](../../azure-resource-manager/templates/template-syntax.md).  Den här artikeln innehåller unik information om mallar som används för lösningar och hur du konfigurerar typiska lösnings resurser.
+Hanterings lösningar i Azure implementeras som [Resource Manager-mallar](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).  Den viktigaste uppgiften i hur du skapar hanterings lösningar är att lära dig hur du [skapar en mall](../../azure-resource-manager/templates/template-syntax.md).  Den här artikeln innehåller unik information om mallar som används för lösningar och hur du konfigurerar typiska lösnings resurser.
 
 
 ## <a name="tools"></a>Verktyg
 
 Du kan använda valfri text redigerare för att arbeta med lösningsfiler, men vi rekommenderar att du använder de funktioner som finns i Visual Studio eller Visual Studio Code enligt beskrivningen i följande artiklar.
 
-- [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Arbeta med Azure Resource Manager mallar i Visual Studio Code](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
+- [Skapa och Distribuera Azure-resurs grupper via Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md)
+- [Arbeta med Azure Resource Manager mallar i Visual Studio Code](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md)
 
 
 
@@ -159,7 +159,7 @@ I det här fallet refererar du till variabel värden genom lösningen med syntax
 
 
 ### <a name="dependencies"></a>Beroenden
-**DependsOn** -elementet anger ett [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) för en annan resurs.  När lösningen har installerats skapas ingen resurs förrän alla dess beroenden har skapats.  Din lösning kan till exempel [starta en Runbook](solutions-resources-automation.md#runbooks) när den installeras med en [jobb resurs](solutions-resources-automation.md#automation-jobs).  Jobb resursen är beroende av Runbook-resursen för att se till att runbooken skapas innan jobbet skapas.
+**DependsOn** -elementet anger ett [beroende](../../azure-resource-manager/templates/define-resource-dependency.md) för en annan resurs.  När lösningen har installerats skapas ingen resurs förrän alla dess beroenden har skapats.  Din lösning kan till exempel [starta en Runbook](solutions-resources-automation.md#runbooks) när den installeras med en [jobb resurs](solutions-resources-automation.md#automation-jobs).  Jobb resursen är beroende av Runbook-resursen för att se till att runbooken skapas innan jobbet skapas.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics-arbetsytan och Automation-konto
 Hanterings lösningar kräver att en [Log Analytics arbets yta](../../azure-monitor/platform/manage-access.md) innehåller vyer och ett [Automation-konto](../../automation/automation-security-overview.md#automation-account-overview) för att innehålla Runbooks och relaterade resurser.  Dessa måste vara tillgängliga innan resurserna i lösningen skapas och ska inte definieras i själva lösningen.  Användaren [anger en arbets yta och ett konto](solutions.md#log-analytics-workspace-and-automation-account) när de distribuerar din lösning, men som författare bör du tänka på följande saker.
@@ -200,7 +200,7 @@ Varje lösning kräver en resurs post i resurs **elementet som** definierar sjä
 
 
 ### <a name="dependencies"></a>Beroenden
-Lösnings resursen måste ha ett [beroende](../../azure-resource-manager/resource-group-define-dependencies.md) på alla andra resurser i lösningen eftersom de måste finnas innan lösningen kan skapas.  Du gör detta genom att lägga till en post för varje resurs i **dependsOn** -elementet.
+Lösnings resursen måste ha ett [beroende](../../azure-resource-manager/templates/define-resource-dependency.md) på alla andra resurser i lösningen eftersom de måste finnas innan lösningen kan skapas.  Du gör detta genom att lägga till en post för varje resurs i **dependsOn** -elementet.
 
 ### <a name="properties"></a>Egenskaper
 Lösnings resursen har egenskaperna i följande tabell.  Detta inkluderar de resurser som refereras och ingår i lösningen som definierar hur resursen hanteras när lösningen har installerats.  Varje resurs i lösningen ska visas i antingen **referencedResources** eller egenskapen **containedResources** .

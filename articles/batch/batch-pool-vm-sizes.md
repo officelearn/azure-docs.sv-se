@@ -3,7 +3,7 @@ title: Välj VM-storlekar för pooler – Azure Batch | Microsoft Docs
 description: Hur du väljer bland tillgängliga VM-storlekar för datornoderna i Azure Batch pooler
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: e3d96ad7783c43dba6b69f6b11acccf790d0d6c9
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 34ab09f7d8d47804992b8ef6864bfea60d1c9b4d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983754"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026604"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Välj en VM-storlek för Compute-noder i en Azure Batch pool
 
@@ -38,32 +38,32 @@ Batch-pooler i den virtuella dator konfigurationen stöder nästan alla VM-storl
 
 Alla kampanjer och för hands versioner av virtuella datorer som inte listas är inte garanterade för support.
 
-| Virtuell datorserie  | Storlekar som stöds | Allokeringsinställningar för batch-konto<sup>1</sup> |
+| VM-serie  | Storlekar som stöds | Allokeringsinställningar för batch-konto<sup>1</sup> |
 |------------|---------|-----------------|
-| Basic A-Series | Alla storlekar *utom* Basic_A0 (a0) | Any |
-| A-serien | Alla storlekar *utom* Standard_A0 | Any |
-| Av2-serien | Alla storlekar | Any |
-| B-serien | Inga | Saknas |
-| DC-serien | Inga | Saknas |
-| Dv2, DSv2-serien | Alla storlekar | Any |
-| Dv3, Dsv3-series | Alla storlekar | Any |
-| Ev3, Esv3-serien | Alla storlekar | Any |
-| Fsv2-serien | Alla storlekar | Any |
-| H-serien | Alla storlekar | Any |
-| HB-serie<sup>2</sup> | Alla storlekar | Any |
-| HC-serie<sup>2</sup> | Alla storlekar | Any |
-| Ls-serien | Alla storlekar | Any |
-| Lsv2-serien | Inga | Saknas |
-| M-serien | Standard_M64ms (endast låg prioritet), Standard_M128s (endast låg prioritet) | Any |
-| Mv2-serien | Inga | Saknas |
-| NC-serien | Alla storlekar | Any |
-| NCv2-serie<sup>2</sup> | Alla storlekar | Any |
-| NCv3-serie<sup>2</sup> | Alla storlekar | Any |
-| ND-serien<sup>2</sup> | Alla storlekar | Any |
+| Basic A-Series | Alla storlekar *utom* Basic_A0 (a0) | Alla |
+| A-serien | Alla storlekar *utom* Standard_A0 | Alla |
+| Av2-serien | Alla storlekar | Alla |
+| B-serien | Inget | Inte tillgänglig |
+| DC-serien | Inget | Inte tillgänglig |
+| Dv2, DSv2-serien | Alla storlekar | Alla |
+| Dv3, Dsv3-series | Alla storlekar | Alla |
+| Ev3, Esv3-serien | Alla storlekar | Alla |
+| Fsv2-serien | Alla storlekar | Alla |
+| H-serien | Alla storlekar | Alla |
+| HB-serie<sup>2</sup> | Alla storlekar | Alla |
+| HC-serie<sup>2</sup> | Alla storlekar | Alla |
+| Ls-serien | Alla storlekar | Alla |
+| Lsv2-serien | Inget | Inte tillgänglig |
+| M-serien | Standard_M64ms (endast låg prioritet) Standard_M128s (endast låg prioritet) | Alla |
+| Mv2-serien | Inget | Inte tillgänglig |
+| NC-serien | Alla storlekar | Alla |
+| NCv2-serie<sup>2</sup> | Alla storlekar | Alla |
+| NCv3-serie<sup>2</sup> | Alla storlekar | Alla |
+| ND-serien<sup>2</sup> | Alla storlekar | Alla |
 | NDv2-serien | Alla storlekar | Användarprenumerationsläge |
-| NV-serien | Alla storlekar | Any |
-| NVv3-serien | Inga | Saknas |
-| SAP HANA | Inga | Saknas |
+| NV-serien | Alla storlekar | Alla |
+| NVv3-serien | Inget | Inte tillgänglig |
+| SAP HANA | Inget | Inte tillgänglig |
 
 <sup>1</sup> vissa nyare VM-serier stöds delvis. Dessa VM-serier kan allokeras av batch-konton med **poolens fördelnings läge** inställt på **användar prenumeration**. Mer information om konfiguration av batch-konton finns i [Hantera batch-konton](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) . Se [kvoter och begränsningar](batch-quota-limit.md) för att lära dig att begära kvot för de här delvis STÖDda VM-serien för batch-konton för **användar prenumeration** .  
 
@@ -73,12 +73,12 @@ Alla kampanjer och för hands versioner av virtuella datorer som inte listas är
 
 Batch-pooler i moln tjänst konfigurationen har stöd [för alla VM-storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md) **utom** följande:
 
-| Virtuell datorserie  | Storlekar som inte stöds |
+| VM-serie  | Storlekar som inte stöds |
 |------------|-------------------|
 | A-serien   | Extra liten       |
 | Av2-serien | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
-## <a name="size-considerations"></a>Överväganden för storlek
+## <a name="size-considerations"></a>Överväganden gällande storlek
 
 * **Program krav** – beakta egenskaperna och kraven för det program som ska köras på noderna. Det är lämpligt att ha i åtanke när du väljer den lämpligaste och mest kostnadseffektiva nodstorleken huruvida programmet är flertrådat och hur mycket minne det förbrukar. För [MPI arbets belastningar](batch-mpi.md) eller CUDA-program med flera instanser bör du överväga specialiserade [HPC](../virtual-machines/linux/sizes-hpc.md) [-eller GPU-aktiverade VM-](../virtual-machines/linux/sizes-gpu.md) storlekar. (Se [använda RDMA-kompatibla eller GPU-aktiverade instanser i batch-pooler](batch-pool-compute-intensive-sizes.md).)
 

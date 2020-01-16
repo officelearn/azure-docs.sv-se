@@ -5,12 +5,12 @@ services: automation
 ms.subservice: dsc
 ms.date: 08/08/2018
 ms.topic: conceptual
-ms.openlocfilehash: ad42d7c2257519c2622ba17f74f97b9521233850
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4445f6e9b72380b66f3282d50871b4283f7fc7fa
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75366438"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966746"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Användnings exempel: kontinuerlig distribution till Virtual Machines med automatiserings tillstånds konfiguration och choklad
 
@@ -40,7 +40,7 @@ Azure Automation tillstånds konfiguration utökar den här Automation-funktione
 En DSC-resurs är en modul med kod som har vissa funktioner, till exempel hantering av nätverk, Active Directory eller SQL Server. Den choklad DSC-resursen vet hur man kommer åt en NuGet-Server (bland annat), laddar ned paket, installerar paket och så vidare. Det finns många andra DSC-resurser i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=dsc+resources&prerelease=&sortOrder=package-title).
 Dessa moduler installeras i din Azure Automation hämtnings Server för tillstånds konfiguration (av dig) så att de kan användas av dina konfigurationer.
 
-Resource Manager-mallar ger ett deklarativ sätt att skapa infrastrukturen – saker som nätverk, undernät, nätverks säkerhet och routning, belastningsutjämnare, nätverkskort, virtuella datorer och så vidare. Här är en [artikel](../azure-resource-manager/resource-manager-deployment-model.md) som jämför Resource Manager-distributions modellen (deklarativ) med distributions modellen för Azure Service Management (ASM eller klassisk) (tvingande) och diskuterar huvud resurs leverantörer, beräkning, lagring och nätverk.
+Resource Manager-mallar ger ett deklarativ sätt att skapa infrastrukturen – saker som nätverk, undernät, nätverks säkerhet och routning, belastningsutjämnare, nätverkskort, virtuella datorer och så vidare. Här är en [artikel](../azure-resource-manager/management/deployment-models.md) som jämför Resource Manager-distributions modellen (deklarativ) med distributions modellen för Azure Service Management (ASM eller klassisk) (tvingande) och diskuterar huvud resurs leverantörer, beräkning, lagring och nätverk.
 
 En viktig funktion i en Resource Manager-mall är möjligheten att installera ett VM-tillägg i den virtuella datorn när det har tillhandahållits. Ett VM-tillägg har vissa funktioner som att köra ett anpassat skript, installera antivirus program eller köra ett konfigurations skript för DSC. Det finns många andra typer av VM-tillägg.
 

@@ -4,12 +4,12 @@ description: Lär dig hur du migrerar lokala virtuella Hyper-V-datorer till Azur
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: edbd52924a77c961cb923f48bba76a21b56489ff
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720233"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028980"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -122,7 +122,7 @@ Installera den nedladdade installations filen (AzureSiteRecoveryProvider. exe) p
     - Ange namnet på proxyn som **http://ip-address** eller **http://FQDN** . HTTPS-proxyservrar stöds inte.
    
 
-6. Kontrol lera att providern kan komma åt de [nödvändiga URL: erna](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access).
+6. Kontrol lera att providern kan komma åt de [nödvändiga URL: erna](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts).
 7. Klicka på **Slutför**när värden har registrerats i **registreringen**.
 
 ## <a name="replicate-hyper-v-vms"></a>Replikera virtuella Hyper-V-datorer
@@ -155,7 +155,7 @@ När identifieringen är klar kan du påbörja replikering av virtuella Hyper-V-
 
     ![Mål inställningar](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-10. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+10. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM-storlek**: om du använder utvärderings rekommendationer kommer List rutan VM-storlek att innehålla den rekommenderade storleken. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 

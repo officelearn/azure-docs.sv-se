@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/14/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3baaab59031c4cfad036a7181318502d1969715
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942430"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029941"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – övervakning av arbets belastnings Hanteringsportal (för hands version)
 Den här artikeln förklarar hur du övervakar resursutnyttjande för [arbets belastnings grupper](sql-data-warehouse-workload-isolation.md#workload-groups) och frågor. Mer information om hur du konfigurerar Azure-Metrics Explorer finns i artikeln [komma igång med Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) .  Mer information om hur du övervakar användningen av system resurser finns i avsnittet [resursutnyttjande](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) i Azure SQL Data Warehouse övervaknings dokumentation.
@@ -49,7 +49,10 @@ CREATE WORKLOAD CLASSIFIER wcCEOPriority
 WITH ( WORKLOAD_GROUP = 'wgPriority'
       ,MEMBERNAME = 'TheCEO');
 ```
-Diagrammet nedan är konfigurerat enligt följande: mått 1: *effektiv minsta resurs procent* (genomsnittlig agg regering, `blue line`) mått 2: *tilldelning av arbets belastnings grupp efter system procent* (genomsnittlig agg regering, `purple line`) filter: [arbets belastnings grupp] = `wgPriority`
+Diagrammet nedan är konfigurerat enligt följande:<br>
+Mått 1: *effektiv minsta resurs procent* (genomsnittlig agg regering, `blue line`)<br>
+Metric 2: *allokering av arbets belastnings grupp efter system procent* (genomsnittlig agg regering, `purple line`)<br>
+Filter: [arbets belastnings grupp] = `wgPriority`<br>
 ![underutilized-WG. png](media/sql-data-warehouse-workload-management-portal-monitor/underutilized-wg.png) diagrammet visar att med 25% arbets belastnings isolering används endast 10% i genomsnitt.  I det här fallet kan värdet för parametern `MIN_PERCENTAGE_RESOURCE` sänkas till mellan 10 eller 15 och andra arbets belastningar på systemet kan använda resurserna.
 
 ### <a name="workload-group-bottleneck"></a>Flask hals för arbets belastnings grupp
@@ -65,8 +68,12 @@ CREATE WORKLOAD CLASSIFIER wcDataAnalyst
 WITH ( WORKLOAD_GROUP = 'wgDataAnalyst'
       ,MEMBERNAME = 'DataAnalyst');
 ```
-Diagrammet nedan är konfigurerat enligt följande: mått 1: *effektiv Cap-resurs i procent* (genomsnittlig agg regering, `blue line`) mått 2: *allokering av arbets belastnings grupper efter max resurs procent* (genomsnittlig agg regering, `purple line`) mått 3: *kö för arbets belastnings grupper* (sum-aggregering, `turquoise line`) filter: [arbets belastnings grupp] = `wgDataAnalyst`
-![Flask hals-WG](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) diagrammet visar att med 9% Cap på resurser, arbets belastnings gruppen är 90% + används (från *arbets belastnings grupp tilldelningen med max resurs procents mått*).  Det finns en stabil kö med frågor som visas i *arbets belastnings gruppens mått i kö*.  Om du i det här fallet ökar `CAP_PERCENTAGE_RESOURCE` till ett värde som är högre än 9% kan fler frågor köras samtidigt.  Att öka `CAP_PERCENTAGE_RESOURCE` förutsätter att det finns tillräckligt med tillgängliga resurser och inte isolerade av andra arbets belastnings grupper.  Kontrol lera att taket har ökat genom att kontrol lera det *effektiva måttet för Kap. resurs procent*.  Om du vill ha mer data flöde bör du också överväga att öka `REQUEST_MIN_RESOURCE_GRANT_PERCENT` till ett värde som är större än 3.  Att öka `REQUEST_MIN_RESOURCE_GRANT_PERCENT` kan tillåta att frågor körs snabbare.
+Diagrammet nedan är konfigurerat enligt följande:<br>
+Mått 1: *effektiv tak resurs procent* (genomsnittlig agg regering, `blue line`)<br>
+Metric 2: *allokering av arbets belastnings grupper efter max resurs procent* (genomsnittlig agg regering, `purple line`)<br>
+Mått 3: *arbets belastnings grupp köade frågor* (summa agg regering, `turquoise line`)<br>
+Filter: [arbets belastnings grupp] = `wgDataAnalyst`<br>
+![Flask hals – WG](media/sql-data-warehouse-workload-management-portal-monitor/bottle-necked-wg.png) diagrammet visar att med en gräns på 9% för resurser, är arbets belastnings gruppen 90% + utnyttjad (från *arbets belastnings grupp tilldelningen av Max värdet för resurs procenten*).  Det finns en stabil kö med frågor som visas i *arbets belastnings gruppens mått i kö*.  Om du i det här fallet ökar `CAP_PERCENTAGE_RESOURCE` till ett värde som är högre än 9% kan fler frågor köras samtidigt.  Att öka `CAP_PERCENTAGE_RESOURCE` förutsätter att det finns tillräckligt med tillgängliga resurser och inte isolerade av andra arbets belastnings grupper.  Kontrol lera att taket har ökat genom att kontrol lera det *effektiva måttet för Kap. resurs procent*.  Om du vill ha mer data flöde bör du också överväga att öka `REQUEST_MIN_RESOURCE_GRANT_PERCENT` till ett värde som är större än 3.  Att öka `REQUEST_MIN_RESOURCE_GRANT_PERCENT` kan tillåta att frågor körs snabbare.
 
 ## <a name="next-steps"></a>Nästa steg
 [Snabb start: Konfigurera arbets belastnings isolering med T-SQL](quickstart-configure-workload-isolation-tsql.md)<br>

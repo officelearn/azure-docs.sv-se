@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 2260dddd74d7ed64eb19158a5360ed2e4c09b4a9
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: e299821b54692327cbb7d497af0295e3b93658cf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688350"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966979"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Felsök problem med domän-och SSL-certifikat i Azure App Service
 
 Den här artikeln innehåller vanliga problem som kan uppstå när du konfigurerar en domän eller ett SSL-certifikat för dina webb program i Azure App Service. Det beskriver också möjliga orsaker och lösningar för dessa problem.
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -318,6 +318,6 @@ Du kan hantera din domän även om du inte har en App Service-webbapp. Domän ka
 
 **Kan jag flytta en webbapp med en anpassad domän till en annan prenumeration eller från App Service-miljön v1 till v2?**
 
-Ja, du kan flytta din webbapp över prenumerationer. Följ rikt linjerna i [hur du flyttar resurser i Azure](../azure-resource-manager/resource-group-move-resources.md). Det finns några begränsningar när du flyttar webbappen. Mer information finns i [begränsningar för att flytta App Service-resurser](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Ja, du kan flytta din webbapp över prenumerationer. Följ rikt linjerna i [hur du flyttar resurser i Azure](../azure-resource-manager/management/move-resource-group-and-subscription.md). Det finns några begränsningar när du flyttar webbappen. Mer information finns i [begränsningar för att flytta App Service-resurser](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 När du har flyttat webbappen bör värd namns bindningarna för domänerna i inställningen för anpassade domäner vara desamma. Inga ytterligare steg krävs för att konfigurera värd namn bindningarna.

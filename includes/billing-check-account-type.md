@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: ef2b428eded71de23cae86bca8e29eced78af683
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: bc60e7d39e6dbdf04744a10ef6c6f286e1b1ea52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449282"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75987790"
 ---
 1. Logga in på [Azure-portalen](https://portal.azure.com).
  
@@ -17,13 +17,13 @@ ms.locfileid: "75449282"
  
    ![Skärmbild som visar en sökning i Azure-portalen](./media/billing-check-account-type/billing-search-cost-management-billing.png)    
  
-3. Om du bara har tillgång till ett faktureringsomfång väljer du **Egenskaper** till vänster.
+3. Om du bara har åtkomst till ett faktureringsomfång väljer du **Egenskaper** till vänster.
  
     ![Skärmbild som visar microsoft customer agreement på egenskapssidan](./media/billing-check-account-type/billing-mca-property.png)
     
-    **Typen** på egenskapssidan avgör kontotypen. Det kan vara Microsoft Online Service Program, Enterprise-avtal, Microsoft-kundavtal eller Microsoft-partneravtal. Mer information om faktureringskontotyper finns i [Visa faktureringskonton i Azure-portalen](../articles/billing/billing-view-all-accounts.md).  
+    **Faktureringskontotyp** på egenskapssidan avgör kontotypen. Det kan vara Microsoft Online Service Program, Enterprise-avtal, Microsoft-kundavtal eller Microsoft-partneravtal. Mer information om faktureringskontotyper finns i [Visa faktureringskonton i Azure-portalen](../articles/cost-management-billing/manage/view-all-accounts.md).  
  
-4. Om du har åtkomst till flera faktureringsomfång kontrollerar du typen i kolumnen **Faktureringskontotyp**.
+4. Om du har åtkomst till flera fakturerings omfattningar kontrollerar du typen i kolumnen **fakturerings konto typ** .
  
-    ![Skärmbild som visar microsoft customer agreement i listan med faktureringskonton](./media/billing-check-account-type/billing-account-type-in-the-list.png)
+    ![Skärmbild som visar Microsofts kundavtal på faktureringskontosidan](./media/billing-check-account-type/billing-account-type-in-the-list.png)
  

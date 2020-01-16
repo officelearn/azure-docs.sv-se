@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 63f386212b0277c3b5ee383e707d4c32fa4e63fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428853"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965922"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor loggar för offentliga grundläggande Load Balancer
 
->[!IMPORTANT] 
+>[!IMPORTANT]
 >Azures Load Balancer stöder två typer: grundläggande och standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastnings utjämning. Vissa av dessa loggar kan nås via portalen. Loggar kan strömmas till en händelsehubben eller en arbets yta för Log Analytics. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel Excel och Power BI.  Du kan lära dig mer om de olika typerna av loggar i listan nedan.
@@ -32,7 +32,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka grun
 * **Hälso avsöknings loggar:** Du kan använda den här loggen för att visa problem som upptäckts av din hälso avsökning, till exempel antalet instanser i din backend-pool som inte tar emot begär Anden från belastningsutjämnaren på grund av hälso avsöknings fel. Loggen skrivs till när statusen för hälso avsökningen ändras.
 
 > [!IMPORTANT]
-> Azure Monitor loggar för närvarande endast fungerar för offentliga Basic Load Balancer. Loggar är bara tillgängliga för resurser som distribueras i distributions modellen för Resource Manager. Du kan inte använda loggar för resurser i den klassiska distributions modellen. Mer information om distributions modellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md).
+> Azure Monitor loggar för närvarande endast fungerar för offentliga Basic Load Balancer. Loggar är bara tillgängliga för resurser som distribueras i distributions modellen för Resource Manager. Du kan inte använda loggar för resurser i den klassiska distributions modellen. Mer information om distributions modellerna finns i [förstå Resource Manager-distribution och klassisk distribution](../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
@@ -57,7 +57,7 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
     1. Markera kryss rutan bredvid **arkivera till ett lagrings konto**.
     2. Välj **Konfigurera** för att öppna fönstret **Välj ett lagrings konto** .
     3. Välj den **prenumeration** där ditt lagrings konto skapades i den nedrullningsbara rutan.
-    4. Välj namnet på ditt lagrings konto under **lagrings konto** i den nedrullningsbara List rutan. 
+    4. Välj namnet på ditt lagrings konto under **lagrings konto** i den nedrullningsbara List rutan.
     5. Välj OK.
 
     ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
@@ -160,7 +160,7 @@ JSON-utdata visas i fältet egenskaper grundläggande information om avsökninge
 
 Du kan visa och analysera Gransknings logg data med någon av följande metoder:
 
-* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, kommando rads gränssnittet för Azure (CLI), Azure-REST API eller Azure Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) .
+* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, kommando rads gränssnittet för Azure (CLI), Azure-REST API eller Azure Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power BI:** Om du inte redan har ett [Power BI](https:// .microsoft.com/pricing) konto kan du prova det kostnads fritt. Med [innehålls paketet för Azure audit-loggar för Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)kan du analysera dina data med förkonfigurerade instrument paneler, eller så kan du anpassa vyer så att de passar dina behov.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälso avsökningen och händelse loggen

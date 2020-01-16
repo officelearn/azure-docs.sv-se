@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f935e8fc1e5d6d64bffaeb582e8b248317f49687
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 63a219078927e9001a8eb4085c722e7ec8d2fac9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660604"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980631"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Distributions problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -56,7 +56,7 @@ Distribution av en moln tjänst kan Miss lyckas om resurserna som måste alloker
 
 Du kan också spåra den aktuella användningen/kvoten för din prenumeration på portalen: Azure Portal = > Subscriptions = > \<lämplig prenumeration > = > "användning + kvot".
 
-Resursanvändning/förbrukning-relaterad information kan också hämtas via API:er för Azure-fakturering. Se [Azure Resource Usage API (för hands version)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
+Resursanvändning/förbrukning-relaterad information kan också hämtas via API:er för Azure-fakturering. Se [Azure Resource Usage API (för hands version)](../cost-management-billing/manage/usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
 ## <a name="how-can-i-change-the-size-of-a-deployed-cloud-service-vm-without-redeploying-it"></a>Hur kan jag ändra storleken på en distribuerad virtuell dator i moln tjänsten utan att distribuera om den?
 Du kan inte ändra den virtuella dator storleken för en distribuerad moln tjänst utan att distribuera om den. Storleken på den virtuella datorn är inbyggd i CSDEF, som bara kan uppdateras med en omdistribution.
@@ -66,17 +66,17 @@ Mer information finns i [så här uppdaterar du en moln tjänst](cloud-services-
 ## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Varför kan jag inte distribuera Cloud Services via API: er för service hantering eller PowerShell när du använder Azure Resource Manager lagrings konto? 
 
 Eftersom moln tjänsten är en klassisk resurs som inte är direkt kompatibel med Azure Resource Manager modellen kan du inte associera den med Azure Resource Manager lagrings konton. Här är några alternativ: 
- 
+
 - Distribuera via REST API.
 
     När du distribuerar via Service Management-REST API kan du få runt begränsningen genom att ange en SAS-URL till blob-lagringen, som fungerar med både det klassiska och Azure Resource Manager lagrings kontot. Läs mer om egenskapen "PackageUrl" [här](/previous-versions/azure/reference/ee460813(v=azure.100)).
-  
+
 - Distribuera via [Azure Portal](https://portal.azure.com).
 
     Detta fungerar från [Azure Portal](https://portal.azure.com) när anropet går via en proxy/shim som tillåter kommunikation mellan Azure Resource Manager och klassiska resurser. 
- 
-## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure Portal mig att tillhandahålla ett lagrings konto för distribution? 
 
-I den klassiska portalen överfördes paketet till hanterings-API-lagret direkt, och API-lagret skulle då tillfälligt flytta paketet till ett internt lagrings konto.  Den här processen orsakar problem med prestanda och skalbarhet eftersom API-skiktet inte har utformats för att vara en fil överförings tjänst.  I Azure Portal (Resource Manager-distributions modell) har vi hoppat över steget för att först överföra till API-skiktet, vilket resulterar i snabbare och mer tillförlitlig distribution. 
+## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Varför kräver Azure Portal mig att tillhandahålla ett lagrings konto för distribution?
 
-Vad gäller kostnaden är det mycket litet och du kan återanvända samma lagrings konto för alla distributioner. Du kan använda [Kalkylatorn för lagrings kostnad](https://azure.microsoft.com/pricing/calculator/#storage1) för att fastställa kostnaden för att ladda upp tjänst paketet (CSPKG), Hämta CSPKG och sedan ta bort CSPKG. 
+I den klassiska portalen överfördes paketet till hanterings-API-lagret direkt, och API-lagret skulle då tillfälligt flytta paketet till ett internt lagrings konto.  Den här processen orsakar problem med prestanda och skalbarhet eftersom API-skiktet inte har utformats för att vara en fil överförings tjänst.  I Azure Portal (Resource Manager-distributions modell) har vi hoppat över steget för att först överföra till API-skiktet, vilket resulterar i snabbare och mer tillförlitlig distribution.
+
+Vad gäller kostnaden är det mycket litet och du kan återanvända samma lagrings konto för alla distributioner. Du kan använda [Kalkylatorn för lagrings kostnad](https://azure.microsoft.com/pricing/calculator/#storage1) för att fastställa kostnaden för att ladda upp tjänst paketet (CSPKG), Hämta CSPKG och sedan ta bort CSPKG.

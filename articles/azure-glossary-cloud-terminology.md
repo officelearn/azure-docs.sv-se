@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: f5e0344cb1da86661ae87b5e45bd93dd181e7bb0
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 7c80ba6b15cec08da9bcefea243493a824ef66bd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659567"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978764"
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Microsoft Azure ord lista: en ord lista med moln terminologi på Azure-plattformen
 
@@ -31,7 +31,7 @@ Ord listan Microsoft Azure är en kort ord lista med moln terminologi för Azure
 
 ## <a name="account"></a>konto
 Ett konto som används för att få åtkomst till och hantera en Azure-prenumeration. Det kallas ofta ett Azure-konto även om ett konto kan vara något av följande: ett befintligt arbets-, skol-eller personliga Microsoft-konto eller ett Office 365-användar namn och lösen ord. Du kan också skapa ett konto för att hantera en Azure-prenumeration när du registrerar dig för den [kostnads fria utvärderings versionen](https://azure.microsoft.com).  
-Se [Registrera dig för en Azure-prenumeration med ditt Office 365-konto](billing/billing-use-existing-office-365-account-azure-subscription.md) och- [konton som du kan använda för att logga](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)in.
+Se [Registrera dig för en Azure-prenumeration med ditt Office 365-konto](cost-management-billing/manage/office-365-account-for-azure-subscription.md) och- [konton som du kan använda för att logga](active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)in.
 
 ## <a name="api-app"></a>API-app
 Ett annat namn för [App Service-appen](#app-service-app).
@@ -96,11 +96,11 @@ Se [Azure-regioner](best-practices-availability-paired-regions.md)
 
 ## <a name="resource"></a>resource
 Ett objekt som ingår i din Azure-lösning. Med varje Azure-tjänst kan du distribuera olika typer av resurser, till exempel databaser eller virtuella datorer.   
-Se [Azure Resource Manager översikt](azure-resource-manager/resource-group-overview.md)
+Se [Azure Resource Manager översikt](azure-resource-manager/management/overview.md)
 
 ## <a name="resource-group"></a>Resursgrupp
 En behållare i Resource Manager som innehåller relaterade resurser för ett program. Resurs gruppen kan innehålla alla resurser för ett program, eller endast de resurser som är logiskt grupperade tillsammans. Du kan bestämma hur du vill allokera resurser till resursgrupper baserat på vad som är lämpligast för din organisation.  
-Se [Azure Resource Manager översikt](azure-resource-manager/resource-group-overview.md)
+Se [Azure Resource Manager översikt](azure-resource-manager/management/overview.md)
 
 ## <a name="arm-template"></a>Resource Manager-mall
 En JSON-fil som definierar en eller flera Azure-resurser i taget och som definierar beroenden mellan de distribuerade resurserna. Mallen kan användas för att distribuera resurserna på ett konsekvent sätt och upprepade gånger.  
@@ -108,7 +108,7 @@ Se [redigera Azure Resource Manager mallar](resource-group-authoring-templates.m
 
 ## <a name="resource-provider"></a>resurs leverantör
 En tjänst som tillhandahåller de resurser som du kan distribuera och hantera via Resource Manager. Varje resursprovider tillhandahåller åtgärder som hjälper dig att arbeta med de resurser du distribuerar. Resurs leverantörer kan nås via Azure Portal, Azure PowerShell och flera programmerings-SDK: er.  
-Se [Azure Resource Manager översikt](azure-resource-manager/resource-group-overview.md)
+Se [Azure Resource Manager översikt](azure-resource-manager/management/overview.md)
 
 ## <a name="role"></a>roll
 Ett sätt att kontrol lera åtkomst som kan tilldelas till användare, grupper och tjänster. Roller kan utföra åtgärder som att skapa, hantera och läsa på Azure-resurser.  

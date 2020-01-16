@@ -4,12 +4,12 @@ description: Lär dig hur du skapar en Azure Resource Manager mall som distribue
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 6d5b7b33bfb2645128a545bb371c70188a724c40
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 650997cfddc71a8bfe347e29c8992b78d1828034
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920626"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978795"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -372,7 +372,7 @@ En Function-app i en Premium-plan måste ha egenskapen `serverFarmId` inställd 
 ```
 
 
-<a name="app-service-plan"></a> 
+<a name="app-service-plan"></a>
 
 ## <a name="deploy-on-app-service-plan"></a>Distribuera på App Service plan
 
@@ -419,7 +419,7 @@ Om du vill köra din app på Linux måste du också ange `kind` `Linux`:
 }
 ```
 
-### <a name="create-a-function-app"></a>Skapa en funktionsapp 
+### <a name="create-a-function-app"></a>Skapa en funktionsapp
 
 En Function-app på en App Service plan måste ha egenskapen `serverFarmId` inställd på resurs-ID för den plan som skapades tidigare.
 
@@ -637,10 +637,10 @@ En Function-app har många underordnade resurser som du kan använda i distribut
 
 Du kan använda något av följande sätt för att distribuera mallen:
 
-* [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-* [Azure-portalen](../azure-resource-manager/resource-group-template-deploy-portal.md)
-* [REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+* [Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+* [Azure-portalen](../azure-resource-manager/templates/deploy-portal.md)
+* [REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 ### <a name="deploy-to-azure-button"></a>Knappen distribuera till Azure
 

@@ -7,16 +7,16 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 08/09/2019
+ms.date: 01/14/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a210e2622212ed59dfa12f9f9a108c6ffe08714
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 366d170a4caf9ee7428b68d71f910c65356038ff
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692891"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024534"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Övervaka resursutnyttjande och fråga aktivitet i Azure SQL Data Warehouse
 Azure SQL Data Warehouse ger en omfattande övervaknings upplevelse inom Azure Portal till Surface Insights för arbets belastningen för informations lagret. Azure Portal är det rekommenderade verktyget när du övervakar ditt informations lager eftersom det tillhandahåller konfigurerbara kvarhållningsperiod, varningar, rekommendationer och anpassningsbara diagram och instrument paneler för mått och loggar. Portalen gör det också möjligt att integrera med andra Azure Monitoring-tjänster som Operations Management Suite (OMS) och Azure Monitor (loggar) för att ge en helhets övervakning av inte bara ditt informations lager, utan även hela Azure Analytics plattform för en integrerad övervaknings upplevelse. Den här dokumentationen beskriver vilka övervaknings funktioner som är tillgängliga för att optimera och hantera din analys plattform med SQL Data Warehouse. 
@@ -25,25 +25,27 @@ Azure SQL Data Warehouse ger en omfattande övervaknings upplevelse inom Azure P
 Följande mått är tillgängliga i Azure Portal för SQL Data Warehouse. Dessa mått är uppdelade via [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
 
 
-| Mått namn             | Beskrivning                                                  | Sammansättnings typ |
+| Måttnamn             | Beskrivning                                                  | Sammansättningstyp: |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
-| CPU-procent          | CPU-användning över alla noder för data lagret      | Maximal          |
-| Data IO-procent      | I/o-användning över alla noder för data lagret       | Maximal          |
-| Minnes procent       | Minnes användning (SQL Server) över alla noder för data lagret | Maximal          |
-| Lyckade anslutningar  | Antal lyckade anslutningar till data                 | Totalt            |
-| Misslyckade anslutningar      | Antal misslyckade anslutningar till data lagret           | Totalt            |
-| Blockerad av brand väggen     | Antal inloggningar till data lagret som blockerades     | Totalt            |
-| DWU-gräns               | Informations lagrets service nivå mål                | Maximal          |
-| DWU procent          | Maximalt mellan CPU-procent och data IO-procent        | Maximal          |
-| DWU som används                | DWU-gräns * DWU procent                                   | Maximal          |
-| Procent andel cacheträffar    | (cacheträffar/cache missar) * 100 där cacheträffar är summan av alla träffar i det lokala SSD-cacheminnet och cache missar är columnstore-segmenten missar i den lokala SSD-cachen som summeras för alla noder | Maximal          |
-| Procent andel som används   | (cache-använt/cache-kapacitet) * 100 där cache används är summan av alla byte i den lokala SSD-cachen på alla noder och cache-kapacitet är summan av lagrings kapaciteten för den lokala SSD-cachen på alla noder | Maximal          |
-| Lokal tempdb-procent | Lokal tempdb-användning över alla Compute-noder – värden genereras var femte minut | Maximal          |
+| CPU-procent          | CPU-användning över alla noder för data lagret      | Genomsn, min, max    |
+| Data IO-procent      | I/o-användning över alla noder för data lagret       | Genomsn, min, max    |
+| Minnes procent       | Minnes användning (SQL Server) över alla noder för data lagret | Genomsn, min, max   |
+| Aktiva frågor          | Antal aktiva frågor som körs på systemet             | Summa              |
+| Köade frågor          | Antal köade frågor som väntar på att börja köras          | Summa              |
+| Lyckade anslutningar  | Antal lyckade anslutningar till data                 | Sum, antal       |
+| Misslyckade anslutningar      | Antal misslyckade anslutningar till data lagret           | Sum, antal       |
+| Blockerad av brand väggen     | Antal inloggningar till data lagret som blockerades     | Sum, antal       |
+| DWU-gräns               | Informations lagrets service nivå mål                | Genomsn, min, max    |
+| DWU procent          | Maximalt mellan CPU-procent och data IO-procent        | Genomsn, min, max    |
+| DWU som används                | DWU-gräns * DWU procent                                   | Genomsn, min, max    |
+| Procent andel cacheträffar    | (cacheträffar/cache missar) * 100 där cacheträffar är summan av alla träffar i det lokala SSD-cacheminnet och cache missar är columnstore-segmenten missar i den lokala SSD-cachen som summeras för alla noder | Genomsn, min, max    |
+| Procent andel som används   | (cache-använt/cache-kapacitet) * 100 där cache används är summan av alla byte i den lokala SSD-cachen på alla noder och cache-kapacitet är summan av lagrings kapaciteten för den lokala SSD-cachen på alla noder | Genomsn, min, max    |
+| Lokal tempdb-procent | Lokal tempdb-användning över alla Compute-noder – värden genereras var femte minut | Genomsn, min, max    |
 
-> Saker att tänka på när du visar mått och ställer in aviseringar:
->
-> - Misslyckade och lyckade anslutningar rapporteras för ett visst informations lager – inte för den logiska servern
-> - Minnes procent visar användningen även om informations lagret är i inaktivt läge – det visar inte den aktiva minnes användningen för arbets belastningen. Använd och spåra det här måttet tillsammans med andra (tempdb, Gen2 cache) för att fatta ett holistiskt beslut om skalning för ytterligare cache-kapacitet ökar arbets belastnings prestandan för att uppfylla dina krav.
+Saker att tänka på när du visar mått och ställer in aviseringar:
+
+- Misslyckade och lyckade anslutningar rapporteras för ett visst informations lager – inte för den logiska servern
+- Minnes procent visar användningen även om informations lagret är i inaktivt läge – det visar inte den aktiva minnes användningen för arbets belastningen. Använd och spåra det här måttet tillsammans med andra (tempdb, Gen2 cache) för att fatta ett holistiskt beslut om skalning för ytterligare cache-kapacitet ökar arbets belastnings prestandan för att uppfylla dina krav.
 
 
 ## <a name="query-activity"></a>Fråga aktivitet

@@ -15,12 +15,12 @@ ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b7a8f7136d0899ab3afe04bce2d25bc2e7f8d3e2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038864"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981718"
 ---
 # <a name="pricing-guidance-for-azure-sql-server-vms"></a>Pris vägledning för Azure SQL Server virtuella datorer
 
@@ -58,7 +58,7 @@ Om du har en icke-lättviktig produktions arbets belastning använder du någon 
 |-----|-----|
 | Webb | Små webbplatser |
 | Standard | Små till medel stora arbets belastningar |
-| Enterprise | Stora eller verksamhets kritiska arbets belastningar|
+| Företag | Stora eller verksamhets kritiska arbets belastningar|
 
 Du har två alternativ att betala för SQL Server-licensiering för dessa versioner: *betala per användning* eller *ta med din egen licens (BYOL)* .
 
@@ -139,10 +139,10 @@ Licens kostnaden för SQL Server är direkt relaterad till antalet virtuella pro
 
 Det finns nya maskin storlekar som fungerar bra med vissa typer av SQL Server arbets belastningar. De här datorernas storlekar behåller höga nivåer av minne, lagring och I/O-bandbredd, men de har lägre virtualiserat antal kärnor. Tänk till exempel följande exempel:
 
-| Storlek på virtuell dator | Virtuella processorer | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
+| VM-storlek | Virtuella processorer | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
 |---|---|---|---|---|---|---|
-| **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | | |
-| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | 75% lägre | 57% lägre |
+| **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | | |
+| **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | 75 % lägre | 57 % lägre |
 
 > [!IMPORTANT]
 > Det här är ett exempel på en tidpunkt. De senaste specifikationerna finns i artiklar om dator storlek och på sidan med Azure-priser för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) och [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
@@ -151,7 +151,7 @@ I det tidigare exemplet kan du se att specifikationerna för **Standard_DS14v2**
 
 ### <a name="shut-down-your-vm-when-possible"></a>Stäng av den virtuella datorn när det är möjligt
 
-Om du använder en arbets belastning som inte körs kontinuerligt bör du överväga att stänga av den virtuella datorn under de inaktiva perioderna. Betala endast för det du använder.
+Om du använder en arbets belastning som inte körs kontinuerligt bör du överväga att stänga av den virtuella datorn under de inaktiva perioderna. Du betalar bara för det du använder.
 
 Om du till exempel bara försöker använda SQL Server på en virtuell Azure-dator vill du inte betala avgifter genom att oavsiktligt lämna det som körs i veckor. En lösning är att använda [funktionen för automatisk avstängning](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
@@ -166,7 +166,7 @@ För andra arbets flöden bör du överväga att automatiskt stänga av och star
 
 ## <a name="next-steps"></a>Nästa steg
 
-Allmän pris vägledning för Azure finns i [förhindra oväntade kostnader med fakturering och kostnads hantering i Azure](../../../billing/billing-getting-started.md). De senaste Virtual Machines priserna, inklusive SQL Server, finns på prissättnings sidan för Azure VM Azure för virtuella [Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) och [virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
+Allmän pris vägledning för Azure finns i [förhindra oväntade kostnader med fakturering och kostnads hantering i Azure](../../../cost-management-billing/manage/getting-started.md). De senaste Virtual Machines priserna, inklusive SQL Server, finns på prissättnings sidan för Azure VM Azure för virtuella [Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) och [virtuella Linux-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 En översikt över SQL Server som körs på Azure Virtual Machines finns i följande artiklar:
 

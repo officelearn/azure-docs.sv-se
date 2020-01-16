@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 13b0f7bd37956b51c6dce780d0709abfb3546336
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430308"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028589"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Anslut privat till ett Azure Cosmos-konto med hjälp av Azure Private Link
 
@@ -141,7 +141,7 @@ I det här avsnittet ska du ansluta privat till Azure Cosmos-kontot med hjälp a
    10.1.255.14 mycosmosaccount-eastus.documents.azure.com
 
 
-1. I fjärr skrivbord för *myVM*installerar du [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+1. I fjärr skrivbord för *myVM*installerar du [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
 
 1. Välj **Cosmos DB konton (för hands version)** med högerklickning.
 
@@ -159,22 +159,22 @@ I det här avsnittet ska du ansluta privat till Azure Cosmos-kontot med hjälp a
 
 1. (Valfritt) Lägg till nya objekt i *mycosmosaccount*.
 
-1. Stäng fjärr skrivbords anslutningen till *myVM*.
+1. Stäng fjärr skrivbords anslutningen till *myVM*.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med den privata slut punkten, Azure Cosmos-kontot och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
 
-1. Ange *myResourceGroup* i rutan **Sök** högst upp i portalen och välj *myResourceGroup* från Sök resultaten.
+1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj *myResourceGroup* från Sök resultaten.
 
 1. Välj **Ta bort resursgrupp**.
 
-1. Ange *myResourceGroup* för **Skriv resurs gruppens namn** och välj **ta bort**.
+1. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 I den här artikeln har du skapat en virtuell dator i ett virtuellt nätverk, ett Azure Cosmos-konto och en privat slut punkt. Du har anslutit till den virtuella datorn från Internet och på ett säkert sätt kommunicerat med Azure Cosmos-kontot med hjälp av en privat länk.
 
-* Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).
+* Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).
 
 * Om du vill veta mer om begränsning av privat slut punkt när du använder med Azure Cosmos DB kan du läsa mer i [Azure privat länk med Azure Cosmos DB](../cosmos-db/how-to-configure-private-endpoints.md) artikel.

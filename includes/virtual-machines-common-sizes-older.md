@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: lahugh
 ms.custom: include file
-ms.openlocfilehash: a4746a945f1a89c34308a3bd968f6341e0e25ac5
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 1867164954a3f9dff7a8a8c04e249a13edccb84a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541548"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020943"
 ---
 Det här avsnittet innehåller information om äldre generationer av virtuella dator storlekar. Dessa storlekar stöds fortfarande men får ingen ytterligare kapacitet. Det finns nyare eller alternativa storlekar som är allmänt tillgängliga. Se [storlekar för virtuella Windows-datorer i Azure](../articles/virtual-machines/windows/sizes.md) eller [storlekar för virtuella Linux-datorer i Azure](../articles/virtual-machines/linux/sizes.md) för att välja de VM-storlekar som passar bäst för dina behov.  
 
@@ -25,16 +25,16 @@ Mer information om hur du ändrar storlek på en virtuell Linux-dator finns i [�
 
 **Nyare storleks rekommendation**: [AV2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-Premium-lagring:  Stöds inte
+Premium Storage: stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
 
 Storlekarna på den grundläggande nivån är främst avsedda för utvecklingsarbetsbelastningar och andra program som inte kräver belastningsutjämning, automatisk skalning eller minnesintensiva virtuella datorer.
 
-|Storlek – Storlek\namn | Virtuell processor |Minne|Nätverkskort (max.)|Högsta temporär diskstorlek |Max. data diskar (1023 GB vardera)|Max. IOPS (300 per disk)|
+|Storlek – Storlek\namn | vCPU |Minne|Nätverkskort (max.)|Högsta temporär diskstorlek |Max. data diskar (1023 GB vardera)|Max. IOPS (300 per disk)|
 |---|---|---|---|---|---|---|
 |A0\Basic_A0|1|768 MB|2| 20 GB|1|1 × 300|
-|A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 × 300|
+|A1\Basic_A1|1|1,75 GB|2| 40 GB |2|2 × 300|
 |A2\Basic_A2|2|3,5 GB|2| 60 GB|4|4 × 300|
 |A3\Basic_A3|4|7 GB|2| 120 GB |8|8 × 300|
 |A4\Basic_A4|8|14 GB|2| 240 GB |16|16 × 300|
@@ -55,13 +55,13 @@ I den klassiska distributionsmodellen skiljer sig vissa namn på VM-storlekarna 
 
 **Nyare storleks rekommendation**: [AV2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-ACU 50-100
+ACU: 50–100
 
-Premium-lagring:  Stöds inte
+Premium Storage: stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
 
-| Size | Virtuell processor | Minne: GiB | Temp-lagring (HDD): GiB | Maximalt antal datadiskar | Högsta data disk data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s)  |
+| Storlek | vCPU | Minne: GiB | Temporär lagring (HDD): GiB | Max antal datadiskar | Maximalt diskgenomflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s)  |
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A0&nbsp;<sup>1</sup> |1 |0.768 |20 |1 |1 × 500 |2/100 |
 | Standard_A1 |1 |1.75 |70 |2 |2 × 500 |2/500  |
@@ -80,64 +80,64 @@ Premium Storage cachelagring:  Stöds inte
 
 **Nyare storleks rekommendation**: [AV2-serien](../articles/virtual-machines/windows/sizes-general.md#av2-series)
 
-ACU 225
+ACU: 225
 
-Premium-lagring:  Stöds inte
+Premium Storage: stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
 
 Storlekarna i A8–A11- och H-serien kallas även för *beräkningsintensiva instanser*. Maskinvaran som kör dessa storlekar är utformad och optimerad för beräkningsintensiva och nätverksintensiva program, inklusive HPC-klustertillämpningar (databehandling med höga prestanda), modellering och simuleringar. A8–A11-serien använder Intel Xeon E5-2670 @ 2,6 GHZ och H-serien använder Intel Xeon E5-2667 v3 @ 3,2 GHz.  
 
-| Size | Virtuell processor | Minne: GiB | Temp-lagring (HDD): GiB | Maximalt antal datadiskar | Högsta data disk data flöde: IOPS | Maximalt antal nätverkskort|
+| Storlek | vCPU | Minne: GiB | Temporär lagring (HDD): GiB | Max antal datadiskar | Maximalt diskgenomflöde: IOPS | Maximalt antal nätverkskort|
 | --- | --- | --- | --- | --- | --- | --- |
 | Standard_A8&nbsp;<sup>1</sup> |8 |56 |382 |32 |32 × 500 |2 |
 | Standard_A9&nbsp;<sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32 × 500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-<sup>1</sup> För MPI-program aktive ras det dedikerade RDMA-backend-nätverket av FDR InfiniBand-nätverket, vilket ger mycket låg latens och hög bandbredd.  
+<sup>1</sup> För MPI-program aktive ras det dedikerade RDMA-backend-nätverket av QDR InfiniBand-nätverket, vilket ger mycket låg latens och hög bandbredd.  
 
 <br>
 
 ### <a name="d-series"></a>D-serien  
 
-**Nyare storleks rekommendation**: [Dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+**Nyare storleks rekommendation**: [dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
-ACU 160-250 <sup>1</sup>
+ACU: 160-250 <sup>1</sup>
 
-Premium-lagring:  Stöds inte
+Premium Storage: stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
 
-| Size         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporärt lagring: IOPS/läsa Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek         | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D1  | 1         | 3.5         | 50             | 3 000 / 46 / 23                                           | 4 / 4 x 500                         | 2/500                 |
 | Standard_D2  | 2         | 7           | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
 | Standard_D3  | 4         | 14          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
 | Standard_D4  | 8         | 28          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
 
-<sup>1</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM-serien kan köras på någon av följande CPU: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz intel Xeon® E5-2673 v4 (Broadwell)  
 
 <br>
 
 ### <a name="d-series---memory-optimized"></a>D-serien-minnesoptimerade  
 
-**Nyare storleks rekommendation**: [Dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
+**Nyare storleks rekommendation**: [dv3-serien](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1)
 
-ACU 160-250 <sup>1</sup>
+ACU: 160-250 <sup>1</sup>
 
-Premium-lagring:  Stöds inte
+Premium Storage: stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
 
-| Size         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporärt lagring: IOPS/läsa Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek         | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_D11 | 2         | 14          | 100            | 6 000 / 93 / 46                                           | 8 / 8 x 500                         | 2/1 000                     |
 | Standard_D12 | 4         | 28          | 200            | 12 000 / 187 / 93                                         | 16 / 16 x 500                         | 4/2 000                     |
 | Standard_D13 | 8         | 56          | 400            | 24 000 / 375 / 187                                        | 32 / 32 x 500                       | 8/4 000                     |
 | Standard_D14 | 16        | 112         | 800            | 48 000 / 750 / 375                                        | 64/64x500                       | 8 / 8000                |
 
-<sup>1</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM-serien kan köras på någon av följande CPU: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz intel Xeon® E5-2673 v4 (Broadwell)  
 
 <br>
 
@@ -145,20 +145,20 @@ Premium Storage cachelagring:  Stöds inte
 
 **Nyare storleks rekommendation**: [DSv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
-ACU 160-250 <sup>1</sup>
+ACU: 160-250 <sup>1</sup>
 
-Premium-lagring:  Stöds
+Premium Storage: stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage caching: stöds
 
-| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS1 |1 |3.5 |7 |4 |4,000 / 32 (43) |3,200 / 32 |2/500 |
 | Standard_DS2 |2 |7 |14 |8 |8,000 / 64 (86) |6,400 / 64 |2/1 000 |
 | Standard_DS3 |4 |14 |28 |16 |16,000 / 128 (172) |12,800 / 128 |4/2 000 |
 | Standard_DS4 |8 |28 |56 |32 |32,000 / 256 (344) |25,600 / 256 |8/4 000 |
 
-<sup>1</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>1</sup> VM-serien kan köras på någon av följande CPU: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz intel Xeon® E5-2673 v4 (Broadwell)  
 
 <br>
 
@@ -166,13 +166,13 @@ Premium Storage cachelagring:  Stöds
 
 **Nyare storleks rekommendation**: [DSv3-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 
-ACU 160-250 <sup>1, 2</sup>
+ACU: 160-250 <sup>1, 2</sup>
 
-Premium-lagring:  Stöds
+Premium Storage: stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage caching: stöds
 
-| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS11 |2 |14 |28 |8 |8,000 / 64 (72) |6,400 / 64 |2/1 000 |
 | Standard_DS12 |4 |28 |56 |16 |16,000 / 128 (144) |12,800 / 128 |4/2 000 |
@@ -180,7 +180,7 @@ Premium Storage cachelagring:  Stöds
 | Standard_DS14 |16 |112 |224 |64 |64,000 / 512 (576) |51,200 / 512 |8 / 8000 |
 
 <sup>1</sup> det högsta antalet disk data flöde (IOPS eller Mbit/s) som möjligt med en virtuell dator i DS-serien kan begränsas av antalet, storlek och striping av de anslutna diskarna.  Mer information finns i [utforma för hög prestanda](../articles/virtual-machines/windows/premium-storage-performance.md).   
-<sup>2</sup> VM-serien kan köras på någon av följande CPU: n: 2,2 GHz Intel Xeon® E5-2660 v2, 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)  
+<sup>2</sup> VM-serien kan köras på någon av följande CPU: 2,2 GHz intel Xeon® E5-2660 v2, 2,4 GHz intel Xeon® E5-2673 v3 (Haswell) eller 2,3 GHz intel Xeon® E5-2673 v4 (Broadwell)  
 
 <br>
 
@@ -190,13 +190,13 @@ Ls-serien stöder upp till 32 virtuella processorer i [E5 v3-familjen med Intel�
 
 LS-serien stöder inte att en lokal cache skapas för att öka IOPS som kan nås av varaktiga data diskar. Med det höga genom strömningen och IOPS av den lokala disken kan virtuella datorer i LS-serien vara idealiska för NoSQL-butiker som Apache Cassandra och MongoDB som replikerar data över flera virtuella datorer för att få beständighet i händelse av att en enskild virtuell dator Miss lyckas.
 
-ACU 180-240
+ACU: 180–240
 
-Premium-lagring:  Stöds
+Premium Storage: stöds
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
  
-| Size          | Virtuell processor | Minne (GiB) | Temp-lagring (GiB) | Maximalt antal datadiskar | Maximalt data flöde för temporärt lagrings utrymme (IOPS/Mbit/s) | Maximalt antal cachelagrade diskar (IOPS/Mbit/s) | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | 
+| Storlek          | vCPU | Minne (GiB) | Temp-lagring (GiB) | Max antal datadiskar | Maximalt data flöde för temporärt lagrings utrymme (IOPS/Mbit/s) | Maximalt antal cachelagrade diskar (IOPS/Mbit/s) | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) | 
 |----------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
 | Standard_L4s   | 4  | 32  | 678   | 16 | 20000/200 | 5000 / 125  | 2/4 000  | 
 | Standard_L8s   | 8  | 64  | 1388 | 32 | 40000/400 | 10000/250 | 4/8 000  | 
@@ -209,13 +209,13 @@ Det maximala disk data flödet som är möjligt med virtuella datorer i LS-serie
 
 ### <a name="gs-series"></a>GS-serien 
 
-ACU 180 – 240 <sup>1</sup>
+ACU: 180-240 <sup>1</sup>
 
-Premium-lagring:  Stöds
+Premium Storage: stöds
 
-Premium Storage cachelagring:  Stöds
+Premium Storage caching: stöds
 
-| Size | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt antal datadiskar | Max cachelagrat och temporärt lagrat dataflödet: IOPS/Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS/Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Max antal datadiskar | Maximalt genomflöde för cachelagring och temporär lagring: IOPS / Mbit/s (cachestorlek i GiB) | Maximalt icke cachelagrat diskgenomflöde: IOPS / Mbit/s | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |---|---|---|---|---|---|---|---|
 | Standard_GS1 |2 |28 |56 |8 |10,000 / 100 (264) |5,000 / 125 |2/2 000 |
 | Standard_GS2 |4 |56 |112 |16 |20,000 / 200 (528) |10,000 / 250 |2/4 000 |
@@ -233,13 +233,13 @@ Premium Storage cachelagring:  Stöds
 
 ### <a name="g-series"></a>G-serien
 
-ACU 180 – 240
+ACU: 180–240
 
-Premium-lagring:  Stöds inte
+Premium Storage: stöds inte
 
-Premium Storage cachelagring:  Stöds inte
+Premium Storage caching: stöds inte
 
-| Size         | Virtuell processor | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt data flöde för temporärt lagring: IOPS/läsa Mbit/s/Write Mbit/s | Maximalt antal data diskar/data flöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
+| Storlek         | vCPU | Minne: GiB | Temporär lagring (SSD) GiB | Maximalt genomflöde för temporär lagring: IOPS / Mbit/s för läsning / M/bit/s för skrivning | Maximalt antal datadiskar/dataflöde: IOPS | Högsta antal nätverkskort/förväntad nätverks bandbredd (Mbit/s) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_G1  | 2         | 28          | 384            | 6 000 / 93 / 46                                           | 8 / 8 x 500                       | 2/2 000                     |
 | Standard_G2  | 4         | 56          | 768            | 12 000 / 187 / 93                                         | 16 / 16 x 500                       | 2/4 000                     |

@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: d92832d1eee995e8883dc6c8ed0f58c9755e40f8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 74d10c8fbe2f82d6148f5e13cb57c46dd645f76f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058412"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979542"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Översikt över offentliga IP-adresser på instans nivå (klassisk)
 En offentlig IP-adress (ILPIP) på instans nivå är en offentlig IP-adress som du kan tilldela direkt till en virtuell dator eller Cloud Services roll instans, i stället för den moln tjänst som din virtuella dator eller roll instans finns i. En ILPIP tar inte platsen för den virtuella IP-adressen (VIP) som är tilldelad till moln tjänsten. I stället är det en ytterligare IP-adress som du kan använda för att ansluta direkt till den virtuella datorn eller roll instansen.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att du skapar virtuella datorer via Resource Manager. Se till att du förstår hur [IP-adresser](virtual-network-ip-addresses-overview-classic.md) fungerar i Azure.
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att du skapar virtuella datorer via Resource Manager. Se till att du förstår hur [IP-adresser](virtual-network-ip-addresses-overview-classic.md) fungerar i Azure.
 
 ![Skillnad mellan ILPIP och VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
-Som du ser i bild 1 nås moln tjänsten med hjälp av en VIP, medan de enskilda virtuella datorerna normalt används med VIP:&lt;port nummer.&gt; Genom att tilldela en ILPIP till en speciell virtuell dator kan den virtuella datorn nås direkt med den IP-adressen.
+Som du ser i bild 1 nås moln tjänsten med hjälp av en VIP, medan de enskilda virtuella datorerna normalt används med VIP:&lt;Port Number&gt;. Genom att tilldela en ILPIP till en speciell virtuell dator kan den virtuella datorn nås direkt med den IP-adressen.
 
-När du skapar en moln tjänst i Azure skapas motsvarande DNS-poster automatiskt för att tillåta åtkomst till tjänsten via ett fullständigt kvalificerat domän namn (FQDN) i stället för att använda den faktiska VIP: en. Samma process inträffar för en ILPIP, vilket ger åtkomst till den virtuella datorn eller roll instansen av FQDN i stället för ILPIP. Om du till exempel skapar en moln tjänst med namnet *contosoadservice*och du konfigurerar en webbroll med namnet *contosoweb* med två instanser, och i. cscfg `domainNameLabel` är inställt på *WebPublicIP*, registrerar Azure följande poster för pipe
+När du skapar en moln tjänst i Azure skapas motsvarande DNS-poster automatiskt för att tillåta åtkomst till tjänsten via ett fullständigt kvalificerat domän namn (FQDN) i stället för att använda den faktiska VIP: en. Samma process inträffar för en ILPIP, vilket ger åtkomst till den virtuella datorn eller roll instansen av FQDN i stället för ILPIP. Om du till exempel skapar en moln tjänst med namnet *contosoadservice*och du konfigurerar en webbroll med namnet *contosoweb* med två instanser, och i. cscfg-`domainNameLabel` är inställt på *WebPublicIP*, registrerar Azure följande poster för instanserna:
 
 
 * WebPublicIP.0.contosoadservice.cloudapp.net
@@ -45,7 +45,7 @@ När du skapar en moln tjänst i Azure skapas motsvarande DNS-poster automatiskt
 > 
 
 ## <a name="why-would-i-request-an-ilpip"></a>Varför skulle jag begära en ILPIP?
-Om du vill kunna ansluta till din virtuella dator eller roll instans med en IP-adress som tilldelats direkt till den, i stället för att använda moln tjänstens&lt;VIP:&gt;port nummer, begär en ILPIP för din virtuella dator eller din roll instans.
+Om du vill kunna ansluta till din virtuella dator eller roll instans med en IP-adress som tilldelats direkt till den, i stället för att använda moln tjänstens VIP:&lt;port nummer&gt;, begär en ILPIP för din virtuella dator eller din roll instans.
 
 * **Aktiv FTP** – genom att tilldela en ILPIP till en virtuell dator kan den ta emot trafik på alla portar. Slut punkter krävs inte för att den virtuella datorn ska ta emot trafik.  Se [Översikt över FTP-protokoll](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) för mer information om FTP-protokollet.
 * **Utgående IP** -utgående trafik från den virtuella datorn mappas till ILPIP som källa och ILPIP identifierar den virtuella datorn till externa entiteter unikt.
@@ -140,7 +140,7 @@ Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -Publi
 Utför följande steg för att lägga till en ILPIP till en Cloud Services roll instans:
 
 1. Hämta. cscfg-filen för moln tjänsten genom att följa stegen i artikeln [så här konfigurerar du Cloud Services](../cloud-services/cloud-services-how-to-configure-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#reconfigure-your-cscfg) .
-2. Uppdatera. cscfg-filen genom att lägga `InstanceAddress` till elementet. Följande exempel lägger till en ILPIP med namnet *MyPublicIP* till en roll instans med namnet *WebRole1*: 
+2. Uppdatera. cscfg-filen genom att lägga till `InstanceAddress`-elementet. Följande exempel lägger till en ILPIP med namnet *MyPublicIP* till en roll instans med namnet *WebRole1*: 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -176,7 +176,7 @@ $roles[0].PublicIPAddress
 $roles[1].PublicIPAddress
 ```
 
-Du kan också använda `nslookup` för att fråga under domänens A-post:
+Du kan också använda `nslookup` för att skicka frågor till under domänens A-post:
 
 ```batch
 nslookup WebPublicIP.0.<Cloud Service Name>.cloudapp.net

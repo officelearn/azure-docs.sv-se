@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f40b479b66f2fa9a60e084fc0e29f40cef052e99
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 479f9abc667e20a136da5f6231e78a1e4052f087
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162525"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965676"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Använd Azure Premium Storage med SQL Server på virtuella datorer
 
@@ -29,7 +29,7 @@ ms.locfileid: "73162525"
 [Azure Premium-SSD](../disks-types.md) är nästa generations lagring som ger låg latens och högt data flöde i/o. Det fungerar bäst för nyckel-i/o-intensiva arbets belastningar, till exempel SQL Server på IaaS [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/).
 
 > [!IMPORTANT]
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Den här artikeln innehåller planering och vägledning för att migrera en virtuell dator som kör SQL Server att använda Premium Storage. Detta omfattar Azure-infrastruktur (nätverk, lagring) och virtuella gäst datorer i Windows. Exemplet i [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) visar en fullständig heltäckande migrering av hur du flyttar större virtuella datorer för att dra nytta av förbättrad lokal SSD-lagring med PowerShell.
 
@@ -167,7 +167,7 @@ Mängden lagrings prestanda beror på storleken på de virtuella datorerna i DS 
 
 Ökad IOPS uppnås med större disk storlekar. Du bör tänka på detta när du tycker om din migrerings Sök väg. Mer information [finns i tabellen för IOPS-och disk typer](../disks-types.md#premium-ssd).
 
-Tänk slutligen på att de virtuella datorerna har olika maximala disk bandbredder som de stöder för alla diskar som är anslutna. Under hög belastning kan du fylla den maximala disk bandbredden som är tillgänglig för den virtuella dator rollen. Till exempel en Standard_DS14 har stöd för upp till 512 MB/s; med tre P30-diskar kan du därför fylla disk bandbredden för den virtuella datorn. I det här exemplet kan data flödes gränsen överskridas beroende på blandningen av Läs-och skriv-IOs.
+Tänk slutligen på att de virtuella datorerna har olika maximala disk bandbredder som de stöder för alla diskar som är anslutna. Under hög belastning kan du fylla den maximala disk bandbredden som är tillgänglig för den virtuella dator rollen. Till exempel en Standard_DS14 stöder upp till 512 MB/s; med tre P30-diskar kan du därför fylla disk bandbredden för den virtuella datorn. I det här exemplet kan data flödes gränsen överskridas beroende på blandningen av Läs-och skriv-IOs.
 
 ## <a name="new-deployments"></a>Nya distributioner
 
@@ -456,7 +456,7 @@ Du bör fastställa i vilken tid du kan utföra manuella redundans-och kaos-test
 > [!NOTE]
 > Du bör stoppa alla instanser av SQL Server där lagringspooler används innan valideringen körs.
 >
-> ##### <a name="high-level-steps"></a>Steg på hög nivå
+> ##### <a name="high-level-steps"></a>Övergripande steg
 >
 
 1. Skapa två nya SQL-servrar i ny moln tjänst med bifogade Premium Storage.
@@ -552,7 +552,7 @@ En strategi för minimal nedtid är att ta en befintlig moln sekundär och ta bo
   * Kör migreringen utanför schemalagt Azure-underhåll.
   * Se till att du har konfigurerat klustrets kvorum korrekt.  
 
-##### <a name="high-level-steps"></a>Steg på hög nivå
+##### <a name="high-level-steps"></a>Övergripande steg
 
 Det här dokumentet visar inte en fullständig end to end-exempel, men [bilagan](#appendix-migrating-a-multisite-always-on-cluster-to-premium-storage) innehåller information som kan utnyttjas för att utföra detta.
 
@@ -602,7 +602,7 @@ Tänk på följande exempel på en hybrid Always On-konfiguration:
 
 I det här scenariot förutsätter vi att du har dokumenterat din installation och vet hur lagrings utrymmet mappas för att göra ändringar för optimala cacheinställningar.
 
-##### <a name="high-level-steps"></a>Steg på hög nivå
+##### <a name="high-level-steps"></a>Övergripande steg
 
 ![Multisite2][10]
 
@@ -1248,8 +1248,8 @@ För att lägga till i IP-adress, se tillägget, steg 14.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-* [Azure-Premium Storage](../disks-types.md)
-* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/)
+* [Azure Premium Storage](../disks-types.md)
+* [Virtuella datorer](https://azure.microsoft.com/services/virtual-machines/)
 * [SQL Server i Azure Virtual Machines](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 
 <!-- IMAGES -->

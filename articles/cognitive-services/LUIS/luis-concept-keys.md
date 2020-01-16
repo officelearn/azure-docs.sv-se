@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9d213c8fa03ad2ca5e5fd7e620e52aa502749be2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901705"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969340"
 ---
 # <a name="authoring-and-runtime-keys"></a>Redigering och körningsnycklar
 
@@ -46,7 +46,7 @@ LUIS tillåter tre typer av Azure-resurser:
  
 |Nyckel|Syfte|Kognitiv tjänst `kind`|Kognitiv tjänst `type`|
 |--|--|--|--|
-|[Redigerings nyckel](#programmatic-key)|Få åtkomst till och hantera data för program med redigering, utbildning, publicering och testning. Skapa en LUIS redigerings nyckel om du tänker program mässigt redigera LUIS-appar.<br><br>Syftet med `LUIS.Authoring` nyckeln är att du ska kunna:<br>* hantera Language Understanding appar och modeller program mässigt, inklusive utbildning och publicering<br> * kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
+|[Redigera nyckel](#programmatic-key)|Få åtkomst till och hantera data för program med redigering, utbildning, publicering och testning. Skapa en LUIS redigerings nyckel om du tänker program mässigt redigera LUIS-appar.<br><br>Syftet med `LUIS.Authoring` nyckeln är att du ska kunna:<br>* hantera Language Understanding appar och modeller program mässigt, inklusive utbildning och publicering<br> * kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors).|`LUIS.Authoring`|`Cognitive Services`|
 |[Förutsägelse nyckel](#prediction-endpoint-runtime-key)| Slut punkts begär Anden för fråga. Skapa en LUIS-förutsägelse innan klient programmet begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av start resursen. |`LUIS`|`Cognitive Services`|
 |[Resurs nyckel för multi-service för kognitiva tjänster](../cognitive-services-apis-create-account-cli.md?tabs=windows#create-a-cognitive-services-resource)|Slut punkts begär Anden för förfrågan som delas med LUIS och andra Cognitive Services som stöds.|`CognitiveServices`|`Cognitive Services`|
 
@@ -71,15 +71,15 @@ Slut punkten som används för att komma åt körningen använder en under domä
 
 Du kan [tilldela](luis-how-to-azure-subscription.md) körnings nyckeln i [Luis-portalen](https://www.luis.ai) eller via motsvarande API: er. 
 
-## <a name="key-limits"></a>Nyckel gränser
+## <a name="key-limits"></a>Viktiga begränsningar
 
 Du kan skapa upp till 10 redigerings nycklar per region per prenumeration. 
 
 Se [nyckel gränser](luis-boundaries.md#key-limits) och [Azure-regioner](luis-reference-regions.md). 
 
-Publicerings regioner skiljer sig från redigerings områden. Se till att du skapar en app i den redigerings region som motsvarar den publicerings region som du vill att ditt klient program ska finnas i.
+Publicera regioner skiljer sig från redigering regioner. Se till att du skapar en app i den redigerings region som motsvarar den publicerings region som du vill att ditt klient program ska finnas i.
 
-## <a name="key-limit-errors"></a>Nyckel gräns fel
+## <a name="key-limit-errors"></a>Gräns för fel
 Om du överskrider kvoten för transaktioner per sekund (TPS) får du ett HTTP 429-fel. Om du överskrider kvoten för din transaktion per månad (TPS) får du ett HTTP 403-fel. 
 
 ## <a name="contributions-from-other-authors"></a>Bidrag från andra författare
@@ -95,10 +95,10 @@ En app definieras av sina Azure-resurser, vilket bestäms av ägarens prenumerat
 Du kan flytta LUIS-appen. Använd följande dokumentations resurser i Azure Portal eller Azure CLI:
 
 * [Flytta appen mellan LUIS Authoring-resurser](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-move-app-to-another-luis-authoring-azure-resource)
-* [Flytta resurs till ny resurs grupp eller prenumeration](../../azure-resource-manager/resource-group-move-resources.md)
-* [Flytta en resurs inom samma prenumeration eller mellan prenumerationer](../../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Flytta resurs till ny resurs grupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+* [Flytta en resurs inom samma prenumeration eller mellan prenumerationer](../../azure-resource-manager/management/move-limitations/app-service-move-limitations.md)
 
-Så här överför du [ägarskapet](../../billing/billing-subscription-transfer.md) för din prenumeration: 
+Så här överför du [ägarskapet](../../cost-management-billing/manage/billing-subscription-transfer.md) för din prenumeration: 
 
 **För användare som har migrerat- [redigering av resurs migrerade](luis-migration-authoring.md) appar**: som ägare till resursen kan du lägga till en `contributor`.
 
@@ -115,17 +115,17 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Ägaren och alla deltagare har åtkomst för att redigera appen. 
 
-|Redigerings åtkomst inkluderar|Anteckningar|
+|Redigera åtkomst innehåller|Anteckningar|
 |--|--|
-|Lägga till eller ta bort slut punkts nycklar||
-|Exporterar version||
-|Exportera slut punkts loggar||
+|Lägg till eller ta bort slutpunkten nycklar||
+|Exportera version||
+|Exportloggar slutpunkt||
 |Importerar version||
-|Gör appen offentlig|När en app är offentlig kan alla med en redigerings-eller slut punkts nyckel fråga appen.|
-|Ändra modell|
+|Gör appen offentlig|När en app är offentlig kan alla med en nyckel för redigering eller slutpunkt fråga appen.|
+|Ändra modellen|
 |Publicera|
-|Granska slut punkts yttranden för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md)|
-|Träna|
+|Granska endpoint yttranden för [aktiv inlärning](luis-how-to-review-endpoint-utterances.md)|
+|Lär in|
 
 <a name="prediction-endpoint-runtime-key"></a>
 
@@ -133,11 +133,11 @@ För närvarande finns det inte någon katalog med offentliga appar.
 
 Åtkomst för att fråga förutsägelse slut punkten styrs av en inställning på sidan **program information** i avsnittet **Hantera** . 
 
-|[Privat slut punkt](#runtime-security-for-private-apps)|[Offentlig slut punkt](#runtime-security-for-public-apps)|
+|[Privat slutpunkt](#runtime-security-for-private-apps)|[Offentlig slutpunkt](#runtime-security-for-public-apps)|
 |:--|:--|
 |Tillgängligt för ägare och deltagare|Tillgängligt för ägare, deltagare och någon annan som känner till app-ID|
 
-Du kan styra vem som ska se din LUIS körnings nyckel genom att anropa den i en server-till-Server-miljö. Om du använder LUIS från en robot är anslutningen mellan bot-och LUIS redan skyddad. Om du anropar LUIS-slutpunkten direkt bör du skapa ett API för Server sidan (till exempel en Azure- [funktion](https://azure.microsoft.com/services/functions/)) med kontrollerad åtkomst (till exempel [AAD](https://azure.microsoft.com/services/active-directory/)). När API: et för Server sidan anropas och autentiseras och auktoriseringen verifieras, skicka anropet till LUIS. Även om den här strategin inte hindrar människan-in-the-middle-attacker, obfuscates din nyckel-och slut punkts-URL från dina användare, kan du spåra åtkomst och du kan lägga till slut punkts svars loggning (till exempel [Application Insights](https://azure.microsoft.com/services/application-insights/)).
+Du kan styra vem som ska se din LUIS körnings nyckel genom att anropa den i en server-till-Server-miljö. Om du använder LUIS från en robot är anslutningen mellan bot och LUIS redan säker. Om du anropar slutpunkten LUIS direkt, bör du skapa ett API för serversidan (till exempel en Azure [funktionen](https://azure.microsoft.com/services/functions/)) med kontrollerad åtkomst (till exempel [AAD](https://azure.microsoft.com/services/active-directory/)). När API: et för Server sidan anropas och autentiseras och auktoriseringen verifieras, skicka anropet till LUIS. Även om den här strategin inte hindrar människan-in-the-middle-attacker, obfuscates din nyckel-och slut punkts-URL från dina användare, kan du spåra åtkomst och du kan lägga till slut punkts svars loggning (till exempel [Application Insights](https://azure.microsoft.com/services/application-insights/)).
 
 #### <a name="runtime-security-for-private-apps"></a>Körnings säkerhet för privata appar
 
@@ -145,27 +145,27 @@ En privat Apps körnings miljö är bara tillgänglig för följande:
 
 |Nyckel och användare|Förklaring|
 |--|--|
-|Ägarens redigerings nyckel| Upp till 1000 slut punkts träffar|
-|Redigerings nycklar för medarbetare/deltagare| Upp till 1000 slut punkts träffar|
-|Alla nycklar som tilldelats LUIS av en författare eller medarbetare/deltagare|Baserat på nyckel användnings nivå|
+|Ägarens redigering nyckel| Upp till 1000 endpoint träffar|
+|Redigerings nycklar för medarbetare/deltagare| Upp till 1000 endpoint träffar|
+|Alla nycklar som tilldelats LUIS av en författare eller medarbetare/deltagare|Baserat på nivån för nyckelanvändning|
 
 #### <a name="runtime-security-for-public-apps"></a>Körnings säkerhet för offentliga appar
 
-När en app har kon figurer ATS som offentlig kan _alla_ giltiga Luis redigerings nycklar eller Luis-slutpunkt-nyckeln fråga din app, förutsatt att nyckeln inte har använt hela slut punkts kvoten.
+När en app har konfigurerats som offentliga, _alla_ giltig LUIS redigering nyckel eller LUIS slutpunktsnyckeln kan fråga din app, så länge nyckeln inte har använt hela slutpunkt kvoten.
 
-En användare som inte är ägare eller deltagare, kan bara komma åt en offentlig Apps körnings miljö om det har fått app-ID. LUIS har inte någon offentlig _marknad_ eller annat sätt att söka efter en offentlig app.  
+En användare som inte är ägare eller deltagare, kan bara komma åt en offentlig Apps körnings miljö om det har fått app-ID. LUIS saknar en offentlig _marknaden_ eller annat sätt att söka efter en offentlig app.  
 
-En offentlig app publiceras i alla regioner så att en användare med en domänbaserad LUIS resurs nyckel kan komma åt appen i den region som är kopplad till resurs nyckeln.
+En offentlig app publiceras i alla regioner så att en användare med en region-baserade LUIS Resursnyckeln har åtkomst till appen i regionen som är associerad med resursnyckel.
 
-## <a name="transfer-of-ownership"></a>Överföring av ägarskap
+## <a name="transfer-of-ownership"></a>Överlåtelse av äganderätt
 
 LUIS har inte konceptet att överföra ägarskapet för en resurs. 
 
-## <a name="securing-the-endpoint"></a>Skydda slut punkten 
+## <a name="securing-the-endpoint"></a>Skydda slutpunkten 
 
-Du kan styra vem som kan se slut punkts nyckeln för LUIS förutsägelse körning genom att anropa den i en server-till-Server-miljö. Om du använder LUIS från en robot är anslutningen mellan bot-och LUIS redan skyddad. Om du anropar LUIS-slutpunkten direkt bör du skapa ett API för Server sidan (till exempel en Azure- [funktion](https://azure.microsoft.com/services/functions/)) med kontrollerad åtkomst (till exempel [AAD](https://azure.microsoft.com/services/active-directory/)). När API: et för Server sidan anropas och autentisering och auktorisering verifieras, skicka anropet till LUIS. Även om den här strategin inte hindrar människan-in-the-middle-attacker, obfuscates din slut punkt från dina användare, så att du kan spåra åtkomst och du kan lägga till slut punkts svars loggning (till exempel [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
+Du kan styra vem som kan se slut punkts nyckeln för LUIS förutsägelse körning genom att anropa den i en server-till-Server-miljö. Om du använder LUIS från en robot är anslutningen mellan bot och LUIS redan säker. Om du anropar slutpunkten LUIS direkt, bör du skapa ett API för serversidan (till exempel en Azure [funktionen](https://azure.microsoft.com/services/functions/)) med kontrollerad åtkomst (till exempel [AAD](https://azure.microsoft.com/services/active-directory/)). När anropas från serversidan API och autentisering och auktorisering har verifierats, skicka anropet till LUIS. När den här strategin inte hindra man-in-the-middle-attacker, den obfuscates slutpunkten från användarna, kan du spåra åtkomst, och kan du lägga till slutpunkten svar loggning (till exempel [Application Insights](https://azure.microsoft.com/services/application-insights/)).  
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Förstå metoder för [versions hantering](luis-concept-version.md) . 
+* Förstå [versionshantering](luis-concept-version.md) begrepp. 
 * Lär dig [hur du skapar nycklar](luis-how-to-azure-subscription.md).

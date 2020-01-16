@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d31b046bf02893affff84069ee92b3bd7735b904
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243228"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974871"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Felsöka mått diagram
 
@@ -29,7 +29,7 @@ Du klickade på knappen **Välj en resurs**, men ser inte din resurs i resursvä
 
 1. Kontrollera att du har valt rätt resursgrupp.
     > [!WARNING]
-    > För bästa prestanda visas inga förvalda resursgrupper i listrutan **Resursgrupp** när du öppnar Metrics Explorer. Du måste välja minst en grupp innan du kan se några resurser.
+    > För bästa prestanda bör det inte finnas några fördefinierade resurs grupper i list rutan **resurs grupp** för första gången du öppnar Metrics Explorer. Du måste välja minst en grupp innan du kan se några resurser.
 
 ## <a name="chart-shows-no-data"></a>Diagrammet visar inga data
 
@@ -37,7 +37,7 @@ Ibland kanske diagrammen inte visar några data när du har valt rätt resurser 
 
 ### <a name="microsoftinsights-resource-provider-isnt-registered-for-your-subscription"></a>Microsoft. Insights-resurs leverantören har inte registrerats för din prenumeration
 
-*Microsoft.Insights*-resursprovidern måste vara registrerad för din prenumeration för att du ska kunna utforska mått. I många fall registreras den automatiskt (det vill säga när du har konfigurerat en aviseringsregel, anpassat diagnostikinställningar för resurser eller konfigurerat en regel för automatisk skalning). Om Microsoft. Insights-resurs leverantören inte är registrerad, måste du registrera den manuellt genom att följa stegen som beskrivs i [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md).
+*Microsoft.Insights*-resursprovidern måste vara registrerad för din prenumeration för att du ska kunna utforska mått. I många fall registreras den automatiskt (det vill säga när du har konfigurerat en aviseringsregel, anpassat diagnostikinställningar för resurser eller konfigurerat en regel för automatisk skalning). Om Microsoft. Insights-resurs leverantören inte är registrerad, måste du registrera den manuellt genom att följa stegen som beskrivs i [Azures resurs leverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 **Lösning:** Öppna **prenumerationer**, fliken **Resource providers** och kontrol lera att *Microsoft. Insights* har registrerats för din prenumeration.
 

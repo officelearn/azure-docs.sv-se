@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 0d12f50b059bf74cc1bbc55913d4ce49b77f81fd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 203bff23b2ae1a5e5e19b4abc323c3ffeb31f367
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486721"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975922"
 ---
 # <a name="create-an-azure-storage-account"></a>Skapa ett Azure Storage-konto
 
@@ -260,7 +260,7 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 ---
 
-Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot och andra resurser i resurs gruppen tas bort. Mer information om hur du tar bort en resurs grupp finns i [ta bort resurs grupp och resurser](../../azure-resource-manager/resource-group-delete.md).
+Alternativt kan du ta bort resurs gruppen, vilket innebär att lagrings kontot och andra resurser i resurs gruppen tas bort. Mer information om hur du tar bort en resurs grupp finns i [ta bort resurs grupp och resurser](../../azure-resource-manager/management/delete-resource-group.md).
 
 > [!WARNING]
 > Det går inte att återställa ett borttaget lagringskonto eller att hämta innehåll som det innehöll före borttagningen. Var noga med att säkerhetskopiera allt som du vill spara innan du tar bort kontot. Detta gäller även alla resurser i kontot. När du tar bort en blobb, tabell, kö eller fil tas den bort permanent.

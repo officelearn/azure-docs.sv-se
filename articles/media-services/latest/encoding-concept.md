@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6a134d2bdfe7f370503b80703933ff646970d976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896091"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981108"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Koda video och ljud med Media Services
 
-Termen encoding i Media Services gäller för processen att konvertera filer som innehåller digital video och/eller ljud från ett standardformat till en annan, med syftet att (a) minska storleken på filerna och/eller (b) som producerar ett format som är kompatibelt med en brett utbud av enheter och appar. Den här processen kallas även video komprimering eller kodning. Se [data komprimeringen](https://en.wikipedia.org/wiki/Data_compression) och [vad som är kodning och omkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) för att få ytterligare information om begreppen.
+Termen encoding i Media Services gäller för processen att konvertera filer som innehåller digital video och/eller ljud från ett standardformat till en annan, med syftet att (a) minska storleken på filerna och/eller (b) som producerar ett format som är kompatibelt med ett brett utbud av enheter och appar. Den här processen kallas även video komprimering eller kodning. Se [data komprimeringen](https://en.wikipedia.org/wiki/Data_compression) och [vad som är kodning och omkodning?](https://www.streamingmedia.com/Articles/Editorial/What-Is-/What-Is-Encoding-and-Transcoding-75025.aspx) för att få ytterligare information om begreppen.
 
 Videor levereras vanligt vis till enheter och appar genom [progressiv nedladdning](https://en.wikipedia.org/wiki/Progressive_download) eller genom [strömning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming).
 
@@ -95,7 +95,7 @@ Följande förinställningar stöds för närvarande:
 
 - **EncoderNamedPreset. AACGoodQualityAudio**: skapar en enda MP4-fil som bara innehåller stereo ljud som är kodat med 192 kbps.
 - **EncoderNamedPreset. AdaptiveStreaming** (rekommenderas): Mer information finns i [skapa en bit hastighets steg automatiskt](autogen-bitrate-ladder.md).
-- **EncoderNamedPreset. ContentAwareEncodingExperimental**: visar en experimentell för inställning för innehålls medveten kodning. Med allt indata-innehåll, försöker tjänsten automatiskt fastställa det optimala antalet lager och lämpliga bit hastighets-och upplösnings inställningar för leverans genom anpassad direkt uppspelning. De underliggande algoritmerna kommer att fortsätta att utvecklas över tid. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i [experimentell för inställning för innehålls medveten kodning](cae-experimental.md).
+- **EncoderNamedPreset. ContentAwareEncodingExperimental**: visar en experimentell för inställning för innehålls medveten kodning. Med allt indata-innehåll, försöker tjänsten automatiskt fastställa det optimala antalet lager och lämpliga bit hastighets-och upplösnings inställningar för leverans genom anpassad direkt uppspelning. De underliggande algoritmerna kommer att fortsätta att utvecklas över tid. Utdata kommer att innehålla MP4-filer med video och ljud som är överlagrade. Mer information finns i [experimentell för inställning för innehålls medveten kodning](content-aware-encoding.md).
 - **EncoderNamedPreset. H264MultipleBitrate1080p**: genererar en uppsättning av åtta GOP MP4-filer, mellan 6000 och 400 kbit/s och stereo AAC-ljud. Lösning startas vid 1080p och ned 360 p.
 - **EncoderNamedPreset. H264MultipleBitrate720p**: skapar en uppsättning av sex GOP MP4-filer, mellan 3400 och 400 kbit/s och stereo AAC-ljud. Lösning startas vid 720p och ned 360 p.
 - **EncoderNamedPreset. H264MultipleBitrateSD**: genererar en uppsättning av fem GOP MP4-filer, mellan 1600 och 400 kbit/s och stereo AAC-ljud. Lösning startas på 480 pixlar och ned 360 p.

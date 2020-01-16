@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 794f4ad5bba46af53280d35b55b762b9eef8e1a1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: aa2f3481b63c98ec23e1db8213939278684a4cd6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675252"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977644"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Felsöka logg aviseringar i Azure Monitor  
 
-Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar logg aviseringar i Azure Monitor. Den innehåller också lösningar på vanliga problem med funktioner eller konfiguration av logg aviseringar. 
+Den här artikeln visar hur du löser vanliga problem som kan uppstå när du konfigurerar logg aviseringar i Azure Monitor. Den innehåller också lösningar på vanliga problem med funktioner eller konfiguration av logg aviseringar.
 
 Term *logg aviseringarna* beskriver regler som utlöses baserat på en logg fråga i en [Azure Log Analytics-arbetsyta](../learn/tutorial-viewdata.md) eller i [Azure Application insikter](../../azure-monitor/app/analytics.md). Lär dig mer om funktioner, terminologi och typer i [logg aviseringar i Azure Monitor](../platform/alerts-unified-log.md).
 
@@ -26,17 +26,17 @@ Term *logg aviseringarna* beskriver regler som utlöses baserat på en logg frå
 
 ## <a name="log-alert-didnt-fire"></a>Logg aviseringen startades inte
 
-Här följer några vanliga orsaker till varför tillstånd för en konfigurerad [logg aviserings regel i Azure Monitor](../platform/alerts-log.md) inte visas [som *utlöst* när den förväntas](../platform/alerts-managing-alert-states.md). 
+Här följer några vanliga orsaker till varför tillstånd för en konfigurerad [logg aviserings regel i Azure Monitor](../platform/alerts-log.md) inte visas [som *utlöst* när den förväntas](../platform/alerts-managing-alert-states.md).
 
 ### <a name="data-ingestion-time-for-logs"></a>Data hämtnings tid för loggar
 
 En logg avisering kör regelbundet din fråga baserat på [Log Analytics](../learn/tutorial-viewdata.md) eller [Application Insights](../../azure-monitor/app/analytics.md). Eftersom Azure Monitor bearbetar många terabyte data från tusentals kunder från varierande källor över hela världen, är tjänsten sårbar för att variera tids fördröjningar. Mer information finns i data Inhämtnings [tid i Azure Monitor loggar](../platform/data-ingestion-time.md).
 
-För att undvika fördröjningar väntar systemet och gör om aviserings frågan flera gånger om den hittar nödvändiga data som inte har matats in ännu. Systemet har en exponentiellt ökande vänte tid. Logg aviseringen utlöses endast efter att data är tillgängliga, så fördröjningen kan bero på långsam inmatning av loggdata. 
+För att undvika fördröjningar väntar systemet och gör om aviserings frågan flera gånger om den hittar nödvändiga data som inte har matats in ännu. Systemet har en exponentiellt ökande vänte tid. Logg aviseringen utlöses endast efter att data är tillgängliga, så fördröjningen kan bero på långsam inmatning av loggdata.
 
 ### <a name="incorrect-time-period-configured"></a>En felaktig tids period har kon figurer ATS
 
-Som det beskrivs i artikeln om [terminologi för logg aviseringar](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)anger tids perioden som anges i konfigurationen tidsintervallet för frågan. Frågan returnerar endast poster som har skapats inom det här intervallet. 
+Som det beskrivs i artikeln om [terminologi för logg aviseringar](../platform/alerts-unified-log.md#log-search-alert-rule---definition-and-types)anger tids perioden som anges i konfigurationen tidsintervallet för frågan. Frågan returnerar endast poster som har skapats inom det här intervallet.
 
 Tids perioden begränsar de data som hämtas för en logg fråga för att förhindra missbruk, och den kringgår alla tids kommandon (t. ex. **sedan**) som används i en logg fråga. Om tids perioden till exempel är inställd på 60 minuter och frågan körs med 1:15 PM, används endast poster som skapats mellan 12:15 PM och 1:15 PM för logg frågan. Om logg frågan använder ett Time-kommando som **sedan används (1d)** använder frågan fortfarande data mellan 12:15 och 1:15 PM eftersom tids perioden har angetts till intervallet.
 
@@ -48,13 +48,13 @@ Kontrol lera att tids perioden i konfigurationen matchar din fråga. I exemplet 
 
 Som beskrivs i steg 8 i artikeln om hur [du skapar en logg aviserings regel i Azure Portal](../platform/alerts-log.md#managing-log-alerts-from-the-azure-portal), visar logg aviseringar ett alternativ för att **förhindra** utlösare och meddelande åtgärder för en konfigurerad tids period. Därför kan du tänka på att en avisering inte har startats. Det var faktiskt Fire men undertryckdes.  
 
-![Visa inga aviseringar](media/alert-log-troubleshoot/LogAlertSuppress.png)
+![Ignorera aviseringar](media/alert-log-troubleshoot/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>Varnings regeln för mått mätning är felaktig
 
-*Varnings loggs aviseringar* är en undertyp till logg aviseringar som har särskilda funktioner och en begränsad syntax för aviserings frågor. En regel för en mätnings logg avisering kräver att frågeresultatet är en tids serie för mått. Det vill säga att utdata är en tabell med distinkta, lika stora tids perioder tillsammans med motsvarande aggregerade värden. 
+*Varnings loggs aviseringar* är en undertyp till logg aviseringar som har särskilda funktioner och en begränsad syntax för aviserings frågor. En regel för en mätnings logg avisering kräver att frågeresultatet är en tids serie för mått. Det vill säga att utdata är en tabell med distinkta, lika stora tids perioder tillsammans med motsvarande aggregerade värden.
 
-Du kan välja att ha ytterligare variabler i tabellen tillsammans med **AggregatedValue**. Dessa variabler kan användas för att sortera tabellen. 
+Du kan välja att ha ytterligare variabler i tabellen tillsammans med **AggregatedValue**. Dessa variabler kan användas för att sortera tabellen.
 
 Anta till exempel att en regel för varnings loggen för mått har kon figurer ATS som:
 
@@ -68,17 +68,17 @@ Eftersom kommandot innehåller **Sammanfattning... av** och ger två variabler (
 
 ![Mätning av mått fråga med flera värden](media/alert-log-troubleshoot/LogMMQuery.png)
 
-Eftersom **agg regering** på har definierats på **$Table**, sorteras data i en **$Table** kolumn (anges i rött). Sedan kan vi gruppera och leta efter typer av fältet **aggregera efter** . 
+Eftersom **agg regering** på har definierats på **$Table**, sorteras data i en **$Table** kolumn (anges i rött). Sedan kan vi gruppera och leta efter typer av fältet **aggregera efter** .
 
-Till exempel, för **$Table**, betraktas värden för **availabilityResults** som ett rityta/en entitet (anges i orange). I det här värde området/entiteten söker aviserings tjänsten efter tre överträdelser i följd (anges i grönt). Överträdelserna utlöser en avisering för tabell värdets **availabilityResults**. 
+Till exempel, för **$Table**, betraktas värden för **availabilityResults** som ett rityta/en entitet (anges i orange). I det här värde området/entiteten söker aviserings tjänsten efter tre överträdelser i följd (anges i grönt). Överträdelserna utlöser en avisering för tabell värdets **availabilityResults**.
 
 Om tre överträdelser i följd inträffar för andra värden för **$Table**, utlöses ett annat aviserings meddelande för samma sak. Aviserings tjänsten sorterar automatiskt värdena i ett rityta/en entitet (anges i orange) efter tid.
 
-Anta nu att regeln för varningen för mått ändrings loggen ändrades och att frågan var `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`. Resten av konfigurationen befann sig på samma sätt som tidigare, inklusive aviserings logiken för tre överträdelser i följd. Alternativet **aggregera efter** i det här fallet är **tidsstämpel** som standard. Det finns bara ett värde i frågan för **Sammanfattning... efter** (dvs. **tidsstämpel**). Precis som i det tidigare exemplet skulle utdata i slutet av körningen se ut så här.
+Anta nu att regeln för varningen för mått ändrings loggen ändrades och att frågan har `search *| summarize AggregatedValue = count() by bin(timestamp, 1h)`ts. Resten av konfigurationen befann sig på samma sätt som tidigare, inklusive aviserings logiken för tre överträdelser i följd. Alternativet **aggregera efter** i det här fallet är **tidsstämpel** som standard. Det finns bara ett värde i frågan för **Sammanfattning... efter** (dvs. **tidsstämpel**). Precis som i det tidigare exemplet skulle utdata i slutet av körningen se ut så här.
 
    ![Mätning av mått fråga med ett eget värde](media/alert-log-troubleshoot/LogMMtimestamp.png)
 
-Eftersom **aggregerad vid** har definierats för **timestamp**, sorteras data i kolumnen **tidsstämpel** (anges i rött). Sedan grupperas efter **tidsstämpel**. Till exempel kommer värden för `2018-10-17T06:00:00Z` att betraktas som ett område/en entitet (anges i orange). I det här värde området/entiteten hittar aviserings tjänsten inga efterföljande överträdelser (eftersom varje **tidsstämpel** -värde bara har en post). Så att aviseringen aldrig utlöses. I sådana fall måste användaren antingen:
+Eftersom **aggregerad vid** har definierats för **timestamp**, sorteras data i kolumnen **tidsstämpel** (anges i rött). Sedan grupperas efter **tidsstämpel**. Till exempel betraktas värden för `2018-10-17T06:00:00Z` som ett område/en entitet (anges i orange). I det här värde området/entiteten hittar aviserings tjänsten inga efterföljande överträdelser (eftersom varje **tidsstämpel** -värde bara har en post). Så att aviseringen aldrig utlöses. I sådana fall måste användaren antingen:
 
 - Lägg till en dummy-variabel eller en befintlig variabel (t. ex. **$Table**) för att sortera på rätt sätt med hjälp av fältet **agg regerings vid** .
 - Konfigurera om aviserings regeln så att den använder aviserings logik baserat på **Total överträdelse** i stället.
@@ -91,7 +91,7 @@ En konfigurerad [logg aviserings regel i Azure Monitor](../platform/alerts-log.m
 
 Log Analytics och Application Insights utsätts för användnings fördröjning och bearbetning. När du kör en logg aviserings fråga kanske du upptäcker att inga data är tillgängliga eller att endast vissa data är tillgängliga. Mer information finns i logg data Inhämtnings [tid i Azure Monitor](../platform/data-ingestion-time.md).
 
-Beroende på hur du har konfigurerat varnings regeln kan fel utlösare inträffa om det inte finns några data eller ofullständiga data i loggar vid tidpunkten för aviserings körningen. I sådana fall rekommenderar vi att du ändrar aviserings frågan eller konfigurationen. 
+Beroende på hur du har konfigurerat varnings regeln kan fel utlösare inträffa om det inte finns några data eller ofullständiga data i loggar vid tidpunkten för aviserings körningen. I sådana fall rekommenderar vi att du ändrar aviserings frågan eller konfigurationen.
 
 Om du till exempel konfigurerar logg aviserings regeln så att den utlöses när antalet resultat från en Analytics-fråga är mindre än 5 utlöses aviseringen när det inte finns några data (noll Record) eller partiella resultat (en post). Men efter fördröjningen av data inmatning kan samma fråga med fullständiga data ge resultatet 10 poster.
 
@@ -111,7 +111,7 @@ I följande avsnitt visas några orsaker till varför Azure Monitor kan inaktive
 
 Logga varnings regler som skapats i Azure Monitor rikta en speciell resurs som en Azure Log Analytics-arbetsyta, en Azure Application insikts-app och en Azure-resurs. Logg aviserings tjänsten kör sedan en analys fråga som anges i regeln för det angivna målet. Men när regeln har skapats, går användarna ofta vidare att ta bort från Azure, eller flytta i Azure – målet för logg aviserings regeln. Eftersom målet för varnings regeln inte längre är giltigt, Miss lyckas körningen av regeln.
 
-I sådana fall inaktiverar Azure Monitor logg aviseringen och ser till att du inte faktureras i onödan när regeln inte kan köras kontinuerligt för en justerbar period (t. ex. en vecka). Du kan ta reda på exakt hur lång tid Azure Monitor har inaktiverat logg aviseringen via [Azure aktivitets loggen](../../azure-resource-manager/resource-group-audit.md). I Azure aktivitets logg läggs en händelse till när Azure Monitor inaktiverar logg varnings regeln.
+I sådana fall inaktiverar Azure Monitor logg aviseringen och ser till att du inte faktureras i onödan när regeln inte kan köras kontinuerligt för en justerbar period (t. ex. en vecka). Du kan ta reda på exakt hur lång tid Azure Monitor har inaktiverat logg aviseringen via [Azure aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md). I Azure aktivitets logg läggs en händelse till när Azure Monitor inaktiverar logg varnings regeln.
 
 Följande exempel händelse i Azure aktivitets loggen är för en varnings regel som har inaktiverats på grund av ett kontinuerligt haveri.
 
@@ -187,7 +187,7 @@ Varje logg aviserings regel som skapas i Azure Monitor som en del av konfigurati
 
 [Azure Advisor](../../advisor/advisor-overview.md) varnar dig om det här beteendet. En rekommendation läggs till för den speciella logg aviserings regeln på Azure Advisor, under kategorin med hög tillgänglighet med medelhög påverkan och en beskrivning av "reparera din logg aviserings regel för att säkerställa övervakning". Om en varnings fråga i logg varnings regeln inte har åtgärd ATS efter att Azure Advisor har angett en rekommendation i sju dagar, inaktiverar Azure Monitor logg aviseringen och ser till att du inte faktureras i onödan om regeln inte kan köras kontinuerligt för en storleks bestämd period ( som en vecka).
 
-Du hittar den exakta tiden när Azure Monitor inaktiverade logg aviserings regeln genom att leta efter en händelse i [Azure aktivitets loggen](../../azure-resource-manager/resource-group-audit.md).
+Du hittar den exakta tiden när Azure Monitor inaktiverade logg aviserings regeln genom att leta efter en händelse i [Azure aktivitets loggen](../../azure-resource-manager/management/view-activity-logs.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

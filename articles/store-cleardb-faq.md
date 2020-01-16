@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
-description: Svar på vanliga frågor om hur du använder ClearDB MySQL-databaser med Azure App Service.
+description: Svar på vanliga frågor om att använda ClearDB MySQL-databaser med Azure App Service.
 documentationcenter: php
 services: mysql
 author: sunbuild
@@ -11,100 +11,100 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 7b6d38f7755ebd97791959a5a414b09fe4ac769b
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: ddbf1eb960a24cfaa8d09ab45b6febca07e6d504
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67718017"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979916"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Vanliga frågor och svar om ClearDB MySql-databaser med Azure App Service
-HÄR får du svar på vanliga frågor om hur du använder och köpa ClearDB MySQL databaser för Azure Web Apps.
+Vanliga frågor och svar om att använda och köpa ClearDB MySQL-databaser för Azure Web Apps.
 
 > [!IMPORTANT]
-> Från och med 13 juni 2018 övergick ClearDB Azure-baserade kunderna debiteras för närvarande av Microsoft för den direkta faktureringsmodellen med ClearDB. Informationen i den här artikeln är nu inaktuellt. Du kommer inte längre att kunna skapa eller uppgradera en ClearDB-databas som har skapats i Azure.
+> Från och med den 13 juni 2018 faktureras ClearDB-baserade Azure-baserade kunder för närvarande av Microsoft till en direkt fakturerings modell med ClearDB. Informationen i den här artikeln är nu inaktuell. Du kommer inte längre att kunna skapa eller uppgradera en ClearDB-databas som skapats i Azure.
 >
-> Mer information och nästa steg i [ändras till ClearDB-tjänstplaner](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
+> Mer information och nästa steg finns i [ändringar av ClearDB Service-planer](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/).
 
-## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Vilka alternativ finns för MySQL på Azure?
-Se [ClearDB](https://w2.cleardb.net/) för den senaste informationen om den tjänsten. ClearDB är en MySQL som värd för tjänsten och hanterar MySQL-infrastrukturen åt dig. 
+## <a name="what-options-do-i-have-for-mysql-on-azure"></a>Vilka alternativ har jag för MySQL på Azure?
+Se [ClearDB](https://w2.cleardb.net/) för den senaste informationen om tjänsten. ClearDB är en MySQL-värd tjänst och hanterar MySQL-infrastrukturen åt dig. 
 
-Du har flera andra alternativ för att hantera MySQL i Azure:
+Du har flera andra alternativ för att vara värd för MySQL i Azure:
 * [Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)
 * [MySQL-kluster som körs på en virtuell Azure-dator](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
-* [Instans av MySQL som körs på en virtuell Azure-dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [En enda instans av MySQL som körs på en virtuell Azure-dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 
-## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Måste jag ha ett kreditkort för webbprogram + MySQL-mall i Azure Marketplace?
-Detta beror på vilken typ av prenumeration som du använder. Här följer några vanliga prenumerationstyper:
+## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Behöver jag ett kredit kort för Web App + MySQL-mallen på Azure Marketplace?
+Detta beror på vilken typ av prenumeration du använder. Här följer några vanliga prenumerations typer:
 
-* [Betala](https://azure.microsoft.com/offers/ms-azr-0003p/): Kräver ett kreditkort och när du köper en betald MySQL-databas som ditt kreditkort debiteras.
-* [Kostnadsfri utvärderingsversion](https://azure.microsoft.com/pricing/free-trial/): Omfattar krediter för användning med Microsoft Azure-tjänster, men tillåter inte köp av resurser från tredje part. Aktiverat prenumeration om du vill köpa tjänster från tredje part eller en betald MySQL-databas måste du använda ett kreditkort. Du kan skapa en kostnadsfri ClearDB MySQL-databas för Web Apps.
-* [MSDN-prenumeration](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) och **MSDN Dev-Test betala**: Liknar kostnadsfri utvärderingsversion, MSDN-prenumeration måste du ha ett kreditkort för att köpa en betald MySQL-lösning från ClearDB.
-* [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA-kunder debiteras mot deras EA varje kvartal för alla sina Azure Marketplace-köp (från tredje part) på en separat, konsoliderade faktura. Du debiteras utanför den summa i förskott för alla marketplace-köp. Observera att för tillfället Azure Store inte är tillgängligt för kunder som har registrerats i Azerbajdzjan, Kroatien, Norge och Puerto Rico. 
+* [Betala per](https://azure.microsoft.com/offers/ms-azr-0003p/)användning: kräver ett kredit kort och när du köper en betald MySQL-databas debiteras ditt kredit kort.
+* [Kostnads fri utvärderings version](https://azure.microsoft.com/pricing/free-trial/): innehåller krediter för användning med Microsoft Azure tjänster, men tillåter inte köp av resurser från tredje part. Om du vill köpa tjänster från tredje part eller en betald MySQL-databas måste du använda en kredit korts aktive rad prenumeration. För Web Apps kan du skapa en kostnads fri ClearDB MySQL-databas.
+* [MSDN-prenumeration](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) och **MSDN dev-test betala per**användning: på en MSDN-prenumeration måste du ha ett kredit kort för att köpa en betald MySQL-lösning från ClearDB.
+* [Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA-kunder debiteras mot deras EA varje kvartal för alla sina Azure Marketplace-inköp (tredje part) på en separat, konsol IDE rad faktura. Du debiteras utanför det affärsmässiga åtagandet för alla marknads inköp. Observera att för närvarande är Azure Store inte tillgängligt för kunder som har registrerats i Azerbajdzjan, Kroatien, Norge och Puerto Rico. 
 
-## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Varför har jag debiterats $3.50 för en webbapp + MySQL från Azure Marketplace?
-Standard-databasalternativet är Titan, vilket är $3.50. Vi Visa inte kostnaden under skapande av databas och du kan köpa en databas som du inte hade för avsikt att av misstag. Vi försöker hitta ett sätt att förbättra upplevelsen men fram till dess måste du kontrollera alla dina valda prisnivåer för webbappen och databasen innan du klickar på **skapa** och starta distributionen av resurser.
+## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Varför debiterades jag $3,50 för en webbapp + MySQL från Azure Marketplace?
+Standard databas alternativet är Titan, som är $3,50. Vi visar inte kostnaden när databasen skapas och du kan av misstag köpa en databas som du inte avsåg. Vi försöker hitta ett sätt att förbättra upplevelsen, men tills måste du kontrol lera alla valda pris nivåer för webbapp och databas innan du klickar på **skapa** och starta distributionen av resurserna.
 
-## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Jag använder MySQL på mitt eget Azure-dator. Kan jag ansluta min Azure-webbapp till min databas?
-Ja. Du kan ansluta ditt webbprogram till din databas så länge som den virtuella Azure-datorn har gett fjärråtkomst till din webbapp. Mer information finns i [installera MySQL på en virtuell dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+## <a name="i-am-running-mysql-on-my-own-azure-virtual-machine-can-i-connect-my-azure-web-app-to-my-database"></a>Jag kör MySQL på min egen virtuella Azure-dator. Kan jag ansluta min Azure-webbapp till min databas?
+Ja. Du kan ansluta din webbapp till databasen så länge din virtuella Azure-dator har fått fjärråtkomst till din webbapp. Mer information finns i [Installera MySQL på en virtuell dator](virtual-machines/windows/classic/mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>Där är länder/regioner ClearDB MySQL för Premium-kluster stöds?
-ClearDB MySQL för Premium-kluster är tillgängliga i alla Azure-regioner över hela världen med undantag för Indien, Australien, Brasilien, södra och Kina.
+## <a name="in-which-countriesregions-are-cleardb-premium-mysql-clusters-supported"></a>I vilka länder/regioner är ClearDB Premium MySQL-kluster som stöds?
+ClearDB Premium MySQL-kluster är tillgängliga i alla Azure-regioner över hela världen med undantag för Indien, Australien, södra Brasilien och Kina.
 
-## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Kan jag skapa ett nytt kluster innan du skapar en databas med ClearDB lösning för premium?
-Nej, skapa tom ClearDB-kluster stöds inte. Azure-portalen kan du skapa databaser i ett kluster, vilket kan skapa ett nytt kluster på samma gång.
+## <a name="can-i-create-a-new-cluster-prior-to-creating-a-database-with-cleardb-premium-cluster-solution"></a>Kan jag skapa ett nytt kluster innan jag skapar en databas med ClearDB Premium Cluster-lösningen?
+Nej, det finns inte stöd för att skapa tomma ClearDB-kluster. Med Azure Portal kan du skapa databaser i ett kluster, vilket kan skapa ett nytt kluster på samma tid.
 
-## <a name="will-i-be-warned-if-i-try-to-delete-a-cleardb-mysql-database-that-is-in-use-by-one-of-my-applications"></a>Får jag en varning om jag försöker ta bort en ClearDB MySQL-databas som används av en av Mina program?
-Nej, Azure inte varnar dig om du tar bort en marketplace-köp som ditt program är beroende av.
+## <a name="will-i-be-warned-if-i-try-to-delete-a-cleardb-mysql-database-that-is-in-use-by-one-of-my-applications"></a>Kommer jag att bli varnad om jag försöker ta bort en ClearDB MySQL-databas som används i något av mina program?
+Nej, Azure varnar dig inte om du tar bort ett marknads plats köp som ditt program är beroende av.
 
 ## <a name="which-regions-can-i-create-cleardb-databases-in"></a>Vilka regioner kan jag skapa ClearDB-databaser i?
-Azure Marketplace är inte tillgängligt för kunder som har registrerats i Azerbajdzjan, Kroatien, Norge och Puerto Rico. ClearDB är inte tillgänglig i dessa regioner.
+Azure Marketplace är inte tillgängligt för kunder som har registrerats i Azerbajdzjan, Kroatien, Norge eller Puerto Rico. ClearDB är inte tillgängligt i dessa regioner.
 
-## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>Vilka prisnivå för en webbapp för produktion och databasen ska jag välja?
-Använd Basic eller en högre prisnivå för Web Apps. ClearDB rekommenderar vi en Saturn- eller Jupiter-plan. Granska funktioner och begränsningar för varje prisnivå för både [Webbappar](https://azure.microsoft.com/pricing/details/app-service/) och [ClearDB MySQL-databaser](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) att välja det som passar dina behov.
+## <a name="what-pricing-tier-should-i-choose-for-a-production-web-app-and-database"></a>Vilken pris nivå ska jag välja för en webbapp och en databas för produktion?
+Använd Basic eller en högre pris nivå för Web Apps. För ClearDB rekommenderar vi antingen en Saturnus-eller Jupiter-plan. Granska funktionerna & begränsningar för varje pris nivå för både [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) -och [ClearDB MySQL-databaser](https://w2.cleardb.net/important-change-of-billing-notice-for-all-azure-cleardb-service-plans/) för att välja den som passar dina behov.
 
-## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>Hur uppgraderar jag min ClearDB-databas från en plan till en annan?
-I den [Azure-portalen](https://portal.azure.com), du kan skala upp en ClearDB-delade värdbaserade databasen. Läs det här [artikeln](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) vill veta mer. För närvarande stöder inte vi uppgraderingen för ClearDB-Premium-kluster i Azure-portalen.
+## <a name="how-do-i-upgrade-my-cleardb-database-from-one-plan-to-another"></a>Hur gör jag för att uppgraderar du ClearDB-databasen från en plan till en annan?
+I [Azure Portal](https://portal.azure.com)kan du skala upp en delad värd databas för ClearDB. Läs den här [artikeln](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) om du vill veta mer. Vi stöder för närvarande inte uppgradering för ClearDB Premium-kluster i Azure Portal.
 
-## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Jag kan inte se ClearDB-databasen i Azure-portalen?
-Om du har skapat en ClearDB-databas i klassiskt läge kan du inte kan se din databas i den [Azure-portalen](https://portal.azure.com). Det finns inga arbets-runt det här scenariot.
+## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Jag kan inte se min ClearDB-databas i Azure Portal?
+Om du har skapat en ClearDB-databas i klassisk kommer du inte att kunna se databasen i [Azure Portal](https://portal.azure.com). Det finns ingen lösning för det här scenariot.
 
-## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Vem kontaktar jag för support när min databas ligger nere?
-Kontakta [ClearDB support](https://www.cleardb.com/developers/help/support) för en databas relaterad information. Vara beredd att förse dem med dina Azure-prenumerationsinformation.
+## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Vem kontaktar jag för att få support när min databas är nere?
+Kontakta [ClearDB-supporten](https://www.cleardb.com/developers/help/support) för alla databas problem. Var beredd på att förse dem med din Azure-prenumerations information.
 
-## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Kan jag skapa ytterligare användare för min lösning för ClearDB MySQL-databas?
-Nej. Du kan inte skapa ytterligare användare men du kan skapa nya databaser i ditt kluster för ClearDB-databasen.  
+## <a name="can-i-create-additional-users-for-my-cleardb-mysql-database-cluster-solution"></a>Kan jag skapa ytterligare användare för min ClearDB MySQL Database Cluster-lösning?
+Nej. Du kan inte skapa ytterligare användare, men du kan skapa fler databaser på ditt ClearDB-databas kluster.  
 
-## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Basic/Pro-serien databaser vara kan uppgraderas på plats liknar Planetär planer idag på ClearDB-portalen?
-Ja, uppgraderas Grundserie databaser kan vara på plats (grundläggande 60 via grundläggande 500). Pro-serien kan uppgraderas på plats (Pro 125 via Pro 1000) förutom Pro 60. Vi stöder inte uppgradering Pro 60 databasen för tillfället. 
+## <a name="can-basicpro-series-databases-be-upgraded-in-place-similar-to-planetary-plans-today-on-cleardb-portal"></a>Kan databaser för Basic/Pro-serien uppgraderas på plats som liknar planetär-planer idag på ClearDB-portalen?
+Ja, Basic Series-databaser kan uppgraderas på plats (Basic 60 till och med Basic 500). Pro-serien kan uppgraderas på plats (Pro 125 till Pro 1000) med undantag för Pro 60. Vi stöder för närvarande inte uppgradering av Pro 60-databasen. 
 
-## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>När jag migrera mina resurser från en prenumeration till en annan min ClearDB MySQL-databas migreras också?
-När du utför resursmigrering mellan prenumerationer, vissa [begränsningar](azure-resource-manager/move-support-resources.md) gäller. En ClearDB MySQL-databas är en tjänst från tredje part och därför migreras inte under migreringen av Azure-prenumeration. Om du inte hantera migreringen av din MySQL-databas innan du migrerar Azure-resurser, kan ClearDB MySQL-databaser inaktiveras. Manuellt migrera dina databaser först och sedan utföra migrering för Azure-prenumeration för din webbapp. 
+## <a name="when-i-migrate-my-resources-from-one-subscription-to-another-does-my-cleardb-mysql-database-get-migrated-as-well"></a>När jag migrerar mina resurser från en prenumeration till en annan, kommer min ClearDB MySQL-databas också att migreras.
+När du utför migreringen av en resurs över prenumerationer gäller vissa [begränsningar](azure-resource-manager/management/move-support-resources.md) . En ClearDB MySQL-databas är en tjänst från tredje part och migreras därför inte under migreringen av Azure-prenumerationen. Om du inte hanterar migreringen av MySQL-databasen innan du migrerar Azure-resurser kan dina ClearDB MySQL-databaser inaktive ras. Migrera dina databaser manuellt först och utför sedan migreringen av Azure-prenumeration för din webbapp. 
 
-## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>Jag når utgiftsgränsen på min prenumeration. Jag har tagit bort gränsen och min App Service är online, men databasen inte är tillgänglig. Hur aktiverar jag ClearDB-databasen igen?
-Kontakta [ClearDB support](https://www.cleardb.com/developers/help/support) aktivera databasen igen. Ange dem med namnet på din Azure-prenumeration information och databasen.
+## <a name="i-hit-the-spending-limit-on-my-subscription-i-removed-the-limit-and-my-app-service-is-online-however-the-database-is-not-accessible-how-do-i-re-enable-the-cleardb-database"></a>Jag träffar utgifts gränsen för min prenumeration. Jag tog bort gränsen och mitt App Service är online, men databasen är inte tillgänglig. Hur gör jag för att återaktivera databasen ClearDB
+Kontakta [ClearDB-supporten](https://www.cleardb.com/developers/help/support) för att återaktivera databasen. Ange din Azure-prenumerations information och ditt databas namn.
 
-## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>Kan jag överföra en ClearDB-databas från en kreditkort prenumeration till ett EA-prenumeration?
-Befintliga ClearDB-databaser använder kreditkort som är associerade med de befintliga prenumerationerna. Om du vill använda en EA-prenumeration måste du migrera dina data till en ny databas:
+## <a name="can-i-transfer-a-cleardb-database-from-a-credit-card-subscription-to-an-ea-subscription"></a>Kan jag överföra en ClearDB-databas från en kredit korts prenumeration till en EA-prenumeration?
+Befintliga ClearDB-databaser använder det kredit kort som är associerat med befintliga prenumerationer. Om du vill använda en EA-prenumeration måste du migrera dina data till en ny databas:
 
-* Köpa en ny ClearDB-databas med EA-prenumerationen.
+* Köp en ny ClearDB-databas med din EA-prenumeration.
 * Migrera dina data till den nya databasen.
-* Uppdatera programmet så att den nya databasen.
+* Uppdatera programmet så att det använder den nya databasen.
 * Ta bort den gamla ClearDB-databasen.
 
-När du skapar en ny webbapp med MySQL (ClearDB) eller skapa en MySQL-databas (ClearDB), anger den prenumeration som du väljer hur du ska betala för tjänsten. Med en EA-prenumeration kan blockerar vi inte inköp av tjänster från tredje part, till exempel ClearDB i Azure-portalen. EA-prenumerationer faktureras utanför monetära åtaganden och faktureras kvartalsvis och i efterhand. EA-kund skulle behöva ställa in en betalningsmetod, till exempel ett kreditkort för att betala för någon tredje parts marketplace-tjänster.
+När du skapar en ny webbapp med MySQL (ClearDB) eller skapar en MySQL-databas (ClearDB), avgör den prenumeration du väljer hur du betalar för tjänsten. Med en EA-prenumeration kommer vi inte att blockera inköp av tjänster från tredje part, till exempel ClearDB i Azure Portal. EA-prenumerationer debiteras utanför det ekonomiska åtagandet och faktureras kvartals vis och i en resterande period. EA-kunden måste skapa en betalnings metod, till exempel ett kredit kort för att betala för alla tredje parts Marketplace-tjänster.
 
-## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Var hittar jag avgifterna för ClearDB-resurser i ett EA-prenumerationen?
-Azure Marketplace-avgifter är synliga på Enterprise Portal för direkta EA-kunder. Observera att alla marketplace-köp och förbrukning faktureras utanför monetära åtaganden och faktureras kvartalsvis och i efterhand. EA-kunder betala direkt till tjänst från tredje part-leverantörer och göra det genom att aktivera en betalningsmetod, till exempel ett kreditkort med deras EA-konto.
+## <a name="where-can-i-see-the-charges-for-cleardb-resources-in-an-ea-subscription"></a>Var kan jag se avgifterna för ClearDB-resurser i en EA-prenumeration?
+För direkta EA-kunder visas Azure Marketplace-avgifter på Enterprise Portal. Observera att alla inköps-och förbruknings platser debiteras utanför betalnings åtagandet och faktureras kvartals vis och i förskott. EA-kunder måste betala direkt till tredjepartsleverantörer och kan göra detta genom att aktivera en betalnings metod, till exempel ett kredit kort med sitt EA-konto.
 
-Indirekta EA-kunder kan hitta sina Azure Marketplace-prenumerationer på den **hantera prenumerationer** i Enterprise-portalen men priser är dold. Kunder bör kontakta sin LSP information om marketplace-avgifter.
+Indirekta EA-kunder kan hitta sina Azure Marketplace-prenumerationer på sidan **Hantera prenumerationer** i Enterprise Portal, men prissättningen är dold. Kunderna bör kontakta sin LSP för information om Marketplace-avgifter.
 
-Åtkomst till Azure Marketplace för tjänster från tredje part kan hanteras av dina administratörer för Azure EA-registrering. De kan inaktivera eller återaktivera åtkomst till 3 part köp från Store i Hantera konton och prenumerationer under avsnittet konton i Enterprise Portal.
+Åtkomst till Azure Marketplace för tjänster från tredje part kan hanteras av dina administratörer för din EA Azure-registrering. De kan inaktivera eller återaktivera åtkomst till tredje parts köp från butiken i Hantera konton och prenumerationer under avsnittet konton i Enterprise Portal.
 
-## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Vem kontaktar jag för frågor om min faktura för ClearDB-tjänster i min EA-prenumeration?
-Kontakta [Enterprise kundsupport](https://aka.ms/AzureEntSupport) för fakturering under deras EA-avtal. Supporten för EA-portalen ska svara på din fråga eller hjälpa dig att lösa problemet.
+## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Vem kontaktar jag för frågor om min faktura för ClearDB Services i EA-prenumerationen?
+Kontakta [företagets kund support](https://aka.ms/AzureEntSupport) med avseende på fakturering under deras EA-registrering. Support teamet för EA-portalen besvarar din fråga eller hjälper dig att lösa problemet.
 
 ## <a name="more-information"></a>Mer information
-[Vanliga frågor om Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
+[Vanliga frågor och svar om Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
 

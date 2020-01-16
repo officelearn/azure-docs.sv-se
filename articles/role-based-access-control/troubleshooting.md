@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 67d624bb81105b8219030c57460b6d7bf7458671
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707782"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980992"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Felsöka RBAC för Azure-resurser
 
@@ -41,13 +41,13 @@ Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBA
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Återställa RBAC när prenumerationer flyttas mellan klienter
 
-- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-klient läser du [överföra ägarskapet för en Azure-prenumeration till ett annat konto](../billing/billing-subscription-transfer.md).
+- Om du behöver steg för att överföra en prenumeration till en annan Azure AD-klient läser du [överföra ägarskapet för en Azure-prenumeration till ett annat konto](../cost-management-billing/manage/billing-subscription-transfer.md).
 - Om du överför en prenumeration till en annan Azure AD-klient tas alla rolltilldelningar bort permanent från den Azure AD-klient som är källan och migreras inte till den Azure AD-klient som är målet. Du måste återskapa rolltilldelningarna i målklienten. Du måste också manuellt återskapa hanterade identiteter för Azure-resurser. Mer information finns i [vanliga frågor och svar och kända problem med hanterade identiteter](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Om du är global administratör i Azure AD och du inte har åtkomst till en prenumeration när den har flyttats mellan klienter, använder du **åtkomst hantering för Azure-resurser** för att tillfälligt [öka åtkomsten](elevate-access-global-admin.md) till prenumerationen.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problem med tjänstadministratörer eller medadministratörer
 
-- Om du har problem med tjänst administratören eller medadministratörer kan du läsa [Lägg till eller ändra Azure-prenumerations administratörer](../billing/billing-add-change-azure-subscription-administrator.md) och [klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-administratörskonsolen](rbac-and-directory-admin-roles.md).
+- Om du har problem med tjänst administratören eller medadministratörer kan du läsa [Lägg till eller ändra Azure-prenumerations administratörer](../cost-management-billing/manage/add-change-subscription-administrator.md) och [klassiska prenumerations administratörs roller, Azure RBAC-roller och Azure AD-administratörskonsolen](rbac-and-directory-admin-roles.md).
 
 ## <a name="access-denied-or-permission-errors"></a>Åtkomst nekad eller behörighets fel
 
@@ -56,7 +56,7 @@ Den här artikeln besvarar vanliga frågor om rollbaserad åtkomst kontroll (RBA
 
 ## <a name="role-assignments-with-unknown-security-principal"></a>Roll tilldelningar med okänt säkerhets objekt
 
-Om du tilldelar en roll till ett säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) och senare tar bort säkerhets objekt utan att ta bort roll tilldelningen, visas säkerhets objekt typen för roll tilldelningen som **okänd**. Följande skärm bild visar ett exempel i Azure Portal. Säkerhetsobjektets namn anges som en **borttagen identitet** och **identiteten finns inte längre**. 
+Om du tilldelar en roll till ett säkerhets objekt (användare, grupp, tjänstens huvud namn eller hanterad identitet) och senare tar bort säkerhets objekt utan att ta bort roll tilldelningen, visas säkerhets objekt typen för roll tilldelningen som **okänd**. Följande skärmbild visar ett exempel i Azure-portalen. Säkerhetsobjektets namn anges som en **borttagen identitet** och **identiteten finns inte längre**. 
 
 ![Resurs grupp för webb program](./media/troubleshooting/unknown-security-principal.png)
 
@@ -150,7 +150,7 @@ De här objekten kräver **Skriv** åtkomst till hela **resurs gruppen** som inn
 
 * SSL-certifikat och bindningar (SSL-certifikat kan delas mellan platser i samma resurs grupp och Geo-plats)  
 * Varningsregler  
-* Inställningar för autoskalning  
+* inställningar för autoskalning  
 * Application Insights-komponenter  
 * Webbtester  
 

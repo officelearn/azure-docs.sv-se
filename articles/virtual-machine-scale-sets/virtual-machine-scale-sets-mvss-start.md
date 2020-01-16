@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: e3d8ada67b0a592df9c2dba145626836f27da631
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 52fb7c770e9f9e2570cad92a8c0dd9bc4374e708
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459369"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980167"
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Lär dig mer om mallar för skalnings uppsättningar för virtuella datorer
 [Azure Resource Manager-mallar](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview#template-deployment-process) är ett bra sätt att distribuera grupper av relaterade resurser. Den här själv studie serien visar hur du skapar en grundläggande mall för skalnings uppsättningar och hur du ändrar den här mallen så att den passar olika scenarier. Alla exempel kommer från den här [GitHub-lagringsplatsen](https://github.com/gatneil/mvss).
@@ -75,7 +75,7 @@ Alla resurser kräver `type`, `name`, `apiVersion`och `location` egenskaper. Det
 ```
 
 ## <a name="specify-location"></a>Ange plats
-Använd en [Resource Manager-mall](../azure-resource-manager/resource-group-template-functions.md)för att ange platsen för det virtuella nätverket. Den här funktionen måste stå inom citat tecken och hakparenteser som detta: `"[<template-function>]"`. I det här fallet använder du funktionen `resourceGroup`. Det tar inga argument och returnerar ett JSON-objekt med metadata om den resurs grupp som distributionen distribueras till. Resurs gruppen ställs in av användaren vid tidpunkten för distributionen. Värdet indexeras sedan till det här JSON-objektet med `.location` för att hämta platsen från JSON-objektet.
+Använd en [Resource Manager-mall](../azure-resource-manager/templates/template-functions.md)för att ange platsen för det virtuella nätverket. Den här funktionen måste stå inom citat tecken och hakparenteser som detta: `"[<template-function>]"`. I det här fallet använder du funktionen `resourceGroup`. Det tar inga argument och returnerar ett JSON-objekt med metadata om den resurs grupp som distributionen distribueras till. Resurs gruppen ställs in av användaren vid tidpunkten för distributionen. Värdet indexeras sedan till det här JSON-objektet med `.location` för att hämta platsen från JSON-objektet.
 
 ```json
        "location": "[resourceGroup().location]",

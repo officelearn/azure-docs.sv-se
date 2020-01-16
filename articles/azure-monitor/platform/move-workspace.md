@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278797"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980088"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp
 
-I den här artikeln lär du dig hur du flyttar Log Analytics arbets ytan till en annan resurs grupp eller prenumeration i samma region. Du kan lära dig mer om att flytta Azure-resurser via Azure Portal, PowerShell, Azure CLI eller REST API. [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/resource-group-move-resources.md). 
+I den här artikeln lär du dig hur du flyttar Log Analytics arbets ytan till en annan resurs grupp eller prenumeration i samma region. Du kan lära dig mer om att flytta Azure-resurser via Azure Portal, PowerShell, Azure CLI eller REST API. [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md). 
 
 > [!IMPORTANT]
 > Du kan inte flytta en arbets yta till en annan region.
@@ -34,7 +34,7 @@ Hanterade lösningar som är installerade på arbets ytan flyttas med flytt åtg
 
 Lösningar som måste tas bort innan du kan ta bort länken till ditt Automation-konto:
 
-- Uppdateringshantering
+- Hantering av uppdateringar
 - Spårning av ändringar
 - Starta/stoppa virtuella datorer utanför arbetstid
 
@@ -82,7 +82,7 @@ Använd följande procedur för att ta bort länken till Automation-kontot från
 
 ## <a name="move-your-workspace"></a>Flytta din arbets yta
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Använd följande procedur för att flytta din arbets yta med Azure Portal:
 
 1. Öppna menyn **Log Analytics arbets ytor** och välj sedan din arbets yta.
@@ -107,4 +107,4 @@ Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000
 
 
 ## <a name="next-steps"></a>Nästa steg
-- En lista över vilka resurser som stöder flytta finns i [Flytta åtgärds stöd för resurser](../../azure-resource-manager/move-support-resources.md).
+- En lista över vilka resurser som stöder flytta finns i [Flytta åtgärds stöd för resurser](../../azure-resource-manager/management/move-support-resources.md).

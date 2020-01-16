@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: d765422957392a5cdb170208b809c24bf5aec2a3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 31a6c53ec269c512ad641fcdc10469ccf16a1fe9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932201"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979747"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Standard egenskaper i Azure Monitor loggar
 Data i Azure Monitor loggar [lagras som en uppsättning poster i antingen en Log Analytics arbets yta eller ett Application Insights program](../log-query/logs-structure.md), var och en med en viss datatyp som har en unik uppsättning egenskaper. Många data typer har standard egenskaper som är gemensamma för flera typer. Den här artikeln beskriver dessa egenskaper och innehåller exempel på hur du kan använda dem i frågor.
@@ -79,7 +79,7 @@ Egenskapen **\_Itemid** innehåller en unik identifierare för posten.
 ## <a name="_resourceid"></a>\_ResourceId
 Egenskapen **\_ResourceID** innehåller en unik identifierare för resursen som posten är associerad med. Detta ger dig en standard egenskap som används för att begränsa din fråga till endast poster från en viss resurs eller för att koppla samman data över flera tabeller.
 
-Värdet för **_ResourceId** är [URL: en för Azure-resurs-ID](../../azure-resource-manager/resource-group-template-functions-resource.md)för Azure-resurser. Egenskapen är för närvarande begränsad till Azure-resurser, men den kommer att utökas till resurser utanför Azure, till exempel lokala datorer.
+För Azure-resurser är värdet för **_ResourceId** [URL: en för Azure-resurs-ID](../../azure-resource-manager/templates/template-functions-resource.md). Egenskapen är för närvarande begränsad till Azure-resurser, men den kommer att utökas till resurser utanför Azure, till exempel lokala datorer.
 
 > [!NOTE]
 > Vissa data typer har redan fält som innehåller Azure-resurs-ID eller minst delar av det som prenumerations-ID. Dessa fält bevaras för bakåtkompatibilitet, men vi rekommenderar att du använder _ResourceId för att utföra kors korrelation eftersom det blir mer konsekvent.
@@ -110,7 +110,7 @@ AzureActivity
 ) on _ResourceId  
 ```
 
-Följande fråga analyserar **_ResourceId** och aggregerar data volymer per Azure-prenumeration.
+Följande fråga analyserar **_ResourceId** och aggregerar fakturerade data volymer per Azure-prenumeration.
 
 ```Kusto
 union withsource = tt * 
@@ -120,7 +120,7 @@ union withsource = tt *
 | summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last 
 ```
 
-Använd dessa `union withsource = tt *`-frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
+Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer.
 
 ## <a name="_isbillable"></a>\_fakturerbar
 Egenskapen **\_fakturerbar** anger om inmatade data är fakturerbara. Data med **\_fakturerbar** som är lika med _falskt_ samlas in kostnads fritt och debiteras inte ditt Azure-konto.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: allensu
-ms.openlocfilehash: 0dd57bb30a993baadac41552669a629aaaaff6df
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4c682749de0be6329a254bda25a32954dd44e6db
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210962"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978704"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Skapa DNS-zoner och post uppsättningar med hjälp av .NET SDK
 
@@ -30,7 +30,7 @@ Du kan automatisera åtgärder för att skapa, ta bort eller uppdatera DNS-zoner
 Normalt beviljas program mässig åtkomst till Azure-resurser via ett dedikerat konto i stället för dina egna användarautentiseringsuppgifter. Dessa dedikerade konton kallas för tjänstens huvud konto. Om du vill använda det Azure DNS SDK-exempelprojektet måste du först skapa ett tjänst objekts konto och tilldela det rätt behörighet.
 
 1. Följ [de här anvisningarna](../active-directory/develop/howto-authenticate-service-principal-powershell.md) för att skapa ett tjänst objekts konto (Azure DNS SDK-exempelprojektet antar lösenordsbaserad autentisering).
-2. Skapa en resurs grupp ([så här](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+2. Skapa en resurs grupp ([så här](../azure-resource-manager/templates/deploy-portal.md)).
 3. Använd Azure RBAC för att ge tjänstens huvud konto behörighet till resurs gruppen ([så här](../role-based-access-control/role-assignments-portal.md)).
 4. Om du använder Azure DNS SDK-exempelprojektet redigerar du filen ' program. cs ' enligt följande:
 

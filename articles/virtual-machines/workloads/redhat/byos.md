@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/14/2020
 ms.author: alsin
-ms.openlocfilehash: e9cbd98afd5f9ed5561cba2236d85da331db7895
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 911d86dd7cb03479d9bde49d8fce0f7861e32e27
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944709"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980142"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux guld-avbildningar för prenumerationer i Azure
 Red Hat Enterprise Linux-avbildningar (RHEL) är tillgängliga i Azure via en PAYG (pay-on-go) eller med en egen prenumerations modell (Red Hat Gold image). Det här dokumentet ger en översikt över de Red Hat Gold-avbildningarna i Azure.
@@ -189,5 +189,6 @@ Följande är ett exempel skript. Du bör ersätta resurs gruppen, platsen, namn
 ## <a name="next-steps"></a>Nästa steg
 * Steg-för-steg-guider och programinformation för Cloud Access finns i [dokumentationen för moln åtkomst i Red Hat.](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index)
 * Läs mer om [Azure Red Hats uppdaterings infrastruktur](./redhat-rhui.md).
-* Om du vill veta mer om Red Hat-bilderna i Azure går du till [dokumentations sidan](./redhat-images.md).
+* Om du vill veta mer om alla Red Hat-bilder i Azure går du till [dokumentations sidan](./redhat-images.md).
 * Information om Red Hat support-principer för alla versioner av RHEL finns på sidan [Red Hat Enterprise Linux livs cykel](https://access.redhat.com/support/policy/updates/errata) .
+* Ytterligare dokumentation om RHEL Gold-avbildningar finns i [Red Hat-dokumentationen](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/using_red_hat_gold_images#con-gold-image-azure).

@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: b549cc0e890a122a04984baa2348831fc51abe08
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531011"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977559"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Skapa diagnostisk inställning i Azure med hjälp av en Resource Manager-mall
-[Diagnostikinställningar](diagnostic-settings.md) i Azure Monitor anger var du vill skicka [plattforms loggar](platform-logs-overview.md) som samlas in av Azure-resurser och den Azure-plattform som de är beroende av. Den här artikeln innehåller information och exempel på hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att skapa och konfigurera diagnostikinställningar för att samla in plattforms loggar till olika mål. 
+[Diagnostikinställningar](diagnostic-settings.md) i Azure Monitor anger var du vill skicka [plattforms loggar](platform-logs-overview.md) som samlas in av Azure-resurser och den Azure-plattform som de är beroende av. Den här artikeln innehåller information och exempel på hur du använder en [Azure Resource Manager-mall](../../azure-resource-manager/templates/template-syntax.md) för att skapa och konfigurera diagnostikinställningar för att samla in plattforms loggar till olika mål.
 
 > [!NOTE]
 > Eftersom du inte kan [skapa en diagnostisk inställning](diagnostic-settings.md) för Azure aktivitets loggen med hjälp av POWERSHELL eller CLI som diagnostikinställningar för andra Azure-resurser, skapar du en Resource Manager-mall för aktivitets loggen med hjälp av informationen i den här artikeln och distribuerar mallen med POWERSHELL eller cli.
 
 ## <a name="deployment-methods"></a>Distributions metoder
-Du kan distribuera Resource Manager-mallar med valfri giltig metod, inklusive PowerShell och CLI. Diagnostikinställningar för aktivitets loggen måste distribueras till en prenumeration med hjälp av `az deployment create` för CLI eller `New-AzDeployment` för PowerShell. Diagnostikinställningar för resurs loggar måste distribueras till en resurs grupp med hjälp av `az group deployment create` för CLI eller `New-AzResourceGroupDeployment` för PowerShell. 
+Du kan distribuera Resource Manager-mallar med valfri giltig metod, inklusive PowerShell och CLI. Diagnostikinställningar för aktivitets loggen måste distribueras till en prenumeration med hjälp av `az deployment create` för CLI eller `New-AzDeployment` för PowerShell. Diagnostikinställningar för resurs loggar måste distribueras till en resurs grupp med hjälp av `az group deployment create` för CLI eller `New-AzResourceGroupDeployment` för PowerShell.
 
-Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md) och [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md) . 
+Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md) och [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md) . 
 
 
 
@@ -33,7 +33,7 @@ Mer information finns i [distribuera resurser med Resource Manager-mallar och Az
 ## <a name="resource-logs"></a>Resursloggar
 För resurs loggar lägger du till en resurs av typen `<resource namespace>/providers/diagnosticSettings` i mallen. Avsnittet egenskaper följer formatet som beskrivs i [diagnostikinställningar-Create eller Update](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Ange ett `category` i avsnittet `logs` för var och en av de kategorier som är giltiga för den resurs som du vill samla in. Lägg till egenskapen `metrics` för att samla in resurs mått till samma mål om [resursen stöder mått](metrics-supported.md).
 
-Följande är en mall som samlar in en resurs logg kategori för en viss resurs till en Log Analytics arbets yta, lagrings konto och händelsehubben. 
+Följande är en mall som samlar in en resurs logg kategori för en viss resurs till en Log Analytics arbets yta, lagrings konto och händelsehubben.
 
 ```json
 "resources": [
@@ -50,7 +50,7 @@ Följande är en mall som samlar in en resurs logg kategori för en viss resurs 
       "eventHubAuthorizationRuleId": "[parameters('eventHubAuthorizationRuleId')]",
       "eventHubName": "[parameters('eventHubName')]",
       "workspaceId": "[parameters('workspaceId')]",
-      "logs": [ 
+      "logs": [
         {
           "category": "<category name>",
           "enabled": true

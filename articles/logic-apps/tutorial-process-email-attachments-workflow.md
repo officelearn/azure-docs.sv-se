@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: ef0445727c100b7262ebffc69be5e00a7956520a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f25486aba9549855939b06ea5b8dfc14db0af95
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428779"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969127"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Självstudie: automatisera uppgifter för att bearbeta e-postmeddelanden med hjälp av Azure Logic Apps, Azure Functions och Azure Storage
 
@@ -52,7 +52,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautent
 
 Du kan spara inkommande e-postmeddelanden och blobar i en [Azure-lagringscontainer](../storage/common/storage-introduction.md).
 
-1. Innan du kan skapa en lagrings behållare [skapar du ett lagrings konto](../storage/common/storage-quickstart-create-account.md) med de här inställningarna på fliken **grundläggande** i Azure Portal:
+1. Innan du kan skapa en lagrings behållare [skapar du ett lagrings konto](../storage/common/storage-account-create.md) med de här inställningarna på fliken **grundläggande** i Azure Portal:
 
    | Inställning | Värde | Beskrivning |
    |---------|-------|-------------|
@@ -159,7 +159,7 @@ Använd nu kodfragmentet som tillhandahålls via de här stegen för att skapa e
 
    ![Skapad funktionsapp](./media/tutorial-process-email-attachments-workflow/function-app-created.png)
 
-   Om du vill skapa en Function-app kan du också använda [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md)eller [PowerShell och Resource Manager-mallar](../azure-resource-manager/resource-group-template-deploy.md).
+   Om du vill skapa en Function-app kan du också använda [Azure CLI](../azure-functions/functions-create-first-azure-function-azure-cli.md)eller [PowerShell och Resource Manager-mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
 1. I listan **Function Apps** expanderar du din Function-app om den inte redan är expanderad. Under din Function-app väljer du **Functions**. I funktionsverktygsfältet väljer du **New function** (Ny funktion).
 
@@ -282,7 +282,7 @@ Lägg sedan till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-c
       | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
       | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller |
       ||||
-  
+
    1. I listan **Lägg till ny parameter** väljer du **ämnes filter**.
 
    1. När rutan **ämnes filter** visas i åtgärden anger du det ämne som visas här:
@@ -377,7 +377,8 @@ Testa nu om villkoret fungerar som det ska:
 Definiera därefter åtgärderna som ska vidtas för grenen **If true** (Om sant). För att spara e-postmeddelandet tillsammans med eventuella bifogade filer tar du bort alla HTML från e-postmeddelandet och skapar blobar i lagringscontainern för e-postmeddelandet och de bifogade filerna.
 
 > [!NOTE]
-> Logikappen behöver inte göra något för grenen **Om falskt** när ett e-postmeddelande inte innehåller bilagor. Som en extrauppgift efter självstudien kan du lägga till en lämplig åtgärd du vill vidta för grenen **Om falskt**.
+> Logikappen behöver inte göra något för grenen **Om falskt** när ett e-postmeddelande inte innehåller bilagor.
+> Som en extrauppgift efter självstudien kan du lägga till en lämplig åtgärd du vill vidta för grenen **Om falskt**.
 
 ## <a name="call-removehtmlfunction"></a>Anropa RemoveHTMLFunction
 
@@ -605,7 +606,9 @@ Lägg sedan till en åtgärd så att logikappen skickar e-post för att granska 
    ||||
 
    > [!NOTE]
-   > Om du väljer ett fält som innehåller en matris, som fältet **Innehåll** som är en matris som innehåller bifogade filer, lägger designerprogrammet automatiskt till en "For each"-loop (För varje) omkring åtgärden som refererar till fältet. På så sätt kan din logikappsåtgärd utförs på varje element i matrisen. Ta bort loopen genom att ta bort fältet för matrisen, flytta den refererande åtgärden till utsidan av slingan, Välj ellipserna ( **...** ) på loopens namn list och välj **ta bort**.
+   > Om du väljer ett fält som innehåller en matris, som fältet **Innehåll** som är en matris som innehåller bifogade filer, lägger designerprogrammet automatiskt till en "For each"-loop (För varje) omkring åtgärden som refererar till fältet.
+   > På så sätt kan din logikappsåtgärd utförs på varje element i matrisen.
+   > Ta bort loopen genom att ta bort fältet för matrisen, flytta den refererande åtgärden till utsidan av slingan, Välj ellipserna ( **...** ) på loopens namn list och välj **ta bort**.
 
 1. Spara din logikapp.
 

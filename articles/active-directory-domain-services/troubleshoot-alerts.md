@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: iainfou
-ms.openlocfilehash: 459aeaefc07e3f55b0829f0ad378992104982941
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703947"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979895"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Kända problem: vanliga aviseringar och lösningar i Azure Active Directory Domain Services
 
@@ -92,7 +92,7 @@ Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och t
 
 Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan prenumeration. Om Azure-prenumerationen som den hanterade domänen för Azure AD DS var kopplad till tas bort, måste du återskapa en Azure-prenumeration och en Azure AD DS-hanterad domän.
 
-1. [Skapa en Azure-prenumeration](../billing/billing-create-subscription.md).
+1. [Skapa en Azure-prenumeration](../cost-management-billing/manage/create-subscription.md).
 1. [Ta bort den hanterade Azure AD DS-domänen](delete-aadds.md) från din befintliga Azure AD-katalog.
 1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md).
 

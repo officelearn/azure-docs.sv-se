@@ -14,23 +14,23 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: 89f731062ce46969c73f745d62b289b3b3483d8c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ba6f1300353247ef2de99b2bd903bc82665d9a52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100357"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978150"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Konfigurera tillgänglighets gruppen Always on på en virtuell Azure-dator med PowerShell
 > [!div class="op_single_selector"]
-> * [Form SKÄRMEN](../classic/portal-sql-alwayson-availability-groups.md)
-> * [Form PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
+> * [Klassisk: UI](../classic/portal-sql-alwayson-availability-groups.md)
+> * [Klassisk: PowerShell](../classic/ps-sql-alwayson-availability-groups.md)
 <br/>
 
 Innan du börjar bör du tänka på att du nu kan slutföra den här uppgiften i Azure Resource Manager-modellen. Vi rekommenderar Azure Resource Manager-modellen för nya distributioner. Se [SQL Server Always on-tillgänglighetsgrupper på virtuella Azure-datorer](../sql/virtual-machines-windows-portal-sql-availability-group-overview.md).
 
 > [!IMPORTANT]
-> Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen.
+> Vi rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver den klassiska distributionsmodellen.
 
 Azure Virtual Machines (VM) kan hjälpa databas administratörer att sänka kostnaderna för ett SQL Server system med hög tillgänglighet. Den här självstudien visar hur du implementerar en tillgänglighets grupp genom att använda SQL Server Always On-to-end i en Azure-miljö. I slutet av självstudien kommer SQL Server Always on-lösning i Azure att bestå av följande element:
 
@@ -45,7 +45,7 @@ Det här scenariot är ett bra alternativ för dess enkelhet på Azure, inte fö
 Den här självstudien är avsedd att visa de steg som krävs för att ställa in den beskrivna lösningen ovan, utan att utveckla information om varje steg. I stället för att tillhandahålla konfigurations stegen för GUI använder den därför PowerShell-skript för att snabbt ta dig igenom varje steg. Den här självstudien förutsätter följande:
 
 * Du har redan ett Azure-konto med den virtuella dator prenumerationen.
-* Du har installerat [Azure PowerShell](/powershell/azure/overview)-cmdletarna.
+* Du har installerat [Azure PowerShell-cmdletarna](/powershell/azure/overview).
 * Du har redan en solid förståelse för Always on-tillgänglighetsgrupper för lokala lösningar. Mer information finns i [Always on Availability groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx).
 
 ## <a name="connect-to-your-azure-subscription-and-create-the-virtual-network"></a>Anslut till din Azure-prenumeration och skapa det virtuella nätverket
@@ -158,7 +158,7 @@ Den här självstudien är avsedd att visa de steg som krävs för att ställa i
    * **Add-AzureDataDisk** lägger till den datadisk som du ska använda för att lagra Active Directory data, med alternativet cachelagring inställd på ingen.
    * **New-AzureVM** skapar en ny moln tjänst och skapar den nya virtuella Azure-datorn i den nya moln tjänsten.
 
-7. Vänta tills den nya virtuella datorn är helt etablerad och ladda ned fjärr skrivbords filen till din arbets katalog. Eftersom den nya virtuella Azure-datorn tar lång tid att etablera, `while` fortsätter loopen att avsöka den nya virtuella datorn tills den är redo att användas.
+7. Vänta tills den nya virtuella datorn är helt etablerad och ladda ned fjärr skrivbords filen till din arbets katalog. Eftersom den nya virtuella Azure-datorn tar lång tid att etablera, fortsätter `while`-loopen att avsöka den nya virtuella datorn tills den är redo att användas.
 
         $VMStatus = Get-AzureVM -ServiceName $dcServiceName -Name $dcServerName
 
@@ -354,7 +354,7 @@ Domänkontrollantens Server har nu tillhandahållits. Sedan konfigurerar du Acti
    * **Set-AzureSubnet** placerar den virtuella datorn i backend-undernätet.
    * **Add-AzureEndpoint** lägger till åtkomst slut punkter så att klient programmen kan komma åt dessa SQL Server Services-instanser på Internet. Olika portar ges till ContosoSQL1 och ContosoSQL2.
    * **New-AzureVM** skapar den nya SQL Server VM i samma moln tjänst som ContosoQuorum. Du måste placera de virtuella datorerna i samma moln tjänst om du vill att de ska vara i samma tillgänglighets uppsättning.
-4. Vänta tills varje virtuell dator är helt etablerad och för varje virtuell dator kan du ladda ned dess fjärr skrivbords fil till din arbets katalog. `for` Loopen går igenom de tre nya virtuella datorerna och kör kommandona inuti klammerparenteserna på den översta nivån för var och en av dem.
+4. Vänta tills varje virtuell dator är helt etablerad och för varje virtuell dator kan du ladda ned dess fjärr skrivbords fil till din arbets katalog. `for` loopen går igenom de tre nya virtuella datorerna och kör kommandona inuti klammerparenteserna på den översta nivån för var och en av dem.
 
         Foreach ($VM in $VMs = Get-AzureVM -ServiceName $sqlServiceName)
         {
@@ -379,10 +379,10 @@ Domänkontrollantens Server har nu tillhandahållits. Sedan konfigurerar du Acti
 ## <a name="initialize-the-failover-cluster-vms"></a>Initiera de virtuella datorerna i redundansklustret
 I det här avsnittet måste du ändra de tre servrar som du ska använda i redundansklustret och den SQL Server installationen. Närmare bestämt:
 
-* Alla servrar: Du måste installera funktionen **kluster för växling vid fel** .
-* Alla servrar: Du måste lägga till **CORP\Install** som dator **administratör**.
-* Endast ContosoSQL1 och ContosoSQL2: Du måste lägga till **CORP\Install** som en **sysadmin** -roll i standard databasen.
-* Endast ContosoSQL1 och ContosoSQL2: Du måste lägga till **NT instans\system** som inloggning med följande behörigheter:
+* Alla servrar: du måste installera funktionen **kluster för växling vid fel** .
+* Alla servrar: du måste lägga till **CORP\Install** som dator **administratör**.
+* Endast ContosoSQL1 och ContosoSQL2: du måste lägga till **CORP\Install** som en **sysadmin** -roll i standard databasen.
+* Endast ContosoSQL1 och ContosoSQL2: du måste lägga till **NT instans\system** som inloggning med följande behörigheter:
 
   * Ändra valfri tillgänglighets grupp
   * Anslut SQL

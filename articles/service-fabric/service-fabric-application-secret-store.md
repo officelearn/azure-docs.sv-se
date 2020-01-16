@@ -1,20 +1,20 @@
 ---
-title: Service Fabric hemligheter
-description: I den här artikeln beskrivs hur du använder Service Fabric hemligheter.
+title: Azure Service Fabric centrala hemligheter
+description: Den här artikeln beskriver hur du använder Central hemligheter i Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: 16608d9eaf12fc9abc535ef316d7b5e8b74a8b37
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bc6ea6260bf50d5b4f8e294e0a3827426f90bee3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457519"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980944"
 ---
-#  <a name="service-fabric-secrets-store"></a>Service Fabric hemligheter
-Den här artikeln beskriver hur du skapar och använder hemligheter i Service Fabric program med hjälp av Service Fabric hemligheter (CSS). CSS är en lokal hemlighet för lagring som används för att hålla känsliga data, till exempel lösen ord, tokens och nycklar som är krypterade i minnet.
+# <a name="central-secrets-store-in-azure-service-fabric"></a>Centrala hemligheter i Azure Service Fabric 
+Den här artikeln beskriver hur du använder den centrala hemligheter Store (CSS) i Azure Service Fabric för att skapa hemligheter i Service Fabric program. CSS är en lokal hemlighet som lagrar känsliga data, till exempel lösen ord, tokens och nycklar, krypterade i minnet.
 
-## <a name="enabling-secrets-store"></a>Aktivera hemligheter-Arkiv
- Lägg till följande i kluster konfigurationen under `fabricSettings` för att aktivera CSS. Vi rekommenderar att du använder ett certifikat som skiljer sig från kluster certifikat för CSS. Se till att krypterings certifikatet har installerats på alla noder och `NetworkService` har Läs behörighet till certifikatets privata nyckel.
+## <a name="enable-central-secrets-store"></a>Aktivera Central hemligheter Arkiv
+Lägg till följande skript i kluster konfigurationen under `fabricSettings` för att aktivera CSS. Vi rekommenderar att du använder ett annat certifikat än ett kluster certifikat för CSS. Se till att krypterings certifikatet har installerats på alla noder och att `NetworkService` har Läs behörighet till certifikatets privata nyckel.
   ```json
     "fabricSettings": 
     [
@@ -46,10 +46,14 @@ Den här artikeln beskriver hur du skapar och använder hemligheter i Service Fa
         ...
      ]
 ```
-## <a name="declare-secret-resource"></a>Deklarera hemlig resurs
-Du kan skapa en hemlig resurs antingen med hjälp av Resource Manager-mallen eller med hjälp av REST API.
+## <a name="declare-a-secret-resource"></a>Deklarera en hemlig resurs
+Du kan skapa en hemlig resurs genom att antingen använda Azure Resource Manager-mallen eller REST API.
 
-* Använda Resource Manager-mallen
+### <a name="use-resource-manager"></a>Använd Resource Manager
+
+Använd följande mall för att skapa den hemliga resursen med hjälp av Resource Manager. Mallen skapar en `supersecret` hemlig resurs, men inget värde har angetts för den hemliga resursen ännu.
+
+
 ```json
    "resources": [
       {
@@ -66,20 +70,20 @@ Du kan skapa en hemlig resurs antingen med hjälp av Resource Manager-mallen ell
         }
       ]
 ```
-Mallen ovan skapar `supersecret` hemlig resurs, men inget värde har angetts för den hemliga resursen ännu.
 
-* Använda REST API
+### <a name="use-the-rest-api"></a>Använd REST API
 
-Om du vill skapa en hemlig resurs `supersecret` gör en begäran till `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. Du behöver ett kluster certifikat eller ett administratörs klient certifikat för att skapa en hemlighet.
+Skapa en `supersecret` hemlig resurs med hjälp av REST API genom att göra en begäran om att `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`. Du behöver ett kluster certifikat eller ett administratörs klient certifikat för att skapa en hemlig resurs.
 
 ```powershell
 Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint>
 ```
 
-## <a name="set-secret-value"></a>Ange hemligt värde
-* Använda Resource Manager-mallen
+## <a name="set-the-secret-value"></a>Ange det hemliga värdet
 
-Nedanstående Resource Manager-mall skapar och anger värden för hemliga `supersecret` med version `ver1`.
+### <a name="use-the-resource-manager-template"></a>Använda Resource Manager-mallen
+
+Använd följande Resource Manager-mall för att skapa och ange det hemliga värdet. Den här mallen anger det hemliga värdet för den `supersecret` hemliga resursen som version `ver1`.
 ```json
   {
   "parameters": {
@@ -117,67 +121,68 @@ Nedanstående Resource Manager-mall skapar och anger värden för hemliga `super
     }
   ],
   ```
-* Använda REST API
+### <a name="use-the-rest-api"></a>Använd REST API
 
+Använd följande skript för att använda REST API för att ange det hemliga värdet.
 ```powershell
 $Params = @{"properties": {"value": "mysecretpassword"}}
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
 ```
-## <a name="using-the-secret-in-your-application"></a>Använda hemligheten i ditt program
+## <a name="use-the-secret-in-your-application"></a>Använd hemligheten i ditt program
 
-1.  Lägg till ett avsnitt i Settings. XML-filen med innehållet nedan. Observera att värdet är av formatet {`secretname:version`}
+Följ dessa steg om du vill använda hemligheten i ditt Service Fabric-program.
 
-```xml
-  <Section Name="testsecrets">
-   <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
-  </Section>
-```
-2. Importera nu avsnittet i ApplicationManifest. XML
-```xml
-  <ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ConfigPackagePolicies CodePackageRef="Code">
-        <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
-        </ConfigPackagePolicies>
-    </Policies>
-  </ServiceManifestImport>
-```
+1. Lägg till ett avsnitt i **Settings. XML-** filen med följande kodfragment. Observera att värdet är i formatet {`secretname:version`}.
 
-Miljövariabeln SecretPath pekar på den katalog där alla hemligheter lagras. Varje parameter som anges under avsnitt `testsecrets` kommer att lagras i en separat fil. Programmet kan nu använda hemligheten som visas nedan
-```C#
-secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
-```
-3. Montera hemligheter till en behållare
+   ```xml
+     <Section Name="testsecrets">
+      <Parameter Name="TopSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/
+     </Section>
+   ```
 
-Endast ändringar som krävs för att göra de hemligheter som är tillgängliga i behållaren är att ange en monterings punkt i `<ConfigPackage>`.
-Här är den ändrade ApplicationManifest. XML  
+1. Importera avsnittet i **ApplicationManifest. XML**.
+   ```xml
+     <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+       <ConfigOverrides />
+       <Policies>
+         <ConfigPackagePolicies CodePackageRef="Code">
+           <ConfigPackage Name="Config" SectionName="testsecrets" EnvironmentVariableName="SecretPath" />
+           </ConfigPackagePolicies>
+       </Policies>
+     </ServiceManifestImport>
+   ```
 
-```xml
-<ServiceManifestImport>
-    <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
-    <ConfigOverrides />
-    <Policies>
-      <ConfigPackagePolicies CodePackageRef="Code">
-        <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="C:\secrets" EnvironmentVariableName="SecretPath" />
-        <!-- Linux Container
-         <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="/mnt/secrets" EnvironmentVariableName="SecretPath" />
-        -->
-      </ConfigPackagePolicies>
-    </Policies>
-  </ServiceManifestImport>
-```
-Hemligheter är tillgängliga under monterings punkten i din behållare.
+   Miljövariabeln `SecretPath` kommer att peka på den katalog där alla hemligheter lagras. Varje parameter som anges under avsnittet `testsecrets` lagras i en separat fil. Programmet kan nu använda hemligheten på följande sätt:
+   ```C#
+   secretValue = IO.ReadFile(Path.Join(Environment.GetEnvironmentVariable("SecretPath"),  "TopSecret"))
+   ```
+1. Montera hemligheterna till en behållare. Den enda ändring som krävs för att göra de hemligheter som är tillgängliga i behållaren är att `specify` en monterings punkt i `<ConfigPackage>`.
+Följande kodfragment är den ändrade **ApplicationManifest. XML**.  
 
-4. Bindnings hemlighet till en miljö variabel 
+   ```xml
+   <ServiceManifestImport>
+       <ServiceManifestRef ServiceManifestName="testservicePkg" ServiceManifestVersion="1.0.0" />
+       <ConfigOverrides />
+       <Policies>
+         <ConfigPackagePolicies CodePackageRef="Code">
+           <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="C:\secrets" EnvironmentVariableName="SecretPath" />
+           <!-- Linux Container
+            <ConfigPackage Name="Config" SectionName="testsecrets" MountPoint="/mnt/secrets" EnvironmentVariableName="SecretPath" />
+           -->
+         </ConfigPackagePolicies>
+       </Policies>
+     </ServiceManifestImport>
+   ```
+   Hemligheter är tillgängliga under monterings punkten i din behållare.
 
-Du kan binda hemligheten till en process miljö variabel genom att ange typ = ' SecretsStoreRef '. Här är ett exempel på hur du binder `supersecret` version `ver1` till miljövariabeln `MySuperSecret` i ServiceManifest. xml.
+1. Du kan binda en hemlighet till en process miljö variabel genom att ange `Type='SecretsStoreRef`. Följande fragment är ett exempel på hur du binder `supersecret`-versionen `ver1` till miljövariabeln `MySuperSecret` i **ServiceManifest. XML**.
 
-```xml
-<EnvironmentVariables>
-  <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
-</EnvironmentVariables>
-```
+   ```xml
+   <EnvironmentVariables>
+     <EnvironmentVariable Name="MySuperSecret" Type="SecretsStoreRef" Value="supersecret:ver1"/>
+   </EnvironmentVariables>
+   ```
+
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [säkerhet för program och tjänster](service-fabric-application-and-service-security.md)
+Läs mer om [säkerhet för program och tjänster](service-fabric-application-and-service-security.md).

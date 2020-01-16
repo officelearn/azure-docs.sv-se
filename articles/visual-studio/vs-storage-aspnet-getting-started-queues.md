@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 5b57f171a9407acea8231d796a80c3a1cc1d9474
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f229661ca78dc75adbc0b49073dc6f0feaf2ba22
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300110"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980744"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure Queue Storage och Visual Studio Connected Services (ASP.NET)
 
@@ -33,7 +33,7 @@ Den här självstudien visar hur du skriver ASP.NET-kod för några vanliga scen
 ## <a name="prerequisites"></a>Krav
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Azure Storage-konto](../storage/common/storage-quickstart-create-account.md)
+* [Azure Storage-konto](../storage/common/storage-account-create.md)
 
 [!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
@@ -84,7 +84,7 @@ Följande steg visar hur du skapar en kö:
     }
     ```
 
-1. I **CreateQueue** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **CreateQueue** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -118,7 +118,7 @@ Följande steg visar hur du skapar en kö:
 
 1. I dialog rutan **Lägg till vy** anger du **CreateQueue** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `CreateQueue.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `CreateQueue.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -130,7 +130,7 @@ Följande steg visar hur du skapar en kö:
     Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -165,7 +165,7 @@ När du har [skapat en kö](#create-a-queue)kan du lägga till meddelanden i kö
     }
     ```
  
-1. I **AddMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **AddMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -207,7 +207,7 @@ När du har [skapat en kö](#create-a-queue)kan du lägga till meddelanden i kö
 
 1. I dialog rutan **Lägg till vy** anger du **AddMessage** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `AddMessage.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `AddMessage.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -219,7 +219,7 @@ När du har [skapat en kö](#create-a-queue)kan du lägga till meddelanden i kö
     The message '@ViewBag.Message' was added to the queue '@ViewBag.QueueName'.
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -254,7 +254,7 @@ Det här avsnittet beskriver hur du tittar på ett köat meddelande (Läs det f�
     }
     ```
  
-1. I **PeekMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **PeekMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -290,7 +290,7 @@ Det här avsnittet beskriver hur du tittar på ett köat meddelande (Läs det f�
 
 1. I dialog rutan **Lägg till vy** anger du **PeekMessage** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `PeekMessage.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `PeekMessage.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -305,7 +305,7 @@ Det här avsnittet beskriver hur du tittar på ett köat meddelande (Läs det f�
     </table>    
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -338,7 +338,7 @@ I det här avsnittet får du lära dig hur du läser och tar bort ett meddelande
     }
     ```
  
-1. I **ReadMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **ReadMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -381,7 +381,7 @@ I det här avsnittet får du lära dig hur du läser och tar bort ett meddelande
 
 1. I dialog rutan **Lägg till vy** anger du **ReadMessage** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `ReadMessage.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `ReadMessage.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -396,7 +396,7 @@ I det här avsnittet får du lära dig hur du läser och tar bort ett meddelande
     </table>
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -429,7 +429,7 @@ I det här avsnittet visas hur du hämtar Kölängd (antal meddelanden).
     }
     ```
  
-1. I **ReadMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **ReadMessage** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -471,7 +471,7 @@ I det här avsnittet visas hur du hämtar Kölängd (antal meddelanden).
 
 1. I dialog rutan **Lägg till vy** anger du **GetQueueLength** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `GetQueueLengthMessage.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `GetQueueLengthMessage.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -483,7 +483,7 @@ I det här avsnittet visas hur du hämtar Kölängd (antal meddelanden).
     The queue '@ViewBag.QueueName' has a length of (number of messages): @ViewBag.Length
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -516,7 +516,7 @@ I det här avsnittet visas hur du tar bort en kö.
     }
     ```
  
-1. I **DeleteQueue** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;storage-Account-name >* till namnet på det Azure Storage-konto som du använder.)
+1. I **DeleteQueue** -metoden hämtar du ett **CloudStorageAccount** -objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen: (ändra *&lt;lagrings konto namn >* till namnet på det Azure Storage-konto som du använder.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -551,7 +551,7 @@ I det här avsnittet visas hur du tar bort en kö.
 
 1. I dialog rutan **Lägg till vy** anger du **DeleteQueue** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `DeleteQueue.cshtml` och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `DeleteQueue.cshtml`och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -563,7 +563,7 @@ I det här avsnittet visas hur du tar bort en kö.
     @ViewBag.QueueName deleted.
     ```
 
-1. Expandera mappen **vyer-> delad** i **Solution Explorer**och öppna `_Layout.cshtml`.
+1. I **Solution Explorer**, expanderar du vyn **vyer-> delad** och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 

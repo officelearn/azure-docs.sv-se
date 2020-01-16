@@ -4,15 +4,15 @@ description: Beskriver hur du använder Azure Analysis Services REST API för at
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 01/14/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2281f9d493edf955881772ec174c82b527f1b6fa
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573398"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029873"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -30,7 +30,7 @@ Bas-URL: en följer detta format:
 https://<rollout>.asazure.windows.net/servers/<serverName>/models/<resource>/
 ```
 
-Överväg till exempel en modell med namnet AdventureWorks på en server med namnet Server, som finns i regionen USA, västra Azure. Server namnet är:
+Överväg till exempel en modell med namnet AdventureWorks på en server med namnet `myserver`, som finns i regionen USA, västra Azure. Server namnet är:
 
 ```
 asazure://westus.asazure.windows.net/myserver 
@@ -97,9 +97,9 @@ Bröd texten kan likna följande:
 
 Du behöver inte ange parametrar. Standardvärdet används.
 
-| Namn             | Typ  | Beskrivning  |Standard  |
+| Namn             | Typ  | Beskrivning  |Default  |
 |------------------|-------|--------------|---------|
-| `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   Autokorrigering      |
+| `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   automatiskt      |
 | `CommitMode`     | Enum  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
 | `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
 | `RetryCount`     | Int   | Anger hur många gånger åtgärden ska försöka utföras innan fel.      |     0    |
@@ -110,9 +110,20 @@ CommitMode är lika med partialBatch. Den används när du gör en första belas
 > [!NOTE]
 > Vid tidpunkten för skrivning är batchstorleken värdet MaxParallelism, men det här värdet kan ändras.
 
+### <a name="status-values"></a>Status värden
+
+|Statusvärde  |Beskrivning  |
+|---------|---------|
+|`notStarted`    |   Åtgärden har inte startats ännu.      |
+|`inProgress`     |   Åtgärd pågår.      |
+|`timedOut`     |    Tids gränsen nåddes för åtgärden baserat på den angivna tids gränsen för användaren.     |
+|`cancelled`     |   Åtgärden avbröts av användaren eller systemet.      |
+|`failed`     |   Åtgärden misslyckades.      |
+|`succeeded`      |   Åtgärden har slutförts.      |
+
 ## <a name="get-refreshesrefreshid"></a>Hämta/refreshes/\<refreshId >
 
-Om du vill kontrol lera status för en uppdaterings åtgärd använder du hämta verbet i uppdaterings-ID: t. Här är ett exempel på svars texten. Om åtgärden pågår **returneras statusen** i status.
+Om du vill kontrol lera status för en uppdaterings åtgärd använder du hämta verbet i uppdaterings-ID: t. Här är ett exempel på svars texten. Om åtgärden pågår returneras `inProgress` status.
 
 ```
 {
@@ -202,7 +213,7 @@ Här är ett C# kod exempel som hjälper dig att komma igång, [RestApiSample p�
 
 Kod exemplet använder autentisering av [tjänstens huvud namn](#service-principal) .
 
-### <a name="service-principal"></a>Tjänstens huvud namn
+### <a name="service-principal"></a>Tjänstens huvudnamn
 
 Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) och [lägga till ett huvud namn för tjänsten i rollen Server administratör](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett huvud namn för tjänsten och tilldelar de nödvändiga behörigheterna i Azure som. När du har slutfört stegen utför du följande steg:
 
@@ -211,9 +222,9 @@ Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/ho
 3.  Kör exemplet.
 
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 [Exempel](analysis-services-samples.md)   
-[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

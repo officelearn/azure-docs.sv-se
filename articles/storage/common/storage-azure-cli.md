@@ -10,12 +10,12 @@ ms.date: 06/02/2017
 ms.author: tamram
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: f8e745b214ced865ac41d72bdfd5e44ca36b803a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b80c29788bd2f8d5172795aa2c92a80e460ff81f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460470"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978532"
 ---
 # <a name="using-the-azure-cli-with-azure-storage"></a>Använda Azure CLI med Azure Storage
 
@@ -23,7 +23,7 @@ Azure CLI med öppen källkod innehåller en uppsättning kommandon för att arb
 
 I den här guiden visar vi hur du använder [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) för att utföra flera aktiviteter som arbetar med resurser i ditt Azure Storage-konto. Vi rekommenderar att du hämtar och installerar eller uppgraderar till den senaste versionen av CLI innan du använder den här guiden.
 
-I exemplen i guiden förutsätts användningen av bash-gränssnittet på Ubuntu, men andra plattformar bör utföras på samma sätt. 
+I exemplen i guiden förutsätts användningen av bash-gränssnittet på Ubuntu, men andra plattformar bör utföras på samma sätt.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -34,7 +34,7 @@ Den här guiden förutsätter att du förstår de grundläggande begreppen i Azu
 
 ### <a name="accounts"></a>Konton
 * **Azure-konto**: om du inte redan har en Azure-prenumeration kan du [skapa ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
-* **Lagringskonto**: Se [skapar ett lagringskonto](storage-quickstart-create-account.md) i [Om Azure-lagringskonton](storage-create-storage-account.md).
+* **Lagringskonto**: Se [skapar ett lagringskonto](storage-account-create.md) i [Om Azure-lagringskonton](storage-account-overview.md).
 
 ### <a name="install-the-azure-cli"></a>Installera Azure CLI
 
@@ -335,7 +335,7 @@ Innehållstypen, som även kallas MIME-typ, identifierar formatet för data i bl
 
 ```azurecli
 az storage blob update
-    --container-name <container_name> 
+    --container-name <container_name>
     --name <blob_name>
     --content-type <content_type>
 ```
@@ -390,7 +390,7 @@ az storage file list --share-name myshare --path myDir/mySubDir/MySubDir2 --outp
 
 ### <a name="copy-files"></a>Kopiera filer      
 Du kan kopiera en fil till en annan fil, en fil till en BLOB eller en blob till en fil. Om du till exempel vill kopiera en fil till en katalog i en annan resurs:        
-        
+
 ```azurecli
 az storage file copy start \
 --source-share share1 --source-path dir1/file.txt \
@@ -524,7 +524,7 @@ az storage file download --path IMG_0966.JPG --share-name sharesnapshotdefs --sn
 Du kan ta bort en resurs ögonblicks bild med hjälp av `az storage share delete` kommandot genom att ange `--snapshot` parameter med tidsstämpel för resurs ögonblicks bild:
 
 ```cli
-az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z' 
+az storage share delete -n <share name> --snapshot '2017-10-04T23:28:35.0000000Z'
 ```
 
 Exempel på utdata
@@ -535,7 +535,7 @@ Exempel på utdata
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Här följer några ytterligare resurser för att lära dig mer om att arbeta med Azure CLI. 
+Här följer några ytterligare resurser för att lära dig mer om att arbeta med Azure CLI.
 
 * [Kom igång med Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
 * [Azure CLI-kommandoreferens](/cli/azure)

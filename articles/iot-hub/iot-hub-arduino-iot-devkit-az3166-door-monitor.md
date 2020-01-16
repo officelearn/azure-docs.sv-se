@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 23607b52f866bb7b0be760e49be7d62d1732d43c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954742"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977303"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Dörr övervakare – använda Azure Functions och SendGrid, skicka e-post när en dörr öppnas           
 
@@ -65,7 +65,7 @@ Nu visas registrerings formuläret SendGrid.
 
 Slutför registrerings formuläret:
 
-   * **Resurs grupp**: skapa en resurs grupp som värd för SendGrid-tjänsten eller Använd en befintlig. Se [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Resurs grupp**: skapa en resurs grupp som värd för SendGrid-tjänsten eller Använd en befintlig. Se [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **Namn**: namnet på din SendGrid-tjänst. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 
@@ -105,7 +105,7 @@ Registrerings formuläret visas.
 
 Fyll i fälten i registrerings formuläret.
 
-   * **Resurs grupp**: skapa en resurs grupp som värd för SendGrid-tjänsten eller Använd en befintlig. Se [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/manage-resource-groups-portal.md).
+   * **Resurs grupp**: skapa en resurs grupp som värd för SendGrid-tjänsten eller Använd en befintlig. Se [använda resurs grupper för att hantera dina Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
    * **IoT Hub-namn**: namnet på din IoT Hub. Välj ett unikt namn som skiljer sig från andra tjänster som du kan ha.
 

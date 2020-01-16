@@ -8,12 +8,12 @@ author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c08dc5091e7ab0eec5d4e6dd455e6adb3caa35f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402053"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969704"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Utforma och skapa en hanterings lösning i Azure (för hands version)
 > [!NOTE]
@@ -23,7 +23,7 @@ ms.locfileid: "75402053"
 
 ## <a name="what-is-a-management-solution"></a>Vad är en hanterings lösning?
 
-Hanterings lösningar innehåller Azure-resurser som arbetar tillsammans för att uppnå ett visst hanterings scenario.  De är implementerade som [resurs hanterings mallar](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) som innehåller information om hur du installerar och konfigurerar de resurser som finns när lösningen installeras.
+Hanterings lösningar innehåller Azure-resurser som arbetar tillsammans för att uppnå ett visst hanterings scenario.  De är implementerade som [resurs hanterings mallar](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) som innehåller information om hur du installerar och konfigurerar de resurser som finns när lösningen installeras.
 
 Den grundläggande strategin är att starta hanterings lösningen genom att skapa enskilda komponenter i din Azure-miljö.  När funktionen fungerar som den ska kan du börja paketera dem i en [hanterings lösnings fil]( solutions-solution-file.md). 
 
@@ -64,7 +64,7 @@ När du har konfigurerat och testat komponenterna som ska ingå i din lösning k
 
 
 ## <a name="test-your-solution"></a>Testa din lösning
-Medan du utvecklar din lösning måste du installera och testa den i din arbets yta.  Du kan göra detta med någon av de tillgängliga metoderna för att [testa och installera Resource Manager-mallar](../../azure-resource-manager/resource-group-template-deploy.md).
+Medan du utvecklar din lösning måste du installera och testa den i din arbets yta.  Du kan göra detta med någon av de tillgängliga metoderna för att [testa och installera Resource Manager-mallar](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="publish-your-solution"></a>Publicera din lösning
 När du har slutfört och testat lösningen kan du göra den tillgänglig för kunder via antingen följande källor.

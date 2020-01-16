@@ -7,17 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: f4612232acfe6099c56d365e482cbc82c8436dee
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745624"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977662"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor
 
 > [!WARNING]
-> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-subscription.md).
+> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-legacy.md).
 
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Den här artikeln beskriver hur du samlar in aktivitets loggen på en Log Analytics arbets yta och hur du använder Aktivitetslogganalys [övervaknings lösning](../insights/solutions.md)som innehåller logg frågor och vyer för att analysera dessa data. 
 
@@ -32,7 +32,7 @@ Att ansluta aktivitets loggen till en Log Analytics arbets yta ger följande fö
 En enskild arbets yta kan anslutas till aktivitets loggen för flera prenumerationer i samma Azure-klient. För insamling över flera klienter, se [samla in Azure-aktivitets loggar i en Log Analytics arbets yta mellan prenumerationer i olika Azure Active Directory klienter](activity-log-collect-tenants.md).
 
 > [!IMPORTANT]
-> Du kan få ett fel med följande procedur om resurs leverantörerna Microsoft. OperationalInsights och Microsoft. OperationsManagement inte har registrerats för din prenumeration. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md) för att registrera dessa leverantörer.
+> Du kan få ett fel med följande procedur om resurs leverantörerna Microsoft. OperationalInsights och Microsoft. OperationsManagement inte har registrerats för din prenumeration. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/management/resource-providers-and-types.md) för att registrera dessa leverantörer.
 
 Använd följande procedur för att ansluta aktivitets loggen till din Log Analytics-arbetsyta:
 

@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: a8c19a8e88ec7fe2002a327c7e4a57874a753b9f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: b8b5de910195b14c279fe395cc35c12768536728
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921225"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981845"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Lagra affärs kritiska BLOB-data med oföränderlig lagring
 
@@ -156,7 +156,7 @@ Det går inte att ta bort container om det finns minst en BLOB i behållaren med
 
 **Vad händer om jag försöker ta bort ett lagrings konto med en behållare som har en tidsbaserad bevarande princip eller ett juridiskt undantag?**
 
-Det går inte att ta bort lagrings kontot om det finns minst en behållare med en juridisk undantags uppsättning eller en **låst** tidsbaserad princip. En behållare med en upplåst tidsbaserad princip skyddar inte mot borttagning av lagrings kontot. Du måste ta bort alla juridiska undantag och ta bort alla **låsta** behållare innan du kan ta bort lagrings kontot. Information om borttagning av behållare finns i föregående fråga. Du kan också använda ytterligare borttagnings skydd för ditt lagrings konto med [Azure Resource Manager lås](../../azure-resource-manager/resource-group-lock-resources.md).
+Det går inte att ta bort lagrings kontot om det finns minst en behållare med en juridisk undantags uppsättning eller en **låst** tidsbaserad princip. En behållare med en upplåst tidsbaserad princip skyddar inte mot borttagning av lagrings kontot. Du måste ta bort alla juridiska undantag och ta bort alla **låsta** behållare innan du kan ta bort lagrings kontot. Information om borttagning av behållare finns i föregående fråga. Du kan också använda ytterligare borttagnings skydd för ditt lagrings konto med [Azure Resource Manager lås](../../azure-resource-manager/management/lock-resources.md).
 
 **Kan jag flytta data mellan olika BLOB-nivåer (frekvent, låg frekvent, arkivera) när blobben är i läget oföränderligt?**
 
@@ -179,4 +179,4 @@ Ja, om dina krav för efterlevnad tillåter att mjuk borttagning aktive ras. [Mj
 - [Ange och hantera oföränderlighets-principer för Blob Storage](storage-blob-immutability-policies-manage.md)
 - [Ange regler för att automatiskt nivå och ta bort BLOB-data med livs cykel hantering](storage-lifecycle-management-concepts.md)
 - [Mjuk borttagning för Azure Storage-blobar](../blobs/storage-blob-soft-delete.md)
-- [Skydda prenumerationer, resurs grupper och resurser med Azure Resource Manager lås](../../azure-resource-manager/resource-group-lock-resources.md).
+- [Skydda prenumerationer, resurs grupper och resurser med Azure Resource Manager lås](../../azure-resource-manager/management/lock-resources.md).

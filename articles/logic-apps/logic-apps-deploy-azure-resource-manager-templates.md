@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 73c4c8839bd1d9e37f3dc4f0802ad5a648b1026b
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 506c518e8bdd889c585feb92f2a6baee8ba0147c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793042"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979086"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuera Azure Resource Manager mallar för Azure Logic Apps
 
@@ -21,7 +21,7 @@ När du har skapat en Azure Resource Manager mall för din Logic app kan du dist
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
-* [Azure Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Azure Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 * [Azure DevOps Azure-pipeline](#azure-pipelines)
 
 <a name="portal"></a>
@@ -41,10 +41,10 @@ Du uppmanas till exempel att ange följande information när du har loggat in p�
 * En test-URI
 * Godkännande av de angivna villkoren
 
-Mer information finns i följande avsnitt:
+Mer information finns i de här ämnena:
 
 * [Översikt: Automatisera distribution av Logic Apps med Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
-* [Distribuera resurser med Azure Resource Manager mallar och Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
+* [Distribuera resurser med Azure Resource Manager mallar och Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
 
 <a name="visual-studio"></a>
 
@@ -62,7 +62,7 @@ Använd följande kommando för att distribuera till en *Azure-resurs grupp*:
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Mer information finns i följande avsnitt:
+Mer information finns i de här ämnena:
 
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
@@ -77,9 +77,9 @@ Använd följande kommando för att distribuera till en *Azure-resurs grupp*:
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Mer information finns i följande avsnitt:
+Mer information finns i de här ämnena:
 
-* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md) 
+* [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
 
 <a name="azure-pipelines"></a>
@@ -90,8 +90,8 @@ För att distribuera Logic app-mallar och hantera miljöer använder team ofta e
 
 Mer information om kontinuerlig integrering och kontinuerlig distribution (CI/CD) för Azure Resource Manager mallar med Azure pipelines finns i följande avsnitt och exempel:
 
-* [Integrera Resource Manager-mallar med Azure-pipeline](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
-* [Självstudie: kontinuerlig integrering för Azure Resource Manager mallar med Azure-pipeline](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [Integrera Resource Manager-mallar med Azure-pipeline](../azure-resource-manager/templates/add-template-to-azure-pipelines.md)
+* [Självstudie: kontinuerlig integrering för Azure Resource Manager mallar med Azure-pipeline](../azure-resource-manager/templates/template-tutorial-use-azure-pipelines.md)
 * [Exempel: Anslut till Azure Service Bus köer från Azure Logic Apps och distribuera med Azure-pipelines i Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exempel: Anslut till Azure Storage konton från Azure Logic Apps och distribuera med Azure-pipelines i Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [Exempel: Konfigurera en Function-app-åtgärd för Azure Logic Apps och distribuera med Azure-pipelines i Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
@@ -111,11 +111,11 @@ Här följer de allmänna stegen för att använda Azure-pipeliner:
 
 1. Lägg till referenser till din Logic app-mall och mallfiler för mallar.
 
-1. Fortsätt att bygga upp stegen i versions processen för alla andra miljöer, automatiserade tester och god kännare efter behov.
+1. Fortsätt att bygga ut steg i processen för versionen för alla andra miljö, automatiserad testning och godkännare efter behov.
 
 <a name="authorize-oauth-connections"></a>
 
-## <a name="authorize-oauth-connections"></a>Auktorisera OAuth-anslutningar
+## <a name="authorize-oauth-connections"></a>Godkänna OAuth-anslutningar
 
 Efter distributionen fungerar din Logic app från slut punkt till slut punkt med giltiga parametrar. Du måste dock fortfarande auktorisera alla OAuth-anslutningar för att generera giltiga åtkomsttoken för [autentisering av dina autentiseringsuppgifter](../active-directory/develop/authentication-scenarios.md). Här är några sätt som du kan auktorisera OAuth-anslutningar:
 

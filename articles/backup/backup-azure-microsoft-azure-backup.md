@@ -3,12 +3,12 @@ title: Använda Azure Backup Server för att säkerhetskopiera arbets belastning
 description: I den här artikeln lär du dig hur du förbereder din miljö för att skydda och säkerhetskopiera arbets belastningar med hjälp av Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: db2bac3464939edc5dec2ee2947faf7a05ad6812
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172995"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979875"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -31,7 +31,7 @@ Den här artikeln förklarar hur du förbereder din miljö för att säkerhetsko
 MABS som distribueras i en virtuell Azure-dator kan säkerhetskopiera virtuella datorer i Azure, men de bör vara i samma domän för att aktivera säkerhets kopiering. Processen för att återställa en virtuell Azure-dator förblir likadan som säkerhets kopiering av virtuella datorer lokalt, men distribution av MABS i Azure har vissa begränsningar. Mer information om begränsningar finns i [DPM som en virtuell Azure-dator](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
-> Azure har två distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln innehåller information och procedurer för att återställa virtuella datorer som distribueras med Resource Manager-modellen.
+> Azure har två distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md). Den här artikeln innehåller information och procedurer för att återställa virtuella datorer som distribueras med Resource Manager-modellen.
 >
 >
 
@@ -275,7 +275,7 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
 
     Om du har lagt till nya diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du DPMSYNC-reallocateReplica
 
-## <a name="network-connectivity"></a>Nätverks anslutning
+## <a name="network-connectivity"></a>Nätverksanslutning
 
 Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda cmdleten ```Get-DPMCloudConnection``` i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
 
@@ -285,11 +285,11 @@ När du känner till statusen för Azure-anslutningen och Azure-prenumerationen 
 
 | Anslutnings tillstånd | Azure-prenumeration | Säkerhetskopiera till Azure | Säkerhetskopiera till disk | Återställa från Azure | Återställa från disk |
 | --- | --- | --- | --- | --- | --- |
-| Ansluten |Aktiv |Gett |Gett |Gett |Gett |
-| Ansluten |Upphörd |Stoppad |Stoppad |Gett |Gett |
+| Ansluten |Active |Tillåten |Tillåten |Tillåten |Tillåten |
+| Ansluten |Upphörd |Stoppad |Stoppad |Tillåten |Tillåten |
 | Ansluten |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
-| Förlorad anslutning > 15 dagar |Aktiv |Stoppad |Stoppad |Gett |Gett |
-| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Gett |Gett |
+| Förlorad anslutning > 15 dagar |Active |Stoppad |Stoppad |Tillåten |Tillåten |
+| Förlorad anslutning > 15 dagar |Upphörd |Stoppad |Stoppad |Tillåten |Tillåten |
 | Förlorad anslutning > 15 dagar |Avetableras |Stoppad |Stoppad |Stoppade och Azure-återställnings punkter har tagits bort |Stoppad |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Återställning från förlust av anslutning
@@ -341,7 +341,7 @@ Använd följande steg för att uppgradera MABS:
 4. Säkerhets kopieringarna bör fortsätta utan att du behöver starta om produktions servrarna.
 5. Du kan börja skydda dina data nu. Om du uppgraderar till Modern Backup Storage, samtidigt som du skyddar, kan du även välja de volymer som du vill lagra säkerhets kopiorna i och kontrol lera under allokerat utrymme. [Läs mer](backup-mabs-add-storage.md).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om Microsoft Azure Backup-servern Miss lyckas med fel under installations fasen (eller säkerhets kopiering eller återställning) läser du det här [fel kods dokumentet](https://support.microsoft.com/kb/3041338) för mer information.
 Du kan också läsa [Azure Backup relaterade vanliga frågor och svar](backup-azure-backup-faq.md)

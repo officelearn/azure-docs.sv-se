@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c16ec978a0689059c60903182337936960c7a4b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0ee996e39950d38b10f8df78fe47f7087c4a2ed1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707853"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981051"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-powershell"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell
 
@@ -65,7 +65,7 @@ Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
 (Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
 ```
 
-## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
 I RBAC för att bevilja åtkomst lägger du till en roll tilldelning.
 
@@ -232,4 +232,4 @@ Om du får fel meddelandet "den tillhandahållna informationen inte mappas till 
 - [Lista roll tilldelningar med hjälp av Azure RBAC och Azure PowerShell](role-assignments-list-powershell.md)
 - [Självstudie: bevilja en grupp åtkomst till Azure-resurser med RBAC och Azure PowerShell](tutorial-role-assignments-group-powershell.md)
 - [Självstudie: skapa en anpassad roll för Azure-resurser med hjälp av Azure PowerShell](tutorial-custom-role-powershell.md)
-- [Hantera resurser med Azure PowerShell](../azure-resource-manager/manage-resources-powershell.md)
+- [Hantera resurser med Azure PowerShell](../azure-resource-manager/management/manage-resources-powershell.md)

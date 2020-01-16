@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: 4132dacbb628051e674952806cb6b606ee915525
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c6ea57ac30a1b4d228a19c3be6a794b3d2175171
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644622"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973039"
 ---
 # <a name="virtual-network-traffic-routing"></a>Trafikdirigering i virtuella nätverk
 
@@ -69,7 +69,7 @@ Azure lägger till ytterligare systemstandardvägar för olika Azure-funktioner,
 * **VirtualNetworkServiceEndpoint**: De offentliga IP-adresserna för vissa tjänster läggs till i routningstabellen av Azure när du aktiverar en tjänstslutpunkt för tjänsten. Tjänstslutpunkter aktiveras för enskilda undernät i ett virtuellt nätverk, så att vägen endast läggs till i routningstabellen för ett undernät som en tjänstslutpunkt är aktiverad för. Azure-tjänsters offentliga IP-adresser ändras regelbundet. Azure hanterar adresserna i routningstabellen automatiskt när adresserna ändras. Läs mer om [tjänstslutpunkter för virtuellt nätverk](virtual-network-service-endpoints-overview.md) och för vilka tjänster du kan skapa tjänstslutpunkter.<br>
 
     > [!NOTE]
-    > De nästa hopptyperna **VNet-peering** och **VirtualNetworkServiceEndpoint** läggs endast till i undernäts routningstabeller i virtuella nätverk som skapats via distributionsmodellen Azure Resource Manager. Nästa hopptyper läggs inte till i routningstabeller som är associerade till undernät i virtuella nätverk som har skapats via den klassiska distributionsmodellen. Läs mer om Azures [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+    > De nästa hopptyperna **VNet-peering** och **VirtualNetworkServiceEndpoint** läggs endast till i undernäts routningstabeller i virtuella nätverk som skapats via distributionsmodellen Azure Resource Manager. Nästa hopptyper läggs inte till i routningstabeller som är associerade till undernät i virtuella nätverk som har skapats via den klassiska distributionsmodellen. Läs mer om Azures [distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="custom-routes"></a>Anpassade vägar
 
@@ -101,7 +101,7 @@ Du kan inte ange **VNet-peering** eller **VirtualNetworkServiceEndpoint** son n�
 
 ## <a name="next-hop-types-across-azure-tools"></a>Nästa hopp typer i Azure-verktyg
 
-Namnet som visas och refereras för nästa hopptyper är olika för Azure-portalen och kommandoradsverktyg och Azure Resource Manager och klassiska distributionsmodeller. I följande tabell visas de namn som används för att referera till varje nästa hopptyp med olika verktyg och [distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
+Namnet som visas och refereras för nästa hopptyper är olika för Azure-portalen och kommandoradsverktyg och Azure Resource Manager och klassiska distributionsmodeller. I följande tabell visas de namn som används för att referera till varje nästa hopptyp med olika verktyg och [distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
 |Nexthop-typ                   |Azure CLI och PowerShell (Resource Manager) |Azures klassiska CLI och PowerShell (klassisk)|
 |-------------                   |---------                                       |-----|

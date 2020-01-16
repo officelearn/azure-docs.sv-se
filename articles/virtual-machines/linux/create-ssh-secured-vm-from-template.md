@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e32e9f17b5c48e18453724eb683ba2e86dd0cdb
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cf440542e8b16231514447ddcddca081b4b89368
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036492"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979055"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-with-azure-resource-manager-templates"></a>Så här skapar du en virtuell Linux-dator med Azure Resource Manager mallar
 
@@ -29,7 +29,7 @@ Lär dig hur du skapar en virtuell Linux-dator med hjälp av en Azure Resource M
 
 ## <a name="templates-overview"></a>Översikt över mallar
 
-Azure Resource Manager mallar är JSON-filer som definierar infrastrukturen och konfigurationen för din Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Mer information om mallens format och hur du skapar den finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Definiera resurser i Azure Resource Manager-mallar).
+Azure Resource Manager mallar är JSON-filer som definierar infrastrukturen och konfigurationen för din Azure-lösning. Genom att använda en mall kan du distribuera lösningen flera gånger under dess livscykel och vara säker på att dina resurser distribueras konsekvent. Mer information om mallens format och hur du skapar den finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). JSON-syntaxen för resurstyper finns i [Define resources in Azure Resource Manager templates](/azure/templates/microsoft.compute/allversions) (Definiera resurser i Azure Resource Manager-mallar).
 
 ## <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358312bcbb23aee5a06eaa39898ff4e632cd8b4b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226525"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977607"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Skapa mått varningar för loggar i Azure Monitor
 
@@ -357,7 +357,7 @@ Anta att JSON-filen ovan sparas som metricfromLogsAlertStatic. JSON – sedan ka
 }
 ```
 
-Förutsatt att parameter filen ovan sparas som metricfromLogsAlertStatic. Parameters. JSON; sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Förutsatt att parameter filen ovan sparas som metricfromLogsAlertStatic. Parameters. JSON; sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternativt kan du även använda Azure PowerShell-kommandot nedan:
 
@@ -673,7 +673,7 @@ Anta att JSON-filen ovan sparas som metricfromLogsAlertDynamic. JSON – sedan k
 }
 ```
 
-Förutsatt att parameter filen ovan sparas som metricfromLogsAlertDynamic. Parameters. JSON; sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Förutsatt att parameter filen ovan sparas som metricfromLogsAlertDynamic. Parameters. JSON; sedan kan en måtta-aviseringar skapas för loggar med hjälp av [resurs mal len för att skapa i Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 Alternativt kan du även använda Azure PowerShell-kommandot nedan:
 

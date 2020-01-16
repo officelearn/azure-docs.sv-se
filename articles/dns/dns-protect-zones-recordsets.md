@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: allensu
-ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211451"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969009"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Skydda DNS-zoner och-poster
 
@@ -20,7 +20,7 @@ ms.locfileid: "74211451"
 
 DNS-zoner och-poster är kritiska resurser. Att ta bort en DNS-zon eller till och med bara en enskild DNS-post kan resultera i ett total avbrott i tjänsten.  Det är därför viktigt att kritiska DNS-zoner och poster skyddas mot obehöriga eller oavsiktliga ändringar.
 
-I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina DNS-zoner och-poster mot sådana ändringar.  Vi tillämpar två kraftfulla säkerhetsfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) och [resurs lås](../azure-resource-manager/resource-group-lock-resources.md).
+I den här artikeln förklaras hur Azure DNS hjälper dig att skydda dina DNS-zoner och-poster mot sådana ändringar.  Vi tillämpar två kraftfulla säkerhetsfunktioner som tillhandahålls av Azure Resource Manager: [rollbaserad åtkomst kontroll](../role-based-access-control/overview.md) och [resurs lås](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="role-based-access-control"></a>Rollbaserad åtkomstkontroll
 
@@ -156,9 +156,9 @@ Rollen kan sedan tilldelas på samma sätt som inbyggda roller, enligt beskrivni
 
 Mer information om hur du skapar, hanterar och tilldelar anpassade roller finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Resurs lås
+## <a name="resource-locks"></a>Resurslås
 
-Förutom RBAC har Azure Resource Manager stöd för en annan typ av säkerhets kontroll, nämligen möjligheten att låsa resurser. Om RBAC-regler tillåter att du styr åtgärderna för vissa användare och grupper, tillämpas resurs lås på resursen och gäller för alla användare och roller. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+Förutom RBAC har Azure Resource Manager stöd för en annan typ av säkerhets kontroll, nämligen möjligheten att låsa resurser. Om RBAC-regler tillåter att du styr åtgärderna för vissa användare och grupper, tillämpas resurs lås på resursen och gäller för alla användare och roller. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 Det finns två typer av resurs Lås: **CanNotDelete** och **ReadOnly**. Dessa kan användas antingen i en DNS-zon eller i en enskild post uppsättning.  I följande avsnitt beskrivs flera vanliga scenarier och hur du kan hantera dem med hjälp av resurs lås.
 
@@ -217,4 +217,4 @@ Det går att använda båda metoderna-resurs lås och anpassade roller – samti
 ## <a name="next-steps"></a>Nästa steg
 
 * Mer information om hur du arbetar med RBAC finns i [Kom igång med åtkomst hantering i Azure Portal](../role-based-access-control/overview.md).
-* Mer information om hur du arbetar med resurs lås finns i [låsa resurser med Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+* Mer information om hur du arbetar med resurs lås finns i [låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).

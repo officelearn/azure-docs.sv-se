@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: aaa67c5e48c6246e94410bdbf2eb8509b6810001
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8325b4ef6b89a76eeec418386cec4922cb5916b1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645199"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979152"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Varna och övervaka data fabriker med hjälp av Azure Monitor
 
@@ -67,7 +67,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>Rubriker
 
 * Ersätt `{api-version}` med `2016-09-01`.
-* Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/manage-resource-groups-portal.md).
+* Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Ange `Content-Type` rubriken till `application/json`.
 * Ange Authorization-huvudet till den JSON-webbtoken som du fick från Azure Active Directory (Azure AD). Mer information finns i [autentisera begär Anden](../active-directory/develop/authentication-scenarios.md).
 
@@ -188,7 +188,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ##### <a name="headers"></a>Rubriker
 
 * Ersätt `{api-version}` med `2016-09-01`.
-* Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/manage-resource-groups-portal.md).
+* Ersätt `{resource-id}` med ID för den resurs som du vill redigera diagnostikinställningar för. Mer information finns i [Använda resursgrupper för att hantera Azure-resurser](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Ange `Content-Type` rubriken till `application/json`.
 * Ange Authorization-huvudet till en JSON-webbtoken som du fick från Azure AD. Mer information finns i [autentisera begär Anden](../active-directory/develop/authentication-scenarios.md).
 
@@ -528,7 +528,7 @@ Logga in på Azure Portal och välj **övervaka** > **aviseringar** för att ska
 
 1. Välj **+ ny varnings regel** för att skapa en ny avisering.
 
-    ![Ny aviseringsregel](media/monitor-using-azure-monitor/alerts_image4.png)
+    ![Ny varningsregel](media/monitor-using-azure-monitor/alerts_image4.png)
 
 1. Definiera varnings villkoret.
 

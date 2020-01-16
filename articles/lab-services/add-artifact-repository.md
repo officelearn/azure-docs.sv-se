@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2019
 ms.author: spelluru
-ms.openlocfilehash: ff410d3767e90f92a946b72354b39f87e4f37b9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28ab6ca9b87bb00cbb7b5e329b7ff08972ba370a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429016"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979142"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Lägga till en artefakt lagrings plats i labbet i DevTest Labs
-Med DevTest Labs kan du ange en artefakt som ska läggas till i en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller efter att den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter definieras i en JSON-fil som läses in från en GitHub-eller Azure DevOps git-lagringsplats. 
+Med DevTest Labs kan du ange en artefakt som ska läggas till i en virtuell dator vid tidpunkten för att skapa den virtuella datorn eller efter att den virtuella datorn har skapats. Den här artefakten kan vara ett verktyg eller ett program som du vill installera på den virtuella datorn. Artefakter definieras i en JSON-fil som läses in från en GitHub-eller Azure DevOps git-lagringsplats.
 
 Det [offentliga artefakt lagret](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), som underhålls av DevTest Labs, innehåller många vanliga verktyg för både Windows och Linux. En länk till den här lagrings platsen läggs automatiskt till i labbet. Du kan skapa ett eget artefakt lager med specifika verktyg som inte är tillgängliga i den offentliga artefakt lagrings platsen. Information om hur du skapar anpassade artefakter finns i [skapa anpassade artefakter](devtest-lab-artifact-author.md).
 
-Den här artikeln innehåller information om hur du lägger till din anpassade artefakt lagrings plats med hjälp av Azure Portal, Azure Resource Management-mallar och Azure PowerShell. Du kan automatisera att lägga till en artefakt lagrings plats i ett labb genom att skriva PowerShell-eller CLI-skript. 
+Den här artikeln innehåller information om hur du lägger till din anpassade artefakt lagrings plats med hjälp av Azure Portal, Azure Resource Management-mallar och Azure PowerShell. Du kan automatisera att lägga till en artefakt lagrings plats i ett labb genom att skriva PowerShell-eller CLI-skript.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,11 +63,11 @@ Om du vill lägga till en lagrings plats i labbet hämtar du först viktig infor
 10. Fortsätt till avsnittet Anslut ditt labb till databasen.
 
 ## <a name="use-azure-portal"></a>Använd Azure Portal
-Det här avsnittet innehåller steg för att lägga till en artefakt lagrings plats i ett labb i Azure Portal. 
+Det här avsnittet innehåller steg för att lägga till en artefakt lagrings plats i ett labb i Azure Portal.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **fler tjänster**och välj sedan **DevTest Labs** i listan över tjänster.
-3. I listan med labb väljer du ditt labb. 
+3. I listan med labb väljer du ditt labb.
 4. Välj **konfiguration och principer** på den vänstra menyn.
 5. Avsnittet Välj **databaser** under **externa resurser** på den vänstra menyn.
 6. Välj **+ Lägg till** i verktygsfältet.
@@ -86,10 +86,10 @@ Det här avsnittet innehåller steg för att lägga till en artefakt lagrings pl
 ## <a name="use-azure-resource-manager-template"></a>Använd Azure Resource Manager-mallar
 Azure Resource Management-mallar (Azure Resource Manager) är JSON-filer som beskriver de resurser i Azure som du vill skapa. Mer information om de här mallarna finns i [redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md).
 
-Det här avsnittet innehåller steg för att lägga till en artefakt lagrings plats i ett labb med hjälp av en Azure Resource Manager mall.  Mallen skapar labbet om det inte redan finns. 
+Det här avsnittet innehåller steg för att lägga till en artefakt lagrings plats i ett labb med hjälp av en Azure Resource Manager mall.  Mallen skapar labbet om det inte redan finns.
 
 ### <a name="template"></a>Mall
-Exempel mal len som används i den här artikeln samlar in följande information via parametrar. De flesta av parametrarna har smarta standardvärden, men det finns några värden som måste anges. Du måste ange Labbets namn, URI för artefakt lagrings platsen och säkerhetstoken för lagrings platsen. 
+Exempel mal len som används i den här artikeln samlar in följande information via parametrar. De flesta av parametrarna har smarta standardvärden, men det finns några värden som måste anges. Du måste ange Labbets namn, URI för artefakt lagrings platsen och säkerhetstoken för lagrings platsen.
 
 - Labb namn.
 - Visnings namn för artefakt lagrings platsen i användar gränssnittet för DevTest Labs (UI). Standardvärdet är: `Team Repository`.
@@ -97,11 +97,11 @@ Exempel mal len som används i den här artikeln samlar in följande information
 - Gren i lagrings platsen som innehåller artefakter. Standardvärdet är: `master`.
 - Namnet på den mapp som innehåller artefakter. Standardvärdet är: `/Artifacts`.
 - Typ av lagrings plats. Tillåtna värden är `VsoGit` eller `GitHub`.
-- Åtkomsttoken för lagrings platsen. 
+- Åtkomsttoken för lagrings platsen.
 
     ```json
     {
-    
+
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
         "parameters": {
@@ -167,10 +167,10 @@ Exempel mal len som används i den här artikeln samlar in följande information
 ### <a name="deploy-the-template"></a>Distribuera mallen
 Det finns några sätt att distribuera mallen till Azure och låta resursen skapas, om den inte finns eller uppdateras, om den finns. Mer information finns i följande artiklar:
 
-- [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
-- [Distribuera resurser med Resource Manager-mallar och Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
-- [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
+- [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md)
+- [Distribuera resurser med Resource Manager-mallar och Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
+- [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 
 Nu ska vi gå vidare och se hur du distribuerar mallen i PowerShell. Cmdletar som används för att distribuera mallen är Sammanhangs beroende, så aktuell klient och aktuell prenumeration används. Använd [set-AzContext](/powershell/module/az.accounts/set-azcontext) innan du distribuerar mallen, om det behövs, för att ändra kontexten.
 
@@ -191,8 +191,8 @@ New-AzResourceGroupDeployment `
 ```
 
 När New-AzResourceGroupDeployment-körningen är klar, skriver kommandot ut viktig information, till exempel etablerings status (bör utföras) och eventuella utdata för mallen.
- 
-## <a name="use-azure-powershell"></a>Använd Azure PowerShell 
+
+## <a name="use-azure-powershell"></a>Använd Azure PowerShell
 Det här avsnittet innehåller ett exempel på ett PowerShell-skript som kan användas för att lägga till en artefakt lagrings plats i ett labb. Om du inte har Azure PowerShell kan du läsa mer i [så här installerar och konfigurerar du Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) detaljerade anvisningar för att installera det.
 
 ### <a name="full-script"></a>Fullständigt skript
@@ -211,7 +211,7 @@ This script creates a new custom repository and adds it to an existing DevTest L
 The name of the lab.
 
 .PARAMETER LabResourceGroupName
-The name of the resource group that contains the lab. 
+The name of the resource group that contains the lab.
 
 .PARAMETER ArtifactRepositoryName
 Name for the new artifact repository.
@@ -246,7 +246,7 @@ Script uses the current Az context. To set the context, use the Set-AzContext cm
 
 #>
 
- 
+
 [CmdletBinding()]
 Param(
 
@@ -262,10 +262,10 @@ Param(
     $RepositoryUri,
     $RepositoryBranch = 'master',
     $FolderPath = '/Artifacts',
-    
+
     [Parameter(Mandatory=$true)]
     $PersonalAccessToken ,
-    
+
     [Parameter(Mandatory=$true)]
     [ValidateSet('VsoGit', 'GitHub')]
     $SourceType
@@ -310,7 +310,7 @@ $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
 $resourceName = $LabName + '/' + $ArtifactRepositoryName
 Write-Verbose "Az ResourceType: $resourcetype"
 Write-Verbose "Az ResourceName: $resourceName"
- 
+
 Write-Verbose "Creating artifact repository '$ArtifactRepositoryDisplayName'..."
 $result = New-AzResource -Location $LabResource.Location -ResourceGroupName $LabResource.ResourceGroupName -properties $propertiesObject -ResourceType $resourcetype -ResourceName $resourceName -ApiVersion 2016-05-15 -Force
 
@@ -336,7 +336,7 @@ return $result
 ```
 
 ### <a name="run-the-powershell-script"></a>Kör PowerShell-skriptet
-I följande exempel visas hur du kör skriptet: 
+I följande exempel visas hur du kör skriptet:
 
 ```powershell
 Set-AzContext -SubscriptionId <Your Azure subscription ID>
@@ -348,13 +348,13 @@ Set-AzContext -SubscriptionId <Your Azure subscription ID>
 ### <a name="parameters"></a>Parametrar
 Exemplet på PowerShell-skriptet i den här artikeln tar följande parametrar:
 
-| Parameter | Beskrivning | 
-| --------- | ----------- | 
+| Parameter | Beskrivning |
+| --------- | ----------- |
 | LabName | Labbets namn. |
 | ArtifactRepositoryName | Namn på den nya artefakt lagrings platsen. Skriptet skapar ett slumpmässigt namn för lager om det inte har angetts. |
 | ArtifactRepositoryDisplayName | Visnings namn för artefakt lagrings platsen. Detta är det namn som visas i Azure Portal (https://portal.azure.com) när du visar alla artefakt Arkiv för ett labb. |
-| RepositoryUri | URI till lagrings platsen. Exempel: `https://github.com/<myteam>/<nameofrepo>.git` eller `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.| 
-| RepositoryBranch | Gren där artefakt filen kan hittas. Standardvärdet är Master. | 
+| RepositoryUri | URI till lagrings platsen. Exempel: `https://github.com/<myteam>/<nameofrepo>.git` eller `"https://MyProject1.visualstudio.com/DefaultCollection/_git/TeamArtifacts"`.|
+| RepositoryBranch | Gren där artefakt filen kan hittas. Standardvärdet är Master. |
 | FolderPath | Mapp som artefakter kan hittas under. Standardvärdet är "/Artifacts" |
 | PersonalAccessToken | Säkerhetstoken för åtkomst till GitHub-eller VSOGit-lagringsplatsen. Instruktioner för att hämta personlig åtkomsttoken finns i avsnittet krav. |
 | sourceType | Om artefakt är VSOGit-eller GitHub-lagringsplats. |
@@ -377,13 +377,13 @@ if ($ArtifactRepositoryName -eq $null){
 
 Skriptet lägger till en ny resurs i den aktuella prenumerationen. Använd [Get-AzContext](/powershell/module/az.accounts/get-azcontext) för att visa den här informationen. Använd [set-AzContext](/powershell/module/az.accounts/set-azcontext) för att ställa in den aktuella klienten och prenumerationen.
 
-Det bästa sättet att identifiera resurs namn och resurs typs information är att använda [test enheten Azure REST API: er](https://azure.github.io/projects/apis/) . Kolla in [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) -providern för att se tillgängliga REST-API: er för DevTest Labs-providern. Skriptet användare följande resurs-ID. 
+Det bästa sättet att identifiera resurs namn och resurs typs information är att använda [test enheten Azure REST API: er](https://azure.github.io/projects/apis/) . Kolla in [DevTest Labs – 2016-05-15](https://aka.ms/dtlrestapis) -providern för att se tillgängliga REST-API: er för DevTest Labs-providern. Skriptet användare följande resurs-ID.
 
 ```powershell
 "/subscriptions/$SubscriptionId/resourceGroups/$($LabResource.ResourceGroupName)/providers/Microsoft.DevTestLab/labs/$LabName/artifactSources/$ArtifactRepositoryName"
 ```
- 
-Resurs typen är allt som anges efter "providers" i URI: n, förutom objekt som listas inom klammerparenteserna. Resurs namnet är allt som visas inom klammerparenteserna. Om fler än ett objekt förväntas för resurs namnet avgränsar du varje objekt med ett snedstreck som vi har gjort. 
+
+Resurs typen är allt som anges efter "providers" i URI: n, förutom objekt som listas inom klammerparenteserna. Resurs namnet är allt som visas inom klammerparenteserna. Om fler än ett objekt förväntas för resurs namnet avgränsar du varje objekt med ett snedstreck som vi har gjort.
 
 ```powershell
 $resourcetype = 'Microsoft.DevTestLab/labs/artifactSources'
@@ -395,4 +395,3 @@ $resourceName = $LabName + '/' + $ArtifactRepositoryName
 - [Ange obligatoriska artefakter för ditt labb i Azure DevTest Labs](devtest-lab-mandatory-artifacts.md)
 - [Skapa anpassade artefakter för den virtuella DevTest Labs-datorn](devtest-lab-artifact-author.md)
 - [Diagnostisera artefakt fel i labbet](devtest-lab-troubleshoot-artifact-failure.md)
-

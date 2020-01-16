@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: fb0a71a650a8c36d4da962adaf3f1f314c30d4c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764975"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979997"
 ---
 # <a name="security-in-azure-database-for-mysql"></a>Säkerhet i Azure Database for MySQL
 
@@ -37,6 +37,8 @@ Regler för IP-brandvägg ger åtkomst till servrar baserat på den ursprungliga
 ### <a name="virtual-network-firewall-rules"></a>Brandväggsregler för virtuella nätverk
 Tjänst slut punkter i virtuella nätverk utökar din virtuella nätverks anslutning via Azure-stamnätet. Med hjälp av regler för virtuella nätverk kan du aktivera Azure Database for MySQL servern för att tillåta anslutningar från valda undernät i ett virtuellt nätverk. Mer information finns i [Översikt över Virtual Network Service-slutpunkt](concepts-data-access-and-security-vnet.md).
 
+### <a name="private-ip"></a>Privat IP
+Med privat länk kan du ansluta till din Azure Database for MySQL i Azure via en privat slut punkt. Azures privata länk placerar Azure-tjänster i ditt privata Virtual Network (VNet). PaaS-resurser kan nås med hjälp av den privata IP-adressen precis som vilken annan resurs som helst i VNet. Mer information finns i [Översikt över privata länkar](concepts-data-access-security-private-link.md)
 
 ## <a name="access-management"></a>Åtkomsthantering
 

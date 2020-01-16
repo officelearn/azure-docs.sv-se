@@ -2,18 +2,20 @@
 title: Program scenarier och design
 description: Översikt över kategorier av moln program i Service Fabric. Diskuterar program design som använder tillstånds känsliga och tillstånds lösa tjänster.
 ms.topic: conceptual
-ms.date: 4/24/2019
-ms.openlocfilehash: bdbbf81186463e1f645738b370662de9c13f5c17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/08/2020
+ms.custom: sfrev
+ms.openlocfilehash: 0aeb8ab2923915befdd11f96025687be3b3c4ff9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464909"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024736"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric program scenarier
-Azure Service Fabric erbjuder en tillförlitlig och flexibel plattform där du kan skriva och köra många typer av affärs program och tjänster. Dessa program och mikrotjänster kan vara tillstånds lösa eller tillstånds känsliga och de är resurs Utjämnings bara på virtuella datorer för att maximera effektiviteten. 
 
-Den unika arkitekturen i Service Fabric gör det möjligt att utföra data analyser i nära real tid, i minnes beräkning, parallella transaktioner och händelse bearbetning i dina program. Du kan enkelt skala dina program uppåt eller nedåt (i själva verket), beroende på vilka resurs krav som ändras.
+Azure Service Fabric erbjuder en tillförlitlig och flexibel plattform där du kan skriva och köra många typer av affärs program och tjänster. Dessa program och mikrotjänster kan vara tillstånds lösa eller tillstånds känsliga och de är resurs Utjämnings bara på virtuella datorer för att maximera effektiviteten.
+
+Den unika arkitekturen i Service Fabric gör det möjligt att utföra data analyser i nära real tid, i minnes beräkning, parallella transaktioner och händelse bearbetning i dina program. Du kan enkelt skala dina program i eller ut beroende på vilka resurs krav som ändras.
 
 Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjänster på Azure Service Fabric](https://docs.microsoft.com/azure/architecture/reference-architectures/microservices/service-fabric) och [metod tips för program design med hjälp av Service Fabric](service-fabric-best-practices-applications.md).
 
@@ -33,8 +35,8 @@ Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjäns
 
 * **Beräkning av data**: Service Fabric gör att du kan skapa tillstånds känsliga program som utför intensiv data beräkning. Service Fabric tillåter samplaceringen av bearbetning (beräkning) och data i program. 
 
-   Normalt när ditt program kräver åtkomst till data, begränsar nätverks svars tiden som är associerad med en extern datacache eller lagrings nivå beräknings tiden. Tillstånds känsliga Service Fabric tjänster eliminerar den svars tiden, vilket möjliggör mer optimerade läsningar och skrivningar. 
-   
+   Normalt när ditt program kräver åtkomst till data, begränsar nätverks svars tiden som är associerad med en extern datacache eller lagrings nivå beräknings tiden. Tillstånds känsliga Service Fabric tjänster eliminerar den svars tiden, vilket möjliggör mer optimerade läsningar och skrivningar.
+
    Anta till exempel ett program som utför rekommendationer i nära real tid för kunder, med ett tids krav för fördröjning på mindre än 100 millisekunder. Svars tiderna och prestanda egenskaperna för Service Fabric Services ger en svars upplevelse för användaren, jämfört med standard implementerings modellen för att hämta nödvändiga data från Fjärrlagring. Systemet svarar bättre eftersom beräkningen av rekommendations valet samplaceras med data och regler.
 
     Kunder som har skapat beräknings tjänster omfattar [Solidsoft Reply](https://customers.microsoft.com/story/solidsoft-reply-platform-powers-e-verification-of-pharmaceuticals) och [Infosupport](https://customers.microsoft.com/story/service-fabric-customer-profile-info-support-and-fudura).
@@ -44,16 +46,18 @@ Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjäns
 * **Skalbara tjänster**: enskilda tjänster kan partitioneras, så att tillstånd kan skalas ut över klustret. Enskilda tjänster kan också skapas och tas bort i farten. Du kan skala ut tjänster från några få instanser på flera noder till tusentals instanser på många noder och sedan skala dem igen om det behövs. Du kan använda Service Fabric för att bygga dessa tjänster och hantera hela livs cykeln.
 
 ## <a name="application-design-case-studies"></a>Fallstudier för program design
-Fallstudier som visar hur Service Fabric används för att utforma program publiceras i [kundernas berättelser](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=0&so=story_publish_date%20desc/) och [mikrotjänster på Azure](https://azure.microsoft.com/solutions/microservice-applications/) -platser.
+
+Fallstudier som visar hur Service Fabric används för att utforma program publiceras i [kundernas berättelser](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=2&so=story_publish_date%20desc) och [mikrotjänster på Azure](https://azure.microsoft.com/solutions/microservice-applications/) -platser.
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Utforma program som består av tillstånds lösa och tillstånds känsliga mikrotjänster
-Att skapa program med Azure Cloud Services Worker-roller är ett exempel på en tillstånds lös tjänst. Tillstånds känsliga mikrotjänster upprätthåller däremot sitt auktoritativa tillstånd bortom begäran och dess svar. Den här funktionen ger hög tillgänglighet och konsekvens för tillstånd via enkla API: er som tillhandahåller transaktionella garantier som backas upp av replikeringen. 
+
+Att skapa program med Azure Cloud Services Worker-roller är ett exempel på en tillstånds lös tjänst. Tillstånds känsliga mikrotjänster upprätthåller däremot sitt auktoritativa tillstånd bortom begäran och dess svar. Den här funktionen ger hög tillgänglighet och konsekvens för tillstånd via enkla API: er som tillhandahåller transaktionella garantier som backas upp av replikeringen.
 
 Tillstånds känsliga tjänster i Service Fabric ger hög tillgänglighet till alla typer av program, inte bara databaser och andra data lager. Detta är en naturlig förloppet. Program har redan flyttats från att använda rent Relations databaser för hög tillgänglighet till NoSQL-databaser. Programmen kan nu ha sina "varma" tillstånd och data som hanteras i dem för ytterligare prestanda vinster utan att kompromissa med tillförlitlighet, konsekvens eller tillgänglighet.
 
 När du skapar program som består av mikrotjänster har du vanligt vis en kombination av tillstånds lösa webbappar (t. ex. ASP.NET och Node. js) som anropar tillstånds lösa och tillstånds känsliga tjänster mellan nivåer. Appar och tjänster distribueras i samma Service Fabric-kluster via Service Fabric distributions kommandon. Var och en av dessa tjänster är oberoende av hänsyn till skalning, tillförlitlighet och Resursanvändning. Detta oberoende förbättrar flexibiliteten och flexibiliteten vid utveckling och livs cykel hantering.
 
-Tillstånds känsliga mikrotjänster fören klar programdesignerna eftersom de tar bort behovet av de ytterligare köer och cacheminnen som traditionellt har varit nödvändiga för att hantera tillgänglighets-och latens kraven för rent tillstånds lösa program. Eftersom tillstånds känsliga tjänster har hög tillgänglighet och låg latens, finns det färre detaljer att hantera i ditt program. 
+Tillstånds känsliga mikrotjänster fören klar programdesignerna eftersom de tar bort behovet av de ytterligare köer och cacheminnen som traditionellt har varit nödvändiga för att hantera tillgänglighets-och latens kraven för rent tillstånds lösa program. Eftersom tillstånds känsliga tjänster har hög tillgänglighet och låg latens, finns det färre detaljer att hantera i ditt program.
 
 Följande diagram illustrerar skillnaderna mellan att utforma ett program som är tillstånds löst och ett tillstånds känsligt. Genom att dra nytta av [Reliable Services](service-fabric-reliable-services-introduction.md) och [Reliable Actors](service-fabric-reliable-actors-introduction.md) programmerings modeller, minskar tillstånds känsliga tjänster program komplexiteten och ger stora data flöden och låg latens.
 
@@ -63,18 +67,16 @@ Här är ett exempel program som använder tillstånds känsliga tjänster: ![pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [mönster och scenarier](service-fabric-patterns-and-scenarios.md).
-
 * Kom igång med att skapa tillstånds lösa och tillstånds känsliga tjänster med Service Fabric [Reliable Services](service-fabric-reliable-services-quick-start.md) och [Reliable Actors](service-fabric-reliable-actors-get-started.md) programmerings modeller.
 * Besök Azure Architecture Center för att få hjälp med att [skapa mikrotjänster på Azure](https://docs.microsoft.com/azure/architecture/microservices/).
 * Gå till [Azure Service Fabric program och kluster metod tips](service-fabric-best-practices-overview.md) för vägledning för program design.
 
-* Se också följande avsnitt:
-  * [Berätta om mikrotjänster](service-fabric-overview-microservices.md)
+* Se även:
+  * [Förstå mikrotjänster](service-fabric-overview-microservices.md)
   * [Definiera och hantera tjänst tillstånd](service-fabric-concepts-state.md)
-  * [Tillgänglighet för Service Fabric tjänster](service-fabric-availability-services.md)
-  * [Skala Service Fabric tjänster](service-fabric-concepts-scalability.md)
-  * [Partitionera Service Fabric tjänster](service-fabric-concepts-partitioning.md)
+  * [Tillgänglighet för tjänster](service-fabric-availability-services.md)
+  * [Skala tjänster](service-fabric-concepts-scalability.md)
+  * [Partition tjänster](service-fabric-concepts-partitioning.md)
 
 [Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
 [Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

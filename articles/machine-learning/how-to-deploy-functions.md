@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 77e23467551df8d72fd999049c490600eff11825
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 00a62e970e27d689eb639a62938376f73410c270
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763653"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024904"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuera en maskin inlärnings modell till Azure Functions (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -156,27 +156,35 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     > [!IMPORTANT]
     > Avbildningar som skapats av Azure Machine Learning använda Linux, så du måste använda `--is-linux`-parametern.
 
-1. Använd följande kommando för att skapa en Function-app. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare:
-
-    ```azurecli-interactive
-    az storage account create --name 
-    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename>
-    ```
-
-    > [!IMPORTANT]
-    > Nu har Function-appen skapats. Men eftersom du inte har angett anslutnings strängen för BLOB-utlösaren eller autentiseringsuppgifterna till Azure Container Registry som innehåller avbildningen, är funktions programmet inte aktivt. I nästa steg anger du anslutnings strängen och autentiseringsinformationen för behållar registret. 
-
-1. Skapa lagrings kontot som ska användas som utlösare och hämta dess anslutnings sträng.
+1. Skapa lagrings kontot som ska användas för webb jobbets lagring och hämta dess anslutnings sträng. Ersätt `<webjobStorage>` med det namn som du vill använda.
 
     ```azurecli-interactive
     az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
-    az storage account show-connection-string --resource-group myresourcegroup --name triggerStorage --query connectionString --output tsv
+    az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
+    ```
+
+1. Använd följande kommando för att skapa en Function-app. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagename>` med värdena från returnerade `package.location` tidigare. Ersätt Ersätt `<webjobStorage>` med namnet på lagrings kontot från föregående steg:
+
+    ```azurecli-interactive
+    az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
+    ```
+
+    > [!IMPORTANT]
+    > Nu har Function-appen skapats. Men eftersom du inte har angett anslutnings strängen för BLOB-utlösaren eller autentiseringsuppgifterna till Azure Container Registry som innehåller avbildningen, är funktions programmet inte aktivt. I nästa steg anger du anslutnings strängen och autentiseringsinformationen för behållar registret. 
+
+1. Skapa lagrings kontot som ska användas för BLOB trigger Storage och hämta dess anslutnings sträng. Ersätt `<triggerStorage>` med det namn som du vill använda.
+
+    ```azurecli-interactive
+    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    ```
+    ```azurecli-interactive
+    az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
     Registrera den här anslutnings strängen för att tillhandahålla Function-appen. Vi kommer att använda den senare när vi ber om `<triggerConnectionString>`
 
-1. Skapa behållarna för indata och utdata i lagrings kontot. 
+1. Skapa behållarna för indata och utdata i lagrings kontot. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare:
 
     ```azurecli-interactive
     az storage container create -n input --connection-string <triggerConnectionString>
@@ -185,12 +193,17 @@ När `show_output=True`visas utdata från Docker-build-processen. När processen
     az storage container create -n output --connection-string <triggerConnectionString>
     ```
 
-1. Du måste hämta taggen som är kopplad till den skapade behållaren med följande kommando:
+1. Om du vill associera anslutnings strängen för utlösaren med Function-appen använder du följande kommando. Ersätt `<app-name>` med namnet på Function-appen. Ersätt `<triggerConnectionString>` med den anslutnings sträng som returnerades tidigare:
+
+    ```azurecli-interactive
+    az functionapp config appsettings set --name <app-name> --resource-group myresourcegroup --settings "TriggerConnectionString=<triggerConnectionString>"
+    ```
+1. Du måste hämta taggen som är associerad med den skapade behållaren med hjälp av följande kommando. Ersätt `<username>` med det användar namn som returnerades tidigare från behållar registret:
 
     ```azurecli-interactive
     az acr repository show-tags --repository package --name <username> --output tsv
     ```
-    Den senaste taggen som visas är `imagetag` nedan.
+    Spara värdet som returneras, används som `imagetag` i nästa steg.
 
 1. Använd följande kommando för att tillhandahålla funktionen appen med de autentiseringsuppgifter som krävs för att komma åt behållar registret. Ersätt `<app-name>` med det namn som du vill använda. Ersätt `<acrinstance>` och `<imagetag>` med värdena från AZ CLI-anropet i föregående steg. Ersätt `<username>` och `<password>` med ACR-inloggnings informationen som hämtades tidigare:
 

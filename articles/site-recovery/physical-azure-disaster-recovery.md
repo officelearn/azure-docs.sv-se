@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a298505779def353834c294f7b5a406720fdd46c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 2f92c2b800c6d30cc5f365e6d24925a70d3db55a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936172"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980317"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Konfigurera katastrof återställning till Azure för lokala fysiska servrar
 
-[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och Azure virtuella datorer.
+[Azure Site Recovery](site-recovery-overview.md)-tjänsten bidrar till din strategi för haveriberedskap genom att hantera och samordna replikering, redundans och återställning av fysiska servrar och virtuella Azure-datorer.
 
-Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här självstudiekursen får du lära du dig att:
+Den här självstudien visar hur du konfigurerar haveri beredskap för lokala fysiska Windows-och Linux-servrar till Azure. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera Azure och lokala krav
@@ -71,9 +71,9 @@ Konfigurera ett [Azure-nätverk](../virtual-network/quick-create-portal.md).
 - Nätverket ska finnas i samma region som Recovery Services-valvet
 
 
-## <a name="set-up-an-azure-storage-account"></a>Skapa ett Azure-lagringskonto
+## <a name="set-up-an-azure-storage-account"></a>Konfigurera ett Azure Storage-konto
 
-Konfigurera ett [Azure Storage-konto](../storage/common/storage-quickstart-create-account.md).
+Konfigurera ett [Azure Storage-konto](../storage/common/storage-account-create.md).
 
 - Site Recovery replikerar lokala datorer till Azure Storage. Virtuella Azure-datorer skapas från lagrings platsen när redundansväxlingen sker.
 - Lagringskontot måste finnas i samma region som Recovery Services-valvet.
@@ -146,7 +146,7 @@ Välj och kontrollera målresurserna.
 2. Ange mål distributions modell.
 3. Site Recovery kontrollerar att du har ett eller flera kompatibla Azure-lagringskonton och Azure-nätverk.
 
-   ![Mål](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Målinrikta](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Skapa replikeringsprincip
@@ -178,7 +178,7 @@ Aktivera replikering för varje server.
 7. Välj det Azure-nätverk och undernät som virtuella Azure-datorer ska ansluta till efter en redundansväxling.
 8. Välj **Konfigurera nu för valda datorer** om du vill använda nätverksinställningen på alla datorer som du väljer att skydda. Välj **Konfigurera senare** om du vill välja Azure-nätverket för varje dator. 
 9. I **fysiska datorer**och klicka på **+ fysisk dator**. Ange namn och IP-adress. Välj operativ system för den dator som du vill replikera. Det tar några minuter för servrarna att identifieras och visas. 
-10. I **egenskaper** > **Konfigurera egenskaper**väljer du det konto som ska användas av processervern för att automatiskt installera mobilitets tjänsten på datorn.
+10. I **Egenskaper** > **Konfigurera egenskaper** väljer du det konto som ska användas av processervern till att automatiskt installera mobilitetstjänsten på datorn.
 11. I **Replikeringsinställningar** > **Konfigurera replikeringsinställningar** kontrollerar du att rätt replikeringsprincip har valts. 
 12. Klicka på **Aktivera replikering**. Du kan följa förloppet för jobbet **Aktivera skydd** i **Inställningar** > **Jobb** > **Site Recovery-jobb**. När jobbet **Slutför skydd** har körts är datorn redo för redundans.
 

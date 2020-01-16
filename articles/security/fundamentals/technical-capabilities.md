@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: 41289110049a7f907b76c8f9a8b2d9dc850f201c
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a8dd859b05c3e95a1c584a7947334dad25813122
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75707211"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970658"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -499,7 +499,7 @@ Resource Manager har flera fördelar:
 - Du kan tydliggöra din organisations fakturering genom att visa kostnaderna för en grupp av resurser som delar samma tagg.
 
 > [!Note]
-> Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributions modellen och vill lära dig mer om ändringarna, se [förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md).
+> Resource Manager erbjuder ett nytt sätt att distribuera och hantera lösningar. Om du använde den tidigare distributions modellen och vill lära dig mer om ändringarna, se [förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

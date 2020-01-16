@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 471a7f288cec980e73ab10c8233ea38511acdd8b
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1c6b7cfbf193f02598052b6922efec17fb16ec83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942324"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973697"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replikera virtuella Azure-datorer till en annan Azure-region
 
@@ -62,7 +62,7 @@ Aktivera replikering. Den här proceduren förutsätter att den primära Azure-r
      >[!NOTE]
      >Du kan inte ändra tillgänglighetstypen enskild instans, tillgänglighetsuppsättningen eller tillgänglighetszonen efter att du har aktiverat replikering. Du måste inaktivera och aktivera replikering för att ändra tillgänglighetstypen.
      >
-    
+
    - **Replikeringsprincip**: den definierar inställningarna för kvarhållning av återställnings punkts historik och frekvens för programkonsekventa ögonblicks bilder. Som standard skapar Azure Site Recovery en ny replikeringsprincip med standardinställningar på 24 timmar för kvarhållning av återställnings punkter och 4 timmar för en konsekvent frekvens för programkonsekventa ögonblicks bilder.
 
      ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
@@ -74,7 +74,7 @@ Om du lägger till diskar till en virtuell Azure-dator för vilken replikering �
 -   Om du aktiverar skydd för de tillagda diskarna försvinner varningen efter den inledande replikeringen av disken.
 -   Om du väljer att inte aktivera replikering för disken kan du välja att ignorera varningen.
 
-    
+
     ![Ny disk har lagts till](./media/azure-to-azure-how-to-enable-replication/newdisk.png)
 
 Gör så här om du vill aktivera replikering för en tillagd disk:
@@ -88,7 +88,7 @@ Gör så här om du vill aktivera replikering för en tillagd disk:
 När jobbet aktivera replikering har körts och den inledande replikeringen har slutförts, tas varningen för replikeringen bort från disk problemet.
 
 
-  
+
 ## <a name="customize-target-resources"></a>Anpassa mål resurser
 
 Du kan ändra inställningarna för standard mål som används av Site Recovery.
@@ -112,7 +112,7 @@ Du kan ändra inställningarna för standard mål som används av Site Recovery.
     - Se till att det inte finns någon brand Väggs utrustning som blockerar den interna kommunikationen mellan de virtuella datorerna via port 20004.
     - Om du vill att virtuella Linux-datorer ska ingå i en replikeringsgrupp ser du till att utgående trafik på port 20004 öppnas manuellt enligt vägledning för den aktuella Linux-versionen.
 ![Aktivera replikering](./media/site-recovery-replicate-azure-to-azure/multivmsettings.PNG)
-    
+
 5. Klicka på **skapa mål resurs** > **Aktivera replikering**.
 6. När de virtuella datorerna har Aktiver ATS för replikering kan du kontrol lera statusen för VM-hälsa under **replikerade objekt**
 

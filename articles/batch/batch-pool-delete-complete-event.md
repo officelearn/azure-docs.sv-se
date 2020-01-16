@@ -2,7 +2,7 @@
 title: Slutför händelse för borttagning av Azure Batch pool | Microsoft Docs
 description: Referens för händelsen borttagning av batch-pool slutförs.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: 9bf50bd19ca3f4316c4c2ddbcdd3333745ebefd7
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: bcbfe009e2880c0155a067305cc28317678cbfa6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258551"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026691"
 ---
 # <a name="pool-delete-complete-event"></a>Sluthändelse för borttagning av pool
 
@@ -32,11 +32,11 @@ ms.locfileid: "70258551"
 }
 ```
 
-|Element|type|Anteckningar|
+|Element|Typ|Anteckningar|
 |-------------|----------|-----------|
-|`id`|Sträng|Poolens ID.|
+|`id`|String|Poolens ID.|
 |`startTime`|DateTime|Tiden då poolen börjar tas bort.|
 |`endTime`|DateTime|Tiden då poolen togs bort.|
 
-## <a name="remarks"></a>Kommentarer
+## <a name="remarks"></a>Anmärkningar
 Mer information om tillstånd och felkoder för att ändra storlek på pooler finns i [ta bort en pool från ett konto](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).

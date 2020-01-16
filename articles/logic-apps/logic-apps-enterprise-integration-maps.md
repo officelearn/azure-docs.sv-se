@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 3e510cc4073a4b0075cdaeb80091657dbee93fcb
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792483"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979411"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformera XML med Maps i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -38,7 +38,7 @@ För begränsningar som rör integrations konton och artefakter som Maps, se [gr
 
     | Objekt | Beskrivning |
     |------|-------------|
-    | [Azure Storage-konto](../storage/common/storage-account-overview.md) | Skapa en Azure Blob-behållare för din sammansättning i det här kontot. Lär dig [hur du skapar ett lagrings konto](../storage/common/storage-quickstart-create-account.md). |
+    | [Azure Storage-konto](../storage/common/storage-account-overview.md) | Skapa en Azure Blob-behållare för din sammansättning i det här kontot. Lär dig [hur du skapar ett lagrings konto](../storage/common/storage-account-create.md). |
     | Blobcontainer | I den här behållaren kan du ladda upp din sammansättning. Du behöver också den här behållarens plats när du lägger till sammansättningen i integrations kontot. Lär dig hur du [skapar en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md). |
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Med det här verktyget kan du enklare hantera lagrings konton och blob-behållare. Om du vill använda Storage Explorer [laddar du ned och installerar Azure Storage Explorer](https://www.storageexplorer.com/). Anslut sedan Storage Explorer till ditt lagrings konto genom att följa stegen i [komma igång med Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). Mer information finns i [snabb start: skapa en BLOB i objekt lagring med Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Du kan också söka efter och välja ditt lagrings konto i Azure Portal. Från menyn lagrings konto väljer du **Storage Explorer**. |
     |||
@@ -51,7 +51,7 @@ Du behöver inte en logisk app när du skapar och lägger till Maps. Men om du v
 
 ## <a name="add-referenced-assemblies"></a>Lägg till refererade sammansättningar
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på [Azure Portal](https://portal.azure.com) med dina Azure-kontoautentiseringsuppgifter.
 
 1. Om du vill söka efter och öppna ditt integrations konto väljer du **alla tjänster**på huvud menyn i Azure. 
    I rutan Sök anger du "integrations konto". 

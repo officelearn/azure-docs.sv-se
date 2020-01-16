@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 01/29/2018
 ms.author: tagore
-ms.openlocfilehash: 096077550a426d7eb77ed0d71e720149dd103a55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61c794ba03934ae1828ba310f3f776bfb61b652b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386076"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972946"
 ---
 # <a name="introduction-to-cloud-service-monitoring"></a>Introduktion till moln tjänst övervakning
 
@@ -52,7 +52,7 @@ När varje roll skapas lägger Visual Studio till Azure-diagnostik-tillägget ti
 
 ## <a name="setup-diagnostics-extension"></a>Konfigurera diagnostik-tillägg
 
-Börja med att [skapa ett](../storage/common/storage-quickstart-create-account.md) **klassiskt** lagrings konto om du inte har det. Kontrol lera att lagrings kontot har skapats med den **klassiska distributions modellen** angiven.
+Börja med att [skapa ett](../storage/common/storage-account-create.md) **klassiskt** lagrings konto om du inte har det. Kontrol lera att lagrings kontot har skapats med den **klassiska distributions modellen** angiven.
 
 Gå sedan till **lagrings konto resursen (klassisk)** . Välj **inställningar** > **åtkomst nycklar** och kopiera värdet för **primär anslutnings sträng** . Du behöver det här värdet för moln tjänsten. 
 

@@ -6,20 +6,20 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 62e0c9bbf8b1c7cef9b1cc239810cb554b5ffa45
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433542"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972132"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
 
 > [!NOTE]
 > Mer information om hur du konfigurerar och använder Premium cache-funktioner finns i [Konfigurera persistence](cache-how-to-premium-persistence.md), [Konfigurera klustring](cache-how-to-premium-clustering.md)och [Konfigurera Virtual Network support](cache-how-to-premium-vnet.md).
-> 
-> 
+>
+>
 
 ## <a name="configure-azure-cache-for-redis-settings"></a>Konfigurera Azure cache för Redis-inställningar
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-browse.md)]
@@ -68,7 +68,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
 
 ### <a name="activity-log"></a>Aktivitetslogg
 
-Klicka på **aktivitets logg** för att Visa åtgärder som utförts i cacheminnet. Du kan också använda filtrering för att expandera den här vyn för att inkludera andra resurser. Mer information om hur du arbetar med gransknings loggar finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md). Mer information om övervakning av Azure cache för Redis-händelser finns i [åtgärder och aviseringar](cache-how-to-monitor.md#operations-and-alerts).
+Klicka på **aktivitets logg** för att Visa åtgärder som utförts i cacheminnet. Du kan också använda filtrering för att expandera den här vyn för att inkludera andra resurser. Mer information om hur du arbetar med gransknings loggar finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md). Mer information om övervakning av Azure cache för Redis-händelser finns i [åtgärder och aviseringar](cache-how-to-monitor.md#operations-and-alerts).
 
 ### <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
 
@@ -76,7 +76,7 @@ Avsnittet **åtkomst kontroll (IAM)** ger stöd för rollbaserad åtkomst kontro
 
 ### <a name="tags"></a>Taggar
 
-I avsnittet **taggar** kan du organisera dina resurser. Mer information finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/resource-group-using-tags.md).
+I avsnittet **taggar** kan du organisera dina resurser. Mer information finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/management/tag-resources.md).
 
 
 ### <a name="diagnose-and-solve-problems"></a>Diagnostisera och lösa problem
@@ -149,8 +149,8 @@ En sak att tänka på när du väljer ett nytt minnes reservations värde (**max
 
 > [!IMPORTANT]
 > De **maxmemory-reserverade** och **maxfragmentationmemory** inställningarna är bara tillgängliga för cacheminnen standard och Premium.
-> 
-> 
+>
+>
 
 #### <a name="keyspace-notifications-advanced-settings"></a>Meddelanden om disk utrymme (avancerade inställningar)
 Meddelanden om Redis-meddelanden har kon figurer ATS på bladet **Avancerade inställningar** . Meddelanden om inloggnings meddelanden tillåter klienter att ta emot meddelanden när vissa händelser inträffar.
@@ -159,15 +159,15 @@ Meddelanden om Redis-meddelanden har kon figurer ATS på bladet **Avancerade ins
 
 > [!IMPORTANT]
 > Meddelanden om disk utrymme och inställningen **meddela-Backsteg-Events** är bara tillgängliga för cacheminnen standard och Premium.
-> 
-> 
+>
+>
 
 Mer information finns i [meddelanden om Redis-meddelanden](https://redis.io/topics/notifications). Exempel kod finns i [KeySpaceNotifications.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/KeySpaceNotifications.cs) -filen i [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) -exemplet.
 
 
 <a name="recommendations"></a>
 ## <a name="azure-cache-for-redis-advisor"></a>Azure cache för Redis Advisor
-Bladet **Azure cache för Redis Advisor** visar rekommendationer för din cache. Under normal drift visas inga rekommendationer. 
+Bladet **Azure cache för Redis Advisor** visar rekommendationer för din cache. Under normal drift visas inga rekommendationer.
 
 ![Rekommendationer](./media/cache-configure/redis-cache-no-recommendations.png)
 
@@ -205,8 +205,8 @@ Klicka på **(för hands version) Redis kluster storlek** om du vill ändra klus
 
 > [!NOTE]
 > Observera att när Azure-cachen för Redis Premium-nivån har släppts till allmän tillgänglighet, är funktionen för Redis kluster storlek för närvarande en för hands version.
-> 
-> 
+>
+>
 
 ![Redis kluster storlek](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
@@ -214,8 +214,8 @@ Om du vill ändra kluster storleken använder du skjutreglaget eller skriver ett
 
 > [!IMPORTANT]
 > Redis-klustring är bara tillgängligt för Premium-cacheminnen. Mer information finns i [så här konfigurerar du klustring för en Premium Azure-cache för Redis](cache-how-to-premium-clustering.md).
-> 
-> 
+>
+>
 
 
 ### <a name="redis-data-persistence"></a>Redis-datapersistens
@@ -226,16 +226,16 @@ Mer information finns i [så här konfigurerar du persistence för en Premium Az
 
 > [!IMPORTANT]
 > Redis data persist är bara tillgängligt för Premium-cacheminnen.
-> 
-> 
+>
+>
 
 ### <a name="schedule-updates"></a>Schemauppdateringar
-På bladet **schema uppdateringar** kan du ange ett underhålls fönster för redis server-uppdateringar för din cache. 
+På bladet **schema uppdateringar** kan du ange ett underhålls fönster för redis server-uppdateringar för din cache.
 
 > [!IMPORTANT]
 > Underhålls perioden gäller endast för redis server-uppdateringar och inte för Azure-uppdateringar eller uppdateringar av operativ systemet på de virtuella datorer som är värdar för cachen.
-> 
-> 
+>
+>
 
 ![Schemauppdateringar](./media/cache-configure/redis-schedule-updates.png)
 
@@ -243,8 +243,8 @@ Om du vill ange en underhålls period kontrollerar du önskade dagar och anger s
 
 > [!IMPORTANT]
 > Funktionen **Schemalägg uppdateringar** är bara tillgänglig för cacheminnen på Premium-nivån. Mer information och instruktioner finns i [Azure cache for Redis administration-Schedule updates](cache-administration.md#schedule-updates).
-> 
-> 
+>
+>
 
 ### <a name="geo-replication"></a>Geo-replikering
 
@@ -252,16 +252,16 @@ Bladet **geo-replikering** är en mekanism för att länka två Premium-nivåer 
 
 > [!IMPORTANT]
 > **Geo-replikering** är endast tillgängligt för cacheminnen på Premium-nivån. Mer information och instruktioner finns i [så här konfigurerar du geo-replikering för Azure cache för Redis](cache-how-to-geo-replication.md).
-> 
-> 
+>
+>
 
 ### <a name="virtual-network"></a>Virtual Network
 I avsnittet **Virtual Network** kan du konfigurera inställningarna för det virtuella nätverket för cacheminnet. Information om hur du skapar en Premium-cache med VNET-stöd och uppdaterar dess inställningar finns i [så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
-> Virtuella nätverks inställningar är bara tillgängliga för Premium-cacheminnen som har kon figurer ATS med VNET-stöd under skapandet av cacheminnet. 
-> 
-> 
+> Virtuella nätverks inställningar är bara tillgängliga för Premium-cacheminnen som har kon figurer ATS med VNET-stöd under skapandet av cacheminnet.
+>
+>
 
 ### <a name="firewall"></a>Brandvägg
 
@@ -275,8 +275,8 @@ Du kan ange brand Väggs regler med start-och slut-IP-adressintervall. När bran
 
 > [!IMPORTANT]
 > Anslutningar från Azure cache för Redis övervaknings system tillåts alltid, även om brand Väggs regler har kon figurer ATS.
-> 
-> 
+>
+>
 
 ### <a name="properties"></a>Egenskaper
 Klicka på **Egenskaper** för att visa information om din cache, inklusive cache-slutpunkt och portar.
@@ -284,14 +284,14 @@ Klicka på **Egenskaper** för att visa information om din cache, inklusive cach
 ![Azure cache för Redis-egenskaper](./media/cache-configure/redis-cache-properties.png)
 
 ### <a name="locks"></a>Lås
-I avsnittet **Lås** kan du låsa en prenumeration, resurs grupp eller resurs för att förhindra att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/resource-group-lock-resources.md).
+I avsnittet **Lås** kan du låsa en prenumeration, resurs grupp eller resurs för att förhindra att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="automation-script"></a>Automatiseringsskript
 
-Klicka på **Automation-skript** för att bygga och exportera en mall för dina distribuerade resurser för framtida distributioner. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Azure Resource Manager mallar](../azure-resource-manager/resource-group-template-deploy.md).
+Klicka på **Automation-skript** för att bygga och exportera en mall för dina distribuerade resurser för framtida distributioner. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Azure Resource Manager mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="administration-settings"></a>Administrations inställningar
-Med inställningarna i avsnittet **Administration** kan du utföra följande administrativa uppgifter för din cache. 
+Med inställningarna i avsnittet **Administration** kan du utföra följande administrativa uppgifter för din cache.
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
@@ -309,8 +309,8 @@ Med export kan du exportera data som lagras i Azure cache för Redis till Redis-
 
 > [!IMPORTANT]
 > Import/export är endast tillgängligt för cacheminnen på Premium-nivån. Mer information och instruktioner finns i [Importera och exportera data i Azure cache för Redis](cache-how-to-import-export-data.md).
-> 
-> 
+>
+>
 
 ### <a name="reboot"></a>Omstart
 På bladet **starta om** kan du starta om noderna i cacheminnet. Med den här omstarts funktionen kan du testa ditt program för återhämtning om det uppstår ett problem med en cache-nod.
@@ -325,13 +325,14 @@ Om du vill starta om en eller flera noder i cacheminnet väljer du önskade node
 
 > [!IMPORTANT]
 > Omstart är nu tillgängligt för alla pris nivåer. Mer information och instruktioner finns i [Azure cache for Redis administration – starta om](cache-administration.md#reboot).
-> 
-> 
+>
+>
 
 
 ## <a name="monitoring"></a>Övervakning
 
-I avsnittet **övervakning** kan du Konfigurera diagnostik och övervakning för Azure-cachen för Redis. Mer information om Azure cache för Redis-övervakning och diagnostik finns i [så här övervakar du Azure cache för Redis](cache-how-to-monitor.md).
+I avsnittet **övervakning** kan du Konfigurera diagnostik och övervakning för Azure-cachen för Redis.
+Mer information om Azure cache för Redis-övervakning och diagnostik finns i [så här övervakar du Azure cache för Redis](cache-how-to-monitor.md).
 
 ![Diagnostik](./media/cache-configure/redis-cache-diagnostics.png)
 
@@ -368,8 +369,8 @@ Inställningarna i avsnittet **support och fel sökning** innehåller alternativ
 
 > [!NOTE]
 > Resource Health kan för närvarande inte rapportera om hälsan för Azure cache för Redis-instanser som finns i ett virtuellt nätverk. Mer information finns i gör så här [fungerar alla cache-funktioner när du är värd för en cache i ett virtuellt nätverk?](cache-how-to-premium-vnet.md#do-all-cache-features-work-when-hosting-a-cache-in-a-vnet)
-> 
-> 
+>
+>
 
 ### <a name="new-support-request"></a>Ny supportbegäran
 Klicka på **ny supportbegäran** för att öppna en supportbegäran för cacheminnet.
@@ -383,12 +384,12 @@ Nya Azure cache för Redis-instanser konfigureras med följande standard konfigu
 
 > [!NOTE]
 > Det går inte att ändra inställningarna i det här avsnittet med hjälp av metoden `StackExchange.Redis.IServer.ConfigSet`. Om den här metoden anropas med ett av kommandona i det här avsnittet genereras ett undantag som liknar följande exempel:  
-> 
+>
 > `StackExchange.Redis.RedisServerException: ERR unknown command 'CONFIG'`
-> 
+>
 > Alla värden som kan konfigureras, till exempel **Max-Memory-princip**, kan konfigureras via Azure Portal eller kommando rads hanterings verktyg som Azure CLI eller PowerShell.
-> 
-> 
+>
+>
 
 | Inställning | Standardvärde | Beskrivning |
 | --- | --- | --- |
@@ -422,8 +423,8 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 
 > [!NOTE]
 > Inställningen `databases` kan bara konfigureras när cachelagring skapas och endast med PowerShell, CLI eller andra hanterings klienter. Ett exempel på hur du konfigurerar `databases` när du skapar cache med hjälp av PowerShell finns i [New-AzRedisCache](cache-how-to-manage-redis-cache-powershell.md#databases).
-> 
-> 
+>
+>
 
 <a name="maxclients"></a>
 <sup>2</sup>`maxclients` skiljer sig åt för varje Azure-cache för pris nivån Redis.
@@ -444,15 +445,15 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 
 > [!NOTE]
 > Varje cache-storlek tillåter *upp till* ett visst antal anslutningar, och varje anslutning till Redis har kopplad till sig. Ett exempel på sådana kostnader är CPU och minnes användning som ett resultat av TLS/SSL-kryptering. Den maximala anslutnings gränsen för en specifik cachestorlek förutsätter en lätt inläst cache. Om belastningen från anslutnings belastning *plus* belastning från klient åtgärder överskrider kapaciteten för systemet, kan cachen uppleva kapacitets problem även om du inte har överskridit anslutnings gränsen för den aktuella cachestorleken.
-> 
-> 
+>
+>
 
 
 
 ## <a name="redis-commands-not-supported-in-azure-cache-for-redis"></a>Redis-kommandon stöds inte i Azure cache för Redis
 > [!IMPORTANT]
 > Eftersom konfiguration och hantering av Azure cache för Redis-instanser hanteras av Microsoft, är följande kommandon inaktiverade. Om du försöker anropa dem får du ett fel meddelande som liknar `"(error) ERR unknown command"`.
-> 
+>
 > * BGREWRITEAOF
 > * BGSAVE
 > * CONFIG
@@ -462,8 +463,8 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 > * ANVÄNDARINITIERADE
 > * SLAVEOF
 > * KLUSTER-kluster skrivnings kommandon är inaktiverade, men skrivskyddade kluster kommandon är tillåtna.
-> 
-> 
+>
+>
 
 Mer information om Redis-kommandon finns i [https://redis.io/commands](https://redis.io/commands).
 
@@ -473,8 +474,8 @@ Du kan på ett säkert sätt utfärda kommandon till Azure cache för Redis-inst
 > [!IMPORTANT]
 > - Redis-konsolen fungerar inte med [VNet](cache-how-to-premium-vnet.md). När din cache ingår i ett VNET kan endast klienter i VNET komma åt cacheminnet. Eftersom Redis-konsolen körs i din lokala webbläsare, som är utanför det virtuella nätverket, kan den inte ansluta till cacheminnet.
 > - Det finns inte stöd för alla Redis-kommandon i Azure cache för Redis. En lista över Redis-kommandon som är inaktiverade för Azure cache för Redis finns i föregående [Redis-kommandon som inte stöds i Azure cache för Redis](#redis-commands-not-supported-in-azure-cache-for-redis) -avsnittet. Mer information om Redis-kommandon finns i [https://redis.io/commands](https://redis.io/commands).
-> 
-> 
+>
+>
 
 Öppna Redis-konsolen genom att klicka på **konsol** från **Azure-cache för Redis** -bladet.
 
@@ -506,8 +507,7 @@ Du kan flytta din cache till en ny prenumeration genom att klicka på **Flytta**
 
 ![Flytta Azure cache för Redis](./media/cache-configure/redis-cache-move.png)
 
-Information om hur du flyttar resurser från en resurs grupp till en annan, och från en prenumeration till en annan, finns i [Flytta resurser till ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Information om hur du flyttar resurser från en resurs grupp till en annan, och från en prenumeration till en annan, finns i [Flytta resurser till ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ## <a name="next-steps"></a>Nästa steg
 * Mer information om hur du arbetar med Redis-kommandon finns i [Hur kan jag köra Redis-kommandon?](cache-faq.md#how-can-i-run-redis-commands)
-

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 548ebfca9a937e58dfc5c1aff1adf6f6cb2dcc5d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454600"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028833"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>Konfigurera en installation för fysiska servrar
 
@@ -90,7 +90,7 @@ Skriptet startar webb programmet för installationen när det har slutförts.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
-Se till att den virtuella datorns dator kan ansluta till de [Azure-webbadresser](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)som krävs.
+Se till att den virtuella datorns dator kan ansluta till de [Azure-webbadresser](migrate-appliance.md#url-access)som krävs.
 
 ## <a name="configure-the-appliance"></a>Konfigurera installationen
 

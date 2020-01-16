@@ -7,12 +7,12 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5e1fce0852a4e820d7ee0af626ce3fddf6773750
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269460"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029917"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Använd Azurite-emulatorn för lokal Azure Storage utveckling och testning (för hands version)
 
@@ -57,11 +57,11 @@ Följande inställningar stöds:
 
    * **Azurite: BLOB Host** – slut punkten för BLOB service lyssning. Standardvärdet är 127.0.0.1.
    * **Azurite: BLOB-port** – BLOB service lyssnings port. Standard porten är 10000.
-   * **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **false**.
+   * **Azurite: Felsök** – mata ut fel söknings loggen till Azurite-kanalen. Standardvärdet är **FALSKT**.
    * **Azurite: plats** – sökvägen till arbets ytans plats. Standardvärdet är Visual Studio Code-arbetsmappen.
    * **Azurite: köa värd** -den kötjänst lyssnar slut punkten. Standardvärdet är 127.0.0.1.
    * **Azurite: Queue port** -den kötjänst lyssnings porten. Standard porten är 10001.
-   * **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **false**.
+   * **Azurite: tyst** -tyst läge inaktiverar åtkomst loggen. Standardvärdet är **FALSKT**.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>Installera och kör Azurite med NPM
 
@@ -153,7 +153,7 @@ azurite --silent --location c:\azurite --debug c:\azurite\debug.log
 
 Det här kommandot instruerar Azurite att lagra alla data i en viss katalog, **c:\azurite**. Om alternativet **--location** utelämnas, används den aktuella arbets katalogen.
 
-## <a name="command-line-options"></a>Kommando rads alternativ
+## <a name="command-line-options"></a>Kommandoradsalternativ
 
 Det här avsnittet innehåller information om kommando rads växlar som är tillgängliga när du startar Azurite. Alla kommando rads växlar är valfria.
 
@@ -282,6 +282,20 @@ azurite --debug path/debug.log
 azurite -d path/debug.log
 ```
 
+### <a name="loose-mode"></a>Löst läge
+
+**Valfritt** Som standard tillämpar Azurite strikt läge för att blockera begärandehuvuden och parametrar som inte stöds. Inaktivera strikt läge genom att använda **--Lös** växeln.
+
+```console
+azurite --loose
+```
+
+Notera "L" gen vägs växel för versaler:
+
+```console
+azurite -L
+```
+
 ## <a name="authorization-for-tools-and-sdks"></a>Auktorisering för verktyg och SDK: er
 
 Anslut till Azurite från Azure Storage SDK: er eller verktyg, t. ex. [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/), genom att använda valfri strategi för autentisering. Autentisering krävs. Azurite stöder auktorisering med delad nyckel och signaturer för delad åtkomst (SAS). Azurite stöder även anonym åtkomst till offentliga behållare.
@@ -307,6 +321,33 @@ Det enklaste sättet att ansluta till Azurite från ditt program är att konfigu
 ```
 
 Mer information finns i [Konfigurera anslutnings strängar för Azure Storage](storage-configure-connection-string.md).
+
+### <a name="custom-storage-accounts-and-keys"></a>Anpassade lagrings konton och nycklar
+
+Azurite stöder anpassade lagrings konto namn och nycklar genom att ange `AZURITE_ACCOUNTS` miljövariabeln i följande format: `account1:key1[:key2];account2:key1[:key2];...`.
+
+Använd till exempel ett anpassat lagrings konto som har en nyckel:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1"
+```
+
+Eller Använd flera lagrings konton med 2 nycklar vardera:
+
+```cmd
+set AZURITE_ACCOUNTS="account1:key1:key2;account2:key1:key2"
+```
+
+Azurite uppdaterar anpassade konto namn och nycklar från miljö variabeln varje minut som standard. Med den här funktionen kan du rotera konto nyckeln dynamiskt eller lägga till nya lagrings konton utan att starta om Azurite.
+
+> [!NOTE]
+> Standard `devstoreaccount1` lagrings kontot inaktive ras när du anger anpassade lagrings konton.
+
+> [!NOTE]
+> Uppdatera anslutnings strängen enligt detta när du använder anpassade konto namn och nycklar.
+
+> [!NOTE]
+> Använd `export` nyckelord för att ange miljövariabler i en Linux-miljö, Använd `set` i Windows.
 
 ### <a name="storage-explorer"></a>Storage Explorer
 

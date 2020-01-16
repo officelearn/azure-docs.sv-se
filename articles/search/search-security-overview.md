@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c1a800ceb12c2e7ad69329d0391478a8e2ae268b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 44d5edd7b5808b6c212a832dd95de7a9cb4b7c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945692"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978591"
 ---
 # <a name="security-and-data-privacy-in-azure-cognitive-search"></a>Säkerhet och data sekretess i Azure Kognitiv sökning
 
@@ -49,7 +49,7 @@ Kryptering utökar hela hela indexerings pipelinen: från anslutningar, via öve
 
 Flera säkerhetsmekanismer är tillgängliga i hela Azure och är därmed automatiskt tillgängliga för de Azure Kognitiv sökning-resurser som du skapar.
 
-+ [Lås på prenumerations-eller resurs nivå för att förhindra borttagning](../azure-resource-manager/resource-group-lock-resources.md)
++ [Lås på prenumerations-eller resurs nivå för att förhindra borttagning](../azure-resource-manager/management/lock-resources.md)
 + [Rollbaserad Access Control (RBAC) för att styra åtkomsten till information och administrativa åtgärder](../role-based-access-control/overview.md)
 
 Alla Azure-tjänster har stöd för rollbaserad åtkomst kontroll (RBAC) för att ställa in åtkomst nivåer konsekvent över alla tjänster. Till exempel kan visa känsliga data, till exempel administratörs nyckeln, begränsas till ägare och deltagar roller, medan granskning av tjänst status är tillgängligt för medlemmar i en roll. RBAC tillhandahåller roller för ägare, deltagare och läsare. Som standard är alla tjänst administratörer medlemmar i ägar rollen.

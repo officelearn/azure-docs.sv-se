@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eeaf44b9abe5c8f0343325454f599d282be6c743
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: aa71e1e6b58906953dfa22d08405c05c10c83242
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769854"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75966687"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Felsök lösningen starta/stoppa virtuella datorer under låg tid
 
@@ -67,13 +67,13 @@ Distributioner kan Miss lyckas på grund av en av följande orsaker:
 Läs följande lista för eventuella lösningar på problemet eller platser att titta på:
 
 1. Automation-konton måste vara unika inom en Azure-region, även om de finns i olika resurs grupper. Kontrol lera dina befintliga Automation-konton i mål regionen.
-2. En befintlig princip förhindrar att en resurs som krävs för att starta/stoppa VM-lösningen ska distribueras. Gå till princip tilldelningarna i Azure Portal och kontrol lera om du har en princip tilldelning som inte tillåter distributionen av den här resursen. Mer information om detta finns i [RequestDisallowedByPolicy](../../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md).
+2. En befintlig princip förhindrar att en resurs som krävs för att starta/stoppa VM-lösningen ska distribueras. Gå till princip tilldelningarna i Azure Portal och kontrol lera om du har en princip tilldelning som inte tillåter distributionen av den här resursen. Mer information om detta finns i [RequestDisallowedByPolicy](../../azure-resource-manager/templates/error-policy-requestdisallowedbypolicy.md).
 3. För att kunna distribuera lösningen starta/stoppa virtuell dator måste din prenumeration registreras till följande Azure-resurs namnrum:
     * `Microsoft.OperationsManagement`
     * `Microsoft.Insights`
     * `Microsoft.Automation`
 
-   Se, [Lös fel för registrering av resurs leverantör](../../azure-resource-manager/resource-manager-register-provider-errors.md) för att lära dig mer om fel vid registrering av leverantörer.
+   Se, [Lös fel för registrering av resurs leverantör](../../azure-resource-manager/templates/error-register-resource-provider.md) för att lära dig mer om fel vid registrering av leverantörer.
 4. Om du har ett lås på Log Analytics arbets ytan går du till din arbets yta i Azure Portal och tar bort eventuella lås på resursen.
 5. Om lösningarna ovan inte löser problemet följer du anvisningarna under [Uppdatera lösningen](../automation-solution-vm-management.md#update-the-solution) för att omdistribuera start-/stopp lösningen.
 

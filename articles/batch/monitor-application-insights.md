@@ -2,7 +2,7 @@
 title: Övervaka batch med Azure Application Insights | Microsoft Docs
 description: Lär dig att instrumentera ett Azure Batch .NET-program med hjälp av Azure Application Insights-biblioteket.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: lahugh
-ms.openlocfilehash: 8d896785a2f000a22f68611d5b3b1162c2021236
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: c69ef0bf20e2ade15d2278d0fc2fabd75f39153b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322570"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029497"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Övervaka och felsöka ett Azure Batch .NET-program med Application Insights
 
@@ -30,7 +30,7 @@ En exempel C# lösning med kod som medföljer den här artikeln finns på [GitHu
 > Alternativt kan du konfigurera batch-lösningen så att den visar Application Insights data, till exempel prestanda räknare för virtuella datorer i Batch Explorer. [Batch Explorer](https://github.com/Azure/BatchExplorer) är ett kostnads fritt, fristående klient verktyg med omfattande funktioner som hjälper dig att skapa, felsöka och övervaka Azure Batch program. Hämta ett [installationspaketet](https://azure.github.io/BatchExplorer/) för Mac, Linux eller Windows. Se [batch-Insights-lagrings platsen](https://github.com/Azure/batch-insights) för snabb steg för att aktivera Application Insights data i batch Explorer. 
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs)
 
 * [Batch-konto och länkat lagrings konto](batch-account-create-portal.md)
@@ -39,7 +39,7 @@ En exempel C# lösning med kod som medföljer den här artikeln finns på [GitHu
   
    * Använd Azure Portal för att skapa en Application Insights *resurs*. Välj *allmän* **program typ**.
 
-   * Kopiera Instrumentation- [nyckeln](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) från portalen. Det krävs senare i den här artikeln.
+   * Kopiera [Instrumentation-nyckeln](../azure-monitor/app/create-new-resource.md #copy-the-instrumentation-key) från portalen. Det krävs senare i den här artikeln.
   
   > [!NOTE]
   > Du kanske [debiteras](https://azure.microsoft.com/pricing/details/application-insights/) för data som lagras i Application Insights. Detta omfattar diagnostik-och övervaknings data som diskuteras i den här artikeln.
@@ -47,7 +47,7 @@ En exempel C# lösning med kod som medföljer den här artikeln finns på [GitHu
 
 ## <a name="add-application-insights-to-your-project"></a>Lägg till Application Insights i projektet
 
-NuGet-paketet **Microsoft. ApplicationInsights. Windows Server** och dess beroenden krävs för ditt projekt. Lägg till eller Återställ dem till programmets projekt. Om du vill installera paketet använder du `Install-Package` kommandot eller NuGet Package Manager.
+NuGet-paketet **Microsoft. ApplicationInsights. Windows Server** och dess beroenden krävs för ditt projekt. Lägg till eller Återställ dem till programmets projekt. Om du vill installera paketet använder du kommandot `Install-Package` eller NuGet Package Manager.
 
 ```powershell
 Install-Package Microsoft.ApplicationInsights.WindowsServer
@@ -63,10 +63,10 @@ För att kunna instrumentera din kod måste din lösning skapa en Application In
 ```
 Lägg också till Instrumentation-nyckeln i filen TopNWords.cs.
 
-I exemplet i TopNWords.cs används följande Instrumentation- [anrop](../azure-monitor/app/api-custom-events-metrics.md) från Application Insights API:
-* `TrackMetric()`– Spårar hur lång tid det tar för en beräknings nod att ladda ned den nödvändiga text filen.
-* `TrackTrace()`– Lägger till fel söknings anrop till din kod.
-* `TrackEvent()`– Spårar intressanta händelser som ska fångas.
+I exemplet i TopNWords.cs används följande [Instrumentation-anrop](../azure-monitor/app/api-custom-events-metrics.md) från Application Insights API:
+* `TrackMetric()` – spårar hur lång tid det tar för en beräknings nod att ladda ned den nödvändiga text filen.
+* `TrackTrace()` – lägger till fel söknings anrop till din kod.
+* `TrackEvent()` – spårar intressanta händelser att avbilda.
 
 I det här exemplet används inte undantags hanteringen. I stället rapporterar Application Insights automatiskt ohanterade undantag, vilket avsevärt förbättrar fel söknings upplevelsen. 
 
@@ -125,7 +125,7 @@ public void CountWords(string blobName, int numTopN, string storageAccountName, 
 ```
 
 ### <a name="azure-batch-telemetry-initializer-helper"></a>Hjälp program för telemetri till Azure Batch telemetri
-Vid rapportering av telemetri för en specifik server och instans använder Application Insights den virtuella Azure-rollen och VM-namnet för standardvärdena. I samband med Azure Batch visar exemplet hur du använder poolnamn och Compute Node-namnet i stället. Använd en [telemetri](../azure-monitor/app/api-filtering-sampling.md#add-properties) -initierare för att åsidosätta standardvärdena. 
+Vid rapportering av telemetri för en specifik server och instans använder Application Insights den virtuella Azure-rollen och VM-namnet för standardvärdena. I samband med Azure Batch visar exemplet hur du använder poolnamn och Compute Node-namnet i stället. Använd en [telemetri-initierare](../azure-monitor/app/api-filtering-sampling.md#add-properties) för att åsidosätta standardvärdena. 
 
 ```csharp
 using Microsoft.ApplicationInsights.Channel;
@@ -223,7 +223,7 @@ foreach (string aiFile in AIFilesToUpload)
 ...
 ```
 
-`FileToStage` Metoden är en hjälp funktion i kod exemplet som gör att du enkelt kan ladda upp en fil från en lokal disk till en Azure Storage-blob. Varje fil laddas ned senare till en Compute-nod och refereras till av en aktivitet.
+Metoden `FileToStage` är en hjälp funktion i kod exemplet som gör att du enkelt kan ladda upp en fil från en lokal disk till en Azure Storage-blob. Varje fil laddas ned senare till en Compute-nod och refereras till av en aktivitet.
 
 Slutligen lägger du till aktiviteterna i jobbet och inkluderar nödvändiga Application Insights binärfiler.
 ```csharp
@@ -295,7 +295,7 @@ Så här skapar du ett exempel diagram:
    * Ange **agg regering** till **genomsnitt**.
    * Ange **Gruppera efter** till **nodeId**.
    * I **mått**väljer du **anpassad** > **BLOB-hämtning på några sekunder**.
-   * Justera paletten för bildskärms **färg** efter eget val. 
+   * Justera **paletten** för bildskärms färg efter eget val. 
 
 ![Hämtnings tid för BLOB per nod](./media/monitor-application-insights/blobdownloadtime.png)
 
@@ -333,7 +333,7 @@ pool.StartTask = new StartTask()
 ```
 
 > [!TIP]
-> Om du vill öka hanteringen av din lösning kan du paketera sammansättningen i ett programpaket [](./batch-application-packages.md). Om du vill distribuera programpaketet automatiskt till dina pooler lägger du till en programpaket-referens i konfigurationen för poolen.
+> Om du vill öka hanteringen av din lösning kan du paketera sammansättningen i ett [programpaket](./batch-application-packages.md). Om du vill distribuera programpaketet automatiskt till dina pooler lägger du till en programpaket-referens i konfigurationen för poolen.
 >
 
 ## <a name="throttle-and-sample-data"></a>Begränsa och sampla data 

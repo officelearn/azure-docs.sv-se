@@ -1,19 +1,15 @@
 ---
 title: Migrera virtuella VMware-datorer med agent-baserad Azure Migrate Server-migrering
 description: Lär dig hur du kör en agent-baserad migrering av virtuella VMware-datorer med Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 581014b89627905e3206705dffade5ba19443b65
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: c6e0b65a586bfd629244404933836cde7287ae29
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196287"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028949"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migrera virtuella VMware-datorer till Azure (agent-baserad)
 
@@ -22,7 +18,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Konfigurera käll miljön och distribuera en Azure Migrate Replication-enhet för agent-baserad migrering.
 > * Konfigurera mål miljön för migrering.
@@ -61,7 +57,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -149,7 +145,7 @@ Skapa kontot enligt följande:
 
 #### <a name="vmware-account-permissions"></a>Behörighet för VMware-konto
 
-**Aktivitet** | **Roll/behörigheter** | **Information**
+**Aktivitet** | **Roll/behörigheter** | **Detaljer**
 --- | --- | ---
 **VM-identifiering** | Minst en skrivskyddad användare<br/><br/> Data Center-objekt –> Sprid till underordnat objekt, roll = skrivskyddad | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
 **Fullständig replikering, redundans och återställning efter fel** |  Skapa en roll (Azure_Site_Recovery) med behörigheterna som krävs och tilldela sedan rollen till en VMware-användare eller grupp<br/><br/> Datacenterobjekt –> Sprid till underordnat objekt, roll=Azure_Site_Recovery<br/><br/> Datalager -> Allokera utrymme, bläddra i datalagret, filåtgärder på låg nivå, ta bort filen, uppdatera filer för virtuella datorer<br/><br/> Nätverk -> Tilldela nätverk<br/><br/> Resurs -> Tilldela VM till resurspool, migrera avstängd VM, migrera påslagen VM<br/><br/> Uppgifter -> Skapa uppgift, uppdatera uppgift<br/><br/> Virtuell dator -> Konfiguration<br/><br/> Virtuell dator -> Interagera -> Besvara fråga, enhetsanslutning, konfigurera CD-skiva, konfigurera diskettstation, stänga av, sätta på, installera VMware-verktyg<br/><br/> Virtuell dator -> Lager -> Skapa, registrera, avregistrera<br/><br/> Virtuell dator -> Etablering -> Tillåt nedladdning till virtuell dator, tillåt filuppladdning till virtuell dator<br/><br/> Virtuell dator -> Ögonblicksbilder -> Ta bort ögonblicksbilder | Användaren tilldelas på datacenternivå och har åtkomst till alla objekt i datacentret.<br/><br/> Om du vill begränsa åtkomsten tilldelar du rollen **Ingen åtkomst** med objektet **Sprid till underordnad** till underordnade objekt (vSphere-värdar, datalager, virtuella datorer och nätverk).
@@ -177,9 +173,9 @@ Se till att VMware-servrar och virtuella datorer uppfyller kraven för migrering
 > [!NOTE]
 > Agent-baserad migrering med Azure Migrate Server-migrering baseras på funktionerna i tjänsten Azure Site Recovery. Vissa krav kan vara länkade till Site Recovery-dokumentationen.
 
-1. [Kontrollera](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) VMware-serverkraven.
-2. [Verifiera](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) Krav för VM-support för migrering.
-3. Verifiera inställningarna för virtuella datorer. Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven för [virtuella Azure-datorer](migrate-support-matrix-vmware.md#azure-vm-requirements).
+1. [Kontrollera](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) VMware-serverkraven.
+2. [Verifiera](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) Krav för VM-support för migrering.
+3. Verifiera inställningarna för virtuella datorer. Lokala virtuella datorer som du replikerar till Azure måste uppfylla kraven för [virtuella Azure-datorer](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
 
 
@@ -207,7 +203,7 @@ Om du inte följer självstudien för att utvärdera virtuella VMware-datorer, k
 
     **Geografi** | **Region**
     --- | ---
-    Asien | Sydostasien
+    Asien | Asien, sydöstra
     Europa | Europa, norra eller Europa, västra
     USA | USA, östra eller USA, västra centrala
 
@@ -336,7 +332,7 @@ Välj nu virtuella datorer för migrering.
     - Välj **Nej** om du inte vill använda Azure Hybrid-förmånen. Klicka sedan på **Nästa**.
     - Välj **Ja** om du har Windows Server-datorer som omfattas av aktiva Software Assurance- eller Windows Server-prenumerationer och du vill tillämpa förmånen på de datorer som du migrerar. Klicka sedan på **Nästa**.
 
-12. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+12. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms).
 
     - **VM-storlek**: om du använder utvärderings rekommendationer kommer List rutan VM-storlek att innehålla den rekommenderade storleken. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 

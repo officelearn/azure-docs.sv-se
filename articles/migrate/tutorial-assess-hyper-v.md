@@ -4,12 +4,12 @@ description: Beskriver hur du bedömer lokala virtuella Hyper-V-datorer för mig
 ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: f2a7caad13ad845d5b2aeb3240b7d77fa89faf12
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720267"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029025"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -146,7 +146,7 @@ Importera den hämtade filen och skapa den virtuella datorn.
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
-Se till att den virtuella datorns dator kan ansluta till [Azure-URL: er](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access).
+Se till att den virtuella datorns dator kan ansluta till [Azure-URL: er](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Konfigurera installationen
 

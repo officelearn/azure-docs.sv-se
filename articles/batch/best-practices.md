@@ -1,18 +1,18 @@
 ---
 title: Metod tips – Azure Batch
 description: Lär dig metod tips och användbara tips för att utveckla din Azure Batch-lösning.
-author: laurenhughes
-ms.author: lahugh
+author: ju-shim
+ms.author: jushiman
 ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 19c5b6acaeddb915af49cf62a884da0678075f15
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535670"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026157"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -67,7 +67,7 @@ Poolens livs längd kan variera beroende på vilken metod du vill tilldela och v
 
 Allokeringsfel för pooler kan inträffa när som helst under första allokeringen eller efterföljande storleks ändringar. Detta kan bero på temporär kapacitets utbelastning i en region eller andra Azure-tjänster som batchen använder. Kärn kvoten är inte en garanti utan en gräns.
 
-### <a name="unplanned-downtime"></a>Oplanerad stillestånds tid
+### <a name="unplanned-downtime"></a>Oplanerat stillestånd
 
 Batch-pooler kan uppleva stillestånds händelser i Azure. Detta är viktigt att tänka på när du planerar och utvecklar ditt scenario eller ett arbets flöde för batch.
 
@@ -90,7 +90,7 @@ Ett jobb är en behållare som är utformad för att innehålla hundratals, tuse
 
 Det finns ett [aktivt standard jobb och en kvot för jobb schema](batch-quota-limit.md#resource-quotas). Jobb och jobb scheman i slutfört tillstånd räknas inte över till den här kvoten.
 
-## <a name="tasks"></a>Uppgifter
+## <a name="tasks"></a>Aktiviteter
 
 Aktiviteter är enskilda enheter av arbete som utgör ett jobb. Aktiviteter skickas av användaren och schemaläggs av batch på för att beräkna noder. Det finns flera design aspekter att fatta när du skapar och kör uppgifter. I följande avsnitt beskrivs vanliga scenarier och hur du utformar dina aktiviteter för att hantera problem och utföra effektiva åtgärder.
 

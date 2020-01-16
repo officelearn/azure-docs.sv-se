@@ -7,22 +7,22 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/12/2019
-ms.openlocfilehash: 0fda04bbfa632f429539ddc0ad90941cb645226b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: a483f143b70a4969114c078b3b0a6f960c4b6b41
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934629"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976067"
 ---
-# <a name="commercial-marketplace-billing"></a>Fakturering av affärs platser 
+# <a name="commercial-marketplace-billing"></a>Fakturering av affärs platser
 
 Den här artikeln beskriver Commerce-relaterade ämnen för den kommersiella Marketplace:
 
-- [Publicerings alternativ för Marketplace](#marketplace-publishing-options) 
+- [Publicerings alternativ för Marketplace](#marketplace-publishing-options)
 - [Allmän översikt över Transact](#transact-general-overview)
 - [Transact-fakturerings modeller](#transact-billing-models)
 
-## <a name="marketplace-publishing-options"></a>Publicerings alternativ för Marketplace 
+## <a name="marketplace-publishing-options"></a>Publicerings alternativ för Marketplace
 
 Handels Marketplace innehåller flera publicerings alternativ för utgivare.
 
@@ -36,9 +36,9 @@ Förutom publicerings alternativen lista och utvärdering är alternativet för 
 
 ## <a name="transact-general-overview"></a>Allmän översikt över Transact
 
-När du använder alternativet för Transact-publicering möjliggör Microsoft försäljning av program från tredje part och distribution av vissa erbjudande typer till kundens Azure-prenumeration. Utgivaren måste beakta faktureringen av infrastruktur avgifter, och utgivarens egna avgifter för program varu licenser, när du väljer en fakturerings modell och erbjudande typ. 
+När du använder alternativet för Transact-publicering möjliggör Microsoft försäljning av program från tredje part och distribution av vissa erbjudande typer till kundens Azure-prenumeration. Utgivaren måste beakta faktureringen av infrastruktur avgifter, och utgivarens egna avgifter för program varu licenser, när du väljer en fakturerings modell och erbjudande typ.
 
-Alternativet för Transact-publicering stöds för närvarande för följande erbjudande typer: virtuella datorer, Azure-program och SaaS-program. 
+Alternativet för Transact-publicering stöds för närvarande för följande erbjudande typer: virtuella datorer, Azure-program och SaaS-program.
 
 ![Transact i Azure Marketplace](./media/transact-amp.png)
 

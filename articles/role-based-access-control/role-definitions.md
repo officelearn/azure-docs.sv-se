@@ -15,12 +15,12 @@ ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 1cd5325be7def4bc631d994f8811734e6c3cf545
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3ff4b2cb6a59a35dc6da4748a7c7fbb4758a4fcf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996439"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981007"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Förstå roll definitioner för Azure-resurser
 
@@ -28,7 +28,7 @@ Om du försöker förstå hur en roll fungerar eller om du skapar en egen [anpas
 
 ## <a name="role-definition-structure"></a>Roll definitions struktur
 
-En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också visa en lista över de åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En roll definition har följande struktur:
+En *rolldefinition* är en uppsättning behörigheter. Ibland kallas det helt enkelt för en *roll*. En rolldefinition listar de åtgärder som kan utföras, till exempel läsa, skriva och ta bort. Den kan också ange vilka åtgärder som inte kan utföras eller åtgärder relaterade till underliggande data. En roll definition har följande struktur:
 
 ```
 Name
@@ -46,7 +46,7 @@ AssignableScopes []
 
 - `{Company}.{ProviderName}/{resourceType}/{action}`
 
-`{action}` Delen av en åtgärds sträng anger vilken typ av åtgärder som du kan utföra på en resurs typ. Till exempel visas följande del strängar i `{action}`:
+`{action}` delen av en åtgärds sträng anger vilken typ av åtgärder som du kan utföra på en resurs typ. Till exempel visas följande del strängar i `{action}`:
 
 | Åtgärds del sträng    | Beskrivning         |
 | ------------------- | ------------------- |
@@ -56,7 +56,7 @@ AssignableScopes []
 | `action` | Aktiverar anpassade åtgärder som starta om virtuella datorer (POST). |
 | `delete` | Aktiverar borttagnings åtgärder (ta bort). |
 
-Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-format. Jokertecknet (`*`) under `Actions` anger att huvud kontot som tilldelas den här rollen kan utföra alla åtgärder, eller med andra ord, kan den hantera allt. Detta inkluderar åtgärder som definierats i framtiden, eftersom Azure lägger till nya resurs typer. Åtgärderna under `NotActions` subtraheras från `Actions`. När det gäller rollen [deltagare](built-in-roles.md#contributor) , `NotActions` tar bort den här rollen möjlighet att hantera åtkomst till resurser och även tilldela åtkomst till resurser.
+Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-format. Jokertecknet (`*`) under `Actions` anger att huvudnamnet som tilldelats den här rollen kan utföra alla åtgärder, eller med andra ord sköta all administration. Det här inbegriper även åtgärder som definieras i framtiden när Azure lägger till nya resurstyper. Åtgärderna under `NotActions` dras bort från `Actions`. För rollen [Deltagare](built-in-roles.md#contributor) tar `NotActions` bort rollens möjlighet att hantera åtkomsten till resurser och även att ge åtkomst till resurser.
 
 ```json
 {
@@ -82,23 +82,23 @@ Här är roll definitionen [deltagare](built-in-roles.md#contributor) i JSON-for
 
 ## <a name="management-and-data-operations"></a>Hanterings-och data åtgärder
 
-Rollbaserad åtkomst kontroll för hanterings åtgärder anges i `Actions` -och `NotActions` -egenskaperna för en roll definition. Här följer några exempel på hanterings åtgärder i Azure:
+Rollbaserad åtkomst kontroll för hanterings åtgärder anges i `Actions` och `NotActions` egenskaper för en roll definition. Här följer några exempel på hanterings åtgärder i Azure:
 
 - Hantera åtkomst till ett lagrings konto
 - Skapa, uppdatera eller ta bort en BLOB-behållare
 - Ta bort en resurs grupp och alla dess resurser
 
-Hanterings åtkomst ärvs inte till dina data förutsatt att autentiseringsmetoden för behållar metoden är inställd på "Azure AD-användarkonto" och inte "åtkomst nyckel". Denna separation förhindrar att roller med jokertecken`*`() får obegränsad åtkomst till dina data. Om en användare till exempel har en [läsar](built-in-roles.md#reader) roll för en prenumeration kan de Visa lagrings kontot, men som standard kan de inte Visa underliggande data.
+Hanterings åtkomst ärvs inte till dina data förutsatt att autentiseringsmetoden för behållar metoden är inställd på "Azure AD-användarkonto" och inte "åtkomst nyckel". Denna separation förhindrar att roller med jokertecken (`*`) får obegränsad åtkomst till dina data. Om en användare till exempel har en [läsar](built-in-roles.md#reader) roll för en prenumeration kan de Visa lagrings kontot, men som standard kan de inte Visa underliggande data.
 
 Tidigare användes inte rollbaserad åtkomst kontroll för data åtgärder. Auktorisering för data åtgärder som varierar mellan olika resurs leverantörer. Samma rollbaserade auktoriserings modell för åtkomst kontroll som används för hanterings åtgärder har utökats till data åtgärder.
 
-Nya data egenskaper har lagts till i roll definitions strukturen för att stödja data åtgärder. Data åtgärder anges i `DataActions` egenskaperna och. `NotDataActions` Genom att lägga till dessa data egenskaper upprätthålls separationen mellan hantering och data. Detta förhindrar att de aktuella roll tilldelningarna med`*`jokertecken () plötsligt har åtkomst till data. Här är några data åtgärder som kan anges i `DataActions` och: `NotDataActions`
+Nya data egenskaper har lagts till i roll definitions strukturen för att stödja data åtgärder. Dataåtgärder anges i egenskaperna `DataActions` och `NotDataActions`. Genom att lägga till dessa data egenskaper upprätthålls separationen mellan hantering och data. På så sätt kan du förhindra att rolltilldelningar med jokertecken (`*`) plötsligt får åtkomst till data. Här är några dataåtgärder du kan ange i `DataActions` och `NotDataActions`:
 
-- Läs en lista över blobbar i en behållare
-- Skriv en lagrings-BLOB i en behållare
+- Läsa en lista med blobar i en container
+- Skriva till en lagringsblob i en container
 - Ta bort ett meddelande i en kö
 
-Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-blob-data-reader) , som innehåller åtgärder i `Actions` egenskaperna och. `DataActions` Med den här rollen kan du läsa BLOB-behållaren och även underliggande BLOB-data.
+Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-blob-data-reader) , som innehåller åtgärder i både `Actions`-och `DataActions` egenskaper. Med den här rollen kan du läsa BLOB-behållaren och även underliggande BLOB-data.
 
 ```json
 {
@@ -120,7 +120,7 @@ Här är roll definitionen [Storage BLOB data Reader](built-in-roles.md#storage-
 }
 ```
 
-Det `DataActions` går endast att lägga till data åtgärder i `NotDataActions` egenskaperna och. Resurs leverantörer identifierar vilka åtgärder som är data åtgärder genom att ange `isDataAction` egenskapen till `true`. Om du vill se en lista över de `isDataAction` åtgärder `true`som finns, se [Resource Provider-åtgärder](resource-provider-operations.md). Roller som inte har data åtgärder krävs inte för att ha `DataActions` och `NotDataActions` egenskaper i roll definitionen.
+Du kan bara lägga till dataåtgärder i egenskaperna `DataActions` och `NotDataActions`. Resurs leverantörer identifierar vilka åtgärder som är data åtgärder genom att ange `isDataAction` egenskapen till `true`. Om du vill se en lista över åtgärder där `isDataAction` `true`, se [Resource Provider-åtgärder](resource-provider-operations.md). Roller som inte har data åtgärder krävs inte för att ha `DataActions` och `NotDataActions` egenskaper i roll definitionen.
 
 Auktorisering för alla API-anrop för hanterings åtgärder hanteras av Azure Resource Manager. Auktorisering för API-anrop för data åtgärder hanteras av antingen en resurs leverantör eller Azure Resource Manager.
 
@@ -134,12 +134,12 @@ Vi rekommenderar ett särskilt exempel för att bättre förstå hur hanterings-
 
 Ägare
 
-&nbsp;&nbsp;&nbsp;&nbsp;Action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;åtgärder<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Storage Blob Data-deltagare
+Storage BLOB data-deltagare
 
-&nbsp;&nbsp;&nbsp;&nbsp;Action<br>
+&nbsp;&nbsp;&nbsp;&nbsp;åtgärder<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/write`<br>
@@ -148,11 +148,11 @@ Storage Blob Data-deltagare
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
 
-Eftersom Alice har en jokertecken`*`()-åtgärd i ett prenumerations omfång, ärver deras behörigheter nedåt för att de ska kunna utföra alla hanterings åtgärder. Alice kan läsa, skriva och ta bort behållare. Alice kan dock inte utföra data åtgärder utan att vidta ytterligare åtgärder. Som standard kan Alice till exempel inte läsa blobarna i en behållare. För att läsa blobarna måste Alice Hämta lagrings åtkomst nycklar och använda dem för att få åtkomst till Blobbarna.
+Eftersom Alice har en jokertecken (`*`) i ett prenumerations omfång, ärver deras behörigheter nedåt för att göra det möjligt för dem att utföra alla hanterings åtgärder. Alice kan läsa, skriva och ta bort behållare. Alice kan dock inte utföra data åtgärder utan att vidta ytterligare åtgärder. Som standard kan Alice till exempel inte läsa blobarna i en behållare. För att läsa blobarna måste Alice Hämta lagrings åtkomst nycklar och använda dem för att få åtkomst till Blobbarna.
 
-Bobs behörigheter begränsas till bara `Actions` och `DataActions` anges i rollen [Storage BLOB data Contributor](built-in-roles.md#storage-blob-data-contributor) . Med hjälp av rollen kan Bob utföra både hanterings-och data åtgärder. Bob kan till exempel läsa, skriva och ta bort behållare i det angivna lagrings kontot och kan också läsa, skriva och ta bort blobbar.
+Bobs behörigheter är begränsade till bara `Actions` och `DataActions` som anges i rollen [Storage BLOB data Contributor](built-in-roles.md#storage-blob-data-contributor) . Med hjälp av rollen kan Bob utföra både hanterings-och data åtgärder. Bob kan till exempel läsa, skriva och ta bort behållare i det angivna lagrings kontot och kan också läsa, skriva och ta bort blobbar.
 
-Mer information om hantering och data Plans säkerhet för lagring finns i [säkerhets guiden för Azure Storage](../storage/common/storage-security-guide.md).
+Mer information om hantering och data Plans säkerhet för lagring finns i [säkerhets guiden för Azure Storage](../storage/blobs/security-recommendations.md).
 
 ### <a name="what-tools-support-using-rbac-for-data-operations"></a>Vilka verktyg stöder användning av RBAC för data åtgärder?
 
@@ -174,7 +174,7 @@ Om du vill visa och använda data åtgärder i REST API måste du ange parameter
 
 ## <a name="actions"></a>Åtgärder
 
-`Actions` Behörigheten anger vilka hanterings åtgärder som rollen kan utföra. Det är en samling åtgärds strängar som identifierar skydds bara åtgärder hos Azure Resource providers. Här följer några exempel på hanterings åtgärder som kan användas i `Actions`.
+`Actions` behörighet anger vilka hanterings åtgärder som rollen kan utföra. Det är en samling åtgärds strängar som identifierar skydds bara åtgärder hos Azure Resource providers. Här följer några exempel på hanterings åtgärder som kan användas i `Actions`.
 
 | Åtgärds sträng    | Beskrivning         |
 | ------------------- | ------------------- |
@@ -186,15 +186,15 @@ Om du vill visa och använda data åtgärder i REST API måste du ange parameter
 
 ## <a name="notactions"></a>NotActions
 
-Behörigheten anger vilka hanterings åtgärder som undantas från tillåten `Actions`. `NotActions` `NotActions` Använd behörigheten om den uppsättning åtgärder som du vill tillåta är enklare att definiera genom att exkludera begränsade åtgärder. Åtkomsten som beviljats av en roll (gällande behörigheter) beräknas genom att subtrahera `NotActions` åtgärderna `Actions` från åtgärderna.
+`NotActions` behörigheten anger de hanterings åtgärder som är undantagna från den tillåtna `Actions`. Använd `NotActions` behörighet om den uppsättning åtgärder som du vill tillåta är enklare att definiera genom att utesluta begränsade åtgärder. Åtkomsten som beviljats av en roll (gällande behörigheter) beräknas genom att subtrahera `NotActions` åtgärder från `Actions` åtgärder.
 
 > [!NOTE]
-> Om en användare tilldelas en roll som undantar en åtgärd i `NotActions`och tilldelas en andra roll som beviljar åtkomst till samma åtgärd, tillåts användaren utföra åtgärden. `NotActions`är inte en regel för neka – det är bara ett bekvämt sätt att skapa en uppsättning tillåtna åtgärder när vissa åtgärder behöver undantas.
+> Om en användare tilldelas en roll som undantar en åtgärd i `NotActions`och tilldelas en andra roll som beviljar åtkomst till samma åtgärd, tillåts användaren utföra åtgärden. `NotActions` är inte en neka-regel – det är bara ett bekvämt sätt att skapa en uppsättning tillåtna åtgärder när vissa åtgärder behöver undantas.
 >
 
 ## <a name="dataactions"></a>DataActions
 
-`DataActions` Behörigheten anger de data åtgärder som rollen kan utföra för dina data i objektet. Om en användare till exempel har Läs BLOB-dataåtkomst till ett lagrings konto kan de läsa blobarna i det lagrings kontot. Här följer några exempel på data åtgärder som kan användas i `DataActions`.
+`DataActions` behörighet anger de data åtgärder som rollen kan utföra för dina data i objektet. Om en användare till exempel har Läs BLOB-dataåtkomst till ett lagrings konto kan de läsa blobarna i det lagrings kontot. Här följer några exempel på data åtgärder som kan användas i `DataActions`.
 
 | Åtgärds sträng    | Beskrivning         |
 | ------------------- | ------------------- |
@@ -205,15 +205,15 @@ Behörigheten anger vilka hanterings åtgärder som undantas från tillåten `Ac
 
 ## <a name="notdataactions"></a>NotDataActions
 
-Behörigheten anger de data åtgärder som undantas från tillåten `DataActions`. `NotDataActions` Åtkomsten som beviljats av en roll (gällande behörigheter) beräknas genom att subtrahera `NotDataActions` åtgärderna `DataActions` från åtgärderna. Varje resurs leverantör tillhandahåller sin respektive uppsättning API: er för att uppfylla data åtgärder.
+`NotDataActions` behörigheten anger de data åtgärder som undantas från tillåtna `DataActions`. Åtkomsten som beviljats av en roll (gällande behörigheter) beräknas genom att subtrahera `NotDataActions` åtgärder från `DataActions` åtgärder. Varje resurs leverantör tillhandahåller sin respektive uppsättning API: er för att uppfylla data åtgärder.
 
 > [!NOTE]
-> Om en användare har tilldelats en roll som undantar en data åtgärd i `NotDataActions`och har tilldelats en andra roll som beviljar åtkomst till samma data åtgärd, tillåts användaren att utföra denna data åtgärd. `NotDataActions`är inte en regel för neka – det är bara ett bekvämt sätt att skapa en uppsättning tillåtna data åtgärder när vissa data åtgärder måste undantas.
+> Om en användare tilldelas en roll som undantar en data åtgärd i `NotDataActions`och tilldelas en andra roll som beviljar åtkomst till samma data åtgärd, tillåts användaren att utföra denna data åtgärd. `NotDataActions` är inte en neka-regel – det är bara ett bekvämt sätt att skapa en uppsättning tillåtna data åtgärder när vissa data åtgärder måste undantas.
 >
 
 ## <a name="assignablescopes"></a>AssignableScopes
 
-`AssignableScopes` Egenskapen anger omfattningarna (hanterings grupper, prenumerationer, resurs grupper eller resurser) som har den här roll definitionen tillgänglig. Du kan bara göra rollen tillgänglig för tilldelning i de hanterings grupper, prenumerationer eller resurs grupper som kräver det. Du måste använda minst en hanterings grupp, en prenumeration, en resurs grupp eller ett resurs-ID.
+Egenskapen `AssignableScopes` anger omfattningarna (hanterings grupper, prenumerationer, resurs grupper eller resurser) som har den här roll definitionen tillgänglig. Du kan bara göra rollen tillgänglig för tilldelning i de hanterings grupper, prenumerationer eller resurs grupper som kräver det. Du måste använda minst en hanterings grupp, en prenumeration, en resurs grupp eller ett resurs-ID.
 
 Inbyggda roller har `AssignableScopes` angetts till rot omfånget (`"/"`). Rot omfånget indikerar att rollen är tillgänglig för tilldelning i alla omfattningar. Exempel på giltiga tilldelnings bara omfång är:
 
@@ -226,7 +226,7 @@ Inbyggda roller har `AssignableScopes` angetts till rot omfånget (`"/"`). Rot o
 | Hanterings grupp och en prenumeration | `"/providers/Microsoft.Management/managementGroups/{groupId1}", /subscriptions/{subscriptionId1}",` |
 | Alla omfattningar (gäller endast inbyggda roller) | `"/"` |
 
-Information om `AssignableScopes` anpassade roller finns i [anpassade roller för Azure-resurser](custom-roles.md).
+Information om `AssignableScopes` för anpassade roller finns i [anpassade roller för Azure-resurser](custom-roles.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

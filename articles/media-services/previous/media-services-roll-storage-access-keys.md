@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga;cenkdin
-ms.openlocfilehash: 1cebe0fda7da97933fc94082a62c671535fe689b
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 2a0d1c5af572c88dc11bed950b46706f0a2f081f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "69015808"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981965"
 ---
 # <a name="update-media-services-after-rolling-storage-access-keys"></a>Uppdatera Media Services efter återställning av lagringsåtkomstnycklar 
 
 När du skapar ett nytt Azure Media Services-konto (AMS) uppmanas du också att välja ett Azure Storage konto som används för att lagra medie innehåll. Du kan lägga till fler än ett lagrings konto till ditt Media Services-konto. Den här artikeln visar hur du roterar lagrings nycklar. Den visar också hur du lägger till lagrings konton till ett medie konto. 
 
-Om du vill utföra de åtgärder som beskrivs i den här artikeln ska du använda [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [PowerShell](https://docs.microsoft.com/powershell/module/az.media).  Mer information finns i [Hantera Azure-resurser med PowerShell och Resource Manager](../../azure-resource-manager/manage-resource-groups-powershell.md).
+Om du vill utföra de åtgärder som beskrivs i den här artikeln ska du använda [Azure Resource Manager API: er](/rest/api/media/operations/azure-media-services-rest-api-reference) och [PowerShell](https://docs.microsoft.com/powershell/module/az.media).  Mer information finns i [Hantera Azure-resurser med PowerShell och Resource Manager](../../azure-resource-manager/management/manage-resource-groups-powershell.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -71,7 +71,7 @@ Följande exempel visar hur du hämtar lagrings kontot och synkroniserar det med
  
 ## <a name="steps-to-add-storage-accounts-to-your-ams-account"></a>Steg för att lägga till lagrings konton till ditt AMS-konto
 
-Följande artikel visar hur du lägger till lagrings konton till ditt AMS-konto: [Bifoga flera lagrings konton till ett Media Services-konto](meda-services-managing-multiple-storage-accounts.md).
+Följande artikel visar hur du lägger till lagrings konton till ditt AMS-konto: [bifoga flera lagrings konton till ett Media Services-konto](meda-services-managing-multiple-storage-accounts.md).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -79,5 +79,5 @@ Följande artikel visar hur du lägger till lagrings konton till ditt AMS-konto:
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-### <a name="acknowledgments"></a>Bekräftelser
+### <a name="acknowledgments"></a>Tack
 Vi vill bekräfta följande personer som bidragit till att skapa det här dokumentet: Cenk Dingiloglu, Milano Gada, Seva Titov.

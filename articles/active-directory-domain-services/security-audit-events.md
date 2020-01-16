@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c51eff77c0375491f4376f12c9ff959f033e2ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d8e96ffc3e2b4756a4184a9a023133f14b326ed3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425377"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979932"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Aktivera säkerhets granskningar för Azure Active Directory Domain Services
 
@@ -126,7 +126,7 @@ Slutför följande steg för att aktivera Azure AD DS-säkerhetsgransknings hän
 
 1. Skapa mål resursen för säkerhets gransknings händelser.
 
-    * **Azure storage** - [skapa ett lagrings konto med Azure PowerShell](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell)
+    * **Azure storage** - [skapa ett lagrings konto med Azure PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell)
     * **Azure Event hub** - [skapa en händelsehubben med Azure PowerShell](../event-hubs/event-hubs-quickstart-powershell.md). Du kan också behöva använda cmdleten [New-AzEventHubAuthorizationRule](/powershell/module/az.eventhub/new-azeventhubauthorizationrule) för att skapa en auktoriseringsregel som ger Azure AD DS-behörigheter till *namn området*för Event Hub. Auktoriseringsregeln måste innehålla rättigheterna **Hantera**, **Lyssna**och **Skicka** .
 
         > [!IMPORTANT]

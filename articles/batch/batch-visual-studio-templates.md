@@ -3,7 +3,7 @@ title: Bygg lösningar med Visual Studio-mallar – Azure Batch | Microsoft Docs
 description: Lär dig hur Visual Studio-projektmallar kan hjälpa dig att implementera och köra beräknings intensiva arbets belastningar på Azure Batch.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 5e041ae2-25af-4882-a79e-3aa63c4bfb20
@@ -12,18 +12,18 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 02/27/2017
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 60662e723a55c969fdd4b70e732303c90bbf9e8b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a8cbc630be684371d8dc7917870d581c9a072db5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094347"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029578"
 ---
 # <a name="use-visual-studio-project-templates-to-jump-start-batch-solutions"></a>Använd Visual Studio-projektmallar för att komma igång med batch-lösningar
 
-Med **Visual Studio** -mallarna **Job Manager** och Task för batch får du en kod som hjälper dig att implementera och köra beräknings intensiva arbets belastningar på batch med minsta möjliga insats. Det här dokumentet beskriver de här mallarna och ger vägledning för hur du använder dem.
+Med **Visual Studio-mallarna** **Job Manager** och Task för batch får du en kod som hjälper dig att implementera och köra beräknings intensiva arbets belastningar på batch med minsta möjliga insats. Det här dokumentet beskriver de här mallarna och ger vägledning för hur du använder dem.
 
 > [!IMPORTANT]
 > I den här artikeln beskrivs bara information som gäller för dessa två mallar och förutsätter att du är bekant med batch-tjänsten och viktiga begrepp som är relaterade till den: pooler, Compute-noder, jobb och aktiviteter, jobb Manager-uppgifter, miljövariabler och andra relevanta Mer. Du hittar mer information i [grunderna i Azure Batch](batch-technical-overview.md) och [Översikt över batch-funktioner för utvecklare](batch-api-basics.md).
@@ -51,17 +51,17 @@ Som du ser i diagrammet nedan, kommer ett beräknings jobb som använder dessa m
 
 ![Diagram över hur klient kod interagerar med batch-tjänsten][diagram01]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver följande för att kunna använda batch-mallarna:
 
 * En dator med Visual Studio 2015 installerad. Batch-mallar stöds för närvarande endast för Visual Studio 2015.
-* Batch-mallarna som är tillgängliga från [Visual Studio][vs_gallery] -galleriet som Visual Studio-tillägg. Det finns två sätt att hämta mallarna:
+* Batch-mallarna som är tillgängliga från [Visual Studio-galleriet][vs_gallery] som Visual Studio-tillägg. Det finns två sätt att hämta mallarna:
   
   * Installera mallarna med hjälp av dialog rutan **tillägg och uppdateringar** i Visual Studio (mer information finns i [hitta och använda Visual Studio-tillägg][vs_find_use_ext]). I dialog rutan **tillägg och uppdateringar** söker du efter och laddar ned följande två tillägg:
     
     * Azure Batch jobb hanterare med jobb delning
     * Azure Batch uppgifts processor
-  * Ladda ned mallarna från Onlinegalleri för Visual Studio: [Microsoft Azure Batch-projektmallar][vs_gallery_templates]
+  * Hämta mallarna från Onlinegalleri för Visual Studio: Microsoft Azure Batch- [projektmallar][vs_gallery_templates]
 * Om du planerar att använda funktionen [programpaket](batch-application-packages.md) för att distribuera jobb hanteraren och uppgifts processorn till batch-datornoder måste du länka ett lagrings konto till ditt batch-konto.
 
 ## <a name="preparation"></a>Förberedelse
@@ -87,7 +87,7 @@ Med Job Manager-mallen kan du implementera en Job Manager-aktivitet som kan utf�
 Följ dessa steg om du vill lägga till en jobb hanterare i lösningen som du skapade tidigare:
 
 1. Öppna din befintliga lösning i Visual Studio.
-2. Högerklicka på lösningen i Solution Explorer och klicka på **Lägg till** > **nytt projekt**.
+2. I Solution Explorer högerklickar du på lösningen och klickar på **Lägg till** > **nytt projekt**.
 3. Under **visuellt C#** objekt klickar du på **moln**och sedan på **Azure Batch Job Manager med jobb delning**.
 4. Ange ett namn som beskriver ditt program och identifierar det här projektet som jobb hanterare (t. ex. "LitwareJobManager").
 5. Klicka på **OK**för att skapa projektet.
@@ -110,21 +110,21 @@ Resten av det här avsnittet beskriver de olika filerna och deras kod struktur o
 
 **Framework-filer**
 
-* `Configuration.cs`: Kapslar in inläsningen av jobb konfigurations data, till exempel batch-kontoinformation, länkade lagrings konto uppgifter, jobb-och aktivitets information och jobb parametrar. Den ger också till gång till batch-definierade miljövariabler (se miljö inställningar för aktiviteter i batch-dokumentationen) via klassen Configuration. EnvironmentVariable.
-* `IConfiguration.cs`: Sammanfattar implementeringen av konfigurations klassen, så att du kan testa din jobb delning med ett förfalskat eller modellerat konfigurations objekt.
-* `JobManager.cs`: Dirigerar komponenterna i Job Manager-programmet. Den är ansvarig för att initiera jobb delningen, anropa jobb delningen och skicka tillbaka de uppgifter som returneras av jobb delningen till uppgifts lämnaren.
-* `JobManagerException.cs`: Representerar ett fel som kräver att jobb hanteraren avslutas. JobManagerException används för att omsluta "förväntade" fel där speciell diagnostikinformation kan tillhandahållas som del av uppsägningen.
-* `TaskSubmitter.cs`: Den här klassen ansvarar för att lägga till aktiviteter som returneras av jobb delningen till batch-jobbet. JobManager-klassen sammanställer sekvensen med aktiviteter i batchar för effektiv men snabbare tillägg till jobbet och anropar sedan TaskSubmitter. SubmitTasks i en bakgrunds tråd för varje batch.
+* `Configuration.cs`: kapslar in inläsningen av jobb konfigurations data, till exempel batch-kontoinformation, länkade lagrings konto uppgifter, jobb-och aktivitets information och jobb parametrar. Den ger också till gång till batch-definierade miljövariabler (se miljö inställningar för aktiviteter i batch-dokumentationen) via klassen Configuration. EnvironmentVariable.
+* `IConfiguration.cs`: sammanfattar implementeringen av konfigurations klassen, så att du kan testa din jobb delning med ett förfalskat eller ett modell objekt.
+* `JobManager.cs`: dirigerar komponenterna i Job Manager-programmet. Den är ansvarig för att initiera jobb delningen, anropa jobb delningen och skicka tillbaka de uppgifter som returneras av jobb delningen till uppgifts lämnaren.
+* `JobManagerException.cs`: representerar ett fel som kräver att jobb hanteraren avslutas. JobManagerException används för att omsluta "förväntade" fel där speciell diagnostikinformation kan tillhandahållas som del av uppsägningen.
+* `TaskSubmitter.cs`: den här klassen ansvarar för att lägga till aktiviteter som returneras av jobb delningen till batch-jobbet. JobManager-klassen sammanställer sekvensen med aktiviteter i batchar för effektiv men snabbare tillägg till jobbet och anropar sedan TaskSubmitter. SubmitTasks i en bakgrunds tråd för varje batch.
 
 **Jobb delning**
 
-`JobSplitter.cs`: Den här klassen innehåller programspecifik logik för att dela jobbet i aktiviteter. Ramverket anropar metoden JobSplitter. Split för att hämta en serie uppgifter som den lägger till i jobbet när metoden returnerar dem. Det här är den klass där du kommer att mata in logiken för ditt jobb. Implementera metoden Split för att returnera en sekvens av CloudTask-instanser som representerar de uppgifter som du vill partitionera jobbet i.
+`JobSplitter.cs`: den här klassen innehåller programspecifik logik för att dela jobbet i aktiviteter. Ramverket anropar metoden JobSplitter. Split för att hämta en serie uppgifter som den lägger till i jobbet när metoden returnerar dem. Det här är den klass där du kommer att mata in logiken för ditt jobb. Implementera metoden Split för att returnera en sekvens av CloudTask-instanser som representerar de uppgifter som du vill partitionera jobbet i.
 
 **Project-källfiler för standard .NET-kommando raden**
 
-* `App.config`: Standard konfigurations fil för .NET-program.
-* `Packages.config`: Standard NuGet-paket beroende fil.
-* `Program.cs`: Innehåller program start punkt och undantags hantering på den översta nivån.
+* `App.config`: standard konfigurations fil för .NET-program.
+* `Packages.config`: standard beroende fil för NuGet-paket.
+* `Program.cs`: innehåller program start punkt och undantags hantering på den översta nivån.
 
 ### <a name="implementing-the-job-splitter"></a>Implementera jobb delning
 När du öppnar projekt hanterarens projekt kommer projektet att ha JobSplitter.cs-filen öppen som standard. Du kan implementera den delade logiken för aktiviteterna i arbets belastningen med hjälp av metoden Split (), Visa nedan:
@@ -156,15 +156,15 @@ public IEnumerable<CloudTask> Split()
 ```
 
 > [!NOTE]
-> Avsnittet kommenterat i `Split()` -metoden är det enda avsnittet i den mall-mallkod för jobb hanteraren som är avsett att ändra genom att lägga till logiken för att dela jobben i olika aktiviteter. Om du vill ändra ett annat avsnitt i mallen, se till att du är bekant med hur batch fungerar och prova några [batch-kod exempel][github_samples].
+> Avsnittet kommenterat i `Split()`-metoden är det enda avsnittet i den mall kod för jobb hanteraren som är avsett att ändra genom att lägga till logiken för att dela jobben i olika aktiviteter. Om du vill ändra ett annat avsnitt i mallen, se till att du är bekant med hur batch fungerar och prova några [batch-kod exempel][github_samples].
 > 
 > 
 
 Din Split ()-implementering har åtkomst till:
 
-* Jobb parametrarna via `_parameters` fältet.
-* CloudJob-objektet som representerar jobbet via `_job` fältet.
-* CloudTask-objektet som representerar Job Manager-aktiviteten via `_jobManagerTask` fältet.
+* Jobb parametrarna, via fältet `_parameters`.
+* CloudJob-objektet som representerar jobbet via fältet `_job`.
+* CloudTask-objektet som representerar jobb hanterarens uppgift, via fältet `_jobManagerTask`.
 
 Din `Split()` implementering behöver inte lägga till uppgifter till jobbet direkt. I stället bör din kod returnera en sekvens av CloudTask-objekt, och dessa läggs till automatiskt i jobbet av de Ramverks klasser som anropar jobb delnings listen. Det är vanligt att använda C#funktionen iterator (`yield return`) för att implementera jobb delningar eftersom detta gör att aktiviteterna kan startas så snart som möjligt, i stället för att vänta på att alla aktiviteter ska beräknas.
 
@@ -172,13 +172,13 @@ Din `Split()` implementering behöver inte lägga till uppgifter till jobbet dir
 
 Om din jobb delning påträffar ett fel, bör det antingen:
 
-* Avsluta sekvensen med hjälp C# `yield break` av instruktionen, i vilket fall jobb hanteraren kommer att behandlas som lyckad, eller
+* Avsluta sekvensen med hjälp av C# `yield break`-instruktionen, i vilket fall jobb hanteraren kommer att behandlas som lyckad. eller
 * Utlös ett undantag, i vilket fall jobb hanteraren kommer att behandlas som misslyckad och kan provas igen beroende på hur klienten har konfigurerat den.
 
 I båda fallen är alla uppgifter som redan returnerade av jobb delningen och som läggs till i batch-jobbet tillgängliga för körning. Om du inte vill att det ska hända kan du:
 
 * Avsluta jobbet innan du återgår från jobb delnings listen
-* Formulera hela aktivitets samlingen innan du returnerar den (det vill säga returnera en `ICollection<CloudTask>` eller `IList<CloudTask>` i stället för att implementera jobb delningen med C# hjälp av en iterator)
+* Formulera hela aktivitets samlingen innan du returnerar den (det vill säga returnera en `ICollection<CloudTask>` eller `IList<CloudTask>` i stället för att implementera din jobb delning med C# hjälp av en iterator)
 * Använd aktivitets beroenden för att göra alla aktiviteter beroende av att jobb hanteraren har slutförts
 
 **Återförsök för jobb hanteraren**
@@ -190,7 +190,7 @@ Avslutnings koder och undantag ger en mekanism för att fastställa resultatet a
 
 En Job Manager-aktivitet som implementeras med mallen för jobb hanteraren kan returnera tre möjliga slut koder:
 
-| Kod | Beskrivning |
+| Programmera | Beskrivning |
 | --- | --- |
 | 0 |Jobb hanteraren har slutförts. Jobb delnings koden kördes för att slutföras och alla aktiviteter har lagts till i jobbet. |
 | 1 |Job Manager-aktiviteten misslyckades med ett undantag i en förväntad del av programmet. Undantaget översattes till en JobManagerException med diagnostikinformation och, om möjligt, förslag för att lösa problemet. |
@@ -279,13 +279,13 @@ Resten av det här avsnittet beskriver de olika filerna och deras kod struktur o
 
 **Framework-filer**
 
-* `Configuration.cs`: Kapslar in inläsningen av jobb konfigurations data, till exempel batch-kontoinformation, länkade lagrings konto uppgifter, jobb-och aktivitets information och jobb parametrar. Den ger också till gång till batch-definierade miljövariabler (se miljö inställningar för aktiviteter i batch-dokumentationen) via klassen Configuration. EnvironmentVariable.
-* `IConfiguration.cs`: Sammanfattar implementeringen av konfigurations klassen, så att du kan testa din jobb delning med ett förfalskat eller modellerat konfigurations objekt.
-* `TaskProcessorException.cs`: Representerar ett fel som kräver att jobb hanteraren avslutas. TaskProcessorException används för att omsluta "förväntade" fel där speciell diagnostikinformation kan tillhandahållas som del av uppsägningen.
+* `Configuration.cs`: kapslar in inläsningen av jobb konfigurations data, till exempel batch-kontoinformation, länkade lagrings konto uppgifter, jobb-och aktivitets information och jobb parametrar. Den ger också till gång till batch-definierade miljövariabler (se miljö inställningar för aktiviteter i batch-dokumentationen) via klassen Configuration. EnvironmentVariable.
+* `IConfiguration.cs`: sammanfattar implementeringen av konfigurations klassen, så att du kan testa din jobb delning med ett förfalskat eller ett modell objekt.
+* `TaskProcessorException.cs`: representerar ett fel som kräver att jobb hanteraren avslutas. TaskProcessorException används för att omsluta "förväntade" fel där speciell diagnostikinformation kan tillhandahållas som del av uppsägningen.
 
 **Uppgifts processor**
 
-* `TaskProcessor.cs`: Kör uppgiften. Ramverket anropar metoden TaskProcessor. Run. Detta är den klass där du kommer att mata in den programspecifika logiken för uppgiften. Implementera metoden Run för att:
+* `TaskProcessor.cs`: kör uppgiften. Ramverket anropar metoden TaskProcessor. Run. Detta är den klass där du kommer att mata in den programspecifika logiken för uppgiften. Implementera metoden Run för att:
   * Parsa och validera eventuella aktivitets parametrar
   * Skriv kommando raden för alla externa program som du vill anropa
   * Logga all diagnostikinformation som du kan behöva för fel sökning
@@ -296,9 +296,9 @@ Resten av det här avsnittet beskriver de olika filerna och deras kod struktur o
 
 **Project-källfiler för standard .NET-kommando raden**
 
-* `App.config`: Standard konfigurations fil för .NET-program.
-* `Packages.config`: Standard NuGet-paket beroende fil.
-* `Program.cs`: Innehåller program start punkt och undantags hantering på den översta nivån.
+* `App.config`: standard konfigurations fil för .NET-program.
+* `Packages.config`: standard beroende fil för NuGet-paket.
+* `Program.cs`: innehåller program start punkt och undantags hantering på den översta nivån.
 
 ## <a name="implementing-the-task-processor"></a>Implementera uppgifts processorn
 När du öppnar projektet för uppgifts bearbetnings mal len kommer TaskProcessor.cs-filen vara öppen som standard. Du kan implementera körnings logiken för aktiviteterna i arbets belastningen med hjälp av metoden Run () som visas nedan:
@@ -356,7 +356,7 @@ Metoden Run () ansvarar för att starta kommando raden, starta en eller flera pr
 Implementeringen () har åtkomst till:
 
 * Aktivitets parametrarna via `_parameters` fältet.
-* Jobb-och aktivitets-ID: n `_jobId` , `_taskId` via fälten och.
+* Jobb-och aktivitets-ID: n, via fälten `_jobId` och `_taskId`.
 * Aktivitets konfigurationen via `_configuration` fältet.
 
 **Uppgifts haverie**
@@ -368,7 +368,7 @@ Avslutnings koder och undantag ger en mekanism för att fastställa resultatet a
 
 En uppgifts processor aktivitet som implementeras med uppgifts processor mal len kan returnera tre möjliga slut koder:
 
-| Kod | Beskrivning |
+| Programmera | Beskrivning |
 | --- | --- |
 | [Process. ExitCode][process_exitcode] |Aktivitets processorn kördes. Observera att detta inte innebär att det program du anropade lyckades – endast att aktivitets processorn anropade det och utförde efter bearbetning utan undantag. Innebörden av slut koden beror på vilket program som anropas – vanligt vis avslutar kod 0 betyder att programmet lyckades och andra slut koder innebär att programmet misslyckades. |
 | 1 |Uppgifts processorn misslyckades med ett undantag i en förväntad del av programmet. Undantaget översattes till en `TaskProcessorException` med diagnostikinformation och, där det är möjligt, förslag på att lösa problemet. |
@@ -384,7 +384,7 @@ All information som returneras av undantag skrivs till stdout. txt och stderr. t
 ### <a name="client-considerations"></a>Klient överväganden
 **Autentiseringsuppgifter för lagring**
 
-Om din uppgifts processor använder Azure Blob Storage för att spara utdata, t. ex. genom att använda fil konventionernas bibliotek, behöver det *antingen* åtkomst till moln lagrings kontots autentiseringsuppgifter *eller* en BLOB container-URL som innehåller en delad åtkomst signatur (SAS). Mallen innehåller stöd för att ange autentiseringsuppgifter via vanliga miljövariabler. Klienten kan överföra autentiseringsuppgifterna för lagring på följande sätt:
+Om din uppgifts processor använder Azure Blob Storage för att spara utdata, t. ex. genom att använda fil konventionernas bibliotek, behöver det *antingen* åtkomst till moln lagrings kontots autentiseringsuppgifter *eller* en BLOB container-URL som innehåller en signatur för delad åtkomst (SAS). Mallen innehåller stöd för att ange autentiseringsuppgifter via vanliga miljövariabler. Klienten kan överföra autentiseringsuppgifterna för lagring på följande sätt:
 
 ```csharp
 job.CommonEnvironmentSettings = new [] {
@@ -393,7 +393,7 @@ job.CommonEnvironmentSettings = new [] {
 };
 ```
 
-Lagrings kontot är sedan tillgängligt i TaskProcessor-klassen via `_configuration.StorageAccount` egenskapen.
+Lagrings kontot är sedan tillgängligt i TaskProcessor-klassen via `_configuration.StorageAccount`-egenskapen.
 
 Om du föredrar att använda en behållar-URL med SAS kan du också skicka detta via en arbets miljö inställning för jobb, men för närvarande inkluderar inte inbyggt stöd för det här.
 
@@ -409,12 +409,12 @@ En klient kan skicka information till Job Manager-aktiviteten i form av miljö i
 * Batch-kontots URL
 * Batch-konto nyckel
 
-Batch-tjänsten har en enkel mekanism för att överföra miljö inställningar till en Job Manager-aktivitet genom `EnvironmentSettings` att använda egenskapen i [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
+Batch-tjänsten har en enkel mekanism för att överföra miljö inställningar till en Job Manager-aktivitet genom att använda egenskapen `EnvironmentSettings` i [Microsoft. Azure. batch. JobManagerTask][net_jobmanagertask].
 
-Om du till exempel vill hämta `BatchClient` instansen för ett batch-konto kan du skicka som miljövariabler från klient koden till URL: en och autentiseringsuppgifterna för delad nyckel för batch-kontot. Om du vill komma åt det lagrings konto som är länkat till batch-kontot kan du också skicka lagrings kontots namn och lagrings konto nyckeln som miljövariabler.
+Om du till exempel vill hämta `BatchClient`-instansen för ett batch-konto kan du skicka som miljövariabler från klient koden till URL: en och autentiseringsuppgifterna för delad nyckel för batch-kontot. Om du vill komma åt det lagrings konto som är länkat till batch-kontot kan du också skicka lagrings kontots namn och lagrings konto nyckeln som miljövariabler.
 
 ### <a name="pass-parameters-to-the-job-manager-template"></a>Skicka parametrar till Job Manager-mallen
-I många fall är det praktiskt att skicka parametrar för varje jobb till Job Manager-aktiviteten, antingen för att kontrol lera jobb delnings processen eller konfigurera aktiviteter för jobbet. Det kan du göra genom att ladda upp en JSON-fil med namnet Parameters. JSON som en resurs fil för Job Manager-aktiviteten. Parametrarna kan sedan bli tillgängliga i `JobSplitter._parameters` fältet i Job Manager-mallen.
+I många fall är det praktiskt att skicka parametrar för varje jobb till Job Manager-aktiviteten, antingen för att kontrol lera jobb delnings processen eller konfigurera aktiviteter för jobbet. Det kan du göra genom att ladda upp en JSON-fil med namnet Parameters. JSON som en resurs fil för Job Manager-aktiviteten. Parametrarna kan sedan bli tillgängliga i fältet `JobSplitter._parameters` i Job Manager-mallen.
 
 > [!NOTE]
 > Den inbyggda parameter hanteraren har endast stöd för sträng-till-sträng-ordlistor. Om du vill skicka komplexa JSON-värden som parameter värden måste du skicka dem som strängar och analysera dem i jobb delningen eller ändra ramverkets `Configuration.GetJobParameters` metod.

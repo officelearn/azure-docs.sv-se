@@ -3,7 +3,7 @@ title: Azure Monitor tillägg för virtuell dator för Windows
 description: Distribuera Log Analytics agenten på en virtuell Windows-dator med ett tillägg för virtuell dator.
 services: virtual-machines-windows
 documentationcenter: ''
-author: axayjo
+author: MicahMcKittrick-MSFT
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073667"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969953"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor tillägg för virtuell dator för Windows
 
@@ -41,9 +41,9 @@ Följande tabell innehåller en mappning av versionen av Windows Azure Monitor V
 | 10.20.18011 | 1.0.18011 | Juli 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Ökat MaxExpressionDepth till 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Juni 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Möjlighet att inaktivera standardautentiseringsuppgifter vid anslutning av proxy (stöd för WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) har lagts till </li></ul>|
 | 10.19.13515 | 1.0.13515 | Mars 2019 | <ul><li>Mindre stabiliserings korrigeringar </li></ul> |
-| 10.19.10006 | Saknas | Dec 2018 | <ul><li> Mindre stabiliserings korrigeringar </li></ul> | 
-| 8.0.11136 | Saknas | Sept 2018 |  <ul><li> Stöd har lagts till för att identifiera resurs-ID-ändring vid flyttning av virtuell dator </li><li> Stöd har lagts till för rapporterings resurs-ID vid användning av installation utan tillägg </li></ul>| 
-| 8.0.11103 | Saknas |  April 2018 | |
+| 10.19.10006 | Ej tillämpligt | Dec 2018 | <ul><li> Mindre stabiliserings korrigeringar </li></ul> | 
+| 8.0.11136 | Ej tillämpligt | Sept 2018 |  <ul><li> Stöd har lagts till för att identifiera resurs-ID-ändring vid flyttning av virtuell dator </li><li> Stöd har lagts till för rapporterings resurs-ID vid användning av installation utan tillägg </li></ul>| 
+| 8.0.11103 | Ej tillämpligt |  April 2018 | |
 | 8.0.11081 | 1.0.11081 | Nov 2017 | | 
 | 8.0.11072 | 1.0.11072 | Sept 2017 | |
 | 8.0.11049 | 1.0.11049 | Feb 2017 | |
@@ -95,6 +95,8 @@ Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kr�
 
 \* workspaceId kallas consumerId i Log Analytics-API: et.
 
+> [OBS!] Ytterligare egenskaper finns i Azure [Connect Windows computes to Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows).
+
 ## <a name="template-deployment"></a>Malldistribution
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat som beskrivs i föregående avsnitt kan användas i en Azure Resource Manager-mall för att köra Log Analytics agent-tillägget under en distribution av Azure Resource Manager mallar. En exempel mall som innehåller Log Analytics agentens VM-tillägg finns i [Azure Snabbstart-galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
@@ -102,7 +104,7 @@ Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schem
 >[!NOTE]
 >Mallen har inte stöd för att ange mer än ett arbetsyte-ID och en arbetsyte nyckel när du vill konfigurera agenten att rapportera till flera arbets ytor. Om du vill konfigurera agenten att rapportera till flera arbets ytor, se [lägga till eller ta bort en arbets yta](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resurs namn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/child-resource-name-type.md). 
+JSON för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON påverkar värdet för resurs namn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 I följande exempel antas Azure Monitor-tillägget kapslas i den virtuella dator resursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
 
@@ -178,7 +180,7 @@ Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av modulen Azure PowerShell. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure PowerShell-modulen.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 87cdd3d18fe0e6a3655c8bbc940cdc00fa211e74
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70523dc12f3f20362fcf4a2c3cb456a182038e8a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750589"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982254"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Skapa, ändra eller ta bort ett virtuellt nätverk
 
@@ -79,7 +79,7 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
 
      ![Översikt över nätverks gränssnitt](./media/manage-virtual-network/vnet-overview.png)
 
-     Du kan flytta ett virtuellt nätverk till en annan prenumeration eller resurs grupp genom att välja **ändra** bredvid **resurs grupp** eller **prenumerations namn**. Information om hur du flyttar ett virtuellt nätverk finns i [Flytta resurser till en annan resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Artikeln innehåller förutsättningar och hur du flyttar resurser med hjälp av Azure Portal, PowerShell och Azure CLI. Alla resurser som är anslutna till det virtuella nätverket måste flyttas med det virtuella nätverket.
+     Du kan flytta ett virtuellt nätverk till en annan prenumeration eller resurs grupp genom att välja **ändra** bredvid **resurs grupp** eller **prenumerations namn**. Information om hur du flyttar ett virtuellt nätverk finns i [Flytta resurser till en annan resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Artikeln innehåller förutsättningar och hur du flyttar resurser med hjälp av Azure Portal, PowerShell och Azure CLI. Alla resurser som är anslutna till det virtuella nätverket måste flyttas med det virtuella nätverket.
    - **Adress utrymme**: adress utrymmen som är kopplade till det virtuella nätverket visas i listan. Om du vill lära dig hur du lägger till och tar bort ett adress intervall i adress utrymmet slutför du stegen i [Lägg till eller ta bort ett adress intervall](#add-or-remove-an-address-range).
    - **Anslutna enheter**: alla resurser som är anslutna till det virtuella nätverket visas i listan. I föregående skärm bild är tre nätverks gränssnitt och en belastningsutjämnare anslutna till det virtuella nätverket. Alla nya resurser som du skapar och ansluter till det virtuella nätverket visas i listan. Om du tar bort en resurs som är ansluten till det virtuella nätverket visas den inte längre i listan.
    - **Undernät**: en lista över undernät som finns i det virtuella nätverket visas. Information om hur du lägger till och tar bort ett undernät finns i [Hantera undernät](virtual-network-manage-subnet.md).
@@ -90,8 +90,8 @@ Utför följande åtgärder innan du slutför stegen i något avsnitt i den här
    - **Vanliga Azure-inställningar**: Mer information om vanliga Azure-inställningar finns i följande information:
      - [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)
      - [Åtkomst kontroll (IAM)](../role-based-access-control/overview.md)
-     - [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-     - [Hålls](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+     - [Hålls](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Automation-skript](../azure-resource-manager/management/manage-resource-groups-portal.md#export-resource-groups-to-templates)
 
 **Kommandon**

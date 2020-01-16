@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 737cd9d306f01fa77dafa3d1a9a71495ff0a572e
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940777"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977527"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -145,7 +145,7 @@ Om du har hemligheter som ska skickas i en Azure Resource Manager-mall rekommend
 
 Det finns två sätt att hantera hemligheter:
 
--  Lägg till hemligheterna i parameter filen. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/resource-manager-keyvault-parameter.md).
+1.  Lägg till filen hemligheter till Parameters. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](../azure-resource-manager/templates/key-vault-parameter.md).
 
     Skapa en kopia av parameter filen som överförs till publicerings grenen. Ange värdena för de parametrar som du vill hämta från Key Vault med det här formatet:
 

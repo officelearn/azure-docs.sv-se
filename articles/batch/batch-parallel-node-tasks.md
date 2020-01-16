@@ -3,7 +3,7 @@ title: Kör aktiviteter parallellt för att använda beräknings resurser effekt
 description: Öka effektiviteten och sänk kostnaderna genom att använda färre Compute-noder och köra samtidiga aktiviteter på varje nod i en Azure Batch pool
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f45c35e6d9fb611ebf73c4eab8b517d8575b8e82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094932"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026822"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Kör uppgifter samtidigt för att maximera användningen av batch Compute-noder 
 
@@ -33,17 +33,17 @@ Vissa scenarier drar nytta av att dedicera alla en nods resurser till en enda up
 * **Replikera ett lokalt beräknings kluster**, till exempel när du först flyttar en beräknings miljö till Azure. Om din aktuella lokala lösning kör flera aktiviteter per Compute-nod kan du öka det maximala antalet noder för att bättre kunna spegla konfigurationen.
 
 ## <a name="example-scenario"></a>Exempel på ett scenario
-Som exempel för att illustrera fördelarna med parallell aktivitets körningen ska vi säga att ditt aktivitets program har processor-och minnes krav, så att [standard\_D1](../cloud-services/cloud-services-sizes-specs.md) -noderna är tillräckliga. Men för att slutföra jobbet inom den tid som krävs krävs 1 000 av de här noderna.
+Som exempel för att illustrera fördelarna med parallell aktivitets körningen ska vi säga att ditt aktivitets program har processor-och minnes krav, så att [Standard\_D1](../cloud-services/cloud-services-sizes-specs.md) -noder räcker. Men för att slutföra jobbet inom den tid som krävs krävs 1 000 av de här noderna.
 
-I stället för att\_använda standard D1-noder som har 1 processor kärna kan du använda [standard\_D14](../cloud-services/cloud-services-sizes-specs.md) -noder som har 16 kärnor och aktivera parallell körning av aktiviteter. Därför skulle *16 gånger färre noder* användas – i stället för 1 000-noder krävs bara 63. Om stora programfiler eller referens data krävs för varje nod förbättras dessutom jobbets varaktighet och effektivitet eftersom data kopieras till endast 63 noder.
+I stället för att använda standard\_D1-noder som har 1 processor kärna kan du använda [standard\_D14](../cloud-services/cloud-services-sizes-specs.md) -noder som har 16 kärnor och aktivera parallell körning av aktiviteter. Därför skulle *16 gånger färre noder* användas – i stället för 1 000-noder krävs bara 63. Om stora programfiler eller referens data krävs för varje nod förbättras dessutom jobbets varaktighet och effektivitet eftersom data kopieras till endast 63 noder.
 
 ## <a name="enable-parallel-task-execution"></a>Aktivera parallell körning av uppgift
 Du konfigurerar Compute-noder för parallell körning av aktiviteter på Poolnivå. Med batch .NET-biblioteket ställer du in egenskapen [CloudPool. MaxTasksPerComputeNode][maxtasks_net] när du skapar en pool. Om du använder batch-REST API anger du [maxTasksPerNode][rest_addpool] -elementet i begär ande texten när du skapar en pool.
 
-Med Azure Batch kan du ange aktiviteter per nod upp till (4x) Antalet Core-noder. Om poolen till exempel har kon figurer ATS med noder med storleken "stor" (fyra kärnor) `maxTasksPerNode` kan du ange 16. Men oavsett hur många kärnor noden har kan du inte ha fler än 256 aktiviteter per nod. Mer information om antalet kärnor för varje nods storlek finns i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Mer information om tjänst begränsningar finns i [kvoter och begränsningar för tjänsten Azure Batch](batch-quota-limit.md).
+Med Azure Batch kan du ange aktiviteter per nod upp till (4x) Antalet Core-noder. Om poolen till exempel har kon figurer ATS med noder med storleken "stor" (fyra kärnor), kan `maxTasksPerNode` ha värdet 16. Men oavsett hur många kärnor noden har kan du inte ha fler än 256 aktiviteter per nod. Mer information om antalet kärnor för varje nods storlek finns i [storlekar för Cloud Services](../cloud-services/cloud-services-sizes-specs.md). Mer information om tjänst begränsningar finns i [kvoter och begränsningar för tjänsten Azure Batch](batch-quota-limit.md).
 
 > [!TIP]
-> Se till att ta `maxTasksPerNode` hänsyn till värdet när du skapar en autoskalning- [formel][enable_autoscaling] för poolen. En formel som utvärderar `$RunningTasks` kan till exempel dramatiskt påverkas av en ökning av aktiviteter per nod. Mer information finns i [skala Compute-noder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md) .
+> Se till att ta hänsyn till `maxTasksPerNode` svärdet när du skapar en [autoskalning-formel][enable_autoscaling] för poolen. En formel som utvärderar `$RunningTasks` kan till exempel dramatiskt påverkas av en ökning av aktiviteter per nod. Mer information finns i [skala Compute-noder automatiskt i en Azure Batch-pool](batch-automatic-scaling.md) .
 >
 >
 
@@ -52,7 +52,7 @@ När Compute-noderna i en pool kan köra uppgifter samtidigt är det viktigt att
 
 Genom att använda egenskapen [CloudPool. TaskSchedulingPolicy][task_schedule] kan du ange att aktiviteterna ska tilldelas jämnt över alla noder i poolen ("spridning"). Du kan också ange att så många aktiviteter som möjligt ska tilldelas varje nod innan aktiviteter tilldelas till en annan nod i poolen ("packning").
 
-Som ett exempel på hur den här funktionen är värdefull, bör du överväga poolen med [standard\_D14](../cloud-services/cloud-services-sizes-specs.md) -noder (i exemplet ovan) som är konfigurerade med ett [CloudPool. MaxTasksPerComputeNode][maxtasks_net] -värde på 16. Om [CloudPool. TaskSchedulingPolicy][task_schedule] har kon figurer ATS med [ett ComputeNodeFillType][fill_type] - *paket*skulle det maximera användningen av alla 16 kärnor i varje nod och tillåta en pool för automatisk [skalning](batch-automatic-scaling.md) att rensa oanvända noder från poolen (noder utan tilldelade aktiviteter). Detta minimerar resursanvändningen och sparar pengar.
+Som ett exempel på hur den här funktionen är värdefull, bör du överväga poolen med [Standard\_D14](../cloud-services/cloud-services-sizes-specs.md) -noder (i exemplet ovan) som är konfigurerade med ett [CloudPool. MaxTasksPerComputeNode][maxtasks_net] -värde på 16. Om [CloudPool. TaskSchedulingPolicy][task_schedule] har kon figurer ATS med [][fill_type] ett ComputeNodeFillType *paket*maximerar det användningen av alla 16 kärnor i varje nod och tillåter att en pool för automatisk [skalning](batch-automatic-scaling.md) rensar oanvända noder från poolen (noder utan tilldelade aktiviteter). Detta minimerar resursanvändningen och sparar pengar.
 
 ## <a name="batch-net-example"></a>Batch .NET-exempel
 I det här [batch .net][api_net] API-kodfragmentet visas en begäran om att skapa en pool som innehåller fyra noder med högst fyra aktiviteter per nod. Den specificerar en schemaläggnings princip för aktiviteter som fyller varje nod med aktiviteter innan aktiviteter tilldelas till en annan nod i poolen. Mer information om hur du lägger till pooler med hjälp av batch .NET-API: et finns i [metoden batchclient. PoolOperations. CreatePool][poolcreate_net].
@@ -89,7 +89,7 @@ Den här [batch rest][api_rest] API-kodfragmentet visar en begäran om att skapa
 ```
 
 > [!NOTE]
-> Du kan endast ange `maxTasksPerNode` element-och [MaxTasksPerComputeNode][maxtasks_net] -egenskapen när du skapar en pool. De kan inte ändras efter att en pool redan har skapats.
+> Du kan endast ange `maxTasksPerNode` element och [MaxTasksPerComputeNode][maxtasks_net] -egenskapen när du skapar en pool. De kan inte ändras efter att en pool redan har skapats.
 >
 >
 
@@ -119,7 +119,7 @@ Duration: 00:08:48.2423500
 Den andra körningen av exemplet visar en betydande minskning av jobbets varaktighet. Detta beror på att poolen har kon figurer ATS med fyra aktiviteter per nod, vilket möjliggör körning av parallell aktivitet för att slutföra jobbet i nästan en fjärdedel av tiden.
 
 > [!NOTE]
-> Jobbets varaktigheter i sammanfattningarna ovan omfattar inte skapande tiden för poolen. Varje jobb ovan skickades till tidigare skapade pooler vars datornoder var i inaktivt läge vid överförings tillfället.
+> Jobbets varaktigheter i sammanfattningarna ovan omfattar inte skapande tiden för poolen. Varje jobb ovan skickades till tidigare skapade pooler vars datornoder var i *inaktivt* läge vid överförings tillfället.
 >
 >
 

@@ -7,23 +7,23 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 96e7c401578ca8311bfe0e6b5477a9d8cab1a24e
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 1359f645c634f401f139fe1cd559f23aa4126c22
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912734"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029983"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
 
 Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha mer kontroll över krypterings nycklar kan du ange [Kundhanterade nycklar][customer-managed-keys] som ska användas för kryptering av både operativ system och data diskar för dina AKS-kluster.
 
 > [!NOTE]
-> Linux-och Windows-baserade AKS-kluster stöds båda.
+> BYOK Linux-och Windows-baserade AKS-kluster är tillgängliga i [Azure-regioner][supported-regions] som stöder kryptering på Server sidan av Azure Managed disks.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-* Den här artikeln förutsätter att du skapar ett *nytt AKS-kluster*.  Du måste också använda eller skapa en instans av Azure Key Vault för att lagra dina krypterings nycklar.
+* Den här artikeln förutsätter att du skapar ett *nytt AKS-kluster*.
 
 * Du måste aktivera mjuk borttagning och tömning av skydd för *Azure Key Vault* när du använder Key Vault för att kryptera hanterade diskar.
 
@@ -47,16 +47,18 @@ az extension add --name aks-preview
 az extension update --name aks-preview
 ```
 
-## <a name="create-an-azure-key-vault-instance-to-store-your-keys"></a>Skapa en Azure Key Vault-instans för att lagra dina nycklar
+## <a name="create-an-azure-key-vault-instance"></a>Skapa en Azure Key Vault-instans
 
-Du kan också använda Azure Portal för att [Konfigurera Kundhanterade nycklar med Azure Key Vault][byok-azure-portal]
+Använd en Azure Key Vault-instans för att lagra dina nycklar.  Du kan också använda Azure Portal för att [Konfigurera Kundhanterade nycklar med Azure Key Vault][byok-azure-portal]
 
-Skapa en ny *resurs grupp*och skapa sedan en ny *Key Vault* -instans och aktivera mjuk borttagning och tömning av skydd.
+Skapa en ny *resurs grupp*och skapa sedan en ny *Key Vault* -instans och aktivera mjuk borttagning och tömning av skydd.  Se till att du använder samma region och resurs grupp namn för varje kommando.
 
 ```azurecli-interactive
 # Optionally retrieve Azure region short names for use on upcoming commands
 az account list-locations
+```
 
+```azurecli-interactive
 # Create new resource group in a supported Azure region
 az group create -l myAzureRegionName -n myResourceGroup
 
@@ -66,7 +68,7 @@ az keyvault create -n myKeyVaultName -g myResourceGroup -l myAzureRegionName  --
 
 ## <a name="create-an-instance-of-a-diskencryptionset"></a>Skapa en instans av en DiskEncryptionSet
 
-Du behöver en *nyckel* som är lagrad i Azure Key Vault för att utföra följande steg.  Lagra din befintliga nyckel i Key Vault du skapade eller [Generera en nyckel][key-vault-generate]
+Ersätt *myKeyVaultName* med namnet på ditt nyckel valv.  Du behöver också en *nyckel* som lagras i Azure Key Vault för att utföra följande steg.  Lagra antingen den befintliga nyckeln i Key Vault du skapade i föregående steg, eller [Generera en ny nyckel][key-vault-generate] och Ersätt *myKeyName* nedan med namnet på din nyckel.
     
 ```azurecli-interactive
 # Retrieve the Key Vault Id and store it in a variable
@@ -79,7 +81,7 @@ keyVaultKeyUrl=$(az keyvault key show --vault-name myKeyVaultName  --name myKeyN
 az disk-encryption-set create -n myDiskEncryptionSetName  -l myAzureRegionName  -g myResourceGroup --source-vault $keyVaultId --key-url $keyVaultKeyUrl 
 ```
 
-## <a name="grant-the-diskencryptionset-resource-access-to-the-key-vault"></a>Bevilja DiskEncryptionSet resurs åtkomst till nyckel valvet
+## <a name="grant-the-diskencryptionset-access-to-key-vault"></a>Bevilja DiskEncryptionSet åtkomst till nyckel valvet
 
 Använd de DiskEncryptionSet och resurs grupper som du skapade i föregående steg och ge DiskEncryptionSet resurs åtkomst till Azure Key Vault.
 
@@ -94,52 +96,85 @@ az keyvault set-policy -n myKeyVaultName -g myResourceGroup --object-id $desIden
 az role assignment create --assignee $desIdentity --role Reader --scope $keyVaultId
 ```
 
-## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk-with-a-customer-manged-key"></a>Skapa ett nytt AKS-kluster och kryptera OS-disken med en kund-hanterade-nyckel
+## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>Skapa ett nytt AKS-kluster och kryptera OS-disken
 
-Skapa en ny resurs grupp och ett AKS-kluster och Använd sedan din nyckel för att kryptera operativ system disken. Kund Managed Key stöds bara i Kubernetes-versioner som är större än 1,17
+Skapa en **Ny resurs grupp** och ett AKS-kluster och Använd sedan din nyckel för att kryptera operativ system disken. Kundhanterade nycklar stöds bara i Kubernetes-versioner som är större än 1,17. 
+
+> [!IMPORTANT]
+> Se till att du skapar en ny resurs-grupp för ditt AKS-kluster
 
 ```azurecli-interactive
 # Retrieve the DiskEncryptionSet value and set a variable
 diskEncryptionSetId=$(az resource show -n diskEncryptionSetName -g myResourceGroup --resource-type "Microsoft.Compute/diskEncryptionSets" --query [id] -o tsv)
 
 # Create a resource group for the AKS cluster
-az group create -n myResourceGroup-l myAzureRegionName
+az group create -n myResourceGroup -l myAzureRegionName
 
 # Create the AKS cluster
-az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0
+az aks create -n myAKSCluster -g myResourceGroup --node-osdisk-diskencryptionset-id $diskEncryptionSetId --kubernetes-version 1.17.0 --generate-ssh-keys
 ```
 
-När nya noder läggs till i klustret som skapats ovan används den kund Managed Key som angavs under skapandet för att kryptera operativ system disken
+När nya noder läggs till i klustret som skapats ovan används den Kundhanterade nyckeln som angavs under skapandet för att kryptera operativ system disken.
 
-## <a name="encrypt-your-aks-cluster-data-disk-with-a-customer-managed-key"></a>Kryptera din AKS-kluster data disk med en kundhanterad nyckel
+## <a name="encrypt-your-aks-cluster-data-disk"></a>Kryptera din AKS-kluster data disk
 
-Du kan också kryptera AKS data diskar med dina egna nycklar.  Ersätt myResourceGroup och myDiskEncryptionSetName med dina verkliga värden och Använd yaml.
+Du kan också kryptera AKS data diskar med dina egna nycklar.
 
-Se till att du har rätt AKS-autentiseringsuppgifter. Tjänstens huvud namn måste ha deltagar åtkomst till den resurs grupp där diskencryptionset finns. Annars får du ett fel meddelande som anger att tjänstens huvud namn inte har behörighet.
+> [!IMPORTANT]
+> Se till att du har rätt AKS-autentiseringsuppgifter. Tjänstens huvud namn måste ha deltagar åtkomst till den resurs grupp där diskencryptionset har distribuerats. Annars får du ett fel meddelande som anger att tjänstens huvud namn inte har behörighet.
 
-Skapa en fil med namnet **BYOK-Azure-disk. yaml** som innehåller följande information.  Ersätt myResourceGroup och myDiskEncrptionSetName med dina värden.
+```azurecli-interactive
+# Retrieve your Azure Subscription Id from id property as shown below
+az account list
+```
+
+```
+someuser@Azure:~$ az account list
+[
+  {
+    "cloudName": "AzureCloud",
+    "id": "666e66d8-1e43-4136-be25-f25bb5de5893",
+    "isDefault": true,
+    "name": "MyAzureSubscription",
+    "state": "Enabled",
+    "tenantId": "3ebbdf90-2069-4529-a1ab-7bdcb24df7cd",
+    "user": {
+      "cloudShellID": true,
+      "name": "someuser@azure.com",
+      "type": "user"
+    }
+  }
+]
+```
+
+Skapa en fil med namnet **BYOK-Azure-disk. yaml** som innehåller följande information.  Ersätt myAzureSubscriptionId, myResourceGroup och myDiskEncrptionSetName med värdena och Använd yaml.  Se till att använda resurs gruppen där din DiskEncryptionSet har distribuerats.  Om du använder Azure Cloud Shell kan filen skapas med hjälp av vi eller nano som om du arbetar med ett virtuellt eller fysiskt system:
 
 ```
 kind: StorageClass
-apiVersion: storage.k8s.io/v1
+apiVersion: storage.k8s.io/v1  
 metadata:
   name: hdd
 provisioner: kubernetes.io/azure-disk
 parameters:
   skuname: Standard_LRS
   kind: managed
-  diskEncryptionSetID: "/subscriptions/{subs-id}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
+  diskEncryptionSetID: "/subscriptions/{myAzureSubscriptionId}/resourceGroups/{myResourceGroup}/providers/Microsoft.Compute/diskEncryptionSets/{myDiskEncryptionSetName}"
 ```
 Kör sedan den här distributionen i ditt AKS-kluster:
 ```azurecli-interactive
+# Get credentials
+az aks get-credentials --name myAksCluster --resource-group myResourceGroup --output table
+
+# Update cluster
 kubectl apply -f byok-azure-disk.yaml
 ```
 
 ## <a name="limitations"></a>Begränsningar
 
+* BYOK är för närvarande endast tillgängligt i GA och för hands versionen i vissa [Azure-regioner][supported-regions]
 * Disk kryptering för operativ system som stöds med Kubernetes version 1,17 och senare   
 * Endast tillgängligt i regioner där BYOK stöds
-* Det här är för närvarande endast för nya AKS-kluster. det går inte att uppgradera befintliga kluster
+* Kryptering med Kundhanterade nycklar för närvarande endast för nya AKS-kluster, går det inte att uppgradera befintliga kluster
 * AKS-kluster som använder Virtual Machine Scale Sets krävs, inget stöd för tillgänglighets uppsättningar för virtuella datorer
 
 
@@ -154,5 +189,6 @@ Granska [metod tips för AKS kluster säkerhet][best-practices-security]
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [best-practices-security]: /azure/aks/operator-best-practices-cluster-security
 [byok-azure-portal]: /azure/storage/common/storage-encryption-keys-portal
-[customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview
+[customer-managed-keys]: /azure/virtual-machines/windows/disk-encryption#customer-managed-keys
 [key-vault-generate]: /azure/key-vault/key-vault-manage-with-cli2
+[supported-regions]: /azure/virtual-machines/windows/disk-encryption#supported-scenarios-and-restrictions

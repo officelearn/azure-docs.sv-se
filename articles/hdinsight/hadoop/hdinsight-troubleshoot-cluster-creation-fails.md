@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 607eacc531166d9d770f31cc64825e8ffea9ca76
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ea60faf5b5689fa674095201d3db18422d3e0f1b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810674"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980503"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka kluster skapande fel med Azure HDInsight
 
@@ -29,7 +29,7 @@ Följande problem är de vanligaste orsakerna till kluster skapande fel:
 
 ## <a name="permissions-issues"></a>Problem med behörigheter
 
-Om du använder Azure Data Lake Storage Gen2 och tar emot felet ```AmbariClusterCreationFailedErrorCode``` ```Internal server error occurred while processing the request. Please retry the request or contact support.```, öppnar du Azure Portal, går till ditt lagrings konto och under Access Control (IAM) kontrollerar du att **lagrings data deltagaren** eller **lagrings-bloben Rollen data ägare** har tilldelat åtkomst till **användaren tilldelade hanterade identiteter** för prenumerationen. Detaljerade anvisningar finns i [Konfigurera behörigheter för den hanterade identiteten i Data Lake Storage Gen2-kontot](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
+Om du använder Azure Data Lake Storage Gen2 och tar emot fel ```AmbariClusterCreationFailedErrorCode```, ```Internal server error occurred while processing the request. Please retry the request or contact support.```, öppnar du Azure Portal, går till ditt lagrings konto och under Access Control (IAM) kontrollerar du att rollen **Storage BLOB data-deltagare** eller **lagrings-BLOB-dataägare** har tilldelat åtkomst till den **användare som tilldelats den hanterade identiteten** för prenumerationen. Detaljerade anvisningar finns i [Konfigurera behörigheter för den hanterade identiteten i Data Lake Storage Gen2-kontot](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account).
 
 Om du använder Azure Data Lake Storage Gen1, se installations-och konfigurations anvisningar [här](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen1 stöds inte för HBase-kluster och stöds inte i HDInsight version 4,0.
 
@@ -51,7 +51,7 @@ Brand väggar i ditt virtuella nätverk eller lagrings konto kan neka kommunikat
 
 Tillåt trafik från IP-adresserna i tabellen nedan.
 
-| IP-källadress | Mål | Direction |
+| Källans IP-adress | Mål | Riktning |
 |---|---|---|
 | 168.61.49.99 | *: 443 | Inkommande |
 | 23.99.5.239 | *: 443 | Inkommande |
@@ -64,7 +64,7 @@ Om du använder en Express-väg eller din egen anpassade DNS-server kan du läsa
 
 ## <a name="resources-locks"></a>Resurs lås  
 
-Se till att det inte finns några [Lås på det virtuella nätverket och resurs gruppen](../../azure-resource-manager/resource-group-lock-resources.md).  
+Se till att det inte finns några [Lås på det virtuella nätverket och resurs gruppen](../../azure-resource-manager/management/lock-resources.md).  
 
 ## <a name="unsupported-component-versions"></a>Komponent versioner som inte stöds
 
@@ -82,7 +82,7 @@ Kontrol lera [Azure-status](https://status.azure.com/status) för eventuella pro
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Utöka Azure HDInsight med hjälp av ett virtuellt Azure-nätverk](../hdinsight-plan-virtual-network-deployment.md)
+* [Utöka HDInsight med ett Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
 * [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 * [Använda Azure-lagring med Azure HDInsight-kluster](../hdinsight-hadoop-use-blob-storage.md)
 * [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](../hdinsight-hadoop-provision-linux-clusters.md)

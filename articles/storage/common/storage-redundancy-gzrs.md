@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1789122079d5cbc6f5914a6fd6a69a38df04e45
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748253"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973365"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -51,7 +51,7 @@ När data skrivs till ett lagrings konto med GZRS eller RA-GZRS aktiverat, repli
 > [!IMPORTANT]
 > Asynkron replikering innebär en fördröjning mellan den tid som data skrivs till den primära regionen och när de replikeras till den sekundära regionen. I händelse av en regional katastrof kan ändringar som ännu inte har repliker ATS till den sekundära regionen gå förlorade om data inte kan återställas från den primära regionen.
 
-När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras och du kan också ange den primära regionen för det kontot. Den kopplade sekundära regionen för ett geo-replikerat konto bestäms utifrån den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Information om hur du skapar ett lagrings konto med hjälp av GZRS eller RA-GZRS finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
+När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras och du kan också ange den primära regionen för det kontot. Den kopplade sekundära regionen för ett geo-replikerat konto bestäms utifrån den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Information om hur du skapar ett lagrings konto med hjälp av GZRS eller RA-GZRS finns i [skapa ett lagrings konto](storage-account-create.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Använd RA-GZRS för hög tillgänglighet
 

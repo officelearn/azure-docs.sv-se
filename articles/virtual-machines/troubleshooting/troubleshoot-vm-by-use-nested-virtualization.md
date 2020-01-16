@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: 87faea5385f5b0fd2c481c6aa7c45a9867b34163
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 4ef8bc029c63aaf297462a7b53f6daba1a7c850b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942187"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028422"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Felsöka ett problem med en virtuell Azure-dator med hjälp av kapslad virtualisering i Azure
 
@@ -26,11 +26,7 @@ Den här artikeln visar hur du skapar en kapslad virtualiseringslösning i Micro
 
 ## <a name="prerequisites"></a>Krav
 
-För att montera den virtuella datorns problem måste den virtuella datorn uppfylla följande krav:
-
--   Den virtuella räddnings datorn måste finnas på samma plats som det virtuella problemet.
-
--   Den räddande virtuella datorn måste använda samma typ av lagrings konto (standard eller Premium) som den virtuella datorns problem.
+För att montera den virtuella datorns problem måste den virtuella datorn använda samma typ av lagrings konto (standard eller Premium) som den virtuella datorns problem.
 
 ## <a name="step-1-create-a-rescue-vm-and-install-hyper-v-role"></a>Steg 1: skapa en virtuell dator för räddning och installera Hyper-V-rollen
 

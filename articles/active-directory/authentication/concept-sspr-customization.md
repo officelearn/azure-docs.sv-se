@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 039b514fe70da0e300e74bbc98a3a0f4e9ea342c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c6f7f59f7bcc93edafa3cbb47bd432b52bde985c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848603"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979462"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Anpassa Azure AD-funktionen för lösen ords återställning via självbetjäning
 
@@ -43,9 +43,9 @@ Användare av lösen ords återställning via självbetjäning har en "kontakta 
 
 Kontaktens e-postadress skickas till följande mottagare i följande ordning:
 
-1. Om rollen som **lösen ords administratör** tilldelas, meddelas administratörer med den här rollen.
-2. Om inga lösen ords administratörer tilldelas, meddelas administratörer med rollen **användar administratör** .
-3. Om ingen av de tidigare rollerna tilldelas, meddelas de **globala administratörerna** .
+1. Om **Administratörs** rollen för supportavdelningen eller rollen **lösen ords administratör** tilldelas, meddelas administratörer med dessa roller.
+1. Om inga support administratörer eller lösen ords administratörer tilldelas, meddelas administratörer med rollen **användar administratör** .
+1. Om ingen av de tidigare rollerna tilldelas, meddelas de **globala administratörerna** .
 
 I samtliga fall meddelas högst 100 mottagare.
 

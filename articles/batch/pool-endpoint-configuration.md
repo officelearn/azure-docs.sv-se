@@ -2,18 +2,18 @@
 title: Konfigurera nodens slut punkter i Azure Batch pool | Microsoft Docs
 description: Konfigurera eller inaktivera åtkomst till SSH-eller RDP-portar på datornoderna i en Azure Batch pool.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 02/13/2018
-ms.author: lahugh
-ms.openlocfilehash: e6c7f2762a6742a1aff7a2c3aff977b5e3657349
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.author: jushiman
+ms.openlocfilehash: 1ac4c7647125cd6164235e98a4a828f6b072cbee
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322461"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029458"
 ---
 # <a name="configure-or-disable-remote-access-to-compute-nodes-in-an-azure-batch-pool"></a>Konfigurera eller inaktivera fjärråtkomst till Compute-noder i en Azure Batch pool
 
@@ -31,7 +31,7 @@ Varje konfiguration av NAT-pool innehåller en eller flera [regler för nätverk
 * Du kan konfigurera flera NSG-regler när du konfigurerar en NAT-pool. Reglerna kontrol leras i prioritetsordning. När villkoren för en regel uppfylls testas inga fler regler.
 
 
-## <a name="example-deny-all-rdp-traffic"></a>Exempel: Neka all RDP-trafik
+## <a name="example-deny-all-rdp-traffic"></a>Exempel: neka all RDP-trafik
 
 Följande C# kodfragment visar hur du konfigurerar RDP-slutpunkten på datornoderna i en Windows-pool för att neka all nätverks trafik. Slut punkten använder en frontend-pool med portar i intervallet *60000-60099*. 
 
@@ -48,7 +48,7 @@ pool.NetworkConfiguration = new NetworkConfiguration
 };
 ```
 
-## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exempel: Neka all SSH-trafik från Internet
+## <a name="example-deny-all-ssh-traffic-from-the-internet"></a>Exempel: neka all SSH-trafik från Internet
 
 Följande python-kodfragment visar hur du konfigurerar SSH-slutpunkten för Compute-noder i en Linux-pool för att neka all Internet trafik. Slut punkten använder en frontend-pool med portar i intervallet *4000-4100*. 
 

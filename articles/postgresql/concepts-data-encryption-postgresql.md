@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9e60b2f1685e03a9daa7a4801f43799a21eb411
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 263fdda178752ee22997a03a11902a7bff4791dc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940559"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028624"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-customer-managed-key"></a>Azure Database for PostgreSQL data kryptering med en server med kundhanterad nyckel
 
@@ -41,7 +41,7 @@ Data kryptering för Azure Database for PostgreSQL enskild server ger följande 
 
 **Nyckel krypterings nyckel (KEK)** – en krypterings nyckel som används för att kryptera data krypterings nycklarna. Om du använder en nyckel krypterings nyckel som aldrig lämnar Key Vault kan data krypterings nycklarna vara krypterade och kontrollerade. Entiteten som har åtkomst till KEK kan skilja sig från den entitet som kräver DEK. Eftersom KEK krävs för att dekryptera DEKs är KEK en enda punkt med vilken DEKs kan tas bort effektivt genom borttagning av KEK.
 
-Data krypterings nycklarna som krypteras med nyckel krypterings nycklarna lagras separat och endast en entitet med åtkomst till nyckel krypterings nyckeln kan dekryptera dessa data krypterings nycklar. Mer information finns i [säkerhet i kryptering i vila](../security/fundamentals/encryption-atrest.md).
+Data krypterings nycklarna (DEK) som krypteras med nyckel krypterings nycklarna lagras separat och endast en entitet med åtkomst till nyckel krypterings nyckeln kan dekryptera dessa data krypterings nycklar. Mer information finns i [säkerhet i kryptering i vila](../security/fundamentals/encryption-atrest.md).
 
 ## <a name="how-data-encryption-with-customer-managed-key-works"></a>Hur data kryptering med kundhanterad nyckel fungerar
 
@@ -50,8 +50,8 @@ Data krypterings nycklarna som krypteras med nyckel krypterings nycklarna lagras
 För att en PostgreSQL-Server ska kunna använda Kundhanterade nycklar som lagras i AKV för kryptering av DEK måste en Key Vault administratör ge följande åtkomst behörighet till servern med hjälp av sin unika identitet:
 
 * **Hämta** för att hämta den offentliga delen och egenskaperna för nyckeln i Key Vault
-* **wrapKey** -för att kunna skydda (kryptera) DEK
-* **unwrapKey** -för att kunna ta bort skyddet (DEKRYPTERA) DEK
+* **wrapKey** -för att kunna kryptera DEK
+* **unwrapKey** -för att kunna dekryptera DEK
 
 Key Vault-administratören kan också [Aktivera loggning av Key Vault gransknings händelser](../azure-monitor/insights/azure-key-vault.md)så att de kan granskas senare.
 

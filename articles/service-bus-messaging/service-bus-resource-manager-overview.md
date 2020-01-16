@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 68b91566a3737cf44abe0c446b71d6845ecc299d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d473cf2a79fb86028797205ee7885b51169b10bf
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452342"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978243"
 ---
 # <a name="create-service-bus-resources-using-azure-resource-manager-templates"></a>Skapa Service Bus resurser med Azure Resource Manager-mallar
 
@@ -207,7 +207,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path t
 
 ### <a name="create-the-deployment"></a>Skapa distributionen
 
-Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas till det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/deployment-modes.md).
+Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas till det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/templates/deployment-modes.md).
 
 Följande kommando efterfrågar de tre parametrarna i PowerShell-fönstret:
 
@@ -227,7 +227,7 @@ Du kan också använda infogade parametrar när du kör distributions-cmdleten. 
 New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-Om du vill köra en [fullständig](../azure-resource-manager/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
+Om du vill köra en [fullständig](../azure-resource-manager/templates/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
 
 ```powershell
 New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -261,5 +261,5 @@ Du har nu sett det grundläggande arbets flödet och kommandon för att distribu
 * [Resurs typer för Microsoft. Service Bus](/azure/templates/microsoft.servicebus/allversions)
 
 [Azure Resource Manager overview]: ../azure-resource-manager/management/overview.md
-[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/resource-group-template-deploy.md
+[Deploy resources with Azure Resource Manager templates]: ../azure-resource-manager/templates/deploy-powershell.md
 [Azure Quickstart Templates gallery]: https://azure.microsoft.com/documentation/templates/?term=service+bus

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 512ad8f93da53afb618491cd1769645d8edb0b14
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768664"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965832"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Använd Virtual Network tjänst slut punkter och regler för Azure Database for PostgreSQL-enskild server
 
@@ -118,7 +118,7 @@ För Azure Database for PostgreSQL har funktionen regler för virtuellt nätverk
 
 - När du aktiverar tjänst slut punkter för virtuella nätverk för att Azure Database for PostgreSQL med hjälp av service tag gen för **Microsoft. SQL** kan du också aktivera slut punkter för alla Azure Database-tjänster: Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database och Azure SQL Data Warehouse.
 
-- Stöd för VNet-tjänstens slut punkter är bara för Generell användning och minnesoptimerade servrar.
+- Stöd för VNet-tjänstslutpunkter är endast för generell användning och Minnesoptimerad servrar.
 
 - I brand väggen gäller IP-adressintervall för följande nätverks objekt, men regler för virtuella nätverk gör inte följande:
     - [Virtuellt privat nätverk (VPN) för plats-till-plats (S2S)][vpn-gateway-indexmd-608y]
@@ -147,7 +147,7 @@ Artiklar om hur du skapar VNet-regler finns i:
 
 
 <!-- Link references, to text, Within this same GitHub repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[arm-deployment-model-568f]: ../azure-resource-manager/management/deployment-models.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
@@ -161,4 +161,4 @@ Artiklar om hur du skapar VNet-regler finns i:
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
 
-[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

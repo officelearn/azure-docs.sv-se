@@ -1,19 +1,15 @@
 ---
 title: Förbered datorer för migrering med Azure Migrate
 description: Lär dig hur du förbereder lokala datorer för migrering med Azure Migrate.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 12/10/2019
-ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6f5535a57fae847c8a376b8b39e43955675da739
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c3c10321e8d49ac6ecfe80024d23f24711298651
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974792"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028750"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -44,9 +40,9 @@ Den här artikeln innehåller följande avsnitt:
 
 ## <a name="check-whats-supported"></a>Kontrol lera vad som stöds
 
-- För virtuella VMware-datorer stöder Azure Migrate Server-migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md). Kontrol lera krav för virtuella VMware-datorer/stöd för [agentbaserade](migrate-support-matrix-vmware.md#migration---limitations) och [agentbaserade](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migreringar.
-- Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) för virtuella Hyper-V-datorer.
-- Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-physical.md) för lokala fysiska datorer eller andra virtualiserade servrar. 
+- För virtuella VMware-datorer stöder Azure Migrate Server-migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md). Kontrol lera [krav och support](migrate-support-matrix-vmware-migration.md)för VMware VM-migrering.
+- Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-hyper-v-migration.md) för Hyper-V.
+- Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-physical-migration.md) för lokala fysiska datorer eller andra virtualiserade servrar. 
 
 
 
@@ -55,10 +51,11 @@ Den här artikeln innehåller följande avsnitt:
 
 Datorer kan behöva Internet åtkomst under migreringen.
 
-- Granska URL: er som de virtuella VMware-datorerna behöver ha åtkomst till vid [agentbaserade](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) eller [agentbaserade](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements) migreringar.
-- Granska webb adresser som Hyper-V-värdar behöver ha åtkomst till under migreringen. Virtuella Hyper-V-datorer behöver inte Internet åtkomst.
-- [Granska webb adresser](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements) som fysiska datorer eller andra virtualiserade servrar behöver åtkomst under migreringen.
-- Vid nyckelbaserad migrering av virtuella VMware-datorer/fysiska servrar behöver mobilitets tjänsten som körs på datorerna åtkomst till Azure Migrate-komponenter. För hantering av replikering kommunicerar tjänsten som körs på datorn med den lokala Azure Migrate-replikeringstjänsten på port HTTPS 443 inkommande. Datorerna skickar replikeringsdata till Azure Migrate processervern på port HTTPS 9443 inkommande. Den här porten kan ändras.
+- [Granska webb adresser](migrate-appliance.md#url-access) som Azure Migrate-installationen behöver för att få åtkomst under en agent lös migrering. [Granska port åtkomst](migrate-support-matrix-vmware-migration.md#agentless-ports) krav.
+- Granska [webb adresser](migrate-replication-appliance.md#url-access) och [ports] (Migrate-Replication-installation. MD # port-Access) som Replication-enheten använder under VM VM-agent-baserad migrering. 
+- [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) URL: er och portar som Hyper-V-värdar behöver ha åtkomst till under migreringen. 
+- Granska [webb adresser](migrate-replication-appliance.md#url-access) och [ports] (Migrate-Replication-installation. MD # port-Access) som Replication-enheten använder vid migrering av fysisk server.
+
 
 
 ## <a name="verify-required-changes-before-migration"></a>Verifiera nödvändiga ändringar före migrering
@@ -105,7 +102,7 @@ Om din lokala installation t. ex. använder en datadisk som är tilldelad enhet 
 
 ## <a name="check-azure-vm-requirements"></a>Kontrol lera kraven för virtuella Azure-datorer
 
-Lokala datorer som du replikerar till Azure måste uppfylla kraven för virtuella Azure-datorer för operativ system och arkitektur, diskar, nätverks inställningar och namngivning av virtuella datorer. Kontrol lera kraven för [virtuella VMware-datorer/fysiska servrar](migrate-support-matrix-vmware.md#azure-vm-requirements)och [virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) innan migreringen.
+Lokala datorer som du replikerar till Azure måste uppfylla kraven för virtuella Azure-datorer för operativ system och arkitektur, diskar, nätverks inställningar och namngivning av virtuella datorer. Kontrol lera kraven för [virtuella VMware-datorer/fysiska servrar](migrate-support-matrix-vmware-migration.md#azure-vm-requirements)och [virtuella Hyper-V-datorer](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements) innan migreringen.
 
 
 ## <a name="prepare-to-connect-after-migration"></a>Förbered för att ansluta efter migreringen

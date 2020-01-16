@@ -2,7 +2,7 @@
 title: Händelse för Azure Batch aktivitet
 description: Referens för händelse vid misslyckad batch-aktivitet. Den här händelsen kommer att genereras förutom en aktivitet som slutförs och kan användas för att identifiera när en aktivitet har misslyckats.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: lahugh
-ms.openlocfilehash: afdbd0a8dc7b48ed8bbf90ad5ce2168d7847cba8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: jushiman
+ms.openlocfilehash: a3786eed56c22dcd2c756e935265faa763ca7072
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449653"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76026178"
 ---
 # <a name="task-fail-event"></a>Händelse för misslyckad uppgift
 

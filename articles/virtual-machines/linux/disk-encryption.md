@@ -2,17 +2,17 @@
 title: Kryptering på Server sidan av Azure Managed Disks – Azure CLI
 description: Azure Storage skyddar dina data genom att kryptera dem i vila innan du sparar dem i lagrings kluster. Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av dina hanterade diskar, eller så kan du använda Kundhanterade nycklar för att hantera kryptering med dina egna nycklar.
 author: roygara
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: 61e45a5d13da7af42bbed273e5b39ce2af15d1ca
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d8729e447aabfcb1c378919501ee48124e7ae27b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912745"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027815"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på Server sidan av Azure Managed disks
 
@@ -54,21 +54,18 @@ I följande lista förklaras diagrammet i ännu mer detalj:
 
 Information om hur du återkallar åtkomst till Kundhanterade nycklar finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Att återkalla åtkomsten på ett effektivt sätt blockerar åtkomsten till alla data i lagrings kontot, eftersom krypterings nyckeln inte är tillgänglig via Azure Storage.
 
-### <a name="supported-scenarios-and-restrictions"></a>Scenarier och begränsningar som stöds
+### <a name="supported-regions"></a>Regioner som stöds
 
-För närvarande stöds endast följande scenarier:
+Det finns för närvarande endast stöd för följande regioner:
 
-- Skapa en virtuell dator (VM) från en Azure Marketplace-avbildning och kryptera OS-disken med kryptering på Server sidan med Kundhanterade nycklar.
-- Skapa en anpassad avbildning som är krypterad med kryptering på Server sidan och Kundhanterade nycklar.
-- Skapa en virtuell dator från en anpassad avbildning och kryptera OS-disken med kryptering på Server sidan och Kundhanterade nycklar.
-- Skapa data diskar som har krypterats med kryptering på Server sidan och Kundhanterade nycklar.
-- (Endast CLI/PowerShell) Skapa ögonblicks bilder som är krypterade med kryptering på Server sidan och Kundhanterade nycklar.
-- Skapa skalnings uppsättningar för virtuella datorer som är krypterade med kryptering på Server sidan och Kundhanterade nycklar.
+- Tillgängligt som ett GA-erbjudande i regionerna östra USA, västra USA 2 och södra centrala USA.
+- Tillgängligt som en offentlig för hands version i regionerna västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
 
-Nu har vi även följande begränsningar:
+### <a name="restrictions"></a>Begränsningar
 
-- Tillgängligt som ett GA-erbjudande i östra USA, västra USA 2 och södra centrala USA.
-- Tillgänglig som en offentlig för hands version i västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
+För närvarande har Kundhanterade nycklar följande begränsningar:
+
+- Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) med storleken 2080 stöds, inga andra nycklar eller storlekar.
 - Diskar som har skapats från anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar måste krypteras med samma Kundhanterade nycklar och måste finnas i samma prenumeration.
 - Ögonblicks bilder som har skapats från diskar som är krypterade med kryptering på Server sidan och Kundhanterade nycklar måste vara krypterade med samma Kundhanterade nycklar.
 - Anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar kan inte användas i det delade avbildnings galleriet.

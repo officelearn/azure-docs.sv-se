@@ -1,18 +1,15 @@
 ---
 title: Migrera virtuella VMware-datorer utan agent Azure Migrate Server migrering
 description: Lär dig hur du kör en agent lös migrering av virtuella VMware-datorer med Azure Migrate.
-author: rayne-wiselman
-ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
-ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: fa77b9d730c28c21569064d05ca3a600dfb71071
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196405"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028709"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrera virtuella VMware-datorer till Azure (utan agent)
 
@@ -20,7 +17,7 @@ Den här artikeln visar hur du migrerar lokala virtuella VMware-datorer till Azu
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och AWS/GCP VM-instanser till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig att:
+Den här självstudien är den tredje i en serie som visar hur du bedömer och migrerar virtuella VMware-datorer till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förbered virtuella datorer för migrering.
@@ -44,7 +41,7 @@ Om du vill bestämma om du vill använda en agent lös eller agent-baserad migre
 - [Lär dig hur](server-migrate-overview.md) en agent utan migrering fungerar och [Jämför metoder för migrering](server-migrate-overview.md#compare-migration-methods).
 - [Läs den här artikeln](tutorial-migrate-vmware-agent.md) om du vill använda den agentbaserade metoden.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar de här självstudierna bör du:
 
@@ -92,7 +89,7 @@ Följ anvisningarna i [den här artikeln](how-to-set-up-appliance-vmware.md) fö
 
 Azure Migrate kräver vissa VM-ändringar för att säkerställa att virtuella datorer kan migreras till Azure.
 
-- För vissa operativ system gör Azure Migrate dessa ändringar automatiskt. [Läs mer](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements)
+- För vissa operativ system gör Azure Migrate dessa ändringar automatiskt. [Läs mer](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms)
 - Om du migrerar en virtuell dator som inte har något av dessa operativ system, följer du anvisningarna för att förbereda den virtuella datorn.
 - Det är viktigt att du gör dessa ändringar innan du påbörjar migrering. Om du migrerar den virtuella datorn innan du gör ändringen kanske den virtuella datorn inte startar i Azure.
 - Konfigurations ändringar som du gör på lokala virtuella datorer replikeras till Azure när replikeringen för den virtuella datorn har Aktiver ATS. Säkerställ att ändringarna replikeras genom att kontrol lera att återställnings punkten du migrerar till är senare än den tid då konfigurations ändringarna gjordes lokalt.
@@ -100,7 +97,7 @@ Azure Migrate kräver vissa VM-ändringar för att säkerställa att virtuella d
 
 ### <a name="prepare-windows-server-vms"></a>Förbereda virtuella Windows Server-datorer
 
-**Åtgärd** | **Information** | **Problemlösning**
+**Åtgärd** | **Detaljer** | **Instruktioner**
 --- | --- | ---
 Se till att Windows-volymer i Azure VM använder samma enhets beteckningar som den lokala virtuella datorn. | Konfigurera SAN-principen som online alla. | 1. Logga in på den virtuella datorn med ett administratörs konto och öppna ett kommando fönster.<br/> 2. Skriv DiskPart för att **köra DiskPart-** verktyget.<br/> 3. Ange **San-princip = OnlineAll**<br/> 4. Skriv exit för att lämna DiskPart och Stäng kommando tolken.
 Aktivera Azure Serial Access-konsolen för den virtuella Azure-datorn | Detta hjälper till med fel sökning. Du behöver inte starta om den virtuella datorn. Den virtuella Azure-datorn startas med disk avbildningen och motsvarar en omstart för den nya virtuella datorn. | Följ [dessa instruktioner](https://docs.microsoft.com/azure/virtual-machines/windows/serial-console) för att aktivera.
@@ -109,7 +106,7 @@ Fjärrskrivbord | Aktivera fjärr skrivbord på den virtuella datorn och kontrol
 
 ### <a name="prepare-linux-vms"></a>Förbered virtuella Linux-datorer
 
-**Åtgärd** | **Information** 
+**Åtgärd** | **Detaljer** 
 --- | --- | ---
 Installera Hyper-V Linux Integration Services | De flesta nya versioner av Linux-distributioner har detta inkluderat som standard.
 Återskapa Linux init-avbildningen så att den innehåller de nödvändiga Hyper-V-drivrutinerna | Detta säkerställer att den virtuella datorn kommer att starta i Azure och krävs endast för vissa distributioner.
@@ -161,7 +158,7 @@ När identifieringen är klar kan du påbörja replikeringen av virtuella VMware
 
     ![Mål inställningar](./media/tutorial-migrate-vmware/target-settings.png)
 
-8. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements).
+8. I **Compute** granskar du namnet på den virtuella datorn, storlek, disktyp för operativsystemet och tillgänglighetsuppsättningen. De virtuella datorerna måste följa [Azures krav](migrate-support-matrix-vmware-migration.md#azure-vm-requirements).
 
     - **VM-storlek**: om du använder utvärderings rekommendationer kommer List rutan VM-storlek att innehålla den rekommenderade storleken. Annars väljer Azure Migrate en storlek baserat på den närmaste matchningen i Azure-prenumerationen. Du kan också välja en storlek manuellt i **Storlek på virtuell Azure-dator**. 
     - **OS-disk**: Ange OS-disken (start) för den virtuella datorn. Operativsystemdisken är den disk där operativsystemets bootloader och installationsprogram finns. 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: e7a5f9ba865ab555bde3125f40ee8675709bef40
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7ca98723511cc7297b462747d4e1e12ca9bd38c2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74932715"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979021"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>För hands version: kontrol lera uppdateringar med underhålls kontroll och Azure PowerShell
 
@@ -36,7 +36,7 @@ Med underhålls kontroll kan du:
 ## <a name="limitations"></a>Begränsningar
 
 - Virtuella datorer måste finnas på en [dedikerad värd](./linux/dedicated-hosts.md)eller skapas med en [isolerad VM-storlek](./linux/isolation.md).
-- Efter 35 dagar tillämpas en uppdatering automatiskt och tillgänglighets begränsningarna kommer inte att respekteras.
+- Efter 35 dagar tillämpas en uppdatering automatiskt.
 - Användaren måste ha åtkomst till **resurs ägare** .
 
 
@@ -109,7 +109,7 @@ New-AzConfigurationAssignment `
    -MaintenanceConfigurationId $config.Id
 ```
 
-### <a name="dedicate-host"></a>Dedikera värd
+### <a name="dedicated-host"></a>Dedikerad värd
 
 Om du vill tillämpa en konfiguration på en dedikerad värd måste du också inkludera `-ResourceType hosts``-ResourceParentName` med namnet på värd gruppen och `-ResourceParentType hostGroups`. 
 
@@ -129,7 +129,9 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Sök efter väntande uppdateringar
 
-Använd [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) för att se om det finns väntande uppdateringar. Använd `-subscription` för att ange Azure-prenumerationen för den virtuella datorn om den skiljer sig från den som du är inloggad på. 
+Använd [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) för att se om det finns väntande uppdateringar. Använd `-subscription` för att ange Azure-prenumerationen för den virtuella datorn om den skiljer sig från den som du är inloggad på.
+
+Om det inte finns några uppdateringar returnerar kommandot ett fel meddelande: `Resource not found...StatusCode: 404`.
 
 ### <a name="isolated-vm"></a>Isolerad virtuell dator
 
@@ -185,6 +187,39 @@ New-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute
+```
+
+## <a name="check-update-status"></a>Kontrol lera uppdaterings status
+Använd [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) för att kontrol lera status för en uppdatering. De kommandon som visas nedan visar status för den senaste uppdateringen genom att använda `default` för `-ApplyUpdateName`-parametern. Du kan ersätta namnet på uppdateringen (som returneras av kommandot [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) ) för att hämta status för en speciell uppdatering.
+
+Om det inte finns några uppdateringar att visa, returnerar kommandot ett fel meddelande: `Resource not found...StatusCode: 404`.
+
+### <a name="isolated-vm"></a>Isolerad virtuell dator
+
+Sök efter uppdateringar för en speciell virtuell dator.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myVM `
+   -ResourceType VirtualMachines `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
+```
+
+### <a name="dedicated-host"></a>Dedikerad värd
+
+Sök efter uppdateringar till en dedikerad värd.
+
+```azurepowershell-interactive
+Get-AzApplyUpdate `
+   -ResourceGroupName myResourceGroup `
+   -ResourceName myHost `
+   -ResourceType hosts `
+   -ResourceParentName myHostGroup `
+   -ResourceParentType hostGroups `
+   -ProviderName Microsoft.Compute `
+   -ApplyUpdateName default
 ```
 
 ## <a name="remove-a-maintenance-configuration"></a>Ta bort en underhålls konfiguration

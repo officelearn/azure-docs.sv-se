@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d632de0a6274ebb2ede950ca610dfd5e94310d28
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: f5d42a6a0567d3949bc4b0fb1947450a9c957f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613881"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972355"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Använd Azure Storage Resource Provider för att få åtkomst till hanterings resurser
 
@@ -72,7 +72,7 @@ Kod exempel som visar hur du auktoriserar och anropar hanterings åtgärder frå
 
 Resource Manager och de klassiska distributionsmodellerna är två olika sätt att distribuera och hantera dina Azure-lösningar. Microsoft rekommenderar att du använder Azure Resource Manager distributions modell när du skapar ett nytt lagrings konto. Om möjligt rekommenderar Microsoft också att du återskapar befintliga klassiska lagrings konton med Resource Manager-modellen. Även om du kan skapa ett lagrings konto med hjälp av den klassiska distributions modellen är den klassiska modellen mindre flexibel och kommer slutligen att bli föråldrad.
 
-Mer information om distributions modeller i Azure finns i [Resource Manager och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md).
+Mer information om distributions modeller i Azure finns i [Resource Manager och klassisk distribution](../../azure-resource-manager/management/deployment-models.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

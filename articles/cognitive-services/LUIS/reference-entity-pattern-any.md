@@ -10,14 +10,14 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2239387ffff4c30e1183721a528e666199316bed
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5164bf55ef8233cf34a470524da3bc852678d79a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695098"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979162"
 ---
-# <a name="patternany-entity"></a>Entiteten Pattern.any 
+# <a name="patternany-entity"></a>Entiteten Pattern.any
 
 Mönster. det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.  
 
@@ -25,13 +25,13 @@ Mönster. alla entiteter måste markeras i exempel på [mönster](luis-how-to-mo
 
 **Entiteten passar bra när:**
 
-* Entitetens slut kan förväxlas med den återstående texten i uttryck. 
+* Entitetens slut kan förväxlas med den återstående texten i uttryck.
 
 ## <a name="usage"></a>Användning
 
-Ett klient program som söker efter böcker som baseras på rubrik, mönstret. alla extraherar den fullständiga titeln. En mall uttryck med hjälp av mönster. alla för den här bok sökningen är `Was {BookTitle} written by an American this year[?]`. 
+Ett klient program som söker efter böcker som baseras på rubrik, mönstret. alla extraherar den fullständiga titeln. En mall uttryck med hjälp av mönster. alla för den här bok sökningen är `Was {BookTitle} written by an American this year[?]`.
 
-I följande tabell har varje rad två versioner av uttryck. Det främsta uttryck är hur LUIS för första gången ser uttryck. Det är inte tydligt var bok rubriken börjar och slutar. Den nedre uttryck använder ett mönster. en entitet för att markera början och slutet av entiteten. 
+I följande tabell har varje rad två versioner av uttryck. Det främsta uttryck är hur LUIS för första gången ser uttryck. Det är inte tydligt var bok rubriken börjar och slutar. Den nedre uttryck använder ett mönster. en entitet för att markera början och slutet av entiteten.
 
 |Uttryck med entiteten i fetstil|
 |--|
@@ -45,7 +45,7 @@ I följande tabell har varje rad två versioner av uttryck. Det främsta uttryck
 
 ## <a name="example-json"></a>Exempel på JSON
 
-Tänk på följande fråga:
+Överväg följande fråga:
 
 `where is the form Understand your responsibilities as a member of the community and who needs to sign it after I read it?`
 
@@ -104,8 +104,8 @@ Detta är JSON om `verbose=true` anges i frågesträngen:
 }
 ```
 
-* * * 
+* * *
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här [självstudien](luis-tutorial-pattern-any.md)använder du **mönstret. en** entitet för att extrahera data från yttranden där yttranden är välformaterade och där data slutet kan lätt förväxlas med de återstående orden i uttryck.
+I den här [självstudien](luis-tutorial-pattern.md)använder du **mönstret. en** entitet för att extrahera data från yttranden där yttranden är välformaterade och där data slutet kan lätt förväxlas med de återstående orden i uttryck.

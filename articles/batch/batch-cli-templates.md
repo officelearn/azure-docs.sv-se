@@ -2,21 +2,21 @@
 title: Köra jobb från slut punkt till slut punkt med hjälp av mallar – Azure Batch | Microsoft Docs
 description: Skapa batch-pooler, jobb och uppgifter med mallfiler och Azure CLI.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 4733cf1a83bec472baae42f2ac29636bff5fc324
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2612986491268651222e51646e75cdecc95dc40c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095317"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029746"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Använd Azure Batch CLI-mallar och fil överföring
 
@@ -143,7 +143,7 @@ Om mallfilen hade namnet _pool-ffmpeg. JSON_, så anropa sedan mallen enligt fö
 az batch pool create --template pool-ffmpeg.json
 ```
 
-CLI uppmanas att ange värden för `poolId` parametrarna och. `nodeCount` Du kan också ange parametrarna i en JSON-fil. Exempel:
+CLI uppmanas att ange värden för parametrarna `poolId` och `nodeCount`. Du kan också ange parametrarna i en JSON-fil. Ett exempel:
 
 ```json
 {
@@ -260,7 +260,7 @@ Du kan ladda upp en batch CLI-mall till [batch Explorer](https://github.com/Azur
 
 Ladda upp en mall:
 
-1. I batch Explorer väljer du **Galleri** > **lokala mallar**.
+1. I Batch Explorer väljer du **galleri** > **lokala mallar**.
 
 2. Välj eller dra och släpp en lokal pool eller jobbmall.
 

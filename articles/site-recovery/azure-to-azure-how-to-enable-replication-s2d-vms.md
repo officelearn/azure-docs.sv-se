@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 465c0ddd91e81bb597a996637fdc2147e90464de
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9f394fa8d618c97d74a47ff6e42a002f177cf7d9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942219"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973655"
 ---
 # <a name="replicate-azure-vms-running-storage-spaces-direct-to-another-region"></a>Replikera virtuella Azure-datorer som kör Lagringsdirigering till en annan region
 
@@ -30,7 +30,7 @@ I diagrammet nedan visas ett Azure VM-redundanskluster med två noder som använ
 
 ![storagespacesdirect](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacedirect.png)
 
- 
+
 - Två virtuella Azure-datorer i ett Windows-redundanskluster och varje virtuell dator har två eller flera data diskar.
 - S2D synkroniserar data på data disken och presenterar den synkroniserade lagringen som en lagringspool.
 - Lagringspoolen presenteras som en klusterdelad volym (CSV) till redundansklustret.
@@ -51,7 +51,7 @@ I diagrammet nedan visas ett Azure VM-redundanskluster med två noder som använ
 
    ![storagespacesdirect skydd](./media/azure-to-azure-how-to-enable-replication-s2d-vms/multivmgroup.png)
 
-2. Gå till replikerade objekt så kan du se både statusen för den virtuella datorn. 
+2. Gå till replikerade objekt så kan du se både statusen för den virtuella datorn.
 3. Båda de virtuella datorerna skyddas och visas också som en del av konsekvens gruppen för flera virtuella datorer.
 
    ![storagespacesdirect skydd](./media/azure-to-azure-how-to-enable-replication-s2d-vms/storagespacesdirectgroup.PNG)

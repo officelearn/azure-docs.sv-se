@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: f4164966d1a9662a72d41fefcb7cfbb1b444d614
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c2cb7a90f0fe57efcd8f4d75aff3b5ee375abd07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888992"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971499"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Vanliga frågor om Azure Databricks
 
@@ -107,7 +107,7 @@ Azure-felkod: MissingSubscriptionRegistration Azure-fel meddelande: prenumeratio
 1. Välj **prenumerationer**, den prenumeration du använder och sedan **resurs leverantörer**. 
 1. I listan över resurs leverantörer, mot **Microsoft. Compute**, väljer du **Registrera**. Du måste ha rollen deltagare eller ägare av prenumerationen för att kunna registrera resurs leverantören.
 
-Mer detaljerade instruktioner finns i [resurs leverantörer och typer](../azure-resource-manager/resource-manager-supported-services.md).
+Mer detaljerade instruktioner finns i [resurs leverantörer och typer](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### <a name="issue-azure-databricks-needs-permissions-to-access-resources-in-your-organization-that-only-an-admin-can-grant"></a>Problem: Azure Databricks behöver behörigheter för att få åtkomst till resurser i din organisation som bara en administratör kan bevilja.
 

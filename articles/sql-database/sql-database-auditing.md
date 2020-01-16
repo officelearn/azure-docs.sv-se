@@ -9,12 +9,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: aeca4499a41adf37ba78452f1cf76047dd8c6592
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0994ebe451bddea371f375e4d39172833df4d88a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931937"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028525"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
@@ -246,6 +246,14 @@ I produktion är det troligt att du uppdaterar dina lagrings nycklar med jämna 
 - När du använder AAD-autentisering, kommer misslyckade inloggnings poster *inte* visas i SQL-gransknings loggen. Om du vill visa gransknings poster för misslyckad inloggning måste du gå till [Azure Active Directory Portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)som loggar information om dessa händelser.
 
 - Azure SQL Database granskning är optimerad för tillgänglighets & prestanda. Vid mycket hög aktivitet Azure SQL Database tillåta åtgärder att fortsätta och kanske inte registrera vissa granskade händelser.
+
+- Information om hur du konfigurerar oåterkallelig granskning på lagrings kontot finns i [Tillåt skyddade tillägg av bifogade blobbar](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage#allow-protected-append-blobs-writes). Observera att behållar namnet för granskning är **sqldbauditlogs**.
+
+> [!IMPORTANT] 
+>  Inställningen Tillåt att skyddade bifogade blobbar skrivs under tidsbaserad kvarhållning är för närvarande tillgänglig och endast synlig i följande regioner:
+> - USA, östra
+> - USA, södra centrala
+> - USA, västra 2
 
 
 ## <a id="subheading-7"></a>Hantera Azure-SQL Server och databas granskning med Azure PowerShell

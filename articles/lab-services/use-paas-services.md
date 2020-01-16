@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: a80a54f3dc760d80f713db9857cbef0c580e66d6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621371"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976238"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Använd PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs
 PaaS stöds i DevTest Labs via miljö funktionen. Miljöer i DevTest Labs stöds av förkonfigurerade Azure Resource Manager mallar i en git-lagringsplats. Miljöer kan innehålla både PaaS-och IaaS-resurser. De gör att du kan skapa komplexa system som kan omfatta Azure-resurser, till exempel virtuella datorer, databaser, virtuella nätverk och webbappar, som är anpassade för att fungera tillsammans. Dessa mallar ger konsekvent distribution och förbättrad hantering av miljöer med käll kods kontroll. 
@@ -46,16 +46,16 @@ Labb ägaren kan anpassa labb miljöer för att ändra användarens roll från *
 Det finns viss anpassad labb information som ligger utanför resurs gruppen och är till för miljöer som mallen har åtkomst till. Här är några av dem: 
 
 - Nätverks identifiering för labb
-- Plats
+- Location
 - Lagrings konto där filerna i Resource Manager-mallarna lagras. 
  
 #### <a name="lab-virtual-network"></a>Virtuellt labb nätverk
 I den [anslutande miljön till Labbets Virtual Network](connect-environment-lab-virtual-network.md) -artikel beskrivs hur du ändrar Resource Manager-mallen så att den använder `$(LabSubnetId)`-token. När en miljö skapas, ersätts `$(LabSubnetId)` token av det första under nätet där alternativet **Använd vid skapande av virtuell dator** är inställt på **Sant**. Det gör att vår miljö kan använda tidigare skapade nätverk. Om du vill använda samma Resource Manager-mallar i miljöer i test som mellanlagring och produktion, använder du `$(LabSubnetId)` som standardvärde i en Resource Manager-mallparameter. 
 
 #### <a name="environment-storage-account"></a>Miljö lagrings konto
-DevTest Labs stöder användning av [kapslade Resource Manager-mallar](../azure-resource-manager/resource-group-linked-templates.md). I artikeln [[distribuera kapslade Azure Resource Manager mallar för testnings miljöer](deploy-nested-template-environments.md) förklaras hur du använder `_artifactsLocation` och `_artifactsLocationSasToken` tokens för att skapa en URI till en Resource Manager-mall i samma mapp som eller i en kapslad mapp i huvud mal len. Mer information om dessa två tokens finns i avsnittet **distributions artefakter** i [Azure Resource Manager – metod Tips Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
+DevTest Labs stöder användning av [kapslade Resource Manager-mallar](../azure-resource-manager/templates/linked-templates.md). I artikeln [[distribuera kapslade Azure Resource Manager mallar för testnings miljöer](deploy-nested-template-environments.md) förklaras hur du använder `_artifactsLocation` och `_artifactsLocationSasToken` tokens för att skapa en URI till en Resource Manager-mall i samma mapp som eller i en kapslad mapp i huvud mal len. Mer information om dessa två tokens finns i avsnittet **distributions artefakter** i [Azure Resource Manager – metod Tips Guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md).
 
-## <a name="user-experience"></a>Användar upplevelse
+## <a name="user-experience"></a>Användarens upplevelse
 
 ## <a name="developer"></a>Developer
 Utvecklare använder samma arbets flöde för att skapa en virtuell dator för att skapa en speciell miljö. De väljer miljön eller dator avbildningen och anger nödvändig information som krävs för mallen. Varje utvecklare som har en miljö möjliggör distribution av ändringar och förbättrad fel sökning av inre loopar. Miljön kan skapas när som helst med den senaste mallen.  Den här funktionen gör att miljöer kan förstöras och återskapas för att minska stillestånds tiden från att behöva skapa systemet manuellt eller återställning från fel testning.  

@@ -16,24 +16,24 @@ ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: ''
-ms.openlocfilehash: d934386a47c339cd3abdf72578736b44d40e7952
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 50054379a3032a368a10932e15396373a3817cff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059014"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978918"
 ---
 # <a name="create-a-virtual-network-classic-with-multiple-subnets"></a>Skapa ett virtuellt nätverk (klassiskt) med flera undernät
 
 > [!IMPORTANT]
-> Azure har två [olika distributions modeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att du skapar de flesta nya virtuella nätverk via distributions modellen för [Resource Manager](quick-create-portal.md) .
+> Azure har två [olika distributions modeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json) för att skapa och arbeta med resurser: Resource Manager och klassisk. Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att du skapar de flesta nya virtuella nätverk via distributions modellen för [Resource Manager](quick-create-portal.md) .
 
 I den här självstudien får du lära dig hur du skapar ett grundläggande virtuellt Azure-nätverk (klassisk) som har separata offentliga och privata undernät. Du kan skapa Azure-resurser, t. ex. virtuella datorer och moln tjänster i ett undernät. Resurser som har skapats i virtuella nätverk (klassiska) kan kommunicera med varandra, och med resurser i andra nätverk som är anslutna till ett virtuellt nätverk.
 
 Läs mer om alla inställningar för [virtuella nätverk](manage-virtual-network.md) och [undernät](virtual-network-manage-subnet.md) .
 
 > [!WARNING]
-> Virtuella nätverk (klassiska) tas genast bort av Azure när en [prenumeration är inaktive rad](../billing/billing-subscription-become-disable.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtuella nätverk (klassiska) tas bort oavsett om det finns resurser i det virtuella nätverket. Om du senare aktiverar prenumerationen måste resurser som fanns i det virtuella nätverket återskapas.
+> Virtuella nätverk (klassiska) tas genast bort av Azure när en [prenumeration är inaktive rad](../cost-management-billing/manage/subscription-disabled.md?toc=%2fazure%2fvirtual-network%2ftoc.json#you-reached-your-spending-limit). Virtuella nätverk (klassiska) tas bort oavsett om det finns resurser i det virtuella nätverket. Om du senare aktiverar prenumerationen måste resurser som fanns i det virtuella nätverket återskapas.
 
 Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av [Azure Portal](#portal), [kommando rads gränssnittet för Azure (CLI) 1,0](#azure-cli)eller [PowerShell](#powershell).
 
@@ -47,11 +47,11 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av [Azure Portal](#por
 
     |Inställning|Värde|
     |---|---|
-    |Name|myVnet|
+    |Namn|myVnet|
     |Adressutrymme|10.0.0.0/16|
-    |Undernätsnamn|Offentligt|
-    |Undernätsadressintervall|10.0.0.0/24|
-    |Resource group|Lämna **Skapa ny** markerad och ange sedan **myResourceGroup**.|
+    |Namn på undernät|Offentlig|
+    |Adressintervall för undernätet|10.0.0.0/24|
+    |Resursgrupp|Lämna **Skapa ny** markerad och ange sedan **myResourceGroup**.|
     |Prenumeration och plats|Välj din prenumeration och plats.
 
     Om du är nybörjare på Azure kan du läsa mer om [resurs grupper](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group), [prenumerationer](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription)och [platser](https://azure.microsoft.com/regions) (kallas även *regioner*).
@@ -60,14 +60,14 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av [Azure Portal](#por
 6. Klicka på **+ Lägg till** i fönstret **myVnet-undernät** som visas.
 7. Ange **Private** som **namn** i rutan **Lägg till undernät** . Ange **10.0.1.0/24** för **adress intervall**.  Klicka på **OK**.
 8. I fönstret **myVnet-undernät** kan du se de **offentliga** och **privata** undernät som du har skapat.
-9. **Valfritt**: När du har slutfört den här självstudien kanske du vill ta bort de resurser som du har skapat, så att du inte debiteras för användnings kostnader:
+9. **Valfritt**: när du har slutfört den här självstudien kanske du vill ta bort de resurser som du har skapat, så att du inte debiteras för användnings kostnader:
     - Klicka på **Översikt** i fönstret **myVnet** .
     - Klicka på ikonen **ta bort** i fönstret **myVnet** .
     - Bekräfta borttagningen genom att klicka på **Ja** i rutan **ta bort virtuellt nätverk** .
 
 ## <a name="azure-cli"></a>Azure CLI
 
-1. Du kan antingen [Installera och konfigurera Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)eller använda CLI i Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Om du vill ha hjälp med CLI- `azure <command> --help`kommandon skriver du. 
+1. Du kan antingen [Installera och konfigurera Azure CLI](../cli-install-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)eller använda CLI i Azure Cloud Shell. Azure Cloud Shell är ett kostnadsfritt Bash-gränssnitt som du kan köra direkt i Azure-portalen. Den har Azure CLI förinstallerat och har konfigurerats för användning med ditt konto. Om du vill ha hjälp med CLI-kommandon skriver du `azure <command> --help`. 
 2. Logga in på Azure med kommandot som följer i en CLI-session. Om du klickar på **prova** i rutan nedan öppnas en Cloud Shell. Du kan logga in på din Azure-prenumeration utan att ange följande kommando:
 
     ```azurecli-interactive
@@ -98,7 +98,7 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av [Azure Portal](#por
     azure network vnet show --vnet myVnet
     ```
 
-7. **Valfritt**: Du kanske vill ta bort de resurser som du skapade när du har slutfört den här självstudien så att du inte debiteras för användnings kostnader:
+7. **Valfritt**: du kanske vill ta bort de resurser som du skapade när du har slutfört den här självstudien så att du inte debiteras för användnings kostnader:
 
     ```azurecli-interactive
     azure network vnet delete --vnet myVnet --quiet
@@ -153,7 +153,7 @@ Du kan skapa ett virtuellt nätverk (klassisk) med hjälp av [Azure Portal](#por
     Get-AzureVNetSite -VNetName "myVnet"
     ```
 
-8. **Valfritt**: Du kanske vill ta bort de resurser som du skapade när du har slutfört den här självstudien så att du inte debiteras för användnings kostnader. Om du vill ta bort det virtuella nätverket slutför du steg 4-6 igen, tar den här tiden bort **VirtualNetworkSite** -elementet som du lade till i steg 5.
+8. **Valfritt**: du kanske vill ta bort de resurser du skapade när du har slutfört den här självstudien så att du inte debiteras för användnings kostnader. Om du vill ta bort det virtuella nätverket slutför du steg 4-6 igen, tar den här tiden bort **VirtualNetworkSite** -elementet som du lade till i steg 5.
  
 > [!NOTE]
 > Även om du inte kan ange en resurs grupp för att skapa ett virtuellt nätverk (klassisk) i med PowerShell, skapar Azure det virtuella nätverket i en resurs grupp med namnet *default-Networking*.

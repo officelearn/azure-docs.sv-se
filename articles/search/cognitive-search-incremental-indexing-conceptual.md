@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: a5b12a426e52c3b80c58a30b320b2f746bbe990d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832185"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028509"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Introduktion till stegvis anrikning och cachelagring i Azure Kognitiv sökning
 
@@ -56,14 +56,16 @@ Livs längden för cachen hanteras av indexeraren. Om egenskapen `cache` på ind
 
 Även om den stegvisa berikningen är utformad för att identifiera och svara på ändringar utan någon åtgärd från din sida, finns det parametrar som du kan använda för att åsidosätta standard beteenden:
 
-+ Pausa cachelagring
++ Prioritera nya dokument
 + Kringgå färdigheter-kontroller
 + Kringgå kontroller av data Källa
 + Framtvinga färdigheter-utvärdering
 
-### <a name="suspend-caching"></a>Pausa cachelagring
+### <a name="prioritize-new-documents"></a>Prioritera nya dokument
 
-Du kan tillfälligt inaktivera stegvis berikning genom att ange `enableReprocessing` egenskap i cachen som `false`, och senare återuppta stegvis anrikning och köra eventuell konsekvens genom att ställa in den på `true`. Den här kontrollen är särskilt användbar när du vill prioritera att indexera nya dokument för att säkerställa konsekvens i sökkorpus av dokument.
+Ange egenskapen `enableReprocessing` som styr bearbetningen av inkommande dokument som redan visas i cacheminnet. När `true` (standard) bearbetas dokument som redan finns i cachen om när du kör om indexeraren, förutsatt att din kunskaps uppdatering påverkar dokumentet. 
+
+När `false`bearbetas inte befintliga dokument på nytt, vilket prioriterar nytt, inkommande innehåll över befintligt innehåll. Du bör bara ange `enableReprocessing` till `false` temporärt. För att säkerställa konsekvens över sökkorpus bör `enableReprocessing` vara `true` det mesta av tiden, vilket säkerställer att alla dokument, både nya och befintliga, är giltiga enligt den aktuella färdigheter-definitionen.
 
 ### <a name="bypass-skillset-evaluation"></a>Kringgå färdigheter-utvärdering
 
@@ -93,9 +95,9 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 ### <a name="force-skillset-evaluation"></a>Framtvinga färdigheter-utvärdering
 
-Syftet med cachen är att undvika onödig bearbetning, men anta att du har gjort en ändring i en färdighets-eller färdigheter som indexeraren inte identifierar (till exempel ändringar i externa komponenter som en anpassad färdigheter). 
+Syftet med cachen är att undvika onödig bearbetning, men vi antar att du gör en ändring i en färdighet som indexeraren inte identifierar (till exempel ändra något i extern kod, till exempel en anpassad färdighet).
 
-I det här fallet kan du använda API: et för [återställning av kunskaper](preview-api-resetskills.md) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Det här API: et accepterar en POST-begäran med en lista över färdigheter som ska invalas och köras igen. När du har återställt färdigheter kör du indexeraren för att utföra åtgärden.
+I det här fallet kan du använda [återställnings kunskaper](preview-api-resetskills.md) för att tvinga ombearbetning av en viss färdighet, inklusive eventuella efterföljande kunskaper som har ett beroende på den aktuella färdighetens utdata. Detta API accepterar en POST-begäran med en lista med kunskaper som ska ogiltig förklaras och markeras för ombearbetning. När du har återställt färdigheter kan du köra indexeraren för att anropa pipelinen.
 
 ## <a name="change-detection"></a>Ändrings identifiering
 
@@ -158,7 +160,7 @@ Användnings information och exempel finns i [Konfigurera cachelagring för steg
 
 ### <a name="datasources"></a>Datakällor
 
-+ Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-datasource) en ny parameter på en begäran `ignoreResetRequirement`, vilket ska vara inställt på `true` när uppdaterings åtgärden inte ska göra en ogiltig verifiering av cachen.
++ Vissa indexerare hämtar data via frågor. För frågor som hämtar data stöder [uppdaterings data källan](https://docs.microsoft.com/rest/api/searchservice/update-data-source) en ny parameter på en begäran `ignoreResetRequirement`, vilket ska vara inställt på `true` när uppdaterings åtgärden inte ska göra en ogiltig verifiering av cachen.
 
 Använd `ignoreResetRequirement` sparsamt eftersom det kan leda till oavsiktlig inkonsekvens i dina data som inte kommer att identifieras enkelt.
 

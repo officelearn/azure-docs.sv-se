@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 11/22/2019
+ms.date: 01/14/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de64385e21604188a5c9002f2e007dad86b2674c
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 333e440fdd5f5062dda45fb12a83543c63e66c04
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420433"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978035"
 ---
 # <a name="use-the-ad-fs-application-activity-report-preview-to-migrate-applications-to-azure-ad"></a>Använda rapporten AD FS program aktivitet (för hands version) för att migrera program till Azure AD
 
@@ -32,7 +32,7 @@ I rapporten AD FS program aktivitet (för hands version) i Azure Portal kan du s
 
 AD FS programmets aktivitets data är tillgängliga för användare som har tilldelats någon av dessa administratörs roller: global administratör, rapport läsare, säkerhets läsare, program administratör eller moln program administratör.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Din organisation måste för närvarande använda AD FS för att få åtkomst till program.
 * Azure AD Connect Health måste vara aktiverat i din Azure AD-klient.
@@ -124,6 +124,7 @@ I följande tabell visas alla test av anspråks regler som utförs på AD FS pro
 
 ## <a name="next-steps"></a>Nästa steg
 
+- [Video: så här använder du rapporten AD FS aktivitet för att migrera ett program](https://www.youtube.com/watch?v=OThlTA239lU)
 - [Hantera program med Azure Active Directory](what-is-application-management.md)
 - [Hantera åtkomst till appar](what-is-access-management.md)
 - [Azure AD Connect-federation](../hybrid/how-to-connect-fed-whatis.md)

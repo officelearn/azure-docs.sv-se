@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 02/08/2019
-ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/14/2020
+ms.openlocfilehash: 4283e1a2c92b7fe738fb57a8103cea1deb0015a0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811210"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027718"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Använda en enda databas i Azure SQL Database
 
@@ -42,7 +42,7 @@ I det här avsnittet hittar du olika guider, skript och förklaringar som kan hj
 - [Aktivera e-postaviseringar för automatisk justering](sql-database-automatic-tuning-email-notifications.md) för att få information om justerings rekommendationer.
 - [Använd prestanda rekommendationer](sql-database-advisor-portal.md) och optimera databasen.
 - [Skapa aviseringar](sql-database-insights-alerts-portal.md) för att få meddelanden från Azure SQL Database.
-- [Felsök anslutningen](sql-database-troubleshoot-common-connection-issues.md) om du märker några anslutnings problem mellan programmen och-databasen. Du kan också använda [Resource Health för anslutnings problem](sql-database-resource-health.md).
+- [Felsök anslutningen](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md) om du märker några anslutnings problem mellan programmen och-databasen. Du kan också använda [Resource Health för anslutnings problem](sql-database-resource-health.md).
 - [Hantera fil utrymme](sql-database-file-space-management.md) för att övervaka lagrings användningen i databasen.
 
 ## <a name="query-distributed-data"></a>Fråga distribuerade data

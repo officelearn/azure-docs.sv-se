@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: d62704feaaa46f6780c302f5564b112dd1badbc1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353240"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973913"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -47,11 +47,11 @@ Rekommendationerna i det här dokumentet är justerade med [identitetens säkra 
 
 Innan du börjar check listan, se till att du inte blir komprometterad när du läser den här check listan. Du måste först skydda dina privilegierade konton.
 
-Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) för alla administratörer i din organisation med hjälp av [säkerhets inställningar i Azure AD](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
+Angripare som får kontroll över privilegierade konton kan orsaka mycket allvarliga skador, så det är viktigt att skydda kontona först. Aktivera och Kräv [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) (MFA) för alla administratörer i din organisation med hjälp av [säkerhets inställningar i Azure AD](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md) eller [villkorlig åtkomst](../../active-directory/conditional-access/plan-conditional-access.md). Om du inte har implementerat MFA kan du göra det nu! Det är viktigt.
 
 Har du angett? Vi börjar med check listan.
 
-## <a name="step-1---strengthen-your-credentials"></a>Steg 1 – Förstärk dina autentiseringsuppgifter 
+## <a name="step-1---strengthen-your-credentials"></a>Steg 1 – Förstärk dina autentiseringsuppgifter
 
 De flesta säkerhets överträdelser i företaget kommer att ha ett konto som har komprometterats med en fåtal av metoder, till exempel lösen ords spray, intrång, omuppspelning eller nätfiske. Läs mer om dessa angrepp i den här videon (45 min):
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
@@ -60,7 +60,7 @@ De flesta säkerhets överträdelser i företaget kommer att ha ett konto som ha
 
 Med hänsyn till frekvensen av lösen ord som gissas, phished, blir stulen med skadlig kod eller återanvänds, är det viktigt att du säkerhetskopierar lösen ordet med någon form av stark autentiseringsuppgift – Läs mer om [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md).
 
-Om du vill aktivera den grundläggande säkerhets nivån för identiteter kan du använda det här alternativet för att aktivera med [Azure AD-säkerhetsinställningarna](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md). Säkerhets standarder upprätthåller Azure MFA för alla användare i en klient organisation och blockerar inloggningar från äldre protokoll för hela klienten.
+Om du vill aktivera den grundläggande säkerhets nivån för identiteter kan du använda det här alternativet för att aktivera med [Azure AD-säkerhetsinställningarna](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md). Säkerhets standarder upprätthåller Azure MFA för alla användare i en klient organisation och blockerar inloggningar från äldre protokoll för hela klienten.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>Starta förbjuda ofta angrepp av lösen ord och inaktivera traditionell komplexitet och utgångs regler.
 
@@ -86,7 +86,7 @@ Om din organisation använder en hybrid identitets lösning med direktautentiser
 Lär dig mer om hur [synkronisering av lösen ord för hash](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) fungerar.
 
 > [!NOTE]
-> Om du aktiverar hash-synkronisering av lösen ord och använder Azure AD Domain Services, kommer Kerberos (AES 256) hash-värden och alternativt NTLM (RC4, ingen salt) hashs att krypteras och synkroniseras till Azure AD. 
+> Om du aktiverar hash-synkronisering av lösen ord och använder Azure AD Domain Services, kommer Kerberos (AES 256) hash-värden och alternativt NTLM (RC4, ingen salt) hashs att krypteras och synkroniseras till Azure AD.
 
 ### <a name="implement-ad-fs-extranet-smart-lockout"></a>Implementera Smart utelåsning för AD FS extra nät
 
@@ -106,7 +106,7 @@ Appar som använder sina egna äldre metoder för att autentisera med Azure AD o
 
 1. Blockera [äldre autentisering om du använder AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Konfigurera [SharePoint Online och Exchange Online för att använda modern autentisering](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md).
-3. Om du har Azure AD Premium använder du [villkorliga åtkomst principer](../../active-directory/conditional-access/conditions.md) för att blockera äldre autentisering, annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md).
+3. Om du har Azure AD Premium använder du [villkorliga åtkomst principer](../../active-directory/conditional-access/conditions.md) för att blockera äldre autentisering, annars använder du [standardinställningar för Azure AD-säkerhet](../../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 ### <a name="block-invalid-authentication-entry-points"></a>Blockera ogiltiga start punkter för autentisering
 
@@ -123,7 +123,7 @@ Se till att användarna kan begära administratörs godkännande för nya progra
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Implementera Azure AD Privileged Identity Management
 
-En annan effekt av "antagen intrång" är behovet av att minimera sannolikheten att ett komprometterat konto kan användas med en privilegie rad roll. 
+En annan effekt av "antagen intrång" är behovet av att minimera sannolikheten att ett komprometterat konto kan användas med en privilegie rad roll.
 
 [Azure AD Privileged Identity Management (PIM)](../../active-directory/privileged-identity-management/pim-configure.md) hjälper dig att minimera konto privilegier genom att hjälpa dig att:
 
@@ -172,13 +172,13 @@ Microsoft Azure tjänster och funktioner ger dig möjlighet att konfigurera säk
 
 Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka dagligen:
 1. Riskfyllda inloggnings rapporter kan användas för användarnas inloggnings aktiviteter som du bör undersöka, den legitima ägaren kanske inte har utfört inloggningen.
-2. Riskfyllda användar rapporter kommer att påverka användar konton som kan ha komprometterats, till exempel läckta autentiseringsuppgifter som identifierats eller användaren som är inloggad från olika platser och som orsakar en omöjlig resa-händelse. 
+2. Riskfyllda användar rapporter kommer att påverka användar konton som kan ha komprometterats, till exempel läckta autentiseringsuppgifter som identifierats eller användaren som är inloggad från olika platser och som orsakar en omöjlig resa-händelse.
 
 ![Användare som har flaggats för risk](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>Granska appar och samskickade behörigheter
 
-Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna eller inaktivera möjligheten för användare att ge sitt medgivande som standard. 
+Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna eller inaktivera möjligheten för användare att ge sitt medgivande som standard.
 
 Förutom att granska de behörigheter som anges av användarna kan det hjälpa till att försöka [hitta riskfyllda eller oönskade OAuth-program](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), vilket är en funktion som är tillgänglig för Premium-miljöer.
 

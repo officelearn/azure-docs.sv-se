@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 30f39fc72d6a96b83f57d6553db3f348c8486ee5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460609"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975692"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
 Ett Azure Storage-konto innehåller alla dina Azure Storage data objekt: blobbar, filer, köer, tabeller och diskar. Lagrings kontot tillhandahåller ett unikt namn område för dina Azure Storage data som är tillgängliga från var som helst i världen via HTTP eller HTTPS. Data i ditt Azure Storage-konto är tåliga och mycket tillgängliga, säkra och enorma skalbara.
 
-Information om hur du skapar ett Azure Storage-konto finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
+Information om hur du skapar ett Azure Storage-konto finns i [skapa ett lagrings konto](storage-account-create.md).
 
 ## <a name="types-of-storage-accounts"></a>Typer av lagringskonton
 
@@ -72,7 +72,7 @@ BlockBlobStorage-konton stöder för närvarande inte nivåer för frekvent åtk
 
 ### <a name="filestorage-accounts"></a>FileStorage-konton
 
-Ett FileStorage-konto är ett specialiserat lagrings konto som används för att lagra och skapa Premium-filresurser. Den här typen av lagrings konto stöder filer, men inte blockering av blobbar, tillägg av blobbar, sid-BLOB, tabeller eller köer. 
+Ett FileStorage-konto är ett specialiserat lagrings konto som används för att lagra och skapa Premium-filresurser. Den här typen av lagrings konto stöder filer, men inte blockering av blobbar, tillägg av blobbar, sid-BLOB, tabeller eller köer.
 
 FileStorage-konton ger unika prestanda dedikerade egenskaper som IOPS-burst. Mer information om dessa egenskaper finns i avsnittet om [prestanda nivåer för fil resurser](../files/storage-files-planning.md#file-share-performance-tiers) i planerings guiden för filer.
 
@@ -150,15 +150,15 @@ Du kan bevilja åtkomst till data i ditt lagrings konto med någon av följande 
 - **Signatur för delad åtkomst:** Använd en signatur för delad åtkomst för att delegera åtkomst till resurser i ditt lagrings konto, om du inte använder Azure AD-auktorisering. En signatur för delad åtkomst är en token som kapslar in all information som behövs för att auktorisera en begäran till Azure Storage på URL: en. Du kan ange lagrings resursen, de behörigheter som beviljats och det intervall med vilket behörigheterna är giltiga som en del av signaturen för delad åtkomst. Mer information finns i [använda signaturer för delad åtkomst (SAS)](storage-sas-overview.md).
 
 > [!NOTE]
-> Autentisering av användare eller program som använder Azure AD-autentiseringsuppgifter ger överlägsen säkerhet och lätt att använda för andra auktoriserings metoder. Även om du kan fortsätta att använda autentisering med delad nyckel med dina program kan du använda Azure AD för att kringgå behovet av att lagra din konto åtkomst nyckel med din kod. Du kan även fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt lagrings konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS. 
+> Autentisering av användare eller program som använder Azure AD-autentiseringsuppgifter ger överlägsen säkerhet och lätt att använda för andra auktoriserings metoder. Även om du kan fortsätta att använda autentisering med delad nyckel med dina program kan du använda Azure AD för att kringgå behovet av att lagra din konto åtkomst nyckel med din kod. Du kan även fortsätta att använda signaturer för delad åtkomst (SAS) för att ge detaljerad åtkomst till resurser i ditt lagrings konto, men Azure AD erbjuder liknande funktioner utan att behöva hantera SAS-token eller oroa dig för att återkalla en komprometterad SAS.
 >
 > Microsoft rekommenderar att du använder Azure AD-auktorisering för Azure Storage blob-och Queue-program när det är möjligt.
 
 ## <a name="copying-data-into-a-storage-account"></a>Kopiera data till ett lagrings konto
 
-Microsoft tillhandahåller verktyg och bibliotek för att importera data från lokala lagrings enheter eller moln lagrings leverantörer från tredje part. Vilken lösning du använder beror på mängden data som du överför. 
+Microsoft tillhandahåller verktyg och bibliotek för att importera data från lokala lagrings enheter eller moln lagrings leverantörer från tredje part. Vilken lösning du använder beror på mängden data som du överför.
 
-När du uppgraderar till ett allmänt-syfte v2-konto från ett allmänt v1-eller Blob Storage-konto migreras dina data automatiskt. Microsoft rekommenderar den här väg för att uppgradera ditt konto. Men om du bestämmer dig för att flytta data från ett allmänt v1-konto till ett Blob Storage-konto migrerar du dina data manuellt med hjälp av de verktyg och bibliotek som beskrivs nedan. 
+När du uppgraderar till ett allmänt-syfte v2-konto från ett allmänt v1-eller Blob Storage-konto migreras dina data automatiskt. Microsoft rekommenderar den här väg för att uppgradera ditt konto. Men om du bestämmer dig för att flytta data från ett allmänt v1-konto till ett Blob Storage-konto migrerar du dina data manuellt med hjälp av de verktyg och bibliotek som beskrivs nedan.
 
 ### <a name="azcopy"></a>AzCopy
 
@@ -183,5 +183,5 @@ Mer information om Azure Storage REST API finns i [Azure Storage Services REST A
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [skapar ett lagringskonto](storage-quickstart-create-account.md)
+- [skapar ett lagringskonto](storage-account-create.md)
 - [Skapa ett lagringskonto för en blockblob](../blobs/storage-blob-create-account-block-blob.md)

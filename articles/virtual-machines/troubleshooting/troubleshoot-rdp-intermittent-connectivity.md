@@ -12,21 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/24/2018
 ms.author: genli
-ms.openlocfilehash: be563e39ed1bfa405830999a96d8630b6f8254bb
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 636973110e11770e33c635e312c86b25110705da
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057972"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981338"
 ---
 # <a name="remote-desktop-disconnects-frequently-in-azure-vm"></a>Fjärr skrivbord frånkopplas ofta i virtuell Azure-dator
 
 Den här artikeln förklarar hur du felsöker frekventa från kopplingar till en virtuell Azure-dator via Remote Desktop Protocol RDP).
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributions modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributions modellen.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 Du har tillfälligt problem med RDP-anslutningen under sessionerna. Du kan ansluta till den virtuella datorn till den virtuella datorn, men anslutningen upprättas.
 
@@ -92,9 +92,9 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
 1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
 2. När OS-disken är ansluten till den Virtuella återställningsdatorn, se till att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
 3. Gå till mappen **\Windows\System32\Config** på den OS-disk som du har bifogat. Kopiera alla filer i den här mappen som en säkerhets kopia, om det krävs en återställning.
-4. Starta Registereditorn (regedit. exe).
-5. Välj **HKEY_LOCAL_MACHINE** -nyckel. På menyn väljer du **fil** > **läsnings registrerings data**fil:
-6. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under nyckeln **HKEY_LOCAL_MACHINE** . Läs sedan in program registrerings data filen **\windows\system32\config\SOFTWARE** under nyckeln **HKEY_LOCAL_MACHINE** . Skriv **BROKENSOFTWARE**som namn på Hive-programvaran. 
+4. Starta Registereditorn (regedit.exe).
+5. Välj den **HKEY_LOCAL_MACHINE** nyckeln. På menyn väljer du **fil** > **Läs in Hive**:
+6. Bläddra till mappen **\windows\system32\config\SYSTEM** på den OS-disk som du har anslutit. Ange **BROKENSYSTEM**som namn på Hive. Den nya registrerings data filen visas under **HKEY_LOCAL_MACHINE** nyckeln. Läs sedan in Hive- **\windows\system32\config\SOFTWARE** under **HKEY_LOCAL_MACHINE** nyckeln. Skriv **BROKENSOFTWARE**som namn på Hive-programvaran. 
 7. Öppna ett kommando tolks fönster med förhöjd behörighet (**Kör som administratör**) och kör kommandon i de återstående stegen för att återställa RDP-konfigurationerna. 
 8. Sänk säkerhets skiktet för RDP till 0 så att kommunikation mellan servern och klienten använder den inbyggda RDP-krypteringen:
 
@@ -151,7 +151,7 @@ Du kan felsöka det här problemet genom att använda seriell kontroll eller [re
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet002\control\Terminal Server\Winstations\RDP-Tcp" /v 'MaxConnectionTime' /t REG_DWORD /d 0 /f
-16. Ange tids kontroll för inaktivitet för RDP-session:     REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp"/v "fInheritMaxIdleTime"/t REG_DWORD/d 1/f 
+16. Ange inaktiv tids kontroll för RDP-session: REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp"/v "fInheritMaxIdleTime"/t REG_DWORD/d 1/f 
 
         REG ADD "HKLM\BROKENSYSTEM\ControlSet001\control\Terminal Server\Winstations\RDP-Tcp" /v ' MaxIdleTime' /t REG_DWORD /d 0 /f
 

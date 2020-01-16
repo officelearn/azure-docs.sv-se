@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c37c49d8f7e09334014af290bf3a8c8e6d35f04b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: a13a0a54e9ded48cc5848843f4c329b2dea90f65
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058358"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975224"
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Så här anger du en statisk intern privat IP-adress med PowerShell (klassisk)
 I de flesta fall behöver du inte ange en statisk intern IP-adress för den virtuella datorn. Virtuella datorer i ett virtuellt nätverk tar automatiskt emot en intern IP-adress från ett intervall som du anger. Men i vissa fall är det bra att ange en statisk IP-adress för en viss virtuell dator. Om din virtuella dator till exempel kommer att köra DNS eller bli en domänkontrollant. En statisk intern IP-adress ligger kvar på den virtuella datorn även om steget stoppa/avetableras. 
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser:  [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder [distributions modellen för Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder [distributions modellen för Resource Manager](virtual-networks-static-private-ip-arm-ps.md).
 > 
 > 
 > ## <a name="install-the-azure-powershell-service-management-module"></a>Installera modulen för Azure PowerShell Service Management
 
-Innan du kör följande kommandon ska du kontrol lera att modulen [](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
-) för Azure PowerShell Service Management är installerad på datorn. Versions historiken för Azure PowerShell Service Management-modulen finns [i Azure-modulen i PowerShell-galleriet](https://www.powershellgallery.com/packages/Azure/5.3.0).
+Innan du kör följande kommandon ska du kontrol lera att [modulen för Azure PowerShell Service Management](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0
+) är installerad på datorn. Versions historiken för Azure PowerShell Service Management-modulen finns [i Azure-modulen i PowerShell-galleriet](https://www.powershellgallery.com/packages/Azure/5.3.0).
 
 ## <a name="how-to-verify-if-a-specific-ip-address-is-available"></a>Så här kontrollerar du om en speciell IP-adress är tillgänglig
 Kontrol lera att IP- *10.0.0.7* är tillgänglig i ett VNet med namnet *TestVnet*genom att köra följande PowerShell-kommando och kontrol lera värdet för *IsAvailable*.
@@ -51,7 +51,7 @@ Kontrol lera att IP- *10.0.0.7* är tillgänglig i ett VNet med namnet *TestVnet
 > 
 
 ## <a name="how-to-specify-a-static-internal-ip-when-creating-a-vm"></a>Så här anger du en statisk intern IP-adress när du skapar en virtuell dator
-PowerShell-skriptet nedan skapar en ny moln tjänst med namnet *TestService*och hämtar sedan en avbildning från Azure. därefter skapas en virtuell dator med namnet *testvm* i den nya moln tjänsten med hjälp av den hämtade avbildningen, som anger att den virtuella datorn finns i ett undernät med namnet *Subnet-1*. och anger *10.0.0.7* som en statisk intern IP-adress för den virtuella datorn:
+PowerShell-skriptet nedan skapar en ny moln tjänst med namnet *TestService*, hämtar sedan en avbildning från Azure och skapar sedan en virtuell dator med namnet *testvm* i den nya moln tjänsten med hjälp av den hämtade avbildningen, anger att den virtuella datorn ska finnas i ett undernät med namnet *Subnet-1*och anger *10.0.0.7* som en statisk intern IP för den virtuella datorn:
 
     New-AzureService -ServiceName TestService -Location "Central US"
     $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}

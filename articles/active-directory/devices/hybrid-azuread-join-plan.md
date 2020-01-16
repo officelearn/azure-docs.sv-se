@@ -1,6 +1,6 @@
 ---
 title: Planera hybrid Azure Active Directory Join – Azure Active Directory
-description: Lär dig att konfigurera anslutna Azure Active Directory-hybridenheter.
+description: Lär dig att konfigurera Hybrid Azure Active Directory-anslutningsenheter.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a4f85aeaf2fb263ba2df8f34a51f9e25c212aff
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 36dd80669c6a9495751f577748f48c02a782b920
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379324"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029850"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
@@ -77,7 +77,7 @@ Hybrid Azure AD Join stöds inte för närvarande om din miljö består av en en
 
 Om din miljö använder VDI (Virtual Desktop Infrastructure), se [enhets identitet och skriv bords virtualisering](https://docs.microsoft.com/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
 
-Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. Från och med WIndows 10 1903-versionen används inte TPM 1,2 för Hybrid Azure AD-anslutning och enheter med de här TPM: erna kommer att anses som om de inte har någon TPM.
+Hybrid Azure AD-anslutning stöds för FIPS-kompatibla TPM 2,0 och stöds inte för TPM 1,2. Om dina enheter har FIPS-kompatibel TPM 1,2 måste du inaktivera dem innan du fortsätter med hybrid Azure AD-anslutning. Microsoft tillhandahåller inga verktyg för att inaktivera FIPS-läge för TPM eftersom det är beroende av TPM-tillverkaren. Kontakta maskin varans OEM om du vill ha hjälp. Från och med Windows 10 1903-versionen används inte TPM 1,2 för Hybrid Azure AD-anslutning och enheter med de här TPM: erna kommer att anses som om de inte har någon TPM.
 
 Hybrid Azure AD Join stöds inte för Windows Server som kör rollen domänkontrollant (DC).
 
@@ -130,7 +130,7 @@ En federerad miljö bör ha en identitetsprovider som uppfyller följande krav. 
 > [!NOTE]
 > Azure AD har inte stöd för smartkort eller certifikat i hanterade domäner.
 
-Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för att konfigurera Hybrid Azure AD-koppling. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, kan du läsa mer i [Konfigurera enhets registrering manuellt](hybrid-azuread-join-manual.md). 
+Från och med version 1.1.819.0 tillhandahåller Azure AD Connect en guide för konfiguration av Hybrid Azure AD-anslutning. Med guiden kan du förenkla konfigurationsprocessen avsevärt. Om du installerar den nödvändiga versionen av Azure AD Connect inte är ett alternativ för dig, kan du läsa mer i [Konfigurera enhets registrering manuellt](hybrid-azuread-join-manual.md). 
 
 Baserat på scenariot som matchar din identitets infrastruktur, se:
 
@@ -148,8 +148,8 @@ Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windo
 
 | Typ av lokalt AD-UPN | Domäntyp | Windows 10 version | Beskrivning |
 | ----- | ----- | ----- | ----- |
-| Dirigera | Externt | Från 1703-version | Allmänt tillgänglig |
-| Ej dirigerbart | Externt | Från 1803-version | Allmänt tillgänglig |
+| Dirigera | Federerade | Från 1703-version | Allmänt tillgänglig |
+| Ej dirigerbart | Federerade | Från 1803-version | Allmänt tillgänglig |
 | Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
 | Ej dirigerbart | Hanterad | Stöds inte | |
 

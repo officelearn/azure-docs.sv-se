@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: b6a687fc7ddf5eeacdfe3480a252598c6f9e773e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750385"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980064"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>Arkivera Azures resurs loggar till lagrings kontot
 [Plattforms loggar](platform-logs-overview.md) i Azure, inklusive Azure aktivitets logg och resurs loggar, ger detaljerad diagnostik och gransknings information för Azure-resurser och Azure-plattformen som de är beroende av.  Den här artikeln beskriver hur du samlar in plattforms loggar till ett Azure Storage-konto för att spara data för arkivering.
 
 ## <a name="prerequisites"></a>Krav
-Du måste [skapa ett Azure Storage-konto](../../storage/common/storage-quickstart-create-account.md) om du inte redan har ett. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
+Du måste [skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md) om du inte redan har ett. Lagrings kontot behöver inte finnas i samma prenumeration som resursen som skickar loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
 
 
 > [!IMPORTANT]

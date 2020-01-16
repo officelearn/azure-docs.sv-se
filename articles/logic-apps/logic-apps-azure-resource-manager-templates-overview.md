@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/25/2019
-ms.openlocfilehash: 000271095530e269472fba4bc5f1c5563aa16ff9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 41410d4e534d0940050521ecc86e8a384566f439
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428804"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972685"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Översikt: Automatisera distribution av Azure Logic Apps med hjälp av Azure Resource Manager mallar
 
 När du är redo att automatisera skapandet och distributionen av din Logic app kan du expandera din Logic Apps underliggande arbets flödes definition till en [Azure Resource Manager-mall](../azure-resource-manager/management/overview.md). Den här mallen definierar infrastruktur, resurser, parametrar och annan information för etablering och distribution av din Logic app. Genom att definiera parametrar för värden som varierar vid distribution, även kallat *parametriserade*, kan du upprepade gånger och distribuera Logi Kap par baserat på olika distributions behov.
 
-Om du till exempel distribuerar till miljöer för utveckling, testning och produktion använder du förmodligen olika anslutnings strängar för varje miljö. Du kan deklarera mallparametrar som accepterar olika anslutnings strängar och sedan lagra dessa strängar i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du ändra dessa värden utan att behöva uppdatera och distribuera om mallen. För scenarier där du har parameter värden som är känsliga eller måste skyddas, till exempel lösen ord och hemligheter, kan du lagra dessa värden i [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) och låta parameter filen hämta dessa värden. I dessa scenarier kan du dock omdistribuera för att hämta de aktuella värdena.
+Om du till exempel distribuerar till miljöer för utveckling, testning och produktion använder du förmodligen olika anslutnings strängar för varje miljö. Du kan deklarera mallparametrar som accepterar olika anslutnings strängar och sedan lagra dessa strängar i en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md). På så sätt kan du ändra dessa värden utan att behöva uppdatera och distribuera om mallen. För scenarier där du har parameter värden som är känsliga eller måste skyddas, till exempel lösen ord och hemligheter, kan du lagra dessa värden i [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) och låta parameter filen hämta dessa värden. I dessa scenarier kan du dock omdistribuera för att hämta de aktuella värdena.
 
 Den här översikten beskriver attributen i en Resource Manager-mall som innehåller en arbets flödes definition för Logic app. Både mallen och din arbets flödes definition använder JSON-syntax, men det finns vissa skillnader eftersom arbets flödes definitionen också följer [språk schema för arbets flödes definitionen](../logic-apps/logic-apps-workflow-definition-language.md). Mall uttryck och definitioner för arbets flödes definitioner skiljer sig till exempel från att [referera till parametrar](#parameter-references) och de värden som de kan acceptera.
 
@@ -31,8 +31,8 @@ I exempel Logic-appen i det här avsnittet används en [Office 365 Outlook-utlö
 Mer information om Resource Manager-mallar finns i följande avsnitt:
 
 * [Azure Resource Manager mallens struktur och syntax](../azure-resource-manager/templates/template-syntax.md)
-* [Metodtips för Azure Resource Manager-mall](../azure-resource-manager/template-best-practices.md)
-* [Utveckla Azure Resource Manager-mallar för molnkonsekvens](../azure-resource-manager/templates-cloud-consistency.md)
+* [Metodtips för Azure Resource Manager-mall](../azure-resource-manager/templates/template-best-practices.md)
+* [Utveckla Azure Resource Manager-mallar för molnkonsekvens](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
 Exempel på exempel på Logic app-mallar finns i följande exempel:
 
@@ -149,7 +149,7 @@ Information om hur du skyddar mallparametrar finns i följande avsnitt:
 
 * [Säkerhets rekommendationer för mallparametrar](../azure-resource-manager/templates/template-best-practices.md#parameters)
 * [Parametrar för säker mall](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
-* [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+* [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Andra mallfiler refererar ofta till mallparametrar så att de kan använda de värden som passerar genom mallparametrar, till exempel:
 
@@ -173,7 +173,7 @@ Här följer några metod tips för att definiera parametrar:
 
   * [Parametrar för säker mall](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-deployment-template)
 
-  * [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 * Om du vill särskilja mallens parameter namn från parameter namn för arbets flödes definitioner kan du använda beskrivande mall parameter namn, till exempel: `TemplateFabrikamPassword`
 
@@ -188,7 +188,7 @@ Om du vill ange värden för mallparametrar lagrar du dessa värden i en [parame
 * Logic app-mallens fil namn: **<*Logic-App-Name*>. JSON**
 * Parametrar fil namn: **<*Logic-App-Name*>. Parameters. JSON**
 
-Här är strukturen i parameter filen, som innehåller en nyckel valv referens för att [Skicka ett säkert parameter värde med Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md):
+Här är strukturen i parameter filen, som innehåller en nyckel valv referens för att [Skicka ett säkert parameter värde med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
 ```json
 {
@@ -409,7 +409,7 @@ Den här syntaxen visar var du kan deklarera parametrar på både mall-och arbet
 
 För en arbets flödes definitions parameter som hanterar känslig information, lösen ord, åtkomst nycklar eller hemligheter vid körning, deklarera eller redigera parametern för att använda `securestring`-eller `secureobject` parameter typ. Du kan referera till den här parametern i hela arbets flödes definitionen. Deklarera en parameter som har samma typ för att hantera den här informationen vid distribution på mallens översta nivå.
 
-Om du vill ange värdet för arbets flödets definitions parameter använder du `parameters`-objektet som *ligger utanför* arbets flödes definitionen, men fortfarande *i* din resurs definition för Logic app för att referera till parametern Template. Slutligen, för att skicka värdet till din mallparameter vid distribution, lagrar du värdet i [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md) och refererar till nyckel valvet i [parameter filen](#template-parameter-files) som används av mallen vid distribution.
+Om du vill ange värdet för arbets flödets definitions parameter använder du `parameters`-objektet som *ligger utanför* arbets flödes definitionen, men fortfarande *i* din resurs definition för Logic app för att referera till parametern Template. Slutligen, för att skicka värdet till din mallparameter vid distribution, lagrar du värdet i [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) och refererar till nyckel valvet i [parameter filen](#template-parameter-files) som används av mallen vid distribution.
 
 Den här exempel mal len visar hur du kan utföra dessa uppgifter genom att definiera säkra parametrar vid behov så att du kan lagra värdena i Azure Key Vault:
 
@@ -558,7 +558,7 @@ För att se till att Logic App Designer kan visa parametrar för arbets flödes 
 
   * [Säkerhets rekommendationer för parametrar i arbets flödes definitioner](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow)
 
-  * [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md)
+  * [Överför säkra parameter värden med Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
 Mer information om parametrar för arbets flödes definitioner finns i [parametrar-definitions språk för arbets flöde](../logic-apps/logic-apps-workflow-definition-language.md#parameters).
 
@@ -652,7 +652,7 @@ Din Logic Apps resurs definition fungerar också med anslutnings resurs definiti
 
 * *Utanför* arbets flödes definitionen men fortfarande *i* din Logic Apps resurs definition anger ett annat `parameters`-objekt de värden som ska användas vid körning för parametern `$connections` genom att referera till motsvarande mallparametrar. Dessa värden använder mall-uttryck för att referera till resurser som lagrar metadata på ett säkert sätt för anslutningarna i din Logic app.
 
-  Metadata kan till exempel innehålla anslutnings strängar och åtkomsttoken, som du kan lagra i [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). Om du vill överföra dessa värden till dina mallparametrar refererar du till nyckel valvet i den [parameter fil](#template-parameter-files) som används av mallen vid distribution. Mer information om skillnader i referens parametrar finns i [referenser till parametrar](#parameter-references) senare i det här avsnittet.
+  Metadata kan till exempel innehålla anslutnings strängar och åtkomsttoken, som du kan lagra i [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Om du vill överföra dessa värden till dina mallparametrar refererar du till nyckel valvet i den [parameter fil](#template-parameter-files) som används av mallen vid distribution. Mer information om skillnader i referens parametrar finns i [referenser till parametrar](#parameter-references) senare i det här avsnittet.
 
   När du öppnar din Logic Apps arbets flödes definition i kodvyn via Azure Portal eller Visual Studio, visas `$connections`-objektet utanför arbets flödes definitionen, men på samma nivå. Den här ordningen i kodvyn gör dessa parametrar enklare att referera till när du uppdaterar arbets flödes definitionen manuellt:
 
@@ -744,7 +744,7 @@ Det här exemplet visar interaktioner mellan din Logic Apps resurs definition oc
 
 ### <a name="secure-connection-parameters"></a>Säkra anslutnings parametrar
 
-För en anslutnings parameter som hanterar känslig information, lösen ord, åtkomst nycklar eller hemligheter innehåller anslutningens resurs definition ett `parameterValues`-objekt som anger dessa värden i formatet namn-värde-par. Om du vill dölja den här informationen kan du deklarera eller Redigera mallparametrar för dessa värden med hjälp av `securestring` eller `secureobject` parameter typer. Du kan sedan lagra informationen i [Azure Key Vault](../azure-resource-manager/resource-manager-keyvault-parameter.md). Om du vill överföra dessa värden till dina mallparametrar refererar du till nyckel valvet i den [parameter fil](#template-parameter-files) som används av mallen vid distribution.
+För en anslutnings parameter som hanterar känslig information, lösen ord, åtkomst nycklar eller hemligheter innehåller anslutningens resurs definition ett `parameterValues`-objekt som anger dessa värden i formatet namn-värde-par. Om du vill dölja den här informationen kan du deklarera eller Redigera mallparametrar för dessa värden med hjälp av `securestring` eller `secureobject` parameter typer. Du kan sedan lagra informationen i [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md). Om du vill överföra dessa värden till dina mallparametrar refererar du till nyckel valvet i den [parameter fil](#template-parameter-files) som används av mallen vid distribution.
 
 Här är ett exempel som innehåller konto namnet och åtkomst nyckeln för en Azure Blob Storage-anslutning:
 
@@ -1011,7 +1011,7 @@ Mer information om hur du arbetar med tjänstens huvud namn finns i följande av
 
 ## <a name="references-to-parameters"></a>Referenser till parametrar
 
-Om du vill referera till mallparametrar kan du använda mallar med [mallar](../azure-resource-manager/resource-group-template-functions.md)som utvärderas vid distributionen. Mall uttryck använder hak paren tes ( **[]** ):
+Om du vill referera till mallparametrar kan du använda mallar med [mallar](../azure-resource-manager/templates/template-functions.md)som utvärderas vid distributionen. Mall uttryck använder hak paren tes ( **[]** ):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

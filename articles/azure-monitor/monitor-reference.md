@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2020
-ms.openlocfilehash: 630eeb8ec5582f2dc968a10e7cf1b5750683cf66
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830550"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969600"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -177,7 +177,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 |:---|:---|
 | [Azure Automation](/azure/automation/) | Hantera uppdateringar av operativ system och spåra ändringar på Windows-och Linux-datorer. Se [ändringsspårning](../automation/change-tracking.md) och [uppdateringshantering](../automation/automation-update-management.md). |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | Klassificera och eventuellt skydda dokument och e-postmeddelanden. Se [Central rapportering för Azure information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports). |
-| [Azure Security Center](/azure/security-center/) | Samla in och analysera säkerhets händelser och utför hot analyser. Se [data insamling i Azure Security Center](/security-center/security-center-enable-data-collection.md) |
+| [Azure Security Center](/azure/security-center/) | Samla in och analysera säkerhets händelser och utför hot analyser. Se [data insamling i Azure Security Center](/azure/security-center/security-center-enable-data-collection) |
 | [Azure Sentinel](/azure/sentinel/) | Ansluter till olika källor, inklusive Office 365 och Amazon Web Services Cloud trailer. Se [Anslut data källor](/azure/sentinel/connect-data-sources). |
 | [Key Vault-analys](insights/azure-key-vault.md) | Analysera Azure Key Vault AuditEvent-loggar. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Skapa en diagnostisk inställning för att skicka loggar till Azure Monitor. Se [Skicka logg data till lagring, Event Hub eller Log Analytics i Intune (för hands version)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |

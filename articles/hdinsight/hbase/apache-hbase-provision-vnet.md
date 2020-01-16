@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/23/2019
-ms.openlocfilehash: c128f17a3d2c4f5461a04ae375e05336cc994b4b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4e15d1c6554fc567f668b2033bff5b5664db918
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552312"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972799"
 ---
 # <a name="create-apache-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Skapa Apache HBase-kluster på HDInsight i Azure Virtual Network
 
@@ -29,7 +29,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="create-apache-hbase-cluster-into-virtual-network"></a>Skapa Apache HBase-kluster i ett virtuellt nätverk
 
-I det här avsnittet skapar du ett Linux-baserat Apache HBase-kluster med det beroende Azure Storage-kontot i ett virtuellt Azure-nätverk med hjälp av en [Azure Resource Manager-mall](../../azure-resource-manager/resource-group-template-deploy.md). För andra metoder för att skapa kluster och förstå inställningarna, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du använder en mall för att skapa Apache Hadoop kluster i HDInsight finns i [skapa Apache Hadoop kluster i HDInsight med Azure Resource Manager mallar](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
+I det här avsnittet skapar du ett Linux-baserat Apache HBase-kluster med det beroende Azure Storage-kontot i ett virtuellt Azure-nätverk med hjälp av en [Azure Resource Manager-mall](../../azure-resource-manager/templates/deploy-powershell.md). För andra metoder för att skapa kluster och förstå inställningarna, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md). Mer information om hur du använder en mall för att skapa Apache Hadoop kluster i HDInsight finns i [skapa Apache Hadoop kluster i HDInsight med Azure Resource Manager mallar](../hdinsight-hadoop-create-linux-clusters-arm-templates.md)
 
 > [!NOTE]  
 > Vissa egenskaper är hårdkodade i mallen. Ett exempel:

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 6/15/2019
 ms.author: allensu
-ms.openlocfilehash: c194d47842c927d3f8049a424dc08a34424a8a31
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 743715da51f2e8c77b81faba1bd8d6979e4f2aab
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212032"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974537"
 ---
 # <a name="azure-dns-faq"></a>Azure DNS vanliga frågor och svar
 
@@ -42,7 +42,7 @@ Mer information finns på sidan om [Azure DNS service avtal](https://azure.micro
 
 En domän är ett unikt namn i domän namn systemet. Ett exempel kan vara contoso.com.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och www\.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
+En DNS-zon används som värd för DNS-poster för en viss domän. Domänen contoso.com kan till exempel innehålla flera DNS-poster. Posterna kan innehålla mail.contoso.com för en e-postserver och www\.contoso.com för en webbplats. Dessa poster finns i DNS-zonen contoso.com.
 
 Ett domän namn är *bara ett namn*. En DNS-zon är en data resurs som innehåller DNS-poster för ett domän namn. Med Azure DNS kan du vara värd för en DNS-zon och hantera DNS-posterna för en domän i Azure. Den innehåller också DNS-namnservrar för att besvara DNS-frågor från Internet.
 
@@ -167,7 +167,7 @@ Ja. DNS-zoner kan flyttas mellan resurs grupper eller mellan prenumerationer.
 
 Det finns ingen inverkan på DNS-frågor när du flyttar en DNS-zon. Namnservrarna som tilldelas zonen förblir desamma. DNS-frågor bearbetas som normalt i hela.
 
-Mer information och anvisningar om hur du flyttar DNS-zoner finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Mer information och anvisningar om hur du flyttar DNS-zoner finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 ### <a name="how-long-does-it-take-for-dns-changes-to-take-effect"></a>Hur lång tid tar det för DNS-ändringar att gälla?
 

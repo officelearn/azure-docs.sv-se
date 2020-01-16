@@ -3,7 +3,7 @@ title: Design effektiva List frågor – Azure Batch | Microsoft Docs
 description: Öka prestanda genom att filtrera dina frågor när du begär information om batch-resurser som pooler, jobb, uppgifter och Compute-noder.
 services: batch
 documentationcenter: .net
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: 031fefeb-248e-4d5a-9bc2-f07e46ddd30d
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 12/07/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 37d34267220cbb7ceabfc823f6facd651969fbd4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d853302ebb0961f9e5fda9f5ecc41f3a26351170
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095165"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027098"
 ---
 # <a name="create-queries-to-list-batch-resources-efficiently"></a>Skapa frågor för att lista batch-resurser effektivt
 
@@ -66,26 +66,26 @@ I det här exempel scenariot, om det finns tusentals uppgifter i jobbet, kommer 
 ## <a name="filter-select-and-expand"></a>Filtrera, välja och expandera
 API: erna för [batch .net][api_net] och [batch rest][api_rest] ger möjlighet att minska antalet objekt som returneras i en lista, samt hur mycket information som returneras för varje. Du gör detta genom att ange **filter**, **välja**och **expandera strängar** när du utför List frågor.
 
-### <a name="filter"></a>Filter
+### <a name="filter"></a>Filtrera
 Filter strängen är ett uttryck som minskar antalet objekt som returneras. Du kan till exempel endast lista de aktiviteter som körs för ett jobb, eller en lista med enbart datornoder som är redo att köra uppgifter.
 
 * Filter strängen består av ett eller flera uttryck med ett uttryck som består av ett egenskaps namn, en operator och ett värde. De egenskaper som kan anges är specifika för varje entitetstyp som du frågar efter, som är de operatorer som stöds för varje egenskap.
-* Flera uttryck kan kombineras med hjälp av logiska `and` operatorer `or`och.
-* I den här exempel filter strängen visas bara de kör åter givnings aktiviteter `(state eq 'running') and startswith(id, 'renderTask')`som körs:.
+* Flera uttryck kan kombineras med hjälp av de logiska operatörerna `and` och `or`.
+* I den här exempel filter strängen visas endast de pågående "rendering"-aktiviteterna: `(state eq 'running') and startswith(id, 'renderTask')`.
 
-### <a name="select"></a>Markera
+### <a name="select"></a>Välj
 Den valda strängen begränsar de egenskaps värden som returneras för varje objekt. Du kan ange en lista över egenskaps namn och bara de egenskaps värden som returneras för objekten i frågeresultatet.
 
 * Select-strängen består av en kommaavgränsad lista med egenskaps namn. Du kan ange någon av egenskaperna för entitetstypen som du frågar.
-* I det här exemplet väljer du sträng anger att endast tre egenskaps värden ska returneras för `id, state, stateTransitionTime`varje aktivitet:.
+* I det här exemplet väljer du sträng anger att endast tre egenskaps värden ska returneras för varje aktivitet: `id, state, stateTransitionTime`.
 
 ### <a name="expand"></a>Visa
 Expand-strängen minskar antalet API-anrop som krävs för att hämta viss information. När du använder en Expand-sträng kan mer information om varje objekt hämtas med ett enda API-anrop. I stället för att först hämta listan över entiteter, och sedan begära information för varje objekt i listan, använder du en Expand sträng för att hämta samma information i ett enda API-anrop. Färre API-anrop innebär bättre prestanda.
 
 * På samma sätt som med Select-strängen, kontrollerar Expand-strängen om vissa data ingår i lista frågeresultat.
 * Expand strängen stöds bara när den används i ett List jobb, jobb scheman, uppgifter och pooler. För närvarande stöder den bara statistik information.
-* När alla egenskaper krävs och ingen Select-sträng anges, *måste* expansions strängen användas för att hämta statistik information. Om en SELECT-sträng används för att hämta en delmängd av egenskaperna `stats` , kan anges i SELECT-strängen och den expanderade strängen behöver inte anges.
-* I det här exemplet expanderas sträng anger du att statistik information ska returneras för varje objekt i `stats`listan:.
+* När alla egenskaper krävs och ingen Select-sträng anges, *måste* expansions strängen användas för att hämta statistik information. Om en SELECT-sträng används för att hämta en delmängd av egenskaperna, kan `stats` anges i SELECT-strängen och expandera strängen behöver inte anges.
+* I det här exemplet expanderas sträng anger du att statistik information ska returneras för varje objekt i listan: `stats`.
 
 > [!NOTE]
 > När du skapar någon av de tre typerna av frågesträngar (filter, Välj och expandera) måste du se till att egenskaps namnen och skiftet stämmer överens med de REST API elementens motsvarigheter. När du arbetar med .NET [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) -klassen måste du till exempel ange **State** i stället för **State**, även om .net-egenskapen är [CloudTask. State](/dotnet/api/microsoft.azure.batch.cloudtask.state#Microsoft_Azure_Batch_CloudTask_State). Se tabellerna nedan för egenskaps mappningar mellan .NET-och REST-API: er.
@@ -95,18 +95,18 @@ Expand-strängen minskar antalet API-anrop som krävs för att hämta viss infor
 ### <a name="rules-for-filter-select-and-expand-strings"></a>Regler för filter, Välj och expandera strängar
 * Egenskaps namn i filter, Välj och expandera strängar bör visas på samma sätt som i [batch rest][api_rest] -API: et, även när du använder [batch .net][api_net] eller någon av de andra batch SDK: erna.
 * Alla egenskaps namn är Skift läges känsliga, men egenskaps värden är Skift läges känsliga.
-* Datum-och tids strängar kan vara ett av två format och måste föregås `DateTime`av.
+* Datum-och tids strängar kan vara ett av två format och måste föregås av `DateTime`.
   
-  * Exempel på W3C-DTF format:`creationTime gt DateTime'2011-05-08T08:49:37Z'`
-  * Exempel på RFC 1123-format:`creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
+  * W3C-DTF format exempel: `creationTime gt DateTime'2011-05-08T08:49:37Z'`
+  * Exempel på RFC 1123-format: `creationTime gt DateTime'Sun, 08 May 2011 08:49:37 GMT'`
 * Booleska strängar är antingen `true` eller `false`.
-* Om en ogiltig egenskap eller operator anges, uppstår ett `400 (Bad Request)` fel.
+* Om en ogiltig egenskap eller operator anges, kommer ett `400 (Bad Request)` fel att uppstå.
 
 ## <a name="efficient-querying-in-batch-net"></a>Effektiv fråga i batch .NET
 I [batch .net][api_net] -API: et används klassen [ODATADetailLevel][odata] för att ange filter, välja och expandera strängar för att lista åtgärder. ODataDetailLevel-klassen har tre offentliga sträng egenskaper som kan anges i konstruktorn eller anges direkt för objektet. Sedan skickar du ODataDetailLevel-objektet som en parameter till de olika List åtgärderna, till exempel [ListPools][net_list_pools], [ListJobs][net_list_jobs]och [ListTasks][net_list_tasks].
 
-* [ODATADetailLevel][odata]. [FilterClause][odata_filter]: Begränsa antalet objekt som returneras.
-* [ODATADetailLevel][odata]. [SelectClause][odata_select]: Ange vilka egenskaps värden som ska returneras för varje objekt.
+* [ODATADetailLevel][odata]. [FilterClause][odata_filter]: begränsa antalet objekt som returneras.
+* [ODATADetailLevel][odata]. [SelectClause][odata_select]: ange vilka egenskaps värden som ska returneras för varje objekt.
 * [ODATADetailLevel][odata]. [ExpandClause][odata_expand]: Hämta data för alla objekt i ett enda API-anrop i stället för separata anrop för varje objekt.
 
 Följande kodfragment använder batch .NET API för att effektivt fråga batch-tjänsten om statistik för en angiven uppsättning pooler. I det här scenariot har batch-användaren både test-och produktionspooler. TestPool-ID: n föregås av "test" och ID: n för produktionspooler har prefixet "Prod". I kodfragmentet är *myBatchClient* en korrekt initierad instans av [metoden batchclient](/dotnet/api/microsoft.azure.batch.batchclient) -klassen.
@@ -146,8 +146,8 @@ List<CloudPool> testPools =
 Egenskaps namn i filter-, Select-och Expand-strängar *måste* reflektera sina REST API-motsvarigheter, både i namn och Skift läge. Tabellerna nedan innehåller mappningar mellan .NET och REST API motsvarigheter.
 
 ### <a name="mappings-for-filter-strings"></a>Mappningar för filter strängar
-* **.Net-List metoder**: Varje .NET API-metod i den här kolumnen accepterar ett [ODATADetailLevel][odata] -objekt som en parameter.
-* **Förfrågningar om rest-lista**: Varje REST API sida som är länkad till i den här kolumnen innehåller en tabell som anger de egenskaper och åtgärder som tillåts i *filter* strängar. Du kommer att använda dessa egenskaps namn och-åtgärder när du skapar en [ODATADetailLevel. FilterClause][odata_filter] -sträng.
+* **.Net-List metoder**: var och en av .NET API-metoderna i den här kolumnen accepterar ett [ODATADetailLevel][odata] -objekt som en parameter.
+* **Rest List-begäranden**: varje REST API sida som är länkad till i den här kolumnen innehåller en tabell som anger de egenskaper och åtgärder som tillåts i *filter* strängar. Du kommer att använda dessa egenskaps namn och-åtgärder när du skapar en [ODATADetailLevel. FilterClause][odata_filter] -sträng.
 
 | .NET-List metoder | REST List-begäranden |
 | --- | --- |
@@ -163,8 +163,8 @@ Egenskaps namn i filter-, Select-och Expand-strängar *måste* reflektera sina R
 | [PoolOperations. ListPools][net_list_pools] |[Lista pooler i ett konto][rest_list_pools] |
 
 ### <a name="mappings-for-select-strings"></a>Mappningar för Select-strängar
-* **Batch .net-typer**: Batch .NET API-typer.
-* **REST API entiteter**: Varje sida i den här kolumnen innehåller en eller flera tabeller som visar REST API egenskaps namn för typen. Dessa egenskaps namn används när du skapar *Select* -strängar. Du kommer att använda samma egenskaps namn när du skapar en [ODATADetailLevel. SelectClause][odata_select] -sträng.
+* **Batch .net-typer**: batch .NET API-typer.
+* **REST API entiteter**: varje sida i den här kolumnen innehåller en eller flera tabeller som visar REST API egenskaps namnen för typen. Dessa egenskaps namn används när du skapar *Select* -strängar. Du kommer att använda samma egenskaps namn när du skapar en [ODATADetailLevel. SelectClause][odata_select] -sträng.
 
 | Batch .NET-typer | REST API entiteter |
 | --- | --- |
@@ -178,7 +178,7 @@ Egenskaps namn i filter-, Select-och Expand-strängar *måste* reflektera sina R
 ## <a name="example-construct-a-filter-string"></a>Exempel: skapa en filter sträng
 När du skapar en filter sträng för [ODATADetailLevel. FilterClause][odata_filter], se tabellen ovan under "mappningar för filter strängar" för att hitta REST API dokumentations sidan som motsvarar den List åtgärd som du vill utföra. Du hittar de filter bara egenskaperna och de operatörer som stöds i den första multirow-tabellen på den sidan. Om du vill hämta alla aktiviteter vars slutkod inte var noll, till exempel den här raden i [lista de uppgifter som är associerade med ett jobb][rest_list_tasks] , anger den tillämpliga egenskaps strängen och tillåtna operatorer:
 
-| Egenskap | Tillåtna åtgärder | type |
+| Egenskap | Tillåtna åtgärder | Typ |
 |:--- |:--- |:--- |
 | `executionInfo/exitCode` |`eq, ge, gt, le , lt` |`Int` |
 
@@ -189,7 +189,7 @@ Därför blir filter strängen för att lista alla aktiviteter med en slutkod so
 ## <a name="example-construct-a-select-string"></a>Exempel: skapa en SELECT-sträng
 Om du vill skapa [ODATADetailLevel. SelectClause][odata_select]läser du tabellen ovan under "mappningar för Select Strings" och navigerar till REST API sidan som motsvarar den typ av enhet som du visar. Du hittar de valbara egenskaperna och de operatörer som stöds i den första multirow-tabellen på den sidan. Om du till exempel bara vill hämta ID och kommando rad för varje aktivitet i en lista, så hittar du till exempel raderna i den tillämpliga tabellen på [Hämta information om en aktivitet][rest_get_task]:
 
-| Egenskap | type | Anteckningar |
+| Egenskap | Typ | Anteckningar |
 |:--- |:--- |:--- |
 | `id` |`String` |`The ID of the task.` |
 | `commandLine` |`String` |`The command line of the task.` |
@@ -228,7 +228,7 @@ Exempel programmet i projektet demonstrerar följande åtgärder:
 1. Välja speciella attribut för att bara hämta de egenskaper du behöver
 2. Filtrering av tillstånds över gångs tider för att bara hämta ändringar sedan den senaste frågan
 
-Till exempel visas följande metod i BatchMetrics-biblioteket. Den returnerar en ODATADetailLevel som anger att endast `id` egenskaperna och `state` ska hämtas för de entiteter som efter frågas. Det anger också att endast entiteter vars tillstånd har ändrats sedan den `DateTime` angivna parametern ska returneras.
+Till exempel visas följande metod i BatchMetrics-biblioteket. Den returnerar en ODATADetailLevel som anger att endast de `id` och `state` egenskaper ska hämtas för de entiteter som frågas. Det anger också att endast entiteter vars tillstånd har ändrats sedan den angivna `DateTime`-parametern ska returneras.
 
 ```csharp
 internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
@@ -242,7 +242,7 @@ internal static ODATADetailLevel OnlyChangedAfter(DateTime time)
 
 ## <a name="next-steps"></a>Nästa steg
 ### <a name="parallel-node-tasks"></a>Aktiviteter för parallell nod
-[Maximera Azure Batch beräknings resursanvändningen med aktiviteter](batch-parallel-node-tasks.md) för samtidiga noder är en annan artikel som rör prestanda för batch-program. Vissa typer av arbets belastningar kan dra nytta av att köra parallella uppgifter på större, men färre-beräknings noder. Se [exempel scenariot](batch-parallel-node-tasks.md#example-scenario) i artikeln för information om ett sådant scenario.
+[Maximera Azure Batch beräknings resursanvändningen med aktiviteter för samtidiga noder](batch-parallel-node-tasks.md) är en annan artikel som rör prestanda för batch-program. Vissa typer av arbets belastningar kan dra nytta av att köra parallella uppgifter på större, men färre-beräknings noder. Se [exempel scenariot](batch-parallel-node-tasks.md#example-scenario) i artikeln för information om ett sådant scenario.
 
 
 [api_net]: https://docs.microsoft.com/dotnet/api/microsoft.azure.batch

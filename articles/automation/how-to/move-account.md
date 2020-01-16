@@ -9,16 +9,16 @@ ms.author: magoedte
 ms.date: 03/11/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d1c747a52a1e8dedd0b5ba411b673eee463a2b6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1aa759a2984764169eb28935e095d0f7c0f90c08
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849589"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969833"
 ---
 # <a name="move-your-azure-automation-account-to-another-subscription"></a>Flytta ditt Azure Automation-konto till en annan prenumeration
 
-Azure ger dig möjlighet att flytta vissa resurser till en ny resurs grupp eller prenumeration. Du kan flytta resurser via Azure Portal, PowerShell, Azure CLI eller REST API. Mer information om processen finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/resource-group-move-resources.md).
+Azure ger dig möjlighet att flytta vissa resurser till en ny resurs grupp eller prenumeration. Du kan flytta resurser via Azure Portal, PowerShell, Azure CLI eller REST API. Mer information om processen finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Azure Automation-konton är en av de resurser som kan flyttas. I den här artikeln lär du dig hur du flyttar Automation-konton till en annan resurs eller prenumeration.
 
@@ -147,4 +147,4 @@ När flyttningen är klar kontrollerar du följande lista över aktiviteter som 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om hur du flyttar resurser i Azure i [Flytta resurser i Azure](../../azure-resource-manager/move-support-resources.md).
+Läs mer om hur du flyttar resurser i Azure i [Flytta resurser i Azure](../../azure-resource-manager/management/move-support-resources.md).

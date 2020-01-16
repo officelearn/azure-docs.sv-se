@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ccdd234f951327aeb5baa6aabcac4314b9de7b34
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0b938de0fec099b3f964eae60dc94d059e05a1c6
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517093"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973495"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Distribuera StorSimple Virtual Array – förbereda Azure Portal
 
@@ -37,7 +37,7 @@ Du måste ha administratörsbehörighet för att utföra installationen och konf
 
 Informationen som publiceras i den här artikeln gäller distributionen av virtuella StorSimple-matriser i Azure Portal och Microsoft Azure Government molnet.
 
-### <a name="get-started"></a>Kom igång
+### <a name="get-started"></a>Kom i gång
 Arbets flödet för distribution består av att förbereda portalen, etablering av en virtuell matris i din virtualiserade miljö och slutföra installationen. För att komma igång med StorSimple-distributionen av virtuella matriser som en fil server eller en iSCSI-server, måste du referera till följande tabellen-resurser.
 
 #### <a name="deployment-articles"></a>Distributions artiklar
@@ -59,13 +59,13 @@ I konfigurations check listan beskrivs den information som du behöver samla in 
 * Ladda ned [Check lista för StorSimple virtuell array File Server Configuration](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Ladda ned [Check lista för konfiguration av iSCSI-StorSimple för virtuell matris](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Här hittar du nödvändiga konfigurations krav för din StorSimple Enhetshanteraren-tjänst, din StorSimple virtuella matris och data Center nätverket.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 * Du har ditt Microsoft-konto med autentiseringsuppgifter.
 * Du har ditt Microsoft Azure lagringskonto med autentiseringsuppgifter.
@@ -85,7 +85,7 @@ Innan du distribuerar en virtuell matris måste du kontrol lera att:
 
 ### <a name="for-the-datacenter-network"></a>För datacenternätverket
 
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 * Nätverket i data centret konfigureras enligt nätverks kraven för din StorSimple-enhet. Mer information finns i [system krav för StorSimple Virtual Array](storsimple-ova-system-requirements.md).
 * Din virtuella StorSimple-matris har en dedikerad 5 Mbit/s Internet bandbredd (eller mer) tillgänglig hela tiden. Den här bandbredden ska inte delas med andra program.
@@ -96,7 +96,7 @@ Använd följande steg-för-steg-instruktioner för att förbereda portalen för
 
 ## <a name="step-1-create-a-new-service"></a>Steg 1: Skapa en ny tjänst
 
-En enskild instans av tjänsten StorSimple Enhetshanteraren kan hantera flera StorSimple-virtuella matriser. Skapa en instans av StorSimple Device Manager-tjänsten genom att utföra stegen nedan. Om du har en befintlig StorSimple Enhetshanteraren-tjänst för att hantera dina virtuella matriser hoppar du över det här [steget och går till steg 2: Hämta tjänst registrerings nyckeln](#step-2-get-the-service-registration-key).
+En enskild instans av tjänsten StorSimple Enhetshanteraren kan hantera flera StorSimple-virtuella matriser. Skapa en instans av StorSimple Device Manager-tjänsten genom att utföra stegen nedan. Om du har en befintlig StorSimple Enhetshanteraren-tjänst för att hantera dina virtuella matriser kan du hoppa över det här steget och gå till [steg 2: Hämta tjänst registrerings nyckeln](#step-2-get-the-service-registration-key).
 
 [!INCLUDE [storsimple-virtual-array-create-new-service](../../includes/storsimple-virtual-array-create-new-service.md)]
 
@@ -104,7 +104,7 @@ En enskild instans av tjänsten StorSimple Enhetshanteraren kan hantera flera St
 > Om du inte har aktiverat automatiskt skapande av lagringskonton med din tjänst måste du skapa minst ett lagringskonto efter att du har skapat en tjänst.
 > 
 > * Om du inte har skapat ett lagringskonto automatiskt går du till [Konfigurera ett nytt lagringskonto för tjänsten](#optional-step-configure-a-new-storage-account-for-the-service) för detaljerade anvisningar.
-> * Om du har aktiverat automatisk generering av ett lagrings konto går du [till steg 2: Hämta tjänst registrerings nyckeln](#step-2-get-the-service-registration-key).
+> * Om du har aktiverat automatiskt skapande av ett lagringskonto går du till [steg 2: hämta nyckel för tjänstregistrering](#step-2-get-the-service-registration-key).
 > 
 > 
 
@@ -121,7 +121,7 @@ Utför följande steg på [Azure-portalen](https://portal.azure.com/).
 > 
 > 
 
-## <a name="step-3-download-the-virtual-array-image"></a>Steg 3: Ladda ned den virtuella matrisavbildningen
+## <a name="step-3-download-the-virtual-array-image"></a>Steg 3: Ladda ned den virtuella mat ris avbildningen
 
 När du har registrerings nyckeln för tjänsten måste du ladda ned lämplig avbildning av den virtuella matrisen för att etablera en virtuell matris på värd systemet. De virtuella mat ris avbildningarna är ett särskilt operativ system och kan hämtas från Snabbstart sidan i Azure Portal.
 
@@ -144,11 +144,11 @@ Utför följande steg på [Azure-portalen](https://portal.azure.com/).
    * VMDK för VMWare ESXi 5,0, 5,5, 6,0 eller 6,5
 5. Ladda ned och packa upp filen till en lokal enhet och skriv ned sökvägen till de uppackade filerna.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Valfritt steg: Konfigurera ett nytt lagringskonto för tjänsten
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Valfritt steg: Konfigurera ett nytt lagrings konto för tjänsten
 
 Det här steget är valfritt och ska endast utföras om du inte har aktiverat automatisk generering av ett lagrings konto med tjänsten.
 
-Om du behöver skapa ett Azure Storage-konto i en annan region, se [så här skapar du ett lagrings konto](../storage/common/storage-quickstart-create-account.md) för steg-för-steg-instruktioner.
+Om du behöver skapa ett Azure Storage-konto i en annan region, se [så här skapar du ett lagrings konto](../storage/common/storage-account-create.md) för steg-för-steg-instruktioner.
 
 Utför följande steg i [Azure Portal](https://ms.portal.azure.com/) på StorSimple Enhetshanteraren service-sidan för att lägga till ett befintligt Microsoft Azure lagrings konto.
 

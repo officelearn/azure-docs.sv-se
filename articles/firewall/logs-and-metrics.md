@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166999"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974509"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
 
@@ -20,7 +20,7 @@ Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också
 
 Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs samt analysera dem i Azure Monitor-loggar eller med andra verktyg såsom Excel och Power BI.
 
-Måtten är lätta att använda och kan ge stöd för scenarier i nästan real tid, vilket gör dem användbara för varningar och snabb problem identifiering. 
+Måtten är lätta att använda och kan ge stöd för scenarier i nästan real tid, vilket gör dem användbara för varningar och snabb problem identifiering.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
@@ -33,7 +33,7 @@ Måtten är lätta att använda och kan ge stöd för scenarier i nästan real t
    ```
    Category: application rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -56,7 +56,7 @@ Måtten är lätta att använda och kan ge stöd för scenarier i nästan real t
    ```
    Category: network rule logs.
    Time: log timestamp.
-   Properties: currently contains the full message. 
+   Properties: currently contains the full message.
    note: this field will be parsed to specific fields in the future, while maintaining backward compatibility with the existing properties field.
    ```
 
@@ -83,7 +83,7 @@ Du har tre alternativ för att lagra dina loggar:
 
    Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
 
-   Du kan använda [Azure aktivitets loggar](../azure-resource-manager/resource-group-audit.md) (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickats till din Azure-prenumeration.
+   Du kan använda [Azure aktivitets loggar](../azure-resource-manager/management/view-activity-logs.md) (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickats till din Azure-prenumeration.
 
 ## <a name="metrics"></a>Mått
 

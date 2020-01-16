@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: troubleshooting
 ms.date: 8/2/2019
-ms.openlocfilehash: fe300c1efc8f5802397a59296f8b127c321bd871
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: b8afdd0f2dd98260a628116fa7402e05cd39e06b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941571"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965863"
 ---
 # <a name="troubleshoot-replication-in-azure-vm-disaster-recovery"></a>Felsöka replikering i haveri beredskap för virtuella Azure-datorer
 
@@ -35,7 +35,7 @@ Om du väljer händelsen bör du se exakt disk information:
 
 
 ### <a name="azure-site-recovery-limits"></a>Gränser för Azure Site Recovery
-Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser baseras på våra tester, men de kan inte användas för alla möjliga kombinationer av program I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program. 
+Följande tabell innehåller gränserna för Azure Site Recovery. Dessa gränser baseras på våra tester, men de kan inte användas för alla möjliga kombinationer av program I/O. De faktiska resultaten kan variera beroende på blandningen av I/O i ditt program.
 
 Det finns två gränser att överväga, data omsättning per disk och data omsättning per virtuell dator. Låt oss till exempel titta på Premium P20-disken i följande tabell. Site Recovery kan hantera 5 MB/s av omsättning per disk med högst fem sådana diskar per virtuell dator, på grund av gränsen på 25 MB/s av total omsättning per virtuell dator.
 
@@ -59,7 +59,7 @@ Azure Site Recovery har gränser för dataändringshastighet, baserat på typen 
 
 Om en insamling är från en tillfällig data burst och data ändrings takten är större än 10 MB/s (för Premium) och 2 MB/s (för standard) under en viss tid och är i drift, kommer replikeringen att bli infångad. Men om omsättningen är väl bortom den gräns som stöds mest av tiden, bör du överväga något av följande alternativ om möjligt:
 
-* **Undanta disken som orsakar en hög data ändrings hastighet**: du kan utesluta disken med hjälp av [PowerShell](./azure-to-azure-exclude-disks.md). Om du vill utesluta disken måste du först inaktivera replikeringen. 
+* **Undanta disken som orsakar en hög data ändrings hastighet**: du kan utesluta disken med hjälp av [PowerShell](./azure-to-azure-exclude-disks.md). Om du vill utesluta disken måste du först inaktivera replikeringen.
 * **Ändra nivån på lagrings disken för haveri beredskap**: det här alternativet är endast möjligt om disk data omsättningen är mindre än 20 MB/s. Anta att en virtuell dator med en P10-disk har en data omsättning på mer än 8 MB/s men mindre än 10 MB/s. Om kunden kan använda en P30-disk för mål lagring under skyddet kan problemet lösas. Observera att den här lösningen endast är möjlig för datorer som använder Premium-Managed Disks. Följ stegen nedan:
     - Gå till bladet diskar på den berörda replikerade datorn och kopiera replik diskens namn
     - Navigera till den här replik hanterade disken
@@ -69,28 +69,28 @@ Om en insamling är från en tillfällig data burst och data ändrings takten ä
 ## <a name="Network-connectivity-problem"></a>Problem med nätverks anslutningen
 
 ### <a name="network-latency-to-a-cache-storage-account"></a>Nätverks fördröjning till ett cache Storage-konto
-Site Recovery skickar replikerade data till cache Storage-kontot. Du kan se nätverks fördröjningen om överföring av data från en virtuell dator till cache Storage-kontot är långsammare än 4 MB i 3 sekunder. 
+Site Recovery skickar replikerade data till cache Storage-kontot. Du kan se nätverks fördröjningen om överföring av data från en virtuell dator till cache Storage-kontot är långsammare än 4 MB i 3 sekunder.
 
-Om du vill söka efter ett problem som rör svars tiden använder du [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) för att ladda upp data från den virtuella datorn till cache Storage-kontot. Om svars tiden är hög kontrollerar du om du använder en virtuell nätverks installation (NVA) för att styra utgående nätverks trafik från virtuella datorer. Installationen kan bli begränsad om all replikeringstrafik passerar genom NVA. 
+Om du vill söka efter ett problem som rör svars tiden använder du [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) för att ladda upp data från den virtuella datorn till cache Storage-kontot. Om svars tiden är hög kontrollerar du om du använder en virtuell nätverks installation (NVA) för att styra utgående nätverks trafik från virtuella datorer. Installationen kan bli begränsad om all replikeringstrafik passerar genom NVA.
 
 Vi rekommenderar att du skapar en nätverks tjänst slut punkt i ditt virtuella nätverk för "lagring" så att replikeringstrafiken inte går till NVA. Mer information finns i [konfiguration av virtuell nätverks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#network-virtual-appliance-configuration)installation.
 
 ### <a name="network-connectivity"></a>Nätverksanslutning
-För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn ligger bakom en brand vägg eller använder regler för nätverks säkerhets grupper (NSG) för att kontrol lera utgående anslutningar kan det hända att du stöter på något av dessa problem. För att se till att alla webb adresser är anslutna, se [utgående anslutning för Site Recovery-URL: er](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges). 
+För Site Recovery-replikering till arbete, utgående anslutning till specifika URL: er eller IP-intervall krävs från den virtuella datorn. Om den virtuella datorn ligger bakom en brand vägg eller använder regler för nätverks säkerhets grupper (NSG) för att kontrol lera utgående anslutningar kan det hända att du stöter på något av dessa problem. För att se till att alla webb adresser är anslutna, se [utgående anslutning för Site Recovery-URL: er](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
 ## <a name="error-id-153006---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 153006 – ingen programkonsekvent återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
 
 Några av de vanligaste problemen visas nedan
 
-#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: kända problem i SQL Server 2008/2008 R2 
+#### <a name="cause-1-known-issue-in-sql-server-20082008-r2"></a>Orsak 1: kända problem i SQL Server 2008/2008 R2
 **Så här åtgärdar du** : det finns ett känt problem med SQL Server 2008/2008 R2. Det går inte att säkerhetskopiera den här KB-artikeln [Azure Site Recovery agent eller annan VSS-säkerhetskopiering som inte är en komponent för en server som är värd för SQL Server 2008](https://support.microsoft.com/help/4504103/non-component-vss-backup-fails-for-server-hosting-sql-server-2008-r2)
 
-#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Orsak 2: Azure Site Recovery jobb fungerar inte på servrar som är värdar för någon version av SQL Server-instanser med AUTO_CLOSE databaser 
-**Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser) 
+#### <a name="cause-2-azure-site-recovery-jobs-fail-on-servers-hosting-any-version-of-sql-server-instances-with-auto_close-dbs"></a>Orsak 2: Azure Site Recovery jobb fungerar inte på servrar som är värdar för någon version av SQL Server-instanser med AUTO_CLOSE databaser
+**Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4504104/non-component-vss-backups-such-as-azure-site-recovery-jobs-fail-on-ser)
 
 
 #### <a name="cause-3-known-issue-in-sql-server-2016-and-2017"></a>Orsak 3: kända problem i SQL Server 2016 och 2017
-**Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component) 
+**Så här åtgärdar du** : se KB- [artikel](https://support.microsoft.com/help/4493364/fix-error-occurs-when-you-back-up-a-virtual-machine-with-non-component)
 
 #### <a name="cause-4-you-are-using-storage-spaces-direct-configuration"></a>Orsak 4: du använder konfiguration av lagrings dirigering
 **Så här åtgärdar du** : Azure Site Recovery kan inte skapa programkonsekvent återställnings punkt för konfiguration av lagrings dirigering. Se artikeln för att [Konfigurera replikeringsprincipen](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication-s2d-vms) korrekt
@@ -98,17 +98,17 @@ Några av de vanligaste problemen visas nedan
 ### <a name="more-causes-due-to-vss-related-issues"></a>Fler orsaker till följd av VSS-relaterade problem:
 
 Om du vill felsöka ytterligare kan du kontrol lera filerna på käll datorn för att få en exakt felkod för felet:
-    
+
     C:\Program Files (x86)\Microsoft Azure Site Recovery\agent\Application Data\ApplicationPolicyLogs\vacp.log
 
 Hur hittar du felen i filen?
 Sök efter strängen "vacpError" genom att öppna filen vacp. log i en redigerare
-        
+
     Ex: vacpError:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|
 
 I ovanstående exempel **2147754994** är felkoden som visar dig om felet som visas nedan
 
-#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren är inte installerad-fel 2147221164 
+#### <a name="vss-writer-is-not-installed---error-2147221164"></a>VSS-skrivaren är inte installerad-fel 2147221164
 
 *Så här åtgärdar*du: om du vill skapa en program konsekvenss etikett använder Azure Site Recovery Microsoft Volume Shadow Copy Service (VSS). Den installerar en VSS-Provider för åtgärden att ta ögonblicks bilder av program konsekvens. Den här VSS-providern installeras som en tjänst. Om tjänsten VSS Provider inte är installerad, Miss lyckas skapandet av program konsekvensen med fel-ID 0x80040154 "-klassen har inte registrerats". </br>
 Se [artikeln om fel sökning av VSS Writer-installation](https://docs.microsoft.com/azure/site-recovery/vmware-azure-troubleshoot-push-install#vss-installation-failures) 
@@ -126,12 +126,13 @@ Se [artikeln om fel sökning av VSS Writer-installation](https://docs.microsoft.
 
 ####  <a name="vss-provider-not_registered---error-2147754756"></a>VSS-PROVIDER NOT_REGISTERED-fel 2147754756
 
-**Så här åtgärdar**du: om du vill skapa en program konsekvenss etikett använder Azure Site Recovery Microsoft Volume Shadow Copy Service (VSS). Kontrol lera om tjänsten Azure Site Recovery VSS Provider är installerad eller inte. </br>
+**Så här åtgärdar**du: om du vill skapa en program konsekvenss etikett använder Azure Site Recovery Microsoft Volume Shadow Copy Service (VSS).
+Kontrol lera om tjänsten Azure Site Recovery VSS Provider är installerad eller inte. </br>
 
 - Försök att installera providern med följande kommandon:
 - Avinstallera befintlig provider: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Uninstall. cmd
 - Installera om: C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install. cmd
- 
+
 Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Automatisk**.
     - Starta om följande tjänster:
         - VSS-tjänst

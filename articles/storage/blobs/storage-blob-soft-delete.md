@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 15db96824336c92611b9e1113c42c621f6508744
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f0db35e188aeca4de7b74d6c3e4dfc45b349279a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978125"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972733"
 ---
 # <a name="soft-delete-for-azure-storage-blobs"></a>Mjuk borttagning för Azure Storage blobbar
 
@@ -68,7 +68,7 @@ När **Delete BLOB** anropas på en bas-BLOB (en blob som inte är en ögonblick
 > [!NOTE]  
 > När en mjuk borttagen BLOB skrivs över skapas en mjuk raderad ögonblicks bild av blobens tillstånd innan Skriv åtgärden genereras automatiskt. Den nya blobben ärver den överskrivna blobens nivå.
 
-Mjuk borttagning sparar inte dina data i fall av container eller konto borttagningar, eller när BLOB-metadata och blob-egenskaper skrivs över. Om du vill skydda ett lagrings konto från felaktig borttagning kan du konfigurera ett lås med hjälp av Azure Resource Manager. Se Azure Resource Manager artikel [Lås resurser för att förhindra oväntade ändringar](../../azure-resource-manager/resource-group-lock-resources.md) av mer information.
+Mjuk borttagning sparar inte dina data i fall av container eller konto borttagningar, eller när BLOB-metadata och blob-egenskaper skrivs över. Om du vill skydda ett lagrings konto från felaktig borttagning kan du konfigurera ett lås med hjälp av Azure Resource Manager. Se Azure Resource Manager artikel [Lås resurser för att förhindra oväntade ändringar](../../azure-resource-manager/management/lock-resources.md) av mer information.
 
 Följande tabell information förväntas när mjuk borttagning är aktiverat:
 
@@ -259,7 +259,7 @@ block_blob_service.set_blob_service_properties(
     delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
-# <a name="nettabnet"></a>[NET](#tab/net)
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 Om du vill aktivera mjuk borttagning uppdaterar du en BLOB-klients tjänst egenskaper:
 
@@ -335,7 +335,7 @@ Ja, mjuk borttagning kan konfigureras för både befintliga och nya lagrings kon
 
 ### <a name="if-i-delete-an-entire-account-or-container-with-soft-delete-turned-on-will-all-associated-blobs-be-saved"></a>Om jag tar bort ett helt konto eller en behållare med mjuk borttagning aktiverat, kommer alla associerade blobbar att sparas?
 
-Nej, om du tar bort ett helt konto eller en behållare tas alla kopplade blobbar bort permanent. Mer information om hur du skyddar ett lagrings konto från oavsiktliga borttagningar finns i [Lås resurser för att förhindra oväntade ändringar](../../azure-resource-manager/resource-group-lock-resources.md).
+Nej, om du tar bort ett helt konto eller en behållare tas alla kopplade blobbar bort permanent. Mer information om hur du skyddar ett lagrings konto från oavsiktliga borttagningar finns i [Lås resurser för att förhindra oväntade ändringar](../../azure-resource-manager/management/lock-resources.md).
 
 ### <a name="can-i-view-capacity-metrics-for-deleted-data"></a>Kan jag Visa kapacitets mått för borttagna data?
 

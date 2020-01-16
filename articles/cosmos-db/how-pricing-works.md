@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 0e0adef2728ef75dc67f02fdf38b6638965df62f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7efae8fb3c00868e2740eac2d4d5bcb3c82f663a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756876"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977544"
 ---
 # <a name="pricing-model-in-azure-cosmos-db"></a>Pris modell i Azure Cosmos DB 
 
@@ -32,7 +32,7 @@ Pris sättnings modellen i Azure Cosmos DB är konsekvent i alla API: er. Mer in
 
 För närvarande är minimi priset för både databasen och det behållar data flödet $24/månad (se [sidan Azure Cosmos DB prissättning](https://azure.microsoft.com/pricing/details/cosmos-db/) för den senaste informationen. Om din arbets belastning använder flera behållare kan den optimeras för kostnad med data flöde på databas nivå eftersom data flödet på databas nivå gör att du kan ha valfritt antal behållare i en databas som delar data flödet bland behållarna. I följande tabell sammanfattas etablerade data flöde och kostnaderna för olika entiteter:
 
-|**Entitetsrelation**  | **Lägsta data flöde & kostnad** |**Skala ökningar & kostnad** |**Etablerings omfång** |
+|**Entitet**  | **Lägsta data flöde & kostnad** |**Skala ökningar & kostnad** |**Etablerings omfång** |
 |---------|---------|---------|-------|
 |Databas    | 400 RU/s ($ 24/månad)    | 100 RU/s ($ 6/månad)   |Data flödet är reserverat för databasen och delas av behållare i databasen |
 |Container     | 400 RU/s ($ 24/månad)    | 100 RU/s ($ 6/månad)  |Data flödet är reserverat för en angiven behållare |
@@ -43,7 +43,7 @@ Som det visas i föregående tabell börjar det lägsta data flödet i Azure Cos
 
 Azure Cosmos DB erbjuder flera alternativ för utvecklare utan kostnad. Dessa alternativ är:
 
-* **Kostnads fritt Azure-konto**: Azure erbjuder en [kostnads fri nivå](https://azure.microsoft.com/free/) som ger dig $200 i Azure-krediter under de första 30 dagarna och en begränsad mängd kostnads fria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](../billing/billing-avoid-charges-free-account.md). Azure Cosmos DB är en del av ett kostnads fritt Azure-konto. Specifikt för Azure Cosmos DB erbjuder det här kostnads fria kontot 5 GB lagring och 400 ru: er data flöde för hela året. 
+* **Kostnads fritt Azure-konto**: Azure erbjuder en [kostnads fri nivå](https://azure.microsoft.com/free/) som ger dig $200 i Azure-krediter under de första 30 dagarna och en begränsad mängd kostnads fria tjänster i 12 månader. Mer information finns i [Kostnadsfritt Azure-konto](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB är en del av ett kostnads fritt Azure-konto. Specifikt för Azure Cosmos DB erbjuder det här kostnads fria kontot 5 GB lagring och 400 ru: er data flöde för hela året. 
 
 * **Prova Azure Cosmos DB kostnads fritt**: Azure Cosmos DB erbjuder en tidsbegränsad upplevelse genom att använda Try Azure Cosmos dB för kostnads fria konton. Du kan skapa ett Azure Cosmos DB konto, skapa databas och samlingar och köra ett exempel program med hjälp av snabb starter och självstudier. Du kan köra exempel programmet utan att prenumerera på ett Azure-konto eller använda ditt kredit kort. [Försök Azure Cosmos DB kostnads fria](https://azure.microsoft.com/try/cosmosdb/) erbjudanden Azure Cosmos db i en månad, med möjlighet att förnya ditt konto valfritt antal gånger.
 

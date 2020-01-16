@@ -2,7 +2,7 @@
 title: Start händelse för Azure Batch uppgift | Microsoft Docs
 description: Referens för start händelse för batch-aktivitet.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
@@ -10,13 +10,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: lahugh
-ms.openlocfilehash: ffad1696bc2c85a1a150ac87d90c2fb9c34e1519
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.author: jushiman
+ms.openlocfilehash: e8265286a5d33c9a8a118dafa66a83b5ed36f8a6
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029616"
 ---
 # <a name="task-start-event"></a>Starthändelse för uppgift
 
@@ -47,11 +47,11 @@ ms.locfileid: "70258545"
 }
 ```
 
-|Elementnamn|type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
-|`jobId`|Sträng|ID för jobbet som innehåller uppgiften.|
-|`id`|Sträng|Aktivitetens ID.|
-|`taskType`|Sträng|Aktivitetens typ. Detta kan antingen vara ' JobManager ' som indikerar att det är en Job Manager-uppgift eller ' användare ' som indikerar att den inte är en Job Manager-aktivitet.|
+|`jobId`|String|ID för jobbet som innehåller uppgiften.|
+|`id`|String|Aktivitetens ID.|
+|`taskType`|String|Aktivitetens typ. Detta kan antingen vara ' JobManager ' som indikerar att det är en Job Manager-uppgift eller ' användare ' som indikerar att den inte är en Job Manager-aktivitet.|
 |`systemTaskVersion`|Int32|Detta är den interna återförsöks räknaren för en aktivitet. Internt kan batch-tjänsten göra ett nytt försök med en uppgift för att redovisa tillfälliga problem. De här problemen kan omfatta interna schemaläggnings fel eller försök att återställa från datornoder i ett felaktigt tillstånd.|
 |[`nodeInfo`](#nodeInfo)|Komplex typ|Innehåller information om den beräknings nod som aktiviteten kördes på.|
 |[`multiInstanceSettings`](#multiInstanceSettings)|Komplex typ|Anger att aktiviteten är en multi-instance-aktivitet som kräver flera datornoder.  Se [multiInstanceSettings](https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task) för mer information.|
@@ -60,25 +60,25 @@ ms.locfileid: "70258545"
 
 ###  <a name="nodeInfo"></a>nodeInfo
 
-|Elementnamn|type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
-|`poolId`|Sträng|ID för den pool där aktiviteten kördes.|
-|`nodeId`|Sträng|ID: t för noden som aktiviteten kördes på.|
+|`poolId`|String|ID för den pool där aktiviteten kördes.|
+|`nodeId`|String|ID: t för noden som aktiviteten kördes på.|
 
 ###  <a name="multiInstanceSettings"></a>multiInstanceSettings
 
-|Elementnamn|type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`numberOfInstances`|Int|Antalet Compute-noder som aktiviteten kräver.|
 
 ###  <a name="constraints"></a>begränsningar
 
-|Elementnamn|type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`maxTaskRetryCount`|Int32|Det maximala antalet gånger som aktiviteten kan göras om. Batch-tjänsten försöker igen med en aktivitet om dess slutkod är skilt från noll.<br /><br /> Observera att det här värdet specifikt styr antalet återförsök. Batch-tjänsten kommer att försöka utföra åtgärden en gång och kan sedan försöka igen till den här gränsen. Om till exempel det maximala antalet försök är 3, försöker batch utföra en aktivitet upp till fyra gånger (ett första försök och tre försök).<br /><br /> Om det maximala antalet försök är 0, gör batch-tjänsten inte om aktiviteterna.<br /><br /> Om det maximala antalet försök är-1, kommer batch-tjänsten att försöka utföra aktiviteter utan begränsning.<br /><br /> Standardvärdet är 0 (inga återförsök).|
 
 ###  <a name="executionInfo"></a>executionInfo
 
-|Elementnamn|type|Anteckningar|
+|Elementnamn|Typ|Anteckningar|
 |------------------|----------|-----------|
 |`retryCount`|Int32|Antalet gånger som aktiviteten har fått nytt försök av batch-tjänsten. Aktiviteten provas igen om den avslutas med en slutkod som inte är noll, upp till den angivna MaxTaskRetryCount|

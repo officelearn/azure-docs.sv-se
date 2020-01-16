@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/10/2020
+ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a799339f2780c2bc372c39120a6e20b34d907326
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75912761"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973396"
 ---
 ### <a name="portal"></a>Portalen
 
@@ -88,3 +88,27 @@ Processen för distribution av virtuella datorer liknar standard distributions p
 1. Gör de återstående valen som du vill.
 
     ![SSE-Create-VM-Select-CMK-Encryption-set. png](media/virtual-machines-disk-encryption-portal/sse-create-vm-select-cmk-encryption-set.png)
+
+#### <a name="enable-on-an-existing-disk"></a>Aktivera på en befintlig disk
+
+Om du vill hantera och konfigurera disk kryptering på befintliga diskar måste du använda följande länk: https://aka.ms/diskencryptionsets. Att aktivera Kundhanterade nycklar på befintliga diskar är ännu inte tillgängligt i den globala Azure Portal.
+
+> [!CAUTION]
+> Att aktivera disk kryptering på alla diskar som är anslutna till en virtuell dator kräver att du stoppar den virtuella datorn.
+
+1. Navigera till en virtuell dator som finns i samma region som en av disk krypterings uppsättningarna.
+1. Öppna den virtuella datorn och välj **stoppa**.
+
+    ![sse-stop-VM-to-encrypt-disk. png](media/virtual-machines-disk-encryption-portal/sse-stop-VM-to-encrypt-disk.png)
+
+1. När den virtuella datorn har stoppats väljer du **diskar** och väljer sedan den disk som du vill kryptera.
+
+    ![SSE-existing-disk-Select. png](media/virtual-machines-disk-encryption-portal/sse-existing-disk-select.png)
+
+1. Välj **kryptering** och välj **kryptering i vila med en kundhanterad nyckel** och välj sedan disk krypterings uppsättningen i list rutan.
+1. Välj **Spara**.
+
+    ![SSE-Encrypt-existing-disk-Customer-Managed-Key. png](media/virtual-machines-disk-encryption-portal/sse-encrypt-existing-disk-customer-managed-key.png)
+
+1. Upprepa processen för alla andra diskar som är anslutna till den virtuella dator som du vill kryptera.
+1. När diskarna har växlat till Kundhanterade nycklar, och det inte finns några andra anslutna diskar som du vill kryptera, kan du starta den virtuella datorn.

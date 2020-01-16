@@ -10,21 +10,24 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 08/12/2019
+ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 8fe07318d33980ad3ec9fc3d6e8749c6c9aed42e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3c2cc3c280ba0da474898bed93bb8533a42ab07f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442551"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967353"
 ---
 # <a name="configure-a-custom-domain-name"></a>Konfigurera ett anpassat domännamn
 
-När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en under domän till azure-api.net (till exempel `apim-service-name.azure-api.net`). Du kan dock exponera API Management-slutpunkter med ditt eget anpassade domän namn, till exempel **contoso.com**. Den här självstudien visar hur du mappar ett befintligt anpassat DNS-namn till slut punkter som exponeras av en API Management instans.
+När du skapar en Azure API Management-tjänstinstans tilldelar Azure den en under domän till `azure-api.net` (till exempel `apim-service-name.azure-api.net`). Du kan dock exponera API Management-slutpunkter med ditt eget anpassade domän namn, till exempel **contoso.com**. Den här självstudien visar hur du mappar ett befintligt anpassat DNS-namn till slut punkter som exponeras av en API Management instans.
+
+> [!IMPORTANT]
+> API Management accepterar endast begär Anden med [värd huvud](https://tools.ietf.org/html/rfc2616#section-14.23) värden som matchar standard domän namnet eller något av de konfigurerade anpassade domän namnen.
 
 > [!WARNING]
-> Kunder som vill använda certifikat låsning för att förbättra säkerheten för sina program måste använda ett anpassat domän namn > och certifikat som de hanterar, inte standard certifikatet. Kunder som fäster standard certifikatet kan i stället > ta ett hårt beroende på egenskaperna för certifikatet som de inte styr, vilket inte är en rekommenderad metod.
+> Kunder som vill använda certifikat låsning för att förbättra säkerheten för sina program måste använda ett anpassat domän namn > och certifikat som de hanterar, inte standard certifikatet. Kunder som fäster standard certifikatet i stället kommer att ta ett hårt beroende på egenskaperna för certifikatet som de inte styr, vilket inte är en rekommenderad metod.
 
 ## <a name="prerequisites"></a>Krav
 

@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2c32f46ca85007608b5e17f2bf77b0a8f0fb8397
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: cdf616b29a93e786ef26af83b5d3b3541f94d67c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862755"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972283"
 ---
 # <a name="security-controls-for-azure-vpn-gateway"></a>Säkerhets kontroller för Azure VPN Gateway
 
@@ -36,7 +36,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [Azure Monitor diagnostikloggar/varning](vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md) & [Azure Monitor mått/avisering](vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md).  |
 | Loggning och granskning av kontroll-och hanterings plan| Ja | Azure Resource Manager aktivitets logg. |
-| Loggning och granskning av data planet | Ja | [Azure Monitor diagnostikloggar](../azure-resource-manager/resource-group-audit.md) för loggning och granskning av VPN-anslutningar. |
+| Loggning och granskning av data planet | Ja | [Azure Monitor diagnostikloggar](../azure-resource-manager/management/view-activity-logs.md) för loggning och granskning av VPN-anslutningar. |
 
 ## <a name="identity"></a>Identitet
 
@@ -59,7 +59,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | För hanterings åtgärder kan statusen för en Azure VPN gateway-konfiguration exporteras som en Azure Resource Manager mall och versions hantering över tid. | 
+| Konfigurations hanterings stöd (konfigurations version osv.)| Ja | För hanterings åtgärder kan statusen för en Azure VPN gateway-konfiguration exporteras som en Azure Resource Manager mall och versions hantering över tid. |
 
 ## <a name="next-steps"></a>Nästa steg
 

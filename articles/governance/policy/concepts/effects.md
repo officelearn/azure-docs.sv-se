@@ -3,12 +3,12 @@ title: Förstå hur effekter fungerar
 description: Azure Policy definitioner har olika effekter som avgör hur efterlevnaden hanteras och rapporteras.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: fec2f966260d997b45be50554e0f41d5fd0491aa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436353"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972817"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
@@ -367,7 +367,7 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
 - **DeploymentScope** (valfritt)
   - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
-  - Anger vilken typ av distribution som ska utlösas. _Prenumerationen_ anger en [distribution på prenumerations nivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resurs grupp.
+  - Anger vilken typ av distribution som ska utlösas. _Prenumerationen_ anger en [distribution på prenumerations nivå](../../../azure-resource-manager/templates/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resurs grupp.
   - En _plats_ egenskap måste anges i _distributionen_ när du använder distributioner på prenumerations nivå.
   - Standardvärdet är _ResourceGroup_.
 - **Distribution** [krävs]

@@ -3,7 +3,7 @@ title: Komma igång med Azure CLI för Batch | Microsoft Docs
 description: Få en snabb introduktion till Batch-kommandon i Azure CLI för att hantera Azure Batch-tjänstens resurser
 services: batch
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dd4a93b9829d69d9d0262428d23d2156d732c006
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6d625e092618d1190c3dcdf9997b1ce35211d75
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70095409"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027297"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Hantera Batch-resurser med Azure CLI
 
@@ -38,7 +38,7 @@ Du kan köra senaste Azure CLI i [Azure Cloud Shell](../cloud-shell/overview.md)
 
 ## <a name="command-help"></a>Kommandohjälp
 
-Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Exempel:
+Du kan visa hjälptext för alla kommandon i Azure CLI genom att lägga till `-h` efter kommandot. Utelämna andra alternativ. Ett exempel:
 
 * Om du vill få hjälp med `az`-kommandot anger du: `az -h`
 * Om du vill hämta en lista över alla Batch-kommandon i CLI använder du: `az batch -h`
@@ -121,7 +121,7 @@ Se [CLI-skriptexemplen](cli-samples.md) för att utföra vanliga uppgifter med B
 
 ## <a name="json-files-for-resource-creation"></a>JSON-filer för resursskapande
 
-När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Exempel:
+När du skapar Batch-resurser som pooler och jobb kan ange du en JSON-fil som innehåller den nya resursens konfiguration i stället för att ange dess parametrar som kommandoradsalternativ. Ett exempel:
 
 ```azurecli
 az batch pool create my_batch_pool.json

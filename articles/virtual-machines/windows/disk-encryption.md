@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 84bb33f724622ba994c81b1d09c99b6399fd36ac
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: 38459e76cc8f9df8bfb7c15750e138cfd55c453c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913127"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028457"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Kryptering på Server sidan av Azure Managed disks
 
@@ -54,29 +54,24 @@ I följande lista förklaras diagrammet i ännu mer detalj:
 
 Information om hur du återkallar åtkomst till Kundhanterade nycklar finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Att återkalla åtkomsten på ett effektivt sätt blockerar åtkomsten till alla data i lagrings kontot, eftersom krypterings nyckeln inte är tillgänglig via Azure Storage.
 
-### <a name="supported-scenarios-and-restrictions"></a>Scenarier och begränsningar som stöds
+### <a name="supported-regions"></a>Regioner som stöds
 
-För närvarande stöds endast följande scenarier:
+Det finns för närvarande endast stöd för följande regioner:
 
-- Skapa en virtuell dator (VM) från en Azure Marketplace-avbildning och kryptera OS-disken med kryptering på Server sidan med Kundhanterade nycklar.
-- Skapa en anpassad avbildning som är krypterad med kryptering på Server sidan och Kundhanterade nycklar.
-- Skapa en virtuell dator från en anpassad avbildning och kryptera OS-disken med kryptering på Server sidan och Kundhanterade nycklar.
-- Skapa data diskar som har krypterats med kryptering på Server sidan och Kundhanterade nycklar.
-- (Endast CLI/PowerShell) Skapa ögonblicks bilder som är krypterade med kryptering på Server sidan och Kundhanterade nycklar.
-- Skapa skalnings uppsättningar för virtuella datorer som är krypterade med kryptering på Server sidan och Kundhanterade nycklar.
-- ["Mjuk" och "hårda" RSA-nycklar](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) med storleken 2080 stöds.
+- Tillgängligt som ett GA-erbjudande i regionerna östra USA, västra USA 2 och södra centrala USA.
+- Tillgängligt som en offentlig för hands version i regionerna västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
 
-Nu har vi även följande begränsningar:
+### <a name="restrictions"></a>Begränsningar
 
-- Tillgängligt som ett GA-erbjudande i östra USA, västra USA 2 och södra centrala USA.
-- Tillgänglig som en offentlig för hands version i västra centrala USA, östra USA 2, centrala Kanada och Europa, norra.
+För närvarande har Kundhanterade nycklar följande begränsningar:
+
+- Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) med storleken 2080 stöds, inga andra nycklar eller storlekar.
 - Diskar som har skapats från anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar måste krypteras med samma Kundhanterade nycklar och måste finnas i samma prenumeration.
 - Ögonblicks bilder som har skapats från diskar som är krypterade med kryptering på Server sidan och Kundhanterade nycklar måste vara krypterade med samma Kundhanterade nycklar.
 - Anpassade avbildningar som krypteras med kryptering på Server sidan och Kundhanterade nycklar kan inte användas i det delade avbildnings galleriet.
 - Alla resurser som är relaterade till dina Kundhanterade nycklar (Azure Key Vaults, disk krypterings uppsättningar, virtuella datorer, diskar och ögonblicks bilder) måste finnas i samma prenumeration och region.
 - Diskar, ögonblicks bilder och bilder som är krypterade med Kundhanterade nycklar kan inte flyttas till en annan prenumeration.
 - Om du använder Azure Portal för att skapa disk krypterings uppsättningen kan du inte använda ögonblicks bilder för tillfället.
-- Endast ["mjuka" och "hårda" RSA-nycklar](../../key-vault/about-keys-secrets-and-certificates.md#keys-and-key-types) med storleken 2080 stöds, inga andra nycklar eller storlekar.
 
 ### <a name="powershell"></a>PowerShell
 

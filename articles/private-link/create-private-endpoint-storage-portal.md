@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 96edbd62dcb95fa8f24ea5a8a6f0716c1fefdcd8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75357574"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028868"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
@@ -127,11 +127,11 @@ I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut p
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     |Location|Välj **WestCentralUS**.|
-    |Namn|Ange *myPrivateEndpoint*.  |
+    |Namn|Ange *myPrivateEndpoint*.  |
     |Lagrings under resurs|Lämna standard- **bloben**. |
     | **NÄTVERK** |  |
-    | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |
-    | Undernät | Välj *undernät*. |
+    | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |
+    | Undernät | Välj *undernät*. |
     | **PRIVAT DNS-INTEGRERING**|  |
     | Integrera med privat DNS-zon  | Låt standardinställningen vara **Ja**. |
     | Privat DNS-zon  | Lämna standard **-privatelink.blob.Core.Windows.net (ny)** . |
@@ -172,8 +172,8 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 
 I det här avsnittet ska du ansluta privat till lagrings kontot med hjälp av den privata slut punkten.
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
-2. Ange `nslookup mystorageaccount.blob.core.windows.net` du får ett meddelande som liknar detta:
+1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+2. Ange `nslookup mystorageaccount.blob.core.windows.net` du får ett meddelande som liknar detta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -192,7 +192,7 @@ I det här avsnittet ska du ansluta privat till lagrings kontot med hjälp av de
 10. Välj **Anslut**.
 11. Bläddra bland BLOB-behållarna från mystorageaccount 
 12. Du kan också Skapa mappar och/eller ladda upp filer till *mystorageaccount*. 
-13. Stäng fjärr skrivbords anslutningen till *myVM*. 
+13. Stäng fjärr skrivbords anslutningen till *myVM*. 
 
 Ytterligare alternativ för att komma åt lagrings kontot:
 - Microsoft Azure Storage Explorer är en fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data på Windows, macOS och Linux. Du kan installera programmet om du vill söka i privat lagrings konto innehåll. 
@@ -202,9 +202,9 @@ Ytterligare alternativ för att komma åt lagrings kontot:
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 När du är klar med den privata slut punkten, lagrings kontot och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
-1. Ange *myResourceGroup* i rutan **Sök** högst upp i portalen och välj *myResourceGroup* från Sök resultaten. 
+1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj *myResourceGroup* från Sök resultaten. 
 2. Välj **Ta bort resursgrupp**. 
-3. Ange *myResourceGroup* för **Skriv resurs gruppens namn** och välj **ta bort**. 
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**. 
 
 ## <a name="next-steps"></a>Nästa steg
-I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk och ett lagrings konto och en privat slut punkt. Du är ansluten till en virtuell dator från Internet och kommunicerat på ett säkert sätt till lagrings kontot med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).
+I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk och ett lagrings konto och en privat slut punkt. Du är ansluten till en virtuell dator från Internet och kommunicerat på ett säkert sätt till lagrings kontot med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).

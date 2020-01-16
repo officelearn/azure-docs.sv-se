@@ -1,6 +1,6 @@
 ---
 title: Stöd för att lägga till virtuella Azure-datorer i en befintlig tillgänglighets uppsättning | Microsoft Docs
-description: Stöd för att lägga till virtuella Azure-datorer i en befintlig tillgänglighets uppsättning.
+description: Den här artikeln innehåller en support mat ris om vilken VM-serie du kan blanda i samma tillgänglighets uppsättning
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3954df389516aa7199022d713dc63d62dda961ae
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: cb0034f2b353284e94d6f1508541b31040a5b076
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155446"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028418"
 ---
 # <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Stöd för att lägga till virtuella Azure-datorer i en befintlig tillgänglighets uppsättning
 
@@ -30,11 +30,11 @@ Här är en support mat ris för att blanda olika typer av virtuella datorer:
 Serie & tillgänglighets uppsättning|Andra virtuella datorn|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |Första virtuella datorn|||||||
-|A||Ok|Ok|Ok|Ok|Ok|
-|Av2||Ok|Ok|Ok|Ok|Ok|
-|D||Ok|Ok|Ok|Ok|Ok|
-|Dv2||Ok|Ok|Ok|Ok|Ok|
-|Dv3||Ok|Ok|Ok|Ok|Ok|
+|A||OK|OK|OK|OK|OK|
+|Av2||OK|OK|OK|OK|OK|
+|D||OK|OK|OK|OK|OK|
+|Dv2||OK|OK|OK|OK|OK|
+|Dv3||OK|OK|OK|OK|OK|
 
 Alla andra serier kunde inte ha samma tillgänglighets uppsättning eftersom de kräver en speciell maskin vara.
 

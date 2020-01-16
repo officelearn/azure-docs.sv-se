@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: kumud
-ms.openlocfilehash: 1a6fb5d2b27996d67e0bf27eb57d16f4d2fb2797
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dc5b1f2f8e8b529149184ce173bcdd315311bad4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647262"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975332"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Lägga till, ändra eller ta bort IP-adresser för ett Azure-nätverks gränssnitt
 
@@ -146,7 +146,7 @@ Det finns scenarier där det är nödvändigt att manuellt ange IP-adressen för
 4. Starta den virtuella datorn.
 5. [Konfigurera](virtual-network-multiple-ip-addresses-portal.md#os-config) de sekundära IP-adresserna i operativ systemet manuellt (och även den primära IP-adressen inom Windows) för att matcha det du angett i Azure.
 
-Genom att följa föregående steg, är den privata IP-adress som tilldelats nätverks gränssnittet i Azure och i en virtuell dators operativ system oförändrad. Överväg att lägga till en Azure- [tagg](../azure-resource-manager/resource-group-using-tags.md) till de virtuella datorerna för att hålla reda på vilka virtuella datorer i din prenumeration som du har angett IP-adresser manuellt i ett operativ system. Du kan använda "IP-adresstilldelning: statisk", till exempel. På så sätt kan du enkelt hitta de virtuella datorerna i din prenumeration som du manuellt har angett IP-adressen för i operativ systemet.
+Genom att följa föregående steg, är den privata IP-adress som tilldelats nätverks gränssnittet i Azure och i en virtuell dators operativ system oförändrad. Överväg att lägga till en Azure- [tagg](../azure-resource-manager/management/tag-resources.md) till de virtuella datorerna för att hålla reda på vilka virtuella datorer i din prenumeration som du har angett IP-adresser manuellt i ett operativ system. Du kan använda "IP-adresstilldelning: statisk", till exempel. På så sätt kan du enkelt hitta de virtuella datorerna i din prenumeration som du manuellt har angett IP-adressen för i operativ systemet.
 
 Förutom att aktivera en virtuell dator för att kommunicera med andra resurser inom samma eller anslutna virtuella nätverk, kan en privat IP-adress också göra det möjligt för en virtuell dator att kommunicera utgående till Internet. Utgående anslutningar är käll nätverks adress som översätts av Azure till en oförutsägbar offentlig IP-adress. Läs mer om Azure utgående Internet-anslutning i artikeln om [Azure utgående Internet anslutning](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json) . Du kan inte kommunicera inkommande till den virtuella datorns privata IP-adress från Internet. Om dina utgående anslutningar kräver en förutsägbar offentlig IP-adress, associerar du en offentlig IP-adressresurs till ett nätverks gränssnitt.
 

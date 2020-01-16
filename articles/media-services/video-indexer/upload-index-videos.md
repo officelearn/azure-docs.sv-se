@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 12/03/2019
+ms.date: 01/14/2020
 ms.author: juliako
-ms.openlocfilehash: beb44c469aa8a03430cd5cb5a162966855aad448
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815399"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972617"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -40,6 +40,7 @@ När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikel
 - Den URL som anges i `videoURL` param måste vara kodad.
 - Indexering av Media Services till gångar har samma begränsning som indexering från URL: en.
 - Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil.
+- Du kan ladda upp upp till 60 filmer per minut.
 
 > [!Tip]
 > Det rekommenderas att du använder .NET Framework version 4.6.2 eller senare eftersom äldre .NET Framework-versioner inte använder TLS 1.2 som standard.
@@ -313,7 +314,7 @@ De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgär
 
 |Statuskod|ErrorType (i svarstexten)|Beskrivning|
 |---|---|---|
-|400|VIDEO_ALREADY_IN_PROGRESS|Samma video håller redan på att bearbetas i det angivna kontot.|
+|409|VIDEO_INDEXING_IN_PROGRESS|Samma video håller redan på att bearbetas i det angivna kontot.|
 |400|VIDEO_ALREADY_FAILED|Samma video misslyckades med att bearbetas i det angivna kontot för mindre än 2 timmar sedan. API-klienter ska vänta minst 2 timmar innan en video laddas upp på nytt.|
 
 ## <a name="next-steps"></a>Nästa steg

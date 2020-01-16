@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: jgao
-ms.openlocfilehash: 4dc28b8254c312836b2767c2efef52137e101777
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 6308f7832a898d97c455dc90265adea345aeb0cc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75839444"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981218"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Använda distributions skript i mallar (förhands granskning)
 
@@ -57,7 +57,7 @@ Fördelarna med distributions skript:
   $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
   ```
 
-- **Azure PowerShell version 2.7.0, 2.8.0 eller 3.0.0**. Du behöver inte dessa versioner för att distribuera mallar. Men de här versionerna behövs för att testa distributions skript lokalt. Se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps.md). Du kan använda en förkonfigurerad Docker-avbildning.  Se [Konfigurera utvecklings miljö](#configure-development-environment).
+- **Azure PowerShell version 2.7.0, 2.8.0 eller 3.0.0**. Du behöver inte dessa versioner för att distribuera mallar. Men de här versionerna behövs för att testa distributions skript lokalt. Se [installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Du kan använda en förkonfigurerad Docker-avbildning.  Se [Konfigurera utvecklings miljö](#configure-development-environment).
 
 ## <a name="resource-schema"></a>Resurs schema
 
@@ -233,7 +233,7 @@ Om du vill se deploymentScripts-resursen i portalen väljer du **Visa dolda type
 
 ## <a name="clean-up-deployment-script-resources"></a>Rensa distributions skript resurser
 
-Distributions skript skapar ett lagrings konto och en behållar instans som används för att köra distributions skript och lagra felsöknings information. De här två resurserna skapas i samma resurs grupp som de etablerade resurserna och kommer att tas bort av skript tjänsten när skriptet upphör att gälla. Du kan kontrol lera livs cykeln för dessa resurser.  Du debiteras för båda resurserna tills de tas bort. Pris informationen finns i [container instances priser](/pricing/details/container-instances/) och [Azure Storage prissättning](/pricing/details/storage/).
+Distributions skript skapar ett lagrings konto och en behållar instans som används för att köra distributions skript och lagra felsöknings information. De här två resurserna skapas i samma resurs grupp som de etablerade resurserna och kommer att tas bort av skript tjänsten när skriptet upphör att gälla. Du kan kontrol lera livs cykeln för dessa resurser.  Du debiteras för båda resurserna tills de tas bort. Pris informationen finns i [container instances priser](https://azure.microsoft.com/pricing/details/container-instances/) och [Azure Storage prissättning](https://azure.microsoft.com/pricing/details/storage/).
 
 Livs cykeln för de här resurserna styrs av följande egenskaper i mallen:
 

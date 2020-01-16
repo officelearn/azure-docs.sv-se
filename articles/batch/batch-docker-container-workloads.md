@@ -2,20 +2,20 @@
 title: Arbets belastningar för behållare – Azure Batch | Microsoft Docs
 description: Lär dig hur du kör program från behållar avbildningar på Azure Batch.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 08/09/2019
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: c9e24924472e0bb8dbd0e529b739263469b631fb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090740"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029722"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
 
@@ -23,22 +23,22 @@ Med Azure Batch kan du köra och skala ett stort antal batch-databearbetnings jo
 
 Du bör känna till behållar koncept och hur du skapar en batch-pool och ett jobb. I kod exemplen används batch .NET-och python SDK: er. Du kan också använda andra batch-SDK: er och verktyg, inklusive Azure Portal, för att skapa behållar aktiverade batch-pooler och köra behållar aktiviteter.
 
-## <a name="why-use-containers"></a>Varför ska jag använda behållare?
+## <a name="why-use-containers"></a>Varför använda containrar?
 
 Att använda behållare är ett enkelt sätt att köra batch-uppgifter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuerar program som enkla, portabla, självpresterande enheter som kan köras i flera olika miljöer. Du kan till exempel bygga och testa en behållare lokalt och sedan ladda upp behållar avbildningen till ett register i Azure eller någon annan stans. Distributions modellen för behållare säkerställer att körnings miljön för ditt program alltid är korrekt installerad och konfigurerad oavsett var du är värd för programmet. Containerbaserade uppgifter i batch kan också dra nytta av funktioner i icke-container-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **SDK-versioner**: Batch SDK: er stöder behållar avbildningar från och med följande versioner:
+* **SDK-versioner**: batch SDK: er stöder behållar avbildningar från och med följande versioner:
     * Batch REST API version 2017 -09 – 01.6.0
     * Batch .NET SDK-version 8.0.0
     * Batch python SDK version 4,0
     * Batch Java SDK version 3,0
     * Batch Node. js SDK version 3,0
 
-* **Konton**: I din Azure-prenumeration måste du skapa ett batch-konto och eventuellt ett Azure Storage konto.
+* **Konton**: i din Azure-prenumeration måste du skapa ett batch-konto och eventuellt ett Azure Storage konto.
 
-* **En VM-avbildning som stöds**: Behållare stöds bara i pooler som skapats med konfigurationen av den virtuella datorn, från avbildningar som beskrivs i följande avsnitt, "avbildningar som stöds av virtuella datorer". Om du anger en anpassad avbildning, se överväganden i följande avsnitt och kraven i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer](batch-custom-images.md). 
+* **En virtuell dator avbildning som stöds**: behållare stöds bara i pooler som skapats med konfigurationen av den virtuella datorn, från avbildningar som beskrivs i följande avsnitt, "avbildningar som stöds av virtuella datorer". Om du anger en anpassad avbildning, se överväganden i följande avsnitt och kraven i [använda en hanterad anpassad avbildning för att skapa en pool med virtuella datorer](batch-custom-images.md). 
 
 ### <a name="limitations"></a>Begränsningar
 
@@ -98,7 +98,7 @@ Fördelen med att förHämta behållar avbildningar är att när aktiviteterna f
 
 ### <a name="pool-without-prefetched-container-images"></a>Pool utan förhämtade behållar avbildningar
 
-Om du vill konfigurera en container-aktiverad pool utan förhämtade behållar `VirtualMachineConfiguration` avbildningar definierar `ContainerConfiguration` du och objekt som visas i följande python-exempel. I det här exemplet används Ubuntu-servern för avbildningar av Azure Batch behållar pooler från Marketplace.
+Om du vill konfigurera en container-aktiverad pool utan förhämtade behållar avbildningar definierar du `ContainerConfiguration` och `VirtualMachineConfiguration` objekt som visas i följande python-exempel. I det här exemplet används Ubuntu-servern för avbildningar av Azure Batch behållar pooler från Marketplace.
 
 
 ```python
@@ -128,7 +128,7 @@ new_pool = batch.models.PoolAddParameter(
 
 ### <a name="prefetch-images-for-container-configuration"></a>För hämtnings avbildningar för container konfiguration
 
-Om du vill hämta behållar avbildningar på poolen lägger du till listan över`container_image_names`behållar avbildningar ( `ContainerConfiguration`, i python) till. 
+Om du vill hämta behållar avbildningar på poolen lägger du till listan över behållar avbildningar (`container_image_names`, i python) till `ContainerConfiguration`. 
 
 I följande grundläggande python-exempel visas hur du förhämtar en standard Ubuntu behållar avbildning från [Docker Hub](https://hub.docker.com).
 
@@ -193,7 +193,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>FörHämta avbildningar från ett privat behållar register
 
-Du kan också förHämta behållar avbildningar genom att autentisera till en privat behållares register Server. I följande exempel förhämtar `ContainerConfiguration` och `VirtualMachineConfiguration` -objekten en privat TensorFlow-avbildning från ett privat Azure Container Registry. Bild referensen är densamma som i föregående exempel.
+Du kan också förHämta behållar avbildningar genom att autentisera till en privat behållares register Server. I följande exempel förhämtar `ContainerConfiguration` och `VirtualMachineConfiguration` objekt en privat TensorFlow-avbildning från ett privat Azure Container Registry. Bild referensen är densamma som i föregående exempel.
 
 ```csharp
 // Specify a container registry
@@ -227,7 +227,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 Om du vill köra en behållar aktivitet på en container-aktiverad pool anger du inställningar för behållare. Inställningarna omfattar de bilder som ska användas, registret och behållar körnings alternativen.
 
-* `ContainerSettings` Använd egenskapen för uppgifts klasserna för att konfigurera inställningar för behållare. De här inställningarna definieras av klassen [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) . Observera att `--rm` alternativet container inte kräver ytterligare `--runtime` ett alternativ eftersom batchen tar hand om det. 
+* Använd egenskapen `ContainerSettings` för uppgifts klasserna för att konfigurera inställningar för behållare. De här inställningarna definieras av klassen [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings) . Observera att alternativet `--rm` container inte kräver ytterligare ett `--runtime`-alternativ eftersom batchen tar hand om det. 
 
 * Om du kör uppgifter i behållar avbildningar måste du ange behållar inställningar i [moln aktiviteten](/dotnet/api/microsoft.azure.batch.cloudtask) och [jobb hanterarens uppgift](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) . Men aktiviteten [Starta uppgift](/dotnet/api/microsoft.azure.batch.starttask), [jobb förberedelse](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask)och [jobb publicering](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) kräver inte behållar inställningar (det vill säga de kan köras i en behållar kontext eller direkt på noden).
 
@@ -239,21 +239,21 @@ Som med icke-containerns batch-uppgifter anger du en kommando rad för en behål
 
 Om behållar avbildningen för en batch-aktivitet har kon figurer ATS med ett [Start](https://docs.docker.com/engine/reference/builder/#exec-form-entrypoint-example) skript, kan du ange att kommando raden ska använda standard-EntryPoint eller åsidosätta den: 
 
-* Om du vill använda behållar avbildningens standard-startpunkt, ställer du in aktivitetens `""`kommando rad på den tomma strängen.
+* Om du vill använda behållar avbildningens standard-startpunkt, ställer du in aktivitetens kommando rad på den tomma sträng `""`.
 
-* Om du vill åsidosätta standard start punkten, eller om avbildningen inte har en start punkt, anger du en kommando rad som passar för `/app/myapp` behållaren `/bin/sh -c python myscript.py`, till exempel eller.
+* Om du vill åsidosätta standard-ENTRYPOINT, eller om avbildningen inte har en start punkt, anger du en kommando rad som är lämplig för behållaren, till exempel `/app/myapp` eller `/bin/sh -c python myscript.py`.
 
-Valfria [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) är ytterligare argument som du anger för `docker create` kommandot som batch använder för att skapa och köra behållaren. Om du till exempel vill ange en arbets katalog för behållaren ställer `--workdir <directory>` du in alternativet. Se [Docker Create](https://docs.docker.com/engine/reference/commandline/create/) -referens för ytterligare alternativ.
+Valfria [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) är ytterligare argument som du anger i `docker create` kommandot som batch använder för att skapa och köra behållaren. Om du till exempel vill ange en arbets katalog för behållaren anger du alternativet `--workdir <directory>`. Se [Docker Create](https://docs.docker.com/engine/reference/commandline/create/) -referens för ytterligare alternativ.
 
 ### <a name="container-task-working-directory"></a>Arbets katalog för container uppgift
 
-En batch container-aktivitet körs i en arbets katalog i den behållare som är mycket lik katalog batchen konfigurerar för en vanlig (icke container) aktivitet. Observera att den här arbets katalogen skiljer sig från [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) om den kon figurer ATS i avbildningen eller standard arbets katalogen för`C:\` behållaren (på en Windows- `/` behållare eller på en Linux-behållare). 
+En batch container-aktivitet körs i en arbets katalog i den behållare som är mycket lik katalog batchen konfigurerar för en vanlig (icke container) aktivitet. Observera att den här arbets katalogen skiljer sig från [WORKDIR](https://docs.docker.com/engine/reference/builder/#workdir) om den kon figurer ATS i avbildningen eller standard arbets katalogen för behållaren (`C:\` på en Windows-behållare eller `/` på en Linux-behållare). 
 
 För en batch container-aktivitet:
 
 * Alla kataloger rekursivt under `AZ_BATCH_NODE_ROOT_DIR` på noden värd (roten i Azure Batch kataloger) mappas till behållaren
 * Alla aktivitets miljö variabler mappas till behållaren
-* Aktivitets arbets katalogen `AZ_BATCH_TASK_WORKING_DIR` på noden anges på samma sätt som för en vanlig uppgift och mappas till behållaren. 
+* Aktivitets arbets katalogen `AZ_BATCH_TASK_WORKING_DIR` på noden anges på samma sätt som för en vanlig aktivitet och mappas till behållaren. 
 
 Med dessa mappningar kan du arbeta med behållar aktiviteter på ungefär samma sätt som icke-container aktiviteter. Du kan till exempel installera program med hjälp av programpaket, komma åt resursfiler från Azure Storage, använda aktivitets miljö inställningar och spara Uppgiftsutdata när behållaren stoppas.
 
@@ -265,11 +265,11 @@ Vid behov kan du justera inställningarna för container uppgiften baserat på a
 
 * Ange en absolut sökväg i aktivitetens kommando rad. Om avbildningens standard-ENTRYPOINT används för aktivitetens kommando rad, se till att en absolut sökväg är inställd.
 
-* I aktivitetens körnings alternativ för behållare ändrar du arbets katalogen så att den matchar WORKDIR i avbildningen. Ange `--workdir /app`till exempel.
+* I aktivitetens körnings alternativ för behållare ändrar du arbets katalogen så att den matchar WORKDIR i avbildningen. Ange till exempel `--workdir /app`.
 
 ## <a name="container-task-examples"></a>Exempel på container aktiviteter
 
-Följande python-kodfragment visar en grundläggande kommando rad som körs i en behållare som skapats från en fiktiv avbildning som hämtas från Docker Hub. Här tar `--workdir` alternativet containerbortbehållarennäraktivitetenharslutförtsochalternativetanger`--rm` en arbets katalog. Kommando raden åsidosätter containerns ENTRYPOINT med ett enkelt Shell-kommando som skriver en liten fil till arbets katalogen för aktiviteten på värden. 
+Följande python-kodfragment visar en grundläggande kommando rad som körs i en behållare som skapats från en fiktiv avbildning som hämtas från Docker Hub. Här tar alternativet `--rm` container bort behållaren när aktiviteten har slutförts och alternativet `--workdir` anger en arbets katalog. Kommando raden åsidosätter containerns ENTRYPOINT med ett enkelt Shell-kommando som skriver en liten fil till arbets katalogen för aktiviteten på värden. 
 
 ```python
 task_id = 'sampletask'

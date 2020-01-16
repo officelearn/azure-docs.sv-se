@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b9a5e388ce6749023cff223de2376d1360ca7574
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895683"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973480"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -224,7 +224,7 @@ Du kan hantera virtuella Nätverksregler för lagringskonton via Azure-portalen,
 
     > [!TIP]
     > Om du vill lägga till en regel för ett undernät i ett virtuellt nätverk som tillhör en annan Azure AD-klient använder du ett fullständigt kvalificerat undernät-ID i formatet "/Subscriptions/\<Subscription-ID\>/resourceGroups/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-Name\>/subnets/\<Subnet-Name\>".
-    > 
+    >
     > Du kan använda parametern **Subscription** för att hämta Undernäts-ID: t för ett VNet som tillhör en annan Azure AD-klient.
 
 1. Ta bort en regel för ett virtuellt nätverk och undernät.
@@ -391,7 +391,7 @@ Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att 
 | Azure Container Registry Tasks | Microsoft. ContainerRegistry/register | ACR-aktiviteter kan komma åt lagrings konton när du skapar behållar avbildningar. |
 | Azure Data Factory             | Microsoft. DataFactory/fabriker        | Ger åtkomst till lagrings konton via ADF-körningen. |
 | Azure Logic Apps               | Microsoft.Logic/workflows              | Gör att Logic Apps kan komma åt lagrings konton. [Läs mer](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning | Microsoft.MachineLearningServices      | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Machine Learning | Microsoft.MachineLearningServices      | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). |
 | Azure SQL Data Warehouse       | Microsoft.Sql                          | Tillåter import och export av data från vissa SQL Database instanser med PolyBase. [Läs mer](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
 | Azure Stream Analytics         | Microsoft.StreamAnalytics             | Tillåter att data från ett strömmande jobb skrivs till Blob Storage. Den här funktionen är för närvarande en förhandsversion. [Läs mer](/azure/stream-analytics/blob-output-managed-identity). |
 | Azure Synapse Analytics        | Microsoft. Synapse/arbets ytor          | Ger åtkomst till data i Azure Storage från Synapse Analytics. |
@@ -471,4 +471,4 @@ Du kan hantera undantag nätverk via Azure-portalen, PowerShell eller Azure CLI 
 
 Läs mer om Azure Network-tjänstslutpunkter i [tjänstslutpunkter](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
-Fördjupa dig i Azure Storage-säkerhet i [säkerhetsguiden för Azure Storage](storage-security-guide.md).
+Fördjupa dig i Azure Storage-säkerhet i [säkerhetsguiden för Azure Storage](../blobs/security-recommendations.md).

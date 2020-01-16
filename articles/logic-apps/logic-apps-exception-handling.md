@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: a5cfb79626370ab9f8493038ac1583993a154b59
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912029"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965941"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -249,7 +249,7 @@ Du kan anpassa åtgärdens "kör efter"-beteende så att åtgärden körs när f
 
 ## <a name="evaluate-actions-with-scopes-and-their-results"></a>Utvärdera åtgärder med omfattningar och deras resultat
 
-Precis som när du kör steg efter enskilda åtgärder med egenskapen `runAfter` kan du gruppera åtgärder tillsammans i ett [omfång](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Du kan använda omfattningar när du vill gruppera åtgärder logiskt, utvärdera Omfattningens sammanställda status och utföra åtgärder baserat på denna status. När alla åtgärder i en omfattning har slutförts, får själva omfattningen sin egen status. 
+Precis som när du kör steg efter enskilda åtgärder med egenskapen `runAfter` kan du gruppera åtgärder tillsammans i ett [omfång](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md). Du kan använda omfattningar när du vill gruppera åtgärder logiskt, utvärdera Omfattningens sammanställda status och utföra åtgärder baserat på denna status. När alla åtgärder i en omfattning har slutförts, får själva omfattningen sin egen status.
 
 Om du vill kontrol lera Omfattningens status kan du använda samma villkor som du använder för att kontrol lera appens körnings status, till exempel `Succeeded`, `Failed`och så vidare.
 
@@ -267,7 +267,7 @@ Begränsningar för omfång finns i [gränser och konfiguration](../logic-apps/l
 
 Funktionen [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) ger kontext för resultatet från alla åtgärder i ett omfång. Funktionen `result()` accepterar en enda parameter, som är omfångets namn och returnerar en matris som innehåller alla åtgärds resultat inom det omfånget. Dessa åtgärds objekt innehåller samma attribut som `actions()`-objektet, till exempel start tid, slut tid, status, indata, korrelations-ID och utdata. Om du vill skicka kontext för åtgärder som misslyckats inom ett omfång kan du enkelt para ihop ett `@result()` uttryck med egenskapen `runAfter`.
 
-För att köra en åtgärd för varje åtgärd i ett omfång som har ett `Failed` resultat och för att filtrera matrisen med resultat ned till de misslyckade åtgärderna, kan du koppla ett `@result()`-uttryck med en [**filter mat ris**](../connectors/connectors-native-query.md) åtgärd och en [**for each**](../logic-apps/logic-apps-control-flow-loops.md) -slinga. Du kan ta den filtrerade resultat mat ris och utföra en åtgärd för varje haveri med hjälp av `For_each` loopen.
+För att köra en åtgärd för varje åtgärd i ett omfång som har ett `Failed` resultat och för att filtrera matrisen med resultat ned till de misslyckade åtgärderna, kan du koppla ett `@result()`-uttryck med en [**filter mat ris**](logic-apps-perform-data-operations.md#filter-array-action) åtgärd och en [**for each**](../logic-apps/logic-apps-control-flow-loops.md) -slinga. Du kan ta den filtrerade resultat mat ris och utföra en åtgärd för varje haveri med hjälp av `For_each` loopen.
 
 Här är ett exempel, följt av en detaljerad förklaring, som skickar en HTTP POST-begäran med svars texten för åtgärder som misslyckats inom omfånget "My_Scope":
 

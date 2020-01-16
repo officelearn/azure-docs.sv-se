@@ -2,20 +2,20 @@
 title: Kostnads analys och budget Azure Batch
 description: Lär dig hur du får en kostnads analys och hur du ställer in en budget för batch-arbetsbelastningen.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 07/19/2019
-ms.author: lahugh
-ms.openlocfilehash: 6ccf530fe2164b3d9b1936648ffe9057c334efd6
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: jushiman
+ms.openlocfilehash: 7707d966049e9eced1add1104441af8fee356ef0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70094207"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029564"
 ---
 # <a name="cost-analysis-and-budgets-for-azure-batch"></a>Kostnads analys och budgetar för Azure Batch
 
@@ -23,7 +23,7 @@ Det kostar inget att Azure Batch sig själv, bara de underliggande beräknings r
 
 ## <a name="batch-resources"></a>Batch-resurser
 
-Virtuella datorer är den viktigaste resursen som används för batchbearbetning. Kostnaden för att använda virtuella datorer för batch beräknas utifrån typ, kvantitet och användnings tid. Fakturerings alternativ för virtuella datorer omfattar [betala per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning eller [reservation](../billing/billing-save-compute-costs-reservations.md) (betala i förväg). Båda betalnings alternativen har olika fördelar beroende på din beräknings belastning och båda betalnings modellerna kommer att påverka din faktura på ett annat sätt.
+Virtuella datorer är den viktigaste resursen som används för batchbearbetning. Kostnaden för att använda virtuella datorer för batch beräknas utifrån typ, kvantitet och användnings tid. Fakturerings alternativ för virtuella datorer omfattar [betala per](https://azure.microsoft.com/offers/ms-azr-0003p/) användning eller [reservation](../cost-management-billing/reservations/save-compute-costs-reservations.md) (betala i förväg). Båda betalnings alternativen har olika fördelar beroende på din beräknings belastning och båda betalnings modellerna kommer att påverka din faktura på ett annat sätt.
 
 När program distribueras till batch-noder (VM: ar) med hjälp av [programpaket](batch-application-packages.md)debiteras du för de Azure Storage-resurser som dina program paket använder. Du debiteras också för lagring av indata-eller utdatafiler, till exempel resursfiler och andra loggdata. I allmänhet är kostnaden för lagrings data som är kopplade till batch mycket lägre än kostnaden för beräknings resurser. Varje virtuell dator i en pool som skapats med **VirtualMachineConfiguration** har en tillhör ande OS-disk som använder Azure-hanterade diskar. Azure-hanterade diskar har ytterligare kostnader och andra disk prestanda nivåer har också olika kostnader.
 
@@ -50,15 +50,15 @@ Du kan skapa budgetar och utgifts aviseringar för dina batch-pooler eller batch
 1. I Azure Portal väljer du **Cost Management + fakturering** i det vänstra navigerings fältet.
 1. Välj din prenumeration i avsnittet **Mina prenumerationer**
 1. Gå till **kostnads analys** under **Cost Management** avsnittet i det vänstra navigerings fältet, som visar en vy så här:
-1. Välj **Lägg till filter**. I den första List rutan väljer du **resurs** ![Select resurs filtret ](./media/batch-budget/resource-filter.png)
+1. Välj **Lägg till filter**. I den första List rutan väljer du **resurs** ![väljer resurs filtret](./media/batch-budget/resource-filter.png)
 1. I den andra List rutan väljer du batch-poolen. När du väljer poolen kommer kostnads analysen att se ut ungefär som i följande analys.
-    ![Cost analys av en pool ](./media/batch-budget/pool-cost-analysis.png)
+    ![kostnads analys av en pool](./media/batch-budget/pool-cost-analysis.png)
 
 Den resulterande kostnads analysen visar kostnaden för poolen och de resurser som bidrar till den här kostnaden. I det här exemplet är de virtuella datorer som används i poolen den mest dyra resursen.
 
 Om du vill skapa en budget för poolen väljer du **Budget: ingen**och väljer sedan **skapa ny budget >** . Använd nu fönstret för att konfigurera en budget som är specifik för din pool.
 
-Mer information om hur du konfigurerar en budget finns i [skapa och hantera Azure-budgetar](../cost-management/tutorial-acm-create-budgets.md).
+Mer information om hur du konfigurerar en budget finns i [skapa och hantera Azure-budgetar](../cost-management-billing/costs/tutorial-acm-create-budgets.md).
 
 > [!NOTE]
 > Azure Batch bygger på Azure Cloud Services-och Azure Virtual Machines-teknik. När du väljer **Cloud Services konfiguration**debiteras du baserat på Cloud Services prissättnings struktur. När du väljer **konfiguration för virtuell dator**debiteras du baserat på Virtual Machines pris strukturen. Exemplet på den här sidan använder konfigurationen för den **virtuella datorn**.
@@ -81,7 +81,7 @@ Premium SSD OS-diskar är dyrare, men har högre prestanda och virtuella datorer
 
 ### <a name="reserved-virtual-machine-instances"></a>Reserverade instanser av virtuella datorer
 
-Om du avser att använda batch under en lång tids period kan du spara pengar på virtuella datorer genom att använda [Azure reservations](../billing/billing-save-compute-costs-reservations.md) för dina arbets belastningar. En reservations taxa är betydligt lägre än en taxa enligt principen betala per användning. Virtuella dator instanser som används utan reservationer debiteras enligt priset betala per användning. Om du köper en reservation tillämpas reservations rabatten och du debiteras inte längre enligt priserna för betala per användning.
+Om du avser att använda batch under en lång tids period kan du spara pengar på virtuella datorer genom att använda [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) för dina arbets belastningar. En reservations taxa är betydligt lägre än en taxa enligt principen betala per användning. Virtuella dator instanser som används utan reservationer debiteras enligt priset betala per användning. Om du köper en reservation tillämpas reservations rabatten och du debiteras inte längre enligt priserna för betala per användning.
 
 ### <a name="automatic-scaling"></a>Automatisk skalning
 

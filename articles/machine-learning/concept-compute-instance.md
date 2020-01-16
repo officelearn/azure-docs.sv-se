@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 02655a3697139ae3a9c4c36b423b874b6e5d34f9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541873"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974095"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning beräknings instans?
 
@@ -54,7 +54,7 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 |Intel MPI-bibliotek||
 |Azure CLI ||
 |Azure Machine Learning exempel ||
-|Azure Machine Learning EDAT-motor ||            
+|Azure Machine Learning EDAT-motor ||
 |Docker||
 |Nginx||
 |NCCL 2,0 ||
@@ -76,11 +76,26 @@ De här verktygen och miljöerna är installerade på beräknings instansen:
 |Andra PyPI-paket|`jupytext`</br>`jupyterlab-git`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Conda-paket|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Djup inlärnings paket|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
-|ONNX-paket|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|                           
+|ONNX-paket|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Azure Machine Learning python & R SDK-exempel||
+
+Python-paketen installeras i **python 3,6-azureml-** miljön.  
 
 Beräknings instanser används vanligt vis som utvecklings miljöer.  De kan också användas som beräknings mål för utbildning och inferencing för utveckling och testning.  För stora aktiviteter är ett [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.
 
+### <a name="installing-packages"></a>Installera paket
+
+Du kan installera paket direkt i en Jupyter Notebook eller RStudio:
+
+* RStudio Använd fliken **paket** längst ned till höger eller fliken **konsol** längst upp till vänster.  
+* Python: Lägg till installations kod och kör i en Jupyter Notebook-cell.
+
+Eller så kan du komma åt ett terminalfönster på något av följande sätt:
+
+* RStudio: Välj fliken **Terminal** längst upp till vänster.
+* Jupyter Lab: Välj panelen **Terminal** under den **andra** rubriken på fliken Start.
+* Jupyter: Välj **ny > Terminal** överst till höger på fliken filer.
+* SSH till datorn.  Installera sedan python-paket i **Python 3,6-azureml-** miljön.  Installera R-paket i **R** -miljön.
 
 ## <a name="accessing-files"></a>Komma åt filer
 

@@ -2,18 +2,18 @@
 title: Etablera en anpassad pool från en hanterad avbildning – Azure Batch | Microsoft Docs
 description: Skapa en batch-pool från en hanterad avbildnings resurs för att etablera Compute-noder med program vara och data för ditt program.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: lahugh
-ms.openlocfilehash: 82a5f79ca7b7a16cd8f7294ebd1f70816b40ad82
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: 3c7aafb5cfdd2e0127aa9969b904976cb93db614
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "73519230"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029762"
 ---
 # <a name="use-a-managed-image-to-create-a-pool-of-virtual-machines"></a>Använd en hanterad avbildning för att skapa en pool med virtuella datorer
 
@@ -22,7 +22,7 @@ Om du vill skapa en anpassad avbildning för batch-poolens virtuella datorer kan
 > [!TIP]
 > I de flesta fall bör du skapa anpassade avbildningar med hjälp av den delade avbildnings galleriet. Genom att använda det delade avbildnings galleriet kan du etablera pooler snabbare, skala större kvantiteter av virtuella datorer och förbättra tillförlitligheten vid etablering av virtuella datorer. Mer information finns i [använda galleriet för delade avbildningar för att skapa en anpassad pool](batch-sig-images.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - **En hanterad avbildnings resurs**. Om du vill skapa en pool med virtuella datorer med en anpassad avbildning måste du ha eller skapa en hanterad avbildnings resurs i samma Azure-prenumeration och region som batch-kontot. Avbildningen bör skapas från ögonblicks bilder av den virtuella datorns OS-disk och eventuellt anslutna data diskar. Mer information och steg för att förbereda en hanterad avbildning finns i följande avsnitt.
   - Använd en unik anpassad avbildning för varje pool som du skapar.

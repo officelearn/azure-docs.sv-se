@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: e4cab8963e3083d265d0254c81b78fbabb84a269
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3bb7a62433993f1af26b1ce8bcb4ed258c34623c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091527"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973138"
 ---
 # <a name="prepay-for-azure-software-plans"></a>Förskottsbetala för programvaruplaner för Azure
 
@@ -23,7 +23,7 @@ När du förskottsbetaler för din program varu användning med SUSE och RedHat 
 Du kan köpa SUSE och RedHat Software-planer i Azure Portal. Så här köper du en plan:
 
 - Du måste ha ägar rollen för minst ett företag eller en enskild prenumeration med priset betala per användning.
-- För företags prenumerationer måste alternativet **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om inställningen är inaktive rad måste du vara en EA-administratör för prenumerationen.
+- För Enterprise-prenumerationer måste alternativet **Lägg till reserverade instanser** vara aktiverat i [EA-portalen](https://ea.azure.com/). Om inställningen är inaktive rad måste du vara en EA-administratör för prenumerationen.
 - För ett CSP-program (Cloud Solution Provider) kan administratörs agenter eller försäljnings agenter köpa program varu planerna.
 
 ## <a name="buy-a-software-plan"></a>Köp en program varu plan
@@ -47,7 +47,7 @@ Reservations rabatten tillämpas automatiskt på den program varu mätare som du
 
 ## <a name="discount-applies-to-different-suse-vm-sizes"></a>Rabatten gäller för olika virtuella SUSE VM-storlekar
 
-Som reserverade VM-instanser erbjuder SUSE Linux-planer flexibilitet för instans storlek. Rabatten gäller även när du distribuerar en virtuell dator som är en annan storlek än den SUSE-plan som du köpte. Mer information finns i [förstå hur rabatten för program planen tillämpas](../../billing/billing-understand-suse-reservation-charges.md).
+Som reserverade VM-instanser erbjuder SUSE Linux-planer flexibilitet för instans storlek. Rabatten gäller även när du distribuerar en virtuell dator som är en annan storlek än den SUSE-plan som du köpte. Mer information finns i [förstå hur rabatten för program planen tillämpas](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="redhat-plan-discount"></a>RedHat plan rabatt
 
@@ -58,20 +58,20 @@ RedHat plan rabatter gäller endast för den VM-storlek som du väljer vid tidpu
 
 ## <a name="cancellation-and-exchanges-not-allowed"></a>Annullering och byten tillåts inte
 
-Du kan inte avbryta eller byta ut en SUSE eller RedHat-plan som du har köpt. Kontrollera din användning för att försäkra dig om att du köper rätt plan. Information om hur du identifierar vad som ska köpas finns i [förstå hur rabatten för program planen tillämpas](../../billing/billing-understand-suse-reservation-charges.md).
+Du kan inte avbryta eller byta ut en SUSE eller RedHat-plan som du har köpt. Kontrollera din användning för att försäkra dig om att du köper rätt plan. Information om hur du identifierar vad som ska köpas finns i [förstå hur rabatten för program planen tillämpas](../../cost-management-billing/reservations/understand-suse-reservation-charges.md).
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 
-Om du har frågor eller behöver hjälp, [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](../../billing/billing-manage-reserved-vm-instance.md).
+Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](../../cost-management-billing/reservations/manage-reserved-vm-instance.md).
 
 Mer information finns i följande artiklar:
 
-- [Vad är Azure Reservations?](../../billing/billing-save-compute-costs-reservations.md)
-- [Hantera reservationer i Azure](../../billing/billing-manage-reserved-vm-instance.md)
-- [Förstå hur boknings rabatten för SUSE används](../../billing/billing-understand-suse-reservation-charges.md)
-- [Förstå reservations användningen för din prenumeration enligt principen betala per användning](../../billing/billing-understand-reserved-instance-usage.md)
-- [Förstå reservations användningen för företags registreringen](../../billing/billing-understand-reserved-instance-usage-ea.md)
+- [Vad är Azure-reservationer?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
+- [Hantera reservationer i Azure](../../cost-management-billing/reservations/manage-reserved-vm-instance.md)
+- [Förstå hur boknings rabatten för SUSE används](../../cost-management-billing/reservations/understand-suse-reservation-charges.md)
+- [Förstå reservationsanvändning för din Betala per användning-prenumeration](../../cost-management-billing/reservations/understand-reserved-instance-usage.md)
+- [Förstå reservationsanvändning för din Enterprise-registrering](../../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md)

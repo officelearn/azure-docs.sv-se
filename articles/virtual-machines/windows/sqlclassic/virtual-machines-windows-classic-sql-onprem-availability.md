@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4521c2c112c93e83144cfc84d600208817b2ccac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173548"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978053"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka alla lokala tillgänglighets grupper till Azure
 Always on-tillgänglighetsgrupper ger hög tillgänglighet för databas grupper genom att lägga till sekundära repliker. Dessa repliker tillåter att databaser Miss lyckas om det skulle uppstå ett problem. Dessutom kan de användas för att avlasta Läs arbets belastningar eller säkerhets kopierings aktiviteter.
@@ -33,7 +33,7 @@ Den här självstudien förutsätter att du har följande:
 * Anslutning mellan det lokala nätverket och det virtuella Azure-nätverket. Mer information om hur du skapar det här virtuella nätverket finns i [skapa en plats-till-plats-anslutning med hjälp av Azure Portal (klassisk)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 ## <a name="add-azure-replica-wizard"></a>Guiden Lägg till Azure-replik
 I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-replik** för att utöka din lösning för tillgänglighets grupp för alltid till att inkludera Azure-repliker.
@@ -41,7 +41,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
 > [!IMPORTANT]
 > **Guiden Lägg till Azure-replik** stöder bara virtuella datorer som skapats med den klassiska distributions modellen. Nya distributioner av virtuella datorer bör använda den nyare Resource Manager-modellen. Om du använder virtuella datorer med Resource Manager måste du manuellt lägga till den sekundära Azure-repliken med hjälp av Transact-SQL-kommandon (visas inte här). Den här guiden fungerar inte i Resource Manager-scenariot.
 
-1. Från SQL Server Management Studio, expandera **Always on hög tillgänglighet** > **tillgänglighets grupper** >  **[namnet på din tillgänglighets grupp]** .
+1. Från SQL Server Management Studio, expandera Always on > **tillgänglighets grupper** **med hög tillgänglighet** >  **[namn på din tillgänglighets grupp]** .
 2. Högerklicka på **tillgänglighets repliker**och klicka sedan på **Lägg till replik**.
 3. **Guiden Lägg till replik i tillgänglighets grupp** visas som standard. Klicka på **Next**.  Om du har valt alternativet **Visa inte den här sidan igen** längst ned på sidan under en tidigare lansering av guiden visas inte den här skärmen.
    
@@ -65,7 +65,7 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
    | **Bekräfta lösen ord** |Bekräfta lösen ordet för det nya kontot |
    | **Virtual Network** |Ange det virtuella Azure-nätverket som den nya virtuella datorn ska använda. Mer information om virtuella nätverk finns i [Virtual Network översikt](../../../virtual-network/virtual-networks-overview.md). |
    | **Virtual Network undernät** |Ange det undernät för virtuellt nätverk som den nya virtuella datorn ska använda |
-   | **Domänsuffix** |Bekräfta att det förifyllda värdet för domänen är korrekt |
+   | **Domän** |Bekräfta att det förifyllda värdet för domänen är korrekt |
    | **Domän användar namn** |Ange ett konto som finns i den lokala administratörs gruppen på de lokala klusternoderna |
    | **Lösenord** |Ange lösen ordet för domän användar namnet |
 8. Verifiera distributions inställningarna genom att klicka på **OK** .

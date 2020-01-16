@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: c4902ff5194c1648a8353b2a21ea559d15d574b3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b60b036954691bdea12dfff559ceee86f179d44d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861854"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75973211"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
@@ -33,8 +33,8 @@ Time Series Insights stöder följande resurser:
 
 En Resource Manager-mall är en JSON-fil som definierar infrastrukturen och konfigurationen av resurser i en resurs grupp. I följande dokument beskrivs mallfiler i större detalj:
 
-- [Distribution av Azure Resource Manager-mall](../azure-resource-manager/template-deployment-overview.md)
-- [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
+- [Distribution av Azure Resource Manager-mall](../azure-resource-manager/templates/overview.md)
+- [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md)
 - [Resurs typer för Microsoft. TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 Snabb starts mal len [201-timeseriesinsights-Environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) publiceras på GitHub. Den här mallen skapar en Time Series Insights miljö, en underordnad händelse källa som har kon figurer ATS för att använda händelser från en Händelsehubben och åtkomst principer som beviljar åtkomst till miljöns data. Om ingen befintlig Händelsehubben anges skapas en med distributionen.
@@ -118,7 +118,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
          }
      }
      ```
-  
+
     * Mer information finns i artikeln om [parametrar](../azure-resource-manager/templates/parameter-files.md) .
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuera snabb starts mal len lokalt med PowerShell
@@ -174,12 +174,12 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa distributionen
 
-    * Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas till det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/deployment-modes.md).
+    * Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas till det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/templates/deployment-modes.md).
 
     * Följande kommando efterfrågar de fem obligatoriska parametrarna i PowerShell-fönstret:
 
       ```powershell
-      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+      New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
       ```
 
     * Använd följande kommando för att ange en parameter fil i stället:
@@ -194,7 +194,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Om du vill köra en [fullständig](../azure-resource-manager/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
+    * Om du vill köra en [fullständig](../azure-resource-manager/templates/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

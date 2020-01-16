@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f60d9714db71325bd9c67cae6e2f82d54f8e5eb3
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753924"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76027777"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -182,8 +182,6 @@ På den server som visas som "visas offline" i portalen tittar du på händelse-
     ```powershell
     Reset-AzStorageSyncServerCertificate -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
-
-
 <a id="endpoint-noactivity-sync"></a>**Server slut punkten har hälso statusen "ingen aktivitet" och Server tillståndet på det registrerade Server bladet är "online"**  
 
 En server slut punkts hälso status för "ingen aktivitet" innebär att Server slut punkten inte har loggat synkronisera aktivitet under de senaste två timmarna.
@@ -393,6 +391,22 @@ Det här felet beror på att Azure File Sync-agenten inte kommer åt Azure-filre
 3. [Se till att Azure File Sync har åtkomst till lagrings kontot.](#troubleshoot-rbac)
 4. [Kontrollera att lagringskontots brandvägg och virtuella nätverk har rätt inställningar (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
 
+<a id="-2134351804"></a>**Det gick inte att synkronisera eftersom begäran inte har behörighet att utföra den här åtgärden.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c86044 |
+| **HRESULT (decimal)** | – 2134351804 |
+| **Fel sträng** | ECS_E_AZURE_AUTHORIZATION_FAILED |
+| **Reparation krävs** | Ja |
+
+Felet beror på att Azure File Sync agent inte har behörighet att komma åt Azure-filresursen. Du kan felsöka det här felet genom att utföra följande steg:
+
+1. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
+2. [Se till att Azure-filresursen finns.](#troubleshoot-azure-file-share)
+3. [Kontrollera att lagringskontots brandvägg och virtuella nätverk har rätt inställningar (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+4. [Se till att Azure File Sync har åtkomst till lagrings kontot.](#troubleshoot-rbac)
+
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**Det gick inte att matcha det lagrings konto namn som används.**  
 
 | | |
@@ -495,7 +509,7 @@ Om Azure-filresursen har tagits bort måste du skapa en ny fil resurs och sedan 
 | **Fel sträng** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
 | **Reparation krävs** | Ja |
 
-Det här felet uppstår vid uppehåll i Azure-prenumerationen. Synkroniseringen aktiveras igen när Azure-prenumerationen återställs. Se [Varför är min Azure-prenumeration inaktive rad och hur återaktiverar jag den?](../../billing/billing-subscription-become-disable.md) för mer information.
+Det här felet uppstår vid uppehåll i Azure-prenumerationen. Synkroniseringen aktiveras igen när Azure-prenumerationen återställs. Se [Varför är min Azure-prenumeration inaktive rad och hur återaktiverar jag den?](../../cost-management-billing/manage/subscription-disabled.md) för mer information.
 
 <a id="-2134364052"></a>**Lagrings kontot har en brand vägg eller virtuella nätverk som har kon figurer ATS.**  
 

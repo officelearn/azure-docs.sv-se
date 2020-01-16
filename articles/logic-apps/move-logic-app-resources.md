@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 2d09484fcb5211003aeec0ec10bfc9892b4e6f31
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456537"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965896"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>Flytta logiska app-resurser till andra Azure-prenumerationer, resurs grupper eller regioner
 
@@ -33,7 +33,7 @@ Om du vill flytta din Logic app eller relaterade resurser till en annan Azure-pr
 
 ## <a name="move-resources-between-subscriptions"></a>Flytta resurser mellan prenumerationer
 
-Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-prenumeration kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-prenumeration kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 1. I [Azure Portal](https://portal.azure.com)letar du reda på och väljer den logiska app-resurs som du vill flytta.
 
@@ -51,7 +51,7 @@ Om du vill flytta en resurs, till exempel en Logic app eller ett integrations ko
 
 ## <a name="move-resources-between-resource-groups"></a>Flytta resurser mellan resurs grupper
 
-Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-resurs grupp kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/resource-group-move-resources.md).
+Om du vill flytta en resurs, till exempel en Logic app eller ett integrations konto, till en annan Azure-resurs grupp kan du använda Azure Portal, Azure PowerShell, Azure CLI eller REST API. Dessa steg beskriver Azure Portal som du kan använda när resursens region förblir densamma. Andra steg och allmän förberedelse finns i [Flytta resurser till en ny resurs grupp eller prenumeration](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Innan du faktiskt flyttar resurser mellan grupper kan du testa om du kan flytta resursen till en annan grupp. Mer information finns i [Verifiera din flytt](../azure-resource-manager/management/move-resource-group-and-subscription.md#validate-move).
 
@@ -106,4 +106,4 @@ Den mall som du hämtar från Visual Studio innehåller bara resurs definitioner
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Flytta Azure-resurser till nya resurs grupper eller prenumerationer](../azure-resource-manager/resource-group-move-resources.md)
+[Flytta Azure-resurser till nya resurs grupper eller prenumerationer](../azure-resource-manager/management/move-resource-group-and-subscription.md)

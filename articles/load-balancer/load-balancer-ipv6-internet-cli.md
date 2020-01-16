@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: f7c0eb9bd258d2efbdb4df78f2cf86861f77a975
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: bff6a7ca6eb1a6859ec25d488f564c66946a780b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076021"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045406"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Skapa en offentlig belastningsutjämnare med IPv6 med Azure CLI
 
->[! OBS! den här artikeln innehåller en introduktion till IPv6-funktionen för att tillåta grundläggande belastningsutjämnare för att ge både IPv4-och IPv6-anslutning.  Mer omfattande IPv6-anslutning är nu tillgängligt med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade bästa praxis för IPv6-program i Azure. 
->Se [IPv6 för Azure VNet CLI-distribution](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md)
+>[!NOTE] 
+>I den här artikeln beskrivs en inledande IPv6-funktion för att tillåta grundläggande belastningsutjämnare att tillhandahålla både IPv4-och IPv6-anslutning. En omfattande IPv6-anslutning är nu tillgänglig med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade standarden för IPv6-program i Azure. Se [IPv6 för Azure VNet PowerShell-distribution](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Belastningsutjämnare ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänsteinstanser i cloud services och virtuella datorer i en belastningsutjämningsuppsättning. Belastningsutjämnare kan även presentera dessa tjänster på flera portar eller flera IP-adresser eller båda.
 

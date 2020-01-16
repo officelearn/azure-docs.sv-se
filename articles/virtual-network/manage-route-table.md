@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/09/2018
 ms.author: kumud
-ms.openlocfilehash: c57a1f7a676e5766dc7c022ae44e08750cccaf8b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fe8ea4dfb4de45a1e09648ac51fe8d74f93a6b9e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750601"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979605"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Skapa, ändra eller ta bort en routningstabell
 
@@ -66,8 +66,8 @@ I rutan Sök högst upp i *portalen anger du routningstabeller i* sökrutan. Nä
 
     * [Aktivitetslogg](../azure-monitor/platform/platform-logs-overview.md)<br>
     * [Åtkomst kontroll (IAM)](../role-based-access-control/overview.md)<br>
-    * [Taggar](../azure-resource-manager/resource-group-using-tags.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
-    * [Hålls](../azure-resource-manager/resource-group-lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
+    * [Hålls](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)<br>
     * [Automation-skript](../azure-resource-manager/templates/export-template-portal.md)
 
 ### <a name="view-details-of-route-table---commands"></a>Visa information om routningstabellen – kommandon

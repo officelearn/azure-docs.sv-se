@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee331435cbc7d0cb580b3ad5865030aba6d372ea
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ec9956f0c5d834633646938da19f03e5467a9f6d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888489"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977843"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Självstudie: Använd en användardefinierad hanterad identitet på en virtuell Windows-dator för att få åtkomst till Azure Resource Manager
 
@@ -54,7 +54,16 @@ Lär dig att:
 - Kör `Install-Module -Name PowerShellGet -AllowPrerelease` för att hämta förhandsversionen av `PowerShellGet`-modulen (du kan behöva `Exit` ur den aktuella PowerShell-sessionen när du har kört det här kommandot för att installera `Az.ManagedServiceIdentity`-modulen).
 - Kör `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` för att installera förhandsversionen av `Az.ManagedServiceIdentity`-modulen för att utföra åtgärderna för användartilldelade identiteter i den här artikeln.
 
-## <a name="create-identity"></a>Skapa identitet
+
+## <a name="enable"></a>Aktivera
+
+För ett scenario som baseras på en användardefinierad identitet måste du utföra följande steg:
+
+- Skapa en identitet
+ 
+- Tilldela den nyligen skapade identiteten
+
+### <a name="create-identity"></a>Skapa identitet
 
 I det här avsnittet visas hur du skapar en användardefinierad identitet. En användartilldelad identitet skapas som en fristående Azure-resurs. Azure skapar med hjälp av [New-AzUserAssignedIdentity](/powershell/module/az.managedserviceidentity/get-azuserassignedidentity) en identitet i din Azure AD-klient som kan tilldelas till en eller flera Azure-tjänstinstanser.
 
@@ -80,7 +89,7 @@ Type: Microsoft.ManagedIdentity/userAssignedIdentities
 }
 ```
 
-## <a name="assign-identity"></a>Tilldela identitet
+### <a name="assign-identity"></a>Tilldela identitet
 
 I det här avsnittet visas hur du tilldelar den användarspecifika identiteten till en virtuell Windows-dator. En användartilldelad identitet kan användas av klienter på flera Azure-resurser. Använd följande kommandon för att tilldela den användartilldelade identiteten till en enskild virtuell dator. Använd egenskapen `Id` som returnerades i föregående steg för `-IdentityID`-parametern.
 
@@ -114,7 +123,9 @@ ObjectType: ServicePrincipal
 CanDelegate: False
 ```
 
-## <a name="get-an-access-token"></a>Hämta en åtkomsttoken 
+## <a name="access-data"></a>Åtkomst till data
+
+### <a name="get-an-access-token"></a>Hämta en åtkomsttoken 
 
 Under resten av självstudiekursen arbetar du från den virtuella datorn som vi skapade tidigare.
 
@@ -134,7 +145,7 @@ Under resten av självstudiekursen arbetar du från den virtuella datorn som vi 
     $ArmToken = $content.access_token
     ```
 
-## <a name="read-properties"></a>Läsa egenskaper
+### <a name="read-properties"></a>Läsa egenskaper
 
 Använd den åtkomsttoken som du hämtade i föregående steg för att komma åt Azure Resource Manager, och läs egenskaperna för den resursgrupp som du gav den användartilldelade identiteten åtkomst till. Ersätt `<SUBSCRIPTION ID>` med prenumerations-id:t för din miljö.
 

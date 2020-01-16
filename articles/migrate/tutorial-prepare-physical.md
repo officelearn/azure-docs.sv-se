@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: f81f47349610cd72489df305ccf544c8346cb9b3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196389"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028670"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Förbereda för utvärdering och migrering av fysiska servrar till Azure
 
@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du förbereder för utvärdering av lokala fysis
 
 [Azure Migrate](migrate-overview.md) innehåller en hubb med verktyg som hjälper dig att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. Hubben omfattar Azure Migrate-verktyg och oberoende program varu leverantörer från tredje part (ISV). 
 
-Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här guiden får du lära dig att:
+Den här självstudien är den första i en serie som visar hur du bedömer fysiska servrar med Azure Migrate. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förbered Azure. Konfigurera behörigheter för ditt Azure-konto och resurser för att arbeta med Azure Migrate.
@@ -95,18 +95,18 @@ För att förbereda för fysisk server-utvärdering måste du kontrol lera inst�
 
 ### <a name="verify-physical-server-settings"></a>Verifiera fysiska Server inställningar
 
-1. Kontrol lera [krav för fysisk server](migrate-support-matrix-physical.md#assessment-physical-server-requirements) för Server bedömning.
-2. Se till att de [nödvändiga portarna](migrate-support-matrix-physical.md#assessment-port-requirements) är öppna på fysiska servrar.
+1. Kontrol lera [krav för fysisk server](migrate-support-matrix-physical.md#physical-server-requirements) för Server bedömning.
+2. Se till att de [nödvändiga portarna](migrate-support-matrix-physical.md#port-access) är öppna på fysiska servrar.
 
 
 ### <a name="verify-appliance-settings"></a>Verifiera inställningar för enheten
 
 Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen i nästa självstudie förbereder du installationen av enheten.
 
-1. [Kontrol lera](migrate-support-matrix-physical.md#assessment-appliance-requirements) krav för produkten.
-2. [Granska](migrate-support-matrix-physical.md#assessment-appliance-url-access) de Azure-URL: er som krävs för att komma åt installations programmet.
-3. Granska de data som installeras av enheten under identifiering och utvärdering.
-4. [Antecknings](migrate-support-matrix-physical.md#assessment-port-requirements) portens åtkomst krav för produkten.
+1. [Kontrol lera](migrate-appliance.md#appliance---physical) installations kraven för fysiska servrar.
+2. [Granska](migrate-appliance.md#url-access) de Azure-URL: er som krävs för att komma åt installations programmet.
+3. [Granska](migrate-appliance.md#collected-data---vmware) att installationen kommer att samlas in under identifiering och utvärdering.
+4. Den fysiska server utvärderingen för [antecknings](migrate-support-matrix-physical.md#port-access) port åtkomst krav.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>Konfigurera ett konto för identifiering av fysiska servrar
@@ -115,6 +115,15 @@ Azure Migrate behöver behörighet att identifiera lokala servrar.
 
 - **Windows:** Konfigurera ett lokalt användar konto på alla Windows-servrar som du vill ska ingå i identifieringen. Användar kontot måste läggas till i följande grupper:-fjärrhantering användare-prestanda övervakare användare-prestanda loggar användare
 - **Linux:** Du behöver ett rot konto på de Linux-servrar som du vill identifiera.
+
+## <a name="prepare-for-physical-server-migration"></a>Förbered för migrering av fysiska servrar
+
+Granska kraven för migrering av fysiska servrar.
+
+- [Granska](migrate-support-matrix-physical-migration.md#physical-server-requirements) krav för fysisk server för migrering.
+- Azure Migrate: Server migrering använder en replikeringsfil för fysisk server-migrering:
+    - [Granska](migrate-replication-appliance.md#appliance-requirements) distributions kraven för replikeringstjänsten och [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
+    - Granska [URL: en](migrate-replication-appliance.md#url-access) och [port] (Migrate-Replication-installation. MD # port-Access) åtkomst krav för replikerings enheten.
 
 
 ## <a name="next-steps"></a>Nästa steg

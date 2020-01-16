@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 38717ae103ac72d35042ced9bf662d295ed8a29b
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75931807"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979700"
 ---
 # <a name="payout-reporting"></a>Utbetalnings rapportering
 
@@ -52,7 +52,7 @@ Om du säljer erbjudanden i Azure Marketplace ser du också information om lycka
 | Transaktionen är inte klar för utbetalning | Fakturering pågår | Nästa beräknade betalning: status för utbetalning är i tillståndet Unprocessed.  |
 | Utbetalnings status |  | Obearbetade <br> Betalningen är berättigad till betalning. Den förblir i det här läget för en kylnings period som definieras i program guiden för stimulans programmet. <br> <br> Planer <br> Betalnings order-genererade interna granskningar innan betalningen bearbetas. <br> <br> Överföra <br> Betalningen har skickats till din bank. |
 
-## <a name="customer-types"></a>Kund typer 
+## <a name="customer-types"></a>Kund typer
 
 ### <a name="enterprise-agreement"></a>Enterprise-avtal
 
@@ -66,7 +66,7 @@ Kunder kan också betala med hjälp av ett kredit kort och en månads faktura. I
 
 Till exempel om kunden köper med ett kredit kort.
 
-## <a name="corelation-between-payout-and-usage"></a>Relation mellan utbetalning och användning 
+## <a name="corelation-between-payout-and-usage"></a>Relation mellan utbetalning och användning
 
 |Beskrivning    |    Datum  | Beställningar/användning  | Betalning |
 |----------|----------|-----------|-------------|
@@ -74,11 +74,11 @@ Till exempel om kunden köper med ett kredit kort.
 |Slut period (månad)   | 30 aug 2019 | | |
 |Fakturerings datum | 1 september 2019 | | |
 |Kund betalnings datum | 1 september 2019 | | |
-|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
+|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
 |Start för samlings period | 1 september 2019 | | |
 |Samlings period slut (maximalt 30 dagar) | 30 september 2019 | | |
-|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
-|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
+|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
+|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise Agreement (kvartals Visa/månads kunder)
 
@@ -93,37 +93,37 @@ Till exempel om kunden köper med ett kredit kort.
 |Samlings period slut (maximalt 90 dagar) | 15 Jan 2020 | | |
 |Kund betalnings datum | 30 december 2019 | | |
 |Beräkning av utbetalning | 15 Jan 2020 | | |
-|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
+|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
 
 ## <a name="transaction-history-download-export"></a>Hämta export av transaktions historik
 
-Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för stimulans programmet. 
+Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för stimulans programmet.
 
-| Kolumnnamn     | Beskrivning    | 
+| Kolumnnamn     | Beskrivning    |
 |-------------|-------------------------------|
 | earningId                      | Unikt ID för varje tilltjänande                                                                                                       |
-| participantId                  | Den primära identiteten för partnern enligt programmet                                                                            | 
-| participantIdType              | De flesta program-ID: n för stimulans program och näringsidkare om för Store-program och Azure Marketplace                                          | 
-| participantName                | Partnerns namn                                                                                                              | 
+| participantId                  | Den primära identiteten för partnern enligt programmet                                                                            |
+| participantIdType              | De flesta program-ID: n för stimulans program och näringsidkare om för Store-program och Azure Marketplace                                          |
+| participantName                | Partnerns namn                                                                                                              |
 | partnerCountryCode             | Partnerns plats/land                                                                                                  |
-| programName                    | Namn på incitament/Store-program                                                                                                             | 
-| transactionId                  | Unikt ID för transaktionen                                                                                                    | 
-| transactionCurrency            | Valutan i vilken den ursprungliga kund transaktionen ägde rum (den är inte partner platsens valuta)                                     | 
-| transactionDate                | Datum för transaktionen. Användbart för program där många transaktioner bidrar till en                                           | 
-| transactionExchangeRate        | Växelkurs som används för att visa motsvarande transaktions USD-belopp                                                                 | 
-| transactionAmount              | Transaktions belopp i den ursprungliga transaktions valutan baserat på vilken du genererar                                              | 
-| transactionAmountUSD           | Transaktions belopp i USD                                                                                                                | 
-| handtag                          | Indikerar affärs regel för att tjäna                                                                                                  | 
-| earningRate                    | Incitaments grad som tillämpas på transaktions belopp för att generera en tjänande                                                                      | 
-| kvantitet                       | Varierar beroende på program. Anger Fakturerat antal för transaktions program                                                            | 
+| programName                    | Namn på incitament/Store-program                                                                                                             |
+| transactionId                  | Unikt ID för transaktionen                                                                                                    |
+| transactionCurrency            | Valutan i vilken den ursprungliga kund transaktionen ägde rum (den är inte partner platsens valuta)                                     |
+| transactionDate                | Datum för transaktionen. Användbart för program där många transaktioner bidrar till en                                           |
+| transactionExchangeRate        | Växelkurs som används för att visa motsvarande transaktions USD-belopp                                                                 |
+| transactionAmount              | Transaktions belopp i den ursprungliga transaktions valutan baserat på vilken du genererar                                              |
+| transactionAmountUSD           | Transaktions belopp i USD                                                                                                                |
+| handtag                          | Indikerar affärs regel för att tjäna                                                                                                  |
+| earningRate                    | Incitaments grad som tillämpas på transaktions belopp för att generera en tjänande                                                                      |
+| kvantitet                       | Varierar beroende på program. Anger Fakturerat antal för transaktions program                                                            |
 | quantityType                   | Anger typ av kvantitet, till exempel: fakturerad kvantitet, MAU                                                                                     |
-| earningType                    | Anger om det är avgift, rabatt, Coop, försäljning osv.                                                                                          | 
+| earningType                    | Anger om det är avgift, rabatt, Coop, försäljning osv.                                                                                          |
 | earningAmount                  | Tjänande belopp i den ursprungliga transaktions valutan                                                                                      |
 | earningAmountUSD               | Tjäna belopp i USD                                                                                                                    |
 | earningDate                    | Datum för den tjänande                                                                                                                      |
 | calculationDate                | Datum då intjänaren beräknades i systemet                                                                                            |
 | earningExchangeRate            | Växelkurs som används för att visa motsvarande USD-belopp                                                                                  |
-| exchangeRateDate               | Valutakurs datum som används för att beräkna EarningAmount USD                                                                                   | 
+| exchangeRateDate               | Valutakurs datum som används för att beräkna EarningAmount USD                                                                                   |
 | paymentAmountWOTax             | Uppskattat belopp (utan skatt) i betala till valuta för "skickade" endast betalningar                                                                 |
 | paymentCurrency                | Betala till den valuta som valts av partner i betalnings profilen. Visas endast för skickade betalningar                                                   |
 | paymentExchangeRate            | Växelkurs som används för att beräkna paymentAmountWOTax i betalnings valuta med ExchangeRateDate                                            |

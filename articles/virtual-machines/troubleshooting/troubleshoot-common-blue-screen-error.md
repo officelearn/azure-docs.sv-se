@@ -12,20 +12,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: genli
-ms.openlocfilehash: 921e97fa393a3005e3ba392502d291301df3d65c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d9732f232c5a7ec1e551f42fe0e8187e382aec6e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058069"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981874"
 ---
 # <a name="windows-shows-blue-screen-error-when-booting-an-azure-vm"></a>Windows visar blå skärms fel vid start av en virtuell Azure-dator
 I den här artikeln beskrivs blå skärms fel som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure. Den innehåller steg som hjälper dig att samla in data för ett support ärende. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
-## <a name="symptom"></a>Symtom 
+## <a name="symptom"></a>Symptom 
 
 En virtuell Windows-dator startar inte. När du kontrollerar start skärmarna i [startdiagnostik](./boot-diagnostics.md)kan du se något av följande fel meddelanden på en blå skärm:
 

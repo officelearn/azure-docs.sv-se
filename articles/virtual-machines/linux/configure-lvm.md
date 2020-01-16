@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 38e460138fde1de6d8fd57dcab5a88238f0981fe
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751022"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045340"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Konfigurera LVM på en virtuell Linux-dator i Azure
 Det här dokumentet beskriver hur du konfigurerar LVM (Logical Volume Manager) på din virtuella Azure-dator. LVM kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer, men som standard har de flesta moln avbildningarna inte LVM konfigurerade på OS-disken. Stegen nedan fokuserar på att konfigurera LVM för dina data diskar.
@@ -172,7 +172,7 @@ Det finns två sätt att aktivera TRIMNINGs stöd i din virtuella Linux-dator. S
     # sudo fstrim /datadrive
     ```
 
-    **RHEL/CentOS**
+    **RHEL, CentOS & Oracle Linux**
 
     ```bash 
     # sudo yum install util-linux

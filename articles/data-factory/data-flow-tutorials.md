@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/13/2020
-ms.openlocfilehash: 8350a42bc5f72adec135b2b39c5dde36e408c174
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 01/14/2020
+ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942137"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030028"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Video kurser för kartning av data flöde
 
@@ -63,7 +63,7 @@ När uppdateringar ständigt görs till produkten har vissa funktioner lagts til
 
 [Filtrera omvandling](https://youtu.be/OhbKDOXSfeE)
 
-[Omvandling med villkorlig delning](https://youtu.be/OhbKDOXSfeE)
+[Omvandling med villkorlig delning](http://youtu.be/W1lQHojhKZw?hd=1)
 
 [Exists-transformering](http://youtu.be/GS8JVgNBMfs?hd=1)
 

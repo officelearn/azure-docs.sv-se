@@ -5,22 +5,22 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: daveba
+editor: ''
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9b744ed40e2b8c360117f638bab6d10e9ae2975
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f99859fb695281324148683fac24c9e7b8463ef5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888487"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977887"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Cosmos DB
 
@@ -40,7 +40,17 @@ I den här självstudien lär du dig att komma åt Cosmos DB med en systemtillde
 
 - Installera den senaste versionen av [Azure PowerShell](/powershell/azure/install-az-ps)
 
-## <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto 
+
+## <a name="enable"></a>Aktivera
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Bevilja åtkomst
+
+
+### <a name="create-a-cosmos-db-account"></a>Skapa ett Cosmos DB-konto 
 
 Om du inte redan har ett Cosmos DB-konto skapar du ett. Du kan hoppa över det här steget och använda ett befintligt Cosmos DB-konto. 
 
@@ -51,7 +61,7 @@ Om du inte redan har ett Cosmos DB-konto skapar du ett. Du kan hoppa över det h
 5. Kontrollera att informationen under **Prenumeration** och **Resursgrupp** stämmer överens med den du angav när du skapade den virtuella datorn i förra steget.  Välj en **plats** där Cosmos DB är tillgänglig.
 6. Klicka på **Skapa**.
 
-## <a name="create-a-collection"></a>Skapa en samling 
+### <a name="create-a-collection"></a>Skapa en samling 
 
 Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i senare steg.
 
@@ -59,7 +69,8 @@ Lägg till en datasamling till Cosmos DB-kontot som du kan skicka frågor mot i 
 2. Klicka på knappen **+/Lägg till samling** på fliken **Översikt**. Panelen ”Lägg till samling” visas.
 3. Tilldela samlingen ett databas-ID och ett samlings-ID, välj en lagringskapacitet, ange en partitionsnyckel, ange ett värde för dataflöde och klicka sedan på **OK**.  I den här självstudien räcker det att du använder ”Test” som databas-ID och samlings-ID, väljer en fast lagringskapacitet och det lägsta dataflödet (400 RU/s).  
 
-## <a name="grant-access"></a>Bevilja åtkomst
+
+### <a name="grant-access-to-the-cosmos-db-account-access-keys"></a>Bevilja åtkomst till Cosmos DB kontots åtkomst nycklar
 
 Det här avsnittet visar hur du beviljar Windows VM-systemtilldelad åtkomst till hanterad identitet till Cosmos DB kontots åtkomst nycklar. Cosmos DB har inte inbyggt stöd för Azure AD-autentisering. Du kan emellertid använda en systemtilldelad hanterad identitet för att hämta en åtkomstnyckel för Cosmos DB från Resource Manager och sedan använda nyckeln för att komma åt Cosmos DB. I det här steget ger du den virtuella Windows-datorns systemtilldelade hanterade identitet åtkomst till nycklarna till Cosmos DB-kontot.
 
@@ -69,11 +80,15 @@ Om du ska ge den virtuella Windows-datorns systemtilldelade hanterade identitet 
 $spID = (Get-AzVM -ResourceGroupName myRG -Name myVM).identity.principalid
 New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Reader Role" -Scope "/subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.DocumentDb/databaseAccounts/<COSMOS DB ACCOUNT NAME>"
 ```
-## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
+## <a name="access-data"></a>Åtkomst till data
 
-Det här avsnittet visar hur du hämtar en åtkomsttoken med hjälp av den hanterade Windows-systemtilldelade identiteten som anropar Azure Resource Manager. Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare. 
+Det här avsnittet visar hur du anropar Azure Resource Manager med hjälp av en åtkomsttoken för den hanterade identiteten för den virtuella Windows-datorn. Under resten av självstudiekursen arbetar vi från den virtuella datorn som vi skapade tidigare. 
 
 Du måste installera den senaste versionen av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) på din virtuella Windows-dator.
+
+
+
+### <a name="get-an-access-token"></a>Hämta en åtkomsttoken
 
 1. Gå till **Virtuella datorer** på Azure Portal, gå till din virtuella Windows-dator och klicka sedan på **Anslut** längst upp på sidan **Översikt**. 
 2. Ange ditt **användarnamn** och **lösenord** som du lade till när du skapade den virtuella Windows-datorn. 
@@ -98,7 +113,7 @@ Du måste installera den senaste versionen av [Azure CLI](https://docs.microsoft
    $ArmToken = $content.access_token
    ```
 
-## <a name="get-access-keys"></a>Hämta åtkomstnycklar 
+### <a name="get-access-keys"></a>Hämta åtkomstnycklar 
 
 Det här avsnittet visar hur du hämtar åtkomst nycklar från Azure Resource Manager för att göra Cosmos DB-anrop. Nu använder du PowerShell för att anropa Resource Manager med hjälp av den åtkomsttoken som du fick i föregående avsnitt för att hämta åtkomstnyckeln för Cosmos DB-kontot. När vi väl har åtkomstnyckeln kan vi skicka frågor mot Cosmos DB. Ersätt parametervärdena `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` och `<COSMOS DB ACCOUNT NAME>` med dina egna värden. Ersätt värdet `<ACCESS TOKEN>` med den åtkomsttoken som du hämtade tidigare.  Om du vill hämta läs- och skrivnycklar använder du nyckelåtgärdstypen `listKeys`.  Om du vill hämta skrivskyddade nycklar använder du nyckelåtgärdstypen `readonlykeys`:
 
@@ -176,6 +191,13 @@ Det här CLI-kommandot returnerar information om samlingen:
   }
 }
 ```
+
+
+## <a name="disable"></a>Inaktivera
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Hitta svar på några vanliga frågor om Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: c904ae5809a36859ba6428bf026c9016a1a8f747
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d5ab56edfe4799d51fb7f08642aad9e2ee01db05
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867181"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044962"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Vanliga frågor och svar om Azure dev Spaces
 
@@ -34,7 +34,7 @@ Ja, du kan konfigurera dina egna ingress med HTTPS med [traefik][ingress-https-t
 
 ## <a name="can-i-use-azure-dev-spaces-on-a-cluster-that-uses-cni-rather-than-kubenet"></a>Kan jag använda Azure dev Spaces i ett kluster som använder CNI i stället för Kubernetes? 
 
-Ja, du kan använda Azure dev Spaces i ett AKS-kluster som använder CNI för nätverk. Du kan till exempel använda Azure dev Spaces i ett AKS-kluster med [befintliga Windows-behållare][windows-containers]som använder cni för nätverk. Mer information om hur du använder CNI för nätverk med Azure dev Spaces finns [här](configure-networking.md#using-azure-container-networking-with-azure-dev-spaces).
+Ja, du kan använda Azure dev Spaces i ett AKS-kluster som använder CNI för nätverk. Du kan till exempel använda Azure dev Spaces i ett AKS-kluster med [befintliga Windows-behållare][windows-containers]som använder cni för nätverk. Mer information om hur du använder CNI för nätverk med Azure dev Spaces finns [här](configure-networking.md#using-azure-cni).
 
 ## <a name="can-i-use-azure-dev-spaces-with-windows-containers"></a>Kan jag använda Azure dev Spaces med Windows-behållare?
 
@@ -42,7 +42,7 @@ För närvarande är Azure dev Spaces endast avsett att köras på Linux-poddar 
 
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>Kan jag använda Azure dev Spaces på AKS-kluster med autentiserade IP-adressintervall för API-servern?
 
-Ja, du kan använda Azure dev Spaces på AKS-kluster med [autentiserade IP-adressintervall för API-servern][aks-auth-range] aktiverat. Mer information om hur du använder ett AKS-kluster med auktoriserade IP-adressintervall med API-server som är aktiverade med Azure dev Spaces finns [här](configure-networking.md#using-api-server-authorized-ip-ranges-with-azure-dev-spaces).
+Ja, du kan använda Azure dev Spaces på AKS-kluster med [autentiserade IP-adressintervall för API-servern][aks-auth-range] aktiverat. Mer information om hur du använder ett AKS-kluster med auktoriserade IP-adressintervall med API-server som är aktiverade med Azure dev Spaces finns [här](configure-networking.md#using-api-server-authorized-ip-ranges).
 
 ### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>Kan jag använda Azure dev Spaces på AKS-kluster med begränsad utgående trafik för klusternoder?
 

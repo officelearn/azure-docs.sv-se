@@ -7,34 +7,34 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 393441e7ff620f3795e42c2cb376f99f8763f25b
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: da46cf826da40658883d22692e5038b09d222907
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "60193208"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974535"
 ---
-# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudier: Övervaka Azure Firewall-loggar och mått
+# <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Självstudie: Övervaka Azure Firewall-loggar och mått
 
-Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser. Med hjälp av mått kan du visa prestandaräknare i portalen. 
+Du kan övervaka Azure Firewall med hjälp av brandväggsloggarna. Du kan också använda aktivitetsloggar till att granska åtgärder som utförs på Azure Firewall-resurser. Med hjälp av mått kan du visa prestandaräknare i portalen.
 
 Du kan komma åt vissa av de här loggarna via portalen. Du kan skicka loggar till [Azure Monitor-loggar](../azure-monitor/insights/azure-networking-analytics.md), Storage och Event Hubs samt analysera dem i Azure Monitor-loggar eller med andra verktyg såsom Excel och Power BI.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * aktivera loggning via Azure Portal
 > * aktivera loggning med PowerShell
-> * visa och analysera aktivitetsloggar
+> * Visa och analysera aktivitetsloggar
 > * Visa och analysera loggar för nätverk och programregler
 > * Visa mått
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien bör du läsa [Azure Firewall-loggar och mått](logs-and-metrics.md) för att få en översikt över de diagnostikloggar och mått som finns för Azure Firewall.
 
@@ -52,7 +52,7 @@ Det kan ta några minuter innan data visas i loggarna när du har aktiverat diag
    * AzureFirewallNetworkRule
 
 3. Om du vill börja samla in data klickar du på **Aktivera diagnostik**.
-4. På sidan **Diagnostikinställningar** kan du göra inställningar för diagnostikloggarna. 
+4. På sidan **Diagnostikinställningar** kan du göra inställningar för diagnostikloggarna.
 5. I det här exemplet lagras loggarna av Azure Monitor-loggar, så använd **Firewall log analytics** som namn.
 6. Klicka på **Skicka till Log Analytics** för att konfigurera din arbetsyta. Du kan också använda händelsehubbar och ett lagringskonto till att spara dina diagnostiska loggar.
 7. Under **Log Analytics** klickar du på **Konfigurera**.
@@ -86,15 +86,15 @@ Så här aktiverar du diagnostisk loggning:
    -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
    -Enabled $true     
     ```
-    
-> [!TIP] 
+
+> [!TIP]
 >Du behöver inget separat lagringskonto för diagnostiska loggar. När du använder lagring för åtkomst- och prestandaloggning debiteras avgifter för tjänsten.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visa och analysera aktivitetsloggar
 
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
-* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure-CLI:t, Azure REST-API:t eller Azure Portal. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
 * **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [innehållspaketet Azure aktivitetsloggar för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visa och analysera loggar för nätverk och programregler

@@ -16,29 +16,29 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2082265b96388b4fbf860118efc3eefd4c5c67af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e54e26bba1618a3b5835480ed1b1fe698bc8db4
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423597"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043430"
 ---
-# <a name="web-api-that-calls-web-apis---code-configuration"></a>Webb-API som anropar webb-API: er – kod konfiguration
+# <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Ett webb-API som anropar webb-API: er kod konfiguration
 
 När du har registrerat ditt webb-API kan du konfigurera koden för programmet.
 
-Koden för att konfigurera ditt webb-API så att det anropar underordnade webb-API: er som bygger på den kod som används för att skydda ett webb-API. Mer information finns i [skydda Web API-app-konfiguration](scenario-protected-web-api-app-configuration.md).
+Den kod som du använder för att konfigurera ditt webb-API så att det anropar underordnade webb-API: er som bygger på den kod som används för att skydda ett webb-API. Mer information finns i [Protected Web API: app Configuration](scenario-protected-web-api-app-configuration.md).
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>Kod prenumererad på OnTokenValidated
 
-Ovanpå kod konfigurationen för alla skyddade webb-API: er måste du prenumerera på verifieringen av Bearer-token som tas emot när ditt API anropas:
+Ovanpå kod konfigurationen för alla skyddade webb-API: er måste du prenumerera på verifieringen av Bearer-token som du får när ditt API anropas:
 
 ```csharp
 /// <summary>
-/// Protects the web API with Microsoft Identity Platform (a.k.k AAD v2.0)
+/// Protects the web API with the Microsoft identity platform, or Azure Active Directory (Azure AD) developer platform
 /// This supposes that the configuration files have a section named "AzureAD"
 /// </summary>
-/// <param name="services">Service collection to which to add authentication</param>
+/// <param name="services">The service collection to which to add authentication</param>
 /// <param name="configuration">Configuration</param>
 /// <returns></returns>
 public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollection services,
@@ -49,14 +49,14 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
     services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
     {
         // When an access token for our own web API is validated, we add it 
-        // to MSAL.NET's cache so that it can be used from the controllers.
+        // to the MSAL.NET cache so that it can be used from the controllers.
         options.Events = new JwtBearerEvents();
 
         options.Events.OnTokenValidated = async context =>
         {
             context.Success();
 
-            // Adds the token to the cache, and also handles the incremental consent 
+            // Adds the token to the cache and handles the incremental consent 
             // and claim challenges
             AddAccountToCacheFromJwt(context, scopes);
             await Task.FromResult(0);
@@ -66,18 +66,18 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 }
 ```
 
-## <a name="on-behalf-of-flow"></a>On-Behalf-Of-flöde
+## <a name="on-behalf-of-flow"></a>On-behalf-of-flöde
 
 Metoden AddAccountToCacheFromJwt () måste vara:
 
-- Instansiera ett MSAL-konfidentiellt klient program.
-- Anropa `AcquireTokenOnBehalf` för att byta Bearer-token som har hämtats av klienten för webb-API: et mot en Bearer-token för samma användare, men för vår API för att anropa ett underordnat API.
+- Instansiera ett Microsoft Authentication Library (MSAL)-konfidentiellt klient program.
+- Anropa metoden `AcquireTokenOnBehalf`. Det här anropet utbyter Bearer-token som hämtades av klienten för webb-API: et mot en Bearer-token för samma användare, men har API-anropet till ett underordnat API.
 
 ### <a name="instantiate-a-confidential-client-application"></a>Instansiera ett konfidentiellt klient program
 
-Det här flödet är bara tillgängligt i det konfidentiella klient flödet så att det skyddade webb-API: et tillhandahåller klientautentiseringsuppgifter (klient hemlighet eller certifikat) till [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via `WithClientSecret`-eller `WithCertificate` metoderna.
+Det här flödet är endast tillgängligt i det konfidentiella klient flödet, så att det skyddade webb-API: et tillhandahåller klientautentiseringsuppgifter (klient hemlighet eller certifikat) till [ConfidentialClientApplicationBuilder-klassen](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) via antingen `WithClientSecret`-eller `WithCertificate`-metoden.
 
-![mallar](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![Lista över IConfidentialClientApplication-metoder](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```csharp
 IConfidentialClientApplication app;
@@ -95,18 +95,20 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 #endif
 ```
 
-I stället för en klient hemlighet eller ett certifikat kan konfidentiella klient program också bevisa sin identitet med hjälp av klientens intyg.
-Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
+Slutligen, i stället för att bevisa sin identitet via en klient hemlighet eller ett certifikat, kan konfidentiella klient program bevisa sin identitet genom att använda klientens kontroll.
+Mer information om det här avancerade scenariot finns i [konfidentiell klient kontroll](msal-net-client-assertions.md).
 
 ### <a name="how-to-call-on-behalf-of"></a>Så här anropar du på uppdrag av
 
-On-of (OBO)-anropet görs genom att anropa [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) -metoden i `IConfidentialClientApplication`-gränssnittet.
+Du gör OBO-anropet genom att anropa [AcquireTokenOnBehalf-metoden](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) i `IConfidentialClientApplication`-gränssnittet.
 
-`UserAssertion` skapas utifrån Bearer-token som tagits emot av webb-API: et från sina egna klienter. Det finns [två konstruktorer](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet), en som tar en JWT Bearer-token och en som vidtar någon typ av användar kontroll (en annan typ av säkerhetstoken, vilken typ som sedan anges i en ytterligare parameter med namnet `assertionType`).
+Klassen `UserAssertion` skapas utifrån Bearer-token som tas emot av webb-API: et från sina egna klienter. Det finns [två konstruktorer](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
+* En som tar en JSON Web Token (JWT) Bearer-token
+* En som har någon typ av användar kontroll, en annan typ av säkerhetstoken, vars typ sedan anges i en ytterligare parameter med namnet `assertionType`
 
-![mallar](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![Egenskaper och metoder för UserAssertion](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-I praktiken används ofta OBO-flödet för att hämta en token för ett underordnat API och lagra den i MSAL.NET för användar-token, så att andra delar av webb-API: n kan anropas senare i [åsidosättningar](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) av ``AcquireTokenOnSilent`` för att anropa de underordnade API: erna. Det här anropet kommer att uppdatera tokens, om det behövs.
+I praktiken används ofta OBO-flödet för att hämta en token för ett underordnat API och lagra det i MSAL.NET-användartoken. Det gör du så att andra delar av webb-API: n senare kan anropa de [åsidosättningar](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) av ``AcquireTokenOnSilent`` som anropar de underordnade API: erna. Det här anropet kommer att uppdatera tokens, om det behövs.
 
 ```csharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -128,7 +130,7 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
         // Create the application
         var application = BuildConfidentialClientApplication(httpContext, principal);
 
-        // .Result to make sure that the cache is filled-in before the controller tries to get access tokens
+        // .Result to make sure that the cache is filled in before the controller tries to get access tokens
         var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
                                                         userAssertion)
                                 .ExecuteAsync()
@@ -142,13 +144,13 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-Du kan också se ett exempel på en räkning av flödes implementeringen i [NodeJS och Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
+Du kan också se ett exempel på OBO Flow-implementering i [Node. js och Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61).
 
 ## <a name="protocol"></a>Protokoll
 
-Mer information om on-of-protokollet finns i [Microsoft Identity Platform och OAuth 2,0 på uppdrag av Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+Mer information om OBO-protokollet finns i [Microsoft Identity Platform och OAuth 2,0 on-behalf-of Flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hämtar en token för appen](scenario-web-api-call-api-acquire-token.md)
+> [Ett webb-API som anropar webb-API: er: Hämta en token för appen](scenario-web-api-call-api-acquire-token.md)

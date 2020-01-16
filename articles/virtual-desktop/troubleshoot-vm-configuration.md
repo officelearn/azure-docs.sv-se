@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: c357e460e49ffee669f3978be7678353acfcd249
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459427"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980223"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -209,11 +209,11 @@ Granska register posterna i listan nedan och bekräfta att värdena stämmer öv
 
 1. Använd Remote Desktop Protocol (RDP) för att komma direkt till den virtuella datorns värd för sessionen som lokal administratör.
 2. Hämta och importera [Windows Virtual Desktop PowerShell-modulen](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) som ska användas i din PowerShell-session, om du inte redan har gjort det, kör denna cmdlet för att logga in på ditt konto:
-    
+
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
-    
+
 3. Installera stacken sida vid sida med hjälp av [skapa en värdbaserad pool med PowerShell](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell).
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>Så här åtgärdar du en virtuell Windows-sida vid sida-stack som inte fungerar
@@ -322,7 +322,7 @@ För att kontrol lera vilken version av Windows 10 Enterprise multi-session du h
 2. Ange "About" i Sök fältet bredvid Start-menyn.
 3. Välj **om din dator**.
 4. Kontrol lera numret bredvid "version". Talet ska vara antingen "1809" eller "1903", som du ser i följande bild.
-   
+
     ![En skärm bild av fönstret Windows-specifikationer. Versions numret är markerat i blått.](media/windows-specifications.png)
 
 Nu när du vet versions numret kan du gå vidare till relevant avsnitt.
@@ -344,6 +344,6 @@ Distribuera om värd operativ systemet med den senaste versionen av Windows 10, 
 - Information om hur du felsöker problem med fjärr skrivbords klienter finns i [Felsöka fjärr skrivbords klienten](troubleshoot-client.md)
 - Information om hur du felsöker problem när du använder PowerShell med Windows Virtual Desktop finns i [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - Mer information om tjänsten finns i [Windows Virtual Desktop-miljö](environment-setup.md).
-- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](../azure-resource-manager/resource-manager-tutorial-troubleshoot.md).
-- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
-- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](../azure-resource-manager/resource-manager-deployment-operations.md).
+- Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka distributioner av Resource Manager-mallar](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
+- Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+- Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](../azure-resource-manager/templates/deployment-history.md).

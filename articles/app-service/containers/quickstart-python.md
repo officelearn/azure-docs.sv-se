@@ -6,12 +6,12 @@ ms.date: 10/22/2019
 ms.custom: seo-python-october2019
 experimental: true
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 8290a4101725efbbe1e56e4a7f12a51b39a73f42
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: aaf1f5cb6a11e0a5358d6c8a59581b46e57a3274
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028332"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045908"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
@@ -80,7 +80,7 @@ flask run
 
 Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/`. Appen visar meddelandet **Hello World!** .
 
-![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
+![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser-localhost.png)
 
 Tryck på **Ctrl**+**C** i terminalfönstret för att avsluta webb servern.
 

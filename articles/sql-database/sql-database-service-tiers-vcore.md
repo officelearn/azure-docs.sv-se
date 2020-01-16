@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: c01e5c508644214c078dfc42ae8c77964933a277
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7c4d6a01ccaeffb4042753dc0a904d970631383f
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895998"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045205"
 ---
 # <a name="vcore-model-overview"></a>Översikt över modell för virtuell kärna
 
@@ -142,6 +142,16 @@ På fliken **grundläggande** väljer du länken **Konfigurera databas** i avsni
   
 **Ändra maskin varu genereringen för en befintlig hanterad instans**
 
+# <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
+
+På sidan hanterad instans väljer du **pris nivå** länk placerad under avsnittet Inställningar
+
+![ändra maskin vara för hanterad instans](media/sql-database-service-tiers-vcore/change-managed-instance-hardware.png)
+
+På sidan **pris nivå** kommer du att kunna ändra maskin varu genereringen enligt beskrivningen i föregående steg.
+
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 Använd följande PowerShell-skript:
 
 ```powershell-interactive
@@ -178,6 +188,8 @@ Set-AzResource -Properties $properties -ResourceName $instanceName -ResourceType
 
 Se till att ange ditt prenumerations-ID, namn och resurs grupp för den hanterade instansen.
 
+---
+
 ### <a name="hardware-availability"></a>Maskin varu tillgänglighet
 
 #### <a name="gen4gen5-1"></a>Gen4/Gen5
@@ -213,9 +225,9 @@ På sidan **grundläggande** inställningar anger du följande:
 
 På sidan **information** anger du följande:
 
-5. I avsnittet **problem information** väljer du länken **Tillhandahåll information** . 
-6. Välj **M-serien**för **SQL Database kvot typ** .
-7. För **region**väljer du den region där du vill aktivera M-serien.
+1. I avsnittet **problem information** väljer du länken **Tillhandahåll information** . 
+2. Välj **M-serien**för **SQL Database kvot typ** .
+3. För **region**väljer du den region där du vill aktivera M-serien.
     För regioner där M-serien är tillgänglig, se [tillgänglighet för m-serien](#m-series).
 
 Godkända support ärenden är vanligt vis uppfyllda inom 5 arbets dagar.

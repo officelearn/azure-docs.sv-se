@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 10/27/2019
 ms.author: nitinme
-ms.openlocfilehash: dfbd11b97ee77d77599ead08ba58fe173b64f876
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446480"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981267"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Självstudie: använda formulär igenkänning med Azure Logic Apps för att analysera fakturor
 
@@ -52,7 +52,7 @@ I den här självstudien får vi lära dig hur du extraherar information från s
 
 Du använder den här behållaren för att ladda upp exempel data som krävs för att träna modellen.
 
-1. Följ instruktionerna i [skapa ett Azure Storage konto](../../storage/common/storage-quickstart-create-account.md) för att skapa ett lagrings konto. Använd **formrecostorage** som lagrings konto namn.
+1. Följ instruktionerna i [skapa ett Azure Storage konto](../../storage/common/storage-account-create.md) för att skapa ett lagrings konto. Använd **formrecostorage** som lagrings konto namn.
 1. Följ instruktionerna i [skapa en Azure Blob-behållare](../../storage/blobs/storage-quickstart-blobs-portal.md) för att skapa en behållare i Azure Storage-kontot. Använd **formrecocontainer** som behållar namn. Kontrol lera att du ställer in den offentliga åtkomst nivån på **container (anonym Läs åtkomst för behållare och blobbar)** .
 
     > [!div class="mx-imgBorder"]

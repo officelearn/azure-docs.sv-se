@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22e542715afa8c87ffb742bec6c22f758cd16587
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5534a46ba99d1536d331b5852ef47588f03d73a4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354269"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980283"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
 I den här artikeln beskrivs vanliga problem med att utveckla Stream Analytics frågor och hur du felsöker dem.
 
-## <a name="query-is-not-producing-expected-output"></a>Frågan producerar inte förväntade utdata 
+## <a name="query-is-not-producing-expected-output"></a>Frågan producerar inte förväntade utdata
 1.  Undersök fel genom att testa lokalt:
     - Välj **test**på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
     - Du kan också [testa frågan direkt med Live-ingången](stream-analytics-live-data-local-testing.md) med Stream Analytics verktyg för Visual Studio.
@@ -32,10 +32,10 @@ I den här artikeln beskrivs vanliga problem med att utveckla Stream Analytics f
     - När du använder fönster funktioner väntar du tills hela fönstrets varaktighet visar utdata från frågan.
     - Tidsstämpeln för händelser föregår jobbets start tid och därmed ignoreras händelser.
 
-4.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](stream-analytics-out-of-order-and-late-events.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion. 
+4.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](stream-analytics-out-of-order-and-late-events.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion.
 
 5. Felsöka med hjälp av gransknings-och diagnostikloggar:
-    - Använd [gransknings loggar](../azure-resource-manager/resource-group-audit.md)och filtrera för att identifiera och felsöka fel.
+    - Använd [gransknings loggar](../azure-resource-manager/management/view-activity-logs.md)och filtrera för att identifiera och felsöka fel.
     - Använd [jobb diagnostiska loggar](stream-analytics-job-diagnostic-logs.md) för att identifiera och felsöka fel.
 
 ## <a name="job-is-consuming-too-many-streaming-units"></a>Jobbet tar för många enheter för strömning
@@ -52,7 +52,7 @@ Följande exempel fråga i ett Azure Stream Analytics jobb har en data ström, t
 Observera att jobbet körs, men inga händelser skapas i utdata. På panelen **övervakning** , som visas här, kan du se att indata skapar data, men du vet inte vilket steg i **kopplingen** som orsakade alla händelser som skulle tas bort.
 
 ![Panelen Stream Analytics övervakning](./media/stream-analytics-select-into/stream-analytics-select-into-monitor.png)
- 
+
 I så fall kan du lägga till några extra SELECT INTO-uttryck för att "Logga" de mellanliggande KOPPLINGs resultaten och de data som läses från indata.
 
 I det här exemplet har vi lagt till två nya "tillfälliga utdata". De kan vara vilken mottagare som helst. Här använder vi Azure Storage som exempel:

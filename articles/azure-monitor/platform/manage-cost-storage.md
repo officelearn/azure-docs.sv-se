@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: e4146155915979e51a6e3a989ab57316ca643018
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658027"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045182"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -43,6 +43,8 @@ Standard priset för Log Analytics är en modell där **du betalar per** använd
   
 Förutom modellen betala per användning har Log Analytics **kapacitets reservations** nivåer som gör att du kan spara så mycket som 25% jämfört med priset för betala per användning. Med kapacitets reservations priset kan du köpa en reservation som börjar på 100 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. Kapacitets reservationens nivåer har en period på 31 dagar. Under åtagande perioden kan du ändra till en kapacitets reservations nivå på högre nivå (som startar om perioden på den 31: a), men du kan inte gå tillbaka till betala per användning eller till en reservations nivå med lägre kapacitet förrän efter åtagande perioden installerats. 
 [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om hur du Log Analytics priser för betala per användning och kapacitets reservationer. 
+
+På alla pris nivåer beräknas data volymen från en sträng representation av data som den är för beredd för att lagras. Flera [egenskaper som är gemensamma för alla data typer](https://docs.microsoft.com/azure/azure-monitor/platform/log-standard-properties) ingår inte i beräkningen av händelse storleken, inklusive `_ResourceId`, `_ItemId`, `_IsBillable` och `_BilledSize`.
 
 Observera också att vissa lösningar, till exempel [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) och [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), har sin egen pris modell. 
 
@@ -164,6 +166,9 @@ När den dagliga gränsen har uppnåtts, stoppar insamlingen av fakturerbara dat
 
 > [!NOTE]
 > Den dagliga begränsningen stoppar inte data insamlingen från Azure Security Center, förutom för arbets ytor där Azure Security Center installerades före den 19 juni 2017. 
+
+> [!NOTE]
+> Svars tiden som används för att tillämpa den dagliga begränsningen kan betyda att höljet inte används så exakt som den angivna nivån för dagligt tak. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
 

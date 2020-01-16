@@ -2,24 +2,24 @@
 title: Köra en parallell arbetsbelastning – Azure Batch Python
 description: Självstudie – Bearbeta mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch Python
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: d06cf74b2a29af3fea2c24facac2899d09a0a84f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: bc73c3c40754d1c3eeb6c86f6c9578047a22d73e
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090774"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029245"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Självstudie: Köra en parallell arbetsbelastning med Azure Batch med hjälp av Python API
 
-Använd Azure Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i Azure. I den här självstudien går vi igenom ett Python-exempel på att köra en parallell arbetsbelastning med Batch. Du lär dig ett vanligt arbetsflöde för Batch-program och hur du interagerar programmatiskt med Batch- och Storage-resurser. Lär dig att:
+Använd Azure Batch till att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i Azure. I den här självstudien går vi igenom ett Python-exempel på att köra en parallell arbetsbelastning med Batch. Du lär dig ett vanligt arbetsflöde för Batch-program och hur du interagerar programmatiskt med Batch- och Storage-resurser. Lär dig att:
 
 > [!div class="checklist"]
 > * autentisera med Batch- och Storage-konton
@@ -33,13 +33,13 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Python 2.7 eller 3.3 eller senare](https://www.python.org/downloads/)
 
 * [pip](https://pip.pypa.io/en/stable/installing/)-pakethanterare
 
-* Ett Azure Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
+* Ett Azure Batch-konto och ett länkat Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -51,7 +51,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ### <a name="download-the-sample"></a>Hämta exemplet
 
-[Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
+[Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) från GitHub. Om du vill klona lagringsplatsen för exempelappen med en Git-klient använder du följande kommando:
 
 ```
 git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
@@ -65,7 +65,7 @@ I Python-miljön installerar du de nödvändiga paketen med `pip`.
 pip install -r requirements.txt
 ```
 
-Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med de värden som är unika för dina konton. Exempel:
+Öppna filen `config.py`. Uppdatera autentiseringssträngarna med Batch- och lagringskontouppgifter med de värden som är unika för dina konton. Ett exempel:
 
 
 ```Python
@@ -84,7 +84,7 @@ Kör skriptet så här:
 python batch_python_tutorial_ffmpeg.py
 ```
 
-När du kör exempelappen ser konsolens utdata ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. 
+När du kör exempelappen ser utdata i konsolen ut ungefär så här. Under körningen uppstår det en paus vid `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` medan poolens beräkningsnoder startas. 
    
 ```
 Sample start: 11/28/2018 3:20:21 PM
@@ -107,7 +107,7 @@ Sample end: 11/28/2018 3:29:36 PM
 Elapsed time: 00:09:14.3418742
 ```
 
-Gå till Batch-kontot på Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och aktiviteterna. Om du till exempel vill se en termisk karta över beräkningsnoderna i din pool klickar du på **Pooler** > *LinuxFFmpegPool*.
+Gå till Batch-kontot i Azure-portalen för att övervaka poolen, beräkningsnoderna, jobbet och uppgifterna. Om du till exempel vill se en termisk karta över beräkningsnoderna i din pool klickar du på **Pooler** > *LinuxFFmpegPool*.
 
 När uppgifter körs ser den termiska kartan ut ungefär så här:
 
@@ -144,7 +144,7 @@ batch_client = batch.BatchServiceClient(
 
 ### <a name="upload-input-files"></a>Ladda upp indatafiler
 
-Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna har definierats som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan hämta till beräkningsnoder.
+Appen använder referensen `blob_client` för att skapa en lagringscontainer för MP4-indatafilerna och en container för uppgiftsutdata. Sedan anropas `upload_file_to_container`-funktionen för att ladda upp MP4-filer i den lokala `InputFiles`-katalogen till containern. De lagrade filerna definieras som Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile)-objekt som Batch senare kan ladda ned till beräkningsnoder.
 
 ```python
 blob_client.create_container(input_container_name, fail_on_exist=False)
@@ -201,7 +201,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
-Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `create_job`. Den här definierade funktionen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) skickar poolen till Batch-tjänsten. Från början har jobbet inga aktiviteter.
+Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `create_job`. Den här definierade funktionen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [job.add](/python/api/azure-batch/azure.batch.operations.joboperations) skickar poolen till Batch-tjänsten. Från början har jobbet inga uppgifter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -267,7 +267,7 @@ while datetime.datetime.now() < timeout_expiration:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När uppgifterna har körts tar appen automatiskt bort den lagringscontainer som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) och [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) i BatchClient har båda borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och aktiviteterna debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
+När uppgifterna har körts tar appen automatiskt bort den lagringscontainer som skapades och du får möjlighet att ta bort Batch-poolen och jobbet. Klasserna [JobOperations](/python/api/azure-batch/azure.batch.operations.joboperations) och [PoolOperations](/python/api/azure-batch/azure.batch.operations.pooloperations) i BatchClient har båda borttagningsmetoder som anropas om du bekräftar borttagningen. Även om du inte debiteras för själva jobben och uppgifterna så debiteras du för beräkningsnoder. Vi rekommenderar därför att du endast allokerar pooler efter behov. När du tar bort poolen raderas alla aktivitetsutdata på noderna. In- och utdatafilerna ligger däremot kvar i lagringskontot.
 
 När de inte längre behövs tar du bort resursgruppen, Batch-kontot och lagringskontot. Om du vill göra det i Azure-portalen väljer du resursgruppen för Batch-kontot och klickar på **Ta bort resursgrupp**.
 

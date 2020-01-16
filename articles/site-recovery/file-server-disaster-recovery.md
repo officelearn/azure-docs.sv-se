@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: 780db0cc5a99adfd2e7f8cd5be20a191bba009e8
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: c9f10815f2fbc8a17b8b712b6e5f8391fc7d541e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708126"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980286"
 ---
 # <a name="protect-a-file-server-by-using-azure-site-recovery"></a>Skydda en filserver med hjälp av Azure Site Recovery 
 
@@ -37,15 +37,15 @@ I det föregående diagrammet deltar flera filservrar som kallas för medlemmar 
 
 ## <a name="disaster-recovery-recommendations-for-file-servers"></a>Rekommendationer för haveriberedskap för filservrar
 
-* **Replikera en fil Server genom att använda Site Recovery**: Fil servrar kan replikeras till Azure med hjälp av Site Recovery. När en eller flera lokala filservrar är otillgängliga kan de virtuella återställningsdatorerna göras tillgängliga i Azure. De virtuella datorerna kan sedan hantera begäranden från klienter, lokalt, förutsatt att det finns VPN-anslutningar för plats till plats och Active Directory har konfigurerats i Azure. Du kan använda den här metoden när det gäller en DFSR-konfigurerad miljö eller en enkel filservermiljö utan DFSR. 
+* **Replikera en filserver med hjälp av Site Recovery**: Filservrar kan replikeras i Azure med hjälp av Site Recovery. När en eller flera lokala filservrar är otillgängliga kan de virtuella återställningsdatorerna göras tillgängliga i Azure. De virtuella datorerna kan sedan hantera begäranden från klienter, lokalt, förutsatt att det finns VPN-anslutningar för plats till plats och Active Directory har konfigurerats i Azure. Du kan använda den här metoden när det gäller en DFSR-konfigurerad miljö eller en enkel filservermiljö utan DFSR. 
 
-* **Utöka DFSR till en virtuell Azure IaaS-dator**: I en klustrad fil Server miljö med DFSR implementerad kan du utöka lokala DFSR till Azure. En virtuell Azure-dator aktiveras sedan för att utföra filserverrollen. 
+* **Utöka DFSR till en Azure IaaS-VM**: I en klustrad filservermiljö med DFSR implementerad kan du utöka lokal DFSR till Azure. En virtuell Azure-dator aktiveras sedan för att utföra filserverrollen. 
 
     * När beroenden för VPN-anslutning för plats till plats och Active Directory hanteras och DFSR är på plats, och när en eller flera lokala filservrar inte är tillgängliga, kan klienter ansluta till den virtuella Azure-datorn, som hanterar begäranden.
 
     * Du kan använda den här metoden om dina virtuella datorer har konfigurationer som inte stöds av Site Recovery. Ett exempel är en delad klusterdisk, som ibland används i filservermiljöer. DFSR fungerar också bra i miljöer med låg bandbredd med medelhög kundomsättning. Du måste ta hänsyn till den extra kostnaden med att ha en virtuell Azure-dator igång hela tiden. 
 
-* **Använd Azure File Sync för att replikera dina filer**: Om du planerar att använda molnet eller redan använder en virtuell Azure-dator kan du använda Azure File Sync. Azure File Sync erbjuder synkronisering av fullständigt hanterade filresurser i molnet som är tillgängliga via [Server Message Block-protokollet](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) (SMB) som är branschstandard. Azure-filresurser kan sedan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. 
+* **Använd Azure File Sync för att replikera dina filer**: om du planerar att använda molnet eller redan använder en virtuell Azure-dator kan du använda Azure File Sync. Azure File Sync erbjuder synkronisering av fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet ( [Server Message Block](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) ) som är bransch standard. Azure-filresurser kan sedan monteras samtidigt av molndistributioner eller lokala distributioner av Windows, Linux och macOS. 
 
 Följande diagram hjälper dig att avgöra vilken strategi du ska använda för din filservermiljö.
 
@@ -64,7 +64,7 @@ Följande diagram hjälper dig att avgöra vilken strategi du ska använda för 
 ### <a name="site-recovery-support"></a>Site Recovery-stöd
 Eftersom Site Recovery-replikering är programoberoende förväntas dessa rekommendationer att gälla för följande scenarier.
 
-| Source    |Till en sekundär plats    |Till Azure
+| Källa    |Till en sekundär plats    |Till Azure
 |---------|---------|---------|
 |Azure| -|Ja|
 |Hyper-V|   Ja |Ja
@@ -77,7 +77,7 @@ Eftersom Site Recovery-replikering är programoberoende förväntas dessa rekomm
 
 
 
-**Plats-till-plats-anslutning**: En direkt anslutning mellan den lokala platsen och Azure-nätverket måste upprättas för att tillåta kommunikation mellan servrar. Använd en säker VPN-anslutning för plats till plats till ett virtuellt Azure-nätverk som används som haveriberedskapsplats. Mer information finns i den här artikeln om att [upprätta en VPN-anslutning för plats-till-plats mellan en lokal plats och ett virtuellt Azure-nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
+**Plats-till plats-anslutning**: En direktanslutning mellan den lokala platsen och Azure-nätverket måste upprättas för att tillåta kommunikation mellan servrar. Använd en säker VPN-anslutning för plats till plats till ett virtuellt Azure-nätverk som används som haveriberedskapsplats. Mer information finns i den här artikeln om att [upprätta en VPN-anslutning för plats-till-plats mellan en lokal plats och ett virtuellt Azure-nätverk](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal).
 
 **Active Directory**: DFSR är beroende av Active Directory. Det innebär att Active Directory-skogen med lokala domänkontrollanter utökas till haveriberedskapsplatsen i Azure. Även om du inte använder DFSR måste du, om de avsedda användarna måste beviljas åtkomst eller verifieras för åtkomst, vidta dessa åtgärder. Mer information finns i [Utöka lokal Active Directory till Azure](https://docs.microsoft.com/azure/site-recovery/site-recovery-active-directory).
 
@@ -132,7 +132,7 @@ I följande steg beskrivs replikering för en virtuell VMware-dator. Stegen för
 2. Utöka lokal Active Directory.
 3. [Skapa och etablera en virtuell filserverdator](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) på det virtuella Azure-nätverket.
 Kontrollera att den virtuella datorn har lagts till i samma virtuella Azure-nätverk, som är ansluten till den lokala miljön. 
-4. Installera och [konfigurera DFSR](https://blogs.technet.microsoft.com/b/filecab/archive/2013/08/21/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of-the-clones.aspx) på Windows Server.
+4. Installera och [konfigurera DFSR](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877) på Windows Server.
 5. [Implementera en DFS-namnrymd](https://docs.microsoft.com/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).
 6. Med DFS-namnrymden implementerad kan redundansväxling av delade mappar från produktions- till haveriberedskapsplatser göras genom att uppdatera DFS-namnrymdens mappmål. Efter dessa ändringar av DFS-namnrymden replikeras via Active Directory ansluts användare till lämpliga mappmål transparent.
 

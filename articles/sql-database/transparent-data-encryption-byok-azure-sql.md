@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 11/19/2019
-ms.openlocfilehash: c8a1e2a19fa3c8691cdb381669dc3d4db189c42d
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995855"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981893"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL transparent datakryptering med kundhanterad nyckel
 
@@ -24,7 +24,7 @@ Azure SQL [Transparent datakryptering (TDE)](https://docs.microsoft.com/sql/rela
 
 I det här scenariot är den nyckel som används för kryptering av databas krypterings nyckeln (DEK), som kallas TDE-skydd, en kundhanterad asymmetrisk nyckel som lagras i ett kundägda och Kundhanterade [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault), ett molnbaserad hanterings system för externa nycklar. Key Vault har hög tillgänglighet och skalbart säkert lagrings utrymme för kryptografiska RSA-nycklar, eventuellt backas upp av FIPS 140-2 nivå 2-validerade maskinvarubaserade säkerhetsmoduler (HSM: er). Den tillåter inte direkt åtkomst till en lagrad nyckel, men tillhandahåller tjänster för kryptering/dekryptering med hjälp av nyckeln till auktoriserade entiteter. Nyckeln kan genereras av nyckel valvet, importeras eller [överföras till nyckel valvet från en lokal HSM-enhet](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
-För Azure SQL Database och Azure SQL Data Warehouse anges TDE-skydd på den logiska Server nivån och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både att SQL Database logisk server och hanterad instans i det här dokumentet, om inget annat anges. 
+För Azure SQL Database och Azure SQL Data Warehouse anges TDE-skydd på den logiska Server nivån och ärvs av alla krypterade databaser som är kopplade till den servern. För Azure SQL-hanterad instans anges TDE-skydd på instans nivå och ärvs av alla krypterade databaser på den instansen. Termen *Server* avser både att SQL Database logisk server och hanterad instans i det här dokumentet, om inget annat anges.
 
 > [!IMPORTANT]
 > För de som använder tjänstehanterade TDE som vill börja använda Kundhanterade TDE-data förblir data krypterade under växlings processen och det finns ingen nedtid eller Omkryptering av databasfilerna. Om du växlar från en tjänst-hanterad nyckel till en kundhanterad nyckel krävs bara Omkryptering av DEK, vilket är en snabb och online-åtgärd.
@@ -92,7 +92,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 
 ### <a name="recommendations-when-configuring-akv"></a>Rekommendationer när du konfigurerar AKV
 
-- Associera högst 500 Generell användning eller 200 Affärskritisk-databaser totalt med ett nyckel valv i en enda prenumeration för att säkerställa hög tillgänglighet när servern använder TDE-skydd i nyckel valvet. Dessa siffror baseras på upplevelsen och dokumenterat i [nyckel valvs tjänstens gränser](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). Avsikten med detta är att förhindra problem efter serverns redundans, eftersom det utlöses som många viktiga åtgärder mot valvet eftersom det finns databaser på den servern. 
+- Associera högst 500 Generell användning eller 200 Affärskritisk-databaser totalt med ett nyckel valv i en enda prenumeration för att säkerställa hög tillgänglighet när servern använder TDE-skydd i nyckel valvet. Dessa siffror baseras på upplevelsen och dokumenterat i [nyckel valvs tjänstens gränser](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits). Avsikten med detta är att förhindra problem efter serverns redundans, eftersom det utlöses som många viktiga åtgärder mot valvet eftersom det finns databaser på den servern.
 
 - Ange ett resurs lås i nyckel valvet för att kontrol lera vem som kan ta bort den här kritiska resursen och förhindra oavsiktlig eller obehörig borttagning. Läs mer om [resurs lås](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
@@ -101,7 +101,7 @@ Granskare kan använda Azure Monitor för att granska Key Vault-AuditEvent logga
 - Länka varje server med två nyckel valv som finns i olika regioner och håll samma viktiga material för att säkerställa hög tillgänglighet för krypterade databaser. Markera bara nyckeln från nyckel valvet i samma region som ett TDE-skydd. Systemet kommer att använda
 
 ### <a name="recommendations-when-configuring-tde-protector"></a>Rekommendationer när du konfigurerar TDE-skydd
-- Behåll en kopia av TDE-skydd på en säker plats eller depositions det till depositions-tjänsten. 
+- Behåll en kopia av TDE-skydd på en säker plats eller depositions det till depositions-tjänsten.
 
 - Om nyckeln genereras i nyckel valvet skapar du en nyckel säkerhets kopia innan du använder nyckeln i AKV för första gången. Säkerhets kopieringen kan bara återställas till en Azure Key Vault. Läs mer om kommandot [Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) .
 
@@ -153,7 +153,7 @@ Konfigurera följande Azure-funktioner för att övervaka databas tillstånd och
 
 När en databas har krypterats med TDE med hjälp av en nyckel från Key Vault krypteras även eventuella nyligen genererade säkerhets kopior med samma TDE-skydd. När TDE-skyddet ändras, **uppdateras inte** gamla säkerhets kopior av databasen för att använda det senaste TDE-skyddet.
 
-För att återställa en säkerhets kopia krypterad med ett TDE-skydd från Key Vault, se till att nyckel materialet är tillgängligt för mål servern. Därför rekommenderar vi att du behåller alla gamla versioner av TDE-skyddskomponenten i Key Vault, så att databas säkerhets kopior kan återställas. 
+För att återställa en säkerhets kopia krypterad med ett TDE-skydd från Key Vault, se till att nyckel materialet är tillgängligt för mål servern. Därför rekommenderar vi att du behåller alla gamla versioner av TDE-skyddskomponenten i Key Vault, så att databas säkerhets kopior kan återställas.
 
 > [!IMPORTANT]
 > Det kan aldrig finnas fler än en TDE-skydds uppsättning för en server. Det är nyckeln markerat med "gör nyckeln till standard TDE skydd" på bladet Azure Portal. Flera ytterligare nycklar kan dock länkas till en server utan att markera dem som TDE skydd. Dessa nycklar används inte för att skydda DEK, men kan användas vid återställning från en säkerhets kopia, om säkerhets kopierings filen krypteras med nyckeln med motsvarande tumavtryck.
@@ -162,13 +162,13 @@ Om den nyckel som behövs för att återställa en säkerhets kopia inte längre
 
 För att minimera den, kör cmdleten [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) för målet SQL Database logisk server eller [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) för mål hanterad instans för att returnera listan över tillgängliga nycklar och identifiera de som saknas. Se till att mål servern för återställningen har åtkomst till alla nycklar som behövs för att säkerställa att alla säkerhets kopior kan återställas. Dessa nycklar behöver inte markeras som TDE-skydd.
 
-Mer information om säkerhets kopierings återställning för SQL Database finns i [återställa en Azure SQL-databas](sql-database-recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL Data Warehouse finns i [återställa en Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med hanterade instanser, se [snabb start: återställa en databas till en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) 
+Mer information om säkerhets kopierings återställning för SQL Database finns i [återställa en Azure SQL-databas](sql-database-recovery-using-backups.md). Mer information om säkerhets kopierings återställning för SQL Data Warehouse finns i [återställa en Azure SQL Data Warehouse](../sql-data-warehouse/backup-and-restore.md). För SQL Server interna säkerhets kopiering/återställning med hanterade instanser, se [snabb start: återställa en databas till en hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore)
 
 Ytterligare överväganden för loggfiler: säkerhetskopierade loggfiler förblir krypterade med det ursprungliga TDE-skyddet, även om det roterats och databasen nu använder ett nytt TDE-skydd.  Vid återställnings tiden krävs båda nycklarna för att återställa databasen.  Om logg filen använder ett TDE-skydd som lagras i Azure Key Vault, krävs den här nyckeln vid återställnings tiden, även om databasen har ändrats för att använda tjänstehanterade TDE under tiden.
 
 ## <a name="high-availability-with-customer-managed-tde"></a>Hög tillgänglighet med Kundhanterade TDE
 
-Även om det inte finns någon konfigurerad GEO-redundans för Server, rekommenderar vi starkt att du konfigurerar servern att använda två olika nyckel valv i två olika regioner med samma nyckel material. Du kan åstadkomma detta genom att skapa ett TDE-skydd med hjälp av primär nyckel valvet som finns i samma region som servern och klona nyckeln till ett nyckel valv i en annan Azure-region, så att servern har åtkomst till ett andra nyckel valv ska exper för primär nyckel valvet ience ett avbrott när databasen är igång. 
+Även om det inte finns någon konfigurerad GEO-redundans för Server, rekommenderar vi starkt att du konfigurerar servern att använda två olika nyckel valv i två olika regioner med samma nyckel material. Du kan åstadkomma detta genom att skapa ett TDE-skydd med hjälp av primär nyckel valvet som finns i samma region som servern och klona nyckeln till ett nyckel valv i en annan Azure-region, så att servern har åtkomst till ett andra nyckel valv ska exper för primär nyckel valvet ience ett avbrott när databasen är igång.
 
 Använd cmdleten backup-AzKeyVaultKey för att hämta nyckeln i krypterat format från primär nyckel valvet och sedan använda cmdleten Restore-AzKeyVaultKey och ange ett nyckel valv i den andra regionen för att klona nyckeln. Du kan också använda Azure Portal för att säkerhetskopiera och återställa nyckeln. Nyckeln i det sekundära nyckel valvet i se annan region bör inte markeras som TDE-skydd och det är inte ens tillåtet.
 

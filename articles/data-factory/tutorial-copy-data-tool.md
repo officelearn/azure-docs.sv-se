@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 09/11/2018
-ms.openlocfilehash: 537f57249065a6b47c2ce4d679205ac21a75fe4c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6335fce717772e268f711c2e6e5050fa8c17d573
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439412"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977342"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Kopiera data från Azure Blob Storage till en SQL-databas med verktyget för att kopiera data
 
@@ -39,7 +39,7 @@ I den här självstudien får du göra följande:
 ## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**: Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* **Azure-lagringskonto**: Använd Blob Storage som datalager för _källan_. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+* **Azure-lagringskonto**: Använd Blob Storage som datalager för _källan_. Om du inte har något Azure-lagringskonto finns det anvisningar i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
 * **Azure SQL Database**: Använd en SQL-databas som datalager för _kanalmottagaren_. Om du inte har någon SQL-databas kan du läsa instruktionerna i [Skapa en SQL-databas](../sql-database/sql-database-get-started-portal.md).
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Skapa en blob och en SQL-tabell
@@ -78,18 +78,18 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 ## <a name="create-a-data-factory"></a>Skapa en datafabrik
 
 1. På den vänstra menyn väljer du **skapa en resurs** > **Analytics** > **Data Factory**:
-    
+
     ![Skapa ny datafabrik](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. I fönstret **Ny datafabrik**, under **Namn**, anger du **ADFTutorialDataFactory**.
 
     Namnet på datafabriken måste vara _globalt unikt_. Du kan få följande felmeddelande:
-    
+
     ![Felmeddelande för ny datafabrik](./media/doc-common-process/name-not-available-error.png)
 
     Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. Använd till exempel namnet _**dittnamn**_ **ADFTutorialDataFactory**. Se artikeln [Data Factory – namnregler](naming-rules.md) för namnregler för Data Factory-artefakter.
 1. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i.
 1. Gör något av följande för **Resursgrupp**:
-    
+
     a. Välj **Använd befintlig** och välj en befintlig resursgrupp i listrutan.
 
     b. Välj **Skapa ny** och ange namnet på en resursgrupp.
@@ -101,7 +101,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
 1. Välj **Skapa**.
 
 1. När den har skapats visas startsidan för **Data Factory**.
-    
+
     ![Datafabrikens startsida](./media/doc-common-process/data-factory-home-page.png)
 1. Klicka på panelen **Författare och övervakare** för att starta användargränssnittet för Azure Data Factory i en separat flik.
 
@@ -125,7 +125,7 @@ Förbered din Blob Storage och SQL-databas för självstudien genom att utföra 
     ![Välj källa för den länkade tjänsten](./media/tutorial-copy-data-tool/select-source-linked-service.png)
 
 1. Gör följande på sidan för att **välja indatafil eller -mapp**:
-    
+
     a. Klicka på **Bläddra** för att gå till mappen **adfv2tutorial/input**, välj filen **inputEmp.txt** och klicka på **Välj**.
 
     b. Klicka på **Nästa** för att gå vidare till nästa steg.

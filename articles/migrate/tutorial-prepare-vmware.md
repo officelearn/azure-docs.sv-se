@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 34bc62a9cb7e5d1358322500a8929b6f8b36d422
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dec76140f61c433561ccfea07b833d9821acfc5
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454559"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028903"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Förbered virtuella VMware-datorer för utvärdering och migrering till Azure
 
@@ -104,8 +104,9 @@ För att förbereda för virtuell VMware VM-utvärdering måste du:
 
 ### <a name="verify-vmware-settings"></a>Verifiera VMware-inställningar
 
-1. [Kontrol lera](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) Krav för VMware Server för utvärdering.
-2. [Kontrol lera](migrate-support-matrix-vmware.md#assessment-port-requirements) att portarna som du behöver är öppna på vCenter Server.
+1. [Kontrol lera](migrate-support-matrix-vmware.md#vmware-requirements) Krav för VMware Server för utvärdering.
+2. [Kontrol lera](migrate-support-matrix-vmware.md#port-access) att portarna som du behöver är öppna på vCenter Server.
+3. På vCenter Server kontrollerar du att ditt konto har behörighet att skapa en virtuell dator med en ägg fil. Du distribuerar Azure Migrate-apparaten som en virtuell VMware-dator med hjälp av en ägg fil.
 
 
 ### <a name="set-up-an-account-for-assessment"></a>Konfigurera ett konto för utvärdering
@@ -120,15 +121,12 @@ Azure Migrate behöver åtkomst till vCenter Server för att identifiera virtuel
 
 ### <a name="verify-appliance-settings-for-assessment"></a>Kontrol lera enhets inställningarna för utvärdering
 
-Kontrol lera kraven för installationen innan du distribuerar installationen.
+Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen i nästa självstudie förbereder du installationen av enheten.
 
-1. [Kontrol lera](migrate-support-matrix-vmware.md#assessment-appliance-requirements) krav och begränsningar för produkten.
-2. Om du använder en URL-baserad brand Väggs-proxy [granskar](migrate-support-matrix-vmware.md#assessment-url-access-requirements) du de Azure-URL: er som installationen behöver för att komma åt. Kontrol lera att proxyn matchar alla CNAME-poster som tagits emot när URL: erna genomsöks.
-3. Granska [prestanda data](migrate-appliance.md#collected-performance-data-vmware) och [metadata](migrate-appliance.md#collected-metadata-vmware) som enheten samlar in under identifiering och bedömning.
-4. [Notera](migrate-support-matrix-vmware.md#assessment-port-requirements) de portar som används av enheten.
-5. På vCenter Server kontrollerar du att ditt konto har behörighet att skapa en virtuell dator med en ägg fil. Du distribuerar Azure Migrate-apparaten som en virtuell VMware-dator med hjälp av en ägg fil.
-
-Om du använder en URL-baserad brand vägg. proxy kan du ge åtkomst till de nödvändiga [Azure-URL: erna](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+1. [Kontrol lera](migrate-appliance.md#appliance---vmware) installations kraven för virtuella VMware-datorer.
+2. [Granska](migrate-appliance.md#url-access) de Azure-URL: er som krävs för att komma åt installations programmet. Om du använder en URL-baserad brand vägg eller proxy, se till att den tillåter åtkomst till de nödvändiga URL: erna.
+3. [Granska](migrate-appliance.md#collected-data---vmware) att installationen kommer att samlas in under identifiering och utvärdering.
+4. [Antecknings](migrate-support-matrix-vmware.md#port-access) portens åtkomst krav för produkten.
 
 
 
@@ -137,23 +135,22 @@ Om du använder en URL-baserad brand vägg. proxy kan du ge åtkomst till de nö
 
 Granska kraven för migrering utan agent för virtuella VMware-datorer.
 
-1. [Granska](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) Krav för VMware-servrar.
-2. Konfigurera ett konto med de [behörigheter som krävs](migrate-support-matrix-vmware.md#agentless-migration-vcenter-server-permissions), så att Azure Migrate kan komma åt vCenter Server för migrering utan agent med hjälp av Azure Migrate Server-migrering.
-3. [Granska](migrate-support-matrix-vmware.md#agentless-migration-vmware-vm-requirements) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent lös migrering.
-4. [Granska](migrate-support-matrix-vmware.md#agentless-migration-appliance-requirements) kraven för att använda Azure Migrate-enheten för att migrera utan agent.
-5. Observera [URL-åtkomst](migrate-support-matrix-vmware.md#agentless-migration-url-access-requirements) och [port åtkomst](migrate-support-matrix-vmware.md#agentless-migration-port-requirements) som Azure Migrates utrustning behöver för att migrera utan agent.
+1. [Granska](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) Krav för VMware-servrar och de [behörigheter](migrate-support-matrix-vmware-migration.md#agentless-vmware-servers) som Azure Migrate behöver åtkomst till vCenter Server för migrering utan agent med hjälp av Azure Migrate Server-migrering.
+2. [Granska](migrate-support-matrix-vmware-migration.md#agentless-vmware-vms) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent lös migrering.
+4. [Granska](migrate-support-matrix-vmware-migration.md#agentless-azure-migrate-appliance) kraven för att använda Azure Migrate-enheten för att migrera utan agent.
+5. Observera [URL-åtkomst](migrate-appliance.md#url-access) och [port åtkomst](migrate-support-matrix-vmware-migration.md#agentless-ports) som krävs för migrering utan agent.
 
 
 ## <a name="prepare-for-agent-based-vmware-migration"></a>Förbereda för agent-baserad VMware-migrering
 
 Granska kraven för [agent-baserad migrering](server-migrate-overview.md) av virtuella VMware-datorer.
 
-1. [Granska](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) Krav för VMware-servrar.
-2. Konfigurera ett konto med de [behörigheter som krävs](migrate-support-matrix-vmware.md#agent-based-migration-vcenter-server-permissions). så att Azure Migrate kan komma åt vCenter Server för agent-baserad migrering med hjälp av Azure Migrate Server-migrering.
-3. [Granska](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent-baserad migrering, inklusive installation av mobilitets tjänsten på varje virtuell dator som du vill migrera.
-4. Observera [URL-åtkomst](migrate-support-matrix-vmware.md#agent-based-migration-url-access-requirements).
-5. Granska [port åtkomst](migrate-support-matrix-vmware.md#agent-based-migration-port-requirements) som Azure Migrate komponenter behöver för agent-baserad åtkomst.
-
+1. [Granska](migrate-support-matrix-vmware-migration.md#agent-based-vmware-servers) Krav för VMware-servrar och behörighets Azure Migrate måste ha åtkomst till vCenter Server för certifikatbaserad migrering med hjälp av Azure Migrate Server-migrering.
+2. [Granska](migrate-support-matrix-vmware-migration.md#agent-based-vmware-vms) kraven för virtuella VMware-datorer som du vill migrera till Azure med hjälp av en agent-baserad migrering, inklusive installation av mobilitets tjänsten på varje virtuell dator som du vill migrera.
+3. Agentbaserade migreringar använder en replikeringsfil:
+    - [Granska](migrate-replication-appliance.md#appliance-requirements) distributions kraven för replikeringstjänsten och [alternativen](migrate-replication-appliance.md#mysql-installation) för att installera MySQL på-enheten.
+    - Granska [URL-adressen](migrate-replication-appliance.md#url-access) och [port](migrate-replication-appliance.md#port-access) åtkomst kraven för replikeringstjänsten.
+    
 ## <a name="next-steps"></a>Nästa steg
 
 I den här kursen har du:

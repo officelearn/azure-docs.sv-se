@@ -5,22 +5,21 @@ services: active-directory
 documentationcenter: ''
 author: MarkusVi
 manager: daveba
-editor: bryanla
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cdbc4e155ec1a41ee5e35226b5beda7639c151e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 2fc5596c6914b77b09db10528af891d7e6bd0159
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888370"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977863"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-sql"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure SQL
 
@@ -38,6 +37,12 @@ I den här självstudien lär du dig att komma åt en Azure SQL-server med en sy
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
+
+## <a name="enable"></a>Aktivera
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
 ## <a name="grant-access"></a>Bevilja åtkomst
 
 Du kan använda en befintlig SQL-server eller skapa en ny om du vill bevilja en databas i Azure SQL Server åtkomst till din virtuella dator. Om du vill skapa en ny server och en databas med hjälp av Azure-portalen följer du den här [Azure SQL-snabbstarten](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [Azure SQL-dokumentationen](https://docs.microsoft.com/azure/sql-database/).
@@ -47,9 +52,9 @@ Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 1. Aktivera Azure AD-autentisering för SQL-servern.
 2. Skapa en **innesluten användare** i databasen som representerar den virtuella datorns systemtilldelade identitet.
 
-## <a name="enable-azure-ad-authentication"></a>Aktivera Azure AD-autentisering
+### <a name="enable-azure-ad-authentication"></a>Aktivera Azure AD-autentisering
 
-[Konfigurera Azure AD-autentisering för SQL Server](/azure/sql-database/sql-database-aad-authentication-configure) med följande steg:
+**[Konfigurera Azure AD-autentisering för SQL Server](/azure/sql-database/sql-database-aad-authentication-configure):**
 
 1.  I Azure-portalen väljer du **SQL-servrar** från det vänstra navigeringsfältet.
 2.  Klicka på den SQL server som ska aktiveras för Azure AD-autentisering.
@@ -58,7 +63,7 @@ Det finns två steg för att ge den virtuella datorn åtkomst till en databas:
 5.  Välj ett Azure AD-användarkonto som ska bli administratör för servern och klicka på **Välj**.
 6.  I kommandofältet klickar du på **Spara**.
 
-## <a name="create-user"></a>Skapa användare
+### <a name="create-contained-user"></a>Skapa innesluten användare
 
 I det här avsnittet visas hur du skapar en innesluten användare i databasen som representerar den virtuella datorns tilldelade identitet. För det här steget behöver du [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Innan du börjar kan det också vara bra att granska följande artiklar för att få bakgrundsinformation om Azure AD-integrering:
 
@@ -66,6 +71,8 @@ I det här avsnittet visas hur du skapar en innesluten användare i databasen so
 - [Konfigurera och hantera Azure Active Directory-autentisering med SQL Database eller SQL Data Warehouse](/azure/sql-database/sql-database-aad-authentication-configure)
 
 SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel användare, grupper och tjänstens huvudnamn (program) och namn på virtuella datorer som aktiverats för hanterad identitet definieras unikt i AAD om sina visningsnamn. SQL DB kontrollerar AADs visnings namn vid T-SQL-skapandet av sådana användare och om det inte är unikt, Miss lyckas begäran att tillhandahålla ett unikt AAD-visnings namn för ett angivet konto.
+
+**Så här skapar du en innesluten användare:**
 
 1. Starta SQL Server Management Studio.
 2. I dialogrutan **Anslut till server** anger du SQL-servernamnet i fältet **Servernamn**.
@@ -99,7 +106,7 @@ SQL DB kräver unika AAD-visningsnamn. Med detta måste AAD-konton, till exempel
 
 Kod som körs i den virtuella datorn kan nu få en token från den systemtilldelade hanterade identiteten och använda token för att autentisera till SQL-servern.
 
-## <a name="get-an-access-token"></a>Hämta en åtkomsttoken
+## <a name="access-data"></a>Åtkomst till data
 
 Det här avsnittet visar hur du hämtar en åtkomsttoken med den virtuella datorns systemtilldelade identitet och använder den för att anropa Azure SQL. Azure SQL har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hanterade identiteter för Azure-resurser kan accepteras direkt. Du använder metoden med **åtkomsttoken** för att skapa en anslutning till SQL. Detta är en del av integreringen av Azure SQL med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
@@ -192,6 +199,12 @@ Du kan snabbt testa konfigurationen av slutpunkt till slutpunkt utan att behöva
     ```
 
 Kontrollera värdet på `$DataSet.Tables[0]` för att visa resultatet av frågan.
+
+
+## <a name="disable"></a>Inaktivera
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -2,7 +2,7 @@
 title: Utlös ett batch-jobb med Azure Functions
 description: Självstudie – Använd OCR för skannade dokument när de läggs till i en Storage-BLOB
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 99b9a8cac1342f30fcd70f8e938ba6d3dcb90aef
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770160"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029235"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Självstudie: utlösa ett batch-jobb med Azure Functions
 

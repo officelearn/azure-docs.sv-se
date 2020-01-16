@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 12/15/2019
 tags: connectors
-ms.openlocfilehash: 71f768506d7cec575c6bd765447397d8d0406859
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0314dceb23f02b723854dfc406e9440bbc14ccf6
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445952"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044298"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Skapa, övervaka och hantera FTP-filer med hjälp av Azure Logic Apps
 
@@ -25,7 +25,7 @@ Med Azure Logic Apps och FTP-anslutningen kan du skapa automatiserade uppgifter 
 
 Du kan använda utlösare som får svar från FTP-servern och göra utdata tillgängliga för andra åtgärder. Du kan använda kör åtgärder i dina Logi Kap par för att hantera filer på din FTP-server. Du kan också använda andra åtgärder för att använda utdata från FTP-åtgärder. Om du till exempel regelbundet hämtar filer från FTP-servern kan du skicka e-post om filerna och deras innehåll med hjälp av Office 365 Outlook Connector eller Outlook.com Connector. Om du inte har använt Logic Apps igen kan du läsa mer [Azure Logic Apps](../logic-apps/logic-apps-overview.md).
 
-## <a name="limits"></a>Begränsningar
+## <a name="limitations"></a>Begränsningar
 
 * FTP-anslutningen har endast stöd för explicit FTP över SSL (FTPS) och är inte kompatibel med implicit FTPS.
 
@@ -36,6 +36,8 @@ Du kan använda utlösare som får svar från FTP-servern och göra utdata tillg
   * Använd en FTP-utlösare som returnerar fil egenskaper, till exempel **när en fil läggs till eller ändras (endast egenskaper)** .
 
   * Följ utlösaren med åtgärden **Hämta fil innehåll** i FTP, som läser den fullständiga filen och som implicit använder segment.
+
+* Om du har en lokal FTP-server kan du överväga att skapa en [integrerings tjänst miljö (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) eller använda [Azure App Service hybrid anslutningar](../app-service/app-service-hybrid-connections.md), som båda ger dig åtkomst till lokala data källor utan att använda en lokal datagateway.
 
 ## <a name="how-ftp-triggers-work"></a>Så här fungerar FTP-utlösare
 

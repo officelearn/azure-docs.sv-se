@@ -11,26 +11,26 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 389125b1ce3ed43e16f2c9c481e26f1297785a6c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 61ee9e46b1c1d4c1e1ec4815c7a88de921650230
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439353"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982596"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Självstudie: Kopiera data från en lokal SQL Server-databas till Azure Blob Storage
 
-I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet. 
+I den här självstudien använder du Azure PowerShell för att skapa en Data Factory-pipeline som kopierar data från en lokal SQL Server-databas till Azure Blob Storage. Du skapar och använder en lokal installation av Integration Runtime som flyttar data mellan lokala datalager och datalager i molnet.
 
 > [!NOTE]
-> Den här artikeln ger inte någon detaljerad introduktion till Data Factory-tjänsten. Mer information finns i [Introduktion till Azure Data Factory](introduction.md). 
+> Den här artikeln ger inte någon detaljerad introduktion till Data Factory-tjänsten. Mer information finns i [Introduktion till Azure Data Factory](introduction.md).
 
 I den här självstudien får du göra följande:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
 > * Skapa Integration Runtime med egen värd.
-> * Skapa länkade tjänster för SQL Server och Azure Storage. 
+> * Skapa länkade tjänster för SQL Server och Azure Storage.
 > * Skapa datauppsättningar för SQL Server och Azure Blob.
 > * Skapa en pipeline med en kopieringsaktivitet för att flytta data.
 > * Starta en pipelinekörning.
@@ -41,20 +41,20 @@ I den här självstudien får du göra följande:
 Om du inte redan har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 ### <a name="azure-roles"></a>Azure-roller
-Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara tilldelad en *deltagare* eller *ägare*, eller vara en *administratör* för Azure-prenumerationen. 
+Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara tilldelad en *deltagare* eller *ägare*, eller vara en *administratör* för Azure-prenumerationen.
 
 Om du vill visa vilka behörigheter du har i prenumerationen öppnar du Azure-portalen, väljer användarnamnet i det övre högra hörnet och sedan väljer du **Behörigheter**. Om du har åtkomst till flera prenumerationer väljer du rätt prenumeration. Exempelinstruktioner för hur du lägger till en användare till en roll finns i [Hantera åtkomst med RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 och 2017
-I den här självstudien använder du en lokal SQL Server-databas som *källdatalager*. Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). Skapa sedan en tabell med namnet **emp** i SQL Server-databasen och infoga ett par exempelposter i tabellen. 
+I den här självstudien använder du en lokal SQL Server-databas som *källdatalager*. Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). Skapa sedan en tabell med namnet **emp** i SQL Server-databasen och infoga ett par exempelposter i tabellen.
 
-1. Starta SQL Server Management Studio. Om det inte redan är installerat på datorn öppnar du [Ladda ner SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). 
+1. Starta SQL Server Management Studio. Om det inte redan är installerat på datorn öppnar du [Ladda ner SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
-1. Anslut till SQL Server-instansen med hjälp av dina autentiseringsuppgifter. 
+1. Anslut till SQL Server-instansen med hjälp av dina autentiseringsuppgifter.
 
-1. Skapa en exempeldatabas. I trädvyn högerklickar du på **Databaser** och sedan väljer du **Ny databas**. 
- 
-1. I fönstret **Ny databas** anger du ett namn för databasen och sedan väljer du **OK**. 
+1. Skapa en exempeldatabas. I trädvyn högerklickar du på **Databaser** och sedan väljer du **Ny databas**.
+
+1. I fönstret **Ny databas** anger du ett namn för databasen och sedan väljer du **OK**.
 
 1. Skapa tabellen **emp** och infoga lite exempeldata i den genom att köra följande frågeskript mot databasen. I trädvyn högerklickar du på databasen du skapade och sedan väljer du **Ny fråga**.
 
@@ -66,7 +66,7 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
         LastName varchar(50)
     )
     GO
-    
+
     INSERT INTO emp (FirstName, LastName) VALUES ('John', 'Doe')
     INSERT INTO emp (FirstName, LastName) VALUES ('Jane', 'Doe')
     GO
@@ -74,33 +74,33 @@ I den här självstudien använder du en lokal SQL Server-databas som *källdata
 
 
 ### <a name="azure-storage-account"></a>Azure Storage-konto
-I den här självstudien använder du ett allmänt Azure Storage-konto (Azure Blob Storage för att vara exakt) som datalager för destination/mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). 
+I den här självstudien använder du ett allmänt Azure Storage-konto (Azure Blob Storage för att vara exakt) som datalager för destination/mottagare. Om du inte har något allmänt Azure Storage-konto kan du läsa [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Pipelinen i datafabriken du skapar i den här självstudien kopierar data från den här lokala SQL Server-databasen (källa) till Azure Blob Storage (mottagare). 
 
 #### <a name="get-storage-account-name-and-account-key"></a>Hämta lagringskontots namn och åtkomstnyckel
-Du använder namnet och nyckeln för Azure Storage-kontot i den här självstudien. Hämta namnet och nyckeln till lagringskontot genom att göra följande: 
+Du använder namnet och nyckeln för Azure Storage-kontot i den här självstudien. Hämta namnet och nyckeln till lagringskontot genom att göra följande:
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med användarnamnet och lösenordet för Azure. 
+1. Logga in på [Azure Portal](https://portal.azure.com) med användarnamnet och lösenordet för Azure.
 
 1. I det vänstra fönstret väljer du **Fler tjänster**, filtrerar genom att använda nyckelordet **Lagring** och sedan väljer du **Lagringskonton**.
 
     ![Sök efter lagringskontot](media/doc-common-process/search-storage-account.png)
 
-1. Filtrera på ditt lagringskonto (om det behövs) i listan med lagringskonton och välj sedan ditt lagringskonto. 
+1. Filtrera på ditt lagringskonto (om det behövs) i listan med lagringskonton och välj sedan ditt lagringskonto.
 
 1. I fönstret **Lagringskonto** väljer du **Åtkomstnycklar**.
 
-1. I rutorna **Lagringskontonamn** och **key1** kopierar du värdena och klistrar sedan in dem i Anteckningar eller annat redigeringsprogram så att du har dem när du behöver dem senare i självstudien. 
+1. I rutorna **Lagringskontonamn** och **key1** kopierar du värdena och klistrar sedan in dem i Anteckningar eller annat redigeringsprogram så att du har dem när du behöver dem senare i självstudien.
 
-#### <a name="create-the-adftutorial-container"></a>Skapa containern adftutorial 
-I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage. 
+#### <a name="create-the-adftutorial-container"></a>Skapa containern adftutorial
+I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azure Blob Storage.
 
-1. I fönstret **Lagringskonto** växlar du till **Översikt** och klickar sedan på **Blobar**. 
+1. I fönstret **Lagringskonto** växlar du till **Översikt** och klickar sedan på **Blobar**.
 
     ![Alternativet Välj blobar](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. I fönstret **Blobtjänst** väljer du **Container**. 
+1. I fönstret **Blobtjänst** väljer du **Container**.
 
-1. I fönstret **Ny container**, i rutan **Namn**, anger du **adftutorial** och väljer **OK**. 
+1. I fönstret **Ny container**, i rutan **Namn**, anger du **adftutorial** och väljer **OK**.
 
     ![Ange namn på container](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
@@ -115,14 +115,14 @@ I det här avsnittet skapar du en blobcontainer med namnet **adftutorial** i Azu
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Installera den senaste versionen av Azure PowerShell om du inte redan har den på din dator. Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps). 
+Installera den senaste versionen av Azure PowerShell om du inte redan har den på din dator. Mer detaljerade anvisningar finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="log-in-to-powershell"></a>Logga in på PowerShell
 
 1. Starta PowerShell på datorn och låt det vara öppet tills den här självstudien har slutförts. Om du stänger och öppnar det igen behöver du köra dessa kommandon en gång till.
 
 1. Kör följande kommando och ange sedan användarnamnet och lösenordet för Azure som du använder för att logga in på Azure-portalen:
-       
+
     ```powershell
     Connect-AzAccount
     ```        
@@ -141,61 +141,61 @@ Installera den senaste versionen av Azure PowerShell om du inte redan har den p�
     $resourceGroupName = "ADFTutorialResourceGroup"
     ```
 
-1. Kör följande kommando för att skapa en Azure-resursgrupp: 
+1. Kör följande kommando för att skapa en Azure-resursgrupp:
 
     ```powershell
     New-AzResourceGroup $resourceGroupName -location 'East US'
-    ``` 
+    ```
 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
 
 1. Definiera en variabel för datafabrikens namn som du kan använda senare i PowerShell-kommandon. Namnet måste börja med en bokstav eller en siffra och får bara innehålla bokstäver, siffror och bindestreck (-).
 
     > [!IMPORTANT]
-    >  Uppdatera datafabrikens namn med ett unikt globalt namn. Ett exempel är ADFTutorialFactorySP1127. 
+    >  Uppdatera datafabrikens namn med ett unikt globalt namn. Ett exempel är ADFTutorialFactorySP1127.
 
     ```powershell
     $dataFactoryName = "ADFTutorialFactory"
     ```
 
-1. Definiera en variabel för datafabrikens plats: 
+1. Definiera en variabel för datafabrikens plats:
 
     ```powershell
     $location = "East US"
     ```  
 
-1. Skapa datafabriken genom att köra följande `Set-AzDataFactoryV2`-cmdlet: 
-    
+1. Skapa datafabriken genom att köra följande `Set-AzDataFactoryV2`-cmdlet:
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
     ```
 
 > [!NOTE]
-> 
+>
 > * Namnet på datafabriken måste vara globalt unikt. Om du får följande felmeddelande ändrar du namnet och försöker igen.
 >    ```
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara tilldelad en *deltagare* eller *ägare*, eller vara en *administratör* för Azure-prenumerationen.
 > * Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (Azure HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
-> 
-> 
+>
+>
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Skapa en lokal Integration Runtime
 
-I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. En lokal Integration Runtime är den komponent som kopierar data från SQL Server-databasen på din dator till Azure Blob Storage. 
+I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den till en lokal dator med SQL Server-databasen. En lokal Integration Runtime är den komponent som kopierar data från SQL Server-databasen på din dator till Azure Blob Storage.
 
-1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och notera namnet. Du använder det senare i den här självstudien. 
+1. Skapa en variabel för namnet på din Integration Runtime. Använd ett unikt namn och notera namnet. Du använder det senare i den här självstudien.
 
     ```powershell
    $integrationRuntimeName = "ADFTutorialIR"
     ```
 
-1. Skapa Integration Runtime med egen värd. 
+1. Skapa Integration Runtime med egen värd.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
-    ``` 
+    ```
 
     Här är exempel på utdata:
 
@@ -215,16 +215,16 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
     ```
 
     Här är exempel på utdata:
-    
+
     ```json
     State                     : NeedRegistration
-    Version                   : 
+    Version                   :
     CreateTime                : 9/10/2019 3:24:09 AM
     AutoUpdate                : On
-    ScheduledUpdateDate       : 
-    UpdateDelayOffset         : 
-    LocalTimeZoneOffset       : 
-    InternalChannelEncryption : 
+    ScheduledUpdateDate       :
+    UpdateDelayOffset         :
+    LocalTimeZoneOffset       :
+    InternalChannelEncryption :
     Capabilities              : {}
     ServiceUrls               : {eu.frontend.clouddatahub.net}
     Nodes                     : {}
@@ -237,14 +237,14 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
     Id                        : /subscriptions/<subscription ID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<dataFactoryName>/integrationruntimes/<integrationRuntimeName>
     ```
 
-1. Kör följande kommando för att hämta *autentiseringsnycklarna* för att registrera en lokal Integration Runtime med Data Factory-tjänsten i molnet. Kopiera en av nycklarna (uteslut de dubbla citattecknen) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i nästa steg. 
+1. Kör följande kommando för att hämta *autentiseringsnycklarna* för att registrera en lokal Integration Runtime med Data Factory-tjänsten i molnet. Kopiera en av nycklarna (uteslut de dubbla citattecknen) för att registrera den lokala installation av Integration Runtime som du installerar på datorn i nästa steg.
 
     ```powershell
     Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
-    
+
     Här är exempel på utdata:
-    
+
     ```json
     {
         "AuthKey1":  "IR@0000000000-0000-0000-0000-000000000000@xy0@xy@xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx=",
@@ -253,31 +253,31 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
     ```
 
 ## <a name="install-the-integration-runtime"></a>Installera Integration Runtime
-1. Ladda ned [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) på en lokal Windows-dator och kör sedan installationen. 
+1. Ladda ned [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) på en lokal Windows-dator och kör sedan installationen.
 
 1. På **välkomstskärmen till installationsguiden för Microsoft Integration Runtime** klickar du på **Nästa**.  
 
-1. I fönstret med **licensavtalet** godkänner du villkoren och licensavtalet och väljer **Nästa**. 
+1. I fönstret med **licensavtalet** godkänner du villkoren och licensavtalet och väljer **Nästa**.
 
-1. I fönstret **Målmapp** väljer du **Nästa**. 
+1. I fönstret **Målmapp** väljer du **Nästa**.
 
-1. I fönstret **Klar att installera Microsoft Integration Runtime** väljer du **Installera**. 
+1. I fönstret **Klar att installera Microsoft Integration Runtime** väljer du **Installera**.
 
 1. I **installationsguiden för Microsoft Integration Runtime**  väljer du **Slutför**.
 
-1. Klistra in den nyckel som du sparade i föregående avsnitt i fönstret **Registrera Integration Runtime (lokal)** och klicka sedan på **Registrera**. 
+1. Klistra in den nyckel som du sparade i föregående avsnitt i fönstret **Registrera Integration Runtime (lokal)** och klicka sedan på **Registrera**.
 
     ![Registrera Integration Runtime](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. I fönstret **ny integration Runtime (lokal installation) nod** väljer du **Slutför**. 
+1. I fönstret **ny integration Runtime (lokal installation) nod** väljer du **Slutför**.
 
     ![Fönstret Ny nod för Integration Runtime](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
- 1. När den lokala installationen av Integration Runtime har registrerats ser du följande meddelande: 
+ 1. När den lokala installationen av Integration Runtime har registrerats ser du följande meddelande:
 
     ![Registered successfully (Registrerat)](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. I fönstret **Registrera Integration Runtime (lokal)** väljer du **Starta Konfigurationshanteraren**. 
+1. I fönstret **Registrera Integration Runtime (lokal)** väljer du **Starta Konfigurationshanteraren**.
 
 1. Följande meddelande visas när noden är ansluten till molntjänsten:
 
@@ -291,23 +291,23 @@ I det här avsnittet kan du skapa en lokal Integration Runtime och koppla den ti
 
     c. Ange servernamnet.
 
-    d. Ange namnet på databasen. 
+    d. Ange namnet på databasen.
 
-    e. Välj autentiseringsläge. 
+    e. Välj autentiseringsläge.
 
-    f. Ange användarnamnet. 
+    f. Ange användarnamnet.
 
     g. Ange lösenordet som är kopplat till användarnamnet.
 
     h. Klicka på **Test** för att bekräfta att Integration Runtime kan ansluta till SQL Server.  
-    ![anslutningen är klar](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png) 
-  
+    ![anslutningen är klar](media/tutorial-hybrid-copy-powershell/config-manager-diagnostics-tab.png)
+
     Du ser en grön bockmarkering om anslutningen är upprättad. Annars ser du ett felmeddelande som är kopplat till felet. Åtgärda eventuella problem och se till att Integration Runtime kan ansluta till din SQL Server-instans.
 
     Notera alla föregående värden. Du behöver dem senare i den här självstudien.
-    
+
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Skapa länkade tjänster i datafabriken för att länka dina datalager och beräkningstjänster till datafabriken. I den här självstudien länkar du ditt Azure Storage-konto och din lokala SQL Server-instans till datalagret. De länkade tjänsterna har anslutningsinformationen som Data Factory-tjänsten använder vid körning för att ansluta till dem. 
+Skapa länkade tjänster i datafabriken för att länka dina datalager och beräkningstjänster till datafabriken. I den här självstudien länkar du ditt Azure Storage-konto och din lokala SQL Server-instans till datalagret. De länkade tjänsterna har anslutningsinformationen som Data Factory-tjänsten använder vid körning för att ansluta till dem.
 
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Skapa en länkad Azure Storage-tjänst (destination/mottagare)
 I det här steget länkar du ditt Azure Storage-konto till datafabriken.
@@ -335,7 +335,7 @@ I det här steget länkar du ditt Azure Storage-konto till datafabriken.
    Set-Location 'C:\ADFv2Tutorial'    
    ```
 
-1. För att skapa den länkade tjänsten, AzureStorageLinkedService, kör du följande `Set-AzDataFactoryV2LinkedService`-cmdlet: 
+1. För att skapa den länkade tjänsten, AzureStorageLinkedService, kör du följande `Set-AzDataFactoryV2LinkedService`-cmdlet:
 
    ```powershell
    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -350,7 +350,7 @@ I det här steget länkar du ditt Azure Storage-konto till datafabriken.
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
-    Om du får felmeddelandet ”Filen hittades inte” kontrollerar du att filen finns genom att köra `dir`-kommandot. Om filnamnet har tillägget *.txt* (till exempel AzureStorageLinkedService.json.txt) tar du bort den och kör sedan PowerShell-kommandot igen. 
+    Om du får felmeddelandet ”Filen hittades inte” kontrollerar du att filen finns genom att köra `dir`-kommandot. Om filnamnet har tillägget *.txt* (till exempel AzureStorageLinkedService.json.txt) tar du bort den och kör sedan PowerShell-kommandot igen.
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Skapa och kryptera en SQL Server som är länkad tjänst (källa)
 I det här steget länkar du din lokala SQL Server-instans till datafabriken.
@@ -368,7 +368,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
         "type":"Microsoft.DataFactory/factories/linkedservices",
         "properties":{  
             "annotations":[  
-    
+
             ],
             "type":"SqlServer",
             "typeProperties":{  
@@ -390,7 +390,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
         "type":"Microsoft.DataFactory/factories/linkedservices",
         "properties":{  
             "annotations":[  
-    
+
             ],
             "type":"SqlServer",
             "typeProperties":{  
@@ -406,18 +406,18 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
                 "type":"IntegrationRuntimeReference"
             }
         }
-    } 
+    }
     ```
 
     > [!IMPORTANT]
     > - Välj avsnitt baserat på vilken autentisering du använder när du ansluter till din SQL Server-instans.
     > - Ersätt  **\<integration runtime name>** med namnet på din Integration Runtime.
     > - Ersätt **\<servername>** , **\<databasename>** , **\<username>** och **\<password>** med värdena för din SQL Server-instans innan du sparar filen.
-    > - Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel *mydomain\\\\myuser*. 
+    > - Om du behöver använda ett omvänt snedstreck (\\) i ditt användarkonto eller servernamn infogar du escape-tecknet framför det (\\). Använd till exempel *mydomain\\\\myuser*.
 
 1. Kör `New-AzDataFactoryV2LinkedServiceEncryptedCredential`-cmdlet för att kryptera känsliga data (användarnamn, lösenord och så vidare).  
     Den här krypteringen ser till att autentiseringsuppgifterna krypteras med Data Protection Application Programming Interface (DPAPI). Krypterade autentiseringsuppgifter lagras lokalt på en IR-nod med egen värd (lokal dator). Nyttolasten i utdata kan omdirigeras till en annan JSON-fil (i det här fallet *encryptedLinkedService.json*) som innehåller krypterade autentiseringsuppgifter.
-    
+
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
@@ -433,7 +433,7 @@ I det här steget länkar du din lokala SQL Server-instans till datafabriken.
 I det här steget skapar du datauppsättningar för indata och utdata. De representerar indata och utdata för kopieringsåtgärden, som kopierar data från den lokala SQL Server-databasen till Azure Blob Storage.
 
 ### <a name="create-a-dataset-for-the-source-sql-server-database"></a>Skapa en datauppsättning för SQL Server-databaskällan
-I det här steget definierar du en datauppsättning som representerar data i SQL Server-databasen. Datauppsättningen är av typen SqlServerTable. Den refererar till den SQL Server-länkade tjänst som du skapade i föregående steg. De länkade tjänsterna har anslutningsinformation som Data Factory-tjänsten använder för att ansluta till din SQL Server-instans vid körning. Den här datauppsättningen anger den SQL-tabell i databasen som innehåller data. I den här självstudien är det tabellen **emp** som innehåller datakällan. 
+I det här steget definierar du en datauppsättning som representerar data i SQL Server-databasen. Datauppsättningen är av typen SqlServerTable. Den refererar till den SQL Server-länkade tjänst som du skapade i föregående steg. De länkade tjänsterna har anslutningsinformation som Data Factory-tjänsten använder för att ansluta till din SQL Server-instans vid körning. Den här datauppsättningen anger den SQL-tabell i databasen som innehåller data. I den här självstudien är det tabellen **emp** som innehåller datakällan.
 
 1. Skapa en JSON-fil med namnet *SqlServerDataset.json* i mappen *C:\ADFv2Tutorial* med följande kod:  
     ```json
@@ -445,11 +445,11 @@ I det här steget definierar du en datauppsättning som representerar data i SQL
                 "type":"LinkedServiceReference"
             },
             "annotations":[  
-    
+
             ],
             "type":"SqlServerTable",
             "schema":[  
-    
+
             ],
             "typeProperties":{  
                 "schema":"dbo",
@@ -471,14 +471,14 @@ I det här steget definierar du en datauppsättning som representerar data i SQL
     DatasetName       : SqlServerDataset
     ResourceGroupName : <resourceGroupName>
     DataFactoryName   : <dataFactoryName>
-    Structure         : 
+    Structure         :
     Properties        : Microsoft.Azure.Management.DataFactory.Models.SqlServerTableDataset
     ```
 
 ### <a name="create-a-dataset-for-azure-blob-storage-sink"></a>Skapa en datauppsättning för Azure Blob Storage (mottagare)
-I det här steget definierar du en datauppsättning som representerar data som ska kopieras till Azure Blob Storage. Datauppsättningen är av typen AzureBlob. Den refererar till den Azure Storage-länkade tjänst som du skapade tidigare i den här självstudien. 
+I det här steget definierar du en datauppsättning som representerar data som ska kopieras till Azure Blob Storage. Datauppsättningen är av typen AzureBlob. Den refererar till den Azure Storage-länkade tjänst som du skapade tidigare i den här självstudien.
 
-Den länkade tjänsten har anslutningsinformationen som datafabriken använder vid körning för att ansluta till ditt Azure Storage-konto. Den här datauppsättningen anger den mapp i Azure-lagringen till vilken data kopieras från SQL Server-databasen. I den här självstudien är mappen *adftutorial/fromonprem*, där `adftutorial` är blobcontainern och `fromonprem` är mappen. 
+Den länkade tjänsten har anslutningsinformationen som datafabriken använder vid körning för att ansluta till ditt Azure Storage-konto. Den här datauppsättningen anger den mapp i Azure-lagringen till vilken data kopieras från SQL Server-databasen. I den här självstudien är mappen *adftutorial/fromonprem*, där `adftutorial` är blobcontainern och `fromonprem` är mappen.
 
 1. Skapa en JSON-fil med namnet *AzureBlobDataset.json* i mappen *C:\ADFv2Tutorial* med följande kod:
 
@@ -491,7 +491,7 @@ Den länkade tjänsten har anslutningsinformationen som datafabriken använder v
                 "type":"LinkedServiceReference"
             },
             "annotations":[  
-    
+
             ],
             "type":"DelimitedText",
             "typeProperties":{  
@@ -505,7 +505,7 @@ Den länkade tjänsten har anslutningsinformationen som datafabriken använder v
                 "quoteChar":"\""
             },
             "schema":[  
-    
+
             ]
         },
         "type":"Microsoft.DataFactory/factories/datasets"
@@ -542,7 +542,7 @@ I den här självstudien kan du skapa en pipeline med en kopieringsaktivitet. Ko
                     "name":"CopySqlServerToAzureBlobActivity",
                     "type":"Copy",
                     "dependsOn":[  
-    
+
                     ],
                     "policy":{  
                         "timeout":"7.00:00:00",
@@ -552,7 +552,7 @@ I den här självstudien kan du skapa en pipeline med en kopieringsaktivitet. Ko
                         "secureInput":false
                     },
                     "userProperties":[  
-    
+
                     ],
                     "typeProperties":{  
                         "source":{  
@@ -586,7 +586,7 @@ I den här självstudien kan du skapa en pipeline med en kopieringsaktivitet. Ko
                 }
             ],
             "annotations":[  
-    
+
             ]
         }
     }
@@ -647,7 +647,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     PipelineName         : SQLServerToBlobPipeline
     Input                : {source, sink, enableStaging}
     Output               : {dataRead, dataWritten, filesWritten, sourcePeakConnections...}
-    LinkedServiceName    : 
+    LinkedServiceName    :
     ActivityRunStart     : 9/11/2019 7:10:37 AM
     ActivityRunEnd       : 9/11/2019 7:10:58 AM
     DurationInMs         : 21094
@@ -656,7 +656,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     AdditionalProperties : {[retryAttempt, ], [iterationHash, ], [userProperties, {}], [recoveryStatus, None]...}
     ```
 
-1. Du kan få körnings-ID:t för pipelinen SQLServerToBlobPipeline, och kontrollera aktivitetens detaljerade körningsresultat genom att köra följande kommando: 
+1. Du kan få körnings-ID:t för pipelinen SQLServerToBlobPipeline, och kontrollera aktivitetens detaljerade körningsresultat genom att köra följande kommando:
 
     ```powershell
     Write-Host "Pipeline 'SQLServerToBlobPipeline' run result:" -foregroundcolor "Yellow"
@@ -677,7 +677,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
         "copyDuration":18,
         "throughput":0.01,
         "errors":[  
-    
+
         ],
         "effectiveIntegrationRuntime":"ADFTutorialIR",
         "usedParallelCopies":1,
@@ -705,10 +705,10 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ```
 
 ## <a name="verify-the-output"></a>Verifiera utdata
-Pipelinen skapar automatiskt utdatamappen med namnet *fromonprem* i `adftutorial`-blobcontainern. Bekräfta att filen *dbo.emp.txt* finns i utdatamappen. 
+Pipelinen skapar automatiskt utdatamappen med namnet *fromonprem* i `adftutorial`-blobcontainern. Bekräfta att filen *dbo.emp.txt* finns i utdatamappen.
 
 1. I containerfönstret **adftutorial** i Azure-portalen väljer du **Uppdatera** för att se utdatamappen.
-1. Välj `fromonprem` i listan över mappar. 
+1. Välj `fromonprem` i listan över mappar.
 1. Bekräfta att du ser en fil med namnet `dbo.emp.txt`.
 
     ![Utdatafil](media/tutorial-hybrid-copy-powershell/fromonprem-file.png)
@@ -720,7 +720,7 @@ Pipelinen i det här exemplet kopierar data från en plats till en annan i Azure
 > [!div class="checklist"]
 > * Skapa en datafabrik.
 > * Skapa Integration Runtime med egen värd.
-> * Skapa länkade tjänster för SQL Server och Azure Storage. 
+> * Skapa länkade tjänster för SQL Server och Azure Storage.
 > * Skapa datauppsättningar för SQL Server och Azure Blob.
 > * Skapa en pipeline med en kopieringsaktivitet för att flytta data.
 > * Starta en pipelinekörning.

@@ -15,32 +15,32 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b357def86b77d4bbb294e2253dacfbd129998ec
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b67507daf8005f3f9a299b778f1fba4ce67d46d4
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965134"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044158"
 ---
-# <a name="scenario-web-api-that-calls-web-apis"></a>Scenario: webb-API som anropar webb-API: er
+# <a name="scenario-a-web-api-that-calls-web-apis"></a>Scenario: ett webb-API som anropar webb-API: er
 
-Lär dig allt du behöver för att bygga ett webb-API som anropar webb-API: er.
+Lär dig vad du behöver veta för att bygga ett webb-API som anropar webb-API: er.
 
 ## <a name="prerequisites"></a>Krav
 
-Det här scenariot, skyddat webb-API som anropar webb-API: er, bygger ovanpå "skydda ett webb-API"-scenario. Mer information om det här grundläggande scenariot finns i [Protected Web API-scenario](scenario-protected-web-api-overview.md) först.
+Det här scenariot, där ett skyddat webb-API anropar webb-API: er, bygger ovanpå "skydda ett webb-API"-scenario. Mer information om det här grundläggande scenariot finns i [Scenario: skyddat webb-API](scenario-protected-web-api-overview.md).
 
 ## <a name="overview"></a>Översikt
 
-- En klient (webb-, skriv bords-, mobil-eller Enkels Ides program) – visas inte i diagrammet nedan – anropar ett skyddat webb-API och tillhandahåller en JWT Bearer-token i HTTP-huvudet "Authorization".
-- Det skyddade webb-API: et verifierar token och använder `AcquireTokenOnBehalfOf` MSAL-metoden för att begära (från Azure AD) en annan token, så att den kan anropa en andra webb-API (med namnet "underordnat webb-API) för användarens räkning.
-- Det skyddade webb-API: et använder denna token för att anropa ett underordnat API. Det kan också anropa `AcquireTokenSilent`senare för att begära token för andra underordnade API: er (men fortfarande på uppdrag av samma användare). `AcquireTokenSilent` uppdaterar token vid behov.
+- En webb-, skriv bords-, mobil-eller mobil-eller Enkels Ides program klient (visas inte i det medföljande diagrammet) anropar ett skyddat webb-API och tillhandahåller en JSON Web Token (JWT) Bearer-token i HTTP-huvudet "Authorization".
+- Det skyddade webb-API: et verifierar token och använder MSAL-metoden (Microsoft Authentication Library `AcquireTokenOnBehalfOf`) för att begära en annan token från Azure Active Directory (Azure AD) så att det skyddade webb-API: et kan anropa ett andra webb-API, eller underordnat webb-API, för användarens räkning.
+- Det skyddade webb-API: et kan också anropa `AcquireTokenSilent`senare för att begära token för andra underordnade API: er för samma användares räkning. `AcquireTokenSilent` uppdaterar token vid behov.
 
-![Webb-API som anropar ett webb-API](media/scenarios/web-api.svg)
+![Diagram över ett webb-API som anropar ett webb-API](media/scenarios/web-api.svg)
 
 ## <a name="specifics"></a>Information
 
-Den del av app-registreringen som är relaterad till API-behörigheterna är klassisk. Program konfigurationen innebär att du använder OAuth 2,0 på uppdrag av Flow för att byta JWT Bearer-token mot en token för ett underordnat API. Den här token läggs till i token cache, där den är tillgänglig i webb-API: s kontrollanter och kan hämta en token tyst för att anropa underordnade API: er.
+Appens registrerings del som är relaterad till API-behörigheter är klassisk. App-konfigurationen innebär att du använder OAuth 2,0 på uppdrag av Flow för att byta JWT Bearer-token mot en token för ett underordnat API. Den här token läggs till i token cache, där den är tillgänglig i webb-API: s kontrollanter och kan sedan hämta en token tyst för att anropa underordnade API: er.
 
 ## <a name="next-steps"></a>Nästa steg
 

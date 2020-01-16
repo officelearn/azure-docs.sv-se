@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 62faf33dc8b3690036407972e12633e741a85d78
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176756"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980467"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Hantera lagrings konto nycklar med Key Vault och Azure CLI
 
@@ -41,11 +41,11 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| Klienter | Molnet | Program-ID:t |
+| Klientorganisationer | I molnet | Program-ID:t |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Offentlig Azure- | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Annat  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Krav
 
@@ -53,7 +53,7 @@ För att slutföra den här guiden måste du först göra följande:
 
 - [Installera Azure CLI](/cli/azure/install-azure-cli).
 - [Skapa ett nyckel valv](quick-create-cli.md)
-- [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md?tabs=azure-cli). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
+- [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-cli). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
       
 ## <a name="manage-storage-account-keys"></a>Hantera lagrings konto nycklar
 

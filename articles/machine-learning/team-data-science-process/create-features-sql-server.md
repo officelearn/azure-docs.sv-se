@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/21/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7bc44d8e755af3d212d616425c6a1fd925172298
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65602937"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982058"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
 Det här dokumentet visar hur du skapar funktioner för data som lagras i en SQL Server-VM på Azure som hjälper algoritmer som Lär dig mer effektivt från data. Du kan använda SQL-databaser eller ett programmeringsspråk som Python för att åstadkomma detta. Båda metoderna är visas här.
@@ -28,10 +28,10 @@ Den här uppgiften är ett steg i den [Team Data Science Process (TDSP)](https:/
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du har:
 
-* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-quickstart-create-account.md)
+* Skapa ett Azure storage-konto. Om du behöver anvisningar läser [skapa ett Azure Storage-konto](../../storage/common/storage-account-create.md)
 * Lagras dina data i SQL Server. Om du inte har Se [flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md) anvisningar om hur du flyttar data det.
 
 ## <a name="sql-featuregen"></a>Funktionen generation med SQL
@@ -68,7 +68,7 @@ Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas fr
 * Inloggningssidan anger om vi är norr eller söder, östra eller Väst i världen.
 * Ett annat värde än noll hundratals siffra anger longitud, latitud inte används.
 * Tio siffror ger möjlighet att cirka 1 000 kilometer. Det ger användbar information om vilka kontinent eller miljöer är vi på.
-* Enheter siffra (en decimal grad) ger en position upp till 111 kilometer (60 sjömil, ungefär 69 miles). Den visar ungefär, vilka stora eller land/region som det är en.
+* Enheter siffra (en decimal grad) ger en position upp till 111 kilometer (60 sjömil, ungefär 69 miles). Det indikerar, ungefär, vilket stort tillstånd eller land/region som vi befinner sig i.
 * En decimal är värt att upp till 11.1 km: Det kan skilja positionen för en stor stad från en närliggande stora stad.
 * Andra decimal är värt att upp till 1.1 km: Det kan skilja ett village från nästa.
 * Den tredje decimalen är värt att upp till 110 m: kan identifiera ett stort agricultural fält eller institutionella campus.

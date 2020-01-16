@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: eb2d663a56084fc625c95f1f1a6236385880180d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 2c5312c2e0a7121237c4d11197d90a2a5638557c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796151"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021150"
 ---
 | Resurs | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -21,16 +21,16 @@ ms.locfileid: "74796151"
 | Totalt antal VM-kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
 | Totalt antal kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) i Azure-VM |20<sup>1</sup> per region. | Kontakta supporten. |
 | VM per serie, till exempel Dv2 och F, kärnor per [prenumeration](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per region. | Kontakta supporten. |
-| [Medadministratörer](../articles/billing-add-change-azure-subscription-administrator.md) per prenumeration |Många. |Många. |
-| [Lagrings konton](../articles/storage/common/storage-quickstart-create-account.md) per region per prenumeration |250 |250 |
-| [Resurs grupper](../articles/azure-resource-manager/resource-group-overview.md) per prenumeration |980 |980 |
+| [Medadministratörer](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) per prenumeration |Många. |Många. |
+| [Lagrings konton](../articles/storage/common/storage-account-create.md) per region per prenumeration |250 |250 |
+| [Resurs grupper](../articles/azure-resource-manager/management/overview.md) per prenumeration |980 |980 |
 | [Tillgänglighets uppsättningar](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per prenumeration |2 000 per region. |2 000 per region. |
 | Storlek på Azure Resource Manager API-begäran |4 194 304 byte. |4 194 304 byte. |
 | Taggar per prenumeration<sup>2</sup> |Många. |Många. |
 | Beräkningar av unika Taggar per prenumeration<sup>2</sup> | 10 000 | 10 000 |
 | [Molntjänster](../articles/cloud-services/cloud-services-choose-me.md) per prenumeration |Ej tillämpligt<sup>3</sup> |Ej tillämpligt<sup>3</sup> |
 | [Tillhörighetsgrupper](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per prenumeration |Ej tillämpligt<sup>3</sup> |Ej tillämpligt<sup>3</sup> |
-| [Distributioner på prenumerations nivå](../articles/azure-resource-manager/deploy-to-subscription.md) per plats | 800<sup>4</sup> | 800 |
+| [Distributioner på prenumerations nivå](../articles/azure-resource-manager/templates/deploy-to-subscription.md) per plats | 800<sup>4</sup> | 800 |
 
 <sup>1</sup> Standard gränserna varierar beroende på kategori typ, t. ex. kostnads fri utvärderings version och betala per användning och efter serie, till exempel Dv2, F och G. Standardvärdet för Enterprise-avtal-prenumerationer är till exempel 350.
 

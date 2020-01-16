@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/14/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4da78fbb15aea2bd0f54ffec1b0851466c799584
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888591"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971952"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Storage
 
@@ -40,7 +40,18 @@ I den här självstudien lär du dig hur du använder en systemtilldelad hantera
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-account"></a>Skapa konto
+
+
+## <a name="enable"></a>Aktivera
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Bevilja åtkomst
+
+
+### <a name="create-storage-account"></a>Skapa lagringskonto
 
 I det här avsnittet skapar du ett lagringskonto.
 
@@ -53,7 +64,7 @@ I det här avsnittet skapar du ett lagringskonto.
 
     ![Skapa ett nytt lagringskonto](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
-## <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Skapa en blobcontainer och ladda upp en fil till lagringskontot
+### <a name="create-a-blob-container-and-upload-a-file-to-the-storage-account"></a>Skapa en blobcontainer och ladda upp en fil till lagringskontot
 
 Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagrar filen i. Sedan laddar du upp en fil till blobcontainern i det nya lagringskontot.
 
@@ -69,7 +80,7 @@ Eftersom filer kräver bloblagring måste du skapa en blobcontainer som du lagra
 7. I fönstret **Ladda upp blob**, under **Filer**, klickar du på mappikonen och bläddrar till filen **hello_world.txt** på den lokala datorn. Välj sedan filen och klicka på **Ladda upp**.
     ![Ladda upp textfil](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-access"></a>Bevilja åtkomst
+### <a name="grant-access"></a>Bevilja åtkomst
 
 I det här avsnittet visas hur du beviljar din VM-åtkomst till en Azure Storage-behållare. Du kan använda den virtuella datorns systemtilldelade hanterade identitet för att hämta data i Azure Storage Blob.
 
@@ -83,7 +94,7 @@ I det här avsnittet visas hur du beviljar din VM-åtkomst till en Azure Storage
 
     ![Tilldela behörigheter](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
-## <a name="get-an-access-token"></a>Hämta en åtkomsttoken 
+## <a name="access-data"></a>Åtkomst till data 
 
 Azure Storage har inbyggt stöd för Azure Active Directory-autentisering, vilket gör att åtkomsttoken som hämtas med en hanterad identitet kan accepteras direkt. Detta är en del av Azure Storages integrering med Azure AD, och skiljer sig från att ange autentiseringsuppgifter i anslutningssträngen.
 
@@ -160,6 +171,13 @@ namespace StorageOAuthToken
 Svaret innehåller filens innehåll:
 
 `Hello world! :)`
+
+
+## <a name="disable"></a>Inaktivera
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

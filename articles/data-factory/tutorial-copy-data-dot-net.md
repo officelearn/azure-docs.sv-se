@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 7f3fdf1b723158db873bc2635de34d878c464201
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93c4f71c762cff3e3f5a01f0e2595f3498f9d38d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439440"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977321"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Kopiera data från en Azure-blob till Azure SQL Database med Data Factory
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-kont
 
 ## <a name="prerequisites"></a>Krav
 
-* *Azure Storage-konto*. Du kan använda blob-lagringen som *källa* för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett allmänt lagrings konto](../storage/common/storage-quickstart-create-account.md).
+* *Azure Storage-konto*. Du kan använda blob-lagringen som *källa* för datalagringen. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett allmänt lagrings konto](../storage/common/storage-account-create.md).
 * *Azure SQL Database*. Du använder databasen som *mottagare* för datalagringen. Om du inte har en Azure SQL Database, se [skapa en Azure SQL-databas](../sql-database/sql-database-single-database-get-started.md).
 * *Visual Studio*. Genom gången i den här artikeln används Visual Studio 2019.
 * *[Azure SDK för .net](/dotnet/azure/dotnet-tools)* .
@@ -84,7 +84,7 @@ Skapa sedan en SQL-tabell för mottagare:
     1. Gå till [Azure Portal](https://portal.azure.com) för att hantera din SQL Server. Sök efter och välj **SQL-servrar**.
 
     2. Välj din server.
-    
+
     3. Under **säkerhets** rubriken för SQL Server-menyn väljer du **brand väggar och virtuella nätverk**.
 
     4. På sidan **brand vägg och virtuella nätverk** , under **Tillåt Azure-tjänster och-resurser åtkomst till den här servern**, väljer du **på**.
@@ -154,7 +154,7 @@ Följ de här stegen för att skapa en Data Factory-klient.
     string inputBlobName = "inputEmp.txt";
 
     // Specify the sink Azure SQL Database information
-    string azureSqlConnString = 
+    string azureSqlConnString =
         "Server=tcp:<your server name>.database.windows.net,1433;" +
         "Database=<your database name>;" +
         "User ID=<your username>@<your server name>;" +
@@ -265,7 +265,7 @@ Console.WriteLine(
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-I det här avsnittet skapar du två data uppsättningar: en för källan, den andra för mottagaren. 
+I det här avsnittet skapar du två data uppsättningar: en för källan, den andra för mottagaren.
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Skapa en datauppsättning för Azure Blob-källan
 
@@ -283,8 +283,8 @@ Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
     {
-        LinkedServiceName = new LinkedServiceReference { 
-            ReferenceName = storageLinkedServiceName 
+        LinkedServiceName = new LinkedServiceReference {
+            ReferenceName = storageLinkedServiceName
         },
         FolderPath = inputBlobPath,
         FileName = inputBlobName,
@@ -309,7 +309,7 @@ Console.WriteLine(
 
 Lägg till följande kod i `Main`-metoden som skapar en *Azure SQL Database-datauppsättning*. Information om vilka egenskaper och information som stöds finns i [Azure SQL Database data uppsättnings egenskaper](connector-azure-sql-database.md#dataset-properties).
 
-Du definierar en datauppsättning som representerar mottagardata i Azure SQL Database. Den här data mängden refererar till den Azure SQL Database länkade tjänsten som du skapade i föregående steg. Den anger också vilken SQL-tabell som innehåller de kopierade data. 
+Du definierar en datauppsättning som representerar mottagardata i Azure SQL Database. Den här data mängden refererar till den Azure SQL Database länkade tjänsten som du skapade i föregående steg. Den anger också vilken SQL-tabell som innehåller de kopierade data.
 
 ```csharp
 // Create an Azure SQL Database dataset
@@ -416,14 +416,14 @@ Nu ska du infoga koden för att kontrol lera pipelinens körnings tillstånd och
     ActivityRunsQueryResponse queryResponse = client.ActivityRuns.QueryByPipelineRun(
         resourceGroup, dataFactoryName, runResponse.RunId, filterParams
     );
- 
+
     if (pipelineRun.Status == "Succeeded")
     {
         Console.WriteLine(queryResponse.Value.First().Output);
     }
     else
         Console.WriteLine(queryResponse.Value.First().Error);
-    
+
     Console.WriteLine("\nPress any key to exit...");
     Console.ReadKey();
     ```
@@ -564,7 +564,7 @@ Press any key to exit...
 
 ## <a name="next-steps"></a>Nästa steg
 
-Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Du har lärt dig att: 
+Pipeline i det här exemplet kopierar data från en plats till en annan i Azure Blob Storage. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Skapa en datafabrik.
@@ -574,7 +574,7 @@ Pipeline i det här exemplet kopierar data från en plats till en annan i Azure 
 > * Starta en pipelinekörning.
 > * Övervaka pipelinen och aktivitetskörningarna.
 
-Fortsätt till följande självstudie och lär dig att kopiera data från en lokal plats till molnet: 
+Fortsätt till följande självstudie och lär dig att kopiera data från en lokal plats till molnet:
 
 > [!div class="nextstepaction"]
 >[Kopiera data från en lokal plats till molnet](tutorial-hybrid-copy-powershell.md)

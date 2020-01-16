@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: f05d75c337bb3fd4f34f1acd82a6a3b7f860f31f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 66850c3871981a537d36c3b2a3a664d8a2f2eee7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365673"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977703"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Skapa en Log Analytics-arbetsyta med Azure CLI 2.0
 
@@ -22,7 +22,7 @@ Azure CLI 2.0 används för att skapa och hantera Azure-resurser från kommandor
 * Lokala datorer som övervakas av System Center Operations Manager  
 * Enhetssamlingar från System Center Configuration Manager  
 * Diagnostik- eller loggdata från Azure Storage  
- 
+
 Andra källor, till exempel virtuella Azure-datorer och Windows eller Linux-datorer i din miljö finns i följande avsnitt:
 
 * [Samla in data från Azure-datorer](../learn/quick-collect-azurevm.md)
@@ -36,9 +36,9 @@ Om du inte har en Azure-prenumeration kan du skapa [ett kostnadsfritt konto](htt
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare i den här snabbstarten. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="create-a-workspace"></a>Skapa en arbetsyta
-Skapa en arbets yta med [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). I följande exempel skapas en arbets yta på den *östra* platsen med hjälp av en Resource Manager-mall från den lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. Eller du kan lagra mallen i Azure-lagringskonton för delad åtkomst i din organisation. Ytterligare information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
+Skapa en arbets yta med [AZ Group Deployment Create](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create). I följande exempel skapas en arbets yta på den *östra* platsen med hjälp av en Resource Manager-mall från den lokala datorn. JSON-mallen har konfigurerats för att bara efterfråga du namnet på arbetsytan och anger ett standardvärde för de andra parametrarna som sannolikt skulle användas som en standardkonfiguration i din miljö. Eller du kan lagra mallen i Azure-lagringskonton för delad åtkomst i din organisation. Ytterligare information om hur du arbetar med mallar finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-Information om regioner som stöds finns i [regioner Log Analytics finns i](https://azure.microsoft.com/regions/services/) och söka efter Azure Monitor från fältet **Sök efter ett produkt** . 
+Information om regioner som stöds finns i [regioner Log Analytics finns i](https://azure.microsoft.com/regions/services/) och söka efter Azure Monitor från fältet **Sök efter ett produkt** .
 
 Följande parametrar anger ett standardvärde:
 
@@ -46,7 +46,7 @@ Följande parametrar anger ett standardvärde:
 * SKU - som standard den nya Per GB prisnivån som introducerades i den prissättningsmodellen från April 2018
 
 >[!WARNING]
->Skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt att den nya prissättningsmodellen från April 2018, är det enda giltiga Log Analytics prisnivån **PerGB2018**. 
+>Skapar eller konfigurerar en Log Analytics-arbetsyta i en prenumeration som har valt att den nya prissättningsmodellen från April 2018, är det enda giltiga Log Analytics prisnivån **PerGB2018**.
 >
 
 ### <a name="create-and-deploy-template"></a>Skapa och distribuera mall
@@ -107,7 +107,7 @@ Följande parametrar anger ett standardvärde:
     }
     ```
 
-2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
+2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds.
 3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.   
 4. Nu är det dags att distribuera den här mallen. Använd följande kommandon från mappen som innehåller mallen. När du uppmanas att ange ett namn på arbets ytan anger du ett namn som är globalt unikt för alla Azure-prenumerationer.
 

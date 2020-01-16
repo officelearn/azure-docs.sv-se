@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/20/2018
 ms.author: genli
-ms.openlocfilehash: 5f95b42fd17aec4e3ec6b7b8fac1965772fefa67
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: aedb9c8d178cb210efedf8ff4bcbbeca39f89e60
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162599"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981813"
 ---
 #  <a name="cannot-connect-remotely-to-a-vm-because-rdp-port-is-not-enabled-in-nsg"></a>Det går inte att fjärrans luta till en virtuell dator eftersom RDP-porten inte är aktive rad i NSG
 
@@ -25,9 +25,9 @@ Den här artikeln förklarar hur du löser ett problem som du inte kan ansluta t
 
 
 > [!NOTE] 
-> Azure har två distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Vi rekommenderar att du använder distributions modellen för Resource Manager i stället för den klassiska distributions modellen för nya distributioner. 
+> Azure har två distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/management/deployment-models.md). Vi rekommenderar att du använder distributions modellen för Resource Manager i stället för den klassiska distributions modellen för nya distributioner. 
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
 Det går inte att upprätta en RDP-anslutning till en virtuell dator i Azure eftersom RDP-porten inte är öppen i nätverks säkerhets gruppen.
 
@@ -42,12 +42,12 @@ Följ dessa steg om du vill aktivera RDP-porten i en NSG:
 4. I **regler för inkommande port**kontrollerar du om porten för RDP är korrekt inställd. Följande är ett exempel på konfigurationen: 
 
     **Prioritet**: 300 </br>
-    **Namn på**: Port_3389 </br>
+    **Namn**: Port_3389 </br>
     **Port (mål)** : 3389 </br>
     **Protokoll**: TCP </br>
-    **Källa**: Any </br>
-    **Mål**: Any </br>
-    **Åtgärd**: Allow </br>
+    **Källa**: alla </br>
+    **Destinationer**: alla </br>
+    **Åtgärd**: Tillåt </br>
 
 Om du anger käll-IP-adressen tillåter den här inställningen trafik endast från en speciell IP-adress eller ett intervall med IP-adresser för att ansluta till den virtuella datorn. Kontrol lera att datorn som du använder för att starta RDP-sessionen ligger inom intervallet.
 

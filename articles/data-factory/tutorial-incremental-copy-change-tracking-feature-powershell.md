@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 666bd2f9575019f3bfb77050d27363fef66474bf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c23eaf438f43743600636e006116e3bba8dfbf70
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439288"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982586"
 ---
-# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation 
+# <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information"></a>Läsa in data stegvis från Azure SQL Database till Azure Blob Storage med ändringsspårningsinformation
 
 I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in deltadata baserat på **ändringsspårningsinformation** i källans Azure SQL-databas till en Azure bloblagring.  
 
@@ -27,7 +27,7 @@ I den här självstudiekursen får du göra följande:
 > [!div class="checklist"]
 > * Förbereda källdatalagret
 > * Skapa en datafabrik.
-> * Skapa länkade tjänster. 
+> * Skapa länkade tjänster.
 > * Skapa datamängder för källa, mottagare och spårning av ändringar.
 > * Skapa, kör och övervaka den fullständiga kopieringspipelinen
 > * Lägga till eller uppdatera data i källtabellen
@@ -36,18 +36,18 @@ I den här självstudiekursen får du göra följande:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="overview"></a>Översikt
-I en dataintegrationslösning är stegvis inläsning av data efter den första datainläsningen ett vanligt scenario. I vissa fall kan ändrade data inom en period i ditt källdatalager enkelt delas upp (till exempel LastModifyTime, CreationTime). I vissa fall finns det inget uttryckligt sätt att identifiera deltadata från förra gången du bearbetade data. Tekniken för Ändringsspårning som stöds av datakällor som Azure SQL Database och SQL Server kan användas för att identifiera deltadata.  I den här självstudien beskrivs hur du använder Azure Data Factory med SQL-ändringsspårningstekniken för att inkrementellt läsa in deltadata från Azure SQL Database till Azure Blob Storage.  Mer konkret information om SQL-ändringsspårningstekniken finns i [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server) (Ändringsspårning i SQL Server). 
+I en dataintegrationslösning är stegvis inläsning av data efter den första datainläsningen ett vanligt scenario. I vissa fall kan ändrade data inom en period i ditt källdatalager enkelt delas upp (till exempel LastModifyTime, CreationTime). I vissa fall finns det inget uttryckligt sätt att identifiera deltadata från förra gången du bearbetade data. Tekniken för Ändringsspårning som stöds av datakällor som Azure SQL Database och SQL Server kan användas för att identifiera deltadata.  I den här självstudien beskrivs hur du använder Azure Data Factory med SQL-ändringsspårningstekniken för att inkrementellt läsa in deltadata från Azure SQL Database till Azure Blob Storage.  Mer konkret information om SQL-ändringsspårningstekniken finns i [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server) (Ändringsspårning i SQL Server).
 
 ## <a name="end-to-end-workflow"></a>Arbetsflödet slutpunkt till slutpunkt
 Här följer de typiska arbetsflödesstegen från slutpunkt till slutpunkt för att stegvis läsa in data med ändringsspårningstekniken.
 
 > [!NOTE]
-> Både Azure SQL Database och SQL Server stöder ändringsspårningsteknik. I den här självstudien används Azure SQL Database som källdatalager. Du kan också använda en lokal SQL Server. 
+> Både Azure SQL Database och SQL Server stöder ändringsspårningsteknik. I den här självstudien används Azure SQL Database som källdatalager. Du kan också använda en lokal SQL Server.
 
 1. **Inledande inläsning av historiska data** (kör en gång):
     1. Aktivera ändringsspårningsteknik i Azure SQL-källdatabasen.
     2. Hämta det initiala värdet för SYS_CHANGE_VERSION i Azure SQL-databasen som baslinje för att samla in ändrade data.
-    3. Läs in fullständiga data från Azure SQL-databasen till en Azure Blob Storage. 
+    3. Läs in fullständiga data från Azure SQL-databasen till en Azure Blob Storage.
 2. **Inkrementell inläsning av deltadata enligt ett schema** (kör regelbundet efter den första datainläsningen):
     1. Hämta de gamla och nya SYS_CHANGE_VERSION-värdena.
     3. Läs in deltadata genom att ansluta till primärnycklarna för de ändrade raderna (mellan två SYS_CHANGE_VERSION-värden) från **sys.change_tracking_tables** med data i **källtabellen** och flytta sedan deltadata till målet.
@@ -59,7 +59,7 @@ I den här självstudien skapar du två pipelines som utför följande två åtg
 1. **Inledande inläsning:** du skapar en pipeline med en kopieringsaktivitet som kopierar alla data från källdatalagret (Azure SQL Database) till måldatalagret (Azure Blob Storage).
 
     ![Fullständig inläsning av data](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-load-flow-diagram.png)
-1.  **Stegvis inläsning:** du skapar en pipeline med följande aktiviteter och kör den med jämna mellanrum. 
+1.  **Stegvis inläsning:** du skapar en pipeline med följande aktiviteter och kör den med jämna mellanrum.
     1. Skapa **två lookupaktiviteter** för att hämta den nya och gamla SYS_CHANGE_VERSION från Azure SQL Database och skicka den till kopieringsaktiviteten.
     2. Skapa **en kopieringsaktivitet** för att kopiera de infogade/uppdaterade/borttagna data mellan de två SYS_CHANGE_VERSION-värdena från Azure SQL Database till Azure Blob Storage.
     3. Skapa **en lagrad proceduraktivitet** för att uppdatera värdet för SYS_CHANGE_VERSION för nästa pipelinekörning.
@@ -73,13 +73,13 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 * Azure PowerShell. Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Azure SQL Database**. Du använder databasen som **källa** för datalagringen. Om du inte har någon Azure SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
-* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md) . Skapa en container med namnet **adftutorial**. 
+* **Azure Storage-konto**. Du kan använda blob-lagringen som **mottagare** för datalagringen. Om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../storage/common/storage-account-create.md) . Skapa en container med namnet **adftutorial**. 
 
 ### <a name="create-a-data-source-table-in-your-azure-sql-database"></a>Skapa en datatabell i din Azure SQL-databas
-1. Starta **SQL Server Management Studio** och anslut till din Azure SQL-server. 
+1. Starta **SQL Server Management Studio** och anslut till din Azure SQL-server.
 2. I **Server Explorer** högerklickar du på **databasen** och väljer **Ny fråga**.
 3. Kör följande SQL-kommando mot din Azure SQL-databas för att skapa en tabell med namnet `data_source_table` som datakällagring.  
-    
+
     ```sql
     create table data_source_table
     (
@@ -99,22 +99,22 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
         (5, 'eeee', 22);
 
     ```
-4. Aktivera mekanismen för **ändringsspårning** på din databas och källtabellen (data_source_table) genom att köra följande SQL-fråga: 
+4. Aktivera mekanismen för **ändringsspårning** på din databas och källtabellen (data_source_table) genom att köra följande SQL-fråga:
 
     > [!NOTE]
-    > - Ersätt &lt;ditt databasnamn&gt; med namnet på din Azure SQL-databas som innehåller data_source_table. 
+    > - Ersätt &lt;ditt databasnamn&gt; med namnet på din Azure SQL-databas som innehåller data_source_table.
     > - Ändrade data sparas i två dagar i det aktuella exemplet. Om du läser in ändrade data ungefär var tredje dag eller oftare inkluderas inte en del ändrade data.  Du måste antingen ändra värdet för CHANGE_RETENTION till ett större antal. Du kan också se till att din period för att läsa in ändrade data är inom två dagar. Mer information finns i [Enable change tracking for a database](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server#enable-change-tracking-for-a-database) (Aktivera ändringsspårning för en databas)
- 
+
     ```sql
     ALTER DATABASE <your database name>
     SET CHANGE_TRACKING = ON  
     (CHANGE_RETENTION = 2 DAYS, AUTO_CLEANUP = ON)  
-  
+
     ALTER TABLE data_source_table
     ENABLE CHANGE_TRACKING  
     WITH (TRACK_COLUMNS_UPDATED = ON)
     ```
-5. Skapa en ny tabell och lagra ChangeTracking_version med ett standardvärde genom att köra följande fråga: 
+5. Skapa en ny tabell och lagra ChangeTracking_version med ett standardvärde genom att köra följande fråga:
 
     ```sql
     create table table_store_ChangeTracking_version
@@ -129,21 +129,21 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     INSERT INTO table_store_ChangeTracking_version
     VALUES ('data_source_table', @ChangeTracking_version)
     ```
-    
+
     > [!NOTE]
     > Om data inte ändras när du har aktiverat spårning för SQL-databasen är värdet för ändringsspårningsversionen 0.
-6. Kör följande fråga för att skapa en lagrad procedur i din Azure SQL-databas. Pipelinen anropar den här lagrade proceduren för att uppdatera ändringsspårningsversionen i tabellen som du skapade i föregående steg. 
+6. Kör följande fråga för att skapa en lagrad procedur i din Azure SQL-databas. Pipelinen anropar den här lagrade proceduren för att uppdatera ändringsspårningsversionen i tabellen som du skapade i föregående steg.
 
     ```sql
     CREATE PROCEDURE Update_ChangeTracking_Version @CurrentTrackingVersion BIGINT, @TableName varchar(50)
     AS
-    
+
     BEGIN
-    
+
         UPDATE table_store_ChangeTracking_version
         SET [SYS_CHANGE_VERSION] = @CurrentTrackingVersion
     WHERE [TableName] = @TableName
-    
+
     END    
     ```
 
@@ -158,18 +158,18 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     ```
 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen
-2. Definiera en variabel för datafabrikens plats: 
+2. Definiera en variabel för datafabrikens plats:
 
     ```powershell
     $location = "East US"
     ```
-3. Kör följande kommando för att skapa en Azure-resursgrupp: 
+3. Kör följande kommando för att skapa en Azure-resursgrupp:
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
-    ``` 
-    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen. 
-3. Definiera en variabel för datafabrikens namn. 
+    ```
+    Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
+3. Definiera en variabel för datafabrikens namn.
 
     > [!IMPORTANT]
     >  Uppdateringen av datafabrikens namn måste vara unikt globalt.  
@@ -177,10 +177,10 @@ Installera de senaste Azure PowerShell-modulerna enligt instruktionerna i [Insta
     ```powershell
     $dataFactoryName = "IncCopyChgTrackingDF";
     ```
-5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet: 
-    
+5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet:
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
     ```
 
 Observera följande punkter:
@@ -195,7 +195,7 @@ Observera följande punkter:
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina Azure Storage-konton och din Azure SQL-databas. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina Azure Storage-konton och din Azure SQL-databas.
 
 ### <a name="create-azure-storage-linked-service"></a>Skapa en länkad Azure-lagringstjänst.
 I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
@@ -214,7 +214,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
     }
     ```
 2. I **Azure PowerShell**växlar du till mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial**
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. I följande exempel skickar du värden för parametrarna **ResourceGroupName** och **DataFactoryName**. 
+3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureStorageLinkedService**. I följande exempel skickar du värden för parametrarna **ResourceGroupName** och **DataFactoryName**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -232,7 +232,7 @@ I det här steget länkar du ditt Azure-lagringskonto till datafabriken.
 ### <a name="create-azure-sql-database-linked-service"></a>Skapa länkad Azure SQL Database-tjänst.
 I det här steget länkar du Azure SQL-databasen till datafabriken.
 
-1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: ersätt **&lt;server&gt; &lt;databas namn&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt;** med namnet på din Azure SQL-Server, namnet på din databas, ditt användar-ID och lösen ord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet **AzureSQLDatabaseLinkedService. JSON** i mappen **C:\ADFTutorials\IncCopyChangeTrackingTutorial** med följande innehåll: ersätt **&lt;server&gt; &lt;databas namn&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt;** med namnet på din Azure SQL-Server, namnet på din databas, ditt användar-ID och lösen ord innan du sparar filen.
 
     ```json
     {
@@ -245,7 +245,7 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
         }
     }
     ```
-2. I **Azure PowerShell**kör du cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**. 
+2. I **Azure PowerShell**kör du cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten: **AzureSQLDatabaseLinkedService**.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -264,9 +264,9 @@ I det här steget länkar du Azure SQL-databasen till datafabriken.
 I det här steget skapar du databaser för att representera datakälla, datamål. och plats för att lagra SYS_CHANGE_VERSION.
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
-I det här steget skapar du en datamängd för att representera källdata. 
+I det här steget skapar du en datamängd för att representera källdata.
 
-1. Skapa en JSON-fil med namnet SourceDataset.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet SourceDataset.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -285,13 +285,13 @@ I det här steget skapar du en datamängd för att representera källdata.
     ```
 
 2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa data uppsättningen: SourceDataset
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -301,9 +301,9 @@ I det här steget skapar du en datamängd för att representera källdata.
     ```
 
 ### <a name="create-a-sink-dataset"></a>Skapa en källdatauppsättning
-I det här steget skapar du en datamängd för att representera data som kopieras från källdatalagret. 
+I det här steget skapar du en datamängd för att representera data som kopieras från källdatalagret.
 
-1. Skapa en JSON-fil med namnet SinkDataset.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet SinkDataset.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -327,13 +327,13 @@ I det här steget skapar du en datamängd för att representera data som kopiera
 
     Du skapar containern adftutorial i din Azure Blob Storage som en del av förutsättningarna. Skapa containern om den inte finns (eller) ställ in den för namnet på en befintlig. I den här självstudien genereras filnamnet dynamiskt med uttrycket: @CONCAT('Incremental-', pipeline().RunId, '.txt').
 2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa data uppsättningen: SinkDataset
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -345,7 +345,7 @@ I det här steget skapar du en datamängd för att representera data som kopiera
 ### <a name="create-a-change-tracking-dataset"></a>Skapa en datamängd för ändringsspårning
 I det här steget skapar du en datauppsättning för att lagra ändringsspårningsversionen.  
 
-1. Skapa en JSON-fil med namnet ChangeTrackingDataset.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet ChangeTrackingDataset.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -365,13 +365,13 @@ I det här steget skapar du en datauppsättning för att lagra ändringsspårnin
 
     Du kan skapa tabellen table_store_ChangeTracking_version som en del av förutsättningarna.
 2.  Kör cmdleten Set-AzDataFactoryV2Dataset för att skapa data uppsättningen: ChangeTrackingDataset
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
-    
+
     ```json
     DatasetName       : ChangeTrackingDataset
     ResourceGroupName : ADFTutorialResourceGroup
@@ -383,7 +383,7 @@ I det här steget skapar du en datauppsättning för att lagra ändringsspårnin
 ## <a name="create-a-pipeline-for-the-full-copy"></a>Skapa en pipeline för hela kopian
 I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar alla data från källdatalagret (Azure SQL Database) till måldatalagret (Azure Blob Storage).
 
-1. Skapa en JSON-fil med namnet FullCopyPipeline.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet FullCopyPipeline.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -400,7 +400,7 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
                         "type": "BlobSink"
                     }
                 },
-    
+
                 "inputs": [{
                     "referenceName": "SourceDataset",
                     "type": "DatasetReference"
@@ -414,12 +414,12 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
     }
     ```
 2. Kör cmdleten Set-AzDataFactoryV2Pipeline för att skapa pipelinen: FullCopyPipeline.
-    
+
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "FullCopyPipeline" -File ".\FullCopyPipeline.json"
-   ``` 
+   ```
 
-   Här är exempel på utdata: 
+   Här är exempel på utdata:
 
    ```json
     PipelineName      : FullCopyPipeline
@@ -428,37 +428,37 @@ I det här steget skapar du en pipeline med en kopieringsaktivitet som kopierar 
     Activities        : {FullCopyActivity}
     Parameters        :
    ```
- 
+
 ### <a name="run-the-full-copy-pipeline"></a>Kör den fullständiga kopieringspipelinen
-Kör pipelinen: **FullCopyPipeline** med cmdleten **Invoke-AzDataFactoryV2Pipeline** . 
+Kör pipelinen: **FullCopyPipeline** med cmdleten **Invoke-AzDataFactoryV2Pipeline** .
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "FullCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName        
-``` 
+```
 
 ### <a name="monitor-the-full-copy-pipeline"></a>Övervaka den fullständiga kopieringspipelinen
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-2. Klicka på **Alla tjänster**, sök med nyckelordet `data factories` och välj **Datafabriker**. 
+2. Klicka på **Alla tjänster**, sök med nyckelordet `data factories` och välj **Datafabriker**.
 
     ![Menyn Datafabriker](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-data-factories-menu-1.png)
-3. Sök efter **din datafabrik** i listan med datafabriker och välj den så att du öppnar sidan Datafabrik. 
+3. Sök efter **din datafabrik** i listan med datafabriker och välj den så att du öppnar sidan Datafabrik.
 
     ![Sök efter din datafabrik](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-search-data-factory-2.png)
-4. På sidan Datafabrik klickar du på panelen **Övervaka och hantera**. 
+4. På sidan Datafabrik klickar du på panelen **Övervaka och hantera**.
 
     ![Ikonen Övervaka och hantera](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-monitor-manage-tile-3.png)    
-5. **Data integrerings programmet** startar på en separat flik. Du kan se alla **pipeline-körningar** och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**. Klicka på länken i kolumnen **Åtgärder**. 
+5. **Data integrerings programmet** startar på en separat flik. Du kan se alla **pipeline-körningar** och deras status. Lägg i följande exempel märke till att statusen för pipelinekörningen är **Lyckades**. Du kan kontrollera parametrarna som skickats till pipelinen genom att klicka på länken i kolumnen **Parametrar**. Om det uppstod ett fel ser du en länk i kolumnen **Fel**. Klicka på länken i kolumnen **Åtgärder**.
 
     ![Pipelinekörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-4.png)    
-6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
+6. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen.
 
     ![Aktivitetskörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-5.png)
-7. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
+7. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på **Pipelines** enligt bilden.
 
 
 ### <a name="review-the-results"></a>Granska resultaten
-Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i containern `adftutorial`. 
+Du ser en fil som heter `incremental-<GUID>.txt` i mappen `incchgtracking` i containern `adftutorial`.
 
 ![Utdatafil från fullständig kopia](media/tutorial-incremental-copy-change-tracking-feature-powershell/full-copy-output-file.png)
 
@@ -474,7 +474,7 @@ Filen ska innehålla data från Azure SQL-databasen:
 
 ## <a name="add-more-data-to-the-source-table"></a>Lägga till mer data i källtabellen
 
-Kör följande fråga mot Azure SQL-databasen för att lägga till en rad och uppdatera en rad. 
+Kör följande fråga mot Azure SQL-databasen för att lägga till en rad och uppdatera en rad.
 
 ```sql
 INSERT INTO data_source_table
@@ -486,12 +486,12 @@ VALUES
 UPDATE data_source_table
 SET [Age] = '10', [name]='update' where [PersonID] = 1
 
-``` 
+```
 
 ## <a name="create-a-pipeline-for-the-delta-copy"></a>Skapa en pipeline för deltakopian
 I det här steget skapar du en pipeline med följande aktiviteter och kör den med jämna mellanrum. **Lookupaktiviteterna** hämtar den nya och gamla SYS_CHANGE_VERSION från Azure SQL Database och skickar den till kopieringsaktiviteten. **Kopieringsaktiviteten** kopierar infogade/uppdaterade/borttagna data mellan de två SYS_CHANGE_VERSION-värdena från Azure SQL Database till Azure Blob Storage. Den **lagrade proceduraktivitetsuppdateringarna** uppdaterar värdet för SYS_CHANGE_VERSION för nästa pipelinekörning.
 
-1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -506,7 +506,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
                             "type": "SqlSource",
                             "sqlReaderQuery": "select * from table_store_ChangeTracking_version"
                             },
-        
+
                             "dataset": {
                             "referenceName": "ChangeTrackingDataset",
                             "type": "DatasetReference"
@@ -521,14 +521,14 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
                                 "type": "SqlSource",
                                 "sqlReaderQuery": "SELECT CHANGE_TRACKING_CURRENT_VERSION() as CurrentChangeTrackingVersion"
                         },
-    
+
                             "dataset": {
                             "referenceName": "SourceDataset",
                             "type": "DatasetReference"
                             }
                         }
                     },
-    
+
                     {
                         "name": "IncrementalCopyActivity",
                         "type": "Copy",
@@ -555,7 +555,7 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
                                 ]
                         }
                         ],
-        
+
                         "inputs": [
                             {
                             "referenceName": "SourceDataset",
@@ -569,24 +569,24 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
                             }
                         ]
                     },
-        
+
                 {
                         "name": "StoredProceduretoUpdateChangeTrackingActivity",
                         "type": "SqlServerStoredProcedure",
                         "typeProperties": {
-    
+
                             "storedProcedureName": "Update_ChangeTracking_Version",
                             "storedProcedureParameters": {
                             "CurrentTrackingVersion": {"value": "@{activity('LookupCurrentChangeTrackingVersionActivity').output.firstRow.CurrentChangeTrackingVersion}", "type": "INT64" },
                                 "TableName":  { "value":"@{activity('LookupLastChangeTrackingVersionActivity').output.firstRow.TableName}", "type":"String"}
                             }
                     },
-        
+
                         "linkedServiceName": {
                         "referenceName": "AzureSQLDatabaseLinkedService",
                             "type": "LinkedServiceReference"
                         },
-        
+
                         "dependsOn": [
                         {
                                 "activity": "IncrementalCopyActivity",
@@ -597,18 +597,18 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
                         ]
                     }
                 ]
-        
+
             }
     }
-    
+
     ```
 2. Kör cmdleten Set-AzDataFactoryV2Pipeline för att skapa pipelinen: FullCopyPipeline.
-    
+
    ```powershell
     Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
-   ``` 
+   ```
 
-   Här är exempel på utdata: 
+   Här är exempel på utdata:
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -619,34 +619,34 @@ I det här steget skapar du en pipeline med följande aktiviteter och kör den m
    ```
 
 ### <a name="run-the-incremental-copy-pipeline"></a>Kör den inkrementella kopieringspipelinen
-Kör pipelinen: **IncrementalCopyPipeline** med cmdleten **Invoke-AzDataFactoryV2Pipeline** . 
+Kör pipelinen: **IncrementalCopyPipeline** med cmdleten **Invoke-AzDataFactoryV2Pipeline** .
 
 ```powershell
 Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroup $resourceGroupName -dataFactoryName $dataFactoryName     
-``` 
+```
 
 
 ### <a name="monitor-the-incremental-copy-pipeline"></a>Övervaka den inkrementella kopieringspipelinen
 1. I **dataintegrationsprogrammet** uppdaterar du vyn för **pipelinekörningar**. Kontrollera att du ser IncrementalCopyPipeline i listan. Klicka på länken i kolumnen **Åtgärder**.  
 
     ![Pipelinekörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-pipeline-runs-6.png)    
-2. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen. 
+2. När du klickar på länken i kolumnen **Åtgärder** ser du följande sida som visar alla **aktivitetskörningar** för pipelinen.
 
     ![Aktivitetskörningar](media/tutorial-incremental-copy-change-tracking-feature-powershell/monitor-activity-runs-7.png)
-3. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på **Pipelines** enligt bilden. 
+3. Om du vill växla tillbaka till vyn med **pipelinekörningar** klickar du på **Pipelines** enligt bilden.
 
 ### <a name="review-the-results"></a>Granska resultaten
-Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`. 
+Du ser den andra filen i mappen `incchgtracking` i containern `adftutorial`.
 
 ![Utdatafil från inkrementell säkerhetskopia](media/tutorial-incremental-copy-change-tracking-feature-powershell/incremental-copy-output-file.png)
 
-Filen ska endast innehålla deltadata från Azure SQL-databasen. Posten med `U` är den uppdaterade raden i databasen och `I` är den tillagda raden. 
+Filen ska endast innehålla deltadata från Azure SQL-databasen. Posten med `U` är den uppdaterade raden i databasen och `I` är den tillagda raden.
 
 ```
 1,update,10,2,U
 6,new,50,1,I
 ```
-De första tre kolumnerna är ändrade data från data_source_table. De sista två kolumnerna är metadata från tabellen med ändringsspårningssystem. Den fjärde kolumnen är SYS_CHANGE_VERSION för varje ändrad rad. Den femte kolumnen är åtgärden:  U = uppdatera, I = infoga.  Mer information om ändringsspårningsinformation finns i [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql). 
+De första tre kolumnerna är ändrade data från data_source_table. De sista två kolumnerna är metadata från tabellen med ändringsspårningssystem. Den fjärde kolumnen är SYS_CHANGE_VERSION för varje ändrad rad. Den femte kolumnen är åtgärden:  U = uppdatera, I = infoga.  Mer information om ändringsspårningsinformation finns i [CHANGETABLE](/sql/relational-databases/system-functions/changetable-transact-sql).
 
 ```
 ==================================================================
@@ -656,12 +656,9 @@ PersonID Name    Age    SYS_CHANGE_VERSION    SYS_CHANGE_OPERATION
 6        new     50     1                     I
 ```
 
-    
+
 ## <a name="next-steps"></a>Nästa steg
 Fortsätt till följande självstudie och lär dig mer om hur du kopierar nya och ändrade filer endast baserat på deras LastModifiedDate:
 
 > [!div class="nextstepaction"]
 >[Kopiera nya filer genom lastmodifieddate](tutorial-incremental-copy-lastmodified-copy-data-tool.md)
-
-
-

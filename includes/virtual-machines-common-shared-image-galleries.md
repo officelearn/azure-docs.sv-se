@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 5618757f4bf5eaf1afc5ef0ce1735eb4ae94e1d2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75663165"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020831"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -65,7 +65,7 @@ Följande är andra parametrar som kan ställas in på din avbildnings definitio
 * EULA – kan användas för att peka på ett licens avtal för slutanvändare som är speciellt för avbildnings definitionen.
 * Sekretess policy och viktig information – Store viktig information och sekretess policys i Azure Storage och ange en URI för att få åtkomst till dem som en del av avbildnings definitionen.
 * Datum för livs längd – koppla ett livs cykel datum till din bild definition för att kunna använda Automation för att ta bort gamla avbildnings definitioner.
-* Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/resource-group-using-tags.md)
+* Tagg – du kan lägga till taggar när du skapar din avbildnings definition. Mer information om taggar finns i [använda taggar för att organisera resurser](../articles/azure-resource-manager/management/tag-resources.md)
 * Lägsta och högsta vCPU och minnes rekommendationer – om avbildningen har vCPU och minnes rekommendationer kan du koppla informationen till din avbildnings definition.
 * Otillåtna disk typer – du kan ange information om lagrings behoven för den virtuella datorn. Om bilden till exempel inte är lämplig för standard diskar för hård diskar lägger du till dem i listan Tillåt inte.
 

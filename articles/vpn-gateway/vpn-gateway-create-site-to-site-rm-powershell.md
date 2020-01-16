@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 85ea3855b13350901d85701e9bca8d87ff6632c3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: d1693a6165aa31b221b6901e2e1c8b2955a3dfb3
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778812"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045694"
 ---
 # <a name="create-a-vnet-with-a-site-to-site-vpn-connection-using-powershell"></a>Skapa ett VNet med en VPN-anslutning för plats-till-plats med hjälp av PowerShell
 
@@ -33,23 +33,15 @@ En VPN-gatewayanslutning från plats till plats används för att ansluta ditt l
 
 ## <a name="before"></a>Innan du börjar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Kontrollera att du har uppfyllt följande villkor innan du påbörjar konfigurationen:
 
 * Kontrollera att du har en kompatibel VPN-enhet och någon som kan konfigurera den. Se [Om VPN-enheter](vpn-gateway-about-vpn-devices.md) för mer information om kompatibla VPN-enheter och enhetskonfiguration.
 * Kontrollera att du har en extern offentlig IPv4-adress för VPN-enheten.
 * Om du inte vet vilka IP-adressintervaller som används i din lokala nätverkskonfiguration kontaktar du relevant person som kan ge dig den här informationen. När du skapar den här konfigurationen måste du ange prefix för IP-adressintervall som Azure dirigerar till den lokala platsen. Inget av undernäten i ditt lokala nätverk kan överlappa de virtuella nätverksundernät du vill ansluta till.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+### <a name="azure-powershell"></a>Azure PowerShell
 
-### <a name="running-powershell-locally"></a>Köra PowerShell lokalt
-
-Om du väljer att installera och använda PowerShell lokalt installerar du den senaste versionen av Azure Resource Managers PowerShell-cmdletar. PowerShell-cmdlets uppdateras ofta och vanligen måste du uppdatera dina PowerShell-cmdlets för att få den senaste funktionen. Om du inte uppdaterar dina PowerShell-cmdletar misslyckas värdena som har angetts. 
-
-Kör "Get-module-ListAvailable AZ" för att hitta den version som du använder. Om du behöver uppgradera kan du läsa [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps). Mer information finns i [Installera och konfigurera Azure PowerShell](/powershell/azure/overview).
-Om du kör PowerShell lokalt måste du också köra "Connect-AzAccount" för att skapa en anslutning till Azure.
-
+[!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Exempelvärden
 
@@ -257,6 +249,15 @@ Om IP-adressprefixen du vill ska dirigeras till din lokala plats ändras kan du 
 ## <a name="modifygwipaddress"></a>Så här ändrar du gateway-IP-adressen för en lokal nätverksgateway
 
 [!INCLUDE [Modify gateway IP address](../../includes/vpn-gateway-modify-lng-gateway-ip-rm-include.md)]
+
+## <a name="deleteconnection"></a>Ta bort en gateway-anslutning
+
+Om du inte vet namnet på din anslutning kan du hitta den med hjälp av cmdleten "Get-AzVirtualNetworkGatewayConnection".
+
+```azurepowershell-interactive
+Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
+-ResourceGroupName TestRG1
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

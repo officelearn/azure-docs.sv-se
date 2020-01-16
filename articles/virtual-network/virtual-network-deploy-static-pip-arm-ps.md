@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/08/2018
 ms.author: kumud
-ms.openlocfilehash: 6e278172bc1c3ec4e81860c3f6d6a4b644731e2c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 0eb4f86a2484486658171ab4b099794e4ba3e4bc
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647789"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043389"
 ---
 # <a name="create-a-virtual-machine-with-a-static-public-ip-address-using-powershell"></a>Skapa en virtuell dator med en statisk offentlig IP-adress med hjälp av PowerShell
 
@@ -50,7 +50,7 @@ Du kan utföra följande steg från din lokala dator eller med hjälp av Azure C
      -AllocationMethod "Static"
    ```
 
-   Om den offentliga IP-adressen måste vara en standard-SKU måste du [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address), [skapa ett nätverks gränssnitt](virtual-network-network-interface.md#create-a-network-interface), [tilldela den offentliga IP-adressen till nätverks gränssnittet](virtual-network-network-interface-addresses.md#add-ip-addresses)och sedan [skapa en virtuell dator med nätverks gränssnittet](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)i separata steg. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#skus).
+   Om den offentliga IP-adressen måste vara en standard-SKU måste du [skapa en offentlig IP-adress](virtual-network-public-ip-address.md#create-a-public-ip-address), [skapa ett nätverks gränssnitt](virtual-network-network-interface.md#create-a-network-interface), [tilldela den offentliga IP-adressen till nätverks gränssnittet](virtual-network-network-interface-addresses.md#add-ip-addresses)och sedan [skapa en virtuell dator med nätverks gränssnittet](virtual-network-network-interface-vm.md#add-existing-network-interfaces-to-a-new-vm)i separata steg. Lär dig mer om [offentliga IP-adresser SKU: er](virtual-network-ip-addresses-overview-arm.md#sku). Om den virtuella datorn ska läggas till i backend-poolen för en offentlig Azure Load Balancer måste SKU: n för den virtuella datorns offentliga IP-adress matcha SKU: n för den offentliga IP-adressen för belastningsutjämnaren. Mer information finns i [Azure Load Balancer](../load-balancer/concepts-limitations.md#skus).
 
 4. Visa den offentliga IP-adress som tilldelats och bekräfta att den har skapats som en statisk adress med [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress):
 

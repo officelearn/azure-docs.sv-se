@@ -5,12 +5,12 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 188306ca02cee05f17514826ae6d973a17e6bb97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 385806dca7dcac9fd0aac4c1bf9e1072e7fe5ecb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421864"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979476"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar på flera virtuella datorer
 
@@ -41,7 +41,7 @@ Listan över virtuella datorer är filtrerad för att endast visa de virtuella d
 
 ### <a name="resource-group-limit"></a>Onboarding-begränsningar
 
-Antalet resurs grupper som du kan använda för onboarding begränsas av [distributions gränserna för Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till 5 resurs grupper per distribution. För att säkerställa integriteten för onboarding är 2 av dessa resurs grupper reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har 3 resurs grupper att välja för distribution. Den här gränsen gäller bara för samtidiga onboarding, inte antalet resurs grupper som kan hanteras av en Automation-lösning.
+Antalet resurs grupper som du kan använda för onboarding begränsas av [distributions gränserna för Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till 5 resurs grupper per distribution. För att säkerställa integriteten för onboarding är 2 av dessa resurs grupper reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har 3 resurs grupper att välja för distribution. Den här gränsen gäller bara för samtidiga onboarding, inte antalet resurs grupper som kan hanteras av en Automation-lösning.
 
 Du kan också använda en Runbook för onboarding. mer information finns i [Uppdatera och ändra spårnings lösningar till Azure Automation](automation-onboard-solutions.md).
 

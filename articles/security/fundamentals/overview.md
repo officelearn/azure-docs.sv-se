@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 8301dc779799ff67a348403e661fc7e66b9e721f
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a1dbabafe32e013d526ed88a83e446ee765cdb7b
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750123"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045879"
 ---
 # <a name="introduction-to-azure-security"></a>Introduktion till Azure-säkerhet
 ## <a name="overview"></a>Översikt
@@ -69,7 +69,7 @@ Det här avsnittet innehåller ytterligare information om viktiga funktioner i s
 Dessutom kan du konfigurera Säkerhet och efterlevnad att [automatiskt utföra vissa åtgärder](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) när en enskild händelse identifieras.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
-Med [Azure Resource Manager](../../azure-resource-manager/resource-manager-deployment-model.md) kan du arbeta med resurserna i din lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en [Azure Resource Manager mall](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) för distribution och mallen kan fungera för olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen.
+Med [Azure Resource Manager](../../azure-resource-manager/management/deployment-models.md) kan du arbeta med resurserna i din lösning som en grupp. Du kan distribuera, uppdatera eller ta bort alla resurser i lösningen i en enda, samordnad åtgärd. Du använder en [Azure Resource Manager mall](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) för distribution och mallen kan fungera för olika miljöer, till exempel testning, mellanlagring och produktion. Resource Manager tillhandahåller säkerhets-, gransknings- och taggningsfunktioner som hjälper dig att hantera dina resurser efter distributionen.
 
 Azure Resource Manager mallbaserade distributioner hjälper till att förbättra säkerheten för lösningar som distribueras i Azure, eftersom standardinställningarna för säkerhets kontroll och kan integreras i standardiserade mallbaserade distributioner. Detta minskar risken för säkerhets konfigurations fel som kan äga rum under manuella distributioner.
 
@@ -142,16 +142,16 @@ I Programdiagnostik kan du gruppera händelser på följande vis:
 Avsnittet innehåller ytterligare information om viktiga funktioner i Azure Storage Security och sammanfattnings information om dessa funktioner.
 
 ### <a name="role-based-access-control-rbac"></a>Rollbaserad åtkomstkontroll (RBAC)
-Du kan skydda ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC). Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst. Dessa behörigheter beviljas genom att tilldela lämplig RBAC-roll till grupper och program i ett visst omfång. Du kan använda [Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md), till exempel lagrings konto deltagare, för att tilldela behörigheter till användare. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av [Azure Resource Manager](../../storage/common/storage-security-guide.md) modellen kan styras via rollbaserad Access Control (RBAC).
+Du kan skydda ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC). Att begränsa åtkomsten baserat på [behovet av att känna till](https://en.wikipedia.org/wiki/Need_to_know) och [minsta behörighets](https://en.wikipedia.org/wiki/Principle_of_least_privilege) säkerhets principer är att det är absolut nödvändigt för organisationer som vill tillämpa säkerhets principer för data åtkomst. Dessa behörigheter beviljas genom att tilldela lämplig RBAC-roll till grupper och program i ett visst omfång. Du kan använda [Inbyggda RBAC-roller](../../role-based-access-control/built-in-roles.md), till exempel lagrings konto deltagare, för att tilldela behörigheter till användare. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av [Azure Resource Manager](../../storage/blobs/security-recommendations.md) modellen kan styras via rollbaserad Access Control (RBAC).
 
 ### <a name="shared-access-signature"></a>Signatur för delad åtkomst
 En [signatur för delad åtkomst (Shared Access Signature, SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md) ger delegerad åtkomst till resurser på ditt lagringskonto. SAS innebär att du kan bevilja en klient begränsad behörighet till objekt i ditt lagrings konto under en angiven period och med en angiven uppsättning behörigheter. Du kan bevilja dessa begränsade behörigheter utan att behöva dela dina konto åtkomst nycklar.
 
 ### <a name="encryption-in-transit"></a>Kryptering under överföring
 Kryptering under överföring är en mekanism för att skydda data när de överförs mellan nätverk. Med Azure Storage kan du skydda data med:
--   [Kryptering på transport nivå](../../storage/common/storage-security-guide.md), till exempel https när du överför data till eller från Azure Storage.
+-   [Kryptering på transport nivå](../../storage/blobs/security-recommendations.md), till exempel https när du överför data till eller från Azure Storage.
 
--   [Kabel kryptering](../../storage/common/storage-security-guide.md), till exempel [SMB 3,0-kryptering](../../storage/common/storage-security-guide.md) för [Azure-filresurser](../../storage/files/storage-dotnet-how-to-use-files.md).
+-   [Kabel kryptering](../../storage/blobs/security-recommendations.md), till exempel [SMB 3,0-kryptering](../../storage/blobs/security-recommendations.md) för [Azure-filresurser](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   Kryptering på klient sidan, för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
 
@@ -266,9 +266,9 @@ Traffic Manager tillhandahåller en mängd metoder för trafik cirkulation som p
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) levererar hög tillgänglighet och nätverksprestanda till dina program. Det är en belastningsutjämnare för Layer 4 (TCP, UDP) som distribuerar inkommande trafik mellan felfria instanser av tjänster som definierats i en belastningsutjämnad uppsättning. Azure Load Balancer kan konfigureras för att:
 
--   Belastningsutjämna inkommande Internet trafik till virtuella datorer. Den här konfigurationen kallas för [belastnings utjämning mot Internet](../../load-balancer/load-balancer-overview.md#publicloadbalancer).
+-   Belastningsutjämna inkommande Internet trafik till virtuella datorer. Den här konfigurationen kallas för [belastnings utjämning mot Internet](../../load-balancer/concepts-limitations.md#publicloadbalancer).
 
--   Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk, mellan virtuella datorer i moln tjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Den här konfigurationen kallas [intern belastnings utjämning](../../load-balancer/load-balancer-overview.md#internalloadbalancer).
+-   Belastnings Utjämnings trafik mellan virtuella datorer i ett virtuellt nätverk, mellan virtuella datorer i moln tjänster eller mellan lokala datorer och virtuella datorer i ett virtuellt nätverk mellan olika platser. Den här konfigurationen kallas [intern belastnings utjämning](../../load-balancer/concepts-limitations.md#internalloadbalancer).
 
 - Vidarebefordra extern trafik till en enskild virtuell dator
 

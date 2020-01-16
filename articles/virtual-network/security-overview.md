@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop
 ms.reviewer: kumud
-ms.openlocfilehash: ba65c8ed30bce1f0128e1a1f8604744a732384c1
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e73c4f0a658fb0f9c9abd854a8f91108a617a3d7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646837"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75975412"
 ---
 # <a name="security-groups"></a>Säkerhetsgrupper
 <a name="network-security-groups"></a>
@@ -35,7 +35,7 @@ En nätverkssäkerhetsgrupp kan innehålla noll regler, eller så många regler 
 |---------|---------|
 |Namn|Ett unikt namn inom nätverkssäkerhetsgruppen.|
 |Prioritet | Ett tal mellan 100 och 4096. Regler bearbetas i prioritetsordning. Låga tal bearbetas före höga tal eftersom låga tal har högre prioritet. När trafiken matchar en regel avbryts bearbetningen. Det innebär att regler som har lägre prioritet (högre tal) och samma attribut som regler med högre prioritet inte bearbetas.|
-|Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. Läs mer om [IP-adresser](virtual-network-ip-addresses-overview-arm.md) i Azure. Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen. Läs mer om [distributionsmodeller i Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
+|Källa eller mål| Valfria, eller enskilda IP-adresser, CIDR-block (Classless Inter-Domain Routing) (t.ex. 10.0.0.0/24), [tjänsttaggar](service-tags-overview.md) eller [programsäkerhetsgrupper](#application-security-groups). Om du anger en adress för en Azure-resurs anger du den privata IP-adressen som tilldelats till resursen. Nätverkssäkerhetsgrupper bearbetas efter att Azure omvandlar en offentlig IP-adress till en privat IP-adress för inkommande trafik, och innan Azure omvandlar en privat IP-adress till en offentlig IP-adress för utgående trafik. Läs mer om [IP-adresser](virtual-network-ip-addresses-overview-arm.md) i Azure. Du kan begränsa antalet säkerhetsregler du skapar genom att ange ett intervall, en tjänsttagg eller en programsäkerhetsgrupp. Möjligheten att ange flera enskilda IP-adresser och intervall (du kan inte ange flera tjänsttaggar eller programgrupper) i en regel kallas [förhöjda säkerhetsregler](#augmented-security-rules). Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera IP-adresser och IP-adressintervall i nätverkssäkerhetsgrupper som skapats via den klassiska distributionsmodellen. Läs mer om [distributionsmodeller i Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).|
 |Protokoll     | TCP, UDP, ICMP eller valfritt.|
 |Riktning| Om regeln gäller för inkommande eller utgående trafik.|
 |Portintervall     |Du kan ange en enskild port eller ett portintervall. Du kan till exempel ange 80 eller 10000–10005. Om du anger intervall behöver du inte skapa lika många säkerhetsregler. Förhöjda säkerhetsregler kan bara skapas i nätverkssäkerhetsgrupper som skapats genom Resource Manager-distributionsmodellen. Du kan inte ange flera portar eller portintervall i samma säkerhetsregel i nätverkssäkerhetsgrupper som skapats med den klassiska distributionsmodellen.   |
@@ -186,7 +186,7 @@ Det är viktigt att Observera att säkerhets regler i en NSG som är kopplade ti
 Du kan enkelt granska vilka regler som tillämpas för ett nätverksgränssnitt genom att visa [gällande säkerhetsregler](virtual-network-network-interface.md#view-effective-security-rules) för ett nätverksgränssnitt. Du kan också använda funktionen [Kontrollera IP-flöde](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) i Azure Network Watcher för att ta reda på om kommunikation tillåts till eller från ett nätverksgränssnitt. Funktionen Kontrollera IP-flöde anger om kommunikation tillåts eller nekas och vilken nätverkssäkerhetsregel som tillåter eller nekar trafik.
 
 > [!NOTE]
-> Nätverks säkerhets grupper är kopplade till undernät eller virtuella datorer och moln tjänster som distribueras i den klassiska distributions modellen och till undernät eller nätverks gränssnitt i distributions modellen för Resource Manager. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Nätverks säkerhets grupper är kopplade till undernät eller virtuella datorer och moln tjänster som distribueras i den klassiska distributions modellen och till undernät eller nätverks gränssnitt i distributions modellen för Resource Manager. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > Såvida du inte har en särskild anledning att inte göra det, rekommenderar vi att du associerar en nätverkssäkerhetsgrupp med ett undernät, eller med ett nätverksgränssnitt, men inte med båda. Eftersom regler i en nätverkssäkerhetsgrupp som är associerad med ett undernät kan stå i konflikt med regler i en nätverkssäkerhetsgrupp som är associerad med ett nätverksgränssnitt, kan det uppstå oväntade kommunikationsproblem som kräver felsökning.

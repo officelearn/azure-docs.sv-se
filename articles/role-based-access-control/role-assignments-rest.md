@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 1ba0c2bd81f32c0aec242dbfb32b2d7f4064ddbe
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 3c7b7dac649548b8b21cc13761009c11609c8904
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707833"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981042"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och REST API
 
@@ -32,7 +32,7 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 - `Microsoft.Authorization/roleAssignments/write`-och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 
-## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
+## <a name="add-a-role-assignment"></a>Lägg till en rolltilldelning
 
 I RBAC för att bevilja åtkomst lägger du till en roll tilldelning. Om du vill lägga till en roll tilldelning använder du [roll tilldelningarna-skapa](/rest/api/authorization/roleassignments/create) REST API och anger säkerhets objekt, roll definition och omfattning. För att anropa detta API måste du ha åtkomst till `Microsoft.Authorization/roleAssignments/write`-åtgärden. Av de inbyggda rollerna beviljas endast [ägare](built-in-roles.md#owner) och [användar åtkomst administratör](built-in-roles.md#user-access-administrator) åtkomst till den här åtgärden.
 
@@ -105,6 +105,6 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Om du vill t
 ## <a name="next-steps"></a>Nästa steg
 
 - [Lista roll tilldelningar med hjälp av Azure RBAC och REST API](role-assignments-list-rest.md)
-- [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/resource-group-template-deploy-rest.md)
+- [Distribuera resurser med Resource Manager-mallar och Resource Manager REST API](../azure-resource-manager/templates/deploy-rest.md)
 - [Azure REST API-referens](/rest/api/azure/)
 - [Skapa anpassade roller för Azure-resurser med hjälp av REST API](custom-roles-rest.md)

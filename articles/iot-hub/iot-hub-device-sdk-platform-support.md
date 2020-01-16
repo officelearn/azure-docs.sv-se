@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 496b890cc49b6b6b9f15213a48472447f801b1c9
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889434"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045130"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Plattforms stöd för Azure IoT Device SDK: er
 
@@ -44,42 +44,43 @@ För var och en av de listade SDK: erna, Microsoft:
 
 [Azure IoT Hub C Device SDK](https://github.com/Azure/azure-iot-sdk-c) testas med och stöder följande konfigurationer.
 
-| Operativsystem                  | TLS-bibliotek                  | Ytterligare krav                                                                     |
+| OS                  | TLS-bibliotek                  | Ytterligare krav                                                                     |
 |---------------------|------------------------------|---------------------------------------------------------------------------------------------|
 | Linux               | OpenSSL, WolfSSL eller BearSSL | Berkeley Sockets</br></br>POSIX (Portable Opera ting System Interface)                       |
-| iOS 12,2            | OpenSSL eller ursprunglig OSX        | XCode som emuleras i OSX 10.13.4                                                               |
+| iOS 12,2            | OpenSSL                      | XCode som emuleras i OSX 10.13.4                                                               |
 | Windows 10-serien   | SChannel                     |                                                                                             |
 | Mbed OS 5,4         | Mbed TLS 2                   | [MXChip IoT dev-paket](https://microsoft.github.io/azure-iot-developer-kit/)                  |
 | Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
+| Arduino             | BearSSL                      | [ESP32 eller ESP8266](https://github.com/Azure/azure-iot-arduino#simple-sample-instructions) 
 
 ### <a name="python-sdk"></a>Python SDK
 
 [Azure IoT Hub python-enhetens SDK](https://github.com/Azure/azure-iot-sdk-python) testas med och stöder följande konfigurationer.
 
-| Operativsystem                  | Kompilatorn                          |
+| OS                  | Kompilatorn                          |
 |---------------------|-----------------------------------|
-| Linux               | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
-| MacOS, hög Sierra   | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
-| Windows 10-serien   | Python 2,7 *, 3,4*, 3,5 *, 3,6, 3,7 |
+| Linux               | Python 2,7. *, 3,5 eller senare |
+| MacOS, hög Sierra   | Python 2,7. *, 3,5 eller senare |
+| Windows 10-serien   | Python 2,7. *, 3,5 eller senare |
 
-\* Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi rekommenderar att du använder 3,7 eller senare.
+Endast python-version 3.5.3 eller senare har stöd för asynkrona API: er, vi rekommenderar att du använder version 3,7 eller senare.
 
 ### <a name="net-sdk"></a>.NET SDK
 
 [Azure IoT Hub .net (C#)-enhets-SDK: n](https://github.com/Azure/azure-iot-sdk-csharp) testas med och stöder följande konfigurationer.
 
-| Operativsystem                                   | Standard                                                   |
+| OS                                   | Standard                                                   |
 |--------------------------------------|------------------------------------------------------------|
 | Linux                                | .NET Core 2.1                                              |
 | Windows 10 Desktop-och Server-SKU: er   | .NET Core 2,1, .NET Framework 4.5.1 eller .NET Framework 4,7 |
 
 .NET SDK kan också användas med Windows IoT Core med [Azure Device agent](https://github.com/ms-iot/azure-client-tools/blob/master/docs/device-agent/device-agent.md) eller [en anpassad NTService som kan använda RPC för att kommunicera med UWP-program](https://docs.microsoft.com/samples/microsoft/windows-iotcore-samples/ntservice-rpc/).
 
-### <a name="nodejs-sdk"></a>Node.js SDK
+### <a name="nodejs-sdk"></a>SDK för Node.js
 
 [Azure IoT Hub Node. js-enhetens SDK](https://github.com/Azure/azure-iot-sdk-node) testas med och stöder följande konfigurationer.
 
-| Operativsystem                  | Node-version    |
+| OS                  | Node-version    |
 |---------------------|-----------------|
 | Linux               | LTS och aktuell |
 | Windows 10-serien   | LTS och aktuell |
@@ -88,7 +89,7 @@ För var och en av de listade SDK: erna, Microsoft:
 
 [Azure IoT Hub Java Device SDK](https://github.com/Azure/azure-iot-sdk-java) testas med och stöder följande konfigurationer.
 
-| Operativsystem                     | Java-version |
+| OS                     | Java-version |
 |------------------------|--------------|
 | Android API 28         | Java 8       |
 | Linux x64             | Java 8       |
@@ -100,9 +101,9 @@ Microsoft samarbetar med olika partner för att tillhandahålla utvecklings pake
 
 | Partner             | Enheter                            | Länk                     | Support |
 |---------------------|------------------------------------|--------------------------|---------|
-| Espressif           | ESP32 <br/> ESP8266                              | [ESP – Azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
+| Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT-modem     | [Qualcomm LTE för IoT SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| S:T mikroelektroniska | STM32L4-serien <br/> STM32F4-serien <br/>  STM32F7-serien <br/>  STM32L4 Discovery Kit for IoT-nod    | [X-KUB – AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO – AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Support](https://www.st.com/content/st_com/en/support/support-home.html)
+| S:T mikroelektroniska | STM32L4-serien <br/> STM32F4-serien <br/>  STM32F7-serien <br/>  STM32L4 Discovery Kit for IoT-nod    | [X-CUBE-AZURE](https://www.st.com/en/embedded-software/x-cube-azure.html) <br/>  <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Support](https://www.st.com/content/st_com/en/support/support-home.html)
 | Texas Instruments   | CC3220SF Start fönstret </br> CC3220S Start fönstret </br> CC3235SF Start fönstret </br> CC3235S Start fönstret </br> MSP432E4 Start fönstret | [Azure IoT-plugin-program för SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E-forum](https://e2e.ti.com) <br/> [TI E2E-forumet för CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [TI E2E-forumet för MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
 
 ## <a name="porting-the-microsoft-azure-iot-c-sdk"></a>Porting för Microsoft Azure IoT C SDK
@@ -115,7 +116,7 @@ Microsoft arbetar med ett antal partner för att kontinuerligt expandera Azure I
 
 * Information om hur du bläddrar i Azure IoT Certified-enheter finns [Microsoft Azure Certified for IoT enhets katalog](https://catalog.azureiotsolutions.com/).
 
-* Om du vill veta mer om Microsoft-betrodda partner eller om du vill lära dig mer om hur du blir Microsoft-betrodd partner kan du läsa [Microsoft Azure Certified Sakernas Internet betrodda partner](https://azure.microsoft.com/marketplace/certified-iot-partners/).
+* Mer information om Azure-certifierad för IoT-eko system finns i [delta i det certifierade eko systemet Certified for IoT](https://catalog.azureiotsolutions.com/register).
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>Ansluta till IoT Hub utan SDK
 
@@ -125,7 +126,7 @@ Om du inte kan använda någon av IoT Hub enhets-SDK: er kan du ansluta direkt t
 
 Om du får problem när du använder SDK: er för Azure IoT-enheter finns det flera sätt att söka efter support. Du kan prova någon av följande kanaler:
 
-**Rapporterings buggar** – buggar i enhets-SDK: erna kan rapporteras på sidan problem i relevant GitHub-projekt. Du kan snabbt göra sitt sätt från projektet i till produkt uppdateringar.
+**Rapporterings buggar** – buggar i enhets-SDK: erna kan rapporteras på sidan problem i relevant GitHub-projekt. Korrigeringar hamna snabbt från projektet i produktuppdateringar.
 
 * [Problem med Azure IoT Hub C SDK](https://github.com/Azure/azure-iot-sdk-c/issues)
 

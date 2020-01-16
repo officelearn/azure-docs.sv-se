@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: fc13b0939563f93c31683b432b0410035d892de0
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 047579550172995378d92327ecf22d63712bf407
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672510"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967122"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om konfiguration och hantering för Web Apps i Azure
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller svar på vanliga frågor och svar om konfiguration
 
 ## <a name="are-there-limitations-i-should-be-aware-of-if-i-want-to-move-app-service-resources"></a>Finns det begränsningar som jag bör känna till om jag vill flytta App Service resurser?
 
-Om du planerar att flytta App Service resurser till en ny resurs grupp eller prenumeration finns det några begränsningar som du bör känna till. Mer information finns i [App Service begränsningar](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Om du planerar att flytta App Service resurser till en ny resurs grupp eller prenumeration finns det några begränsningar som du bör känna till. Mer information finns i [App Service begränsningar](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="how-do-i-use-a-custom-domain-name-for-my-web-app"></a>Hur gör jag för att använder du ett anpassat domän namn för min webbapp?
 
@@ -49,11 +49,11 @@ Information om hur du köper och konfigurerar ett SSL-certifikat för din App Se
 
 Azure Application insikter har för närvarande inte stöd för flytt åtgärden. Om den ursprungliga resurs gruppen innehåller en Application Insights resurs kan du inte flytta den resursen. Om du tar med Application Insights resursen när du försöker flytta en App Service-app, Miss lyckas hela flyttnings åtgärden. Men Application Insights och App Service plan behöver inte finnas i samma resurs grupp som appen för att appen ska fungera korrekt.
 
-Mer information finns i [App Service begränsningar](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
+Mer information finns i [App Service begränsningar](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md).
 
 ## <a name="where-can-i-find-a-guidance-checklist-and-learn-more-about-resource-move-operations"></a>Var hittar jag en väglednings check lista och lär dig mer om resurs flytt åtgärder?
 
-[App Service begränsningar](../azure-resource-manager/move-limitations/app-service-move-limitations.md) visar hur du flyttar resurser till antingen en ny prenumeration eller till en ny resurs grupp i samma prenumeration. Du kan få information om check lista för resurs flyttning, se vilka tjänster som har stöd för flytt åtgärden och lär dig mer om App Service begränsningar och andra ämnen.
+[App Service begränsningar](../azure-resource-manager/management/move-limitations/app-service-move-limitations.md) visar hur du flyttar resurser till antingen en ny prenumeration eller till en ny resurs grupp i samma prenumeration. Du kan få information om check lista för resurs flyttning, se vilka tjänster som har stöd för flytt åtgärden och lär dig mer om App Service begränsningar och andra ämnen.
 
 ## <a name="how-do-i-set-the-server-time-zone-for-my-web-app"></a>Hur gör jag för att ställa in serverns tidszon för min webbapp?
 

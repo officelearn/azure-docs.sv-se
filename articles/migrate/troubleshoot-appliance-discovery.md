@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1dbbe04818e75e41944a1c0fe54f53849cf71983
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725863"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980817"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -75,7 +75,7 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
 
 - Fel 60052, "installationen kanske inte har registrerats till Azure Migrate projektet" inträffar om det Azure-konto som används för att registrera installationen har otillräcklig behörighet.
     - Se till att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
-    - [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) om de Azure-roller och behörigheter som krävs.
+    - [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 - Fel 60039, "installationen kanske inte kan registreras Azure Migrate projektet" kan inträffa om registreringen Miss lyckas eftersom det Azure Migrate-projekt som används för att registrera installationen inte kan hittas.
     - I Azure Portal och kontrol lera om projektet finns i resurs gruppen.
     - Om projektet inte finns skapar du ett nytt Azure Migrate-projekt i resurs gruppen och registrerar enheten igen. [Lär dig hur du](https://docs.microsoft.com/azure/migrate/how-to-add-tool-first-time#create-a-project-and-add-a-tool) skapar ett nytt projekt.
@@ -86,7 +86,7 @@ Om du får felet 60030 eller 60031 kan du göra följande för att utföra en Az
 - Kontrol lera att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
 - Kontrol lera att kontot har åtkomst till nyckel valvet som anges i fel meddelandet och försök sedan igen.
 - Kontakta Microsofts supportavdelning om problemet kvarstår.
-- [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) om de Azure-roller och behörigheter som krävs.
+- [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Fel 60028: det gick inte att initiera identifiering
 
@@ -101,7 +101,7 @@ Fel 60025: "en Azure AD-åtgärd misslyckades. Felet inträffade när Azure AD-p
 - Se till att det användar konto som initierar identifieringen är samma som det som används för att registrera enheten.
 - Ange åtkomst behörighet för Azure Active Directory program till det användar konto som identifierings åtgärden misslyckades för.
 - Ta bort resurs gruppen som skapades tidigare för det Azure Migrate projektet. Skapa en annan resurs grupp för att starta igen.
-- [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) om Azure Active Directory program behörigheter.
+- [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om Azure Active Directory program behörigheter.
 
 
 ## <a name="error-50004-cant-connect-to-host-or-cluster"></a>Fel 50004: det går inte att ansluta till värd eller kluster

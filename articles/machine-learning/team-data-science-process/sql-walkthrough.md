@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 533c91bdc02425cabf5eeae93f37811144b32149
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669383"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976332"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>Team Data Science Process i praktiken: med SQL Server
 I den här självstudien får du går igenom processen för att skapa och distribuera en maskininlärningsmodell med SQL Server och en datauppsättning som är allmänt tillgängliga – [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Proceduren följer en standard arbetsflöde för datavetenskap: mata in och utforska data, bygg funktioner för att förenkla inlärningen, och sedan skapa och distribuera en modell.
@@ -66,7 +66,7 @@ I den här självstudien visar vi parallell massimport av data till en SQL Serve
 
 Du ställer in din Azure Data Science-miljö:
 
-1. [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md)
+1. [skapar ett lagringskonto](../../storage/common/storage-account-create.md)
 2. [Skapa en Azure Machine Learning-arbetsyta](../studio/create-workspace.md)
 3. [Etablera en virtuell dator för datavetenskap](../data-science-virtual-machine/setup-sql-server-virtual-machine.md), vilket ger en SQL Server och en IPython Notebook-server.
    
@@ -376,7 +376,7 @@ På samma sätt kan vi Kontrollera relationen mellan **rate\_kod** och **resans\
 ![Rita #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>Icke samlar Data i SQL
-När du förbereder data för modell utveckling i [Azure Machine Learning Studio](https://studio.azureml.net)kan du antingen bestämma om **SQL-frågan ska användas direkt i modulen importera data** eller spara de utformade och samplade data i en ny tabell, som du kan använda i [importen Datamodulen][import-data] med ett enkelt **Select * från <\_nya\_s tabellen\_namn >** .
+När du förbereder data för modell utveckling i [Azure Machine Learning Studio](https://studio.azureml.net)kan du antingen bestämma om **SQL-frågan ska användas direkt i modulen importera data** eller spara de utformade och samplade data i en ny tabell, som du kan använda i modulen [Importera data][import-data] med ett enkelt **SELECT * från <\_nya\_\_** >.
 
 I det här avsnittet ska vi skapa en ny tabell för att lagra data provade och bakåtkompilerade. Ett exempel på en direkt SQL-fråga för att bygga modellen finns i den [Datagranskning och funktionen Engineering i SQL Server](#dbexplore) avsnittet.
 

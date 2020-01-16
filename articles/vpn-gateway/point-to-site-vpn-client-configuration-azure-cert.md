@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/10/2020
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 4df22108591fe3f80078bce050081c4953443847
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 9342a70e539c4a2717fe45426c26595285172681
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903003"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045773"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Skapa och installera konfigurationsfiler för VPN-klienten för interna P2S-konfigurationer för Azure-certifikatautentisering
 
@@ -99,9 +99,14 @@ Använd följande steg för att konfigurera den inbyggda VPN-klienten på Mac f�
 4. I den **allmänna** mappen, i filen **VpnSettings. XML** , kopierar du värdet för **VpnServer** -taggen. Klistra in det här värdet i fälten **Server adress** och **fjärr-ID** för profilen.
 
    ![Server information](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
-5. Klicka på **autentiseringsinställningar** och välj **certifikat**. 
+5. Klicka på **autentiseringsinställningar** och välj **certifikat**. För **Catalina**klickar du på **ingen** och sedan **certifikat**
 
    ![autentiseringsinställningar](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
+
+   * För Catalina väljer du **ingen** och sedan **certifikat**. **Välj** rätt certifikat:
+   
+   ![catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+
 6. Klicka på **Välj...** för att välja det klient certifikat som du vill använda för autentisering. Det här är det certifikat som du installerade i steg 2.
 
    ![certifikat](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)

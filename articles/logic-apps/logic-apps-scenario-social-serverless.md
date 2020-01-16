@@ -8,12 +8,12 @@ ms.author: jehollan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 03/15/2018
-ms.openlocfilehash: ebc1d449cdb8702a984304e92697d4b7c778daaa
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e300bf9c9aa0acf0bed6426eb73f690f9a38bd74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792904"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980432"
 ---
 # <a name="create-a-streaming-customer-insights-dashboard-with-azure-logic-apps-and-azure-functions"></a>Skapa en strömmande kund insikts instrument panel med Azure Logic Apps och Azure Functions
 
@@ -104,7 +104,7 @@ Visa tidigare körnings historik i Visual Studio eller Azure Portal:
 
 ## <a name="create-automated-deployment-templates"></a>Skapa mallar för automatisk distribution
 
-När du har skapat en Logic app-lösning kan du samla in och distribuera din app som en [Azure Resource Manager mall](../azure-resource-manager/template-deployment-overview.md) till valfri Azure-region i världen. Du kan använda den här funktionen både för att ändra parametrar för att skapa olika versioner av din app och för att integrera din lösning i Azure-pipelines. Du kan också inkludera Azure Functions i distributions mal len så att du kan hantera hela lösningen med alla beroenden som en enda mall. Lär dig hur du [automatiserar Logic app-distributionen](logic-apps-azure-resource-manager-templates-overview.md).
+När du har skapat en Logic app-lösning kan du samla in och distribuera din app som en [Azure Resource Manager mall](../azure-resource-manager/templates/overview.md) till valfri Azure-region i världen. Du kan använda den här funktionen både för att ändra parametrar för att skapa olika versioner av din app och för att integrera din lösning i Azure-pipelines. Du kan också inkludera Azure Functions i distributions mal len så att du kan hantera hela lösningen med alla beroenden som en enda mall. Lär dig hur du [automatiserar Logic app-distributionen](logic-apps-azure-resource-manager-templates-overview.md).
 
 En exempel distributions mall med en Azure-funktion finns i [lagrings platsen för Azure snabb starts mal len](https://github.com/Azure/azure-quickstart-templates/tree/master/101-function-app-create-dynamic).
 

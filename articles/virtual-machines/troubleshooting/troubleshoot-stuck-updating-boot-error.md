@@ -12,21 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: 226151d81319dc4e6f132e76ce2d310f88a484e8
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: e8e4bed052ec5b70c441a3ae76f3409c307299e5
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087022"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981424"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Starten av virtuella Azure-datorer fastnar på Windows Update
 
 Den här artikeln hjälper till att lösa problemet när den virtuella datorn (VM) fastnar i Windows Update fasen under start. 
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributions modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager. Vi rekommenderar att du använder den här modellen för nya distributioner istället för att använda den klassiska distributions modellen.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
  En virtuell Windows-dator startar inte. När du kontrollerar skärm bilderna i fönstret [Boot Diagnostics](../troubleshooting/boot-diagnostics.md) ser du att Start programmet fastnar i uppdaterings processen. Följande är exempel på meddelanden som du kan få:
 
@@ -55,7 +55,7 @@ Uppdaterings processen kan ta en stund beroende på hur många uppdateringar som
     Om den anslutna OS-disken till exempel är enhet F kör du följande kommando:
 
         dism /image:F:\ /get-packages > c:\temp\Patch_level.txt
-5. Öppna filen C:\temp\Patch_level.txt och Läs den sedan längst ned. Leta upp uppdateringen som **väntar** eller väntar på att **avinstalleras** .  Följande är ett exempel på uppdaterings status:
+5. Öppna filen C:\Temp\ Patch_level. txt och Läs den sedan längst ned. Leta upp uppdateringen som **väntar** eller väntar på att **avinstalleras** .  Följande är ett exempel på uppdaterings status:
 
      ```
     Package Identity : Package_for_RollupFix~31bf3856ad364e35~amd64~~17134.345.1.5

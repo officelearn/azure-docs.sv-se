@@ -3,12 +3,12 @@ title: Felsöka SQL Server säkerhets kopiering av databasen
 description: Felsöknings information för att säkerhetskopiera SQL Server databaser som körs på virtuella Azure-datorer med Azure Backup.
 ms.topic: troubleshooting
 ms.date: 06/18/2019
-ms.openlocfilehash: d49843e8fd96df29a7359ec639e42d312ad584e2
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 57630749b53224032c763481d12e33366274f13f
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659261"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978776"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Felsöka SQL Server säkerhets kopiering av databasen med Azure Backup
 
@@ -52,7 +52,7 @@ Om den virtuella SQL-datorn måste registreras i det nya valvet måste den avreg
 | Felmeddelande | Möjliga orsaker | Rekommenderad åtgärd |
 |---|---|---|
 | Den här SQL-databasen stöder inte den begärda säkerhetskopieringstypen. | Inträffar när databas återställnings modellen inte tillåter den begärda säkerhets kopierings typen. Felet kan inträffa i följande situationer: <br/><ul><li>En databas som använder en enkel återställnings modell tillåter inte logg säkerhets kopiering.</li><li>Det går inte att säkerhetskopiera differentiella och loggar för en huvud databas.</li></ul>Mer information finns i dokumentationen för [SQL Server återställnings modeller](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server) . | Om logg säkerhets kopieringen Miss lyckas för databasen i den enkla återställnings modellen kan du prova något av följande alternativ:<ul><li>Om databasen är i enkelt återställnings läge inaktiverar du logg säkerhets kopior.</li><li>Använd [SQL Server-dokumentationen](https://docs.microsoft.com/sql/relational-databases/backup-restore/view-or-change-the-recovery-model-of-a-database-sql-server) om du vill ändra databas återställnings modellen till fullständig eller Mass utloggning. </li><li> Om du inte vill ändra återställnings modellen och du har en standard princip för att säkerhetskopiera flera databaser som inte kan ändras ignorerar du felet. Dina fullständiga och differentiella säkerhets kopieringar fungerar per schema. Logg säkerhets kopiorna hoppas över, vilket förväntas i det här fallet.</li></ul>Om det är en huvud databas och du har konfigurerat differentiell eller logg säkerhets kopiering, använder du något av följande steg:<ul><li>Använd portalen för att ändra schemat för säkerhets kopierings policyn för Master-databasen till full.</li><li>Om du har en standard princip för att säkerhetskopiera flera databaser som inte kan ändras ignorerar du felet. Den fullständiga säkerhets kopieringen fungerar per schema. Differentiella eller logga säkerhets kopieringar sker inte, vilket förväntas i det här fallet.</li></ul> |
-| Åtgärden avbröts eftersom en motstridig åtgärd redan körs på samma databas. | Se [blogg inlägget om begränsningar för säkerhets kopiering och återställning](https://blogs.msdn.microsoft.com/arvindsh/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database) som körs samtidigt.| [Använd SQL Server Management Studio (SSMS) för att övervaka säkerhets kopierings jobben](manage-monitor-sql-database-backup.md). När den motstridiga åtgärden Miss lyckas startar du om åtgärden.|
+| Åtgärden avbröts eftersom en motstridig åtgärd redan körs på samma databas. | Se [blogg inlägget om begränsningar för säkerhets kopiering och återställning](https://deep.data.blog/2008/12/30/concurrency-of-full-differential-and-log-backups-on-the-same-database/) som körs samtidigt.| [Använd SQL Server Management Studio (SSMS) för att övervaka säkerhets kopierings jobben](manage-monitor-sql-database-backup.md). När den motstridiga åtgärden Miss lyckas startar du om åtgärden.|
 
 ### <a name="usererrorsqlpodoesnotexist"></a>UserErrorSQLPODoesNotExist
 

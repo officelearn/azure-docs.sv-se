@@ -10,12 +10,12 @@ ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: c309a7cb18086526b23c875b41d9d4f4db4bc213
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: be2bda4e1bfd6a679076f79969e4829aa1a847c9
+ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70231373"
+ms.lasthandoff: 01/11/2020
+ms.locfileid: "75895956"
 ---
 ::: zone target="docs"
 
@@ -41,12 +41,12 @@ I den här guiden får du lära dig att:
 > * Kopiera data till en Data Box-disk
 > * Verifiera data
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 - Du har slutfört självstudien [: Installera och konfigurera Azure Data Box Disk](data-box-disk-deploy-set-up.md).
 - Diskarna låses upp och ansluts till en klientdator.
-- Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md##supported-operating-systems-for-clients).
+- Klientdatorn som används till att kopiera data till diskarna måste köra ett [operativsystem som stöds](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
 - Se till att rätt lagringstyp för dina data matchar [lagringstyper som stöds](data-box-disk-system-requirements.md#supported-storage-types-for-upload).
 - Kontrollera [gränserna för hanterade diskar i avsnittet om storleksgränser för Azure-objekt](data-box-disk-limits.md#azure-object-size-limits).
 

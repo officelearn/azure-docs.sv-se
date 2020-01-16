@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: c666d718586d3e5351974da287a91f6a3a8c04ba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459161"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979277"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 Med Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
@@ -190,7 +190,7 @@ Därför körs Azure Storage på separat maskin vara utan nätverks anslutning t
 SAS innebär att vi kan bevilja en klient begränsad behörighet, till objekt i vårt lagrings konto under en angiven tids period och med en angiven uppsättning behörigheter. Vi kan ge dessa begränsade behörigheter utan att behöva dela dina konto åtkomst nycklar.
 
 ### <a name="ip-level-storage-isolation"></a>Lagrings isolering på IP-nivå
-Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till [Azure Storage](../../storage/common/storage-security-guide.md).
+Du kan upprätta brand väggar och definiera ett IP-adressintervall för dina betrodda klienter. Med ett IP-adressintervall kan endast klienter som har en IP-adress inom det definierade intervallet ansluta till [Azure Storage](../../storage/blobs/security-recommendations.md).
 
 IP Storage-data kan skyddas från obehöriga användare via en nätverks mekanism som används för att allokera en dedikerad eller dedikerad trafik trafik till IP-lagring.
 
@@ -203,18 +203,18 @@ Azure erbjuder följande typer av kryptering för att skydda data:
 #### <a name="encryption-in-transit"></a>Kryptering under överföring
 Kryptering under överföring är en mekanism för att skydda data när de överförs mellan nätverk. Med Azure Storage kan du skydda data med:
 
--   [Kryptering på transport nivå](../../storage/common/storage-security-guide.md), till exempel https när du överför data till eller från Azure Storage.
+-   [Kryptering på transport nivå](../../storage/blobs/security-recommendations.md), till exempel https när du överför data till eller från Azure Storage.
 
--   [Kabel kryptering](../../storage/common/storage-security-guide.md), till exempel SMB 3,0-kryptering för Azure-filresurser.
+-   [Kabel kryptering](../../storage/blobs/security-recommendations.md), till exempel SMB 3,0-kryptering för Azure-filresurser.
 
--   [Kryptering på klient sidan](../../storage/common/storage-security-guide.md), för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
+-   [Kryptering på klient sidan](../../storage/blobs/security-recommendations.md), för att kryptera data innan de överförs till lagrings utrymmet och för att dekryptera data när de har överförts från lagrings utrymmet.
 
 #### <a name="encryption-at-rest"></a>Kryptering i vila
 För många organisationer är [data kryptering i vila](isolation-choices.md) ett obligatoriskt steg mot data sekretess, efterlevnad och data suveränitet. Det finns tre Azure-funktioner som ger kryptering av data som är "i vila":
 
--   Med [kryptering för lagringstjänst](../../storage/common/storage-security-guide.md) kan du begära att lagrings tjänsten automatiskt krypterar data när de skrivs till Azure Storage.
+-   Med [kryptering för lagringstjänst](../../storage/blobs/security-recommendations.md) kan du begära att lagrings tjänsten automatiskt krypterar data när de skrivs till Azure Storage.
 
--   [Kryptering på klient sidan](../../storage/common/storage-security-guide.md) tillhandahåller även funktionen för kryptering i vila.
+-   [Kryptering på klient sidan](../../storage/blobs/security-recommendations.md) tillhandahåller även funktionen för kryptering i vila.
 
 -   Med [Azure Disk Encryption](../azure-security-disk-encryption-overview.md) kan du kryptera de OS-diskar och data diskar som används av en virtuell IaaS-dator.
 

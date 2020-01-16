@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: fcb89cbcadb5e101ab2b4bfd18d0b7b91c63c92a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821297"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045636"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Privat länk för Azure SQL Database och informations lager (för hands version)
 
@@ -50,14 +50,14 @@ Med privat länk kan kunder aktivera åtkomst över hela nätverket till den pri
 
 ### <a name="creation-process"></a>Skapande process
 Privata slut punkter kan skapas med hjälp av portalen, PowerShell eller Azure CLI:
-- [Portal](../private-link/create-private-endpoint-portal.md)
+- [Portalen](../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../private-link/create-private-endpoint-powershell.md)
 - [CLI](../private-link/create-private-endpoint-cli.md)
 
 ### <a name="approval-process"></a>Godkännande process
 När nätverks administratören skapar den privata slut punkten (PE) kan SQL-administratören hantera den privata slut punkts anslutningen (PEC) för att SQL Database.
 
-1. Gå till SQL Server-resursen i Azure Portal.
+1. Gå till SQL Server-resursen i Azure Portal enligt stegen som visas i skärm bilden nedan
 
     - (1) Välj de privata slut punkts anslutningarna i det vänstra fönstret
     - (2) visar en lista över alla anslutningar för privata slut punkter (PECs)
@@ -146,8 +146,10 @@ Resultatet visar att en IP-adress är upp. som motsvarar IP-adressen för den pr
 
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Kontrol lera anslutningen med SQL Server Management Studio (SSMS)
+> [!NOTE]
+>Använd det **fullständigt kvalificerade domän namnet (FQDN)** för servern i anslutnings strängar för dina klienter. Alla inloggnings försök som görs direkt till IP-adressen får inte ändras av design.
 
-Det sista steget är att använda [SSMS för att ansluta till SQL Database](sql-database-connect-query-ssms.md). När du har anslutit till SQL Database med SSMS kontrollerar du att du ansluter från den privata IP-adressen för den virtuella Azure-datorn genom att köra följande fråga:
+Följ anvisningarna här för att använda [SSMS för att ansluta till den SQL Database](sql-database-connect-query-ssms.md). När du har anslutit till SQL Database med SSMS kontrollerar du att du ansluter från den privata IP-adressen för den virtuella Azure-datorn genom att köra följande fråga:
 
 ````
 select client_net_address from sys.dm_exec_connections 

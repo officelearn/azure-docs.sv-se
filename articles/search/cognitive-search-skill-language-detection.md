@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e3ec9ea9cfbae314297c5b59f6a07bcebaef6a5c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8439788c63ec1b9feaea148ab52aba498791dc12
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791965"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045015"
 ---
 #   <a name="language-detection-cognitive-skill"></a>Kognitiv kompetens för språk identifiering
 
@@ -30,14 +30,14 @@ Språk identifieringen utnyttjar Bing: s naturliga språk bearbetnings bibliotek
 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft. färdigheter. text. LanguageDetectionSkill
+Microsoft.Skills.Text.LanguageDetectionSkill
 
 ## <a name="data-limits"></a>Databegränsningar
-Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment Analyzer kan du använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till språk identifierings kunskapen kan du använda [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-inputs"></a>Kompetens inmatningar
 
-Parametrar är Skift läges känsliga.
+Parametrar är skiftlägeskänsliga.
 
 | Indata     | Beskrivning |
 |--------------------|-------------|
@@ -49,7 +49,7 @@ Parametrar är Skift läges känsliga.
 |--------------------|-------------|
 | languageCode | ISO 6391-språkkoden för det språk som identifierades. Till exempel "en". |
 | languageName | Språkets namn. Till exempel "engelska". |
-| resultat | Ett värde mellan 0 och 1. Sannolikheten att språket identifieras korrekt. Poängen kan vara lägre än 1 om meningen har blandade språk.  |
+| poäng | Ett värde mellan 0 och 1. Sannolikheten att språket identifieras korrekt. Poängen kan vara lägre än 1 om meningen har blandade språk.  |
 
 ##  <a name="sample-definition"></a>Exempel definition
 

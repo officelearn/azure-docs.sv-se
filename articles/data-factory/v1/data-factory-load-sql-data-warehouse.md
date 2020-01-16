@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b5fec342cf9f228edce80e3f0e8fb5243196973d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 68afc782e13f967bc1b455434c3ae952baff81b9
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924153"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980927"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Läs in 1 TB i Azure SQL Data Warehouse under 15 minuter med Data Factory
 > [!NOTE]
@@ -45,7 +45,7 @@ Den här artikeln innehåller steg-för-steg-instruktioner för att flytta data 
 >
 
 ## <a name="prerequisites"></a>Krav
-* Azure Blob Storage: med det här experimentet används Azure Blob Storage (GRS) för att lagra data uppsättningen TPC-H-test.  Om du inte har ett Azure Storage-konto kan du läsa om [hur du skapar ett lagrings konto](../../storage/common/storage-quickstart-create-account.md).
+* Azure Blob Storage: med det här experimentet används Azure Blob Storage (GRS) för att lagra data uppsättningen TPC-H-test.  Om du inte har ett Azure Storage-konto kan du läsa om [hur du skapar ett lagrings konto](../../storage/common/storage-account-create.md).
 * [TPC-h-](http://www.tpc.org/tpch/) data: vi ska använda TPC-h som test data uppsättning.  Om du vill göra det måste du använda `dbgen` från TPC-H Toolkit, som hjälper dig att skapa data uppsättningen.  Du kan antingen ladda ned käll koden för `dbgen` från [TPC-verktyg](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp) och kompilera den själv eller ladda ned den kompilerade binärfilen från [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/TPCHTools).  Kör dbgen. exe med följande kommandon för att generera 1 TB platt fil för `lineitem` tabell uppslag över 10 filer:
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`

@@ -4,15 +4,15 @@ description: Lär dig vad du ska tänka på när du planerar för en Azure Files
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c81f06d924a0ba871115e0ae0164d61449855263
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: d2dbe29c5a348363172f57da86483ccf3fd787f0
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665268"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046093"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planera för distribution av Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -347,13 +347,13 @@ I följande tabell har vi tillhandahållit både storleken på namn området och
 | Storlek på namnrymd – filer & kataloger (miljoner)  | Typisk kapacitet (TiB)  | CPU-kärnor  | Rekommenderat minne (GiB) |
 |---------|---------|---------|---------|
 | 3        | 1.4     | 2        | 8 (ursprunglig synkronisering)/2 (typisk omsättning)      |
-| 5        | 2.3     | 2        | 16 (ursprunglig synkronisering)/4 (typisk omsättning)    |
-| 10       | 4,7     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
-| 30       | 14,0    | 8        | 48 (ursprunglig synkronisering)/16 (typisk omsättning)   |
-| 50       | 23,3    | 16       | 64 (ursprunglig synkronisering)/32 (typisk omsättning)  |
-| 100 *     | 46,6    | 32       | 128 (ursprunglig synkronisering)/32 (typisk omsättning)  |
+| 5        | 2.4     | 2        | 16 (ursprunglig synkronisering)/4 (typisk omsättning)    |
+| 10       | 4.8     | 4        | 32 (ursprunglig synkronisering)/8 (typisk omsättning)   |
+| 30       | 14,3    | 8        | 48 (ursprunglig synkronisering)/16 (typisk omsättning)   |
+| 50       | 23,8    | 16       | 64 (ursprunglig synkronisering)/32 (typisk omsättning)  |
+| 100 *     | 47,7   | 32       | 128 (ursprunglig synkronisering)/32 (typisk omsättning)  |
 
-\*fler än 100 000 000 filer & kataloger stöds inte för tillfället. Detta är en mjuk gräns.
+\*fler än 100 000 000 filer & kataloger inte har testats. Detta är en mjuk gräns.
 
 > [!TIP]
 > Inledande synkronisering av ett namn område är en intensiv åtgärd och vi rekommenderar att du allokerar mer minne tills den första synkroniseringen har slutförts. Detta är inte obligatoriskt, men det kan påskynda den inledande synkroniseringen. 

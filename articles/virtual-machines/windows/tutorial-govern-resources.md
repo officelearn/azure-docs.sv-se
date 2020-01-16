@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 6a4c02883c80b2ad7e5283c6ac33a4604ee35c75
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fd7e7f14d076a6a9652e902c4dc0ec41665735ee
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751377"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981749"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Självstudie: Lär dig mer om hantering av virtuella Windows-datorer med Azure PowerShell
 
@@ -138,7 +138,7 @@ När distributionen är klar kan du lägga till fler hanteringsinställningar f�
 
 ## <a name="lock-resources"></a>Lås resurser
 
-[Resurslås](../../azure-resource-manager/resource-group-lock-resources.md) förhindrar att användare i din organisation tar bort eller ändrar viktiga resurser av misstag. Till skillnad från rollbaserad åtkomstkontroll tillämpar resurslås en begränsning för alla användare och roller. Du kan ange låsnivån till *CanNotDelete* eller *ReadOnly*.
+[Resurslås](../../azure-resource-manager/management/lock-resources.md) förhindrar att användare i din organisation tar bort eller ändrar viktiga resurser av misstag. Till skillnad från rollbaserad åtkomstkontroll tillämpar resurslås en begränsning för alla användare och roller. Du kan ange låsnivån till *CanNotDelete* eller *ReadOnly*.
 
 Om du vill låsa den virtuella datorn och nätverkssäkerhetsgruppen använder du kommandot [New-AzResourceLock](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcelock):
 
@@ -168,7 +168,7 @@ Ett felmeddelande visas som anger att borttagningsåtgärden inte kan slutföras
 
 ## <a name="tag-resources"></a>Tagga resurser
 
-Du kan ordna Azure-resurser i kategorier genom att lägga till [taggar](../../azure-resource-manager/resource-group-using-tags.md). Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
+Du kan ordna Azure-resurser i kategorier genom att lägga till [taggar](../../azure-resource-manager/management/tag-resources.md). Varje tagg består av ett namn och ett värde. Du kan till exempel använda namnet ”Miljö” och värdet ”Produktion” för alla resurser i produktionsmiljön.
 
 [!INCLUDE [Resource Manager governance tags Powershell](../../../includes/resource-manager-governance-tags-powershell.md)]
 

@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: c13b2a24147c542e36b78e8ae17af8e85414cd74
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 93cbf8e9e60ef48e1ff3516dd4e9e123f70e0f42
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982442"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -138,9 +138,9 @@ Du har slutfört följande experiment med att ställa in och köra steg i Azure 
         Validering | Välj en kors validerings typ och antalet tester.|Validerings typ:<br>&nbsp;k-vikning&nbsp;kors validering <br> <br> Antal valideringar: 2
         Samtidighet| Maximalt antal utförda parallella iterationer och kärnor som används per iteration| Max&nbsp;samtidiga&nbsp;iterationer: 5<br> Max&nbsp;kärnor&nbsp;per&nbsp;iteration: ingen
         
-        Välj **OK**.
+        Välj **Spara**.
 
-1. Välj **skapa** för att köra experimentet. Skärmen **körnings information** öppnas med **körnings statusen** när experiment förberedelsen börjar.
+1. Klicka på **Slutför** om du vill köra experimentet. Skärmen **körnings information** öppnas med **körnings statusen** när experiment förberedelsen börjar.
 
 >[!IMPORTANT]
 > Förberedelserna tar **10-15 minuter** för att förbereda experiment körningen.

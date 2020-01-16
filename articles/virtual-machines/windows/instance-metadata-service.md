@@ -1,10 +1,10 @@
 ---
 title: Azure-Instance Metadata Service
-description: RESTful-gränssnitt för att hämta information om beräknings-, nätverks-och kommande underhålls händelser i Windows VM.
+description: RESTful-gränssnitt för att få information om beräknings-, nätverks-och kommande underhålls händelser för Windows-datorer.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
-manager: harijayms
+manager: paulmey
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-windows
@@ -14,17 +14,17 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 901e075572e0ed73dc7d0633941311c04b4f3c1c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358368"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045882"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure-instansens metadatatjänst
 
-Azure Instance Metadata Service innehåller information om att köra virtuella dator instanser som kan användas för att hantera och konfigurera dina virtuella datorer.
-Detta omfattar information som SKU, nätverks konfiguration och kommande underhålls händelser. Mer information om vilken typ av information som är tillgänglig finns i [API: er för metadata](#metadata-apis).
+Azure-Instance Metadata Service (IMDS) innehåller information om de virtuella dator instanser som körs och kan användas för att hantera och konfigurera dina virtuella datorer.
+Informationen omfattar SKU, nätverks konfiguration och kommande underhålls händelser. En fullständig lista över tillgängliga data finns i [API: er för metadata](#metadata-apis).
 
 Azures Instance Metadata Service är en REST-slutpunkt som är tillgänglig för alla IaaS-VM: ar som skapats via [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
 Slut punkten är tillgänglig för en välkänd icke-flyttbar IP-adress (`169.254.169.254`) som bara kan nås från den virtuella datorn.
@@ -38,20 +38,21 @@ Tjänsten är tillgänglig i allmänt tillgängliga Azure-regioner. Ingen API-ve
 
 Regioner                                        | Offlinetillgänglighet?                                 | Versioner som stöds
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure Kina](https://www.azure.cn/)                                                     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30
+[Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Kina 21Vianet](https://www.azure.cn/)                                            | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Allmänt tillgänglig | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15, 2019-11-01
 
-Tabellen uppdateras när det finns tjänst uppdateringar och nya versioner som stöds är tillgängliga.
+Tabellen uppdateras när det finns tjänst uppdateringar och/eller nya versioner som stöds är tillgängliga.
 
 Om du vill testa Instance Metadata Service skapar du en virtuell dator från [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) eller [Azure Portal](https://portal.azure.com) i regionerna ovan och följer sedan exemplen nedan.
+Fler exempel på hur du kan fråga IMDS finns på [Azure instance metadata-exempel](https://github.com/microsoft/azureimds)
 
 ## <a name="usage"></a>Användning
 
 ### <a name="versioning"></a>Versionshantering
 
-Instance Metadata Service har versions hantering och angett att API-versionen i HTTP-begäran är obligatorisk.
+Instance Metadata Service är versions hantering och anger att API-versionen i HTTP-begäran är obligatorisk.
 
 Du kan se de senaste versionerna som anges i den här [tillgänglighets tabellen](#service-availability).
 
@@ -130,7 +131,7 @@ HTTP-statuskod | Orsak
 200 OK |
 400 Felaktig begäran | `Metadata: true` rubrik saknas eller så saknas formatet vid förfrågan till en lövnod
 404 Hittades inte | Det begärda elementet finns inte
-metoden 405 tillåts inte | Endast `GET`-och `POST`-begäranden stöds
+metoden 405 tillåts inte | Endast `GET` begär Anden stöds
 429 för många begär Anden | API: et stöder för närvarande högst 5 frågor per sekund
 500-tjänst fel     | Försök igen om en stund
 
@@ -191,7 +192,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Förfrågan**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
 ```
 
 **Svar**
@@ -204,30 +205,83 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
   "compute": {
     "azEnvironment": "AzurePublicCloud",
     "customData": "",
-    "location": "westus",
-    "name": "jubilee",
-    "offer": "Windows-10",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
-    "platformFaultDomain": "1",
-    "platformUpdateDomain": "1",
+    "platformFaultDomain": "0",
+    "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
     "publicKeys": [],
-    "publisher": "MicrosoftWindowsDesktop",
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "rs4-pro",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "17134.345.59",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
+    "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_D1",
+    "vmSize": "Standard_A1_v2",
     "zone": "1"
   },
   "network": {
@@ -264,14 +318,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 Instansens metadata kan hämtas i Windows via `curl`s programmet:
 
 ```powershell
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content
 ```
 
 Eller via `Invoke-RestMethod` PowerShell-cmdlet:
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get
 ```
 
 **Svar**
@@ -284,31 +338,84 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
   "compute": {
     "azEnvironment": "AzurePublicCloud",
     "customData": "",
-    "location": "westus",
-    "name": "SQLTest",
-    "offer": "SQL2016SP1-WS2016",
-    "osType": "Windows",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
+    "osType": "Linux",
     "placementGroupId": "",
     "plan": {
-        "name": "",
-        "product": "",
-        "publisher": ""
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
     },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
     "provider": "Microsoft.Compute",
     "publicKeys": [],
-    "publisher": "MicrosoftSQLServer",
+    "publisher": "bitnami",
     "resourceGroupName": "myrg",
     "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "Enterprise",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "13.0.400110",
-    "vmId": "453945c8-3923-4366-b2d3-ea4c80e9b70e",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
-    "vmSize": "Standard_DS2",
-    "zone": ""
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
   },
   "network": {
     "interface": [
@@ -339,7 +446,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 ## <a name="metadata-apis"></a>API: er för metadata
 
-#### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>Följande API: er är tillgängliga via metadata-slutpunkten:
+Följande API: er är tillgängliga via metadata-slutpunkten:
 
 Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
@@ -349,7 +456,8 @@ instance | Se [instans-API](#instance-api) | 2017-04-02
 scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 
 #### <a name="instance-api"></a>Instans-API
-##### <a name="the-following-compute-categories-are-available-through-the-instance-api"></a>Följande beräknings kategorier är tillgängliga via instans-API: et:
+
+Följande beräknings kategorier är tillgängliga via instans-API: et:
 
 > [!NOTE]
 > Via slut punkten för metadata kan följande kategorier nås via instans/Compute
@@ -357,13 +465,13 @@ scheduledevents | Se [schemalagda händelser](scheduled-events.md) | 2017-08-01
 Data | Beskrivning | Version introducerad
 -----|-------------|-----------------------
 azEnvironment | Azure-miljö där den virtuella datorn körs i | 2018-10-01
-customData | Se [anpassade data](#custom-data) | 2019-02-01
+customData | Den här funktionen är för närvarande inaktive rad och vi kommer att uppdatera den här dokumentationen när den blir tillgänglig | 2019-02-01
 location | Azure-regionen som den virtuella datorn körs i | 2017-04-02
 namn | Namn på den virtuella datorn | 2017-04-02
 offer | Erbjudande information för den virtuella dator avbildningen och finns bara för avbildningar som distribuerats från Azures avbildnings Galleri | 2017-04-02
 osType | Linux eller Windows | 2017-04-02
 placementGroupId | [Placerings grupp](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) för den virtuella datorns skalnings uppsättning | 2017-08-01
-planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om den är en Azure Marketplace-avbildning | 2018-04-02
+planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) som innehåller namn, produkt och utgivare för en virtuell dator om det är en Azure Marketplace-avbildning | 2018-04-02
 platformUpdateDomain |  [Uppdatera den domän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
 platformFaultDomain | [Feldomän](manage-availability.md) som den virtuella datorn körs i | 2017-04-02
 provider | Provider för den virtuella datorn | 2018-10-01
@@ -372,16 +480,17 @@ publisher | Utgivare av VM-avbildningen | 2017-04-02
 resourceGroupName | [Resurs grupp](../../azure-resource-manager/management/overview.md) för den virtuella datorn | 2017-08-01
 resourceId | Resursens [fullständigt kvalificerade](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID | 2019-03-11
 sku | En speciell SKU för VM-avbildningen | 2017-04-02
+storageProfile | Se [lagrings profil](#storage-profile) | 2019-06-01
 subscriptionId | Azure-prenumeration för den virtuella datorn | 2017-08-01
-tags | [Taggar](../../azure-resource-manager/resource-group-using-tags.md) för den virtuella datorn  | 2017-08-01
+tagg | [Taggar](../../azure-resource-manager/management/tag-resources.md) för den virtuella datorn  | 2017-08-01
 tagsList | Taggar formaterade som en JSON-matris för enklare programmerings parsning  | 2019-06-04
 version | Version av VM-avbildningen | 2017-04-02
 vmId | [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn | 2017-04-02
-vmScaleSetName | [ScaleSet namn](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) på virtuell dator för den virtuella datorns skal uppsättning | 2017-12-01
+vmScaleSetName | [Skal uppsättnings namn för virtuell](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) dator för den virtuella datorns skalnings uppsättning | 2017-12-01
 vmSize | [Storlek på virtuell dator](sizes.md) | 2017-04-02
 zon | [Tillgänglighets zon](../../availability-zones/az-overview.md) för den virtuella datorn | 2017-12-01
 
-##### <a name="the-following-network-categories-are-available-through-the-instance-api"></a>Följande nätverks kategorier är tillgängliga via instans-API: et:
+Följande nätverks kategorier är tillgängliga via instans-API: et:
 
 > [!NOTE]
 > Via metadata-slutpunkten nås följande kategorier via instans/nätverk/gränssnitt
@@ -397,7 +506,7 @@ macAddress | Mac-adress för virtuell dator | 2017-04-02
 
 ## <a name="attested-data"></a>Bestyrkade data
 
-Instansens metadata svarar vid http-slutpunkten på 169.254.169.254. En del av scenariot som hanteras av Instance Metadata Service är att ge garantier för att de data som besvaras kommer från Azure. Vi loggar en del av den här informationen så att Marketplace-avbildningar kan vara säker på att de är en image som körs på Azure.
+En del av scenariot som hanteras av Instance Metadata Service är att tillhandahålla garantier att de data som tillhandahålls kommer från Azure. Vi loggar en del av den här informationen så att Marketplace-avbildningar kan vara säker på att de är en image som körs på Azure.
 
 ### <a name="example-attested-data"></a>Exempel på bestyrkade data
 
@@ -412,7 +521,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 API-version är ett obligatoriskt fält. Se [avsnittet tjänst tillgänglighet](#service-availability) för API-versioner som stöds.
-Nonce är en valfri 10-siffrig sträng angiven. Nonce kan användas för att spåra begäran och om det inte anges, i svars kodad sträng returneras den aktuella UTC-tidsstämpeln.
+Nonce är en valfri sträng med 10 siffror. Om den inte anges, returnerar IMDS den aktuella UTC-tidsstämpeln i sitt ställe. På grund av IMDS-mekanismen kan ett tidigare cachelagrat nonce-värde returneras.
 
  **Svar**
 
@@ -425,7 +534,7 @@ Nonce är en valfri 10-siffrig sträng angiven. Nonce kan användas för att sp�
 }
 ```
 
-> Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
+Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, SKU, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 
 #### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Hämtar bestyrkade metadata i virtuell Windows-dator
 
@@ -444,7 +553,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/met
 ```
 
 API-version är ett obligatoriskt fält. Se avsnittet tjänst tillgänglighet för API-versioner som stöds.
-Nonce är en valfri 10-siffrig sträng angiven. Nonce kan användas för att spåra begäran och om det inte anges, i svars kodad sträng returneras den aktuella UTC-tidsstämpeln.
+Nonce är en valfri sträng med 10 siffror. Om den inte anges, returnerar IMDS den aktuella UTC-tidsstämpeln i sitt ställe. På grund av IMDS-mekanismen kan ett tidigare cachelagrat nonce-värde returneras.
 
  **Svar**
 
@@ -457,7 +566,7 @@ Nonce är en valfri 10-siffrig sträng angiven. Nonce kan användas för att sp�
 }
 ```
 
-> Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
+Signatur-bloben är en [PKCS7](https://aka.ms/pkcs7) -signerad version av dokumentet. Det innehåller det certifikat som används för att signera tillsammans med den virtuella dator informationen som vmId, SKU, nonce, subscriptionId, timeStamp för att skapa och upphör ande av dokumentet och plan informationen om avbildningen. Plan informationen är bara ifylld för Azures avbildningar på marknaden. Certifikatet kan extraheras från svaret och används för att verifiera att svaret är giltigt och kommer från Azure.
 
 
 ## <a name="example-scenarios-for-usage"></a>Exempel scenarier för användning  
@@ -503,7 +612,7 @@ Som tjänst leverantör kan du få ett support samtal där du vill ha mer inform
 **Förfrågan**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2017-08-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
 **Svar**
@@ -513,19 +622,86 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 
 ```json
 {
-  "compute": {
-    "location": "CentralUS",
-    "name": "IMDSCanary",
-    "offer": "RHEL",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
+    "location": "centralus",
+    "name": "negasonic",
+    "offer": "lampstack",
     "osType": "Linux",
+    "placementGroupId": "",
+    "plan": {
+        "name": "5-6",
+        "product": "lampstack",
+        "publisher": "bitnami"
+    },
     "platformFaultDomain": "0",
     "platformUpdateDomain": "0",
-    "publisher": "RedHat",
-    "sku": "7.2",
-    "version": "7.2.20161026",
-    "vmId": "5c08b38e-4d57-4c23-ac45-aca61037f084",
-    "vmSize": "Standard_DS2"
-  }
+    "provider": "Microsoft.Compute",
+    "publicKeys": [],
+    "publisher": "bitnami",
+    "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
+    "sku": "5-6",
+    "storageProfile": {
+        "dataDisks": [
+          {
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+              "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+              "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+              "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+          }
+        ],
+        "imageReference": {
+          "id": "",
+          "offer": "UbuntuServer",
+          "publisher": "Canonical",
+          "sku": "16.04.0-LTS",
+          "version": "latest"
+        },
+        "osDisk": {
+          "caching": "ReadWrite",
+          "createOption": "FromImage",
+          "diskSizeGB": "30",
+          "diffDiskSettings": {
+            "option": "Local"
+          },
+          "encryptionSettings": {
+            "enabled": "false"
+          },
+          "image": {
+            "uri": ""
+          },
+          "managedDisk": {
+            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+            "storageAccountType": "Standard_LRS"
+          },
+          "name": "exampleosdiskname",
+          "osType": "Linux",
+          "vhd": {
+            "uri": ""
+          },
+          "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
+    "version": "7.1.1902271506",
+    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
+    "vmScaleSetName": "",
+    "vmSize": "Standard_A1_v2",
+    "zone": "1"
 }
 ```
 
@@ -549,7 +725,7 @@ Regionerna och värdena i Azure-miljön visas nedan.
 ---------|-----------------
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | AzurePublicCloud
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
-[Azure Kina](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure Kina 21Vianet](https://azure.microsoft.com/global-infrastructure/china)          | AzureChinaCloud
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### <a name="getting-the-tags-for-the-vm"></a>Hämtar taggar för den virtuella datorn
@@ -637,7 +813,8 @@ Verification successful
     "expiresOn":"11/28/18 06:16:17 -0000"
   },
 "vmId":"d3e0e374-fda6-4649-bbc9-7f20dc379f34",
-"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"
+"subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+"sku": "RS3-Pro"
 }
 ```
 
@@ -645,10 +822,11 @@ Data | Beskrivning
 -----|------------
 Nnär | Användaren angav valfri sträng med begäran. Om inget nonce angavs i begäran returneras den aktuella UTC-tidsstämpeln
 planera | [Planera](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) för en virtuell dator i den är en Azure Marketplace-avbildning som innehåller namn, produkt och utgivare
-timestamp/createdOn | Tidsstämpeln då det första signerade dokumentet skapades
-timestamp/expiresOn | Tidsstämpeln då det signerade dokumentet upphör att gälla
+timestamp/createdOn | UTC-tidsstämpeln då det första signerade dokumentet skapades
+timestamp/expiresOn | UTC-tidsstämpeln då det signerade dokumentet upphör att gälla
 vmId |  [Unikt ID](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) för den virtuella datorn
 subscriptionId | Azure-prenumeration för den virtuella datorn som introducerades i `2019-04-30`
+sku | En speciell SKU för VM-avbildningen som introducerades i `2019-11-01`
 
 #### <a name="verifying-the-signature"></a>Verifiera signaturen
 
@@ -661,7 +839,7 @@ När du har hämtat signaturen ovan kan du kontrol lera att signaturen är från
 ---------|-----------------
 [Alla allmänt tillgängliga globala Azure-regioner](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure Kina](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
+[Azure Kina 21Vianet](https://azure.microsoft.com/global-infrastructure/china/)         | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -725,35 +903,120 @@ Network Destination        Netmask          Gateway       Interface  Metric
 route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
-### <a name="custom-data"></a>Anpassade data
-Instance Metadata Service ger den virtuella datorn möjlighet att få åtkomst till dess anpassade data. Binära data måste vara mindre än 64 KB och anges för den virtuella datorn i Base64-kodat format.
+### <a name="storage-profile"></a>Lagringsprofil
 
-Azures anpassade data kan infogas i den virtuella datorn via REST-API: er, PowerShell-cmdletar, Azure Command Line Interface (CLI) eller en ARM-mall.
+Instance Metadata Service kan ange information om de lagrings diskar som är kopplade till den virtuella datorn. Dessa data finns på instans/Compute/storageProfile-slutpunkten.
 
-Ett exempel på ett Azure Command line-gränssnitt finns i [anpassade data och Cloud-Init på Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+Lagrings profilen för en virtuell dator är uppdelad i tre kategorier-avbildnings referens, OS-disk och data diskar.
 
-Ett exempel på en ARM-mall finns i [distribuera en virtuell dator med CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Objektet bild referens innehåller följande information om operativ system avbildningen:
 
-Anpassade data är tillgängliga för alla processer som körs på den virtuella datorn. Vi rekommenderar att kunder inte infogar hemlig information i anpassade data.
+Data    | Beskrivning
+--------|-----------------
+id      | Resurs-ID
+offer   | Erbjudande för plattformen eller Marketplace-avbildningen
+publisher | Avbildnings utgivare
+sku     | Bild-SKU
+version | Version av plattformen eller Marketplace-avbildningen
 
-För närvarande garanterar vi att anpassade data är tillgängliga vid start av en virtuell dator. Om uppdateringar görs till den virtuella datorn, till exempel att lägga till diskar eller ändra storlek på den virtuella datorn, kommer Instance Metadata Service inte att tillhandahålla anpassade data. Att tillhandahålla anpassade data permanent via Instance Metadata Service pågår just nu.
+Objektet OS-disk innehåller följande information om den OS-disk som används av den virtuella datorn:
 
-#### <a name="retrieving-custom-data-in-virtual-machine"></a>Hämtar anpassade data på den virtuella datorn
-Instance Metadata Service tillhandahåller anpassade data till den virtuella datorn i Base64-kodat format. I följande exempel avkodas den base64-kodade strängen.
+Data    | Beskrivning
+--------|-----------------
+cachelagring | Krav för cachelagring
+createOption | Information om hur den virtuella datorn skapades
+diffDiskSettings | Inställningar för tillfälliga diskar
+diskSizeGB | Disk storlek i GB
+mallar   | Virtuell hård disk för käll användar avbildning
+enheten     | Diskens logiska enhets nummer
+managedDisk | Parametrar för hanterade diskar
+namn    | Disknamn
+disken     | Virtuell hårddisk
+writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
 
-> [!NOTE]
-> Anpassade data i det här exemplet tolkas som en ASCII-sträng som läser "mina anpassade data".
+Data disks-matrisen innehåller en lista över data diskar som är anslutna till den virtuella datorn. Varje data disk objekt innehåller följande information:
+
+Data    | Beskrivning
+--------|-----------------
+cachelagring | Krav för cachelagring
+createOption | Information om hur den virtuella datorn skapades
+diffDiskSettings | Inställningar för tillfälliga diskar
+diskSizeGB | Disk storlek i GB
+encryptionSettings | Krypterings inställningar för disken
+mallar   | Virtuell hård disk för käll användar avbildning
+managedDisk | Parametrar för hanterade diskar
+namn    | Disknamn
+osType  | Typ av operativ system som ingår i disken
+disken     | Virtuell hårddisk
+writeAcceleratorEnabled | Huruvida writeAccelerator har Aktiver ATS på disken
+
+Följande är ett exempel på hur du frågar den virtuella datorns lagrings information.
 
 **Förfrågan**
 
 ```bash
-curl -H "Metadata:true" "http://169.254.169.254/metadata/instance/compute/customData?api-version=2019-02-01&&format=text" | base64 --decode
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **Svar**
 
-```text
-My custom data.
+> [!NOTE]
+> Svaret är en JSON-sträng. Följande exempel svar är ganska utskrivet för läsbarhet.
+
+```json
+{
+    "dataDisks": [
+      {
+        "caching": "None",
+        "createOption": "Empty",
+        "diskSizeGB": "1024",
+        "image": {
+          "uri": ""
+        },
+        "lun": "0",
+        "managedDisk": {
+          "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+          "storageAccountType": "Standard_LRS"
+        },
+        "name": "exampledatadiskname",
+        "vhd": {
+          "uri": ""
+        },
+        "writeAcceleratorEnabled": "false"
+      }
+    ],
+    "imageReference": {
+      "id": "",
+      "offer": "UbuntuServer",
+      "publisher": "Canonical",
+      "sku": "16.04.0-LTS",
+      "version": "latest"
+    },
+    "osDisk": {
+      "caching": "ReadWrite",
+      "createOption": "FromImage",
+      "diskSizeGB": "30",
+      "diffDiskSettings": {
+        "option": "Local"
+      },
+      "encryptionSettings": {
+        "enabled": "false"
+      },
+      "image": {
+        "uri": ""
+      },
+      "managedDisk": {
+        "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+        "storageAccountType": "Standard_LRS"
+      },
+      "name": "exampleosdiskname",
+      "osType": "Linux",
+      "vhd": {
+        "uri": ""
+      },
+      "writeAcceleratorEnabled": "false"
+    }
+}
 ```
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Exempel på hur du anropar metadata service med olika språk i den virtuella datorn 
@@ -780,9 +1043,9 @@ Puppet | https://github.com/keirans/azuremetadata
 2. Varför får jag inte beräknings information för min virtuella dator?
    * För närvarande stöder Instance Metadata Service endast instanser som skapats med Azure Resource Manager. I framtiden kan stöd för virtuella datorer i moln tjänsten läggas till.
 3. Jag har skapat min virtuella dator genom att Azure Resource Manager en och tillbaka. Varför visas inte information om att beräkna metadata?
-   * För virtuella datorer som skapats efter sep 2016 lägger du till en [tagg](../../azure-resource-manager/resource-group-using-tags.md) för att börja se Compute metadata. För äldre virtuella datorer (som skapats före sep 2016) lägger du till/tar bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
+   * För virtuella datorer som skapats efter sep 2016 lägger du till en [tagg](../../azure-resource-manager/management/tag-resources.md) för att börja se Compute metadata. För äldre virtuella datorer (som skapats före sep 2016) lägger du till/tar bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
 4. Jag ser inte alla data som är ifyllda för nya versioner
-   * För virtuella datorer som skapats efter sep 2016 lägger du till en [tagg](../../azure-resource-manager/resource-group-using-tags.md) för att börja se Compute metadata. För äldre virtuella datorer (som skapats före sep 2016) lägger du till/tar bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
+   * För virtuella datorer som skapats efter sep 2016 lägger du till en [tagg](../../azure-resource-manager/management/tag-resources.md) för att börja se Compute metadata. För äldre virtuella datorer (som skapats före sep 2016) lägger du till/tar bort tillägg eller data diskar till den virtuella datorn för att uppdatera metadata.
 5. Varför får jag fel meddelandet `500 Internal Server Error`?
    * Gör om din begäran baserat på exponentiellt system. Kontakta Azure-supporten om problemet kvarstår.
 6. Var kan jag dela fler frågor/kommentarer?

@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: b3d66cab8cf43d862bbf17d5783f0469e3e1a5f8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/13/2020
+ms.openlocfilehash: 22a5b86c8b3df4da5fe338a8ba1230d0247a5826
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825652"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046004"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Skapa ett nytt Dynamics 365 Business Central-erbjudande
 
@@ -151,8 +151,26 @@ Några tips för att skriva din beskrivning:
   - Kunden behöver eller smärta om produkt adresser
 - Tänk på att de första meningarna kan visas i Sök motorns resultat.  
 - Förlita dig inte på funktioner och funktioner för att sälja produkten. Fokusera i stället på det värde som du levererar.  
-- Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt. 
+- Använd branschspecifika vokabulär eller kunskapsbaserade formuleringar så mycket som möjligt.
 - Överväg att använda HTML-taggar för att formatera beskrivningen och göra den mer intressant.
+
+Om du vill göra din erbjudande Beskrivning mer engagerande använder du RTF-redigeraren för att formatera beskrivningen.
+
+![Använda Rich Text Editor](./media/text-editor2.png)
+
+Använd följande instruktioner för att använda Rich Text Editor:
+
+- Om du vill ändra formatet på ditt innehåll markerar du den text som du vill formatera och väljer ett text format enligt nedan:
+
+     ![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png)
+
+- Om du vill lägga till en punkt lista eller numrerad lista i texten använder du alternativen nedan:
+
+     ![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png)
+
+- Om du vill lägga till eller ta bort indrag i texten använder du alternativen nedan:
+
+     ![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png)
 
 ### <a name="search-keywords"></a>Sök efter nyckelord
 
@@ -200,7 +218,7 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skärm bilder krävs och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
-#### <a name="videos"></a>Videoklipp
+#### <a name="videos"></a>Videor
 
 Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 
@@ -283,13 +301,13 @@ En distributionsmall som innehåller alla Azure-resurser som utgör din lösning
 
 - **Instanser**: Välj typ (frekvent eller kall) och antal tillgängliga instanser, vilket kommer att multipliceras med antalet regioner där ditt erbjudande är tillgängligt.
 
-**Het**: den här typen av instans distribueras och väntar på åtkomst per vald region. Kunder kan komma åt en test enhets *aktiva* instanser direkt i stället för att vänta på en distribution. Kompromissen är att dessa instanser alltid körs på din Azure-prenumeration, så de kommer att ådra sig en högre drift tid. Vi rekommenderar starkt att du har minst en *aktiv* instans, eftersom de flesta kunder inte vill vänta på fullständiga distributioner, vilket resulterar i en kombination av kund användning om ingen *aktiv* instans är tillgänglig.
+**Het**: den här typen av instans distribueras och väntar på åtkomst per vald region. Kunder kan komma åt en test enhets *aktiva* instanser direkt i stället för att vänta på en distribution. Nackdelen är att dessa instanser körs alltid på din Azure-prenumeration, så leder de en större upptid kostnad. Vi rekommenderar starkt att du har minst en *aktiv* instans, eftersom de flesta kunder inte vill vänta på fullständiga distributioner, vilket resulterar i en kombination av kund användning om ingen *aktiv* instans är tillgänglig.
 
 **Kall**: den här typen av instans representerar det totala antalet instanser som eventuellt kan distribueras per region. Kalla instanser kräver att hela test enhetens Resource Manager-mall distribueras när en kund begär test enheten, så att *kalla* instanser är mycket långsammare att läsa in än *varma* instanser. Kompromissen är att du bara behöver betala under test enhetens varaktighet, den körs *inte* alltid på din Azure-prenumeration som en *aktiv* instans.
 
 - **Testkör Azure Resource Manager mall**: Ladda upp zip-filen som innehåller din Azure Resource Manager-mall.  Lär dig mer om hur du skapar en Azure Resource Manager-mall i snabb starts artikeln [skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
 
-- **Test enhetens varaktighet** (krävs): Ange hur lång tid som test enheten ska vara aktiv i antal timmar. Test enheten avslutas automatiskt när den här tids perioden är slut. Denna varaktighet får bara anges med ett heltal (till exempel "2" timmar, "1,5" är inte giltigt).
+- **Test enhetens varaktighet** (krävs): Ange hur lång tid som test enheten ska vara aktiv i antal timmar. Test Drive avslutas automatiskt efter denna tid har löpt ut. Denna varaktighet får bara anges med ett heltal (till exempel "2" timmar, "1,5" är inte giltigt).
 
 ### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Teknisk konfiguration för Dynamics 365-testenhet
 
@@ -370,7 +388,7 @@ Om ditt erbjudande kräver Premium-versionen av Microsoft Dynamics 365 Business 
 
 ### <a name="key-usage-scenario"></a>Scenario för nyckel användning
 
-Du måste erför en `.pdf`-fil som visar ditt erbjudandes nyckel användnings scenarier som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
+Du måste överföra en `.pdf`-fil som visar dina erbjudandens scenarier för nyckel användning som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
 
 ### <a name="app-tests-automation"></a>Automatisering av app-test
 
@@ -397,4 +415,4 @@ Om det är första gången du publicerar det här erbjudandet kan du:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppdatera ett befintligt erbjudande i den kommersiella Marketplace](./update-existing-offer.md)
+- [Uppdatera ett befintligt erbjudande i Commercial Marketplace](./update-existing-offer.md)

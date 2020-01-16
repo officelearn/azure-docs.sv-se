@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3909e80ea36ed7aab638d717ecf8404d80beb59
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181886"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75977886"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-I den här självstudien lär du dig att komma åt en Azure Data Lake Store med en systemtilldelad hanterad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure Active Directory-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
+I den här självstudien lär du dig att komma åt en Azure Data Lake Store med en systemtilldelad hanterad identitet för en virtuell Windows-dator. Hanterade tjänstidentiteter hanteras automatiskt av Azure och gör att du kan autentisera mot tjänster som stöder Azure AD-autentisering, utan att du behöver skriva in autentiseringsuppgifter i koden. Lär dig att:
 
 > [!div class="checklist"]
 > * Bevilja din virtuella dator åtkomst till en Azure Data Lake Store
@@ -36,7 +36,15 @@ I den här självstudien lär du dig att komma åt en Azure Data Lake Store med 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Bevilja din virtuella dator åtkomst till Azure Data Lake Store
+
+
+## <a name="enable"></a>Aktivera
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
+
+## <a name="grant-access"></a>Bevilja åtkomst
 
 Nu kan du ge din VM-åtkomst till filer och mappar i en Azure Data Lake Store.  Du kan använda en befintlig Data Lake Store eller skapa en ny för det här steget.  För att skapa en ny Data Lake Store med hjälp av Azure-portalen följer du den här [snabbstarten för Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Det finns även snabbstarter som använder Azure CLI och Azure PowerShell i [dokumentationen om Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview).
 
@@ -56,7 +64,7 @@ I din Data Lake Store skapar du en ny mapp och ger den virtuella datorns systemt
 
 Den virtuella datorns systemtilldelade hanterade identitet kan nu utföra alla åtgärder på filer i den mapp som du skapade.  Mer information om hur du hanterar åtkomst till Data Lake Store finns i den här artikeln om [Åtkomstkontroll i Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
 
-## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-the-azure-data-lake-store-filesystem"></a>Hämta en åtkomsttoken med hjälp av den virtuella datorns systemtilldelade hanterade identitet och använd den för att anropa Azure Data Lake Store-filsystemet
+## <a name="access-data"></a>Åtkomst till data
 
 Azure Data Lake Store har inbyggt stöd för Azure AD-autentisering, vilket gör att åtkomsttoken som hämtas med hjälp av hanterade identiteter för Azure-resurser.  För att autentisera till Data Lake Store-filsystemet skickar du en åtkomsttoken som utfärdats av Azure AD till slutpunkten för Data Lake Store-filsystemet i en auktoriseringsrubrik i formatet ”Bearer <ACCESS_TOKEN_VALUE>”.  Mer information om Data Lake Store-stöd för Azure AD-autentisering finns avsnittet om [autentisering med Data Lake Store med hjälp av Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
 
@@ -173,6 +181,12 @@ I den här självstudien autentiserar du till Lake Store-filsystemets REST API m
    ```
 
 Genom att använda andra Data Lake Store-API:er kan du lägga till i filer, ladda ned filer med mera.
+
+
+## <a name="disable"></a>Inaktivera
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
 
 ## <a name="next-steps"></a>Nästa steg
 

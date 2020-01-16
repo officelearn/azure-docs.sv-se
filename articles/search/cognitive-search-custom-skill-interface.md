@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466788"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045035"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Så här lägger du till en anpassad färdighet i en Azure Kognitiv sökning-rikare pipeline
 
@@ -122,7 +122,7 @@ Som du ser i föregående exempel kan du returnera fel-och varnings meddelanden 
 
 ## <a name="consuming-custom-skills-from-skillset"></a>Konsumera anpassade kunskaper från färdigheter
 
-När du skapar en webb-API-berikare kan du beskriva HTTP-huvuden och-parametrar som en del av begäran. I kodfragmentet nedan visas hur parametrarna för begäran och HTTP-huvuden kan beskrivas som en del av färdigheter-definitionen.
+När du skapar en webb-API-berikare kan du beskriva HTTP-huvuden och-parametrar som en del av begäran. I kodfragmentet nedan visas hur parametrarna för begäran och *valfria* HTTP-huvuden kan beskrivas som en del av färdigheter-definitionen. HTTP-huvuden är inte ett krav, men de gör att du kan lägga till ytterligare konfigurations funktioner i din skicklighet och ställa in dem från färdigheter-definitionen.
 
 ```json
 {

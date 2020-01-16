@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: bb60d22c62096725e29b9351bf304504861d9bf1
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902523"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044710"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Planera ett virtuellt nätverk för Azure HDInsight
 
@@ -251,7 +251,7 @@ Mer information om brand Väggs regler för virtuella enheter finns i [scenario]
 
 ## <a name="load-balancing"></a>Belastningsutjämning
 
-När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/load-balancer-overview.md#skus) som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
+När du skapar ett HDInsight-kluster skapas även en belastnings utjämning. Den här belastningsutjämnaren är på den [grundläggande SKU-nivån](../load-balancer/concepts-limitations.md#skus) som har vissa begränsningar. Ett av de här begränsningarna är att om du har två virtuella nätverk i olika regioner kan du inte ansluta till grundläggande belastnings utjämning. Mer information finns i [vanliga frågor och svar om virtuella nätverk: begränsningar för global VNet-peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers).
 
 ## <a name="transport-layer-security"></a>Transport Layer Security
 

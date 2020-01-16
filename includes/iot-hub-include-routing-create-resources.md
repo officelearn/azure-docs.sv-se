@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: c97c8231265cf87f52333a56d21d6fb13180c554
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 5680bd1c3fadab8edcde1634c708ca8683c0e99c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808828"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76020827"
 ---
 ## <a name="create-base-resources"></a>Skapa bas resurser
 
@@ -23,7 +23,7 @@ Använd samma resursgrupp och plats för alla resurser. När du är klar kan du 
 
 Nedan visas en sammanfattning av de steg som ska utföras i följande avsnitt: 
 
-1. Skapa en [resursgrupp](../articles/azure-resource-manager/resource-group-overview.md).
+1. Skapa en [resursgrupp](../articles/azure-resource-manager/management/overview.md).
 
 2. Skapa en IoT-hubb på S1-nivån. Lägg till en konsumentgrupp till din IoT-hubb. Konsumentgruppen används av Azure Stream Analytics när data hämtas.
 

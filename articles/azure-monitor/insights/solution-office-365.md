@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: aaa083ef52dcf18fade3315f598b5f57e791cbe0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b026ef7dbbe850f0d2d1cb67ec8ca93b14ef879a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932961"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044904"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Office 365-hanterings lösning i Azure (för hands version)
 
@@ -106,7 +106,7 @@ ms.locfileid: "75932961"
 > 
 > ###   <a name="q-what-will-happen-on-march-30-do-i-need-to-offboard-beforehand"></a>F: Vad kommer att ske den 30 mars? Måste jag avpublicera i förväg?
 > 
-> - Du kommer inte att kunna ta emot data från **Office365** -lösningen och den tas bort från alla arbets ytor där den är installerad. Lösningen är inte längre tillgänglig i Marketplace
+> - Du kommer inte att kunna ta emot data från **Office365** -lösningen. Lösningen är inte längre tillgänglig i Marketplace
 > - För Azure Sentinel-kunder kommer den Log Analytics arbets ytans lösning **Office365** ingå i Azure Sentinel **SecurityInsights** -lösningen.
 > - Om du inte avpublicera din lösning manuellt kommer dina data att kopplas från automatiskt den 30 mars.
 > 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
-ms.openlocfilehash: f08915c07db6759a03fc9bd0695523dead6dcb7f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784837"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045307"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -29,7 +29,7 @@ Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manag
 Därför tillhandahåller Traffic Manager inte någon slut punkt eller IP-adress som klienterna kan ansluta till. Om du vill ha en statisk IP-adress för din tjänst måste den konfigureras på tjänsten, inte i Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Vilka typer av trafik kan dirigeras med hjälp av Traffic Manager?
-Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md)kan en Traffic Manager-slutpunkt vara vilken Internet tjänst som helst som finns i eller utanför Azure. Därför kan Traffic Manager dirigera trafik som härstammar från det offentliga Internet till en uppsättning slut punkter som också är riktade mot Internet. Om du har slut punkter som finns i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)) eller har användare som gör DNS-begäranden från sådana interna nätverk, kan du inte använda Traffic Manager för att dirigera trafiken.
+Som förklaras i [hur Traffic Manager fungerar](../traffic-manager/traffic-manager-how-it-works.md)kan en Traffic Manager-slutpunkt vara vilken Internet tjänst som helst som finns i eller utanför Azure. Därför kan Traffic Manager dirigera trafik som härstammar från det offentliga Internet till en uppsättning slut punkter som också är riktade mot Internet. Om du har slut punkter som finns i ett privat nätverk (till exempel en intern version av [Azure Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer)) eller har användare som gör DNS-begäranden från sådana interna nätverk, kan du inte använda Traffic Manager för att dirigera trafiken.
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Stöder Traffic Manager "tröga" sessioner?
 
@@ -384,10 +384,10 @@ För profiler med någon annan routningsmetod än multivärde:
 
 |Begäran om inkommande fråga|    Slut punkts typ|  Svar har angetts|
 |--|--|--|
-|HELST |  A/AAAA/CNAME |  Mål slut punkt| 
-|A |    A/CNAME | Mål slut punkt|
+|HELST |  A / AAAA / CNAME |  Mål slut punkt| 
+|A |    A / CNAME | Mål slut punkt|
 |A |    AAAA |  Inga DATA |
-|AAAA | AAAA/CNAME |  Mål slut punkt|
+|AAAA | AAAA / CNAME |  Mål slut punkt|
 |AAAA | A | Inga DATA |
 |CNAME |    CNAME | Mål slut punkt|
 |CNAME  |A/AAAA | Inga DATA |
@@ -406,7 +406,7 @@ För profiler med routningsmetod inställd på multivärde:
 
 Ja, du kan med undantaget att en profil av typen multivärde inte kan vara en överordnad profil i en kapslad profil uppsättning.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Jag har stoppat en slut punkt för ett webb program i Traffic Manager profil, men jag får ingen trafik även när jag har startat om den. Hur kan jag åtgärda detta?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Jag har stoppat en slut punkt för ett webb program i Traffic Manager profil, men jag får ingen trafik även när jag har startat om den. Hur kan jag åtgärda det?
 
 När en slut punkt för Azure-webbprogram stoppas Traffic Manager slutar att kontrol lera hälso tillståndet och startar om hälso kontrollerna först efter det att den har identifierat att slut punkten har startats om. Om du vill förhindra den här fördröjningen inaktiverar du och aktiverar sedan slut punkten i Traffic Manager profilen igen när du har startat om slut punkten.
 
@@ -499,9 +499,9 @@ I följande tabell beskrivs beteendet för Traffic Manager hälso kontroller fö
 
 | Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Anteckningar |
 | --- | --- | --- |
-| Inaktiverats. Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
+| Inaktiverade. Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
 | Försämrad. Minst en underordnad profil slut punkt är i ett degraderat tillstånd. |Online: antalet Online-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>CheckingEndpoint: antalet online-och CheckingEndpoint-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>Degraderad: annars. |Trafiken dirigeras till en slut punkt med status CheckingEndpoint. Om MinChildEndpoints har angetts för hög försämras slut punkten alltid. |
-| Onlinemallar. Minst en underordnad profil slut punkt är ett online-tillstånd. Ingen slut punkt har statusen degraderat. |Se ovan. | |
+| Online. Minst en underordnad profil slut punkt är ett online-tillstånd. Ingen slut punkt har statusen degraderat. |Se ovan. | |
 | CheckingEndpoints. Minst en underordnad profil slut punkt är ' CheckingEndpoint '. Inga slut punkter är "online" eller "degraderade" |Samma som ovan. | |
 | Inaktivera. Alla underordnade profil slut punkter är antingen inaktiverade eller stoppade, eller så har den här profilen inga slut punkter. |Stoppad | |
 

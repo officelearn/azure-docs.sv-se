@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 0294efb7510d4240cfdd6386c7f8bef1d4184538
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e5f9762533dc2ad47f855714822ba39c645bf847
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754471"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045465"
 ---
 # <a name="get-started-creating-an-internet-facing-load-balancer-with-ipv6-using-powershell-for-resource-manager"></a>Kom igång med att skapa en belastningsutjämnare mot Internet med IPv6 med hjälp av PowerShell för Resource Manager
 
@@ -28,8 +28,8 @@ ms.locfileid: "75754471"
 > * [Azure CLI](load-balancer-ipv6-internet-cli.md)
 > * [Mall](load-balancer-ipv6-internet-template.md)
 
->[! OBS! den här artikeln innehåller en introduktion till IPv6-funktionen för att tillåta grundläggande belastningsutjämnare för att ge både IPv4-och IPv6-anslutning.  Mer omfattande IPv6-anslutning är nu tillgängligt med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade bästa praxis för IPv6-program i Azure. 
->Se [IPv6 för Azure VNet PowerShell-distribution](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
+>[!NOTE] 
+>I den här artikeln beskrivs en inledande IPv6-funktion för att tillåta grundläggande belastningsutjämnare att tillhandahålla både IPv4-och IPv6-anslutning. En omfattande IPv6-anslutning är nu tillgänglig med [IPv6 för Azure-virtuella nätverk](../virtual-network/ipv6-overview.md) som integrerar IPv6-anslutningar med dina virtuella nätverk och innehåller viktiga funktioner som IPv6-regler för nätverks säkerhets grupper, IPv6-användardefinierad routning, IPv6 Basic och standard belastnings utjämning med mera.  IPv6 för Azure virtuella nätverk är den rekommenderade standarden för IPv6-program i Azure. Se [IPv6 för Azure VNet PowerShell-distribution](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) 
 
 En Azure Load Balancer är en Layer 4-lastbalanserare (TCP, UDP). Lastbalanseraren ger hög tillgänglighet genom att distribuera inkommande trafik mellan felfria tjänstinstanser i molntjänster eller virtuella datorer i en lastbalanseringsuppsättning. Azure Load Balancer kan även presentera dessa tjänster på flera portar, flera IP-adresser eller både och.
 
@@ -61,7 +61,7 @@ Om du vill distribuera en belastningsutjämnare skapar och konfigurerar du följ
 * NAT-regler för inkommande trafik – innehåller regler för mappning av en offentlig port i lastbalanseraren till en port för en specifik virtuell dator i backend-adresspoolen.
 * Avsökningar – innehåller hälsoavsökningar som används för att kontrollera tillgängligheten av instanser av virtuella datorer i backend-adresspoolen.
 
-Mer information finns i [Azure Load Balancer-komponenter](load-balancer-overview.md#load-balancer-components).
+Mer information finns i [Azure Load Balancer-komponenter](./concepts-limitations.md#load-balancer-components).
 
 ## <a name="set-up-powershell-to-use-resource-manager"></a>Konfigurera PowerShell för användning med Resource Manager
 

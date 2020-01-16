@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a5c2c101b934f07ab85082e726cb8e1341e5d0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888724"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971812"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Självstudie: Använda en systemtilldelad hanterad identitet för en virtuell Windows-dator för åtkomst till Azure Key Vault 
 
@@ -38,6 +38,13 @@ Lär dig att:
 ## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+
+## <a name="enable"></a>Aktivera
+
+[!INCLUDE [msi-tut-enable](../../../includes/active-directory-msi-tut-enable.md)]
+
+
 
 ## <a name="grant-access"></a>Bevilja åtkomst  
  
@@ -66,7 +73,7 @@ Lägg sedan till en hemlighet i Key Vault, så att du senare kan hämta hemlighe
 5. Låt aktiveringsdatum och förfallodatum vara tomt och sätt **Aktiverad** som **Ja**. 
 6. Klicka på **Skapa** och skapa hemligheten. 
  
-## <a name="get-an-access-token"></a>Hämta en åtkomsttoken  
+## <a name="access-data"></a>Åtkomst till data  
 
 Det här avsnittet visar hur du hämtar en åtkomsttoken med hjälp av den virtuella datorns identitet och hur du hämtar hemligheten från Key Vault. Om du inte har PowerShell 4.3.1 eller senaste installerat måste du [ladda ned och installera den senaste versionen](https://docs.microsoft.com/powershell/azure/overview).
 
@@ -108,6 +115,13 @@ Först måste vi använda den virtuella datorns systemtilldelade hanterade ident
     ```
     
 När du har hämtat hemligheten från Key Vault kan du använda den och autentisera mot en tjänst som kräver ett namn och lösenord. 
+
+
+## <a name="disable"></a>Inaktivera
+
+[!INCLUDE [msi-tut-disable](../../../includes/active-directory-msi-tut-disable.md)]
+
+
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/16/2019
 ms.author: evansma
-ms.openlocfilehash: 22d1f2d39a1ef3825d7d6c7eb0724e108b9b78e6
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 6f09df7c4ccdfa8a339b9d7f2655128c7ead5184
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933769"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978651"
 ---
 # <a name="publish-an-integrated-solution"></a>Publicera en integrerad lösning
 
@@ -28,13 +28,13 @@ Titta på [den här videon](https://aka.ms/AA5qos4)om du vill ha en översikt ö
 * Kunder kan hitta paketerade lösningar som löser slut punkt till slut punkt på affärs utmaningar via Marketplace. De får snabbare tid eftersom tekniken är inbyggd. Kunder undviker att behöva delta separat med flera appar som distribueras på ett fragmenterat sätt.
 * IP paketeras tillsammans med andra lösningar och tjänster som förbättrar värdet för tekniken som levereras av expert tjänst partner.
 * Tjänste partners skapar fördefinierade, förintegrerade lösningar med bästa teknik för att skala, landa och expandera i fler kund konton.
-* Microsoft kan använda dessa förintegrerade, branschledande lösningar för att enklare samsälja till kunder. Priser och villkor sorteras i förväg. 
+* Microsoft kan använda dessa förintegrerade, branschledande lösningar för att enklare samsälja till kunder. Priser och villkor sorteras i förväg.
 
 ## <a name="eligibility-criteria"></a>Behörighetskrav
 
 * Deltagande partners måste ha ett MPN-ID.
 * Deltagande tjänste leverantörer ska vara samförsäljnings klara.
-* Deltagande program leverantörer bör vara färdiga IP-adresser. 
+* Deltagande program leverantörer bör vara färdiga IP-adresser.
 * Minst en deltagande partner måste ha guld kompetens i något av följande områden:
 
     * Apputveckling
@@ -53,13 +53,13 @@ Titta på [den här videon](https://aka.ms/AA5qos4)om du vill ha en översikt ö
 
 ## <a name="submit-a-nomination"></a>Skicka in en valör
 
-Partner som vill delta i programmet ska identifiera andra partner som de vill arbeta med. De bör fylla i det [integrerade lösnings betecknings formuläret](https://aka.ms/AA5qicu). Program teamet för Integrated Solutions granskar nominerandet och följer upp inom 10 arbets dagar. Teamet innehåller godkännande och nästa steg. 
+Partner som vill delta i programmet ska identifiera andra partner som de vill arbeta med. De bör fylla i det [integrerade lösnings betecknings formuläret](https://aka.ms/AA5qicu). Program teamet för Integrated Solutions granskar nominerandet och följer upp inom 10 arbets dagar. Teamet innehåller godkännande och nästa steg.
 
-## <a name="develop-an-integrated-solution"></a>Utveckla en integrerad lösning 
+## <a name="develop-an-integrated-solution"></a>Utveckla en integrerad lösning
 
-När din utnämning har godkänts använder du de länkade program resurserna för att utveckla din integrerade lösning. Följ de här stegen: 
+När din utnämning har godkänts använder du de länkade program resurserna för att utveckla din integrerade lösning. Följ de här stegen:
 
-1. Slutför viktiga affärs-och teknik diskussioner i ett workshop-format för att definiera lösningen och integrerings metoden. 
+1. Slutför viktiga affärs-och teknik diskussioner i ett workshop-format för att definiera lösningen och integrerings metoden.
 
     Din diskussion om lösningen bör omfatta följande punkter:
     * Omfång
@@ -73,7 +73,7 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
     * Försäljnings process
     * Aktiviteter
 
-    Din diskussion om integrerings metoden bör omfatta följande punkter: 
+    Din diskussion om integrerings metoden bör omfatta följande punkter:
     * Integrations platser
     * Lösningsarkitektur
     * Autentisering
@@ -101,15 +101,15 @@ När din utnämning har godkänts använder du de länkade program resurserna f�
     * En lista Beskrivning av den integrerade lösningen. Följ [erbjudande-lista över bästa praxis](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices).
     * Ett avstånd för en sida till kunder. Använd [mallen One-pager](https://aka.ms/AA5s08a).
     * En kund presentation. Använd [presentations mal len](https://aka.ms/AA5s7ql).
-    * En logo typ för den kombinerade lösningen. 
+    * En logo typ för den kombinerade lösningen.
 
-## <a name="publish-your-integrated-solution"></a>Publicera din integrerade lösning 
+## <a name="publish-your-integrated-solution"></a>Publicera din integrerade lösning
 
 När du har slutfört teknisk integrering och marknadsförings säkerhet kan du läsa mer i utgivar guiden för [konsult tjänster för Microsoft AppSource och Azure Marketplace](https://docs.microsoft.com/azure/marketplace/consulting-services). Använd den här resursen för att avgöra om din lösning ska publiceras i Microsoft AppSource eller på Azure Marketplace. Använd också guiden för att förbereda dina publicerings artefakter och slutföra publicerings processen.
 
 Även om fem tjänst typer är tillgängliga för konsult tjänster, måste en integrerad lösning antingen vara ett koncept bevis eller en fullständig implementering.
 
-## <a name="go-to-market-with-your-integrated-solution"></a>Gå till marknaden med din integrerade lösning 
+## <a name="go-to-market-with-your-integrated-solution"></a>Gå till marknaden med din integrerade lösning
 
 När lösningen är Live i Microsoft AppSource eller Azure Marketplace, vill du öka medvetenheten och behovet genom marknadsförings aktiviteter. Granska de aktiviteter som anges i [projektplanen och tids linjen](https://aka.ms/AA5qiuc). Den här resursen innehåller aktiviteter som partners kan driva i sina egna team och med varandra. Få sedan till gång till [marknads förmåner](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits#list-trial-and-consulting-benefits) för partner som publicerar på Marketplace. Alla erbjudanden för integrerad lösning är berättigade till förmåner på utvärderings nivå.
 

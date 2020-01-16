@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 2d49501b5888368345736047217177142d2e88d2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a61dea2b200b6e4962ce20e39939a75e78e81d0f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764056"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76024946"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -115,7 +115,7 @@ Mer information finns i [AZ ml computetarget Create be](https://docs.microsoft.c
 
 **Tids uppskattning:** Cirka 5 minuter.
 
-Om du redan har AKS-kluster i din Azure-prenumeration och det är lägre än version 1,15 kan du använda det för att distribuera avbildningen.
+Om du redan har AKS-kluster i din Azure-prenumeration och det är version 1,16 eller lägre kan du använda det för att distribuera avbildningen.
 
 > [!TIP]
 > Det befintliga AKS-klustret kan finnas i en annan Azure-region än din Azure Machine Learning-arbetsyta.
@@ -187,7 +187,7 @@ Mer information finns i [AZ ml computetarget Attach AKS](https://docs.microsoft.
 
 ## <a name="deploy-to-aks"></a>Distribuera till AKS
 
-Om du vill distribuera en modell till Azure Kubernetes-tjänsten skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](service/how-to-deploy-and-where.md).
+Om du vill distribuera en modell till Azure Kubernetes-tjänsten skapar du en __distributions konfiguration__ som beskriver de beräknings resurser som behövs. Till exempel antal kärnor och minne. Du behöver också en __konfiguration__med en konfiguration som beskriver den miljö som krävs för att vara värd för modellen och webb tjänsten. Mer information om hur du skapar en konfigurations konfiguration finns i [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 
 ### <a name="using-the-sdk"></a>Med SDK
 
@@ -223,13 +223,13 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Mer information finns i [distributions referens för AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) . 
+Mer information finns i [distributions referens för AZ ml-modellen](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
 ### <a name="using-vs-code"></a>Använda VS Code
 
 Information om hur du använder VS Code finns i [distribuera till AKS via vs Code-tillägget](how-to-vscode-tools.md#deploy-and-manage-models).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Att distribuera via VS Code kräver att AKS-klustret skapas eller kopplas till din arbets yta i förväg.
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuera modeller till AKS med hjälp av kontrollerad distribution (för hands version)
@@ -245,13 +245,13 @@ from azureml.core.compute import AksCompute
 from azureml.core.compute import ComputeTarget
 # select a created compute
 compute = ComputeTarget(ws, 'myaks')
-namespace_name= endpointnamespace 
+namespace_name= endpointnamespace
 # define the endpoint and version name
 endpoint_name = "mynewendpoint",
 version_name= "versiona",
 # create the deployment config and define the scoring traffic percentile for the first deployment
 endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, memory_gb = 0.2,
-                                                              enable_app_insights = true, 
+                                                              enable_app_insights = true,
                                                               tags = {'sckitlearn':'demo'},
                                                               decription = testing versions,
                                                               version_name = version_name,
@@ -262,34 +262,34 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
 
 ### <a name="update-and-add-versions-to-an-endpoint"></a>Uppdatera och lägga till versioner till en slut punkt
 
-Lägg till en annan version till din slut punkt och konfigurera bedömnings trafikens percentil till versionen. Det finns två typer av versioner, en kontroll och en behandlings version. Det kan finnas flera behandlings versioner som hjälper dig att jämföra med en enda kontroll version. 
+Lägg till en annan version till din slut punkt och konfigurera bedömnings trafikens percentil till versionen. Det finns två typer av versioner, en kontroll och en behandlings version. Det kan finnas flera behandlings versioner som hjälper dig att jämföra med en enda kontroll version.
 
  ```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
-version_name_add = "versionb" 
-endpoint.create_version(version_name = version_name_add, 
+version_name_add = "versionb"
+endpoint.create_version(version_name = version_name_add,
                         inference_config=inference_config,
-                        models=[model], 
-                        tags = {'modelVersion':'b'}, 
-                        description = "my second version", 
+                        models=[model],
+                        tags = {'modelVersion':'b'},
+                        description = "my second version",
                         traffic_percentile = 10)
 ```
 
-Uppdatera befintliga versioner eller ta bort dem i en slut punkt. Du kan ändra versionens standard typ, kontroll typ och trafik percentilen. 
- 
+Uppdatera befintliga versioner eller ta bort dem i en slut punkt. Du kan ändra versionens standard typ, kontroll typ och trafik percentilen.
+
  ```python
 from azureml.core.webservice import AksEndpoint
 
-# update the version's scoring traffic percentage and if it is a default or control type 
-endpoint.update_version(version_name=endpoint.versions["versionb"].name, 
-                        description="my second version update", 
+# update the version's scoring traffic percentage and if it is a default or control type
+endpoint.update_version(version_name=endpoint.versions["versionb"].name,
+                        description="my second version update",
                         traffic_percentile=40,
                         is_default=True,
                         is_control_version_type=True)
 
-# delete a version in an endpoint 
+# delete a version in an endpoint
 endpoint.delete_version(version_name="versionb")
 
 ```

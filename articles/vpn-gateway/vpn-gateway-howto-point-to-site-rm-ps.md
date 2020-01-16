@@ -6,14 +6,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 01/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: b67c77f25b14263abe7207359c00660df635df13
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 49fbdf4a4090350cc0a6a5a1b938621b3cb08632
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863816"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045111"
 ---
 # <a name="configure-a-point-to-site-vpn-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Konfigurera en punkt-till-plats-VPN-anslutning till ett VNet med intern Azure-certifikatautentisering: PowerShell
 
@@ -32,13 +32,15 @@ Ursprungliga autentiseringsanslutningar för Azure-certifikat från punkt-till-p
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Kontrollera att du har en Azure-prenumeration. Om du inte har någon Azure-prenumeration kan du aktivera dina [MSDN-prenumerantförmåner](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) eller registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial).
+
+### <a name="azure-powershell"></a>Azure PowerShell
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
-De flesta av stegen i den här artikeln kan använda Cloud Shell. Men för att ladda upp rot certifikatets offentliga nyckel måste du antingen använda PowerShell lokalt eller Azure Portal.
+>[!NOTE]
+> De flesta av stegen i den här artikeln kan använda Azure Cloud Shell. Men för att ladda upp rot certifikatets offentliga nyckel måste du antingen använda PowerShell lokalt eller Azure Portal.
+>
 
 ### <a name="example"></a>Exempelvärden
 
@@ -170,7 +172,9 @@ Om du använder självsignerade certifikat, måste de skapas med specifika param
 
 Kontrollera att din VPN-gateway har skapats. När det är klart kan du ladda upp CER-filen (som innehåller informationen om den offentliga nyckeln) för ett betrott rotcertifikat till Azure. När en CER-fil har överförts kan Azure använda den för att autentisera klienter som har ett installerat klientcertifikat som har genererats från det betrodda rotcertifikatet. Du kan överföra ytterligare betrodda rotcertifikatfiler (upp till 20 stycken) senare om det behövs.
 
-Du kan inte ladda upp den här informationen med Azure Cloud Shell. Du kan antingen använda PowerShell lokalt på datorn, [Azure Portal stegen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+>[!NOTE]
+> Du kan inte ladda upp CER-filen med Azure Cloud Shell. Du kan antingen använda PowerShell lokalt på datorn eller så kan du använda [Azure Portal stegen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile).
+>
 
 1. Deklarera variabeln för certifikatnamnet och ersätt värdet med ditt eget.
 
@@ -185,7 +189,7 @@ Du kan inte ladda upp den här informationen med Azure Cloud Shell. Du kan antin
    $CertBase64 = [system.convert]::ToBase64String($cert.RawData)
    $p2srootcert = New-AzVpnClientRootCertificate -Name $P2SRootCertName -PublicCertData $CertBase64
    ```
-3. Ladda upp informationen om den offentliga nyckeln till Azure. När certifikat informationen har laddats upp anser Azure att den är ett betrott rot certifikat.
+3. Ladda upp informationen om den offentliga nyckeln till Azure. När certifikat informationen har laddats upp anser Azure att den är ett betrott rot certifikat. När du laddar upp kontrollerar du att du kör PowerShell lokalt på datorn eller i stället kan du använda [Azure Portal stegen](vpn-gateway-howto-point-to-site-resource-manager-portal.md#uploadfile). Du kan inte ladda upp med Azure Cloud Shell.
 
    ```azurepowershell
    Add-AzVpnClientRootCertificate -VpnClientRootCertificateName $P2SRootCertName -VirtualNetworkGatewayname "VNet1GW" -ResourceGroupName "TestRG" -PublicCertData $CertBase64

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: a06184cb45280d323a050085e94945a730d6c72c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442596"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045577"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -39,7 +39,7 @@ I den här artikeln beskrivs skillnaderna mellan egna värdbaserade och hanterad
 Du kan bygga din utvecklings Portal på två sätt:
 
 - **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och är tillgänglig via URL: en `<your-api-management-instance-name>.developer.azure-api.net`. Läs [den här dokumentations artikeln](api-management-howto-developer-portal-customize.md) för att lära dig hur du får åtkomst till och anpassar den hanterade portalen.
-- **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de angivna kärn funktionerna. Du måste också uppgradera portalen till den senaste versionen själv. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1]. [Självstudien för den hanterade versionen](api-management-howto-developer-portal-customize.md) går igenom portalens administrations panel, som också finns i den själv värdbaserade versionen.
+- **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de angivna kärn funktionerna. Du måste också uppgradera portalen till den senaste versionen själv. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1] och [självstudien om hur du implementerar en widget][4]. [Självstudien för den hanterade versionen](api-management-howto-developer-portal-customize.md) går igenom portalens administrations panel, som också finns i den själv värdbaserade versionen.
 
 ## <a name="portal-architectural-concepts"></a>Arkitektur koncept för portalen
 
@@ -101,6 +101,10 @@ Autentisering med OAuth i den interaktiva Developer-konsolen stöds inte ännu. 
 De gamla portarna för utvecklare och utgivare är nu *äldre* funktioner – de kommer endast att ta emot säkerhets uppdateringar. Nya funktioner implementeras endast i den nya utvecklarportalen.
 
 Utfasningen av äldre portaler kommer att meddelas separat. Om du har frågor, rör eller kommentarer kan du höja dem [i ett dedikerat GitHub-problem](https://github.com/Azure/api-management-developer-portal/issues/121).
+
+### <a name="functionality-i-need-isnt-supported-in-the-portal"></a>Funktioner jag behöver stöds inte i portalen
+
+Använd den själv värdbaserade versionen och [implementera din egen widget][4].
 
 ### <a name="how-can-i-automate-portal-deployments"></a>Hur kan jag automatisera Portal distributioner?
 
@@ -216,6 +220,7 @@ Läs mer om den nya Developer-portalen:
 
 - [Komma åt och anpassa Managed Developer-portalen](api-management-howto-developer-portal-customize.md)
 - [Konfigurera en egen värd version av portalen][2]
+- [Implementera din egen widget][4]
 
 Bläddra bland andra resurser:
 
@@ -225,3 +230,4 @@ Bläddra bland andra resurser:
 [1]: https://aka.ms/apimdevportal
 [2]: https://github.com/Azure/api-management-developer-portal/wiki
 [3]: https://github.com/Azure/api-management-developer-portal/projects
+[4]: https://aka.ms/apimdevportal/extend

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: genli
-ms.openlocfilehash: c1de86c1d12109853bb5d6d1aac4143caab9199f
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5bcbb8c6845928cf21b5b6a1c04f609305bd7983
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638229"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979534"
 ---
 # <a name="reserved-ip-addresses-classic-deployment"></a>Reserverad IP adresser (klassisk distribution)
 
@@ -28,7 +28,7 @@ ms.locfileid: "75638229"
 För att förhindra att IP-adresser ändras kan du reservera en IP-adress. Reserverade IP-adresser kan endast användas som VIP-adresser, vilket säkerställer att moln tjänstens IP-adress förblir densamma, även om resurserna stängs av eller stoppas (frigörs). Du kan dessutom konvertera befintliga dynamiska IP-adresser som används som VIP till en reserverad IP-adress.
 
 > [!IMPORTANT]
-> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du reserverar en statisk offentlig IP-adress med hjälp av [distributions modellen för Resource Manager](virtual-network-ip-addresses-overview-arm.md).
+> Azure har två olika distributionsmodeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver den klassiska distributionsmodellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Lär dig hur du reserverar en statisk offentlig IP-adress med hjälp av [distributions modellen för Resource Manager](virtual-network-ip-addresses-overview-arm.md).
 
 Läs mer om IP-adresser i Azure i artikeln [IP-adresser](virtual-network-ip-addresses-overview-classic.md) .
 

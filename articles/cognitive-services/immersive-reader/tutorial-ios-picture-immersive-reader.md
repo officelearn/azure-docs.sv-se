@@ -9,12 +9,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: defa49bd5ca6be6862412e3caf40295ef1d639cf
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 48e74f7dd6fa6f2c7fafe10797a301b3d4cc7f1d
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945301"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045238"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>Självstudie: skapa en iOS-app som startar den fördjupade läsaren med innehåll från ett foto (SWIFT)
 
@@ -73,19 +73,13 @@ Subdomain    => Immersive Reader resource subdomain (resource 'Name' if the reso
 
 I huvudprojektmappen som innehåller filen ViewController. SWIFT skapar du en SWIFT-klassfil som kallas konstanter. Swift. Ersätt klassen med följande kod och Lägg till i dina värden där det är tillämpligt. Behåll den här filen som en lokal fil som bara finns på din dator och se till att du inte ska spara filen i käll kontroll, eftersom den innehåller hemligheter som inte bör offentliggöras. Vi rekommenderar att du inte behåller hemligheterna i din app. I stället rekommenderar vi att du använder en backend-tjänst för att hämta token, där hemligheterna kan hållas utanför appen och av enheten. Server dels-API-slutpunkten bör skyddas bakom någon form av autentisering (till exempel [OAuth](https://oauth.net/2/)) för att förhindra att obehöriga användare får till gång till token som ska användas mot tjänsten för avancerad läsare och fakturering. Detta arbete ligger utanför den här självstudiens omfattning.
 
-[!code-swift[Constants](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/Constants.swift)]
-
 ## <a name="set-up-the-app-to-run-without-a-storyboard"></a>Konfigurera appen så att den körs utan en storyboard
 
 Öppna AppDelegate. SWIFT och Ersätt filen med följande kod.
 
-[!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/AppDelegate.swift)]
-
 ## <a name="add-functionality-for-taking-and-uploading-photos"></a>Lägg till funktioner för att ta och ladda upp foton
 
 Byt namn på ViewController. SWIFT till PictureLaunchViewController. SWIFT och Ersätt filen med följande kod.
-
-[!code-swift[PictureLaunchViewController](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/PictureLaunchViewController.swift)]
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: d52b2485436f0a9075dcc3f505806e46094340a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69894dfc6bcbe9eb56451524c78e82da2745aa52
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381706"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979768"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats-to-improve-predictions"></a>Självstudie: Lägg till vanliga mönster mal len uttryck format för att förbättra förutsägelser
 
@@ -516,7 +516,7 @@ Den varierande längden innehåller ord som kan förvirra LUIS om var entiteten 
 
 1. Lägg till några exempel på yttranden:
 
-    |Exempeluttryck|Formulär namn|
+    |Exempel på yttrande|Formulär namn|
     |--|--|
     |Var finns formuläret **Vad gör du vid eldsvåda i laboratoriet** och vem behöver signera det när jag har läst det?|Vad du kan göra när en brand släcks i labbet
     |Var finns **Begär flytt från medarbetare som är ny i företaget** på servern?|Begär omlokalisering från medarbetare som är ny för företaget|
@@ -578,4 +578,4 @@ Den här självstudien har lagt till mönster för att hjälpa LUIS att förutse
 
 
 > [!div class="nextstepaction"]
-> [Lär dig hur du använder roller med ett mönster](luis-tutorial-pattern-roles.md)
+> [Lär dig hur du använder roller med ett mönster](luis-tutorial-pattern.md)

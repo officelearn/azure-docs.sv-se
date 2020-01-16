@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 31af4ad9c6985202555dbcbe86c52e45d5c4154a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453287"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028743"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med hjälp av Azure Migrate Server bedömning
 
@@ -41,11 +41,11 @@ Det här är vad du behöver göra i den första självstudien:
 
 - [Konfigurera Azure-behörigheter](tutorial-prepare-vmware.md#prepare-azure) för Azure Migrate.
 - [Förbered VMware](tutorial-prepare-vmware.md#prepare-for-vmware-vm-assessment) för utvärdering:
-   - Verifiera VMware-inställningar.
-   - Konfigurera behörigheter för att skapa en virtuell VMware-dator med en ägg-mall.
-   - Konfigurera ett konto för identifiering av virtuell dator. 
-   - Gör de nödvändiga portarna tillgängliga.
-   - Tänk på vilka URL: er som behövs för åtkomst till Azure.
+   - [Verifiera](migrate-support-matrix-vmware.md#vmware-requirements) VMware-inställningar.
+   - Konfigurera behörigheter i VMware för att skapa en virtuell VMware-dator med en ägg-mall.
+   - Konfigurera ett [konto för identifiering av virtuell dator](migrate-support-matrix-vmware.md#vmware-requirements). 
+   - Gör de [nödvändiga portarna](migrate-support-matrix-vmware.md#port-access) tillgängliga.
+   - Tänk på vilka [URL: er som behövs](migrate-replication-appliance.md#url-access) för åtkomst till Azure.
 
 ## <a name="set-up-an-azure-migrate-project"></a>Konfigurera ett Azure Migrate-projekt
 
@@ -130,7 +130,7 @@ Importera den nedladdade filen och skapa en virtuell dator:
 
 ### <a name="verify-appliance-access-to-azure"></a>Verifiera åtkomst till enheten till Azure
 
-Se till att den virtuella datorns dator kan ansluta till [Azure-URL: er](migrate-support-matrix-vmware.md#assessment-url-access-requirements).
+Se till att den virtuella datorns dator kan ansluta till [Azure-URL: er](migrate-appliance.md#url-access).
 
 ### <a name="configure-the-appliance"></a>Konfigurera installationen
 
@@ -172,7 +172,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 1. I **ange vCenter Server information**anger du namnet (FQDN) eller IP-adressen för vCenter Server-instansen. Du kan lämna standard porten eller ange en anpassad port som vCenter Server lyssnar på.
 1. I **användar namn** och **lösen ord**anger du vCenter Server kontoautentiseringsuppgifter som installeras av installations programmet för att identifiera virtuella datorer på vCenter Server-instansen. 
 
-   Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). Du kan begränsa [identifieringen](tutorial-assess-vmware.md#set-the-scope-of-discovery) genom att begränsa åtkomsten till vCenter-kontot.
+   Kontrol lera att kontot har de [behörigheter som krävs för identifiering](migrate-support-matrix-vmware.md#vmware-requirements). Du kan begränsa [identifieringen](tutorial-assess-vmware.md#set-the-scope-of-discovery) genom att begränsa åtkomsten till vCenter-kontot.
 1. Välj **Verifiera anslutning** för att kontrol lera att enheten kan ansluta till vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Ange autentiseringsuppgifter för virtuell dator

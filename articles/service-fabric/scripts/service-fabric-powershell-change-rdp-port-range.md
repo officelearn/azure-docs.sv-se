@@ -2,32 +2,28 @@
 title: Skriptexempel för Azure PowerShell – Ändra RDP-portintervall | Microsoft Docs
 description: Skriptexempel för Azure PowerShell – Ändra RDP-portintervall för ett distribuerat kluster.
 services: service-fabric
-documentationcenter: ''
-author: athinanthny
-manager: chackdan
-editor: ''
 tags: azure-service-management
-ms.assetid: ''
+author: athinanthny
+ms.author: atsenthi
 ms.service: service-fabric
 ms.workload: multiple
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: atsenthi
-ms.custom: mvc
-ms.openlocfilehash: 4ca7b4085a3978dc3218480c5c8a42679d80de23
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.custom: sfrev
+ms.openlocfilehash: b3d922cb5a7cdf34e63731ab32f21c94d7b6bca0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69035662"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76025015"
 ---
 # <a name="update-the-rdp-port-range-values"></a>Uppdatera RDP-portintervallvärden
 
-Det här exempelskriptet ändrar RDP-portintervallvärdena på klusternodens virtuella datorer när klustret har distribuerats.  Azure PowerShell används så att de underliggande virtuella datorerna inte växlar.  Skriptet hämtar `Microsoft.Network/loadBalancers`-resursen i klustrets resursgrupp och uppdaterar `inboundNatPools.frontendPortRangeStart`- och `inboundNatPools.frontendPortRangeEnd`-värdena. Anpassa parametrarna efter behov.
+Det här exempelskriptet ändrar RDP-portintervallvärdena på klusternodens virtuella datorer när klustret har distribuerats.  Azure PowerShell används så att de underliggande virtuella datorerna inte växlar.  Skriptet hämtar `Microsoft.Network/loadBalancers` resursen i klustrets resurs grupp och uppdaterar `inboundNatPools.frontendPortRangeStart`-och `inboundNatPools.frontendPortRangeEnd` värden. Anpassa parametrarna efter behov.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview). 
+Installera Azure PowerShell, om så behövs, med hjälp av anvisningarna i [Azure PowerShell-guiden](/powershell/azure/overview).
 
 ## <a name="sample-script"></a>Exempelskript
 

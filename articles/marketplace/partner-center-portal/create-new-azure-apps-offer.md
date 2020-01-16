@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 60a3392474d11c306d28b9d95668a1e783cdfbb0
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930716"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046037"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -48,7 +48,7 @@ Alla Azure-program innehåller minst två filer i rotmappen för ett `.zip` Arki
 
 * En definition av användar gränssnitt för att skapa Azure-program med namnet [createUiDefinition. JSON](https://docs.microsoft.com/azure/managed-applications/create-uidefinition-overview).  I användargränssnittet anger du element som ger konsumenterna möjlighet att ange parametervärden.
 
-Alla nya Azure-programerbjudanden måste innehålla en [Azure-partner kund användnings-GUID](??).
+Alla nya Azure-programerbjudanden måste innehålla en [Azure-partner kund användnings-GUID](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution).
 
 ### <a name="before-you-begin"></a>Innan du börjar
 

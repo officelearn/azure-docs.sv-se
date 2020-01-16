@@ -85,6 +85,8 @@
   items:
     - name: Fulltextsökning
       href: search-lucene-query-architecture.md
+    - name: Indexerare
+      href: search-indexer-overview.md
     - name: AI-berikning
       href: cognitive-search-concept-intro.md
     - name: Kompetensuppsättningar
@@ -179,7 +181,7 @@
           href: search-howto-complex-data-types.md
         - name: Modeller med relationsdata
           href: index-sql-relational-data.md
-    - name: Indexera valfria data
+    - name: Importera (indexering)
       items:
         - name: Översikt över dataimport
           href: search-what-is-data-import.md
@@ -273,12 +275,16 @@
           href: search-query-lucene-examples.md
         - name: Använda Search Explorer (portalen)
           href: search-explorer.md
-        - name: Enkel frågesyntax
-          href: query-simple-syntax.md
-        - name: Fullständigt Lucene-frågesyntax
-          href: query-lucene-syntax.md
-        - name: moreLikeThis-frågeparameter
-          href: search-more-like-this.md
+        - name: Specialtecken och delvisa termer
+          href: search-query-partial-matching.md
+        - name: Syntaxreferens
+          items:
+            - name: Enkel frågesyntax
+              href: query-simple-syntax.md
+            - name: Fullständigt Lucene-frågesyntax
+              href: query-lucene-syntax.md
+            - name: moreLikeThis (förhandsversion)
+              href: search-more-like-this.md
     - name: Använda filter
       items:
         - name: Översikt över filter

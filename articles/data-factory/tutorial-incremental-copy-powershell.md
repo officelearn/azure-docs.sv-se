@@ -11,48 +11,48 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 28a9631860691b29c1954d67e521d4ff54c901a7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1a3651f82d7818ad105c0a8a7b5fd9fcf073b4a1
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75439203"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982554"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Läs in data stegvis från en Azure SQL-databas till Azure Blob Storage med hjälp av PowerShell
 
-I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage. 
+I den här självstudien skapar du en Azure-datafabrik med en pipeline som läser in delta-data från en tabell i en Azure SQL-databas till Azure Blob Storage.
 
 I den här självstudiekursen får du göra följande:
 
 > [!div class="checklist"]
 > * Förbered datalagringen för att lagra värdet för vattenstämpeln.
 > * Skapa en datafabrik.
-> * Skapa länkade tjänster. 
+> * Skapa länkade tjänster.
 > * Skapa datauppsättningar för källa, mottagare och vattenstämpel.
 > * Skapa en pipeline.
 > * Köra en pipeline.
-> * Övervaka pipelinekörningen. 
+> * Övervaka pipelinekörningen.
 
 ## <a name="overview"></a>Översikt
-Här är det avancerade diagrammet: 
+Här är det avancerade diagrammet:
 
 ![Läsa in data stegvis](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)
 
-Här är några viktiga steg för att skapa den här lösningen: 
+Här är några viktiga steg för att skapa den här lösningen:
 
 1. **Markera vattenstämpelkolumnen**.
     Markera en kolumn i källdatalagringen som går att använda för att dela upp de nya eller uppdaterade posterna för varje körning. Vanligtvis ökar data i den markerade kolumnen (till exempel last_modify_time elle ID) när rader skapas eller uppdateras. Det maximala värdet i den här kolumnen används som vattenstämpel.
 
 2. **Förbered datalagringen för att lagra värdet för vattenstämpeln**.   
     I den här självstudien lagrar du storleksgränsen i en SQL-databas.
-    
-3. **Skapa en pipeline med följande arbetsflöde**: 
-    
+
+3. **Skapa en pipeline med följande arbetsflöde**:
+
     Pipelinen i den här lösningen har följande aktiviteter:
-  
-    * Skapa två sökningsaktiviteter. Använd den första sökningsaktiviteten för att hämta det sista vattenstämpelvärdet. Använd den andra sökningsaktiviteten för att hämta det nya vattenstämpelvärdet. Vattenstämpelvärdena skickas till kopieringsaktiviteten. 
-    * Skapa en {0}kopieringsaktivitet{0} som kopierar raderna från källdatalagringen med värdet för vattenstämpelkolumnen som är större än det gamla värdet och mindre än det nya. Sedan kopieras deltadata från källdatalagringen till Blob-lagring som en ny fil. 
-    * Skapa en StoredProcedure-aktivitet som uppdaterar vattenstämpelvärdet för den pipeline som körs nästa gång. 
+
+    * Skapa två sökningsaktiviteter. Använd den första sökningsaktiviteten för att hämta det sista vattenstämpelvärdet. Använd den andra sökningsaktiviteten för att hämta det nya vattenstämpelvärdet. Vattenstämpelvärdena skickas till kopieringsaktiviteten.
+    * Skapa en {0}kopieringsaktivitet{0} som kopierar raderna från källdatalagringen med värdet för vattenstämpelkolumnen som är större än det gamla värdet och mindre än det nya. Sedan kopieras deltadata från källdatalagringen till Blob-lagring som en ny fil.
+    * Skapa en StoredProcedure-aktivitet som uppdaterar vattenstämpelvärdet för den pipeline som körs nästa gång.
 
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
@@ -62,14 +62,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 * **Azure SQL Database**. Du använder databasen som källa för datalagringen. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md).
-* **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md). Skapa en container med namnet adftutorial. 
+* **Azure Storage**. Du kan använda blob-lagringen som mottagare för datalagringen. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett lagringskonto](../storage/common/storage-account-create.md). Skapa en container med namnet adftutorial. 
 * **Azure PowerShell**. Följ instruktionerna i [Installera och konfigurera Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Skapa en datatabell i din SQL-databas
 1. Öppna SQL Server Management Studio. I **Server Explorer** högerklickar du på databasen och väljer **Ny fråga**.
 
-2. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `data_source_table` som datakällagringen: 
-    
+2. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `data_source_table` som datakällagringen:
+
     ```sql
     create table data_source_table
     (
@@ -101,11 +101,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ### <a name="create-another-table-in-your-sql-database-to-store-the-high-watermark-value"></a>Skapa en annan tabell i SQL-databasen för att lagra värdet för högvattenmärket
 1. Kör följande SQL-kommando mot din SQL-databas för att skapa en tabell med namnet `watermarktable` för att lagra värdet för högvattenmärket:  
-    
+
     ```sql
     create table watermarktable
     (
-    
+
     TableName varchar(255),
     WatermarkValue datetime,
     );
@@ -117,11 +117,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     VALUES ('data_source_table','1/1/2010 12:00:00 AM')    
     ```
 3. Granska informationen i tabellen `watermarktable`.
-    
+
     ```sql
     Select * from watermarktable
     ```
-    Resultat: 
+    Resultat:
 
     ```
     TableName  | WatermarkValue
@@ -129,7 +129,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
     data_source_table | 2010-01-01 00:00:00.000
     ```
 
-### <a name="create-a-stored-procedure-in-your-sql-database"></a>Skapa en lagrad procedur i din SQL-databas 
+### <a name="create-a-stored-procedure-in-your-sql-database"></a>Skapa en lagrad procedur i din SQL-databas
 
 Kör följande kommando för att skapa en lagrad procedur i din SQL-databas:
 
@@ -138,11 +138,11 @@ CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varc
 AS
 
 BEGIN
-    
+
     UPDATE watermarktable
-    SET [WatermarkValue] = @LastModifiedtime 
+    SET [WatermarkValue] = @LastModifiedtime
 WHERE [TableName] = @TableName
-    
+
 END
 ```
 
@@ -155,30 +155,30 @@ END
 
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
 
-2. Definiera en variabel för datafabrikens plats. 
+2. Definiera en variabel för datafabrikens plats.
 
     ```powershell
     $location = "East US"
     ```
-3. Kör följande kommando för att skapa en Azure-resursgrupp: 
+3. Kör följande kommando för att skapa en Azure-resursgrupp:
 
     ```powershell
     New-AzResourceGroup $resourceGroupName $location
-    ``` 
+    ```
     Om resursgruppen redan finns behöver du kanske inte skriva över den. Ge variabeln `$resourceGroupName` ett annat värde och kör kommandot igen.
 
-4. Definiera en variabel för datafabrikens namn. 
+4. Definiera en variabel för datafabrikens namn.
 
     > [!IMPORTANT]
-    >  Uppdateringen av datafabrikens namn för att göra det unikt globalt. Ett exempel är ADFTutorialFactorySP1127. 
+    >  Uppdateringen av datafabrikens namn för att göra det unikt globalt. Ett exempel är ADFTutorialFactorySP1127.
 
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet: 
-    
+5. Skapa data fabriken genom att köra följande **set-AzDataFactoryV2-** cmdlet:
+
     ```powershell       
-    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
 Observera följande punkter:
@@ -194,7 +194,7 @@ Observera följande punkter:
 
 
 ## <a name="create-linked-services"></a>Skapa länkade tjänster
-Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina lagringskonton och din SQL-databas. 
+Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I det här avsnittet kan du skapa länkade tjänster till dina lagringskonton och din SQL-databas.
 
 ### <a name="create-a-storage-linked-service"></a>Skapa en länkad lagringstjänst
 1. Skapa en JSON-fil med namnet AzureStorageLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt `<accountName>` och `<accountKey>` med namnet och nyckeln för ditt lagrings konto innan du sparar filen.
@@ -212,7 +212,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 2. Växla till mappen ADF i PowerShell.
 
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*: 
+3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureStorageLinkedService. I följande exempel skickar du värden för parametrarna *ResourceGroupName* och *DataFactoryName*:
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
@@ -228,7 +228,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 
 ### <a name="create-a-sql-database-linked-service"></a>Skapa en länkad tjänst till SQL-databas
-1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;Server&gt;, &lt;Database&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt; med namnet på din server, databas, användar-ID och lösen ord innan du sparar filen. 
+1. Skapa en JSON-fil med namnet AzureSQLDatabaseLinkedService.json i mappen C:\ADF med följande innehåll. (Skapa mappen ADF om den inte redan finns.) Ersätt &lt;Server&gt;, &lt;Database&gt;, &lt;användar-ID&gt;och &lt;lösen ord&gt; med namnet på din server, databas, användar-ID och lösen ord innan du sparar filen.
 
     ```json
     {
@@ -243,7 +243,7 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 2. Växla till mappen ADF i PowerShell.
 
-3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService. 
+3. Kör cmdleten **set-AzDataFactoryV2LinkedService** för att skapa den länkade tjänsten AzureSQLDatabaseLinkedService.
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
@@ -260,11 +260,11 @@ Du kan skapa länkade tjänster i en datafabrik för att länka ditt datalager o
     ```
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
-I det här steget skapar du databaser för att representera käll- och mottagardata. 
+I det här steget skapar du databaser för att representera käll- och mottagardata.
 
 ### <a name="create-a-source-dataset"></a>Skapa en källdatauppsättning
 
-1. Skapa en JSON-fil med namnet SourceDataset.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet SourceDataset.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -280,18 +280,18 @@ I det här steget skapar du databaser för att representera käll- och mottagard
             }
         }
     }
-   
+
     ```
     I den här självstudien använder du tabellnamnet data_source_table. Ersätt det om du använder en tabell med ett annan namn.
 
 2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SourceDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
-    
+
     ```json
     DatasetName       : SourceDataset
     ResourceGroupName : ADF
@@ -302,7 +302,7 @@ I det här steget skapar du databaser för att representera käll- och mottagard
 
 ### <a name="create-a-sink-dataset"></a>Skapa en källdatauppsättning
 
-1. Skapa en JSON-fil med namnet SinkDataset.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet SinkDataset.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -311,7 +311,7 @@ I det här steget skapar du databaser för att representera käll- och mottagard
             "type": "AzureBlob",
             "typeProperties": {
                 "folderPath": "adftutorial/incrementalcopy",
-                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')", 
+                "fileName": "@CONCAT('Incremental-', pipeline().RunId, '.txt')",
                 "format": {
                     "type": "TextFormat"
                 }
@@ -328,13 +328,13 @@ I det här steget skapar du databaser för att representera käll- och mottagard
     > Det här kodfragmentet förutsätter att du har en blobcontainer med namnet adftutorial i din blob-lagring. Skapa containern om den inte finns, eller ställ in den för namnet på en befintlig. Utdatamappen `incrementalcopy` skapas automatiskt om den inte finns i containern. I den här självstudien genereras filnamnet dynamiskt med uttrycket `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
 2. Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen SinkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
-    
+
     ```json
     DatasetName       : SinkDataset
     ResourceGroupName : ADF
@@ -344,9 +344,9 @@ I det här steget skapar du databaser för att representera käll- och mottagard
     ```
 
 ## <a name="create-a-dataset-for-a-watermark"></a>Skapa en datauppsättning för en vattenstämpel
-I det här steget skapar du en datauppsättning för att lagra ett värde för ett högvattenmärke. 
+I det här steget skapar du en datauppsättning för att lagra ett värde för ett högvattenmärke.
 
-1. Skapa en JSON-fil med namnet WatermarkDataset.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet WatermarkDataset.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -364,13 +364,13 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
     }    
     ```
 2.  Kör cmdleten **set-AzDataFactoryV2Dataset** för att skapa data uppsättningen WatermarkDataset.
-    
+
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Här är exempel på utdata från cmdleten:
-    
+
     ```json
     DatasetName       : WatermarkDataset
     ResourceGroupName : ADF
@@ -380,10 +380,10 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
     ```
 
 ## <a name="create-a-pipeline"></a>Skapa en pipeline
-I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline. 
+I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en kopieringsaktivitet och en aktivitet för lagrad procedur i en länkad pipeline.
 
 
-1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll: 
+1. Skapa en JSON-fil med namnet IncrementalCopyPipeline.json i samma mapp med följande innehåll:
 
     ```json
     {
@@ -398,7 +398,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
                         "type": "SqlSource",
                         "sqlReaderQuery": "select * from watermarktable"
                         },
-    
+
                         "dataset": {
                         "referenceName": "WatermarkDataset",
                         "type": "DatasetReference"
@@ -413,14 +413,14 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
                             "type": "SqlSource",
                             "sqlReaderQuery": "select MAX(LastModifytime) as NewWatermarkvalue from data_source_table"
                         },
-    
+
                         "dataset": {
                         "referenceName": "SourceDataset",
                         "type": "DatasetReference"
                         }
                     }
                 },
-                
+
                 {
                     "name": "IncrementalCopyActivity",
                     "type": "Copy",
@@ -447,7 +447,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
                             ]
                         }
                     ],
-    
+
                     "inputs": [
                         {
                             "referenceName": "SourceDataset",
@@ -461,24 +461,24 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
                         }
                     ]
                 },
-    
+
                 {
                     "name": "StoredProceduretoWriteWatermarkActivity",
                     "type": "SqlServerStoredProcedure",
                     "typeProperties": {
-    
+
                         "storedProcedureName": "usp_write_watermark",
                         "storedProcedureParameters": {
                             "LastModifiedtime": {"value": "@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}", "type": "datetime" },
                             "TableName":  { "value":"@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}", "type":"String"}
                         }
                     },
-    
+
                     "linkedServiceName": {
                         "referenceName": "AzureSQLDatabaseLinkedService",
                         "type": "LinkedServiceReference"
                     },
-    
+
                     "dependsOn": [
                         {
                             "activity": "IncrementalCopyActivity",
@@ -489,19 +489,19 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
                     ]
                 }
             ]
-            
+
         }
     }
     ```
-    
+
 
 2. Kör cmdleten **set-AzDataFactoryV2Pipeline** för att skapa pipelinen IncrementalCopyPipeline.
-    
+
    ```powershell
    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
-   ``` 
+   ```
 
-   Här är exempel på utdata: 
+   Här är exempel på utdata:
 
    ```json
     PipelineName      : IncrementalCopyPipeline
@@ -510,14 +510,14 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     Activities        : {LookupOldWaterMarkActivity, LookupNewWaterMarkActivity, IncrementalCopyActivity, StoredProceduretoWriteWatermarkActivity}
     Parameters        :
    ```
- 
+
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
 1. Kör pipeline-IncrementalCopyPipeline med cmdleten **Invoke-AzDataFactoryV2Pipeline** . Ersätt platshållarna med din egen grupp och datafabrikens namn.
 
     ```powershell
     $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
-    ``` 
+    ```
 2. Kontrol lera status för pipelinen genom att köra cmdleten **Get-AzDataFactoryV2ActivityRun** tills du ser att alla aktiviteter körs. Ersätt platshållarna med din egen lämpliga tid för parametern *RunStartedAfter* och *RunStartedBefore*. I den här självstudien använder du *-RunStartedAfter "2017/09/14"* och *-RunStartedBefore "2017/09/15"* .
 
     ```powershell
@@ -525,7 +525,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ```
 
     Här är exempel på utdata:
- 
+
     ```json
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -540,7 +540,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     DurationInMs      : 7777
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupOldWaterMarkActivity
@@ -554,7 +554,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     DurationInMs      : 25437
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : IncrementalCopyActivity
@@ -568,7 +568,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     DurationInMs      : 19769
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -595,15 +595,15 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     3,cccc,2017-09-03 02:36:00.0000000
     4,dddd,2017-09-04 03:21:00.0000000
     5,eeee,2017-09-05 08:06:00.0000000
-    ``` 
+    ```
 2. Kontrollera det senaste värdet från `watermarktable`. Du kan se att vattenstämpeln har uppdaterats.
 
     ```sql
     Select * from watermarktable
     ```
-    
+
     Här är exempel på utdata:
- 
+
     TableName | WatermarkValue
     --------- | --------------
     data_source_table | 2017-09-05 8:06:00.000
@@ -615,10 +615,10 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ```sql
     INSERT INTO data_source_table
     VALUES (6, 'newdata','9/6/2017 2:23:00 AM')
-    
+
     INSERT INTO data_source_table
     VALUES (7, 'newdata','9/7/2017 9:01:00 AM')
-    ``` 
+    ```
 
     Uppdaterade data i SQL-databasen är:
 
@@ -645,7 +645,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ```
 
     Här är exempel på utdata:
- 
+
     ```json
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
@@ -660,7 +660,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     DurationInMs      : 31758
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : LookupOldWaterMarkActivity
@@ -674,7 +674,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     DurationInMs      : 25497
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : IncrementalCopyActivity
@@ -688,7 +688,7 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     DurationInMs      : 20194
     Status            : Succeeded
     Error             : {errorCode, message, failureType, target}
-    
+
     ResourceGroupName : ADF
     DataFactoryName   : incrementalloadingADF
     ActivityName      : StoredProceduretoWriteWatermarkActivity
@@ -711,29 +711,26 @@ I den här självstudien skapar du en pipeline med två sökningsaktiviteter, en
     ```sql
     Select * from watermarktable
     ```
-    exempel på utdata: 
-    
+    exempel på utdata:
+
     TableName | WatermarkValue
     --------- | ---------------
     data_source_table | 2017-09-07 09:01:00.000
 
-     
+
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudiekursen har du fått: 
+I den här självstudiekursen har du fått:
 
 > [!div class="checklist"]
-> * Förbered datalagringen för att lagra värdet för vattenstämpeln. 
+> * Förbered datalagringen för att lagra värdet för vattenstämpeln.
 > * Skapa en datafabrik.
-> * Skapa länkade tjänster. 
+> * Skapa länkade tjänster.
 > * Skapa datauppsättningar för källa, mottagare och vattenstämpel.
 > * Skapa en pipeline.
 > * Köra en pipeline.
-> * Övervaka pipelinekörningen. 
+> * Övervaka pipelinekörningen.
 
-I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas. 
+I den här självstudien kopierade en pipeline data från en enskild tabell i en SQL-databas till Blob-lagring. Fortsätt till följande självstudie för att lära dig hur du kopierar data från flera tabeller till en lokal SQL Server-databas till en SQL-databas.
 
 > [!div class="nextstepaction"]
 >[Läs in data stegvis från flera tabeller i SQL Server till Azure SQL Database](tutorial-incremental-copy-multiple-tables-powershell.md)
-
-
-

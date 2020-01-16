@@ -11,12 +11,13 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a9bb324c3863a13e1f47e1b31f7656ab8c77a6f1
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763155"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043526"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrera ett SAML-program i Azure AD B2C
 
@@ -177,7 +178,7 @@ Nu när din klient organisation kan utfärda SAML-intyg måste du skapa principe
     PublicPolicyUri="http://tenant-name.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
 
-1. Lägg till följande XML-kodfragment precis före `<RelyingParty>`-elementet. Denna XML skriver över Orchestration-steg 7 i _SignUpOrSignIn_ -användar resan. Om du har anpassat din användar resa genom att lägga till eller ta bort Orchestration-steg kontrollerar du att numret (i `order`-elementet) är justerat med det som anges i användar resan för steget token Issuer.
+1. Lägg till följande XML-kodfragment precis före `<RelyingParty>`-elementet. Denna XML skriver över Orchestration-steg 7 i _SignUpOrSignIn_ -användar resan. Om du har startat från en annan mapp i Start paketet, eller anpassat din användar resa genom att lägga till eller ta bort Orchestration-steg, kontrollerar du att talet (i `order`-elementet) är justerat med det som anges i användar resan för steget token Issue (till exempel i de andra startpaket-mapparna är steg 4 för `LocalAccounts`, 6 för `SocialAccounts` och 9 för `SocialAndLocalAccountsWithMfa`).
 
     ```XML
     <UserJourneys>

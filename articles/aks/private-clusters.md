@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: mlearned
-ms.openlocfilehash: d7b1d82f88afd8ac3d94cbdd2d117834c12d0b96
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: e01579272878a2436abca2ee50f0f6ea6cf78cbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867156"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045607"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Skapa ett privat Azure Kubernetes service-kluster (för hands version)
 
@@ -131,7 +131,7 @@ API-serverns slut punkt har ingen offentlig IP-adress. Därför måste du skapa 
 
 ## <a name="limitations"></a>Begränsningar 
 * [Begränsningar för Azure Private Link service][private-link-service] gäller för privata kluster, Azures privata slut punkter och virtuella nätverks tjänst slut punkter som för närvarande inte stöds i samma virtuella nätverk.
-* Inget stöd för virtuella noder i ett privat kluster för att kunna snurra privata ACI-instanser (Cisco Application inriktad infrastruktur) i ett privat virtuellt Azure-nätverk.
+* Inget stöd för virtuella noder i ett privat kluster för att kunna snurra en privat Cisco Application ACI-instans (Cisco Application inriktad infrastruktur) i ett privat virtuellt Azure-nätverk.
 * Det går inte att använda Azure DevOps-integrering direkt från rutan med privata kluster.
 * För kunder som behöver aktivera Azure Container Registry för att fungera med privata AKS måste det Container Registry virtuella nätverket vara peer-kopplat med agent klustrets virtuella nätverk.
 * Inget aktuellt stöd för Azure dev Spaces.

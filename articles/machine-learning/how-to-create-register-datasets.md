@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 775c6016acbcd0f87f368852a68eaea706c79898
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: d55dc2a1311d66eae01ae12a3dae798fbab20677
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945711"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045611"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Skapa Azure Machine Learning data uppsättningar
 
@@ -196,16 +196,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
 Om du vill skapa data uppsättningar med Azure Open data uppsättningar från SDK kontrollerar du att du har installerat paketet med `pip install azureml-opendatasets`. Varje diskret data uppsättning representeras av sin egen klass i SDK och vissa klasser är tillgängliga antingen som en `TabularDataset`, `FileDataset`eller båda. En fullständig lista över klasser finns i [referens dokumentationen](https://docs.microsoft.com/python/api/azureml-opendatasets/azureml.opendatasets?view=azure-ml-py) .
 
-De flesta klasser ärver från och returnerar en instans av `TabularDataset`. Exempel på dessa klasser är `PublicHolidays`, `BostonSafety`och `UsPopulationZip`. Om du vill skapa en `TabularDataset` från dessa typer av klasser använder du konstruktorn utan argument. När du registrerar en data uppsättning som skapats från öppna data uppsättningar hämtas inga data direkt, men data kommer att kommas åt senare när de begärs (under utbildning, till exempel) från en central lagrings plats. 
-
-```python
-from azureml.opendatasets import UsPopulationZip
-
-tabular_dataset = UsPopulationZip()
-tabular_dataset = tabular_dataset.register(workspace=workspace, name="pop data", description="US population data by zip code")
-```
-
-Du kan hämta vissa klasser som antingen en `TabularDataset` eller `FileDataset`, vilket gör att du kan manipulera och/eller ladda ned filerna direkt. Andra klasser kan bara hämta en data uppsättning genom att använda antingen `get_tabular_dataset()`-eller `get_file_dataset()` funktionerna. I följande kod exempel visas några exempel på dessa typer av klasser:
+Du kan hämta vissa klasser som antingen en `TabularDataset` eller `FileDataset`, vilket gör att du kan manipulera och/eller ladda ned filerna direkt. Andra klasser kan **bara** hämta en data uppsättning genom att använda en av `get_tabular_dataset()`-eller `get_file_dataset()` funktionerna. I följande kod exempel visas några exempel på dessa typer av klasser.
 
 ```python
 from azureml.opendatasets import MNIST
@@ -219,6 +210,8 @@ from azureml.opendatasets import Diabetes
 # Diabetes class can return ONLY return TabularDataset and must be called from the static function
 diabetes_tabular = Diabetes.get_tabular_dataset()
 ```
+
+När du registrerar en data uppsättning som skapats från öppna data uppsättningar hämtas inga data direkt, men data kommer att kommas åt senare när de begärs (under utbildning, till exempel) från en central lagrings plats.
 
 ### <a name="use-the-ui"></a>Använd användar gränssnittet
 

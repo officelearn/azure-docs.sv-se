@@ -2,23 +2,23 @@
 title: Parallell R-simulering med Azure Batch
 description: Självstudie – Stegvisa instruktioner för hur du kör en finansiell Monte Carlo-simulering i Azure Batch med R-paketet doAzureParallel
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: r
 ms.topic: tutorial
 ms.date: 01/23/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 7fad37af268d3dcd3d4d974d8e839ac47f171b50
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a5422b3b3dfee548e24e989654f8cc219700e712
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321910"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029204"
 ---
-# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Köra en parallell R-simulering med Azure Batch 
+# <a name="tutorial-run-a-parallel-r-simulation-with-azure-batch"></a>Självstudie: Kör en parallell R-simulering med Azure Batch 
 
 Kör dina parallella R-arbetsbelastningar i full skala med [doAzureParallel](https://www.github.com/Azure/doAzureParallel), ett enkelt R-paket som gör att du kan använda Azure Batch direkt från din R-session. doAzureParallel-paketet bygger på det populära R-paketet [foreach](https://cran.r-project.org/web/packages/foreach/index.html). doAzureParallel tar varje iteration av loopen foreach och skickar den som en Azure Batch-uppgift.
 
@@ -30,13 +30,13 @@ I den här självstudien visas hur du distribuerar en Batch-pool och kör ett pa
 > * skapa en Batch-pool som en parallell serverdel för R-sessionen
 > * köra en parallell exempelsimulering på poolen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En installerad [R](https://www.r-project.org/)-distribution, som [Microsoft R Open](https://mran.microsoft.com/open). Använd version 3.3.1 eller senare av R.
 
 * [RStudio](https://www.rstudio.com/), antingen den kommersiella versionen eller [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) med öppen källkod. 
 
-* Ett Azure Batch-konto och ett Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
+* Ett Azure Batch-konto och ett Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md). 
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

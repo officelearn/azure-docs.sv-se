@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: 335b956701a87b6a0e5984ae50507a91d212ab67
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646752"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980110"
 ---
 # <a name="virtual-network-peering"></a>VNET-peering
 
@@ -34,7 +34,7 @@ Fördelar med att använda VNET-peering (avsett om den är lokal eller global):
 * Möjligheten för resurser i ett virtuellt nätverk att kommunicera med resurser i ett annat virtuellt nätverk.
 * Möjlighet att överföra data mellan virtuella nätverk över Azure-prenumerationer, Azure Active Directory klienter, distributions modeller och Azure-regioner.
 * Möjligheten att koppla virtuella nätverk som skapats via Azure Resource Manager.
-* Möjlighet att peer-koppla ett virtuellt nätverk som skapats via Resource Manager till ett som skapats via den klassiska distributions modellen. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Möjlighet att peer-koppla ett virtuellt nätverk som skapats via Resource Manager till ett som skapats via den klassiska distributions modellen. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Inga driftstopp för resurser i de virtuella nätverken när du skapar peer-kopplingen eller när peer-kopplingen har skapats.
 
 Nätverkstrafiken mellan peer-kopplade virtuella nätverk är privat. Trafiken mellan de virtuella nätverken finns i Microsoft-stamnätverket. Vid kommunikation mellan virtuella nätverk krävs inget offentligt Internet, inga gatewayer eller ingen kryptering.

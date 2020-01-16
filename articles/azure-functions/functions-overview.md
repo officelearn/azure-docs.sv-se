@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 10/03/2017
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4af2afc0efad2784bbde902fd2cdf4a40beb7803
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5488606939bafc402210ad35f3a17e71ac072010
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769089"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044529"
 ---
 # <a name="an-introduction-to-azure-functions"></a>En introduktion till Azure Functions  
 Azure Functions är en lösning för att enkelt köra små delar av kod eller "funktioner," i molnet. Du kan skriva enbart koden som du behöver för det aktuella problemet, utan att bekymra dig över hela programmet eller infrastrukturen för att köra den. Functions kan göra utvecklingen ännu mer produktiv och du kan använda det utvecklings språk som du väljer, till C#exempel Java, Java Script, PowerShell och python. Betala endast för tiden koden körs och lita på att Azure skalar enligt behov. Azure Functions gör det möjligt att utveckla program [utan server](https://azure.microsoft.com/solutions/serverless/) på Microsoft Azure.
@@ -30,7 +30,7 @@ Här följer några viktiga funktioner i Functions:
 * **Öppen källkod** – Functions-runtime är öppen källkod och [tillgänglig på GitHub](https://github.com/azure/azure-webjobs-sdk-script).  
 
 ## <a name="what-can-i-do-with-functions"></a>Vad kan jag göra med Functions?
-Functions är en bra lösning för att behandla data, integrera system, arbeta med Sakernas Internet (IoT) och skapa enkla API:er och mikrotjänster. Functions kan användas för uppgifter som avbildnings- eller orderbearbetning, filunderhåll eller för alla aktiviteter som du vill ska köras enligt ett schema. 
+Functions är en bra lösning för att behandla data, integrera system, arbeta med Sakernas Internet (IoT) och skapa enkla API:er och mikrotjänster. Överväg funktioner för uppgifter som webb-API: er, bild-eller order bearbetning, fil underhåll eller för alla aktiviteter som du vill köra enligt ett schema. 
 
 Functions innehåller mallar för att komma igång med viktiga scenarier, inklusive följande:
 

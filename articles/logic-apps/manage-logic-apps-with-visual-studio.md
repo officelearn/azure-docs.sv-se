@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/29/2019
-ms.openlocfilehash: ed48082c52a5b4f79fd2030303dbe2bb7bedafe6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6319d2d72df69cc9633bd2b2ff8e777c2a48966a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456597"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982542"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Hantera Logic Apps med Visual Studio
 
@@ -90,13 +90,13 @@ I Visual Studio kan du öppna Logi Kap par som tidigare har skapats och distribu
 
    ![Öppna distribuerad Logic-app från Azure Portal](./media/manage-logic-apps-with-visual-studio/open-logic-app-in-editor.png)
 
-   När Logic-appen öppnas i Logic Apps designer, längst ned i designern, kan du välja **kodvyn** så att du kan granska den underliggande strukturen för Logic app-definitionen. Om du vill skapa en Distributionsmall för Logic-appen, lär du dig [att ladda ned en Azure Resource Manager mall](#download-logic-app) för den Logic-appen. Lär dig mer om [Resource Manager-mallar](../azure-resource-manager/template-deployment-overview.md).
+   När Logic-appen öppnas i Logic Apps designer, längst ned i designern, kan du välja **kodvyn** så att du kan granska den underliggande strukturen för Logic app-definitionen. Om du vill skapa en Distributionsmall för Logic-appen, lär du dig [att ladda ned en Azure Resource Manager mall](#download-logic-app) för den Logic-appen. Lär dig mer om [Resource Manager-mallar](../azure-resource-manager/templates/overview.md).
 
 <a name="download-logic-app"></a>
 
 ## <a name="download-from-azure"></a>Ladda ned från Azure
 
-Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och spara dem som [Azure Resource Manager](../azure-resource-manager/management/overview.md) mallar. Du kan sedan lokalt redigera mallarna med Visual Studio och anpassa Logic Apps för olika distributions miljöer.  Hämtning av Logic Apps *parameterizes* automatiskt sina definitioner inuti [Resource Manager-mallar](../azure-resource-manager/template-deployment-overview.md), som också använder JavaScript Object Notation (JSON).
+Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och spara dem som [Azure Resource Manager](../azure-resource-manager/management/overview.md) mallar. Du kan sedan lokalt redigera mallarna med Visual Studio och anpassa Logic Apps för olika distributions miljöer.  Hämtning av Logic Apps *parameterizes* automatiskt sina definitioner inuti [Resource Manager-mallar](../azure-resource-manager/templates/overview.md), som också använder JavaScript Object Notation (JSON).
 
 1. Öppna Cloud Explorer i Visual Studio. Hitta och välj den Logic-app som du vill ladda ned från Azure.
 
@@ -113,13 +113,13 @@ Du kan ladda ned Logic Apps från [Azure Portal](https://portal.azure.com) och s
 
 1. När du uppmanas att ange en plats kan du bläddra till den platsen och spara Resource Manager-mallen för Logic app-definitionen i JSON-filformat (. JSON).
 
-   Din Logic app-definition visas i avsnittet `resources` i Resource Manager-mallen. Nu kan du redigera Logic app-definitionen och Resource Manager-mallen med Visual Studio. Du kan också lägga till mallen som ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) i en Visual Studio-lösning. Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+   Din Logic app-definition visas i avsnittet `resources` i Resource Manager-mallen. Nu kan du redigera Logic app-definitionen och Resource Manager-mallen med Visual Studio. Du kan också lägga till mallen som ett [Azure Resource Group-projekt](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) i en Visual Studio-lösning. Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 <a name="link-integration-account"></a>
 
 ## <a name="link-to-integration-account"></a>Länk till integrations konto
 
-För att skapa Logi Kap par för företag-till-företag (B2B) företags integrations scenarier, kan du länka din Logic app till ett tidigare skapat [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som finns i samma region som din Logic app. Ett integrations konto innehåller B2B-artefakter, till exempel handels partner, avtal, scheman och kartor, och tillåter att din Logic app använder B2B-kopplingar för XML-verifiering och flat fil kodning eller avkodning. Även om du kan [skapa den här länken med hjälp av Azure Portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), kan du också använda Visual Studio när du uppfyller [kraven](#requirements)och din Logic app finns som en JSON-fil (. JSON) i ett [Azure Resource Group-projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
+För att skapa Logi Kap par för företag-till-företag (B2B) företags integrations scenarier, kan du länka din Logic app till ett tidigare skapat [integrations konto](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) som finns i samma region som din Logic app. Ett integrations konto innehåller B2B-artefakter, till exempel handels partner, avtal, scheman och kartor, och tillåter att din Logic app använder B2B-kopplingar för XML-verifiering och flat fil kodning eller avkodning. Även om du kan [skapa den här länken med hjälp av Azure Portal](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account), kan du också använda Visual Studio när du uppfyller [kraven](#requirements)och din Logic app finns som en JSON-fil (. JSON) i ett [Azure Resource Group-projekt](../azure-resource-manager/templates/create-visual-studio-deployment-project.md). Lär dig mer om [Azure Resource Group-projekt för Logic Apps i Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#create-resource-group-project).
 
 1. Öppna Azure Resource Group-projektet som innehåller din Logic app i Visual Studio.
 
@@ -149,7 +149,7 @@ När du ställer in **integrations konto** egenskapen i Visual Studio och sparar
 
 ## <a name="change-deployment-location"></a>Ändra distributions plats
 
-I Visual Studio, om din Logic app finns som en JSON-fil (. JSON) i ett [Azure-resurs grupp projekt](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) som du använder för att automatisera distributionen, är den logiska appen inställd på en plats typ och en speciell plats. Den här platsen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md).
+I Visual Studio, om din Logic app finns som en JSON-fil (. JSON) i ett [Azure-resurs grupp projekt](../azure-resource-manager/templates/create-visual-studio-deployment-project.md) som du använder för att automatisera distributionen, är den logiska appen inställd på en plats typ och en speciell plats. Den här platsen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md).
 
 Om du vill ändra din Logi Kap par plats typ eller plats måste du öppna din Logic Apps-fil med arbets flödes definition (. JSON) från Solution Explorer med hjälp av Logic Apps designer. Du kan inte ändra dessa egenskaper med hjälp av Cloud Explorer.
 

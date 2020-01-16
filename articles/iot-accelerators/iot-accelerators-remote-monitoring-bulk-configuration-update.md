@@ -8,26 +8,26 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61448918"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980550"
 ---
-# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudier: Hantera dina anslutna enheter i grupp
+# <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Självstudie: Hantera dina anslutna enheter i grupp
 
-I den här självstudien använder du acceleratorn för fjärrövervakningslösningen för att hantera konfigurationen av dina anslutna enheter i grupp.
+I den här självstudien använder du lösningsacceleratorn för fjärrövervakning för att hantera konfigurationen av dina anslutna enheter i grupp.
 
-Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i acceleratorn för fjärrövervakningslösningen. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
+Som operatör på Contoso behöver du konfigurera en grupp med enheter med en ny version av inbyggd programvara. Du vill inte bli tvungen att uppdatera den inbyggda programvaran enskilt på varje enhet. Om du vill uppdatera den inbyggda programvaran på en grupp med enheter kan du använda enhetsgrupper och automatisk enhetshantering i lösningsacceleratorn för fjärrövervakning. Alla enheter som du lägger till i enhetsgruppen får den senaste inbyggda programvaran så snart enheten är online.
 
-I den här kursen för du göra följande:
+I den här kursen har du:
 
 >[!div class="checklist"]
 > * Skapa en enhetsgrupp.
 > * Förbereda och hantera den inbyggda programvaran.
 > * Skapa en enhetskonfiguration på Azure-portalen.
-> * Importera en enhetskonfiguration till fjärrövervakningslösningen
+> * Importera en enhetskonfiguration till fjärrövervakningslösningen.
 > * Distribuera konfigurationen till enheterna i enhetsgruppen.
 > * Övervaka distributionen
 
@@ -39,13 +39,13 @@ If this is going to be a tutorial - we need to split this include into two so th
 [!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
 -->
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Om du vill följa den här självstudien behöver du en distribuerad instans av acceleratorn Fjärrövervakningslösning i Azure-prenumerationen.
 
 Om du inte har distribuerat acceleratorn Fjärrövervakningslösning ännu bör du genomföra snabbstarten [Distribuera en molnbaserad fjärrövervakningslösning](quickstart-remote-monitoring-deploy.md).
 
-Du behöver ett Azure-lagringskonto för att hantera filer för den inbyggda programvaran. Du kan använda ett befintligt lagringskonto eller [skapa ett nytt lagringskonto](../storage/common/storage-quickstart-create-account.md) i din prenumeration.
+Du behöver ett Azure-lagringskonto för att hantera filer för den inbyggda programvaran. Du kan använda ett befintligt lagringskonto eller [skapa ett nytt lagringskonto](../storage/common/storage-account-create.md) i din prenumeration.
 
 I självstudien används en [IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/)-enhet som exempelenhet.
 
@@ -57,9 +57,9 @@ Du behöver följande programvara installerad på den lokala datorn:
 Innan du börjar:
 
 * Kontrollera att [startprogrammet på IoT DevKit-enheten är version 1.4.0 eller senare](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
-* Kontrollera att IoT DevKit SDK har samma version som startprogrammet. Du kan uppdatera IoT DevKit SDK med hjälp av Azure IoT Workbench i VS Code. Öppna kommandopaletten och ange **Arduino: Tavla Manager**. Mer information finns i avsnittet om att [förbereda utvecklingsmiljön](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
+* Kontrollera att IoT DevKit SDK har samma version som startprogrammet. Du kan uppdatera IoT DevKit SDK med hjälp av Azure IoT Workbench i VS Code. Öppna kommandopaletten och ange **Arduino: Board Manager**. Mer information finns i avsnittet om att [förbereda utvecklingsmiljön](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-Du behöver även ansluta minst en IoT DevKit-enhet till acceleratorn för fjärrövervakningslösningen. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till acceleratorn för IoT-fjärrövervakningslösningen](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+Du behöver även ansluta minst en IoT DevKit-enhet till lösningsacceleratorn för fjärrövervakning. Om du inte har anslutit en IoT DevKit-enhet läser du avsnittet om att [ansluta MXChip IoT DevKit AZ3166 till lösningsacceleratorn för IoT-fjärrövervakning](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
 
 ## <a name="navigate-to-the-dashboard"></a>Gå till instrumentpanelen
 
@@ -73,7 +73,7 @@ För att den inbyggda programvaran ska uppdateras automatiskt på en grupp med e
 
 1. På sidan **Enheter** markerar du alla de **IoT DevKit**-enheter som du har anslutit till lösningsacceleratorn. Klicka sedan på **Jobb**.
 
-1. I panelen **Jobb** väljer du **Taggar**, anger jobbnamnet till **AddDevKitTag** och lägger sedan till en texttagg med namnet **IsDevKitDevice** och värdet **Y**. Klicka sedan på **Använd**.
+1. I panelen **jobb** väljer du **taggar**, anger jobb namnet till **AddDevKitTag**och lägger sedan till en text-tagg med namnet **IsDevKitDevice** med värdet **Y**. Klicka sedan på **Använd**.
 
 1. Nu kan du använda taggvärdena till att skapa en enhetsgrupp. På sidan **Enheter** klickar du på **Hantera enhetsgrupper**.
 
@@ -89,7 +89,7 @@ Senare i den här självstudien använder du den här enhetsgruppen för att til
 
 1. Kontrollera att din IoT DevKit inte är ansluten till datorn. Starta VS Code och ansluta sedan DevKit till datorn.
 
-1. Tryck på **F1** för att öppna kommandopaletten, skriver du och väljer **IoT Workbench: Exempel**. Välj sedan **IoT DevKit** som tavla.
+1. Tryck på **F1** för att öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Examples**. Välj sedan **IoT DevKit** som tavla.
 
 1. Leta upp **Firmware OTA** och klicka på **Öppna exempel**. Ett nytt VS Code-fönster öppnas, och projektmappen **firmware_ota** visas:
 
@@ -103,7 +103,7 @@ Den första versionen av enhetens inbyggda programvara är 1.0.0. Den nya inbygg
 
     ![Ändra version av inbyggd programvara](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Öppna kommandopaletten, Skriv och markera **IoT Workbench: Enheten**. Välj sedan **Device Compile** (Enhetskompilering) för att kompilera koden:
+1. Öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Device**. Välj sedan **Device Compile** (Enhetskompilering) för att kompilera koden:
 
     ![Enhetskompilering](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
@@ -111,7 +111,7 @@ Den första versionen av enhetens inbyggda programvara är 1.0.0. Den nya inbygg
 
 ### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Generera CRC-värdet och beräkna filstorleken för den inbyggda programvaran
 
-1. Öppna kommandopaletten, Skriv och markera **IoT Workbench: Enheten**. Välj sedan **Generera CRC**:
+1. Öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Device**. Välj sedan **Generera CRC**:
 
     ![Generera CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
@@ -139,13 +139,13 @@ Använd ditt Azure Storage-konto som värd för den nya filen för inbyggd progr
 
     ![Version 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Öppna kommandopaletten, Skriv och markera **IoT Workbench: Enheten**. Välj sedan **Enhetsuppladdning**:
+1. Öppna kommandopaletten. Ange sedan och välj **IoT Workbench: Device**. Välj sedan **Enhetsuppladdning**:
 
     ![Enhetsuppladdning](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
 1. VS Code verifierar och laddar upp koden till din IoT DevKit-enhet.
 
-1. När uppladdningen är klar startas IoT DevKit-enheten om. När omstarten är klar visar skärmen för IoT DevKit **VB-version: 1.0.0**, och att den söker efter nya inbyggda programvaran:
+1. När uppladdningen är klar startas IoT DevKit-enheten om. När omstarten är klar visar skärmen för IoT DevKit **FW version: 1.0.0** och att den söker efter ny inbyggd programvara:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
@@ -204,7 +204,7 @@ Du använder den här konfigurationsfilen i följande avsnitt.
 
 ## <a name="import-a-configuration"></a>Importera en konfiguration
 
-I det här avsnittet importerar du enhetskonfigurationen som ett paket i acceleratorn för fjärrövervakningslösningen. Vanligtvis slutför en operatör den här uppgiften.
+I det här avsnittet importerar du enhetskonfigurationen som ett paket i lösningsacceleratorn för fjärrövervakning. Vanligtvis slutför en operatör den här uppgiften.
 
 1. I webbgränssnittet för fjärrövervakning går du till sidan **Paket** och klickar på **+ Nytt paket**:
 
@@ -230,14 +230,14 @@ I det här avsnittet skapar och kör du en distribution som tillämpar enhetskon
     |---|---|
     |Namn|Distribuera uppdatering av inbyggd programvara|
     |Pakettyp|Enhetskonfiguration|
-    |Konfigurationstyp|Inbyggd programvara|
+    |Typ av konfiguration|Inbyggd programvara|
     |Paket|firmware-update.json|
     |Enhetsgrupp|IoT DevKit-enheter|
     |Prioritet|10|
 
     ![Skapa distribution](media/iot-accelerators-remote-monitoring-bulk-configuration-update/newdeployment.png)
 
-    Klicka på **Verkställ**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
+    Klicka på **Använd**. Du ser en ny distribution på sidan **Distributioner** som visar följande mått:
 
     * **Riktade** visar antalet enheter i enhetsgruppen.
     * **Tillämpade** visar antalet enheter som uppdaterades med konfigurationsinnehållet.

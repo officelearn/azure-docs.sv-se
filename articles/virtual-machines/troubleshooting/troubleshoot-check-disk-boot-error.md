@@ -12,21 +12,21 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 839803c8cf54a85946e7134fdb6fe6be2da3dc4c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ba3138076da89610bef878583e424153594c5dcc
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058085"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981379"
 ---
 # <a name="windows-shows-checking-file-system-when-booting-an-azure-vm"></a>Windows visar "kontrollerar fil system" när en virtuell Azure-dator startas
 
 I den här artikeln beskrivs fel meddelandet "kontrollerar fil systemet" som kan uppstå när du startar en virtuell Windows-dator (VM) i Microsoft Azure.
 
 > [!NOTE] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
+> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och den klassiska distributionsmodellen](../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder distributions modellen för Resource Manager, som vi rekommenderar att du använder för nya distributioner i stället för den klassiska distributions modellen.
 
-## <a name="symptom"></a>Symtom 
+## <a name="symptom"></a>Symptom 
 
 En virtuell Windows-dator startar inte. När du kontrollerar start skärmarna i [startdiagnostik](boot-diagnostics.md), ser du att processen för att kontrol lera disken (chkdsk. exe) körs med något av följande meddelanden:
 

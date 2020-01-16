@@ -9,19 +9,19 @@ ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 86f042a451583759aa15e886b3261700335a5285
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748541"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979822"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Arkivera Azure mått och loggdata med hjälp av Azure Storage
 
-Flera lager i Azure-miljön producerar logg- och måttdata som kan arkiveras i ett Azure Storage-konto. Du kanske vill bevara historik för övervakningsdata i en kostnadseffektiv men icke sökbar lagring när dess data har passerat bevarandeperioden. 
+Flera lager i Azure-miljön producerar logg- och måttdata som kan arkiveras i ett Azure Storage-konto. Du kanske vill bevara historik för övervakningsdata i en kostnadseffektiv men icke sökbar lagring när dess data har passerat bevarandeperioden.
 
-- Azure Monitor-plattformens mått behålls i 93 dagar. 
-- Resursdiagnostikloggar visas bara om de dirigeras till Log Analytics, där de har en konfigurerbar kvarhållningsperiod på minst 30 dagar. 
+- Azure Monitor-plattformens mått behålls i 93 dagar.
+- Resursdiagnostikloggar visas bara om de dirigeras till Log Analytics, där de har en konfigurerbar kvarhållningsperiod på minst 30 dagar.
 - Aktivitetsloggposter behålls i 90 dagar.  
 
 Här leder vi dig genom processen med att konfigurera Azure-miljön så att du kan arkivera data på ett lagringskonto.
@@ -42,7 +42,7 @@ Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-quickstart-create-account.md).
+Du måste först skapa ett lagringskonto där övervakningsdata arkiveras. För att göra det [följer du de här stegen](../../storage/common/storage-account-create.md).
 
 ## <a name="route-subscription-logs-to-the-storage-account"></a>Dirigera prenumerationsloggar till lagringskontot
 
@@ -144,9 +144,9 @@ Nu flödar övervakningsdata från de virtuella datorerna till lagringskontot.
 ## <a name="view-the-monitoring-data-in-the-storage-account"></a>Visa övervakningsdata i lagringskontot
 
 > [!WARNING]
-> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
+> Formatet för loggdata i lagringskontot ändras till JSON Lines den 1 november 2018. [Den här artikeln beskriver effekten av den här ändringen samt hur du uppdaterar dina verktyg för att hantera det nya formatet.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
 >
-> 
+>
 
 Om du har följt föregående steg har data börjat flöda till lagringskontot.
 
@@ -199,4 +199,3 @@ Om du vill få ut ännu mer av dina data ska du även skicka dem till Log Analyt
 
 > [!div class="nextstepaction"]
 > [Komma igång med Log Analytics](../../azure-monitor/log-query/log-query-overview.md)
-

@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: 6cde620b4949da8a6cff4ad89a863c80f0514f1c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: ade29318fdd1510d03ddd208534258a30b256e98
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792398"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979366"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Verifiera XML med scheman i Azure Logic Apps med Enterprise-integrationspaket
 
@@ -31,7 +31,7 @@ För begränsningar som rör integrations konton och artefakter som scheman, se 
   Om du vill lägga till schemat i integrations kontot kan du sedan länka till ditt lagrings konto från integrations kontot. 
   För den här uppgiften är de objekt som du behöver: 
 
-  * [Azure Storage-konto](../storage/common/storage-account-overview.md) där du skapar en BLOB-behållare för ditt schema. Lär dig hur du [skapar ett lagrings konto](../storage/common/storage-quickstart-create-account.md). 
+  * [Azure Storage-konto](../storage/common/storage-account-overview.md) där du skapar en BLOB-behållare för ditt schema. Lär dig hur du [skapar ett lagrings konto](../storage/common/storage-account-create.md). 
 
   * BLOB-behållare för lagring av ditt schema. Lär dig hur du [skapar en BLOB-behållare](../storage/blobs/storage-quickstart-blobs-portal.md). 
   Du behöver behållarens innehålls-URI senare när du lägger till schemat i integrations kontot.
@@ -50,7 +50,7 @@ Du behöver inte en logisk app när du skapar och lägger till scheman. Men om d
 
 ## <a name="add-schemas"></a>Lägg till scheman
 
-1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med autentiseringsuppgifterna för ditt Azure-konto.
+1. Logga in på <a href="https://portal.azure.com" target="_blank">Azure Portal</a> med dina Azure-kontoautentiseringsuppgifter.
 
 1. Om du vill söka efter och öppna ditt integrations konto väljer du **alla tjänster**på huvud menyn i Azure. I rutan Sök anger du "integrations konto". Välj **integrations konton**.
 

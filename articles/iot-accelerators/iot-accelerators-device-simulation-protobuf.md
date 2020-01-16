@@ -1,6 +1,6 @@
 ---
-title: Använda Protocol Buffers med enhetssimulering – Azure | Microsoft Docs
-description: Du lär dig hur du använder Protocol Buffers för att serialisera telemetri som skickas från lösningsaccelerator Enhetssimulering i den här guiden.
+title: Använda protokoll buffertar med enhets simulering – Azure | Microsoft Docs
+description: I den här instruktions guiden får du lära dig hur du använder protokoll-buffertar för att serialisera telemetri som skickas från lösnings acceleratorn för enhets simulering.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -9,83 +9,83 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 74bb2d181533f802e1428eaa8a855f60fb855193
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447989"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982149"
 ---
-# <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri som använder Protocol Buffers
+# <a name="serialize-telemetry-using-protocol-buffers"></a>Serialisera telemetri med hjälp av Protocol buffrar
 
-Protocol Buffers (Protobuf) är en binärt serialiseringsformat för strukturerade data. Protobuf är utformad för att betona enkelhet och prestanda med ett mål för mindre och snabbare än XML.
+Protocol Buffers (protobuf) är ett format för binär serialisering för strukturerade data. Protobuf är utformat för att framhäva enkelhet och prestanda med målet att vara mindre och snabbare än XML.
 
-Enhetssimulering stöder den **proto3** version av protokollet buffrar språk.
+Enhets simuleringen stöder **proto3** -versionen av Protocol buffer-språket.
 
-Eftersom Protobuf kräver kompilerad kod att serialisera data, måste du skapa en anpassad version av Enhetssimulering.
+Eftersom protobuf kräver kompilerad kod för att serialisera data, måste du bygga en anpassad version av enhets simuleringen.
 
-Stegen i den här How-to-till-guiden visar dig hur du:
+Stegen i den här instruktions guiden visar hur du:
 
-1. Förbered en utvecklingsmiljö
-1. Ange formatet Protobuf i en enhetsmodell
-1. Definiera Protobuf-format
-1. Generera Protobuf klasser
+1. Förbered en utvecklings miljö
+1. Ange med protobuf-formatet i en enhets modell
+1. Definiera ditt protobuf-format
+1. Generera protobuf-klasser
 1. Testa lokalt
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Om du vill följa stegen i den här guiden behöver du:
+Om du vill följa stegen i den här instruktions guiden behöver du:
 
-* Visual Studio Code. Du kan ladda ned [Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
-* .NET Core. Du kan ladda ned [.NET Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
-* Postman. Du kan ladda ned [Postman för Mac, windows eller Linux](https://www.getpostman.com/apps).
-* En [IoT hub som är distribuerad på Azure-prenumerationen](../iot-hub/iot-hub-create-through-portal.md). Du behöver anslutningssträngen för IoT-hubben att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
-* En [Cosmos DB-databas som distribuerats till din Azure-prenumeration](../cosmos-db/create-sql-api-dotnet.md#create-account) som använder SQL-API och som är konfigurerad för [stark konsekvens](../cosmos-db/manage-account.md). Du behöver anslutningssträngen för Cosmos DB-databasen för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
-* En [Azure storage-konto som distribueras till din Azure-prenumeration](../storage/common/storage-quickstart-create-account.md). Du behöver anslutningssträngen för storage-konto för att slutföra stegen i den här guiden. Du kan hämta anslutningssträngen från Azure-portalen.
+* Visual Studio Code. Du kan hämta [Visual Studio Code för Mac, Linux och Windows](https://code.visualstudio.com/download).
+* .NET Core. Du kan ladda ned [.net Core för Mac, Linux och Windows](https://www.microsoft.com/net/download).
+* Postman. Du kan hämta [Postman för Mac, Windows eller Linux](https://www.getpostman.com/apps).
+* En [IoT-hubb som distribueras till din Azure-prenumeration](../iot-hub/iot-hub-create-through-portal.md). Du behöver IoT-hubbens anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.
+* En [Cosmos DB-databas som distribueras till din Azure-prenumeration](../cosmos-db/create-sql-api-dotnet.md#create-account) som använder SQL API och som har kon figurer ATS för [stark konsekvens](../cosmos-db/manage-account.md). Du behöver Cosmos DB databasens anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.
+* Ett [Azure Storage-konto som distribueras till din Azure-prenumeration](../storage/common/storage-account-create.md). Du behöver lagrings kontots anslutnings sträng för att slutföra stegen i den här hand boken. Du kan hämta anslutnings strängen från Azure Portal.
 
 ## <a name="prepare-your-development-environment"></a>Förbereda utvecklingsmiljön
 
-Utför följande uppgifter för att förbereda utvecklingsmiljön:
+Utför följande uppgifter för att förbereda utvecklings miljön:
 
-* Hämta källan för enheten simulering mikrotjänst.
-* Hämta källan för storage nätverkskort mikrotjänst.
-* Köra storage nätverkskort mikrotjänster lokalt.
+* Hämta källan för mikrotjänsten Device simulering.
+* Ladda ned källan för Storage adapter-mikrotjänsten.
+* Kör Storage adapter-mikrotjänsten lokalt.
 
-Anvisningarna i den här artikeln förutsätter att du använder Windows. Om du använder ett annat operativsystem kan du behöva justera några av de sökvägar och kommandon för att de passar din miljö.
+I instruktionerna i den här artikeln förutsätter vi att du använder Windows. Om du använder ett annat operativ system kan du behöva justera några av fil Sök vägarna och kommandona för att passa din miljö.
 
 ### <a name="download-the-microservices"></a>Ladda ned mikrotjänster
 
-Hämta och packa upp den [Remote Monitoring Mikrotjänster](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Den här databasen innehåller storage nätverkskort mikrotjänst som du behöver för den här anvisningen.
+Ladda ned och zippa upp [mikrotjänsterna för fjärrövervakning](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn. Den här lagrings platsen innehåller den mikrotjänst för lagrings kort som du behöver för den här instruktionen.
 
-Hämta och packa upp den [enheten simulering mikrotjänst](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn.
+Ladda ned och zippa upp [mikrotjänsten för enhets simulering](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) från GitHub till en lämplig plats på den lokala datorn.
 
-### <a name="run-the-storage-adapter-microservice"></a>Kör storage nätverkskort mikrotjänst
+### <a name="run-the-storage-adapter-microservice"></a>Köra mikrotjänsten Storage adapter
 
-I Visual Studio Code, öppna den **remote-monitoring-services-dotnet-master\storage-adapter** mapp. Klicka på någon **återställa** knappar för att åtgärda Olösta beroenden.
+Öppna mappen **Remote-Monitoring-Services-dotNet-master\storage-adapter** i Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda olösta beroenden.
 
-Öppna den **.vscode/launch.json** fil och tilldela din Cosmos DB-anslutningssträngen till den **datorer\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** miljö variabeln.
+Öppna filen **. VSCode/Launch. JSON** och tilldela Cosmos DB anslutnings sträng till **datorerna\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** .
 
 > [!NOTE]
-> När du kör mikrotjänst lokalt på din dator, kräver fortfarande en Cosmos DB-instans i Azure för att fungera korrekt.
+> När du kör mikrotjänsten lokalt på din dator kräver den fortfarande en Cosmos DB instans i Azure för att fungera korrekt.
 
-Om du vill köra storage nätverkskort mikrotjänster lokalt, klickar du på **felsöka \> Starta felsökning**.
+Om du vill köra en mikrotjänst i Storage adapter lokalt klickar du på **felsök \> starta fel sökning**.
 
-Den **Terminal** fönstret i Visual Studio Code visas utdata från körs mikrotjänst, inklusive en URL för web service-hälsokontroll: <http://127.0.0.1:9022/v1/status>. När du navigerar till den här adressen statusen ska vara ”OK: Alive och väl ”.
+**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten inklusive en URL för webb tjänstens hälso kontroll: <http://127.0.0.1:9022/v1/status>. När du navigerar till den här adressen ska statusen vara "OK: Alive".
 
-Lämna storage adapter-mikrotjänster som körs i den här instansen av Visual Studio Code när du slutför följande steg.
+Lämna den mikrotjänsten Storage adapter som körs i den här instansen av Visual Studio Code medan du utför följande steg.
 
-## <a name="define-your-device-model"></a>Definiera din enhetsmodell
+## <a name="define-your-device-model"></a>Definiera din enhets modell
 
-Öppna den **enhet-simulering-dotnet-master** mapp som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på någon **återställa** knappar för att åtgärda eventuella olöst beroenden.
+Öppna mappen **Device-simulering-dotNet-Master** som du laddade ned från GitHub i en ny instans av Visual Studio Code. Klicka på alla **återställnings** knappar för att åtgärda eventuella olösta beroenden.
 
-I den här How-to-till-guiden, kan du skapa en ny enhetsmodell för en tillgång spåraren:
+I den här instruktions guiden skapar du en ny enhets modell för en till gångs Spårare:
 
-1. Skapa en ny enhet modellfil med namnet **assettracker 01.json** i den **Services\data\devicemodels** mapp.
+1. Skapa en ny enhets modell fil med namnet **assettracker-01. JSON** i mappen **Services\data\devicemodels** .
 
-1. Definiera enheten funktionerna i den nuvarande enhetsmodellen **assettracker 01.json** fil. Avsnittet telemetri i en Protobuf enhetsmodell måste:
+1. Definiera enhets funktionen i enhets modellens **assettracker-01. JSON-** fil. Avsnittet telemetri i en protobuf-enhets modell måste:
 
-   * Inkludera namnet på klassen Protobuf du generera för din enhet. Följande avsnitt visar hur du skapar den här klassen.
-   * Ange Protobuf som meddelandeformat.
+   * Inkludera namnet på protobuf-klassen som du genererar för enheten. I följande avsnitt visas hur du skapar den här klassen.
+   * Ange protobuf som meddelande format.
 
      ```json
      {
@@ -137,21 +137,21 @@ I den här How-to-till-guiden, kan du skapa en ny enhetsmodell för en tillgång
      }
      ```
 
-### <a name="create-device-behaviors-script"></a>Skapa beteenden-enhetsskript
+### <a name="create-device-behaviors-script"></a>Skapa enhets beteende skript
 
-Skriva skriptet beteende som definierar hur enheten fungerar. Mer information finns i [skapar en avancerad simulerad enhet](iot-accelerators-device-simulation-advanced-device.md).
+Skriv beteende skriptet som definierar hur enheten beter sig. Mer information finns i [skapa en avancerad simulerad enhet](iot-accelerators-device-simulation-advanced-device.md).
 
-## <a name="define-your-protobuf-format"></a>Definiera Protobuf-format
+## <a name="define-your-protobuf-format"></a>Definiera ditt protobuf-format
 
-När du har en enhet och har fastställt meddelandeformat, kan du skapa en **proto** fil. I den **proto** registrerat kan du lägga till:
+När du har en enhets modell och bestämt meddelande formatet, kan du skapa en **proto** -fil. I **proto** -filen lägger du till:
 
-* En `csharp_namespace` som matchar den **ClassName** -egenskapen i din enhetsmodell.
-* Ett meddelande för varje datastruktur för att serialisera.
-* Ett namn och typ för varje fält i meddelandet.
+* En `csharp_namespace` som matchar egenskapen **className** i din enhets modell.
+* Ett meddelande för varje data struktur som ska serialiseras.
+* Ett namn och en typ för varje fält i meddelandet.
 
-1. Skapa en ny fil med namnet **assettracker.proto** i den **Services\Models\Protobuf\proto** mapp.
+1. Skapa en ny fil med namnet **assettracker. proto** i mappen **Services\Models\Protobuf\proto** .
 
-1. Definiera syntax, namnområde och Meddelandeschema i den **proto** så här:
+1. Definiera syntax, namnrymd och meddelande schema i filen **proto** enligt följande:
 
     ```proto
     syntax = "proto3";
@@ -166,47 +166,47 @@ När du har en enhet och har fastställt meddelandeformat, kan du skapa en **pro
     }
     ```
 
-Den `=1`, `=2` markörer på varje element ange en unik tagg som används i binär kodning. Nummer 1 – 15 kräver en mindre byte att koda än högre nummer.
+`=1``=2` markörerna på varje element anger en unik tagg som används i den binära kodningen i fältet. Nummer 1-15 kräver en mindre byte för att koda än högre tal.
 
-## <a name="generate-the-protobuf-class"></a>Generera Protobuf-klass
+## <a name="generate-the-protobuf-class"></a>Generera protobuf-klassen
 
-När du har en **proto** filen, nästa steg är att generera de klasser som behövs för att läsa och skriva meddelanden. Du behöver för att slutföra det här steget, den **Protoc** Protobuf-kompilatorn.
+När du har en **proto** -fil är nästa steg att generera de klasser som behövs för att läsa och skriva meddelanden. För att slutföra det här steget behöver du **Protoc** protobuf-kompilatorn.
 
-1. [Ladda ned Protobuf-kompilatorn från GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
+1. [Ladda ned protobuf-kompilatorn från GitHub](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)
 
-1. Kör kompilatorn att ange källkatalogen, målmappen och namnet på din **proto** fil. Exempel:
+1. Kör kompilatorn, ange käll katalogen, mål katalogen och namnet på din **proto** -fil. Ett exempel:
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
     ```
 
-    Det här kommandot genererar ett **Assettracker.cs** fil i den **Services\Models\Protobuf** mapp.
+    Det här kommandot genererar en **Assettracker.cs** -fil i mappen **Services\Models\Protobuf** .
 
-## <a name="test-protobuf-locally"></a>Testa Protobuf lokalt
+## <a name="test-protobuf-locally"></a>Testa protobuf lokalt
 
-I det här avsnittet ska testa du tillgången spårningsverktyget för enheten som du skapade i föregående avsnitt lokalt.
+I det här avsnittet testar du den till gångs spårnings enhet som du skapade i föregående avsnitt lokalt.
 
-### <a name="run-the-device-simulation-microservice"></a>Kör enheten simulering mikrotjänst
+### <a name="run-the-device-simulation-microservice"></a>Kör mikrotjänsten enhets simulering
 
-Öppna den **.vscode/launch.json** fil och tilldela din:
+Öppna filen **. VSCode/Launch. JSON** och tilldela din:
 
-* IoT Hub-anslutningssträngen till den **datorer\_IOTHUB\_CONNSTRING** miljövariabeln.
-* Anslutningssträng för lagringskonto till den **datorer\_AZURE\_STORAGE\_konto** miljövariabeln.
-* Cosmos DB-anslutningssträngen till den **datorer\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** miljövariabeln.
+* IoT Hub anslutnings sträng till **datorerna\_IOTHUB\_CONNSTRING** miljövariabeln.
+* Anslutnings sträng för lagrings konto till **datorerna\_AZURE\_STORAGE\_-kontots** miljö variabel.
+* Cosmos DB anslutnings sträng till **datorerna\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** .
 
-Öppna den **WebService/Properties/launchSettings.json** fil och tilldela din:
+Öppna filen **WebService/Properties/launchSettings. JSON** och tilldela din:
 
-* IoT Hub-anslutningssträngen till den **datorer\_IOTHUB\_CONNSTRING** miljövariabeln.
-* Anslutningssträng för lagringskonto till den **datorer\_AZURE\_STORAGE\_konto** miljövariabeln.
-* Cosmos DB-anslutningssträngen till den **datorer\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** miljövariabeln.
+* IoT Hub anslutnings sträng till **datorerna\_IOTHUB\_CONNSTRING** miljövariabeln.
+* Anslutnings sträng för lagrings konto till **datorerna\_AZURE\_STORAGE\_-kontots** miljö variabel.
+* Cosmos DB anslutnings sträng till **datorerna\_STORAGEADAPTER\_DOCUMENTDB\_CONNSTRING** .
 
-Öppna den **WebService\appsettings.ini** -filen och ändra följande inställningar:
+Öppna filen **WebService\appsettings.ini** och ändra inställningarna enligt följande:
 
-#### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Konfigurera lösningen för att inkludera de nya enheten modellen filerna
+#### <a name="configure-the-solution-to-include-your-new-device-model-files"></a>Konfigurera lösningen så att den innehåller de nya filerna för enhets modellen
 
-Som standard kopieras dina nya enhetsmodell JSON och JS-filer inte till den inbyggda lösningen. Du måste uttryckligen skrivs.
+Som standard kopieras inte dina nya enhets modell-JSON-och JS-filer till den färdiga lösningen. Du måste uttryckligen inkludera dem.
 
-Lägg till en post som den **services\services.csproj** fil för varje fil som du vill inkludera. Exempel:
+Lägg till en post i **services\services.CSPROJ** -filen för varje fil som du vill inkludera. Ett exempel:
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -217,17 +217,17 @@ Lägg till en post som den **services\services.csproj** fil för varje fil som d
 </None>
 ```
 
-Om du vill köra mikrotjänst lokalt, klickar du på **felsöka \> Starta felsökning**.
+Kör mikrotjänsten lokalt genom att klicka på **felsök \> starta fel sökning**.
 
-Den **Terminal** utdata från körs mikrotjänst visas i fönstret i Visual Studio Code.
+**Terminalfönstret** i Visual Studio Code visar utdata från den aktiva mikrotjänsten.
 
-Lämna enheten simulering mikrotjänster som körs i den här instansen av Visual Studio Code när du slutför nästa steg.
+Lämna mikrotjänsten för enhets simulering som körs i den här instansen av Visual Studio Code medan du slutför nästa steg.
 
-### <a name="set-up-a-monitor-for-device-events"></a>Konfigurera en Övervakare för enhetshändelser
+### <a name="set-up-a-monitor-for-device-events"></a>Konfigurera en Övervakare för enhets händelser
 
-I det här avsnittet använder du Azure CLI för att ställa in en Händelseövervakare visar den telemetri som skickas från enheter som är anslutna till din IoT hub.
+I det här avsnittet använder du Azure CLI för att konfigurera en händelse Övervakare för att Visa telemetri som skickas från enheter som är anslutna till din IoT-hubb.
 
-Skriptet nedan förutsätter att namnet på din IoT-hubb **enhet-simulering-test**.
+Följande skript förutsätter att namnet på din IoT Hub är **Device-simulering-test**.
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
@@ -237,44 +237,44 @@ az extension add --name azure-cli-iot-ext
 az iot hub monitor-events --hub-name device-simulation-test
 ```
 
-Lämna Händelseövervakare som körs medan du testa de simulerade enheterna.
+Lämna händelse övervakaren igång medan du testar de simulerade enheterna.
 
-### <a name="create-a-simulation-with-the-asset-tracker-device-type"></a>Skapa en simulering med tillgångstyp spårningsverktyget för enhet
+### <a name="create-a-simulation-with-the-asset-tracker-device-type"></a>Skapa en simulering med enhets typen till gångs Spårare
 
-I det här avsnittet ska använda du verktyget Postman för att begära enheten simulering mikrotjänst att köra en simulering med tillgångstyp spårningsverktyget för enheten. Postman är ett verktyg som låter dig skicka REST-begäranden till en webbtjänst.
+I det här avsnittet ska du använda Postman-verktyget för att begära mikrotjänsten för enhets simulering för att köra en simulering med enhets typen till gångs spårare. Postman är ett verktyg som du kan använda för att skicka REST-begäranden till en webb tjänst.
 
-Konfigurera Postman:
+Så här konfigurerar du Postman:
 
 1. Öppna Postman på den lokala datorn.
 
-1. Klicka på **filen \> Import**. Klicka sedan på **Välj filer**.
+1. Klicka på **fil \> importera**. Klicka sedan på **Välj filer**.
 
-1. Välj **Enhetssimulering för Azure IoT-lösning accelerator.postman\_samling** och **Enhetssimulering för Azure IoT-lösning accelerator.postman\_miljö** och Klicka på **öppna**.
+1. Välj **Azure IoT Device simulering Solution Accelerator. postman\_samling** och **Azure IoT Device simulering Solution Accelerator. Postman\_-miljö** och klicka på **Öppna**.
 
-1. Expandera den **Azure IoT-Enhetssimulering lösningsaccelerator** att se begäranden som du kan skicka.
+1. Expandera **Solution Accelerator för Azure IoT Device simulering** för att visa de begär Anden som du kan skicka.
 
-1. Klicka på **nr miljö** och välj **Azure IoT-Enhetssimulering lösningsaccelerator**.
+1. Klicka på **ingen miljö** och välj **Azure IoT Device simulering Solution Accelerator**.
 
-Nu har du en samling och läses in i din Postman-arbetsyta som du kan använda för att interagera med enheten simulering mikrotjänst-miljö.
+Nu har du en samling och en miljö som har lästs in i Postman-arbetsytan som du kan använda för att interagera med mikrotjänsten Device simulering.
 
 Konfigurera och köra simuleringen:
 
-1. Välj i Postman-samling **tillgången spåraren simulera** och klicka på **skicka**. Den här begäran skapar fyra instanser av den simulerade tillgång spåraren enhetstypen.
+1. I Postman-samlingen väljer du **skapa simulering av till gångs spår** och klickar på **Skicka**. Den här begäran skapar fyra instanser av enhets typen simulerad till gångs spårare.
 
-1. Händelsen övervaka utdata i Azure CLI-fönstret visas telemetri från simulerade enheter.
+1. Händelse övervakarens utdata i fönstret Azure CLI visar Telemetrin från de simulerade enheterna.
 
-Om du vill stoppa simuleringen, Välj den **stoppa simulering** begäran i Postman och klicka på **skicka**.
+Stoppa simuleringen genom att välja begäran **stoppa simulering** i Postman och klicka på **Skicka**.
 
 ### <a name="clean-up-resources"></a>Rensa resurser
 
-Du kan stoppa två som körs lokalt mikrotjänster i sina Visual Studio Code-instanser (**felsöka \> stoppa felsökning**).
+Du kan stoppa de två lokalt använda mikrotjänster i sina Visual Studio Code-instanser (**felsök \> stoppa fel sökning**).
 
-Om du behöver inte längre IoT Hub och Cosmos DB-instanser kan du ta bort dem från Azure-prenumerationen för att undvika onödiga kostnader.
+Om du inte längre behöver IoT Hub och Cosmos DB instanser tar du bort dem från din Azure-prenumeration för att undvika onödiga kostnader.
 
-## <a name="iot-hub-support"></a>IoT Hub Support
+## <a name="iot-hub-support"></a>IoT Hub support
 
-Många IoT Hub-funktioner stöder inte internt Protobuf eller andra binärt format. Du kan till exempel vidarebefordra baserat på meddelandenyttolast eftersom IoT Hub inte går att bearbeta meddelandet nyttolasten. Du kan dock vidarebefordra baserat på meddelandehuvudena.
+Många IoT Hub funktioner har inte inbyggt stöd för protobuf eller andra binära format. Du kan till exempel inte dirigera utifrån meddelandets nytto Last eftersom IoT Hub inte kan bearbeta meddelandets nytto Last. Du kan dock dirigera baserat på meddelande rubriker.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu du har lärt dig hur du anpassar Enhetssimulering om du vill använda Protobuf för att skicka telemetri om nästa steg är att lära dig nu att [distribuera en anpassad avbildning till molnet](iot-accelerators-device-simulation-deploy-image.md).
+Nu har du lärt dig hur du anpassar enhets simuleringen för att använda protobuf för att skicka telemetri, nästa steg är att lära dig nu för att [distribuera en anpassad avbildning till molnet](iot-accelerators-device-simulation-deploy-image.md).

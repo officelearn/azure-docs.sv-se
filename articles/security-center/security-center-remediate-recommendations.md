@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 5217c4c7b68c487d7285ec03700266ad2768606d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 325c68e5e4531e5519596bea00c370c26460a8ed
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571527"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981899"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Åtgärda rekommendationer i Azure Security Center
 
-Rekommendationer ger förslag på hur du bättre skyddar resurserna. Du implementerar en rekommendation genom att följa de åtgärds steg som beskrivs i rekommendationen. 
+Rekommendationer ger förslag på hur du bättre skyddar resurserna. Du implementerar en rekommendation genom att följa de åtgärds steg som beskrivs i rekommendationen.
 
 ## Reparations steg<a name="remediation-steps"></a>
 
@@ -32,7 +32,7 @@ När du har granskat alla rekommendationer, Bestäm vilken av dem som ska åtgä
 
 1. Följ anvisningarna i avsnittet **reparations steg** . Varje rekommendation har en egen uppsättning instruktioner. Följande skärm bild visar åtgärds steg för att konfigurera program att bara tillåta trafik över HTTPS.
 
-    ![Rekommendations information](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+    ![Information om rekommendation](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
 
 1. När åtgärden har slutförts visas ett meddelande om att reparationen lyckades.
 
@@ -46,12 +46,12 @@ Implementera snabb korrigerings reparation:
 
     [![Välj snabb korrigering!](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)](media/security-center-remediate-recommendations/security-center-one-click-fix-select.png#lightbox)
 
-1. På fliken **felaktiga resurser** väljer du de resurser som du vill implementera rekommendationen på och klickar på **åtgärda**. 
+1. På fliken **felaktiga resurser** väljer du de resurser som du vill implementera rekommendationen på och klickar på **åtgärda**.
 
     > [!NOTE]
     > Några av de listade resurserna kan vara inaktiverade eftersom du inte har rätt behörighet för att ändra dem.
 
-1. Läs korrigerings informationen och konsekvenserna i bekräftelse rutan. 
+1. Läs korrigerings informationen och konsekvenserna i bekräftelse rutan.
 
     ![Snabb korrigering](./media/security-center-remediate-recommendations/security-center-one-click-fix-view.png)
 
@@ -67,7 +67,7 @@ Implementera snabb korrigerings reparation:
 
 ## Snabb korrigering av reparations loggning i aktivitets loggen<a name="activity-log"></a>
 
-Reparations åtgärden använder en mall för distribution av mallar eller REST-PATCH-API-anrop för att tillämpa konfigurationen på resursen. De här åtgärderna loggas i [aktivitets loggen i Azure](../azure-resource-manager/resource-group-audit.md).
+Reparations åtgärden använder en mall för distribution av mallar eller REST-PATCH-API-anrop för att tillämpa konfigurationen på resursen. De här åtgärderna loggas i [aktivitets loggen i Azure](../azure-resource-manager/management/view-activity-logs.md).
 
 
 ## <a name="recommendations-with-quick-fix-remediation"></a>Rekommendationer med snabb korrigerings åtgärder
@@ -79,16 +79,16 @@ Reparations åtgärden använder en mall för distribution av mallar eller REST-
 |Sårbarhets bedömning ska vara aktiverat på SQL-hanterade instanser|Den här åtgärden aktiverar SQL sårbarhets bedömning på valda SQL-hanterade instanser. <br>**Obs!**<ul><li>SQL sårbarhet Assessment är en del av SQL-paketet för avancerad data säkerhet (ADS). Om ADS inte redan är aktiverat aktive ras den automatiskt på den hanterade instansen.</li><li>För varje region och resurs grupp för de valda SQL-hanterade instanserna skapas och delas ett lagrings konto för lagring av genomsöknings resultat som delas av alla instanser i den regionen.</li><li>ADS debiteras med $15 per SQL Server.</li></ul>||
 |Avancerad data säkerhet ska vara aktiverat på dina SQL-servrar|Med den här åtgärden aktive ras avancerad data säkerhet (ADS) på de valda servrarna och databaserna. <br>**Obs!**<ul><li>För varje region och resurs grupp för de valda SQL-servrarna skapas och delas ett lagrings konto för lagring av Sök resultat som delas av alla servrar i regionen. <</li><li>ADS debiteras med $15 per SQL Server.</li></ul>||
 |Sårbarhets bedömning bör vara aktiverat på dina SQL-servrar|Den här åtgärden aktiverar utvärdering av SQL-säkerhetsproblem på de valda servrarna och deras databaser. <br>**Obs!**<ul><li>SQL sårbarhet Assessment är en del av SQL-paketet för avancerad data säkerhet (ADS). Om ADS inte redan är aktiverat aktive ras den automatiskt på SQL-servern.</li><li>För varje region och resurs grupp för de valda SQL-servrarna skapas och delas ett lagrings konto för lagring av genomsöknings resultat som delas av alla instanser i den regionen.</li><li>ADS debiteras med $15 per SQL Server.</li></ul>||
-|Transparent data kryptering på SQL-databaser ska vara aktive rad|Med den här åtgärden kan SQL Database transparent datakryptering (TDE) på de valda databaserna. <br>**Obs**: som standard används service-hanterade TDE-nycklar. 
-|Säker överföring till lagrings konton ska vara aktiverat|Den här åtgärden uppdaterar lagrings kontots säkerhet för att endast tillåta begär Anden via säkra anslutningar. (HTTPS). <br>**Obs!**<ul><li>Alla begär Anden som använder HTTP kommer att avvisas.</li><li>När du använder Azure Files-tjänsten Miss söker inte anslutningen utan kryptering, inklusive scenarier som använder SMB 2,1, SMB 3,0 utan kryptering och vissa varianter av Linux SMB-klienten. Läs mer.</li></ul>|
-|Webb program bör endast vara tillgängliga via HTTPS|Den här åtgärden dirigerar om all trafik från HTTP till HTTPS, på de valda resurserna. <br>**Obs!**<ul><li>En HTTPS-slutpunkt som inte har ett SSL-certifikat visas i webbläsaren med ett "sekretess fel". Användare som har en anpassad domän måste kontrol lera att de har konfigurerat ett SSL-certifikat.</li><li>Se till att paket-och webb programs brand väggar skyddar app service, Tillåt vidarebefordring av HTTPS-sessioner.</li></ul>|
-|Funktionsapp bör endast vara tillgängligt via HTTPS|Den här åtgärden dirigerar om all trafik från HTTP till HTTPS, på de valda resurserna. <br>**Obs!**<ul><li>En HTTPS-slutpunkt som inte har ett SSL-certifikat visas i webbläsaren med ett "sekretess fel". Användare som har en anpassad domän måste kontrol lera att de har konfigurerat ett SSL-certifikat.</li><li>Se till att paket-och webb programs brand väggar skyddar app service, Tillåt vidarebefordring av HTTPS-sessioner.</li></ul>|
+|Transparent data kryptering på SQL-databaser ska vara aktive rad|Med den här åtgärden kan SQL Database transparent datakryptering (TDE) på de valda databaserna. <br>**Obs**: som standard används service-hanterade TDE-nycklar.
+|Säker överföring till lagringskonton bör aktiveras|Den här åtgärden uppdaterar lagrings kontots säkerhet för att endast tillåta begär Anden via säkra anslutningar. (HTTPS). <br>**Obs!**<ul><li>Alla begär Anden som använder HTTP kommer att avvisas.</li><li>När du använder Azure Files-tjänsten Miss söker inte anslutningen utan kryptering, inklusive scenarier som använder SMB 2,1, SMB 3,0 utan kryptering och vissa varianter av Linux SMB-klienten. Läs mer.</li></ul>|
+|Webbprogram bör enbart vara åtkomliga via HTTPS|Den här åtgärden dirigerar om all trafik från HTTP till HTTPS, på de valda resurserna. <br>**Obs!**<ul><li>En HTTPS-slutpunkt som inte har ett SSL-certifikat visas i webbläsaren med ett "sekretess fel". Användare som har en anpassad domän måste kontrol lera att de har konfigurerat ett SSL-certifikat.</li><li>Se till att paket-och webb programs brand väggar skyddar app service, Tillåt vidarebefordring av HTTPS-sessioner.</li></ul>|
+|Funktionen App bör enbart vara åtkomliga via HTTPS|Den här åtgärden dirigerar om all trafik från HTTP till HTTPS, på de valda resurserna. <br>**Obs!**<ul><li>En HTTPS-slutpunkt som inte har ett SSL-certifikat visas i webbläsaren med ett "sekretess fel". Användare som har en anpassad domän måste kontrol lera att de har konfigurerat ett SSL-certifikat.</li><li>Se till att paket-och webb programs brand väggar skyddar app service, Tillåt vidarebefordring av HTTPS-sessioner.</li></ul>|
 |API-appen bör bara vara tillgänglig via HTTPS|Den här åtgärden dirigerar om all trafik från HTTP till HTTPS, på de valda resurserna. <br>**Obs!**<ul><li>En HTTPS-slutpunkt som inte har ett SSL-certifikat visas i webbläsaren med ett "sekretess fel". Användare som har en anpassad domän måste kontrol lera att de har konfigurerat ett SSL-certifikat.</li><li>Se till att paket-och webb programs brand väggar skyddar app service, Tillåt vidarebefordring av HTTPS-sessioner.</li></ul>|
-|Fjärrfelsökning bör inaktive ras för webb program|Den här åtgärden inaktiverar fjärrfelsökning.|
+|Fjärrfelsökning bör stängas av för webbprogram|Den här åtgärden inaktiverar fjärrfelsökning.|
 |Fjärrfelsökning bör inaktive ras för Funktionsapp|Den här åtgärden inaktiverar fjärrfelsökning.|
 |Fjärrfelsökning bör inaktive ras för API-appen|Den här åtgärden inaktiverar fjärrfelsökning.|
 |CORS bör inte tillåta alla resurser åtkomst till ditt webb program|Den här åtgärden blockerar andra domäner från att komma åt ditt webb program. Om du vill tillåta vissa domäner anger du dem i fältet tillåtna ursprung (avgränsade med kommatecken). <br>**Obs!** om fältet lämnas tomt blockeras alla kors ursprungs anrop. "param-fält Rubrik:" tillåtna ursprung "|
-|CORS bör inte tillåta alla resurser att komma åt din Funktionsapp|Den här åtgärden blockerar andra domäner från att komma åt ditt funktions program. Om du vill tillåta vissa domäner anger du dem i fältet tillåtna ursprung (avgränsade med kommatecken). <br>**Obs!** om fältet lämnas tomt blockeras alla kors ursprungs anrop. "param-fält Rubrik:" tillåtna ursprung "|
+|CORS bör inte bevilja alla resurser att få åtkomst till din Funktionsapp|Den här åtgärden blockerar andra domäner från att komma åt ditt funktions program. Om du vill tillåta vissa domäner anger du dem i fältet tillåtna ursprung (avgränsade med kommatecken). <br>**Obs!** om fältet lämnas tomt blockeras alla kors ursprungs anrop. "param-fält Rubrik:" tillåtna ursprung "|
 |CORS bör inte tillåta alla resurser åtkomst till din API-app|Den här åtgärden blockerar andra domäner från att komma åt ditt API-program. Om du vill tillåta vissa domäner anger du dem i fältet tillåtna ursprung (avgränsade med kommatecken). <br>**Obs!** om fältet lämnas tomt blockeras alla kors ursprungs anrop. "param-fält Rubrik:" tillåtna ursprung "|
 |Övervaknings agenten ska vara aktive rad på dina virtuella datorer|Den här åtgärden installerar en övervaknings agent på de valda virtuella datorerna. Välj en arbets yta som agenten ska rapportera till.<ul><li>Om din uppdaterings princip är inställd på automatisk, kommer den att distribueras på nya befintliga instanser.</li><li>Om din uppdaterings princip är inställd på manuell och du vill installera agenten på befintliga instanser markerar du kryss rutan. [Läs mer](../virtual-machine-scale-sets/virtual-machine-scale-sets-faq.md#how-do-i-add-an-extension-to-all-vms-in-my-virtual-machine-scale-set)</li></ul>|
 |Diagnostikloggar i Key Vault ska vara aktive rad|Den här åtgärden aktiverar diagnostikloggar på nyckel valv. Diagnostikloggar och mått sparas på den valda arbets ytan.|

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 0d96fd4c435251fb4dd604351e6efeea8bde8353
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704550"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979503"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Lös felmatchade katalog fel för befintliga Azure AD Domain Services hanterade domäner
 
@@ -56,7 +56,7 @@ I det här exempel distributions scenariot är contoso Azure AD DS-hanterad dom�
 Följande två alternativ löser det felmatchade katalog felet:
 
 * [Ta bort den hanterade Azure AD DS-domänen](delete-aadds.md) från din befintliga Azure AD-katalog. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md) i samma Azure AD-katalog som det virtuella nätverk som du vill använda. När du är klar ansluter du alla datorer som tidigare var anslutna till den borttagna domänen till den återskapade hanterade domänen.
-* [Flytta Azure-prenumerationen](../billing/billing-subscription-transfer.md) som innehåller det virtuella nätverket till samma Azure AD-katalog som den hanterade domänen för Azure AD DS.
+* [Flytta Azure-prenumerationen](../cost-management-billing/manage/billing-subscription-transfer.md) som innehåller det virtuella nätverket till samma Azure AD-katalog som den hanterade domänen för Azure AD DS.
 
 ## <a name="next-steps"></a>Nästa steg
 

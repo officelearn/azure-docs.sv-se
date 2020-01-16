@@ -3,12 +3,12 @@ title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e3da4778a82cd5eb50fbb82c7f9f00cf6c6f1a85
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829637"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028202"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
@@ -251,7 +251,7 @@ När du säkerhetskopierar Azure-Virtual Machines har du också möjlighet att k
 
 ### <a name="backup-of-managed-disk-vm-encrypted-using-customer-managed-keys"></a>Säkerhets kopiering av den virtuella datorn med hanterade diskar med Kundhanterade nycklar
 
-Med Azure Backup kan du säkerhetskopiera Azure-Virtual Machines som innehåller diskar som har krypterats med hjälp av Kundhanterade nycklar. Mer information finns i [kryptering av hanterade diskar med Kundhanterade nycklar](https://docs.microsoft.com//azure/virtual-machines/windows/disk-encryption#customer-managed-keys-public-preview).
+Med Azure Backup kan du säkerhetskopiera Azure-Virtual Machines som innehåller diskar som har krypterats med hjälp av Kundhanterade nycklar. Mer information finns i [kryptering av hanterade diskar med Kundhanterade nycklar](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption#customer-managed-keys).
 
 ### <a name="backup-of-encrypted-vms"></a>Säkerhetskopiera krypterade virtuella datorer
 

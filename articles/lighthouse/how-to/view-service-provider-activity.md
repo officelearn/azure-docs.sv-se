@@ -1,14 +1,14 @@
 ---
 title: Visa tjänstleverantörsaktivitet
 description: Kunder kan visa loggad aktivitet för att se åtgärder som utförs av tjänst leverantörer via Azure-delegerad resurs hantering.
-ms.date: 12/6/2019
+ms.date: 01/15/2020
 ms.topic: conceptual
-ms.openlocfilehash: 31a9e7ff80623cc59b0a2db5951dff95d3088b05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: de149bddb6917a63d91b1890c0430f64465cb40c
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749176"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046107"
 ---
 # <a name="view-service-provider-activity"></a>Visa tjänstleverantörsaktivitet
 
@@ -24,6 +24,9 @@ Du kan [Visa aktivitets loggen](../../azure-monitor/platform/activity-log-view.m
 I aktivitets loggen visas namnet på åtgärden och dess status, tillsammans med datum och tid då den utfördes. **Händelsen som initieras av** kolumnen visar vilken användare som utförde åtgärden, om det var en användare i en tjänst leverantörs klient som agerar via Azure delegerad resurs hantering eller en användare i kundens egen klient. Observera att namnet på användaren visas, i stället för klient organisationen eller rollen som användaren har tilldelats för den prenumerationen.
 
 Loggad aktivitet är tillgänglig i Azure Portal under de senaste 90 dagarna. Information om hur du lagrar data i mer än 90 dagar finns i [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](../../azure-monitor/platform/activity-log-collect.md)
+
+> [!NOTE]
+> Användare från tjänst leverantören visas i aktivitets loggen, men de här användarna och deras roll tilldelningar visas inte i **Access Control (IAM)** eller när roll tilldelnings information hämtas via API: er.
 
 ## <a name="set-alerts-for-critical-operations"></a>Ange aviseringar för kritiska åtgärder
 

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b30e260b2eeb0d8af0c347996cdb51685dedd046
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 77bc092c7d44e559562699d9177c2bd168f7dea0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133331"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981599"
 ---
 # <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Ta emot och svara på meddelanden om nyckel valv med Azure Event Grid (för hands version)
 
@@ -180,15 +180,15 @@ Kontrol lera att din Event Grid-prenumeration är korrekt konfigurerad. Det här
 
 1. Välj det senaste jobbet och titta på POST-begäran som skickades från Event Grid till webhooken. Undersök JSON och se till att parametrarna för nyckel valvet och händelse typen är korrekta. Om parametern "händelse typ" i JSON-objektet matchar händelsen som inträffat i nyckel valvet (i det här exemplet Microsoft. Key Vault. SecretNearExpiry) lyckades testet.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 ### <a name="you-cant-create-an-event-subscription"></a>Du kan inte skapa en händelse prenumeration
 
-Registrera Event Grid-och Key Vault-providern i Azure-prenumerationens resurs leverantörer. Se [leverantörer och typer av Azure-resurser](../azure-resource-manager/resource-manager-supported-services.md).
+Registrera Event Grid-och Key Vault-providern i Azure-prenumerationens resurs leverantörer. Se [leverantörer och typer av Azure-resurser](../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gratulerar! Om du har följt alla dessa steg är du nu redo för att program mässigt svara på status ändringar för hemligheter som lagras i ditt nyckel valv.
+Grattis! Om du har följt alla dessa steg är du nu redo för att program mässigt svara på status ändringar för hemligheter som lagras i ditt nyckel valv.
 
 Om du har använt ett avsöknings system för att söka efter status ändringar för hemligheter i dina nyckel valv kan du nu börja använda den här meddelande funktionen. Du kan också ersätta test skriptet i din Runbook med kod för att program mässigt förnya dina hemligheter när de håller på att gå ut.
 

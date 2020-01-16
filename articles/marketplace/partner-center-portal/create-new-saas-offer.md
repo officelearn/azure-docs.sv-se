@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 1df30b25d2029ba31525eaea232d258bbb134366
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/13/2020
+ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863813"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045517"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -167,7 +167,7 @@ Välj **Spara** när du är klar med fälten.
 
 ### <a name="category"></a>Kategori
 
-Välj minst en (1) och högst tre (3) kategorier som används för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
+Välj minst en (1) och högst tre (3) kategorier som används för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet.
 
 ### <a name="industry"></a>Bransch
 
@@ -175,7 +175,7 @@ Välj minst en (1) och högst tre (3) kategorier som används för att gruppera 
 
 ### <a name="app-version"></a>Appversion
 
-Detta är ett valfritt fält som används i AppSource Marketplace för att identifiera versions numret för ditt erbjudande.
+Det här fältet är valfritt och används i AppSource Marketplace för att identifiera versions numret för ditt erbjudande.
 
 ### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
 
@@ -204,12 +204,12 @@ Det finns två typer av ändringar som är tillgängliga för kommersiella Marke
 >[!NOTE]
 > Dessa två typer av ändringar staplas ovanpå varandra. Kunder som är riktade mot anpassade ändringar får också den universella ändringen av standard kontraktet under köpet.
 
-**Generella ändrings villkor för standard kontraktet för Microsofts kommersiella marknads plats**: Ange villkoren för generell ändring i den här rutan. Du kan ange en enda universell ändring per erbjudande. Du kan ange ett obegränsat antal tecken i den här rutan. De visas för kunder i AppSource, Azure Marketplace och/eller Azure Portal under identifierings-och inköps flödet.
+**Generella ändrings villkor för standard kontraktet för Microsofts kommersiella marknads plats**: Ange villkoren för generell ändring i den här rutan. Du kan ange en enda universell ändring per erbjudande. Du kan ange ett obegränsat antal tecken i den här rutan. Dessa villkor visas för kunder i AppSource, Azure Marketplace och/eller Azure Portal under identifierings-och inköps flödet.
 
 **Anpassade ändrings villkor till standard kontraktet för Microsofts kommersiella marknads**plats: börja genom att välja **Lägg till anpassade ändrings villkor**. Du kan ange upp till 10 anpassade ändrings villkor per erbjudande.
 
 - **Anpassade ändrings villkor**: Ange dina anpassade ändrings villkor i rutan anpassade ändrings villkor. Du kan ange ett obegränsat antal tecken i den här rutan. Endast kunder från klient-ID: n som du anger för de här anpassade villkoren visas med villkoren för anpassad ändring i erbjudandets inköps flöde i Azure Portal.  
-- **Klient-ID** (obligatoriskt): varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID. Klient-ID: t identifierar din kund i Azure. Du kan be kunden om detta ID och de kan hitta det genom att gå till portal.azure.com > Azure Active Directory > Egenskaper. Värdet för katalog-ID är klient-ID (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID för din kund genom att använda deras domän namns-URL i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com).
+- **Klient-ID** (obligatoriskt): varje anpassad ändring kan riktas mot upp till 20 klient-ID: n. Om du lägger till en anpassad ändring måste du ange minst ett klient-ID. Klient-ID: t identifierar din kund i Azure. Du kan be kunden om detta ID och de kan hitta det genom att gå till portal.azure.com > Azure Active Directory > Egenskaper. Värdet för katalog-ID är klient-ID (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Du kan också leta upp organisationens klient-ID för din kund genom att använda deras domän namns-URL i [Vad är mitt Microsoft Azure-och Office 365-klient-ID?](https://www.whatismytenantid.com).
 - **Beskrivning** (valfritt): om du vill kan du ange en egen beskrivning för klient-ID: t som hjälper dig att identifiera kunden som du är mål för med ändringen.
 
 #### <a name="terms-and-conditions"></a>Allmänna villkor
@@ -231,7 +231,7 @@ På fliken erbjudande lista visas de språk (och marknader) där ditt erbjudande
 
 Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar.
 
-- **Namn** (obligatoriskt): det namn som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post.  Detta kan vara ett varumärke.  Detta får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
+- **Namn** (obligatoriskt): det namn som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post. Namnet kan vara ett varumärke. Den får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
 - **Sammanfattning** (krävs): Ange en kort beskrivning av ditt erbjudande som ska användas i Sök Resultat för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
 - **Beskrivning** (krävs): Ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information.
 Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
@@ -240,7 +240,7 @@ Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns 
 
 #### <a name="description"></a>**Beskrivning**
 
-Detta är ett obligatoriskt fält. Objekt som ska tas med i beskrivningen:
+Det här fältet är obligatoriskt. Objekt som ska tas med i **beskrivningen**:
 
 * Beskriv tydligt ditt erbjudande värde i de första meningarna i beskrivningen.  
 * Tänk på att de första meningarna kan visas i Sök motorns resultat.  
@@ -253,76 +253,28 @@ Kärn komponenterna i dina värde förslag bör innehålla följande information
 * Typ av användare som fördelar från produkten.
 * Kunden behöver eller målar produkten om produkt adressen.
 
-Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML-taggar för att formatera beskrivningen.
+Om du vill göra din erbjudande **Beskrivning** mer engagerande använder du RTF-redigeraren för att formatera beskrivningen.
 
-1. Om du vill skapa stycken lägger du till `<p>` i begging i texten och lägger till `</p>` i slutet.
+![Använda Rich Text Editor](./media/text-editor2.png)
 
-    **Exempel**:
+Använd följande instruktioner för att använda Rich Text Editor:
 
-    `<p>` det här är mitt första stycke. `</p>` <br>
-    `<p>` det här är mitt andra stycke. `</p>` <br>
+- Om du vill ändra formatet på ditt innehåll markerar du den text som du vill formatera och väljer ett text format enligt nedan:
 
-    Ovanstående skulle se ut så här:
+     ![Använda RTF-redigeraren för att ändra text format](./media/text-editor3.png)
 
-    <p> Detta är mitt första stycke. </p>
-    <p> Det här är mitt andra stycke. </p>
+- Om du vill lägga till en punkt lista eller numrerad lista i texten använder du alternativen nedan:
 
-1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan `<li>` och `</li>` taggar) i `<ul>` och `</ul>` taggar. Se till att du lägger till `<ul></ul>`.
+     ![Använda RTF-redigeraren för att lägga till listor](./media/text-editor4.png)
 
-    **Exempel**:
+- Om du vill lägga till eller ta bort indrag i texten använder du alternativen nedan:
 
-    ```
-    <ul> 
-        <li>add text here</li>
-        <li> add text here </li>
-        <li> add text here </li>
-    </ul>
-    ```
-
-    Ovanstående skulle se ut så här:
-    <ul> 
-        <li>Lägg till text här</li>
-        <li> Lägg till text här </li>
-        <li> Lägg till text här </li>
-    </ul> 
-
-1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil.
-
-    **Exempel**: `<b>` kostnads fri utvärderings version `</b>`
-    
-    Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik.
-
-    **KOSTNADSFRI UTVÄRDERINGSVERSION**
-
-1. Om du vill lägga till **rad brytningar** mellan innehållet lägger du till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet startar på en ny rad lägger du till `<br><br>` före innehållet.
-
-    **Exempel**:
-
-    Detta är en textrad. `<br>` det här är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som kommer att starta två rader nedan.
-
-    Ovanstående skulle se ut så här:
-
-    Detta är en textrad. <br> Detta är en text rad som börjar på en ny rad. <br><br> Det här är en rad som kommer att starta två rader nedan.
-
-1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>`-Taggar i början och slutet av texten.
-
-    **Exempel**:
-
-    `<h1>`detta är rubrik 1`</h1>` <br>
-    `<h2>`detta är rubrik 2`</h2>` <br>
-    `<h3>`detta är rubrik 3`</h3>` <br>
-    `<h4>`detta är rubrik 4`</h4>` <br>
-    `<h5>`detta är rubrik 5`</h5>` <br>
-    `<h6>`detta är rubrik 6`</h6>` 
-
-    Ovanstående skulle se ut så här:
-
-    ![Exempel rubriker](./media/heading.png)
+     ![Använda RTF-redigeraren för att dra in text](./media/text-editor5.png)
 
 #### <a name="links"></a>Länkar
 
 - **Sekretess policy** (krävs): länka till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
-- **CSP-program marknadsförings material** (valfritt): du måste ange en länk till marknadsförings material om du väljer att utöka ditt erbjudande till [CSP-programmet (Cloud Solution Provider)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
+- **CSP-program marknadsförings material** (valfritt): Ange en länk till marknadsförings material om du väljer att utöka erbjudandet till program varan för [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 - **Användbara länkar** (valfritt): valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
 
 #### <a name="contact-information"></a>Kontaktinformation
@@ -353,7 +305,7 @@ Kom ihåg att **Spara** innan du går vidare till nästa avsnitt.
 På fliken **förhands granskning** kan du definiera en begränsad **förhands gransknings grupp** för att släppa ditt erbjudande innan du publicerar erbjudandet Live till den bredare Marketplace-publiken.
 
 > [!IMPORTANT]
-> Du måste välja **Go Live** innan ditt erbjudande publiceras Live till offentlig Marketplace-publik när du har kontrollerat ditt erbjudande i för hands versionen.
+> När du har kontrollerat ditt erbjudande i för hands version väljer du **Go Live** så att ditt erbjudande kan publiceras Live till den offentliga Marketplace-publiken.
 
 - **Definiera en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning.**
 
@@ -368,11 +320,11 @@ På fliken **teknisk konfiguration** definieras den tekniska informationen (URL-
 
 - **Landnings sidans URL** (krävs): definiera den plats-URL som kunderna ska landa efter när ditt erbjudande har hämtats från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
 
-- **Anslutning-webhook** (krävs): för alla asynkrona händelser som Microsoft behöver skicka till dig för kunden (exempel: SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutning-webhook** (krävs): för alla asynkrona händelser som Microsoft behöver skicka till dig för kunden (exempel: SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. https:\//prod-1westus.logic.azure.com:443/work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD-klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (till exempel 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID** som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
+- **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID-** nummer som anges (till exempel 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
 >[!Note]
 >Azure-programmets ID är associerat med ditt utgivar-ID, så se till att samma program-ID används i alla dina erbjudanden.
@@ -390,8 +342,8 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 
 **Skapa en ny plan** (minst en plan för de som väljer att sälja via Microsoft)
 
-- **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Observera att ID: t inte kan ändras när du har valt skapa.
-- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Namn på erbjudande: Windows Server; planer: Windows Server 2016, Windows Server 2019).
+- **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Det går inte att ändra ID när du har valt skapa.
+- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (till exempel erbjudande namn: Windows Server; abonnemang: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Plan lista
 
@@ -424,7 +376,7 @@ Möjligheten att konfigurera en kostnads fri utvärderings version är tillgäng
 >[!Note]
 >När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
-Om du vill få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API-egenskapen `isFreeTrial`, som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
+Om du vill få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API-egenskapen `isFreeTrial`, som kommer att markeras som sant eller falskt. Mer information finns i API för [SaaS get-prenumeration](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription).
 
 >[!Note]
 >Kostnads fria utvärderings versioner stöds inte för planer som utnyttjar Marketplace-avläsning.

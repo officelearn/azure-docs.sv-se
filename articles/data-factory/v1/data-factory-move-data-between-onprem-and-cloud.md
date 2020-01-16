@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: be797f76988c924503e11b6f66cce899b515e3a2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931912"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982204"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Flytta data mellan lokala källor och molnet med Data Management Gateway
 > [!NOTE]
@@ -29,15 +29,15 @@ Den här artikeln innehåller en översikt över data integrering mellan lokala 
 Du måste installera Data Management Gateway på den lokala datorn för att kunna flytta data till/från ett lokalt data lager. Gatewayen kan installeras på samma dator som data lagret eller på en annan dator så länge som gatewayen kan ansluta till data lagret.
 
 > [!IMPORTANT]
-> Se [Data Management Gateway](data-factory-data-management-gateway.md) artikel för information om data Management Gateway. 
+> Se [Data Management Gateway](data-factory-data-management-gateway.md) artikel för information om data Management Gateway.
 
 Följande genom gång visar hur du skapar en data fabrik med en pipeline som flyttar data från en lokal **SQL Server** -databas till en Azure Blob Storage. Som en del av den här genomgången kommer du att installera och konfigurera Data Management Gateway på din dator.
 
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>Genom gång: Kopiera lokala data till molnet
-I den här genom gången utför du följande steg: 
+I den här genom gången utför du följande steg:
 
 1. Skapa en datafabrik.
-2. Skapa en data Management Gateway. 
+2. Skapa en data Management Gateway.
 3. Skapa länkade tjänster för käll-och mottagar data lager.
 4. Skapa data uppsättningar som representerar indata och utdata.
 5. Skapa en pipeline med en kopieringsaktivitet för att flytta data.
@@ -46,8 +46,8 @@ I den här genom gången utför du följande steg:
 Innan du påbörjar den här genom gången måste du ha följande krav:
 
 * **Azure-prenumeration**.  Om du inte har någon Azure-prenumeration kan du skapa ett kostnadsfritt konto på ett par minuter. Mer information finns i artikeln om [kostnads fri utvärdering](https://azure.microsoft.com/pricing/free-trial/) .
-* **Azure Storage konto**. Du använder Blob Storage som data lager för **destination/mottagare** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
-* **SQL Server**. Du använder en lokal SQL Server-databas som **källdata** i den här självstudien. 
+* **Azure Storage konto**. Du använder Blob Storage som data lager för **destination/mottagare** i den här självstudien. om du inte har ett Azure Storage-konto finns det anvisningar om hur du skapar ett i artikeln [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
+* **SQL Server**. Du använder en lokal SQL Server-databas som **källdata** i den här självstudien.
 
 ## <a name="create-data-factory"></a>Skapa en datafabrik
 I det här steget använder du Azure Portal för att skapa en Azure Data Factory-instans med namnet **ADFTutorialOnPremDF**.

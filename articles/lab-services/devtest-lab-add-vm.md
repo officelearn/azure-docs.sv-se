@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 64a5892226b90019f175308b5984dc0a0108e226
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 22060cc6dd5eb15e81a0c397a7b0255f16780d74
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162242"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75976499"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Lägga till en virtuell dator i ett labb i Azure DevTest Labs
 Om du redan har [skapat din första virtuella dator](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), gjorde du troligt vis från en förinstallerad [Marketplace-avbildning](devtest-lab-configure-marketplace-images.md). Om du nu vill lägga till efterföljande virtuella datorer i labbet kan du också välja en *bas* som antingen är en [anpassad bild](devtest-lab-create-template.md) eller [formel](devtest-lab-manage-formulas.md). Den här självstudien vägleder dig genom att använda Azure Portal för att lägga till en virtuell dator i ett labb i DevTest Labs.
@@ -27,7 +27,7 @@ Om du redan har [skapat din första virtuella dator](tutorial-create-custom-lab.
 Den här artikeln visar också hur du hanterar artefakter för en virtuell dator i labbet.
 
 ## <a name="steps-to-add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Steg för att lägga till en virtuell dator i ett labb i Azure DevTest Labs
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i avsnittet **DEVOPS** . Om du väljer * (Star) bredvid **DevTest Labs** i avsnittet **DEVOPS** . Den här åtgärden lägger till **DevTest Labs** i den vänstra navigerings menyn så att du enkelt kan komma åt dem nästa gång. Sedan kan du välja **DevTest Labs** i den vänstra navigerings menyn.
 
     ![Alla tjänster – Välj DevTest Labs](./media/devtest-lab-create-lab/all-services-select.png)
@@ -52,7 +52,7 @@ Den här artikeln visar också hur du hanterar artefakter för en virtuell dator
     2. Om du vill ändra under nätet väljer du **ändra undernät**.
     3. Ange om IP-adressen för den virtuella datorn är **offentlig, privat eller delad**.
     4. Om du vill ta bort den virtuella datorn automatiskt anger du **förfallo datum och-tid**.
-    5. Om du vill göra den virtuella datorn valbar för en labb användare väljer du **Ja** för alternativet **gör datorn** anspråks bara.
+    5. Om du vill göra den virtuella datorn valbar för en labb användare väljer du **Ja** för alternativet **gör datorn anspråks** bara.
     6. Ange antalet **instanser av den virtuella datorn** som du vill göra tillgängliga för dina labb användare.
 
         ![Välja en bas](./media/tutorial-create-custom-lab/new-vm-advanced-settings.png)
@@ -65,12 +65,12 @@ Den här artikeln visar också hur du hanterar artefakter för en virtuell dator
 ## <a name="add-an-existing-artifact-to-a-vm"></a>Lägga till en befintlig artefakt till en virtuell dator
 När du skapar en virtuell dator kan du lägga till befintliga artefakter. Varje labb innehåller artefakter från den offentliga DevTest Labs artefakt-lagringsplats samt artefakter som du har skapat och lagt till i din egen artefakt lagrings plats.
 
-* Med Azure DevTest Labs artefakter kan du ange *åtgärder* som utförs när den virtuella datorn är etablerad, till exempel köra Windows PowerShell-skript, köra bash-kommandon och installera program vara.
+* Med Azure DevTest Labs *artefakter* kan du ange *åtgärder* som utförs när den virtuella datorn är etablerad, till exempel köra Windows PowerShell-skript, köra bash-kommandon och installera program vara.
 * Med artefakt *parametrar* kan du anpassa artefakten för ditt specifika scenario
 
 Information om hur du skapar artefakter finns i artikeln [Lär dig hur du skapar dina egna artefakter för användning med DevTest Labs](devtest-lab-artifact-author.md).
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 1. I listan med labb väljer du det labb som innehåller den virtuella dator som du vill arbeta med.
 1. Välj **mina virtuella datorer**.
@@ -107,7 +107,7 @@ Följande steg visar hur du visar eller ändrar parametrarna för en artefakt:
 ## <a name="save-azure-resource-manager-template"></a>Spara Azure Resource Manager mall
 En Azure Resource Manager-mall är ett deklarativ sätt att definiera en repeterbar distribution.
 Följande steg beskriver hur du sparar Azure Resource Manager-mallen för den virtuella datorn som skapas.
-När du har sparat kan du använda Azure Resource Manager-mallen för att [distribuera nya virtuella datorer med Azure PowerShell](../azure-resource-manager/template-deployment-overview.md).
+När du har sparat kan du använda Azure Resource Manager-mallen för att [distribuera nya virtuella datorer med Azure PowerShell](../azure-resource-manager/templates/overview.md).
 
 1. I fönstret **virtuell dator** väljer du **Visa Azure Resource Manager mall**.
 2. I fönstret **visa Azure Resource Manager mall** väljer du mal len text.

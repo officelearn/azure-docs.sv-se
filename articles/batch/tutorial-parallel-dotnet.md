@@ -2,25 +2,25 @@
 title: Kör en parallell arbetsbelastning – Azure Batch .NET
 description: Självstudie – Omkoda mediefiler parallellt med ffmpeg i Azure Batch med hjälp av klientbiblioteket Batch .NET
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/21/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 103d09da3fedf9c31d4e5255456e63cab34bc0ee
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 6f12f54e510cb07fcf522d2fd5e2e83fce4dfa96
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258586"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029257"
 ---
-# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudier: Köra en parallell arbetsbelastning med Azure Batch med hjälp av .NET API:et
+# <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Självstudie: Kör en parallell arbetsbelastning med Azure Batch med hjälp av .NET API
 
-Använd Azure Batch för att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i Azure. I den här självstudien går vi igenom ett C#-exempel på att köra en parallell arbetsbelastning med Batch. Du lär dig ett vanligt arbetsflöde för Batch-program och hur du interagerar programmatiskt med Batch- och Storage-resurser. Lär dig att:
+Använd Azure Batch till att effektivt köra storskaliga parallella program och HPC-program (databehandling med höga prestanda) i Azure. I den här självstudien går vi igenom ett C#-exempel på att köra en parallell arbetsbelastning med Batch. Du lär dig ett vanligt arbetsflöde för Batch-program och hur du interagerar programmatiskt med Batch- och Storage-resurser. Lär dig att:
 
 > [!div class="checklist"]
 > * lägga till ett programpaket i Batch-kontot
@@ -35,11 +35,11 @@ I den här självstudien konverterar du MP4-mediefiler parallellt till MP3-forma
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Visual Studio 2017 eller senare](https://www.visualstudio.com/vs), eller [.net Core 2,1](https://www.microsoft.com/net/download/dotnet-core/2.1) för Linux, MacOS eller Windows.
 
-* Ett Batch-konto och ett länkat Azure Storage-konto. För att skapa dessa konton finns Batch-snabbstart med hjälp av [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
+* Ett Batch-konto och ett länkat Azure Storage-konto. Information om hur du skapar de här kontona finns Batch-snabbstarterna som du kommer åt via [Azure-portalen](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
 * [Windows 64-bitarsversionen av ffmpeg 3.4](https://ffmpeg.zeranoe.com/builds/win64/static/ffmpeg-3.4-win64-static.zip) (.zip). Ladda ned zip-filen till din lokala dator. I den här självstudien behöver du bara zip-filen. Du behöver inte packa upp filen eller installera den lokalt.
 
@@ -71,7 +71,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Gå till den katalog som innehåller filen med Visual Studio-lösningen `BatchDotNetFfmpegTutorial.sln`.
 
-Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Exempel:
+Öppna lösningsfilen i Visual Studio och uppdatera strängarna med autentiseringsuppgifterna i `Program.cs` med värdena för dina konton. Ett exempel:
 
 ```csharp
 // Batch account credentials
@@ -175,8 +175,8 @@ Sedan laddas filerna upp till containern för indata från den lokala mappen `In
 
 Två metoder i `Program.cs` hanterar uppladdningen av filerna:
 
-* `UploadFilesToContainerAsync`: Returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
-* `UploadResourceFileToContainerAsync`: Laddar upp varje fil som en blob till indatacontainern. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den.
+* `UploadFilesToContainerAsync`: returnerar en samling ResourceFile-objekt och anropar `UploadResourceFileToContainerAsync` internt för att ladda upp varje fil som skickas i parametern `inputFilePaths`.
+* `UploadResourceFileToContainerAsync`: laddar upp varje fil som en blob till containern för indata. När filen har laddats upp hämtar den en signatur för delad åtkomst (SAS) för bloben och returnerar ett ResourceFile-objekt som representerar den.
 
 ```csharp
 string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
@@ -234,7 +234,7 @@ await pool.CommitAsync();
 
 Ett Batch-jobb anger en pool för körning av uppgifter, samt valfria inställningar som en prioritet och ett schema för arbetet. I exemplet skapas ett jobb med ett anrop till `CreateJobAsync`. I den här definierade metoden används metoden [BatchClient.JobOperations.CreateJob](/dotnet/api/microsoft.azure.batch.joboperations.createjob) till att skapa ett jobb i din pool.
 
-Metoden [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) skickar jobbet till Batch-tjänsten. Från början har jobbet inga aktiviteter.
+Metoden [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudjob.commitasync) skickar jobbet till Batch-tjänsten. Från början har jobbet inga uppgifter.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob();
@@ -244,7 +244,7 @@ job.PoolInformation = new PoolInformation { PoolId = PoolId };
 await job.CommitAsync();
 ```
 
-### <a name="create-tasks"></a>Skapa uppgifter
+### <a name="create-tasks"></a>Skapa aktiviteter
 
 I exemplet skapas uppgifterna i jobbet med ett anrop till metoden `AddTasksAsync`, som skapar en lista med [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask)-objekt. Varje `CloudTask` kör ffmpeg för bearbetning av ett `ResourceFile`-indataobjekt med egenskapen [CommandLine](/dotnet/api/microsoft.azure.batch.cloudtask.commandline). ffmpeg installerades tidigare på varje nod när poolen skapades. Här kör kommandoraden ffmpeg för att konvertera varje MP4-indatafil (video) till en MP3-fil (ljud).
 

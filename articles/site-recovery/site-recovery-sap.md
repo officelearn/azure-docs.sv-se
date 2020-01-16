@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: eeb85e97d653b0faac171e2986cb933fc41e6606
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 0cef6332a169b71d7812efdc41247443fbc194f2
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940674"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982368"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Konfigurera haveri beredskap för en distribution med flera nivåer av SAP NetWeaver-appar
 
@@ -68,13 +68,13 @@ SMLG transaktionen används för att hantera inloggningsgrupper för ABAP-progra
 #### <a name="vms-running-sap-central-services-cluster"></a>Virtuella datorer som kör SAP Central Services-kluster
 Denna Referensarkitektur kör centrala tjänster på virtuella datorer i appnivån. Central Services är en potentiell felpunkt (SPOF) när de distribueras till en enda virtuell dator – typisk distribution när hög tillgänglighet inte är ett krav.<br>
 
-Om du vill implementera en lösning för hög tillgänglighet kan antingen ett delat disk kluster eller ett fil resurs kluster användas. Om du vill konfigurera virtuella datorer för ett delat disk kluster använder du Windows Server-redundanskluster. Moln vittne rekommenderas som ett kvorumlogg. 
+Om du vill implementera en lösning för hög tillgänglighet kan antingen ett delat disk kluster eller ett fil resurs kluster användas. Om du vill konfigurera virtuella datorer för ett delat disk kluster använder du Windows Server-redundanskluster. Moln vittne rekommenderas som ett kvorumlogg.
  > [!NOTE]
  > Site Recovery replikerar inte moln vittnet, därför rekommenderas det att distribuera moln vittnet i Disaster Recovery-regionen.
 
-Stöd för failover-klustermiljö [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) utför klusterdelade volym funktion genom att replikera oberoende diskar som ägs av klusternoderna. Azure har inte har inbyggt stöd för delade diskar och därför kräver lösningar som tillhandahålls av SIOS. 
+Stöd för failover-klustermiljö [SIOS DataKeeper Cluster Edition](https://azuremarketplace.microsoft.com/marketplace/apps/sios_datakeeper.sios-datakeeper-8) utför klusterdelade volym funktion genom att replikera oberoende diskar som ägs av klusternoderna. Azure har inte har inbyggt stöd för delade diskar och därför kräver lösningar som tillhandahålls av SIOS.
 
-Ett annat sätt att hantera klustring är att implementera ett fil resurs kluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ändrades Central Services distribution mönstret för att komma åt de globala katalogerna /sapmnt via en UNC-sökväg. Vi rekommenderar dock fortfarande att se till att/sapmnt-UNC-resursen är hög tillgänglig. Detta kan göras på den centrala Services-instansen med hjälp av Windows Server-redundanskluster med skalbar fil server (SOFS) och funktionen Lagringsdirigering (S2D) i Windows Server 2016. 
+Ett annat sätt att hantera klustring är att implementera ett fil resurs kluster. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster) ändrades Central Services distribution mönstret för att komma åt de globala katalogerna /sapmnt via en UNC-sökväg. Vi rekommenderar dock fortfarande att se till att/sapmnt-UNC-resursen är hög tillgänglig. Detta kan göras på den centrala Services-instansen med hjälp av Windows Server-redundanskluster med skalbar fil server (SOFS) och funktionen Lagringsdirigering (S2D) i Windows Server 2016.
  > [!NOTE]
  > För närvarande Site Recovery stöd endast krasch konsekvens av virtuella datorer som använder lagrings dirigering och passiv nod för SIOS DataKeeper
 
@@ -84,14 +84,14 @@ Ett annat sätt att hantera klustring är att implementera ett fil resurs kluste
 Du kan använda Site Recovery för att dirigera redundans över hela SAP-distributionen i Azure-regioner.
 Nedan visas stegen för att konfigurera haveri beredskap 
 
-1. Replikera virtuella datorer 
+1. Replikera virtuella datorer
 2. Utforma ett återställnings nätverk
 3.  Replikera en domänkontrollant
-4.  Replikera data bas nivån 
-5.  Utföra ett redundanstest 
-6.  Göra en redundansväxling 
+4.  Replikera data bas nivån
+5.  Utföra ett redundanstest
+6.  Göra en redundansväxling
 
-Nedan visas en rekommendation för haveri beredskap för varje nivå som används i det här exemplet. 
+Nedan visas en rekommendation för haveri beredskap för varje nivå som används i det här exemplet.
 
  **SAP-nivåer** | **Rekommendationen**
  --- | ---

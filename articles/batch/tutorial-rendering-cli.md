@@ -2,19 +2,19 @@
 title: Rendera en scen i molnet – Azure Batch
 description: Självstudie – Så renderar du en Autodesk 3ds Max-scen med Arnold med hjälp av Batch Rendering Service och kommandoradsgränssnittet i Azure
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: tutorial
 ms.date: 12/11/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 28914244f7ea84ec133821d4b125cbd3b0378348
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: e63bd26ec226cfeba1c11570b085fd88570fbb2d
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272339"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029194"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Självstudie: Rendera en scen med Azure Batch 
 
@@ -29,7 +29,7 @@ Azure Batch har renderingsfunktioner i molnskala där du betalar per användning
 
 I den här självstudien renderar du en 3ds Max-scen med Batch med ray-tracing-renderaren [Arnold](https://www.autodesk.com/products/arnold/overview). Batch-poolen använder en Azure Marketplace-avbildning med förinstallerade grafik- och renderingsprogram som tillhandahåller licensiering med betalning per användning.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en användningsbaserad prenumeration eller annat Azure-köpalternativ för att använda renderingsprogram i Batch för betalning per användningstillfälle. **Användningsbaserad licensiering stöds inte om du använder ett kostnadsfritt Azure-erbjudande som ger penningkredit.**
 
@@ -96,7 +96,7 @@ az storage container create \
     --name scenefiles
 ```
 
-Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Exempel:
+Ladda ned scenen `MotionBlur-Dragon-Flying.max` från [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max) till en lokal arbetskatalog. Ett exempel:
 
 ```azurecli-interactive
 wget -O MotionBlur-DragonFlying.max https://github.com/Azure/azure-docs-cli-python-samples/raw/master/batch/render-scene/MotionBlur-DragonFlying.max
@@ -184,7 +184,7 @@ Ta vara på den token som returneras av kommandot, den ser ut ungefär så här:
 se=2020-11-15&sp=rw&sv=2019-09-24&ss=b&srt=co&sig=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-## <a name="render-a-single-frame-scene"></a>Rendera en scen med en bildruta
+## <a name="render-a-single-frame-scene"></a>rendera en scen med en bildruta
 
 ### <a name="create-a-job"></a>Skapa ett jobb
 
@@ -291,7 +291,7 @@ Det tar några minuter att ändra storlek på poolen. Medan den här processen p
 
 ## <a name="render-a-multiframe-scene"></a>Rendera en scen med flera bildrutor
 
-Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan ladda ned filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex uppgifterna anger en Arnold-kommandorad för rendering av en bildruta från 3ds Max-scenen *MotionBlur-DragonFlying.max*.
+Precis som i exemplet med en bildruta använder du kommandot [az batch task create](/cli/azure/batch/task#az-batch-task-create) till att skapa renderingsuppgifter i jobbet *myrenderjob*. Här anger du uppgiftsinställningarna i en JSON-fil med namnet *myrendertask_multi.json*. (Du kan hämta filen från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json).) Var och en av de sex aktiviteterna anger en Arnold kommando rad som återger en bild ruta i max. *Max*.
 
 Skapa en fil med namnet *myrendertask_multi.json* i ditt aktuella gränssnitt. Kopiera och klistra in innehållet från filen du hämtade. Ändra elementen `blobSource` och `containerURL` i JSON-filen så att de innehåller namnet på ditt lagringskonto och din SAS-token. Kom ihåg att ändra inställningarna för var och en av de sex uppgifterna. Spara filen och kör följande kommando för att placera uppgifterna i kö:
 
@@ -301,7 +301,7 @@ az batch task create --job-id myrenderjob --json-file myrendertask_multi.json
 
 ### <a name="view-task-output"></a>Visa utdata för uppgiften
 
-Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Exempel:
+Det tar några minuter att köra uppgiften. Använd kommandot [az batch task list](/cli/azure/batch/task#az-batch-task-list) till att visa status för uppgifterna. Ett exempel:
 
 ```azurecli-interactive
 az batch task list \
@@ -309,7 +309,7 @@ az batch task list \
     --output table
 ```
 
-Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Exempel:
+Använd kommandot [az batch task show](/cli/azure/batch/task#az-batch-task-show) till att visa information om enskilda uppgifter. Ett exempel:
 
 ```azurecli-interactive
 az batch task show \
@@ -317,7 +317,7 @@ az batch task show \
     --task-id mymultitask1
 ```
  
-Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Exempel:
+Uppgifterna genererar utdatafiler med namnen *dragon0002.jpg* - *dragon0007.jpg* på beräkningsnoderna och laddar upp dem till containern *job-myrenderjob* i lagringskontot. Om du vill visa utdata laddar du ned filen till en lokal mapp med kommandot [az storage blob download](/cli/azure/storage/blob). Ett exempel:
 
 ```azurecli-interactive
 az storage blob download-batch \

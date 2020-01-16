@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 584a37ffb9727a48e2adb5e339697314cffe93f7
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707103"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980853"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Hantera lagrings konto nycklar med Key Vault och Azure PowerShell
 
@@ -42,10 +42,10 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| Klienter | I molnet | Program-ID:t |
+| Klientorganisationer | I molnet | Program-ID:t |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Offentlig Azure- | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Azure, offentlig | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 | Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>Krav
@@ -54,7 +54,7 @@ För att slutföra den här guiden måste du först göra följande:
 
 - [Installera Azure PowerShell-modulen](/powershell/azure/install-az-ps?view=azps-2.6.0).
 - [Skapa ett nyckel valv](quick-create-powershell.md)
-- [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md?tabs=azure-powershell). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
+- [Skapa ett Azure Storage-konto](../storage/common/storage-account-create.md?tabs=azure-powershell). Lagrings konto namnet får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken.
       
 
 ## <a name="manage-storage-account-keys"></a>Hantera lagrings konto nycklar
@@ -117,7 +117,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Om Key Vault redan har lagts till i rollen på ditt lagrings konto får du en *"roll tilldelningen finns redan".* Fels. Du kan också kontrol lera roll tilldelningen med hjälp av sidan för lagrings kontots åtkomst kontroll (IAM) i Azure Portal.  
+Om Key Vault redan har lagts till i rollen på ditt lagrings konto får du en *"roll tilldelningen finns redan".* error. Du kan också kontrol lera roll tilldelningen med hjälp av sidan för lagrings kontots åtkomst kontroll (IAM) i Azure Portal.  
 
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Ge ditt användar konto behörighet till hanterade lagrings konton
 
@@ -185,7 +185,7 @@ Tags                :
 
 ## <a name="shared-access-signature-tokens"></a>Token för signaturer för delad åtkomst
 
-Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagrings konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
+Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
 
 Kommandona i det här avsnittet Slutför följande åtgärder:
 

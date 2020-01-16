@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 39665e0361747e0f75fa6c92f244317b995ce6a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ab8baa810c36c794bbefd264c5588f8b28cbd62a
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863384"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76046200"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera din Azure Time Series Insights GA-miljö
 
@@ -24,7 +24,7 @@ Den här artikeln beskriver hur du planerar din Azure Time Series Insights gener
 
 ## <a name="video"></a>Video
 
-**Titta på den här videon om du vill veta mer om datakvarhållning i Azure Time Series Insights och hur du planerar för den**:<br /><br />
+**Titta på den här videon om du vill veta mer om datakvarhållning i Azure Time Series Insights och hur du planerar för den**:<br />
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -53,7 +53,7 @@ Du kan ändra tids inställningen för **datakvarhållning** i Azure Time Series
 Azure Time Series Insights har två lägen:
 
 * Ett läge optimerar för de mest aktuella data. Den tillämpar en princip för att **Rensa gamla data** som lämnar de senaste data som är tillgängliga med instansen. Det här läget är aktiverat som standard. 
-* Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när det har valts som **lagrings gränsen har överskridits**. 
+* Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när det har valts som **lagrings gränsen har överskridits**.
 
 Du kan justera kvarhållning och växla mellan de två lägena på miljöns konfigurations sida i Azure Portal.
 

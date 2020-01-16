@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 104fc212dc590c1366b8dd2cd276f70bdadee5db
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b9a448ff41c66fa3a38c124f7acde062bacbe9ba
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614544"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980212"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Händelse agg regering och insamling med Windows Azure-diagnostik
 > [!div class="op_single_selector"]
@@ -65,7 +65,7 @@ Om du vill skapa ett kluster med hjälp av Resource Manager måste du lägga til
 
 Om du vill se diagnostik-inställningen i Resource Manager-mallen öppnar du filen azuredeploy. JSON och söker efter **IaaSDiagnostics**. Om du vill skapa ett kluster med hjälp av den här mallen väljer du knappen **distribuera till Azure** som är tillgänglig på föregående länk.
 
-Du kan också ladda ned Resource Manager-exemplet, göra ändringar i det och skapa ett kluster med den ändrade mallen genom att använda kommandot `New-AzResourceGroupDeployment` i ett Azure PowerShells fönster. Se följande kod för de parametrar som du skickar till kommandot. Detaljerad information om hur du distribuerar en resurs grupp med hjälp av PowerShell finns i artikeln [distribuera en resurs grupp med Azure Resource Manager-mallen](../azure-resource-manager/resource-group-template-deploy.md).
+Du kan också ladda ned Resource Manager-exemplet, göra ändringar i det och skapa ett kluster med den ändrade mallen genom att använda kommandot `New-AzResourceGroupDeployment` i ett Azure PowerShells fönster. Se följande kod för de parametrar som du skickar till kommandot. Detaljerad information om hur du distribuerar en resurs grupp med hjälp av PowerShell finns i artikeln [distribuera en resurs grupp med Azure Resource Manager-mallen](../azure-resource-manager/templates/deploy-powershell.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Lägg till ett diagnostik-tillägg i ett befintligt kluster
 Om du har ett befintligt kluster som inte har någon diagnostik distribuerad kan du lägga till eller uppdatera det via kluster mal len. Ändra den Resource Manager-mall som används för att skapa det befintliga klustret eller ladda ned mallen från portalen enligt beskrivningen ovan. Ändra filen Template. JSON genom att utföra följande uppgifter:

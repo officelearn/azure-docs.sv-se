@@ -1,0 +1,88 @@
+### YamlMime:Landing
+title: Kom igång med Azure-fakturering
+summary: Lär dig hur du kommer igång med Azure-fakturering genom att granska din faktura och se kostnads- och förbrukningsinformation.
+metadata:
+  title: Kom igång med Azure-fakturering
+  description: Kom igång med Azure-fakturering
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+  ms.openlocfilehash: bc472c68ea2a414fce81fe39e3282a43be3db829
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983298"
+landingContent:
+- title: Granska enskilda konton
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Granska din enskilda kontofaktura
+      url: review-individual-bill.md
+  - linkListType: concept
+    links:
+    - text: Förklaring av användningsvillkor
+      url: understand-usage.md
+    - text: Förklaring av fakturavillkor
+      url: understand-invoice.md
+  - linkListType: how-to-guide
+    links:
+    - text: Visa och ladda ned din Azure-faktura
+      url: download-azure-invoice.md
+    - text: Visa och ladda ned information om din användning och dina avgifter i Azure
+      url: download-azure-daily-usage.md
+    - text: Visa externa tjänstavgifter
+      url: understand-azure-marketplace-charges.md
+- title: Granska konton med Microsoft-kundavtal
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Granska din faktura för Microsoft-kundavtal
+      url: review-customer-agreement-bill.md
+  - linkListType: concept
+    links:
+    - text: Faktureringskonton för Microsoft-kundavtal
+      url: mca-overview.md
+    - text: Användningsvillkor för Microsoft-kundavtal
+      url: mca-understand-your-usage.md
+    - text: Faktureringsvillkor för Microsoft-kundavtal
+      url: mca-understand-your-invoice.md
+  - linkListType: how-to-guide
+    links:
+    - text: Visa och ladda ned Azure-faktura
+      url: download-azure-invoice.md
+    - text: Visa och ladda ned information om användning och avgifter i Azure
+      url: download-azure-daily-usage.md
+    - text: Visa och ladda ned skattedokument
+      url: mca-download-tax-document.md
+    - text: Visa externa tjänstavgifter
+      url: understand-azure-marketplace-charges.md
+    - text: Betala din faktura för Microsoft-kundavtal
+      url: pay-bill.md
+- title: Granska konton med Microsoft-partneravtal
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Granska din faktura för Microsoft-partneravtal
+      url: review-partner-agreement-bill.md
+  - linkListType: concept
+    links:
+    - text: Faktureringskonton för Microsofts partneravtal
+      url: mpa-overview.md
+    - text: Faktureringsvillkor för Microsoft-kundavtal
+      url: mpa-invoice-terms.md
+- title: Granska Enterprise-avtalskonton
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Granska din Enterprise-avtalsfaktura
+      url: review-enterprise-agreement-bill.md
+  - linkListType: concept
+    links:
+    - text: Kom igång i Azure EA-portalen
+      url: ../manage/ea-portal-get-started.md

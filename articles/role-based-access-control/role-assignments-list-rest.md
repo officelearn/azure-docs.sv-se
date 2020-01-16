@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 8a9841e2a8a8ec0aede94f849b7818c86f9862df
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 0db3e1b222aad7d2a5aa9fc20663fc6e17ea4f8c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934087"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981076"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-rest-api"></a>Lista roll tilldelningar med hjälp av Azure RBAC och REST API
 
@@ -48,7 +48,7 @@ I RBAC, för att lista åtkomst, listas roll tilldelningarna. Om du vill lista r
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Resursgrupp |
     | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resurs |
 
-    I föregående exempel är Microsoft. Web en resurs leverantör som refererar till en App Service instans. På samma sätt kan du använda andra resurs leverantörer och ange omfånget. Mer information finns i [Azure Resource providers och typer](../azure-resource-manager/resource-manager-supported-services.md) som stöds [Azure Resource Manager Resource Provider-åtgärder](resource-provider-operations.md).  
+    I föregående exempel är Microsoft. Web en resurs leverantör som refererar till en App Service instans. På samma sätt kan du använda andra resurs leverantörer och ange omfånget. Mer information finns i [Azure Resource providers och typer](../azure-resource-manager/management/resource-providers-and-types.md) som stöds [Azure Resource Manager Resource Provider-åtgärder](resource-provider-operations.md).  
      
 1. Ersätt *{filter}* med villkoret som du vill använda för att filtrera roll tilldelnings listan.
 

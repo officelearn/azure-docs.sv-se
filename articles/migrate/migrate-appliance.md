@@ -3,30 +3,26 @@ title: Azure Migrate-installation
 description: Innehåller en översikt över Azure Migrate-installationen som används i Server utvärdering och migrering.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: c3ac39759cc096bb27535877084e14f4ed50cea9
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719587"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028821"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate-installation
 
-I den här artikeln beskrivs Azure Migrate-utrustningen. Du distribuerar enheten när du använder Azure Migrate utvärderings-och Migreringsverktyg för att identifiera, utvärdera och migrera appar, infrastruktur och arbets belastningar till Microsoft Azure. 
-
-[Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
-
-
+I den här artikeln beskrivs Azure Migrate-utrustningen. Du distribuerar installationen när du använder [Azure Migrate: Server utvärderings](migrate-services-overview.md#azure-migrate-server-assessment-tool) verktyg för att identifiera och utvärdera appar, infrastruktur och arbets belastningar för migrering till Microsoft Azure. Enheten används också när du migrerar virtuella VMware-datorer till Azure med hjälp av [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-migration-tool) med utan [agent migrering](server-migrate-overview.md).
 
 ## <a name="appliance-overview"></a>Apparat översikt
 
-De Azure Migrate utrustnings typerna och användningen är följande.
+Azure Migrates apparaten används i följande scenarier.
 
 **Scenario** | **Verktyg** | **Används för** 
---- | --- 
-Virtuell VMware-dator | Azure Migrate: Server bedömning; Azure Migrate: Server-migrering | Identifiera virtuella VMware-datorer<br/><br/> Identifiera appar och beroenden<br/><br/> Samla in metadata för datorns metadata och prestanda för utvärderingar.<br/><br/> Replikera virtuella VMware-datorer med migrering utan agent.
+--- | --- | ---
+Virtuell VMware-dator | Azure Migrate: Server utvärdering<br/><br/> Azure Migrate: Server-migrering | Identifiera virtuella VMware-datorer<br/><br/> Identifiera maskin program och beroenden<br/><br/> Samla in metadata för datorns metadata och prestanda för utvärderingar.<br/><br/> Replikera virtuella VMware-datorer med migrering utan agent.
 Hyper-V VM | Azure Migrate: Server utvärdering | Identifiera virtuella Hyper-V-datorer<br/><br/> Samla in metadata för datorns metadata och prestanda för utvärderingar.
-Fysisk dator |  Azure Migrate: bedömnings verktyget |  Identifiera fysiska servrar<br/><br/> Samla in metadata för datorns metadata och prestanda för utvärderingar.
+Fysisk dator |  Azure Migrate: Server utvärdering |  Identifiera fysiska servrar<br/><br/> Samla in metadata för datorns metadata och prestanda för utvärderingar.
 
 ## <a name="appliance---vmware"></a>Utrustning – VMware 
 
@@ -36,12 +32,14 @@ Fysisk dator |  Azure Migrate: bedömnings verktyget |  Identifiera fysiska serv
 **Nedladdningslänk** | https://aka.ms/migrate/appliance/vmware 
 **Hämtnings storlek** | 11,2 GB
 **Licens** | Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**Distribution** | Du distribuerar installationen som en virtuell VMware-dator. Du behöver tillräckligt med resurser på vCenter Server för att allokera en virtuell dator med 32 GB RAM, 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel.<br/><br/> Enheten kräver Internet åtkomst, antingen direkt eller via en proxyserver.<br/> Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> Enheten kan ansluta till en enda vCenter Server.
 **Maskinvara** | Resurser på vCenter för att allokera en virtuell dator med 32 GB RAM 8 virtuella processorer, cirka 80 GB disk lagring och en extern virtuell växel. 
 **Hash-värde** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter Server/värd** | Den virtuella datorn måste distribueras på en ESXi-värd som kör version 5,5 eller senare.<br/><br/> vCenter Server som kör 5,5, 6,0, 6,5 eller 6,7.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifiering** | En apparat kan identifiera upp till 10 000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till en enda vCenter Server.
 **Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/> DRA: dirigerar VM-replikering och koordinerar kommunikationen mellan datorer/Azure.<br/> Gateway: skickar replikerade data till Azure.<br/> Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
+**VDDK (utan agent migrering)** | Om du kör en agent lös migrering med Azure Migrate Server-migrering, måste VMware vSphere VDDK installeras på den virtuella datorn.
 
 
 ## <a name="appliance---hyper-v"></a>Apparat-Hyper-V
@@ -52,12 +50,13 @@ Fysisk dator |  Azure Migrate: bedömnings verktyget |  Identifiera fysiska serv
 **Nedladdningslänk** | https://aka.ms/migrate/appliance/hyperv 
 **Hämtnings storlek** | 10 GB
 **Licens** | Mallen för hämtade installationer innehåller en utvärderings licens för Windows Server 2016, som är giltig i 180 dagar. Om utvärderings perioden ligger nära förfallo datum, rekommenderar vi att du laddar ned och distribuerar en ny installation, eller att du aktiverar operativ Systems licensen för den virtuella dator enheten.
+**Distribution av utrustning**   |  Du distribuerar installationen som en virtuell Hyper-V-dator.<br/> Den virtuella dator som tillhandahålls av Azure Migrate är Hyper-V VM version 5,0.<br/> Hyper-V-värden måste köra Windows Server 2012 R2 eller senare.<br/> Värden behöver tillräckligt med utrymme för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns dator.<br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 **Maskinvara** | Resurser på Hyper-V-värden för att allokera 16 GB RAM-minne, 8 virtuella processorer, runt 80 GB lagrings utrymme och en extern växel för den virtuella datorns installation.
 **Hash-värde** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V-värd** | Kör Windows Server 2012 R2 eller senare.
 **Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
 **Identifiering** | En apparat kan identifiera upp till 5000 virtuella VMware-datorer på en vCenter Server.<br/> En apparat kan ansluta till upp till 300 Hyper-V-värdar.
-**Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/>  Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme)
+**Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/>  Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
 
 
 ## <a name="appliance---physical"></a>Apparat-fysisk
@@ -67,13 +66,15 @@ Fysisk dator |  Azure Migrate: bedömnings verktyget |  Identifiera fysiska serv
 **Hämta format** | Zippad mapp (med installations skript för PowerShell)
 **Nedladdningslänk** | [Nedladdningslänk](https://go.microsoft.com/fwlink/?linkid=2105112)
 **Hämtnings storlek** | 59,7 MB
-**Maskinvara** | Datorn som kör produkten behöver 16 GB RAM-minne, 8 virtuella processorer, cirka 80 GB lagrings utrymme.
+**Maskinvara** | Dedikerad fysisk dator eller virtuell dator. Datorn som kör produkten behöver 16 GB RAM-minne, 8 virtuella processorer, cirka 80 GB lagrings utrymme och en extern växel.<br/><br/> Enheten behöver en statisk eller dynamisk IP-adress och Internet åtkomst.
 **Hash-värde** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
-**Programvara** | Installations datorn ska köra Windows Server 2016. Servern måste vara en dedikerad fysisk server eller en virtuell dator.
-**Azure Migrate projekt** | En apparat kan associeras med ett enda projekt. <br/> Valfritt antal enheter kan associeras med ett enda projekt.<br/> 
+**Programvara** | Installations datorn ska köra Windows Server 2016. 
+**Distribution av utrustning**   |  Installations skriptet för installationen laddas ned från portalen (i en zippad mapp). <br/> Du packar upp mappen och kör PowerShell-skriptet (AzureMigrateInstaller. ps1).
 **Identifiering** | En apparat kan identifiera upp till 250 fysiska servrar.
 **Utrustnings komponenter** | Hanterings app: webbapp i program för användarindata under distributionen.<br/> Identifierings agent: samlar in dator konfigurations data.<br/> Bedömnings agent: samla in prestanda data.<br/>  Tjänsten automatisk uppdatering: uppdatera komponenter (körs var 24: e timme).
-**Åtkomst/portar** | När du har konfigurerat installationen kan du använda inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärrans luta till appen för program hantering med hjälp av URL: en: https://< utrustning-IP-eller-Name >: 44368.<br/><br/> Utgående anslutningar på port 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+**Port åtkomst** | När du har konfigurerat installationen kan du använda inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för att fjärrans luta till appen för program hantering med hjälp av URL: en: https://< utrustning-IP-eller-Name >: 44368.<br/><br/> Utgående anslutningar på port 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+
+
 
 ## <a name="url-access"></a>URL-åtkomst
 
@@ -90,11 +91,13 @@ Azure Migrate-utrustningen behöver anslutning till Internet.
 management.azure.com | Skapa Active Directory appar för att kunna kommunicera med tjänsten Azure Migrate.
 dc.services.visualstudio.com | Ladda upp program loggar som används för intern övervakning.
 *.vault.azure.net | Hantera hemligheter i Azure Key Vault.
-aka.ms/* | Tillåt åtkomst till aka-länkar.
+aka.ms/* | Tillåt åtkomst till aka-länkar. Används för uppdateringar av Azure Migrates enheten.
 download.microsoft.com/download | Tillåt hämtning från Microsoft Download.
-*.servicebus.windows.net | Kommunikation mellan installations programmet och tjänsten Azure Migrate.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Anslut till Azure Migrate tjänst-URL: er.
-*.blob.core.windows.net | Ladda upp data till lagrings konton.
+*.servicebus.windows.net | Används för migrering av VMware-agent.<br/><br/> Kommunikation mellan installations programmet och tjänsten Azure Migrate.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Används för migrering av VMware-agent.<br/><br/> Anslut till Azure Migrate tjänst-URL: er.
+*.blob.core.windows.net |  Används för migrering av VMware-agent.<br/><br/>Ladda upp data till lagring.
+
+
 
 
 ## <a name="collected-data---vmware"></a>Insamlade data – VMware

@@ -3,12 +3,12 @@ title: Utvärderingar i Azure Migrate
 description: Lär dig mer om utvärderingar i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 6950050be3c6fb812a6ade47e98f2d1ed479e61f
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720250"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029113"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Om utvärderingar i Azure Migrate
 
@@ -23,7 +23,7 @@ Prestanda data för beräknings inställningar samlas in på följande sätt:
 
 1. [Azure Migrates apparaten](migrate-appliance.md) samlar in en exempel punkt i real tid:
 
-    - **virtuella VMware-datorer*: för virtuella VMware-datorer samlar Azure Migrate-apparaten en exempel punkt i real tid med ett intervall på 20 sekunder.
+    - **Virtuella VMware-datorer**: för virtuella VMware-datorer samlar Azure Migrate-utrustningen in en exempel punkt i real tid med ett intervall på 20 sekunder.
     - **Virtuella Hyper-v-datorer**: för virtuella Hyper-v-datorer samlas exempel punkten i real tid in med varje 30-sekunders intervall.
     - **Fysiska servrar**: för fysiska servrar samlas exempel punkten i real tid in med var femte minut. 
     
@@ -58,7 +58,7 @@ Prestanda data samlas in på följande sätt:
 
 1. [Azure Migrates apparaten](migrate-appliance.md) samlar in en exempel punkt i real tid:
 
-    - **virtuella VMware-datorer*: för virtuella VMware-datorer samlar Azure Migrate-apparaten en exempel punkt i real tid med ett intervall på 20 sekunder.
+    - **Virtuella VMware-datorer**: för virtuella VMware-datorer samlar Azure Migrate-utrustningen in en exempel punkt i real tid med ett intervall på 20 sekunder.
     - **Virtuella Hyper-v-datorer**: för virtuella Hyper-v-datorer samlas exempel punkten i real tid in med varje 30-sekunders intervall.
     - **Fysiska servrar**: för fysiska servrar samlas exempel punkten i real tid in med var femte minut. 
     
@@ -73,24 +73,23 @@ Prestanda data samlas in på följande sätt:
 5. Det här värdet multipliceras med den praktiska faktorn för att få en effektiv prestanda användnings data för varje mått (processor belastning, minnes användning, disk-IOPS (läsning och skrivning), disk data flöde (läsning och skrivning) och nätverks data flöde (in och ut) som enheten samlas in.
 ## <a name="whats-in-an-assessment"></a>Vad ingår i en utvärdering?
 
-Här är vad som ingår i en utvärdering i Azure Migrate: Server utvärdering
+Det här är vad som ingår i en utvärdering i Azure Migrate: Server bedömning.
 
 **Egenskap** | **Detaljer**
 --- | ---
-**Målplats** | Den plats som du vill migrera till.<br/><br/>Server utvärderingen stöder för närvarande följande Azure-regioner: östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra 2; USA, Tyskland, centrala, Tyskland Nordöstra, Östra Japan, västra Japan, centrala Korea, södra centrala USA, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra, US Gov, Arizona, US Gov, Texas, US Gov, Virginia, västra centrala USA, Västeuropa, västra Indien, västra USA och västra 2; USA.
-**Mål lagrings disk: as-storlek** | Den typ av diskar som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, standard SSD-hanterad eller standard-HDD-hanterad.<br/><br/> 
-**Mål lagrings disk: prestanda baserad storlek** | Ange typen av mål lagrings disk som automatisk, Premium-hanterad, standard-HDD-hanterad eller standard SSD-hanterad.<br/><br/> **Automatisk**: disk rekommendationen baseras på diskens prestanda data (in-/utdata-åtgärder per sekund (IOPS) och data flöde). <br/><br/>**Premium/standard**: utvärderingen rekommenderar en disk-SKU i den valda lagrings typen.<br/><br/> Om du vill uppnå ett service avtal för en enda instans av virtuell dator på 99,9%, Överväg att använda Premium Managed disks. Detta säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar.<br/><br/> Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
+**Målplats** | Den plats som du vill migrera till. Server utvärderingen stöder för närvarande följande Azure-regioner:<br/><br/> Östra Australien, sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, centrala Indien, centrala USA, Kina, östra, Kina, norra, Asien, östra, östra USA, östra 2; USA, Tyskland, centrala, Tyskland nordöstra, Östra Japan, västra Japan, centrala Korea, Nord Korea Centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, Storbritannien, västra, US Gov, Arizona, US Gov, Texas, US Gov, Virginia, västra centrala USA, Västeuropa, västra Indien, västra USA och västra 2; USA.
+*Mål lagrings disk (i storlek)* * | Den typ av diskar som ska användas för lagring i Azure. <br/><br/> Ange mål lagrings disken som Premium-hanterad, standard SSD-hanterad eller standard-HDD-hanterad.
+**Mål lagrings disk (prestanda baserad storlek)** | Ange typen av mål lagrings disk som automatisk, Premium-hanterad, standard-HDD-hanterad eller standard SSD-hanterad.<br/><br/> **Automatisk**: disk rekommendationen baseras på diskens prestanda data (in-/utdata-åtgärder per sekund (IOPS) och data flöde).<br/><br/>**Premium/standard**: utvärderingen rekommenderar en disk-SKU i den valda lagrings typen.<br/><br/> Om du vill uppnå ett service avtal för en enda instans av virtuell dator på 99,9%, Överväg att använda Premium Managed disks. Detta säkerställer att alla diskar i utvärderingen rekommenderas som Premium-hanterade diskar.<br/><br/> Azure Migrate stöder endast hanterade diskar för migreringsutvärdering.
 **Reserverade instanser (RIs)** | Ange [reserverade instanser](https://azure.microsoft.com/pricing/reserved-vm-instances/) i Azure så att kostnads uppskattningar i utvärderingen tar RI-rabatter till kontot.<br/><br/> Fjärrinstallationstjänster stöds för närvarande endast för betala per användning-erbjudanden i Azure Migrate.
 **Storleks villkor** | Används för att anpassa den virtuella datorn i Azure.<br/><br/> Använd som-är storleks ändring eller prestanda-baserad storlek.
 **Prestandahistorik** | Används med prestanda-baserad storlek. Ange den varaktighet som ska användas för att utvärdera prestanda data.
 **Percentilutnyttjande** | Används med prestanda-baserad storlek. Anger percentilvärdet för det prestanda exempel som ska användas för höger storleks ändring. 
 **VM-serie** | Ange den Azure VM-serie som du vill ta hänsyn till för rätt storlek. Om du till exempel inte har en produktions miljö som behöver en-seriens virtuella datorer i Azure kan du undanta en-serien från listan eller serien.
-**Komfortfaktor** | Buffert som används under utvärderingen. Används ovanpå datorns användnings data för virtuella datorer (CPU, minne, disk och nätverk). 
-IT-konton för problem som säsongs användning, kort prestanda historik och sannolika ökningar i framtida användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20% användning vanligt vis i en virtuell dator med två kärnor. Med en bekvämlighets faktor på 2,0 x är resultatet en virtuell dator med fyra kärnor i stället.
+**Komfortfaktor** | Buffert som används under utvärderingen. Används ovanpå datorns användnings data för virtuella datorer (CPU, minne, disk och nätverk). IT-konton för problem som säsongs användning, kort prestanda historik och sannolika ökningar i framtida användning.<br/><br/> Till exempel resulterar en virtuell dator med 10 kärnor med 20% användning vanligt vis i en virtuell dator med två kärnor. Med en bekvämlighets faktor på 2,0 x är resultatet en virtuell dator med fyra kärnor i stället.
 **Erbjudande** | Visar det [Azure-erbjudande](https://azure.microsoft.com/support/legal/offer-details/) som du har registrerat i. Server utvärderingen beräknar kostnaden på motsvarande sätt.
 **Valuta** | Fakturerings valuta för ditt konto.
 **Rabatt (%)** | Visar en lista med eventuella prenumerationer som du får ovanpå Azure-erbjudandet. Standardinställningen är 0%.
-**VM-drift tid** | Om virtuella Azure-datorer inte körs 24 timmar per dag, 7 dagar i veckan, kan du ange varaktigheten (dagar per månad och timmar per dag) som de ska köras. Kostnads uppskattningar hanteras i enlighet med detta.<br/><br/> Standardvärdet är 31 dagar per månad och 24 timmar per dag.
+**VM-drifttid** | Om virtuella Azure-datorer inte körs 24 timmar per dag, 7 dagar i veckan, kan du ange varaktigheten (dagar per månad och timmar per dag) som de ska köras. Kostnads uppskattningar hanteras i enlighet med detta.<br/><br/> Standardvärdet är 31 dagar per månad och 24 timmar per dag.
 **Azure Hybrid-förmån** | Anger om du har Software Assurance och är berättigade till [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Om det är inställt på Ja (standardinställningen), betraktas icke-Windows Azure-priser för virtuella Windows-datorer.
 
 [Gå igenom metod tipsen](best-practices-assessment.md) för att skapa utvärdering med Server utvärdering.

@@ -4,16 +4,19 @@ description: Så här distribuerar och konfigurerar du mallen för den här nät
 ms.date: 05/09/2019
 ms.topic: article
 ms.reviewer: caleteet
-ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 3e7dcd3cdcfa636c0b23ac6643bd7732e7f8ada0
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325138"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029156"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Nätverk för redovisningssaldo i huvud boken
 
 Du kan använda lösnings mal len för den här mallen för att distribuera och konfigurera ett nätverk för en huvud boks infrastruktur i Azure.
+
+> [!IMPORTANT]
+> [Mikroredovisningen på Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-azure-blockchain.azure-blockchain-hyperledger-fabric) -mallen är föråldrad. Använd [huvud strukturen i Azure Kubernetes-tjänsten](hyperledger-fabric-consortium-azure-kubernetes-service.md) i stället.  
 
 När du har läst den här artikeln, kommer du att:
 
@@ -93,8 +96,8 @@ I **nätverks inställningar**anger du indata för att skapa eller ansluta till 
 |---|---|---|
 **Nätverkskonfiguration** |Du kan välja att skapa ett nytt nätverk eller ansluta ett befintligt. Om du väljer *Anslut befintliga*måste du ange ytterligare värden. |Nytt nätverk <br/> Anslut till befintlig |
 **HLF CA-lösenord** |Ett lösen ord som används för de certifikat som genereras av certifikat utfärdarna som skapas som en del av distributionen. Lösen ordet måste innehålla tre av följande Character-typer: 1 versal bokstav, 1 gemen bokstav, 1 siffra och 1 specialtecken.<br /><br />Även om alla virtuella datorer ursprungligen har samma lösen ord, kan du ändra lösen ordet efter etableringen.|1-25 tecken |
-**Organisations konfiguration** |Du kan anpassa din organisations namn och certifikat eller ha standardvärden som ska användas.|Standard <br/> Avancerat |
-**VPN-nätverks inställningar** | Etablera en VPN-tunnel-Gateway för åtkomst till de virtuella datorerna | Ja <br/> Nej |
+**Organisations konfiguration** |Du kan anpassa din organisations namn och certifikat eller ha standardvärden som ska användas.|Default <br/> Advanced |
+**VPN-nätverks inställningar** | Etablera en VPN-tunnel-Gateway för åtkomst till de virtuella datorerna | Ja <br/> Inga |
 
 Välj **OK**.
 

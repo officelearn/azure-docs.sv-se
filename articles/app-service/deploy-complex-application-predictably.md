@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1168faa1f39546dc75af28b885c9095cfffa1135
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 62d0bf776b2d0c97d95b992ed6a1fd2a356e467a
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422138"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75967384"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Etablera och distribuera mikrotjänster förutsägbart i Azure
 Den här självstudien visar hur du etablerar och distribuerar ett program som består av [mikrotjänster](https://en.wikipedia.org/wiki/Microservices) i [Azure App Service](https://azure.microsoft.com/services/app-service/) som en enda enhet och på ett förutsägbart sätt med hjälp av JSON-mallar för resurs grupper och PowerShell-skript. 
@@ -252,10 +252,10 @@ I DevOps är repeterbarhet och förutsägbara nycklar till en lyckad distributio
 ## <a name="more-resources"></a>Fler resurser
 * [Azure Resource Manager mallens språk](../azure-resource-manager/templates/template-syntax.md)
 * [Redigera Azure Resource Manager mallar](../azure-resource-manager/templates/template-syntax.md)
-* [Funktioner för Azure Resource Manager mallar](../azure-resource-manager/resource-group-template-functions.md)
-* [Distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/resource-group-template-deploy.md)
+* [Funktioner för Azure Resource Manager mallar](../azure-resource-manager/templates/template-functions.md)
+* [Distribuera ett program med Azure Resource Manager-mall](../azure-resource-manager/templates/deploy-powershell.md)
 * [Använda Azure PowerShell med Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)
-* [Felsöka resurs grupps distributioner i Azure](../azure-resource-manager/resource-manager-common-deployment-errors.md)
+* [Felsöka resurs grupps distributioner i Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Nästa steg
 

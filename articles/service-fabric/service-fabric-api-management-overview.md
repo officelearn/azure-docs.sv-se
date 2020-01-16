@@ -5,18 +5,18 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 06/22/2017
 ms.author: vturecek
-ms.openlocfilehash: 656bb6d400461c93540b77d871502b738c679f47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a331715d4e4538cfdda8d958ff549a81b627b79
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378118"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028548"
 ---
 # <a name="service-fabric-with-azure-api-management-overview"></a>Översikt över Service Fabric med Azure API Management
 
 Molnprogram behöver ofta en klientdelsgateway som enda åtkomstpunkt för ingång för användare, enheter och andra program. I Service Fabric kan en gateway vara en tillstånds lös tjänst, till exempel ett [ASP.net Core program](service-fabric-reliable-services-communication-aspnetcore.md)eller en annan tjänst som har utformats för trafik ingångar, till exempel [Event Hubs](https://docs.microsoft.com/azure/event-hubs/), [IoT Hub](https://docs.microsoft.com/azure/iot-hub/)eller [Azure API Management](https://docs.microsoft.com/azure/api-management/).
 
-Den här artikeln är en introduktion till att använda Azure API Management som en gateway för dina Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till Server delens Service Fabric tjänster. 
+Den här artikeln är en introduktion till att använda Azure API Management som en gateway för dina Service Fabric-program. API Management integreras direkt med Service Fabric, så att du kan publicera API: er med en omfattande uppsättning regler för routning till Server delens Service Fabric tjänster.
 
 ## <a name="availability"></a>Tillgänglighet
 
@@ -47,7 +47,8 @@ Azure API Management kan användas med valfri kombination av tillstånds lösa t
 
 I det enklaste fallet vidarebefordras trafiken till en tillstånds lös tjänst instans. För att åstadkomma detta innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar till en bestämd tillstånds lös tjänst instans i Service Fabric Server delen. Begär Anden som skickas till tjänsten skickas till en slumpmässig instans av tjänsten.
 
-#### <a name="example"></a>Exempel
+**Exempel**
+
 I följande scenario innehåller ett Service Fabric-program en tillstånds lös tjänst med namnet `fabric:/app/fooservice`, som exponerar ett internt HTTP-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning. 
 
 ![Översikt över Service Fabric med Azure API Management-topologi][sf-apim-static-stateless]
@@ -56,7 +57,7 @@ I följande scenario innehåller ett Service Fabric-program en tillstånds lös 
 
 Precis som i det tillstånds lösa tjänst scenariot kan trafiken vidarebefordras till en tillstånds känslig tjänst instans. I det här fallet innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar en begäran till en speciell partition av en särskilt *tillstånds känslig* tjänst instans. Partitionen för att mappa varje begäran till beräknas via en lambda-metod som använder vissa indata från den inkommande HTTP-begäran, t. ex. ett värde i URL-sökvägen. Principen kan konfigureras att endast skicka begär anden till den primära repliken eller till en slumpmässig replik för Läs åtgärder.
 
-#### <a name="example"></a>Exempel
+**Exempel**
 
 I följande scenario innehåller ett Service Fabric-program en partitionerad tillstånds känslig tjänst med namnet `fabric:/app/userservice` som visar ett internt HTTP-API. Namnet på tjänst instansen är känt och kan hårdkodas direkt i den API Management principen för inkommande bearbetning.  
 
@@ -66,14 +67,14 @@ Tjänsten partitioneras med hjälp av ett Int64-partitionsschema med två partit
 
 ## <a name="send-traffic-to-multiple-stateless-services"></a>Skicka trafik till flera tillstånds lösa tjänster
 
-I mer avancerade scenarier kan du definiera en API Management-åtgärd som mappar begär anden till fler än en tjänst instans. I det här fallet innehåller varje åtgärd en princip som mappar begär anden till en specifik tjänst instans baserat på värden från den inkommande HTTP-begäran, till exempel URL-sökvägen eller frågesträngen, och i händelse av tillstånds känsliga tjänster, en partition inom tjänst instansen. 
+I mer avancerade scenarier kan du definiera en API Management-åtgärd som mappar begär anden till fler än en tjänst instans. I det här fallet innehåller varje åtgärd en princip som mappar begär anden till en specifik tjänst instans baserat på värden från den inkommande HTTP-begäran, till exempel URL-sökvägen eller frågesträngen, och i händelse av tillstånds känsliga tjänster, en partition inom tjänst instansen.
 
 För att uppnå detta innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar till en tillstånds lös tjänst instans i Service Fabric backend baserat på värden som hämtats från den inkommande HTTP-begäran. Begär anden till en tjänst skickas till en slumpmässig instans av tjänsten.
 
-#### <a name="example"></a>Exempel
+**Exempel**
 
 I det här exemplet skapas en ny tillstånds lös tjänst instans för varje användare av ett program med ett dynamiskt genererat namn med hjälp av följande formel:
- 
+
 - `fabric:/app/users/<username>`
 
   Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran skickas till i definitionen av backend-principen från `name`-värdet som anges i sökvägen till URL-begäran. Ett exempel:
@@ -89,10 +90,10 @@ Precis som i det tillstånds lösa tjänst exemplet kan en API Management-åtgä
 
 För att uppnå detta innehåller en API Management-åtgärd en princip för inkommande bearbetning med en Service Fabric backend-server som mappar till en tillstånds känslig tjänst instans i Service Fabric backend baserat på värden som hämtats från den inkommande HTTP-begäran. Förutom att mappa en begäran till en angiven tjänst instans kan begäran också mappas till en speciell partition inom tjänst instansen och eventuellt till antingen den primära repliken eller en slumpmässig sekundär replik i partitionen.
 
-#### <a name="example"></a>Exempel
+**Exempel**
 
 I det här exemplet skapas en ny tillstånds känslig tjänst instans för varje användare av programmet med ett dynamiskt genererat namn med hjälp av följande formel:
- 
+
 - `fabric:/app/users/<username>`
 
   Varje tjänst har ett unikt namn, men namnen är inte kända, eftersom tjänsterna skapas som svar på användarens eller administratörens indata och kan därför inte hårdkodas i APIM-principer eller regler för routning. I stället genereras namnet på den tjänst som en begäran skickas till i definitionen av backend-principen från `name`-värdet som tillhandahöll sökvägen till URL-begäran. Ett exempel:

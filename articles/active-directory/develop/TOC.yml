@@ -82,6 +82,8 @@
               href: tutorial-v2-windows-uwp.md
             - name: .NET för Windows-skrivbordet
               href: tutorial-v2-windows-desktop.md
+            - name: Använda läge för delad enhet i Android-appen
+              href: tutorial-v2-shared-device-mode.md
         - name: Daemon-appar
           items:
             - name: ASP.NET-daemon-webbapp
@@ -208,6 +210,8 @@
                   href: scenario-mobile-app-configuration.md
                 - name: Specifik konfiguration för mobila plattformar
                   items:
+                    - name: Läge för delad enhet för Android-enheter
+                      href: shared-device-mode.md
                     - name: Xamarin Android
                       href: msal-net-xamarin-android-considerations.md
                     - name: Systemwebbläsare på Android

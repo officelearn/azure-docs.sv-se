@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 1/13/2020
+ms.date: 1/14/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 9f8ed6be825470504b5e7b45a15c4faa9cf5ccfc
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: bfa5d240ba4905f79274941568933daf1425bf8b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932885"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75969420"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en måttvarning med en Resource Manager-mall
 
@@ -29,7 +29,7 @@ De grundläggande stegen är följande:
 1. Använd en av mallarna nedan som en JSON-fil som beskriver hur du skapar aviseringen.
 2. Redigera och använd motsvarande parameter fil som JSON för att anpassa aviseringen.
 3. För `metricName`-parametern, se tillgängliga mått i [Azure Monitor mått som stöds](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
-4. Distribuera mallen med [valfri distributions metod](../../azure-resource-manager/resource-group-template-deploy.md).
+4. Distribuera mallen med [valfri distributions metod](../../azure-resource-manager/templates/deploy-powershell.md).
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Mall för en mått avisering för enkel statisk tröskel
 
@@ -378,6 +378,13 @@ Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom g�
                 "description": "The number of unhealthy periods to alert on (must be lower or equal to numberOfEvaluationPeriods)."
             }
         },
+    "ignoreDataBefore": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format, e.g. '2019-12-31T22:00:00Z')."
+            }
+        },
         "timeAggregation": {
             "type": "string",
             "defaultValue": "Average",
@@ -455,6 +462,7 @@ Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom g�
                                 "numberOfEvaluationPeriods": "[parameters('numberOfEvaluationPeriods')]",
                                 "minFailingPeriodsToAlert": "[parameters('minFailingPeriodsToAlert')]"
                             },
+                "ignoreDataBefore": "[parameters('ignoreDataBefore')]",
                             "timeAggregation": "[parameters('timeAggregation')]"
                         }
                     ]
@@ -511,6 +519,9 @@ Spara JSON-filen nedan som simpledynamicmetricalert. Parameters. JSON och ändra
         "minFailingPeriodsToAlert": {
             "value": "3"
         },
+    "ignoreDataBefore": {
+            "value": ""
+        },
         "timeAggregation": {
             "value": "Average"
         },
@@ -559,7 +570,7 @@ Observera följande begränsningar när du använder dimensioner i en varnings r
 - Du kan bara välja ett värde per dimension i varje kriterium.
 - Du kan inte använda "\*" som dimensions värde.
 - När mått som kon figurer ATS i olika villkor stöder samma dimension måste ett konfigurerat dimensions värde uttryckligen anges på samma sätt för alla dessa mått (i de relevanta kriterierna).
-    - I exemplet nedan, eftersom både **transaktionerna** och **SuccessE2ELatency** -mått har en **API** -dimension, och *criterion1* anger värdet *"GetBlob"* för dimensionen API- **namn** , måste *Criterion2* även ange ett *"GetBlob"* -värde för dimensionen API- **namn** .
+    - I exemplet nedan, eftersom både **transaktionerna** och **SuccessE2ELatency** -mått har en **ApiName** -dimension, och *Criterion1* anger värdet *"GetBlob"* för **ApiName** -dimensionen, måste *criterion2* även ange ett *"GetBlob"* -värde för **ApiName** -dimensionen.
 
 
 Spara JSON-filen nedan som advancedstaticmetricalert. JSON för den här genom gången.

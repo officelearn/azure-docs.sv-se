@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 9fe0875f34745b0b5b8b1b7e8b352116b6cbf997
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: ff84b085b7d40bcb6c5a0aa87416e5814f67814b
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941913"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979577"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
 
@@ -189,7 +189,7 @@ Om du vill använda den användardefinierade identiteten på den virtuella mål 
 
 Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. JSON-schemat, som beskrivs i föregående avsnitt, kan användas i en Azure Resource Manager mall för att köra det anpassade skript tillägget under distributionen. Följande exempel visar hur du använder tillägget för anpassat skript:
 
-* [Självstudie: distribuera tillägg för virtuella datorer med Azure Resource Manager mallar](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Självstudie: distribuera tillägg för virtuella datorer med Azure Resource Manager mallar](../../azure-resource-manager/templates/template-tutorial-deploy-vm-extensions.md)
 * [Distribuera program på två nivåer i Windows och Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## <a name="powershell-deployment"></a>PowerShell-distribution

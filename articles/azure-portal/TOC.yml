@@ -54,8 +54,12 @@
                   href: supportability/classic-deployment-model-quota-increase-requests.md
             - name: Utöka nätverksgränser
               href: supportability/networking-quota-requests.md
+    - name: Felsöka Azure Portal-problem
+      items:
         - name: Felsök region eller problem med SKU-prenumeration
           href: supportability/sku-series-unavailable.md
+        - name: Samla in en webbläsarspårning för felsökning
+          href: capture-browser-trace.md
 - name: Referens
   items:
     - name: Kortkommandon

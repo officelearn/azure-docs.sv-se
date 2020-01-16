@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: f10de425bf83720b06f3ea7772343edfefc8d952
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834832"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982443"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -61,7 +61,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 
 TabularDataset-objekt ger möjlighet att läsa in data till en Pandas-eller Spark-DataFrame så att du kan arbeta med välbekanta data förberedelse-och utbildnings bibliotek. För att dra nytta av den här funktionen kan du skicka en TabularDataset som inmatad i din tränings konfiguration och sedan hämta den i skriptet.
 
-Det gör du genom att komma åt data uppsättningen för indata via [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) -objektet i utbildnings skriptet och använda metoden [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) . 
+Det gör du genom att komma åt data uppsättningen för indata via [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) -objektet i utbildnings skriptet och använda metoden [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) . 
 
 ```Python
 %%writefile $script_folder/train_titanic.py

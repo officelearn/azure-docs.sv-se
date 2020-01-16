@@ -1,0 +1,150 @@
+### YamlMime:Hub
+title: Dokumentation om Azure Cost Management + Fakturering
+summary: Azure Cost Management och Azure-fakturering hjälper dig att förstå dina fakturor från Azure, hantera ditt konto och dina prenumerationer, övervaka och kontrollera dina Azure-utgifter samt optimera din resursanvändning. Lär dig hur du analyserar kostnader, skapar och hanterar budgetar, exporterar data, och granskar och arbetar med rekommendationer.
+metadata:
+  ms.service: cost-management-billing
+  description: Azure Cost Management och Azure-fakturering hjälper dig att förstå dina fakturor från Azure, hantera ditt konto och dina prenumerationer, övervaka och kontrollera dina Azure-utgifter samt optimera din resursanvändning. Lär dig hur du analyserar kostnader, skapar och hanterar budgetar, exporterar data, och granskar och arbetar med rekommendationer.
+  ms.topic: hub-page
+  author: bandersmsft
+  ms.author: banders
+  manager: dougeby
+  ms.date: 12/17/2019
+  ms.openlocfilehash: 83e05501b256848f5fd7d4f42723a64b3fc3b1fb
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983366"
+highlightedContent:
+  items:
+  - title: Vad är Cost Management + Fakturering?
+    itemType: overview
+    url: cost-management-billing-overview.md
+  - title: Analysera kostnader och skapa budgetar
+    itemType: learn
+    url: https://docs.microsoft.com/learn/modules/analyze-costs-create-budgets-azure-cost-management/
+  - title: Metodtips för Cost Management
+    itemType: concept
+    url: ./costs/cost-mgt-best-practices.md
+conceptualContent:
+  items:
+  - title: Kom igång med Azure-fakturering
+    links:
+    - url: ./understand/review-individual-bill.md
+      itemType: tutorial
+      text: Granska din enskilda faktura
+    - url: ./understand/review-customer-agreement-bill.md
+      itemType: tutorial
+      text: Granska din faktura för kundavtalet
+    - url: ./understand/review-partner-agreement-bill.md
+      itemType: tutorial
+      text: Granska din faktura för partneravtalet
+    - url: ./understand/review-enterprise-agreement-bill.md
+      itemType: tutorial
+      text: Granska din Enterprise-avtalsfaktura
+    footerLink:
+      text: Mer information
+      url: ./understand/index.yml
+  - title: Kostnadsfritt konto
+    links:
+    - url: ./manage/create-free-services.md
+      itemType: concept
+      text: Skapa kostnadsfria tjänster
+    - url: ./manage/avoid-charges-free-account.md
+      itemType: concept
+      text: Undvik avgifter
+    - url: ./manage/check-free-service-usage.md
+      itemType: concept
+      text: Kontrollera användning
+    - url: ./manage/upgrade-azure-subscription.md
+      itemType: concept
+      text: Uppgradera prenumeration
+  - title: Hantera Azure-kostnader och -förbrukning
+    links:
+    - url: ./costs/quick-acm-cost-analysis.md
+      itemType: quickstart
+      text: Börja analysera kostnader
+    - url: ./costs/tutorial-acm-create-budgets.md
+      itemType: tutorial
+      text: Skapa och hantera budgetar
+    - url: ./costs/tutorial-export-acm-data.md
+      itemType: tutorial
+      text: Exportera kostnads- och användningsdata
+    - url: ./costs/tutorial-acm-opt-recommendations.md
+      itemType: tutorial
+      text: Agera utifrån kostnadsbesparande rekommendationer
+    - url: ./costs/cost-analysis-common-uses.md
+      itemType: how-to-guide
+      text: Använda kostnadsanalys för vanliga uppgifter
+    footerLink:
+      text: Mer information
+      url: ./costs/index.yml
+  - title: Hantera Azure-konton och -prenumerationer
+    links:
+    - url: ./manage/manage-billing-access.md
+      itemType: how-to-guide
+      text: Bevilja åtkomst till fakturering
+    - url: ./manage/change-azure-account-profile.md
+      itemType: how-to-guide
+      text: Redigera profil
+    - url: ./manage/resolve-past-due-balance.md
+      itemType: how-to-guide
+      text: Lös passerat betalningsdatum
+    - url: ./manage/subscription-disabled.md
+      itemType: how-to-guide
+      text: Återaktivera prenumeration
+    - url: ./manage/billing-subscription-transfer.md
+      itemType: how-to-guide
+      text: Överför ägarskap
+    - url: ./manage/cancel-azure-subscription.md
+      itemType: how-to-guide
+      text: Avbryt prenumerationen
+    - url: ./manage/change-credit-card.md
+      itemType: how-to-guide
+      text: Ändra kreditkort
+    - url: ./manage/add-change-subscription-administrator.md
+      itemType: how-to-guide
+      text: Ändra administratör
+    - url: ./manage/create-subscription.md
+      itemType: how-to-guide
+      text: Skapa ytterligare prenumerationer
+    footerLink:
+      text: Mer information
+      url: ./manage/index.yml
+  - title: Spara med Azure-reservationer
+    links:
+    - url: ./reservations/save-compute-costs-reservations.md
+      itemType: concept
+      text: Vad är Azure-reservationer?
+    - url: ./reservations/manage-reserved-vm-instance.md
+      itemType: how-to-guide
+      text: Hantera Azure-reservationer
+    - url: ./reservations/monthly-payments-reservations.md
+      itemType: how-to-guide
+      text: Köpa en reservation med månadsbetalning
+    - url: ./reservations/reservation-renew.md
+      itemType: how-to-guide
+      text: Förnya reservationer
+    - url: ./reservations/exchange-and-refund-azure-reservations.md
+      itemType: how-to-guide
+      text: Utbyten och återbetalningar för reservationer
+    footerLink:
+      text: Mer information
+      url: ./reservations/index.yml
+  - title: Delta
+    links:
+    - url: https://feedback.azure.com/forums/906772-cost-management
+      itemType: how-to-guide
+      text: Begära en tjänstfunktion för Cost Management
+    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22cost%20management%22&location=category:Azure&collapse_discussion=true
+      itemType: how-to-guide
+      text: Tekniskt community för Azure Cost Management
+    - url: https://feedback.azure.com/forums/170030-signup-and-billing
+      itemType: how-to-guide
+      text: Begära en tjänstfunktion för fakturering
+    - url: https://techcommunity.microsoft.com/t5/forums/searchpage/tab/message?filter=location&q=%22billing%22&noSynonym=false&location=category:Azure&collapse_discussion=true
+      itemType: how-to-guide
+      text: Tekniskt community för Azure-fakturering
+    - url: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureCostManagement&filter=alltypes&sort=relevancedesc&searchTerm=Azure%20Cost%20Management
+      itemType: how-to-guide
+      text: Ställ en fråga om Cost Management och fakturering på forumet

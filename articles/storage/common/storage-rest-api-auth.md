@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895161"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965727"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>Anropa REST API åtgärder med autentisering med delad nyckel
 
@@ -23,13 +23,13 @@ Den här artikeln visar hur du anropar Azure Storage REST-API: er, inklusive hur
 
 ## <a name="prerequisites"></a>Krav
 
-Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto. Om du vill testa koden i den här artikeln behöver du följande objekt: 
+Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto. Om du vill testa koden i den här artikeln behöver du följande objekt:
 
 - Installera [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) med arbets belastningen **Azure Development** .
 
 - En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Ett allmänt lagrings konto. Om du inte har ett lagrings konto än kan du läsa [skapa ett lagrings konto](storage-quickstart-create-account.md).
+- Ett allmänt lagrings konto. Om du inte har ett lagrings konto än kan du läsa [skapa ett lagrings konto](storage-account-create.md).
 
 - Exemplet i den här artikeln visar hur du listar behållarna i ett lagrings konto. Om du vill se utdata lägger du till några behållare i Blob Storage i lagrings kontot innan du börjar.
 
@@ -37,13 +37,13 @@ Exempel programmet visar en lista över BLOB-behållare för ett lagrings konto.
 
 Exempel programmet är ett konsol program skrivet C#.
 
-Använd [git](https://git-scm.com/) för att hämta en kopia av programmet till utvecklingsmiljön.
+Använd [git](https://git-scm.com/) för att ladda ned en kopia av programmet till utvecklingsmiljön.
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-dotnet-rest-api-with-auth.git
 ```
 
-Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta reda på mappen Storage-dotNet-REST-API-with-auth, öppna den och dubbelklicka på StorageRestApiAuth. SLN. 
+Det här kommandot klonar lagret till den lokala git-mappen. Öppna Visual Studio-lösningen genom att leta reda på mappen Storage-dotNet-REST-API-with-auth, öppna den och dubbelklicka på StorageRestApiAuth. SLN.
 
 ## <a name="about-rest"></a>Om REST
 
@@ -93,16 +93,16 @@ För säkerhet vid körning i produktion ska du alltid använda HTTPS i stället
 
 I vårt exempel projekt finns koden för att skapa ett Authorization-huvud i en separat klass. Idén är att du kan ta hela klassen och lägga till den i din egen lösning och använda den "i befintligt skick". Huvud koden för auktorisering fungerar för de flesta REST API anrop till Azure Storage.
 
-Om du vill bygga begäran, som är ett HttpRequestMessage-objekt, går du till ListContainersAsyncREST i Program.cs. Stegen för att skapa begäran är: 
+Om du vill bygga begäran, som är ett HttpRequestMessage-objekt, går du till ListContainersAsyncREST i Program.cs. Stegen för att skapa begäran är:
 
-- Skapa den URI som ska användas för att anropa tjänsten. 
+- Skapa den URI som ska användas för att anropa tjänsten.
 - Skapa HttpRequestMessage-objektet och ange nytto lasten. Nytto lasten är null för ListContainersAsyncREST eftersom vi inte skickar något i.
 - Lägg till begärandehuvuden för x-MS-date och x-MS-version.
 - Hämta Authorization-huvudet och Lägg till det.
 
-Grundläggande information som du behöver: 
+Grundläggande information som du behöver:
 
-- För ListContainers är **metoden** `GET`. Det här värdet anges när en instans av begäran skapas. 
+- För ListContainers är **metoden** `GET`. Det här värdet anges när en instans av begäran skapas.
 - **Resursen** är den fråge del av URI: n som anger vilket API som anropas, så att värdet är `/?comp=list`. Som tidigare nämnts finns resursen på referens dokument sidan som visar information om ListContainers-API: [et](/rest/api/storageservices/List-Containers2).
 - URI: n konstrueras genom att Blob Service slut punkten för det lagrings kontot skapas och resursen sammanfogas. Värdet för **begärd URI** är `http://contosorest.blob.core.windows.net/?comp=list`.
 - För ListContainers är **requestBody** null och det finns inga extra **huvuden**.
@@ -160,7 +160,7 @@ Nu när du har skapat begäran kan du anropa SendAsync-metoden för att skicka d
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
     {
-        // If successful (status code = 200), 
+        // If successful (status code = 200),
         //   parse the XML response for the container names.
         if (httpResponseMessage.StatusCode == HttpStatusCode.OK)
         {
@@ -209,7 +209,7 @@ Content-Length: 1511
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
-<EnumerationResults 
+<EnumerationResults
   ServiceEndpoint="http://contosorest.blob.core.windows.net/">
   <Containers>
     <Container>
@@ -308,7 +308,7 @@ Vi börjar med de två kanoniska fälten, eftersom de krävs för att skapa ett 
 
 ### <a name="canonicalized-headers"></a>Kanoniska rubriker
 
-Om du vill skapa det här värdet hämtar du de huvuden som börjar med "x-MS-" och sorterar dem och formaterar dem sedan i en sträng med `[key:value\n]` instanser, sammanfogade till en sträng. I det här exemplet ser de kanoniska rubrikerna ut så här: 
+Om du vill skapa det här värdet hämtar du de huvuden som börjar med "x-MS-" och sorterar dem och formaterar dem sedan i en sträng med `[key:value\n]` instanser, sammanfogade till en sträng. I det här exemplet ser de kanoniska rubrikerna ut så här:
 
 ```
 x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
@@ -316,7 +316,7 @@ x-ms-date:Fri, 17 Nov 2017 00:44:48 GMT\nx-ms-version:2017-07-29\n
 
 Här är koden som används för att skapa utdata:
 
-```csharp 
+```csharp
 private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMessage)
 {
     var headers = from kvp in httpRequestMessage.Headers
@@ -444,7 +444,7 @@ https://myaccount.blob.core.windows.net/container-1?restype=container&comp=list
 I ListContainersAsyncREST ändrar du koden som anger URI: n till API: t för ListBlobs. Container namnet är **container-1**.
 
 ```csharp
-String uri = 
+String uri =
     string.Format("http://{0}.blob.core.windows.net/container-1?restype=container&comp=list",
       storageAccountName);
 
@@ -516,7 +516,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**Svars text (XML):** Detta XML-svar visar listan över blobbar och deras egenskaper. 
+**Svars text (XML):** Detta XML-svar visar listan över blobbar och deras egenskaper.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -572,4 +572,4 @@ I den här artikeln har du lärt dig hur du gör en begäran till Blob Storage R
 - [Blob-tjänstens REST-API](/rest/api/storageservices/blob-service-rest-api)
 - [Fil-tjänstens REST-API](/rest/api/storageservices/file-service-rest-api)
 - [Kö-tjänstens REST-API](/rest/api/storageservices/queue-service-rest-api)
-- [Tabelltjänstens REST-API](/rest/api/storageservices/table-service-rest-api)
+- [Tabell-tjänstens REST-API](/rest/api/storageservices/table-service-rest-api)

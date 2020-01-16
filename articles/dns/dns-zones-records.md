@@ -15,18 +15,18 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/18/2017
 ms.author: allensu
-ms.openlocfilehash: e80de4a3102f9fec8ad06c0facd110b51558d338
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 37e5f5ed1d877900d8ef967f83de95f056fcca0c
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211004"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980536"
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Översikt över DNS-zoner och-poster
 
 Den här sidan förklarar viktiga begrepp för domäner, DNS-zoner och DNS-poster och post uppsättningar och hur de stöds i Azure DNS.
 
-## <a name="domain-names"></a>Domän namn
+## <a name="domain-names"></a>Domännamn
 
 Domain Name System är en hierarki av domäner. Hierarkin startar från rotdomänen, vars namn är ” **.** ”.  Under detta kommer toppdomänerna, till exempel ”com”, ”net”, ”org”, ”se” eller ”uk”.  Under dessa finns domänerna på den andra nivån, till exempel ”org.se” eller ”co.uk”. Domänerna i DNS-hierarkin distribueras globalt, värdbaserade av DNS-namnservrar runtom i världen.
 
@@ -115,7 +115,7 @@ Flera strängar i en DNS-post ska inte förväxlas med flera TXT-poster i en TXT
 
 ### <a name="tags"></a>Taggar
 
-Taggar är en lista över namn-värdepar och används av Azure Resource Manager för att märka resurser.  Azure Resource Manager använder taggar för att aktivera filtrerade vyer av din Azure-faktura och du kan också ange en princip för vilka taggar krävs. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/resource-group-using-tags.md).
+Taggar är en lista över namn-värdepar och används av Azure Resource Manager för att märka resurser.  Azure Resource Manager använder taggar för att aktivera filtrerade vyer av din Azure-faktura och du kan också ange en princip för vilka taggar krävs. Mer information om taggar finns i [Ordna dina Azure-resurser med hjälp av taggar](../azure-resource-manager/management/tag-resources.md).
 
 Azure DNS stöder användning av Azure Resource Manager-taggar på resurser i DNS-zonen.  Det går inte att använda taggar i DNS-postuppsättningar, även om alternativa metadata stöds på DNS-postuppsättningar enligt beskrivningen nedan.
 
@@ -135,7 +135,7 @@ På nivån för Azure DNS REST API anges ETags med HTTP-huvuden.  Deras beteende
 
 | Huvud | Beteende |
 | --- | --- |
-| Ingen |PLACERINGen lyckas (inga etag-kontroller) |
+| Inget |PLACERINGen lyckas (inga etag-kontroller) |
 | If-Match \<etag > |PLACERINGen lyckas endast om resursen finns och etag matchar |
 | If-Match * |PLACERINGen lyckas endast om resursen finns |
 | If-None-Match * |PLACERINGen lyckas endast om resursen inte finns |

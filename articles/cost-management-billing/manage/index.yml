@@ -1,0 +1,90 @@
+### YamlMime:Landing
+title: Hantera konton och prenumerationer med Azure-fakturering
+summary: Lär dig att förstå din Azure-fakturering och hantera ditt konto samt dina prenumerationer.
+metadata:
+  title: Hantera konton och prenumerationer med Azure-fakturering
+  description: Lär dig att förstå din Azure-fakturering och hantera ditt konto samt dina prenumerationer.
+  ms.service: cost-management-billing
+  ms.topic: landing-page
+  ms.collection: collection
+  author: bandersmsft
+  ms.author: banders
+  ms.manager: dougeby
+  ms.date: 12/18/2019
+  ms.openlocfilehash: 61158d44399891f0f6293f53a11f227506fbddbe
+  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 01/15/2020
+  ms.locfileid: "75983332"
+landingContent:
+- title: Hantera konton
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Roller i Microsoft-kundavtal i Azure
+      url: understand-mca-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Redigera profil
+      url: change-azure-account-profile.md
+    - text: Lös passerat betalningsdatum
+      url: resolve-past-due-balance.md
+    - text: Bevilja åtkomst till fakturering
+      url: manage-billing-access.md
+    - text: Visa faktureringskonton
+      url: view-all-accounts.md
+    - text: Ordna kostnader med fakturaavsnitt
+      url: mca-section-invoice.md
+- title: Hantera prenumerationer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Återaktivera prenumeration
+      url: subscription-disabled.md
+    - text: Överföra ägarskap för en enskild prenumeration
+      url: billing-subscription-transfer.md
+    - text: Överföra ägarskap för ett Microsoft-kundavtal
+      url: mca-request-billing-ownership.md
+    - text: Överföra ägarskap för ett Microsoft-partneravtal
+      url: mpa-request-ownership.md
+    - text: Avbryt prenumerationen
+      url: cancel-azure-subscription.md
+    - text: Ändra kreditkort
+      url: change-credit-card.md
+    - text: Ändra administratör
+      url: add-change-subscription-administrator.md
+    - text: Betala med faktura
+      url: pay-by-invoice.md
+    - text: Skapa en ytterligare prenumeration
+      url: create-subscription.md
+- title: Hantera ett kostnadsfritt konto
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa kostnadsfria tjänster
+      url: create-free-services.md
+    - text: Undvik avgifter
+      url: avoid-charges-free-account.md
+    - text: Kontrollera användning
+      url: check-free-service-usage.md
+    - text: Uppgradera konto
+      url: upgrade-azure-subscription.md
+- title: Enterprise-avtalshantering
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: EA-roller i Azure
+      url: understand-ea-roles.md
+  - linkListType: how-to-guide
+    links:
+    - text: Kom igång i Azure EA-portalen
+      url: ea-portal-get-started.md
+    - text: Administration i Azure EA-portalen
+      url: ea-portal-administration.md
+    - text: Felsöka åtkomst till Azure EA-portalen
+      url: ea-portal-troubleshoot.md
+  - linkListType: reference
+    links:
+    - text: REST-API:er för Azure Enterprise
+      url: ea-portal-rest-apis.md

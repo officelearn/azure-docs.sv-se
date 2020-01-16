@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: ba49fc72fe07378d702b8c12fcdf77d5cebee9bb
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 126b488d2bb59e2904bee646301240efe6fe71a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013091"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037946"
 ---
 Det här dokumentet vägleder dig genom skillnaderna mellan hanterade och ohanterade diskar när du använder Azure Resource Manager mallar för att etablera virtuella datorer. I exemplen kan du uppdatera befintliga mallar som använder ohanterade diskar till hanterade diskar. För referens använder vi mallen [101-VM-Simple-Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) som en guide. Du kan se mallen med hjälp av både [hanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) och en tidigare version med [ohanterade diskar](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) om du vill jämföra dem direkt.
 
@@ -94,7 +94,16 @@ Med Azure Managed Disks blir disken en resurs på den översta nivån och kräve
 
 ### <a name="default-managed-disk-settings"></a>Standardinställning för hanterade diskar
 
-Om du vill skapa en virtuell dator med hanterade diskar behöver du inte längre skapa lagrings konto resursen och kan uppdatera den virtuella dator resursen på följande sätt. Observera särskilt att `apiVersion` visar `2017-03-30` och `osDisk` och `dataDisks` inte längre refererar till en specifik URI för den virtuella hård disken. När du distribuerar utan att ange ytterligare egenskaper kommer disken att använda en lagrings typ baserat på den virtuella datorns storlek. Om du till exempel använder en Premium-kompatibel VM-storlek (storlekar med "s" i namnet, till exempel Standard_D2s_v3), kommer systemet att använda Premium_LRS lagring. Använd disk enhets inställningen för disken för att ange en lagrings typ. Om inget namn anges används formatet `<VMName>_OsDisk_1_<randomstring>` för operativ system disken och `<VMName>_disk<#>_<randomstring>` för varje datadisk. Som standard är Azure Disk Encryption inaktive rad. cachelagring är Läs/skrivbar för OS-disken och ingen för data diskar. Du kanske märker att det fortfarande finns ett lagrings konto beroende i exemplet nedan, även om det bara är för lagring av diagnostik och inte behövs för disk lagring.
+Om du vill skapa en virtuell dator med hanterade diskar behöver du inte längre skapa lagrings konto resursen. Om du refererar till mal Lav exemplet nedan finns det några skillnader jämfört med tidigare unmanged-disk exempel att Observera:
+
+- `apiVersion` är en version som stöder hanterade diskar.
+- `osDisk` och `dataDisks` inte längre referera till en angiven URI för den virtuella hård disken.
+- När du distribuerar utan att ange ytterligare egenskaper kommer disken att använda en lagrings typ baserat på den virtuella datorns storlek. Om du till exempel använder en VM-storlek som har stöd för Premium Storage (storlekar med "s" i namnet, till exempel Standard_D2s_v3), så konfigureras Premium diskar som standard. Du kan ändra detta genom att använda SKU-inställningen på disken för att ange en lagrings typ.
+- Om inget namn har angetts för disken används formatet `<VMName>_OsDisk_1_<randomstring>` för operativ system disken och `<VMName>_disk<#>_<randomstring>` för varje data disk.
+  - Om en virtuell dator skapas från en anpassad avbildning, hämtas standardinställningarna för lagrings konto typ och disk namn från disk egenskaperna som definierats i den anpassade avbildnings resursen. Dessa kan åsidosättas genom att ange värden för dessa i mallen.
+- Som standard är Azure Disk Encryption inaktive rad.
+- Som standard är diskcachelagring att läsa/skriva för OS-disken och ingen för data diskar.
+- I exemplet nedan finns fortfarande ett lagrings konto beroende, men det är bara för lagring av diagnostik och behövs inte för disk lagring.
 
 ```json
 {

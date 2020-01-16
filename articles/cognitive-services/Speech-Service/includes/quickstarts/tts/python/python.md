@@ -3,19 +3,19 @@ title: 'Snabb start: syntetisera tal, python-tal-tjänst'
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att syntetisera tal i python med hjälp av tal-SDK
 services: cognitive-services
-author: yulin-li
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 09/14/2019
-ms.author: yulili
-ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 19/14/2020
+ms.author: dapine
+ms.openlocfilehash: 7be9037ddfd19d82263b37fe0b824e3c2b3f5078
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74818474"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76037699"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -25,21 +25,20 @@ Innan du börjar ska du se till att:
 > * [Skapa en Azure tal-resurs](../../../../get-started.md)
 > * [Konfigurera utvecklings miljön](../../../../quickstarts/setup-platform.md)
 > * [Skapa ett tomt exempel projekt](../../../../quickstarts/create-project.md)
-```
 
-## Support and updates
+## <a name="support-and-updates"></a>Support och uppdateringar
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/Speech-Service/releasenotes.md).
-If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
+Uppdateringar av Python Speech SDK-paketet distribueras via PyPI och visas i [Viktig information](~/articles/cognitive-services/Speech-Service/releasenotes.md).
+Om en ny version är tillgänglig kan du uppdatera till den med kommandot `pip install --upgrade azure-cognitiveservices-speech`.
+Kontrollera vilken version som är installerad genom att granska variabeln `azure.cognitiveservices.speech.__version__`.
 
-If you have a problem, or you're missing a feature, see [Support and help options](~/articles/cognitive-services/Speech-Service/support.md).
+Om du har problem eller saknar en funktion kan du ta en titt på [alternativen för support och hjälp](~/articles/cognitive-services/Speech-Service/support.md).
 
-## Create a Python application that uses the Speech SDK
+## <a name="create-a-python-application-that-uses-the-speech-sdk"></a>Skapa ett Python-program som använder Speech SDK
 
-### Run the sample
+### <a name="run-the-sample"></a>Kör exemplet
 
-You can copy the [sample code](#sample-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console:
+Du kan kopiera [exempelkoden](#sample-code) till en källfil från den här snabbstarten `quickstart.py` och köra den i din IDE eller i konsolen:
 
 ```sh
 python quickstart.py

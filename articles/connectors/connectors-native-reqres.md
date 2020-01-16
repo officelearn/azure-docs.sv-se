@@ -7,12 +7,12 @@ ms.reviewers: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: b3723ccc247b8a9451b9a5fdc628bff58da361a0
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74787003"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76030140"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps
 
@@ -23,7 +23,16 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda be
 * Ta emot och svara på ett HTTPS-anrop från en annan Logic app.
 
 > [!NOTE]
-> Begär ande utlösare stöder *endast* Transport Layer Security (TLS) 1,2 för inkommande anrop. Utgående samtal fortsätter att stödja TLS 1,0, 1,1 och 1,2. Om du ser fel i SSL-handskakning kontrollerar du att du använder TLS 1,2.
+> Begär ande utlösare stöder *endast* Transport Layer Security (TLS) 1,2 för inkommande anrop. Utgående samtal fortsätter att stödja TLS 1,0, 1,1 och 1,2. Om du ser fel i SSL-handskakning kontrollerar du att du använder TLS 1,2. För inkommande samtal är följande chiffersviter som stöds:
+>
+> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## <a name="prerequisites"></a>Krav
 
@@ -50,7 +59,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
-   | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
+   | **Begär ande text JSON-schema** | `schema` | Inga | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
    |||||
 
 1. I rutan **begär text-JSON-schema** kan du ange ett JSON-schema som beskriver bröd texten i den inkommande begäran, till exempel:
@@ -148,8 +157,8 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
-   | **Metod** | `method` | Nej | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
-   | **Relativ sökväg** | `relativePath` | Nej | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
+   | **Metod** | `method` | Inga | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
+   | **Relativ sökväg** | `relativePath` | Inga | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
    |||||
 
    I det här exemplet läggs egenskapen **metod** till:
@@ -223,8 +232,8 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
    | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **Statuskod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
-   | **Headers** | `headers` | Nej | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
-   | **Brödtext** | `body` | Nej | Svars texten |
+   | **Headers** | `headers` | Inga | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |
+   | **Brödtext** | `body` | Inga | Svars texten |
    |||||
 
 1. Om du vill ange ytterligare egenskaper, till exempel ett JSON-schema för svars texten, öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.

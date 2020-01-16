@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Cisco WebEx | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Cisco WebEx | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Cisco Webex.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 01/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 503de723894388a198abbb687221cb1403a6fa84
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 29cf5eebfb485837ee9656909323688384a4b890
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104434"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028605"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Cisco WebEx
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Cisco WebEx
 
 I den här självstudien får du lära dig hur du integrerar Cisco WebEx med Azure Active Directory (Azure AD). När du integrerar Cisco WebEx med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Cisco WebEx med Azu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -83,9 +83,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     >[!Note]
     >Du hämtar metadata-filen för tjänst leverantören från avsnittet **Konfigurera Cisco-WebEx** , som beskrivs senare i självstudien. 
 
-    a. Klicka på **ladda upp metadatafilen**.
+    a. Klicka på **Ladda upp metadatafil**.
 
-    b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
+    b. Klicka på **mappikonen** för att välja metadatafilen och klicka på **Ladda upp**.
 
     c. När metadatafilen för tjänstleverantör har laddats upp fylls värdena för **Identifierare** och **Svars-URL** i automatiskt i avsnittet **Grundläggande SAML-konfiguration**:
 
@@ -93,19 +93,19 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 5. Cisco WebEx-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
 6. Utöver ovanstående förväntar sig Cisco Webex-programmet att några fler attribut skickas tillbaka i SAML-svaret. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan:
     
-    | Name |  Källattribut|
+    | Namn |  Källattribut|
     | ---------------|--------- |
     | uid | user.userprincipalname |
 
     a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
 
-    ![image](common/new-save-attribute.png)
+    ![mallar](common/new-save-attribute.png)
 
-    ![image](common/new-attribute-details.png)
+    ![mallar](common/new-attribute-details.png)
 
     b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
 
@@ -121,7 +121,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-   ![Länk för hämtning av certifikat](common/metadataxml.png)
+   ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 1. I avsnittet **Konfigurera Cisco WebEx** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -132,14 +132,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Cisco WebEx.
 
@@ -147,7 +147,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. Välj **Cisco Webex** i listan över program.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -158,21 +158,29 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-cisco-webex"></a>Konfigurera Cisco-WebEx
 
-1. Logga in i [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) (Ciscos samarbetshantering i molnet) med dina autentiseringsuppgifter som administratör.
+1. Om du vill automatisera konfigurationen i Cisco WebEx måste du installera **webb läsar tillägget Mina appar säker inloggnings webbläsare** genom att klicka på **installera tillägget**.
 
-2. Välj **Settings** (Inställningar) och klicka på **Modify** (Ändra) under **Authentication** (Autentisering).
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren, klickar du på **Konfigurera Cisco WebEx** för att dirigera dig till Cisco WebEx-programmet. Därifrån anger du de autentiseringsuppgifter som krävs för att logga in på Cisco WebEx. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-8.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill konfigurera Cisco WebEx manuellt loggar du in på [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) med dina fullständiga administratörsautentiseringsuppgifter.
+
+4. Välj **Settings** (Inställningar) och klicka på **Modify** (Ändra) under **Authentication** (Autentisering).
 
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
-3. Välj **Integrate a 3rd-party identity provider. (Avancerat)** (Integrera en tredjeparts identitetsprovider. (Avancerat)) och gå till nästa skärm.
+5. Välj **integrera en identitets leverantör från tredje part. (Avancerat)** och gå till nästa skärm.
 
-4. På sidan **Import Idp Metadata** (Importera ldp-metadata) kan du antingen dra och släppa Azure AD-metadatafilen på sidan eller använda filbläddraren för att hitta och ladda upp Azure AD-metadatafilen. Välj sedan **Require certificate signed by a certificate authority in Metadata** (Kräv signerat certifikat av certifikatutfärdare i metadata (säkrare) och klicka på **Next** (Nästa).
+6. På sidan **Import Idp Metadata** (Importera ldp-metadata) kan du antingen dra och släppa Azure AD-metadatafilen på sidan eller använda filbläddraren för att hitta och ladda upp Azure AD-metadatafilen. Välj sedan **Require certificate signed by a certificate authority in Metadata** (Kräv signerat certifikat av certifikatutfärdare i metadata (säkrare) och klicka på **Next** (Nästa).
 
     ![Konfigurera enkel inloggning](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
-5. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
+7. Välj **Test SSO Connection** (Testa den enkla inloggningen) och autentisera med Azure AD-inloggning när en ny webbläsarflik öppnas.
 
-6. Gå tillbaka till webbläsarfliken **Cisco Cloud Collaboration Management** (Ciscos samarbetshantering i molnet). Om testet lyckades väljer du **This test was successful. Enable Single Sign-On option** (Testet lyckades. Aktivera alternativet för enkel inloggning) och klickar på **Next** (Nästa).
+8. Gå tillbaka till fliken för **Cisco Cloud Collaboration Management** browser. Om testet lyckades väljer du **det här testet lyckades. Aktivera alternativ för enkel inloggning** och klicka på **Nästa**.
 
 ### <a name="create-cisco-webex-test-user"></a>Skapa en testanvändare i Cisco Webex
 
@@ -194,7 +202,7 @@ I det här avsnittet skapar du en användare som heter B. Simon i Cisco WebEx. I
 
     b. I textrutan för **efternamn** skriver du efternamnet: **Simon**.
 
-    c. Skriv e -postadressen till användaren b.simon@contoso.comi text rutan e-postadress.
+    c. Skriv e-postadressen till användaren som b.simon@contoso.comi text rutan **e-postadress** .
 
 5. Klicka på plus tecknet för att lägga till B. Simon. Klicka sedan på **Nästa**.
 

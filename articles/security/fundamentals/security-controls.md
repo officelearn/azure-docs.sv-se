@@ -10,12 +10,12 @@ ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4ae75df89ef5ab45dd241b38f904b6645e3978aa
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 570cc8457e69b7056b2865af9c1feb5d62a395eb
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910205"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75981442"
 ---
 # <a name="index-of-built-in-security-controls-articles-for-azure-services"></a>Index för "inbyggda säkerhets kontroller" för Azure-tjänster
 
@@ -25,7 +25,7 @@ Inbyggda säkerhets kontroll artiklar är tillgängliga för följande tjänster
 
 - [API Management](../../api-management/api-management-security-controls.md)
 - [Azure App Service](../../app-service/app-service-security-controls.md)
-- [Azure Resource Manager](../../azure-resource-manager/azure-resource-manager-security-controls.md)
+- [Azure Resource Manager](../../azure-resource-manager/management/azure-resource-manager-security-controls.md)
 - [Azure Backup](../../backup/backup-security-controls.md)
 - [Azure Cosmos DB](../../cosmos-db/cosmos-db-security-controls.md)
 - [Azure Event Hubs](../../event-hubs/event-hubs-security-controls.md)
@@ -37,7 +37,7 @@ Inbyggda säkerhets kontroll artiklar är tillgängliga för följande tjänster
 - [Azure Service Fabric](../../service-fabric/service-fabric-security-controls.md)
 - [Azure SQL Database](../../sql-database/sql-database-security-controls.md)
 - [Azure Storage](../../storage/common/storage-security-controls.md)
-- [Azure-Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
+- [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md)
 - [Virtuella Linux-datorer](../../virtual-machines/linux/virtual-machines-linux-security-controls.md)
 - [Virtuella Windows-datorer](../../virtual-machines/windows/virtual-machines-windows-security-controls.md)
 - [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-security-controls.md)

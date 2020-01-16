@@ -13,18 +13,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b06301ab424a29d8f0e31e8f4dee26265327896b
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707209"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028369"
 ---
 # <a name="monitor-published-apis"></a>Övervaka publicerade API:er
 
 Med Azure Monitor kan du visualisera, fråga, vidarebefordra, aktivera och vidta åtgärder för mått eller loggar från resurser i Azure.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Visa aktivitetsloggar
@@ -48,7 +48,7 @@ Följande video visar hur du övervakar API Management med Azure Monitor.
 
 API Management sänder ut mätvärden varje minut, vilket ger dig en insyn i realtid i API:ernas tillstånd och hälsa. Nedan följer en sammanfattning av några tillgängliga mått:
 
-* Kapacitet (förhandsversion):  hjälper dig att fatta beslut om att uppgradera/nedgradera din APIM-tjänster. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
+* Kapacitet: hjälper dig att fatta beslut om att uppgradera/nedgradera dina APIM-tjänster. Måttet genereras per minut och återspeglar gatewaykapaciteten vid tidpunkten för rapporten. Måtten sträcker sig från 0 till 100 och beräknas utifrån gatewayens resurser som CPU och minnesanvändning.
 * Totalt antal gatewaybegäranden: antalet API-begäranden under perioden. 
 * Slutförda gatewaybegäranden: antalet API-begäranden som tog emot HTTP-svarskoder inklusive 304, 307 och under 301 (till exempel 200).
 * Misslyckade gatewaybegäranden: antalet API-begäranden som tog emot felaktiga HTTP-svarskoder inklusive 400 och över 500.
@@ -182,7 +182,7 @@ API Management tillhandahåller för närvarande diagnostikloggar (i batchar var
 
 | Egenskap  | Typ | Beskrivning |
 | ------------- | ------------- | ------------- |
-| isRequestSuccess | boolesk | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
+| isRequestSuccess | boolean | True om HTTP-begäran slutfördes med svarsstatuskod inom intervallet 2xx eller 3xx |
 | time | date-time | Tidsstämpeln för när gatewayen startar bearbetningen av begäran |
 | operationName | sträng | Konstantvärde ”Microsoft.ApiManagement/GatewayLogs” |
 | category | sträng | Konstantvärde ”GatewayLogs” |

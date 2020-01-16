@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b52c554617bdcbe88b65639473044eb9c5eb7fa8
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077080"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76045423"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>Skapa en Azure belastningsutjämnare med hjälp av REST API
 
-En Azure Load Balancer distribuerar nya inkommande flöden som inkommer till belastningsutjämnarens klientdel till backend-poolen instanser, enligt regler och hälsokontroller av slutpunkter. Belastningsutjämnaren är tillgänglig i två SKU: er: Basic och Standard. Förstå skillnaden mellan de två versionerna av SKU [Load Balancers SKU jämförelser](load-balancer-overview.md#skus).
+En Azure Load Balancer distribuerar nya inkommande flöden som inkommer till belastningsutjämnarens klientdel till backend-poolen instanser, enligt regler och hälsokontroller av slutpunkter. Belastningsutjämnaren är tillgänglig i två SKU: er: Basic och Standard. Förstå skillnaden mellan de två versionerna av SKU [Load Balancers SKU jämförelser](concepts-limitations.md#skus).
  
 Den här anvisningen visar hur du skapar en Azure belastningsutjämnare med hjälp av [Azure REST API](/rest/api/azure/) för att läsa in belastningsutjämna inkommande begäran mellan flera virtuella datorer inom en Azure-nätverk. Fullständig referensdokumentation och ytterligare exempel finns i den [Azure Load Balancer REST-referens för](/rest/api/load-balancer/).
  
@@ -35,10 +35,10 @@ Använd följande HTTP PUT-begäran för att skapa en ny Azure belastningsutjäm
 
 |Namn  |I  |Krävs |Typ |Beskrivning |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   sträng      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
-|resourceGroupName     |     path    | True        |  sträng       |   Namnet på resursgruppen.     |
-|loadBalancerName     |  path       |      True   |    sträng     |    Namnet på belastningsutjämnaren.    |
-|api-version    |   DocumentDB     |  True       |     sträng    |  API-klientversionen.      |
+|subscriptionId   |  Sökväg       |  Sant       |   sträng      |  Autentiseringsuppgifterna för prenumerationen som unikt identifierar Microsoft Azure-prenumeration. Prenumerations-ID utgör en del av URI: N för varje tjänstanrop.      |
+|resourceGroupName     |     Sökväg    | Sant        |  sträng       |   Namnet på resursgruppen.     |
+|loadBalancerName     |  Sökväg       |      Sant   |    sträng     |    Namnet på belastningsutjämnaren.    |
+|api-version    |   DocumentDB     |  Sant       |     sträng    |  API-klientversionen.      |
 
 
 

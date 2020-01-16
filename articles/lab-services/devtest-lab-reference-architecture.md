@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 059fd1eb5df09cd0f24763f18cbb02b34017793c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f079071a88d034dfd279da8656da517b934275a3
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647908"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982104"
 ---
 # <a name="azure-devtest-labs-reference-architecture-for-enterprises"></a>Azure DevTest Labs referens arkitektur för företag
 Den här artikeln innehåller en referens arkitektur som hjälper dig att distribuera en lösning som baseras på Azure DevTest Labs i ett företag. Den innehåller följande:
@@ -56,7 +56,7 @@ Dessa är viktiga element i referens arkitekturen:
 - **Resurser per resurs grupp per resurs typ**: standard gränsen för [resurser per resurs grupp per resurs typ är 800](../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits).  När du använder *alla virtuella datorer går du till samma resurs grupps* konfiguration, så träffar användare den här prenumerations gränsen mycket tidigare, särskilt om de virtuella datorerna har många extra diskar.
 - **Lagrings konton**: ett labb i DevTest Labs levereras med ett lagrings konto. Azure-kvoten för [antalet lagrings konton per region per prenumeration är 250](../azure-resource-manager/management/azure-subscription-service-limits.md#storage-limits). Det maximala antalet DevTest Labs i samma region är också 250.
 - **Roll tilldelningar**: en roll tilldelning är hur du ger en användare eller huvud åtkomst till en resurs (ägare, resurs, behörighets nivå). I Azure finns det en [gräns på 2 000 roll tilldelningar per prenumeration](../azure-resource-manager/management/azure-subscription-service-limits.md#role-based-access-control-limits). Som standard skapar DevTest Labs-tjänsten en resurs grupp för varje virtuell dator. Ägaren beviljas *ägar* behörighet för DEVTEST Labs VM och *läsar* behörighet till resurs gruppen. På så sätt använder varje ny virtuell dator som du skapar två roll tilldelningar utöver de tilldelningar som används när du ger användare behörighet till labbet.
-- **API-läsningar/skrivningar**: det finns olika sätt att automatisera Azure-och DevTest Labs, inklusive REST-API: er, PowerShell, Azure CLI och Azure SDK. Genom automatisering kan du träffa en annan gräns för API-begäranden: varje prenumeration tillåter upp till [12 000 Läs begär Anden och 1 200 Skriv förfrågningar per timme](../azure-resource-manager/resource-manager-request-limits.md). Tänk på den här gränsen när du automatiserar DevTest Labs.
+- **API-läsningar/skrivningar**: det finns olika sätt att automatisera Azure-och DevTest Labs, inklusive REST-API: er, PowerShell, Azure CLI och Azure SDK. Genom automatisering kan du träffa en annan gräns för API-begäranden: varje prenumeration tillåter upp till [12 000 Läs begär Anden och 1 200 Skriv förfrågningar per timme](../azure-resource-manager/management/request-limits-and-throttling.md). Tänk på den här gränsen när du automatiserar DevTest Labs.
 
 ## <a name="manageability-considerations"></a>Överväganden för hantering
 DevTest Labs har ett bra administrativt användar gränssnitt för att arbeta med ett enda labb. Men i ett företag har du troligen flera Azure-prenumerationer och många labb. Att göra ändringar konsekvent i alla labb kräver skript/automatisering. Här följer några exempel och bästa hanterings praxis för en DevTest Labs-distribution:

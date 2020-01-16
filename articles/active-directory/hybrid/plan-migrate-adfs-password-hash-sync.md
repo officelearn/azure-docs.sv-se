@@ -12,18 +12,19 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b621c9cbc35d0e9956f6648d870102affd84c24f
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818895"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028389"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Migrera från Federation till hash-synkronisering för lösen ord för Azure Active Directory
 
 Den här artikeln beskriver hur du flyttar organisations domäner från Active Directory Federation Services (AD FS) (AD FS) till hash-synkronisering av lösen ord.
 
-Du kan [Ladda ned den här artikeln](https://aka.ms/ADFSTOPHSDPDownload).
+> [!NOTE]
+> Att ändra autentiseringsmetoden kräver planering, testning och eventuella stillestånds tider. [Mellanlagrad](how-to-connect-staged-rollout.md) distribution är ett alternativt sätt att testa och gradvis migrera från Federation till molnbaserad autentisering med hjälp av hash-synkronisering av lösen ord.
 
 ## <a name="prerequisites-for-migrating-to-password-hash-synchronization"></a>Krav för migrering till hash-synkronisering av lösen ord
 
@@ -135,10 +136,10 @@ I det här avsnittet beskrivs överväganden för distribution och information o
 
 Innan du konverterar från federerad identitet till hanterad identitet bör du titta närmare på hur du för närvarande använder AD FS för Azure AD, Office 365 och andra program (förtroenden för förlitande part). Mer specifikt bör du tänka på de scenarier som beskrivs i följande tabell:
 
-| Om | Dra |
+| Om | Välj sedan att |
 |-|-|
 | Du planerar att fortsätta använda AD FS med andra program (förutom Azure AD och Office 365). | När du har konverterat dina domäner använder du både AD FS och Azure AD. Överväg användar upplevelsen. I vissa fall kan användare behöva autentisera två gånger: en gång till Azure AD (där en användare får SSO-åtkomst till andra program, t. ex. Office 365) och igen för program som fortfarande är kopplade till AD FS som ett förlitande parts förtroende. |
-| AD FS-instansen är kraftigt anpassad och förlitar sig på särskilda anpassnings inställningar i filen onload. js (till exempel om du ändrade inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för en användares huvud namn Namnet (UPN) eller din organisation har kraftigt märkt inloggnings upplevelsen. Onload. js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
+| AD FS-instansen är mycket anpassad och förlitar sig på särskilda anpassnings inställningar i filen onload. js (till exempel om du har ändrat inloggnings upplevelsen så att användarna endast använder ett **sAMAccountName** -format för sitt användar namn i stället för ett UPN-format eller om din organisation har stor varumärkes inloggnings upplevelsen). Onload. js-filen kan inte dupliceras i Azure AD. | Innan du fortsätter måste du kontrol lera att Azure AD kan uppfylla dina aktuella anpassnings krav. Mer information och anvisningar finns i avsnitten om AD FS anpassning och AD FS anpassning.|
 | Du använder AD FS för att blockera tidigare versioner av autentiseringsbegäranden.| Överväg att ersätta AD FS kontroller som blockerar tidigare versioner av autentiseringsbegäranden genom att använda en kombination av [villkorliga åtkomst kontroller](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions) och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR). |
 | Du kräver att användare utför Multi-Factor Authentication mot en lokal Multi-Factor Authentication Server-lösning när användare autentiserar till AD FS.| I en hanterad identitets domän kan du inte mata in en Multi-Factor Authentication-utmaning via den lokala Multi-Factor Authentication-lösningen i autentiseringsschemat. Du kan dock använda Azure Multi-Factor Authentication-tjänsten för Multi-Factor Authentication när domänen har konverterats.<br /><br /> Om användarna inte använder Azure Multi-Factor Authentication krävs ett registrerings steg för databasmigrering-användare. Du måste förbereda för och förmedla den planerade registreringen till dina användare. |
 | Du använder för närvarande principer för åtkomst kontroll (AuthZ-regler) i AD FS för att kontrol lera åtkomsten till Office 365.| Överväg att ersätta principerna med motsvarande [principer för villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) för Azure AD och [åtkomst regler för Exchange Online-klienter](https://aka.ms/EXOCAR).|
@@ -437,7 +438,7 @@ När du har kontrollerat att alla användare och klienter har autentiserats via 
 
 Om du inte använder AD FS för andra orsaker (det vill säga för andra förtroenden för förlitande part), är det säkert att inaktivera AD FS i det här läget.
 
-### <a name="rollback"></a>Ånger
+### <a name="rollback"></a>Återtagande
 
 Om du upptäcker ett större problem och inte kan lösa det snabbt kan du välja att återställa lösningen till Federation.
 
@@ -455,7 +456,7 @@ Tidigare blockeras uppdateringar av **userPrincipalName** -attributet, som anvä
 
 Information om hur du kontrollerar eller aktiverar den här funktionen finns i [Synkronisera userPrincipalName-uppdateringar](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsyncservice-features).
 
-### <a name="troubleshooting"></a>Felsökning
+### <a name="troubleshooting"></a>Felsöka
 
 Support teamet bör förstå hur man felsöker autentiseringsproblem som uppstår under eller efter ändringen från federationen till hanterad. Använd följande fel söknings dokumentation för att hjälpa Support teamet att bekanta sig med de vanliga fel söknings stegen och lämpliga åtgärder som kan hjälpa till att isolera och lösa problemet.
 

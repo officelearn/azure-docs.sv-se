@@ -3,12 +3,12 @@ title: Låsa avbildningar
 description: Ange attribut för en behållar avbildning eller lagrings plats så att den inte kan tas bort eller skrivas över i ett Azure Container Registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 8eb2a549e9d9f3a7ed4a482ac6a9ea4ba61ea4f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442222"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75972922"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Låsa en behållar avbildning i ett Azure Container Registry
 
@@ -17,7 +17,7 @@ I ett Azure Container Registry kan du låsa en avbildnings version eller en lagr
 Den här artikeln kräver att du kör Azure CLI i Azure Cloud Shell eller lokalt (version 2.0.55 eller senare rekommenderas). Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli].
 
 > [!IMPORTANT]
-> Den här artikeln gäller inte för att låsa ett helt register, till exempel med hjälp av **inställningar > lås** i Azure Portal eller `az lock` kommandon i Azure CLI. Att låsa en register resurs hindrar dig inte från att skapa, uppdatera eller ta bort data i databaserna. Att låsa ett register påverkar bara hanterings åtgärder som att lägga till eller ta bort replikeringar eller ta bort själva registret. Mer information i [Lås resurser för att förhindra oväntade ändringar](../azure-resource-manager/resource-group-lock-resources.md).
+> Den här artikeln gäller inte för att låsa ett helt register, till exempel med hjälp av **inställningar > lås** i Azure Portal eller `az lock` kommandon i Azure CLI. Att låsa en register resurs hindrar dig inte från att skapa, uppdatera eller ta bort data i databaserna. Att låsa ett register påverkar bara hanterings åtgärder som att lägga till eller ta bort replikeringar eller ta bort själva registret. Mer information i [Lås resurser för att förhindra oväntade ändringar](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="scenarios"></a>Scenarier
 

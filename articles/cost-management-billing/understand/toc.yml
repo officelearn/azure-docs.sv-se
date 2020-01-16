@@ -1,0 +1,53 @@
+- name: Komma igång med dokumentation om Azure-fakturering
+  href: index.yml
+  items:
+    - name: Självstudier
+      items:
+        - name: Granska din enskilda kontofaktura
+          href: review-individual-bill.md
+        - name: Granska din faktura för Microsoft-kundavtal
+          href: review-customer-agreement-bill.md
+        - name: Granska din faktura för Microsoft-partneravtal
+          href: review-partner-agreement-bill.md
+    - name: Begrepp
+      items:
+        - name: Användningsvillkor för enskilda prenumerationer
+          href: understand-usage.md
+        - name: Faktureringsvillkor för enskilda prenumerationer
+          href: understand-invoice.md
+        - name: Användningsvillkor för Microsoft-kundavtal
+          href: mca-understand-your-usage.md
+        - name: Faktureringsvillkor för Microsoft-kundavtal
+          href: mca-understand-your-invoice.md
+        - name: Villkor i prisdokumentet för ett Microsoft-kundavtal
+          href: ../manage/mca-understand-pricesheet.md
+        - name: Faktureringskonton för Microsoft-kundavtal
+          href: mca-overview.md
+        - name: Faktureringsvillkor för Microsoft-partneravtal
+          href: mpa-invoice-terms.md
+        - name: Faktureringskonton för Microsofts partneravtal
+          href: mpa-overview.md
+    - name: Anvisningar
+      items:
+        - name: Undvik oväntade kostnader
+          href: ../manage/getting-started.md
+        - name: Visa och ladda ned din Azure-faktura
+          href: download-azure-invoice.md
+        - name: Visa och ladda ned information om din användning och dina avgifter i Azure
+          href: download-azure-daily-usage.md
+        - name: Ladda ned din faktura och information om den dagliga användningen
+          href: ../manage/download-azure-invoice-daily-usage-date.md
+        - name: Visa och ladda ned skattedokument
+          href: mca-download-tax-document.md
+        - name: Visa externa Azure-tjänstavgifter
+          href: understand-azure-marketplace-charges.md
+        - name: Betala din faktura
+          href: pay-bill.md
+        - name: Visa och ladda ned din organisations priser
+          href: ../manage/ea-pricing.md
+        - name: Spåra krediter för Microsoft-kundavtal
+          href: ../manage/mca-check-azure-credits-balance.md
+        - name: Beräkna priser
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: Förstå utgiftsgränser
+          href: ../manage/spending-limit.md

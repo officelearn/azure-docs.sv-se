@@ -29,6 +29,8 @@
   items:
     - name: Skapa en hanterad domän med Azure PowerShell
       href: powershell-create-instance.md
+    - name: Skapa en hanterad domän med en mall
+      href: template-create-instance.md
 - name: Begrepp
   items:
     - name: Grundläggande om administration

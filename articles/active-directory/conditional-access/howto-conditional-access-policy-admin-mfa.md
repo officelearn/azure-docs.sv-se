@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cce506f88802dee75898a3da4fa795a64ccbbd02
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e972228923654ca73063aad370d087e550138dbf
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424946"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76043364"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Villkorlig åtkomst: Kräv MFA för administratörer
 
@@ -42,7 +42,7 @@ Principer för villkorlig åtkomst är kraftfulla verktyg, vi rekommenderar att 
 
 * **Nöd åtkomst** eller **Bryt** punkts konton för att förhindra konto utelåsning för hela klienten. I det osannolika scenariot är alla administratörer utelåsta från din klient, ditt administrations konto för nöd administration kan användas för att logga in på klienten och vidta åtgärder för att återställa åtkomsten.
    * Mer information finns i artikeln [Hantera nöd åtkomst konton i Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Tjänst konton** och **tjänst principer**, till exempel Azure AD Connect Sync-kontot. Tjänst konton är icke-interaktiva konton som inte är kopplade till någon viss användare. De används vanligt vis av backend-tjänster och ger program mässig åtkomst till program. Tjänst konton ska undantas eftersom MFA inte kan slutföras program mässigt.
+* **Tjänst konton** och **tjänst huvud namn**, till exempel Azure AD Connect Sync-kontot. Tjänst konton är icke-interaktiva konton som inte är kopplade till någon viss användare. De används vanligt vis av backend-tjänster och ger program mässig åtkomst till program. Tjänst konton ska undantas eftersom MFA inte kan slutföras program mässigt.
    * Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md). Som en tillfällig lösning kan du undanta dessa konton från bas linje principen.
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst

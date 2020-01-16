@@ -4,12 +4,12 @@ description: Lär dig hur du förbereder utvärderingen/migreringen av virtuella
 ms.topic: tutorial
 ms.date: 01/01/2020
 ms.custom: mvc
-ms.openlocfilehash: a76c249f3d179a34fbb14e6c8bfb3666816fa160
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 6140d9689dafe8a97ae77346ea2212846e964cdc
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720216"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028918"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Förbered för utvärdering och migrering av virtuella Hyper-V-datorer till Azure
 
@@ -91,9 +91,9 @@ Klient organisationen/den globala administratören kan tilldela rollen programut
 
 ## <a name="prepare-hyper-v-for-assessment"></a>Förbered Hyper-V för utvärdering
 
-Du kan förbereda Hyper-V för VM-bedömning manuellt eller med ett konfigurations skript. Här är vad som måste förberedas:
+Du kan förbereda Hyper-V för VM-bedömning manuellt eller med ett konfigurations skript. Här är vad som måste förberedas, antingen med skriptet eller [manuellt](#prepare-hyper-v-manually).
 
-- Kontrol lera inställningarna för Hyper-V-värden och se till att de portar som krävs är öppna på Hyper-V-värdar.
+- [Verifiera](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) Inställningarna för Hyper-V-värden och se till att de [portar som krävs](migrate-support-matrix-hyper-v.md#port-access) är öppna på Hyper-v-värdar.
 - Konfigurera PowerShell-fjärrkommunikation på varje värd, så att Azure Migrate-installationen kan köra PowerShell-kommandon på värden via en WinRM-anslutning.
 - Delegera autentiseringsuppgifter om de virtuella dator diskarna finns på fjärr-SMB-resurser.
 - Konfigurera ett konto som ska användas av enheten för att identifiera virtuella datorer på Hyper-V-värdar.
@@ -171,8 +171,8 @@ Azure Migrate behöver behörighet för att identifiera lokala virtuella datorer
 
 ### <a name="verify-hyper-v-host-settings"></a>Verifiera inställningarna för Hyper-V-värden
 
-1. Kontrol lera [kraven för Hyper-V-värden](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements) för Server bedömning.
-2. Se till att de [nödvändiga portarna](migrate-support-matrix-hyper-v.md#assessment-port-requirements) är öppna på Hyper-V-värdar.
+1. Kontrol lera [kraven för Hyper-V-värden](migrate-support-matrix-hyper-v.md#hyper-v-host-requirements) för Server bedömning.
+2. Se till att de [nödvändiga portarna](migrate-support-matrix-hyper-v.md#port-access) är öppna på Hyper-V-värdar.
 
 ### <a name="enable-powershell-remoting-on-hosts"></a>Aktivera PowerShell-fjärrkommunikation på värdar
 
@@ -214,17 +214,17 @@ När du konfigurerar installationen slutför du installationen av CredSSP genom 
 
 Innan du konfigurerar Azure Migrate-installationen och påbörjar utvärderingen i nästa självstudie förbereder du installationen av enheten.
 
-1. [Kontrol lera](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements) krav för produkten.
-2. [Granska](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access) de Azure-URL: er som krävs för att komma åt installations programmet.
+1. [Kontrol lera](migrate-appliance.md#appliance---hyper-v) krav för produkten.
+2. [Granska](migrate-appliance.md#url-access) de Azure-URL: er som krävs för att komma åt installations programmet.
 3. Granska de data som installeras av enheten under identifiering och utvärdering.
-4. [Antecknings](migrate-support-matrix-hyper-v.md#assessment-port-requirements) portens åtkomst krav för produkten.
+4. [Antecknings](migrate-appliance.md#collected-data---hyper-v) portens åtkomst krav för produkten.
 
 
 ## <a name="prepare-for-hyper-v-migration"></a>Förbered för Hyper-V-migrering
 
-1. [Granska](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-requirements) Krav för Hyper-V-värd för migrering.
-2. [Granska](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) kraven för virtuella Hyper-V-datorer som du vill migrera till Azure.
-3. [Observera](migrate-support-matrix-hyper-v.md#migration-hyper-v-host-url-access) de Azure-URL: er som Hyper-V-värdar och-kluster behöver åtkomst för VM-migrering.
+1. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-hosts) Krav för Hyper-V-värden för migrering och de Azure-URL: er som Hyper-V-värdar och-kluster behöver åtkomst för VM-migrering.
+2. [Granska](migrate-support-matrix-hyper-v-migration.md#hyper-v-vms) kraven för virtuella Hyper-V-datorer som du vill migrera till Azure.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

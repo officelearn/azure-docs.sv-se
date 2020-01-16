@@ -16,12 +16,12 @@ ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: ddf23126154f5bc62c49f62ac4adf517d6987091
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f878c6f7a59328e2f68ffbaee066bba4a5b6c898
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033463"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978132"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Konfigurera Azure Key Vault-integrering för SQL Server på Azure-Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ ms.locfileid: "74033463"
 Det finns flera SQL Server krypterings funktioner, till exempel [transparent data kryptering (TDE)](https://msdn.microsoft.com/library/bb934049.aspx), [CLE (Column Level Encryption)](https://msdn.microsoft.com/library/ms173744.aspx)och [kryptering av säkerhets kopior](https://msdn.microsoft.com/library/dn449489.aspx). Dessa krypterings former kräver att du hanterar och lagrar de kryptografiska nycklar som du använder för kryptering. Tjänsten Azure Key Vault (AKV) är utformad för att förbättra säkerheten och hanteringen av dessa nycklar på en säker plats med hög tillgänglighet. Med [SQL Server-anslutning](https://www.microsoft.com/download/details.aspx?id=45344) kan SQL Server använda nycklarna från Azure Key Vault.
 
 > [!IMPORTANT] 
-> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 Om du kör SQL Server med lokala datorer finns det [steg du kan följa för att få åtkomst till Azure Key Vault från din lokala SQL Server dator](https://msdn.microsoft.com/library/dn198405.aspx). Men för SQL Server i virtuella Azure-datorer kan du spara tid genom att använda funktionen för *Azure Key Vault-integrering* . Med några Azure PowerShell-cmdletar för att aktivera den här funktionen, kan du automatisera konfigurationen som krävs för en virtuell SQL-dator för att få åtkomst till ditt nyckel valv.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: da733eef4dcfc15db10bb5bf303086ae601189ed
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 04fb34ff9c0ba9822e9760bcd3989bd0b5675506
+ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443189"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76044731"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>Självstudie: Konfigurera ServiceNow för automatisk användar etablering
 
@@ -142,6 +142,7 @@ När du har konfigurerat etableringen använder du följande resurser för att �
 * **EntryJoiningPropertyValueIsMissing:** Granska dina [mappningar av attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) för att identifiera matchande attribut. Det här värdet måste finnas på den användare eller grupp som du försöker etablera. 
 * Granska [SERVICENOW SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) för att förstå eventuella krav eller begränsningar (till exempel format för att ange landskod för en användare)
 * Vissa ServiceNow-distributioner kräver att du tillåter IP-intervall för Azure AD Provisioning-tjänsten. Du hittar de reserverade IP-intervallen för Azure AD Provisioning- [tjänsten i "](https://www.microsoft.com/download/details.aspx?id=56519) AzureActiveDirectoryDomainServices".
+* Det finns inte stöd för att allokera användare till ServiceNow regering-molnet.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

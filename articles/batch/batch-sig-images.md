@@ -2,18 +2,18 @@
 title: Använd det delade avbildnings galleriet för att skapa en anpassad pool – Azure Batch | Microsoft Docs
 description: Skapa en batch-pool med det delade avbildnings galleriet för att etablera anpassade avbildningar för att beräkna noder som innehåller den program vara och de data som du behöver för ditt program. Anpassade avbildningar är ett effektivt sätt att konfigurera datornoder för att köra batch-arbetsbelastningar.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: lahugh
-ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.author: jushiman
+ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827920"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029650"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
 
@@ -37,7 +37,7 @@ Att använda en delad avbildning som kon figurer ATS för ditt scenario kan ge f
 * **Bättre prestanda än anpassad avbildning.** Med hjälp av delade avbildningar kan den tid det tar för poolen att uppnå stabilt tillstånd vara upp till 25% snabbare och svars tiden för den virtuella datorn är upp till 30% kortare.
 * **Avbildnings version och gruppering för enklare hantering.** Definitionen för avbildnings gruppering innehåller information om varför avbildningen skapades, vilket operativ system den är för och information om hur du använder avbildningen. Gruppering av avbildningar möjliggör enklare bild hantering. Mer information finns i [bild definitioner](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Ett Azure Batch-konto.** Information om hur du skapar ett batch-konto finns i batch-startstarter med [Azure Portal](quick-create-portal.md) eller [Azure CLI](quick-create-cli.md).
 
@@ -61,9 +61,9 @@ För att skala batch-pooler på ett tillförlitligt sätt med en anpassad avbild
 Om du skapar en ny virtuell dator för avbildningen använder du en Azure Marketplace-avbildning från första part som stöds av batch som bas avbildning för din hanterade avbildning. Endast första parts bilder kan användas som en bas avbildning. Om du vill få en fullständig lista över referens för Azure Marketplace-avbildningar som stöds av Azure Batch, se [noden List Node agent SKU: er](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
-> Du kan inte använda en avbildning från tredje part som har ytterligare licens-och inköps villkor som bas avbildning. Information om dessa Marketplace-avbildningar finns i rikt linjerna [för](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) virtuella [Linux](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
-) -eller Windows-datorer.
+> Du kan inte använda en avbildning från tredje part som har ytterligare licens-och inköps villkor som bas avbildning. Information om dessa Marketplace-avbildningar finns i rikt linjerna för virtuella [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) -eller [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms
+) -datorer.
 
 * Se till att den virtuella datorn har skapats med en hanterad disk. Det här är standard lagrings inställningen när du skapar en virtuell dator.
 * Installera inte Azure-tillägg, till exempel tillägget för anpassat skript, på den virtuella datorn. Om avbildningen innehåller ett förinstallerat tillägg kan Azure drabbas av problem när du distribuerar batch-poolen.
@@ -85,7 +85,7 @@ När du har skapat den hanterade avbildningen måste du skapa ett delat avbildni
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Skapa en pool från en delad avbildning med hjälp av Azure CLI
 
-Använd kommandot `az batch pool create` om du vill skapa en pool från den delade avbildningen med hjälp av Azure CLI. Ange det delade avbildnings-ID: t i fältet `--image`. Kontrol lera att OS-typen och SKU: n matchar de versioner som anges i `--node-agent-sku-id`
+Om du vill skapa en pool från den delade avbildningen med hjälp av Azure CLI använder du kommandot `az batch pool create`. Ange det delade avbildnings-ID: t i fältet `--image`. Kontrol lera att OS-typen och SKU: n matchar de versioner som anges i `--node-agent-sku-id`
 
 ```azurecli
 az batch pool create \
@@ -148,7 +148,7 @@ Använd följande vägledning om du planerar att skapa en pool med hundratals el
 
 * **Delade avbildnings galleriets replik nummer.**  För varje pool med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar en pool med 3000 virtuella datorer bör du behålla minst 5 repliker av avbildningen. Vi rekommenderar alltid att du behåller fler repliker än minimi kraven för bättre prestanda.
 
-* **Tids gräns för storleks ändring.** Om poolen innehåller ett fast antal noder (om den inte skalas om) ökar du egenskapen `resizeTimeout` för poolen beroende på Poolens storlek. För varje 1000 virtuella datorer är den rekommenderade tids gränsen minst 15 minuter. Till exempel är den rekommenderade tids gränsen för en pool med 2000 virtuella datorer minst 30 minuter.
+* **Tids gräns för storleks ändring.** Om poolen innehåller ett fast antal noder (om den inte är autoskalning) ökar du egenskapen `resizeTimeout` för poolen beroende på Poolens storlek. För varje 1000 virtuella datorer är den rekommenderade tids gränsen minst 15 minuter. Till exempel är den rekommenderade tids gränsen för en pool med 2000 virtuella datorer minst 30 minuter.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 9fabccd477883750c1aecb5493fdb64ddf5ab2c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: efc6d0c25c5186b391deb08ee0e41dcb8ae6edf0
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100296"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978086"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-classic"></a>Automatiserad uppdatering för SQL Server i Azure Virtual Machines (klassisk)
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ Automatiserad uppdatering upprättar en underhålls period för en virtuell Azur
 Automatisk uppdatering är beroende av [SQL Server IaaS Agent-tillägget](../classic/sql-server-agent-extension.md).
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du vill visa Resource Manager-versionen av den här artikeln, se [automatiserad uppdatering för SQL Server i Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/management/deployment-models.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen. Om du vill visa Resource Manager-versionen av den här artikeln, se [automatiserad uppdatering för SQL Server i Azure Virtual Machines Resource Manager](../sql/virtual-machines-windows-sql-automated-patching.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Operativ system**:
@@ -56,7 +56,7 @@ Om du vill använda automatisk uppdatering bör du tänka på följande:
 
 **Azure PowerShell**:
 
-* [Installera de senaste Azure PowerShell](/powershell/azure/overview)-kommandona.
+* [Installera de senaste Azure PowerShell-kommandona](/powershell/azure/overview).
 
 **SQL Server IaaS-tillägg**:
 
@@ -71,7 +71,7 @@ I följande tabell beskrivs de alternativ som kan konfigureras för automatisk u
 | **Underhålls schema** |Varje dag, måndag, tisdag, onsdag, torsdag, fredag, lördag, söndag |Schemat för att ladda ned och installera Windows-, SQL Server-och Microsoft-uppdateringar för den virtuella datorn. |
 | **Start timme för underhåll** |0-24 |Den lokala Start tiden för att uppdatera den virtuella datorn. |
 | **Underhålls periodens varaktighet** |30-180 |Antalet minuter som tillåts att slutföra nedladdningen och installationen av uppdateringar. |
-| **Uppdaterings kategori** |Viktigt |Kategori för uppdateringar som ska hämtas och installeras. |
+| **Uppdaterings kategori** |Viktig |Kategori för uppdateringar som ska hämtas och installeras. |
 
 ## <a name="configuration-with-powershell"></a>Konfiguration med PowerShell
 I följande exempel används PowerShell för att konfigurera automatiserad uppdatering på en befintlig SQL Server VM. Kommandot **New-AzureVMSqlServerAutoPatchingConfig** konfigurerar en ny underhålls period för automatiska uppdateringar.

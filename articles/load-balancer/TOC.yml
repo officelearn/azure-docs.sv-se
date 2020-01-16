@@ -50,6 +50,8 @@
       href: powershell-samples.md
 - name: Begrepp
   items:
+    - name: Komponenter och begränsningar
+      href: concepts-limitations.md
     - name: Hälsoövervakning
       items:
         - name: Hälsotillståndsavsökningar

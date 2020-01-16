@@ -19,6 +19,9 @@
           href: ../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json
         - name: Portalen
           href: blob-event-quickstart-portal.md
+        - name: Mall
+          displayName: 'arm, resource manager template'
+          href: blob-event-quickstart-template.md
     - name: Anpassade händelser
       items:
         - name: Azure CLI
@@ -107,7 +110,7 @@
       href: event-handlers.md
     - name: Geohaveriberedskap
       href: geo-disaster-recovery.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Skicka till anpassat ämne
       href: post-to-custom-topic.md

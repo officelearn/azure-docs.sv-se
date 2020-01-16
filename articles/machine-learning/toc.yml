@@ -310,15 +310,9 @@
         - name: Använda i realtid
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
-        - name: Köra batch-förutsägelser
-          displayName: score scoring batch consume pipeline parallelrunstep inference
-          href: how-to-run-batch-predictions.md
         - name: Batch-förutsägelser i Designer
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
-        - name: Felsöka batchförutsägelser
-          displayName: debug_batch consume pipeline parallelrunstep inference
-          href: how-to-debug-batch-predictions.md
     - name: Övervaka modeller
       items:
         - name: Samla in och utvärdera modelldata
@@ -343,6 +337,12 @@
         - name: 'Designer: Omträna med publicerade pipelines'
           displayName: 'retrain, designer, published pipeline'
           href: how-to-retrain-designer.md
+        - name: Använda parallella körningssteg
+          displayName: score scoring batch consume pipeline parallelrunstep inference
+          href: how-to-use-parallel-run-step.md
+        - name: Felkorrigera och felsöka parallella körningssteg
+          displayName: debug_batch consume pipeline parallelrunstep inference
+          href: how-to-debug-parallel-run-step.md
     - name: Hantera resurskvoter
       displayName: limits
       href: how-to-manage-quotas.md

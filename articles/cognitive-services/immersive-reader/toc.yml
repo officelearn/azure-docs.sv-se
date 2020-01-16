@@ -17,6 +17,8 @@
   items:
     - name: Starta Avancerad läsare (Python)
       href: tutorial-python.md
+    - name: Använda flera resurser för Avancerad läsare
+      href: tutorial-multiple-resources.md
 - name: Instruktioner
   items:
     - name: Skapa resurs för Avancerad läsare

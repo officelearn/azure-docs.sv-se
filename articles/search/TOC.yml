@@ -249,6 +249,8 @@
           items:
             - name: Integrera anpassade kunskaper
               href: cognitive-search-custom-skill-interface.md
+            - name: Exempel – Azure Functions (Python)
+              href: cognitive-search-custom-skill-python.md
             - name: Exempel – Azure Functions
               href: cognitive-search-create-custom-skill-example.md
             - name: Exempel – Containrar

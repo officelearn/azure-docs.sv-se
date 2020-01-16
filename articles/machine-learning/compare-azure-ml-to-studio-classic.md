@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 6c174faaad5d7d33a837d6399be27444ab0556c6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a3122a3ae1687369b87d193efc693b3b7c659aac
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771980"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75974141"
 ---
 # <a name="how-azure-machine-learning-differs-from-machine-learning-studio-classic"></a>Hur Azure Machine Learning skiljer sig från Machine Learning Studio (klassisk)
 
@@ -29,7 +29,7 @@ Under tiden tillhandahåller [Azure Machine Learning](overview-what-is-azure-ml.
 Azure Machine Learning designer har en liknande dra-och-släpp-upplevelse till Studio (klassisk). Men till skillnad från den tillverkarspecifika beräknings plattformen i Studio (klassisk) använder designern dina egna beräknings resurser, är skalbara och är helt integrerade i Azure Machine Learning.  
 
 > [!TIP]
-> Kunder som för närvarande använder eller utvärderar Machine Learning Studio (klassisk) uppmanas att prova [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/ui-concept-visual-interface) (för hands version), vilket ger dra och släpp ml-moduler __samt__ skalbarhet, versions kontroll och företags säkerhet.
+> Kunder som för närvarande använder eller utvärderar Machine Learning Studio (klassisk) uppmanas att prova [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) (för hands version), vilket ger dra och släpp ml-moduler __samt__ skalbarhet, versions kontroll och företags säkerhet.
 
 ## <a name="comparison-azure-machine-learning-vs-machine-learning-studio-classic"></a>Jämförelse: Azure Machine Learning vs. Machine Learning Studio (klassisk)
 

@@ -3,12 +3,12 @@ title: Översikt över Azure Resource Graph
 description: Förstå hur Azure Resource Graph-tjänsten möjliggör komplexa frågor om resurser i stor skala över prenumerationer och klienter.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 301543075d587079af0f53b6200890a75bfbb768
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406689"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965982"
 ---
 # <a name="what-is-azure-resource-graph"></a>Vad är Azure Resource Graph?
 
@@ -31,7 +31,7 @@ I den här dokumentationen går vi igenom varje funktion i detalj.
 
 Azure Resource Manager stöder för närvarande frågor över grundläggande resurs fält, specifikt resurs namn, ID, typ, resurs grupp, prenumeration och plats. Resource Manager tillhandahåller också anläggningar för att anropa enskilda resurs leverantörer för detaljerade egenskaper en resurs i taget.
 
-Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/complete-mode-deletion.md) . Ytterligare resurs typer finns i de relaterade [resurs diagram tabellerna](./concepts/query-language.md#resource-graph-tables). Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
+Du kan använda Azure Resource Graph för att få åtkomst till dessa egenskaper, och resursprovidrarna returnerar utan att behöva göra enskilda anrop till varje enskild resursprovider. Om du vill ha en lista över resurs typer som stöds letar du upp **Ja** i tabellen [resurser för komplett läges distribution](../../azure-resource-manager/templates/complete-mode-deletion.md) . Ytterligare resurs typer finns i de relaterade [resurs diagram tabellerna](./concepts/query-language.md#resource-graph-tables). Ett alternativt sätt att se resurs typer som stöds är via [schema läsaren i Azure Resource Graph Explorer](./first-query-portal.md#schema-browser).
 
 Med Azure Resource Graph kan du:
 

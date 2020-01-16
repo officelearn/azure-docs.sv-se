@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9ecffc25461a909d47329d536d1c19724b3c22ac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718064"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75982181"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
@@ -26,7 +26,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
 ![Visa resultat](./media/blob-event-quickstart-portal/view-results.png)
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
@@ -38,7 +38,7 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 
    ![Välj Storage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Skapa ett v2-lagringskonto för allmän användning eller ett Blob Storage-konto om du vill prenumerera på händelser. Mer information finns i [Skapa ett lagringskonto](../storage/common/storage-quickstart-create-account.md).
+1. Skapa ett v2-lagringskonto för allmän användning eller ett Blob Storage-konto om du vill prenumerera på händelser. Mer information finns i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
 
    ![Startsteg](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

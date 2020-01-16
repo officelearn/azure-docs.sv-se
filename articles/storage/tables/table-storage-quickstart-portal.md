@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/02/2019
 ms.author: sngun
 ms.subservice: tables
-ms.openlocfilehash: 4cfb44964b06c811d6d587f2a406cdcfb8048a42
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 63495206ffffc57a895a9ec1efc88410a02ea097
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793337"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979954"
 ---
 # <a name="quickstart-create-an-azure-storage-table-in-the-azure-portal"></a>Snabbstart: Skapa en Azure Storage-tabell i Azure-portalen 
 
@@ -23,7 +23,7 @@ Den här snabbstarten visar hur du skapar tabeller och entiteter i den webbasera
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra den här snabbstarten måste du först skapa ett Azure-lagringskonto i [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
+För att slutföra den här snabbstarten måste du först skapa ett Azure-lagringskonto i [Azure-portalen](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-account-create.md).
 
 ## <a name="add-a-table"></a>Lägg till en tabell
 

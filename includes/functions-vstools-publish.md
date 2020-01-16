@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/02/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 327a7689e0297002f1ce3f48d2bd367104277680
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 689889588aba4da888a7d66f5e1d45dfde71d520
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769716"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021079"
 ---
 1. I **Solution Explorer** högerklickar du på projektet och väljer **Publicera**.
 
@@ -38,9 +38,9 @@ ms.locfileid: "75769716"
     | ------------ |  ------- | -------------------------------------------------- |
     | **Namn** | Globalt unikt namn | Namn som unikt identifierar din nya funktionsapp. Giltiga tecken är `a-z`, `0-9` och `-`. |
     | **Prenumeration** | Välj din prenumeration | Den Azure-prenumeration som ska användas. |
-    | **[Resursgrupp](../articles/azure-resource-manager/resource-group-overview.md)** | myResourceGroup |  Namnet på resursgruppen som funktionsappen ska skapas i. Skapa en ny resursgrupp genom att välja **Ny**.|
+    | **[Resursgrupp](../articles/azure-resource-manager/management/overview.md)** | myResourceGroup |  Namnet på resursgruppen som funktionsappen ska skapas i. Skapa en ny resursgrupp genom att välja **Ny**.|
     | **[Värd plan](../articles/azure-functions/functions-scale.md)** | Förbrukningsplan | Se till att välja **förbrukningen** under **storlek** när du har valt **ny** för att skapa en server lös plan. Välj också en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som används av dina funktioner. När du kör i en plan som inte är **Förbrukning** behöver du hantera [funktionsappens skalning](../articles/azure-functions/functions-scale.md).  |
-    | **[Azure Storage](../articles/storage/common/storage-quickstart-create-account.md)** | Allmänt lagrings konto | Azure Functions-körmiljön kräver ett Azure Storage-konto. Välj **ny** för att skapa ett allmänt lagrings konto. Du kan också använda ett befintligt konto som uppfyller [kraven för ett lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
+    | **[Azure Storage](../articles/storage/common/storage-account-create.md)** | Allmänt lagrings konto | Azure Functions-körmiljön kräver ett Azure Storage-konto. Välj **ny** för att skapa ett allmänt lagrings konto. Du kan också använda ett befintligt konto som uppfyller [kraven för ett lagringskonto](../articles/azure-functions/functions-scale.md#storage-account-requirements).  |
 
 5. Välj **skapa** för att skapa en Function-app och relaterade resurser i Azure med de här inställningarna och distribuera din funktions projekt kod. 
 

@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 04/16/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: abb8b6bed6766ff0ea85eab1434014a057af4ca3
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 66c100ecd40e9f0899f7686397339ab849315c3e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843341"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76021298"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
@@ -37,13 +37,13 @@ Det här avsnittet förutsätter att du skapar en ny function-app i Azure.
 
     När du trycker på RETUR skapas följande Azure-resurser i din prenumeration:
 
-    * **[Resurs grupp](../articles/azure-resource-manager/resource-group-overview.md)** : Innehåller alla Azure-resurser som skapats. Namnet baseras på namnet på din Function-app.
-    * **[Lagrings konto](../articles/storage/common/storage-quickstart-create-account.md)** : Ett standard lagrings konto skapas med ett unikt namn som baseras på ditt funktions program namn.
-    * **[Värd plan](../articles/azure-functions/functions-scale.md)** : En förbruknings plan skapas i regionen Västra USA för att vara värd för din server lös Function-app.
-    * **Function-app**: Projektet distribueras till och körs i den här nya Function-appen.
+    * **[Resurs grupp](../articles/azure-resource-manager/management/overview.md)** : innehåller alla Azure-resurser som skapats. Namnet baseras på namnet på din Function-app.
+    * **[Lagrings konto](../articles/storage/common/storage-account-create.md)** : ett standard lagrings konto skapas med ett unikt namn som baseras på namnet på din Function-app.
+    * **[Värd plan](../articles/azure-functions/functions-scale.md)** : en förbruknings plan skapas i regionen Västra USA för att vara värd för din server lös Function-app.
+    * **Function-app**: ditt projekt distribueras till och körs i den här nya Function-appen.
 
     Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
 
-1. Tillbaka i **Azure: Funktions** områden, expandera den nya Function-appen under din prenumeration. Expandera **funktioner**, högerklicka på **HttpTrigger**och välj sedan **Kopiera funktions webb adress**.
+1. Gå tillbaka till avsnittet **Azure: Functions** , expandera den nya Function-appen under din prenumeration. Expandera **funktioner**, högerklicka på **HttpTrigger**och välj sedan **Kopiera funktions webb adress**.
 
     ![Kopiera funktions webb adressen för den nya HTTP-utlösaren](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

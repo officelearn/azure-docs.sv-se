@@ -2,20 +2,20 @@
 title: Azure Snabbstart – Köra Batch-jobb – CLI
 description: Lär dig snabbt att köra ett Batch-jobb med Azure CLI.
 services: batch
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 ms.service: batch
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: lahugh
+ms.author: jushiman
 ms.custom: mvc
-ms.openlocfilehash: 72c3244fbd9c8d547e35c31f0cd6e659e367e21a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 900bafd5b27fcb5021e9dae2a6bbc13d4e233a45
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322496"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76029489"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-azure-cli"></a>Snabbstart: Kör ditt första Batch-jobb med Azure CLI
 
@@ -39,9 +39,9 @@ az group create \
     --location eastus2
 ```
 
-## <a name="create-a-storage-account"></a>skapar ett lagringskonto
+## <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-Du kan länka ett Azure Storage-konto till Batch-kontot. Även om det inte krävs för den här snabbstarten är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna. Skapa ett lagringskonto i resursgruppen med kommandot [az storage account create](/cli/azure/storage/account#az-storage-account-create).
+Du kan länka ett Azure Storage-konto till Batch-kontot. Även om det inte krävs för den här snabbstarten, är lagringskontot användbart för att distribuera program och lagra indata och utdata för de flesta verkliga arbetsbelastningarna. Skapa ett lagringskonto i resursgruppen med kommandot [az storage account create](/cli/azure/storage/account#az-storage-account-create).
 
 ```azurecli-interactive
 az storage account create \
@@ -55,7 +55,7 @@ az storage account create \
 
 Skapa ett Batch-konto med kommandot [az batch account create](/cli/azure/batch/account#az-batch-account-create). Du behöver ett konto för att skapa beräkningsresurser (pooler med datornoder) och Batch-jobb.
 
-I följande exempel skapas en Batch-kontot med namnet *mybatchaccount* i *myResourceGroup* och länkar det lagringskonto som du skapade.  
+I följande exempel skapas ett Batch-konto med namnet *mybatchaccount* i *myResourceGroup*, med en länk till det lagringskonto du skapade.  
 
 ```azurecli-interactive 
 az batch account create \
@@ -97,7 +97,7 @@ Fortsätt med följande steg för att skapa ett jobb och aktiviteter medan poolt
 
 ## <a name="create-a-job"></a>Skapa ett jobb
 
-Nu när du har en pool ska du skapa ett jobb att köra på den.  Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Skapa ett Batch-jobb med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az-batch-job-create). Följande exempel skapar jobbet *myjob* på poolen *mypool*. Från början har jobbet inga aktiviteter.
+Nu när du har en pool ska du skapa ett jobb att köra på den.  Ett Batch-jobb är en logisk grupp för en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Skapa ett Batch-jobb med hjälp av kommandot [az batch job create](/cli/azure/batch/job#az-batch-job-create). Följande exempel skapar jobbet *myjob* på poolen *mypool*. Från början har jobbet inga uppgifter.
 
 ```azurecli-interactive 
 az batch job create \
@@ -137,7 +137,7 @@ az batch task show \
 
 Kommandoutdata innehåller många detaljer, men observera `exitCode` på kommandoraden och `nodeId`. En `exitCode` på 0 anger att kommandoradsaktiviteten har slutförts. `nodeId` anger ID för den poolnod som aktiviteten kördes på.
 
-## <a name="view-task-output"></a>Visa aktivitetens utdata
+## <a name="view-task-output"></a>Visa utdata för uppgiften
 
 Om du vill visa en lista över filer som skapas av en aktivitet på en beräkningsnod ska du använda kommandot [az batch task file list](/cli/azure/batch/task). Följande kommando visar filer som skapas av *mytask1*: 
 
@@ -170,7 +170,7 @@ az batch task file download \
     --destination ./stdout.txt
 ```
 
-Du kan visa innehållet i `stdout.txt` i en textredigerare. Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna. Exempel:
+Du kan visa innehållet i `stdout.txt` i en textredigerare. Innehållet visar Azure Batch-miljövariabler som ställts in på noden. När du skapar dina egna Batch-jobb kan du referera till dessa miljövariabler i aktivitetens kommandorader och i de appar och skript som körs av kommandoraderna. Ett exempel:
 
 ```
 AZ_BATCH_TASK_DIR=/mnt/batch/tasks/workitems/myjob/job-1/mytask1

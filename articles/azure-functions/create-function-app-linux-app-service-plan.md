@@ -3,12 +3,12 @@ title: Skapa en Function-app på Linux från Azure Portal
 description: Lär dig hur du skapar din första Azure-funktion för serverfri körning i Azure Portal.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: 1bae205c5d0466d06b499711c7af5bf7f3bbd88f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 7689b24a4f9bf17d495917bbf4078d6e5fe4fcff
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769752"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75971450"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Skapa en Function-app i Linux i ett Azure App Service plan
 
@@ -44,7 +44,7 @@ Du måste ha en funktionsapp som värd för körning av dina funktioner i Linux.
     | **[Värdplan](functions-scale.md)** | App Service-plan | Värdplan som definierar hur resurser allokeras till din funktionsapp. När du kör i ett App Service plan kan du kontrol lera [skalningen för din Function-app](functions-scale.md).  |
     | **App Service-plan/-plats** | Skapa plan | Välj **Skapa nytt** och ange ett **App Service plan** namn. Välj en **plats** i en [region](https://azure.microsoft.com/regions/) nära dig eller nära andra tjänster som dina funktioner har åtkomst till. Välj önskad **[pris nivå](https://azure.microsoft.com/pricing/details/app-service/linux/)** . <br/>Du kan inte köra både Linux-och Windows-funktionella appar i samma App Service plan. |
     | **Körningsstack** | Önskat språk | Välj en körning som stöder det funktionsprogrammeringsspråk som du föredrar. Välj **.NET** för C#- och F#-funktioner. |
-    | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto, som måste uppfylla [kraven för ett lagringskonto](functions-scale.md#storage-account-requirements). |
+    | **[Storage](../storage/common/storage-account-create.md)** |  Globalt unikt namn |  Skapa ett lagringskonto som används av din funktionsapp. Namnet på ett lagringskonto måste vara mellan 3 och 24 tecken långt och får endast innehålla siffror och gemener. Du kan också använda ett befintligt konto, som måste uppfylla [kraven för ett lagringskonto](functions-scale.md#storage-account-requirements). |
     | **[Application Insights](functions-monitoring.md)** | Enabled | Application Insights är inaktiverat som standard. Vi rekommenderar att du aktiverar Application Insights integration nu och väljer en värd plats nära din App Service plan plats. Om du vill göra detta senare, se [övervaka Azure Functions](functions-monitoring.md).  |
 
 3. Välj **Skapa** för att etablera och distribuera funktionsappen.

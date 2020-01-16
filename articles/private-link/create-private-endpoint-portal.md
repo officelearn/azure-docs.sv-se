@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bc8141b951dbc27972dc2efb6819a7c0137ea7fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 491ba986c6ca71be0bc5b13e2f9f0717ffec99a4
+ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459931"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "76028891"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>Snabb start: skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -162,7 +162,7 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
     | ------- | ----- |
     |**NÄTVERK**| |
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
-    | Undernät | Välj *undernät*. |
+    | Undernät | Välj *undernät*. |
     |**PRIVAT DNS-INTEGRERING**||
     |Integrera med privat DNS-zon |Välj **Ja**. |
     |Privat DNS zon |Välj *(ny) privatelink. Database. Windows. net* |
@@ -199,9 +199,9 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 
 ## <a name="access-the-sql-database-server-privately-from-the-vm"></a>Få åtkomst till SQL Database-servern privat från den virtuella datorn
 
-1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
+1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
-2. Ange `nslookup myserver.database.windows.net`. 
+2. Ange `nslookup myserver.database.windows.net`. 
 
     Du får ett meddelande som liknar detta:
     ```azurepowershell
@@ -227,11 +227,11 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 1. Välj **Anslut**.
 2. Bläddra bland databaser från menyn till vänster.
 3. Du kan också Skapa eller fråga efter information från databasen.
-4. Stäng fjärr skrivbords anslutningen till *myVm*. 
+4. Stäng fjärr skrivbords anslutningen till *myVm*. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 När du är klar med den privata slut punkten, SQL Server och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
-1. Ange *myResourceGroup* i rutan **Sök** högst upp i portalen och välj *myResourceGroup* från Sök resultaten. 
+1. Skriv *myResourceGroup* i **sökrutan längst** upp i portalen och välj *myResourceGroup* från Sök resultaten. 
 2. Välj **Ta bort resursgrupp**. 
 3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
 

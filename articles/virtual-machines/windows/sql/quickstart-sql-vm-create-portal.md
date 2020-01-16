@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 801a6fc0602882d1af49c06bafcfd51942e6da2e
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828367"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75965657"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a id="select"></a> Välj en avbildning av en virtuell SQL Server-dator
 
-1. Logga in på [Azure Portal](https://portal.azure.com) med ditt konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ditt konto.
 
 1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information** på panelen **SQL Virtual Machines** .
@@ -66,7 +66,7 @@ Ange följande information på fliken **grundläggande** :
     1. I listan **avbildning** väljer du _gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016_. 
     1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
 
-   ![Instans information](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+   ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 1. Under **administratörs konto**anger du ett användar namn, till exempel _azureuser_ och ett lösen ord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../../windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
@@ -88,7 +88,7 @@ Konfigurera följande alternativ på fliken **SQL Server inställningar** :
 
 1. Ändra eventuella andra inställningar om det behövs och välj sedan **Granska + skapa**. 
 
-   ![Granska + skapa](media/quickstart-sql-vm-create-portal/review-create.png)
+   ![Granska och skapa](media/quickstart-sql-vm-create-portal/review-create.png)
 
 
 ## <a name="create-the-sql-server-vm"></a>Skapa den virtuella SQL Server-datorn
@@ -97,7 +97,7 @@ På fliken **Granska + skapa** granskar du sammanfattningen och väljer **skapa*
 
 Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen. Distributionen kan ta flera minuter. 
 
-## <a name="connect-to-sql-server"></a>Ansluta till SQL Server
+## <a name="connect-to-sql-server"></a>Anslut till SQL Server
 
 1. I portalen hittar du den **offentliga IP-adressen** för din SQL Server VM i **översikts** avsnittet i egenskaperna för den virtuella datorn.
 
@@ -128,7 +128,7 @@ När du har anslutit till datorn kan du direkt ändra inställningarna för dato
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn genom att ta bort deras kopplade resursgrupper i portalen. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet. Mer information finns i [Manage Azure resources through portal](../../../azure-resource-manager/manage-resource-groups-portal.md) (Hantera Azure-resurser genom portalen).
+Om du inte behöver köra den virtuella SQL-datorn kontinuerligt kan du undvika onödiga kostnader genom att stoppa den när den inte används. Du kan även permanent ta bort alla resurser som är kopplade till den virtuella datorn genom att ta bort deras kopplade resursgrupper i portalen. Det här tar även permanent bort den virtuella datorn, så använd det här kommandot med försiktighet. Mer information finns i [Manage Azure resources through portal](../../../azure-resource-manager/management/manage-resource-groups-portal.md) (Hantera Azure-resurser genom portalen).
 
 
 ## <a name="next-steps"></a>Nästa steg

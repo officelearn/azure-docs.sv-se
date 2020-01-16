@@ -3,12 +3,12 @@ title: Översikt över Azure Management – Azure-styrning
 description: Översikt över hanteringsområdena för Azure-program och resurser med länkar till innehåll på Azure-hanteringsverktyg.
 ms.date: 12/06/2018
 ms.topic: overview
-ms.openlocfilehash: f91e439a5fb7c330fb29d300e83779083641875b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 644f4fc3a04f86426c2eb04b02c29882fa39fb88
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132838"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75980908"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Översikt över hanterings tjänster i Azure
 
@@ -36,9 +36,9 @@ Automatisering av dessa uppgifter kan du eliminera redundans och minimera tiden 
 ## <a name="govern"></a>Styrning
 
 Styrning tillhandahåller mekanismer och processer för att behålla kontrollen över dina program och resurser i Azure. Det omfattar att planera initiativ och att fatta beslut om strategiska prioriteringar.
-Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](./policy/overview.md) kan du skapa, tilldela och hantera principdefinitioner för att tillämpa regler för dina resurser. Den här funktionen gör att dessa resurser i enlighet med företagets standarder. Med [Azure Cost Management](../cost-management/overview-cost-mgt.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer.
+Styrning i Azure implementeras främst genom två tjänster. [Azure Policy](./policy/overview.md) kan du skapa, tilldela och hantera principdefinitioner för att tillämpa regler för dina resurser. Den här funktionen gör att dessa resurser i enlighet med företagets standarder. Med [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) kan du spåra moln användning och utgifter för dina Azure-resurser och andra moln leverantörer.
 
-## <a name="secure"></a>Skydda
+## <a name="secure"></a>Säkert
 
 Hantera säkerheten för dina resurser och data. Ett säkerhetsprogram innebär att bedöma hot, samla in och analysera data och kompatibilitet för program och resurser. Säkerhetsanalys för säkerhetsövervakning och hotanalys tillhandahålls av [Azure Security Center](../security-center/security-center-intro.md), som ger enhetlig säkerhetshantering och Avancerat skydd mot hot i olika hybridmolnarbetsbelastningar. Se [introduktion till Azure Security](../security/fundamentals/overview.md) omfattande information och vägledning om hur du skyddar Azure-resurser.
 

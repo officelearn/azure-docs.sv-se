@@ -8,12 +8,12 @@ ms.service: azure
 ms.topic: overview
 ms.workload: infrastructure
 ms.date: 08/24/2018
-ms.openlocfilehash: 9b23e3b69b4970e765ea1cd5af690cf074bad774
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: e6ef4cc825d40615fa8a6aee7dff8d4542407974
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693457"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75970850"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Kom igång för Azure IT-operatörer
 
@@ -48,7 +48,7 @@ Mer information om tillgängliga Azure-regioner finns i [Azure-regioner](https:/
 ### <a name="cloud-computing-model"></a>Molnbaserad data behandlings modell
 
 Azure använder en molnbaserad data behandlings modell som baseras på tjänste kategorier som tillhandahålls kunder. De tre kategorierna av tjänster inkluderar IaaS (Infrastructure as a Service), plattform som en tjänst (PaaS) och program vara som en tjänst (SaaS). Leverantörer delar vissa eller alla ansvars områden för komponenter i data bearbetnings stacken i var och en av dessa kategorier. Låt oss ta en titt på var och en av kategorierna för molnbaserad data behandling.
-![Cloud data bearbetnings stack jämförelse ](./media/cloud-computing-comparison.png)
+Jämförelse av ![i Cloud Computing-stacken](./media/cloud-computing-comparison.png)
 
 #### <a name="iaas-infrastructure-as-a-service"></a>IaaS: infrastruktur som en tjänst
 
@@ -128,7 +128,7 @@ Tjänster för nätverk både i Azure och mellan Azure och lokala data Center:
 
 - Azure Traffic Manager
 
-- Azure-Content Delivery Network
+- Azure Content Delivery Network
 
 Detaljerad dokumentation om Azure-tjänster finns i [dokumentationen för Azure-tjänsten](https://docs.microsoft.com/azure).
 
@@ -178,7 +178,7 @@ Administratörer har åtkomst till Azure PowerShell och Azure CLI via en webb l�
 
 ## <a name="azure-subscriptions"></a>Azure-prenumerationer
 
-En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. Ett enda Azure-konto kan innehålla flera prenumerationer. Faktureringen för Azure-tjänster görs per prenumeration. Azure-prenumerationer har en konto administratör som har fullständig kontroll över prenumerationen och en tjänst administratör som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerations administratörer finns i [lägga till eller ändra Azure-prenumerations administratörer](../../billing/billing-add-change-azure-subscription-administrator.md). Förutom administratörer kan enskilda konton beviljas detaljerad kontroll över Azure-resurser med hjälp av [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md).
+En prenumeration är en logisk gruppering av Azure-tjänster som är länkad till ett Azure-konto. Ett enda Azure-konto kan innehålla flera prenumerationer. Faktureringen för Azure-tjänster görs per prenumeration. Azure-prenumerationer har en konto administratör som har fullständig kontroll över prenumerationen och en tjänst administratör som har kontroll över alla tjänster i prenumerationen. Information om klassiska prenumerations administratörer finns i [lägga till eller ändra Azure-prenumerations administratörer](../../cost-management-billing/manage/add-change-subscription-administrator.md). Förutom administratörer kan enskilda konton beviljas detaljerad kontroll över Azure-resurser med hjälp av [rollbaserad åtkomst kontroll (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Välj och aktivera en Azure-prenumeration
 
@@ -206,7 +206,7 @@ Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen]
 
 En viktig komponent i att använda Azure är möjligheten att Visa fakturerings information. Azure Portal ger detaljerad information om fakturerings information för Azure.
 
-Mer information finns i [så här hämtar du din fakturerings faktura för Azure och dagliga användnings data](../../billing/billing-download-azure-invoice-daily-usage-date.md).
+Mer information finns i [så här hämtar du din fakturerings faktura för Azure och dagliga användnings data](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
 
 ### <a name="get-billing-information-from-billing-apis"></a>Få fakturerings information från fakturerings-API: er
 
@@ -216,7 +216,7 @@ Förutom att Visa faktureringen i portalen kan du komma åt fakturerings informa
 
 - Du kan använda Azure Rate Card API för att visa en lista över alla tillgängliga resurser, tillsammans med metadata och pris information om var och en av dessa resurser.
 
-Mer information finns i [Få insikter om din resursförbrukning i Microsoft Azure](../../billing/billing-usage-rate-card-overview.md).
+Mer information finns i [Få insikter om din resursförbrukning i Microsoft Azure](../../cost-management-billing/manage/usage-rate-card-overview.md).
 
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prognos kostnad med pris kalkylatorn
 
@@ -328,19 +328,19 @@ Du kan distribuera virtuella Azure-datorer med hjälp av Azure Portal med hjälp
 
 Att distribuera en virtuell dator med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan välja många olika operativ system avbildningar med varierande konfigurationer. Alla krav på lagring och nätverk konfigureras under distributionen. Mer information finns i "skapa en virtuell dator i Azure Portal" för [Windows](../../virtual-machines/windows/quick-create-portal.md) och [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
-Förutom att distribuera en virtuell dator från Azure Portal kan du distribuera en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definieras i mallen. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Förutom att distribuera en virtuell dator från Azure Portal kan du distribuera en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definieras i mallen. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Genom att distribuera en virtuell Azure-dator med hjälp av PowerShell kan du slutföra distributions automatisering av alla relaterade resurser för virtuella datorer, inklusive lagring och nätverk. Mer information finns i [skapa en virtuell Windows-dator med Resource Manager och PowerShell](../../virtual-machines/windows/quick-create-powershell.md).
 
-Förutom att distribuera Azure Compute-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Förutom att distribuera Azure Compute-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>Kommando rads gränssnitt (CLI)
+#### <a name="command-line-interface-cli"></a>Kommandoradsgränssnittet (CLI)
 
 Precis som med PowerShell-modulen tillhandahåller Azures kommando rads gränssnitt distributions automatisering och kan användas på Windows-, OS X-eller Linux-system. När du använder kommandot snabb registrering för Azure CLI **virtuell dator** distribueras alla relaterade resurser för virtuella datorer (inklusive lagring och nätverk) och den virtuella datorn. Mer information finns i [skapa en virtuell Linux-dator i Azure med hjälp av CLI](../../virtual-machines/linux/quick-create-cli.md).
 
-På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+På samma sätt kan du använda Azure CLI för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](../../azure-resource-manager/templates/deploy-cli.md).
 
 ### <a name="access-and-security-for-virtual-machines"></a>Åtkomst och säkerhet för virtuella datorer
 
@@ -370,13 +370,13 @@ Varje lagrings typ har ett annat användnings fall.
 
 Ordet *BLOB* är en akronym för *Binary Large Object*. Blobbar är ostrukturerade filer som de som du lagrar på din dator. Blob Storage kan lagra alla slags textdata eller binära data, till exempel ett dokument, en mediefil eller ett installationsprogram. Blob Storage kallas även för objektlagring. Azure Blob Storage innehåller också Azure Virtual Machines data diskar.
 
-Azure Storage stöder tre typer av blobbar:
+Azure Storage stöder tre typer av blobar:
 
-- **Block-blobbar** används för att lagra vanliga filer upp till 195 GB i storlek (4 MB × 50 000 block). Det primära användnings fallet för block-blobbar är lagring av filer som läses från början till slut, till exempel mediefiler eller bildfiler för webbplatser. De är namngivna block blobbar eftersom filer som är större än 64 MB måste laddas upp som små block. Dessa block sammanställs sedan (eller allokeras) till den slutliga blobben.
+- **Block-blobbar** används för att lagra vanliga filer upp till 195 GB i storlek (4 MB × 50 000 block). I första hand används blockblobar för lagring av filer som läses från början till slut, som mediefiler eller bildfiler för webbplatser. De är namngivna block blobbar eftersom filer som är större än 64 MB måste laddas upp som små block. Dessa block sammanställs sedan (eller allokeras) till den slutliga blobben.
 
-- **Page blobbar** används för att hålla slumpmässiga åtkomst till filer på upp till 1 TB. Page blobbar används främst som lagring för de virtuella hård diskar som tillhandahåller varaktiga diskar för Azure Virtual Machines, IaaS Compute service i Azure. De heter Page blobbar eftersom de ger slumpmässig Läs-/skriv åtkomst till sidor på 512 byte.
+- **Page blobbar** används för att hålla slumpmässiga åtkomst till filer på upp till 1 TB. Page blobbar används främst som lagring för de virtuella hård diskar som tillhandahåller varaktiga diskar för Azure Virtual Machines, IaaS Compute service i Azure. De kallas för sidblobar eftersom de erbjuder slumpmässig läs-/skrivåtkomst till sidor på 512 bytes.
 
-- **Tillägg av blobbar** består av block som block blobbar, men de är optimerade för att lägga till åtgärder. Dessa används ofta för att logga information från en eller flera källor till samma blob. Du kan till exempel skriva all spårnings loggning till samma tilläggs-BLOB för ett program som körs på flera virtuella datorer. En enda tilläggs-BLOB kan vara upp till 195 GB.
+- **Tillägg av blobbar** består av block som block blobbar, men de är optimerade för att lägga till åtgärder. Dessa används ofta för att logga information från en eller flera källor till samma blob. Du kan till exempel skriva all spårnings loggning till samma tilläggs-BLOB för ett program som körs på flera virtuella datorer. En enda tilläggsblob kan ha upp till 195 GB.
 
 Mer information finns i [Kom igång med Azure Blob Storage med hjälp av .net](../../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
@@ -408,17 +408,17 @@ Det finns flera alternativ för att distribuera ett lagrings konto.
 
 #### <a name="portal"></a>Portalen
 
-Distribution av ett lagrings konto med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagrings konto till en ny eller befintlig resurs grupp. När du har skapat lagrings kontot kan du skapa en BLOB-behållare eller fil resurs med hjälp av portalen. Du kan skapa lagrings enheter för tabeller och köer program mässigt. Mer information finns i [Skapa ett lagringskonto](../../storage/common/storage-quickstart-create-account.md).
+Distribution av ett lagrings konto med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt lagrings konto till en ny eller befintlig resurs grupp. När du har skapat lagrings kontot kan du skapa en BLOB-behållare eller fil resurs med hjälp av portalen. Du kan skapa lagrings enheter för tabeller och köer program mässigt. Mer information finns i [Skapa ett lagringskonto](../../storage/common/storage-account-create.md).
 
-Förutom att distribuera ett lagrings konto från Azure Portal kan du distribuera en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definieras i mallen, inklusive lagrings konton. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure Portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
+Förutom att distribuera ett lagrings konto från Azure Portal kan du distribuera en Azure Resource Manager-mall från portalen. Detta distribuerar och konfigurerar alla resurser som definieras i mallen, inklusive lagrings konton. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure Portal](../../azure-resource-manager/templates/deploy-portal.md).
 
 #### <a name="powershell"></a>PowerShell
 
 Genom att distribuera ett Azure Storage-konto med hjälp av PowerShell kan du slutföra distributions automatisering av lagrings kontot. Mer information finns i [använda Azure PowerShell med Azure Storage](../../storage/common/storage-powershell-guide-full.md).
 
-Förutom att distribuera Azure-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
+Förutom att distribuera Azure-resurser individuellt kan du använda Azure PowerShell-modulen för att distribuera en Azure Resource Manager-mall. Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure PowerShell](../../azure-resource-manager/templates/deploy-powershell.md).
 
-#### <a name="command-line-interface-cli"></a>Kommando rads gränssnitt (CLI)
+#### <a name="command-line-interface-cli"></a>Kommandoradsgränssnittet (CLI)
 
 Precis som med PowerShell-modulen tillhandahåller Azures kommando rads gränssnitt distributions automatisering och kan användas på Windows-, OS X-eller Linux-system. Du kan skapa ett lagrings konto med hjälp av kommandot **skapa** ett lagrings konto i Azure CLI. Mer information finns i [använda Azure CLI med Azure Storage.](../../storage/common/storage-azure-cli.md)
 
@@ -474,7 +474,7 @@ Det finns flera alternativ för att distribuera ett virtuellt nätverk.
 - Azure Resource Manager mallar
 
 > **När du ska använda**: varje gång du arbetar med virtuella datorer i Azure kommer du att arbeta med virtuella nätverk. Detta möjliggör segmentering av dina virtuella datorer i offentliga och privata undernät som liknar lokala data Center.
-> 
+>
 > **Kom igång**: att distribuera ett virtuellt Azure-nätverk med hjälp av Azure Portal kräver bara en aktiv Azure-prenumeration och åtkomst till en webbläsare. Du kan distribuera ett nytt virtuellt nätverk till en ny eller befintlig resurs grupp. När du skapar en ny virtuell dator från portalen kan du välja ett befintligt virtuellt nätverk eller skapa ett nytt. Kom igång och [skapa ett virtuellt nätverk med hjälp av Azure Portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Åtkomst och säkerhet för virtuella nätverk

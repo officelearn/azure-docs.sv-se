@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7acd4b8014aad7b70f1a67c91368477599a97901
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: fda662d7de66bfb56feba8f405bd0e52c4cf3e76
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972616"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Självstudie: Azure Active Directory integrering med snö flingor
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 Om du vill konfigurera Azure AD-integrering med Snowflake behöver du följande objekt:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Snowflake-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -109,13 +109,15 @@ Utför följande steg för att konfigurera enkel inloggning med Azure AD med hj�
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
     c. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i SP-initierat läge:
 
     ![Information om enkel inloggning med Snowflake-domäner och URL:er](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
+    
+    I text rutan **utloggnings-URL** skriver du en URL med följande mönster: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/logout`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Hämta värdena genom att kontakta [supportteamet för Snowflake-klienten](https://support.snowflake.net/s/). Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -197,7 +199,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Snowflake-länken i listan med program](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -236,7 +238,7 @@ Om du vill ge Azure AD-användare möjlighet att logga in på Snowflake måste d
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Snowflake-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Snowflake som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Snowflake-panelen i åtkomstpanelen så borde du automatiskt loggas in på den Snowflake som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

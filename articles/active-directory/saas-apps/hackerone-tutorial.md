@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e03aa99e53f4aa2c646dc425a18d848539d537b0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: effd0593384190eb1a1cf261305dd61818c3d0b0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768375"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hackerone"></a>Självstudie: Azure Active Directory integrering med HackerOne
 
@@ -107,7 +107,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
     ![Information om HackerOne-domän och URL:er med enkel inloggning](common/sp-identifier.png)
 
-    a. Ange följande i text rutan **inloggnings-URL** : `https://hackerone.com/users/saml/auth`
+    a. Ange följande i text rutan **inloggnings-URL** : `https://hackerone.com/users/saml/sign_in?email=<configured domain>`
 
     b. I text rutan **identifierare (enhets-ID)** anger du följande: `hackerone.com`
 
@@ -155,7 +155,13 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Hacke
 
     a. Klicka på **Kör test**.
 
-    b. Om värdet i fältet **Status** är lika med **Senaste teststatus: skapad**, kontaktar du [HackerOne-supportteamet](mailto:support@hackerone.com) och begär en granskning av din konfiguration.
+6. När testet har slutförts och fältet **status** visar **senaste test status: slutfört**, väljer du **verifierings** knappen för begäran för att skicka till HackerOne för godkännande.
+
+    ![Skicka till HackerOne för godkännande](./media/hackerone-tutorial/tutorial-hackerone-006.png)
+
+7. När HackerOne godkänner inställningarna kan du välja knappen **migrera användare** för att kräva SSO-autentisering för alla användare.
+
+    ![Aktivera SAML](./media/hackerone-tutorial/tutorial-hackerone-007.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -174,7 +180,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
     ![Dialogrutan Användare](common/user-properties.png)
 
     a. I fältet **Namn** anger du **BrittaSimon**.
-  
+
     b. I fältet **användar namn** skriver du **brittasimon\@yourcompanydomain. extension**  
     Till exempel, BrittaSimon@contoso.com
 

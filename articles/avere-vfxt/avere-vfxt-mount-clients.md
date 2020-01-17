@@ -4,14 +4,14 @@ description: Montera klienter med AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 39c4d6a77121e0b52a1da827ebb9e1976f609b30
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8486b5a33226b1faa5e3874144129dbe7a1a2f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415286"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153419"
 ---
 # <a name="mount-the-avere-vfxt-cluster"></a>Montera Avere vFXT-klustret
 
@@ -47,7 +47,7 @@ function mount_round_robin() {
 
     # no need to write again if it is already there
     if ! grep --quiet "${DEFAULT_MOUNT_POINT}" /etc/fstab; then
-        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,nointr,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
+        echo "${ROUND_ROBIN_IP}:${NFS_PATH}    ${DEFAULT_MOUNT_POINT}    nfs hard,proto=tcp,mountproto=tcp,retry=30 0 0" >> /etc/fstab
         mkdir -p "${DEFAULT_MOUNT_POINT}"
         chown nfsnobody:nfsnobody "${DEFAULT_MOUNT_POINT}"
     fi
@@ -62,27 +62,27 @@ Funktionen ovan är en del av batch-exemplet som är tillgängligt i exempel web
 ## <a name="create-the-mount-command"></a>Skapa monterings kommandot
 
 > [!NOTE]
-> Om du inte skapade en ny BLOB-behållare när du skapade ditt AVERT vFXT-kluster, följer du stegen i [Konfigurera lagring](avere-vfxt-add-storage.md) innan du försöker montera klienter.
+> Om du inte skapade en ny BLOB-behållare när du skapade ditt AVERT vFXT-kluster, lägger du till lagrings system enligt beskrivningen i [Konfigurera lagring](avere-vfxt-add-storage.md) innan du försöker montera klienter.
 
 Från klienten mappar ``mount`` kommandot den virtuella servern (vserver) i vFXT-klustret till en sökväg i det lokala fil systemet. Formatet är ``mount <vFXT path> <local path> {options}``
 
-Monterings kommandot innehåller tre element:
+Monterings kommandot har tre element:
 
-* vFXT-sökväg – (en kombination av sökväg för IP-adress och namespace-förgrening som beskrivs nedan)
+* vFXT-sökväg – en kombination av en sökväg för en IP-adress och en namn områdes korsning på klustrets 9described nedan)
 * lokal sökväg – sökvägen till klienten
-* Monterings kommando alternativ – (anges i [kommando argument för montering](#mount-command-arguments))
+* Monterings kommando alternativ – visas i [kommando argumenten för montering](#mount-command-arguments)
 
 ### <a name="junction-and-ip"></a>Knut punkt och IP
 
 Vserver-sökvägen är en kombination av dess *IP-adress* plus sökvägen till en *Knut punkt för namn områden*. Namn områdes knuten är en virtuell sökväg som definierades när lagrings systemet lades till.
 
-Om klustret skapades med Blob Storage, är namn områdes Sök vägen `/msazure`
+Om klustret skapades med Blob Storage, är namn områdets sökväg till den behållaren `/msazure`
 
 Exempel: ``mount 10.0.0.12:/msazure /mnt/vfxt``
 
-Om du har lagt till lagring efter att klustret har skapats, motsvarar sökvägen för namn områdes Knut punkten det värde som du angav i **namn områdes Sök** vägen när du skapar Knut punkten. Om du till exempel använde ``/avere/files`` som namn områdes Sök väg monteras klienterna *ip_address*:/avere/Files till sin lokala monterings punkt.
+Om du har lagt till lagring efter att klustret har skapats, är sökvägen för namn områdes korsning det värde som du anger i **namn områdes Sök** vägen när du skapar Knut punkten. Om du till exempel använde ``/avere/files`` som namn områdes Sök väg monteras klienterna *ip_address*:/avere/Files till sin lokala monterings punkt.
 
-![Dialog rutan Lägg till ny Knut punkt med/avere/Files i fältet namn områdes Sök väg](media/avere-vfxt-create-junction-example.png)
+![Dialog rutan Lägg till ny Knut punkt med/avere/Files i fältet namn områdes Sök väg](media/avere-vfxt-create-junction-example.png) <!-- to do - change example and screenshot to vfxt/files instead of avere -->
 
 IP-adressen är en av klientens IP-adresser som har definierats för vserver. Du hittar intervallet för klientbaserade IP-adresser på två platser i kontroll panelen aver:
 
@@ -100,7 +100,7 @@ Förutom Sök vägarna inkluderar du [kommando argumenten för montering](#mount
 
 För att säkerställa en sömlös klient montering måste du överföra dessa inställningar och argument i monterings kommandot:
 
-``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
+``mount -o hard,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 | Nödvändiga inställningar | |
 --- | ---
@@ -109,14 +109,10 @@ För att säkerställa en sömlös klient montering måste du överföra dessa i
 ``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
 ``retry=n`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)
 
-| Önskade inställningar  | |
---- | ---
-``nointr``            | Alternativet "nointr" rekommenderas för klienter med äldre kernel (före 2008) som har stöd för det här alternativet. Observera att alternativet "intr" är standardvärdet.
-
 ## <a name="next-steps"></a>Nästa steg
 
-När du har monterat klienter kan du använda dem för att fylla backend-datalagringen (Core-filer). Läs mer om ytterligare konfigurations aktiviteter i dessa dokument:
+När du har monterat klienter kan du använda dem för att kopiera data till en ny Blob Storage-behållare i klustret. Om du inte behöver fylla i nya lagrings enheter läser du de andra länkarna för att lära dig mer om ytterligare konfigurations aktiviteter:
 
-* [Flytta data till kluster core-filer](avere-vfxt-data-ingest.md) – hur man använder flera klienter och trådar för att effektivt Ladda upp dina data
+* [Flytta data till ett kluster kärnor](avere-vfxt-data-ingest.md) – så här använder du flera klienter och trådar för att effektivt Ladda upp dina data till ett nytt kärnor
 * [Anpassa kluster justering](avere-vfxt-tuning.md) – skräddarsy kluster inställningarna så att de passar din arbets belastning
 * [Hantera klustret](avere-vfxt-manage-cluster.md) – så här startar eller stoppar du klustret och hanterar noder

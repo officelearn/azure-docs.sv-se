@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0738e56cf6760a356b6e2b6db76f2dc3f6f157ee
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763172"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152264"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -171,6 +171,18 @@ I alla dessa fall refererar du till [data typer som stöds](https://docs.microso
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Fel: det gick inte att bearbeta dokumentet inom indexeraren maximal kör tid
 
 Det här felet uppstår när indexeraren inte kan slutföra bearbetningen av ett enstaka dokument från data källan inom den tillåtna körnings tiden. [Maximal kör tid](search-limits-quotas-capacity.md#indexer-limits) är kortare när färdighetsuppsättningar används. Om det här felet uppstår, om maxFailedItems har angetts till ett annat värde än 0, hoppar indexeraren över dokumentet vid framtida körningar så att indexeringen kan fortsätta. Om du inte kan välja att hoppa över några dokument, eller om du ser det här felet konsekvent, bör du överväga att dela upp dokument i mindre dokument så att delvis förloppet kan göras inom en enskild indexerare-körning.
+
+<a name="could-not-project-document"/>
+
+## <a name="error-could-not-project-document"></a>Fel: det gick inte att projicera dokumentet
+
+Felet uppstår när indexeraren försöker [projicera data till ett kunskaps lager](knowledge-store-projection-overview.md) och det uppstod ett fel i vårt försök att göra det.  Det här felet kan vara konsekvent och fixablet, eller så kan det vara ett tillfälligt fel med Utkorgen för projektion av utdata som du kan behöva vänta och försöka igen för att kunna lösa problemet.  Här är en uppsättning kända fellägen och möjliga lösningar.
+
+| Orsak | Information/exempel | Upplösning |
+| --- | --- | --- |
+| Det gick inte att uppdatera BLOB-`'blobUri'` för projektion i container `'containerName'` |Den angivna behållaren finns inte. | Indexeraren kontrollerar om den angivna behållaren har skapats tidigare och kommer att skapa den om det behövs, men den utför bara den här kontrollen en gång per indexerare körs. Det här felet innebär att något har tagits bort från behållaren efter det här steget.  Försök att lösa det här felet: lämna din lagrings konto information, vänta tills indexeraren har slutförts och kör sedan indexeraren igen. |
+| Det gick inte att uppdatera BLOB-`'blobUri'` för projektion i container `'containerName'` |Det gick inte att skriva data till transport anslutningen: en befintlig anslutning tvingades stänga av den fjärranslutna värden. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
+| Det gick inte att uppdatera rad `'projectionRow'` i tabell `'tableName'` | Servern är upptagen. | Detta förväntas vara ett tillfälligt haveri med Azure Storage och bör därför lösas genom att köra om indexeraren. Om det här felet uppstår konsekvent kan du skicka ett [support ärende](https://ms.portal.azure.com/#create/Microsoft.Support) så att det kan undersökas ytterligare.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"/>
 

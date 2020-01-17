@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: a320a446bf6a2ff5d5d923961b2614970ffa70f9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b337c1d57d253f55f3171e1de78a81b6de13ba31
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75988414"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157187"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -213,7 +213,7 @@ Följande data fält finns i användnings detalj filen och Cost Management API: 
 | Location | Normaliserad plats för resursen. | Gäller inte |
 | effectivePrice | Det effektiva enhets priset för tjänsten i pris valutan. Unikt för en produkt, tjänst familj, mätare och erbjudande. Används med priser i pris dokumentet för fakturerings kontot. När det finns ett pris på nivå eller en inkluderad kvantitet visas det blandade priset för förbrukning. | Enhets priset efter det att justeringarna har gjorts. |
 | Kvantitet | Uppmätt kvantitet köpt eller förbrukad. Den Mät mängd som används under fakturerings perioden. | Antal enheter. Se till att den matchar informationen i fakturerings systemet under avstämningen. |
-| unitOfMeasure | Identifierar enheten som tjänsten debiteras i. Till exempel GB och timmar. | Identifierar enheten som tjänsten debiteras i. Till exempel GB, timmar och 10, tal. |
+| unitOfMeasure | Identifierar enheten som tjänsten debiteras i. Till exempel GB och timmar. | Identifierar enheten som tjänsten debiteras i. Till exempel GB, timmar och 10 000 s. |
 | pricingCurrency | Den valuta som definierar enhets priset. | Valutan i pris listan.|
 | billingCurrency | Den valuta som definierar den fakturerade kostnaden. | Valutan för kundens geografiska region. |
 | chargeType | Definierar den typ av kostnad som kostnaden representerar i Azure Cost Management som inköp och åter betalning. | Typ av kostnad eller justering. Inte tillgängligt för den aktuella aktiviteten. |
@@ -228,7 +228,7 @@ Följande data fält finns i användnings detalj filen och Cost Management API: 
 | serviceInfo1 | Äldre fält som fångar valfria tjänstspecifika metadata. | Interna Azure-tjänstemetadata. |
 | serviceInfo2 | Äldre fält som fångar valfria tjänstspecifika metadata. | Tjänst information. Till exempel en avbildnings typ för en virtuell dator och ett ISP-namn för ExpressRoute.|
 | additionalInfo | Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator. | Eventuell ytterligare information som inte omfattas i andra kolumner. Tjänstspecifika metadata. Det kan till exempel vara en avbildningstyp för en virtuell dator.|
-| tagg | Tagg som du tilldelar mätaren. Använd taggar för att gruppera fakturerings poster. Du kan till exempel använda taggar för att distribuera kostnader på den avdelning som använder mätaren. | Taggar som lagts till av kunden.|
+| tags | Tagg som du tilldelar mätaren. Använd taggar för att gruppera fakturerings poster. Du kan till exempel använda taggar för att distribuera kostnader på den avdelning som använder mätaren. | Taggar som lagts till av kunden.|
 | **partnerEarnedCreditRate** | Rabatt som används om det finns en partner som har fått partner administratörs åtkomst. | Kostnaden för intjänad kredit för partner (PEC). Till exempel 0% eller 15%. |
 | **partnerEarnedCreditApplied** | Anger om den partner som har intjänad kredit har tillämpats. | Gäller inte |
 
@@ -257,7 +257,7 @@ Du kan också gruppera och filtrera efter egenskapen **PartnerEarnedCreditApplie
 
 ## <a name="export-cost-data-to-azure-storage"></a>Exportera kostnads data till Azure Storage
 
-Partner med åtkomst till fakturerings områden i en partner klient organisation kan exportera sina kostnader och användnings data till en Azure Storage-blob. Blobben måste finnas i en prenumeration i partner innehavaren som inte är en prenumeration på en delad tjänst eller en kunds prenumeration. Om du vill aktivera kostnads data export rekommenderar vi att du ställer in en oberoende prenumeration enligt principen betala per användning i partner klienten som värd för de exporterade kostnads data. Export Storage-kontot skapas på Azure Storage blob som finns i prenumerationen betala per användning. Utifrån den omfattning där partnern skapar exporten exporteras tillhör ande data automatiskt till lagrings kontot på ett återkommande.
+Partner med åtkomst till fakturerings områden i en partner klient organisation kan exportera sina kostnader och användnings data till en Azure Storage-blob. Blobben måste finnas i en prenumeration i partner innehavaren som inte är en prenumeration på en delad tjänst eller en kunds prenumeration. Om du vill aktivera kostnads data export rekommenderar vi att du ställer in en oberoende prenumeration enligt principen betala per användning i partner klienten som värd för de exporterade kostnads data. Export Storage-kontot skapas på Azure Storage blob som finns i prenumerationen betala per användning. Utifrån den omfattning där partnern skapar exporten exporteras tillhör ande data automatiskt till lagrings kontot med återkommande.
 
 Användare med RBAC-åtkomst till prenumerationen kan också exportera kostnads data till en Azure Storage-blob som finns i valfri prenumeration i kund klienten.
 
@@ -265,7 +265,11 @@ Användare med RBAC-åtkomst till prenumerationen kan också exportera kostnads 
 
 Logga in på partner klient organisationen eller kund klienten i Azure Portal och välj **Cost Management + fakturering**. Välj ett lämpligt omfång, till exempel ett fakturerings konto och välj sedan **kostnads analys**. När sidan läses in väljer du **Exportera**. Välj **Visa alla exporter** under Schemalägg export.
 
+![Välj Exportera och Visa alla exporter](./media/get-started-partners/export01.png)
+
 Välj sedan **Lägg till** och skriv namnet och välj en export typ. Välj fliken **lagring** och ange nödvändig information.
+
+![Lägg till ny export och välj fliken lagring](./media/get-started-partners/export02.png)
 
 När du skapar en export i partner klient organisationen väljer du prenumerationen betala per användning i partner klient organisationen. Skapa ett Azure Storage-konto med den prenumerationen.
 
@@ -274,6 +278,8 @@ För RBAC-användare i kund klienten väljer du en prenumeration i kund klienten
 Granska innehållet och välj sedan **skapa** för att schemalägga en export.
 
 Om du vill verifiera data i export listan väljer du namnet på lagrings kontot. På sidan lagrings konto väljer du **behållare** och väljer sedan behållaren. Navigera till motsvarande mapp och välj CSV-filen. Välj **Hämta** för att hämta CSV-filen och öppna den. Exporterade data liknar kostnads data som liknar användnings information från Azure Portal.
+
+![Exempel på exporterade data](./media/get-started-partners/example-export-data.png)
 
 ## <a name="cost-management-rest-apis"></a>Cost Management REST-API: er
 

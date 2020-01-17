@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2019
-ms.openlocfilehash: 28c8bccaf6be49b7220a32c781b79f106ad86e52
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/15/2020
+ms.openlocfilehash: 5d462be1caa3787cb7ff9a455be595ec5784eefe
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768647"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157278"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---single-server"></a>Brand Väggs regler i Azure Database for PostgreSQL-enskild server
 Azure Database for PostgreSQL Server Firewall förhindrar all åtkomst till din databas server tills du anger vilka datorer som har behörighet. Brand väggen beviljar åtkomst till servern baserat på den ursprungliga IP-adressen för varje begäran.
@@ -32,10 +32,12 @@ Om ditt program till exempel ansluter med JDBC-drivrutinen för PostgreSQL kan d
 > Java. util. samtidig. ExecutionException: Java. lang. RuntimeException: org. postgresql. util. PSQLException: allvarligt: ingen PG\_HBA. conf-posten för värden "123.45.67.890", användare "adminuser", databas "postgresql", SSL
 
 ## <a name="connecting-from-azure"></a>Ansluta från Azure
-Om du vill tillåta att program från Azure ansluter till din Azure Database for PostgreSQL-Server måste Azure-anslutningar vara aktiverade. Till exempel, för att vara värd för ett Azure Web Apps-program eller ett program som körs på en virtuell Azure-dator eller för att ansluta från en Azure Data Factory Data Management Gateway. Resurserna behöver inte finnas i samma Virtual Network (VNet) eller resurs gruppen för brand Väggs regeln för att aktivera dessa anslutningar. När ett program från Azure försöker ansluta till databasservern kontrollerar brandväggen att Azure-anslutningar tillåts. Det finns ett par metoder för att aktivera dessa typer av anslutningar. En brandväggsinställning med start- och slutadresser som är 0.0.0.0 anger att dessa anslutningar tillåts. Alternativt kan du ställa in alternativet **Tillåt åtkomst till Azure-tjänster** på **i portalen** från fönstret **anslutnings säkerhet** och trycka på **Spara**. Om anslutnings försöket inte är tillåtet når begäran inte Azure Database for PostgreSQL servern.
+Vi rekommenderar att du hittar den utgående IP-adressen för alla program och tjänster och uttryckligen tillåter åtkomst till dessa enskilda IP-adresser eller intervall. Du kan till exempel hitta den utgående IP-adressen för en Azure App Service eller använda en offentlig IP-adress som är kopplad till en virtuell dator eller annan resurs (se nedan för information om hur du ansluter till en virtuell dators privata IP-adresser över tjänst slut punkter). 
+
+Om en fast utgående IP-adress inte är tillgänglig för din Azure-tjänst kan du överväga att aktivera anslutningar från alla Azure-datacenter-IP-adresser. Du kan aktivera den här inställningen från Azure Portal genom att ange alternativet **Tillåt åtkomst till Azure-tjänster** till **på** i fönstret **anslutnings säkerhet** och sedan trycka på **Spara**. Från Azure CLI motsvarar en brand Väggs regel inställning med start-och slut adress lika med 0.0.0.0. Om anslutnings försöket inte är tillåtet når begäran inte Azure Database for PostgreSQL servern.
 
 > [!IMPORTANT]
-> Det här alternativet konfigurerar brandväggen så att alla anslutningar från Azure tillåts, inklusive anslutningar från prenumerationer för andra kunder. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
+> Alternativet **Tillåt åtkomst till Azure-tjänster** konfigurerar brand väggen så att alla anslutningar från Azure, inklusive anslutningar från andra kunders prenumerationer. Om du väljer det här alternativet kontrollerar du att dina inloggnings- och användarbehörigheter begränsar åtkomsten till endast auktoriserade användare.
 > 
 
 ![Konfigurera Tillåt åtkomst till Azure-tjänster i portalen](media/concepts-firewall-rules/allow-azure-services.png)
@@ -67,6 +69,6 @@ Tänk på följande när du förväntar dig åtkomst till Microsoft Azure databa
 
 ## <a name="next-steps"></a>Nästa steg
 Artiklar om hur du skapar brand Väggs regler på server nivå och databas nivå finns i:
-* [Skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure Portal](howto-manage-firewall-using-portal.md)
-* [Skapa och hantera Azure Database for PostgreSQL brand Väggs regler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md)
+* [Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure portal](howto-manage-firewall-using-portal.md)
+* [Skapa och hantera Azure-databas för PostgreSQL brandväggsregler med hjälp av Azure CLI](howto-manage-firewall-using-cli.md)
 - [VNet-tjänstens slut punkter i Azure Database for PostgreSQL](./concepts-data-access-and-security-vnet.md)

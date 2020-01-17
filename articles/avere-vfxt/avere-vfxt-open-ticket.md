@@ -4,18 +4,18 @@ description: Förklaring till att öppna support ärenden om AVERT vFXT för Azu
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 27f32a922a1b063096b0ccf28a01a78d442e0271
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b3c604003f78a150067875fb2064ab5eca0600db
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889286"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153345"
 ---
 # <a name="get-help-with-your-system"></a>Få hjälp med systemet
 
-Om du behöver hjälp med ditt AVERT vFXT för Azure kan du få support på olika sätt:
+För hjälp med ditt AVERT vFXT för Azure-system kan du få support på följande sätt:
 
 * **Aver vFXT-problem** – Använd Azure Portal för att öppna ett support ärende för ditt AVERT vFXT enligt beskrivningen [nedan](#open-a-support-ticket-for-your-avere-vfxt).
 * **Kvot** – om du har ett kvot problem kan du [begära en kvot ökning](#request-a-quota-increase)
@@ -27,11 +27,7 @@ Om du får problem när du distribuerar eller använder AVERT vFXT kan du be om 
 
 Följ dessa steg för att se till att ditt support ärende är taggat med en resurs från klustret. Att tagga biljetten hjälper oss att vidarebefordra den till rätt support resurs.
 
-1. Välj **resurs grupper**från [https://portal.azure.com](https://portal.azure.com).
-
-   ![skärm bild av Azure Portal vänstra menyn med "resurs grupper" inringade](media/avere-vfxt-ticket-rg.png)
-
-1. Bläddra till den resurs grupp som innehåller vFXT-klustret där problemet uppstod och klicka på något av de AVERT virtuella datorerna.
+1. Välj **resurs grupper**från [https://portal.azure.com](https://portal.azure.com). Bläddra till den resurs grupp som innehåller vFXT-klustret där problemet uppstod och klicka på något av de AVERT klusterbaserade virtuella datorerna.
 
     ![skärm bild av översikts panelen för Azure Portal resurs gruppen med en viss virtuell dator som är inringad](media/avere-vfxt-ticket-vm.png)
 
@@ -39,15 +35,25 @@ Följ dessa steg för att se till att ditt support ärende är taggat med en res
 
     ![Skärm bild av den Azure Portal VM-sidan för den virtuella datorn från föregående skärm bild. Den vänstra menyn rullas längst ned och "New Support Request" är inringad.](media/avere-vfxt-ticket-request.png)
 
-1. På sidan en av support förfrågan klickar du på **alla tjänster** och tittar under **lagring** för att välja **aver vFXT**.
+1. På den första sidan i support förfrågan väljer du typ av problem och kontrollerar att rätt prenumeration har valts.
 
-    ![skärm bild av den nya support förfrågan skärmen i Azure Portal med rubriken "grunder" och en cirkel runt "service"-objektet. Knappen alla tjänster är markerad och den nedrullningsbara meny fältet har värdet "aver vFXT"](media/avere-vfxt-ticket-service.png)
+   Under **tjänst**klickar du på **alla tjänster** och tittar under **lagring** för att välja **aver vFXT**.
 
-1. På sidan två väljer du den problem typ och kategori som bäst motsvarar ditt problem. Lägg till en kort rubrik och en beskrivning som innehåller den tidpunkt då problemet uppstod.
+   Lägg till en kort sammanfattning och välj problem typen.
 
-   ![skärm bild av den nya skärmen med support förfrågan med rubriken "problem", som innehåller många fält som måste fyllas i](media/avere-vfxt-ticket-problem.png)
+    ![skärm bild av en ny support förfrågan-skärm i Azure Portal. Fliken grundläggande är markerad. Skärm objekt är ärende typ, prenumeration, tjänst, Sammanfattning och problem typ.](media/ticket-basics.png)
 
-1. På sidan tre fyller du i din kontakt information och klickar på **skapa**. Ett bekräftelse-och biljett nummer skickas till din e-postadress och en support personal medlem kommer att kontakta dig.
+   Fortsätt genom att klicka på **Nästa** .
+
+1. Den andra sidan i support formuläret innehåller förslag på hur du kan åtgärda problemet baserat på din sammanfattnings beskrivning. Klicka på knappen **Nästa** längst ned om du fortfarande behöver skapa ett support ärende.
+
+   ![skärm bild av den nya support förfrågan-fliken med fliken lösningar valt. Ett textfält i mitten har rubriken "Rekommenderad lösning" och förklarar möjliga lösningar.](media/ticket-solutions.png)
+
+1. På den tredje sidan anger du information – detta omfattar information om klustret, den tid då problemet inträffade, allvarlighets grad och hur du kontaktar dig. Fyll i informationen och klicka på knappen **Nästa** längst ned.
+
+   ![skärm bild av sidan ny support förfrågan med fliken information vald. Informations fält är indelade i kategorierna "problem information", "support metod" och "kontakt information".](media/ticket-details.png)
+
+1. Granska informationen på den sista sidan och klicka på **skapa**. Ett bekräftelse-och biljett nummer skickas till din e-postadress och en support personal medlem kommer att kontakta dig.
 
 ## <a name="request-a-quota-increase"></a>Begär en kvot ökning
 

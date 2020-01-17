@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 9dad936e2e6cc7a9b0cdde78a9557a51d3074e71
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 277b22498066542deaa080845cb816df493d7e13
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930886"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122363"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Företags säkerhet för Azure Machine Learning
 
@@ -335,7 +335,7 @@ Här är information:
 
 * [Skydda Azure Machine Learning-webbtjänster med SSL](how-to-secure-web-service.md)
 * [Använda en Machine Learning modell som distribueras som en webb tjänst](how-to-consume-web-service.md)
-* [Hur du kör batch-förutsägelser](how-to-run-batch-predictions.md)
+* [Hur du kör batch-förutsägelser](how-to-use-parallel-run-step.md)
 * [Övervaka dina Azure Machine Learning modeller med Application Insights](how-to-enable-app-insights.md)
 * [Samla in data för modeller i produktion](how-to-enable-data-collection.md)
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)

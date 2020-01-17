@@ -12,29 +12,30 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8a5a8ac4132c998567f956f3171db06a9ca53
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1ab01f5427401bd129fa84f9a5dd1a4d3f8dc77d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231850"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156207"
 ---
-# <a name="manage-organizations-connected-to-your-work-or-school-account-from-the-organizations-page"></a>Hantera organisationer som är anslutna till ditt arbets-eller skol konto från sidan organisationer
+# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Hantera dina anslutna organisationer från sidan organisationer
 
-Du kan hantera dina organisationer från sidan **organisationer** i **min konto** Portal.
-
-Det finns två typer av organisationer som visas på sidan **organisationer** :
+Sidan **organisationer** i portalen **My-Account** hjälper dig att hantera organisationer (vanligt vis organisationens namn) som är anslutet till ditt arbets-eller skol konto. Det finns två typer av organisationer som visas på sidan **organisationer** :
 
 - **Hem organisation.** Din hem organisation är den organisation som äger ditt arbets-eller skol konto. Du kan inte lämna din hem organisation.
-
-- **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
 
     >[!NOTE]
     > Om du inte har någon tilldelad hem organisation visas bara en rubrik som säger organisationer med listan över dina associerade organisationer.
 
+- **Andra organisationer.** De andra organisationerna är alla grupper som du har loggat in på tidigare med ditt arbets-eller skol konto. Du kan när som helst lämna någon av dessa organisationer.
+
+>[!Important]
+>Den här artikeln är avsedd för användare som försöker uppdatera organisations informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om grupp-och användar hantering för dina anställda och andra användnings områden, se [dokumentationen för Enterprise User Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/index).
+
 ## <a name="view-your-organizations"></a>Visa dina organisationer
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** (https://myprofile.microsoft.com/) sidan.
 
 2. Välj **organisationer** i det vänstra navigerings fönstret eller Välj länken **Hantera organisationer** från **organisationer** -blocket.
 
@@ -53,7 +54,7 @@ Du kan lämna en organisation som inte är din hem organisation.
 >[!Important]
 >Om du lämnar en organisation av misstag finns det inget sätt att ångra. Du måste vänta tills administratören för organisationen har bjudit in dig igen.
 
-1. Välj **lämna organisationen** bredvid den organisation som du vill lämna och välj sedan **lämna** för att bekräfta att du vill lämna.
+- Välj **lämna organisationen** bredvid den organisation som du vill lämna och välj sedan **lämna** för att bekräfta att du vill lämna.
 
     ![Sidan organisationer med markerad lämna organisations länk](media/my-account-portal/my-account-portal-organizations-leave.png)
 

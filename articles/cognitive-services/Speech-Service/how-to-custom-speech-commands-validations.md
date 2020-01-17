@@ -3,19 +3,19 @@ title: 'Gör så här: Lägg till valideringar i anpassade kommando parametrar (
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln förklarar vi hur du lägger till valideringar i en parameter i anpassade kommandon.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: c89c388f919ca95a331d1d406f5b1776c127ebad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf6e4e4f0bfab43fb738f8415022e55fcbcbd05a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446920"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156462"
 ---
 # <a name="how-to-add-validations-to-custom-command-parameters-preview"></a>Gör så här: Lägg till valideringar i anpassade kommando parametrar (för hands version)
 

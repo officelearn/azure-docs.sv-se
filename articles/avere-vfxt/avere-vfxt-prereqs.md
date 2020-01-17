@@ -4,22 +4,22 @@ description: Krav för aver vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 0dafef7cf262153ccdb3b490aa0c7bd039b4a89b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889176"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152994"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
-I den här artikeln beskrivs de nödvändiga åtgärderna för att skapa ett AVERT vFXT-kluster.
+I den här artikeln beskrivs nödvändiga åtgärder för att skapa ett AVERT vFXT-kluster.
 
 ## <a name="create-a-new-subscription"></a>Skapa en ny prenumeration
 
-Börja med att skapa en ny Azure-prenumeration. Använd en separat prenumeration för varje AVERT vFXT-projekt så att du enkelt kan spåra alla projekt resurser och utgifter, skydda andra projekt från möjliga resurs begränsningar under etableringen och förenkla rensningen.
+Börja med att skapa en ny Azure-prenumeration. Använd en separat prenumeration för varje AVERT vFXT-projekt för att förenkla utgifts spårning och rensning, och se till att andra projekt inte påverkas av kvoter eller resurs begränsning vid etablering av kluster arbets flödet.
 
 För att skapa en ny Azure-prenumeration i Azure Portal:
 
@@ -30,37 +30,41 @@ För att skapa en ny Azure-prenumeration i Azure Portal:
 
 ## <a name="configure-subscription-owner-permissions"></a>Konfigurera ägar behörigheter för prenumeration
 
-En användare med ägar behörigheter för prenumerationen bör skapa vFXT-klustret. Prenumerations ägarens behörigheter krävs för att godkänna program varu villkoren och utföra andra åtgärder.
+En användare med ägar behörigheter för prenumerationen bör skapa vFXT-klustret. För att skapa kluster krävs en ägare för att godkänna program varu villkoren och för att tillåta ändringar i nätverks-och lagrings resurser.
 
-Det finns vissa lösnings scenarier som låter en icke-ägare skapa ett AVERT-vFTX för Azure-kluster. I dessa scenarier ingår att begränsa resurser och tilldela ytterligare roller till Skaparen. I båda fallen måste en prenumerations ägare också [godkänna vFXT-programtermerna](#accept-software-terms) i förväg.
+Det finns vissa lösningar för att tillåta att en icke-ägare skapar ett AVERT vFXT för Azure-kluster. I dessa scenarier ingår att begränsa resurser och tilldela ytterligare rollen som rollbaserad åtkomst kontroll (RBAC) till Skaparen. I alla dessa fall måste en prenumerations ägare också [godkänna vFXT-programtermerna](#accept-software-terms) i förväg.
 
 | Scenario | Begränsningar | Åtkomst roller som krävs för att skapa ett AVERT vFXT-kluster |
 |----------|--------|-------|
-| Resurs grupp administratör | Virtuella nätverk, kluster styrenheter och klusternoder måste skapas i resurs gruppen | [Användarens åtkomst administratör](../role-based-access-control/built-in-roles.md#user-access-administrator) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller, både riktade till mål resurs gruppen |
-| Externt virtuellt nätverk | Kluster styrenheten och klusternoderna skapas i resurs gruppen, men ett befintligt virtuellt nätverk i en annan resurs grupp används | (1) [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller som är begränsade till resurs gruppen vFXT och (2) [virtuell dator deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [användar åtkomst administratör](../role-based-access-control/built-in-roles.md#user-access-administrator)och [AVERT deltagar](../role-based-access-control/built-in-roles.md#avere-contributor) roller som är begränsade till det virtuella nätverkets resurs grupp. |
-
-Ett alternativ är att skapa en anpassad rollbaserad åtkomst kontroll (RBAC) i förväg och tilldela behörigheter till användaren, enligt beskrivningen i [den här artikeln](avere-vfxt-non-owner.md). Den här metoden ger viktiga behörigheter till dessa användare.
+| Resurs grupps administratören skapar vFXT | Virtuella nätverk, kluster styrenheter och klusternoder måste skapas i resurs gruppen. | [Användarens åtkomst administratör](../role-based-access-control/built-in-roles.md#user-access-administrator) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller, båda är begränsade till mål resurs gruppen. |
+| Använd ett befintligt, externt virtuellt nätverk | Kluster styrenheten och klusternoderna skapas i resurs gruppen vFXT, men använder ett befintligt virtuellt nätverk i en annan resurs grupp. | (1) [administratör för användar åtkomst](../role-based-access-control/built-in-roles.md#user-access-administrator) och [deltagar](../role-based-access-control/built-in-roles.md#contributor) roller som är begränsade till resurs gruppen vFXT och (2) [virtuell dator deltagare](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [användar åtkomst administratör](../role-based-access-control/built-in-roles.md#user-access-administrator)och [AVERT deltagar](../role-based-access-control/built-in-roles.md#avere-contributor) roller som är begränsade till det virtuella nätverkets resurs grupp. |
+| Anpassad roll för kluster skapare | Inga begränsningar för resurs placering. Den här metoden ger icke-ägare betydande privilegier. | Prenumerationens ägare skapar en anpassad RBAC-roll enligt beskrivningen i [den här artikeln](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Kvot för vFXT-klustret
 
-Du måste ha tillräcklig kvot för följande Azure-komponenter. Om det behövs kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+Kontrol lera att du har tillräcklig kvot för följande Azure-komponenter. Om det behövs kan du [begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 > [!NOTE]
-> De virtuella datorer och SSD-komponenter som anges här är för själva vFXT-klustret. Du behöver ytterligare kvot för de virtuella datorer och SSD som du tänker använda för beräknings gruppen.  Kontrol lera att kvoten är aktive rad för den region där du vill köra arbets flödet.
+> De virtuella datorer och SSD-komponenter som anges här är för själva vFXT-klustret. Kom ihåg att du även behöver kvot för de virtuella datorer och SSD som du ska använda för beräknings gruppen.
+>
+> Kontrol lera att kvoten är aktive rad för den region där du vill köra arbets flödet.
 
 |Azure-komponent|Kvot|
 |----------|-----------|
-|Virtuella maskiner|3 eller flera E32s_v3|
+|Virtuella maskiner|3 eller flera E32s_v3 (ett per klusternod) |
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |
 |Lagringskonto (valfritt) |v2|
-|Datalagring i serverdel (valfritt) |En ny LRS BLOB-behållare |
+|Data backend-lagring (valfritt) |En ny LRS BLOB-behållare |
+<!-- this table also appears in the overview - update it there if updating here -->
 
 ## <a name="accept-software-terms"></a>Godkänn program varu villkoren
 
-> [!NOTE]
-> Det här steget krävs inte om en prenumerations ägare skapar ett AVERT vFXT-kluster.
+> [!TIP]
+> Hoppa över det här steget om en prenumerations ägare kommer att skapa ett AVERT vFXT-kluster.
 
-När klustret skapas måste du godkänna villkoren för tjänsten för den Avera vFXT-programvaran. Om du inte är prenumerations ägare måste du ha en prenumerations ägare som accepterar villkoren i förväg. Det här steget behöver bara utföras en gång per prenumeration.
+När klustret skapas måste du godkänna villkoren för tjänsten för den Avera vFXT-programvaran. Om du inte är prenumerations ägare måste du ha en prenumerations ägare som accepterar villkoren i förväg.
+
+Det här steget behöver bara utföras en gång per prenumeration.
 
 Så här godkänner du program varu villkoren i förväg:
 
@@ -68,7 +72,7 @@ Så här godkänner du program varu villkoren i förväg:
 
    ```azurecli
     az login
-    az account set --subscription abc123de-f456-abc7-89de-f01234567890
+    az account set --subscription <subscription ID>
    ```
 
 1. Utfärda det här kommandot för att acceptera tjänst villkoren och aktivera programmerings åtkomst för den Avera vFXT för Azures program avbildning:
@@ -81,14 +85,12 @@ Så här godkänner du program varu villkoren i förväg:
 
 En [tjänst slut punkt](../virtual-network/virtual-network-service-endpoints-overview.md) håller Azure Blob-trafik lokalt i stället för att dirigera den utanför det virtuella nätverket. Det rekommenderas för alla Avera vFXT för Azure-kluster som använder Azure Blob för Server dels data lagring.
 
-Om du tillhandahåller ett befintligt virtuellt nätverk och skapar en ny Azure Blob-behållare för Server dels lagringen som en del av klustret skapas, måste du ha en tjänst slut punkt i nätverket för Microsoft-lagring. Den här slut punkten måste finnas innan klustret skapas, annars Miss kan skapandet.
-
-En Storage Service-slutpunkt rekommenderas för alla Avera vFXT för Azure-kluster som använder Azure Blob Storage, även om du lägger till lagringen senare.
+Om du skapar ett nytt virtuellt nätverk när du skapar klustret skapas en slut punkt automatiskt. Om du anger ett befintligt virtuellt nätverk måste det ha en Microsoft Storage Service-slutpunkt om du vill skapa en ny Blob Storage-behållare när klustret skapas.<!-- if there is no endpoint in that situation, the cluster creation will fail -->
 
 > [!TIP]
 >
 >* Hoppa över det här steget om du skapar ett nytt virtuellt nätverk som en del av skapandet av klustret.
->* Det här steget är valfritt om du inte skapar Blob Storage när klustret skapas. I så fall kan du skapa tjänst slut punkten senare om du bestämmer dig för att använda Azure blob.
+>* En slut punkt är valfri om du inte skapar Blob Storage när klustret skapas. I så fall kan du skapa tjänst slut punkten senare om du bestämmer dig för att använda Azure blob.
 
 Skapa lagrings tjänstens slut punkt från Azure Portal.
 
@@ -104,4 +106,4 @@ Skapa lagrings tjänstens slut punkt från Azure Portal.
 
 ## <a name="next-step-create-the-vfxt-cluster"></a>Nästa steg: skapa vFXT-klustret
 
-När du har slutfört de här kraven kan du gå vidare till skapa själva klustret. Läs [distribuera vFXT-klustret](avere-vfxt-deploy.md) för instruktioner.
+När du har slutfört de här kraven kan du skapa klustret. Läs [distribuera vFXT-klustret](avere-vfxt-deploy.md) för instruktioner.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 2a15ad41850fdf574262c396bf70e43b3b08399c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 13ac51fc4cefa4d66cf9d8310dce80704454bd93
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989688"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122159"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Kom igång med faktureringskontot för ditt Microsoft-partneravtal
 
@@ -53,7 +53,7 @@ Använd policyn för att kontrollera om användare i kundorganisationen kan visa
 
 Så här aktiverar du policyn:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Sök efter **Kostnadshantering och fakturering**.
 
@@ -71,7 +71,7 @@ Så här aktiverar du policyn:
 
 ## <a name="resellers"></a>Återförsäljare
 
-Indirekta leverantörer i [modellen med två nivåer](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview#azure-csp-direct-and-azure-csp-indirect) för CSP kan välja en återförsäljare när de skapar prenumerationer för kunder i Azure-portalen. Efteråt kan de visa listan med prenumerationer filtrerad efter återförsäljare och analysera kostnaden för en kund per återförsäljare i Azures-kostnadsanalysen.
+Indirekta leverantörer i [modellen med två nivåer](https://docs.microsoft.com/partner-center) för CSP kan välja en återförsäljare när de skapar prenumerationer för kunder i Azure-portalen. Efteråt kan de visa listan med prenumerationer filtrerad efter återförsäljare och analysera kostnaden för en kund per återförsäljare i Azures-kostnadsanalysen.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Kontrollera åtkomsten till ett Microsoft-partneravtal
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]

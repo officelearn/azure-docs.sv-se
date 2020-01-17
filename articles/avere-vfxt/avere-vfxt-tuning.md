@@ -4,30 +4,22 @@ description: Översikt över anpassade inställningar för att optimera prestand
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 8e25b3408482d9be9cb870df338ba0e53af52507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df20f050ff87fdb59a3e5cca373098240f8bfbb9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414320"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152943"
 ---
 # <a name="cluster-tuning"></a>Kluster justering
 
 De flesta vFXT-kluster kan dra nytta av anpassade prestanda inställningar. De här inställningarna hjälper klustret att fungera bäst med specifika arbets flöden, data uppsättningar och verktyg.
 
-Den här anpassningen bör göras tillsammans med en support representant, eftersom det innebär att konfigurera funktioner som inte är tillgängliga från den Avera kontroll panelen.
+Den här anpassningen bör göras med hjälp från en support representant, eftersom den kan omfatta konfigurations funktioner som inte är tillgängliga från den Avera kontroll panelen.
 
 I det här avsnittet beskrivs några av de anpassade justeringarna som kan göras.
-
-<!-- 
-[ xxx keep or not? \/ research this xxx ]
-
-> [!TIP]
-> The VDBench utility can be helpful in generating I/O workloads to test a vFXT cluster. Read [Measuring vFXT Performance](vdbench.md) to learn more.
-
--->
 
 ## <a name="general-optimizations"></a>Allmänna optimeringar
 
@@ -42,19 +34,21 @@ Dessa ändringar kan vara rekommenderade baserat på data uppsättnings kvalitet
 
 ## <a name="cloud-nas-or-cloud-gateway-optimizations"></a>Moln-NAS eller moln-Gateway-optimeringar
 
-Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagring i ett Cloud NAS-eller gateway-scenario (där vFXT-klustret ger åtkomst till NAS-typ till en moln behållare) kan du rekommendera att ändra inställningar som dessa till fler Skicka data aggressivt till lagrings volymen från cachen:
+I ett Cloud NAS-eller gateway-scenario tillhandahåller vFXT-klustret NAS-typ åtkomst till en moln behållare. Om du vill dra nytta av högre data hastigheter mellan vFXT-klustret och moln lagringen kan du rekommendera att ändra inställningarna till mer aggressivt push-data till lagrings volymen från cachen. Ett exempel:
 
 * Öka antalet TCP-anslutningar mellan klustret och lagrings behållaren
 
 ## <a name="cloud-bursting-or-hybrid-wan-optimizations"></a>Cloud bursting eller hybrid WAN-optimeringar
 
-I ett scenario med moln överföring eller ett scenario för Hybrid optimering i molnet (där vFXT-klustret tillhandahåller integrering mellan molnet och den lokala maskin varu lagringen), kan de här ändringarna vara användbara:
+I ett scenario med moln överföring eller i ett scenario med hybrid optimering i molnet tillhandahåller vFXT-klustret integrering mellan molnet och den lokala maskin varu lagringen. Dessa ändringar kan vara till hjälp:
 
 * Öka antalet TCP-anslutningar som tillåts mellan klustret och kärn filen
 * Aktivera inställningen för WAN-optimering för fjärrcore-filer (den här inställningen kan användas för fjärranslutna filer på plats eller en moln kärna som sparas i en annan Azure-region.)
-* Öka buffertstorleken för TCP-socketen (beroende på arbets belastning och prestanda krav)
-* Aktivera inställningen "Always Forward" för att minska redundanta cachelagrade filer (beroende på arbets belastning och prestanda krav)
+* Öka buffertstorleken för TCP-socket<sup>*</sup>
+* Aktivera inställningen "Always Forward" för att minska redundanta cachelagrade filer<sup>*</sup>
+
+<sup>*</sup> Dessa justeringar kanske inte gäller för alla system, beroende på arbets belastning och prestanda behov.
 
 ## <a name="help-optimizing-your-avere-vfxt-for-azure"></a>Hjälp till att optimera ditt AVERT vFXT för Azure
 
-Använd proceduren som beskrivs i [få hjälp med systemet](avere-vfxt-open-ticket.md) för att kontakta support personal om dessa optimeringar.
+Om du vill kontakta support personalen om dessa optimeringar använder du proceduren som beskrivs i [få hjälp med systemet](avere-vfxt-open-ticket.md).

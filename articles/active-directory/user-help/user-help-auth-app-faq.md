@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 01/16/2020
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d6fe6744c2af22f8891d2f3b3a6eb30ec9d3904
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: dc68b34ce10957d8c025d4767cc4f8d04c6a72c3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045284"
+ms.locfileid: "76155867"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Vanliga frågor och svar om Microsoft Authenticator-appen
 
@@ -52,6 +52,7 @@ Microsoft Authenticator-appen ersatte Azure Authenticator-appen och är den reko
 | Vad är app lock-funktionen och hur hjälper det mig att skydda mig? | Om du vill behålla dina lösen ord, appdata och appinställningar säkrare, kan du aktivera appens lås funktion i Microsoft Authenticator-appen. Genom att aktivera lås från appen på skärmen **Inställningar** i Microsoft Authenticator-appen kan du bli ombedd att autentisera med din PIN-kod eller bio metrisk varje gång du öppnar Microsoft Authenticator-appen. Den här funktionen ger extra skydd, hur du godkänner dina meddelanden i Microsoft Authenticator-appen ändras inte.<br><br>**Obs!**<br>Eftersom enhets registrering kan ske på andra platser utanför Microsoft Authenticator-appen, t. ex. i Företagsportal appen eller i Android-konto inställningar, finns det ingen garanti för att app lock hindrar en användare från att komma åt Microsoft Authenticator-app. |
 | Varför får jag meddelanden om min konto aktivitet? | För att hjälpa dig att hålla dig informerad om vad som händer med din personliga Microsoft-konto skickar vi aktivitets aviseringar till din Microsoft Authenticator-app. Dessa meddelanden visas direkt efter något ändringar, vilket hjälper dig att skydda dig. Vi har tidigare skickat dessa aviseringar via e-post och SMS och har nu expanderat för att inkludera appen. Mer information om dessa aktivitets aviseringar finns i [Vad händer om det finns en ovanlig inloggning till ditt konto](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Om du vill ändra var du får dina meddelanden loggar du in på sidan [där kan vi kontakta dig med aviseringar om icke-kritiska konton](https://account.live.com/SecurityNotifications/Update) för ditt konto. |
 | När du loggar in på mitt arbets-eller skol konto med hjälp av standard-e-postappen som medföljer iOS, får jag en fråga från Microsoft Authenticator-appen för min säkerhets verifierings information. När jag har angett informationen och återgår till e-postappen får jag ett fel meddelande. Vad kan jag göra? | Detta beror troligen på att din inloggning och ditt e-postprogram sker i två olika appar, vilket gör att den inledande bakgrunds inloggnings processen slutar fungera och inte fungerar. För att försöka åtgärda detta rekommenderar vi att du väljer **Safari** -ikonen längst ned till höger på skärmen när du loggar in på e-postappen. Genom att flytta till Safari sker hela inloggnings processen i en enda app, så att du kan logga in på appen. |
+| Mina eng ång slö sen ord (eng ång slö sen ord) fungerar inte. Vad gör jag? | Kontrol lera att datum och tid på enheten är korrekta och synkroniseras automatiskt. Om datumet och tiden är fel eller är osynkroniserade fungerar inte koden. |
 
 ## <a name="next-steps"></a>Nästa steg
 

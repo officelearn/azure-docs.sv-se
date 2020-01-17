@@ -1,20 +1,20 @@
 ---
 title: Interagera med Windows-containrar
 services: azure-dev-spaces
-ms.date: 07/25/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
-ms.openlocfilehash: 855b877653d4cf60c8165af3094fe0e68ca5e6dd
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 886f71dcaaca6a636b385ef6b101f0a893ff7035
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867298"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157006"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces
 
-Du kan aktivera Azure dev Spaces på både nya och befintliga Kubernetes-namnområden. Azure dev Spaces kommer att köra och instrumentera tjänster som körs på Linux-behållare. Dessa tjänster kan också samverka med program som körs på Windows-behållare i samma namnrymd. Den här artikeln visar hur du använder dev Spaces för att köra tjänster i ett namn område med befintliga Windows-behållare.
+Du kan aktivera Azure dev Spaces på både nya och befintliga Kubernetes-namnområden. Azure dev Spaces kommer att köra och instrumentera tjänster som körs på Linux-behållare. Dessa tjänster kan också samverka med program som körs på Windows-behållare i samma namnrymd. Den här artikeln visar hur du använder dev Spaces för att köra tjänster i ett namn område med befintliga Windows-behållare. För tillfället går det inte att felsöka eller ansluta till Windows-behållare med Azure dev Spaces.
 
 ## <a name="set-up-your-cluster"></a>Konfigurera ditt kluster
 
@@ -36,8 +36,9 @@ Följande exempel på utdata visar ett kluster med både en Windows-och Linux-no
 
 ```console
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
-aksnpwin987654                      Ready    agent   108s   v1.14.1
+aks-nodepool1-12345678-vmss000000   Ready    agent   13m    v1.14.8
+aks-nodepool1-12345678-vmss000001   Ready    agent   13m    v1.14.8
+aksnpwin000000                      Ready    agent   108s   v1.14.8
 ```
 
 Använd en- [smak][using-taints] på dina Windows-noder. Bismaken på dina Windows-noder förhindrar att dev-rymder schemalägger att köra på dina Windows-noder. Följande kommando exempel använder en-utsmak till Windows-noden *aksnpwin987654* från föregående exempel.
@@ -60,20 +61,12 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-Exempel programmet använder [Helm 2][helm-installed] för att köra Windows-tjänsten på klustret. Installera Helm på klustret och ge det rätt behörigheter:
-
-```console
-helm init --wait
-kubectl create serviceaccount --namespace kube-system tiller
-kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-``` 
-
-Navigera till `charts` Directory och kör Windows-tjänsten:
+Exempel programmet använder [Helm][helm-installed] för att köra Windows-tjänsten på klustret. Navigera till `charts` Directory och Använd Helm kör Windows-tjänsten:
 
 ```console
 cd charts/
-helm install . --namespace dev
+kubectl create ns dev
+helm install windows-service . --namespace dev
 ```
 
 Kommandot ovan använder Helm för att köra Windows-tjänsten i *dev* -namnområdet. Om du inte har ett namn område med namnet *dev*kommer det att skapas.
@@ -122,16 +115,15 @@ spec:
 Använd `helm list` för att Visa distributionen för din Windows-tjänst:
 
 ```cmd
-$ helm list
-NAME            REVISION    UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
-gilded-jackal   1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
+$ helm list --namespace dev
+NAME              REVISION  UPDATED                     STATUS      CHART           APP VERSION NAMESPACE
+windows-service 1           Wed Jul 24 15:45:59 2019    DEPLOYED    mywebapi-0.1.0  1.0         dev  
 ```
 
-I ovanstående exempel är namnet på din distribution *Gilded-Jackal*. Uppdatera din Windows-tjänst med den nya konfigurationen med hjälp av `helm upgrade`:
+I ovanstående exempel är namnet på din distribution *Windows-Service*. Uppdatera din Windows-tjänst med den nya konfigurationen med hjälp av `helm upgrade`:
 
 ```cmd
-$ helm upgrade gilded-jackal . --namespace dev
-Release "gilded-jackal" has been upgraded.
+helm upgrade windows-service . --namespace dev
 ```
 
 Eftersom du har uppdaterat din `deployment.yaml`kommer inte dev Spaces att försöka utföra och instrumentera din tjänst.
@@ -182,7 +174,7 @@ Lär dig hur Azure dev Spaces hjälper dig att utveckla mer komplexa program öv
 
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [sample-application]: https://github.com/Azure/dev-spaces/tree/master/samples/existingWindowsBackend
 [sample-application-toleration-example]: https://github.com/Azure/dev-spaces/blob/master/samples/existingWindowsBackend/mywebapi-windows/charts/templates/deployment.yaml#L24-L27
 [team-development-qs]: ../quickstart-team-development.md

@@ -11,19 +11,19 @@ ms.author: trbye
 author: trevorbye
 ms.date: 11/19/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 8d80282044adfa723940aa6f68efc1e719e713c0
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 1e346d2542193ec1880ad0a56bd6afa1b0a46890
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75533169"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122635"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Köra batch-förutsägelser med Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här instruktionen får du lära dig hur du använder designern för att träna en modell och konfigurera en pipeline för batch förutsägelse och webb tjänst. Med batch-förutsägelse kan du utföra kontinuerliga resultat på begäran av tränade modeller på stora data mängder, om du vill, konfigureras som en webb tjänst som kan utlösas från alla HTTP-bibliotek. 
 
-Information om hur du ställer in batch-Bedömningstjänster med SDK finns i den medföljande [instruktionen](how-to-run-batch-predictions.md).
+Information om hur du ställer in batch-Bedömningstjänster med SDK finns i den medföljande [instruktionen](how-to-use-parallel-run-step.md).
 
 I den här instruktionen får du lära dig följande uppgifter:
 

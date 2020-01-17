@@ -8,38 +8,38 @@ ms.topic: include
 ms.date: 05/10/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 5aeb0e01192c0635def8eef0c73aa2d14b7921e2
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: a9473f69d600a86ff71da69c7efe0dea3f2b0a08
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187266"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159595"
 ---
 ## <a name="os-config"></a>Lägg till IP-adresser till ett VM-operativsystem
 
-Anslut och logga in på en virtuell dator som du skapade med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför steg att följande för ditt VM-operativsystem.
+Anslut och logga in på en virtuell dator som du har skapat med flera privata IP-adresser. Du måste manuellt lägga till alla de privata IP-adresser (inklusive det primära) som du lade till den virtuella datorn. Slutför stegen som följer för ditt virtuella dator operativ system.
 
 ### <a name="windows"></a>Windows
 
 1. Från en kommandotolk skriver du *ipconfig /all*.  Du ser bara den *primära* privata IP-adressen (via DHCP).
 2. Skriv *ncpa.cpl* i kommandotolken för att öppna fönstret **Nätverksanslutningar**.
-3. Öppna egenskaperna för det passande nätverkskortet: **Lokal anslutning**.
+3. Öppna egenskaperna för det passande nätverkskortet: **Anslutning till lokalt nätverk**.
 4. Dubbelklicka på Internet Protocol version 4 (IPv4).
 5. Välj **Använd följande IP-adress** och ange följande värden:
 
-    * **IP-adress**: Ange den *primära* privat IP-adress
-    * **Nätmask**: In baserat på ditt undernät. Om undernätet till exempel är ett /24-undernät så är nätmasken 255.255.255.0.
+    * **IP-adress**: Ange den *primära* privata IP-adressen
+    * **Nätmask**: Ställ in beroende på ditt undernät. Om undernätet till exempel är ett /24-undernät så är nätmasken 255.255.255.0.
     * **Standard-gateway**: Den första IP-adressen i undernätet. Om undernätet är 10.0.0.0/24 så är gateway-IP-adressen 10.0.0.1.
     * Välj **Använd följande DNS-serveradresser** och ange följande värden:
-        * **Primär DNS-server**: Om du inte använder en egen DNS-server, ange 168.63.129.16.  Om du använder en egen DNS-server måste du ange dess IP-adress.
-    * Välj den **Avancerat** knappen och lägga till ytterligare IP-adresser. Lägg till var och en av de sekundära privata IP-adresser som du lade till Azure nätverksgränssnitt i ett föregående steg, med Windows-nätverksgränssnittet som tilldelats den primära IP-adress som tilldelats Azure nätverksgränssnittet.
+        * **Önskad DNS-server**: Ange 168.63.129.16 om du inte använder en egen DNS-server.  Om du använder en egen DNS-server måste du ange dess IP-adress.
+    * Välj knappen **Avancerat** och Lägg till ytterligare IP-adresser. Lägg till var och en av de sekundära privata IP-adresserna, som du lade till i Azure Network Interface i ett föregående steg, till nätverks gränssnittet i Windows som har tilldelats den primära IP-adress som tilldelats Azure-nätverks gränssnittet.
 
-        Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem. När du manuellt anger IP-adress inom operativsystemet kan du kontrollera att det är samma adress som den privata IP-adress som tilldelats Azure [nätverksgränssnittet](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), eller du kan förlora anslutningen till den virtuella datorn. Läs mer om [privata IP-adressen](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) inställningar. Du bör aldrig tilldela en Azure offentlig IP-adress i operativsystemet.
+        Du bör aldrig manuellt tilldela offentliga IP-adress som tilldelats till en Azure virtuell dator i den virtuella datorns operativsystem. När du anger IP-adressen i operativ systemet manuellt måste du kontrol lera att den är samma adress som den privata IP-adress som tilldelats Azure- [nätverks gränssnittet](../articles/virtual-network/virtual-network-network-interface-addresses.md#change-ip-address-settings), eller så kan du förlora anslutningen till den virtuella datorn. Läs mer om inställningar för [privata IP-adresser](../articles/virtual-network/virtual-network-network-interface-addresses.md#private) . Du bör aldrig tilldela en offentlig Azure-IP-adress i operativ systemet.
 
     * Klicka på **OK** för att stänga TCP/IP-inställningarna och sedan på **OK** igen för att stänga inställningarna för nätverkskortet. RDP-anslutningen återupprättats.
 
 6. Från en kommandotolk skriver du *ipconfig /all*. Alla IP-adresser som du lade till visas och DHCP är avstängt.
-7. Konfigurera Windows för att använda privata IP-adressen för den primära IP-konfigurationen i Azure som primär IP-adress för Windows. Se [utan Internetåtkomst från virtuella Azure Windows-datorer som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) mer information. 
+7. Konfigurera Windows att använda den privata IP-adressen för den primära IP-konfigurationen i Azure som den primära IP-adressen för Windows. Se [Ingen Internet åtkomst från virtuell Azure Windows-dator som har flera IP-adresser](https://support.microsoft.com/help/4040882/no-internet-access-from-azure-windows-vm-that-has-multiple-ip-addresse) för mer information. 
 
 ### <a name="validation-windows"></a>Validering (Windows)
 
@@ -49,10 +49,72 @@ Om du vill kontrollera att du kan ansluta till internet från den sekundära IP-
 ping -S 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs en offentlig IP-adress inte pinga till Internet.
+>För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplad till den. För primära IP-konfigurationer krävs ingen offentlig IP-adress för att pinga till Internet.
 
 ### <a name="linux-ubuntu-1416"></a>Linux (Ubuntu 14/16)
-Vi rekommenderar att du tittar på senast dokumentationen för din Linux-distribution. 
+
+Vi rekommenderar att du tittar på den senaste dokumentationen för din Linux-distribution. 
+
+1. Öppna ett terminalfönster.
+2. Kontrollera att du är rotanvändaren. Om inte anger du följande kommando:
+
+   ```bash
+   sudo -i
+   ```
+
+3. Uppdatera konfigurationsfilen för nätverksgränssnittet (förutsätter 'eth0').
+
+   * Behåll det befintliga radobjektet för dhcp. Den primära IP-adressen är fortfarande konfigurerad som den var tidigare.
+   * Lägg till en konfiguration för ytterligare en statisk IP-adress med följande kommandon:
+
+     ```bash
+     cd /etc/network/interfaces.d/
+     ls
+     ```
+
+     Du bör se en .cfg-fil.
+4. Öppna filen. Du bör se följande rader i slutet av filen:
+
+   ```bash
+   auto eth0
+   iface eth0 inet dhcp
+   ```
+
+5. Lägg till följande rader efter de rader som redan finns i den här filen:
+
+   ```bash
+   iface eth0 inet static
+   address <your private IP address here>
+   netmask <your subnet mask>
+   ```
+
+6. Spara filen med följande kommando:
+
+   ```bash
+   :wq
+   ```
+
+7. Återställ nätverksgränssnittet med följande kommando:
+
+   ```bash
+   sudo ifdown eth0 && sudo ifup eth0
+   ```
+
+   > [!IMPORTANT]
+   > Kör både ifdown och ifup i samma rad om du använder en fjärranslutning.
+   >
+
+8. Kontrollera att IP-adressen läggs till i nätverksgränssnittet med följande kommando:
+
+   ```bash
+   ip addr list eth0
+   ```
+
+   Du bör se IP-adressen som du lade till i listan.
+
+### <a name="linux-ubuntu-1804"></a>Linux (Ubuntu 18.04 +)
+
+Ubuntu 18,04 och senare har ändrats till `netplan` för nätverks hantering i operativ systemet. Vi rekommenderar att du tittar på den senaste dokumentationen för din Linux-distribution. 
 
 1. Öppna ett terminalfönster.
 2. Kontrollera att du är rotanvändaren. Om inte anger du följande kommando:
@@ -61,47 +123,43 @@ Vi rekommenderar att du tittar på senast dokumentationen för din Linux-distrib
     sudo -i
     ```
 
-3. Uppdatera konfigurationsfilen för nätverksgränssnittet (förutsätter 'eth0').
-
-   * Behåll det befintliga radobjektet för dhcp. Den primära IP-adressen är fortfarande konfigurerad som den var tidigare.
-   * Lägg till en konfiguration för ytterligare en statisk IP-adress med följande kommandon:
-
-       ```bash
-       cd /etc/network/interfaces.d/
-       ls
-       ```
-
-     Du bör se en .cfg-fil.
-4. Öppna filen. Du bör se följande rader i slutet av filen:
+3. Skapa en fil för det andra gränssnittet och öppna den i en text redigerare:
 
     ```bash
-    auto eth0
-    iface eth0 inet dhcp
+    vi /etc/netplan/60-static.yaml
     ```
 
-5. Lägg till följande rader efter de rader som redan finns i den här filen:
+4. Lägg till följande rader i filen och ersätt `10.0.0.6/24` med IP/nätmask:
 
     ```bash
-    iface eth0 inet static
-    address <your private IP address here>
-    netmask <your subnet mask>
+    network:
+        version: 2
+        ethernets:
+            eth0:
+                addresses:
+                    - 10.0.0.6/24
     ```
 
-6. Spara filen med följande kommando:
+5. Spara filen med följande kommando:
 
     ```bash
     :wq
     ```
 
-7. Återställ nätverksgränssnittet med följande kommando:
+6. Testa ändringarna med [netplan försök](http://manpages.ubuntu.com/manpages/cosmic/man8/netplan-try.8.html) att bekräfta syntax:
 
     ```bash
-    sudo ifdown eth0 && sudo ifup eth0
+    netplan try
     ```
 
-    > [!IMPORTANT]
-    > Kör både ifdown och ifup i samma rad om du använder en fjärranslutning.
-    >
+> [!NOTE]
+> `netplan try` kommer att verkställa ändringarna tillfälligt och återställa ändringarna efter 120 sekunder. Om anslutningen bryts kan du vänta 120 sekunder och sedan ansluta igen. Vid detta tillfälle kommer ändringarna att återställas.
+
+7. Om du inte antar några problem med `netplan try`använder du konfigurations ändringarna:
+
+    ```bash
+    netplan apply
+    ```
 
 8. Kontrollera att IP-adressen läggs till i nätverksgränssnittet med följande kommando:
 
@@ -109,8 +167,25 @@ Vi rekommenderar att du tittar på senast dokumentationen för din Linux-distrib
     ip addr list eth0
     ```
 
-    Du bör se IP-adressen som du lade till i listan.
+    Du bör se IP-adressen som du lade till i listan. Exempel:
 
+    ```bash
+    1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+        link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+        inet 127.0.0.1/8 scope host lo
+        valid_lft forever preferred_lft forever
+        inet6 ::1/128 scope host
+        valid_lft forever preferred_lft forever
+    2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
+        link/ether 00:0d:3a:8c:14:a5 brd ff:ff:ff:ff:ff:ff
+        inet 10.0.0.6/24 brd 10.0.0.255 scope global eth0
+        valid_lft forever preferred_lft forever
+        inet 10.0.0.4/24 brd 10.0.0.255 scope global secondary eth0
+        valid_lft forever preferred_lft forever
+        inet6 fe80::20d:3aff:fe8c:14a5/64 scope link
+        valid_lft forever preferred_lft forever
+    ```
+    
 ### <a name="linux-red-hat-centos-and-others"></a>Linux (Red Hat, CentOS och andra)
 
 1. Öppna ett terminalfönster.
@@ -179,7 +254,7 @@ Om du vill kontrollera att du kan ansluta till Internet från en sekundär IP-ko
 ping -I 10.0.0.5 hotmail.com
 ```
 >[!NOTE]
->För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplade till den. För den primära IP-konfigurationer krävs en offentlig IP-adress inte pinga till Internet.
+>För sekundära IP-konfigurationer kan du bara pinga till Internet om konfigurationen har en offentlig IP-adress som är kopplad till den. För primära IP-konfigurationer krävs ingen offentlig IP-adress för att pinga till Internet.
 
 För virtuella Linux-datorer kan du behöva lägga till lämpliga vägar när du försöker verifiera utgående anslutningar från ett sekundärt nätverkskort. Det finns flera sätt att göra detta på. Se motsvarande dokumentation för din distribution av Linux. Detta går exempelvis att åstadkomma med hjälp av följande metod:
 

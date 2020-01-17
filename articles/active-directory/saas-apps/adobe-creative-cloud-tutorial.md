@@ -16,14 +16,17 @@ ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 815cffab118f6900c1c9d42a7e44821f8af62532
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 25dd638c15fecbef787e4ceabea9ae7cb4359582
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081989"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120374"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-adobe-creative-cloud"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Adobe Creative Cloud
+
+> [!NOTE]
+> I den här artikeln beskrivs Adobe admin Consoles anpassade SAML-baserade installations program för Azure Active Directory (Azure AD). För varumärkes nya konfigurationer rekommenderar vi att du använder [Azure AD-anslutningen](https://helpx.adobe.com/enterprise/using/sso-setup-azure.html). Azure AD-anslutning kan konfigureras på några minuter och förkorta processen för domän anspråk, installation av enkel inloggning och synkronisering av användare.
 
 I den här självstudien får du lära dig hur du integrerar Adobe Creative Cloud med Azure Active Directory (Azure AD). När du integrerar Adobe Creative Cloud med Azure AD kan du:
 
@@ -92,11 +95,11 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://www.okta.com/saml2/service-provider/<token>`
 
     > [!NOTE]
-    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [kundsupporten för Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) och be om det här värdet. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Identifierarvärdet är inte verkligt. Uppdatera det här värdet med den faktiska identifieraren. Kontakta [kundsupporten för Adobe Creative Cloud](https://www.adobe.com/au/creativecloud/business/teams/plans.html) och be om det här värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 1. Adobe Creative Cloud programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
-    ![image](common/edit-attribute.png)
+    ![mallar](common/edit-attribute.png)
 
 1. Utöver ovan förväntar sig Adobe Creative Cloud-programmet att fler attribut skickas tillbaka i SAML-svar som visas nedan. Dessa attribut är också förifyllda, men du kan granska dem efter behov.
 
@@ -109,7 +112,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
     > [!NOTE]
     > Användare måste ha en giltig Office 365 ExO-licens för att anspråksvärden för e-post ska anges i SAML-svaret.
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **Federations data XML**och väljer sedan **Ladda ned** för att ladda ned XML-metadatafilen och spara den på din dator.
 
     ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
@@ -149,31 +152,26 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-adobe-creative-cloud-sso"></a>Konfigurera Adobe Creative Cloud SSO
 
-1. I ett annat webbläsarfönster, loggar du in på [Adobe-administratörskonsolen](https://adminconsole.adobe.com) som administratör.
+1. Logga in på [Adobe admin-konsolen](https://adminconsole.adobe.com) som system administratör i ett annat webbläsarfönster.
 
-2. Gå till **Inställningar** i det övre navigeringsfältet och välj sedan **Identitet**. Listan över domäner öppnas. Klicka på länken **Konfigurera** mot din domän. Utför sedan följande steg i avsnittet **Konfiguration av enkel inloggning krävs**. Mer information finns i [Installera en domän](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+1. Gå till **Inställningar** i det övre navigerings fältet och välj sedan **identitet**. Listan över kataloger öppnas. Välj den federerade katalogen som du vill använda.
 
-    ![Inställningar](https://helpx.adobe.com/content/dam/help/en/enterprise/using/configure-microsoft-azure-with-adobe-sso/_jcr_content/main-pars/procedure_719391630/proc_par/step_3/step_par/image/edit-sso-configuration.png "Inställningar")
+1. På sidan **katalog information** väljer du **Konfigurera**.
 
-    a. Klicka på **Bläddra** för att ladda upp det nedladdade certifikatet från Azure Active Directory till **IDP-certifikat**.
+1. Kopiera entitets-ID: t och ACS-URL: en (intygs mottagarens URL eller svars-URL). Ange webb adresserna i lämpliga fält i Azure Portal.
 
-    b. I text rutan **IDP Issuer** klistrar du in värdet för **Azure AD-identifieraren** som du kopierade från Azure Portal.
+    ![Konfigurera enkel inloggning på App-sidan](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
 
-    c. I text rutan för **inloggnings-URL för IDP** klistrar du in värdet för **inloggnings-URL** som du kopierade från Azure Portal.
+    a. Använd värdet för entitets-ID: t Adobe förutsatt att du har **identifierat** i dialog rutan **Konfigurera app-inställningar** .
 
-    d. Välj **HTTP – omdirigera** som **IDP-bindning**.
+    b. Använd värdet för ACS URL (intygets konsument tjänst-URL) för att ange en **svars-URL** i dialog rutan **Konfigurera app-inställningar** .
 
-    e. Välj **E-postadress** som **Inloggningsinställning för användare**.
+1. Längst ned på sidan laddar du upp den **XML-fil för Federations data** som du laddade ned från Azure Portal. 
 
-    f. Klicka på knappen **Spara**.
+    ![Federations data XML-fil](https://helpx.adobe.com/content/dam/help/en/enterprise/kb/configure-microsoft-azure-with-adobe-sso/jcr_content/main-pars/procedure/proc_par/step_228106403/step_par/image_copy/saml_signinig_certificate.png "XML för IdP metadata")
 
-3. Instrumentpanelen kommer nu att presentera XML-filen **”Ladda ner metadata”** . Den innehåller webbadressen för Adobes EntityDescriptor och för AssertionConsumerService. Öppna filen och konfigurera den i Azure Active Directory-programmet.
+1. Välj **Spara**.
 
-    ![Konfigurera enkel inloggning på appsidan](./media/adobe-creative-cloud-tutorial/tutorial_adobe-creative-cloud_003.png)
-
-    a. Använd det EntityDescriptor-värde som Adobe försett dig med som **Identifierare** i dialogrutan **Konfigurera appinställningar**.
-
-    b. Använd det AssertionConsumerService-värde Adobe försett dig med som **Svars-URL** i dialogrutan **Konfigurera appinställningar**.
 
 ### <a name="create-adobe-creative-cloud-test-user"></a>Skapa testanvändare för Adobe Creative Cloud
 
@@ -206,7 +204,7 @@ När du klickar på Adobe Creative Cloud-panelen i åtkomstpanelen bör du autom
 
 - [Försök Adobe Creative Cloud med Azure AD](https://aad.portal.azure.com/)
 
-- [Konfigurera en domän (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-domain.html)
+- [Konfigurera en identitet (adobe.com)](https://helpx.adobe.com/enterprise/using/set-up-identity.html)
   
 - [Konfigurera Azure för användning med Adobe SSO (adobe.com)](https://helpx.adobe.com/enterprise/kb/configure-microsoft-azure-with-adobe-sso.html)
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c58371edffa4400c2c2b3efd37c3ce6d7c3cad95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: eb47b9df51803c76662b5fb4ca1fe23740e7af9a
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847923"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155068"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Konfigurera listan anpassat blockerade lösen ord
 
@@ -26,7 +26,7 @@ Många organisationer hittar sina användare att skapa lösen ord med hjälp av 
 
 Att konfigurera den anpassade listan över blockerade lösen ord kräver en Azure Active Directory Premium P1-eller P2-licens. Mer detaljerad information om Azure Active Directory-licensiering finns på [sidan för Azure Active Directory priser](https://azure.microsoft.com/pricing/details/active-directory/).
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory**, **autentiseringsmetoder**och **lösen ords skydd**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > **lösen ords skydd**.
 1. Ange alternativet **tvinga anpassad lista**till **Ja**.
 1. Lägg till strängar i **listan med anpassade förbjudna lösen ord**, en sträng per rad
    * Listan med anpassade förbjudna lösen ord kan innehålla upp till 1000 villkor.

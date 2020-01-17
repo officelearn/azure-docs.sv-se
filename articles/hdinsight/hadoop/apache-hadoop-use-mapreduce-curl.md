@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 02/27/2018
-ms.openlocfilehash: 274d8dc80d9318aa3ddf4a904a5b623319ea01f4
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/13/2020
+ms.openlocfilehash: 607020f1d540e83a4d049b96b9ab9a4ebcd385f0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645012"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157261"
 ---
 # <a name="run-mapreduce-jobs-with-apache-hadoop-on-hdinsight-using-rest"></a>Kör MapReduce-jobb med Apache Hadoop på HDInsight med REST
 
@@ -22,44 +22,90 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
 > [!NOTE]  
 > Om du redan är bekant med att använda Linux-baserade Hadoop-servrar, men du är nybörjare på HDInsight, kan du läsa [vad du behöver veta om Linux-baserade Apache Hadoop på HDInsight-](../hdinsight-hadoop-linux-information.md) dokument.
 
+## <a name="prerequisites"></a>Krav
 
-## <a id="prereq"></a>Förhandskrav
+* Ett Apache Hadoop kluster i HDInsight. Se [skapa Apache Hadoop kluster med hjälp av Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
-* Ett Hadoop på HDInsight-kluster
-* Windows PowerShell eller [sväng](https://curl.haxx.se/) och [JQ](https://stedolan.github.io/jq/)
+Antingen:
+  * Windows PowerShell eller,
+  * [Sväng](https://curl.haxx.se/) med [JQ](https://stedolan.github.io/jq/)
 
-## <a id="curl"></a>Kör ett MapReduce-jobb
+## <a name="run-a-mapreduce-job"></a>Kör ett MapReduce-jobb
 
 > [!NOTE]  
 > När du använder en sväng eller någon annan REST-kommunikation med WebHCat måste du autentisera begär Anden genom att ange användar namnet och lösen ordet för HDInsight-klustret. Du måste använda kluster namnet som en del av den URI som används för att skicka begär anden till servern.
 >
 > REST API skyddas med hjälp av [grundläggande åtkomst-autentisering](https://en.wikipedia.org/wiki/Basic_access_authentication). Du bör alltid göra begär Anden genom att använda HTTPS för att säkerställa att dina autentiseringsuppgifter skickas på ett säkert sätt till servern.
 
-1. Använd något av följande kommandon för att ange den kluster inloggning som används av skripten i det här dokumentet:
+### <a name="curl"></a>Curl
+
+1. Ange variablerna nedan för enkel användning. Det här exemplet baseras på en Windows-miljö och ändras efter behov för din miljö.
+
+    ```cmd
+    set CLUSTERNAME=
+    set PASSWORD=
+    ```
+
+1. Använd följande kommando från en kommandorad för att verifiera att du kan ansluta till ditt HDInsight-kluster:
 
     ```bash
-    read -p "Enter your cluster login account name: " LOGIN
+    curl -u admin:%PASSWORD% -G https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/status
     ```
+
+    De parametrar som används i det här kommandot är följande:
+
+   * **-u**: anger det användar namn och lösen ord som används för att autentisera begäran
+   * **-G**: visar att den här åtgärden är en get-begäran
+
+   Början av URI: n `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, är samma för alla begär Anden.
+
+    Du får ett svar som liknar följande JSON:
+
+    ```output
+    {"version":"v1","status":"ok"}
+    ```
+
+1. Om du vill skicka ett MapReduce-jobb använder du följande kommando. Ändra sökvägen till **JQ** efter behov.
+
+    ```cmd
+    curl -u admin:%PASSWORD% -d user.name=admin ^
+    -d jar=/example/jars/hadoop-mapreduce-examples.jar ^
+    -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output ^
+    https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/mapreduce/jar | ^
+    C:\HDI\jq-win64.exe .id
+    ```
+
+    Slutet av URI: n (/MapReduce/jar) anger WebHCat att den här begäran startar ett MapReduce-jobb från en klass i en jar-fil. De parametrar som används i det här kommandot är följande:
+
+   * **-d**: `-G` används inte, så standardvärdet för begäran till post-metoden. `-d` anger de data värden som skickas med begäran.
+     * **User.name**: användaren som kör kommandot
+     * **jar**: platsen för den jar-fil som innehåller klassen som ska köras
+     * **klass**: klassen som innehåller MapReduce-logiken
+     * **arg**: argumenten som ska skickas till MapReduce-jobbet. I det här fallet är indatafilen och den katalog som används för utdata
+
+    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrol lera jobbets status:
+
+       job_1415651640909_0026
+
+1. Använd följande kommando för att kontrol lera jobbets status. Ersätt värdet för `JOBID` med det **faktiska** värdet som returnerades i föregående steg. Ändra plats för **JQ** efter behov.
+
+    ```cmd
+    set JOBID=job_1415651640909_0026
+
+    curl -G -u admin:%PASSWORD% -d user.name=admin https://%CLUSTERNAME%.azurehdinsight.net/templeton/v1/jobs/%JOBID% | ^
+    C:\HDI\jq-win64.exe .status.state
+    ```
+
+### <a name="powershell"></a>PowerShell
+
+1. Ange variablerna nedan för enkel användning. Ersätt `CLUSTERNAME` med det faktiska kluster namnet. Kör kommandot och ange lösen ordet för kluster inloggning när du uppmanas till det.
 
     ```powershell
-    $creds = Get-Credential -UserName admin -Message "Enter the cluster login name and password"
+    $clusterName="CLUSTERNAME"
+    $creds = Get-Credential -UserName admin -Message "Enter the cluster login password"
     ```
 
-2. Ange kluster namnet med något av följande kommandon:
-
-    ```bash
-    read -p "Enter the HDInsight cluster name: " CLUSTERNAME
-    ```
-
-    ```powershell
-    $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
-    ```
-
-3. Använd följande kommando från en kommandorad för att verifiera att du kan ansluta till ditt HDInsight-kluster:
-
-    ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
-    ```
+1. Använd följande kommando för att kontrol lera att du kan ansluta till ditt HDInsight-kluster:
 
     ```powershell
     $resp = Invoke-WebRequest -Uri "https://$clustername.azurehdinsight.net/templeton/v1/status" `
@@ -70,21 +116,11 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
 
     Du får ett svar som liknar följande JSON:
 
-        {"status":"ok","version":"v1"}
-
-    De parametrar som används i det här kommandot är följande:
-
-   * **-u**: anger det användar namn och lösen ord som används för att autentisera begäran
-   * **-G**: visar att den här åtgärden är en get-begäran
-
-   Början av URI: n `https://CLUSTERNAME.azurehdinsight.net/templeton/v1`, är samma för alla begär Anden.
-
-4. Om du vill skicka ett MapReduce-jobb använder du följande kommando:
-
-    ```bash
-    JOBID=`curl -u $LOGIN -d user.name=$LOGIN -d jar=/example/jars/hadoop-mapreduce-examples.jar -d class=wordcount -d arg=/example/data/gutenberg/davinci.txt -d arg=/example/data/output https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/mapreduce/jar | jq .id`
-    echo $JOBID
+    ```output
+    {"version":"v1","status":"ok"}
     ```
+
+1. Om du vill skicka ett MapReduce-jobb använder du följande kommando:
 
     ```powershell
     $reqParams = @{}
@@ -105,21 +141,16 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
 
     Slutet av URI: n (/MapReduce/jar) anger WebHCat att den här begäran startar ett MapReduce-jobb från en klass i en jar-fil. De parametrar som används i det här kommandot är följande:
 
-   * **-d**: `-G` används inte, så standardvärdet för begäran till post-metoden. `-d` anger de data värden som skickas med begäran.
-     * **User.name**: användaren som kör kommandot
-     * **jar**: platsen för den jar-fil som innehåller klassen som ska köras
-     * **klass**: klassen som innehåller MapReduce-logiken
-     * **arg**: argumenten som ska skickas till MapReduce-jobbet. I det här fallet är indatafilen och den katalog som används för utdata
+    * **User.name**: användaren som kör kommandot
+    * **jar**: platsen för den jar-fil som innehåller klassen som ska köras
+    * **klass**: klassen som innehåller MapReduce-logiken
+    * **arg**: argumenten som ska skickas till MapReduce-jobbet. I det här fallet är indatafilen och den katalog som används för utdata
 
    Det här kommandot ska returnera ett jobb-ID som kan användas för att kontrol lera jobbets status:
 
        job_1415651640909_0026
 
-5. Använd följande kommando för att kontrol lera jobbets status:
-
-    ```bash
-    curl -G -u $LOGIN -d user.name=$LOGIN https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/jobs/$JOBID | jq .status.state
-    ```
+1. Använd följande kommando för att kontrol lera jobbets status:
 
     ```powershell
     $reqParams=@{"user.name"="admin"}
@@ -127,30 +158,26 @@ Lär dig hur du använder Apache Hive WebHCat-REST API för att köra MapReduce-
        -Credential $creds `
        -Body $reqParams `
        -UseBasicParsing
+
     # ConvertFrom-JSON can't handle duplicate names with different case
     # So change one to prevent the error
     $fixDup=$resp.Content.Replace("jobID","job_ID")
     (ConvertFrom-Json $fixDup).status.state
     ```
 
-    Om jobbet är klart `SUCCEEDED`det tillstånd som returneras.
+### <a name="both-methods"></a>Båda metoderna
 
-   > [!NOTE]  
-   > Denna förfrågan returnerar ett JSON-dokument med information om jobbet. JQ används för att hämta endast State-värdet.
+1. Om jobbet är klart `SUCCEEDED`det tillstånd som returneras.
 
-6. När jobbets tillstånd har ändrats till `SUCCEEDED`kan du hämta resultatet från Azure Blob Storage. Parametern `statusdir` som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet är platsen `/example/curl`. Den här adressen lagrar utdata från jobbet i kluster standard lagringen på `/example/curl`.
+1. När jobbets tillstånd har ändrats till `SUCCEEDED`kan du hämta resultatet från Azure Blob Storage. Parametern `statusdir` som skickas med frågan innehåller platsen för utdatafilen. I det här exemplet är platsen `/example/curl`. Den här adressen lagrar utdata från jobbet i kluster standard lagringen på `/example/curl`.
 
 Du kan visa och hämta dessa filer med hjälp av [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Mer information om hur du arbetar med blobbar från Azure CLI finns i [använda Azure CLI med Azure Storage](../../storage/common/storage-azure-cli.md#create-and-manage-blobs) -dokument.
 
-## <a id="nextsteps"></a>Nästa steg
-
-Allmän information om MapReduce-jobb i HDInsight:
-
-* [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
+## <a name="next-steps"></a>Nästa steg
 
 Information om andra sätt att arbeta med Hadoop i HDInsight:
 
+* [Använda MapReduce med Apache Hadoop på HDInsight](hdinsight-use-mapreduce.md)
 * [Använda Apache Hive med Apache Hadoop på HDInsight](hdinsight-use-hive.md)
-* [Använda Apache gris med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
 
 Mer information om REST-gränssnittet som används i den här artikeln finns i referens för [WebHCat](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference).

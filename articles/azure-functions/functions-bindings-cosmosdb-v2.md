@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: a97490bffa16a32d17d41d3a3386b3d363f818d8
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 478a7ae8d6938ee4d4ef5c30c8126c3e95f35305
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921119"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121292"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Cosmos DB bindningar för Azure Functions 2. x
 
@@ -255,9 +255,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** || Måste anges till `cosmosDBTrigger`. |
-|**riktning** || Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** || Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. |
+|**typ** | Ej tillämpligt | Måste anges till `cosmosDBTrigger`. |
+|**riktning** | Ej tillämpligt | Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Ej tillämpligt | Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. |
 |**connectionStringSetting**|**connectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
 |**databaseName**|**databaseName**  | Namnet på Azure Cosmos DB-databasen med den samling som övervakas. |
 |**collectionName** |**CollectionName** | Namnet på samlingen som övervakas. |
@@ -1737,9 +1737,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || Måste anges till `cosmosDB`.        |
-|**riktning**     || Måste anges till `in`.         |
-|**Namn**     || Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
+|**typ**     | Ej tillämpligt | Måste anges till `cosmosDB`.        |
+|**riktning**     | Ej tillämpligt | Måste anges till `in`.         |
+|**Namn**     | Ej tillämpligt | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**databaseName** |**databaseName** |Den databas som innehåller dokumentet.        |
 |**collectionName** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
 |**ID**    | **Id** | ID för dokumentet som ska hämtas. Den här egenskapen stöder [bindning uttryck](./functions-bindings-expressions-patterns.md). Inte ange både den **id** och **SQL-fråga** egenskaper. Om du inte anger någon hämtas hela samlingen. |
@@ -2366,9 +2366,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || Måste anges till `cosmosDB`.        |
-|**riktning**     || Måste anges till `out`.         |
-|**Namn**     || Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
+|**typ**     | Ej tillämpligt | Måste anges till `cosmosDB`.        |
+|**riktning**     | Ej tillämpligt | Måste anges till `out`.         |
+|**Namn**     | Ej tillämpligt | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**databaseName** | **databaseName**|Den databas som innehåller den samling där dokumentet skapas.     |
 |**collectionName** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
 |**createIfNotExists**  |**createIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *FALSKT* eftersom nya samlingar skapas med reserverat dataflöde, vilket har kostnad effekter. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/cosmos-db/).  |

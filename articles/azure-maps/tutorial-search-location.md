@@ -1,20 +1,20 @@
 ---
 title: 'Självstudie: Sök efter närliggande platser på en karta | Microsoft Azure Maps'
-description: I den här självstudien får du lära dig att söka efter närliggande platser (intressanta punkter) på en karta med hjälp av Microsoft Azure Maps.
+description: I den här självstudien får du lära dig att söka efter orienterings punkter på en karta med hjälp av Microsoft Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910817"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153028"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>Självstudie: Sök efter intresse punkter i närheten med hjälp av Azure Maps
 
@@ -30,7 +30,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -69,7 +69,7 @@ Mer information om autentisering i Azure Maps finns i [hantera autentisering i A
 
 ## <a name="create-a-new-map"></a>Skapa en ny karta
 
-API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enkelt integrera Maps i ditt webbprogram. Det döljer komplexiteten i de rena REST-tjänstanropen och ökar produktiviteten med formateringsbara och anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
+Kartkontroll API är ett användbart klient bibliotek. Med det här API: et kan du enkelt integrera kartor i ditt webb program. Det döljer komplexiteten hos inga REST service-anrop och ökar produktiviteten med anpassningsbara komponenter. Följande steg visar hur du skapar en statisk HTML-sida inbäddad med API:et Kartkontroll.
 
 1. Skapa en ny fil på den lokala datorn och ge den namnet **MapSearch.html**.
 2. Lägg till följande HTML-komponenter i filen:
@@ -133,7 +133,7 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
 
    Det här segmentet initierar API:et Kartkontroll för din Azure Maps-kontonyckel. `atlas` är det namn område som innehåller API: et och relaterade visuella komponenter. `atlas.Map` ger kontrollen för en visuell och interaktiv webb karta.
 
-4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Detta är den mest grundläggande kartan som du kan göra genom att anropa `atlas.Map` med hjälp av din konto nyckel.
+4. Spara dina ändringar i filen och öppna HTML-sidan i en webbläsare. Kartan som visas är den mest grundläggande kartan som du kan göra genom att anropa `atlas.Map` med hjälp av din konto nyckel.
 
    ![Visa kartan](./media/tutorial-search-location/basic-map.png)
 
@@ -163,7 +163,7 @@ API:et Kartkontroll är ett praktiskt klientbiblioteket som hjälper dig att enk
     });
     ```
 
-   I det här kod segmentet läggs en `ready`-händelse till i kartan, som aktive ras när kart resurserna har lästs in och kartan är klar att nås. I Map-`ready` händelse hanteraren skapas en data källa för att lagra resultat data. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur resultatdata i datakällan ska renderas, i det här fallet ned en mörkblå rund nålikon som är centrerad över resultatkoordinaten och som tillåter andra ikoner att överlappa. Resultat lagret läggs till i kart skikten.
+   I det här kod segmentet läggs en `ready`-händelse till i kartan, som aktive ras när kart resurserna har lästs in och kartan är klar att nås. I Map-`ready` händelse hanteraren skapas en data källa för att lagra resultat data. Ett symbollager skapas och ansluts till datakällan. Det här lagret anger hur resultat data i data källan ska återges. I det här fallet återges resultatet med en mörkblå, blå, runt-ikon, centrerad över resultat koordinaten och låter andra ikoner överlappa varandra. Resultat lagret läggs till i kart skikten.
 
 <a id="usesearch"></a>
 
@@ -215,7 +215,7 @@ Det här avsnittet visar hur du använder [Sök-API: t](https://docs.microsoft.c
     });
     ```
 
-3. Spara filen **MapSearch.html** och uppdatera webbläsaren. Nu bör du se att kartan är centrerad på Seattle med runda blå PIN-märknings platser för bensin stationer i-ytan.
+3. Spara filen **MapSearch.html** och uppdatera webbläsaren. Du bör se kartan centrerad på Seattle med runda blå PIN-områden för platser hos bensin stationer i-ytan.
 
    ![Visa kartan med sökresultat](./media/tutorial-search-location/pins-map.png)
 
@@ -229,9 +229,9 @@ I det här läget kan MapSearch-sidan visa orienteringspunkterna som returneras 
 
 ## <a name="add-interactive-data"></a>Lägga till interaktiva data
 
-Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökresultaten. Om du tittar på den oformaterade JSON som Maps-söktjänsten returnerar ser du att den innehåller ytterligare information om varje bensinstation, inklusive namn och adress. Du kan införliva dessa data i kartan med interaktiva popup-rutor.
+Karta som har vi gjort tittar hittills bara på longitud-/latituddata för sökresultaten. Men RAW JSON som Maps Search-tjänsten returnerar innehåller ytterligare information om varje gas Station. Inklusive namn och gatuadress. Du kan införliva dessa data i kartan med interaktiva popup-rutor.
 
-1. Lägg till följande rader med kod i Map-`ready` händelse hanteraren efter koden för att skicka frågor till fuzzy Search-tjänsten. Det skapar en instans av en popup-fönster och lägger till en muspekarhändelse i symbollagret.
+1. Lägg till följande rader med kod i Map-`ready` händelse hanteraren efter koden för att skicka frågor till fuzzy Search-tjänsten. Den här koden skapar en instans av en popup och lägger till en mouseOver-händelse i symbol skiktet.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

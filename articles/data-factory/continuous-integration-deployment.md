@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 0e4b2cd208e11f7696e016d3fa4353b38f3060d8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb049b5af5c700cdb72f0319019cfd6eee952d9f
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977527"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156972"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Kontinuerlig integrering och leverans i Azure Data Factory
 
@@ -330,7 +330,7 @@ Om du är i GIT-läge kan du åsidosätta standard egenskaperna i Resource Manag
 * Du använder automatiserad CI/CD och du vill ändra vissa egenskaper under distributionen av Resource Manager, men egenskaperna är inte parameterstyrda som standard.
 * Fabriken är så stor att Resource Manager-standardmallen är ogiltig eftersom den har fler än det högsta tillåtna antalet parametrar (256).
 
-Om du under dessa omständigheter vill åsidosätta standard mal len Parameterisering skapar du en fil med namnet arm-Template-Parameters-definition. json i rot katalogen för lagrings platsen. Du måste använda det exakta fil namnet. Data Factory läser filen från den gren som du är närvarande på i Azure Data Factory portalen, inte bara från samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen. Om ingen fil hittas används standard mal len.
+Om du under dessa omständigheter vill åsidosätta standard mal len Parameterisering skapar du en fil med namnet arm-Template-Parameters-definition. json i mappen som anges som rotmapp för git-integreringen för Data Factory. Du måste använda det exakta fil namnet. Data Factory läser filen från den gren som du är närvarande på i Azure Data Factory portalen, inte bara från samarbets grenen. Du kan skapa eller redigera filen från en privat gren, där du kan testa dina ändringar genom att välja **Exportera arm-mall** i användar gränssnittet. Sedan kan du slå samman filen till samarbets grenen. Om ingen fil hittas används standard mal len.
 
 ### <a name="syntax-of-a-custom-parameters-file"></a>Syntax för en anpassad parameter fil
 

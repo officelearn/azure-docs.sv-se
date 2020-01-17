@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 68474738aabde1b14752aa33789d7e40c3831908
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846410"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154847"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>Självstudie: Utföra en pilotlansering av Azure Multi-Factor Authentication
 
@@ -36,10 +36,10 @@ I den här självstudien får du stegvisa anvisningar om hur du konfigurerar en 
 ## <a name="enable-azure-multi-factor-authentication"></a>Aktivera Azure Multi-Factor Authentication
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett konto som global administratör.
-1. Bläddra till **Azure Active Directory**, **villkorlig åtkomst**
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**
 1. Välj **Ny princip**
 1. Ge principen namnet **MFA Pilot**
-1. Under **användare och grupper** väljer du alternativknappen **Välj användare och grupper**
+1. Under **användare och grupper**väljer du alternativ knappen **Välj användare och grupper**
     * Välj den pilotgrupp som skapades i avsnittet om förutsättningar i den här artikeln
     * Klicka på **Klar**
 1. Under **Molnappar** väljer du alternativknappen **Välj appar**
@@ -69,8 +69,8 @@ För att bevisa att den villkorliga åtkomst principen fungerar testar du att lo
 
 Om du inte längre vill använda funktioner som du har konfigurerat i den här självstudien kan du göra följande ändring.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Bläddra till **Azure Active Directory**, **villkorlig åtkomst**.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj den villkorliga åtkomst princip som du har skapat.
 1. Klicka på **Ta bort**.
 

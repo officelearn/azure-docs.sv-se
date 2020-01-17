@@ -13,15 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: 0a39fd1870ae803f2cf694e01c67d125fc96cac9
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200967"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156666"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Förbättra dina säkra poäng i Azure Security Center
 
+> [!NOTE]
+> Det finns en förbättrad säker Poäng som är tillgänglig i för hands versionen. Den förbättrade säkra poängen kommer att ersätta de befintliga säkra poängen, men för en stund kommer de att köras sida vid sida för att under lätta över gången.
+>
+> Mer information om fördelarna med förbättrade säkra Poäng finns [här](secure-score-security-controls.md).
+>
+> Om du vill delta i förhands granskningen öppnar du Azure Portal, startar Azure Security Center och väljer säkra poäng. Därifrån visas en banderoll överst på sidan som erbjuder den nya säkra poängen. Du kan också klicka [här](https://aka.ms/ascnewscore).
 
 Med så många tjänster som erbjuder säkerhets förmåner är det ofta svårt att veta vilka steg du bör vidta för att först skydda och torka din arbets belastning. Azures säkra Poäng granskar dina säkerhets rekommendationer och prioriterar dem åt dig, så att du vet vilka rekommendationer som ska utföras först. Detta hjälper dig att hitta de allvarliga säkerhets sårbarheterna så att du kan prioritera undersökningen. Secure Score är ett verktyg som hjälper dig att utvärdera säkerhetsstatusen för dina arbetsbelastningar.
 
@@ -34,19 +40,18 @@ Security Center ger också en **övergripande säker Poäng**.
 
 **Övergripande säkra Poäng** är en ackumulering av alla dina rekommendations poäng. Du kan visa dina övergripande säkra poäng i dina prenumerationer eller hanterings grupper, beroende på vad du väljer. Poängen varierar beroende på vilken prenumeration som valts och de aktiva rekommendationerna för dessa prenumerationer.
 
- 
-Om du vill kontrol lera vilka rekommendationer som påverkar dina säkra Poäng mest kan du Visa de tre mest effektfulla rekommendationerna i Security Center instrument panelen eller så kan du sortera rekommendationerna på bladet rekommendationer på listan med hjälp av en **säker Poäng effekt** artikeln.
-
+För att kontrol lera vilka rekommendationer som påverkar dina säkra Poäng mest kan du Visa de tre mest förtroliga rekommendationerna i Security Center instrument panelen eller så kan du sortera rekommendationerna på bladet rekommendationer på listan med hjälp av kolumnen **säker Poäng påverkan** .
 
 Så här visar du de övergripande säkra poängen:
 
 1. Klicka på **Security Center** på Azure-instrumentpanelen och klicka sedan på **säkra Poäng**.
+
 2. Längst upp kan du se säkra Poäng höjd punkter:
    - **Övergripande säkerhetspoäng** motsvarar antal poäng per principer per vald prenumeration
    - **Säkra poäng per kategori** visar vilka resurser som behöver mest uppmärksamhet
    - De **främsta rekommendationerna med säker Poäng påverkan** ger dig en lista över rekommendationer som förbättrar din säkra poäng om du implementerar dem.
  
-   ![Säkra Poäng](./media/security-center-secure-score/secure-score-dashboard.png)
+   ![säkra Poäng](./media/security-center-secure-score/secure-score-dashboard.png)
 
 3. I tabellen nedan kan du se var och en av dina prenumerationer och de övergripande säkra poängen för var och en.
 
@@ -56,7 +61,7 @@ Så här visar du de övergripande säkra poängen:
 4. Klicka på **Visa rekommendationer** för att se rekommendationerna för den prenumerationen som du kan åtgärda för att förbättra dina säkra poäng.
 4. I listan över rekommendationer kan du se att för varje rekommendation finns det en kolumn som representerar den **säkra Poäng effekten**. Det här värdet anger hur mycket din totala säkra poäng kommer att öka om du följer rekommendationerna. På skärmen nedan, om du till exempel **reparerar säkerhets risker i behållar säkerhetskonfigurationer**, kommer dina säkra poäng att öka med 35 punkter.
 
-   ![Säkra Poäng](./media/security-center-secure-score/security-center-secure-score1.png)
+   ![säkra Poäng](./media/security-center-secure-score/security-center-secure-score1.png)
 
 
 

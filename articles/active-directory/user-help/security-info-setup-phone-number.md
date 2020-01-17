@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c120c9092d9cf0e4029cadea1b412a73e858fa75
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278967"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156156"
 ---
 # <a name="set-up-a-phone-number-as-your-verification-method"></a>Konfigurera ett telefonnummer som din verifierings metod
 
@@ -30,7 +30,20 @@ Om du uppmanas att ställa in det här direkt efter att du har loggat in på dit
 > [!Note]
 > Säkerhets information har inte stöd för användning av telefon tillägg. Även om du lägger till rätt format, + 1 4255551234X12345, tas tilläggen bort innan anropet placeras.
 >
-> Om du inte ser något telefon alternativ är det möjligt att din organisation inte tillåter att du använder ett telefonnummer för verifiering. I så fall måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
+> Om du inte ser något telefon alternativ är det möjligt att din organisation inte tillåter att du använder det här alternativet för verifiering. I så fall måste du välja en annan metod eller kontakta din organisations supportavdelning om du behöver mer hjälp.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Säkerhets verifiering jämfört med autentisering av lösen ords återställning
+
+Metoder för säkerhets information används för både dubbelriktad säkerhets verifiering och för lösen ords återställning. Dock kan inte alla metoder användas för båda.
+
+| Metod | Används för |
+| ------ | -------- |
+| Autentiseringsapp | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| SMS | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Telefonsamtal | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Säkerhets nyckel | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| E-postkonto | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
+| Säkerhetsfrågor | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>Konfigurera telefonsamtal från sidan säkerhets information
 

@@ -7,18 +7,16 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 08/07/2019
+ms.date: 01/14/2019
 ms.author: aahi
-ms.openlocfilehash: bce751da0e6f03d197951d2f207ac5c54d72c7ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b56bb8dfdce58de60f82693b511f7923b80fc37a
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378779"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158938"
 ---
 > [!IMPORTANT]
-> För att hitta din nyckel och slut punkt på Azure Portal:
-> 1. Gå till Azure-resursen på https://portal.azure.com/.
-> 2. Klicka på **snabb start**, finns under **resurs hantering**.
+> Gå till den resurs som du har skapat för att hitta din nyckel och slut punkt. De finns på sidan **snabb start** för resursen under **resurs hantering**.
 >
-> Kom ihåg att ta bort dina autentiseringsuppgifter från koden när du är klar och publicera dem aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Till exempel [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+> Kom ihåg att ta bort nyckeln från koden när du är klar och publicera den aldrig offentligt. För produktion bör du överväga att använda ett säkert sätt att lagra och komma åt dina autentiseringsuppgifter. Till exempel [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).

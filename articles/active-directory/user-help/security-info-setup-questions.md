@@ -12,20 +12,34 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c32e2e2a7b609f999c7b804494188e2c6820171
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: a6fb6153c2dc5794fce0e74d1981e98ad1f37fc1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279007"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156105"
 ---
 # <a name="set-up-security-questions-as-your-verification-method"></a>Konfigurera säkerhets frågor som verifierings metod
 
 Du kan följa de här stegen för att lägga till din metod för lösen ords återställning. När du har konfigurerat den första gången kan du gå tillbaka till sidan **säkerhets** information för att lägga till, uppdatera eller ta bort din säkerhets information.
 
-När du har ställt in din metod för lösen ords återställning måste du också ställa in en tvåfaktorautentisering med hjälp av en [Authenticator-app](security-info-setup-auth-app.md), [SMS](security-info-setup-text-msg.md)eller ett [telefonsamtal](security-info-setup-phone-number.md).
-
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+>[!Note]
+>Om du inte ser alternativet säkerhets frågor är det möjligt att din organisation inte tillåter att du använder det här alternativet för din metod för lösen ords återställning. I så fall måste du välja en annan metod eller kontakta din organisations supportavdelning om du behöver mer hjälp.
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Säkerhets verifiering jämfört med autentisering av lösen ords återställning
+
+Metoder för säkerhets information används för både dubbelriktad säkerhets verifiering och för lösen ords återställning. Dock kan inte alla metoder användas för båda.
+
+| Metod | Används för |
+| ------ | -------- |
+| Autentiseringsapp | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| SMS | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Telefonsamtal | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Säkerhets nyckel | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| E-postkonto | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
+| Säkerhetsfrågor | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
 
 ## <a name="set-up-your-security-questions-from-the-security-info-page"></a>Konfigurera dina säkerhets frågor från sidan säkerhets information
 

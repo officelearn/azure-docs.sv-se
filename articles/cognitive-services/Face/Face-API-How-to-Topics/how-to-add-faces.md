@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 2f8a6272b02aea5948be79ddf72d105c4f72bb33
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 891614caddf729acb58bc363df977031ad62fb07
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744253"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156717"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Lägga till ansikten i en PersonGroup
 
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>Steg 2: Auktorisera API-anrop
 
-När du använder ett klient bibliotek måste du skicka prenumerations nyckeln till konstruktorn för **FaceClient** -klassen. Till exempel:
+När du använder ett klient bibliotek måste du skicka prenumerations nyckeln till konstruktorn för **FaceClient** -klassen. Ett exempel:
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(
@@ -87,7 +87,7 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 Personer skapas samtidigt och `await WaitCallLimitPerSecondAsync()` tillämpas också för att undvika att anrops gränsen överskrids.
 
 ```csharp
-CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
+Person[] persons = new Person[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();

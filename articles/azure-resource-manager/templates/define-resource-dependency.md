@@ -3,12 +3,12 @@ title: Ange distributions ordning för resurser
 description: Beskriver hur du anger en resurs som beroende av en annan resurs under distributionen för att säkerställa att resurser distribueras i rätt ordning.
 ms.topic: conceptual
 ms.date: 12/03/2019
-ms.openlocfilehash: bdd988670b5fa6a0e602b50d9c25dd6dad6b3b84
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44cf793859d2817695a58bd1159e2f4465c1f9c2
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485096"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121972"
 ---
 # <a name="define-the-order-for-deploying-resources-in-azure-resource-manager-templates"></a>Definiera ordningen för att distribuera resurser i Azure Resource Manager mallar
 
@@ -25,9 +25,9 @@ I följande exempel visas en skalnings uppsättning för virtuella datorer som �
 ```json
 {
   "type": "Microsoft.Compute/virtualMachineScaleSets",
+  "apiVersion": "2016-03-30",
   "name": "[variables('namingInfix')]",
   "location": "[variables('location')]",
-  "apiVersion": "2016-03-30",
   "tags": {
     "displayName": "VMScaleSet"
   },
@@ -65,12 +65,12 @@ I följande exempel visas en SQL-Server och SQL-databas. Observera att ett expli
 "resources": [
   {
     "name": "[variables('sqlserverName')]",
+    "apiVersion": "2014-04-01-preview",
     "type": "Microsoft.Sql/servers",
     "location": "[resourceGroup().location]",
     "tags": {
       "displayName": "SqlServer"
     },
-    "apiVersion": "2014-04-01-preview",
     "properties": {
       "administratorLogin": "[parameters('administratorLogin')]",
       "administratorLoginPassword": "[parameters('administratorLoginPassword')]"
@@ -78,15 +78,15 @@ I följande exempel visas en SQL-Server och SQL-databas. Observera att ett expli
     "resources": [
       {
         "name": "[parameters('databaseName')]",
+        "apiVersion": "2014-04-01-preview",
         "type": "databases",
         "location": "[resourceGroup().location]",
-        "tags": {
-          "displayName": "Database"
-        },
-        "apiVersion": "2014-04-01-preview",
         "dependsOn": [
           "[variables('sqlserverName')]"
         ],
+        "tags": {
+          "displayName": "Database"
+        },
         "properties": {
           "edition": "[parameters('edition')]",
           "collation": "[parameters('collation')]",
@@ -120,15 +120,15 @@ I följande exempel beror en CDN-slutpunkt uttryckligen på CDN-profilen och är
 ```json
 {
     "name": "[variables('endpointName')]",
+    "apiVersion": "2016-04-02",
     "type": "endpoints",
     "location": "[resourceGroup().location]",
-    "apiVersion": "2016-04-02",
     "dependsOn": [
-            "[variables('profileName')]"
+      "[variables('profileName')]"
     ],
     "properties": {
-        "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
-        ...
+      "originHostHeader": "[reference(variables('webAppName')).hostNames[0]]",
+      ...
     }
 ```
 
@@ -152,6 +152,6 @@ Information om hur du bedömer distributions ordningen och löser beroende fel f
 * Information om hur du går igenom självstudierna finns i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](template-tutorial-create-templates-with-dependent-resources.md).
 * Rekommendationer vid inställning av beroenden finns i [metod tips för Azure Resource Manager mall](template-best-practices.md).
 * Information om hur du felsöker beroenden under distributionen finns i [Felsöka vanliga problem med Azure-distribution med Azure Resource Manager](common-deployment-errors.md).
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md). 
+* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
 * En lista över tillgängliga funktioner i en mall finns i [Template Functions](template-functions.md).
 

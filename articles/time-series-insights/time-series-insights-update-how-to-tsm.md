@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 268973f27336e97fe85e493da18714df46171f8a
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 591233154ab79b9493d77030727462bae68ea7d5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497629"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152365"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Data modellering i Azure Time Series Insights för hands version
 
@@ -64,9 +64,9 @@ Börja genom att välja vyn **modell** i vyn **analysera** i Time Series Insight
 
 ### <a name="delete-an-instance"></a>Ta bort en instans
 
-1. Välj typ och välj ikonen **ta bort** eller **pappers korgen**.
+1. Välj instansen och välj ikonen **ta bort** eller **pappers korgen**.
 
-   [![ta bort en typ genom att välja ta bort.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
+   [![ta bort en instans genom att välja ta bort.](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png)](media/v2-update-how-to-tsm/how-to-tsm-delete-instance.png#lightbox)
 
 1. Bekräfta borttagningen genom att välja **ta bort**.
 

@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b413fd7efe865f1dc2062a8f2dcfae983ec2f27a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771929"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122380"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -125,7 +125,7 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
     + Korrigering för inläsning av RunConfigurations från relativa sökvägar.
     + När du anropar `keep_columns` eller `drop_columns` som leder till att en timeseries-kolumn släpps, tas även motsvarande funktioner bort för data uppsättningen.
   + **azureml – tolka**
-    + uppdaterad version av tolka-community till 0.2.0
+    + Uppdaterad version av tolka-community till 0.2.0
   + **azureml-pipeline-steps**
     + Dokumenterade värden som stöds för `runconfig_pipeline_params` i pipeline-steg för Azure Machine Learning.
   + **azureml-pipeline-core**
@@ -220,7 +220,7 @@ Azure Machine Learning SDK för R använder `reticulate`-paketet för att binda 
 
 Huvud funktionerna i SDK: n är:
 
-+   Hantera moln resurser för övervakning, loggning och organisering av Machine Learning-experiment.
++   Hantera molnresurser för övervakning, loggning och organisering av Machine Learning-experiment.
 +   Träna modeller med moln resurser, inklusive GPU-accelererad modell träning.
 +   Distribuera dina modeller som webservices på Azure Container Instances (ACI) och Azure Kubernetes service (AKS).
 
@@ -1488,7 +1488,7 @@ Beräkning av Azure Machine Learning kan skapas i Python, med hjälp av Azure-po
 + ML-Pipelines
   + Nya och uppdaterade anteckningsböcker för att komma igång med pipelines, batch omfång och format överföra exempel: https://aka.ms/aml-pipeline-notebooks
   + Lär dig hur du [skapa din första pipeline](how-to-create-your-first-pipeline.md)
-  + Lär dig hur du [kör batch förutsägelser med pipelines](how-to-run-batch-predictions.md)
+  + Lär dig hur du [kör batch förutsägelser med pipelines](how-to-use-parallel-run-step.md)
 + Azure Machine Learning Compute Target
   + Nu har [exempel antecknings böcker](https://aka.ms/aml-notebooks) uppdaterats för att använda den nya hanterade beräkningen.
   + [Lär dig mer om den här beräkning](how-to-set-up-training-targets.md#amlcompute)

@@ -3,19 +3,19 @@ title: 'Snabb start: ansluta till en app med anpassade kommandon med tal SDK –
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln ska du skapa ett program för tal-SDK-klient med anpassade kommandon.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: 69a03ce5a8da7c8af6c17d122be3744e7b79e246
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9e324af0b90f595b5b7af2a417a562efb193d854
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381111"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156785"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>Snabb start: ansluta till ett anpassat kommando program med talet SDK (för hands version)
 
@@ -46,7 +46,7 @@ I den här snabb starten beskrivs steg för steg hur du gör ett klient program 
 
 1. Öppna dina [tidigare skapade program för anpassade kommandon](./quickstart-custom-speech-commands-create-new.md) och välj **publicera**
 
-   > [!div class="mx-imgBorder"] 
+   > [!div class="mx-imgBorder"]
    > ![publicera program](media/custom-speech-commands/fulfill-sdk-publish-application.png)
 
 1. Kopiera app-ID: t från publicerings meddelandet för senare användning

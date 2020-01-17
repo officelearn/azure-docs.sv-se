@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cde171f1c031b4b02a71fe0dac1a689e3ec0722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772592"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122346"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: modell hantering, distribution och övervakning med Azure Machine Learning
 
@@ -48,7 +48,7 @@ Med modell registreringen kan du lagra och version av dina modeller i Azure-moln
 > [!TIP]
 > En registrerad modell är en logisk behållare för en eller flera filer som utgör din modell. Om du till exempel har en modell som lagras i flera filer kan du registrera dem som en enskild modell i Azure Machine Learning arbets ytan. Efter registreringen kan du ladda ned eller distribuera den registrerade modellen och ta emot alla filer som har registrerats.
 
-Registrerade modeller identifieras med namn och version. Varje gång som du registrerar en modell med samma namn som en befintlig ökas registret versionen. Ytterligare metadata-taggar kan anges under registreringen. Taggarna används sedan för att söka efter en modell. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
+Registrerade modeller identifieras med namn och version. Varje gång du registrerar en modell med ett namn som redan finns ökar versionsnumret. Ytterligare metadata-taggar kan anges under registreringen. Taggarna används sedan för att söka efter en modell. Azure Machine Learning stöder alla modeller som kan läsas in med python-3.5.2 eller högre.
 
 > [!TIP]
 > Du kan också registrera modeller som har tränats utanför Azure Machine Learning.
@@ -90,7 +90,7 @@ Du anger också konfigurationen för mål distributions plattformen. Till exempe
 När avbildningen skapas, läggs även komponenter som krävs av Azure Machine Learning. Till exempel till gångar som behövs för att köra webb tjänsten och interagera med IoT Edge.
 
 #### <a name="batch-scoring"></a>Batchbedömning
-Batch-Poäng stöds via ML-pipeliner. Mer information finns i [batch-förutsägelser för Big data](how-to-run-batch-predictions.md).
+Batch-Poäng stöds via ML-pipeliner. Mer information finns i [batch-förutsägelser för Big data](how-to-use-parallel-run-step.md).
 
 #### <a name="real-time-web-services"></a>Real tids webb tjänster
 

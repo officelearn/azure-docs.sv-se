@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c097c1f08bd72ed5795e4274c41e4eb48dbe34ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152963"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Självstudie: Azure Active Directory integration med & Frank
 
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med &frankly behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * &frankly-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -108,34 +108,30 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med &fran
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/metadata.php/<tenant id>`
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://andfrankly.com/saml/simplesaml/www/module.php/saml/sp/saml2-acs.php/<tenant id>`
 
 5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     ![Information om enkel inloggning med &frankly-domän och URL:er](common/metadata-upload-additional-signon.png)
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://andfrankly.com/saml/okta/?saml_sso=<tenant id>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Kontakta [supportteamet för &frankly-klienten](mailto:help@andfrankly.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+6. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
-7. I avsnittet **Konfigurera &frankly** kopierar du lämpliga URL:er enligt dina behov.
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+### <a name="configure-frankly-single-sign-on"></a>Konfigurera & frankisk enkel inloggning
 
-    a. Inloggnings-URL
+Så här aktiverar du enkel inloggning i & Frank:
 
-    b. Azure AD-identifierare
-
-    c. Utloggnings-URL
-
-### <a name="configure-frankly-single-sign-on"></a>Konfigurera enkel inloggning för &frankly
-
-För att konfigurera enkel inloggning på **&frankly**-sidan behöver du skicka nedladdade **XML-federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för &frankly](mailto:help@andfrankly.com). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+1. Logga in på & Frank. Gå till **konto** > **användar hantering**.
+1. Ändra autentiseringsmekanismen från standard till **företags inloggning (SAML)** .
+1. Ladda upp **XML-metadata för federationsmetadata** som du laddade ned i steg 6 i föregående avsnitt.
+1. Välj **Spara**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
@@ -174,7 +170,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Länken &frankly i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -196,7 +192,7 @@ I det här avsnittet ska du skapa en användare med namnet Britta Simon i &frank
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på &frankly-panelen i åtkomstpanelen bör du automatiskt loggas in på &frankly som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på &frankly-panelen i åtkomstpanelen bör du automatiskt loggas in på &frankly som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

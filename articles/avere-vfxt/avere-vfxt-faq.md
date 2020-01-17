@@ -4,14 +4,14 @@ description: Vanliga frågor och svar om AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/06/2019
+ms.date: 12/19/2019
 ms.author: rohogue
-ms.openlocfilehash: 5340952d6d30ae80d53234530a7e2ca6c067cf1f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 186b2c048a9de42318e4af287393d731a4eb16f1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415342"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153470"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Vanliga frågor och svar om Avere vFXT för Azure
 
@@ -25,11 +25,11 @@ Aver vFXT for Azure är ett fil system med hög prestanda som cachelagrar aktiva
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>Är AVERT vFXT en lagrings lösning?
 
-Nej. Aver vFXT är en fil systemets *cache* som bifogas till lagrings miljöer, till exempel din EMC-eller NetApp NAS eller en Azure Blob-behållare. Aver vFXT effektiviserar data begär Anden från klienter, och cachelagrar de data som används för att förbättra prestanda i hög skala och över tid. Aver vFXT lagrar inte data. Det finns ingen information om mängden data som lagras bakom den.
+Nej. Aver vFXT for Azure är en fil systemets *cache* som bifogas till lagrings miljöer, till exempel din EMC-eller NetApp NAS eller en Azure Blob-behållare. Aver vFXT effektiviserar data begär Anden från klienter, och cachelagrar de data som används för att förbättra prestanda i hög skala och över tid. Aver vFXT lagrar inte data. Det finns ingen information om mängden data som lagras bakom den.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>Är AVERT vFXT en nivå lösning?
 
-Aver vFXT samlar inte automatiskt på nivå av data mellan frekventa och låg frekventa nivåer.  
+Aver vFXT for Azure hanterar inte automatiskt data mellan frekventa och låg frekventa nivåer.  
 
 ### <a name="how-do-i-know-if-an-environment-is-right-for-avere-vfxt"></a>Hur gör jag för att vet du om en miljö är rätt för aver-vFXT?
 
@@ -47,9 +47,9 @@ Det bästa sättet att tänka på om den här frågan är att fråga "är arbets
 
 * Ditt HPC-program baseras på NFSv3-klienter. (I vissa fall kan den använda SMB 2,1-klienter, men prestanda är begränsad.)
 
-Följande diagram fören klar svaret på den här frågan. Närmare ditt arbets flöde är till övre högra, desto troligare är att lösningen aver caching är rätt för din miljö.
+Följande diagram kan hjälpa dig att besvara den här frågan. Närmare ditt arbets flöde är i det övre högra hörnet, desto mer sannolikt är det att den Avera vFXT för Azure caching-lösningen är rätt för din miljö.
 
-![Diagram som visar att Läs tung belastning med tusentals klienter passar bättre för aver vFXT](media/avere-vfxt-fit-assessment.png)
+![Diagram diagram som visar att Läs tung belastning med tusentals klienter passar bättre för aver vFXT](media/avere-vfxt-fit-assessment.png)
 
 ### <a name="at-what-scale-of-clients-does-the-avere-vfxt-solution-make-the-most-sense"></a>I vilken skala för klienter gör vFXT-lösningen för att lösa det mest begripliga?
 
@@ -59,7 +59,7 @@ Vanliga Avera vFXT-kunder kör krävande arbets belastningar med början på cir
 
 ### <a name="how-much-data-can-an-avere-vfxt-environment-store"></a>Hur mycket data kan ett vFXT-miljölagrat "AVERT"?
 
-AVERT vFXT är en cache. Data lagras inte särskilt. Den använder en kombination av RAM-och SSD för att lagra cachelagrade data. Data lagras permanent på ett Server dels lagrings system (till exempel ett NetApp NAS-system eller en BLOB-behållare). AVERT vFXT-systemet saknar information om mängden data som lagras bakom det. Aver vFXT cachelagrar bara den delmängd av de data som klienterna begär.  
+Aver vFXT för Azure är en cache. Data lagras inte särskilt. Den använder en kombination av RAM-och SSD för att lagra cachelagrade data. Data lagras permanent på ett Server dels lagrings system (till exempel ett NetApp NAS-system eller en BLOB-behållare). AVERT vFXT-systemet saknar information om mängden data som lagras bakom det. Aver vFXT cachelagrar bara den delmängd av de data som klienterna begär.  
 
 ### <a name="what-regions-are-supported"></a>Vilka regioner stöds?
 
@@ -67,7 +67,7 @@ Aver vFXT for Azure stöds i alla regioner utom för suveräna regioner (Kina, T
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Hur gör jag för att få hjälp med att använda AVERT vFXT?
 
-En specialiserad support grupp ger hjälp med AVERT vFXT för Azure. Följ instruktionerna i [få hjälp med systemet](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) för att öppna ett support ärende från Azure Portal.
+En specialiserad grupp med support personal erbjuder hjälp med att Avera vFXT för Azure. Följ instruktionerna i [få hjälp med systemet](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) för att öppna ett support ärende från Azure Portal.
 
 ### <a name="is-avere-vfxt-highly-available"></a>Är AVERT vFXT hög tillgängligt?
 
@@ -78,7 +78,7 @@ Ja, aver vFXT körs exklusivt som en HA-lösning.
 Ja, kunder kan använda mer än en moln leverantör med AVERT vFXT-klustret. Det stöder AWS S3 standard buckets, Google Cloud Services standard buckets och Azure Blob-behållare.
 
 > [!NOTE]
-> En program varu avgift gäller att använda AVERT vFXT i AWS eller Google Cloud, men inte med Azure.
+> En program varu avgift gäller att använda AVERT vFXT med AWS eller Google Cloud Storage. Det finns ingen ytterligare program varu avgift för att använda Azure Blob Storage.
 
 ## <a name="technical-compute"></a>Teknisk: beräkning
 
@@ -165,10 +165,10 @@ Data överförs över diskarna, men krypteras inte. Diskarna kan dock vara krypt
 
 ### <a name="what-network-is-recommended"></a>Vilket nätverk rekommenderas?
 
-Om du använder lokal lagring med aver vFXT bör du ha en 1 Gbit/s och en bättre nätverks anslutning. Om du har en liten mängd data och vill kopiera data till molnet innan du kör jobb, kan VPN-anslutningen vara tillräckligt. 
+Om du använder lokal lagring med aver vFXT bör du ha en 1 Gbit/s och bättre nätverks anslutning mellan lagrings utrymmet och klustret. Om du har en liten mängd data och vill kopiera data till molnet innan du kör jobb, kan VPN-anslutningen räcka.
 
 > [!TIP]
-> Den långsammare nätverks länken är, det långsammare är att de första kall läsningarna blir. Långsamma läsningar ökar svars tiden för arbets pipelinen.
+> Den långsammare nätverks länken är, de långsammaste första "kall" läsningarna blir. Långsamma läsningar ökar svars tiden för arbets pipelinen.
 
 ### <a name="can-i-run-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>Kan jag köra AVERT vFXT i ett annat virtuellt nätverk än mitt beräknings kluster?
 
@@ -176,7 +176,7 @@ Ja, du kan skapa ditt AVERT vFXT-system i ett annat virtuellt nätverk. Läs [pl
 
 ### <a name="does-avere-vfxt-require-its-own-subnet"></a>Kräver AVERT vFXT sitt eget undernät?
 
-Ja. AVERT vFXT körs strikt som ett kluster med hög tillgänglighet (HA) och kräver flera IP-adresser för att fungera. Om klustret finns i ett eget undernät undviker du risken för IP-konflikter, vilket kan orsaka problem vid installation och normal drift. Klustrets undernät kan finnas i det befintliga virtuella nätverket så länge inga IP-adresser överlappar varandra.
+Ja. AVERT vFXT körs strikt som ett kluster med hög tillgänglighet (HA) och kräver flera IP-adresser för att fungera. Om klustret finns i ett eget undernät undviker du risken för IP-konflikter, vilket kan orsaka problem vid installation och normal drift. Klustrets undernät kan finnas i ett virtuellt nätverk som används av andra resurser, så länge inga IP-adresser överlappar varandra.
 
 ### <a name="can-i-run-avere-vfxt-on-infiniband"></a>Kan jag köra AVERT vFXT på InfiniBand?
 
@@ -224,9 +224,6 @@ I allmänhet stöder AVERT vFXT för Azure följande system som core-filer:
 * Dell EMC-Isilon (OneFS 7,1, 7,2, 8,0 och 8,1) 
 * NetApp ONTAP (klustrat läge 9,4, 9,3, 9,2, 9.1 P1, 8.0-8.3) och (7-läge 7. *, 8.0-8.3)
 
-  > [!NOTE]
-  > Azure NetApp Files stöds för närvarande inte.
-
 * Azure Blob-behållare (endast lokalt redundant lagring)
 * AWS S3-buckets
 * Google Cloud-buckets
@@ -245,11 +242,13 @@ Support baseras på mängden efter frågan i fältet. Om det finns tillräckligt
 
 ### <a name="can-i-use-azure-blob-storage-as-a-core-filer"></a>Kan jag använda Azure Blob Storage som ett kärnor?
 
-Ja, aver vFXT för Azure kan använda en Block-Blob-behållare som en moln kärna.  
+Ja, aver vFXT för Azure kan använda en Block-Blob-behållare som en moln kärna.
 
 ### <a name="what-are-the-storage-account-requirements-for-a-blob-core-filer"></a>Vilka är kraven på lagrings kontot för en BLOB-kärna?
 
 Ditt lagrings konto måste vara ett GPv2-konto (General-Purpose v2) och konfigurerat enbart för lokalt redundant lagring. Geo-redundant lagring och zon-redundant lagring stöds inte.
+
+Läs [Azure Blob Storage Cloud Core](avere-vfxt-add-storage.md#azure-blob-storage-cloud-core-filer) -filer för mer information om lagrings konto kraven.
 
 ### <a name="can-i-use-archive-blob-storage"></a>Kan jag använda Arkiv Blob Storage?
 

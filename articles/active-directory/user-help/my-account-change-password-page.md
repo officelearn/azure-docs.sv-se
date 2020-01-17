@@ -12,25 +12,23 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 510f1ca441ef9645cff7f577bbad39991cebc285
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3981c152ba836a01daca16cd486623a9a26d86f2
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231879"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156241"
 ---
-# <a name="change-your-work-or-school-account-password-from-the-my-account-portal"></a>Ändra lösen ordet för ditt arbets-eller skol konto från portalen mitt konto
+# <a name="change-your-work-or-school-account-password-from-the-change-password-page"></a>Ändra lösen ordet för ditt arbets-eller skol konto från sidan Ändra lösen ord
 
-På sidan **ändra lösen ord** i **min konto** Portal kan du uppdatera lösen ordet för ditt arbets-eller skol konto. Detta fungerar endast om du känner till ditt befintliga lösen ord och om du inte är utelåst från ditt konto.
+Sidan **ändra lösen ord** i portalen **My-Account** hjälper dig att uppdatera ett befintligt lösen ord för ditt arbets-eller skol konto, förutsatt att du kommer ihåg lösen ordet och att du inte är utelåst från ditt konto. Om du inte kommer ihåg ditt lösen ord, om du är utelåst från ditt konto eller om du aldrig har ett lösen ord från din organisation, kan du använda din säkerhets information och din mobila enhet för att återställa ditt lösen ord.
 
-Om du inte kommer ihåg ditt lösen ord, om du har låsts av ditt konto eller om du aldrig har fått ett lösen ord från företagets support team, kan du använda din säkerhets information och din mobila enhet för att återställa ditt lösen ord. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](https://docs.microsoft.com/azure/active-directory/user-help/user-help-reset-password)konto.
+>[!Important]
+>Den här artikeln är avsedd för användare som försöker uppdatera ett känt lösen ord för ett befintligt arbets-eller skol konto. Om du är en användare som försöker komma in på ett personligt konto, till exempel för Xbox, Hotmail eller Outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikel. Om du är administratör för att få mer information om hur du testar lösen ords återställning via självbetjäning för dina anställda eller andra användare, se [lösen ords återställning](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)via självbetjäning.
 
->[!Note]
->Om du försöker komma tillbaka till ett personligt konto, till exempel Xbox, hotmail.com eller outlook.com, kan du prova förslagen i [när du inte kan logga in på din Microsoft-konto](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) -artikel.
+## <a name="update-a-password-from-the-change-password-page"></a>Uppdatera ett lösen ord från sidan Ändra lösen ord
 
-## <a name="to-change-your-password-from-the-my-account-portal"></a>Ändra ditt lösen ord från portalen mitt konto
-
-1. Logga in på ditt arbets-eller skol konto med ditt befintliga lösen ord och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Logga in på ditt arbets-eller skol konto med ditt befintliga lösen ord och gå sedan till **mitt konto** (https://myprofile.microsoft.com/) sidan.
 
 2. Välj **lösen ord** i det vänstra navigerings fönstret eller Välj länken **ändra lösen ord** från **lösen ords** blocket.
 

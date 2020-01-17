@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: ff84b085b7d40bcb6c5a0aa87416e5814f67814b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 058099ceca886f375e6add07033174bf80d5b647
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979577"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156547"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
 
@@ -147,7 +147,7 @@ Offentliga inställningar skickas i klartext till den virtuella dator där skrip
 
 ####  <a name="property-managedidentity"></a>Egenskap: managedIdentity
 
-CustomScript (version 1.10.4 och senare) har stöd för [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) baserad RBAC för nedladdning av filer från URL: er som anges i inställningen "fileUris". Det ger CustomScript åtkomst till Azure Storage privata blobbar/behållare utan att användaren måste skicka hemligheter som SAS-token eller lagrings konto nycklar.
+CustomScript (version 1,10 och senare) stöder [hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för hämtning av filer från URL: er som finns i inställningen "fileUris". Det ger CustomScript åtkomst till Azure Storage privata blobbar eller behållare utan att användaren måste skicka hemligheter som SAS-token eller lagrings konto nycklar.
 
 Om du vill använda den här funktionen måste användaren lägga till en [tilldelad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-system-assigned-identity) eller [användardefinierad](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#adding-a-user-assigned-identity) identitet till den virtuella datorn eller VMSS där CustomScript förväntas köras, och [ge hanterad identitets åtkomst till Azure Storage containern eller blobben](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
 

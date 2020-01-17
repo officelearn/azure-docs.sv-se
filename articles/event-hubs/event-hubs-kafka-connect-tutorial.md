@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 84220d5dda26c25f40138629e2be1f10d57fe3c4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: df7198b68a083abf9be4ffe88e7a5dd848b2c535
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555125"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119524"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrera stöd för Apache Kafka Connect stöd i Azure Event Hubs (förhandsversion)
 När inmatning för företagsbehov ökar så ökas även kraven för inmatning av olika externa källor och kanalmottagare. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) innehåller sådana ramverk för att ansluta och importera/exportera data från/till externa system såsom MySQL, HDFS och filsystem via ett Kafka-kluster. Den här självstudien beskriver hur du använder Kafka Connect-ramverket med Kafka-aktiverade händelsehubbar.
@@ -107,7 +107,9 @@ I det här steget startas en Kafka Connect-arbetare lokalt i distribuerat läge 
 4. Kör `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  REST API för Connect-arbetaren är redo för interaktion när du ser `'INFO Finished starting connectors and tasks'`. 
 
 > [!NOTE]
-> Event Hubs har stöd för att Kafka-klienter skapar ämnen automatiskt. En snabb kontroll av namnrymden i Azure-portalen visar att Connect-arbetarens interna ämnen har skapats automatiskt.
+> Kafka Connect använder Kafka AdminClient API för att automatiskt skapa ämnen med rekommenderade konfigurationer, inklusive komprimering. En snabb kontroll av namnrymden i Azure-portalen visar att Connect-arbetarens interna ämnen har skapats automatiskt.
+>
+>Kafka Connect, interna ämnen **måste använda komprimering**.  Event Hubs-teamet ansvarar inte för att åtgärda Felaktiga konfigurationer om interna anslutnings ämnen är felaktigt konfigurerade.
 
 ### <a name="create-connectors"></a>Skapa anslutningsappar
 Det här avsnittet vägleder dig genom att skapa anslutningsapparna FileStreamSource och FileStreamSink. 

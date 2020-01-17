@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e3c237f47e889b6af1b49254af9039dc8789006
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 223dc6c340beb1b584ffbf90adc12667ed2feb23
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279070"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156190"
 ---
 # <a name="set-up-the-microsoft-authenticator-app-as-your-verification-method"></a>Konfigurera Microsoft Authenticator-appen som din verifierings metod
 
@@ -28,7 +28,20 @@ Om du uppmanas att ställa in det här direkt efter att du har loggat in på dit
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Om du inte ser något alternativ för Authenticator-appen är det möjligt att din organisation inte tillåter att du använder en webbapp för verifiering. I så fall måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
+> Om du inte ser alternativet för Authenticator-appen är det möjligt att din organisation inte tillåter att du använder det här alternativet för verifiering. I så fall måste du välja en annan metod eller kontakta din organisations supportavdelning om du behöver mer hjälp.
+
+## <a name="security-vs-password-reset-verification"></a>Verifiering av säkerhet och lösen ords återställning
+
+Metoder för säkerhets information används för både dubbelriktad säkerhets verifiering och för lösen ords återställning. Dock kan inte alla metoder användas för båda.
+
+| Metod | Används för |
+| ------ | -------- |
+| Autentiseringsapp | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| SMS | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Telefonsamtal | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Säkerhets nyckel | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| E-postkonto | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
+| Säkerhetsfrågor | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>Konfigurera Microsoft Authenticator-appen från sidan säkerhets information
 

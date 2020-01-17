@@ -1,0 +1,315 @@
+---
+title: 'Självstudie: träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code-tillägget'
+titleSuffix: Azure Machine Learning
+description: Lär dig hur du tränar och distribuerar en bild klassificerings modell med TensorFlow och tillägget Azure Machine Learning Visual Studio Code.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: tutorial
+author: luisquintanilla
+ms.author: luquinta
+ms.date: 01/16/2019
+ms.openlocfilehash: 899681f2bb9c3ef2a0368015a58db30a843738f5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157558"
+---
+# <a name="train-and-deploy-an-image-classification-tensorflow-model-using-the-azure-machine-learning-visual-studio-code-extension"></a>Träna och distribuera en bild klassificering TensorFlow modell med Azure Machine Learning Visual Studio Code-tillägget
+
+Lär dig hur du tränar en bild klassificerings modell för att identifiera handskrivna tal med TensorFlow och tillägget Azure Machine Learning Visual Studio Code.
+
+I den här självstudien kommer du att lära dig följande:
+
+> [!div class="checklist"]
+> * Förstå koden
+> * Skapa en arbetsyta
+> * Skapa ett experiment
+> * Konfigurera dator mål
+> * Kör en konfigurations fil
+> * Träna en modell
+> * Registrera en modell
+> * Distribuera en modell
+
+## <a name="prerequisites"></a>Krav
+
+- En Azure-prenumeration. Om du inte har ett kan du registrera dig och prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
+- Installera [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview), en lätt, plattforms oberoende kod redigerare.
+- Azure Machine Learning Studio Visual Studio Code-tillägg. Installations anvisningar finns i [själv studie kursen installera Azure Machine Learning Visual Studio Code Extension](./tutorial-setup-vscode-extension.md)
+
+## <a name="understand-the-code"></a>Förstå koden
+
+Koden för den här självstudien använder TensorFlow för att träna en modell för maskin inlärning i en bild som kategoriserar Skriv siffrorna från 0-9. Det gör du genom att skapa ett neurala-nätverk som tar pixel värden på 28 px x 28 BPT-bilder som indata och matar ut en lista med 10 sannolikheter, en för varje siffra som klassificeras. Nedan visas ett exempel på hur data ser ut.  
+
+![MNIST siffror](./media/tutorial-train-deploy-image-classification-model-vscode/digits.png)
+
+Hämta koden för den här själv studie kursen genom att ladda ned och zippa upp [vs Code-verktygen för AI-lagringsplats](https://github.com/microsoft/vscode-tools-for-ai/archive/master.zip) var som helst på datorn.
+
+## <a name="create-a-workspace"></a>Skapa en arbetsyta
+
+Det första du behöver göra för att skapa ett program i Azure Machine Learning är att skapa en arbets yta. En arbets yta innehåller resurser för att träna modeller samt de tränade modellerna själva. Mer information finns i [Vad är en arbets yta](./concept-workspace.md). 
+
+1. I aktivitets fältet i Visual Studio Code väljer du **Azure** -ikonen för att öppna vyn Azure Machine Learning.
+1. Högerklicka på din Azure-prenumeration och välj **skapa arbets yta**. 
+    
+    > [!div class="mx-imgBorder"]
+    > ![Skapa en arbetsyta](./media/tutorial-train-deploy-image-classification-model-vscode/create-workspace.png)
+
+1. Som standard genereras ett namn som innehåller datum och tid då filen skapades. I paletten kommando ändrar du namnet till "TeamWorkspace" och trycker på **RETUR**.
+1. Välj **skapa en ny resurs grupp** i kommando paletten. 
+1. Ange "TeamWorkspace-RG" i text rutan kommando-palett och tryck på **RETUR**. 
+1. I paletten kommando väljer du en plats för din arbets yta. Vi rekommenderar att du väljer en plats som ligger närmast platsen som du planerar att distribuera din modell. I det här fallet väljer du **västra USA 2**.
+1. När du uppmanas att välja en SKU för arbets ytan väljer du **Basic** för att skapa en grundläggande arbets yta. Mer information om olika erbjudanden för arbets ytor finns i [Azure Machine Learning översikt](./overview-what-is-azure-ml.md#sku).
+
+I det här läget görs en begäran till Azure för att skapa en ny arbets yta i ditt konto. Efter några minuter visas den nya arbets ytan i noden prenumeration. 
+
+## <a name="create-an-experiment"></a>Skapa ett experiment
+
+Ett eller flera experiment kan skapas på arbets ytan för att spåra och analysera enskilda modell inlärnings körningar. Körningar kan göras i Azure-molnet eller på den lokala datorn.
+
+1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas.
+1. Expandera noden prenumeration.
+1. Expandera noden **TeamWorkspace** . 
+1. Högerklicka på noden **experiment** .
+1. Välj **Skapa experiment** på snabb menyn.
+
+    > [!div class="mx-imgBorder"]
+    > ![Skapa ett experiment](./media/tutorial-train-deploy-image-classification-model-vscode/create-experiment.png)
+
+1. I paletten för kommando tolken namnger du experimentet "MNIST" och trycker på **RETUR** för att skapa det nya experimentet. 
+
+Precis som arbets ytor skickas en begäran till Azure för att skapa ett experiment med de tillhandahållna konfigurationerna. Efter några minuter visas det nya experimentet i noden *experiment* i din arbets yta. 
+
+## <a name="configure-compute-targets"></a>Konfigurera beräknings mål
+
+Ett beräknings mål är den beräknings resurs eller miljö där du kör skript och distribuerar utbildade modeller. Mer information finns i dokumentationen för [Azure Machine Learning Compute-mål](./concept-compute-target.md).
+
+Så här skapar du ett beräknings mål:
+
+1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas. 
+1. Expandera noden prenumeration. 
+1. Expandera noden **TeamWorkspace** . 
+1. Under noden arbetsyta högerklickar du på den **Compute** noden och välj **skapa Compute**. 
+
+    > [!div class="mx-imgBorder"]
+    > ![skapa ett beräknings mål](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
+
+1. Välj **Azure Machine Learning Compute (AmlCompute)** . Azure Machine Learning Compute är en hanterad beräknings infrastruktur som gör det möjligt för användaren att enkelt skapa en enda eller flera noder som kan användas med andra användare i din arbets yta.
+1. Välj storlek på den virtuella datorn. I kommando tolken i paletten väljer du **Standard_F2s_v2**. Storleken på den virtuella datorn påverkar hur lång tid det tar att träna dina modeller. Mer information om storlekar för virtuella datorer finns i [storlekar för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+1. I paletten för kommando tolken namnger du beräkningen "TeamWkspc-com" och trycker på **RETUR** för att skapa din beräkning.
+
+Efter några minuter visas det nya beräknings målet i noden *Compute* i din arbets yta.
+
+## <a name="create-a-run-configuration"></a>Skapa en körnings konfiguration
+
+När du skickar en övnings körning till ett beräknings mål skickar du även den konfiguration som krävs för att köra utbildnings jobbet. Till exempel skriptet som innehåller inlärnings koden och de python-beroenden som behövs för att köra det.
+
+Så här skapar du en körnings konfiguration:
+
+1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas. 
+1. Expandera noden prenumeration. 
+1. Expandera noden **TeamWorkspace** . 
+1. Under noden arbets yta högerklickar du på **TeamWkspc-com-** Compute-noden och väljer **skapa körnings konfiguration**.
+
+    > [!div class="mx-imgBorder"]
+    > ![skapa en körnings konfiguration](./media/tutorial-train-deploy-image-classification-model-vscode/create-run-configuration.png)
+
+1. I paletten för kommando tolken namnger du kör konfigurationen "MNIST-RC" och trycker på **RETUR** för att skapa din beräkning.
+1. Välj sedan **TensorFlow-utbildning med en nod** som utbildnings jobb typ.
+1. Tryck på **RETUR** för att bläddra i skript filen som ska köras på beräkningen. I det här fallet är skriptet för att träna modellen `train.py`-filen inuti `vscode-tools-for-ai/mnist-vscode-docs-sample`s katalogen.
+1. Ange följande i kommando tolken för att ange de nödvändiga paketen.
+    
+    ```text
+    pip: azureml-defaults; conda: python=3.6.2, tensorflow=1.15.0
+    ```
+    
+    En fil med namnet `MNIST-rc.runconfig` visas i VS Code med innehåll som liknar den nedan:
+
+    ```json
+    {
+        "script": "train.py",
+        "framework": "Python",
+        "communicator": "None",
+        "target": "TeamWkspc-com",
+        "environment": {
+            "python": {
+                "userManagedDependencies": false,
+                "condaDependencies": {
+                    "dependencies": [
+                        "python=3.6.2",
+                        "tensorflow=1.15.0",
+                        {
+                            "pip": [
+                                "azureml-defaults"
+                            ]
+                        }
+                    ]
+                }
+            },
+            "docker": {
+                "baseImage": "mcr.microsoft.com/azureml/base:0.2.4",
+                "enabled": true,
+                "baseImageRegistry": {
+                    "address": null,
+                    "username": null,
+                    "password": null
+                }
+            }
+        },
+        "nodeCount": 1,
+        "history": {
+            "outputCollection": true,
+            "snapshotProject": false,
+            "directoriesToWatch": [
+                "logs"
+            ]
+        }
+    }
+    ```
+
+1. När du är nöjd med konfigurationen öppnar du paletten kommando genom att välja **visa > kommando palett**.
+1. Ange följande kommando i kommando rads verktyget för att spara kör konfigurations filen.
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+`MNIST-rc` Run-konfigurationen läggs till under *TeamWkspc-com-Compute-* noden.
+
+## <a name="train-the-model"></a>Träna modellen
+
+Under inlärnings processen skapas en TensorFlow-modell genom bearbetning av utbildnings data och inlärnings mönster som är inbäddade i den för var och en av de respektive siffrorna klassificerade. 
+
+Köra ett Azure Machine Learning experiment:
+
+1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas. 
+1. Expandera noden prenumeration. 
+1. Expandera noden **TeamWorkspace > experiment** . 
+1. Högerklicka på **MNIST** -experimentet.
+1. Välj **kör Experiment**.
+
+    > [!div class="mx-imgBorder"]
+    > ![köra ett experiment](./media/tutorial-train-deploy-image-classification-model-vscode/run-experiment.png)
+
+1. I paletten kommando väljer du **TeamWkspc-com** Compute Target.
+1. Välj sedan konfiguration av **MNIST-RC-** körning.
+1. I det här läget skickas en begäran till Azure för att köra experimentet på det valda beräknings målet i din arbets yta. Den här processen tar flera minuter. Hur lång tid det får att köra utbildnings jobbet påverkas av flera faktorer, till exempel data storlek för beräknings typ och träning. Du kan följa förloppet för ditt experiment genom att högerklicka på den aktuella körnings noden och välja **Visa körning i Azure Portal**.
+1. När dialog rutan för att begära att öppna en extern webbplats visas väljer du **Öppna**.
+
+    > [!div class="mx-imgBorder"]
+    > ![spåra experiment förlopp](./media/tutorial-train-deploy-image-classification-model-vscode/track-experiment-progress.png)
+
+När modellen är färdig med träningen uppdateras status etiketten bredvid noden slutförs.
+
+## <a name="register-the-model"></a>Registrera modellen
+
+Nu när du har tränat din modell kan du registrera den i din arbets yta. 
+
+Så här registrerar du din modell:
+
+1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas.
+1. Expandera noden prenumeration. 
+1. Expandera noden **TeamWorkspace > experiment > MNIST** .
+1. Hämta modellens utdata som genereras från att träna modellen. Högerklicka på körnings-noden kör **1** och välj **Hämta utdata**. 
+
+    > [!div class="mx-imgBorder"]
+    > ![Ladda ned modell utdata](./media/tutorial-train-deploy-image-classification-model-vscode/download-outputs.png)
+
+1. Välj den katalog där du vill spara de hämtade utdata till. Som standard placeras utmatningarna i den katalog som för närvarande är öppnad i Visual Studio Code.
+1. Högerklicka på noden **modeller** och välj **Registrera modell**.
+
+    > [!div class="mx-imgBorder"]
+    > ![registrera en modell](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+
+1. På paletten kommando, namnger du modellen "MNIST-TensorFlow-Model" och trycker på **RETUR**.
+1. En TensorFlow-modell består av flera filer. Välj **modell-mapp** som modell Sök vägs format i paletten för kommandon. 
+1. Välj katalogen `azureml_outputs/Run_1/outputs/Run_1/outputs/outputs/model`.
+
+    En fil som innehåller dina modell konfigurationer visas i Visual Studio Code med liknande innehåll som du ser nedan:
+
+    ```json
+    {
+        "modelName": "MNIST-TensorFlow-model",
+        "tags": {
+            "": ""
+        },
+        "modelPath": "c:\\Dev\\vscode-tools-for-ai\\mnist-vscode-docs-sample\\azureml_outputs\\Run_1\\outputs\\Run_1\\outputs\\outputs\\model",
+        "description": ""
+    }
+    ```
+
+1. När du är nöjd med konfigurationen sparar du den genom att öppna kommando-paletten och ange följande kommando:
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+Efter några minuter visas modellen under noden *modeller* .
+
+## <a name="deploy-the-model"></a>Distribuera modellen
+
+I Visual Studio Code kan du distribuera din modell som en webb tjänst för att:
+
++ Azure Container Instances (ACI).
++ Azure Kubernetes service (AKS).
+
+Du behöver inte skapa en ACI-behållare för att testa i förväg eftersom ACI-behållare skapas vid behov. Du måste dock konfigurera AKS-kluster i förväg. Mer information om distributions alternativ finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md) .
+
+Så här distribuerar du en webb tjänst som en ACI:
+
+1. Välj **Azure** -ikonen i aktivitets fältet i Visual Studio Code. Vyn Azure Machine Learning visas.
+1. Expandera noden prenumeration. 
+1. Expandera noden **TeamWorkspace > Models** . 
+1. Högerklicka på **MNIST-TensorFlow-Model** och välj **distribuera tjänst från registrerad modell**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Distribuera modellen](./media/tutorial-train-deploy-image-classification-model-vscode/register-model.png)
+
+1. På paletten kommando väljer du **Azure Container instances**.
+1. Ge din tjänst namnet "mnist-tensorflow-SVC" och tryck på **RETUR** i kommando paletten.
+1. Välj det skript som ska köras i behållaren genom att trycka på **RETUR** i kommando paletten och bläddra efter `score.py`-filen i katalogen `mnist-vscode-docs-sample`.
+1. Ange de beroenden som krävs för att köra skriptet genom att trycka på **RETUR** i kommando paletten och bläddra efter den `env.yml` filen i katalogen `mnist-vscode-docs-sample`.
+
+    En fil som innehåller dina modell konfigurationer visas i Visual Studio Code med liknande innehåll som du ser nedan:
+
+    ```json
+    {
+        "name": "mnist-tensorflow-svc",
+        "imageConfig": {
+            "runtime": "python",
+            "executionScript": "score.py",
+            "dockerFile": null,
+            "condaFile": "env.yml",
+            "dependencies": [],
+            "schemaFile": null,
+            "enableGpu": false,
+            "description": ""
+        },
+        "deploymentConfig": {
+            "cpu_cores": 1,
+            "memory_gb": 10,
+            "tags": {
+                "": ""
+            },
+            "description": ""
+        },
+        "deploymentType": "ACI",
+        "modelIds": [
+            "MNIST-TensorFlow-model:1"
+        ]
+    }
+    ```
+1. När du är nöjd med konfigurationen sparar du den genom att öppna kommando-paletten och ange följande kommando:
+
+    ```text
+    Azure ML: Save and Continue
+    ```
+
+I det här läget skickas en begäran till Azure för att distribuera din webb tjänst. Den här processen tar flera minuter. När den nya tjänsten har distribuerats visas den under noden *slut punkter* .
+
+## <a name="next-steps"></a>Nästa steg
+
+* En genom gång av hur du tränar med Azure Machine Learning utanför Visual Studio Code finns i [Självstudier: träna modeller med Azure Machine Learning](tutorial-train-models-with-aml.md).
+* En genom gång av hur du kan redigera, köra och felsöka kod lokalt finns i [själv studie kursen om python Hello-World](https://code.visualstudio.com/docs/Python/Python-tutorial).
+

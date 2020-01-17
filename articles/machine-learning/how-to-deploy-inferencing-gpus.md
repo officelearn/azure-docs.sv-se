@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 10/25/2019
-ms.openlocfilehash: 49ee2690a54e58eee85dd4f9c5b7ef460ac597cc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 39fc57a6da20549447f782399e9571f7a0ffeea7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763597"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122533"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuera en djup inlärnings modell för en härledning med GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ Den här artikeln lär dig hur du använder Azure Machine Learning för att dist
 Härlednings-eller modell poängsättning är den fas där den distribuerade modellen används för att skapa förutsägelser. Att använda GPU: er i stället för processorer ger prestanda för delar med mycket kan göras parallella beräkning.
 
 > [!IMPORTANT]
-> För webb tjänst distributioner stöds endast GPU-härledning i Azure Kubernetes-tjänsten. För en härledning med en __Machine Learning-pipeline__stöds endast GPU: er i Azure Machine Learning Compute. Mer information om hur du använder ML-pipelines finns i [köra batch-förutsägelser](how-to-run-batch-predictions.md). 
+> För webb tjänst distributioner stöds endast GPU-härledning i Azure Kubernetes-tjänsten. För en härledning med en __Machine Learning-pipeline__stöds endast GPU: er i Azure Machine Learning Compute. Mer information om hur du använder ML-pipelines finns i [köra batch-förutsägelser](how-to-use-parallel-run-step.md). 
 
 > [!TIP]
 > Även om kodfragmenten i den här artikeln använder en TensorFlow-modell kan du använda informationen för alla Machine Learning-ramverk som stöder GPU: er.

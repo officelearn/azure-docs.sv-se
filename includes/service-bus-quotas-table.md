@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ab17d86251be6a0ef2452b258acf8d055b4605db
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: c8412a01f4a5056b352b1d985f36e5a51a25a649
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561524"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158935"
 ---
 I följande tabell visas kvot information som är speciell för Azure Service Bus meddelande tjänster. För information om priser och andra kvoter för Service Bus, se [Service Bus prissättning](https://azure.microsoft.com/pricing/details/service-bus/).
 
@@ -32,12 +32,12 @@ I följande tabell visas kvot information som är speciell för Azure Service Bu
 | Maximal storlek för ett meddelande [-sessions-ID](/dotnet/api/microsoft.azure.servicebus.message.sessionid) | Enhet |- | 128 |
 | Meddelande storlek för en kö, ett ämne eller en prenumerations enhet |Enhet |Inkommande meddelanden som överskrider dessa kvoter avvisas och ett undantag tas emot av den anropande koden. |Maximal meddelande storlek: 256 KB för [Standard nivån](../articles/service-bus-messaging/service-bus-premium-messaging.md), 1 MB för [Premium-nivån](../articles/service-bus-messaging/service-bus-premium-messaging.md). <br /><br />På grund av systemets omkostnader är den här gränsen lägre än dessa värden.<br /><br />Maximal sidhuvud storlek: 64 KB.<br /><br />Maximalt antal huvud egenskaper i egenskaps uppsättningen: **byte/int. MaxValue**.<br /><br />Maximal egenskaps storlek i egenskaps uppsättningen: ingen explicit gräns. Begränsas av maximal sidhuvud storlek. |
 | Meddelande egenskap storlek för en kö, ett ämne eller en prenumerations enhet |Enhet | Undantags **SerializationException** genereras. |Maximal egenskaps storlek för meddelandet för varje egenskap är 32 000. Den ackumulerade storleken för alla egenskaper får inte överstiga 64 000. Den här gränsen gäller för hela huvudet i [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage), som har både användar egenskaper och system egenskaper, till exempel [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label)och [messageid](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid). |
-| Antal prenumerationer per ämne |Enhet |Efterföljande begär Anden om att skapa ytterligare prenumerationer för avsnittet avvisas. Som ett resultat visas ett fel meddelande om det konfigureras via portalen. Om det anropas från hanterings-API: et tas ett undantag emot av den anropande koden. |2 000 per ämne för nivån Basic eller standard. |
-| Antal SQL-filter per ämne |Enhet |Efterföljande begär Anden om att skapa ytterligare filter i avsnittet avvisas och ett undantag tas emot av den anropande koden. |2 000 |
+| Antal prenumerationer per ämne |Enhet |Efterföljande begär Anden om att skapa ytterligare prenumerationer för avsnittet avvisas. Som ett resultat visas ett fel meddelande om det konfigureras via portalen. Om det anropas från hanterings-API: et tas ett undantag emot av den anropande koden. |2 000 per ämne för standard nivån. |
+| Antal SQL-filter per ämne |Enhet |Efterföljande begär Anden om att skapa ytterligare filter i avsnittet avvisas och ett undantag tas emot av den anropande koden. |2,000 |
 | Antal korrelations filter per ämne |Enhet |Efterföljande begär Anden om att skapa ytterligare filter i avsnittet avvisas och ett undantag tas emot av den anropande koden. |100 000 |
 | Storlek på SQL-filter eller åtgärder |Namnområde |Efterföljande begär Anden om att skapa ytterligare filter avvisas och ett undantag tas emot av den anropande koden. |Max längden för filter villkors sträng: 1 024 (1 K).<br /><br />Maximal längd för regel åtgärds sträng: 1 024 (1 K).<br /><br />Maximalt antal uttryck per regel åtgärd: 32. |
 | Antal [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) -regler per namnrymd, kö eller ämne |Entitet, namnrymd |Efterföljande begär Anden om att skapa ytterligare regler avvisas och ett undantag tas emot av den anropande koden. |Maximalt antal regler: 12. <br /><br /> Regler som är konfigurerade i ett Service Bus namn område gäller för alla köer och ämnen i namn området. |
-| Antal meddelanden per transaktion | transaktionen | Ytterligare inkommande meddelanden avvisas och ett undantag som anger att "det går inte att skicka fler än 100 meddelanden i en enskild transaktion" tas emot av den anropande koden. | 100 <br /><br /> För åtgärderna **send ()** och **SendAsync ()** . |
+| Antal meddelanden per transaktion | Transaktionen | Ytterligare inkommande meddelanden avvisas och ett undantag som anger att "det går inte att skicka fler än 100 meddelanden i en enskild transaktion" tas emot av den anropande koden. | 100 <br /><br /> För åtgärderna **send ()** och **SendAsync ()** . |
 | Antal regler för virtuella nätverk och IP-filter | Namnområde | &nbsp; | 128 | 
 
 [Azure portal]: https://portal.azure.com

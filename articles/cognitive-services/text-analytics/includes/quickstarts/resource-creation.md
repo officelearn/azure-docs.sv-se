@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 12/18/2019
 ms.author: aahi
-ms.openlocfilehash: b6b0b7b857e109997afb441aa60972c6da61f54b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9623398e51260d88df3d8fd88e3affaf7f906a64
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446230"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76159031"
 ---
 Börja använda API för textanalys med något av alternativen nedan.
 
@@ -20,10 +20,10 @@ Börja använda API för textanalys med något av alternativen nedan.
     * Det här är ett bra alternativ om du vill testa API för textanalys, men inte har någon Azure-prenumeration.
     
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics"  title="skapa en Textanalys resurs"  target="_blank">skapa en Textanalys resurs <span class="docon docon-navigate-external x-hidden-focus"></span></a>
-    * Tillgängligt via Azure Portal tills du tar bort resursen.
+    * Tillgängligt tills du tar bort resursen.
     * Använd den kostnads fria pris nivån för att testa tjänsten och uppgradera senare till en betald nivå för produktion.
      
 * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne"  title="skapa en resurs för flera tjänster" target="_blank">skapa en resurs <span class="docon docon-navigate-external x-hidden-focus"></span> för flera tjänster</a>
-    * Tillgängligt via Azure Portal tills du tar bort resursen.  
-    * Använd samma nyckel och slut punkt för dina program i flera Cognitive Services.
+    * Tillgängligt tills du tar bort resursen.  
+    * Använd samma nyckel och slut punkt för att komma åt flera Cognitive Services.
     

@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/16/2020
 ms.custom: seodec18
-ms.openlocfilehash: 730436c7437d2ed77f9066f486d9716ec6d5681f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c7fd70ca32054b3b25e717c8c7169cf2d30ef9be
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771844"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156360"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>Konfigurera och Använd Compute-mål för modell träning 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Läs mer om hur du [skickar experiment](#submit) i slutet av den här artikeln.
 
 ## <a name="whats-an-estimator"></a>Vad är en uppskattning?
 
-För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning.  Med den här klassen kan du enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära). Vi rekommenderar att du använder en uppskattning för utbildning som automatiskt contructs inbäddade objekt som en miljö eller RunConfiguration objekt åt dig. Om du vill ha mer kontroll över hur dessa objekt skapas och specfify vilka paket som ska installeras för att experiement ska köras följer du [stegen](#amlcompute) nedan för att skicka dina utbildnings experiment med ett RunConfiguration-objekt på en Azure Machine Learning-beräkning.
+För att under lätta modell utbildningen med populära ramverk, tillhandahåller Azure Machine Learning python SDK en alternativ högre abstraktion, klassen uppskattning.  Med den här klassen kan du enkelt konstruera kör konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära). Vi rekommenderar att du använder en uppskattning för utbildning eftersom den automatiskt konstruerar inbäddade objekt som en miljö eller RunConfiguration objekt åt dig. Om du vill ha mer kontroll över hur dessa objekt skapas och ange vilka paket som ska installeras för att köra experimentet, följer du [dessa steg](#amlcompute) för att skicka dina utbildnings experiment med ett RunConfiguration-objekt på en Azure Machine Learning-beräkning.
 
 För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
 
@@ -364,7 +364,7 @@ Mer information finns i [resurs hantering](reference-azure-machine-learning-cli.
 
 ## <a name="set-up-with-vs-code"></a>Konfigurera med VS Code
 
-Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](how-to-vscode-tools.md#create-and-manage-compute-targets) för Azure Machine Learning.
+Du kan komma åt, skapa och hantera de beräknings mål som är kopplade till din arbets yta med [vs Code-tillägget](tutorial-train-deploy-image-classification-model-vscode.md#configure-compute-targets) för Azure Machine Learning.
 
 ## <a id="submit"></a>Skicka utbildnings körning med hjälp av Azure Machine Learning SDK
 
@@ -414,7 +414,7 @@ Eller så kan du:
 
 * Skicka experimentet med ett `Estimator`-objekt som visas i [träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
 * Skicka en HyperDrive-körning för inställning av min [parameter](how-to-tune-hyperparameters.md).
-* Skicka ett experiment via [vs Code-tillägget](how-to-vscode-tools.md#train-and-tune-models).
+* Skicka ett experiment via [vs Code-tillägget](tutorial-train-deploy-image-classification-model-vscode.md#train-the-model).
 
 Mer information finns i dokumentationen om [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) och [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py) .
 

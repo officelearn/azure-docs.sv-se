@@ -1,18 +1,18 @@
 ---
 title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med att skapa, tilldela och ta bort ritningar, till exempel princip överträdelser och skiss parameter funktioner.
-ms.date: 11/22/2019
+ms.date: 01/15/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 5b8a20b0757934bbd356ab037a22521a248a7eb2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7306e344a479008a87164a954c4444d375950b0b
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982480"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157091"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
-Du kan stöta på fel när du skapar eller tilldelar ritningar. I den här artikeln beskrivs olika fel som kan uppstå och hur du löser dem.
+Du kan stöta på fel när du skapar, tilldelar eller tar bort ritningar. I den här artikeln beskrivs olika fel som kan uppstå och hur du löser dem.
 
 ## <a name="finding-error-details"></a>Hitta fel information
 
@@ -60,6 +60,22 @@ Att skicka en skiss parameter som använder en funktion, till exempel `[resource
 #### <a name="resolution"></a>Upplösning
 
 Om du vill skicka en funktion via som en parameter, Escape hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/templates/template-expressions.md).
+
+## <a name="delete-errors"></a>Ta bort fel
+
+### <a name="assign-delete-timeout"></a>Scenario: tids gräns för borttagning av tilldelning
+
+#### <a name="issue"></a>Problem
+
+Borttagning av skiss tilldelning slutförs inte.
+
+#### <a name="cause"></a>Orsak
+
+En skiss tilldelning kan bli fastnat i ett icke-terminal-tillstånd när den tas bort. Det här tillståndet orsakas när resurser som skapats av skiss tilldelningen fortfarande väntar på borttagning eller inte returnerar en status kod till Azure-ritningar.
+
+#### <a name="resolution"></a>Upplösning
+
+Skiss tilldelningar i ett icke-terminal-tillstånd markeras automatiskt som **misslyckade** efter en tids gräns på _6 timmar_ . När tids gränsen har justerats för skiss tilldelningens tillstånd kan borttagningen göras om.
 
 ## <a name="next-steps"></a>Nästa steg
 

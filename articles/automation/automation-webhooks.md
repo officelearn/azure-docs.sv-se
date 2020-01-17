@@ -3,14 +3,14 @@ title: Starta en Azure Automation Runbook med en webhook
 description: En webhook som gör att en klient kan starta en Runbook i Azure Automation från ett HTTP-anrop.  Den här artikeln beskriver hur du skapar en webhook och hur du anropar en för att starta en Runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/19/2019
+ms.date: 01/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: fbf3a48d1e7cb3dd80b6c418d7c916184756b6fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f86193e818a91132f9bbca447acadd7e81747522
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418977"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155833"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Starta en Azure Automation Runbook med en webhook
 
@@ -126,7 +126,7 @@ Klienten kan inte avgöra när Runbook-jobbet har slutförts eller om dess slut 
 
 ## <a name="renew-webhook"></a>Förnya en webhook
 
-När en webhook skapas har den en giltighets tid på ett år. Efter det året förfaller webhooken automatiskt. När en webhook har gått ut kan den inte återaktiveras. den måste tas bort och återskapas. Om en webhook inte har nått sin förfallo tid kan den utökas.
+När en webhook skapas har den en giltighets tid på tio år. Efter den tids perioden går webhooken ut automatiskt. När en webhook har gått ut kan den inte återaktiveras. den måste tas bort och återskapas. Om en webhook inte har nått sin förfallo tid kan den utökas.
 
 Om du vill utöka en webhook navigerar du till den Runbook som innehåller webhooken. Välj **Webhooks** under **resurser**. Klicka på webhooken som du vill utöka. den här åtgärden öppnar **webhook** -sidan.  Välj ett nytt förfallo datum och tid och klicka på **Spara**.
 

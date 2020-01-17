@@ -3,12 +3,12 @@ title: Distributionsmodeller
 description: Beskriver hur du anger om du vill använda ett fullständigt eller stegvis distributions läge med Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 12/23/2019
-ms.openlocfilehash: f5a6f6416240ce512167e779c086d2665771c3f1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc5446c56c92b61016563995ebc4c884d48e2419
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484758"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152399"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Azure Resource Manager distributions lägen
 
@@ -26,16 +26,16 @@ Var försiktig med att använda fullständigt läge med [kopierings slingor](cre
 
 Om du distribuerar till [fler än en resurs grupp i en mall](cross-resource-group-deployment.md)är resurserna i resurs gruppen som anges i distributions åtgärden tillgängliga för borttagning. Resurser i de sekundära resurs grupperna tas inte bort.
 
-Det finns vissa skillnader i hur resurs typer hanterar fullständigt läge borttagningar. Överordnade resurser tas bort automatiskt när de inte finns i en mall som distribueras i fullständigt läge. Vissa underordnade resurser tas inte bort automatiskt när de inte finns i mallen. De underordnade resurserna tas dock bort om den överordnade resursen tas bort. 
+Det finns vissa skillnader i hur resurs typer hanterar fullständigt läge borttagningar. Överordnade resurser tas bort automatiskt när de inte finns i en mall som distribueras i fullständigt läge. Vissa underordnade resurser tas inte bort automatiskt när de inte finns i mallen. De underordnade resurserna tas dock bort om den överordnade resursen tas bort.
 
-Om din resurs grupp till exempel innehåller en DNS-zon (Microsoft. Network/dnsZones Resource Type) och en CNAME-post (Microsoft. Network/dnsZones/CNAME resurs typ), är DNS-zonen den överordnade resursen för CNAME-posten. Om du distribuerar med slutfört läge och inte inkluderar DNS-zonen i din mall, raderas DNS-zonen och CNAME-posten båda. Om du inkluderar DNS-zonen i mallen men inte tar med CNAME-posten, raderas inte CNAME. 
+Om din resurs grupp till exempel innehåller en DNS-zon (Microsoft. Network/dnsZones Resource Type) och en CNAME-post (Microsoft. Network/dnsZones/CNAME resurs typ), är DNS-zonen den överordnade resursen för CNAME-posten. Om du distribuerar med slutfört läge och inte inkluderar DNS-zonen i din mall, raderas DNS-zonen och CNAME-posten båda. Om du inkluderar DNS-zonen i mallen men inte tar med CNAME-posten, raderas inte CNAME.
 
 En lista över hur resurs typer hanterar borttagning finns i [ta bort Azure-resurser för fullständiga läges distributioner](complete-mode-deletion.md).
 
 Om resurs gruppen är [låst](../management/lock-resources.md)tas inte resurserna bort om du slutför läget.
 
 > [!NOTE]
-> Endast mallar på rotnivå stöder hela distributions läget. För [länkade eller kapslade mallar](linked-templates.md)måste du använda stegvist läge. 
+> Endast mallar på rotnivå stöder hela distributions läget. För [länkade eller kapslade mallar](linked-templates.md)måste du använda stegvist läge.
 >
 > [Distributioner på prenumerations nivå](deploy-to-subscription.md) stöder inte slutfört läge.
 >
@@ -105,9 +105,9 @@ I följande exempel visas en länkad mall som är inställd på stegvis distribu
 ```json
 "resources": [
   {
+      "type": "Microsoft.Resources/deployments",
       "apiVersion": "2017-05-10",
       "name": "linkedTemplate",
-      "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
           <nested-template-or-external-template>

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4c451c62a16a70d85d75ee00c3e08758e27425f6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 107bbed8aea692a76f6d5bf6bbf1da26277b2c85
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749973"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156581"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Anslut data från Azure aktivitets logg
 
@@ -31,7 +31,7 @@ Du kan strömma loggar från [Azure aktivitets logg](../azure-monitor/platform/p
 
 ## <a name="prerequisites"></a>Krav
 
-- Användare med behörighet som global administratör eller säkerhets administratör
+- Användare med deltagar behörighet till Log Analytics arbets yta 
 
 
 ## <a name="connect-to-azure-activity-log"></a>Anslut till Azure aktivitets logg
@@ -40,7 +40,7 @@ Du kan strömma loggar från [Azure aktivitets logg](../azure-monitor/platform/p
 
 2. I fönstret Azure aktivitets logg väljer du de prenumerationer som du vill strömma till Azure Sentinel. 
 
-3. Klicka på **anslut**.
+3. Klicka på **Anslut**.
 
 4. Om du vill använda det relevanta schemat i Log Analytics för aviseringar för Azure-aktivitet söker du efter **AzureActivity**.
 

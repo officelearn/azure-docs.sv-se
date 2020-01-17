@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 7065d5e9cae9e0a06eab82bd982693a1ad1d8fba
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483783"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155663"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 
@@ -22,7 +22,7 @@ En viktig fördel med Azure är konsekvens. Utveckling-investeringar för en pla
 Microsoft erbjuder intelligenta molntjänster som klart för företag på många platser, inklusive:
 
 * Globala Azure-plattformen stöds av ett växande nätverk av Microsoft-hanterade datacenter i regioner runtom i världen.
-* Isolerade suveräna moln som Azure Germany, Azure Government och Azure Kina (Azure som drivs av 21Vianet). Suveräna moln ger en konsekvent plattform med de flesta av samma fantastiska funktioner som globala Azure-kunder har åtkomst till.
+* Isolerade suveräna moln som Azure Germany, Azure Government och Azure Kina 21Vianet. Suveräna moln ger en konsekvent plattform med de flesta av samma fantastiska funktioner som globala Azure-kunder har åtkomst till.
 * Azure Stack, som är en hybridmolnplattform som låter dig leverera Azure-tjänster från organisationens datacenter. Företag kan ställa in Azure Stack i sina egna Datacenter eller använda Azure-tjänster från tjänstleverantörer som kör Azure Stack i sina lokaler (kallas ibland för värdbaserade regioner).
 
 Kärnan i alla moln tillhandahåller Azure Resource Manager ett API som gör en mängd olika användargränssnitt för att kommunicera med Azure-plattformen. Detta API ger kraftfulla funktioner för infrastruktur som kod. Någon typ av resurs som är tillgänglig på Azure-molnplattformen kan distribueras och konfigureras med Azure Resource Manager. Du kan distribuera och konfigurera fullständig programmet till ett operational sluttillstånd med en enda mall.
@@ -47,9 +47,9 @@ En introduktion till Azure Resource Manager-mallar finns i [malldistributionen](
 
 Den grundläggande syntaxen i Resource Manager-mall är JSON. Mallar använder en supermängd JSON, utöka med syntax för uttryck och funktioner. Mallen språk processorn uppdateras ofta för att stödja ytterligare Mallfunktioner. En detaljerad förklaring av de tillgängliga Mallfunktioner finns i [Azure Resource Manager-Mallfunktioner](template-functions.md).
 
-Nya funktioner som introduceras till Azure Resource Manager-mall är inte omedelbart tillgängliga i suveräna moln eller Azure Stack. Om du vill distribuera en mall har måste alla funktioner som refereras till i mallen vara tillgänglig i målmolnet. 
+Nya funktioner som introduceras till Azure Resource Manager-mall är inte omedelbart tillgängliga i suveräna moln eller Azure Stack. Om du vill distribuera en mall har måste alla funktioner som refereras till i mallen vara tillgänglig i målmolnet.
 
-Azure Resource Manager-funktioner kommer alltid att läggas till globala Azure först. Du kan använda följande PowerShell-skript för att verifiera om nyligen införda Mallfunktioner är också tillgängliga i Azure Stack: 
+Azure Resource Manager-funktioner kommer alltid att läggas till globala Azure först. Du kan använda följande PowerShell-skript för att verifiera om nyligen införda Mallfunktioner är också tillgängliga i Azure Stack:
 
 1. Gör en klon av GitHub-lagringsplatsen: [ https://github.com/marcvaneijk/arm-template-functions ](https://github.com/marcvaneijk/arm-template-functions).
 
@@ -69,7 +69,7 @@ Skriptet etablerar flera minimeras mallar som innehåller endast unika Mallfunkt
 
 ## <a name="working-with-linked-artifacts"></a>Arbeta med länkade artefakter
 
-En mall kan innehålla referenser till länkade artefakter och innehåller en distributionsresurs som länkar till en annan mall. Länkade mallar (kallas även kapslad mall) hämtas av Resource Manager vid körning. En mall kan också innehålla referenser till artefakter för tillägg för virtuell dator (VM). Dessa artefakter hämtas av VM-tillägg som körs i den virtuella datorn för att konfigurera VM-tillägget när mallen distribueras. 
+En mall kan innehålla referenser till länkade artefakter och innehåller en distributionsresurs som länkar till en annan mall. Länkade mallar (kallas även kapslad mall) hämtas av Resource Manager vid körning. En mall kan också innehålla referenser till artefakter för tillägg för virtuell dator (VM). Dessa artefakter hämtas av VM-tillägg som körs i den virtuella datorn för att konfigurera VM-tillägget när mallen distribueras.
 
 I följande avsnitt beskrivs överväganden för molnet konsekvens när du utvecklar mallar som innehåller artefakter som ligger utanför den huvudsakliga distributionsmallen.
 
@@ -82,9 +82,9 @@ Följande kod visar hur parametern templateLink refererar till en kapslad mall:
 ```json
 "resources": [
   {
+     "type": "Microsoft.Resources/deployments",
      "apiVersion": "2017-05-10",
      "name": "linkedTemplate",
-     "type": "Microsoft.Resources/deployments",
      "properties": {
        "mode": "incremental",
        "templateLink": {
@@ -100,9 +100,9 @@ Azure Resource Manager utvärderar Huvudmall vid körning och hämtar och utvär
 
 ### <a name="make-linked-templates-accessible-across-clouds"></a>Gör länkade mallar tillgängliga i moln
 
-Överväg att var och hur att lagra alla länkade mallar som du använder. Vid körning, Azure Resource Manager hämtar – och därför kräver direkt åtkomst till – eventuellt länkad mallar. En vanlig metod är att använda GitHub för att lagra de kapslade mallarna. En GitHub-lagringsplats kan innehålla filer som kan nås offentligt via en URL. Även om den här metoden fungerar bra för det offentliga molnet och suveräna moln, kanske en Azure Stack-miljö på ett företagsnätverk eller på en frånkopplad fjärrplats, utan någon utgående Internetåtkomst. I sådana fall kan misslyckas Azure Resource Manager att hämta kapslade mallar. 
+Överväg att var och hur att lagra alla länkade mallar som du använder. Vid körning, Azure Resource Manager hämtar – och därför kräver direkt åtkomst till – eventuellt länkad mallar. En vanlig metod är att använda GitHub för att lagra de kapslade mallarna. En GitHub-lagringsplats kan innehålla filer som kan nås offentligt via en URL. Även om den här metoden fungerar bra för det offentliga molnet och suveräna moln, kanske en Azure Stack-miljö på ett företagsnätverk eller på en frånkopplad fjärrplats, utan någon utgående Internetåtkomst. I sådana fall kan misslyckas Azure Resource Manager att hämta kapslade mallar.
 
-En bättre metod för molnöverskridande distributioner är att lagra din länkade mallar på en plats som är tillgänglig för målmolnet. Vi rekommenderar alla distribution artefakter underhålls i och distribueras från en pipeline för kontinuerlig integrering/kontinuerlig utveckling (CI/CD). Du kan också lagra kapslade mallar i ett blob storage-behållare som Azure Resource Manager kan hämta dem. 
+En bättre metod för molnöverskridande distributioner är att lagra din länkade mallar på en plats som är tillgänglig för målmolnet. Vi rekommenderar alla distribution artefakter underhålls i och distribueras från en pipeline för kontinuerlig integrering/kontinuerlig utveckling (CI/CD). Du kan också lagra kapslade mallar i ett blob storage-behållare som Azure Resource Manager kan hämta dem.
 
 Eftersom blob-lagringen i varje moln använder ett fullständigt kvalificerat domännamn (FQDN) för olika slutpunkt kan du konfigurera mallen med platsen för de länkade mallarna med två parametrar. Parametrar kan acceptera indata från användaren vid tidpunkten för distribution. Mallar är vanligtvis skapats och delas av flera personer, så det är bra att använda ett standard namn för dessa parametrar. Namngivningskonventioner hjälpa mallar mer återanvändbara i regioner, moln och författare.
 
@@ -132,9 +132,9 @@ I mallen, länkar genereras genom att kombinera bas-URI (från den `_artifactsLo
 ```json
 "resources": [
   {
-    "name": "shared",
     "type": "Microsoft.Resources/deployments",
     "apiVersion": "2015-01-01",
+    "name": "shared",
     "properties": {
       "mode": "Incremental",
       "templateLink": {
@@ -150,7 +150,7 @@ Med den här metoden kan standardvärdet för den `_artifactsLocation` parameter
 
 ### <a name="use-_artifactslocation-instead-of-hardcoding-links"></a>Använda _artifactsLocation i stället för hardcoding länkar
 
-Förutom att användas för kapslade mallar, URL-Adressen i den `_artifactsLocation` parametern används som bas för alla relaterade artefakter i en Distributionsmall. Vissa VM-tillägg innehåller en länk till ett skript som lagras utanför mallen. För de här tilläggen bör du inte hårdkoda länkarna. Anpassat skript och PowerShell DSC-tillägg kan till exempel länka till ett externt skript på GitHub som visas: 
+Förutom att användas för kapslade mallar, URL-Adressen i den `_artifactsLocation` parametern används som bas för alla relaterade artefakter i en Distributionsmall. Vissa VM-tillägg innehåller en länk till ett skript som lagras utanför mallen. För de här tilläggen bör du inte hårdkoda länkarna. Anpassat skript och PowerShell DSC-tillägg kan till exempel länka till ett externt skript på GitHub som visas:
 
 ```json
 "properties": {
@@ -215,7 +215,7 @@ Att veta att Azure-regioner och moln kan skilja sig i deras tillgängliga tjäns
 
 En mall distribuerar och konfigurerar resurser. En resurstyp som tillhandahålls av en resursprovider. Compute-resursprovidern (Microsoft.Compute), innehåller till exempel flera typer av resurser, till exempel virtuella datorer och availabilitySets. Varje resursprovider tillhandahåller ett API till Azure Resource Manager definieras av ett vanligt kontrakt, aktiverar en konsekvent och enhetlig redigeringen över alla resursprovidrar. Men kanske en provider för nätverksresurser som är tillgängliga i globala Azure inte tillgänglig i ett nationellt moln eller en Azure Stack-region.
 
-![Resursproviders](./media/templates-cloud-consistency/resource-providers.png) 
+![Resursproviders](./media/templates-cloud-consistency/resource-providers.png)
 
 Kör följande skript för att verifiera de resursprovidrar som är tillgängliga i ett visst moln i Azure kommandoradsgränssnitt ([CLI](/cli/azure/install-azure-cli)):
 
@@ -253,7 +253,7 @@ En mall distribueras alltid till en resursgrupp som finns i en region. Förutom 
 
 Även om du skulle kunna hårdkoda regionnamn när du anger resursegenskaper i en mall, garanterar den här metoden inte att mallen kan distribueras till andra Azure Stack-miljöer, eftersom områdesnamnet troligen inte finns det.
 
-Lägg till en indataparameter plats i mallen med ett standardvärde för att hantera olika regioner. Standardvärdet används om inget värde anges under distributionen. 
+Lägg till en indataparameter plats i mallen med ett standardvärde för att hantera olika regioner. Standardvärdet används om inget värde anges under distributionen.
 
 Mallfunktionen `[resourceGroup()]` returnerar ett objekt som innehåller följande nyckel/värde-par:
 
@@ -284,9 +284,9 @@ Genom att referera till nyckeln plats för objektet i defaultValue indataparamet
 },
 "resources": [
   {
-    "name": "storageaccount1",
     "type": "Microsoft.Storage/storageAccounts",
     "apiVersion": "2015-06-15",
+    "name": "storageaccount1",
     "location": "[parameters('location')]",
     ...
 ```
@@ -301,40 +301,40 @@ Därför infördes begreppet API-profiler i Resource Manager-mallar. Utan API-pr
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "location": {
-            "type": "string",
-            "metadata": {
-                "description": "Location the resources will be deployed to."
-            },
-            "defaultValue": "[resourceGroup().location]"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "location": {
+      "type": "string",
+      "metadata": {
+          "description": "Location the resources will be deployed to."
+      },
+      "defaultValue": "[resourceGroup().location]"
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2016-01-01",
+      "name": "mystorageaccount",
+      "location": "[parameters('location')]",
+      "properties": {
+        "accountType": "Standard_LRS"
+      }
     },
-    "variables": {},
-    "resources": [
-        {
-            "name": "mystorageaccount",
-            "type": "Microsoft.Storage/storageAccounts",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "properties": {
-                "accountType": "Standard_LRS"
-            }
-        },
-        {
-            "name": "myavailabilityset",
-            "type": "Microsoft.Compute/availabilitySets",
-            "apiVersion": "2016-03-30",
-            "location": "[parameters('location')]",
-            "properties": {
-                "platformFaultDomainCount": 2,
-                "platformUpdateDomainCount": 2
-            }
-        }
-    ],
-    "outputs": {}
+    {
+      "type": "Microsoft.Compute/availabilitySets",
+      "apiVersion": "2016-03-30",
+      "name": "myavailabilityset",
+      "location": "[parameters('location')]",
+      "properties": {
+        "platformFaultDomainCount": 2,
+        "platformUpdateDomainCount": 2
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 
@@ -357,16 +357,16 @@ En API-version för profilen fungerar som ett alias för en enda API-version per
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -399,17 +399,17 @@ API-profilen är inte ett obligatoriskt element i en mall. Även om du lägger t
     "variables": {},
     "resources": [
         {
-            "name": "mystorageaccount",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2016-01-01",
+            "name": "mystorageaccount",
             "location": "[parameters('location')]",
             "properties": {
                 "accountType": "Standard_LRS"
             }
         },
         {
-            "name": "myavailabilityset",
             "type": "Microsoft.Compute/availabilitySets",
+            "name": "myavailabilityset",
             "location": "[parameters('location')]",
             "properties": {
                 "platformFaultDomainCount": 2,
@@ -423,7 +423,7 @@ API-profilen är inte ett obligatoriskt element i en mall. Även om du lägger t
 
 ## <a name="check-endpoint-references"></a>Kontrollera endpoint referenser
 
-Resurser kan ha referenser till andra tjänster på plattformen. En offentlig IP-adress kan till exempel ha en offentlig DNS-namn som tilldelats. Det offentliga molnet, suveräna moln och Azure Stack-lösningar har sina egna distinkta endpoint-namnområden. I de flesta fall kräver bara ett prefix i en resurs som indata i mallen. Lägger till slutpunktsvärdet till den under körning, Azure Resource Manager. Vissa endpoint-värden måste anges explicit i mallen. 
+Resurser kan ha referenser till andra tjänster på plattformen. En offentlig IP-adress kan till exempel ha en offentlig DNS-namn som tilldelats. Det offentliga molnet, suveräna moln och Azure Stack-lösningar har sina egna distinkta endpoint-namnområden. I de flesta fall kräver bara ett prefix i en resurs som indata i mallen. Lägger till slutpunktsvärdet till den under körning, Azure Resource Manager. Vissa endpoint-värden måste anges explicit i mallen.
 
 > [!NOTE]
 > Om du vill utveckla mallar för molnet konsekvens, inte hårdkoda endpoint namnområden.
@@ -444,7 +444,7 @@ Slutpunkt-namnområden kan också användas i utdata från en mall som informati
 Undvik i allmänhet hårdkodad slutpunkter i en mall. Det bästa sättet är att använda mallfunktionen referens för att hämta slutpunkterna dynamiskt. Till exempel slutpunkten oftast hårdkodad är endpoint-namnområde för storage-konton. Varje lagringskonto har ett unikt FQDN som skapas genom att sammanfoga namnet på lagringskontot med slutpunkt-namnområdet. Ett blob storage-konto med namnet mystorageaccount1 leder till olika FQDN beroende på molnet:
 
 * **mystorageaccount1.BLOB.Core.Windows.NET** när du skapade i det globala Azure-molnet.
-* **mystorageaccount1.BLOB.Core.chinacloudapi.CN** när skapas i Azure i Kina-molnet.
+* **mystorageaccount1.blob.Core.chinacloudapi.cn** när de skapas i Azure Kina 21Vianet-molnet.
 
 Följande referens mallfunktionen hämtar endpoint namnområdet från lagringsresursprovidern:
 
@@ -456,7 +456,7 @@ Genom att ersätta värdet hårdkodad för slutpunkten för storage-konto med de
 
 ### <a name="refer-to-existing-resources-by-unique-id"></a>Referera till befintliga resurser med unikt ID
 
-Du kan också referera till en befintlig resurs från samma eller en annan resurs gruppen, och inom samma prenumeration eller en annan prenumeration inom samma klientorganisation i samma moln. Om du vill hämta resursegenskaper, måste du använda den unika identifieraren för själva resursen. Den `resourceId` mallfunktionen hämtar unikt ID för en resurs, till exempel SQL Server som i följande kod: 
+Du kan också referera till en befintlig resurs från samma eller en annan resurs gruppen, och inom samma prenumeration eller en annan prenumeration inom samma klientorganisation i samma moln. Om du vill hämta resursegenskaper, måste du använda den unika identifieraren för själva resursen. Den `resourceId` mallfunktionen hämtar unikt ID för en resurs, till exempel SQL Server som i följande kod:
 
 ```json
 "outputs": {
@@ -602,8 +602,8 @@ Eftersom VM-tillägg är från första part Resource Manager-resurser, har de si
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines/extensions",
+    "apiVersion": "2015-06-15",
     "name": "myExtension",
     "location": "[parameters('location')]",
     ...
@@ -627,9 +627,9 @@ Varje specifika tillägg är också en ny version. Den här versionen visas i de
 
 ```json
 {
-    "name": "MyCustomScriptExtension",
     "type": "extensions",
     "apiVersion": "2016-03-30",
+    "name": "MyCustomScriptExtension",
     "location": "[parameters('location')]",
     "dependsOn": [
         "[concat('Microsoft.Compute/virtualMachines/myVM', copyindex())]"
@@ -638,7 +638,7 @@ Varje specifika tillägg är också en ny version. Den här versionen visas i de
         "publisher": "Microsoft.Compute",
         "type": "CustomScriptExtension",
         "typeHandlerVersion": "1.7",
-        ...   
+        ...
 ```
 
 Använd för att hämta en lista över tillgängliga versioner för en specifik VM-tillägget i [Get-AzureRmVMExtensionImage](/powershell/module/az.compute/get-azvmextensionimage) cmdlet. I följande exempel hämtar tillgängliga versioner för PowerShell DSC (Desired State Configuration) VM-tillägget från **myLocation**:
@@ -655,12 +655,12 @@ Det är svårt att hålla reda på alla relaterade inställningar, funktioner oc
 
 Följande bild visar ett typexempel på en utvecklingsprocess för ett team med hjälp av en integrerad utvecklingsmiljö (IDE). Under de olika faserna i tidslinjen körs olika testtyper. Här är två utvecklare som arbetar på samma lösning, men det här scenariot gäller lika för en enskild utvecklare eller en stor grupp. Varje utvecklare skapar vanligtvis en lokal kopia av en central lagringsplats, aktiverar var och en ska fungera på den lokala kopian utan att påverka de andra som kanske arbetar på samma filer.
 
-![Arbetsflöde](./media/templates-cloud-consistency/workflow.png) 
+![Arbetsflöde](./media/templates-cloud-consistency/workflow.png)
 
 Överväg följande tips för att testa och automation:
 
 * Gör användning av testverktyg. Till exempel Visual Studio Code och Visual Studio innehåller IntelliSense och andra funktioner som kan hjälpa dig att validera dina mallar.
-* Utföra statiska kodanalys med enhetstester och integreringstester för att förbättra kodkvaliteten på under utvecklingen på den lokala IDE. 
+* Utföra statiska kodanalys med enhetstester och integreringstester för att förbättra kodkvaliteten på under utvecklingen på den lokala IDE.
 * För en ännu bättre upplevelse under inledande utvecklingsarbete enhetstester och integreringstester bör endast Varna när ett problem har hittats och fortsätter med testerna. På så sätt kan du identifiera problemen åtgärdas upptäcks och prioritera ordningen på ändringarna, även kallat testdriven distribution (TDD).
 * Tänk på att vissa tester kan utföras utan att vara ansluten till Azure Resource Manager. Andra, kräver t.ex. testa malldistribution Resource Manager för att utföra vissa åtgärder som inte kan utföras offline.
 * Testa en Distributionsmall mot verifieringen API: et är inte lika med en verklig distribution. Även om du distribuerar en mall från en lokal fil måste alla referenser till kapslade mallar i mallen hämtas av Resource Manager direkt, och artefakter som refereras av VM-tillägg hämtas av VM-agenten som körs i den distribuerade virtuella datorn.

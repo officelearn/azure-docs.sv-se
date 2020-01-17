@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f2db91a35573bc2cbdd0df2cb1ac09914cc956b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927482"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122652"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Använd Azure Data Factory för att migrera data från Amazon S3 till Azure Storage 
 
@@ -47,7 +47,7 @@ Bilden ovan illustrerar hur du kan uppnå hög hastighet för data förflyttning
 
 I en enda kopierings aktivitet har ADF inbyggd återförsöks funktion så att den kan hantera en viss nivå av tillfälliga fel i data lager eller i det underliggande nätverket. 
 
-När du gör en binär kopiering från S3 till blob och från S3 till ADLS Gen2, utför ADF automatiskt kontroll punkter.  Om körningen av kopierings aktiviteten har misslyckats eller nått tids gränsen för ett senare försök (se till att antalet nya försök > 1) återupptas, fortsätter kopian från den senaste fel punkten i stället för att börja från början. 
+När du gör en binär kopiering från S3 till blob och från S3 till ADLS Gen2, utför ADF automatiskt kontroll punkter.  Om körningen av kopierings aktiviteten har misslyckats eller nått tids gränsen, fortsätter kopian från den senaste fel punkten i stället för att börja från början. 
 
 ## <a name="network-security"></a>Nätverkssäkerhet 
 
@@ -86,7 +86,7 @@ Migrera data över privat länk:
 
 ### <a name="initial-snapshot-data-migration"></a>Första migrering av ögonblicks bild data 
 
-Data partition rekommenderas särskilt när du migrerar mer än 10 TB data.  För att partitionera data kan du använda "prefix"-inställningen för att filtrera mapparna och filerna i Amazon S3 efter namn och sedan kan varje jobb i ADF-kopieringen kopiera en partition i taget.  Du kan köra flera jobb för ADF-kopiering samtidigt för bättre data flöde. 
+Data partition rekommenderas särskilt när du migrerar mer än 100 TB data.  För att partitionera data kan du använda "prefix"-inställningen för att filtrera mapparna och filerna i Amazon S3 efter namn och sedan kan varje jobb i ADF-kopieringen kopiera en partition i taget.  Du kan köra flera jobb för ADF-kopiering samtidigt för bättre data flöde. 
 
 Om något av kopierings jobben Miss lyckas på grund av ett tillfälligt problem med nätverket eller data lagret kan du köra om det misslyckade kopierings jobbet för att läsa in den aktuella partitionen igen från AWS S3.  Alla andra kopierings jobb som läser in andra partitioner påverkas inte. 
 

@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 1bab6a990ba38bc32c2b7350bb1d4eac15a7b95e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479038"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152960"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>Azure Monitor plattforms mått som kan exporteras via diagnostikinställningar
 
@@ -689,10 +689,10 @@ Ja | Microsoft.Devices/IotHubs | d2c.endpoints.latency.eventHubs | Routning: med
 Ja | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusQueues | Routning: meddelandesvarstid för Service Bus-kö | Millisekunder | Medel
 Ja | Microsoft.Devices/IotHubs | d2c.endpoints.latency.serviceBusTopics | Routning: meddelande fördröjning för Service Bus ämne | Millisekunder | Medel
 Ja | Microsoft.Devices/IotHubs | d2c.endpoints.latency.storage | Routning: meddelande fördröjning för lagring | Millisekunder | Medel
-Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routning: telemetri ignoreras | Antal | Totalt
+Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.dropped | Routning: telemetri ignoreras  | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.fallback | Routning: meddelanden levererade till reserv | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.invalid | Routning: telemetri-meddelanden är inkompatibla | Antal | Totalt
-Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routning: telemetri-meddelanden har överblivna | Antal | Totalt
+Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.orphaned | Routning: telemetri-meddelanden har överblivna  | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.telemetry.egress.success | Routning: telemetri meddelanden levereras | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.allProtocol | Skicka försök för telemetri | Antal | Totalt
 Ja | Microsoft.Devices/IotHubs | d2c.telemetry.ingress.sendThrottle | Antal begränsningsfel | Antal | Totalt

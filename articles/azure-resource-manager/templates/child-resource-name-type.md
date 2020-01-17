@@ -3,12 +3,12 @@ title: Underordnade resurser i mallar
 description: Beskriver hur du anger namn och typ för underordnade resurser i en Azure Resource Manager mall.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 058c28329942a1bd2e5d0e12321022fb022ef74f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7d8a7a39bab3340b6f5c9e66d54b7398fa70ee3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479610"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122023"
 ---
 # <a name="set-name-and-type-for-child-resources"></a>Ange namn och typ för underordnade resurser
 
@@ -56,8 +56,8 @@ I följande exempel visas ett virtuellt nätverk och ett undernät. Observera at
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -69,10 +69,10 @@ I följande exempel visas ett virtuellt nätverk och ett undernät. Observera at
     },
     "resources": [
       {
-        "apiVersion": "2018-10-01",
         "type": "subnets",
-        "location": "[parameters('location')]",
+        "apiVersion": "2018-10-01",
         "name": "Subnet1",
+        "location": "[parameters('location')]",
         "dependsOn": [
           "VNet1"
         ],
@@ -103,8 +103,8 @@ I följande exempel visas ett virtuellt nätverk och undernät som båda definie
 ```json
 "resources": [
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks",
+    "apiVersion": "2018-10-01",
     "name": "VNet1",
     "location": "[parameters('location')]",
     "properties": {
@@ -116,8 +116,8 @@ I följande exempel visas ett virtuellt nätverk och undernät som båda definie
     }
   },
   {
-    "apiVersion": "2018-10-01",
     "type": "Microsoft.Network/virtualNetworks/subnets",
+    "apiVersion": "2018-10-01",
     "location": "[parameters('location')]",
     "name": "VNet1/Subnet1",
     "dependsOn": [
@@ -132,6 +132,6 @@ I följande exempel visas ett virtuellt nätverk och undernät som båda definie
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md). 
+* Mer information om hur du skapar Azure Resource Manager-mallar finns i [Redigera mallar](template-syntax.md).
 
 * Mer information om formatet på resurs namnet när du refererar till resursen finns i [referens funktionen](template-functions-resource.md#reference).

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Confluence SAML SSO från Microsoft | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med Confluence SAML SSO från Microsoft | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Confluence SAML SSO från Microsoft.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e6ea52474f3b352fabf19050f20012438e9d0c19
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960093"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120651"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Confluence SAML SSO från Microsoft
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Confluence SAML SSO från Microsoft
 
 I den här självstudien får du lära dig att integrera Confluence SAML SSO från Microsoft med Azure Active Directory (Azure AD). När du integrerar Confluence SAML SSO av Microsoft med Azure AD kan du:
 
@@ -37,7 +37,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 Använd ditt Microsoft Azure Active Directory-konto med Atlassian Confluence-servern för att aktivera enkel inloggning. På så sätt kan alla organisations användare använda Azure AD-autentiseringsuppgifterna för att logga in i Confluence-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med Confluence SAML SSO från Microsoft behöver du följande:
 
@@ -55,7 +55,7 @@ För att konfigurera Azure AD-integrering med Confluence SAML SSO från Microsof
 
 För att komma igång behöver du följande objekt:
 
-* Använd inte din produktionsmiljö, om det inte behövs.
+* Använd inte din produktionsmiljö om det inte behövs.
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
 * Confluence SAML SSO med Microsoft enkel inloggning (SSO) aktive rad prenumeration.
 
@@ -63,25 +63,9 @@ För att komma igång behöver du följande objekt:
 
 För närvarande stöds följande versioner av Confluence:
 
-- Confluence: 5.0 till 5.10
-- Confluence: 6.0.1
-- Confluence: 6.1.1
-- Confluence: 6.2.1
-- Confluence: 6.3.4
-- Confluence: 6.4.0
-- Confluence: 6.5.0
-- Confluence: 6.6.2
-- Confluence: 6.7.0
-- Confluence: 6.8.1
-- Confluence: 6.9.0
-- Confluence: 6.10.0
-- Confluence: 6.10.3
-- Confluence: 6.11.0
-- Confluence: 6.12.0
-- Confluence: 6.13.5
-- Confluence: 6.15.3
-- Confluence: 6.15.4
-- Confluence: 6.15.8
+- Confluence: 5,0 till 5,10
+- Confluence: 6.0.1 till 6.15.9
+- Confluence: 7.0.1 till 7.1.0
 
 > [!NOTE]
 > Observera att vårt Confluence-plugin-program också fungerar på Ubuntu version 16,04
@@ -128,32 +112,32 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
+    a. Skriv en URL med följande mönster i textrutan **Inloggnings-URL**: `https://<domain:port>/plugins/servlet/saml/auth`
 
     b. I rutan **Identifierare** skriver du en URL med följande mönster: `https://<domain:port>/`
 
-    c. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
+    c. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://<domain:port>/plugins/servlet/saml/auth`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Porten är valfri ifall den är en namngiven URL. Dessa värden tas emot under konfigurationen av Confluence-pluginprogrammet, som beskrivs senare i självstudien.
+    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Porten är valfritt ifall det är en namngiven URL. Dessa värden tas emot under konfigurationen av Confluence-pluginprogrammet, som beskrivs senare i självstudien.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Confluence SAML SSO från Microsoft.
 
@@ -161,7 +145,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I programlistan väljer du **Confluence SAML SSO från Microsoft**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -253,7 +237,7 @@ Om du vill att Azure AD-användare ska kunna logga in på en lokal server måste
 
     ![Lägga till medarbetare](./media/confluencemicrosoft-tutorial/user1.png)
 
-1. Klicka på fliken **Lägg till användare** i avsnittet Användare. Utför följande steg i dialogrutan **Lägg till en användare**:
+1. Under avsnittet användare klickar du på fliken **Lägg till användare** . Utför följande steg på dialog sidan **Lägg till en användare** :
 
     ![Lägga till medarbetare](./media/confluencemicrosoft-tutorial/user2.png)
 
@@ -267,11 +251,11 @@ Om du vill att Azure AD-användare ska kunna logga in på en lokal server måste
 
     e. Klicka på **Bekräfta lösenord** för att ange lösenordet igen.
 
-    f. Klicka på **Lägg till** knappen.
+    f. Klicka på knappen **Lägg till**.
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på Confluence SAML SSO från Microsoft-panelen i åtkomstpanelen bör du automatiskt loggas in på Confluence SAML SSO från Microsoft som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 

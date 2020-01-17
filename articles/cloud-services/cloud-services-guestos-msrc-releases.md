@@ -10,17 +10,65 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: raiye
-ms.openlocfilehash: 97f4283e02dd3b67df5381f78e87c3ee5b23b74e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 85029b5f819a59ffc4934d245778044a94a18d5e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779594"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122142"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
+
+## <a name="january-2020-guest-os"></a>Januari 2020 gäst operativ system
+
+>[!NOTE]
+>Gäst operativ systemet i januari distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringar ingår i gäst operativ systemet i januari. Den här listan kan ändras.
+
+| Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
+| --- | --- | --- | --- | --- |
+|  Rel 20-01  |  [4532960]  |  Windows-säkerhet  | 2,94 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 2,94 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534314]  |  Windows-säkerhet  | 2,94 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4532958]  |  Windows-säkerhet  | 3,81 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4532963]  |  Windows-säkerhet  | 3,81 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 3,81 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534288]  |  Windows-säkerhet  | 3,81 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4532961]  |  Windows-säkerhet  | 4,74 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4532962]  |  Windows-säkerhet  | 4,74 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534251]  |  Internet Explorer  | 4,74 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534309]  |  Windows-säkerhet  | 4,74 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4494175]  |  Mikrocode v3  | 5,39 | 29 aug 2019 |
+|  Rel 20-01  |  [4534271]  |  LCU  | 5,39 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4494174]  |  Biocode v4  | 6,15 | 29 aug 2019 |
+|  Rel 20-01  |  [4532947]  |  Windows-säkerhet  | 6,15 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4534273]  |  LCU  | 6,15 | 14 Jan, 2020 |
+|  Rel 20-01  |  [4530734]  |  Ej säkerhet  | 2,94 | Dec 10, 2019 |
+|  Rel 20-01  |  [4530691]  |  Ej säkerhet   | 3,81 | Dec 10, 2019 |
+|  Rel 20-01  |  [4530702]  |  Ej säkerhet  | 4,74 | Dec 10, 2019 |
+
+[4532960]: https://support.microsoft.com/kb/4532960
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534314]: https://support.microsoft.com/kb/4534314
+[4532958]: https://support.microsoft.com/kb/4532958
+[4532963]: https://support.microsoft.com/kb/4532963
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534288]: https://support.microsoft.com/kb/4534288
+[4532961]: https://support.microsoft.com/kb/4532961
+[4532962]: https://support.microsoft.com/kb/4532962
+[4534251]: https://support.microsoft.com/kb/4534251
+[4534309]: https://support.microsoft.com/kb/4534309
+[4494175]: https://support.microsoft.com/kb/4494175
+[4534271]: https://support.microsoft.com/kb/4534271
+[4494174]: https://support.microsoft.com/kb/4494174
+[4532947]: https://support.microsoft.com/kb/4532947
+[4534273]: https://support.microsoft.com/kb/4534273
+[4530734]: https://support.microsoft.com/kb/4530734
+[4530691]: https://support.microsoft.com/kb/4530691
+[4530702]: https://support.microsoft.com/kb/4530702
+
 
 ## <a name="december-2019-guest-os"></a>Gäst operativ system december 2019
 

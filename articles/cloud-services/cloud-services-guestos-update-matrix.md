@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/8/2020
+ms.date: 1/15/2020
 ms.author: raiye
-ms.openlocfilehash: dd148a4dd454e2ebebcb6b9befc576570ecb0352
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778217"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122253"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst operativ system versioner och SDK-kompatibilitet mat ris
 Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för Cloud Services. Den här informationen hjälper dig att planera uppgraderings vägen innan ett gäst operativ system är inaktiverat. Om du konfigurerar dina roller så att de använder *automatiska* uppdateringar av gäst operativ system enligt beskrivningen i [Azures uppdaterings inställningar för gäst operativ system][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -214,9 +214,9 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
-| WA – GÄST-OS-2.94 _201912-01 | 8 januari 2020 | Publicera 2,95 |  
-| WA – GÄST-OS-2.93 _201911-01 | 5 december 2019 | Publicera 2,94 |  
-|~ WA-GÄST-OS-2.91 _201910-01 ~| Den 1 november 2019 | 8 januari 2020 |  
+| WA – GÄST-OS-2.93 _201912-01 | 8 januari 2020 | Publicera 2,95 |  
+| WA – GÄST-OS-2.92 _201911-01 | 5 december 2019 | Publicera 2,94 |  
+|~~WA – GÄST-OS-2.91 _201910-01~~| Den 1 november 2019 | 8 januari 2020 |  
 |~~WA – GÄST-OS-2.90 _201909-01~~| 7 oktober 2019 | 5 december 2019 |  
 |~~WA – GÄST-OS-2.89 _201908-01~~| 4 augusti 2019 | Den 1 november 2019 |  
 |~~WA – GÄST-OS-2,88 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |

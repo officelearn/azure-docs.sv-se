@@ -12,24 +12,27 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37994125f7f1a7119a8878c7edec401328fd75ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9cd2d712dfcc6d3f01cbdb1f4886dd64a6d299d4
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233221"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156224"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Hantera enheter som är anslutna till ditt arbets-eller skol konto från sidan enheter
+# <a name="manage-your-connected-devices-from-the-devices-page"></a>Hantera dina anslutna enheter från sidan enheter
 
-På sidan **enheter** i **min konto** Portal kan du:
+Sidan **enheter** i portalen **My-Account** hjälper dig att hantera enheter som är anslutna till ditt arbets-eller skol konto. På sidan **enheter** kan du:
 
 - Visa ditt arbets-eller skol konto – anslutna enheter.
 
 - Inaktivera alla enheter som du inte längre äger, har tappat bort eller blivit stulna.
 
+>[!Important]
+>Den här artikeln är avsedd för användare som försöker uppdatera enhets informationen som är ansluten till ett arbets-eller skol konto. Om du är administratör för att söka efter information om enhets hantering för dina anställda och andra användnings områden, se [dokumentationen om enhets identiteter](https://docs.microsoft.com/azure/active-directory/devices/index).
+
 ## <a name="view-your-connected-devices"></a>Visa dina anslutna enheter
 
-1. Logga in på ditt arbets-eller skol konto och gå sedan till din https://myprofile.microsoft.com/ sida.
+1. Logga in på ditt arbets-eller skol konto och gå sedan till **mitt konto** (https://myprofile.microsoft.com/) sidan.
 
 2. Välj **enheter** i det vänstra navigerings fönstret eller Välj länken **Hantera enheter** från **enhets** blocket.
 
@@ -73,3 +76,13 @@ När du har visat dina anslutna enheter kan du:
 - Visa din [inloggnings aktivitet](my-account-portal-sign-ins-page.md).
 
 - Se hur din organisation [använder dina sekretess-relaterade data](my-account-portal-privacy-page.md).
+
+## <a name="related-office-content"></a>Relaterat Office-innehåll
+
+- [Logga in för att hantera din Office-produkt](https://support.office.com/article/sign-in-to-manage-your-office-product-959ac957-8d37-4ae4-b1b6-d6e4874e013f)
+
+- [Gå till sidan för **mitt konto** i Office](https://portal.office.com/account/#home)
+
+- [Gå till sidan Office **My installations**](https://portal.office.com/account/#installs)
+
+- [Gå till sidan Office- **prenumerationer**](https://portal.office.com/account/#subscriptions)

@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: evansma
-ms.openlocfilehash: b8c1034b047e0c72db41bbbbff06feb0bdf06517
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933929"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121819"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Dina kommersiella marknads förmåner
 
@@ -86,7 +86,7 @@ Förutom förmåns förmånerna har företags program partner med Dynamics-erbju
 
 ### <a name="publisher-agreement"></a>Utgivar avtal
 
-Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtalet för Marketplace](https://docs.microsoft.com/legal/marketplace/terms) och omfattas av tillägget för kommersiella förmåner.
+Alla aktiviteter som beskrivs på den här sidan omfattas av [publicerings avtalet för Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) och omfattas av tillägget för kommersiella förmåner.
 
 ### <a name="cancellation-policy"></a>Annulleringspolicy
 

@@ -1,21 +1,21 @@
 ---
-title: Fakta blad och fallstudier – AVERT vFTX för Azure
+title: Fakta blad och fallstudier – AVERT vFXT för Azure
 description: Länkar till nedladdnings bara fakta blad, fallstudier och andra artiklar som illustrerar AVERT vFXT för Azure och hur det kan användas.
 ms.service: avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
-ms.date: 02/13/2019
-ms.openlocfilehash: a85b939eb222fa459d33ba4eb79b4937baf9056f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/06/2020
+ms.openlocfilehash: 66df6a2018960d83c4aaa9129dad067732a8b3cf
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414285"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152977"
 ---
-# <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Azure-vFTX för Azure-whitepapers och andra resurser
+# <a name="azure-vfxt-for-azure-whitepapers-and-other-resources"></a>Azure-vFXT för Azure-whitepapers och andra resurser
 
-Resurserna i den här tabellen omfattar fallstudier, tekniska fakta blad, informationsgrafik och andra artiklar som kan hjälpa dig att förstå hur AVERT vFXT för Azure passar in i ditt arbets flöde.
+Den här artikeln innehåller fallstudier, tekniska fakta blad, informationsgrafik och andra resurser som kan hjälpa dig att förstå hur AVERT vFXT for Azure passar in i ditt arbets flöde.
 
 ## <a name="deploy-agisoft-photoscan-on-azure"></a>Distribuera Agisoft-Fotoskanning på Azure
 
@@ -34,12 +34,6 @@ Den här korta två sidan innehåller grundläggande information och diagram som
 **Länk:** [informations grafiken: skapa ett hybrid moln för filbaserade arbets belastningar](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/)
 
 Den här bilden visar komponenter och layouter för att använda AVERT vFXT för Azure för att lägga till moln infrastruktur i det befintliga systemet. Använd AVERT vFXT för Azure för att utöka data kapaciteten med din befintliga lokala infrastruktur eller flytta data och data behandling till molnet på ett tillfälligt eller permanent sätt.
-
-## <a name="cloud-bursting"></a>Cloud bursting
-
-**Länk:** [cloud burst för hög prestanda, skalbar NAS](https://microsoft.sharepoint.com/sites/Infopedia_G01KC/KCDOCs2/Avere%20customer%20resources/Solution%20Brief%20Cloud%20Bursting.pdf)
-
- Den här moln burst-lösningen visar hur du snabbt kan göra data tillgängliga för moln beräknings resurser nondisruptively genom att använda AVERT vFXT för Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,19 +3,19 @@ title: 'Snabb start: skapa ett anpassat kommando (för hands version) – tal tj
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln skapar och testar du ett program med en värd för anpassade kommandon.
 services: cognitive-services
-author: donkim
+author: don-d-kim
 manager: yetian
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: donkim
-ms.openlocfilehash: d8e28b88757fa7557b04ee471ede17012094bb9e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ae8f13b4887bbc41b17defa3f9a20c07ed0cb45
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446887"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155595"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>Snabb start: skapa ett anpassat kommando (förhands granskning)
 
@@ -24,7 +24,7 @@ Programmet kommer att identifiera en uttryck som "slå på TV" och svara med ett
 
 ## <a name="prerequisites"></a>Krav
 
-- En tal prenumeration. 
+- En tal prenumeration.
 
 Om du inte har en tal prenumeration kan du skapa en genom att gå till [tal Studio](https://speech.microsoft.com/) och välja **skapa en tal resurs**.
 
@@ -73,7 +73,7 @@ Din vy bör nu vara en översikt över ditt anpassade kommandon-program.
 
 ## <a name="update-luis-resources-optional"></a>Uppdatera LUIS-resurser (valfritt)
 
-Du kan uppdatera resurs uppsättningen för redigering i fönstret nytt projekt och ange en förutsägelse resurs som används för att identifiera indata under körningen. 
+Du kan uppdatera resurs uppsättningen för redigering i fönstret nytt projekt och ange en förutsägelse resurs som används för att identifiera indata under körningen.
 
 > [!NOTE]
 > Du måste ange en förutsägelse resurs innan ditt program begär förutsägelser utöver de 1 000-begäranden som tillhandahålls av redigerings resursen.

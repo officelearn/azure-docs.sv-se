@@ -1,5 +1,5 @@
 ---
-title: Översikt över Microsoft Authenticator-appen – Azure Active Directory | Microsoft Docs
+title: Vad är Microsoft Authenticator-appen? - Azure Active Directory | Microsoft Docs
 description: Läs mer om Microsoft Authenticator-appen, till exempel vad det är, hur det fungerar och vilken information som ingår i det här avsnittet av innehållet.
 services: active-directory
 author: eross-msft
@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 468005094ab8a9c42d7eacdfefa990565a3297f3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382346"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155816"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Vad är Microsoft Authenticator-appen?
-
->[!Important]
->Innehållet är avsett för användare. Om du är administratör hittar du mer information om hur du konfigurerar och hanterar en Azure Active Directory (Azure AD)-miljö i [dokumentationen om Azure Active Directory](https://docs.microsoft.com/azure/active-directory).
 
 Med Microsoft Authenticator-appen kan du logga in på dina konton om du använder tvåfaktorsverifiering. Med tvåfaktorsverifiering kan du komma åt dina konton säkrare, särskilt när du visar känslig information. Eftersom lösenord kan glömmas, stjälas eller komprometteras är tvåfaktorsverifiering ett ytterligare steg som hjälper dig att skydda ditt konto genom att göra det svårare för andra att logga in.
 
@@ -37,13 +34,11 @@ Du kan använda Microsoft Authenticator-appen på flera sätt, däribland följa
 > [!Important]
 > Microsoft Authenticator-appen fungerar med ett konto som använder tvåstegsverifiering och som stöder tidsbaserad eng ång slö sen ord (TOTP mobilapp).
 >
-> Din organisation kan kräva att du använder en autentiseringsapp för att logga in och komma åt organisationens data och dokument. Även om ditt användarnamn kanske visas i appen är kontot inte konfigurerat så för att fungera som verifieringsmetod förrän du har slutfört registreringsprocessen. Mer information finns i [Lägga till ditt arbets- eller skolkonto](user-help-auth-app-add-work-school-account.md).
-> 
-> Om du har problem med att logga in på ditt konto kan du läsa [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) (När du inte kan logga in på ditt Microsoft-konto) om du behöver hjälp. Få mer information om vad du gör när du får meddelandet [”Det Microsoft-kontot finns inte”](https://support.microsoft.com/help/13811) när du försöker logga in på ditt Microsoft-konto.
+>Den här artikeln är avsedd för användare som försöker hämta och använda Microsoft Authenticator-appen som en säkerhets verifierings metod. Om du är administratör för att söka efter information om hur du aktiverar lösen ords lös inloggning med hjälp av Authenticator-appen för dina anställda och andra användnings områden, se [Aktivera lösen ords lös inloggning med Microsoft Authenticator-appen (för hands version)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone).
 
 ## <a name="terminology"></a>Terminologi
 
-| Term|Beskrivning|
+| Period|Beskrivning|
 | ----|-----------|
 | Tvåfaktorsverifiering | En verifieringsprocess som kräver att du endast använder två typer av verifieringsinformation, t.ex. ett lösenord och en PIN-kod. Microsoft Authenticator-appen har stöd för både tvåfaktorsverifiering som är standard och lösenordsfri inloggning. |
 | Multi-Factor Authentication (MFA) | All tvåfaktorsverifiering är multifaktorautentisering, och kräver att du använder *minst* två typer av information för verifiering, baserat på din organisations behov. |

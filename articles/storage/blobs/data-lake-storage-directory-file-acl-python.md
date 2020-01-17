@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: dbfee5d897d54d68ea6471f0001793a905c95e62
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: cb2e1c16c1419d9925bd837bb4e12119f08d56c4
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835059"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119541"
 ---
 # <a name="use-python-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Använd python för att hantera kataloger, filer och ACL: er i Azure Data Lake Storage Gen2 (för hands version)
 
@@ -64,7 +64,7 @@ except Exception as e:
  
 - Ersätt platshållarvärdet `storage_account_name` med namnet på ditt lagringskonto.
 
-- Ersätt `storage-account-key` placeholder-värdet med lagrings kontots åtkomst nyckel.
+- Ersätt `storage_account_key` placeholder-värdet med lagrings kontots åtkomst nyckel.
 
 ## <a name="create-a-file-system"></a>Skapa ett filsystem
 

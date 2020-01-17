@@ -4,14 +4,14 @@ description: Så här lägger du till ett Server dels lagrings system i ditt AVE
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: 3f7d7b5091b6439f17455b5ea66a3a23ebf79811
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfffef90201ba4bbb5a912df6101e8338012df44
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416437"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153997"
 ---
 # <a name="configure-storage"></a>Konfigurera lagring
 
@@ -69,7 +69,7 @@ Fortsätt sedan att [skapa en Knut](#create-a-junction)punkt.
 
 ### <a name="azure-blob-storage-cloud-core-filer"></a>Azure Blob Storage Cloud core-filer
 
-Om du vill använda Azure Blob Storage som vFXT-klusters Server dels lagring, behöver du en tom behållare för att lägga till som en kärn post.
+Om du vill använda Azure Blob Storage som vFXT-klusters backend-lagring behöver du en tom behållare för att lägga till som en kärn post.
 
 Följande uppgifter krävs för att lägga till Blob Storage i klustret:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
-ms.openlocfilehash: d98efd46e3c2fbc11be2cde6a0c4f2b37acc8d7c
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ffa99c6ba0157eca133dc36ecbbb159b076b8bc0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934005"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155561"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>Information om icke-godkända distributioner
 
@@ -43,7 +43,7 @@ Den här artikeln fokuserar på allmän vägledning för att köra din Linux-dis
 
 ## <a name="general-linux-installation-notes"></a>Allmän Linux-installation anmärkningar
 * Formatet för Hyper-V virtuell hård disk (VHDX) stöds inte i Azure, endast *fast virtuell*hård disk.  Du kan konvertera disken till VHD-format med hjälp av Hyper-V Manager eller cmdleten [Convert-VHD](https://docs.microsoft.com/powershell/module/hyper-v/convert-vhd) . Om du använder VirtualBox väljer du **fast storlek** i stället för standard (dynamiskt allokerat) när du skapar disken.
-* Azure har endast stöd för virtuella datorer i generation 1. Du kan konvertera en virtuell dator av första generationen från VHDX till VHD-filformat och från dynamiskt expandera till en fast storleks disk. Du kan inte ändra den virtuella datorns generation. Mer information finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)
+* Azure stöder gen1 (BIOS boot) & Gen2 (UEFI boot) virtuella datorer.
 * Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB.
 * När du installerar Linux-systemet rekommenderar vi att du använder standardpartitioner istället för LVM (Logical Volume Manager) som är standard för många installationer. Genom att använda standardpartitioner undviker du LVM namn konflikter med klonade virtuella datorer, särskilt om en OS-disk någonsin är ansluten till en annan identisk virtuell dator för fel sökning. [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) eller [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) kan användas på data diskar.
 * Kernel-stöd för att montera UDF-filsystem är nödvändigt. Vid första starten av Azure skickas etablerings konfigurationen till den virtuella Linux-datorn med hjälp av UDF-formaterade medier som är kopplade till gästen. Azure Linux-agenten måste montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.

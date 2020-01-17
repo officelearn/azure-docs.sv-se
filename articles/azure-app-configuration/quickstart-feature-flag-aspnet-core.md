@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 1b36bc1b1f28c687450acad4cc61fa5442cff082
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: e91de93c34189cf5506ebf93689a5a9b5c567394
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184990"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121404"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabb start: Lägg till funktions flaggor i en ASP.NET Core app
 
@@ -27,10 +27,10 @@ I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core
 
 Biblioteken för .NET Core Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek skapas ovanpå konfigurations systemet för .NET Core. De integreras sömlöst med app-konfigurationen via sin .NET Core-Konfigurationsprovider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-- [.Net Core SDK](https://dotnet.microsoft.com/download).
+- [.NET Core SDK](https://dotnet.microsoft.com/download).
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett konfigurations Arkiv för appen
 
@@ -38,7 +38,7 @@ Biblioteken för .NET Core Feature Management utökar ramverket med omfattande s
 
 6. Välj **funktions hanteraren** >  **+ Lägg** till för att lägga till följande funktions flaggor:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | Av |
 
@@ -84,8 +84,8 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` och `Microsoft.FeatureManagement.AspNetCore` NuGet-paket genom att köra följande kommandon:
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. Kör följande kommando för att återställa paket för ditt projekt:
@@ -107,12 +107,6 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     Du använder bara Secret Manager för att testa webbappen lokalt. När du distribuerar appen till [Azure App Service](https://azure.microsoft.com/services/app-service)kan du till exempel använda en program inställning med namnet **anslutnings strängar** i App Service i stället för att använda Secret Manager för att lagra anslutnings strängen.
 
     Du kan komma åt den här hemligheten med appens Konfigurations-API. Ett kolon (:) fungerar i konfigurations namnet med appens Konfigurations-API på alla plattformar som stöds. Se [konfiguration efter miljö](https://docs.microsoft.com/aspnet/core/fundamentals/configuration).
-
-1. Öppna *program.cs*och Lägg till en referens till .net Core app Configuration-providern:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    ```
 
 1. Uppdatera `CreateWebHostBuilder`-metoden för att använda app-konfiguration genom att anropa `config.AddAzureAppConfiguration()`-metoden.
     
@@ -282,11 +276,11 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+1. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 1. Välj **funktions hanteraren**och ändra status för **beta** nyckeln till **på**:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | På |
 

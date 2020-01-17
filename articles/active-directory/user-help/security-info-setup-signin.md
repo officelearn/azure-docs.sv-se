@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278985"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156122"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>Konfigurera din säkerhets information (för hands version) från en inloggnings tolk
 
@@ -26,6 +26,19 @@ Du kan följa de här stegen om du uppmanas att konfigurera säkerhetsinformatio
 Det här meddelandet visas endast om du inte har konfigurerat den säkerhetsinformation som krävs av din organisation. Om du tidigare har konfigurerat din säkerhetsinformation men vill göra ändringar kan du följa stegen i de olika metodbaserade instruktionsartiklarna. Mer information finns i [översikten om att lägga till eller uppdatera säkerhetsinformation](security-info-add-update-methods-overview.md).
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## <a name="security-verification-versus-password-reset-authentication"></a>Säkerhets verifiering jämfört med autentisering av lösen ords återställning
+
+Metoder för säkerhets information används för både dubbelriktad säkerhets verifiering och för lösen ords återställning. Dock kan inte alla metoder användas för båda.
+
+| Metod | Används för |
+| ------ | -------- |
+| Autentiseringsapp | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| SMS | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Telefonsamtal | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| Säkerhets nyckel | Tvåfaktorsverifiering och autentisering med återställning av lösenord. |
+| E-postkonto | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
+| Säkerhetsfrågor | Endast autentisering med återställning av lösenord. Du måste välja en annan metod för tvåfaktorsverifiering. |
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>Logga in på ditt arbets- eller skolkonto
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 952a94797e01a3931fdd151461250af0c2590c11
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928602"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120549"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Mobile Apps bindningar för Azure Functions 
 
@@ -136,9 +136,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **typ**|| Måste anges till "mobileTable"|
-| **riktning**||Måste anges till "i"|
-| **Namn**|| Namnet på Indataparametern i Function-signaturen.|
+| **typ**| Ej tillämpligt | Måste anges till "mobileTable"|
+| **riktning**| Ej tillämpligt |Måste anges till "i"|
+| **Namn**| Ej tillämpligt | Namnet på Indataparametern i Function-signaturen.|
 |**tableName** |**TableName**|Namn på den mobila appens data tabell|
 | **ID**| **Id** | Identifieraren för den post som ska hämtas. Kan vara statisk eller baserad på den utlösare som anropar funktionen. Om du till exempel använder en Queue-utlösare för din funktion använder `"id": "{queueTrigger}"` strängvärdet i Queue-meddelandet som post-ID för hämtning.|
 |**anslutning**|**Anslutning**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection`-egenskapen i den angivna bindningen. URL: en ser ut som `http://<appname>.azurewebsites.net`.
@@ -294,9 +294,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-| **typ**|| Måste anges till "mobileTable"|
-| **riktning**||Måste anges till "out"|
-| **Namn**|| Namnet på Utdataparametern i Function Signature.|
+| **typ**| Ej tillämpligt | Måste anges till "mobileTable"|
+| **riktning**| Ej tillämpligt |Måste anges till "out"|
+| **Namn**| Ej tillämpligt | Namnet på Utdataparametern i Function Signature.|
 |**tableName** |**TableName**|Namn på den mobila appens data tabell|
 |**anslutning**|**MobileAppUriSetting**|Namnet på en app-inställning som har appens URL för mobilapp. Funktionen använder denna URL för att skapa nödvändiga REST-åtgärder mot mobilappen. Skapa en app-inställning i din Function-app som innehåller webbappens URL och ange sedan namnet på appens inställning i `connection`-egenskapen i den angivna bindningen. URL: en ser ut som `http://<appname>.azurewebsites.net`.
 |**apiKey**|**ApiKeySetting**|Namnet på en app-inställning som har din Mobilapps API-nyckel. Ange API-nyckeln om du [implementerar en API-nyckel i Node. js-appen för mobilapp](https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/api-key)eller [implementerar en API-nyckel i Server delen för .net-mobilappar](https://github.com/Azure/azure-mobile-apps-net-server/wiki/Implementing-Application-Key). Om du vill ange nyckeln skapar du en app-inställning i din Function-app som innehåller API-nyckeln och lägger sedan till egenskapen `apiKey` i din indatamask med namnet på appens inställning. |

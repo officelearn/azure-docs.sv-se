@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 6b23ae21366699162b900ae420afae640aa20613
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 4c2985f35621ff3120217cbe38705ad2c228d6f7
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921463"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122108"
 ---
 # <a name="how-to-use-batch-transcription"></a>Använda batch-avskriftering
 
@@ -88,18 +88,13 @@ Konfigurations parametrar tillhandahålls som JSON:
 Använd dessa valfria egenskaper för att konfigurera avskrifter:
 
 | Parameter | Beskrivning |
-|-----------|------------|
-|`ProfanityFilterMode`|Anger hur svordomar ska hanteras i igenkännings resultat
-||**`Masked`** -standard. Ersätter svordomar med asterisker<br>`None`-inaktiverar filtrering av svordomar<br>`Removed`-tar bort alla svordomar från resultatet<br>`Tags` – lägger till svordoms-Taggar
-|`PunctuationMode`|Anger om interpunktion ska hanteras i igenkännings resultat
-||`Automatic` – tjänsten infogar skiljetecken<br>`Dictated`-dikt (talade) interpunktion<br>**`DictatedAndAutomatic`** -standard. Dikterad och automatisk interpunktion<br>`None`-inaktiverar interpunktion
-|`AddWordLevelTimestamps`|Anger om Word-nivåns tidsstämplar ska läggas till i utdata
-||`True` – aktiverar tidsstämplar på Word-nivå<br>**`False`** -standard. Inaktivera tidsstämplar på Word-nivå
-|`AddSentiment`|Anger om sentiment-analys läggs till i uttryck
-||`True` – aktiverar sentiment per uttryck<br>**`False`** -standard. Inaktivera sentiment
-|`AddDiarization`|Anger om diarization analys utförs. Om `true`är indata förväntas vara mono kanal ljud som innehåller högst två röster. `AddWordLevelTimestamps` måste anges till `true`
-||`True` – aktiverar diarization<br>**`False`** -standard. Inaktivera diarization
-|`TranscriptionResultsContainerUrl`|Valfri SAS-token till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren
+|-----------|-------------|
+| `ProfanityFilterMode` | Anger hur du hanterar svordomar i igenkänningsresultat. Godkända värden är `None` som inaktiverar svordomar filtrering, `Masked` som ersätter svordomar med asterisker `Removed` som tar bort alla svordomar från resultatet, eller `Tags` som lägger till ”svordomar”-taggar. Standardinställningen är `Masked`. |
+| `PunctuationMode` | Anger hur du hanterar skiljetecken i igenkänningsresultat. Godkända värden är `None` som inaktiverar skiljetecken, `Dictated` vilket medför att explicit skiljetecken `Automatic` som gör att avkodaren handlar om skiljetecken, eller `DictatedAndAutomatic` vilket medför processens skiljetecken eller automatiskt. |
+| `AddWordLevelTimestamps` | Anger om Word-nivåns tidsstämplar ska läggas till i utdata. Godkända värden är `true` som gör att tidsstämplar på Word-nivå och `false` (standardvärdet) inaktive ras. |
+| `AddSentiment` | Anger att sentiment ska läggas till i uttryck. Godkända värden är `true` som aktiverar sentiment per uttryck och `false` (standardvärdet) för att inaktivera det. |
+| `AddDiarization` | Anger att diarization-analys ska utföras på indatamängden som förväntas vara en mono kanal som innehåller två röster. Godkända värden är `true` som gör det möjligt att inaktivera diarization och `false` (standardvärdet). Det kräver också att `AddWordLevelTimestamps` anges till sant.|
+|`TranscriptionResultsContainerUrl`|Valfri SAS-token till en skrivbar behållare i Azure. Resultatet kommer att lagras i den här behållaren.
 
 ### <a name="storage"></a>Lagring
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/17/2019
 ms.author: mimckitt
-ms.openlocfilehash: 6adb800b0c56866aa76f98fc078fdc3d8f1ffbff
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 75b06145ce5328f02cf384753745ef4866c63c64
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941427"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155408"
 ---
 # <a name="prepare-a-red-hat-based-virtual-machine-for-azure"></a>Förbered en Red Hat-baserad virtuell dator för Azure
 I den här artikeln får du lära dig hur du förbereder en virtuell Red Hat Enterprise Linux-dator (RHEL) för användning i Azure. De versioner av RHEL som beskrivs i den här artikeln är 6,7 + och 7.1 +. De flesta paneler för förberedelse som beskrivs i den här artikeln är Hyper-V, kernel-baserad virtuell dator (KVM) och VMware. Mer information om krav för berättigande för deltagande i Red Hats moln åtkomst program finns i [Red Hats webbplats för moln åtkomst](https://www.redhat.com/en/technologies/cloud-computing/cloud-access) och [köra RHEL på Azure](https://access.redhat.com/ecosystem/ccsp/microsoft-azure). Olika sätt att automatisera skapandet av RHEL-avbildningar finns i [Azure Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
@@ -32,7 +32,7 @@ Det här avsnittet förutsätter att du redan har fått en ISO-fil från Red Hat
 **Installations information för RHEL**
 
 * Azure har inte stöd för VHDX-formatet. Azure stöder endast fast virtuell hård disk. Du kan använda Hyper-V Manager för att konvertera disken till VHD-format, eller så kan du använda cmdleten Convert-VHD. Om du använder VirtualBox väljer du **fast storlek** i stället för standard alternativet dynamiskt allokerat när du skapar disken.
-* Azure har endast stöd för virtuella datorer i generation 1. Du kan konvertera en virtuell dator av första generationen från VHDX till VHD-filformat och från dynamiskt expandera till en disk med fast storlek. Du kan inte ändra den virtuella datorns generation. Mer information finns i [ska jag skapa en virtuell dator i generation 1 eller 2 i Hyper-V?](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
+* Azure stöder gen1 (BIOS boot) & Gen2 (UEFI boot) virtuella datorer.
 * Den maximala storlek som tillåts för den virtuella hård disken är 1 023 GB.
 * Logical Volume Manager (LVM) stöds och kan användas på operativ system disken eller data diskarna på virtuella Azure-datorer. I allmänhet rekommenderas det dock att använda standardpartitioner på OS-disken i stället för LVM. Den här övningen undviker LVM namn konflikter med klonade virtuella datorer, särskilt om du skulle behöva koppla en operativ system disk till en annan identisk virtuell dator för fel sökning. Se även [LVM](configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) och [RAID](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) -dokumentation.
 * Kernel-stöd för montering av UDF-filsystem (Universal disk format) krävs. Vid den första starten av Azure skickar det UDF-formaterade mediet som är kopplat till gästen etablerings konfigurationen till den virtuella Linux-datorn. Azure Linux-agenten måste kunna montera UDF-filsystemet för att läsa konfigurationen och etablera den virtuella datorn.

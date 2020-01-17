@@ -8,14 +8,14 @@ editor: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 01/16/2020
 ms.author: jingwang
-ms.openlocfilehash: ede1e56384c75c64765962b7db196973a30c605b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 45699680ad2003c034bce588857f8b102a0b6d26
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928454"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121802"
 ---
 # <a name="managed-identity-for-data-factory"></a>Hanterad identitet för Data Factory
 
@@ -155,17 +155,19 @@ Du kan hämta den hanterade identiteten från Azure Portal eller program mässig
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Hämta hanterad identitet med hjälp av Azure Portal
 
-Du hittar den hanterade identitets informationen från Azure Portal-> Data Factory-> Egenskaper:
+Du kan hitta informationen om hanterad identitet från Azure Portal-> Data Factory-> Egenskaper.
 
 - Objekt-ID för hanterad identitet
 - Hanterad identitet klient
-- **ID för hanterad identitets program** > Kopiera det här värdet
+- ID för hanterad identitets program
 
-![Hämta hanterad identitet](media/data-factory-service-identity/retrieve-service-identity-portal.png)
+Den hanterade identitets informationen visas också när du skapar en länkad tjänst som stöder autentisering med hanterad identitet, till exempel Azure Blob, Azure Data Lake Storage, Azure Key Vault osv.
+
+När du beviljar behörighet använder du objekt-ID eller data fabriks namn (som hanterad identitet) för att hitta den här identiteten.
 
 ### <a name="retrieve-managed-identity-using-powershell"></a>Hämta hanterad identitet med PowerShell
 
-Det hanterade identitetens huvud-ID och klient-ID kommer att returneras när du hämtar en data fabrik enligt följande:
+Det hanterade identitetens huvud-ID och klient-ID returneras när du hämtar en data fabrik enligt följande. Använd **PrincipalId** för att bevilja åtkomst:
 
 ```powershell
 PS C:\WINDOWS\system32> (Get-AzDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
@@ -175,7 +177,7 @@ PrincipalId                          TenantId
 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
 ```
 
-Kopiera huvudobjekts-ID: t och kör sedan följande Azure Active Directory kommandot med huvud-ID som parameter för att hämta **ApplicationId**, som du använder för att bevilja åtkomst:
+Du kan hämta program-ID genom att kopiera ovanstående huvud-ID, och sedan köra det Azure Active Directory kommandot med huvud-ID som parameter.
 
 ```powershell
 PS C:\WINDOWS\system32> Get-AzADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc

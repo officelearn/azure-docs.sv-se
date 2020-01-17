@@ -4,172 +4,423 @@ description: Lär dig att identifiera, diagnostisera och felsöka Azure Cosmos D
 author: ginamr
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 07/10/2019
+ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 1859fa8f71b5c4c44d6e5da1b6a36ca9d9399516
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c004031ec40bedcf83d77d08a34ce1d0e28fecd8
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444729"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76157038"
 ---
-# <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Felsöka prestanda för frågor för Azure Cosmos DB
-Den här artikeln beskriver hur du identifierar, diagnostiserar och felsöker Azure Cosmos DB problem med SQL-frågor. Följ fel söknings stegen nedan för att uppnå optimala prestanda för Azure Cosmos DB frågor. 
+# <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
-## <a name="collocate-clients-in-same-azure-region"></a>Samordna-klienter i samma Azure-region 
-Den lägsta möjliga fördröjningen uppnås genom att se till att det anropande programmet finns i samma Azure-region som den etablerade Azure Cosmos DB slut punkten. En lista över tillgängliga regioner finns i artikeln [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/#services) .
+Den här artikeln vägleder dig genom en allmänt rekommenderad metod för fel sökning av frågor i Azure Cosmos DB. De steg som beskrivs i det här dokumentet bör inte betraktas som "fångst alla" för potentiella frågor, vi har inkluderat de vanligaste prestanda tipsen här. Du bör använda det här dokumentet som en start plats för fel sökning av långsamma eller kostsamma frågor i Azure Cosmos DB s SQL-API. Du kan också använda [diagnostikloggar](cosmosdb-monitor-resource-logs.md) för att identifiera frågor som är långsamma eller som använder stora mängder data flöden.
 
-## <a name="check-consistency-level"></a>Kontrol lera konsekvens nivå
-[Konsekvens nivån](consistency-levels.md) kan påverka prestanda och kostnader. Kontrol lera att konsekvens nivån är lämplig för det aktuella scenariot. Mer information finns i [välja konsekvens nivå](consistency-levels-choosing.md).
+Du kan i stort sett kategorisera optimeringar av frågor i Azure Cosmos DB: optimeringar som minskar priset för begär ande enhet (RU) för den fråga och de optimeringar som bara minskar svars tiden. Genom att minska antalet RU-kostnader för en fråga kommer du snart att minska svars tiden.
 
-## <a name="log-the-executed-sql-query"></a>Logga den exekverade SQL-frågan 
+I det här dokumentet används exempel som kan återskapas med hjälp av [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
 
-Du kan logga den exekverade SQL-frågan i ett lagrings konto eller tabellen Diagnostic Log. [SQL Query-loggar via diagnostikloggar](cosmosdb-monitor-resource-logs.md) gör att du kan logga fördunklade-frågan i valfritt lagrings konto. På så sätt kan du titta på loggarna och Sök frågan som använder högre ru: er. Du kan senare använda aktivitets-ID: t för att matcha den faktiska frågan i QueryRuntimeStatistics. Frågan är fördunklade för säkerhets syfte och parametrarna för Frågeparametern, och deras värden i WHERE-satser skiljer sig från faktiska namn och värden. Du kan använda loggning till lagrings kontot för att behålla långsiktig kvarhållning av de exekverade frågorna.  
+### <a name="obtaining-query-metrics"></a>Hämta frågans mått:
 
-## <a name="log-query-metrics"></a>Logga frågornas mått
+När du optimerar en fråga i Azure Cosmos DB, är det första steget alltid att [Hämta frågans mått](profile-sql-api-query.md) för frågan. De är också tillgängliga via Azure Portal som visas nedan:
 
-Använd `QueryMetrics` för att felsöka långsamma eller dyra frågor. 
+[![Hämta frågans mått](./media/troubleshoot-query-performance/obtain-query-metrics.png)](./media/troubleshoot-query-performance/obtain-query-metrics.png#lightbox)
 
-  * Ange `FeedOptions.PopulateQueryMetrics = true` att `QueryMetrics` i svaret.
-  * `QueryMetrics`-klassen har en överlagrad `.ToString()`-funktion som kan anropas för att hämta sträng representationen av `QueryMetrics`. 
-  * Måtten kan användas för att härleda följande insikter, bland annat: 
-  
-      * Om en enskild komponent i frågans pipeline tog onormalt lång tid att slutföra (i antal hundratals millisekunder eller mer). 
+När du har hämtat frågans mått kan du jämföra antalet hämtade dokument med antalet utdata i frågan. Använd den här jämförelsen för att identifiera relevanta avsnitt som ska referera till nedan.
 
-          * Titta på `TotalExecutionTime`.
-          * Om `TotalExecutionTime` av frågan är mindre än slut tiden till slut punkts körningen, kommer tiden att läggas på klient sidan eller nätverket. Kontrol lera att klienten och Azure-regionen är samordnad.
-      
-      * Om det finns falska positiva identifieringar i dokumenten som analyseras (om antalet utdata är mycket mindre än antalet hämtade dokument).  
+Antalet hämtade dokument är antalet dokument som frågan behövde läsa in. Antalet utgående dokument är antalet dokument som behövdes för frågeresultatet. Om antalet hämtade dokument är betydligt högre än antalet utgående dokument, fanns det minst en del av frågan som inte kunde använda indexet och som krävs för att göra en genomsökning.
 
-          * Titta på `Index Utilization`.
-          * `Index Utilization` = (antal returnerade dokument/antal inlästa dokument)
-          * Om antalet returnerade dokument är mycket mindre än det antal som läses in, analyseras falska positiva identifieringar.
-          * Begränsa antalet dokument som hämtas med snävare filter.  
+Du kan referera till avsnittet nedan för att förstå relevanta optimeringar av frågor för ditt scenario:
 
-      * Hur enskilda svar på resan (se `Partition Execution Timeline` från sträng representationen av `QueryMetrics`). 
-      * Anger om frågan har förbrukat hög begär ande avgift. 
+### <a name="querys-ru-charge-is-too-high"></a>Frågans RU-avgift är för hög
 
-Mer information finns i artikeln om [hur du hämtar SQL-frågor om körnings statistik](profile-sql-api-query.md) .
-      
-## <a name="tune-query-feed-options-parameters"></a>Finjustera parametrar för feedalternativ 
-Frågeprestanda kan finjusteras via parametrarna för [feedalternativ](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) för begäran. Prova att ange följande alternativ:
+#### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>Antalet hämtade dokument är betydligt större än antalet utgående dokument
 
-  * Ange `MaxDegreeOfParallelism` till-1 först och jämför sedan prestanda över olika värden. 
-  * Ange `MaxBufferedItemCount` till-1 först och jämför sedan prestanda över olika värden. 
-  * Ange `MaxItemCount` till-1.
+- [Se till att indexerings principen inkluderar nödvändiga sökvägar](#ensure-that-the-indexing-policy-includes-necessary-paths)
 
-När du jämför prestanda för olika värden kan du till exempel prova 2, 4, 8, 16 och andra värden.
- 
-## <a name="read-all-results-from-continuations"></a>Läsa alla resultat från fortsättningar
-Om du tror att du inte får alla resultat ser du till att tömma hela fortsättningen. Du ska med andra ord fortsätta att läsa resultat så länge det finns kvar dokument att returnera för fortsättningstoken.
+- [Förstå vilka system funktioner som använder indexet](#understand-which-system-functions-utilize-the-index)
 
-Du kan göra en fullständig tömning på följande sätt:
+- [Optimera frågor med både ett filter och en ORDER BY-sats](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
 
-  * Fortsätt bearbetningen av resultaten medan fortsättningen inte är tom.
-  * Fortsätt bearbetningen medan frågan har fler resultat. 
+- [Optimera frågor som använder DISTINCT](#optimize-queries-that-use-distinct)
 
-    ```csharp
-    // using AsDocumentQuery you get access to whether or not the query HasMoreResults
-    // If it does, just call ExecuteNextAsync until there are no more results
-    // No need to supply a continuation token here as the server keeps track of progress
-    var query = client.CreateDocumentQuery<Family>(collectionLink, options).AsDocumentQuery();
-    while (query.HasMoreResults)
-    {
-        foreach (Family family in await query.ExecuteNextAsync())
+- [Optimera KOPPLINGs uttryck med hjälp av en under fråga](#optimize-join-expressions-by-using-a-subquery)
+
+<br>
+
+#### <a name="retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Antalet hämtade dokument är ungefär lika med antalet utgående dokument
+
+- [Undvik kors partitions frågor](#avoid-cross-partition-queries)
+
+- [Optimera frågor som har ett filter på flera egenskaper](#optimize-queries-that-have-a-filter-on-multiple-properties)
+
+- [Optimera frågor med både ett filter och en ORDER BY-sats](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+
+<br>
+
+### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>Frågans RU-avgift är acceptabel, men fördröjningen är fortfarande för hög
+
+- [Förbättra närheten mellan appen och Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+
+- [Öka det etablerade data flödet](#increasing-provisioned-throughput)
+
+- [Ökande MaxConcurrency](#increasing-maxconcurrency)
+
+- [Ökande MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+
+## <a name="optimizations-for-queries-where-retrieved-document-count-significantly-exceeds-output-document-count"></a>Optimeringar för frågor där hämtade dokument räknas avsevärt överskrider antalet utdata för dokument:
+
+ Antalet hämtade dokument är antalet dokument som frågan behövde läsa in. Antalet utgående dokument är antalet dokument som behövdes för frågeresultatet. Om antalet hämtade dokument är betydligt högre än antalet utgående dokument, fanns det minst en del av frågan som inte kunde använda indexet och som krävs för att göra en genomsökning.
+
+ Nedan visas ett exempel på en genomsöknings fråga som inte helt hanterades av indexet.
+
+Fråga:
+
+ ```sql
+SELECT VALUE c.description
+FROM c
+WHERE UPPER(c.description) = "BABYFOOD, DESSERT, FRUIT DESSERT, WITHOUT ASCORBIC ACID, JUNIOR"
+ ```
+
+Fråga efter mått:
+
+```
+Retrieved Document Count                 :          60,951
+Retrieved Document Size                  :     399,998,938 bytes
+Output Document Count                    :               7
+Output Document Size                     :             510 bytes
+Index Utilization                        :            0.00 %
+Total Query Execution Time               :        4,500.34 milliseconds
+  Query Preparation Times
+    Query Compilation Time               :            0.09 milliseconds
+    Logical Plan Build Time              :            0.05 milliseconds
+    Physical Plan Build Time             :            0.04 milliseconds
+    Query Optimization Time              :            0.01 milliseconds
+  Index Lookup Time                      :            0.01 milliseconds
+  Document Load Time                     :        4,177.66 milliseconds
+  Runtime Execution Times
+    Query Engine Times                   :          322.16 milliseconds
+    System Function Execution Time       :           85.74 milliseconds
+    User-defined Function Execution Time :            0.00 milliseconds
+  Document Write Time                    :            0.01 milliseconds
+Client Side Metrics
+  Retry Count                            :               0
+  Request Charge                         :        4,059.95 RUs
+```
+
+Antalet hämtade dokument (60 951) är betydligt större än antalet utdata per dokument (7), så den här frågan krävs för att göra en genomsökning. I det här fallet använder systemfunktionen [()](sql-query-upper.md) inte indexet.
+
+## <a name="ensure-that-the-indexing-policy-includes-necessary-paths"></a>Se till att indexerings principen inkluderar nödvändiga sökvägar
+
+Indexerings principen ska omfatta egenskaper som ingår i `WHERE`-satser, `ORDER BY`s satser, `JOIN`och de flesta systemfunktioner. Sökvägen som anges i index principen ska matcha (Skift läges känslig) egenskapen i JSON-dokumenten.
+
+Om vi kör en enkel fråga på [näringsvärdes](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen, ser vi en mycket lägre ru-avgift när egenskapen i `WHERE`-satsen indexeras.
+
+### <a name="original"></a>originalspråket
+
+Fråga:
+
+```sql
+SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
+```
+
+Indexerings princip:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
         {
-            families.Add(family);
+            "path": "/*"
         }
+    ],
+    "excludedPaths": [
+        {
+            "path": "/description/*"
+        }
+    ]
+}
+```
+
+**Ru-avgift:** 409,51 ru ' s
+
+### <a name="optimized"></a>Optimerad
+
+Indexerings princip har uppdaterats:
+
+```json
+{
+    "indexingMode": "consistent",
+    "automatic": true,
+    "includedPaths": [
+        {
+            "path": "/*"
+        }
+    ],
+    "excludedPaths": []
+}
+```
+
+**Ru-avgift:** 2,98 ru ' s
+
+Du kan när som helst lägga till ytterligare egenskaper till indexerings principen, utan påverkan på Skriv tillgänglighet eller prestanda. Om du lägger till en ny egenskap i indexet används omedelbart det nya tillgängliga indexet i frågor som använder den här egenskapen. Frågan kommer att använda det nya indexet när den skapas. Resultatet blir att frågeresultaten kan vara inkonsekventa när index återställningen pågår. Om en ny egenskap är indexerad, påverkas inte frågor som bara använder befintliga index när indexet skapas på nytt. Du kan [spåra förloppet för index omvandling](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3).
+
+## <a name="understand-which-system-functions-utilize-the-index"></a>Förstå vilka system funktioner som använder indexet
+
+Om uttrycket kan översättas till ett intervall med strängvärden kan det använda indexet. Annars kan det inte göra det.
+
+Här är en lista med strängfunktioner som kan använda indexet:
+
+- STARTSWITH(str_expr, str_expr)
+- LEFT(str_expr, num_expr) = str_expr
+- SUBSTRING(str_expr, num_expr, num_expr) = str_expr, men endast det första num_expr är 0
+
+Några vanliga system funktioner som inte använder indexet och måste läsa in varje dokument är nedan:
+
+| **System funktion**                     | **Idéer för optimering**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| CONTAINS                                | Använd Azure Search för full texts ökning                        |
+| ÖVRE/NEDRE                             | I stället för att använda systemfunktionen för att normalisera data varje gång för jämförelser kan du i stället normalisera höljet vid infogning. Sedan blir en fråga som ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` bara ```SELECT * FROM c WHERE c.name = 'BOB'``` |
+| Matematiska funktioner (icke-mängder) | Om du ofta behöver beräkna ett värde i din fråga bör du lagra det här värdet som en egenskap i JSON-dokumentet. |
+
+------
+
+Andra delar av frågan kan fortfarande använda indexet trots att systemet inte använder indexet.
+
+## <a name="optimize-queries-with-both-a-filter-and-an-order-by-clause"></a>Optimera frågor med både ett filter och en ORDER BY-sats
+
+Frågor med ett filter och en `ORDER BY`-sats använder normalt ett intervall index, men de är mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i `ORDER BY`-satsen. Den här frågan kommer att se till att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
+
+### <a name="original"></a>originalspråket
+
+Fråga:
+
+```sql
+SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c._ts ASC
+```
+
+Indexerings princip:
+
+```json
+{
+
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[]
+}
+```
+
+**Ru-avgift:** 44,28 ru ' s
+
+### <a name="optimized"></a>Optimerad
+
+Uppdaterad fråga (inkluderar båda egenskaperna i `ORDER BY`-satsen):
+
+```sql
+SELECT * FROM c 
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” 
+ORDER BY c.foodGroup, c._ts ASC
+```
+
+Indexerings princip har uppdaterats:
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/foodGroup",
+                    "order":"ascending"
+        },
+                {  
+                    "path":"/_ts",
+                    "order":"ascending"
+                }
+            ]
+        ]
     }
-    ```
 
-## <a name="choose-system-functions-that-utilize-index"></a>Välja systemfunktioner som använder index
-Om uttrycket kan översättas till ett intervall med strängvärden kan det använda indexet. Annars kan det inte göra det. 
+```
 
-Här är en lista med strängfunktioner som kan använda indexet: 
-    
-  * STARTSWITH(str_expr, str_expr) 
-  * LEFT(str_expr, num_expr) = str_expr 
-  * SUBSTRING(str_expr, num_expr, num_expr) = str_expr, men endast det första num_expr är 0 
-    
-    Här följer några exempel på frågor: 
-    
-    ```sql
+**Ru-avgift:** 8,86 ru ' s
 
-    -- If there is a range index on r.name, STARTSWITH will utilize the index while ENDSWITH won't 
-    SELECT * 
-    FROM c 
-    WHERE STARTSWITH(c.name, 'J') AND ENDSWITH(c.name, 'n')
+## <a name="optimize-queries-that-use-distinct"></a>Optimera frågor som använder DISTINCT
 
-    ```
-    
-    ```sql
+Det kommer att vara mer effektivt att hitta `DISTINCT`s uppsättningen av resultat om de duplicerade resultaten är i följd. Genom att lägga till en `ORDER BY`-sats i frågan och ett sammansatt index ser du till att duplicerade resultat sker i följd. Om du behöver `ORDER BY` flera egenskaper lägger du till ett sammansatt index. Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
 
-    -- LEFT will utilize the index while RIGHT won't 
-    SELECT * 
-    FROM c 
-    WHERE LEFT(c.name, 2) = 'Jo' AND RIGHT(c.name, 2) = 'hn'
+### <a name="original"></a>originalspråket
 
-    ```
+Fråga:
 
-  * Undvik system funktioner i filtret (eller WHERE-satsen) som inte hanteras av indexet. Några exempel på sådana system funktioner är innehåller, övre, lägre.
-  * Om det är möjligt kan du skriva frågor för att använda ett filter på partitionsnyckeln.
-  * För att få genomföra frågor undviker du att anropa övre/nedre i filtret. Normalisera i stället versaler med värden vid infogning. För varje värde infogar du värdet med önskat Skift läge, eller infogar både det ursprungliga värdet och värdet med det önskade Skift läget. 
+```sql
+SELECT DISTINCT c.foodGroup 
+FROM c
+```
 
-    Ett exempel:
-    
-    ```sql
+**Ru-avgift:** 32,39 ru ' s
 
-    SELECT * FROM c WHERE UPPER(c.name) = "JOE"
+### <a name="optimized"></a>Optimerad
 
-    ```
-    
-    I det här fallet lagrar "Johan" "Johan" eller "Johan" det ursprungliga värdet och "Johan". 
-    
-    Om JSON-datahöljet är normaliserat blir frågan:
-    
-    ```sql
+Uppdaterad fråga:
 
-    SELECT * FROM c WHERE c.name = "JOE"
+```sql
+SELECT DISTINCT c.foodGroup 
+FROM c 
+ORDER BY c.foodGroup
+```
 
-    ```
+**Ru-avgift:** 3,38 ru ' s
 
-    Den andra frågan är mer utförd eftersom den inte kräver omvandling av varje värde för att kunna jämföra värdena med "Johan".
+## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimera KOPPLINGs uttryck med hjälp av en under fråga
+Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i `WHERE`-satsen.
 
-Mer information om system funktioner finns i artikeln [system funktioner](sql-query-system-functions.md) .
+Överväg följande fråga:
 
-## <a name="check-indexing-policy"></a>Kontrol lera indexerings princip
-Kontrollera att den aktuella [indexeringsprincipen](index-policy.md) är optimal:
+```sql
+SELECT Count(1) AS Count
+FROM c
+JOIN t IN c.tags
+JOIN n IN c.nutrients
+JOIN s IN c.servings
+WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
+AND n.nutritionValue < 10) AND s.amount > 1
+```
 
-  * Se till att alla JSON-sökvägar som används i frågor ingår i indexerings principen för snabbare läsningar.
-  * Uteslut sökvägar som inte används i frågor för fler utförda skrivningar.
+**Ru-avgift:** 167,62 ru ' s
 
-Mer information finns i artikeln [Hantera indexerings principer](how-to-manage-indexing-policy.md) .
+I den här frågan matchar indexet alla dokument som har en tagg med namnet "mode/mode-formel", nutritionValue som är större än 0 och betjänar större belopp än 1. `JOIN`-uttrycket här utför kors produkten av alla objekt i taggar, näringsämnen och betjänar matriser för varje matchande dokument innan något filter tillämpas. `WHERE` satsen tillämpar sedan filtervärdet på varje `<c, t, n, s>` tupel.
 
-## <a name="spatial-data-check-ordering-of-points"></a>Spatialdata: kontrol lera sortering av punkter
-Punkter inom en Polygon måste anges i motsols ordning. En Polygon som angetts i medurs ordning representerar inversen till regionen i den.
+Om ett matchande dokument exempelvis hade 10 objekt i var och en av de tre matriserna, expanderas det till 1 x 10 x 10 x 10 (d.v.s. 1 000) tupler. Om du använder under frågor här kan du filtrera ut sammanfogade mat ris objekt innan du ansluter till nästa uttryck.
 
-## <a name="optimize-join-expressions"></a>Optimera KOPPLINGs uttryck
-`JOIN` uttryck kan utökas till stora kors produkter. När det är möjligt kan du fråga mot ett mindre Sök utrymme via ett mer smalt filter.
+Den här frågan motsvarar den tidigare en men använder under frågor:
 
-Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i `WHERE`-satsen. Ett detaljerat exempel finns i artikeln [optimera kopplings uttryck](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) .
+```sql
+SELECT Count(1) AS Count
+FROM c
+JOIN (SELECT VALUE t FROM t IN c.tags WHERE t.name = 'infant formula')
+JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutritionValue < 10)
+JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
+```
 
-## <a name="optimize-order-by-expressions"></a>Optimera ORDER BY-uttryck 
-`ORDER BY` frågans prestanda kan påverkas om fälten är null-optimerade eller inte ingår i index principen.
+**Ru-avgift:** 22,17 ru ' s
 
-  * För sparse-fält som tid, minska Sök utrymmet så mycket som möjligt med filter. 
-  * Inkludera egenskap i index princip för enskild egenskap `ORDER BY`. 
-  * För flera egenskaps `ORDER BY` uttryck definierar du ett [sammansatt index](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) för fält som sorteras.  
+Anta att endast ett objekt i matrisen taggar matchar filtret och det finns fem objekt för båda näringsämnena och som betjänar matriser. `JOIN`-uttryck expanderas sedan till 1 x 1 x 5 x 5 = 25 objekt, i stället för 1 000 objekt i den första frågan.
 
-## <a name="many-large-documents-being-loaded-and-processed"></a>Många stora dokument läses in och bearbetas
-Tiden och ru: er som krävs av en fråga är inte bara beroende av svarets storlek, de är också beroende av det arbete som utförs av pipeline för bearbetning av frågor. Tid och ru: er ökar proportionellt med mängden arbete som utförs av hela kön för bearbetning av förfrågningar. Mer arbete utförs för stora dokument, så mer tid och ru: er krävs för att läsa in och bearbeta stora dokument.
+## <a name="optimizations-for-queries-where-retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Optimeringar för frågor där antalet hämtade dokument är ungefär lika med antalet utdata för dokument:
 
-## <a name="low-provisioned-throughput"></a>Låg etablerad data flöde
-Se till att det etablerade data flödet kan hantera arbets belastningen. Öka RU-budgeten för påverkade samlingar.
+Om antalet hämtade dokument är ungefär lika med antalet utgående dokument, innebär det att frågan inte behöver söka igenom många onödiga dokument. För många frågor, till exempel de som använder det översta nyckelordet, kan antalet hämtade dokument överskrida antalet utgående dokument med 1. Detta bör inte vara orsak till problem.
 
-## <a name="try-upgrading-to-the-latest-sdk-version"></a>Försök att uppgradera till den senaste SDK-versionen
-För att fastställa den senaste SDK: n se artikeln om [SDK-hämtning och viktig information](sql-api-sdk-dotnet.md) .
+## <a name="avoid-cross-partition-queries"></a>Undvik kors partitions frågor
+
+Azure Cosmos DB använder [partitionering](partitioning-overview.md) för att skala enskilda behållare som begär ande enhet och data lagring måste öka. Varje fysisk partition har ett separat och oberoende index. Om frågan har ett likhets filter som matchar din behållares partitionsnyckel, behöver du bara kontrol lera den relevanta partitionens index. Den här optimeringen minskar det totala antalet RU-frågor som frågan kräver.
+
+Om du har ett stort antal etablerade RU-objekt (över 30 000) eller en stor mängd data som lagras (över ~ 100 GB) har du förmodligen en stor mängd behållare för att se en betydande minskning av frågan RU-avgifter.
+
+Om vi till exempel skapar en behållare med foodGroup, behöver följande frågor bara kontrol lera en enda fysisk partition:
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+```
+
+Dessa frågor kan också optimeras genom att inkludera partitionsnyckel i frågan:
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup IN(“Soups, Sauces, and Gravies”, “"Vegetables and Vegetable Products”) and  c.description = "Mushroom, oyster, raw"
+```
+
+Frågor som har intervall filter i partitionsnyckel eller som inte har några filter i partitionsnyckel måste vara "fläkt-out" och kontrol lera varje fysisk partitions index för resultat.
+
+```sql
+SELECT * FROM c
+WHERE c.description = "Mushroom, oyster, raw"
+```
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+```
+
+## <a name="optimize-queries-that-have-a-filter-on-multiple-properties"></a>Optimera frågor som har ett filter på flera egenskaper
+
+Frågor med filter på flera egenskaper använder vanligt vis ett intervall index, och de är mer effektiva om de kan hanteras från ett sammansatt index. För små mängder data får den här optimeringen ingen betydande påverkan. Det kan dock vara användbart för stora mängder data. Du kan bara optimera högst ett icke-jämlikhets filter per sammansatt index. Om frågan har flera icke-jämlikhet filter, bör du välja en av dem som ska använda det sammansatta indexet. Resten fortsätter att använda intervall index. Filtret för icke-jämlikhet måste definieras sist i det sammansatta indexet. [Läs mer om sammansatta index](index-policy.md#composite-indexes)
+
+Här följer några exempel på frågor som kan optimeras med ett sammansatt index:
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts = 1575503264
+```
+
+```sql
+SELECT * FROM c
+WHERE c.foodGroup = "Vegetables and Vegetable Products" AND c._ts > 1575503264
+```
+
+Här är det relevanta sammansatta indexet:
+
+```json
+{  
+        "automatic":true,
+        "indexingMode":"Consistent",
+        "includedPaths":[  
+            {  
+                "path":"/*"
+            }
+        ],
+        "excludedPaths":[],
+        "compositeIndexes":[  
+            [  
+                {  
+                    "path":"/foodGroup",
+                    "order":"ascending"
+                },
+                {  
+                    "path":"/_ts",
+                    "order":"ascending"
+                }
+            ]
+        ]
+}
+```
+
+## <a name="common-optimizations-that-reduce-query-latency-no-impact-on-ru-charge"></a>Vanliga optimeringar som minskar svars tiden för frågor (ingen inverkan på RU-avgifter):
+
+I många fall kan avgiften vara acceptabel, men svars tiden för frågan är fortfarande för hög. I avsnitten nedan får du en översikt över tips för att minska svars tiden för frågor. Om du kör samma fråga flera gånger på samma data uppsättning får den samma RU-avgift varje gång. Svars tiden för frågan kan dock variera mellan frågekörningen.
+
+## <a name="improving-proximity-between-your-app-and-azure-cosmos-db"></a>Förbättra närheten mellan appen och Azure Cosmos DB
+
+Frågor som körs från en annan region än Azure Cosmos DB kontot får en högre latens än om de kördes inuti samma region. Om du till exempel körde kod på din station ära dator, bör du förvänta dig att fördröjningen ska vara flera eller hundratals (eller flera) millisekunder som är större än om frågan kom från en virtuell dator i samma Azure-region som Azure Cosmos DB. Det är enkelt att [Distribuera data i Azure Cosmos DB globalt](distribute-data-globally.md) för att se till att du kan ta med dina data närmare din app.
+
+## <a name="increasing-provisioned-throughput"></a>Öka det etablerade data flödet
+
+I Azure Cosmos DB mäts ditt allokerade data flöde i enheter för programbegäran (RU). Anta att du har en fråga som använder 5 RUs data flöde. Om du till exempel tillhandahåller 1 000 RU kan du köra frågan 200 gånger per sekund. Om du försökte köra frågan när det inte fanns tillräckligt med data flöde är det Azure Cosmos DB att returnera ett HTTP 429-fel. Alla aktuella Core-API SDK: er kommer automatiskt att försöka utföra frågan igen efter att ha väntat en kort period. Begränsade begär Anden tar längre tid, vilket ökar det etablerade data flödet kan förbättra svars tiden. Du kan se det [totala antalet begär Anden som begränsats](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) i mått bladet för Azure Portal.
+
+## <a name="increasing-maxconcurrency"></a>Ökande MaxConcurrency
+
+Parallella frågor fungerar genom att fråga flera partitioner parallellt. Data från en enskild partitionerad samling hämtas dock i serie med avseende på frågan. Det innebär att du kan justera MaxConcurrency till antalet partitioner så att du kan nå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte känner till antalet partitioner kan du ange MaxConcurrency (eller MaxDegreesOfParallelism i äldre SDK-versioner) till ett högt antal, och systemet väljer det minsta antalet partitioner, indata från användaren) som den högsta graden av parallellitet.
+
+## <a name="increasing-maxbuffereditemcount"></a>Ökande MaxBufferedItemCount
+
+Frågor är utformade för att hämta resultat när den aktuella resultat gruppen bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. Att ange MaxBufferedItemCount begränsar antalet förhämtade resultat. Genom att ange det här värdet till det förväntade antalet returnerade resultat (eller ett högre tal) kan frågan få maximal nytta av för hämtning. Genom att ange värdet-1 kan systemet automatiskt bestämma antalet objekt som ska buffras.
 
 ## <a name="next-steps"></a>Nästa steg
 Läs dokumenten nedan om hur du mäter ru: er per fråga, få körnings statistik för att finjustera dina frågor med mera:

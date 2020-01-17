@@ -4,14 +4,14 @@ description: Länkar till ytterligare information om AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: fbd763827383c5ded2bb4ef0047ea3c5f650d78e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 78e0500057baf407f1d26afe29d9df1e525cbf3d
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75416332"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153776"
 ---
 # <a name="additional-documentation"></a>Ytterligare dokumentation
 
@@ -25,7 +25,7 @@ Ytterligare kluster dokumentation för AVERT finns på webbplatsen på <https://
   * Genom att [Anpassa inställningarna för support och övervakning](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_support.html#config-support>) förklaras hur du anpassar inställningarna för överförings överföring och aktiverar fjärr styrning.
   * [Konfiguration av VServers och globalt namn område](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_vserver.html#config-vserver>) innehåller information om hur du skapar ett namn område för klienter.
   * När du [konfigurerar DNS för ett AVERT-kluster](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_network.html#dns-overview>) förklaras hur du konfigurerar resursallokering (Round-Robin).
-  * [Lägga till lagrings dokument för Server delen](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) Lägg till Core-.
+  * [Lägga till lagrings dokument på Server sidan](<https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_core_filer.html#add-core-filer>) Lägg till core-filer.
 
 * [Kluster konfigurations guiden](<https://azure.github.io/Avere/#operations>) är en fullständig referens till Inställningar och alternativ för ett AVERT-kluster. Ett vFXT-kluster använder en delmängd av dessa alternativ, men de flesta av samma konfigurations sidor gäller.
 
@@ -33,4 +33,4 @@ Ytterligare kluster dokumentation för AVERT finns på webbplatsen på <https://
 
 ## <a name="vfxt-creation-and-management-documentation"></a>dokumentation om skapande och hantering av vFXT
 
-En fullständig guide för att använda vfxt.py, moln kluster skapande-och hanterings verktyget finns på GitHub: [moln kluster hantering med vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).
+En fullständig guide för att använda vfxt.py, ett skriptbaserade verktyg för att skapa och hantera moln kluster, finns på GitHub: [Cloud Cluster Management med vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).

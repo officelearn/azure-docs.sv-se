@@ -3,12 +3,12 @@ title: Överordnad resurs fel
 description: Beskriver hur du löser fel när du arbetar med en överordnad resurs i en Azure Resource Manager-mall.
 ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 9fcf12db7375e6d19ef9e77ea4dcaf13130175b5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f1847389d60ddf3c6abc70bc3309940c2246084e
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484537"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154048"
 ---
 # <a name="resolve-errors-for-parent-resources"></a>Lös fel för överordnade resurser
 
@@ -34,7 +34,7 @@ När en resurs är underordnad en annan resurs måste den överordnade resursen 
   ...
 ```
 
-Om du distribuerar både-servern och-databasen i samma mall, men inte anger ett beroende på servern, kan databas distributionen starta innan servern har distribuerats. 
+Om du distribuerar både-servern och-databasen i samma mall, men inte anger ett beroende på servern, kan databas distributionen starta innan servern har distribuerats.
 
 Om den överordnade resursen redan finns och inte har distribuerats i samma mall får du det här felet när resurs hanteraren inte kan associera den underordnade resursen med överordnad. Det här felet kan inträffa om den underordnade resursen inte har rätt format eller om den underordnade resursen distribueras till en annan resurs grupp än resurs gruppen för den överordnade resursen.
 
@@ -44,7 +44,7 @@ För att lösa det här felet när överordnade och underordnade resurser distri
 
 ```json
 "dependsOn": [
-    "[variables('databaseServerName')]"
+  "[variables('databaseServerName')]"
 ]
 ```
 
@@ -52,29 +52,29 @@ För att lösa det här felet när den överordnade resursen tidigare har distri
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "sqlServerName": {
-            "type": "string"
-        },
-        "databaseName": {
-            "type": "string"
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerName": {
+      "type": "string"
     },
-    "resources": [
-        {
-            "apiVersion": "2014-04-01",
-            "type": "Microsoft.Sql/servers/databases",
-            "location": "[resourceGroup().location]",
-            "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
-            "properties": {
-                "collation": "SQL_Latin1_General_CP1_CI_AS",
-                "edition": "Basic"
-            }
-        }
-    ],
-    "outputs": {}
+    "databaseName": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Sql/servers/databases",
+      "apiVersion": "2014-04-01",
+      "name": "[concat(parameters('sqlServerName'), '/', parameters('databaseName'))]",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "collation": "SQL_Latin1_General_CP1_CI_AS",
+        "edition": "Basic"
+      }
+    }
+  ],
+  "outputs": {}
 }
 ```
 

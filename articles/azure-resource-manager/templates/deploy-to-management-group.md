@@ -3,12 +3,12 @@ title: Distribuera resurser till hanterings grupp
 description: Beskriver hur du distribuerar resurser i hanterings gruppens omfattning i en Azure Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: e3661225dd69721ab223da0b44d69a592abb59bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4ba4f4d2e95c0b878e9f402fa84139ac5b351e3c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477790"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121921"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>Skapa resurser på hanterings grupps nivå
 
@@ -63,7 +63,7 @@ För distributioner av hanterings grupper finns det några viktiga saker att tä
 
 * Funktionen [resourceGroup ()](template-functions-resource.md#resourcegroup) stöds **inte** .
 * Funktionen [Subscription ()](template-functions-resource.md#subscription) stöds **inte** .
-* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används vid distributioner på hanterings grupps nivå. Du kan till exempel hämta resurs-ID för en princip definition med `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`. Den returnerar resurs-ID i formatet `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
+* Funktionen [resourceId ()](template-functions-resource.md#resourceid) stöds. Använd den för att hämta resurs-ID för resurser som används vid distributioner på hanterings grupps nivå. Du kan till exempel hämta resurs-ID för en princip definition med `resourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))`. Den returnerar resurs-ID i formatet `/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`.
 * Funktionerna [Reference ()](template-functions-resource.md#reference) och [List ()](template-functions-resource.md#list) stöds.
 
 ## <a name="create-policies"></a>Skapa principer
@@ -74,30 +74,30 @@ I följande exempel visas hur du [definierar](../../governance/policy/concepts/d
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {},
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/policyDefinitions",
-            "name": "locationpolicy",
-            "apiVersion": "2018-05-01",
-            "properties": {
-                "policyType": "Custom",
-                "parameters": {},
-                "policyRule": {
-                    "if": {
-                        "field": "location",
-                        "equals": "northeurope"
-                    },
-                    "then": {
-                        "effect": "deny"
-                    }
-                }
-            }
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {},
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyDefinitions",
+      "apiVersion": "2018-05-01",
+      "name": "locationpolicy",
+      "properties": {
+        "policyType": "Custom",
+        "parameters": {},
+        "policyRule": {
+          "if": {
+            "field": "location",
+            "equals": "northeurope"
+          },
+          "then": {
+            "effect": "deny"
+          }
         }
-    ]
+      }
+    }
+  ]
 }
 ```
 
@@ -107,36 +107,34 @@ I följande exempel tilldelas en befintlig princip definition till hanterings gr
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "policyDefinitionID": {
-            "type": "string"
-        },
-        "policyName": {
-            "type": "string"
-        },
-        "policyParameters": {
-            "type": "object",
-            "defaultValue": {}
-        }
+  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyDefinitionID": {
+      "type": "string"
     },
-    "variables": {},
-    "resources": [
-        {
-            "type": "Microsoft.Authorization/policyAssignments",
-            "name": "[parameters('policyName')]",
-            "apiVersion": "2018-03-01",
-            "properties": {
-                "policyDefinitionId": "[parameters('policyDefinitionID')]",
-                "parameters": "[parameters('policyParameters')]"
-            }
-        }
-    ]
+    "policyName": {
+      "type": "string"
+    },
+    "policyParameters": {
+      "type": "object",
+      "defaultValue": {}
+    }
+  },
+  "variables": {},
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "apiVersion": "2018-03-01",
+      "name": "[parameters('policyName')]",
+      "properties": {
+        "policyDefinitionId": "[parameters('policyDefinitionID')]",
+        "parameters": "[parameters('policyParameters')]"
+      }
+    }
+  ]
 }
 ```
-
-
 
 ## <a name="next-steps"></a>Nästa steg
 

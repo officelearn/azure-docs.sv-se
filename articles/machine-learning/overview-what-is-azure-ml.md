@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762815"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155459"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -46,7 +46,7 @@ Azure Machine Learning innehåller alla verktyg och data forskare som behöver f
 
 + R-skript eller antecknings böcker där du använder <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">SDK för R</a> för att skriva din egen kod eller använda R-modulerna i designern.
 
-+ [Visual Studio Code-tillägg](how-to-vscode-tools.md)
++ [Visual Studio Code-tillägg](tutorial-setup-vscode-extension.md)
 
 + [Machine Learning CLI](reference-azure-machine-learning-cli.md)
 
@@ -85,7 +85,7 @@ När du har rätt modell kan du enkelt använda den i en webb tjänst, på en Io
 
 Sedan kan du hantera dina distribuerade modeller med hjälp av [Azure Machine Learning SDK för python](https://aka.ms/aml-sdk), [Azure Machine Learning Studio](https://ml.azure.com)eller [Machine Learning CLI](reference-azure-machine-learning-cli.md).
 
-Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-run-batch-predictions.md) på stora mängder data.
+Dessa modeller kan förbrukas och returnera förutsägelser i [real tid](how-to-consume-web-service.md) eller [asynkront](how-to-use-parallel-run-step.md) på stora mängder data.
 
 Och med avancerade [maskin inlärnings pipeliner](concept-ml-pipelines.md)kan du samar beta med varje steg från förberedelse av data, modell utbildning och utvärdering, via distribution. Med pipelines kan du:
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 5049c32e06967cc123a24f07f601c1698bea3351
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896433"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122516"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>Distribuera ett hanterings verktyg med PowerShell
 
@@ -79,7 +79,7 @@ $subscriptionId = Read-Host -Prompt "Enter the Azure subscription ID where you w
 
 Nu när du har slutfört registreringen av Azure AD-appen kan du distribuera hanterings verktyget.
 
-## <a name="deploy-the-management-tool"></a>Distribuera hanterings verktyget
+## <a name="deploy-the-management-tool"></a>Distribuera hanteringsverktyget
 
 Kör följande PowerShell-kommandon för att distribuera hanterings verktyget och koppla det till tjänstens huvud namn som du nyss skapade:
      
@@ -135,7 +135,7 @@ Så här kontrollerar du Azure AD-programkonfigurationen och ger godkännande:
    
    [![sidan autentisering med den angivna omdirigerings-URI: n](media/management-ui-redirect-uri-inline.png)](media/management-ui-redirect-uri-expanded.png#lightbox)
 
-5. I den vänstra panelen väljer du **API-behörigheter** för att bekräfta att behörigheterna har lagts till. Om du är global administratör väljer du knappen sammanställt **godkännande för `tenantname`** och följer dialog rutorna för att ge din organisation ett administrativt medgivande.
+5. I den vänstra panelen väljer du **API-behörigheter** för att bekräfta att behörigheterna har lagts till. Om du är global administratör väljer du knappen **bevilja administratörs medgivande för `tenantname`** och följer dialog rutorna för att ge din organisation ett administrativt medgivande.
     
     [![sidan med API-behörigheter](media/management-ui-permissions-inline.png)](media/management-ui-permissions-expanded.png#lightbox)
 

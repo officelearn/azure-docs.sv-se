@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 27d219f46f82f4a74cb5dee0a6b11b673a4a3509
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847226"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155015"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Rapporterings alternativ för lösen ords hantering i Azure AD
 
@@ -53,7 +53,7 @@ I Azure Portals upplevelsen har vi förbättrat hur du kan visa registrerings ak
 
 ### <a name="converged-registration-preview"></a>Konvergerad registrering (för hands version)
 
-Om du deltar i den offentliga för hands versionen av konvergerad registrering hittas information om användar aktivitet i gransknings loggarna under tjänstens **autentiseringsmetoder**.
+Om du deltar i den offentliga för hands versionen av konvergerad registrering finns information om användar aktivitet i gransknings loggarna under **säkerhets** > **autentiseringsmetoder**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Beskrivning av rapport kolumnerna i Azure Portal
 

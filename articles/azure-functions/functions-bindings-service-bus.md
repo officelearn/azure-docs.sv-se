@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 04/01/2017
 ms.author: cshoe
-ms.openlocfilehash: a64f680adbfca08e334f51697a305c93a408e1e4
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ca19aefdd213331214938b2af6c9a77501333fb0
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922365"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121224"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Azure Service Bus-bindningar för Azure Functions
 
@@ -206,9 +206,9 @@ module.exports = function(context, myQueueItem) {
 
 ### <a name="trigger---python-example"></a>Utlös – python-exempel
 
-I följande exempel visas hur du läser ett Service Bus-köat via en utlösare.
+Följande exempel visar hur du läser ett Service Bus Queue-meddelande via en utlösare.
 
-En Service Bus-bindning definieras i *Function. JSON* där *typ* har angetts till `serviceBusTrigger`.
+En Service Bus-bindning definieras i *Function. JSON* där *typ* är inställd på `serviceBusTrigger`.
 
 ```json
 {
@@ -274,7 +274,7 @@ I [C#-klassbibliotek](functions-dotnet-class-library.md), Använd följande attr
   }
   ```
 
-  Du kan ange den `Connection` egenskapen att ange det Service Bus-kontot som ska användas, som visas i följande exempel:
+  Du kan ange egenskapen `Connection` för att ange namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas, som du ser i följande exempel:
 
   ```csharp
   [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -322,12 +322,13 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Ej tillämpligt | Måste anges till ”serviceBusTrigger”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Ej tillämpligt | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar kön eller ämnet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. |
+|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar kön eller ämnet meddelandet i funktionskoden. |
 |**Könamn**|**Könamn**|Namnet på kön som ska övervaka.  Ange bara om övervakning av en kö, inte för ett ämne.
 |**topicName**|**topicName**|Namnet på ämnet du övervakar. Ange bara om övervakning av ett ämne, inte för en kö.|
 |**subscriptionName**|**subscriptionName**|Namnet på prenumerationen som ska övervaka. Ange bara om övervakning av ett ämne, inte för en kö.|
 |**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträngen för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Exempel: Om du ställer in `connection` till ”MyServiceBus” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom funktionskörningen använder standard Service Bus-anslutningssträngen i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutningssträngen måste vara för en Service Bus-namnområde, inte begränsat till en viss kö eller ämne. |
-|**accessRights**|**Åtkomst**|Behörigheten för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** behörigheten, `accessRights` ”lyssna”. Annars kan hantera Functions runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Storage SDK inte stöder hanterings åtgärder.|
+|**accessRights**|**Åtkomst**|Behörigheten för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** behörigheten, `accessRights` ”lyssna”. Annars kan hantera Functions runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` om du ansluter till en kö eller prenumeration som [stöder sessioner](../service-bus-messaging/message-sessions.md) . `false` annars, vilket är standardvärdet.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -340,7 +341,7 @@ I C# och C#-skript, kan du använda följande parametertyper för kön eller äm
 * En anpassad typ - om meddelandet innehåller JSON, Azure Functions försöker deserialisera JSON-data.
 * `BrokeredMessage` – ger dig det deserialiserade meddelandet med metoden [BrokeredMessage. GetBody\<t > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) .
 
-Dessa parametrar är för Azure Functions version 1. x. för 2. x och högre använder du [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage`.
+Dessa parameter typer är för Azure Functions version 1. x. för 2. x och högre använder du [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) i stället för `BrokeredMessage`.
 
 Få åtkomst till kön eller ämnet meddelandet i JavaScript, med hjälp av `context.bindings.<name from function.json>`. Service Bus-meddelande skickas till funktionen en sträng eller en JSON-objekt.
 
@@ -369,11 +370,11 @@ Service Bus-utlösare innehåller flera [metadataegenskaper](./functions-binding
 |`ReplyTo`|`string`|Svara till kö-adress.|
 |`SequenceNumber`|`Int64`|Unikt nummer som tilldelats ett meddelande av Service Bus.|
 |`To`|`string`|Skicka till adress.|
-|`Label`|`string`|Den programspecifik etiketten.|
+|`Label`|`string`|Den programspecifika etiketten.|
 |`CorrelationId`|`string`|Korrelations-ID|
 
 > [!NOTE]
-> För närvarande är Service Bus-utlösare som fungerar med sessioner aktiverade köer och prenumerationer som för hands version. Spåra [det här objektet](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) om du vill ha fler uppdateringar om detta. 
+> Service Bus-utlösare som fungerar med sessioner aktiverade köer och prenumerationer är för närvarande en för hands version. Spåra [det här objektet](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) om du vill ha fler uppdateringar om detta. 
 
 Se [kodexempel](#trigger---example) som använder de här egenskaperna tidigare i den här artikeln.
 
@@ -510,7 +511,7 @@ public String pushToQueue(
  }
 ```
 
- I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@QueueOutput` anteckningen i funktionsparametrar vars värde skulle skrivas till en Service Bus-kö.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
+ I den [Java functions runtime-biblioteket](/java/api/overview/azure/functions/runtime), använda den `@ServiceBusQueueOutput` anteckningen i funktionsparametrar vars värde skulle skrivas till en Service Bus-kö.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
 
 Java-funktioner kan också skriva till ett Service Bus ämne. I följande exempel används den `@ServiceBusTopicOutput` kommentaren för att beskriva konfigurationen för utgående bindning. 
 
@@ -583,9 +584,9 @@ module.exports = function (context, myTimer) {
 
 ### <a name="output---python-example"></a>Utdata – python-exempel
 
-Följande exempel visar hur du skriver ut till en Service Bus-kö i python.
+Följande exempel visar hur du skriver ut till en Service Bus kö i python.
 
-En bindnings definition för ServiceBue definieras i *Function. JSON* där *typ* har angetts till `serviceBus`.
+En Service Bus bindnings definition definieras i *Function. JSON* där *typ* är inställd på `serviceBus`.
 
 ```json
 {
@@ -646,7 +647,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 }
 ```
 
-Du kan ange den `Connection` egenskapen att ange det Service Bus-kontot som ska användas, som visas i följande exempel:
+Du kan ange egenskapen `Connection` för att ange namnet på en app-inställning som innehåller den Service Bus anslutnings sträng som ska användas, som du ser i följande exempel:
 
 ```csharp
 [FunctionName("ServiceBusOutput")]
@@ -659,7 +660,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 
 Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
 
-Du kan använda den `ServiceBusAccount` attribut som anger Service Bus-konto som ska användas på klass, metod eller parametern-nivå.  Mer information finns i [utlösare - attribut](#trigger---attributes).
+Du kan använda attributet `ServiceBusAccount` för att ange det Service Bus konto som ska användas på klass-, metod-eller parameter nivå.  Mer information finns i [utlösare - attribut](#trigger---attributes).
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
@@ -669,11 +670,11 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**typ** | Ej tillämpligt | Måste anges till ”serviceBus”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Ej tillämpligt | Måste anges till ”ut”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar kön eller ämnet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. |
+|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar kön eller ämnet meddelandet i funktionskoden. Ange till ”$return” att referera till returvärde för funktion. |
 |**Könamn**|**Könamn**|Namnet på kön.  Ange endast om skickar Kömeddelanden, inte för ett ämne.
-|**topicName**|**topicName**|Namnet på ämnet du övervakar. Ange endast om avsnittet meddelanden, inte för en kö.|
+|**topicName**|**topicName**|Namn på ämnet. Ange endast om avsnittet meddelanden, inte för en kö.|
 |**anslutning**|**Anslutning**|Namnet på en appinställning som innehåller Service Bus-anslutningssträngen för den här bindningen. Om namnet på inställningen börjar med ”AzureWebJobs” kan ange du endast resten av namnet. Exempel: Om du ställer in `connection` till ”MyServiceBus” funktionskörningen söker efter en app som inställning som heter ”AzureWebJobsMyServiceBus”. Om du lämnar `connection` tom funktionskörningen använder standard Service Bus-anslutningssträngen i appinställningen som heter ”AzureWebJobsServiceBus”.<br><br>Om du vill hämta en anslutnings sträng följer du stegen som visas i [Hämta autentiseringsuppgifter för hantering](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). Anslutningssträngen måste vara för en Service Bus-namnområde, inte begränsat till en viss kö eller ämne.|
-|**accessRights**|**Åtkomst**|Behörigheten för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** behörigheten, `accessRights` ”lyssna”. Annars kan hantera Functions runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Storage SDK inte stöder hanterings åtgärder.|
+|**accessRights**|**Åtkomst**|Behörigheten för anslutningssträngen. Tillgängliga värden är `manage` och `listen`. Standardvärdet är `manage`, vilket indikerar att den `connection` har den **hantera** behörighet. Om du använder en anslutningssträng som inte har den **hantera** behörigheten, `accessRights` ”lyssna”. Annars kan hantera Functions runtime misslyckas försöker att utföra åtgärder som kräver rättigheter. I Azure Functions version 2. x och högre är den här egenskapen inte tillgänglig eftersom den senaste versionen av Service Bus SDK inte stöder hanterings åtgärder.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -726,6 +727,12 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
                 "autoComplete": false,
                 "maxConcurrentCalls": 32,
                 "maxAutoRenewDuration": "00:55:00"
+            },
+            "sessionHandlerOptions": {
+                "autoComplete": false,
+                "messageWaitTimeout": "00:00:30",
+                "maxAutoRenewDuration": "00:55:00",
+                "maxConcurrentSessions": 16
             }
         }
     }
@@ -735,10 +742,8 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|Maximal varaktighet inom vilken meddelandelåset förnyas automatiskt.|
-|automatisk komplettering|sant|Utlösaren ska om omedelbart Markera som slutförd (Komplettera automatiskt) eller vänta på att processen för att anropa klar.|
+|automatisk komplettering|sant|Om utlösaren omedelbart ska markera meddelandet som slutfört (komplettera automatiskt) eller vänta tills funktionen avslutas för att anropa slutförd.|
 |maxConcurrentCalls|16|Det maximala antalet samtidiga anrop till återanrop som meddelandet pump ska starta. Som standard bearbetar funktionskörningen flera meddelanden samtidigt. För att dirigera körning för att bearbeta en enskild kö eller ett ämne meddelande i taget, ange `maxConcurrentCalls` till 1. |
-|prefetchCount|Ej tillämpligt|Standard PrefetchCount som ska användas av den underliggande MessageReceiver.|
-
 
 ## <a name="next-steps"></a>Nästa steg
 

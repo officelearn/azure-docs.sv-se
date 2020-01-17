@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a168f9bf58c4942fc0b76b9ffefc2b32b5bfbe5a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dd178f52665c77f03a48d87a9e73c9019390bb21
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549371"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154864"
 ---
 # <a name="quickstart-configure-azure-active-directory-self-service-password-reset"></a>Snabb start: Konfigurera Azure Active Directory återställning av lösen ord för självbetjäning
 
@@ -71,7 +71,7 @@ Nu kan du testa din SSPR-konfiguration med en test användare som är en del av 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du vill inaktivera lösen ords återställning via självbetjäning söker du efter och väljer **Azure Active Directory** i Azure Portal. Välj **egenskaper** > **lösen ords återställning**och välj sedan **ingen** under **återställning av lösen ord för självbetjäning aktiverat**. När du är klar väljer du **Spara**.
+Om du vill inaktivera lösen ords återställning via självbetjäning söker du efter och väljer **Azure Active Directory** i Azure Portal. Välj **lösen ords återställning**och välj sedan **ingen** under **återställning av lösen ord för självbetjäning aktiverat**. När du är klar väljer du **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 

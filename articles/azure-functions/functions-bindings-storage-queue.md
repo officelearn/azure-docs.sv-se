@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 3680de5d8e0e761047e1263c2679da87b1fa2d0b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769463"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121241"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue Storage-bindningar för Azure Functions
 
@@ -249,7 +249,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
   }
   ```
 
-  Du kan ställa in egenskapen `Connection` för att ange det lagrings konto som ska användas, som du ser i följande exempel:
+  Du kan ställa in egenskapen `Connection` för att ange den app-inställning som innehåller den anslutnings sträng för lagrings kontot som ska användas, som du ser i följande exempel:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -312,7 +312,7 @@ I C# och C# skript kan du komma åt meddelande data med hjälp av en metod param
 
 Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-Använd `context.bindings.<name>` för att komma åt nytto lasten för köobjekt i Java Script. Om nytto lasten är JSON deserialiseras den till ett objekt.
+Använd `context.bindings.<name>` för att komma åt nytto lasten för köobjekt i Java Script. Om nytto lasten är JSON deserialiseras den till ett objekt. Den här nytto lasten skickas också som den andra parametern till funktionen.
 
 ## <a name="trigger---message-metadata"></a>Utlösare - meddelande metadata
 
@@ -320,7 +320,7 @@ Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bi
 
 |Egenskap|Typ|Beskrivning|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om meddelandet nytto Last i kön är en sträng, `QueueTrigger` har samma värde som variabeln som namnges av egenskapen `name` i *Function. JSON*.|
+|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om meddelandet nytto last för kön är en sträng har `QueueTrigger` samma värde som variabeln som namnges av egenskapen `name` i *Function. JSON*.|
 |`DequeueCount`|`int`|Antal gånger som det här meddelandet har tagits ur kö.|
 |`ExpirationTime`|`DateTimeOffset`|Tiden som meddelandet upphör att gälla.|
 |`Id`|`string`|Meddelande-ID för kö.|
@@ -411,7 +411,7 @@ Här är den *function.json* fil:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -472,7 +472,7 @@ Här är den *function.json* fil:
     {
       "type": "http",
       "direction": "out",
-      "name": "return"
+      "name": "$return"
     },
     {
       "type": "queue",
@@ -506,7 +506,7 @@ module.exports = function(context) {
 
 ### <a name="output---java-example"></a>Resultat – Java-exemplet
 
- I följande exempel visas en Java-funktion som skapar ett Queue-meddelande för när den utlöses av en HTTP-begäran.
+ I följande exempel visas en Java-funktion som skapar ett Queue-meddelande när det utlöses av en HTTP-begäran.
 
 ```java
 @FunctionName("httpToQueue")
@@ -514,7 +514,7 @@ module.exports = function(context) {
  public String pushToQueue(
      @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
      final String message,
-     @HttpOutput(name = "response") final OutputBinding&lt;String&gt; result) {
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
        result.setValue(message + " has been added.");
        return message;
  }

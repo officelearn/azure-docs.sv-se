@@ -4,20 +4,20 @@ description: Så här lägger du till data till en ny lagrings volym för använ
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/16/2019
 ms.author: rohogue
-ms.openlocfilehash: 183ed719eb5396fe0e442e6b774d962d1ba48386
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c2a38b20fff789faf370e3161a92a31ed5f04c57
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480589"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153726"
 ---
 # <a name="moving-data-to-the-vfxt-cluster---parallel-data-ingest"></a>Flytta data till vFXT-kluster – parallella data inmatningar
 
-När du har skapat ett nytt vFXT-kluster kan din första uppgift vara att flytta data till den nya lagrings volymen. Men om din vanliga metod för att flytta data utfärdar ett enkelt kopierings kommando från en klient, visas förmodligen en långsam kopierings prestanda. Enkel tråds kopiering är inte ett lämpligt alternativ för att kopiera data till det AVERT vFXT-klustrets Server dels lagring.
+När du har skapat ett nytt vFXT-kluster kan din första uppgift vara att flytta data till en ny lagrings volym i Azure. Men om din vanliga metod för att flytta data utfärdar ett enkelt kopierings kommando från en klient, visas förmodligen en långsam kopierings prestanda. Enkel tråds kopiering är inte ett lämpligt alternativ för att kopiera data till det vFXT klustrets Server dels lagrings utrymme.
 
-Eftersom det vFXT-klustret är ett skalbart cacheminne för flera klienter, är det snabbaste och mest effektiva sättet att kopiera data till den med flera klienter. Den här metoden parallelizes inmatning av filer och objekt.
+Eftersom värdet aver vFXT för Azure Cluster är ett skalbart cacheminne för flera klienter, är det snabbaste och mest effektiva sättet att kopiera data till den med flera klienter. Den här metoden parallelizes inmatning av filer och objekt.
 
 ![Diagram över flera klienter, multi-threadd data förflyttning: längst upp till vänster finns det flera pilar från den lokala maskin varu lagringen. Pilarna pekar på fyra klient datorer. Från varje klient dator tre pilar pekar du mot AVERT vFXT. Från AVERT vFXT pekar flera pilar på Blob Storage.](media/avere-vfxt-parallel-ingest.png)
 
@@ -44,12 +44,12 @@ Data inmatnings datorn är en del av en själv studie kurs där den nyskapade vi
 
 ## <a name="strategic-planning"></a>Strategisk planering
 
-När du skapar en strategi för att kopiera data parallellt bör du förstå kompromisserna i fil storlek, antal filer och katalog djup.
+När du utformar en strategi för att kopiera data parallellt bör du förstå kompromisserna i fil storlek, antal filer och katalog djup.
 
 * När filerna är små är måtten för intresse filer per sekund.
 * När filerna är stora (10MiBi eller större) är måttet för ränta byte per sekund.
 
-Varje kopierings process har en data flödes hastighet och en fil överförings hastighet, som kan mätas med tiden för kopierings kommandot och väga fil storleken och antalet filer. Att förklara hur priserna ska mätas ligger utanför omfånget för det här dokumentet, men det är absolut nödvändigt att förstå om du ska hantera små eller stora filer.
+Varje kopierings process har en data flödes hastighet och en fil överförings hastighet, som kan mätas med tiden för kopierings kommandot och väga fil storleken och antalet filer. Att förklara hur priserna ska mätas ligger utanför omfånget för det här dokumentet, men det är viktigt att förstå om du ska hantera små eller stora filer.
 
 ## <a name="manual-copy-example"></a>Exempel på manuell kopiering
 
@@ -278,7 +278,7 @@ Den här metoden är en enkel och tids effektiv metod för data uppsättningar u
 
 ## <a name="use-the-msrsync-utility"></a>Använda verktyget msrsync
 
-Verktyget ``msrsync`` kan också användas för att flytta data till en server dels kärna för det Avera klustret. Det här verktyget är utformat för att optimera bandbredds användningen genom att köra flera parallella ``rsync`` processer. Den är tillgänglig från GitHub på <https://github.com/jbd/msrsync>.
+Verktyget ``msrsync`` kan också användas för att flytta data till en server del-och Server delen för ett AVERT-kluster. Det här verktyget är utformat för att optimera bandbredds användningen genom att köra flera parallella ``rsync`` processer. Den är tillgänglig från GitHub på <https://github.com/jbd/msrsync>.
 
 ``msrsync`` delar upp käll katalogen i separata "buckets" och kör sedan enskilda ``rsync`` processer i varje Bucket.
 

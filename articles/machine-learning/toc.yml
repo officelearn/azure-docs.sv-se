@@ -56,6 +56,12 @@
           href: tutorial-1st-r-experiment.md
     - name: Maskininlärning CLI
       href: tutorial-train-deploy-model-cli.md
+    - name: Visual Studio-koden
+      items:
+        - name: Konfigurera tillägget för Azure Machine Learning
+          href: tutorial-setup-vscode-extension.md
+        - name: Träna och distribuera en TensorFlow-modell för avbildningsklassificering
+          href: tutorial-train-deploy-image-classification-model-vscode.md
 - name: Exempel
   items:
     - name: Jupyter Notebook
@@ -151,9 +157,6 @@
         - name: Ställa in kataloger med indata och utdata
           displayName: 'large data, write, experiment files, size limit'
           href: how-to-save-write-experiment-files.md
-        - name: Använda VS Code-tillägg
-          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
-          href: how-to-vscode-tools.md
         - name: Interaktiv felsökning
           displayName: 'Visual Studio Code, VSCode, debug, bugs, remote, compute, instance'
           href: how-to-set-up-vs-code-remote.md
@@ -397,3 +400,6 @@
     - name: Vad har hänt med Workbench?
       displayName: 'desktop, ui, Workbench, upgrade, update, transfer'
       href: overview-what-happened-to-workbench.md
+    - name: Hjälpmedelsfunktioner i Designer
+      displayName: 'accessibility, designer, visual interface, screen reader, keyboard shortcuts'
+      href: designer-accessibility.md

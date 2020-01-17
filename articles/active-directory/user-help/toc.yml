@@ -2,44 +2,36 @@
   href: index.yml
 - name: Hjälp om tvåstegsverifiering
   items:
-    - name: Översikt
-      href: user-help-two-step-verification-overview.md
-    - name: Konfigurera dina metoder för tvåfaktorsverifiering
-      items:
-        - name: Översikt
-          href: multi-factor-authentication-end-user-first-time.md
-        - name: Konfigurera en autentiseringsapp
-          href: multi-factor-authentication-setup-auth-app.md
-        - name: Konfigurera en mobil enhet
-          href: multi-factor-authentication-setup-phone-number.md
-        - name: Konfigurera en arbetstelefon
-          href: multi-factor-authentication-setup-office-phone.md
+    - name: Vad är sidan Ytterligare verifiering?
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Konfigurera en autentiseringsapp
+      href: multi-factor-authentication-setup-auth-app.md
+    - name: Konfigurera en mobil enhet
+      href: multi-factor-authentication-setup-phone-number.md
+    - name: Konfigurera en arbetstelefon
+      href: multi-factor-authentication-setup-office-phone.md
     - name: Hantera dina inställningar
       href: multi-factor-authentication-end-user-manage-settings.md
-    - name: Få hjälp
-      href: multi-factor-authentication-end-user-troubleshoot.md
     - name: Hantera lösenord för appar
       href: multi-factor-authentication-end-user-app-passwords.md
     - name: Logga in
       href: user-help-sign-in.md?toc=./toc.json
+    - name: Få hjälp
+      href: multi-factor-authentication-end-user-troubleshoot.md
 - name: Hjälp om återställning av lösenord
   items:
-    - name: Översikt
-      href: user-help-password-reset-overview.md
     - name: Registrera dig för återställning av lösenord
       href: active-directory-passwords-reset-register.md
     - name: Återställa lösenordet
       href: active-directory-passwords-update-your-own-password.md
 - name: Hjälp om Microsoft Authenticator-appen
   items:
-    - name: Översikt
+    - name: Vad är Microsoft Authenticator-appen?
       href: user-help-auth-app-overview.md
     - name: Ladda ned och installera appen
       href: user-help-auth-app-download-install.md
     - name: Lägga till konton
       items:
-        - name: Översikt
-          href: user-help-auth-app-add-account-overview.md
         - name: Lägga till ett arbets- eller skolkonto
           href: user-help-auth-app-add-work-school-account.md
         - name: Lägga till ett personligt Microsoft-konto
@@ -56,10 +48,10 @@
       href: user-help-auth-app-faq.md
 - name: Hjälp om portalen Mitt konto
   items:
-    - name: Översikt
+    - name: Vad är portalen Mitt konto?
       href: my-account-portal-overview.md
     - name: Hantera säkerhetsinformation
-      href: user-help-security-info-overview.md
+      href: security-info-setup-signin.md
     - name: Hantera dina anslutna enheter
       href: my-account-portal-devices-page.md
     - name: Ändra ditt lösenord
@@ -72,14 +64,10 @@
       href: my-account-portal-sign-ins-page.md
 - name: Hjälp om säkerhetsinformation (förhandsversion)
   items:
-    - name: Översikt
-      href: user-help-security-info-overview.md
     - name: Lägga till säkerhetsinformation under inloggning
       href: security-info-setup-signin.md
     - name: Lägga till eller uppdatera säkerhetsinformationsmetoder
       items:
-        - name: Översikt
-          href: security-info-add-update-methods-overview.md
         - name: Konfigurera en autentiseringsapp
           href: security-info-setup-auth-app.md
         - name: Konfigurera textmeddelanden
@@ -98,8 +86,6 @@
       href: user-help-sign-in.md?toc=./toc.json
 - name: Hjälp om att hantera enheter
   items:
-    - name: Översikt
-      href: user-help-device-mgmt-overview.md
     - name: Ansluta din arbetsenhet
       href: user-help-join-device-on-network.md
     - name: Registrera din personliga arbetsenhet
@@ -108,8 +94,6 @@
       href: user-help-device-remediation.md
 - name: Hjälp om portalen Mina appar
   items:
-    - name: Översikt
-      href: my-apps-portal-end-user-overview.md
     - name: Komma åt och använda portalen Mina appar
       href: my-apps-portal-end-user-access.md
     - name: Uppdatera din profil- och kontoinformation
@@ -122,8 +106,6 @@
       href: my-apps-portal-end-user-troubleshoot.md
 - name: Hjälp för Mina appar (förhandsversion) på portalen
   items:
-    - name: Översikt
-      href: my-applications-portal-overview.md
     - name: Komma åt och använda portalen Mina appar
       href: my-applications-portal-access.md
     - name: Få åtkomst till och använda arbetsytor

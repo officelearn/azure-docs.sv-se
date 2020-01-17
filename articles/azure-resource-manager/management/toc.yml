@@ -8,6 +8,8 @@
   items:
     - name: Prenumerations- och tjänstbegränsningar
       href: azure-subscription-service-limits.md
+    - name: Regler för resursnamn
+      href: resource-name-rules.md
     - name: Resource Manager och klassisk distribution
       href: deployment-models.md
     - name: Vanliga säkerhetsattribut i Azure

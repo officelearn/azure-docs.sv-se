@@ -35,6 +35,8 @@
       href: rule-processing.md
     - name: Tjänsttaggar
       href: service-tags.md
+    - name: Certifieringar för efterlevnad
+      href: compliance-certifications.md
 - name: Anvisningar
   items:
     - name: Distribuera med hjälp av Azure PowerShell

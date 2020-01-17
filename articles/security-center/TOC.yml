@@ -29,6 +29,10 @@
       href: security-center-compliance-dashboard.md
 - name: Begrepp
   items:
+    - name: Säkerhetspoäng i Security Center
+      href: security-center-secure-score.md
+    - name: Förbättrade säkerhetspoäng
+      href: secure-score-security-controls.md
     - name: Behörigheter
       href: security-center-permissions.md
     - name: Datasäkerhet
@@ -73,8 +77,6 @@
           href: security-center-alert-validation.md
 - name: Anvisningar
   items:
-    - name: Förbättra dina säkerhetspoäng
-      href: security-center-secure-score.md
     - name: Uppgradera till avancerad säkerhet
       href: security-center-onboarding.md
     - name: Sök igenom dina virtuella datorer efter sårbarheter

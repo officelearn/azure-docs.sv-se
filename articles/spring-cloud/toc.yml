@@ -54,7 +54,7 @@
       href: spring-cloud-service-registration.md
     - name: Analysera programloggar och mått
       href: diagnostic-services.md
-    - name: Azure Spring Cloud-loggströmning för omedelbar tillgänglighet
+    - name: Strömma apploggar för Azure Spring Cloud i realtid
       href: spring-cloud-howto-log-streaming.md
     - name: Automatisera din CI/CD-pipeline i Azure Spring Cloud
       href: spring-cloud-howto-cicd.md

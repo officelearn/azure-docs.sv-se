@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för VMware-utvärdering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 2a9c5504d99f439723a250b619b9f9b660ea9c59
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 74dae71404fe827c9e19d5e3042afd2f98a7a5dd
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029013"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154694"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -37,11 +37,14 @@ Förutom att identifiera datorer kan Azure Migrate: Server utvärdering kan iden
 
 **Support** | **Detaljer**
 --- | ---
-Identifiering | Identifieringen är agent lösa, använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer med WMI och SSH-samtal.
-Datorer som stöds | Lokala virtuella VMware-datorer.
-Datorns operativ system | Alla Windows-och Linux-versioner
-Autentiseringsuppgifter | För närvarande har stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
-Begränsningar | För app-Discovery kan du identifiera upp till 10000 per apparat. 
+**Identifiering** | Identifieringen är agent lösa, använder autentiseringsuppgifter för maskin-gäst och fjärråtkomst till datorer med WMI och SSH-samtal.
+**Datorer som stöds** | Lokala virtuella VMware-datorer.
+**Datorns operativ system** | Alla Windows-och Linux-versioner.
+**autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
+**Autentiseringsuppgifter för virtuell dator** | För närvarande har stöd för att använda en autentiseringsuppgift för alla Windows-servrar och en autentiseringsuppgift för alla Linux-servrar.<br/><br/> Du skapar ett gäst användar konto för virtuella Windows-datorer och ett vanligt/vanligt användar konto (icke-sudo åtkomst) för alla virtuella Linux-datorer.
+**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill identifiera.
+**Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill identifiera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
+**Begränsningar** | För app-Discovery kan du identifiera upp till 10000 per apparat. 
 
 ## <a name="vmware-requirements"></a>Krav för VMware
 
@@ -67,21 +70,38 @@ Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för iden
 Enhet | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 vCenter Server | Inkommande anslutningar på TCP-port 443 för att tillåta att installationen samlar in konfigurations-och prestanda-metadata för utvärderingar. <br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du konfigurerar identifiering.
 
-## <a name="dependency-visualization"></a>Visualisering av beroenden
+## <a name="agent-based-dependency-visualization"></a>Agent-baserad beroende visualisering
 
-Beroende visualisering hjälper dig att visualisera beroenden mellan datorer som du vill utvärdera och migrera. Du använder vanligt vis beroende mappning när du vill utvärdera datorer med högre Tillförlitlighets nivåer. För virtuella VMware-datorer stöds beroende visualisering enligt följande:
+[Beroende visualisering](concepts-dependency-visualization.md) hjälper dig att visualisera beroenden mellan datorer som du vill utvärdera och migrera. För en agent-baserad visualisering sammanfattas krav och begränsningar i följande tabell
 
-- **Beroende visualisering för agent utan agent**: det här alternativet är för närvarande en för hands version. Du behöver inte installera några agenter på datorer.
-    - Det fungerar genom att samla in data för TCP-anslutningen från datorer som den är aktive rad för. När beroende identifiering har startats samlar enheten in data från datorer vid ett avsöknings intervall på fem minuter.
-    - Följande data samlas in:
-        - TCP-anslutningar
-        - Namn på processer som har aktiva anslutningar
-        - Namn på installerade program som kör ovanstående processer
-        - Nej. anslutningar som identifieras vid varje avsöknings intervall
-- **Agent-baserad beroende visualisering**: om du vill använda en agent-baserad beroende visualisering måste du hämta och installera följande agenter på varje lokal dator som du vill analysera.
-    - Installera Microsoft Monitoring Agent (MMA) på varje dator. [Läs mer](how-to-create-group-machine-dependencies.md#install-the-mma) om hur du installerar MMA-agenten.
-    - Installera beroende agenten på varje dator. [Läs mer](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) om hur du installerar beroende agenten.
-    - Om du har datorer utan Internetanslutning måste du dessutom ladda ned och installera Log Analytics-gatewayen på dem.
+
+**Krav** | **Detaljer**
+--- | ---
+**Distribution** | Innan du distribuerar beroende visualisering bör du ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server bedömning som har lagts till i projektet. Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer.<br/><br/> Beroende visualisering är inte tillgänglig i Azure Government.
+**Tjänstkarta** | Agent-baserad beroende visualisering använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) lösning i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Om du vill distribuera associerar du en ny eller befintlig Log Analytics arbets yta med ett Azure Migrate projekt.
+**Log Analytics-arbetsyta** | Arbets ytan måste vara i samma prenumeration som Azure Migrate-projektet.<br/><br/> Azure Migrate stöder arbets ytor som finns i regionerna östra USA, Sydostasien och Europa, västra.<br/><br/>  Arbets ytan måste vara i en region där [tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> Det går inte att ändra arbets ytan för ett Azure Migrate projekt när den har lagts till.
+**Avgifter** | Tjänstkarta-lösningen debiteras inga avgifter för de första 180 dagarna (från dagen då du kopplade arbets ytan Log Analytics med Azure Migrate-projektet).<br/><br/> Efter 180 dagar kommer standard Log Analytics avgifter att gälla.<br/><br/> Om du använder någon annan lösning än Tjänstkarta i den associerade Log Analytics arbets ytan debiteras standard Log Analytics avgifter.<br/><br/> Om du tar bort Azure Migrate-projektet raderas inte arbets ytan med den. När du har tagit bort projektet är Tjänstkarta inte kostnads fritt, och varje nod debiteras enligt den betalda nivån i Log Analytics arbets ytan.
+**Aktörer** | Agent-baserad beroende visualisering kräver att två agenter installeras på varje dator som du vill analysera.<br/><br/> - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [beroende agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
+**Internetanslutning** | Om datorerna inte är anslutna till Internet måste du installera Log Analytics gateway på dem.
+
+
+## <a name="agentless-dependency-visualization"></a>Agentfri visualisering av beroenden
+
+Detta alternativ förhandsvisas just nu. [Läs mer](how-to-create-group-machine-dependencies-agentless.md). Kraven sammanfattas i följande tabell.
+
+**Krav** | **Detaljer**
+--- | ---
+**Distribution** | Innan du distribuerar beroende visualisering bör du ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server bedömning som har lagts till i projektet. Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer.
+**Stöd för virtuella datorer** | Stöds för närvarande endast för virtuella VMware-datorer.
+**Virtuella Windows-datorer** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2 (64-bitars)
+**Virtuella Linux-datorer** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14,04, 16,04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
+**Windows-konto** |  Visualiseringen behöver ett användar konto med gäst åtkomst.
+**Linux-konto** | Visualiseringen behöver ett användar konto med rot behörighet.<br/><br/> Alternativt behöver användar kontot dessa behörigheter för/bin/netstat-och/bin/ls-filer: CAP_DAC_READ_SEARCH och CAP_SYS_PTRACE.
+**VM-agenter** | Ingen agent krävs på de virtuella datorerna.
+**VMware-verktyg** | VMware-verktyg måste installeras och köras på de virtuella datorer som du vill analysera.
+**autentiseringsuppgifter för vCenter** | Ett vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för Virtual Machines > gäst åtgärder.
+**Port åtkomst** | På ESXi-värdar som kör virtuella datorer som du vill analysera måste Azure Migrate-installationen kunna ansluta till TCP-port 443.
+
 
 
 ## <a name="next-steps"></a>Nästa steg

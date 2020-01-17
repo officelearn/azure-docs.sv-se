@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f8acf499d4d82c49096e4e5beff8209d0970b421
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064337"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119660"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -37,13 +37,13 @@ I följande exempel visas innehålls definitions identifieraren och definitionen
   <Metadata>
     <Item Key="DisplayName">Local account sign up page</Item>
   </Metadata>
-  <LoalizedResourcesReferences MergeBehavior="Prepend">
+  <LocalizedResourcesReferences MergeBehavior="Prepend">
     <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.localaccountsignup.en" />
     <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.localaccountsignup.es" />
     ...
 ```
 
-Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekniska profilen innehåller den innehålls Definitions-ID **ContentDefinitionReferenceId** som är inställt på`api.localaccountsignup`
+Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekniska profilen innehåller ID för innehålls definitions **ContentDefinitionReferenceId** som är inställt på `api.localaccountsignup`
 
 ```XML
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
@@ -61,9 +61,9 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 **ContentDefinition** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
+| Id | Ja | En identifierare för en innehålls definition. Värdet är ett angivet i avsnittet **innehålls Definitions-ID** senare på den här sidan. |
 
 **ContentDefinition** -elementet innehåller följande element:
 
@@ -77,9 +77,9 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 ### <a name="datauri"></a>DataUri
 
-**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Formatet för värdet är `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I följande tabell visas de sid identifierare som du kan använda.
+**DataUri** -elementet används för att ange sid-ID. Azure AD B2C använder sid identifieraren för att läsa in och initiera GRÄNSSNITTs element och Java Script på klient sidan. Värdets format är `urn:com:microsoft:aad:b2c:elements:page-name:version`.  I följande tabell visas de sid identifierare som du kan använda.
 
-| Value |   Beskrivning |
+| Värde |   Beskrivning |
 | ----- | ----------- |
 | `urn:com:microsoft:aad:b2c:elements:globalexception:1.1.0` | Visar en felsida när ett undantag eller ett fel påträffas. |
 | `urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0` | Visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. |
@@ -99,7 +99,7 @@ Metadata för den **LocalAccountSignUpWithLogonEmail** självkontrollerade tekni
 
 **LocalizedResourcesReferences** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Språk | Ja | En sträng som innehåller ett språk som stöds för principen per RFC 5646-taggar för att identifiera språk. |
 | LocalizedResourcesReferenceId | Ja | Identifieraren för **LocalizedResources** -elementet. |
@@ -141,7 +141,7 @@ Information om hur du lägger till lokaliserings stöd i dina innehålls definit
 
 ID-attributet för **ContentDefinition** -elementet anger vilken typ av sida som relaterar till innehålls definitionen. Elementet definierar den kontext som en anpassad HTML5/CSS-mall ska använda. I följande tabell beskrivs de olika innehålls Definitions-ID: n som identifieras av identitets miljö ramverket och de sidtyper som är relaterade till dem. Du kan skapa egna innehålls definitioner med ett godtyckligt ID.
 
-| id | Standardmall | Beskrivning |
+| ID | Standardmall | Beskrivning |
 | -- | ---------------- | ----------- |
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **Felsida** – visar en felsida när ett undantag eller ett fel påträffas. |
 | **API. idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **Sidan Val av identitetsprovider** – visar en lista över identitets leverantörer som användarna kan välja bland under inloggningen. Alternativen är vanligt vis företags identitets leverantörer, sociala identitets leverantörer som Facebook och Google + eller lokala konton. |

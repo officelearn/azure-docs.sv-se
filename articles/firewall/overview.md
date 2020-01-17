@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 01/13/2020
+ms.date: 01/15/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: c78ac615d2a93865721152442461d40925dc088d
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: def954395c0f4f83afe28443ba63c89c41e07eba
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922587"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156751"
 ---
 # <a name="what-is-azure-firewall"></a>Vad är Azure Firewall?
 
@@ -90,11 +90,10 @@ Detta möjliggör följande scenarier:
 
 Alla händelser är integrerade med Azure Monitor, vilket gör att du kan arkivera loggar till ett lagringskonto, strömma händelser till din händelsehubb eller skicka dem till Azure Monitor-loggar.
 
-## <a name="pci-soc-and-iso-compliant"></a>PCI, SOC och ISO-kompatibel
+## <a name="compliance-certifications"></a>Certifieringar för regelefterlevnad
 
-Azure Firewall är ett PCI-kort (Payment Card Industry), SOC (Service Organization Controls) och Internationella standardiseringsorganisationen (ISO). För närvarande stöds SOC 1 typ 2, SOC 2, SOC 3, PCI DSS och ISO 27001, 27018, 20000-1, 22301, 9001, 27017.
+Azure Firewall är ett PCI-kort (Payment Card Industry), SOC (Service Organization Controls) och Internationella standardiseringsorganisationen (ISO). Mer information finns i [certifieringar för Azure Firewall-kompatibilitet](compliance-certifications.md).
 
-Mer information finns i [Microsoft Compliance guide](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide).
 
 ## <a name="known-issues"></a>Kända problem
 

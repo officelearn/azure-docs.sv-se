@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: aschhab
-ms.openlocfilehash: 15b7dab7de2affb67fa080d69b4895a31bf9ba3b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c381d9413c4003bc2ab9a9357ff2769e84d14c3e
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462074"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121751"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Service Bus åtkomst kontroll med signaturer för delad åtkomst
 
@@ -82,7 +82,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** -URI för den resurs som används.
 * **`sig`** -signatur.
 
-`signature-string` är SHA-256-hashen som beräknats över resurs-URI: n **(enligt beskrivningen** i föregående avsnitt) och sträng representationen av token som upphör att gälla omedelbart, avgränsade med CRLF.
+`signature-string` är SHA-256-hashen som beräknats över resurs-URI: n (**omfånget** enligt beskrivningen i föregående avsnitt) och sträng representationen av token som upphör att gälla, avgränsade med LF.
 
 Hash-beräkningen ser ut ungefär som följande pseudo-kod och returnerar ett hash-värde på 256 bitar/32 byte.
 

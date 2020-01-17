@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: d08ce1c382d173ac98a0e61e6117ed50b958ba44
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965237"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119847"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Uppgradera ett IPv4-program till IPv6 i Azure Virtual Network – PowerShell (för hands version)
 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du lägger till IPv6-anslutning till ett befintligt 
 - IPv6-adressutrymme för det virtuella nätverket och under nätet
 - en Standard Load Balancer med konfigurationer för både IPv4-och IPV6-frontend
 - Virtuella datorer med nätverkskort som har både en IPv4 + IPv6-konfiguration
-- IPv offentliga IP-adress så att belastningsutjämnaren har Internet-riktad IPv6-anslutning
+- IPv6 offentlig IP-adress så att belastningsutjämnaren har Internet-riktad IPv6-anslutning
 
 > [!Important]
 > IPv6-stöd för Azure Virtual Network är för närvarande en offentlig för hands version. Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan ha begränsad funktionalitet. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -108,7 +108,7 @@ $lb | Add-AzLoadBalancerBackendAddressPoolConfig -Name "LbBackEndPool_v6"
 $lb | Set-AzLoadBalancer
 ```
 
-## <a name="configure-load-balancer-rules"></a>Konfigurera regler för belastnings utjämning
+## <a name="configure-load-balancer-rules"></a>Konfigurera regler för lastbalanserare
 Hämta den befintliga klient delen för belastningsutjämnare och konfiguration av backend-poolen och Lägg sedan till nya regler för belastnings utjämning med [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/Add-AzLoadBalancerRuleConfig).
 
 ```azurepowershell

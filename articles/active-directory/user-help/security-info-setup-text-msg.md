@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fe8610d7551b63ed613153ba1ee0e6f8e73b5a5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 6e8e8b20fc9b8e19b2f7c5f9c1b9e926580c9dbb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278910"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156071"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>Konfigurera SMS-meddelanden som din verifierings metod
 
@@ -28,7 +28,7 @@ Om du uppmanas att ställa in det här direkt efter att du har loggat in på dit
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->Om du inte ser något telefon alternativ är det möjligt att din organisation inte tillåter att du använder ett telefonnummer för verifiering. I så fall måste du välja en annan metod eller kontakta administratören om du vill ha mer hjälp.
+>Om du inte ser något telefon alternativ är det möjligt att din organisation inte tillåter att du använder det här alternativet för verifiering. I så fall måste du välja en annan metod eller kontakta din organisations supportavdelning om du behöver mer hjälp.
 
 ## <a name="set-up-text-messages-from-the-security-info-page"></a>Konfigurera textmeddelanden från sidan säkerhets information
 

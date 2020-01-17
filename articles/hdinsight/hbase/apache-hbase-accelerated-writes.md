@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bcc9736280b144a77bca57b4f4df1303f4b54796
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179084"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156938"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
 
@@ -37,11 +37,11 @@ Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjn
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du påskyndade skrivningar för HBase i HDInsight
 
-Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv**klickar du på kryss rutan bredvid **Aktivera accelererade skrivningar (för hands version)** . Fortsätt sedan med de återstående stegen för att skapa kluster.
+Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv**klickar du på kryss rutan bredvid **Aktivera påskyndade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
 
 ![Aktivera alternativ för påskyndad skrivning för HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
 
-## <a name="other-considerations"></a>Annat att tänka på
+## <a name="other-considerations"></a>Andra överväganden
 
 Skapa ett kluster med minst tre arbetsnoder för att bevara data hållbarhet. När du har skapat det går det inte att skala upp klustret till färre än tre arbetsnoder.
 

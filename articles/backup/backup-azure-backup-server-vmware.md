@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 description: I den här artikeln lär du dig hur du använder Azure Backup Server för att säkerhetskopiera virtuella VMware-datorer som körs på en VMware vCenter/ESXi-Server.
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: df85cba42118a2e814a4a1c8338f3927e4d75f36
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173362"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152875"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Säkerhetskopiera virtuella VMware-datorer med Azure Backup Server
 
@@ -24,7 +24,7 @@ Den här artikeln förklarar hur du:
 
 ## <a name="before-you-start"></a>Innan du börjar
 
-- Kontrol lera att du kör en version av vCenter/ESXi som stöds för backup-versionerna 6,5, 6,0 och 5,5.
+- Kontrol lera att du använder en version av vCenter/ESXi som stöds för säkerhets kopiering. Se support mat ris [här](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix).
 - Kontrol lera att du har konfigurerat Azure Backup Server. Om du inte gör det måste du [göra det](backup-azure-microsoft-azure-backup.md) innan du börjar. Du bör köra Azure Backup Server med de senaste uppdateringarna.
 
 ## <a name="create-a-secure-connection-to-the-vcenter-server"></a>Skapa en säker anslutning till vCenter Server
@@ -96,9 +96,11 @@ Om du har säkra gränser i din organisation och inte vill använda HTTPS-protok
 
 1. Kopiera och klistra in följande text i en. txt-fil.
 
-       ```text
-      Windows Registry Editor version 5,00 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = DWORD: 00000001
-       ```
+```text
+Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
+"IgnoreCertificateValidation"=dword:00000001
+```
 
 2. Spara filen på den Azure Backup Server datorn med namnet **DisableSecureAuthentication. reg**.
 
@@ -128,26 +130,41 @@ Azure Backup Server behöver ett användar konto med behörighet att komma åt v
 
 ### <a name="role-permissions"></a>Roll behörigheter
 
-**6.5/6.0** | **5,5**
---- | ---
-Data lager. AllocateSpace | Data lager. AllocateSpace
-Global.ManageCustomFields | Global.ManageCustomFields
-Global.SetCustomField |
-Host.Local.CreateVM | Nätverk. tilldela
-Nätverk. tilldela |
-Resource.AssignVMToPool |
-VirtualMachine.Config.AddNewDisk  | VirtualMachine.Config.AddNewDisk
-VirtualMachine.Config.AdvancedConfig| VirtualMachine.Config.AdvancedConfig
-VirtualMachine.Config.ChangeTracking| VirtualMachine.Config.ChangeTracking
-VirtualMachine.Config.HostUSBDevice |
-VirtualMachine.Config.QueryUnownedFiles |
-VirtualMachine.Config.SwapPlacement| VirtualMachine.Config.SwapPlacement
-VirtualMachine.Interact.PowerOff| VirtualMachine.Interact.PowerOff
-VirtualMachine.Inventory.Create| VirtualMachine.Inventory.Create
-VirtualMachine.Provisioning.DiskRandomAccess |
-VirtualMachine.Provisioning.DiskRandomRead | VirtualMachine.Provisioning.DiskRandomRead
-VirtualMachine.State.CreateSnapshot | VirtualMachine.State.CreateSnapshot
-VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
+| **Privilegier för vCenter 6,5 och över användar konto**        | **Behörigheter för vCenter 6,0-användar konto**               | **Behörigheter för vCenter 5,5-användar konto** |
+| ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------- |
+| Data lager. AllocateSpace                                      |                                                           |                                             |
+| Data lager. browse-datalager                                   | Data lager. AllocateSpace                                   | Nätverk. tilldela                              |
+| Data lager för fil åtgärder på låg nivå                          | Global. Hantera anpassade attribut                           | Data lager. AllocateSpace                     |
+| Data lager kluster. Konfigurera ett datatstore-kluster             | Globalt. Ange anpassat attribut                               | VirtualMachine.Config.ChangeTracking        |
+| Global. inaktivera metoder                                       | Värd. local-åtgärder. Skapa virtuell dator              | VirtualMachine.State.RemoveSnapshot         |
+| Globala. Aktivera metoder                                        | Nätverk. Tilldela nätverk                                   | VirtualMachine.State.CreateSnapshot         |
+| Globala. licenser                                              | Klusterresursen. Tilldela en virtuell dator till en resurspool         | VirtualMachine.Provisioning.DiskRandomRead  |
+| Global. log-händelse                                             | Virtuell dator. Konfiguration. Lägg till ny disk                | VirtualMachine.Interact.PowerOff            |
+| Global. Hantera anpassade attribut                              | Virtuell dator. Konfiguration. Avancerat                    | VirtualMachine.Inventory.Create             |
+| Globalt. Ange anpassat attribut                                  | Virtuell dator. Konfiguration. spårning av disk ändring        | VirtualMachine.Config.AddNewDisk            |
+| Nätverk. tilldela nätverk                                       | Virtuell dator. Konfiguration. värd USB-enhet             | VirtualMachine.Config.HostUSBDevice         |
+| Klusterresursen. Tilldela en virtuell dator till en resurspool            | Virtuell dator. Konfiguration. fråga efter filer som inte ägs         | VirtualMachine.Config.AdvancedConfig        |
+| Virtuell dator. Konfiguration. Lägg till ny disk                   | Virtuell dator. Konfiguration. swapfile placering          | VirtualMachine.Config.SwapPlacement         |
+| Virtuell dator. Konfiguration. Avancerat                       | Virtuell dator. Interaktion. Stäng av                     | Global.ManageCustomFields                   |
+| Virtuell dator. Konfiguration. spårning av disk ändring           | Virtuell dator. Hantering. Skapa ny                     |                                             |
+| Virtuell dator. Konfiguration. disk lån                     | Virtuell dator. Etablering. Tillåt disk åtkomst            |                                             |
+| Virtuell dator. Konfiguration. utöka virtuell disk            | Virtuell dator. Etablerings. Tillåt skrivskyddad disk åtkomst |                                             |
+| Virtuell dator. Gäst åtgärder. ändringar i gäst åtgärden | Virtuell dator. Ögonblicks bilds hantering. Skapa ögonblicks bild       |                                             |
+| Virtuell dator. Gäst verksamhet. körning av gäst åtgärds program | Virtuell dator. Ögonblicks bilds hantering. Ta bort ögonblicks bild       |                                             |
+| Virtuell dator. Gäst verksamhet. frågor om gäst åtgärder     |                                                           |                                             |
+| Virtuell dator. Interaktion. Enhets anslutning              |                                                           |                                             |
+| Virtuell dator. Interaktion. Hantering av gäst operativ system med VIX-API |                                                           |                                             |
+| Virtuell dator. Inventering. register                          |                                                           |                                             |
+| Virtuell dator. Inventering. ta bort                            |                                                           |                                             |
+| Virtuell dator. Etablering. Tillåt disk åtkomst              |                                                           |                                             |
+| Virtuell dator. Etablering. Tillåt skrivskyddad åtkomst till disk    |                                                           |                                             |
+| Virtuell dator. Etablering. Tillåt nedladdning av virtuell dator |                                                           |                                             |
+| Virtuell dator. Ögonblicks bilds hantering. Skapa en ögonblicksbild        |                                                           |                                             |
+| Virtuell dator. Ögonblicks bilds hantering. Ta bort ögonblicks bild         |                                                           |                                             |
+| Virtuell dator. Ögonblicks bilds hantering. Återgå till ögonblicks bild      |                                                           |                                             |
+| vApp. Lägg till virtuell dator                                     |                                                           |                                             |
+| vApp. tilldela resurspool                                    |                                                           |                                             |
+| vApp. avregistrera                                              |                                                           |                                             |
 
 ## <a name="create-a-vmware-account"></a>Skapa ett VMware-konto
 
@@ -264,7 +281,7 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 
 1. På sidan **Välj data skydds metod** anger du ett namn på skydds gruppen och skydds inställningarna. Om du vill säkerhetskopiera till Azure ställer du in kortsiktigt skydd på **disk** och aktiverar onlineskydd. Klicka sedan på **Nästa**.
 
-    ![Välj data skydds metod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
+    ![Välj dataskyddsmetod](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
 1. I **Ange kortsiktiga mål**anger du hur länge du vill behålla säkerhetskopierade data till disk.
    - I **kvarhållningsintervall**anger du hur många dagar disk återställnings punkter ska behållas.
@@ -324,31 +341,31 @@ Lägg till virtuella VMware-datorer för säkerhets kopiering. Skydds grupper sa
 Om du vill säkerhetskopiera vSphere 6,7 gör du följande:
 
 - Aktivera TLS 1,2 på DPM-servern
-  >[!Note]
-  >VMWare 6,7 och senare hade aktiverat TLS som kommunikations protokoll.
+
+>[!NOTE]
+>VMWare 6,7 och tidigare hade TLS aktiverat som kommunikations protokoll.
 
 - Ange register nycklarna enligt följande:
 
-       ```text
+```text
+Windows Registry Editor Version 5.00
 
-        Windows Registry Editor Version 5.00
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
 
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-
-       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-       "SystemDefaultTlsVersions"=dword:00000001
-       "SchUseStrongCrypto"=dword:00000001
-       ```
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+"SystemDefaultTlsVersions"=dword:00000001
+"SchUseStrongCrypto"=dword:00000001
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

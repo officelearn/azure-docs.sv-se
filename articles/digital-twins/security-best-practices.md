@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 5d2fe5a00d131af54862551991cf984d8576b57e
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 01/15/2020
+ms.openlocfilehash: 5fc5ba447557aa89e8f0870c576d6d4c439f3353
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860953"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122567"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digitals dubblare säkerhets metod tips
 
@@ -40,6 +40,7 @@ Några viktiga metoder för att säkra dina IoT-enheter på ett säkert sätt ä
 > * Begränsa I/O-och enhets bandbredden för att förbättra prestandan. Hastighets begränsning kan förbättra säkerheten genom att förhindra DoS-attacker (Denial-of-Service).
 > * Se till att enhetens inbyggda program vara, operativ system och program vara är uppdaterade.
 > * Regelbundet granska och granska enhets-, program-, nätverks-och gateway-Säkerhetsmetodens säkerhets metoder när de fortsätter att förbättra och utveckla.
+> * Använd betrodda, certifierade och kompatibla säkerhets system, program och enheter. Granska till exempel [erbjudandena för regelefterlevnad](https://azure.microsoft.com/overview/trusted-cloud/compliance/) för Azure-molnet.
 
 Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 
@@ -67,8 +68,8 @@ Azure Digitals dubblare använder [Azure Active Directory](https://docs.microsof
 > * Använd ett certifikat som utfärdats av en betrodd [certifikat utfärdare](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) i stället för att program hemligheter ska autentiseras.
 > * Begränsa OAuth 2,0-omfånget för åtkomst för en token.
 > * Verifiera hur lång tid en token är giltig och om en token fortfarande är giltig.
-> * Ange lämpliga tids längder som token är giltiga för.
-> * Uppdatera utgångna token.
+> * Ange lämpliga tids längder som token är giltiga för. Uppdatera utgångna token.
+> * Ta bort oanvända **omdirigerings-URI: er** och behörigheter per [rollbaserad åtkomst kontroll metod tips](#role-based-access-control-best-practices).
 
 ## <a name="role-based-access-control-best-practices"></a>Metod tips för rollbaserad åtkomst kontroll
 

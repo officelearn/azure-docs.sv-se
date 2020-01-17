@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: ef65904b19c5f42548c7b98cb37f6609124e0541
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 1923e26ba0ada7dcf5b8b333150b7cd5b775398b
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922429"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121207"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
@@ -207,9 +207,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för auth-token. Se [använda en token för autentisering av autentiseringsuppgifter från kod](#token-input-code).|
-|**typ**||Required-måste anges till `token`.|
-|**riktning**||Required-måste anges till `in`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för auth-token. Se [använda en token för autentisering av autentiseringsuppgifter från kod](#token-input-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `token`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `in`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**userId**|**UserId**  |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
@@ -342,9 +342,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för Excel-tabellen. Se [använda en datanings bindning för Excel-tabeller från kod](#excel-input-code).|
-|**typ**||Required-måste anges till `excel`.|
-|**riktning**||Required-måste anges till `in`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för Excel-tabellen. Se [använda en datanings bindning för Excel-tabeller från kod](#excel-input-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `excel`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `in`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**userId**|**UserId**  |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
@@ -504,9 +504,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för auth-token. Se [använda en Excel-tabell utgående bindning från kod](#excel-output-code).|
-|**typ**||Required-måste anges till `excel`.|
-|**riktning**||Required-måste anges till `out`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för auth-token. Se [använda en Excel-tabell utgående bindning från kod](#excel-output-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `excel`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `out`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**UserId** |**userId** |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
@@ -650,9 +650,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för filen. Se [använda en OneDrive-indata-bindning från kod](#onedrive-input-code).|
-|**typ**||Required-måste anges till `onedrive`.|
-|**riktning**||Required-måste anges till `in`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för filen. Se [använda en OneDrive-indata-bindning från kod](#onedrive-input-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `onedrive`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `in`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**userId**|**UserId**  |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
@@ -798,9 +798,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för filen. Se [använda en OneDrive-filutgående bindning från kod](#onedrive-output-code).|
-|**typ**||Required-måste anges till `onedrive`.|
-|**riktning**||Required-måste anges till `out`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för filen. Se [använda en OneDrive-filutgående bindning från kod](#onedrive-output-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `onedrive`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `out`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**UserId** |**userId** |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
@@ -949,9 +949,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
-|**typ**||Required-måste anges till `outlook`.|
-|**riktning**||Required-måste anges till `out`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `outlook`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `out`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**userId**|**UserId**  |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |
@@ -1092,9 +1092,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
-|**typ**||Required-måste anges till `graphWebhook`.|
-|**riktning**||Required-måste anges till `trigger`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `graphWebhook`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `trigger`.|
 |**ResourceType**|**ResourceType**|Krävs – den graf-resurs som den här funktionen ska svara på webhookar för. Kan vara något av följande värden:<ul><li><code>#Microsoft.Graph.Message</code> – ändringar som gjorts i Outlook-meddelanden.</li><li><code>#Microsoft.Graph.DriveItem</code> – ändringar som gjorts i objekt i OneDrive-roten.</li><li><code>#Microsoft.Graph.Contact</code> – ändringar som gjorts i personliga kontakter i Outlook.</li><li><code>#Microsoft.Graph.Event</code> – ändringar som gjorts i Outlooks Kalender objekt.</li></ul>|
 
 > [!Note]
@@ -1244,9 +1244,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
-|**typ**||Required-måste anges till `graphWebhookSubscription`.|
-|**riktning**||Required-måste anges till `in`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `graphWebhookSubscription`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `in`.|
 |**filter**|**Synkroniseringsfilter**| Om värdet är `userFromRequest`, kommer bindningen bara hämta prenumerationer som ägs av den anropande användaren (endast giltig med [http-utlösare]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook-ingångs användning
@@ -1385,9 +1385,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**Namn**||Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
-|**typ**||Required-måste anges till `graphWebhookSubscription`.|
-|**riktning**||Required-måste anges till `out`.|
+|**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
+|**typ**| Ej tillämpligt |Required-måste anges till `graphWebhookSubscription`.|
+|**riktning**| Ej tillämpligt |Required-måste anges till `out`.|
 |**Autentiseringsidentitet**|**Identitet**|Krävs – den identitet som ska användas för att utföra åtgärden. Kan vara något av följande värden:<ul><li>Endast <code>userFromRequest</code> giltig med [http-utlösare]. Använder identiteten för den anropande användaren.</li><li><code>userFromId</code>-använder identiteten för en tidigare inloggad användare med angivet ID. Se <code>userId</code>-egenskapen.</li><li><code>userFromToken</code> – använder den identitet som representeras av angiven token. Se <code>userToken</code>-egenskapen.</li><li><code>clientCredentials</code>-använder identiteten för Function-appen.</li></ul>|
 |**userId**|**UserId**  |Krävs endast om _identitet_ har angetts till `userFromId`. Ett huvud konto-ID som är kopplat till en tidigare inloggad användare.|
 |**userToken**|**UserToken**|Krävs endast om _identitet_ har angetts till `userFromToken`. En giltig token för Function-appen. |

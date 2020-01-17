@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 01/07/2020
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e4f4dd3c1e23855a8a1a69dac72c232779206f1d
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109950"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121717"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>Ange käll språk för tal till text
 
@@ -26,23 +26,28 @@ I den här artikeln får du lära dig hur du anger käll språket för ljud inda
 
 ## <a name="how-to-specify-source-language-in-c"></a>Ange käll språk iC#
 
-Det första steget är att skapa en `SpeechConfig`:
+I det här exemplet tillhandahålls käll språket explicit som en parameter med `SpeechRecognizer` konstruktion.
 
 ```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+var recognizer = new SpeechRecognizer(speechConfig, "de-DE", audioConfig);
 ```
 
-Ange sedan käll språket för ditt ljud med `SpeechRecognitionLanguage`:
+I det här exemplet tillhandahålls käll språket med hjälp av `SourceLanguageConfig`. Sedan skickas `sourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruktion.
 
 ```csharp
-speechConfig.SpeechRecognitionLanguage = "de-DE";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
 
-Om du använder en anpassad modell för igenkänning kan du ange slut punkten med `EndpointId`:
+I det här exemplet tillhandahålls käll språket och den anpassade slut punkten med hjälp av `SourceLanguageConfig`. Sedan skickas `sourceLanguageConfig` som en parameter för att `SpeechRecognizer` konstruktion.
 
 ```csharp
-speechConfig.EndpointId = "The Endpoint ID for your custom model.";
+var sourceLanguageConfig = SourceLanguageConfig.FromLanguage("de-DE", "The Endpoint ID for your custom model.");
+var recognizer = new SpeechRecognizer(speechConfig, sourceLanguageConfig, audioConfig);
 ```
+
+>[!Note]
+> `SpeechRecognitionLanguage`-och `EndpointId`s uppsättnings metoder är inaktuella från `SpeechConfig` C#-klassen i. Användningen av dessa metoder rekommenderas inte och bör inte användas när du skapar en `SpeechRecognizer`.
 
 ::: zone-end
 
@@ -174,7 +179,7 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ::: zone-end
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 * En lista över språk som stöds och nationella inställningar för tal till text finns i [språk stöd](language-support.md).
 

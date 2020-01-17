@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: overview
 ms.reviewer: vanto
 ms.date: 09/17/2019
-ms.openlocfilehash: 6cc8282a5c56f8f45e8d9e5ee452089a74f0d4ed
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 427ba0e46f8f4090ce8c2080b1d6780b165e864c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045636"
+ms.locfileid: "76121088"
 ---
 # <a name="private-link-for-azure-sql-database-and-data-warehouse-preview"></a>Privat länk för Azure SQL Database och informations lager (för hands version)
 
@@ -43,8 +43,6 @@ Med privat länk kan kunder nu konfigurera nätverks åtkomst kontroller som NSG
 När kunderna ansluter till den offentliga slut punkten från lokala datorer måste deras IP-adress läggas till i den IP-baserade brand väggen med hjälp av en [brand Väggs regel på server nivå](sql-database-server-level-firewall-rule.md). Även om den här modellen fungerar bra för att tillåta åtkomst till enskilda datorer för utveckling eller testning av arbets belastningar, är det svårt att hantera i en produktions miljö.
 
 Med privat länk kan kunder aktivera åtkomst till lokala slut punkter via [ExpressRoute](../expressroute/expressroute-introduction.md), privat peering eller VPN-tunnlar. Kunder kan sedan inaktivera all åtkomst via den offentliga slut punkten och inte använda den IP-baserade brand väggen för att tillåta alla IP-adresser.
-
-Med privat länk kan kunder aktivera åtkomst över hela nätverket till den privata slut punkten med hjälp av en privat peering-eller VPN-tunnel från Express Route (ER). De kan sedan inaktivera all åtkomst via offentlig slut punkt och inte använda den IP-baserade brand väggen.
 
 ## <a name="how-to-set-up-private-link-for-azure-sql-database"></a>Så här konfigurerar du en privat länk för Azure SQL Database 
 

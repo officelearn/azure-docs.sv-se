@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: de3a3d9e5523341c2f549ff2a90c9c40a4e3cb50
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: df3ca877570b6b3e3a34dd20d617ce3896f1dd99
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889448"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120969"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -45,7 +45,7 @@ Mer information finns i [planera IP-adresser för klustret](configure-azure-cni.
 Det kan finnas olika orsaker till att Pod har fastnat i det läget. Du kan titta på:
 
 * Själva pod, med hjälp av `kubectl describe pod <pod-name>`.
-* Loggarna med `kubectl log <pod-name>`.
+* Loggarna med `kubectl logs <pod-name>`.
 
 Mer information om hur du felsöker Pod-problem finns i [Felsöka program](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 

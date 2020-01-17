@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: baf3d0e0e40cb9089ac91c51dd40c079232a973b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 766cfa38108faa0dbaa16a3d2596a4b34689553c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989766"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121105"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Använd API:erna för Azure-fakturering för att få programmatisk insyn i din Azure-användning
 Använd API:er för Azure-fakturering för att hämta användnings- och resursdata till önskat dataanalysverktyg. Azures API:er för resursanvändning och RateCard kan hjälpa dig att korrekt förutse och hantera dina kostnader. API:erna implementeras som en resursprovider och en del av familjen av API:er som exponeras av Azure Resource Manager.  
@@ -42,13 +42,13 @@ Använd [API:et för Azure-resursanvändning](/previous-versions/azure/reference
 * **Aggregeringar per timme eller dag** – Anropare kan ange om de vill samla Azure-användningsdata i containrar för varje timme eller varje dag. Standardvärdet är varje dag.
 * **Metadata för instanser (inklusive resurstaggar)** – Få information på instansnivå, t.ex. den fullständigt kvalificerade resurs-URI:n (/Subscriptions/{Subscription-ID}/..), resursgruppsinformation och resurstaggar. Med dessa metadata kan du deterministiskt och programmässigt allokera användning baserat på taggarna, exempelvis för scenarier med tvärdebitering.
 * **Metadata för resurser** – Resursinformation som mätarnamn, mätarkategori, underkategori för mätare, enhet och region gör det enklare för anroparen att förstå vad som förbrukats. Vi arbetar också med att anpassa terminologin för resursmetadata mellan Azure-portalen, CSV-filen med Azure-användning, EA-fakturering och andra offentliga gränssnitt, så att du kan korrelera data mellan olika upplevelser.
-* **Användning för olika typer av erbjudanden** – Användningsdata är tillgängliga för erbjudandetyper som Betala per användning, MSDN, utgiftsåtagande, penningkredit och EA, förutom [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
+* **Användning för olika typer av erbjudanden** – Användningsdata är tillgängliga för erbjudandetyper som Betala per användning, MSDN, utgiftsåtagande, penningkredit och EA, förutom [CSP](https://docs.microsoft.com/partner-center).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>RateCard-API för Azure-resurser (förhandsversion)
 Använd [RateCard-API:et för Azure-resurser](/previous-versions/azure/reference/mt219005(v=azure.100)) för att hämta en lista över tillgängliga Azure-resurser och information om beräknade priser för var och en. API:et ger tillgång till:
 
 * **Rollbaserad åtkomstkontroll i Azure** – Konfigurera dina åtkomstprinciper på [Azure-portalen](https://portal.azure.com) eller med [Azure PowerShell-cmdlets](/powershell/azure/overview) för att ange vilka användare eller program som kan komma åt RateCard-informationen. Anropare måste använda Azure Active Directory-standardtoken för autentisering. Lägg till anroparen till Rollen Läsare, Ägare eller Deltagare för att få åtkomst till användningsdata för en viss Azure-prenumeration.
-* **Stöd för erbjudandetyperna Betala per användning, MSDN, betalningsåtagande och penningkredit (EA och [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) stöds inte)** – Det här API:et tillhandahåller information på nivån för Azure-erbjudanden.  Anroparen för det här API:et måste skicka information om erbjudandet för att få resursinformation och priser. Vi kan för närvarande inte uppge EA-priser eftersom EA-erbjudanden har anpassade priser per registrering.
+* **Stöd för erbjudandetyperna Betala per användning, MSDN, betalningsåtagande och penningkredit (EA och [CSP](https://docs.microsoft.com/partner-center) stöds inte)** – Det här API:et tillhandahåller information på nivån för Azure-erbjudanden.  Anroparen för det här API:et måste skicka information om erbjudandet för att få resursinformation och priser. Vi kan för närvarande inte uppge EA-priser eftersom EA-erbjudanden har anpassade priser per registrering.
 
 ## <a name="scenarios"></a>Scenarier
 Här är exempel på några av de scenarier som är möjliga med kombinationen av användnings- och RateCard-API:erna:

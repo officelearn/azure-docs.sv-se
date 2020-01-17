@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6da67589b15b4ab043510c0375c26c12f645adb
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848399"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155154"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>Planera en molnbaserad Azure Multi-Factor Authentication-distribution
 
@@ -85,18 +85,18 @@ Vi rekommenderar att organisationer använder villkorlig åtkomst för att defin
 ### <a name="configuring-a-named-location"></a>Konfigurera en namngiven plats
 
 1. Öppna **Azure Active Directory** i Azure Portal
-2. Klicka på **villkorlig åtkomst**
-3. Klicka på **namngivna platser**
-4. Klicka på **ny plats**
+2. Välj **säkerhet**
+3. Under **Hantera**väljer du **namngivna platser**
+4. Välj **ny plats**
 5. I fältet **namn** anger du ett beskrivande namn
-6. Välj om du definierar platsen med hjälp av IP-intervall eller länder/regioner
-   1. Om du använder IP-intervall
-      1. Bestäm om du vill markera platsen som betrodd. Inloggning från en betrodd plats minskar en användares inloggningsrisk. Markera bara den här platsen som betrodd om du vet att de angivna IP-intervallen är etablerade och trovärdiga i din organisation.
+6. Välj om du definierar platsen med hjälp av *IP-intervall* eller *länder/regioner*
+   1. Om du använder *IP-intervall*
+      1. Bestäm om du vill *Markera som betrodd plats*. Inloggning från en betrodd plats minskar en användares inloggningsrisk. Markera bara den här platsen som betrodd om du vet att de angivna IP-intervallen är etablerade och trovärdiga i din organisation.
       2. Ange IP-intervall
-   2. Om du använder länder/regioner
+   2. Om du använder *länder/regioner*
       1. Expandera den nedrullningsbara menyn och välj de länder eller regioner som du vill definiera för den här namngivna platsen.
-      2. Bestäm om du vill inkludera okända områden. Okända områden är IP-adresser som inte kan mappas till ett land/en region.
-7. Klicka på **Skapa**
+      2. Bestäm om du vill *Inkludera okända områden*. Okända områden är IP-adresser som inte kan mappas till ett land/en region.
+7. Välj **Skapa**
 
 ## <a name="plan-authentication-methods"></a>Planera autentiseringsmetoder
 
@@ -221,7 +221,7 @@ Det är viktigt att du förhindrar oavsiktligt låst av din Azure AD-klient. Du 
 ### <a name="create-conditional-access-policy"></a>Skapa princip för villkorlig åtkomst
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med ett globalt administratörs konto.
-1. Bläddra till **Azure Active Directory**, **villkorlig åtkomst**.
+1. Bläddra till **Azure Active Directory** > **säkerhet** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
    ![skapa en princip för villkorlig åtkomst för att aktivera MFA för Azure Portal användare i pilot gruppen](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. Ange ett beskrivande namn för principen.
@@ -277,7 +277,7 @@ Om du har en distribuerad NPS-instans och redan använder, [integrerar du din be
 
 Välj vad som ska hända när användare som inte är registrerade med MFA försöker autentisera sig. Använd register inställningen `REQUIRE_USER_MATCH` i register Sök vägen `HKLM\Software\Microsoft\AzureMFA` för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ.
 
-| Nyckel | Värde | Standard |
+| Nyckel | Värde | Default |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -347,7 +347,7 @@ Rapporter för Azure MFA
 
 Azure Multi-Factor Authentication ger rapporter via Azure Portal:
 
-| Rapport | Plats | Beskrivning |
+| Rapport | Location | Beskrivning |
 | --- | --- | --- |
 | Användnings-och bedrägeri varningar | Inloggnings program för Azure AD > | Innehåller information om allmän användning, användar Sammanfattning och användar information. samt en historik över bedrägeri aviseringar som skickats under det angivna datum intervallet. |
 

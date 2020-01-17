@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/28/2019
 ms.author: cshoe
-ms.openlocfilehash: cbc45036497547b78514b1d175d67c6ed437ee2d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d5ded7200c438fc734e1af0a42ca6071196bd41c
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769497"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120345"
 ---
 # <a name="signalr-service-bindings-for-azure-functions"></a>SignalR Service-bindningar för Azure Functions
 
@@ -1011,9 +1011,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| Måste anges till `signalRConnectionInfo`.|
-|**riktning**|| Måste anges till `in`.|
-|**Namn**|| Variabel namn som används i funktions kod för objektet anslutnings information. |
+|**typ**| Ej tillämpligt | Måste anges till `signalRConnectionInfo`.|
+|**riktning**| Ej tillämpligt | Måste anges till `in`.|
+|**Namn**| Ej tillämpligt | Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**userId**|**UserId**| Valfritt: värdet på det användar-ID-anspråk som ska anges i åtkomst nyckelns token. |
 |**connectionStringSetting**|**connectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
@@ -1024,9 +1024,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**|| Måste anges till `signalR`.|
-|**riktning**|| Måste anges till `out`.|
-|**Namn**|| Variabel namn som används i funktions kod för objektet anslutnings information. |
+|**typ**| Ej tillämpligt | Måste anges till `signalR`.|
+|**riktning**| Ej tillämpligt | Måste anges till `out`.|
+|**Namn**| Ej tillämpligt | Variabel namn som används i funktions kod för objektet anslutnings information. |
 |**hubName**|**HubName**| Värdet måste anges till namnet på den Signals Hub som anslutnings informationen genereras för.|
 |**connectionStringSetting**|**connectionStringSetting**| Namnet på den app-inställning som innehåller signal tjänstens anslutnings sträng (Standardvärdet är "AzureSignalRConnectionString") |
 

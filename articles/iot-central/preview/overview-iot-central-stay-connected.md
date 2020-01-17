@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: ''
-ms.openlocfilehash: 938d93b1df077914323c7b5f4ee1d42276aeff04
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c102e7ffde7faab5d864c1d9acaafe141664ebf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434919"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119558"
 ---
 # <a name="stay-connected-with-azure-iot-central-preview-features"></a>Håll kontakten med Azure IoT Central (för hands versions funktioner)
 
@@ -21,7 +21,7 @@ ms.locfileid: "75434919"
 
 Den här artikeln innehåller en översikt över hur Azure IoT Central hjälper enheterna att vara anslutna och felfria.
 
-Med en IoT-lösning som är utformad för att användas i stor skala är det viktigt med en väl strukturerad metod för enhets hantering. Det är inte tillräckligt för att få enheter "anslutna" till den som kan, men du behöver en metod för att hålla enheterna anslutna och felfria när lösningen utvecklas, växer och åldras. Azure IoT Central tillhandahåller de funktioner som krävs för att säkerställa att enheterna i IoT-lösningen är väl vill vetaa för hela programmets livs cykel.
+Med en IoT-lösning som är utformad för att användas i stor skala är det viktigt med en väl strukturerad metod för enhets hantering. Det räcker inte bara att få enheter "anslutna" till molnet, men du behöver en metod för att hålla enheterna anslutna och felfria när lösningen utvecklas, växer och åldras. Azure IoT Central tillhandahåller de funktioner som krävs för att säkerställa att enheterna i IoT-lösningen är väl vill vetaa för hela programmets livs cykel.
 
 ## <a name="dashboards"></a>Instrumentpaneler 
 Inbyggda [instrument paneler](howto-manage-devices.md#import-devices) tillhandahåller ett anpassningsbart ytdiagram för att övervaka enhetens hälso tillstånd och telemetri. Börja med en fördefinierad instrument panel från en [Programmall](howto-use-app-templates.md) eller skapa egna instrument paneler som är anpassade efter behoven i ditt program. Instrument paneler kan delas med alla användare i ditt program eller vara privata.

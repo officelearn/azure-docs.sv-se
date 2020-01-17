@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/27/2019
-ms.openlocfilehash: 562dd900bb3d64731e5467058e2718b081c675b6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2a3e1f1997857ab9812fe87d5ec68b71e280e6ce
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968535"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122550"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Distribuera en maskin inlärnings modell till Azure App Service (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -65,7 +65,7 @@ Innan du distribuerar måste du definiera vad som behövs för att köra modelle
     > [!IMPORTANT]
     > Azure Machine Learning SDK tillhandahåller inte något sätt för webb tjänsten att komma åt dina data lager eller data uppsättningar. Om du behöver distribuerad modell för att komma åt data som lagras utanför distributionen, t. ex. i ett Azure Storage konto, måste du utveckla en anpassad kod med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
     >
-    > Ett annat alternativ som kan fungera för ditt scenario är [batch-förutsägelser](how-to-run-batch-predictions.md), vilket ger åtkomst till data lager när poäng.
+    > Ett annat alternativ som kan fungera för ditt scenario är [batch-förutsägelser](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager när poäng.
 
     Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md).
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 659d00c3fc7a766d800de6f1f12f410003284360
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979277"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121955"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 Med Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
@@ -179,7 +179,7 @@ Kommunikation tillåts från FC VLAN till huvud-VLAN, men det går inte att init
 ### <a name="logical-isolation-between-compute-and-storage"></a>Logisk isolering mellan beräkning och lagring
 Som en del av den grundläggande designen Microsoft Azure separerar VM-baserad beräkning från Storage. Den här separationen gör att beräkning och lagring kan skalas oberoende av varandra, vilket gör det enklare att tillhandahålla flera innehavare och isolering.
 
-Därför körs Azure Storage på separat maskin vara utan nätverks anslutning till Azure Compute, förutom logiskt. [Det](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf) innebär att när en virtuell disk skapas, allokeras inte disk utrymme för hela kapaciteten. I stället skapas en tabell som mappar adresser på den virtuella disken till områden på den fysiska disken och tabellen är tom från början. **Första gången en kund skriver data på den virtuella disken allokeras utrymmet på den fysiska disken och en pekare till den placeras i tabellen.**
+Därför körs Azure Storage på separat maskin vara utan nätverks anslutning till Azure Compute, förutom logiskt. Det innebär att när en virtuell disk skapas, allokeras inte disk utrymme för hela kapaciteten. I stället skapas en tabell som mappar adresser på den virtuella disken till områden på den fysiska disken och tabellen är tom från början. **Första gången en kund skriver data på den virtuella disken allokeras utrymmet på den fysiska disken och en pekare till den placeras i tabellen.**
 ### <a name="isolation-using-storage-access-control"></a>Isolering med åtkomst kontroll för lagring
 **Access Control i Azure Storage** har en enkel åtkomst kontroll modell. Varje Azure-prenumeration kan skapa ett eller flera lagrings konton. Varje lagrings konto har en enda hemlig nyckel som används för att kontrol lera åtkomsten till alla data i det lagrings kontot.
 
@@ -320,14 +320,6 @@ Azure-distributionen har flera lager av nätverks isolering. Följande diagram v
 
 ## <a name="next-steps"></a>Efterföljande moment
 
-- [Nätverks isolerings alternativ för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/)
+- Lär dig mer om [alternativ för nätverks isolering för datorer i virtuella Windows Azure-nätverk](https://azure.microsoft.com/blog/network-isolation-options-for-machines-in-windows-azure-virtual-networks/). Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
 
-Detta omfattar det klassiska klient-och Server dels scenariot där datorer i ett visst Server dels nätverk eller under nätverk bara kan tillåta att vissa klienter eller andra datorer ansluter till en viss slut punkt baserat på en lista över tillåtna IP-adresser.
-
-- [Beräknings isolering](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure tillhandahåller en mängd olika molnbaserade data behandlings tjänster som innehåller ett brett urval av beräknings instanser & tjänster som kan skalas upp och ned automatiskt för att möta behoven hos ditt program eller företag.
-
-- [Lagrings isolering](https://msenterprise.global.ssl.fastly.net/vnext/PDFs/A01_AzureSecurityWhitepaper20160415c.pdf)
-
-Microsoft Azure separerar kundens VM-baserade beräkning från Storage. Den här separationen gör att beräkning och lagring kan skalas oberoende av varandra, vilket gör det enklare att tillhandahålla flera innehavare och isolering. Därför körs Azure Storage på separat maskin vara utan nätverks anslutning till Azure Compute, förutom logiskt. Alla begär Anden körs via HTTP eller HTTPS baserat på kundens val.
+- Lär dig mer om [isolering av virtuella datorer i Azure](../../virtual-machines/windows/isolation.md). Azure Compute erbjuder storlekar för virtuella datorer som är isolerade till en viss maskin varu typ och som är dedikerad till en enda kund.

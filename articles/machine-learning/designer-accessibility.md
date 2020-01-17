@@ -1,0 +1,82 @@
+---
+title: Använda hjälpmedels funktionerna i designern (förhands granskning)
+titleSuffix: Azure Machine Learning
+description: Lär dig mer om kortkommandon och skärm läsarenas hjälpmedels funktioner i designern.
+services: machine-learning
+ms.service: machine-learning
+ms.subservice: core
+ms.topic: reference
+ms.author: peterlu
+author: peterclu
+ms.date: 01/09/2020
+ms.openlocfilehash: 9c899ae16d16fc76f0ea8d24169451556cf24025
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76158018"
+---
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>Använd ett tangent bord för Azure Machine Learning designer (förhands granskning)
+
+Lär dig hur du använder ett tangent bord och en skärm läsare för att använda Azure Machine Learning designer. En lista över kortkommandon som fungerar överallt i Azure Portal finns i [kortkommandon i Azure Portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
+
+Det här arbets flödet har testats med [skärm läsaren](https://support.microsoft.com/help/22798/windows-10-complete-guide-to-narrator) och [JAWS](https://www.freedomscientific.com/products/software/jaws/), men det bör fungera med andra standard skärm läsare.
+
+## <a name="navigate-the-pipeline-graph"></a>Navigera i pipeline-diagrammet
+
+Pipeline-diagrammet är ordnat som en lista över listor. Listan över moduler på den översta nivån innehåller alla moduler i pipelinen. Varje objekt i listan modul innehåller en anslutnings lista som beskriver alla dess anslutningar. 
+
+1. I listan modul använder du piltangenten för att växla mellan moduler.
+1. Använd fliken för att öppna anslutnings listan för modulen.
+1. Använd piltangent för att växla mellan anslutnings portarna för modulen.
+1. Använd "G" för att gå till modulen mål.
+
+## <a name="edit-the-pipeline-graph"></a>Redigera pipeline-diagrammet
+
+### <a name="add-a-module-to-the-graph"></a>Lägga till en modul i grafen
+
+1. Använd Ctrl + F6 för att växla fokus från arbets ytan till modul trädet.
+1. Hitta önskad modul i modulen modul med hjälp av standard TreeView-kontrollen.
+
+### <a name="edit-a-module"></a>Redigera en modul
+
+Så här ansluter du en modul till en annan modul:
+
+1. Använd CTRL + SHIFT + H när du riktar en modul i listan modul för att öppna anslutnings hjälpen.
+1. Redigera anslutnings portarna för modulen.
+
+Så här justerar du egenskaper för modul:
+
+1. Använd CTRL + SKIFT + E när du riktar en modul för att öppna modulens egenskaper.
+1. Redigera egenskaperna för modulen.
+
+## <a name="navigation-shortcuts"></a>Navigerings gen vägar
+
+| Tryck | Beskrivning |
+|-|-|
+| Ctrl + F6 | Växla fokus mellan arbets ytan och modulens träd |
+| CTRL + F1   | Öppna informations kortet när du fokuserar på en nod i modul träd |
+| Ctrl+Skift+H | Öppna anslutnings hjälpen när fokus är på en nod |
+| Ctrl + Skift + E | Öppna modulens egenskaper när fokus är på en nod |
+| Ctrl + G | Flytta fokus till första noden som misslyckades om pipeline-körningen misslyckades |
+
+## <a name="action-shortcuts"></a>Åtgärds gen vägar
+
+Använd följande kortkommandon med åtkomst nyckeln. Mer information om åtkomst nycklar finns https://en.wikipedia.org/wiki/Access_key.
+
+| Tryck | Åtgärd |
+|-|-|
+| Åtkomst nyckel + R | Kör |
+| Åtkomst nyckel + P | Publicera |
+| Åtkomst nyckel + C | Klona |
+| Åtkomst nyckel + D | Distribuera |
+| Åtkomst nyckel + I | Skapa/uppdatera en härlednings pipeline |
+| Åtkomst nyckel + B | Skapa/uppdatera pipeline för batch-härledning |
+| Åtkomst nyckel + K | Öppna List rutan skapa härlednings förlopp |
+| Åtkomst nyckel + U | Öppna List rutan uppdatera härlednings förlopp |
+| Åtkomst nyckel + M | Öppna mer (...) listruta |
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Aktivera hög kontrast eller ändra tema](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Hjälpmedels verktyg på Microsoft](https://www.microsoft.com/accessibility)

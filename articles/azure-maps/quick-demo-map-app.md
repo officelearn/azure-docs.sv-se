@@ -3,18 +3,18 @@ title: 'Snabb start: interaktiv kart sökning med Azure Maps | Microsoft Azure M
 description: Lär dig hur du skapar ett demonstrations webb program för interaktiv kart sökning genom att använda Microsoft Azure Maps-webbsdk.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/08/2019
+ms.date: 1/14/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4081dd383fc0e7378bc8c8438781c13e6a34e075
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910681"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156445"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>Snabb start: skapa en interaktiv Sök karta genom att använda Azure Maps
 
@@ -26,7 +26,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 <a id="createaccount"></a>
 
@@ -61,7 +61,7 @@ När ditt Maps-konto har skapats hämtar du nyckeln som gör att du kan fråga A
 
 ## <a name="download-the-application"></a>Hämta programmet
 
-1. Ladda ned eller kopiera innehållet i filen [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html).
+1. Gå till [interactiveSearch. html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) och klicka på den för att visa innehållet i GitHub-användargränssnittet. Högerklicka på den **råa** knappen och kopiera innehållet i filen eller Spara som för att ladda ned filen.
 2. Spara innehållet i den här filen lokalt som **AzureMapDemo.html**. Öppna den i en textredigerare.
 3. Sök efter strängen `<Your Azure Maps Key>`. Ersätt den med **primärnyckelvärdet** från föregående avsnitt.
 

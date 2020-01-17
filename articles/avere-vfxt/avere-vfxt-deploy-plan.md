@@ -4,20 +4,25 @@ description: Förklarar hur du planerar att göra innan du distribuerar AVERT vF
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d4fc2a6b7def4b7c55faa37fbed756fbb830ff73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5ffa28a0f6080b94bd47519df578fd15309dbab5
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415427"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153655"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
 I den här artikeln förklaras hur du planerar en ny vFXT för Azure-kluster som är placerade och lämplig storlek för dina behov.
 
-Innan du går till Azure Marketplace eller skapar virtuella datorer bör du tänka på hur klustret ska samverka med andra element i Azure. Planera var kluster resurserna kommer att finnas i ditt privata nätverk och undernät och Bestäm var ditt Server lagrings utrymme ska vara. Se till att de klusternoder som du skapar är tillräckligt kraftfulla för att stödja ditt arbets flöde.
+Innan du går till Azure Marketplace eller skapar virtuella datorer bör du tänka på följande:
+
+* Hur fungerar klustret med andra Azure-resurser?
+* Var ska kluster element finnas i privata nätverk och undernät?
+* Vilken typ av backend-lagring kommer du att använda och hur kommer klustret att få åtkomst till det?
+* Hur kraftfulla måste dina klusternoder vara för att stödja ditt arbets flöde?
 
 Fortsätt att läsa om du vill veta mer.
 
@@ -41,12 +46,14 @@ Det kan vara bra att förstå komponenterna i AVERT vFXT för Azure-systemet nä
 
 ![Diagram som visar kluster styrenheten och virtuella kluster datorer i ett undernät. Runt under nätets gränser är en VNet-gränser. Inuti VNet är en sexhörning som representerar lagrings tjänstens slut punkt. den är ansluten med en streckad pil till en blob-lagring utanför VNet.](media/avere-vfxt-components-option.png)
 
-Följ dessa rikt linjer när du planerar ditt AVERT vFXT Systems nätverks infrastruktur:
+Följ dessa rikt linjer när du planerar ditt AVERT vFXT-klusters nätverks infrastruktur:
 
-* Skapa en ny prenumeration för varje AVERT vFXT för Azure-distribution och hantera alla komponenter i den här prenumerationen. Fördelarna innefattar:
+* Skapa en ny prenumeration för varje AVERT vFXT för Azure-distribution. Hantera alla komponenter i den här prenumerationen.
+
+  Fördelarna med att använda en ny prenumeration för varje distribution är:
   * Enklare kostnads uppföljning – Visa och granska alla kostnader från resurser, infrastruktur och Compute-cykler i en prenumeration.
   * Enklare rensning – du kan ta bort hela prenumerationen när du är klar med projektet.
-  * Bekväm partitionering av resurs kvoter – skydda andra kritiska arbets belastningar från möjliga resurs begränsningar genom att isolera de vFXT-klienter och-kluster i en enda prenumeration. Detta förhindrar en konflikt när du hämtar ett stort antal klienter för ett arbets flöde med hög prestanda beräkning.
+  * Bekväm partitionering av resurs kvoter – isolera de AVERT vFXT-klienter och-kluster i en enda prenumeration för att skydda andra kritiska arbets belastningar från möjlig resurs begränsning. Den här separationen förhindrar en konflikt när du hämtar ett stort antal klienter för ett arbets flöde med hög prestanda beräkning.
 
 * Leta upp dina klient beräknings system nära vFXT-klustret. Backend-lagring kan vara mer fjärran sluten.  
 
@@ -54,9 +61,9 @@ Följ dessa rikt linjer när du planerar ditt AVERT vFXT Systems nätverks infra
 
   * I samma virtuella nätverk
   * I samma resurs grupp
-  * I samma lagrings konto
+  * Använda samma lagrings konto
   
-  Mallen för att skapa automatiserade kluster hanterar detta i de flesta situationer.
+  Mallen för att skapa kluster hanterar den här konfigurationen för de flesta situationer.
 
 * Klustret måste finnas i sitt eget undernät för att undvika IP-adress konflikter med klienter eller andra beräknings resurser.
 
@@ -69,7 +76,7 @@ Följ dessa rikt linjer när du planerar ditt AVERT vFXT Systems nätverks infra
   | Resursgrupp | Ja, om det är tomt | Måste vara tom|
   | Lagringskonto | **Ja** om du ansluter en befintlig BLOB-behållare efter att klustret har skapats <br/>  **Nej** om du skapar en ny BLOB-behållare när klustret skapas | Den befintliga BLOB-behållaren måste vara tom <br/> &nbsp; |
   | Virtuellt nätverk | Ja | Måste inkludera en Storage Service-slutpunkt om du skapar en ny Azure Blob-behållare |
-  | Undernät | Ja |   |
+  | Undernät | Ja | Kan inte innehålla andra resurser |
 
 ## <a name="ip-address-requirements"></a>Krav för IP-adress
 
@@ -79,7 +86,7 @@ The aver vFXT-klustret använder följande IP-adresser:
 
 * En IP-adress för kluster hantering. Den här adressen kan flyttas från nod till nod i klustret efter behov, så att den alltid är tillgänglig. Använd den här adressen för att ansluta till konfigurations verktyget AVERT på kontroll panelen.
 * För varje klusternod:
-  * Minst en IP-adress som riktas mot klienter. (Alla klient adresser hanteras av klustrets *vserver*, som kan flytta dem mellan noder efter behov.)
+  * Minst en IP-adress som riktas mot klienter. (Alla klient adresser hanteras av klustrets *vserver*, som kan flytta IP-adresserna mellan noder efter behov.)
   * En IP-adress för kluster kommunikation
   * En instans-IP-adress (tilldelad till den virtuella datorn)
 
@@ -102,9 +109,7 @@ Varje vFXT-nod kommer att vara identisk. Det innebär att om du skapar ett klust
 
 Disk-cache per nod kan konfigureras och kan Rage från 1000 GB till 8000 GB. 4 TB per nod är den rekommenderade cachestorleken för Standard_E32s_v3 noder.
 
-Mer information om de här virtuella datorerna finns i Microsoft Azure-dokumentationen:
-
-* [Minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
+Mer information om de här virtuella datorerna finns i Microsoft Azure-dokumentationen: [minnesoptimerade storlekar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)
 
 ## <a name="account-quota"></a>Konto kvot
 
@@ -112,11 +117,11 @@ Se till att prenumerationen har kapacitet att köra det AVERT vFXT-kluster och a
 
 ## <a name="back-end-data-storage"></a>Data lagring på Server Sidan
 
-Server dels lagrings system tillhandahåller filer till klustrets cache och tar även emot ändrade data från cachen. Bestäm om din arbets uppsättning ska lagras på lång sikt i en ny BLOB-behållare eller i ett befintligt lagrings system för moln eller maskin vara. Dessa Server dels lagrings system kallas *Core*-.
+Server dels lagrings system tillhandahåller filer till klustrets cache och tar även emot ändrade data från cachen. Bestäm om din arbets uppsättning ska lagras på lång sikt i en ny BLOB-behållare eller i ett befintligt lagrings system (moln eller maskin vara). Dessa Server dels lagrings system kallas *Core*-.
 
 ### <a name="hardware-core-filers"></a>Maskin varu core-filer
 
-Lägg till maskin varu lagrings system i vFXT-klustret när du har skapat klustret. Du kan använda alla befintliga lokala maskin varu system, inklusive lokala system, så länge lagrings systemet kan nås från klustrets undernät.
+Lägg till maskin varu lagrings system i vFXT-klustret när du har skapat klustret. Du kan använda en mängd olika populära maskin varu system, inklusive lokala system, så länge lagrings systemet kan nås från klustrets undernät.
 
 Läs [Konfigurera lagring](avere-vfxt-add-storage.md) för detaljerade instruktioner om hur du lägger till ett befintligt lagrings system i det AVERT vFXT-klustret.
 
@@ -142,7 +147,7 @@ AVERT vFXT för Azure-kluster finns i ett privat undernät och klustret har inge
   > [!TIP]
   > Om du anger en offentlig IP-adress på kluster styrenheten kan du använda den som hopp värd. Mer information finns [i kluster styrenheten som hopp värd](#cluster-controller-as-jump-host) .
 
-* Virtuellt privat nätverk (VPN) – Konfigurera en punkt-till-plats-eller plats-till-plats-VPN-anslutning till ditt privata nätverk.
+* Virtuellt privat nätverk (VPN) – Konfigurera en punkt-till-plats-eller plats-till-plats-VPN mellan ditt privata nätverk i Azure och företags nätverk.
 
 * Azure-ExpressRoute – konfigurera en privat anslutning via en ExpressRoute-partner.
 
@@ -156,20 +161,20 @@ För att förbättra säkerheten för en kontrollant med en offentlig IP-adress 
 
 När du skapar klustret kan du välja om du vill skapa en offentlig IP-adress på kluster styrenheten.
 
-* Om du skapar ett **nytt virtuellt nätverk** eller ett **Nytt undernät**, tilldelas kluster STYRENHETen en **offentlig IP-adress**.
+* Om du skapar ett **nytt virtuellt nätverk** eller ett **Nytt undernät**, tilldelas kluster styrenheten en **offentlig** IP-adress.
 * Om du väljer ett befintligt virtuellt nätverk och undernät får kluster styrenheten bara **privata** IP-adresser.
 
 ## <a name="vm-access-roles"></a>Åtkomst roller för virtuella datorer
 
 Azure använder [rollbaserad åtkomst kontroll](../role-based-access-control/index.yml) (RBAC) för att auktorisera de virtuella datorerna i klustret för att utföra vissa uppgifter. Till exempel behöver kluster styrenheten auktorisering för att skapa och konfigurera klusternodens virtuella datorer. Klusternoder måste kunna tilldela eller omtilldela IP-adresser till andra klusternoder.
 
-Två inbyggda Azure-roller används för det Avera vFXT för virtuella Azure-datorer:
+Två inbyggda Azure-roller används för de AVERT vFXT virtuella datorerna:
 
 * Kluster styrenheten använder den inbyggda rollen " [avere](../role-based-access-control/built-in-roles.md#avere-contributor)".
-* Klusternoder använder den inbyggda rollen " [aver operator](../role-based-access-control/built-in-roles.md#avere-operator) "
+* Klusternoder använder den inbyggda rollen " [aver operator](../role-based-access-control/built-in-roles.md#avere-operator)".
 
 Om du behöver anpassa åtkomst roller för AVERT vFXT-komponenter måste du definiera en egen roll och sedan tilldela den till de virtuella datorerna när de skapas. Du kan inte använda distributions mal len i Azure Marketplace. Kontakta Microsofts kund tjänst och support genom att öppna ett ärende i Azure Portal enligt beskrivningen i [få hjälp med systemet](avere-vfxt-open-ticket.md).
 
 ## <a name="next-step-understand-the-deployment-process"></a>Nästa steg: förstå distributions processen
 
-[Distributions översikten](avere-vfxt-deploy-overview.md) ger en stor bild av de steg som krävs för att skapa ett AVERT VFXT för Azure-systemet och bli redo att hantera data.
+[Distributions översikten](avere-vfxt-deploy-overview.md) ger en överblick över de steg som krävs för att skapa ett AVERT VFXT för Azure-systemet och bli redo att hantera data.

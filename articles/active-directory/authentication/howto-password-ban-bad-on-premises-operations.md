@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8602a9c5b69c47c2f663dab461394ef5e1a9bed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2440d373b726b4f97cd5d9ba162daaa0714f79e0
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762866"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155060"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Drift procedurer för Azure AD-lösenords skydd
 
@@ -28,7 +28,7 @@ Följ anvisningarna i artikeln [Konfigurera listan med anpassade förbjudna lös
 
 ## <a name="enable-password-protection"></a>Aktivera lösen ords skydd
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory**, **säkerhet**,**autentiseringsmetoder**och **lösen ords skydd**.
+1. Logga in på [Azure Portal](https://portal.azure.com) och bläddra till **Azure Active Directory** > **säkerhets** > **autentiseringsmetoder** > **lösen ords skydd**.
 1. Ange **Aktivera lösen ords skydd på Windows Server Active Directory** till **Ja**
 1. Som vi nämnt i [distributions guiden](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), rekommenderar vi att du ursprungligen ställer in **läget** på **granskning**
    * När du är van att aktivera funktionen kan du växla mellan **läget** och **verkställa**

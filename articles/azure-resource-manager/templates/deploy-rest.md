@@ -3,16 +3,16 @@ title: Distribuera resurser med REST API och mall
 description: Använd Azure Resource Manager-och Resource Manager-REST API för att distribuera resurser till Azure. Resurserna definieras i en Resource Manager-mall.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: 3a3447746b3e7cbdfeeddd296ce78068e120a134
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc386f51073c256fd083a04bbed39316784827b1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484966"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76152518"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuera resurser med Resource Manager-mallar och Resource Manager REST API
 
-Den här artikeln förklarar hur du använder Resource Manager-REST API med Resource Manager-mallar för att distribuera dina resurser till Azure.  
+Den här artikeln förklarar hur du använder Resource Manager-REST API med Resource Manager-mallar för att distribuera dina resurser till Azure.
 
 Du kan antingen inkludera din mall i begär ande texten eller länka till en fil. När du använder en fil kan det vara en lokal fil eller en extern fil som är tillgänglig via en URI. När din mall finns i ett lagrings konto kan du begränsa åtkomsten till mallen och tillhandahålla en SAS-token (signatur för delad åtkomst) under distributionen.
 
@@ -67,7 +67,7 @@ I exemplen i den här artikeln används resurs grupps distributioner.
 
 1. Verifiera distributionen innan du kör den genom att köra [distributions åtgärden verifiera en mall](/rest/api/resources/deployments/validate) . När du testar distributionen anger du parametrar exakt som du skulle göra när du utförde distributionen (visas i nästa steg).
 
-1. Om du vill distribuera en mall anger du ditt prenumerations-ID, namnet på resurs gruppen, namnet på distributionen i begärande-URI: n. 
+1. Om du vill distribuera en mall anger du ditt prenumerations-ID, namnet på resurs gruppen, namnet på distributionen i begärande-URI: n.
 
    ```HTTP
    PUT https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2019-05-01
@@ -116,7 +116,7 @@ I exemplen i den här artikeln används resurs grupps distributioner.
 
     Du kan konfigurera ditt lagrings konto så att det använder en SAS-token (signatur för delad åtkomst). Mer information finns i [Delegera åtkomst med en signatur för delad åtkomst](/rest/api/storageservices/delegating-access-with-a-shared-access-signature).
 
-    Om du behöver ange ett känsligt värde för en parameter (till exempel ett lösen ord) lägger du till värdet i ett nyckel valv. Hämta nyckel valvet under distributionen som visas i föregående exempel. Mer information finns i [Skicka säkra värden under distributionen](key-vault-parameter.md). 
+    Om du behöver ange ett känsligt värde för en parameter (till exempel ett lösen ord) lägger du till värdet i ett nyckel valv. Hämta nyckel valvet under distributionen som visas i föregående exempel. Mer information finns i [Skicka säkra värden under distributionen](key-vault-parameter.md).
 
 1. I stället för att länka till filer för mallen och parametrarna kan du ta med dem i begär ande texten. I följande exempel visas begär ande texten med mallen och den infogade parametern:
 
@@ -155,8 +155,8 @@ I exemplen i den här artikeln används resurs grupps distributioner.
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
-            "name": "[variables('storageAccountName')]",
             "apiVersion": "2018-02-01",
+            "name": "[variables('storageAccountName')]",
             "location": "[parameters('location')]",
             "sku": {
               "name": "[parameters('storageAccountType')]"

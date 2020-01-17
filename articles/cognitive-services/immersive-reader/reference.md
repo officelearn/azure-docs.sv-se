@@ -1,7 +1,7 @@
 ---
 title: Avancerad läsare SDK-referens
 titleSuffix: Azure Cognitive Services
-description: SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
+description: 'SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.'
 services: cognitive-services
 author: metanMSFT
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: 47d10f75775c49fda0effe10c32e219b3682866d
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: b20a3e6dd3b32b183bbf34dbefd76f0e4cd56b99
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945284"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156411"
 ---
 # <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
-SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
+SDK: n för avancerad läsare innehåller ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt program.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 SDK: n visar funktionerna:
 
@@ -36,7 +36,7 @@ SDK: n visar funktionerna:
 Startar den fördjupade läsaren i en `iframe` i ditt webb program.
 
 ```typescript
-launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<HTMLDivElement>;
+launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
 ```
 
 ### <a name="parameters"></a>Parametrar
@@ -50,7 +50,7 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="returns"></a>Returnerar
 
-Returnerar ett `Promise<HTMLDivElement>`som löses när den fördjupade läsaren läses in. `Promise` matchar ett `div`-element vars enda underordnade är ett `iframe`-element som innehåller fördjupad läsar sidan.
+Returnerar ett `Promise<LaunchResponse>`som löses när den fördjupade läsaren läses in. `Promise` matchar ett [`LaunchResponse`](#launchresponse) -objekt.
 
 ### <a name="exceptions"></a>Undantag
 
@@ -109,6 +109,17 @@ Ett enda data segment som skickas till innehållet i den fördjupade läsaren.
 }
 ```
 
+### <a name="launchresponse"></a>LaunchResponse
+
+Innehåller svaret från anropet till `ImmersiveReader.launchAsync`.
+
+```typescript
+{
+    container: HTMLDivElement;    // HTML element which contains the Immersive Reader iframe
+    sessionId: string;            // Globally unique identifier for this session, used for debugging
+}
+```
+
 ### <a name="cookiepolicy-enum"></a>CookiePolicy Enum
 
 En uppräkning som används för att ange principen för avancerad läsares cookie-användning. Se [alternativ](#options).
@@ -127,6 +138,7 @@ enum CookiePolicy { Disable, Enable }
 | Application/VND. openxmlformats-officedocument. WordprocessingML. Document | Dokument för Microsoft Word. docx-format.
 
 ### <a name="html-support"></a>HTML-stöd
+
 | HTML | Innehåll som stöds |
 | --------- | ----------- |
 | Teckensnitts format | Fet, kursiv, understruken, kod, genomstruken, upphöjd, nedsänkt |
@@ -186,7 +198,7 @@ Innehåller information om felet.
 
 ## <a name="launching-the-immersive-reader"></a>Starta den fördjupade läsaren
 
-SDK tillhandahåller standard formatet för knappen för att starta den fördjupade läsaren. Använd attributet `immersive-reader-button` Class för att aktivera den här formateringen.
+SDK tillhandahåller standard formatet för knappen för att starta den fördjupade läsaren. Använd attributet `immersive-reader-button` Class för att aktivera den här formateringen. Mer information finns i [den här artikeln](./how-to-customize-launch-button.md) .
 
 ```html
 <div class='immersive-reader-button'></div>

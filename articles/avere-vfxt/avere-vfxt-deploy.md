@@ -4,14 +4,14 @@ description: Steg för att distribuera ett AVERT vFXT-kluster i Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 12/14/2019
+ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: ad5b0ecd9e7e6326c5b91844b6f7b557972b4852
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75415569"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153613"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
@@ -22,7 +22,7 @@ Den här proceduren vägleder dig genom att använda distributions guiden som fi
 * Skapar de virtuella klusternoderna och konfigurerar dem som ett AVERT-kluster.
 * Om det begärs skapas en ny Azure Blob-behållare och konfigureras som ett kluster kärnor.
 
-När du har gått igenom anvisningarna i det här dokumentet kommer du att ha ett virtuellt nätverk, ett undernät, en kontrollant och ett vFXT-kluster som visas i följande diagram. Det här diagrammet visar de valfria Azure Blob core-filer som innehåller en ny Blob Storage-behållare (i ett nytt lagrings konto, inte visas) och en tjänst slut punkt för Microsoft-lagring i under nätet.
+När du har gått igenom anvisningarna i det här dokumentet har du ett virtuellt nätverk, ett undernät, en kluster styrenhet och ett vFXT-kluster som visas i följande diagram. Det här diagrammet visar de valfria Azure Blob core-filer som innehåller en ny Blob Storage-behållare (i ett nytt lagrings konto, inte visas) och en tjänst slut punkt för Microsoft-lagring i under nätet.
 
 ![diagram som visar tre koncentriska rektanglar med AVERT kluster komponenter. Den yttre rektangeln har etiketten resurs grupp och innehåller en sexhörning med etiketten Blob Storage (valfritt). Nästa rektangel i har etiketten "virtuellt nätverk: 10.0.0.0/16" och innehåller inga unika komponenter. Den innersta rektangeln har etiketten "undernät: 10.0.0.0/24" och innehåller en virtuell dator med namnet "Cluster Controller", en stack med tre virtuella datorer med namnet "vFXT Nodes (vFXT Cluster)" och en sexhörning med etiketten "tjänstens slut punkt". Det finns en pil som ansluter tjänst slut punkten (som finns i under nätet) och blob-lagringen (som ligger utanför under nätet och VNET i resurs gruppen). Pilen passerar genom under nätet och virtuella nätverks gränser.](media/avere-vfxt-deployment.png)
 
@@ -31,7 +31,7 @@ Innan du använder mallen för att skapa måste du kontrol lera att du har åtg�
 1. [Ny prenumeration](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Ägar behörigheter för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Kvot för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage Service-slutpunkt (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distributioner med hjälp av ett befintligt virtuellt nätverk och skapande av Blob Storage
+1. [Storage Service-slutpunkt (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distributioner som använder ett befintligt virtuellt nätverk och skapar Blob Storage
 
 Mer information om steg och planering för kluster distribution finns [i planera ditt AVERT vFXT-system](avere-vfxt-deploy-plan.md) och [distributions översikt](avere-vfxt-deploy-overview.md).
 
@@ -41,7 +41,7 @@ Mer information om steg och planering för kluster distribution finns [i planera
 
 ![Webbläsarfönstret som visar Azure Portal med bröd Crumbs "ny > Marketplace > allt". På sidan allt innehåller Sök fältet termen "AVERT" och det andra resultatet, "aver vFXT for Azure ARM-mall" visas i rött för att markera det.](media/avere-vfxt-template-choose.png)
 
-När du har läst informationen på sidan aver vFXT för Azure ARM-mall klickar du på **skapa** för att börja.
+När du har läst informationen på sidan aver vFXT för Azure ARM-mall klickar du på knappen **skapa** för att starta.
 
 ![Azure Marketplace med den första sidan i distributions mal len som visar](media/avere-vfxt-deploy-first.png)
 
@@ -149,11 +149,11 @@ Så här hittar du informationen:
 
 1. På vänster sida klickar du på **distributioner**och sedan **Microsoft-AVERT. vfxt-Template**.
 
-   ![Sidan resurs grupp Portal med distributioner markerat till vänster och Microsoft-AVERT. vfxt – mall som visas i en tabell under distributions namn](media/avere-vfxt-outputs-deployments.png) <!-- update image for new portal GUI -->
+   ![Sidan resurs grupp Portal med distributioner markerat till vänster och Microsoft-AVERT. vfxt – mall som visas i en tabell under distributions namn](media/avere-vfxt-outputs-deployments.png)
 
 1. På vänster sida klickar du på **utdata**. Kopiera värdena i vart och ett av fälten.
 
-   ![Sidan utdata visar SSHSTRING, RESOURCE_GROUP, plats, NETWORK_RESOURCE_GROUP, nätverk, UNDERNÄT, SUBNET_ID, VSERVER_IPs och MGMT_IP värden i fält till höger om etiketterna](media/avere-vfxt-outputs-values.png)<!-- update image for new portal GUI -->
+   ![Sidan utdata visar SSHSTRING, RESOURCE_GROUP, plats, NETWORK_RESOURCE_GROUP, nätverk, UNDERNÄT, SUBNET_ID, VSERVER_IPs och MGMT_IP värden i fält till höger om etiketterna](media/avere-vfxt-outputs-values.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

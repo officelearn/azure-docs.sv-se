@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: e744cdde298054de3631adb96b56bbc808f36a38
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750950"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120153"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Tjänster, scheman och kategorier som stöds för Azure-resurs loggar
 
@@ -86,6 +86,9 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 | Virtual Network-gatewayer | Schemat är inte tillgängligt. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Logg kategorier som stöds per resurs typ
+
+Vissa kategorier kan bara användas för vissa typer av resurser. Det här är en lista över alla som är tillgängliga i ett visst formulär.  Till exempel är inte kategorierna Microsoft. SQL/Server/Databass tillgängliga för alla typer av databaser. Mer information finns i [information om SQL Database diagnostisk loggning](../../sql-database/sql-database-metrics-diag-logging.md). 
+
 |Resurstyp|Kategori|Kategori visnings namn|
 |---|---|---|
 |Microsoft. AAD/domainServices|SystemSecurity|SystemSecurity|
@@ -129,7 +132,7 @@ Schemat för resurs diagnostiska loggar varierar beroende på resurs-och logg ka
 |Microsoft. Databricks/arbets ytor|1150|Databricks-anteckningsbok|
 |Microsoft. Databricks/arbets ytor|SSH|Databricks SSH|
 |Microsoft. Databricks/arbets ytor|arbetsyta|Databricks-arbetsyta|
-|Microsoft. Databricks/arbets ytor|secrets|Databricks hemligheter|
+|Microsoft. Databricks/arbets ytor|hemligheter|Databricks hemligheter|
 |Microsoft. Databricks/arbets ytor|sqlPermissions|Databricks SQLPermissions|
 |Microsoft. Databricks/arbets ytor|instancePools|Instanspooler|
 |Microsoft. DataCatalog/datacatalogs|ScanStatusLogEvent|ScanStatus|

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790306"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122210"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Välj mellan Azure-meddelandetjänster – Event Grid, Event Hubs och Service Bus
 
@@ -58,7 +58,7 @@ Event Grid är djupt integrerat med Azures tjänster och kan även integreras me
 
 Event Grid stöder obeställbara meddelanden för händelser som inte levereras till en slutpunkt.
 
-Den har följande egenskaper:
+Det har följande egenskaper:
 
 * dynamiskt skalbart
 * låg kostnad
@@ -69,7 +69,7 @@ Den har följande egenskaper:
 
 Azure Event Hubs är en pipeline för stordata. Det underlättar avbildning, kvarhållning och återuppspelning av telemetri och händelsedataströmmar. Datan kan komma från många samtidiga källor. Med Event Hubs kan telemetri och händelsedata göras tillgängliga för en mängd olika tjänster för bearbetning av dataströmmar, infrastrukturer och analyser. Det är tillgängligt som dataströmmar eller paketerade händelsegrupper. Tjänsten innehåller en enskild lösning för snabb datahämtning till realtidsbearbetning, samt upprepad återuppspelning av lagrade rådata. Den kan avbilda strömmande data till en fil för bearbetning och analys.
 
-Den har följande egenskaper:
+Det har följande egenskaper:
 
 * låg fördröjning
 * kan ta emot och bearbeta miljontals händelser per sekund
@@ -81,7 +81,7 @@ Service Bus är avsett för traditionella företagsprogram. Dessa företagsprogr
 
 Service Bus är en asynkron meddelandetjänst. Den lagrar meddelanden på ett tillförlitligt sätt i en ”asynkron meddelandekö” tills konsumenten är redo att ta emot meddelandena.
 
-Den har följande egenskaper:
+Det har följande egenskaper:
 
 * tillförlitlig asynkron leverans av meddelanden (företagsmeddelanden som en tjänst) som kräver avsökning
 * avancerade meddelandefunktioner som FIFO, batchbearbetning/sessioner, transaktioner, obeställbara meddelanden, tidsbaserad kontroll, routning och filtrering, samt dubblettidentifiering
@@ -90,7 +90,7 @@ Den har följande egenskaper:
 
 ## <a name="use-the-services-together"></a>Använda tjänsterna tillsammans
 
-I vissa fall kan du använda tjänsterna sida vid sida för att uppfylla olika roller. En e-handelsplats kan exempelvis använda Service Bus till att bearbeta beställningen, Event Hubs för att samla in telemetri för platsen och Event Grid för att svara på händelser, som t.ex. när ett objekt levererades.
+I vissa fall kan du använda tjänsterna sida vid sida för att uppfylla olika roller. Till exempel kan en e-handelsplats använda Service Bus för att bearbeta beställningen, Event Hubs för att avbilda telemetri och Event Grid för att svara på händelser som ett objekt levererades.
 
 I andra fall kan du koppla ihop dem för att skapa en händelse och datapipeline. Du använder Event Grid till att svara på händelser i de andra tjänsterna. Ett exempel på hur Event Grid används tillsammans med Event Hubs för att migrera data till ett informationslager, finns i [Strömma stordata till ett informationslager](event-grid-event-hubs-integration.md). Följande bild visar arbetsflödet för att strömma datan.
 

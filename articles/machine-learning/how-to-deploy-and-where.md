@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 12/17/2019
+ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 48ecaea82e8874ff521abafaa075b41367f8fbf1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 1560b5d60ae3c6de3ecb6d50859e24ebb7bc2d28
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753996"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156921"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 
 - En modell. Om du inte har en tränad modell kan du använda den modell och de beroende filer som finns i [den här självstudien](https://aka.ms/azml-deploy-cloud).
 
-- [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](how-to-vscode-tools.md).
+- [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
 ## <a name="connect-to-your-workspace"></a>Anslut till arbetsytan
 
@@ -59,7 +59,7 @@ Följande kod visar hur du ansluter till en Azure Machine Learning-arbetsyta med
 
 + **Använda VS Code**
 
-   När du använder VS Code väljer du arbets ytan med hjälp av ett grafiskt gränssnitt. Mer information finns i [distribuera och hantera modeller](how-to-vscode-tools.md#deploy-and-manage-models) i vs Code Extension-dokumentationen.
+   När du använder VS Code väljer du arbets ytan med hjälp av ett grafiskt gränssnitt. Mer information finns i [distribuera och hantera modeller](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) i vs Code Extension-dokumentationen.
 
 ## <a id="registermodel"></a>Registrera din modell
 
@@ -115,7 +115,7 @@ Kodfragmenten i det här avsnittet visar hur du registrerar en modell från en u
 
 + **Använda VS Code**
 
-  Registrera modeller med hjälp av en modell fil eller mappar med hjälp av [vs Code](how-to-vscode-tools.md#deploy-and-manage-models) -tillägget.
+  Registrera modeller med hjälp av en modell fil eller mappar med hjälp av [vs Code](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model) -tillägget.
 
 ### <a name="register-a-model-from-a-local-file"></a>Registrera en modell från en lokal fil
 
@@ -185,7 +185,7 @@ För att distribuera modellen behöver du följande:
     >
     > * Azure Machine Learning SDK är inte ett sätt för webb tjänster eller IoT Edge distributioner för åtkomst till data lagret eller data uppsättningar. Om den distribuerade modellen behöver åtkomst till data som lagras utanför distributionen, t. ex. data i ett Azure Storage-konto, måste du utveckla en anpassad kod lösning med hjälp av relevant SDK. Till exempel [Azure Storage SDK för python](https://github.com/Azure/azure-storage-python).
     >
-    >   Ett alternativ som kan fungera för ditt scenario är [batch-förutsägelse](how-to-run-batch-predictions.md), vilket ger åtkomst till data lager under poängsättningen.
+    >   Ett alternativ som kan fungera för ditt scenario är [batch-förutsägelse](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager under poängsättningen.
 
 * **Beroenden**, t.ex. hjälpskript eller Python/Conda-paket som krävs för att köra startskriptet eller modellen.
 

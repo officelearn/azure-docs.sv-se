@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e30b256d9fa43402c3b2c444aa1a0e0dc16cfdcf
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925946"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120583"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Cosmos DB-bindningar för Azure Functions 1.x
 
@@ -180,9 +180,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ** || Måste anges till `cosmosDBTrigger`. |
-|**riktning** || Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** || Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. |
+|**typ** | Ej tillämpligt | Måste anges till `cosmosDBTrigger`. |
+|**riktning** | Ej tillämpligt | Måste anges till `in`. Den här parametern anges automatiskt när du skapar utlösaren i Azure-portalen. |
+|**Namn** | Ej tillämpligt | Variabelnamnet som används i Funktionskoden som representerar en lista över dokument med ändringar. |
 |**connectionStringSetting**|**connectionStringSetting** | Namnet på en appinställning som innehåller anslutningssträngen som används för att ansluta till Azure Cosmos DB-kontot som övervakas. |
 |**databaseName**|**databaseName**  | Namnet på Azure Cosmos DB-databasen med den samling som övervakas. |
 |**collectionName** |**CollectionName** | Namnet på samlingen som övervakas. |
@@ -1115,9 +1115,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || Måste anges till `documentdb`.        |
-|**riktning**     || Måste anges till `in`.         |
-|**Namn**     || Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
+|**typ**     | Ej tillämpligt | Måste anges till `documentdb`.        |
+|**riktning**     | Ej tillämpligt | Måste anges till `in`.         |
+|**Namn**     | Ej tillämpligt | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**databaseName** |**databaseName** |Den databas som innehåller dokumentet.        |
 |**collectionName** |**CollectionName** | Namnet på den samling som innehåller dokumentet. |
 |**ID**    | **Id** | ID för dokumentet som ska hämtas. Den här egenskapen stöder [bindning uttryck](./functions-bindings-expressions-patterns.md). Inte ange både den **id** och **SQL-fråga** egenskaper. Om du inte anger någon hämtas hela samlingen. |
@@ -1454,9 +1454,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 |Function.JSON egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|----------------------|
-|**typ**     || Måste anges till `documentdb`.        |
-|**riktning**     || Måste anges till `out`.         |
-|**Namn**     || Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
+|**typ**     | Ej tillämpligt | Måste anges till `documentdb`.        |
+|**riktning**     | Ej tillämpligt | Måste anges till `out`.         |
+|**Namn**     | Ej tillämpligt | Namnet på bindningsparametern som representerar dokumentet i funktionen.  |
 |**databaseName** | **databaseName**|Den databas som innehåller den samling där dokumentet skapas.     |
 |**collectionName** |**CollectionName**  | Namnet på den samling där dokumentet skapas. |
 |**createIfNotExists**  |**createIfNotExists**    | Ett booleskt värde som anger om samlingen skapas när den inte finns. Standardvärdet är *FALSKT* eftersom nya samlingar skapas med reserverat dataflöde, vilket har kostnad effekter. Mer information finns på sidan med [priser](https://azure.microsoft.com/pricing/details/documentdb/).  |

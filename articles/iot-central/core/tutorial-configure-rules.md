@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9c2c8c1bacf4abfa775747a03d2a4a6121b67714
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9140114e7d31f24770bdcce9aae849b01aae9996
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106590"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263685"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Självstudie: Konfigurera regler och åtgärder för enheten i Azure IoT Central
 
@@ -22,11 +22,12 @@ ms.locfileid: "74106590"
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-I den här självstudien skapar du en regel som skickar ett e-postmeddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider 90&deg; F.
+I den här självstudien skapar du en regel som skickar ett e-postmeddelande när temperaturen i en ansluten Luft Konditionerings enhet överskrider 70&deg; F.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
+>
 > * Skapa en telemetribaserad regel
 > * Lägga till en åtgärd
 
@@ -48,14 +49,14 @@ Innan du börjar bör du slutföra självstudien om att [definiera en ny enhetst
 
     ![Vyn Regler](media/tutorial-configure-rules/newrule.png)
 
-5. Använd informationen i följande tabell för att definiera regeln:
+4. Använd informationen i följande tabell för att definiera regeln:
 
     | Inställning                                      | Värde                             |
     | -------------------------------------------- | ------------------------------    |
     | Namn                                         | Temperaturmeddelande för luftkonditionering |
     | Aktivera regeln för alla enheter med den här mallen | På                                |
-    | Tillstånd                                    | Temperaturen är högre än 90    |
-    | Sammansättning                                  | Ingen                              |
+    | Villkor                                    | Temperatur är större än 70    |
+    | Sammansättning                                  | Inget                              |
 
     ![Regelvillkor för temperatur](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -71,10 +72,11 @@ När du definierar en regel kan du även definiera en åtgärd som ska köras n�
 
 2. Använd informationen i följande tabell för att definiera åtgärden:
 
-    | Inställning   | Värde                          |
-    | --------- | ------------------------------ |
-    | Till        | Din e-postadress             |
-    | Anteckningar     | Temperaturen i luftkonditioneringsenheten har överskridit tröskelvärdet. |
+    | Inställning      | Värde                                               |
+    | ------------ | --------------------------------------------------- |
+    | Visningsnamn | Avisering om e-posttemperatur                             |
+    | Till           | Din e-postadress                                  |
+    | Anteckningar        | Temperaturen i luftkonditioneringsenheten har överskridit tröskelvärdet. |
 
     > [!NOTE]
     > För att ett e-postmeddelande ska kunna tas emot måste e-postadressen vara ett [användar-ID i programmet](howto-administer.md), och användaren måste har loggat in i programmet minst en gång.
@@ -96,12 +98,14 @@ I den här självstudiekursen lärde du dig att:
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]
+>
 > * Skapa en telemetribaserad regel
 > * Lägga till en åtgärd
 
 Nu när du har definierat en tröskelvärdesbaserad regel är nästa steg att [anpassa operatörens vyer](tutorial-customize-operator.md).
 
 Mer information om olika typer av regler i Azure IoT Central och hur du parameteriserar regeldefinitionen finns här:
+
 * [Skapa en telemetriregel och konfigurera meddelanden](howto-create-telemetry-rules.md).
 * [Skapa en händelseregel och konfigurera meddelanden](howto-create-event-rules.md).
 

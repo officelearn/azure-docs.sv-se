@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/02/2019
+ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468459"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264737"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>Självstudie: Distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med hjälp av Azure Portal
 
@@ -29,7 +29,7 @@ För den här självstudien skapar du tre virtuella nätverk:
 
 ![Brandvägg i ett hybridnätverk](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Deklarera variablerna
@@ -45,15 +45,17 @@ I den här guiden får du lära dig att:
 
 Om du vill använda Azure PowerShell i stället för att slutföra den här proceduren, se [distribuera och konfigurera Azure-brandväggen i ett hybrid nätverk med Azure PowerShell](tutorial-hybrid-ps.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Det finns tre viktiga krav för att det här scenariot ska fungera korrekt:
+Ett hybrid nätverk använder arkitektur modellen hubb-och-eker för att dirigera trafik mellan Azure virtuella nätverk och lokala nätverk. NAV-och-eker-arkitekturen har följande krav:
 
-- En användardefinierad väg (UDR, User-Defined Route) i ekerundernätet som pekar på IP-adressen för Azure Firewall som standardgateway. BGP-vägspridning måste vara **inaktiverad** i den här routningstabellen.
-- En UDR i hubbgatewayens undernät måste peka på brandväggens IP-adress som nästa hopp till ekernätverken.
+- Ange **AllowGatewayTransit** när du peer-koppla VNet-hubb till VNet-ekrar. I en nav-och-eker-nätverks arkitektur gör en gateway-överföring de ekrar som virtuella nätverk kan dela VPN-gatewayen i hubben, i stället för att distribuera VPN-gatewayer i varje ekrar virtuellt nätverk. 
 
-   Det krävs ingen UDR i Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
-- Se till att ange **AllowGatewayTransit** vid peering av VNet-Hub till VNet-Spoke och **UseRemoteGateways** vid peering av VNet-Spoke till VNet-Hub.
+   Dessutom kommer vägar till de Gateway-anslutna virtuella nätverken eller lokala nätverken automatiskt att spridas till vägvals tabellerna för de peer-kopplade virtuella nätverken med hjälp av Gateway-överföringen. Mer information finns i [Konfigurera VPN gateway-överföring för virtuell nätverks-peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md).
+
+- Ange **UseRemoteGateways** när du peer-nätverk – eker till VNet-hubb. Om **UseRemoteGateways** har angetts och **AllowGatewayTransit** på fjärr-peering också anges, använder det eker-virtuella nätverket gatewayer för det virtuella fjärrnätverket för överföring.
+- Om du vill dirigera den eker-undernätets trafik via nav brand väggen behöver du en användardefinierad väg (UDR) som pekar på brand väggen med alternativet Inaktivera alternativ för **BGP Route-spridning** . Alternativet **inaktivera spridning av BGP-vägar** förhindrar väg distribution till ekrarnas undernät. Detta förhindrar att inlärda vägar hamnar i konflikt med din UDR.
+- Konfigurera en UDR på hubb-gatewayens undernät som pekar på brand väggens IP-adress som nästa hopp till ekrarnas nätverk. Det krävs ingen UDR i Azure Firewall-undernätet eftersom det lär sig vägarna från BGP.
 
 Information om hur dessa vägar skapas finns i avsnittet [Skapa vägar](#create-the-routes) i den här självstudien.
 
@@ -154,7 +156,7 @@ Distribuera nu brand väggen i brand Väggs hubbens virtuella nätverk.
    |Prenumeration     |\<din prenumeration\>|
    |Resursgrupp     |**VB-hybrid-test** |
    |Namn     |**AzFW01**|
-   |Plats     |Välj samma plats som tidigare|
+   |Location     |Välj samma plats som tidigare|
    |Välj ett virtuellt nätverk     |**Använd befintlig**:<br> **VNet-hubb**|
    |Offentlig IP-adress     |Skapa nytt: <br>**Namn** - **VB-pip**. |
 
@@ -261,7 +263,7 @@ Skapa anslutningen mellan det lokala virtuella nätverket och det virtuella hubb
 
 Efter ungefär fem minuter bör statusen för båda anslutningarna vara **ansluten**.
 
-![Gateway-anslutningar](media/tutorial-hybrid-portal/gateway-connections.png)
+![Gatewayanslutningar](media/tutorial-hybrid-portal/gateway-connections.png)
 
 ## <a name="peer-the-hub-and-spoke-virtual-networks"></a>Peera de virtuella hubb- och ekernätverken
 

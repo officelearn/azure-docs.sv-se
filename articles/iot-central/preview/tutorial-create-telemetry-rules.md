@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 793bb46e14725b14c766569e8b0fc2aa0246858e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3889378f34d66f54ea408da4aa43b12f86e7c586
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74979061"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262688"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>Självstudie: skapa en regel och konfigurera meddelanden i ditt Azure IoT Central-program (för hands versions funktioner)
 
@@ -25,11 +25,12 @@ Du kan använda Azure IoT Central för att fjärrövervaka dina anslutna enheter
 
 Enheter använder telemetri för att skicka numeriska data från enheten. En regel utlöses när den valda enhetens telemetri korsar ett angivet tröskelvärde.
 
-I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en miljö sensor enhet överskrider 80&deg; F.
+I den här självstudien skapar du en regel för att skicka ett e-postmeddelande när temperaturen i en miljö sensor enhet överskrider 70&deg; F.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
+>
 > * Skapa en regel
 > * Lägg till en e-poståtgärd
 
@@ -39,7 +40,7 @@ Innan du börjar bör du fylla i [skapa ett Azure IoT Central-program](./quick-d
 
 ## <a name="create-a-rule"></a>Skapa en regel
 
-För att skapa en telemetri-regel måste enhets mal len ha minst en definierad telemetri mått. I den här självstudien används en miljö sensor som skickar telemetri för temperatur och fuktighet. Du har lagt till den här enhets mal len och skapat en simulerad enhet i guiden [Lägg till en simulerad enhet i snabb starten för IoT Central programmet](./quick-create-pnp-device.md) . Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det hamnar ovanför 80 grader.
+För att skapa en telemetri-regel måste enhets mal len ha minst en definierad telemetri mått. I den här självstudien används en miljö sensor som skickar telemetri för temperatur och fuktighet. Du har lagt till den här enhets mal len och skapat en simulerad enhet i guiden [Lägg till en simulerad enhet i snabb starten för IoT Central programmet](./quick-create-pnp-device.md) . Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det hamnar ovanför 70 grader.
 
 1. I det vänstra fönstret väljer du **regler**.
 
@@ -57,18 +58,18 @@ För att skapa en telemetri-regel måste enhets mal len ha minst en definierad t
 
 ### <a name="configure-the-rule-conditions"></a>Konfigurera regel villkoren
 
-Villkor definierar de kriterier som regeln övervakar. I den här självstudien konfigurerar du regeln för att utlösa när temperaturen överskrider 80&deg; F.
+Villkor definierar de kriterier som regeln övervakar. I den här självstudien konfigurerar du regeln för att utlösa när temperaturen överskrider 70&deg; F.
 
 1. Välj **temperatur** i list rutan för **telemetri** .
 
-1. Sedan väljer du **är större än** som **Operator** och anger _80_ som **värde**.
+1. Sedan väljer du **är större än** som **Operator** och anger _70_ som **värde**.
 
-    ![Tillstånd](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
+    ![Villkor](media/tutorial-create-telemetry-rules/condition-filled-out1.png)
 
 1. Du kan också ange en **tids agg regering**. När du väljer en tids agg regering måste du också välja en agg regerings typ, till exempel Average eller sum, från List rutan agg regering.
 
-    * Utan agg regering utlöser regeln för varje telemetri-datapunkt som uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 80, utlöses regeln nästan omedelbart när enheten rapporterar temperatur > 80.
-    * Med agg regering utlöser regeln om det sammanlagda värdet för telemetri-datapunkten i tids perioden uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 80, ställs tids agg regering in på 10 minuter, och agg regerings typen är genomsnitt, utlöses sedan regeln när enheten rapporterar en genomsnitts temperatur > 80, beräknad under 10 minuter intervall.
+    * Utan agg regering utlöser regeln för varje telemetri-datapunkt som uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 70, utlöses regeln nästan omedelbart när enheten rapporterar temperatur > 70.
+    * Med agg regering utlöser regeln om det sammanlagda värdet för telemetri-datapunkten i tids perioden uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 70, ställs tids agg regering in på 10 minuter, och agg regerings typen är genomsnitt, utlöses sedan regeln när enheten rapporterar en genomsnitts temperatur > 70, beräknad under 10 minuter intervall.
 
      ![Samlings villkor](media/tutorial-create-telemetry-rules/aggregate-condition-filled-out1.png)
 

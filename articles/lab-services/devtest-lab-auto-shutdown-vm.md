@@ -1,5 +1,5 @@
 ---
-title: Konfigurera inställningar för automatisk avstängning för en virtuell dator i Azure DevTest Labs | Microsoft Docs
+title: Konfigurera inställningar för automatisk avstängning för en virtuell dator i Azure DevTest Labs
 description: Lär dig hur du konfigurerar inställningar för automatisk avstängning för en virtuell dator (VM) så att den virtuella datorn stängs av automatiskt när den inte används.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 934e8fd71c901c89f328c777103a8cb39bf21ac4
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4cca4fd4bc9cd880c5b7a75e54e8cfd8192bae1e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68361575"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170198"
 ---
 # <a name="configure-autoshutdown-settings-for-a-vm-in-azure-devtest-labs"></a>Konfigurera inställningar för automatisk avstängning för en virtuell dator i Azure DevTest Labs
 Med Azure DevTest Labs kan du kontrol lera kostnaderna och minimera spill i labbet genom att hantera principer (inställningar) för varje labb. Den här artikeln visar hur du konfigurerar principen för automatisk avstängning för ett labb konto och konfigurerar inställningar för automatisk avstängning för ett labb i labb kontot. Information om hur du anger alla labb principer finns [i definiera labb principer i Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
@@ -29,7 +29,7 @@ Som labb ägare kan du konfigurera ett avslutnings schema för alla virtuella da
 
 1. På Start sidan för ditt labb väljer du **konfiguration och principer**.
 2. Välj **princip för automatisk avstängning** i avsnittet **scheman** på den vänstra menyn.
-3. Välj ett av alternativen. I följande avsnitt får du mer information om de här alternativen: Set-principen gäller bara för nya virtuella datorer som skapats i labbet och inte till redan befintliga virtuella datorer. 
+3. Välj ett av alternativen. I följande avsnitt får du mer information om de här alternativen: set-principen gäller endast för nya virtuella datorer som skapats i labbet och inte till redan befintliga virtuella datorer. 
 
     ![Princip alternativ för automatisk avstängning](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
@@ -71,7 +71,7 @@ Om det här princip alternativet har ställts in för labbet kan användarna int
 
 ![Princip alternativ för automatisk avstängning – 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="notifications"></a>Aviseringar
+## <a name="notifications"></a>Meddelanden
 När automatisk avstängning har kon figurer ATS av labb ägaren skickas meddelanden till labb användarna 15 minuter innan den automatiskt stängs av om någon av deras virtuella datorer påverkas. Det här alternativet ger labb användare möjlighet att spara sitt arbete innan den stängs av. Meddelandet innehåller också länkar för varje virtuell dator för följande åtgärder:
 
 - Hoppa över automatisk avstängning för den här tiden

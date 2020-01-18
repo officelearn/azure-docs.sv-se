@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Identifiera och visa ansiktsinformation i en bild med .NET SDK'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en Windows-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
+description: I den här självstudien kommer du att skapa en Windows-app som använder ansikts tjänsten för att identifiera och visa en bilds ansikten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977972"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165919"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Självstudie: skapa en Windows Presentation Framework-app (WPF) för att Visa ansikts data i en bild
 
-I den här självstudien får du lära dig hur du använder Azure-Ansikts-API via .NET-klient-SDK: n för att identifiera ansikten i en bild och sedan presentera dessa data i användar gränssnittet. Du skapar ett WPF-program som identifierar ansikten, ritar en ram runt varje ansikte och visar en beskrivning av FACET i statusfältet. 
+I den här självstudien får du lära dig hur du använder Azures ansikts tjänst via .NET-klient-SDK: n för att identifiera ansikten i en bild och sedan presentera dessa data i användar gränssnittet. Du skapar ett WPF-program som identifierar ansikten, ritar en ram runt varje ansikte och visar en beskrivning av FACET i statusfältet. 
 
 I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skapa ett WPF-program
-> - Installera ansikts-API-klientbiblioteket
+> - Installera ansikts klient biblioteket
 > - Använda klientbiblioteket för att identifiera ansikten i en bild
 > - Rita en ram runt varje identifierat ansikte
 > - Visa en beskrivning av det markerade ansikten i statusfältet
@@ -39,7 +39,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT`.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT`.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="create-the-visual-studio-project"></a>Skapa Visual Studio-projektet

@@ -1,7 +1,7 @@
 ---
-title: Så här anger du en igenkännings modell – Ansikts-API
+title: Så här anger du en igenkännings modell – ansikte
 titleSuffix: Azure Cognitive Services
-description: I den här artikeln visas hur du väljer vilken igenkännings modell som ska användas med ditt Azure Ansikts-API-program.
+description: I den här artikeln visas hur du väljer vilken igenkännings modell som ska användas med ditt Azure-ansikts program.
 services: cognitive-services
 author: longli0
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: longl
-ms.openlocfilehash: 5b84e078e3b674a539b61c07c4bb4370719e4799
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 44392b807659ff8f13511b48d0afd33db080e4f6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771027"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166461"
 ---
 # <a name="specify-a-face-recognition-model"></a>Ange en ansiktsigenkänningsmodell
 
-Den här guiden visar hur du anger en ansikts igenkännings modell för ansikts igenkänning, identifiering och likhets sökning med hjälp av Azure Ansikts-API.
+Den här guiden visar hur du anger en ansikts igenkännings modell för ansikts igenkänning, identifiering och likhets sökning med hjälp av Azure Face service.
 
-Ansikts-API använder maskin inlärnings modeller för att utföra åtgärder på mänskliga ansikten i bilder. Vi fortsätter att förbättra noggrannheten i våra modeller baserat på kundfeedback och framsteg i forskningen, och vi levererar dessa förbättringar som modell uppdateringar. Utvecklare har möjlighet att ange vilken version av ansikts igenkännings modellen som de vill använda. de kan välja den modell som passar bäst för deras användnings fall.
+Ansikts tjänsten använder maskin inlärnings modeller för att utföra åtgärder på mänskliga ansikten i bilder. Vi fortsätter att förbättra noggrannheten i våra modeller baserat på kundfeedback och framsteg i forskningen, och vi levererar dessa förbättringar som modell uppdateringar. Utvecklare har möjlighet att ange vilken version av ansikts igenkännings modellen som de vill använda. de kan välja den modell som passar bäst för deras användnings fall.
 
 Om du är en ny användare rekommenderar vi att du använder den senaste modellen. Läs vidare om du vill veta hur du anger den i olika ansikts operationer samtidigt som du undviker modell konflikter. Om du är en avancerad användare och inte är säker på om du ska växla till den senaste modellen går du till avsnittet [utvärdera olika modeller](#evaluate-different-models) för att utvärdera den nya modellen och jämför resultat med den aktuella data uppsättningen.
 
@@ -57,7 +57,7 @@ var faces = await faceClient.Face.DetectWithUrlAsync(imageUrl, true, true, recog
 
 ## <a name="identify-faces-with-specified-model"></a>Identifiera ansikten med angiven modell
 
-Ansikts-API kan extrahera ansikts data från en avbildning och koppla den till ett **person** objekt (via [Lägg till ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) -API-anrop, till exempel) och flera **person** objekt kan lagras tillsammans i en **PersonGroup**. Sedan kan en ny ansikte jämföras med en **PersonGroup** (med [Ansiktsigenkänning – identifiera] -anropet) och den matchande personen i gruppen kan identifieras.
+Ansikts tjänsten kan extrahera ansikts data från en avbildning och koppla den till ett **person** objekt (via [Lägg till ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) -API-anrop, till exempel) och flera **person** objekt kan lagras tillsammans i en **PersonGroup**. Sedan kan en ny ansikte jämföras med en **PersonGroup** (med [Ansiktsigenkänning – identifiera] -anropet) och den matchande personen i gruppen kan identifieras.
 
 En **PersonGroup** bör ha en unik igenkännings modell för all **person**s, och du kan ange detta med hjälp av parametern `recognitionModel` när du skapar gruppen ([PersonGroup – Skapa] eller [LargePersonGroup – Skapa]). Om du inte anger den här parametern används den ursprungliga `recognition_01` modellen. En grupp använder alltid den igenkännings modell som den skapades med, och nya ytor blir kopplade till den här modellen när de läggs till. Detta kan inte ändras efter att en grupp har skapats. Om du vill se vilken modell en **PersonGroup** har kon figurer ATS med använder du [PersonGroup – Hämta] API med parametern _returnRecognitionModel_ inställd på **True**.
 
@@ -77,7 +77,7 @@ Det finns ingen ändring i API för [Ansiktsigenkänning – identifiera] . du b
 
 ## <a name="find-similar-faces-with-specified-model"></a>Hitta liknande ansikten med angiven modell
 
-Du kan också ange en igenkännings modell för sökning efter likheter. Du kan tilldela modell versionen med `recognitionModel` när du skapar ansikts listan med [FaceList – skapa] API eller [LargeFaceList – skapa]. Om du inte anger den här parametern används den ursprungliga `recognition_01` modellen. En ansikts lista använder alltid den igenkännings modell som den skapades med och nya ytor blir kopplade till den här modellen när de läggs till. Detta kan inte ändras efter att det har skapats. Om du vill se vilken modell en ansikts lista har kon figurer ATS med använder du [FaceList – Hämta] API med parametern _returnRecognitionModel_ inställd som **Sant**.
+Du kan också ange en igenkännings modell för sökning efter likheter. Du kan tilldela modell versionen med `recognitionModel` när du skapar ansikts listan med [FaceList – skapa] API eller [LargeFaceList – skapa]. Om du inte anger den här parametern används den ursprungliga `recognition_01` modellen. En ansikts lista använder alltid den igenkännings modell som den skapades med och nya ytor blir kopplade till den här modellen när de läggs till. Detta kan inte ändras efter att det har skapats. Om du vill se vilken modell en ansikts lista har kon figurer ATS med använder du [FaceList - Get] API med parametern _returnRecognitionModel_ inställd som **Sant**.
 
 Se följande kod exempel för .NET-klient biblioteket.
 
@@ -120,5 +120,5 @@ I den här artikeln har du lärt dig hur du anger vilken igenkännings modell so
 [PersonGroup – Träna]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249
 [LargePersonGroup – Skapa]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d
 [FaceList – skapa]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b
-[FaceList – Hämta]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
+[FaceList - Get]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524c
 [LargeFaceList – skapa]: https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc

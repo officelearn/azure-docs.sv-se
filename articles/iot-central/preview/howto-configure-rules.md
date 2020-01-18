@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 987e8d9e667339d7526e8acbc3164e58abcd3e4d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: f528135445824a17a8d8c95913adf6934cc87eb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895753"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260143"
 ---
 # <a name="configure-rules-preview-features"></a>Konfigurera regler (för hands versions funktioner)
 
@@ -33,7 +33,7 @@ Använd avsnittet mål enheter för att välja vilken typ av enheter som regeln 
 
 Villkoren är vilka regler som utlöses på. När du lägger till flera villkor i en regel är de logiskt och sammantaget. Med andra ord måste alla villkor vara uppfyllda för att regeln ska utvärderas som sant.  
 
-I följande skärm bild kontrollerar villkoren när temperaturen är större än 90 och att fuktigheten är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
+I följande skärm bild visas villkoren när temperaturen är större än 70&deg; F och fuktighets kontrollen är mindre än 10. När båda dessa instruktioner är uppfyllda utvärderas regeln till sant och utlöser en åtgärd.
 
 ![Villkor](media/howto-configure-rules/conditions.png)
 

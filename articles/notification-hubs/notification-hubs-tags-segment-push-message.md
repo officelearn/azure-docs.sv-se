@@ -1,6 +1,6 @@
 ---
-title: Uttryck för Routning och tagg
-description: I det här avsnittet beskrivs routing-och tagg uttryck för Azure Notification Hub.
+title: Routnings-och tagg uttryck i Azure Notification Hubs
+description: Lär dig att dirigera och tagga uttryck för Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 254517cc1d9cc042387b63147b2a3fd9bdeece5e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972033"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263786"
 ---
 # <a name="routing-and-tag-expressions"></a>Uttryck för Routning och tagg
 

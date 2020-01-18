@@ -4,19 +4,21 @@ description: En lokal gateway krävs om din Analysis Services-server i Azure ska
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a896c98040773179f9a0911162bbfdc5689b1a2e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768562"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263446"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
-Den lokala datagatewayen ger säker data överföring mellan lokala data källor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen också med Azure Logic Apps, Power BI, Power Apps och automatiserad energi. Du kan associera flera tjänster i samma prenumeration och samma region med en enda Gateway. Även om den gateway som du installerar är samma för alla dessa tjänster, Azure Analysis Services och Logic Apps har ytterligare steg.
+Den lokala datagatewayen ger säker data överföring mellan lokala data källor och dina Azure Analysis Services-servrar i molnet. Förutom att arbeta med flera Azure Analysis Services-servrar i samma region, fungerar den senaste versionen av gatewayen också med Azure Logic Apps, Power BI, Power Apps och automatiserad energi. Även om den gateway som du installerar är samma för alla dessa tjänster, Azure Analysis Services och Logic Apps har ytterligare steg.
+
+Informationen som anges här är speciell för hur Azure Analysis Services fungerar med den lokala datagatewayen. Mer information om gatewayen i allmänhet och hur det fungerar med andra tjänster finns i [Vad är en lokal datagateway?](/data-integration/gateway/service-gateway-onprem).
 
 För Azure Analysis Services hämtar installationen med gatewayen första gången en process i fyra delar:
 
@@ -24,9 +26,11 @@ För Azure Analysis Services hämtar installationen med gatewayen första gånge
 
 - **Registrera din gateway** – i det här steget anger du ett namn och en återställnings nyckel för din gateway och väljer en region, registrerar din gateway med moln tjänsten Gateway. Din gateway-resurs kan registreras i valfri region, men vi rekommenderar att den finns i samma region som dina Analysis Services-servrar. 
 
-- **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i din Azure-prenumeration.
+- **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i en Azure.
 
-- **Anslut dina servrar till din gateway-resurs** – när du har en gateway-resurs i din prenumeration kan du börja ansluta dina servrar till den. Du kan ansluta flera servrar och andra resurser, förutsatt att de finns i samma prenumeration och samma region.
+- **Anslut dina servrar till din gateway-resurs** – när du har en gateway-resurs kan du börja ansluta dina servrar till den. Du kan ansluta flera servrar och andra resurser, förutsatt att de finns i samma region.
+
+
 
 ## <a name="how-it-works"> </a>Så här fungerar det
 Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten registreras för gatewaymolntjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för din Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 

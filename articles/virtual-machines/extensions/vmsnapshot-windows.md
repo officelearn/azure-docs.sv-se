@@ -3,18 +3,18 @@ title: Windows-tillägg för VM-ögonblicksbild för Azure Backup
 description: Ta tillämpnings programmets konsekventa säkerhets kopiering av den virtuella datorn från Azure Backup med tillägget för ögonblicks bild
 services: backup, virtual-machines-windows
 documentationcenter: ''
-author: trinadhk
+author: trinadhkotturu
 manager: gwallace
 ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: 32e8b0099ef464312b6f2b9c0eb989154815af77
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4f5650e333c209d3b5f342c1f1c61ec1ca5cf47
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072907"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264296"
 ---
 # <a name="vm-snapshot-windows-extension-for-azure-backup"></a>Windows-tillägg för VM-ögonblicksbild för Azure Backup
 
@@ -24,10 +24,6 @@ Azure Backup ger stöd för säkerhets kopiering av arbets belastningar från lo
 
 ### <a name="operating-system"></a>Operativsystem
 En lista över operativ system som stöds finns i [operativ system som stöds av Azure Backup](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)
-
-### <a name="internet-connectivity"></a>Internetanslutning
-
-Tillägget för VM-ögonblicksbild kräver att den virtuella mål datorn är ansluten till Internet när vi gör en säkerhets kopia av den virtuella datorn.
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
@@ -63,7 +59,7 @@ Följande JSON visar schemat för ögonblicks bilds tillägget för den virtuell
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | datum |
+| apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | sträng |
 | commandStartTimeUTCTicks | 6.36458 e + 17 | sträng |
 | språk | sv-se | sträng |
@@ -92,7 +88,7 @@ az backup protection enable-for-vm \
 
 ## <a name="troubleshoot-and-support"></a>Felsökning och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
 Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
 

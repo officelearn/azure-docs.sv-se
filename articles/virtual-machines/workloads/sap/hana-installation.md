@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2019
+ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 516f61775060b3e4073ed9d623545d4f227563ed
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c08036f16cd30a1c10963accd8d486d77c9683ee
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750349"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264177"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Så här installerar och konfigurerar du SAP HANA (stora instanser) i Azure
 
@@ -29,10 +29,7 @@ Installationen av SAP HANA är ditt ansvar. Du kan börja installera en ny SAP H
 > [!Note]
 > Per SAP-princip måste installationen av SAP HANA utföras av en person som har godkänt att den certifierade SAP-tekniken associerar examen, SAP HANA installationens certifierings examen eller som är en SAP-certifierad system integrerare (SI).
 
-När du planerar att installera HANA 2,0, se [SAP support note #2235581-SAP HANA: operativ system som stöds](https://launchpad.support.sap.com/#/notes/2235581/E) för att se till att operativ systemet stöds med den SAP HANA version som du installerar. Operativ systemet som stöds för HANA 2,0 är mer restriktivt än det operativ system som stöds för HANA 1,0. 
-
-> [!IMPORTANT] 
-> För typ II-enheter stöds för närvarande endast SLES 12 SP2 OS-versionen. 
+När du planerar att installera HANA 2,0, se [SAP support note #2235581-SAP HANA: operativ system som stöds](https://launchpad.support.sap.com/#/notes/2235581/E) för att se till att operativ systemet stöds med den SAP HANA version som du installerar. Operativ systemet som stöds för HANA 2,0 är mer restriktivt än det operativ system som stöds för HANA 1,0. Du måste också kontrol lera om den OS-version du är intresse rad av är listad som stöds för den specifika HLI-enheten i den här publicerade [listan](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). Klicka på enheten för att hämta all information med listan över operativ system som stöds för den enheten. 
 
 Verifiera följande innan du påbörjar HANA-installationen:
 - [HLI-enhet (er)](#validate-the-hana-large-instance-units)
@@ -61,18 +58,18 @@ Därför är det obligatoriskt för dig som kund att läsa SAP-anteckningar som 
 
 Mer specifikt, kontrol lera följande parametrar och ändra till sist till:
 
-- net. Core. rmem_max = 16777216
-- net. Core. wmem_max = 16777216
-- net. Core. rmem_default = 16777216
-- net. Core. wmem_default = 16777216
-- net. Core. optmem_max = 16777216
-- net. IPv4. TCP _rmem = 65536 16777216 16777216
-- net. IPv4. TCP _wmem = 65536 16777216 16777216
+- net.core.rmem_max = 16777216
+- net.core.wmem_max = 16777216
+- net.core.rmem_default = 16777216
+- net.core.wmem_default = 16777216
+- net.core.optmem_max = 16777216
+- net.ipv4.tcp_rmem = 65536 16777216 16777216
+- net.ipv4.tcp_wmem = 65536 16777216 16777216
 
 Från och med SLES12 SP1 och RHEL 7,2 måste dessa parametrar anges i en konfigurations fil i katalogen/etc/sysctl.d. Till exempel måste en konfigurations fil med namnet 91-NetApp-HANA. conf skapas. För äldre SLES-och RHEL-versioner måste dessa parametrar anges i/etc/sysctl. conf.
 
 För alla RHEL-utgåvor som börjar med RHEL 6,3, Tänk på följande: 
-- Parametern sunrpc. TCP _slot_table_entries = 128 måste anges i/o/modprobe. d/sunrpc-Local. conf. Om filen inte finns måste du först skapa den genom att lägga till posten: 
+- Parametern sunrpc. tcp_slot_table_entries = 128 måste anges i/etc/modprobe. d/sunrpc-Local. conf. Om filen inte finns måste du först skapa den genom att lägga till posten: 
     - alternativ sunrpc tcp_max_slot_table_entries = 128
 
 Det **femte steget** är att kontrol lera system tiden för din Hana-stora instans enhet. Instanserna distribueras med en system tids zon. Den här tids zonen representerar platsen för den Azure-region där den stora instans stämpeln för HANA finns. Du kan ändra system tiden eller tids zonen för de instanser som du äger. 
@@ -84,14 +81,11 @@ Det **sjätte steget** är att kontrol lera etc/hosts. När bladet blir överutn
 
 ## <a name="operating-system"></a>Operativsystem
 
-> [!IMPORTANT] 
-> För typ II-enheter stöds för närvarande endast SLES 12 SP2 OS-versionen. 
-
 Växlings området för den levererade OS-avbildningen är inställt på 2 GB enligt [SAP-support note #1999997 – vanliga frågor och svar: SAP HANA minne](https://launchpad.support.sap.com/#/notes/1999997/E). Som kund, om du vill ha en annan inställning, måste du ange den själv.
 
 [SUSE Linux Enterprise Server 12 SP1 för SAP-program](https://www.suse.com/products/sles-for-sap/download/) är distributionen av Linux som är installerad för SAP HANA på Azure (stora instanser). Denna specifika distribution ger SAP-specifika funktioner "out of box" (inklusive fördefinierade parametrar för att köra SAP på SLES effektivt).
 
-Se [resurs bibliotek/fakta blad](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) på webbplatsen SUSE och [SAP på SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) på SAP community Network (SCN) för flera användbara resurser som rör distribution av SAP HANA på SLES (inklusive konfiguration av hög tillgänglighet, säkerhets härdning som är bara för SAP-åtgärder med mera).
+Se [resurs bibliotek/fakta blad](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) på webbplatsen SUSE och [SAP på SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) på SAP community Network (SCN) för flera användbara resurser som rör distribution av SAP HANA på SLES (inklusive konfiguration av hög tillgänglighet, säkerhets härdning som är speciell för SAP-åtgärder och mer).
 
 Följande är ytterligare och användbart SAP på SUSE-relaterade länkar:
 
@@ -107,7 +101,7 @@ Följande är SAP-support anteckningar som är tillämpliga för att implementer
 - [Stöd för SAP-support #171356 – SAP-program på Linux: allmän information](https://launchpad.support.sap.com/#/notes/1984787)
 - [SAP support NOTE #1391070 – Linux UUID-lösningar](https://launchpad.support.sap.com/#/notes/1391070)
 
-[Red Hat Enterprise Linux för SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) är ett annat erbjudande om att köra SAP HANA på Hana-stora instanser. Versioner av RHEL 6,7 och 7,2 är tillgängliga. Obs! i motsats till interna virtuella Azure-datorer där endast RHEL 7,2 och senare versioner stöds, har HANA stora instanser även stöd för RHEL 6,7. Vi rekommenderar dock att du använder en RHEL 7. x-version.
+[Red Hat Enterprise Linux för SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) är ett annat erbjudande om att köra SAP HANA på Hana-stora instanser. Versioner av RHEL 7,2 och 7,3 är tillgängliga och stöds. 
 
 Följande är ytterligare användbara SAP för Red Hat-relaterade länkar:
 - [SAP HANA på Red Hat Linux-webbplatsen](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
@@ -116,16 +110,14 @@ Följande är SAP-support anteckningar som är tillämpliga för att implementer
 
 - [SAP support NOTE #2009879-SAP HANA rikt linjer för Red Hat Enterprise Linux (RHEL)-operativ system](https://launchpad.support.sap.com/#/notes/2009879/E)
 - [SAP support NOTE #2292690-SAP HANA DB: rekommenderade OS-inställningar för RHEL 7](https://launchpad.support.sap.com/#/notes/2292690)
-- [SAP support NOTE #2247020-SAP HANA DB: rekommenderade OS-inställningar för RHEL 6,7](https://launchpad.support.sap.com/#/notes/2247020)
 - [SAP support NOTE #1391070 – Linux UUID-lösningar](https://launchpad.support.sap.com/#/notes/1391070)
 - [SAP support NOTE #2228351 – Linux: SAP HANA Database SPS 11 revision 110 (eller högre) på RHEL 6 eller SLES 11](https://launchpad.support.sap.com/#/notes/2228351)
 - [Stöd för SAP-support #2397039 – vanliga frågor och svar: SAP på RHEL](https://launchpad.support.sap.com/#/notes/2397039)
-- [SAP support NOTE #1496410-Red Hat Enterprise Linux 6. x: installation och uppgradering](https://launchpad.support.sap.com/#/notes/1496410)
 - [SAP support NOTE #2002167-Red Hat Enterprise Linux 7. x: installation och uppgradering](https://launchpad.support.sap.com/#/notes/2002167)
 
 ### <a name="time-synchronization"></a>Tidssynkronisering
 
-SAP-program som bygger på SAP NetWeaver-arkitekturen är känsliga för tids skillnader för de olika komponenter som utgör SAP-systemet. ABAP för SAP-kort med fel rubriken för ZDATE \_LARGE \_TIME \_DIFF är förmodligen välbekanta. Det beror på att de här korta dumparna visas när system tiden för olika servrar eller virtuella datorer är för långt ifrån varandra.
+SAP-program som bygger på SAP NetWeaver-arkitekturen är känsliga för tids skillnader för de olika komponenter som utgör SAP-systemet. SAP ABAP-kort dumpar med fel titeln ZDATE\_stor\_tiden\_DIFF är förmodligen bekant. Det beror på att de här korta dumparna visas när system tiden för olika servrar eller virtuella datorer är för långt ifrån varandra.
 
 För SAP HANA på Azure (stora instanser) gäller tidssynkroniseringen som är utförd i Azure inte beräknings enheterna i de stora instans stämplarna. Den här synkroniseringen gäller inte för att köra SAP-program i interna virtuella Azure-datorer eftersom Azure säkerställer att systemets tid är korrekt synkroniserad. 
 
@@ -144,7 +136,7 @@ Mer information om Ethernet-information för din arkitektur finns i [scenarier f
 
 ## <a name="storage"></a>Lagring
 
-Lagrings layouten för SAP HANA på Azure (stora instanser) konfigureras genom att SAP HANA på Azure `service management` till och med SAP rekommenderade rikt linjer. Dessa rikt linjer beskrivs i [SAP HANA lagrings krav](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) White Paper. 
+Lagrings layouten för SAP HANA på Azure (stora instanser) konfigureras genom att SAP HANA på Azure `service management` genom de rekommenderade SAP-rikt linjerna. Dessa rikt linjer beskrivs i [SAP HANA lagrings krav](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) White Paper. 
 
 De höga storlekarna för de olika volymerna med de olika volymerna för HANA-stora instanser dokumenteras i [SAP HANA (stora instanser) Översikt och arkitektur på Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -152,10 +144,10 @@ Namngivnings konventionerna för lagrings volymerna visas i följande tabell:
 
 | Lagrings användning | Monterings namn | Volym namn | 
 | --- | --- | ---|
-| HANA-data | /hana/data/SID/mnt0000 \<m > | Lagrings-IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA-logg | /hana/log/SID/mnt0000 \<m > | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA-data | /hana/data/SID/mnt0000\<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-logg | /hana/log/SID/mnt0000\<m > | Lagrings-IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA-logg säkerhets kopiering | /hana/log/backups | Lagrings-IP:/hana_log_backups_SID_mnt00001_tenant_vol |
-| HANA delad | /hana/shared/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/delad |
+| HANA delad | /hana/shared/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/Shared |
 | usr/SAP | /usr/sap/SID | Lagrings-IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
 *Sid* är Hana-instansens system-ID. 
@@ -196,8 +188,8 @@ Om du vill optimera SAP HANA till det lagrings utrymme som används under anger 
 
 - max_parallel_io_requests 128
 - async_read_submit på
-- async_write_submit_active på
-- async_write_submit_blocks alla
+- async_write_submit_active on
+- async_write_submit_blocks all
  
 För SAP HANA 1,0-versioner upp till SPS12, kan dessa parametrar anges under installationen av SAP HANA-databasen, enligt beskrivningen i [SAP obs #2267798-konfiguration av SAP HANA-databasen](https://launchpad.support.sap.com/#/notes/2267798).
 
@@ -208,7 +200,7 @@ Lagringen som används i HANA stora instanser har en begränsning för fil storl
 > [!IMPORTANT]
 > För att förhindra att HANA försöker växa datafiler utöver 16 TB fil storleks gräns på HANA stor instans lagring, måste du ange följande parametrar i SAP HANA global. ini konfigurations fil
 > 
-> - datavolume_striping = True
+> - datavolume_striping=true
 > - datavolume_striping_size_gb = 15000
 > - Se även SAP Obs [#2400005](https://launchpad.support.sap.com/#/notes/2400005)
 > - Tänk på SAP not [#2631285](https://launchpad.support.sap.com/#/notes/2631285)

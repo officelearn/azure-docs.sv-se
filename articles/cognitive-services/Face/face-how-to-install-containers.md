@@ -1,5 +1,5 @@
 ---
-title: Installera och kör behållare – ansikts-API
+title: Installera och kör behållare – ansikte
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln visar hur du hämtar, installerar och kör behållare för ansikte i den här själv studie kursen.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 574f6bead9cac384c72d2d0cd35353eb571a9490
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e467b195ab1e2124286bfef74d7d1b71a4d99dd6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327047"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165984"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Installera och kör ansikts behållare (förhands granskning)
 
@@ -26,11 +26,11 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste uppfylla följande krav innan du använder Ansikts-API-behållare.
+Du måste uppfylla följande krav innan du använder behållare för ansikts tjänster.
 
 |Krävs|Syfte|
 |--|--|
-|Docker-motor| Docker-motorn måste vara installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). För en introduktion till Docker-och container-grunderna, se [Docker-översikten](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> I Windows måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
+|Docker-motorn| Docker-motorn måste vara installerad på en [värddator](#the-host-computer). Docker innehåller paket som konfigurerar Docker-miljön på [MacOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/)och [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Få en genomgång om grunderna för Docker och behållare finns i den [översikt över Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker måste konfigureras för att tillåta behållarna för att ansluta till och skicka faktureringsdata till Azure. <br><br> I Windows måste Docker också konfigureras för att stödja Linux-behållare.<br><br>|
 |Bekant med Docker | Du behöver grundläggande förståelse för Docker-koncept, till exempel register, databaser, behållare och behållar avbildningar. Du behöver också kunskap om grundläggande `docker`-kommandon.| 
 |Ansikts resurs |Om du vill använda behållaren måste du ha:<br><br>En Azure- **ansikts** resurs och tillhör ande API-nyckel och slut punkts-URI. Båda värdena är tillgängliga på sidorna **Översikt** och **nycklar** för resursen. De måste starta behållaren.<br><br>**{Api_key}** : en av de två tillgängliga resurs nycklarna på sidan **nycklar**<br><br>**{ENDPOINT_URI}** : slut punkten enligt vad som anges på sidan **Översikt**
 
@@ -46,9 +46,9 @@ Du måste uppfylla följande krav innan du använder Ansikts-API-behållare.
 
 ### <a name="container-requirements-and-recommendations"></a>Behållarkrav och rekommendationer
 
-I följande tabell beskrivs de minsta och rekommenderade processor kärnor och minne som ska allokeras för varje Ansikts-API behållare.
+I följande tabell beskrivs de minsta och rekommenderade processor kärnor och minne som ska allokeras för varje behållare för ansikts tjänster.
 
-| Container | Minimum | Rekommenderas | Transaktioner per sekund<br>(Minimum, maximum)|
+| Container | Minimum | Rekommenderad | Transaktioner per sekund<br>(Minimum, maximum)|
 |-----------|---------|-------------|--|
 |Ansikte | 1 kärna, 2 GB minne | 1 kärna, 4 GB minne |10, 20|
 
@@ -59,7 +59,7 @@ Core och minne motsvarar `--cpus` och `--memory` inställningar som används som
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Hämta behållar avbildningen med Docker pull
 
-Behållar avbildningar för Ansikts-API är tillgängliga. 
+Behållar avbildningar för Face service är tillgängliga. 
 
 | Container | Lagringsplats |
 |-----------|------------|
@@ -120,11 +120,11 @@ Använd värden `http://localhost:5000`för behållar-API: er.
 
 [!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
-## <a name="stop-the-container"></a>Stoppa behållaren
+## <a name="stop-the-container"></a>Stoppa containern
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du kör behållaren med en utgående [montering](./face-resource-container-config.md#mount-settings) och loggning har Aktiver ATS genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
 
@@ -132,11 +132,11 @@ Om du kör behållaren med en utgående [montering](./face-resource-container-co
 
 ## <a name="billing"></a>Fakturering
 
-Ansikts-API behållare skickar fakturerings information till Azure med hjälp av en Ansikts-API resurs på ditt Azure-konto. 
+Face service-behållare skickar fakturerings information till Azure med hjälp av en ansikts resurs på ditt Azure-konto. 
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
-Mer information om dessa alternativ finns i [Configure containers](./face-resource-container-config.md).
+Mer information om alternativen finns i [konfigurera behållare](./face-resource-container-config.md).
 
 <!--blogs/samples/video coures -->
 
@@ -144,11 +144,11 @@ Mer information om dessa alternativ finns i [Configure containers](./face-resour
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för hur du hämtar, installerar och kör Ansikts-API behållare. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för att ladda ned, installera och köra Face service-behållare. Sammanfattning:
 
 * Behållar avbildningar hämtas från Azure Container Registry.
 * Behållaravbildningar som körs i Docker.
-* Du kan använda antingen REST API eller SDK för att anropa åtgärder i Ansikts-API behållare genom att ange behållarens värd-URI.
+* Du kan använda antingen REST API eller SDK för att anropa åtgärder i ansikts tjänste behållare genom att ange behållarens värd-URI.
 * Du måste ange fakturerings information när du instansierar en behållare.
 
 > [!IMPORTANT]

@@ -1,5 +1,5 @@
 ---
-title: Skapa och hantera virtuella datorer i DevTest Labs med Azure CLI | Microsoft Docs
+title: Skapa och hantera virtuella datorer i DevTest Labs med Azure CLI
 description: Lär dig hur du använder Azure DevTest Labs för att skapa och hantera virtuella datorer med Azure CLI
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 7a089eae935fe5ecbf3dd2836d86912d0c63ef84
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d3cd104e36cb407e9b1b833335869cac2c69d0ec
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773102"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167058"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Skapa och hantera virtuella datorer med DevTest Labs med Azure CLI
 Den här snabb starten hjälper dig att skapa, starta, ansluta, uppdatera och rensa en utvecklings dator i labbet. 
@@ -30,7 +30,7 @@ Innan du börjar:
 * [Installera Azure CLI](/cli/azure/install-azure-cli). Starta genom att köra AZ-inloggning för att skapa en anslutning till Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Skapa och verifiera den virtuella datorn 
-Innan du kör DevTest Labs relaterade kommandon anger du lämplig Azure-kontext med hjälp `az account set` av kommandot:
+Innan du kör DevTest Labs relaterade kommandon ställer du in rätt Azure-kontext med hjälp av kommandot `az account set`:
 
 ```azurecli
 az account set --subscription 11111111-1111-1111-1111-111111111111
@@ -61,7 +61,7 @@ az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGrou
 Du kan också skapa virtuella datorer baserat på formler genom att ange parametern för **bild typ** till **formel**. Om du behöver välja ett särskilt virtuellt nätverk för den virtuella datorn använder du parametrarna **VNet-Name** och **Subnet** . Mer information finns i [AZ Lab VM Create](/cli/azure/lab/vm#az-lab-vm-create).
 
 ## <a name="verify-that-the-vm-is-available"></a>Kontrol lera att den virtuella datorn är tillgänglig.
-`az lab vm show` Använd kommandot för att kontrol lera att den virtuella datorn är tillgänglig innan du startar och ansluter till den. 
+Använd kommandot `az lab vm show` för att kontrol lera att den virtuella datorn är tillgänglig innan du startar och ansluter till den. 
 
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
@@ -127,13 +127,13 @@ az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resou
 
 Om du vill visa artefakter som är tillgängliga i en virtuell dator i ett labb kör du följande kommandon.
 
-**Cloud Shell-PowerShell**: observera användningen av bakticket (\`) före $ i $Expand (t. ex. "$Expand):
+**Cloud Shell-PowerShell**: Lägg märke till att bakticket (\`) ska användas före $ i $Expand (d.v.s. $Expand):
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(`$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"
 ```
 
-**Cloud Shell-bash**: Observera att snedstreck (\\) framför $ i kommandot används. 
+**Cloud Shell-bash**: Observera att tecknen snedstreck (\\) framför $ i kommandot. 
 
 ```azurecli-interactive
 az lab vm show --resource-group <resourcegroupname> --lab-name <labname> --name <vmname> --expand "properties(\$expand=artifacts)" --query "artifacts[].{artifactId: artifactId, status: status}"

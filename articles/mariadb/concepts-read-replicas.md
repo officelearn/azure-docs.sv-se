@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/03/2019
-ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/16/2020
+ms.openlocfilehash: 41b5d7519776ca84cf002d463048eb7a8dec2410
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790447"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169156"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Skrivskyddad replik i Azure Database for MariaDB
 
@@ -137,13 +137,13 @@ Om du stoppar replikeringen mellan en huvud server och en Läs replik blir den s
 
 ### <a name="deleted-master-and-standalone-servers"></a>Borttagna huvud servrar och fristående servrar
 
-När en huvud server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir fristående servrar. Själva huvud servern tas bort.
+När en huvud server tas bort, stoppas replikeringen till alla Läs repliker. Dessa repliker blir automatiskt fristående servrar och kan acceptera både läsningar och skrivningar. Själva huvud servern tas bort.
 
 ### <a name="user-accounts"></a>Användarkonton
 
 Användare på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med de användar konton som är tillgängliga på huvud servern.
 
-### <a name="server-parameters"></a>Server parametrar
+### <a name="server-parameters"></a>Serverparametrar
 
 I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker.
 

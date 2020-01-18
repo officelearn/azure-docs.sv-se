@@ -14,17 +14,17 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f54e08e6c3b7b673541f124a90f32dbc860fa44
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45bf71274d8eb1039254cafe48a34587199be724
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65859543"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263514"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Programproxy och Qlik Sense 
 Azure Active Directory-programproxy och Qlik Sense samarbetar tillsammans för att kontrollera att du enkelt kan använda Application Proxy för att tillhandahålla fjärråtkomst för din Qlik Sense-distribution.  
 
-## <a name="prerequisites"></a>Förutsättningar 
+## <a name="prerequisites"></a>Krav 
 Resten av det här scenariot förutsätter att du gjort följande:
  
 - Konfigurerad [Qlik Sense](https://community.qlik.com/docs/DOC-19822). 
@@ -42,7 +42,7 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 3. Välj **Lägg till** överst på bladet. 
 4. Välj **lokala program**. 
 5. Fyll i de obligatoriska fälten med information om den nya appen. Använd följande riktlinjer för inställningar: 
-   - **Intern URL**: Det här programmet ska ha en intern URL som är den URL som QlikSense själva. Till exempel **https&#58;//demo.qlikemm.com:4244** 
+   - **Intern URL**: det här programmet ska ha en intern URL som är den URL som QlikSense själva. Till exempel **https&#58;//demo.qlikemm.com:4244** 
    - **Förautentiseringsmetod**: Azure Active Directory (rekommenderas men krävs inte) 
 1. Välj **Lägg till** längst ned på bladet. Programmet har lagts till och snabb start-menyn öppnas. 
 2. Snabb start-menyn, Välj **tilldela en användare för att testa**, och Lägg till minst en användare till programmet. Kontrollera att det här testkontot har åtkomst till dina lokala program. 
@@ -52,17 +52,17 @@ Följ dessa steg om du vill publicera din app. En mer detaljerad genomgång av s
 ### <a name="application-2"></a>Program #2: 
 Följ samma steg för programmet #1, med följande undantag: 
 
-**Steg #5**: Den interna URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och 4248 för HTTP. Exempel: **https&#58;//demo.qlik.com:4244**</br></br> 
-**Steg #10:** Inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad**
+**Steg #5**: Intern URL: en ska nu vara QlikSense-URL: en med den autentiseringsport som används av programmet. Standardvärdet är **4244** för HTTPS och **4248** för http för QlikSense-versioner före april 2018. Standardvärdet för QlikSense-versioner efter 2018 april är **443** för HTTPS och **80** för http.  Exempel: **https&#58;//demo.qlik.com:4244**</br></br> 
+**Steg #10:** inte konfigurera enkel inloggning och lämna den **enkel inloggning inaktiverad**
  
  
 ## <a name="testing"></a>Testning 
 Programmet är nu redo att testa. Åtkomst till den externa URL: en som du använde för att publicera QlikSense i programmet nr 1 och logga in som en användare som tilldelats båda programmen.  
 
 ## <a name="additional-references"></a>Ytterligare referenser
-Mer information om publicering Qlik Sense med Application Proxy finns i följande Qlik Community-artiklar: 
-- [Azure AD med integrerad Windows-autentisering med hjälp av en Kerberos-begränsad delegering med Qlik Sense](https://community.qlik.com/docs/DOC-20183)
-- [Qlik Sense integrering med Azure AD Application Proxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
+Mer information om hur du publicerar Qlik Sense med Application Proxy finns i följande Qlik community-artiklar: 
+- [Azure AD med integrerad Windows-autentisering med en Kerberos-begränsad delegering med Qlik Sense](https://community.qlik.com/docs/DOC-20183)
+- [Qlik Sense-integrering med Azure AD-programproxy](https://community.qlik.com/t5/Technology-Partners-Ecosystem/Azure-AD-Application-Proxy/ta-p/1528396)
 
 ## <a name="next-steps"></a>Nästa steg
 

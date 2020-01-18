@@ -1,24 +1,65 @@
 ---
 title: Viktig information – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: Se en körnings logg med funktions versioner, förbättringar, fel korrigeringar och kända problem för tal tjänsten.
+description: En körnings logg av funktioner för igenkänning av tal tjänster, förbättringar, fel korrigeringar och kända problem.
 services: cognitive-services
-author: BrianMouncer
+author: oscholz
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.author: brianem
+ms.date: 01/15/2020
+ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 73f1739b09111052abd985920efe3ef944a89ca9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380362"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264228"
 ---
 # <a name="release-notes"></a>Viktig information
+
+## <a name="speech-sdk-190-2020-january-release"></a>1\.9.0 för tal-SDK: 2020 – januari utgåva
+
+**Nya funktioner**
+
+- Konversation med flera enheter: Anslut flera enheter i ett tal-eller textbaserat samtal och eventuellt översätta meddelanden som skickas mellan dem. Läs mer i [den här artikeln](multi-device-conversation.md). 
+- Stöd för nyckelords igenkänning har lagts till för Android. AAR-paketet och stöd för x86 och x64 varianter har lagts till. 
+- `SendMessage`-och `SetMessageProperty`s metoder läggs till i `Connection` objekt i mål-C. Se dokumentationen [här](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- TTS C++ -API stöder nu `std::wstring` som text ingångs text, och du tar bort behovet av att konvertera en wstring till sträng innan du skickar den till SDK: n. Se information [här](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
+- [Språk-ID](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) och [käll språks konfiguration](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) är nu C#tillgängliga i.
+
+
+**Större ändringar**
+
+- `OpenSSL` har uppdaterats till version 1.1.1 b och länkas statiskt till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` Directory i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
+- Vi har ändrat data typen som returnerades C# för `WordLevelTimingResult.Offset` från `int` till `long` för att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
+
+
+**Felkorrigeringar**
+
+- Se `OpenSSL` uppdateringen under bryta ändringar ovan. Vi har åtgärdat både en tillfällig krasch och ett prestanda problem (Lås konkurrens under hög belastning) i Linux och Java. 
+- Gjort förbättringar av Java-objekt stängning i scenarier med hög samtidighet.
+- Omstrukturerat vårt NuGet-paket. Vi har tagit bort de tre kopiorna av `Microsoft.CognitiveServices.Speech.core.dll` och `Microsoft.CognitiveServices.Speech.extension.kws.dll` under lib-mappar, gör NuGet-paketet mindre och snabbare att ladda ned och vi har lagt C++ till huvuden som behövs för att kompilera vissa inbyggda appar.
+- Fasta snabb starts exempel [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). De stängdes utan att "Det gick inte att hitta" mikrofon hittades "på Linux, MacOS, Windows.
+- Fast SDK kraschar med långa tal igenkännings resultat på vissa kod sökvägar som [det här exemplet](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
+- Fast SDK-distributions fel i Azure-webbappens miljö för att åtgärda [det här kund problemet](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
+- Åtgärdat ett TTS-fel vid användning av multi `<voice>`-tagg eller `<audio>`-tagg för att hantera [det här kund problemet](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
+- Ett fel har åtgärd ATS i TTS 401 när SDK: n återställs från pausad.
+
+
+**Exempel**
+
+- Exempel på nyckelords igenkänning har lagts till för Android [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
+- Extra TTS-exempel för Server scenario [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp). 
+- Har lagt till snabb starter för flera C++ enheter C# i och .net [här](multi-device-conversation.md).
+
+
+**Andra ändringar**
+
+- Optimerad SDK kärn biblioteks storlek på Android.
+- SDK i 1.9.0 och senare stöder både `int`-och `string`s typer i versions fältet Voice signatur för konversations beskrivare.
 
 ## <a name="speech-sdk-180-2019-november-release"></a>Speech SDK-1.8.0:2019 – november release
 

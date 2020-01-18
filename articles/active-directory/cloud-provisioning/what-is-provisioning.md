@@ -11,14 +11,14 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166fb9320672e63b8c53717133dc61aa93f57a62
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868651"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167616"
 ---
-# <a name="what-is-identity-provisioning"></a>Vad är identitets etablering?
+# <a name="what-is-identity-provisioning"></a>Vad är identitetsetablering?
 
 Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till program både lokalt och i molnet. Det måste finnas en enda identitet i dessa olika program (både lokalt och i molnet).
 
@@ -50,9 +50,7 @@ Det vanligaste scenariot är att när en ny medarbetare ansluts till företaget 
 
 ![moln etablering](media/what-is-provisioning/cloud3.png)
 
-Med appens etablering ingår etableringen av användare och roller i de program som användaren behöver åtkomst till.  
-
-Det vanligaste scenariot är att när en användare i Azure AD tillhandahålls till O365 eller Salesforce.
+I Azure Active Directory (Azure AD), avser termen **[app-etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** att automatiskt skapa användar identiteter och roller i de moln program som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat.
 
 ## <a name="directory-provisioning"></a>Katalog etablering
 

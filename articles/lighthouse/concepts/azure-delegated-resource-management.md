@@ -1,14 +1,14 @@
 ---
 title: Azure-delegerad resurshantering
 description: Med hanterade tjänster kan tjänste leverantörer sälja resurs hanterings erbjudanden till kunder på Azure Marketplace.
-ms.date: 07/11/2019
+ms.date: 01/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2baa66acb4abc250ff69a1560f1bc6fe9a531ba8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453631"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263922"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure-delegerad resurshantering
 
@@ -38,6 +38,9 @@ Så här fungerar Azure-delegerad resurs hantering på hög nivå:
    - [Publicera ett erbjudande för Azure Marketplace Managed Services](../how-to/publish-managed-services-offers.md) (privat eller offentlig) som kunden accepterar
    - [Distribuera en Azure Resource Manager-mall till kundens klient](../how-to/onboard-customer.md) för en eller flera specifika prenumerationer eller resurs grupper
 3. När kunden har registrerats kan behöriga användare logga in på din tjänst leverantörs klient och utföra hanterings uppgifter för den angivna kund omfattningen, baserat på den åtkomst som du har definierat.
+
+> [!NOTE]
+> Delegering av en prenumeration mellan två klienter i separata moln stöds inte.
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Stöd för Azure-delegerad resurs hantering
 

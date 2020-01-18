@@ -1,5 +1,5 @@
 ---
-title: Visa månads vis uppskattad labb kostnads trend i Azure DevTest Labs | Microsoft Docs
+title: Visa månads vis uppskattad labb kostnads trend i Azure DevTest Labs
 description: Lär dig mer om diagrammets beräknade kostnads trend för Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 247327d001342fd0e2943ae7cf010e648761cdaa
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 15ddaa6c73cedb32d920ef943627831c1e9b378b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976343"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169632"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader som är associerade med ett labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb. Det visar dig hur du visar den uppskattade kostnads Trent för den aktuella kalender månaden för labbet. Artikeln visar också hur du visar månads-till-datum-kostnader per resurs i labbet.
@@ -29,7 +29,7 @@ I det här avsnittet får du lära dig hur du använder diagrammet **månatlig u
 
 Följ de här stegen om du vill visa ett uppskattat månatligt kostnads trend diagram: 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 3. I listan med labb väljer du ditt labb.  
 4. Välj **konfiguration och principer** på den vänstra menyn.  
@@ -85,7 +85,7 @@ Med DevTest Labs kan du bättre hantera kostnaderna i labbet genom att ange ett 
 ## <a name="view-cost-by-resource"></a>Visa kostnad per resurs 
 Med funktionen för månatlig kostnads trend i labbet kan du se hur mycket du har spenderat under den aktuella kalender månaden. Den visar även projektionen av utgifterna fram till slutet av månaden, baserat på dina utgifter under de senaste sju dagarna. För att hjälpa dig att förstå varför utgifterna i labbet uppfyller tröskelvärdena tidigt i, kan du använda funktionen **kostnad per resurs** som visar den månads aktuella kostnaden **per resurs** i en tabell.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 3. I listan med labb väljer du önskat labb.  
 4. Välj **konfiguration och principer** på den vänstra menyn.

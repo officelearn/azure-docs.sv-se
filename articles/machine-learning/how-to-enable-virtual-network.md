@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: f1cedd9851e425de1e4b6392d42a11dbf9f92644
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: b647af11e47952656011a06268d4b0f384126ae9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934397"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263718"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -80,6 +80,22 @@ Använd följande steg för att använda ett Azure Storage-konto för arbets yta
 > Standard lagrings kontot tillhandahålls automatiskt när du skapar en arbets yta.
 >
 > För lagrings konton som inte är standard kan du ange ett anpassat lagrings konto per Azure-resurs-ID i `storage_account`-parametern i [`Workspace.create()`-funktionen](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) .
+
+## <a name="use-azure-data-lake-storage-gen-2"></a>Använd Azure Data Lake Storage gen 2
+
+Azure Data Lake Storage gen 2 är en uppsättning funktioner för stor data analys som bygger på Azure Blob Storage. Den kan användas för att lagra data som används för att träna modeller med Azure Machine Learning. 
+
+Använd följande steg för att använda Data Lake Storage gen 2 inuti det virtuella nätverket på arbets ytan Azure Machine Learning:
+
+1. Skapa ett konto för Azure Data Lake Storage gen 2. Mer information finns i [skapa ett Azure Data Lake Storage Gen2 lagrings konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
+
+1. Använd steg 2-4 i föregående avsnitt och [Använd ett lagrings konto för din arbets yta för](#use-a-storage-account-for-your-workspace)att lagra kontot i det virtuella nätverket.
+
+Använd följande vägledning när du använder Azure Machine Learning med Data Lake Storage gen 2 i ett virtuellt nätverk:
+
+* Om du använder __SDK för att skapa en data uppsättning__och systemet som kör koden __inte finns i det virtuella nätverket__, använder du parametern `validate=False`. Den här parametern hoppar över verifiering, vilket Miss lyckas om systemet inte finns i samma virtuella nätverk som lagrings kontot. Mer information finns i metoden [from_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) .
+
+* När du använder Azure Machine Learning beräknings instans eller beräknings kluster för att träna en modell med data uppsättningen måste den finnas i samma virtuella nätverk som lagrings kontot.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>Använd en Key Vault-instans med din arbets yta
 

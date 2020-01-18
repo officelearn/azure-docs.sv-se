@@ -1,5 +1,5 @@
 ---
-title: Så här tar du bort och exporterar personliga data från Azure DevTest Labs | Microsoft Docs
+title: Så här tar du bort och exporterar personliga data från Azure DevTest Labs
 description: Lär dig hur du tar bort och exporterar personliga data från Azure DevLast Labs-tjänsten för att stödja dina skyldigheter enligt allmän dataskyddsförordning (GDPR).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 82ab8ef2e444b71f41fbbd87e4e9f8669e83e508
-ms.sourcegitcommit: c71306fb197b433f7b7d23662d013eaae269dc9c
+ms.openlocfilehash: c87e2fb534480bbf9bbe625d67782e5a11eda18c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68371167"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169689"
 ---
 # <a name="export-or-delete-personal-data-from-azure-devtest-labs"></a>Exportera eller ta bort personliga data från Azure DevTest Labs
 Den här artikeln innehåller anvisningar för att ta bort och exportera personliga data från Azure DevTest Labss tjänsten. 
@@ -43,7 +43,7 @@ DevTest Labs använder user Object ID för att Visa månads månads kostnads tre
 ![uppskattad kostnads trend för den aktuella kalender månaden](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
 **Beräknad månad till dags kostnad per resurs:** 
-![Beräknad månad till dags kostnad per resurs](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
+![Beräknad månads kostnad per resurs](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
 ## <a name="why-do-we-need-this-personal-data"></a>Varför behöver vi dessa personliga data?
@@ -60,7 +60,7 @@ Du kan exportera personliga och labb användnings data med hjälp av Azure Porta
 - **disks. csv** – innehåller information om de diskar som används av de olika virtuella datorerna
 - **virtualmachines. csv** – innehåller information om de virtuella datorerna i labbet.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 Som labb användare kan du begära en export av de personliga data som DevTest Labs-tjänsten lagrar. Om du vill begära en export navigerar du till alternativet **personliga data** på sidan **Översikt** i labbet. Om du väljer knappen för att **Exportera** filer på din labb administratörs lagrings konto. Du kan sedan kontakta din labb administratör för att visa dessa data.
 
 1. Välj **personliga data** på den vänstra menyn. 
@@ -68,14 +68,14 @@ Som labb användare kan du begära en export av de personliga data som DevTest L
     ![Sidan personliga data](./media/personal-data-delete-export/personal-data-page.png)
 2. Välj den **resurs grupp** som innehåller labbet.
 
-    ![Välj en resursgrupp](./media/personal-data-delete-export/select-resource-group.png)
+    ![Välj resursgrupp](./media/personal-data-delete-export/select-resource-group.png)
 3. Välj **lagrings kontot** i resurs gruppen.
 4. På sidan **lagrings konto** väljer du **blobbar**.
 
     ![Panelen Välj blobbar](./media/personal-data-delete-export/select-blobs-tile.png)
 5. Välj behållaren med namnet **labresourceusage** i listan över behållare.
 
-    ![Välj blobcontainer](./media/personal-data-delete-export/select-blob-container.png)
+    ![Välj BLOB-behållare](./media/personal-data-delete-export/select-blob-container.png)
 6. Välj **mappen** som heter efter ditt labb. Du hittar **CSV** -filer för **diskar** och **virtuella datorer** i labbet i den här mappen. Du kan hämta dessa CSV-filer, filtrera innehållet för labb användaren som begär en åtkomst och dela den med dem.
 
     ![Ladda ned CSV-fil](./media/personal-data-delete-export/download-csv-file.png)
@@ -173,7 +173,7 @@ Nu ska vi ta en närmare titt på exporterade data. Som tidigare nämnts kommer 
 | CreatedTime | Datum/tid då den virtuella datorn skapades. |
 | DeletedDate | Datum/tid då den virtuella datorn togs bort. Om den är tom har borttagningen ännu inte skett. |
 | ResourceOwner | Den virtuella datorns ägare. Om värdet är tomt, är det antingen en virtuell dator som kan ha skapats eller skapats av ett huvud namn för tjänsten. |
-| PricingTier | Den virtuella datorns pris nivå |
+| pricingTier | Den virtuella datorns pris nivå |
 | ResourceStatus | Tillgänglighets status för den virtuella datorn. Aktiv, om den virtuella datorn har tagits bort, om den fortfarande finns eller är inaktiv. |
 | ComputeResourceId | Fullständigt kvalificerat resurs-ID för beräkning av virtuella datorer. |
 | Ledig | Ange som sant om den virtuella datorn är en virtuell dator med anspråk | 

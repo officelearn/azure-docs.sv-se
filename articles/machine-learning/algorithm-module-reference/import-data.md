@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 8d099d0b8f8e31bf77f5ddfad320ac792c5c01e5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529617"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166775"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -27,7 +27,7 @@ Använd den här modulen för att läsa in data i en maskin inlärnings pipeline
 > När du har registrerat en data uppsättning kan du hitta den i **data uppsättningarna** -> **min data uppsättnings** kategori i design gränssnittet. Den här modulen är reserverad för Studio (klassiska) användare till en välbekant upplevelse. 
 >
 
-Välj först den källa som du läser från och slutför de ytterligare inställningarna. Modulen **Importera data** har stöd för läsning av data från följande källor:
+Modulen **Importera data** har stöd för läsning av data från följande källor:
 
 - URL via HTTP
 - Azures moln lagring via [**data lager**](../how-to-access-data.md))

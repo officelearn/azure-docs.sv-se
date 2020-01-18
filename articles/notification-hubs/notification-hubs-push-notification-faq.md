@@ -1,6 +1,6 @@
 ---
-title: 'Azure Notification Hubs: vanliga frågor och svar (FAQ) | Microsoft Docs'
-description: Vanliga frågor och svar om att utforma/implementera lösningar på Notification Hubs
+title: Vanliga frågor och svar om Azure Notification Hubs | Microsoft Docs
+description: Vanliga frågor och svar om att utforma och implementera lösningar på Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: mobile
 author: sethmanheim
@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3212520f37d33a2d8fb1b071506f688b9f75f15c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066880"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263837"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Push-meddelanden med Azure Notification Hubs: vanliga frågor och svar
 
@@ -56,7 +56,7 @@ För Basic-och Standard Notification Hubs-nivåer kan korrekt konfigurerade prog
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>Hur gör jag för att uppgradera eller nedgradera mitt nav eller namn område till en annan nivå?
 
-Gå till **[Azure Portal]**  > **Notification Hubs namnrum** eller **Notification Hubs**. Välj den resurs som du vill uppdatera och gå till **pris nivån**. Observera följande krav:
+Gå till **[Azure-portalen]**  > **Notification Hubs namnrum** eller **Notification Hubs**. Välj den resurs som du vill uppdatera och gå till **pris nivån**. Observera följande krav:
 
 * Den uppdaterade pris nivån gäller för *alla* hubbar i namn området som du arbetar med.
 * Om antalet enheter överskrider gränsen för den nivå som du degraderar till, måste du ta bort enheter innan du degraderar.
@@ -153,7 +153,7 @@ Alla anslutningar, från avsändaren till Azure-Notification Hubs till PNS, anv�
 
 Om du vill skicka känsliga nytto laster rekommenderar vi att du använder ett säkert push-mönster. Avsändaren skickar ett ping-meddelande med en meddelande identifierare till enheten utan den känsliga nytto lasten. När appen på enheten tar emot nytto lasten anropar appen ett säkert API direkt för att hämta information om meddelandet. En guide om hur du implementerar det här mönstret finns på sidan [Själv studie kurs om Notification Hubs säker push] .
 
-## <a name="operations"></a>Åtgärder
+## <a name="operations"></a>Operations
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Vilken support tillhandahålls för haveri beredskap?
 
@@ -181,7 +181,7 @@ Azure Notification Hubs krypterar alla kunddata i vila med undantag av registrer
 
 ### <a name="is-there-audit-log-capability"></a>Finns det funktioner för gransknings logg?
 
-Ja. Alla Notification Hubs hanterings åtgärder uppdaterar Azure aktivitets loggen som visas i [Azure Portal]. Azure aktivitets loggen ger insikter om de åtgärder som utförs på resurser i dina prenumerationer. Med hjälp av aktivitets loggen kan du bestämma vad, vem och när för Skriv åtgärder (skicka, skicka och ta bort) som gjorts för resurserna i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Ändå. Aktivitets loggen innehåller inte Läs-(GET)-åtgärd.
+Ja. Alla Notification Hubs hanterings åtgärder uppdaterar Azure aktivitets loggen som visas i [Azure-portalen]. Azure aktivitets loggen ger insikter om de åtgärder som utförs på resurser i dina prenumerationer. Med hjälp av aktivitets loggen kan du bestämma vad, vem och när för Skriv åtgärder (skicka, skicka och ta bort) som gjorts för resurserna i din prenumeration. Du kan också förstå statusen för åtgärder och andra relevanta egenskaper. Ändå. Aktivitets loggen innehåller inte Läs-(GET)-åtgärd.
 
 ## <a name="monitoring-and-troubleshooting"></a>Övervakning och fel sökning
 
@@ -191,7 +191,7 @@ Azure Notification Hubs innehåller flera funktioner för fel sökning, särskil
 
 ### <a name="what-telemetry-features-are-available"></a>Vilka funktioner för telemetri är tillgängliga?
 
-Med Azure Notification Hubs kan du Visa telemetridata i [Azure Portal]. Information om måtten finns på sidan [Notification Hubs mått] .
+Med Azure Notification Hubs kan du Visa telemetridata i [Azure-portalen]. Information om måtten finns på sidan [Notification Hubs mått] .
 
 Du kan också program mässigt komma åt Mät värden. Mer information finns i följande artiklar:
 
@@ -202,7 +202,7 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 > [!NOTE]
 > Lyckade meddelanden innebär bara att push-meddelanden har levererats till den externa PNS (till exempel APN för iOS och macOS eller FCM för Android-enheter). Det åligger PNS att leverera meddelanden till mål enheter. Normalt visar PNS inte leverans måtten för tredje part.  
 
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [Notification Hubs priser]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
 [Notification Hubs REST-API: er]: https://msdn.microsoft.com/library/azure/dn530746.aspx
@@ -215,6 +215,6 @@ Du kan också program mässigt komma åt Mät värden. Mer information finns i f
 [Notification Hubs fel sökning]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs mått]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Export/import av registreringar]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

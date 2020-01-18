@@ -9,16 +9,16 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: badfec71ad44fd9eebc748f716301ad6731883cf
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 7ac1b85ee44627990931cfc7b3a65f6f7a661b3f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770364"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165822"
 ---
 # <a name="quickstart-face-client-library-for-python"></a>Snabb start: ansikts klient bibliotek för python
 
-Kom igång med ansikts klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Tjänsten Ansikts-API ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
+Kom igång med ansikts klient biblioteket för python. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Ansikts tjänsten ger dig till gång till avancerade algoritmer för att identifiera och identifiera mänskliga ansikten i bilder.
 
 Använd ansikts klient biblioteket för python för att:
 
@@ -290,5 +290,5 @@ I den här snabb starten har du lärt dig hur du använder ansikts biblioteket f
 > [!div class="nextstepaction"]
 > [Ansikts-API referens (python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python)
 
-* [Vad är Ansikts-API?](../overview.md)
+* [Vad är ansikts tjänsten?](../overview.md)
 * Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/Face/FaceQuickstart.py).

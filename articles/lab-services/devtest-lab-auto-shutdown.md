@@ -12,19 +12,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 01/17/2020
 ms.author: spelluru
-ms.openlocfilehash: 1c13414bb252da1192f82675da5b134bf43a40f0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: a2d0b9bdfba1b96ad42e45d54faf106b2361e29d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772643"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264803"
 ---
-# <a name="manage-autoshutdown-policies-for-a-lab-in-azure-devtest-labs"></a>Hantera principer för automatisk avstängning för ett labb i Azure DevTest Labs
+# <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Konfigurera automatisk avstängning för labb-och beräknings virtuella datorer i Azure DevTest Labs
+
+Den här artikeln förklarar hur du konfigurerar inställningar för automatisk avstängning för virtuella labb datorer i DevTest Labs och beräkning av virtuella datorer. 
+
+## <a name="configure-autoshutdown-for-lab-vms-devtest-labs"></a>Konfigurera automatisk avstängning för virtuella labb datorer (DevTest Labs)
 Med Azure DevTest Labs kan du kontrol lera kostnaderna och minimera spill i labbet genom att hantera principer (inställningar) för varje labb. Den här artikeln visar hur du konfigurerar principen för automatisk avstängning för ett labb konto och konfigurerar inställningar för automatisk avstängning för ett labb i labb kontot. Information om hur du anger alla labb principer finns [i definiera labb principer i Azure DevTest Labs](devtest-lab-set-lab-policy.md).  
 
-## <a name="set-auto-shutdown-policy-for-a-lab"></a>Ange en princip för automatisk avstängning för ett labb
+### <a name="set-auto-shut-down-policy-for-a-lab"></a>Ange princip för automatisk avstängning för ett labb
 Som labb ägare kan du konfigurera ett avslutnings schema för alla virtuella datorer i labbet. Genom att göra det kan du spara kostnader från att köra datorer som inte används (inaktiva). Du kan tillämpa en avslutnings princip på alla dina virtuella labb datorer centralt men även spara dina labb användare för att ställa in ett schema för sina enskilda datorer. Med den här funktionen kan du ange principen för ditt labb schema med början från att ge dig ingen kontroll över fullständig behörighet till dina labb användare. Som labb ägare kan du konfigurera den här principen genom att utföra följande steg:
 
 1. På Start sidan för ditt labb väljer du **konfiguration och principer**.
@@ -33,12 +37,12 @@ Som labb ägare kan du konfigurera ett avslutnings schema för alla virtuella da
 
     ![Princip alternativ för automatisk avstängning](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
-## <a name="configure-auto-shutdown-settings"></a>Konfigurera inställningar för automatisk avstängning
+### <a name="configure-auto-shutdown-settings"></a>Konfigurera inställningar för automatisk avstängning
 Principen för automatisk avstängning hjälper till att minimera labb avfall genom att göra det möjligt att ange den tid som Labbets virtuella datorer stängs av.
 
 Följ dessa steg om du vill visa (och ändra) principerna för ett labb:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 3. I listan med labb väljer du önskat labb.   
 4. Välj **konfiguration och principer**.
@@ -72,7 +76,7 @@ Om du ställer in labbet på den här principen kan inte labb användare åsidos
 
 ![Princip alternativ för automatisk avstängning – 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## <a name="notifications"></a>Meddelanden
+### <a name="notifications"></a>Meddelanden
 När automatisk avstängning har kon figurer ATS av labb ägaren skickas meddelanden till labb användarna 30 minuter innan automatisk avstängning utlöses om någon av deras virtuella datorer kommer att påverkas. Det här alternativet ger labb användare möjlighet att spara sitt arbete innan den stängs av. Meddelandet innehåller också länkar för varje virtuell dator för följande åtgärder:
 
 - Hoppa över automatisk avstängning för den här tiden
@@ -82,7 +86,7 @@ Meddelandet skickas via den konfigurerade webhook-slutpunkten eller en e-postadr
 
 Vi rekommenderar att du använder Webhooks eftersom de stöds av olika appar (till exempel slack, Azure Logic Apps och så vidare) och gör att du kan använda ditt eget sätt för att skicka meddelanden. I den här artikeln får du ett exempel på hur du kan få meddelanden om automatisk avstängning från e-postmeddelanden med hjälp av Azure Logic Apps. Först ska vi gå igenom de grundläggande stegen för att aktivera meddelanden om automatisk avstängning i labbet.   
 
-## <a name="create-a-logic-app-that-receives-email-notifications"></a>Skapa en Logic-app som tar emot e-postmeddelanden
+### <a name="create-a-logic-app-that-receives-email-notifications"></a>Skapa en Logic-app som tar emot e-postmeddelanden
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) innehåller många färdiga kopplingar som gör det enkelt att integrera en tjänst med andra klienter, t. ex. Office 365 och Twitter. På den högsta nivån kan stegen för att ställa in en Logic app för e-postavisering delas upp i fyra faser: 
 
 - Skapa en Logic-app. 
@@ -185,5 +189,16 @@ Kom igång genom att skapa en Logic app i din Azure-prenumeration med hjälp av 
 
     ![Webhook-URL](./media/devtest-lab-auto-shutdown/webhook-url.png)
 
+## <a name="configure-autoshutdown-for-compute-vms"></a>Konfigurera automatisk avstängning för beräkning av virtuella datorer
+
+1. På sidan **virtuell dator** väljer du **Automatisk avstängning** på den vänstra menyn. 
+2. På sidan **Automatisk avstängning** väljer du **på** för att aktivera den här principen och inaktivera **för att** inaktivera den.
+3. Om du aktiverar den här principen anger du den **tid** ( **och tidszon**) som den virtuella datorn ska stängas av.
+4. Ange **Ja** eller **Nej** för alternativet för att skicka ett meddelande 30 minuter före den angivna tiden för automatisk avstängning. Om du väljer **Ja**anger du en webhook-URL-slutpunkt eller en e-postadress som anger var du vill att meddelandet ska publiceras eller skickas. Användaren får ett meddelande och det ges möjlighet att fördröja avstängningen. Mer information finns i avsnittet om [meddelanden](#notifications) . 
+9. Välj **Spara**.
+
+    ![Konfigurera automatisk avstängning för en beräknings-VM](./media/devtest-lab-auto-shutdown/comnpute-auto-shutdown.png)
+
 ## <a name="next-steps"></a>Nästa steg
 Information om hur du anger alla principer finns [i definiera labb principer i Azure DevTest Labs](devtest-lab-set-lab-policy.md).
+

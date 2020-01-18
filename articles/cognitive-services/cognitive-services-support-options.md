@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: dapine
-ms.openlocfilehash: 2dc5bfb7459e28a4d118c5d1629133bae3a5637f
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2cdf34bb7df121665548be98f9f2098cc5cfe99b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533698"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169084"
 ---
 # <a name="azure-cognitive-services-support-and-help-options"></a>Support och hjälp alternativ för Azure Cognitive Services
 
@@ -28,7 +28,7 @@ Börjar du bara utforska funktionerna i Azure Cognitive Services? Implementerar 
 > * Om du hittar ett problem med ett av exemplen på GitHub kan du öka ett *GitHub* -problem.
 > * Sök efter en lösning i *UserVoice-forumet*.
 
-## <a name="create-an-azure-support-request"></a>Skapa en support förfrågan för Azure
+## <a name="create-an-azure-support-request"></a>Skapa en Azure-supportbegäran
 
 <div class='icon is-large'>
     <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_azure.svg'>
@@ -73,7 +73,7 @@ Om du vill begära nya funktioner kan du publicera dem på UserVoice. Dela med d
 | Content Moderator             | https://cognitive.uservoice.com/forums/559960-content-moderator |
 | Custom Vision                 | https://cognitive.uservoice.com/forums/598141-custom-vision-service |
 | Ansikte                          | https://cognitive.uservoice.com/forums/430315-face |
-| Typ                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
+| Formulär                          | https://cognitive.uservoice.com/forums/921556-form-recognizer |
 | Uppslukande                     | https://feedback.azure.com/forums/34192--general-feedback |
 | LUIS (Language Understanding Intelligent Service) | https://cognitive.uservoice.com/forums/551524-luis |
 | Personanpassning                  | https://cognitive.uservoice.com/forums/921562-personalizer |
@@ -91,8 +91,8 @@ Om du vill begära nya funktioner kan du publicera dem på UserVoice. Dela med d
 
 Viktig information uppdateras när nya versioner görs tillgängliga. Anteckningarna innehåller information om nya funktioner, förbättringar och fel korrigeringar.
 
- - [Custom Vision Service](custom-vision-service/release-notes.md)
- - [Ansikts-API](face/releasenotes.md)
+ - [Custom Vision](custom-vision-service/release-notes.md)
+ - [Ansikte](face/releasenotes.md)
  - [Språkförståelse (LUIS)](luis/whats-new.md)
  - [Speech Services](speech-service/releasenotes.md)
  - [Speech Services SDK](speech-service/devices-sdk-release-notes.md)

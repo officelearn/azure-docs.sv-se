@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928650"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169517"
 ---
 # <a name="support-and-help-options"></a>Support-och hjälp alternativ
 
@@ -51,23 +51,12 @@ För snabbare resultat kan du begränsa sökningen till Stack Overflow, dokument
 
 Där *{dina Sök villkor}* är dina Sök nyckelord.
 
-## <a name="create-an-azure-support-request"></a>Skapa en support förfrågan för Azure
+## <a name="create-an-azure-support-request"></a>Skapa en Azure-supportbegäran
 
 Azure-kunder kan skapa och hantera support förfrågningar i Azure Portal.
 
 * [Azure-portalen](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [Azure Portal för USA myndigheter](https://portal.azure.us)
-
-## <a name="post-a-question-to-stack-overflow"></a>Skicka en fråga till Stack Overflow
-
-Stack Overflow är den föredragna kanalen för utvecklings frågor. Det är där medlemmar i communityn och Microsoft team-medlemmar är direkt inblandade i att hjälpa dig att lösa dina problem.
-
-Om du inte kan hitta ett svar på problemet via sökning skickar du en ny fråga till Stack Overflow genom att använda Taggar [\[Microsoft-kognitiv\]\[tal\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
-
-> [!TIP]
-> Följande inlägg från Stack Overflow innehåller tips om hur du kan forma frågor och lägga till källkod. Följande rikt linjer kan hjälpa dig att öka risken för att community-medlemmar bedömer och svarar snabbt på dina frågor:  
-> * [Hur gör jag för att ställa en lämplig fråga?](https://stackoverflow.com/help/how-to-ask)
-> * [Så här skapar du ett minimalt, komplett och verifierbart exempel](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Skapa ett GitHub-problem
 
@@ -108,6 +97,16 @@ Vilken version av SDK använder du.
  - Om du rapporterar ett fel för en viss tjänst interaktion rapporterar du SessionId och tid (inkl. TimeZone) för rapporterade incidenter. SessionId rapporteras i alla återanrop/händelser som du får.
  - Eventuell ytterligare information
 
+## <a name="post-a-question-to-stack-overflow"></a>Skicka en fråga till Stack Overflow
+
+Stack Overflow är den föredragna kanalen för utvecklings frågor. Det är där medlemmar i communityn och Microsoft team-medlemmar är direkt inblandade i att hjälpa dig att lösa dina problem.
+
+Om du inte kan hitta ett svar på problemet via sökning skickar du en ny fråga till Stack Overflow genom att använda Taggar [\[Microsoft-kognitiv\]\[tal\]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech).
+
+> [!TIP]
+> Följande inlägg från Stack Overflow innehåller tips om hur du kan forma frågor och lägga till källkod. Följande rikt linjer kan hjälpa dig att öka risken för att community-medlemmar bedömer och svarar snabbt på dina frågor:  
+> * [Hur gör jag för att ställa en lämplig fråga?](https://stackoverflow.com/help/how-to-ask)
+> * [Så här skapar du ett minimalt, komplett och verifierbart exempel](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>UserVoice-forumet
 

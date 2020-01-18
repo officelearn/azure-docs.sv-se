@@ -1,5 +1,5 @@
 ---
-title: API-referens – Ansikts-API
+title: API-referens – FACET
 titleSuffix: Azure Cognitive Services
 description: 'API-referensen innehåller information om API: erna för person, LargePersonGroup/PersonGroup, LargeFaceList/FaceList och ansikts algoritmer.'
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: reference
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 940a5e25125acc2631fd3629bd610bb0e927e650
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 431525964eb69431600d36ba8249c6dc465a5df3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390113"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169933"
 ---
 # <a name="face-api-reference-list"></a>Ansikts-API referens lista
 
-Azure Ansikts-API är ett molnbaserad API som innehåller algoritmer för ansikts igenkänning och igenkänning. Ansikts-API: erna utgör följande kategorier:
+Azure Face är en molnbaserad tjänst som tillhandahåller algoritmer för ansikts igenkänning och igenkänning. Ansikts-API: erna utgör följande kategorier:
 
 - API: er för ansikts algoritm: se kärn funktioner som [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [hitta liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237), [verifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a), [identifiering](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239)och [grupp](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 - [FaceList-API: er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b): används för att hantera en FaceList för att [hitta liknande](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237).

@@ -1,5 +1,5 @@
 ---
-title: Konfigurera användnings inställningar i klass rummets labb Azure Lab Services | Microsoft Docs
+title: Konfigurera användnings inställningar i klass labb labb med Azure Lab Services
 description: Lär dig hur du konfigurerar antalet användare för labbet, registrera dem med labbet, styr antalet timmar som de kan använda den virtuella datorn och mer.
 services: lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584217"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169211"
 ---
 # <a name="add-and-manage-lab-users"></a>Lägg till och hantera labbanvändare
 Den här artikeln beskriver hur du lägger till användare i labbet, registrerar dem i labbet, styr antalet timmar som de kan använda den virtuella datorn och mer. 
@@ -125,7 +125,7 @@ Du kan ange kvoter per användare med hjälp av följande steg:
 ## <a name="set-additional-quota-for-a-specific-user"></a>Ange ytterligare kvot för en speciell användare
 Du kan ange ytterligare kvot för en användare. Den här kvoten är utöver den gemensamma kvot uppsättningen för alla användare i föregående avsnitt. Om du till exempel (som lärare) anger kvoten för alla användare till 10 timmar och anger ytterligare kvot på 5 timmar för en speciell användare får användarna 15 (10 + 5) timmar med kvot. Om du ändrar den gemensamma kvoten senare till, till exempel 15, får användaren 20 (15) timmars kvot. Kom ihåg att denna övergripande kvot ligger utanför den schemalagda tiden. Tiden som student tillbringar på en virtuell labb dator under schema tiden räknas inte mot den här kvoten. 
 
-Det gör du genom att följa dessa steg:
+Följ de här stegen för att göra det:
 
 1. Välj en användare (student) i listan med användare på sidan **användare** .
 2. Välj sedan **Justera kvot** i verktygsfältet. 

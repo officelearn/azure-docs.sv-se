@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: efb4e4f68935898c083c1dbca6a6c64512544095
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936210"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263480"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -58,7 +58,7 @@ Innan du kan skapa en anslutning måste du lägga till ITSM-anslutningsprogram-l
 3. I avsnittet **OMS-arbetsyta** väljer du den Azure Log Analytics-arbetsyta där du vill installera lösningen.
    >[!NOTE]
    > * Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-arbetsytor nu Log Analytics arbets ytor.
-   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, Västeuropa, Sydostasien, sydöstra Australien, västra centrala USA, Östra Japan, södra Storbritannien, centrala Indien, centrala Kanada.
+   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra Europa, Sydostasien, sydöstra Australien, västra centrala USA, Östra Japan, södra Storbritannien, centrala Indien, centrala Kanada, västra 2; USA, södra centrala USA.
 
 4. I avsnittet **Inställningar för OMS-arbetsyta** väljer du den ResourceGroup där du vill skapa lösnings resursen.
 
@@ -152,7 +152,7 @@ Instrument panelen innehåller också information om anslutnings status som kan 
 
 Du kan också visualisera de incidenter som synkroniseras mot de påverkade datorerna i Tjänstkarta-lösningen.
 
-Tjänstkarta identifierar automatiskt program komponenterna i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Det gör att du kan visa dina servrar som du tänker på dem – som sammankopplade system som levererar kritiska tjänster. Tjänstkarta visar anslutningar mellan servrar, processer och portar i alla TCP-anslutna arkitekturer utan att någon konfiguration krävs förutom installation av en agent. [Läs mer](../../azure-monitor/insights/service-map.md).
+Tjänstkarta identifierar automatiskt program komponenterna i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Du kan se dina servrar så som du tänker på dem: ett sammankopplat system som levererar viktiga tjänster. Med Service Map ser du anslutningarna mellan olika servrar, processer och portar i alla typer av TCP-anslutna arkitekturer, och den enda konfiguration som behövs är att installera en agent. [Läs mer](../../azure-monitor/insights/service-map.md).
 
 Om du använder Tjänstkarta-lösningen kan du Visa Service Desk-objekten som skapats i ITSM-lösningarna som visas i följande exempel:
 
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Källa
 - Tilldelad till
 - Kategori
-- Rubrik
+- Titel
 - Beskrivning
 - Skapad datum
 - Stängningsdatum
@@ -210,7 +210,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Stängd av
 - Källa
 - Tilldelad till
-- Rubrik
+- Titel
 - Typ
 - Kategori
 - Status
@@ -245,14 +245,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ResolvedBy_s | Löst av|
 | ClosedBy_s  | Stängd av |
 | Source_s| Kontakt typ |
-| AssignedTo_s | Tilldelad  |
+| AssignedTo_s | Tilldelad till  |
 | Category_s | Kategori |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
-| CreatedDate_t|  Inleddes |
+| CreatedDate_t|  Öppnad |
 | ClosedDate_t| Stängd|
-| ResolvedDate_t|Göras|
-| Dator  | Konfigurations objekt |
+| ResolvedDate_t|Löst|
+| Dator  | Konfigurationsobjekt |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Utdata för en ServiceNow-ändringsbegäran
 
@@ -261,7 +261,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
-| AssignedTo_s | Tilldelad  |
+| AssignedTo_s | Tilldelad till  |
 | Title_s|  Kort beskrivning |
 | Type_s|  Typ |
 | Category_s|  Kategori |
@@ -271,13 +271,13 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Risk_s| Risk|
 | Impact_s| Påverkan|
 | RequestedDate_t  | Begärd efter datum |
-| ClosedDate_t | Stängnings datum |
+| ClosedDate_t | Stängningsdatum |
 | PlannedStartDate_t  |     Planerat start datum |
 | PlannedEndDate_t  |   Planerat slutdatum |
-| WorkStartDate_t  | Verkligt start datum |
+| WorkStartDate_t  | Verkligt startdatum |
 | WorkEndDate_t | Verkligt slutdatum|
 | Description_s | Beskrivning |
-| Dator  | Konfigurations objekt |
+| Dator  | Konfigurationsobjekt |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar

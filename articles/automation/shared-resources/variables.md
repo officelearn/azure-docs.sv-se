@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ac2c276f051155d7ba18ee91e4ca27acb0b35192
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849436"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167992"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Variabel till gångar i Azure Automation
 
@@ -28,7 +28,7 @@ Variabel till gångar är värden som är tillgängliga för alla Runbooks och D
 
 Eftersom Automation-variabler är sparade är de tillgängliga även om Runbook-eller DSC-konfigurationen Miss lyckas. Detta gör att ett värde kan anges av en Runbook som sedan används av en annan eller används av samma Runbook-eller DSC-konfiguration nästa gången den körs.
 
-När en variabel skapas kan du ange att den är lagrad som krypterad. Krypterade variabler lagras på ett säkert sätt i Azure Automation och dess värde kan inte hämtas från cmdleten [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) som levereras som en del av modulen Azure PowerShell. Det enda sättet som ett krypterat värde kan hämtas från **Get-AutomationVariable** -aktiviteten i en Runbook-eller DSC-konfiguration. Om du vill ändra en krypterad variabel till icke-krypterad kan du ta bort och återskapa variabeln som okrypterad.
+När en variabel skapas kan du ange att den är lagrad som krypterad. Krypterade variabler lagras på ett säkert sätt i Azure Automation och dess värde kan inte hämtas från cmdleten [Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable) som levereras som en del av modulen Azure PowerShell. Det enda sättet som ett krypterat värde kan hämtas från **Get-AutomationVariable** -aktiviteten i en Runbook-eller DSC-konfiguration. Om du vill ändra en krypterad variabel till icke-krypterad måste du ta bort och återskapa variabeln som okrypterad.
 
 >[!NOTE]
 >Säkra till gångar i Azure Automation inkluderar autentiseringsuppgifter, certifikat, anslutningar och krypterade variabler. Dessa till gångar krypteras och lagras i Azure Automation att använda en unik nyckel som genereras för varje Automation-konto. Den här nyckeln lagras i ett systemhanterat Key Vault. Innan du lagrar en säker till gång läses nyckeln in från Key Vault och används sedan för att kryptera till gången. Den här processen hanteras av Azure Automation.
@@ -41,17 +41,17 @@ Du kan lagra flera värden i en enskild variabel genom att skapa en matris eller
 
 Följande är en lista över variabel typer som är tillgängliga i Automation:
 
-* Sträng
+* String
 * Integer
 * DateTime
-* Boolesk
+* Boolean
 * Null
 
 ## <a name="azurerm-powershell-cmdlets"></a>AzureRM PowerShell-cmdletar
 
 I AzureRM används cmdletarna i följande tabell för att skapa och hantera inloggnings resurser för Automation med Windows PowerShell. De levereras som en del av [modulen AzureRM. Automation](/powershell/azure/overview), som är tillgänglig för användning i Automation-RUNBOOKS och DSC-konfigurationer.
 
-| Cmdlet: ar | Beskrivning |
+| Cmdletar | Beskrivning |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|Hämtar värdet för en befintlig variabel.|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|Skapar en ny variabel och anger dess värde.|
@@ -173,7 +173,7 @@ Följande bild visar exempel aktiviteter för att uppdatera en variabel med ett 
 
 ![Ange enkel variabel](../media/variables/runbook-set-simple-variable.png)
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Mer information om hur du ansluter aktiviteter tillsammans i grafisk redigering finns i [länkar i grafisk redigering](../automation-graphical-authoring-intro.md#links-and-workflow)
 - Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](../automation-first-runbook-graphical.md)

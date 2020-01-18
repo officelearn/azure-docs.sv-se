@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2ba314c814bdc92f62a607e28aefa30372bf297f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757435"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169592"
 ---
 # <a name="configure-the-review-tool"></a>Konfigurera granskningsverktyget
 
@@ -25,7 +25,7 @@ ms.locfileid: "72757435"
 
 ## <a name="manage-team-and-subteams"></a>Hantera team och under grupper
 
-På fliken **team** kan du hantera ditt team och under grupper &mdash;groups av användare som kan få ett meddelande när vissa [mänsklig granskningar](../review-api.md#reviews) har startats. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
+På fliken **team** kan du hantera ditt team och under grupper&mdash;grupper av användare som kan meddelas när vissa [mänsklig granskningar](../review-api.md#reviews) har startats. Du kan bara ha ett team (som du skapar när du registrerar dig med gransknings verktyget), men du kan skapa flera under grupper. Team administratören kan bjuda in medlemmar, ange sina behörigheter och tilldela dem till olika under grupper.
 
 ![Granska team inställningar för verktyget](images/settings-2-team.png)
 
@@ -66,7 +66,7 @@ Om du är medlem i fler än ett under team kan du växla mellan dessa under grup
 
 ## <a name="tags"></a>Taggar
 
-På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna &mdash;**isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
+På fliken **taggar** kan du definiera anpassade moderatorer utöver de två standard redigerings taggarna&mdash;**isadult** (**a**) och **isracy** (**r**). När du skapar en anpassad tagg blir den tillgänglig i granskningar tillsammans med Standardtaggarna. Du kan ändra vilka taggar som ska visas i granskningarna genom att växla deras Synlighets inställningar.
 
 ![Vyn taggar, inklusive kryss rutorna "är synliga"](images/tags-4-disable.png)
 
@@ -90,14 +90,14 @@ Du kan ta bort anpassade taggar genom att välja pappers korgs ikonen bredvid po
 
 På fliken **anslutningar** kan du hantera dina anslutningar, som är tjänstespecific plugin-program som kan bearbeta innehåll på olika sätt som en del av innehålls [arbets flöden](../review-api.md#workflows).
 
-Standard anslutnings programmet när du skapar ett arbets flöde är Content Moderator koppling, som kan markera innehåll som **vuxen** eller **vågat**, hitta svordomar och så vidare. Du kan dock använda andra anslutningar som visas här, så länge du har autentiseringsuppgifter för sina respektive tjänster (för att använda Ansikts-API-anslutningen, till exempel måste du hämta en prenumerations nyckel för [ansikts-API](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
+Standard anslutnings programmet när du skapar ett arbets flöde är Content Moderator koppling, som kan markera innehåll som **vuxen** eller **vågat**, hitta svordomar och så vidare. Du kan dock använda andra anslutningar som visas här, så länge du har autentiseringsuppgifter för sina respektive tjänster (för att använda ansikts kopplingen, till exempel måste du hämta en [ansikts](https://docs.microsoft.com/azure/cognitive-services/face/overview) prenumerations nyckel).
 
 [Gransknings verktyget](./human-in-the-loop.md) innehåller följande kopplingar:
 
-- Känslo-API
-- API för ansiktsigenkänning
-- PhotoDNA moln tjänst
-- API för textanalys
+- Känsla
+- Ansikte
+- PhotoDNA Cloud Service
+- Textanalys
 
 ### <a name="add-a-connector"></a>Lägg till en anslutning
 

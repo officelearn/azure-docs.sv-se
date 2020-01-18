@@ -851,8 +851,6 @@
         - name: Hantera konsekvensnivåer
           displayName: 'session, consistency prefix, strong, eventual, bounded staleness'
           href: how-to-manage-consistency.md
-        - name: Implementera anpassad synkronisering
-          href: how-to-custom-synchronization.md
         - name: Konfigurera konfliktlösningsprinciper
           href: how-to-manage-conflicts.md
     - name: Etablerat dataflöde

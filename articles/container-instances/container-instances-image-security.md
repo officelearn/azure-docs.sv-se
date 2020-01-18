@@ -2,14 +2,14 @@
 title: Säkerhet för behållar instanser
 description: Rekommendationer för att skydda bilder och hemligheter för Azure Container Instances och allmänna säkerhets överväganden för alla behållar plattformar
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: b25cb4178ba211ff819ba512c9820165e0efbbf1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b5f2c4d9ca80318574e288110fd4ce7f490af00d
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481704"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260505"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Säkerhets överväganden för Azure Container Instances
 
@@ -23,13 +23,17 @@ Den här artikeln beskriver säkerhets överväganden för att använda Azure Co
 
 ### <a name="use-a-private-registry"></a>Använd ett privat register
 
-Container skapas från avbildningar som lagras i en eller flera databaser. Dessa databaser kan tillhöra ett offentligt register, som [Docker Hub](https://hub.docker.com)eller till ett privat register. Ett exempel på ett privat register är [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/), som kan installeras lokalt eller i ett virtuellt privat moln. Du kan också använda molnbaserad privata behållar register tjänster, inklusive [Azure Container Registry](../container-registry/container-registry-intro.md). 
+Container skapas från avbildningar som lagras i en eller flera databaser. Dessa databaser kan tillhöra ett offentligt register, som [Docker Hub](https://hub.docker.com)eller till ett privat register. Ett exempel på ett privat register är [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/), som kan installeras lokalt eller i ett virtuellt privat moln. Du kan också använda molnbaserad privata behållar register tjänster, inklusive [Azure Container Registry](../container-registry/container-registry-intro.md). 
 
-En offentligt tillgänglig behållar avbildning garanterar inte säkerheten. Behållar avbildningar består av flera program varu lager och varje program varu lager kan ha sårbarheter. För att minska risken för attacker bör du lagra och hämta avbildningar från ett privat register, till exempel Azure Container Registry eller Docker Trusted Registry. Förutom att tillhandahålla ett hanterat privat register, Azure Container Registry stödja [tjänstens huvudbaserad autentisering](../container-registry/container-registry-authentication.md) via Azure Active Directory för grundläggande autentiserings flöden. Den här autentiseringen innehåller rollbaserad åtkomst för Skriv-, skriv-(push) och ägar behörigheter.
+En offentligt tillgänglig behållar avbildning garanterar inte säkerheten. Behållar avbildningar består av flera program varu lager och varje program varu lager kan ha sårbarheter. För att minska risken för attacker bör du lagra och hämta avbildningar från ett privat register, till exempel Azure Container Registry eller Docker Trusted Registry. Förutom att tillhandahålla ett hanterat privat register, Azure Container Registry stödja [tjänstens huvudbaserad autentisering](../container-registry/container-registry-authentication.md) via Azure Active Directory för grundläggande autentiserings flöden. Den här autentiseringen innehåller rollbaserad åtkomst för skrivskyddad (pull), skrivning (push) och andra behörigheter.
 
 ### <a name="monitor-and-scan-container-images"></a>Övervaka och skanna behållar avbildningar
 
-Säkerhetsövervaknings-och skannings lösningar som [twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) och [turkos säkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) är tillgängliga via Azure Marketplace. Du kan använda dem för att genomsöka behållar avbildningar i ett privat register och identifiera potentiella sårbarheter. Det är viktigt att förstå djupet vid genomsökning av de olika lösningarna. 
+Dra nytta av lösningar för att skanna behållar avbildningar i ett privat register och identifiera potentiella sårbarheter. Det är viktigt att förstå djupet vid hot identifiering som de olika lösningarna ger.
+
+Azure Container Registry kan till exempel [integreras med Azure Security Center](../security-center/azure-container-registry-integration.md) för att automatiskt söka igenom alla Linux-avbildningar som skickas till ett register. Azure Security Center s integrerade Qualys-skanner identifierar avbildnings sårbarheter, klassificerar dem och ger vägledning om åtgärder.
+
+Säkerhets övervakning och lösningar för avbildnings genomsökning, till exempel [twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) och [turkos säkerhet](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) , är också tillgängliga via Azure Marketplace.  
 
 ### <a name="protect-credentials"></a>Skydda autentiseringsuppgifter
 
@@ -90,17 +94,17 @@ Begreppet minst privilegier är en grundläggande säkerhets metod som också g�
 
 Du kan också minimera den potentiella angrepps ytan genom att ta bort oanvända eller onödiga processer eller behörigheter från container Runtime. Privilegierade behållare körs som rot. Om en obehörig användare eller arbets belastning utsätts i en privilegie rad behållare, körs behållaren som rot på det systemet.
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Vitlista-filer och körbara filer som behållaren kan komma åt eller köra 
+### <a name="preapprove-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Förgodkänna filer och körbara filer som behållaren har behörighet att komma åt eller köra 
 
-Genom att minska antalet variabler eller okända, kan du underhålla en stabil, tillförlitlig miljö. Begränsa behållare så att de kan komma åt eller köra enbart förgodkännda eller vit listas filer och körbara filer är en beprövad metod för att begränsa exponeringen för risker.  
+Genom att minska antalet variabler eller okända, kan du underhålla en stabil, tillförlitlig miljö. Begränsa behållare så att de kan komma åt eller köra enbart förgodkännda eller safelisted filer och körbara filer är en beprövad metod för att begränsa exponeringen för risker.  
 
-Det är mycket enklare att hantera en vitlista när den implementeras från början. En vitlista tillhandahåller ett mått på kontroll och hanterbarhet när du lär dig vilka filer och körbara filer som krävs för att programmet ska fungera korrekt. 
+Det är mycket enklare att hantera en SAFELIST när den implementeras från början. En SAFELIST tillhandahåller ett mått på kontroll och hanterbarhet när du lär dig vilka filer och körbara filer som krävs för att programmet ska fungera korrekt. 
 
-En vitlista minskar inte bara angrepps ytan, men kan också tillhandahålla en bas linje för avvikelser och förhindra användnings fall av scenarier med "bruset" och container grupp. 
+En SAFELIST minskar inte bara angrepps ytan, men kan också tillhandahålla en bas linje för avvikelser och förhindra användnings fall av scenarier med "bruset" och container grupp. 
 
 ### <a name="enforce-network-segmentation-on-running-containers"></a>Tvinga nätverks segmentering på behållare som körs  
 
-Du kan skydda behållare i ett undernät från säkerhets risker i ett annat undernät genom att underhålla nätverks segmentering (eller nano-segmentering) eller uppdelning mellan behållare som körs. Det kan också vara nödvändigt att underhålla nätverks segmentering för att kunna använda behållare i branscher som krävs för att uppfylla villkoren för efterlevnad.  
+Du kan skydda behållare i ett undernät från säkerhets risker i ett annat undernät genom att underhålla nätverks segmentering (eller nano-segmentering) eller uppdelning mellan behållare som körs. Det kan också vara nödvändigt att underhålla nätverks segmentering för att kunna använda behållare i branscher som krävs för att uppfylla efterlevnads uppdragen.  
 
 Till exempel tillhandahåller partner verktyget [turkos](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) en automatiserad metod för nano-segmentering. Turkos övervakar nätverks aktiviteter för behållare i körnings miljön. Den identifierar alla inkommande och utgående nätverks anslutningar till/från andra behållare, tjänster, IP-adresser och det offentliga Internet. Nano-segmentering skapas automatiskt baserat på övervakad trafik. 
 
@@ -108,9 +112,9 @@ Till exempel tillhandahåller partner verktyget [turkos](https://azuremarketplac
 
 Precis som med en IT-miljö bör du konsekvent övervaka aktivitet och användares åtkomst till ditt container eko system för att snabbt identifiera misstänkt eller skadlig aktivitet. Azure tillhandahåller övervaknings lösningar för behållare, inklusive:
 
-* [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) för att övervaka prestanda för dina arbets belastningar som distribueras till Kubernetes-miljöer som finns i Azure Kubernetes service (AKS). Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. 
+* [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) övervakar arbets Belastningens prestanda som distribueras till Kubernetes-miljöer som finns i Azure Kubernetes service (AKS). Azure Monitor för behållare ger dig insyn i prestanda genom att samla in minne och processor mått från domänkontrollanter, noder och behållare som är tillgängliga i Kubernetes via mått-API. 
 
-* [Azure Container Monitoring-lösningen](../azure-monitor/insights/containers.md) hjälper dig att visa och hantera andra Docker-och Windows container-värdar på en enda plats. Exempel:
+* [Azure Container Monitoring-lösningen](../azure-monitor/insights/containers.md) hjälper dig att visa och hantera andra Docker-och Windows container-värdar på en enda plats. Ett exempel:
 
   * Visa detaljerad gransknings information som visar kommandon som används med behållare. 
   * Felsök behållare genom att visa och söka i centraliserade loggar utan att behöva fjärrans luta till Docker eller Windows-värdar.  
@@ -125,14 +129,18 @@ Precis som med en IT-miljö bör du konsekvent övervaka aktivitet och användar
 
 [Azure Monitor](../azure-monitor/overview.md) möjliggör kärn övervakning av Azure-tjänster genom att tillåta insamling av mått, aktivitets loggar och diagnostikloggar. Aktivitetsloggen ger dig t.ex. information om när nya resurser skapas eller ändras. 
 
-Tillgängliga mått tillhandahåller prestandastatistik för olika resurser och även för operativsystemet i en virtuell dator. Du kan visa dessa data med någon av utforskarna i Azure Portal och skapa aviseringar som baseras på måtten. Azure Monitor ger en pipeline för snabbast mått (5 minuter ned till 1 minut), så du bör använda den för tids kritiska aviseringar och meddelanden. 
+  Tillgängliga mått tillhandahåller prestandastatistik för olika resurser och även för operativsystemet i en virtuell dator. Du kan visa dessa data med någon av utforskarna i Azure Portal och skapa aviseringar som baseras på måtten. Azure Monitor ger den snabbaste måttpipelinen (från 5 minuter ned till 1 minut), så du bör använda det för tidskritiska aviseringar och meddelanden. 
 
 ### <a name="log-all-container-administrative-user-access-for-auditing"></a>Logga all behållar administrativ användar åtkomst för granskning 
 
-Ha en korrekt Gransknings logg över administrativ åtkomst till ditt eko system, behållar register och behållar avbildningar. Dessa loggar kan vara nödvändiga för gransknings syfte och kommer att vara användbara som kriminal tekniska-bevis efter eventuella säkerhets incidenter. Du kan använda [Azure Container Monitor-lösningen](../azure-monitor/insights/containers.md) för att uppnå detta syfte. 
+Upprätthålla en korrekt gransknings historik för administrativ åtkomst till ditt container eko system, inklusive ditt Kubernetes-kluster, behållar register och behållar avbildningar. Dessa loggar kan vara nödvändiga för gransknings syfte och kommer att vara användbara som kriminal tekniska-bevis efter eventuella säkerhets incidenter. Azure-lösningar är:
+
+* [Integrering av Azure Kubernetes-tjänsten med Azure Security Center](../security-center/azure-kubernetes-service-integration.md) för att övervaka säkerhets konfigurationen för kluster miljön och skapa säkerhets rekommendationer
+* [Azure Container Monitor-lösning](../azure-monitor/insights/containers.md)
+* Resurs loggar för [Azure Container instances](container-instances-log-analytics.md) och [Azure Container Registry](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om att hantera sårbarheter för behållare med lösningar från [twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) och [turkos säkerhet](https://www.aquasec.com/solutions/azure-container-security/).
+* Läs mer om hur du använder [Azure Security Center](../security-center/container-security.md) för real tids identifiering av hot i dina behållares miljöer.
 
-* Lär dig mer om [behållar säkerhet i Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).
+* Lär dig mer om att hantera sårbarheter för behållare med lösningar från [twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) och [turkos säkerhet](https://www.aquasec.com/solutions/azure-container-security/).

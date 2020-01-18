@@ -1,6 +1,6 @@
 ---
 title: Leverera innehåll till kunder | Microsoft Docs
-description: Det här avsnittet ger en översikt över vad ingår i att leverera innehåll med Azure Media Services.
+description: Det här avsnittet ger en översikt över vad som ingår i att leverera ditt innehåll med Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,148 +14,148 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 5db2cb983c0c3cd0e2194f7686964d9ec3828d6f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 22d98656f42f52f2fba0845fac6f1d210d2cf0bd
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61232283"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264686"
 ---
 # <a name="deliver-content-to-customers"></a>Leverera innehåll till kunder
-När du levererar ditt streaming eller video-on-demand-innehåll till kunder, är målet att leverera video med hög kvalitet till olika enheter under olika nätverksförhållanden.
+När du levererar ditt material för strömning eller video på begäran till kunder, är ditt mål att leverera video med hög kvalitet till olika enheter under olika nätverks förhållanden.
 
-För att åstadkomma detta kan du:
+För att uppnå det här målet kan du:
 
-* Koda strömmen till en video-ström med flera bithastigheter (anpassningsbar bithastighet). Detta hand tar om kvalitet och nätverk.
-* Använda Microsoft Azure Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) dynamiskt Ompaketera din ström till olika protokoll. Detta hand tar om strömning på olika enheter. Media Services har stöd för leverans av de följande strömningstekniker med anpassningsbar bithastighet: <br/>
-    * **HTTP Live Streaming** (HLS) – Lägg till ”(format = m3u8-aapl)” sökväg till ”/ Manifest”-delen i Webbadressen ska berätta för strömmande ursprungsservern att returnera tillbaka HLS-innehåll för användning på **Apple iOS** ursprungliga enheter (Mer information Se [positionerare](#locators) och [URL: er](#URLs)),
-    * **MPEG-DASH** – Lägg till ”(format = mpd-time-csf)” sökväg till ”/ Manifest”-delen i Webbadressen ska berätta för strömmande ursprungsservern att returnera tillbaka MPEG-DASH (Mer information finns i [positionerare](#locators) och [URL: er](#URLs)),
+* Koda data strömmen till en video ström med flera bit hastigheter (anpassningsbar bit hastighet). Detta kommer att ta hand om kvalitets-och nätverks förhållanden.
+* Använd Microsoft Azure Media Services [dynamisk paketering](media-services-dynamic-packaging-overview.md) för att dynamiskt paketera om strömmen till olika protokoll. Det tar hand om strömning på olika enheter. Media Services stöder leverans av följande strömmande tekniker med anpassningsbar bit hastighet: <br/>
+    * **Http Live streaming** (HLS) – Lägg till "(format = M3U8-AAPL)" sökvägen till "/manifest"-delen av URL: en för att tala om att den strömmande ursprungs servern returnerar tillbaka HLS innehåll för användning på **Apple iOS** -enheter (mer information finns i [platser och](#locators) [URL: er](#URLs))
+    * **MPEG-streck** – Lägg till "(format = mpd-Time-CSF)" i "/manifest"-delen av URL: en för att tala om att den strömmande ursprungs servern returnerar MPEG-bindestreck (mer information finns i [platser och](#locators) [URL: er](#URLs))
     * **Smooth Streaming**.
 
 >[!NOTE]
 >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
-Den här artikeln ger en översikt över viktiga innehållsleverans begrepp.
+Den här artikeln ger en översikt över viktiga koncept för innehålls leverans.
 
-Du kan kontrollera kända problem [kända problem](media-services-deliver-content-overview.md#known-issues).
+Se [kända problem](media-services-deliver-content-overview.md#known-issues)för att kontrol lera kända problem.
 
 ## <a name="dynamic-packaging"></a>Dynamisk paketering
-Med dynamisk paketering som Media Services tillhandahåller, du kan leverera innehåll med anpassad bithastighet MP4 eller Smooth Streaming-kodade i strömningsformat som stöds av Media Services (MPEG-DASH, HLS, Smooth Streaming) utan att behöva Ompaketera till dessa strömningsformat. Vi rekommenderar att leverera innehåll med dynamisk paketering.
+Med den dynamiska paketering som Media Services tillhandahåller kan du leverera din anpassningsbara bit hastighets-MP4 eller Smooth Streaming kodat innehåll i strömnings format som stöds av Media Services (MPEG-streck, HLS, Smooth Streaming) utan att behöva paketera om till dessa strömmande format. Vi rekommenderar att leverera innehåll med dynamisk paketering.
 
-Om du vill dra nytta av dynamisk paketering, måste du koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bithastighet eller Smooth Streaming-filer.
+Om du vill dra nytta av dynamisk paketering måste du koda din mezzaninfil (källa) till en uppsättning MP4-filer med anpassningsbar bit hastighet eller anpassade bit hastigheter Smooth Streaming filer.
 
-Med dynamisk paketering behöver lagra och betala för filerna i ett enda lagringsformat. Media Services skapar och ger lämplig respons baserat på dina önskemål.
+Med dynamisk paketering kan du lagra och betala för filerna i ett enda lagrings format. Media Services skapar och betjänar lämpligt svar baserat på dina begär Anden.
 
-Dynamisk paketering är tillgänglig för standard och premium-slutpunkter för direktuppspelning. 
+Dynamisk paketering är tillgänglig för slut punkter för standard-och Premium-direktuppspelning. 
 
 Mer information finns i [dynamisk paketering](media-services-dynamic-packaging-overview.md).
 
 ## <a name="filters-and-dynamic-manifests"></a>Filter och dynamiska manifest
-Du kan definiera filter för dina tillgångar med Media Services. Dessa filter är serversidan regler som hjälper dina kunder göra saker som att spela upp en viss del av en video eller ange en delmängd av ljud och video återgivningar som din kunds enheten kan hantera (i stället för alla återgivningar som är associerade med tillgången). Den här filtreringen uppnås via *dynamiska manifest* som skapas när kunden begär för direktuppspelning av video baserat på en eller flera specifika filter.
+Du kan definiera filter för dina till gångar med Media Services. Dessa filter är regler på Server sidan som hjälper dina kunder att göra saker som att spela upp ett särskilt avsnitt i en video eller ange en delmängd av ljud-och video åter givningar som kundens enhet kan hantera (i stället för alla renderingar som är associerade med till gången). Den här filtreringen uppnås via *dynamiska manifest* som skapas när kunden begär att strömma en video baserat på ett eller flera angivna filter.
 
 Mer information finns i [filter och dynamiska manifest](media-services-dynamic-manifest-overview.md).
 
-## <a name="a-idlocatorslocators"></a><a id="locators"/>Positionerare
-Om du vill förse din användare med en URL som kan användas för att strömma eller hämta ditt innehåll, måste du först publicera tillgången genom att skapa en lokaliserare. En positionerare ger en startpunkt för att komma åt filer i en tillgång. Media Services stöder två typer av lokaliserare:
+## <a name="a-idlocatorslocators"></a><a id="locators"/>lokaliserare
+För att ge din användare en URL som kan användas för att strömma eller hämta ditt innehåll måste du först publicera din till gång genom att skapa en positionerare. En positionerare ger en start punkt för att komma åt filerna som finns i en till gång. Media Services stöder två typer av lokaliserare:
 
-* OnDemandOrigin-positionerare. Dessa används för att strömma media (till exempel MPEG-DASH, HLS eller Smooth Streaming) eller hämta progressivt filer.
-* Delad åtkomst (signatur) URL: en positionerare. De används för att hämta mediefiler till din lokala dator.
+* OnDemandOrigin-positionerare. Dessa används för att strömma media (till exempel MPEG-streck, HLS eller Smooth Streaming) eller hämta filer progressivt.
+* URL-positioner för signatur för delad åtkomst (SAS). Dessa används för att hämta mediefiler till den lokala datorn.
 
-En *princip* används för att definiera behörigheter (till exempel läsa, skriva och lista) och varaktighet som en klient har åtkomst för en viss resurs. Observera att listan behörighet (AccessPermissions.List) inte ska användas när man skapar en OnDemandOrigin-positionerare.
+En *åtkomst princip* används för att definiera behörigheter (till exempel läsa, skriva och lista) och varaktighet för vilken en klient har åtkomst till en viss till gång. Observera att List behörigheten (AccessPermissions. list) inte ska användas för att skapa en OnDemandOrigin-lokaliserare.
 
-Lokaliserare har förfallodatum. Azure-portalen anger ett utgångsdatum 100 år i framtiden för lokaliserare.
+Positionerare har förfallo datum. Azure Portal anger ett förfallo datum 100 år i framtiden för positionerare.
 
 > [!NOTE]
-> Om du använde Azure-portalen för att skapa lokaliserare före mars 2015, dessa lokaliserare har ställts in upphör att gälla efter två år.
+> Om du använde Azure Portal för att skapa lokaliserare före mars 2015 var dessa positionerare inställda på att gå ut efter två år.
 > 
 > 
 
 Du uppdaterar ett utgångsdatum för en lokaliserare med [REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator)- eller [.NET](https://go.microsoft.com/fwlink/?LinkID=533259)-API:er. Observera att URL:en ändras när du uppdaterar en SAS-lokaliserare.
 
-Positionerare är inte utformade för att hantera åtkomstkontroll per användare. Du kan ge olika åtkomsträttigheter till enskilda användare med hjälp av lösningar för Digital Rights Management (DRM). Mer information finns i [skydda Media](https://msdn.microsoft.com/library/azure/dn282272.aspx).
+Lokaliserare är inte utformade för att hantera åtkomst kontroll per användare. Du kan ge olika åtkomst rättigheter till enskilda användare med hjälp av DRM-lösningar (Digital Rights Management). Mer information finns i [skydda Media](https://msdn.microsoft.com/library/azure/dn282272.aspx).
 
-När du skapar en positionerare kan finnas det en fördröjning på 30 sekunder på grund av lagring som krävs och spridning processer i Azure Storage.
+När du skapar en positionerare kan det finnas en fördröjning på 30 sekunder på grund av nödvändiga lagrings-och spridnings processer i Azure Storage.
 
-## <a name="adaptive-streaming"></a>Adaptiv direktuppspelning
-Med anpassningsbar bithastighet tekniker kan videospelarprogram att fastställa nätverksförhållanden och välja från flera olika bithastigheter. När nätverkskommunikation försämras kan klienten välja en lägre bithastighet så uppspelning kan fortsätta med lägre videokvalitet. Eftersom nätverksförhållanden förbättra, kan klienten växla till en högre bithastighet med bättre videokvalitet. Azure Media Services stöder följande tekniker med anpassningsbar bithastighet: HTTP Live Streaming (HLS), Smooth Streaming och MPEG-DASH.
+## <a name="adaptive-streaming"></a>Anpassningsbar strömning
+Tekniken för anpassningsbar bit hastighet gör det möjligt för Video Player-program att fastställa nätverks förhållanden och välja mellan flera bit hastigheter. När nätverks kommunikationen degraderas kan klienten välja en lägre bit hastighet så uppspelningen kan fortsätta med lägre video kvalitet. När nätverks förhållandena ökar kan klienten växla till en högre bit hastighet med förbättrad video kvalitet. Azure Media Services stöder följande tekniker för anpassningsbar bit hastighet: HTTP Live Streaming (HLS), Smooth Streaming och MPEG-streck.
 
-För att ge användare strömmande URL: er måste skapa du först en OnDemandOrigin-positionerare. Skapa lokaliseraren får du grundläggande sökvägen till den tillgång som innehåller det innehåll som du vill spela. Men om du vill kunna strömma innehållet behöver du ändra den här sökvägen ytterligare. Om du vill skapa en fullständig URL till strömmande manifestfilen måste du sammanfoga den lokaliseraren sökvägsvärde och manifestet (filename.ism) filnamn. Lägger till **/Manifest** och ett lämpligt format (vid behov) till positionerare sökväg.
+För att ge användare med direkt uppspelnings-URL: er måste du först skapa en OnDemandOrigin-lokaliserare. Genom att skapa en positionerare får du bas sökvägen till den till gång som innehåller det innehåll som du vill strömma. För att kunna strömma det här innehållet måste du dock ändra sökvägen ytterligare. Om du vill skapa en fullständig URL till den strömmande manifest filen måste du sammanfoga Sök vägs värdets sökväg och manifest filen (filnamn. ISM). Lägg sedan till **/manifest** och ett lämpligt format (om det behövs) till sökvägen till lokaliseraren.
 
 > [!NOTE]
-> Du kan också strömma ditt innehåll över en SSL-anslutning. Om du vill göra detta måste du kontrollera att din strömmande URL: er börjar med HTTPS. Observera att för närvarande AMS inte stöder SSL med anpassade domäner.  
+> Du kan också strömma ditt innehåll via en SSL-anslutning. Det gör du genom att se till att dina strömmande webb adresser börjar med HTTPS. Observera att AMS inte har stöd för SSL med anpassade domäner.  
 > 
 
-Du kan endast strömmas via SSL om slutpunkten för direktuppspelning som du kan leverera ditt innehåll har skapats efter den 10 September 2014. Om din strömmande URL: er baseras på de slutpunkter för direktuppspelning som skapats efter den 10 September 2014, innehåller URL: en ”streaming.mediaservices.windows.net”. Strömmande URL: er som innehåller ”origin.mediaservices.windows.net” (det äldre formatet) stöder inte SSL. Om din URL: en används det äldre formatet och du vill kunna strömma via SSL, kan du skapa en ny slutpunkt för direktuppspelning. Använd webbadresserna baserat på den nya strömmande slutpunkten för att strömma ditt innehåll via SSL.
+Du kan bara strömma över SSL om den strömmande slut punkten från vilken du levererar ditt innehåll har skapats efter den 10 september 2014. Om dina strömnings-URL: er baseras på de slut punkter för direkt uppspelning som skapats efter den 10 september 2014 innehåller URL: en "streaming.mediaservices.windows.net". Strömnings-URL: er som innehåller "origin.mediaservices.windows.net" (det gamla formatet) stöder inte SSL. Om din URL är i det gamla formatet och du vill kunna strömma över SSL, skapar du en ny slut punkt för direkt uppspelning. Använd URL: er baserat på den nya slut punkten för direkt uppspelning för att strömma ditt innehåll via SSL.
 
-## <a name="a-idurlsstreaming-url-formats"></a><a id="URLs"/>Strömmande URL-format
+## <a name="a-idurlsstreaming-url-formats"></a>URL-format för <a id="URLs"/>strömning
 
-### <a name="mpeg-dash-format"></a>MPEG-DASH-format
-{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
+### <a name="mpeg-dash-format"></a>MPEG-format
+{namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = mpd-Time-CSF)
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf)
 
-### <a name="apple-http-live-streaming-hls-v4-format"></a>Apple HTTP Live Streaming (HLS) V4-format
-{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
+### <a name="apple-http-live-streaming-hls-v4-format"></a>V4-format för Apple HTTP Live Streaming (HLS)
+{namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = M3U8-AAPL)
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl)
 
-### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HTTP Live Streaming (HLS) V3-format
-{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl-v3)
+### <a name="apple-http-live-streaming-hls-v3-format"></a>Apple HTTP Live Streaming (HLS) v3-format
+{namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = M3U8-AAPL-v3)
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3)
 
-### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP Live Streaming (HLS)-format med enbart ljud filter
-Som standard enbart ljud spårar som ingår i HLS manifest. Detta krävs för Apple Store-certifiering för mobila nätverk. I så fall om en klient har inte tillräckligt mycket bandbredd eller är ansluten via en anslutning 2G, växlar uppspelning till enbart ljud. Detta hjälper till att hålla strömning av innehåll utan buffert, men bild ingen. I vissa fall kanske player buffring prioriterade över enbart ljud. Om du vill ta bort enbart ljud-spår, lägger du till **ljuddata = false** i URL: en.
+### <a name="apple-http-live-streaming-hls-format-with-audio-only-filter"></a>Apple HTTP Live Streaming-format (HLS) med endast ljud filter
+Som standard ingår ljud spår i HLS-manifestet. Detta krävs för Apple Store-certifiering för mobila nätverk. I det här fallet, om en klient inte har tillräckligt med bandbredd eller är ansluten över en 2G-anslutning, växlar uppspelningen till endast ljud. Detta hjälper till att hålla innehålls strömningen utan att buffra, men det finns ingen video. I vissa fall kan spelarens buffring vara prioriterad framför endast ljud. Om du vill ta bort ljud spåret ska du bara lägga till **ljudonly = falskt** till URL: en.
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,audio-only=false)
 
-Mer information finns i [stöd för dynamiska Manifest sammansättning och HLS utdata ytterligare funktioner](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
+Mer information finns i [stöd för dynamisk manifest sammansättning och HLS-utdata ytterligare funktioner](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
-### <a name="smooth-streaming-format"></a>Smooth Streaming-format
+### <a name="smooth-streaming-format"></a>Smooth Streaming format
 {namn på slutpunkt för direktuppspelning-namn på mediaservicekonto}.streaming.mediaservices.windows.net/lokalisator-ID}/{filnamn}.ism/Manifest
 
 Exempel:
 
 http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest
 
-### <a id="fmp4_v20"></a>Smooth Streaming 2.0 manifest (äldre manifest)
-Som standard innehåller Smooth Streaming-manifest format taggen upprepningar (r-tagg). Vissa spelare stöder dock inte r-taggen. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:
+### <a id="fmp4_v20"></a>Smooth Streaming 2,0 manifest (bakåtkompatibelt manifest)
+Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare stöder dock inte r-taggen. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:
 
-{strömmande slutpunkt namn-name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
+{namn på direkt uppspelnings slut punkt – Media Services konto namn}. streaming. Media Services. Windows. net/{Locator ID}/{filename}.ism/Manifest (format = fmp4-V20)
 
-    http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
+    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
 
 ## <a name="progressive-download"></a>Progressiv nedladdning
-Du kan börja spela upp media innan hela filen har hämtats med progressiv nedladdning. Du kan inte progressivt hämta .ism * (ismv, isma, ismt eller ismc) filer.
+Med progressiv nedladdning kan du starta uppspelning av media innan hela filen har laddats ned. Det går inte att progressivt Hämta. ISM *-filer (ISMV, Isma, ISMT eller ismc).
 
-För att progressivt hämta innehåll, använder du den OnDemandOrigin typen av lokaliserare. I följande exempel visas den URL som baseras på OnDemandOrigin typ av positionerare:
+Om du vill ladda ned innehåll progressivt använder du OnDemandOrigin typ. I följande exempel visas den URL som baseras på OnDemandOrigin typ:
 
     http://amstest1.streaming.mediaservices.windows.net/3c5fe676-199c-4620-9b03-ba014900f214/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4
 
-Du måste dekryptera alla storage-krypterade objekt som du vill spela från tjänsten ursprung för progressiv nedladdning.
+Du måste dekryptera alla lagrings krypterade till gångar som du vill strömma från ursprungs tjänsten för progressiv nedladdning.
 
 ## <a name="download"></a>Ladda ned
-Du måste skapa en SAS-lokaliserare för att ladda ned innehållet till en klientenhet. SAS-lokaliserare ger dig tillgång till Azure Storage-behållare där filen finns. Du måste bädda in namnet på filen mellan värden och SAS-signaturen för att skapa nedladdnings-URL.
+Om du vill ladda ned innehållet till en klient enhet måste du skapa en SAS-positionerare. SAS-lokaliseraren ger dig åtkomst till den Azure Storage-behållare där filen finns. Om du vill bygga nedladdnings-URL: en måste du bädda in fil namnet mellan värden och SAS-signaturen.
 
-I följande exempel visas den URL som baseras på SAS-lokaliserare:
+I följande exempel visas den URL som baseras på SAS-lokaliseraren:
 
     https://test001.blob.core.windows.net/asset-ca7a4c3f-9eb5-4fd8-a898-459cb17761bd/BigBuckBunny.mp4?sv=2012-02-12&se=2014-05-03T01%3A23%3A50Z&sr=c&si=7c093e7c-7dab-45b4-beb4-2bfdff764bb5&sig=msEHP90c6JHXEOtTyIWqD7xio91GtVg0UIzjdpFscHk%3D
 
 Följande gäller:
 
-* Du måste dekryptera alla storage-krypterade objekt som du vill spela från tjänsten ursprung för progressiv nedladdning.
-* En nedladdning som inte har slutförts inom 12 timmar misslyckas.
+* Du måste dekryptera alla lagrings krypterade till gångar som du vill strömma från ursprungs tjänsten för progressiv nedladdning.
+* En hämtning som inte har avslut ATS inom 12 timmar kommer att Miss inträffat.
 
 ## <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning
 
-En slutpunkt för direktuppspelning representerar en direktuppspelningstjänst som kan leverera innehåll direkt till ett klientspelarprogram eller till ett nätverk för innehållsleverans (CDN) för vidare distribution. Den utgående dataströmmen från en strömmande slutpunkt-tjänst kan vara en direktsänd dataström eller en video på begäran-tillgång i Media Services-kontot. Det finns två typer av slutpunkter för direktuppspelning, **standard** och **premium**. Mer information finns i [Översikt över strömningsslutpunkter](media-services-streaming-endpoints-overview.md).
+En slut punkt för direkt uppspelning representerar en strömmande tjänst som kan leverera innehåll direkt till ett klients pelar program eller till ett Content Delivery Network (CDN) för vidare distribution. Den utgående strömmen från en slut punkt för direkt uppspelning kan vara en Live-ström eller en till gång till en video på begäran på ditt Media Services-konto. Det finns två typer av slut punkter för direkt uppspelning, **standard** och **Premium**. Mer information finns i [Översikt över strömningsslutpunkter](media-services-streaming-endpoints-overview.md).
 
 >[!NOTE]
 >När ditt AMS-konto skapas läggs en **standard**-slutpunkt för direktuppspelning till på ditt konto med tillståndet **Stoppad**. Om du vill starta direktuppspelning av innehåll och dra nytta av dynamisk paketering och dynamisk kryptering måste slutpunkten för direktuppspelning som du vill spela upp innehåll från ha tillståndet **Körs**. 
 
 ## <a name="known-issues"></a>Kända problem
 ### <a name="changes-to-smooth-streaming-manifest-version"></a>Ändringar av Smooth Streaming manifest version
-Innan den juli 2016 tjänsteuppdateringen--när tillgångar som produceras av Media Encoder Standard Media Encoder Premium Workflow eller tidigare Azure Media Encoder har strömmas med hjälp av dynamisk paketering--Smooth Streaming manifest returneras skulle överensstämmer med version 2.0. I version 2.0 Använd inte fragment varaktigheter så kallade Upprepa (r)-taggar. Exempel:
+Innan den 2016 Service Release – när till gångar som produceras av Media Encoder Standard, Media Encoder Premium Workflow eller tidigare Azure Media Encoder strömmas med hjälp av dynamisk paketering--Smooth Streaming manifestet som returnerades uppfyller version 2,0. I version 2,0 använder Fragmentets varaktighet inte den så kallade REPEAT-Taggar (r). Ett exempel:
 
 
     <?xml version="1.0" encoding="UTF-8"?>
@@ -169,7 +169,7 @@ Innan den juli 2016 tjänsteuppdateringen--när tillgångar som produceras av Me
         </StreamIndex>
     </SmoothStreamingMedia>
 
-I juli 2016 service release, genererat Smooth Streaming-manifest överensstämmer med version 2.2, med fragment varaktigheter med hjälp av upprepningar taggar. Exempel:
+I 2016-versionen från juli är det genererade Smooth Streaming manifestet som överensstämmer med version 2,2, med fragmenterade varaktigheter med hjälp av upprepade taggar. Ett exempel:
 
     <?xml version="1.0" encoding="UTF-8"?>
     <SmoothStreamingMedia MajorVersion="2" MinorVersion="2" Duration="8000" TimeScale="1000">
@@ -179,7 +179,7 @@ I juli 2016 service release, genererat Smooth Streaming-manifest överensstämme
         </StreamIndex>
     </SmoothStreamingMedia>
 
-Några av de äldre Smooth Streaming-klienterna stöder inte upprepa taggar och kommer inte att läsa in manifestet. För att lösa problemet, kan du använda formatparametern äldre manifest **(format = fmp4 v20)** eller uppdatera klienten till den senaste versionen, vilket stöder Upprepa taggar. Mer information finns i [Smooth Streaming 2.0](media-services-deliver-content-overview.md#fmp4_v20).
+Några av de äldre Smooth Streaming-klienterna kanske inte stöder upprepnings taggarna och kommer inte att kunna läsa in manifestet. Du kan åtgärda det här problemet genom att använda den äldre manifest format parametern **(format = fmp4-V20)** eller uppdatera klienten till den senaste versionen, som stöder upprepnings taggar. Mer information finns i [Smooth Streaming 2,0](media-services-deliver-content-overview.md#fmp4_v20).
 
 ## <a name="media-services-learning-paths"></a>Sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
@@ -188,5 +188,5 @@ Några av de äldre Smooth Streaming-klienterna stöder inte upprepa taggar och 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Relaterade ämnen
-[Uppdatera lokaliserare för Media Services efter återställning av lagringsnycklar](media-services-roll-storage-access-keys.md)
+[Uppdatera Media Services positionerare efter nycklar för rullande lagring](media-services-roll-storage-access-keys.md)
 

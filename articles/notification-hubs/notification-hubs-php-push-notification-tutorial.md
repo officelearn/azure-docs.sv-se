@@ -1,5 +1,5 @@
 ---
-title: Använda Notification Hubs med PHP
+title: Använda Azure Notification Hubs med PHP
 description: Lär dig hur du använder Azure Notification Hubs från en PHP-Server.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 4df48475af4b140e4446dde9069eafcc95d9d3b2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9a77a9d9c8b2d71197089f66d81e07d56c780e11
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213169"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263854"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Använda Notification Hubs från PHP
 
@@ -36,7 +36,7 @@ I det här avsnittet visar vi hur du:
 
 ## <a name="client-interface"></a>Klient gränssnitt
 
-Huvud klient gränssnittet kan ge samma metoder som är tillgängliga i [.net Notification HUBS SDK](https://msdn.microsoft.com/library/jj933431.aspx), vilket gör att du direkt kan översätta alla självstudier och exempel som är tillgängliga på den här webbplatsen och som communityn bidragit till e.
+Huvud klient gränssnittet kan ge samma metoder som är tillgängliga i [.net Notification HUBS SDK](https://msdn.microsoft.com/library/jj933431.aspx), vilket gör att du direkt kan översätta alla självstudier och exempel som är tillgängliga på den här webbplatsen och som tillhandahålls av communityn på Internet.
 
 Du hittar all kod som är tillgänglig i [Exempel på PHP-REST].
 
@@ -106,7 +106,7 @@ Här är huvud klassen som implementerar klienten, vars konstruktor tolkar anslu
 
 I Azure-dokumentationen hittar du information om hur du [skapar en SAS](https://docs.microsoft.com/previous-versions/azure/reference/dn495627(v=azure.100)#create-sas-security-token)-säkerhetstoken.
 
-Lägg till- `NotificationHub`metodeni klassen för att skapa token baserat på URI: n för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutnings strängen. `generateSasToken`
+Lägg till `generateSasToken`-metoden i `NotificationHub`-klassen för att skapa token baserat på URI: n för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutnings strängen.
 
     ```php
     private function generateSasToken($uri) {
@@ -155,7 +155,7 @@ Den här klassen är en behållare för en intern meddelande text, eller en upps
 
 Läs [Notification HUBS REST API-dokumentationen](https://msdn.microsoft.com/library/dn495827.aspx) och de speciella meddelande plattforms formaten för alla alternativ som är tillgängliga.
 
-Med den här klassen kan vi nu skriva sändnings meddelande metoderna i `NotificationHub` klassen:
+Med den här klassen kan vi nu skriva metoder för att skicka meddelanden i klassen `NotificationHub`:
 
     ```php
     public function sendNotification($notification, $tagsOrTagExpression="") {
@@ -216,7 +216,7 @@ Med den här klassen kan vi nu skriva sändnings meddelande metoderna i `Notific
     } 
     ```
 
-Metoderna ovan skickar en http post-begäran till `/messages` slut punkten för Notification Hub, med rätt brödtext och rubriker för att skicka meddelandet.
+Metoderna ovan skickar en HTTP POST-begäran till `/messages` slut punkten för Notification Hub, med rätt brödtext och rubriker för att skicka meddelandet.
 
 ## <a name="complete-tutorial"></a>Slutför självstudien
 
@@ -280,9 +280,9 @@ Lägg sedan till sändnings koden beroende på din mål-mobila plattform.
 
 Om du kör din PHP-kod bör du nu skapa ett meddelande som visas på mål enheten.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-I det här avsnittet visade vi hur du skapar en enkel Java REST-klient för Notification Hubs. Härifrån kan du:
+I det här avsnittet visade vi hur du skapar en enkel Java REST-klient för Notification Hubs. Här kan göra du följande:
 
 * Hämta det kompletta [Exempel på PHP-REST], som innehåller all kod ovan.
 * Fortsätt lära dig mer Notification Hubs taggnings funktionen i själv studie kursen [viktig Nyheter]

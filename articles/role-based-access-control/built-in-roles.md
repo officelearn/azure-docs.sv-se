@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 01/17/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 17a1f2c245e19afbf4d8c5092a0ddf0562a7cb0e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b2a49528ca3c2b55c02f3bda89b3722ee8fef535
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979328"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264262"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -48,6 +48,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [API Management Service Contributor](#api-management-service-contributor) | Kan hantera tjänster och API: er | 312a565d-c81f-4fd8-895a-4e21e48d571c |
 > | [Rollen API Management tjänst operatör](#api-management-service-operator-role) | Kan hantera tjänsten men inte API: erna | e022efe7-f5ba-4159-bbe4-b44f577e9b61 |
 > | [Rollen API Management tjänst läsare](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänster och API: er | 71522526-b88f-4d52-b57f-d31fc3546d0d |
+> | [Data ägare för app Configuration](#app-configuration-data-owner) | Ger fullständig åtkomst till konfigurations data för appar. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
+> | [Konfigurations data läsare för app](#app-configuration-data-reader) | Tillåter Läs åtkomst till konfigurations data för appar. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
 > | [Application Insights komponent deltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användaren behörighet att visa och hämta fel söknings ögonblicks bilder som samlats in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i [ägaren](#owner) eller [deltagar](#contributor) rollerna. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | [Automatiserings jobb operatör](#automation-job-operator) | Skapa och hantera jobb med hjälp av Automation-runbooks. | 4fe576fe-1146-4730-92eb-48519fa6bf9f |
@@ -55,6 +57,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | [Automation Runbook-operator](#automation-runbook-operator) | Läs Runbook-egenskaperna – för att kunna skapa jobb för runbooken. | 5fb5aef8-1081-4b8e-bb16-9d5d0385bab5 |
 > | [Aver deltagare](#avere-contributor) | Kan skapa och hantera ett AVERT vFXT-kluster. | 4f8fab4f-1852-4a58-a46a-8eaf358af14a |
 > | [Aver operator](#avere-operator) | Används av det Avera vFXT-klustret för att hantera klustret | c025889f-8102-4ebf-b32c-fc0c6f0c6bd9 |
+> | [Azure-ansluten dator onboarding](#azure-connected-machine-onboarding) | Kan publicera Azure-anslutna datorer. | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
+> | [Resurs administratör för Azure-ansluten dator](#azure-connected-machine-resource-administrator) | Kan läsa, skriva, ta bort och återställa Azure-anslutna datorer. | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | [Azure Event Hubs data ägare](#azure-event-hubs-data-owner) | Ger fullständig åtkomst till Azure Event Hubs-resurser. | f526a384-b230-433a-b45c-95f59c4a2dec |
 > | [Azure Event Hubs data mottagare](#azure-event-hubs-data-receiver) | Tillåter åtkomst till Azure Event Hubs-resurser. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Azure Event Hubs data avsändare](#azure-event-hubs-data-sender) | Tillåter skicka åtkomst till Azure Event Hubs-resurser. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
@@ -378,6 +382,38 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
+## <a name="app-configuration-data-owner"></a>Data ägare för app Configuration
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Ger fullständig åtkomst till konfigurations data för appar. |
+> | **Id** | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
+> | **Åtgärder** |  |
+> | *alternativet* |  |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Read |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Write |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Delete |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="app-configuration-data-reader"></a>Konfigurations data läsare för app
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Tillåter Läs åtkomst till konfigurations data för appar. |
+> | **Id** | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | **Åtgärder** |  |
+> | *alternativet* |  |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | Microsoft. AppConfiguration/configurationStores/*/Read |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
 ## <a name="application-insights-component-contributor"></a>Application Insights komponent deltagare
 > [!div class="mx-tableFixed"]
 > | | |
@@ -561,6 +597,42 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Returnerar resultatet av att ta bort en BLOB |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Returnerar en BLOB eller en lista över blobbar |
 > | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Returnerar resultatet av att skriva en BLOB |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="azure-connected-machine-onboarding"></a>Azure-ansluten dator onboarding
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan publicera Azure-anslutna datorer. |
+> | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
+> | **Åtgärder** |  |
+> | Microsoft. HybridCompute/Machines/Read | Läs alla Azure Arc-datorer |
+> | Microsoft. HybridCompute/Machines/Write | Skriv en Azure Arc-dator |
+> | Microsoft. GuestConfiguration/guestConfigurationAssignments/Read | Hämta gäst konfigurations tilldelning. |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="azure-connected-machine-resource-administrator"></a>Resurs administratör för Azure-ansluten dator
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Kan läsa, skriva, ta bort och återställa Azure-anslutna datorer. |
+> | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
+> | **Åtgärder** |  |
+> | Microsoft. HybridCompute/Machines/Read | Läs alla Azure Arc-datorer |
+> | Microsoft. HybridCompute/Machines/Write | Skriv en Azure Arc-dator |
+> | Microsoft. HybridCompute/Machines/Delete | Ta bort en Azure Arc-dator |
+> | Microsoft. HybridCompute/Machines/reconnect/åtgärd | Återanslut en Azure Arc-dator |
+> | Microsoft. HybridCompute/*/Read |  |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
@@ -821,7 +893,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållar listan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhets kopierings jobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobb |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Skapa och hantera metadata relaterade till säkerhets kopierings hantering |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av säkerhets kopierings hanterings åtgärder |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/* | Skapa och hantera säkerhets kopierings principer |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Skapa och hantera objekt som kan säkerhets kopie ras |
@@ -886,7 +957,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållar listan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhets kopierings jobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobb |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av säkerhets kopierings hanterings åtgärder |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämta resultat från princip åtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skydds principer |
@@ -952,7 +1022,6 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returnerar resultatet av jobb åtgärden. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobb objekt |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobb |
-> | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returnerar resultatet av säkerhets kopierings åtgärden för Recovery Services valvet. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämta resultat från princip åtgärd. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skydds principer |

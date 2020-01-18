@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/13/2020
 ms.author: juliako
-ms.openlocfilehash: c4c39dc53e492fd295cf30a7b7d75c933ebc912f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e457fbe5b8dd23c93110fb8ccc7d8857128de82c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972617"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169362"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -25,9 +25,12 @@ När du laddar upp videor med Video Indexer API har du följande uppladdnings al
 * skicka videofilen som en bytematris i begärandetexten,
 * Använd befintlig Azure Media Services till gång genom att ange [till gångs-ID: t](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (stöds endast i betalda konton).
 
-Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?)-API:t för att ladda upp och indexera videor baserat på en URL. Kodexemplet i artikeln innehåller den kommenterade koden som visar hur du laddar upp bytematrisen. <br/>Artikeln beskriver också några av de parametrar du kan ange i API:t för att ändra API:ts process och utdata.
+När din video har laddats upp kan Video Indexer (valfritt) koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
-När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
+Artikeln visar hur du överför och indexerar dina videor med följande alternativ:
+
+* [Video Indexer webbplats](#website) 
+* [Video Indexer-API: er](#apis)
 
 ## <a name="uploading-considerations-and-limitations"></a>Att överföra överväganden och begränsningar
  
@@ -40,6 +43,10 @@ När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikel
 - Den URL som anges i `videoURL` param måste vara kodad.
 - Indexering av Media Services till gångar har samma begränsning som indexering från URL: en.
 - Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil.
+- URL: en måste vara tillgänglig (till exempel en offentlig URL). 
+
+    Om det är en privat URL måste åtkomsttoken anges i begäran.
+- URL: en måste peka på en giltig mediafil och inte till en webb sida, till exempel en länk till sidan `www.youtube.com`.
 - Du kan ladda upp upp till 60 filmer per minut.
 
 > [!Tip]
@@ -47,15 +54,39 @@ När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikel
 >
 > Om du måste använda äldre .NET Framework lägger du till en rad i koden innan du gör REST API-anropet:  <br/> System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
 
-## <a name="configurations-and-params"></a>Konfigurationer och parametrar
+## <a name="supported-file-formats-for-video-indexer"></a>Fil format som stöds för Video Indexer
+
+I artikeln om [inmatade behållare/fil format](../latest/media-encoder-standard-formats.md#input-containerfile-formats) finns en lista över fil format som du kan använda med video Indexer.
+
+## <a name="a-idwebsiteupload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Ladda upp och indexera en video med hjälp av Video Indexer webbplats
+
+> [!NOTE]
+> Ett namn på videon får inte vara större än 80 tecken.
+
+1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
+2. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.
+
+    ![Ladda upp](./media/video-indexer-get-started/video-indexer-upload.png)
+
+    När videon har laddats upp påbörjar Video Indexer indexering och analys av videon.
+
+    ![Uppladdad](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+
+    När Video Indexer är klar med analysen får du ett meddelande med en länk till videon och en kort beskrivning av vad som hittades i videon. Till exempel: personer, ämnen och OCR.
+
+## <a name="a-idapisupload-and-index-with-api"></a><a id="apis"/>Ladda upp och indexera med API
+
+Använd [Ladda upp video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) -API för att ladda upp och indexera videor baserat på en URL. Kod exemplet som följer innehåller den kommenterade koden som visar hur du överför byte-matrisen. 
+
+### <a name="configurations-and-params"></a>Konfigurationer och parametrar
 
 I det här avsnittet beskrivs några av de valfria parametrarna och när du kan ange dem.
 
-### <a name="externalid"></a>externalID 
+#### <a name="externalid"></a>externalID 
 
 Med den här parametern kan du ange ett ID som ska associeras med videon. ID:t kan tillämpas på extern VCM-systemintegrering (Video Content Management). Det går att söka efter de videor som finns på Video Indexer-portalen med det angivna externa ID:t.
 
-### <a name="callbackurl"></a>callbackUrl
+#### <a name="callbackurl"></a>callbackUrl
 
 En URL som används för att meddela kunder (med en POST-begäran) om följande händelser:
 
@@ -79,12 +110,12 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
         
     - Exempel: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>Anteckningar
+##### <a name="notes"></a>Anteckningar
 
 - Video Indexer returnerar alla befintliga parametrar som anges i den ursprungliga webbadressen.
 - Den tillhandahållna webbadressen måste vara kodad.
 
-### <a name="indexingpreset"></a>indexingPreset
+#### <a name="indexingpreset"></a>indexingPreset
 
 Använd den här parametern om RAW-inspelningar eller externa inspelningar innehåller bakgrundsljud. Den här parametern används för att konfigurera indexeringsprocessen. Du kan ange följande värden:
 
@@ -95,13 +126,13 @@ Använd den här parametern om RAW-inspelningar eller externa inspelningar inneh
 
 Priset beror på det valda indexeringsalternativet.  
 
-### <a name="priority"></a>prioritet
+#### <a name="priority"></a>prioritet
 
 Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **Hög**.
 
 **Prioritet**-parametern stöds endast för betalda konton.
 
-### <a name="streamingpreset"></a>streamingPreset
+#### <a name="streamingpreset"></a>streamingPreset
 
 När videon har laddats upp kan Video Indexer koda videon. Sedan fortsätter den med indexering och analys av videon. När Video Indexer är klar med analysen får du ett meddelande med video-ID:t.  
 
@@ -111,17 +142,17 @@ För att kunna köra indexerings- och kodningsjobben kräver [Azure Media Servic
 
 Om du bara vill indexera videon men inte koda den ställer du in `streamingPreset` på `NoStreaming`.
 
-### <a name="videourl"></a>videoUrl
+#### <a name="videourl"></a>videoUrl
 
 En URL till video-/ljudfilen som ska indexeras. URL:en måste peka på en mediefil (HTML-sidor stöds inte). Filen kan skyddas av en åtkomsttoken som tillhandahålls som en del av URI:n och slutpunkten som hanterar filen måste skyddas med TLS 1.2 eller senare. URL:en måste vara kodad. 
 
 Om `videoUrl` inte anges förväntar sig Video Indexer att du skickar filen som multipart/form-brödtextinnehåll.
 
-## <a name="code-sample"></a>Kodexempel
+### <a name="code-sample"></a>Kodexempel
 
 Följande C#-kodavsnitt visar hur du använder alla Video Indexer-API:er tillsammans.
 
-### <a name="instructions-for-running-this-code-sample"></a>Instruktioner för att köra det här kod exemplet
+#### <a name="instructions-for-running-this-code-sample"></a>Instruktioner för att köra det här kod exemplet
 
 När du har kopierat koden till din utvecklings plattform måste du ange två parametrar: API Management autentiseringsnyckel och video-URL.
 
@@ -308,7 +339,8 @@ public class AccountContractSlim
     public string AccessToken { get; set; }
 }
 ```
-## <a name="common-errors"></a>Vanliga fel
+
+### <a name="common-errors"></a>Vanliga fel
 
 De statuskoder som visas i följande tabell kan returneras av uppladdingsåtgärden.
 

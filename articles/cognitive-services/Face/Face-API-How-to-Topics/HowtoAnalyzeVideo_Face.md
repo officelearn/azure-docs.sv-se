@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: Videoanalys i realtid – Ansikts-API'
+title: 'Exempel: real tids video analys – ansikte'
 titleSuffix: Azure Cognitive Services
-description: Använd Ansikts-API för att utföra analyser nästan i realtid på bildrutor som kommer från direktströmmad video.
+description: Använd ansikts tjänsten för att utföra analys i nära real tid på ramar som tas från en video ström i real tid.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114345"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169889"
 ---
-# <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Analyser av videor i realtid
+# <a name="example-how-to-analyze-videos-in-real-time"></a>Exempel: Så analyserar du videor i realtid
 
-Den här guiden visar hur du utför analyser nära realtid på bildrutor som kommer från direktuppspelad video. De grundläggande komponenterna i ett sådant system är:
+Den här guiden visar hur du utför analyser nästan i realtid på bildrutor som kommer från direktströmmad video. De grundläggande komponenterna i ett sådant system är:
 
 - Hämta bilder från en videokälla
 - Välja vilka bildrutor som ska analyseras
@@ -142,7 +142,7 @@ För att få igång din app så snabbt som möjligt använder du en flexibel imp
 
 Biblioteket innehåller klassen FrameGrabber som implementerar det ovan beskrivna producent-konsument-systemet för att bearbeta bildrutor från en webbkamera. Användaren kan ange den exakta formen av API-anropet, och klassen använder händelser för att informera koden om när en ny bildruta tas eller ett nytt analysresultat är tillgängligt.
 
-För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den hämtar bildrutor från standardwebbkameran och skickar dem till Ansikts-API för ansiktsigenkänning.
+För att beskriva några av möjligheterna finns det två exempelappar som använder biblioteket. Den första är en enkel konsolapp, och en förenklad version av den återges nedan. Den hämtar ramar från standard webb kameran och skickar dem till ansikts tjänsten för ansikts igenkänning.
 
 ```csharp
 using System;
@@ -159,7 +159,7 @@ namespace VideoFrameConsoleApplication
             // Create grabber, with analysis type Face[]. 
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
-            // Create Face API Client. Insert your Face API key here.
+            // Create Face Client. Insert your Face API key here.
             private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials("<subscription key>"),
             new System.Net.Http.DelegatingHandler[] { });
@@ -203,13 +203,12 @@ Kom igång med det här exemplet genom att följa dessa steg:
 
 1. Hämta API-nycklar för API:er för visuellt innehåll från [Prenumerationer](https://azure.microsoft.com/try/cognitive-services/). För bildruteanalys är de tillämpliga API:erna:
     - [API för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Känslo-API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
     - [Ansikts-API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
 2. Klona GitHub-lagringsplatsen [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/)
 
 3. Öppna exemplet i Visual Studio 2015 och skapa och kör exempelprogrammen:
-    - För BasicConsoleSample är Ansikts-API-nyckeln hårdkodad direkt i  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
+    - För BasicConsoleSample är ansikts nyckeln hårdkodad direkt i [BasicConsoleSample/program. cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs).
     - För LiveCameraSample bör du ange nycklarna i appens fönster Inställningar. De bevaras mellan sessioner som användardata.
         
 
@@ -222,5 +221,5 @@ I den här guiden har du lärt dig hur du utför analys av livevideoströmmar i 
 Ge oss gärna feedback och förslag på [GitHub-lagringsplatsen](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) eller, om det gäller mer allmängiltig API-feedback, på vår  [UserVoice-webbplats](https://cognitive.uservoice.com/).
 
 ## <a name="related-topics"></a>Relaterade ämnen
-- [Identifiera ansikten i en bild](HowtoIdentifyFacesinImage.md)
+- [Så här identifierar du ansikten i en bild](HowtoIdentifyFacesinImage.md)
 - [Känna igen ansikten i en bild](HowtoDetectFacesinImage.md)

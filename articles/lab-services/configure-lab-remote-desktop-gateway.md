@@ -1,5 +1,5 @@
 ---
-title: Konfigurera ett labb att använda Fjärrskrivbordsgateway i Azure DevTest Labs | Microsoft Docs
+title: Konfigurera ett labb att använda Fjärrskrivbordsgateway i Azure DevTest Labs
 description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs med en Fjärrskrivbordsgateway för att säkerställa säker åtkomst till de virtuella labb datorerna utan att behöva exponera RDP-porten.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 0f879a6389c7a77708e8041dd8b82dc3785679fa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88daecdf4490ffd4eef45e6cd664a16f86bad113
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162629"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170288"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Konfigurera ditt labb i Azure DevTest Labs att använda en Fjärrskrivbordsgateway
 I Azure DevTest Labs kan du konfigurera en Fjärrskrivbordsgateway för ditt labb för att säkerställa säker åtkomst till de virtuella datorerna i labbet (VM) utan att behöva exponera RDP-porten. Labbet är en central plats där dina labb användare kan visa och ansluta till alla virtuella datorer som de har åtkomst till. Knappen **Anslut** på sidan **virtuell dator** skapar en datorspecifik RDP-fil som du kan öppna för att ansluta till datorn. Du kan anpassa och säkra RDP-anslutningen ytterligare genom att ansluta ditt labb till en Fjärrskrivbordsgateway. 
@@ -39,7 +39,7 @@ Den här metoden är säkrare eftersom labb användaren autentiserar direkt till
 1. Du öppnar RDP-filen med det önskade RDP-anslutnings programmet. Kom ihåg att inte alla RDP-anslutningar stöder token-autentisering. Autentiseringstoken har ett förfallo datum som anges av Function-appen. Upprätta anslutningen till den virtuella labb datorn innan token upphör att gälla.
 1. När den fjärranslutna datorn för fjärrskrivbordsgateway autentiserar token i RDP-filen vidarebefordras anslutningen till din labb dator.
 
-### <a name="solution-requirements"></a>Lösnings krav
+### <a name="solution-requirements"></a>Lösningskrav
 För att arbeta med DevTest Labs token-autentisering finns det några konfigurations krav för gateway-datorerna, Domain Name Services (DNS) och functions.
 
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Krav för datorer med Fjärrskrivbordsgateway
@@ -74,7 +74,7 @@ az resource show --name {lab-name} --resource-type 'Microsoft.DevTestLab/labs' -
 
 Konfigurera labbet att använda token-autentisering med hjälp av följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 1. I listan med labb väljer du ditt **labb**.
 1. På labb sidan väljer du **konfiguration och principer**.
@@ -110,7 +110,7 @@ Här är ett exempel på en NSG som endast tillåter trafik som först går igen
 Följ dessa steg om du vill konfigurera en exempel lösning för Server gruppen för fjärrskrivbordsgateway.
 
 1. Skapa ett signerings certifikat.  Kör [create-SigningCertificate. ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1). Spara tumavtrycket, lösen ordet och base64-kodningen för det skapade certifikatet.
-2. Hämta ett SSL-certifikat. FQDN som är associerat med SSL-certifikatet måste vara för den domän som du styr. Spara tumavtryck, lösen ord och base64-kodning för det här certifikatet. Använd följande kommandon för att hämta tumavtryck med PowerShell.
+2. Få ett SSL-certifikat. FQDN som är associerat med SSL-certifikatet måste vara för den domän som du styr. Spara tumavtryck, lösen ord och base64-kodning för det här certifikatet. Använd följande kommandon för att hämta tumavtryck med PowerShell.
 
     ```powershell
     $cer = New-Object System.Security.Cryptography.X509Certificates.X509Certificate;
@@ -139,7 +139,7 @@ Följ dessa steg om du vill konfigurera en exempel lösning för Server gruppen 
     - signCertificatePassword – lösen ordet för signerings certifikat för gateway-datorn.
     - signCertificateThumbprint – certifikatets tumavtryck för identifiering i det lokala certifikat arkivet för signerings certifikatet.
     - _artifactsLocation – URI-plats där alla stöd resurser kan hittas. Värdet måste vara ett fullständigt kvalificerat UIR, inte en relativ sökväg.
-    - _artifactsLocationSasToken – token för signatur för delad åtkomst (SAS) som används för att få åtkomst till stöd resurser, om platsen är ett Azure Storage-konto.
+    - _artifactsLocationSasToken – den SAS-token (signatur för delad åtkomst) som används för att komma åt stöd resurser, om platsen är ett Azure Storage-konto.
 
     Mallen kan distribueras med hjälp av Azure CLI med hjälp av följande kommando:
 

@@ -1,7 +1,7 @@
 ---
-title: 'Exempel: Lägg till ansikten i en PersonGroup-Ansikts-API'
+title: 'Exempel: Lägg till ansikten i en PersonGroup'
 titleSuffix: Azure Cognitive Services
-description: Den här guiden visar hur du lägger till ett stort antal personer och ansikten i ett PersonGroup-objekt med Azure Cognitive Services Ansikts-API.
+description: Den här guiden visar hur du lägger till ett stort antal personer och ansikten i ett PersonGroup-objekt med Azure Cognitive Services Face-tjänsten.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 891614caddf729acb58bc363df977031ad62fb07
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156717"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169836"
 ---
 # <a name="add-faces-to-a-persongroup"></a>Lägga till ansikten i en PersonGroup
 
-Den här guiden visar hur du lägger till ett stort antal personer och ansikten i ett PersonGroup-objekt. Samma strategi gäller även för LargePersonGroup-, FaceList-och LargeFaceList-objekt. Det här exemplet är skrivet C# med Azure Cognitive Services ansikts-API .net-klient biblioteket.
+Den här guiden visar hur du lägger till ett stort antal personer och ansikten i ett PersonGroup-objekt. Samma strategi gäller även för LargePersonGroup-, FaceList-och LargeFaceList-objekt. Det här exemplet är skrivet C# med Azure Cognitive Services Face .net-klient biblioteket.
 
 ## <a name="step-1-initialization"></a>Steg 1: Initiering
 

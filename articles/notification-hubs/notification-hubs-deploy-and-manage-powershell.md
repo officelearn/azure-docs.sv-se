@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5af920249000cabbc63f0c9ab453738450875172
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 863fdb445cce41f0fe4cbee63a3d6198c0a79339
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213412"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264652"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Distribuera och hantera Notification Hub med PowerShell
 
@@ -36,10 +36,10 @@ Om du också behöver skapa ett nytt Service Bus-namnområde för dina Notificat
 
 Hantering av Notification Hub stöds inte direkt av de cmdletar som ingår i Azure PowerShell. Den bästa metoden från PowerShell är att referera till sammansättningen Microsoft. Azure. NotificationHubs. dll. Sammansättningen distribueras med [Microsoft Azure Notification Hubs NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Azure är en prenumeration-baserad plattform. Läs mer om hur du skaffar en prenumeration, [Köp alternativ], [Medlems erbjudanden], eller [Kostnads fri utvärdering].
-- En dator med Azure PowerShell. Anvisningar finns i [Installera och konfigurera Azure PowerShell].
+- En dator med Azure PowerShell. Anvisningar finns i [Azure PowerShell].
 - En allmän förståelse för PowerShell-skript, NuGet-paket och .NET Framework.
 
 ## <a name="including-a-reference-to-the-net-assembly-for-service-bus"></a>Inklusive en referens till .NET-sammansättningen för Service Bus
@@ -49,8 +49,8 @@ Hantering av Azure-Notification Hubs ingår ännu inte i PowerShell-cmdletar i A
 Kontrol lera först att skriptet kan hitta **Microsoft. Azure. NotificationHubs. dll** -sammansättningen som installeras som ett NuGet-paket i ett Visual Studio-projekt. Skriptet utför följande steg för att vara flexibelt:
 
 1. Anger sökvägen då den anropades.
-2. Bläddrar i sökvägen tills den hittar en mapp med `packages`namnet. Den här mappen skapas när du installerar NuGet-paket för Visual Studio-projekt.
-3. Söker rekursivt i `packages` mappen efter en sammansättning med namnet `Microsoft.Azure.NotificationHubs.dll`.
+2. Bläddrar i sökvägen tills den hittar en mapp med namnet `packages`. Den här mappen skapas när du installerar NuGet-paket för Visual Studio-projekt.
+3. Söker rekursivt i `packages`-mappen efter en sammansättning med namnet `Microsoft.Azure.NotificationHubs.dll`.
 4. Refererar till sammansättningen så att typerna kan användas senare.
 
 Så här implementerar du de här stegen i ett PowerShell-skript:
@@ -74,11 +74,11 @@ catch [System.Exception]
 }
 ```
 
-## <a name="create-the-namespacemanager-class"></a>`NamespaceManager` Skapa klassen
+## <a name="create-the-namespacemanager-class"></a>Skapa `NamespaceManager`-klassen
 
 Om du vill etablera Notification Hubs skapar du en instans av klassen [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager?view=azure-dotnet) från SDK: n.
 
-Du kan använda cmdleten [Get-AzureSBAuthorizationRule] som ingår i Azure PowerShell för att hämta en auktoriseringsregel som används för att ange en anslutnings sträng. En referens till `NamespaceManager` instansen lagras `$NamespaceManager` i variabeln. `$NamespaceManager`används för att etablera en Notification Hub.
+Du kan använda cmdleten [Get-AzureSBAuthorizationRule] som ingår i Azure PowerShell för att hämta en auktoriseringsregel som används för att ange en anslutnings sträng. En referens till `NamespaceManager`-instansen lagras i `$NamespaceManager`-variabeln. `$NamespaceManager` används för att etablera en Notification Hub.
 
 ``` powershell
 $sbr = Get-AzureSBAuthorizationRule -Namespace $Namespace
@@ -96,13 +96,13 @@ I den här delen av skriptet ställer du in fyra lokala variabler.
 
 1. `$Namespace`: Ange namnet på det namn område där du vill skapa en Notification Hub.
 2. `$Path`: Ange den här sökvägen till namnet på den nya Notification Hub.  Till exempel "MyHub".
-3. `$WnsPackageSid`: Ange detta till paket-SID för Windows-appen från [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
+3. `$WnsPackageSid`: ange detta till paket-SID för Windows-appen från [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
 4. `$WnsSecretkey`: Ange den hemliga nyckeln för Windows-appen från [Windows Dev Center](https://developer.microsoft.com/en-us/windows).
 
 Dessa variabler används för att ansluta till ditt namn område och skapa ett nytt meddelande nav som kon figurer ATS för att hantera Windows Notification Services-meddelanden (WNS) med WNS-autentiseringsuppgifter för en Windows-app. Information om hur du hämtar paket-SID och hemlig nyckel finns i själv studie kursen [komma igång med Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md) .
 
-- Skript utdraget använder `NamespaceManager` objektet för att kontrol lera om Notification Hub identifieras av `$Path` finns.
-- Om den inte finns skapar `NotificationHubDescription` skriptet med WNS-autentiseringsuppgifter och skickar det `NamespaceManager` till klass `CreateNotificationHub` metoden.
+- Skript kodfragmentet använder `NamespaceManager`-objektet för att kontrol lera om Notification Hub som identifieras av `$Path` finns.
+- Om den inte finns skapar skriptet `NotificationHubDescription` med WNS-autentiseringsuppgifter och skickar det till `CreateNotificationHub` metoden `NamespaceManager` Class.
 
 ``` powershell
 $Namespace = "<Enter your namespace>"
@@ -159,7 +159,7 @@ Vissa färdiga skript är också tillgängliga för nedladdning:
 [Köp alternativ]: https://azure.microsoft.com/pricing/purchase-options/
 [Medlems erbjudanden]: https://azure.microsoft.com/pricing/member-offers/
 [Kostnads fri utvärdering]: https://azure.microsoft.com/pricing/free-trial/
-[Installera och konfigurera Azure PowerShell]: /powershell/azureps-cmdlets-docs
+Installera och konfigurera [Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [.NET API för Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace
 [New-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/new-azuresbnamespace

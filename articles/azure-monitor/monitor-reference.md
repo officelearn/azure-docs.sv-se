@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/09/2020
-ms.openlocfilehash: 21ad0c38b8901c1e33e05ab162552cb074a392a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/17/2020
+ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969600"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263429"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -88,7 +88,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Kostnadshantering | Inga | Inga | Inga |  |
 |Data Box | Inga | Inga | Inga |  |
 |Data Catalog Gen2 | Inga | Inga | Inga |  |
-|Datautforskaren | Ja | Ja | Inga |  |
+|Data Explorer | Ja | Ja | Inga |  |
 |Data Factory | Ja | Ja | Inga |  |
 |Data Factory v2 | Inga | Ja | Inga |  |
 |Data Share | Inga | Inga | Inga |  |
@@ -109,7 +109,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |ExpressRoute | Ja | Ja | Inga |  |
 |Brandvägg | Ja | Ja | Inga |  |
 |Front Door | Ja | Ja | Inga |  |
-|Funktioner | Ja | Ja | Inga |  |
+|Functions | Ja | Ja | Inga |  |
 |HDInsight | Inga | Ja | Inga |  |
 |HPC Cache | Inga | Inga | Inga |  |
 |Informationsskydd | Inga | Ja | Inga |  |
@@ -121,7 +121,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Load Balancer | Ja | Ja | Inga |  |
 |Logikappar | Ja | Ja | Inga |  |
 |Machine Learning Service | Inga | Inga | Inga |  |
-|Managed Applications  | Inga | Inga | Inga |  |
+|Hanterade program  | Inga | Inga | Inga |  |
 |Kartor  | Inga | Inga | Inga |  |
 |Media Services | Ja | Ja | Inga |  |
 |Microsoft Flow | Inga | Inga | Inga |  |
@@ -130,7 +130,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Microsoft Social Engagement | Inga | Inga | Inga |  |
 |Microsoft Stream | Ja | Ja | Inga |  |
 |Migrera | Inga | Inga | Inga |  |
-|Multifaktorautentisering | Inga | Ja | Inga |  |
+|Multi-Factor Authentication | Inga | Ja | Inga |  |
 |Network Watcher | Ja | Ja | Inga |  |
 |Notification Hubs | Ja | Inga | Inga |  |
 |Open Datasets | Inga | Inga | Inga |  |
@@ -181,7 +181,7 @@ Tjänsterna och lösningarna i följande tabell lagrar sina data på en Log Anal
 | [Azure Sentinel](/azure/sentinel/) | Ansluter till olika källor, inklusive Office 365 och Amazon Web Services Cloud trailer. Se [Anslut data källor](/azure/sentinel/connect-data-sources). |
 | [Key Vault-analys](insights/azure-key-vault.md) | Analysera Azure Key Vault AuditEvent-loggar. |
 | [Microsoft Intune](https://docs.microsoft.com/intune/) | Skapa en diagnostisk inställning för att skicka loggar till Azure Monitor. Se [Skicka logg data till lagring, Event Hub eller Log Analytics i Intune (för hands version)](https://docs.microsoft.com/intune/fundamentals/review-logs-using-azure-monitor).  |
-| Nätverk  | [DNS-analys](insights/dns-analytics.md) -samlar in, analyserar och korrelerar Windows DNS analys-och gransknings loggar och andra relaterade data från dina DNS-servrar.<br>[Övervakare av nätverksprestanda](insights/network-performance-monitor.md) -övervaka nätverks anslutningar och prestanda till tjänst-och program slut punkter.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analysera loggar och mått från Azure Application Gateway.<br>[Trafikanalys](/azure/network-watcher/traffic-analytics) -analyserar Network Watcher nätverks säkerhets grupps flödes loggar (NSG) för att ge insikter i trafikflödet i ditt Azure-moln. |
+| Nätverk  | [Övervakare av nätverksprestanda](insights/network-performance-monitor.md) -övervaka nätverks anslutningar och prestanda till tjänst-och program slut punkter.<br>[Azure Application Gateway](insights/azure-networking-analytics.md#azure-application-gateway-analytics-solution-in-azure-monitor) – analysera loggar och mått från Azure Application Gateway.<br>[Trafikanalys](/azure/network-watcher/traffic-analytics) -analyserar Network Watcher nätverks säkerhets grupps flödes loggar (NSG) för att ge insikter i trafikflödet i ditt Azure-moln. |
 | [Office 365](insights/solution-office-365.md) | Övervaka din Office 365-miljö. Uppdaterad version med förbättrad onboarding tillgänglig via Azure Sentinel. |
 | [SQL-analys](insights/azure-sql.md) | Övervaka prestanda för Azure SQL-databaser, elastiska pooler och hanterade instanser i stor skala och över flera prenumerationer. |
 | [Surface Hub](insights/surface-hubs.md) | Spåra hälsan och användningen av Surface Hub enheter. |
@@ -200,6 +200,7 @@ Andra lösningar är tillgängliga för övervakning av olika program och tjäns
 | [Active Directory utvärdering](insights/ad-assessment.md) | Utvärdera riskerna och hälso tillståndet i dina Active Directorys miljöer. |
 | [Active Directory replikeringsstatus](insights/ad-replication-status.md) | Övervakar regelbundet din Active Directorys miljö för eventuella replikeringsfel. |
 | [Aktivitets logg analys](platform/activity-log-view.md#activity-logs-analytics-monitoring-solution) | Analysera aktivitets logg poster med fördefinierade logg frågor och vyer. |
+| [DNS-analys (för hands version)](insights/dns-analytics.md) | Samlar in, analyserar och korrelerar Windows DNS analys-och gransknings loggar och andra relaterade data från dina DNS-servrar. |
 | [Cloud Foundry](../cloudfoundry/cloudfoundry-oms-nozzle.md) | Samla in, Visa och analysera Cloud Foundry systemets hälso tillstånds-och prestanda mått i flera distributioner. |
 | [Containrar](insights/containers.md) | Visa och hantera Docker-och Windows container-värdar. |
 | [Bedömningar på begäran](https://docs.microsoft.com/services-hub/health/getting_started_with_on_demand_assessments) | Utvärdera och optimera tillgänglighet, säkerhet och prestanda för dina lokala, hybrid-och molnbaserade Microsoft Technology-miljöer. |

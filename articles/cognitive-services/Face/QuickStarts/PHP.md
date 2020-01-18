@@ -1,7 +1,7 @@
 ---
 title: 'Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten identifierar du ansikten med hjälp av Ansikts-API:et med PHP.
+description: I den här snabb starten identifierar du ansikten från en bild med hjälp av ansikts REST API med PHP.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: fb9539c8aa0477cbfbf11ce08635e4e9ccebb2ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977938"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169745"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Snabbstart: Identifiera ansikten i en bild med hjälp av REST API och PHP
 
@@ -23,7 +23,7 @@ I den här snabbstarten använder du Azure ansikts-REST API med PHP för att ide
 
 ## <a name="prerequisites"></a>Krav
 
-- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel.
 - En kod redigerare som [Visual Studio Code](https://code.visualstudio.com/download).
 - PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) -paketet.
 - En PHP-aktiverad webbläsare. Om du inte har konfigurerat detta kan du göra det genom att installera och konfigurera [XAMPP](https://www.apachefriends.org/) på datorn.
@@ -288,7 +288,7 @@ Du måste uppdatera `subscriptionKey` fältet med värdet för din prenumeration
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska de ansikts-API:er som används för att identifiera ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
+Utforska Ansikts-API som används för att identifiera mänskliga ansikten i en bild, avgränsa ansikten med rektanglar och returnera attribut som ålder och kön.
 
 > [!div class="nextstepaction"]
 > [Ansikts-API:er](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

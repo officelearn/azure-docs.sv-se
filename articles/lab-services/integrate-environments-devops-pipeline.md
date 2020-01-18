@@ -1,5 +1,5 @@
 ---
-title: Integrera miljöer i Azure pipelines i Azure DevTest Labs | Microsoft Docs
+title: Integrera miljöer i Azure-pipeliner i Azure DevTest Labs
 description: Lär dig hur du integrerar Azure DevTest Labs miljöer i din Azure DevOps-pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD).
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: c665c65dcda2266a7acd7bc78726179d559f4d64
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3d7e481879326ac30093bd116222bddc28640398
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163927"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169413"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrera miljöer i Azure DevOps CI/CD-pipeliner
 Du kan använda tillägget Azure DevTest Labs uppgifter som är installerat i Azure DevOps Services (tidigare kallat Visual Studio Team Services) för att enkelt integrera en pipeline för kontinuerlig integrering (CI)/kontinuerlig leverans (CD) build-och-release med Azure DevTest Labs. De här tilläggen gör det enklare att snabbt distribuera en [miljö](devtest-lab-test-env.md) för en speciell test aktivitet och sedan ta bort den när testet är klart. 
@@ -42,12 +42,12 @@ I det här avsnittet beskrivs hur du skapar och konfigurerar ett labb där Azure
 Skapa versions definitionen genom att göra följande:
 
 1.  På fliken **versioner** i **build & Release Hub**väljer du knappen **plus tecken (+)** .
-2.  I fönstret **skapa versions definition** väljer du den **tomma** mallen och väljer sedan **Nästa**.
+2.  I den **skapa versionsdefinition** väljer den **tom** mallen och välj sedan **nästa**.
 3.  Välj **Välj senare**och välj sedan **skapa** för att skapa en ny versions definition med en standard miljö och inga länkade artefakter.
 4.  Öppna snabb menyn genom att välja **ellipsen (...)** bredvid miljö namnet i den nya versions definitionen och välj sedan **Konfigurera variabler**.
 5.  I fönstret **Konfigurera-miljö** anger du följande värden för de variabler som du använder i versions definitions uppgifterna:
 1.  För **administratorLogin**anger du inloggnings namnet för SQL-administratören.
-2.  För **administratorLoginPassword**anger du det lösen ord som ska användas av SQL-administratörens inloggning. Använd "hänglås"-ikonen för att dölja och skydda lösen ordet.
+2.  För **administratorLoginPassword**anger du det lösen ord som ska användas av SQL-administratörens inloggning. Använd hänglåsikonen ”” för att dölja och skydda lösenordet.
 3.  För **databasename**anger du SQL Database namn.
 4.  Dessa variabler är speciella för exempel miljöerna, olika miljöer kan ha olika variabler.
 
@@ -55,8 +55,8 @@ Skapa versions definitionen genom att göra följande:
 Nästa steg i distributionen är att skapa miljön som ska användas i utvecklings-eller testnings syfte.
 
 1. I versions definitionen väljer du **Lägg till aktiviteter**.
-2. Lägg till en Azure DevTest Labs Skapa miljö aktivitet på fliken **aktiviteter** . Konfigurera uppgiften enligt följande:
-    1. För **Azure RM-prenumeration**väljer du en anslutning i listan **tillgängliga Azure Service-anslutningar** eller skapar en mer begränsad behörighets anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints).
+2. Lägg till en Azure DevTest Labs Skapa miljö aktivitet på fliken **aktiviteter** . Konfigurera aktiviteten enligt följande:
+    1. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](/azure/devops/pipelines/library/service-endpoints).
 2. För **labb namn**väljer du namnet på den instans som du skapade tidigare *.
 3. För **namn på databas**väljer du den lagrings plats där Resource Manager-mallen (201) har flyttats till *.
 4. För **mallnamn**väljer du namnet på den miljö som du sparade i din käll kods lagrings plats *. 
@@ -68,10 +68,10 @@ Nästa steg i distributionen är att skapa miljön som ska användas i utvecklin
 ## <a name="delete-the-environment"></a>Ta bort miljön
 Det sista steget är att ta bort den miljö som du har distribuerat i Azure DevTest Labs-instansen. Du skulle vanligt vis ta bort miljön när du har kört dev-aktiviteterna eller kört de tester som du behöver på de distribuerade resurserna.
 
-I versions definitionen väljer du **Lägg till aktiviteter**och lägger sedan till aktiviteten **Azure DevTest Labs ta bort miljö** på fliken **distribuera** . Konfigurera den på följande sätt:
+I versions definitionen väljer du **Lägg till aktiviteter**och lägger sedan till aktiviteten **Azure DevTest Labs ta bort miljö** på fliken **distribuera** . Konfigurera enligt följande:
 
 1. Information om hur du tar bort den virtuella datorn finns [Azure DevTest Labs uppgifter](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. För **Azure RM-prenumeration**väljer du en anslutning i listan **tillgängliga Azure Service-anslutningar** eller skapar en mer begränsad behörighets anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints).
+    1. För **Azure RM-prenumeration**, Välj ett projekt i den **tillgängliga Azure-Tjänstanslutningar** , eller skapa en mer begränsade behörigheter för anslutning till din Azure-prenumeration. Mer information finns i [Azure Resource Manager-tjänstslutpunkt](/azure/devops/pipelines/library/service-endpoints).
     2. För **labb namn**väljer du det labb där miljön finns.
     3. För **miljö namn**anger du namnet på den miljö som ska tas bort.
 2. Ange ett namn för versions definitionen och spara det.

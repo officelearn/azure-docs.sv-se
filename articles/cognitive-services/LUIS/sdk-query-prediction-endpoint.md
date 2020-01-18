@@ -1,0 +1,191 @@
+---
+title: 'Snabb start C# : SDK-fråga förutsägelse slut punkt – Luis'
+titleSuffix: Azure Cognitive Services
+description: I den här snabb starten får du se hur C# du använder SDK för att skicka en användare uttryck till Azure Cognitive Services Luis-programmet och ta emot en förutsägelse.
+author: diberry
+manager: nitinme
+ms.service: cognitive-services
+services: cognitive-services
+ms.subservice: language-understanding
+ms.topic: quickstart
+ms.date: 12/09/2019
+ms.author: diberry
+ms.openlocfilehash: 37e7224776efa63b39a671a3b3a79ea6c204a9dc
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170542"
+---
+# <a name="quickstart-query-v3-prediction-endpoint-with-c-net-sdk"></a>Snabb start: fråga v3 förutsägelse slut C# punkt med .NET SDK
+
+Använd .NET SDK, som finns i [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/), till att skicka talindata för användaren till LUIS (Language Understanding) och ta emot en förutsägelse av användarens avsikt.
+
+Använd Language Understanding (LUIS) förutsägelse klient bibliotek för .NET för att:
+
+* Hämta förutsägelse per plats
+
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.LUIS.Runtime) | [förutsägelse körnings paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) | [ C# exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/tree/master/dotnet/LanguageUnderstanding/predict-with-sdk-3x)
+
+## <a name="prerequisites"></a>Krav
+
+* Language Understanding (LUIS) Portal konto – [skapa ett kostnads fritt](https://www.luis.ai)
+* Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
+
+Letar du efter mer dokumentation?
+
+ * [Referensdokumentation för SDK](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet)
+
+## <a name="setting-up"></a>Konfigurera
+
+### <a name="create-an-environment-variable"></a>Skapa en miljö variabel
+
+Med hjälp av din nyckel och namnet på din resurs, skapar du två miljövariabler för autentisering:
+
+* `LUIS_PREDICTION_KEY`-resurs nyckeln för att autentisera dina begär Anden.
+* `LUIS_ENDPOINT_NAME` – resurs namnet som är associerat med din nyckel.
+
+Följ anvisningarna för ditt operativ system.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx LUIS_PREDICTION_KEY <replace-with-your-resource-key>
+setx LUIS_ENDPOINT_NAME <replace-with-your-resource-name>
+```
+
+Starta om konsol fönstret när du har lagt till miljövariabeln.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+```
+
+När du har lagt till miljövariabeln så kör `source ~/.bashrc` från konsolfönstret så att ändringarna träder i kraft.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+Redigera `.bash_profile`och Lägg till miljövariabeln:
+
+```bash
+export LUIS_PREDICTION_KEY=<replace-with-your-resource-key>
+export LUIS_ENDPOINT_NAME=<replace-with-your-resource-name>
+```
+
+När du har lagt till miljövariabeln så kör `source .bash_profile` från konsolfönstret så att ändringarna träder i kraft.
+***
+
+### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
+
+Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE.
+
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot dotNet `new` för att skapa en ny konsol-app med namnet `language-understanding-quickstart`. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: `Program.cs`.
+
+    ```dotnetcli
+    dotnet new console -n language-understanding-quickstart
+    ```
+
+1. Ändra katalogen till mappen nyligen skapade appar.
+
+1. Du kan bygga programmet med:
+
+    ```dotnetcli
+    dotnet build
+    ```
+
+    Build-utdata får inte innehålla varningar eller fel.
+
+    ```console
+    ...
+    Build succeeded.
+     0 Warning(s)
+     0 Error(s)
+    ...
+    ```
+
+### <a name="install-the-sdk"></a>Installera SDK:n
+
+I program katalogen installerar du klient biblioteket Language Understanding (LUIS) förutsägelse körning för .NET med följande kommando:
+
+```dotnetcli
+dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime --version 3.0.0
+```
+
+Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
+
+## <a name="object-model"></a>Objekt modell
+
+Den Language Understanding (LUIS) förutsägelse runtime-klienten är ett [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) -objekt som autentiserar till Azure, som innehåller din resurs nyckel.
+
+När klienten har skapats använder du den här klienten för att få åtkomst till funktioner, inklusive:
+
+* Förutsägelse per [mellanlagring eller produkt plats](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getslotpredictionasync?view=azure-dotnet)
+* Förutsägelse efter [version](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.predictionoperationsextensions.getversionpredictionasync?view=azure-dotnet)
+
+
+## <a name="code-examples"></a>Kodexempel
+
+De här kodfragmenten visar hur du gör följande med klient biblioteket Language Understanding (LUIS) förutsägelse körning för .NET:
+
+* [Förutsägelse per plats](#get-prediction-from-runtime)
+
+## <a name="add-the-dependencies"></a>Lägg till beroenden
+
+Från projekt katalogen öppnar du *program.cs* -filen i önskat redigerings program eller IDE. Ersätt den befintliga `using`s koden med följande `using`-direktiv:
+
+[!code-csharp[Using statements](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_using)]
+
+## <a name="authenticate-the-client"></a>Autentisera klienten
+
+1. Skapa variabler för nyckeln, namn och app-ID:
+
+    En variabel som hanterar din förutsägelse nyckel från en miljö variabel med namnet `LUIS_PREDICTION_KEY`. Om du har skapat miljövariabeln när programmet har startats måste redigeraren, IDE eller gränssnittet som kör den stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare.
+
+    Skapa en variabel för att lagra resurs namnet `LUIS_ENDPOINT_NAME`.
+
+    Skapa en variabel för app-ID som en miljö variabel med namnet `LUIS_APP_ID`. Ange miljövariabeln till den offentliga IoT-appen:
+
+    **`df67dcdb-c37d-46af-88e1-8b97951ca1c2`**
+
+    [!code-csharp[Create variables](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_variables)]
+
+1. Skapa ett [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.apikeyserviceclientcredentials?view=azure-dotnet) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [LUISRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.luisruntimeclient?view=azure-dotnet) -objekt.
+
+    [!code-csharp[Create LUIS client object](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_create_client)]
+
+## <a name="get-prediction-from-runtime"></a>Hämta förutsägelse från körning
+
+Lägg till följande metod för att skapa begäran till förutsägelse körning.
+
+Användaren uttryck är en del av [PredictionRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime.models.predictionrequest?view=azure-dotnet) -objektet.
+
+Metoden **GetSlotPredictionAsync** kräver flera parametrar, till exempel App-ID, plats namn, objekt för förutsägelse begär Ande för att uppfylla begäran. De andra alternativen, till exempel verbose, Visa alla avsikter och loggen är valfria.
+
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_maintask)]
+
+## <a name="main-code-for-the-prediction"></a>Huvud kod för förutsägelsen
+
+Använd följande huvudsakliga metod för att koppla ihop variablerna och metoderna för att hämta förutsägelsen.
+
+[!code-csharp[Create method to get prediction runtime](~/cognitive-services-quickstart-code/dotnet/LanguageUnderstanding/predict-with-sdk-3x/Program.cs?name=snippet_main)]
+
+## <a name="run-the-application"></a>Köra programmet
+
+Kör programmet med kommandot `dotnet run` från program katalogen.
+
+```dotnetcli
+dotnet run
+```
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+När du är klar med dina förutsägelser kan du rensa upp arbetet från den här snabb starten genom att ta bort program.cs-filen och dess under kataloger.
+
+## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) och [referensdokumentationen för .NET](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet).
+
+> [!div class="nextstepaction"]
+> [Självstudie: Bygg LUIS-app för att fastställa användar avsikter](luis-quickstart-intents-only.md)

@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 01/16/2020
 ms.author: alzam
-ms.openlocfilehash: 9329ac33a771c829b8d67670bc07d9a353c58ff1
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb60e80189da89b3f634c14582be606307536e6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930582"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76166637"
 ---
 # <a name="enable-azure-multi-factor-authentication-mfa-for-vpn-users"></a>Aktivera Azure Multi-Factor Authentication (MFA) för VPN-användare
 
@@ -22,27 +22,7 @@ Om du vill att användarna ska uppmanas att ange en andra faktor innan de bevilj
 
 Förutsättningen för den här konfigurationen är en konfigurerad Azure AD-klient med hjälp av stegen i [Konfigurera en klient](openvpn-azure-ad-tenant.md).
 
-## <a name="mfa"></a>Öppna sidan MFA
-
-1. Logga in på Azure Portal.
-2. Navigera till **Azure Active Directory – > alla användare**.
-3. Välj **Multi-Factor Authentication** för att öppna sidan Multi-Factor Authentication.
-
-   ![Logga in](./media/openvpn-azure-ad-mfa/mfa1.jpg)
-
-## <a name="users"></a>Välj användare
-
-1. På sidan **Multi-Factor Authentication** väljer du de användare som du vill aktivera MFA för.
-2. Välj **Aktivera**.
-
-   ![Välj](./media/openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>Aktivera autentisering
-
-1. Navigera till **Azure Active Directory-> företags program – > alla program**.
-2. På sidan **företags program – alla program** väljer du **Azure VPN**.
-
-   ![Katalog-ID](./media/openvpn-azure-ad-mfa/user1.jpg)
+[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
 
 ## <a name="enablesign"></a>Konfigurera inloggnings inställningar
 

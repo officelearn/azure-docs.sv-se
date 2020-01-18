@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: fa2e7af51ff681da0bfdac928cc08bf75126a3b8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156428"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264007"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Strömma Azure våren Cloud App-loggar i real tid
 Azure våren Cloud gör det möjligt att logga strömning i Azure CLI för att få real tids program konsol loggar för fel sökning. Du kan också [Analysera loggar och mått med diagnostikinställningar](./diagnostic-services.md).
@@ -47,16 +47,29 @@ Då returneras loggar:
 ```
 
 ### <a name="tail-log-for-app-with-multiple-instances"></a>Pilslut för app med flera instanser
-Om det finns flera instanser för appen med namnet `auth-service`kan du Visa instans loggen med hjälp av alternativet `-i/--instance`. Du kan till exempel strömma loggen för en instans av en app genom att ange appens namn och instans namn:
+Om det finns flera instanser för appen med namnet `auth-service`kan du Visa instans loggen med hjälp av alternativet `-i/--instance`. 
+
+Först kan du hämta instans namnen för appen med följande kommando.
+
+```
+az spring-cloud app show -n auth-service --query properties.activeDeployment.properties.instances -o table
+```
+Med resultat:
+
+```
+Name                                         Status    DiscoveryStatus
+-------------------------------------------  --------  -----------------
+auth-service-default-12-75cc4577fc-pw7hb  Running   UP
+auth-service-default-12-75cc4577fc-8nt4m  Running   UP
+auth-service-default-12-75cc4577fc-n25mh  Running   UP
+``` 
+Sedan kan du strömma loggar för en app-instans med alternativet `-i/--instance` alternativ:
 
 ```
 az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
-Du kan också hämta app-instanserna från Azure Portal. 
-1. Navigera till din resurs grupp och välj din Azure våren Cloud-instans.
-1. Från översikt över Azure våren Cloud instance väljer du **appar** i det vänstra navigerings fönstret.
-1. Välj din app och klicka sedan på **App-instanser** i det vänstra navigerings fönstret. 
-1. App-instanser visas.
+
+Du kan också få information om App-instanser från Azure Portal.  När du har valt **appar** i det vänstra navigerings fönstret i moln tjänsten Azure våren väljer du **App-instanser**.
 
 ### <a name="continuously-stream-new-logs"></a>Strömma nya loggar kontinuerligt
 Som standard skriver `az spring-cloud ap log tail` bara ut befintliga loggar som strömmas till app-konsolen och sedan avslutas. Om du vill strömma nya loggar lägger du till-f (--följ):  

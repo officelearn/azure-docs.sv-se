@@ -7,19 +7,19 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/30/2019
-ms.openlocfilehash: f2cb1907557c2440a5a94c0f4799eac95a8cf507
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/16/2020
+ms.openlocfilehash: feeebc9446ccb1f651d8f3968feccdf9e577501e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827862"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169006"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>Uppdatera ett befintligt erbjudande i den kommersiella Marketplace
 
 Du kan visa dina befintliga erbjudanden på fliken **Översikt** i den [kommersiella Marketplace-portalen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) i Partner Center.
 
-Uppdatera ett befintligt erbjudande som för närvarande är aktivt på Marketplace: 
+Så här uppdaterar du ett befintligt erbjudande som för närvarande är aktivt på Marketplace:
 
 1. Välj namnet på erbjudandet som du vill uppdatera. Status för erbjudandet kan visas som **aktiv,** **publicering**pågår, **utkast**, **åtgärd krävs**eller **inte säljs på Marketplace** (om du tidigare har valt att sluta sälja erbjudandet). När du har valt så öppnas sidan **erbjudande översikt** för det erbjudandet.
 2. Välj **Uppdatera** från översikts kortet eller meny alternativet från det vänstra navigerings fältet för det fält som du vill uppdatera. Du kanske vill uppdatera **erbjudande konfiguration**, **Egenskaper**, **erbjudande lista**, för **hands version**, **teknisk konfiguration**, **planerings översikt**eller **test enhet**. 
@@ -29,14 +29,14 @@ Uppdatera ett befintligt erbjudande som för närvarande är aktivt på Marketpl
 
 När du är redo att publicera ditt uppdaterade erbjudande väljer du **publicera** från vilken sida som helst. Sidan **Granska och publicera** öppnas. På den här sidan kan du:
 
-
 - Se slut för ande status för avsnitten i erbjudandet som du uppdaterade: 
     - **Opublicerade ändringar**: avsnittet har uppdaterats och är klart. Alla begärda data har angetts och inga fel infördes i uppdateringarna.
     - **Ofullständig**: uppdateringar som görs i avsnittet introducerade fel som måste åtgärdas eller som kräver mer information.
 - Ge ytterligare information till certifierings test teamet för att säkerställa att testningen går smidigt.
-- Skicka det uppdaterade erbjudandet om publicering genom att välja **Skicka**.  Vi skickar e-post när en för hands version av det uppdaterade erbjudandet är tillgänglig för granskning och utloggning.
+- Skicka det uppdaterade erbjudandet om publicering genom att välja **Skicka**.  Vi skickar e-post till dig när en för hands version av det uppdaterade erbjudandet kan granskas och signeras.
 
-**Viktigt**: du måste granska din för hands version av erbjudandet, när den är tillgänglig och välja **Go-Live** för att publicera ditt uppdaterade erbjudande till din avsedda mål grupp (offentlig eller privat).
+> [!IMPORTANT]
+> Du måste granska din för hands version av erbjudandet när den är tillgänglig och välja **Go-Live** för att publicera ditt uppdaterade erbjudande till din avsedda mål grupp (offentlig eller privat).
 
 ## <a name="update-a-plan-within-an-existing-offer"></a>Uppdatera en plan i ett befintligt erbjudande
 
@@ -45,7 +45,67 @@ För att göra ändringar i en plan i ett befintligt erbjudande som du redan har
 - På sidan **erbjudande översikt** öppen för ditt befintliga erbjudande väljer du den plan som du vill ändra. Om planen inte är tillgänglig från listan **plan översikt** väljer du **Se alla planer**.
 - Du kan välja att välja plan **namn**, **pris modell**eller **tillgänglighet**. *För närvarande är planer bara tillgängliga på engelska (USA)* .
 - Välj **Spara** när du har gjort nödvändiga ändringar i prenumerationens namn, beskrivning, prissättning eller tillgänglighet för mål gruppen. 
-- Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och du får en slut för ande status för dina uppdateringar. 
+- Välj **publicera** när du är redo att publicera dina uppdateringar. Sidan **[Granska och publicera](#review-and-publish-an-updated-offer)** öppnas och du får en slut för ande status för dina uppdateringar.
+
+## <a name="compare-changes-to-marketplace-offers"></a>Jämför ändringar av Marketplace-erbjudanden
+
+Du kan granska de ändringar du gör i ett [publicerat](#compare-changes-to-published-offer) eller [förhands gransknings](#compare-changes-to-a-preview-offer) erbjudande innan du gör dem live med **Jämför**.
+
+>[!NOTE]
+> Ett publicerat erbjudande är ett erbjudande som har publicerats för förhands granskning eller Live-tillstånd.
+
+Se nedan för allmän gransknings information:
+
+- Du kan använda **Jämför** när som helst under redigerings processen.
+- Välj ett fält på sidan **Jämför** för att navigera till det värde som du vill ändra.
+- Om du är redo att publicera dina uppdateringar väljer du **Granska och publicera**.
+- Om du vill se värdena för alla fält, till och med fält som inte har uppdaterats, väljer du filtret **alla fält** . Du kan ändra filtren i dessa fält genom att välja **ändrade fält**och sedan välja ett av filtren nedan:
+    - Filter för **borttagna värden** visar fält som du har publicerat och som du nu tar bort helt.
+    - Filtret för **tillagda värden** visar fält som du inte ursprungligen publicerade och som nu läggs till.
+    - Filtret för **redigerade värden** visar fält som har publicerats men nu har uppdaterat innehållet.
+
+      >[!NOTE]
+      > Om något av dessa filter inte är tillgängligt indikerar det att du inte har gjort en uppdatering av den typen.
+
+- Om du bara vill se värden som inte har uppdaterats väljer du filtret **oförändrade fält** . Fältvärdena som visas för den publicerade och utkast versionen är samma.
+
+  ![Filter för att jämföra uppdateringar med ditt publicerade eller för hands versions erbjudande](./media/compare-changes-marketplace.png)
+
+>[!NOTE]
+> Följande sidor stöder för närvarande inte **jämförelse**:
+>- CSP åter försäljarens publik
+>- Teknisk konfiguration för test enhet
+>- Testa enhetens Marketplace-lista
+>- Co-försäljning
+>- Kompletterande filer
+
+### <a name="compare-changes-to-published-offer"></a>Jämför ändringar i publicerat erbjudande
+
+Följ instruktionerna nedan för att jämföra ändringarna från det publicerade erbjudandet:
+
+1. Välj **Jämför** i kommando fältet på sidan. På sidan **Jämför** får du sida-vid-sida-versioner av de sparade ändringarna i erbjudandet och det publicerade Marketplace-erbjudandet.
+2. När du har åtkomst till **Jämför** från en speciell sida i erbjudandet visar standardinställningen bara de ändringar som gjorts på den sidan.
+    - Om du vill jämföra ändringar på alla sidor ändrar du sidan från **Välj en sida som ska jämföras**.  
+    - Om du vill jämföra ändringar i erbjudandet på alla sidor väljer du **alla sidor**.
+
+Som standard **jämförs** de nya ändringarna i erbjudandet för Live Marketplace.
+
+Kom ihåg att publicera om erbjudandet igen när du har gjort uppdateringar för att ändringarna ska börja gälla.
+
+### <a name="compare-changes-to-a-preview-offer"></a>Jämför ändringar i ett för hands erbjudande
+
+Om du har ändringar i för hands versionen som inte är Live kan du jämföra nya ändringar med erbjudandet för hands versions Marketplace.
+
+Följ anvisningarna nedan om du vill jämföra nya ändringar med ditt för hands versions erbjudande i Marketplace:
+
+1. Välj **Jämför** i kommando fältet på sidan.
+2. Välj List rutan **med** och ändra den från **Live-erbjudandet** till för **hands versions erbjudandet**.
+3. Sidan **Jämför** innehåller versioner sida vid sida som visar ändringarna.
+
+>[!NOTE]
+>Om ditt erbjudande inte har blivit Live ännu men du har publicerat till för hands version har du inte möjlighet att jämföra med ett Live-erbjudande.
+
+Kom ihåg att publicera om erbjudandet igen när du har gjort uppdateringar för att ändringarna ska börja gälla.
 
 ## <a name="delete-a-draft-offer"></a>Ta bort ett utkast erbjudande
 
@@ -63,9 +123,9 @@ När du har bekräftat att du vill ta bort utkast planen kommer planen inte län
 
 Så här avbryter du ett erbjudande med status **publicering pågår** :
 
-- Välj namnet på erbjudandet för att öppna sidan **erbjudande översikt** . 
+- Välj namnet på erbjudandet för att öppna sidan **erbjudande översikt** .
 - Välj **Avbryt publicera** i det övre högra hörnet på sidan.
-- Bekräfta att du vill stoppa att erbjudandet publiceras. 
+- Bekräfta att du vill stoppa att erbjudandet publiceras.
 
 Om du vill publicera erbjudandet vid ett senare tillfälle måste du starta publicerings processen.
 
@@ -76,7 +136,7 @@ Om du vill publicera erbjudandet vid ett senare tillfälle måste du starta publ
 
 Om du vill sluta att sälja ett erbjudande när du redan har publicerat det väljer du **sluta sälja** från sidan **erbjudande översikt** . Om du vill sluta sälja en plan väljer du **sluta sälja** från sidan **plan översikt** . (Alternativet att sluta sälja en plan är bara tillgängligt om du har mer än en prenumeration på erbjudandet. Du kan välja att sluta sälja en plan utan att påverka andra planer i erbjudandet.)
 
-När du har bekräftat att du vill sluta sälja erbjudandet eller planen inom några timmar kommer det inte längre att synas på Marketplace och inga nya kunder kan ladda ned det. 
+När du har bekräftat att du vill sluta sälja erbjudandet eller planen inom några timmar kommer det inte längre att synas på Marketplace och inga nya kunder kan ladda ned det.
 
 Kunder som tidigare förvärvade erbjudandet eller abonnemanget kan fortfarande använda det. De kan ladda ned den igen, men kommer inte att få uppdateringar om du uppdaterar och publicerar om erbjudandet eller planen vid ett senare tillfälle. 
 

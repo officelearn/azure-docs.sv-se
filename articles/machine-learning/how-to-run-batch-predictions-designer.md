@@ -5,106 +5,142 @@ description: Lär dig hur du tränar en modell och konfigurerar en pipeline för
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: tutorial
-ms.reviewer: trbye
-ms.author: trbye
-author: trevorbye
-ms.date: 11/19/2019
+ms.topic: how-to
+ms.author: peterlu
+author: peterclu
+ms.date: 01/13/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 1e346d2542193ec1880ad0a56bd6afa1b0a46890
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 7a4801e46477165232e7f03184152b6c277c05b6
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122635"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167271"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Köra batch-förutsägelser med Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här instruktionen får du lära dig hur du använder designern för att träna en modell och konfigurera en pipeline för batch förutsägelse och webb tjänst. Med batch-förutsägelse kan du utföra kontinuerliga resultat på begäran av tränade modeller på stora data mängder, om du vill, konfigureras som en webb tjänst som kan utlösas från alla HTTP-bibliotek. 
+I den här artikeln får du lära dig hur du använder designern för att skapa en batch förutsägelse-pipeline. Med batch förutsägelse kan du kontinuerligt räkna ut stora data uppsättningar på begäran med hjälp av en webb tjänst som kan utlösas från alla HTTP-bibliotek.
 
-Information om hur du ställer in batch-Bedömningstjänster med SDK finns i den medföljande [instruktionen](how-to-use-parallel-run-step.md).
-
-I den här instruktionen får du lära dig följande uppgifter:
+I den här instruktionen får du lära dig att utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Skapa ett Basic ML-experiment i en pipeline
-> * Skapa en pipeline för batch-härledning för batch
-> * Hantera och köra pipelines manuellt eller från en REST-slutpunkt
+> * Skapa och publicera en pipeline för batch-härledning
+> * Använda en pipeline-slutpunkt
+> * Hantera slut punkts versioner
+
+Information om hur du konfigurerar batch-Bedömningstjänster med hjälp av SDK finns i den medföljande [instruktionen](how-to-run-batch-predictions.md).
 
 ## <a name="prerequisites"></a>Krav
 
-1. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree).
-
-1. Skapa en [arbets yta](tutorial-1st-experiment-sdk-setup.md).
-
-1. Logga in på [Azure Machine Learning Studio](https://ml.azure.com/).
-
-Den här instruktionen förutsätter grundläggande kunskaper om att skapa en enkel pipeline i designern. För en guidad introduktion till designern, slutför du [själv studie kursen](tutorial-designer-automobile-price-train-score.md). 
-
-## <a name="create-a-pipeline"></a>Skapa en pipeline
-
-Om du vill skapa en pipeline för batch-härledning måste du först köra ett Machine Learning-experiment. Om du vill skapa en, navigerar du till fliken **Designer** i arbets ytan och skapar en ny pipeline genom att välja alternativet **lättanvända fördefinierade moduler** .
-
-![Designer-start sida](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-1.png)
-
-Följande är en enkel maskin inlärnings modell i demonstrations syfte. Data är en registrerad data uppsättning som skapats från Azure Open data uppsättningar diabetes-data. Se [avsnittet instruktion för att](how-to-create-register-datasets.md#create-datasets-with-azure-open-datasets) registrera data uppsättningar från Azure Open DataSet. Informationen är uppdelad i utbildning och validerings uppsättningar och ett utökat besluts träd har tränats och betyget. Pipelinen måste köras minst en gång för att det ska gå att skapa en inferencing-pipeline. Klicka på knappen **Kör** för att köra pipelinen.
-
-![Skapa ett enkelt experiment](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-2.png)
+Den här instruktionen förutsätter att du redan har en utbildnings pipeline. För en guidad introduktion till designern, slutför du [en del av själv studie kursen för designern](tutorial-designer-automobile-price-train-score.md). 
 
 ## <a name="create-a-batch-inference-pipeline"></a>Skapa en pipeline för batch-härledning
 
-Nu när pipelinen har körts finns det ett nytt alternativ som är tillgängligt bredvid **Kör** och **publicera** som kallas **skapa härlednings pipeline**. Klicka på list rutan och välj **pipeline för batch-härledning**.
+Din utbildnings pipeline måste köras minst en gång för att kunna skapa en inferencing-pipeline.
 
-![Skapa en pipeline för batch-härledning](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-5.png)
+1. Gå till **Designer** -fliken i din arbets yta.
 
-Resultatet är en standard pipeline för batch-härledning. Detta inkluderar en nod för den ursprungliga installationen av installations programmet för pipeline, en nod för rå data för poängsättning och en nod för att skapa rå data mot den ursprungliga pipelinen.
+1. Välj den utbildnings pipeline som tågen modellen vill använda för att göra förutsägelser.
 
-![Standard pipeline för batch-härledning](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-6.png)
+1. **Kör** pipelinen.
 
-Du kan lägga till andra noder för att ändra beteendet för batch inferencing-processen. I det här exemplet lägger du till en nod för slumpmässigt sampling från indata innan du påsöker. Skapa en **partition och en exempel** nod och placera den mellan noderna rå data och poäng. Klicka sedan på noden **partition och exempel** för att få åtkomst till inställningarna och parametrarna.
+    ![Köra en pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
-![Ny nod](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-7.png)
+Nu när utbildnings pipelinen har körts kan du skapa en pipeline för batch-härledning.
 
-*Frekvensen för samplings* parametern styr hur stor andel av den ursprungliga data uppsättningen som ska ta ett slumpmässigt exempel från. Det här är en parameter som kan vara användbar för att justera ofta, så att du aktiverar den som en pipeline-parameter. Pipeline-parametrar kan ändras vid körning och kan anges i ett nytto Last objekt när pipelinen körs på en REST-slutpunkt. 
+1. Bredvid **Kör**väljer du den nya List rutan **skapa härlednings pipeline**.
 
-Om du vill aktivera det här fältet som en pipeline-parameter klickar du på ellipsen ovanför fältet och klickar sedan på **Lägg till i pipeline-parameter**. 
+1. Välj **pipeline för batch-härledning**.
 
-![Exempel inställningar](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-8.png)
+    ![Skapa en pipeline för batch-härledning](./media/how-to-run-batch-predictions-designer/create-batch-inference.png)
+    
+Resultatet är en standard pipeline för batch-härledning. 
 
-Ange sedan parameterns namn och standardvärde. Namnet används för att identifiera parametern och anger den i ett REST-anrop.
+### <a name="add-a-pipeline-parameter"></a>Lägg till en pipeline-parameter
 
-![Pipeline-parameter](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-9.png)
+Om du vill skapa förutsägelser för nya data kan du antingen manuellt ansluta en annan data uppsättning i pipeline-utkastet eller skapa en parameter för din data uppsättning. Med parametrar kan du ändra beteendet för batch inferencing-processen vid körning.
 
-## <a name="deploy-batch-inferencing-pipeline"></a>Distribuera batch inferencing pipeline
+I det här avsnittet skapar du en data mängds parameter för att ange en annan data uppsättning att göra förutsägelser på.
 
-Nu är du redo att distribuera pipelinen. Klicka på knappen **distribuera** , så öppnas gränssnittet för att skapa en slut punkt. Klicka på list rutan och välj **ny PipelineEndpoint**.
+1. Välj data uppsättnings modulen.
 
-![Pipeline-distribution](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-10.png)
+1. Ett fönster visas till höger om arbets ytan. Längst ned i fönstret väljer du **Ange som pipeline-parameter**.
+   
+    Ange ett namn för parametern eller acceptera standardvärdet.
 
-Ge slut punkten ett namn och en valfri beskrivning. Längst ned visas `sample-rate` parametern som du konfigurerade med standardvärdet 0,8. När du är klar klickar du på **distribuera**.
+## <a name="publish-your-batch-inferencing-pipeline"></a>Publicera din batch inferencing-pipeline
 
-![Installations slut punkt](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-11.png)
+Nu är du redo att distribuera inferencing-pipeline. Detta kommer att distribuera pipelinen och göra den tillgänglig för andra att använda.
 
-## <a name="manage-endpoints"></a>Hantera slutpunkter 
+1. Välj sedan knappen **Publicera**.
 
-När distributionen är klar går du till fliken **slut punkter** och klickar på namnet på den slut punkt som du nyss skapade.
+1. I dialog rutan som visas expanderar du List rutan för **PipelineEndpoint**och väljer **ny PipelineEndpoint**.
 
-![Slut punkts länk](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-12.png)
+1. Ange ett slut punkts namn och en valfri beskrivning.
 
-Den här skärmen visar alla publicerade pipeliner under den angivna slut punkten. Klicka på din inferencing-pipeline.
+    Längst ned i dialog rutan kan du se den parameter som du konfigurerade med ett standardvärde för det data uppsättnings-ID som användes under träningen.
 
-![Härlednings pipeline](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-13.png)
+1. Välj **Publicera**.
 
-På sidan pipeline-information visas detaljerad information om körnings historik och anslutnings sträng för din pipeline. Klicka på knappen **Kör** för att skapa en manuell körning av pipelinen.
+![Publicera en pipeline](./media/how-to-run-batch-predictions-designer/publish-inference-pipeline.png)
 
-![Pipeline-information](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-14.png)
 
-I installations programmet för kör kan du ange en beskrivning av körningen och ändra värdet för eventuella pipeline-parametrar. Den här gången kör du inferencing-pipeline igen med en samplings frekvens på 0,9. Klicka på **Kör** för att köra pipelinen.
+## <a name="consume-an-endpoint"></a>Använda en slut punkt
 
-![Pipeline-körning](./media/how-to-run-batch-predictions-designer/designer-batch-scoring-15.png)
+Nu har du en publicerad pipeline med en data uppsättnings parameter. Pipelinen använder den tränade modell som skapats i utbildnings pipelinen för att ge den data uppsättning som du anger som parameter.
 
-Fliken **förbrukare** innehåller REST-slutpunkten för att köra pipelinen igen. Om du vill göra ett rest-anrop behöver du ett OAuth 2,0-värde för Authentication-typ. I följande [själv studie kurs](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) finns mer information om hur du konfigurerar autentisering till din arbets yta och gör ett parameter rest-anrop.
+### <a name="submit-a-pipeline-run"></a>Skicka en pipeline-körning 
+
+I det här avsnittet ska du konfigurera en manuell pipeline-körning och ändra pipeline-parametern för att visa nya data. 
+
+1. När distributionen är klar går du till avsnittet **slut punkter** .
+
+1. Välj **pipeline-slutpunkter**.
+
+1. Välj namnet på den slut punkt som du har skapat.
+
+![Slut punkts länk](./media/how-to-run-batch-predictions-designer/manage-endpoints.png)
+
+1. Välj **publicerade pipeliner**.
+
+    Den här skärmen visar alla publicerade pipelines som publicerats under den här slut punkten.
+
+1. Välj den pipeline som du har publicerat.
+
+    På sidan pipeline-information visas en detaljerad körnings historik och information om anslutnings strängen för din pipeline. 
+    
+1. Välj **Kör** för att skapa en manuell körning av pipelinen.
+
+    ![Pipeline-information](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
+    
+1. Ändra parametern till att använda en annan data uppsättning.
+    
+1. Välj **Kör** för att köra pipelinen.
+
+### <a name="use-the-rest-endpoint"></a>Använd REST-slutpunkten
+
+Du hittar information om hur du använder pipelines slut punkter och publicerade pipelines i avsnittet **slut punkter** .
+
+Du kan hitta REST-slutpunkten för en pipeline-slutpunkt på panelen kör översikt. Genom att anropa slut punkten förbrukar du den publicerade standard pipelinen.
+
+Du kan också använda en publicerad pipeline på sidan **publicerade pipeliner** . Välj en publicerad pipeline och hitta resten av slut punkten för den. 
+
+![Information om REST-slutpunkt](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+
+Om du vill göra ett REST-anrop behöver du ett OAuth 2,0-värde för Authentication-typ. I följande [själv studie kurs](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) finns mer information om hur du konfigurerar autentisering till din arbets yta och gör ett parameter rest-anrop.
+
+## <a name="versioning-endpoints"></a>Versions slut punkter
+
+Designern tilldelar en version till varje efterföljande pipeline som du publicerar till en slut punkt. Du kan ange den pipeline-version som du vill köra som en parameter i REST-anropet. Om du inte anger ett versions nummer använder designern standard pipelinen.
+
+När du publicerar en pipeline kan du välja att göra den till den nya standard pipelinen för den slut punkten.
+
+![Ange standard pipeline](./media/how-to-run-batch-predictions-designer/set-default-pipeline.png)
+
+Du kan också ange en ny standard-pipeline på fliken **publicerade pipelines** i slut punkten.
+
+![Ange standard pipeline](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,15 +4,15 @@ description: Hämta sid visning och antal sessioner, webb klient data, enstaka s
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
+author: Dawgfan
+ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 38f9872fb73f2c680264c2c0b84445db858cf203
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045832"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264092"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -29,7 +29,10 @@ Application Insights kan användas med alla webbsidor – du lägger bara till e
     * [JavaScript-kodfragment](#snippet-based-setup)
 
 > [!IMPORTANT]
-> Du behöver bara använda en av metoderna nedan för att lägga till Application Insights JavaScript SDK till ditt program. Om du använder NPM-baserad installation ska du inte använda kodfragmentbaserade installations program. Samma sak gäller för det omvända scenariot vid användning av kodfragmentet, Använd inte heller NPM-baserade installations programmet. 
+> > Använd bara en metod för att lägga till Java Script SDK i ditt program. Om du använder installations programmet för NPM ska du inte använda kodfragmentet och vice versa.
+
+> [!NOTE]
+> NPM-installationen installerar JavaScript SDK som ett beroende av ditt projekt, vilket aktiverar IntelliSense, medan kodfragmentet hämtar SDK vid körning. Båda har stöd för samma funktioner. Men utvecklare som vill ha mer anpassade händelser och konfiguration brukar välja NPM-installation, medan användare söker efter snabb aktivering av den färdiga Web Analytics-valet för kodfragmentet.
 
 ### <a name="npm-based-setup"></a>NPM-baserad installation
 
@@ -261,4 +264,3 @@ Application Insights JavaScript SDK är öppen källkod för att Visa käll kode
 * [Spåra användning](usage-overview.md)
 * [Anpassade händelser och mätvärden](api-custom-events-metrics.md)
 * [Skapa – mät – lär](usage-overview.md)
-

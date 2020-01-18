@@ -13,12 +13,12 @@ ms.date: 01/28/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 679e8b58e5876d5460b426e694df85ded992a36d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 51d0880b7f56d523a01fbc993993b3caf7328134
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212559"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261083"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Ändra pris nivå för ett namn område för Azure Notification Hub
 Notification Hubs erbjuds på tre nivåer: **kostnads fri**, **Basic**och **standard**. Den här artikeln visar hur du ändrar pris nivån för ett Azure Notification Hubs-namnområde. 
@@ -30,7 +30,7 @@ Ett **namn område** är en samling Notification Hub. Varje namnrymd består van
 
 Du kan associera en pris nivå på namn områdes nivån. Notification Hubs stöder tre nivåer: **kostnads fri**, **Basic**och **standard**. Du kan använda nivån för ett namn område som passar dina krav. I följande avsnitt visas hur du ändrar pris nivån för ett Notification Hubs namn område. 
 
-## <a name="use-azure-portal"></a>Använda Azure-portalen 
+## <a name="use-azure-portal"></a>Använd Azure Portal 
 När du använder Azure Portal kan du ändra pris nivån för ett namn område på namn områdes sidan eller en nav sida.  När du ändrar den på en nav-sida, ändrar du faktiskt den på namn områdes nivån. Den ändrar pris nivån för namn området och alla hubbar i namn området. 
 
 ### <a name="change-tier-on-the-namespace-page"></a>Ändra nivå på namn områdes Sidan
@@ -63,7 +63,7 @@ Följande procedur ger dig anvisningar om hur du ändrar pris nivån för ett na
 5. Välj **pris nivå** på den vänstra menyn. 
 6. Ändra pris nivån och klicka på knappen **Välj** . Den här åtgärden ändrar pris nivå inställningen för det namn område som innehåller hubben. Så visas den nya pris nivån på namn områdes sidan och alla nav sidor. 
 
-## <a name="use-rest-api"></a>Använda REST-API
+## <a name="use-rest-api"></a>Använd REST-API
 Du kan använda följande resurs leverantör REST-API: er för att hämta den aktuella pris nivån och uppdatera den. 
 
 ### <a name="get-current-pricing-tier-for-a-namespace"></a>Hämta aktuell pris nivå för ett namn område

@@ -1,5 +1,5 @@
 ---
-title: Skapa en miljö med ett Service Fabric kluster i Azure DevTest Labs | Microsoft Docs
+title: Skapa en Service Fabric kluster miljö i Azure DevTest Labs
 description: Lär dig hur du skapar en miljö med ett fristående Service Fabric kluster och hur du startar och stoppar klustret med hjälp av scheman.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 01/16/2020
 ms.author: enewman
-ms.openlocfilehash: 1e192a2b27c9d617e43a56766431a0f40e87a752
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 71793b81d8735c80881fc25a9b7ec31bc4fc6762
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325261"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170345"
 ---
 # <a name="create-an-environment-with-self-contained-service-fabric-cluster-in-azure-devtest-labs"></a>Skapa en miljö med fristående Service Fabric kluster i Azure DevTest Labs
 Den här artikeln innehåller information om hur du skapar en miljö med ett fristående Service Fabric kluster i Azure DevTest Labs. 
@@ -28,9 +28,9 @@ Den här artikeln innehåller information om hur du skapar en miljö med ett fri
 DevTest Labs kan skapa självständiga test miljöer som definieras av Azure Resource Management-mallar. Dessa miljöer innehåller både IaaS-resurser, t. ex. virtuella datorer och PaaS-resurser, t. ex. Service Fabric. Med DevTest Labs kan du hantera virtuella datorer i en miljö genom att tillhandahålla kommandon för att kontrol lera de virtuella datorerna. Dessa kommandon ger dig möjlighet att starta eller stoppa en virtuell dator enligt ett schema. På samma sätt kan DevTest Labs också hjälpa dig att hantera Service Fabric kluster i en miljö. Du kan starta eller stoppa ett Service Fabric kluster i en miljö antingen manuellt eller via ett schema.
 
 ## <a name="create-a-service-fabric-cluster"></a>Skapa ett Service Fabric-kluster
-Service Fabric kluster skapas med hjälp av miljöer i DevTest Labs. Varje miljö definieras av en Azure Resource Manager-mall på en git-lagringsplats. Den [offentliga git](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) -lagringsplatsen för DevTest Labs innehåller Resource Manager-mallen för att skapa ett Service Fabric kluster i mappen [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) . 
+Service Fabric kluster skapas med hjälp av miljöer i DevTest Labs. Varje miljö definieras av en Azure Resource Manager-mall på en git-lagringsplats. Den [offentliga git-lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Environments/) för DevTest Labs innehåller Resource Manager-mallen för att skapa ett Service Fabric kluster i mappen [ServiceFabric-Cluster](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster) . 
 
-1. Börja med att skapa ett labb i Azure DevTest Labs genom att följa anvisningarna i följande artikel: [Skapa ett labb](devtest-lab-create-lab.md). Observera att alternativet **offentliga miljöer** är **aktiverat** som standard. 
+1. Börja med att skapa ett labb i Azure DevTest Labs genom att följa anvisningarna i följande artikel: [skapa ett labb](devtest-lab-create-lab.md). Observera att alternativet **offentliga miljöer** är **aktiverat** som standard. 
 2. Bekräfta att Service Fabric-providern har registrerats för din prenumeration genom att följa dessa steg:
     1. Välj **prenumerationer** i den vänstra navigerings menyn och välj din **prenumeration**
     2. På sidan **prenumeration** väljer du **resurs leverantörer** i avsnittet **Inställningar** på den vänstra menyn. 
@@ -49,7 +49,7 @@ Service Fabric kluster skapas med hjälp av miljöer i DevTest Labs. Varje milj�
     5. För **certifikatet**anger du certifikat informationen som en Base64-kodad sträng. Gör så här för att skapa ett certifikat:
         1. Hämta filen **create-ClusterCertificate. ps1** från git- [lagringsplatsen](https://github.com/Azure/azure-devtestlab/tree/master/Environments/ServiceFabric-LabCluster). Du kan också klona lagrings platsen på din dator. 
         2. Starta **PowerShell**. 
-        3. Kör **ps1** -filen med hjälp av `.\Create-ClusterCertificate.ps1`kommandot. Du ser en textfil som öppnats i anteckningar med den information som du behöver för att fylla i de certifikat-relaterade fälten på den här sidan. . 
+        3. Kör **ps1** -filen med kommandot `.\Create-ClusterCertificate.ps1`. Du ser en textfil som öppnats i anteckningar med den information som du behöver för att fylla i de certifikat-relaterade fälten på den här sidan. . 
     6. Ange **lösen ordet för certifikatet**.
     7. Ange **tumavtryck** för certifikatet.
     8. Välj **Lägg till** på sidan **Konfigurera inställningar** . 
@@ -105,11 +105,11 @@ Gör så här om du vill ändra inställningarna för avstängning:
 
 1. Välj **Automatisk avstängning** på den vänstra menyn. 
 2. På den här sidan kan du välja automatisk avstängning genom att välja **av** för **aktive rad**. 
-3. Följ dessa steg om du **har valt** aktive rad för **aktive rad**:
+3. Följ dessa steg om du **har valt** **aktive rad för aktive rad**:
     1. Ange **tiden** för avstängning.
     2. Ange tids **zonen** för tiden. 
     3. Ange om du vill att DevTest Labs ska skicka **meddelanden** före automatisk avstängning. 
-    4. Om du har valt **Ja** för meddelande alternativet anger du webhook- **URL: en** och/eller **e-postadress** för att skicka meddelanden. 
+    4. Om du har valt **Ja** för meddelande alternativet anger du **webhook-URL: en** och/eller **e-postadress** för att skicka meddelanden. 
     5. Välj **Spara** i verktygsfältet.
 
         ![Stäng sida automatiskt](./media/create-environment-service-fabric-cluster/auto-shutdown-settings.png)

@@ -4,8 +4,6 @@
   items:
     - name: Vad är lastbalanserare?
       href: load-balancer-overview.md
-    - name: Vad är Standard Load Balancer?
-      href: load-balancer-standard-overview.md
 - name: Snabbstart
   items:
     - name: Skapa en Standard Load Balancer

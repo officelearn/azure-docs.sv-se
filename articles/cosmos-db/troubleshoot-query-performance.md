@@ -8,12 +8,12 @@ ms.date: 01/14/2020
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: c004031ec40bedcf83d77d08a34ce1d0e28fecd8
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 5f4728c4b604c606d12edcc7a00879b31e54bc85
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157038"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264279"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Felsök problem med frågor när du använder Azure Cosmos DB
 
@@ -39,13 +39,11 @@ Du kan referera till avsnittet nedan för att förstå relevanta optimeringar av
 
 #### <a name="retrieved-document-count-is-significantly-greater-than-output-document-count"></a>Antalet hämtade dokument är betydligt större än antalet utgående dokument
 
-- [Se till att indexerings principen inkluderar nödvändiga sökvägar](#ensure-that-the-indexing-policy-includes-necessary-paths)
+- [Inkludera nödvändiga sökvägar i indexerings principen](#include-necessary-paths-in-the-indexing-policy)
 
 - [Förstå vilka system funktioner som använder indexet](#understand-which-system-functions-utilize-the-index)
 
-- [Optimera frågor med både ett filter och en ORDER BY-sats](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
-
-- [Optimera frågor som använder DISTINCT](#optimize-queries-that-use-distinct)
+- [Frågor med både ett filter och en ORDER BY-sats](#queries-with-both-a-filter-and-an-order-by-clause)
 
 - [Optimera KOPPLINGs uttryck med hjälp av en under fråga](#optimize-join-expressions-by-using-a-subquery)
 
@@ -55,23 +53,23 @@ Du kan referera till avsnittet nedan för att förstå relevanta optimeringar av
 
 - [Undvik kors partitions frågor](#avoid-cross-partition-queries)
 
-- [Optimera frågor som har ett filter på flera egenskaper](#optimize-queries-that-have-a-filter-on-multiple-properties)
+- [Filter på flera egenskaper](#filters-on-multiple-properties)
 
-- [Optimera frågor med både ett filter och en ORDER BY-sats](#optimize-queries-with-both-a-filter-and-an-order-by-clause)
+- [Frågor med både ett filter och en ORDER BY-sats](#queries-with-both-a-filter-and-an-order-by-clause)
 
 <br>
 
 ### <a name="querys-ru-charge-is-acceptable-but-latency-is-still-too-high"></a>Frågans RU-avgift är acceptabel, men fördröjningen är fortfarande för hög
 
-- [Förbättra närheten mellan appen och Azure Cosmos DB](#improving-proximity-between-your-app-and-azure-cosmos-db)
+- [Förbättra närhet](#improve-proximity)
 
-- [Öka det etablerade data flödet](#increasing-provisioned-throughput)
+- [Öka det etablerade data flödet](#increase-provisioned-throughput)
 
-- [Ökande MaxConcurrency](#increasing-maxconcurrency)
+- [Öka MaxConcurrency](#increase-maxconcurrency)
 
-- [Ökande MaxBufferedItemCount](#increasing-maxbuffereditemcount)
+- [Öka MaxBufferedItemCount](#increase-maxbuffereditemcount)
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-significantly-exceeds-output-document-count"></a>Optimeringar för frågor där hämtade dokument räknas avsevärt överskrider antalet utdata för dokument:
+## <a name="queries-where-retrieved-document-count-exceeds-output-document-count"></a>Frågor där antal hämtade dokument överskrider antalet utgående dokument
 
  Antalet hämtade dokument är antalet dokument som frågan behövde läsa in. Antalet utgående dokument är antalet dokument som behövdes för frågeresultatet. Om antalet hämtade dokument är betydligt högre än antalet utgående dokument, fanns det minst en del av frågan som inte kunde använda indexet och som krävs för att göra en genomsökning.
 
@@ -113,7 +111,7 @@ Client Side Metrics
 
 Antalet hämtade dokument (60 951) är betydligt större än antalet utdata per dokument (7), så den här frågan krävs för att göra en genomsökning. I det här fallet använder systemfunktionen [()](sql-query-upper.md) inte indexet.
 
-## <a name="ensure-that-the-indexing-policy-includes-necessary-paths"></a>Se till att indexerings principen inkluderar nödvändiga sökvägar
+## <a name="include-necessary-paths-in-the-indexing-policy"></a>Inkludera nödvändiga sökvägar i indexerings principen
 
 Indexerings principen ska omfatta egenskaper som ingår i `WHERE`-satser, `ORDER BY`s satser, `JOIN`och de flesta systemfunktioner. Sökvägen som anges i index principen ska matcha (Skift läges känslig) egenskapen i JSON-dokumenten.
 
@@ -191,7 +189,7 @@ Några vanliga system funktioner som inte använder indexet och måste läsa in 
 
 Andra delar av frågan kan fortfarande använda indexet trots att systemet inte använder indexet.
 
-## <a name="optimize-queries-with-both-a-filter-and-an-order-by-clause"></a>Optimera frågor med både ett filter och en ORDER BY-sats
+## <a name="queries-with-both-a-filter-and-an-order-by-clause"></a>Frågor med både ett filter och en ORDER BY-sats
 
 Frågor med ett filter och en `ORDER BY`-sats använder normalt ett intervall index, men de är mer effektiva om de kan hanteras från ett sammansatt index. Förutom att ändra indexerings principen bör du lägga till alla egenskaper i det sammansatta indexet i `ORDER BY`-satsen. Den här frågan kommer att se till att den använder det sammansatta indexet.  Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
 
@@ -261,33 +259,6 @@ Indexerings princip har uppdaterats:
 
 **Ru-avgift:** 8,86 ru ' s
 
-## <a name="optimize-queries-that-use-distinct"></a>Optimera frågor som använder DISTINCT
-
-Det kommer att vara mer effektivt att hitta `DISTINCT`s uppsättningen av resultat om de duplicerade resultaten är i följd. Genom att lägga till en `ORDER BY`-sats i frågan och ett sammansatt index ser du till att duplicerade resultat sker i följd. Om du behöver `ORDER BY` flera egenskaper lägger du till ett sammansatt index. Du kan se effekten genom att köra en fråga på [närings](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) data uppsättningen.
-
-### <a name="original"></a>originalspråket
-
-Fråga:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c
-```
-
-**Ru-avgift:** 32,39 ru ' s
-
-### <a name="optimized"></a>Optimerad
-
-Uppdaterad fråga:
-
-```sql
-SELECT DISTINCT c.foodGroup 
-FROM c 
-ORDER BY c.foodGroup
-```
-
-**Ru-avgift:** 3,38 ru ' s
-
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>Optimera KOPPLINGs uttryck med hjälp av en under fråga
 Under frågor med flera värden kan optimera `JOIN` uttryck genom att push-överföra predikat efter varje Select-many-uttryck i stället för efter alla kors kopplingar i `WHERE`-satsen.
 
@@ -323,7 +294,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Anta att endast ett objekt i matrisen taggar matchar filtret och det finns fem objekt för båda näringsämnena och som betjänar matriser. `JOIN`-uttryck expanderas sedan till 1 x 1 x 5 x 5 = 25 objekt, i stället för 1 000 objekt i den första frågan.
 
-## <a name="optimizations-for-queries-where-retrieved-document-count-is-approximately-equal-to-output-document-count"></a>Optimeringar för frågor där antalet hämtade dokument är ungefär lika med antalet utdata för dokument:
+## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Frågor där antal hämtade dokument är lika med antalet utgående dokument
 
 Om antalet hämtade dokument är ungefär lika med antalet utgående dokument, innebär det att frågan inte behöver söka igenom många onödiga dokument. För många frågor, till exempel de som använder det översta nyckelordet, kan antalet hämtade dokument överskrida antalet utgående dokument med 1. Detta bör inte vara orsak till problem.
 
@@ -359,7 +330,7 @@ SELECT * FROM c
 WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
 ```
 
-## <a name="optimize-queries-that-have-a-filter-on-multiple-properties"></a>Optimera frågor som har ett filter på flera egenskaper
+## <a name="filters-on-multiple-properties"></a>Filter på flera egenskaper
 
 Frågor med filter på flera egenskaper använder vanligt vis ett intervall index, och de är mer effektiva om de kan hanteras från ett sammansatt index. För små mängder data får den här optimeringen ingen betydande påverkan. Det kan dock vara användbart för stora mängder data. Du kan bara optimera högst ett icke-jämlikhets filter per sammansatt index. Om frågan har flera icke-jämlikhet filter, bör du välja en av dem som ska använda det sammansatta indexet. Resten fortsätter att använda intervall index. Filtret för icke-jämlikhet måste definieras sist i det sammansatta indexet. [Läs mer om sammansatta index](index-policy.md#composite-indexes)
 
@@ -402,23 +373,23 @@ Här är det relevanta sammansatta indexet:
 }
 ```
 
-## <a name="common-optimizations-that-reduce-query-latency-no-impact-on-ru-charge"></a>Vanliga optimeringar som minskar svars tiden för frågor (ingen inverkan på RU-avgifter):
+## <a name="optimizations-that-reduce-query-latency"></a>Optimeringar som kortare svars tid för frågor:
 
 I många fall kan avgiften vara acceptabel, men svars tiden för frågan är fortfarande för hög. I avsnitten nedan får du en översikt över tips för att minska svars tiden för frågor. Om du kör samma fråga flera gånger på samma data uppsättning får den samma RU-avgift varje gång. Svars tiden för frågan kan dock variera mellan frågekörningen.
 
-## <a name="improving-proximity-between-your-app-and-azure-cosmos-db"></a>Förbättra närheten mellan appen och Azure Cosmos DB
+## <a name="improve-proximity"></a>Förbättra närhet
 
 Frågor som körs från en annan region än Azure Cosmos DB kontot får en högre latens än om de kördes inuti samma region. Om du till exempel körde kod på din station ära dator, bör du förvänta dig att fördröjningen ska vara flera eller hundratals (eller flera) millisekunder som är större än om frågan kom från en virtuell dator i samma Azure-region som Azure Cosmos DB. Det är enkelt att [Distribuera data i Azure Cosmos DB globalt](distribute-data-globally.md) för att se till att du kan ta med dina data närmare din app.
 
-## <a name="increasing-provisioned-throughput"></a>Öka det etablerade data flödet
+## <a name="increase-provisioned-throughput"></a>Öka det etablerade data flödet
 
 I Azure Cosmos DB mäts ditt allokerade data flöde i enheter för programbegäran (RU). Anta att du har en fråga som använder 5 RUs data flöde. Om du till exempel tillhandahåller 1 000 RU kan du köra frågan 200 gånger per sekund. Om du försökte köra frågan när det inte fanns tillräckligt med data flöde är det Azure Cosmos DB att returnera ett HTTP 429-fel. Alla aktuella Core-API SDK: er kommer automatiskt att försöka utföra frågan igen efter att ha väntat en kort period. Begränsade begär Anden tar längre tid, vilket ökar det etablerade data flödet kan förbättra svars tiden. Du kan se det [totala antalet begär Anden som begränsats](use-metrics.md#understand-how-many-requests-are-succeeding-or-causing-errors) i mått bladet för Azure Portal.
 
-## <a name="increasing-maxconcurrency"></a>Ökande MaxConcurrency
+## <a name="increase-maxconcurrency"></a>Öka MaxConcurrency
 
 Parallella frågor fungerar genom att fråga flera partitioner parallellt. Data från en enskild partitionerad samling hämtas dock i serie med avseende på frågan. Det innebär att du kan justera MaxConcurrency till antalet partitioner så att du kan nå den mest utförda frågan, förutsatt att alla andra system villkor är desamma. Om du inte känner till antalet partitioner kan du ange MaxConcurrency (eller MaxDegreesOfParallelism i äldre SDK-versioner) till ett högt antal, och systemet väljer det minsta antalet partitioner, indata från användaren) som den högsta graden av parallellitet.
 
-## <a name="increasing-maxbuffereditemcount"></a>Ökande MaxBufferedItemCount
+## <a name="increase-maxbuffereditemcount"></a>Öka MaxBufferedItemCount
 
 Frågor är utformade för att hämta resultat när den aktuella resultat gruppen bearbetas av klienten. För hämtning bidrar till den totala tids fördröjnings förbättringen av en fråga. Att ange MaxBufferedItemCount begränsar antalet förhämtade resultat. Genom att ange det här värdet till det förväntade antalet returnerade resultat (eller ett högre tal) kan frågan få maximal nytta av för hämtning. Genom att ange värdet-1 kan systemet automatiskt bestämma antalet objekt som ska buffras.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545717"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261559"
 ---
 # <a name="durable-orchestrations"></a>Varaktiga dirigeringar
 
@@ -55,7 +55,9 @@ När en Orchestration-funktion får mer arbete (till exempel om ett svarsmeddela
 
 ## <a name="orchestration-history"></a>Orchestration-historik
 
-Beteendet för händelse-källa i det ständiga aktivitets ramverket är nära kopplad till den Orchestrator-funktions kod som du skriver. Anta att du har en funktion för aktivitets länkning i Orchestrator, som följande C# Orchestrator-funktion:
+Beteendet för händelse-källa i det ständiga aktivitets ramverket är nära kopplad till den Orchestrator-funktions kod som du skriver. Anta att du har en funktion för aktivitets länkning i Orchestrator, som följande Orchestrator-funktion:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-Om du kodar i Java Script kan Orchestrator-funktionen för aktivitets länkning se ut som i följande exempel kod:
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 Vid varje `await` (C#) eller `yield` (JavaScript)-instruktionen, checkpointrar det varaktiga aktivitets ramverket körnings status för funktionen i en viss varaktig lagrings Server del (vanligt vis Azure Table Storage). Det här är det tillstånd som kallas för *Orchestration-historiken*.
 
@@ -108,22 +112,22 @@ Vid slut för ande ser historiken för funktionen som visas tidigare ut ungefär
 
 | PartitionKey (InstanceId)                     | Typ             | Tidsstämpel               | Indata | Namn             | Resultat                                                    | Status |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
-| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | ha  | E1_HelloSequence |                                                           |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362 Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852 Z | null  | E1_HelloSequence |                                                           |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
 | eaee885b | TaskScheduled         | 2017-05-05T18:45:32.670 Z |       | E1_SayHello      |                                                           |                     |
 | eaee885b | OrchestratorCompleted | 2017-05-05T18:45:32.670 Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201 Z |       |                  | "" "Hej Tokyo!" "                                        |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232 Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435 Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435 Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763 Z |       |                  | "" "Hej Seattle!" "                                      |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857 Z |       |                  |                                                           |                     |
-| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857 Z |       | E1_SayHello      |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857 Z |       |                  |                                                           |                     |
-| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919 Z |       |                  | "" "Hej London!" "                                       |                     |
-| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032 Z |       |                  |                                                           |                     |
-| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044 Z |       |                  |                                                           |                     |
-| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044 Z |       |                  | "[" "Hello Tokyo!", "" Hej Seattle! "," "Hej London!" "]" | Slutfört           |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.201Z |       |                  | """Hello Tokyo!"""                                        |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.232Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.435Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.435Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.763Z |       |                  | """Hello Seattle!"""                                      |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskScheduled         | 2017-05-05T18:45:34.857Z |       | E1_SayHello      |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:34.857Z |       |                  |                                                           |                     |
+| eaee885b | TaskCompleted         | 2017-05-05T18:45:34.919Z |       |                  | """Hello London!"""                                       |                     |
+| eaee885b | OrchestratorStarted   | 2017-05-05T18:45:35.032Z |       |                  |                                                           |                     |
+| eaee885b | OrchestratorCompleted | 2017-05-05T18:45:35.044Z |       |                  |                                                           |                     |
+| eaee885b | ExecutionCompleted    | 2017-05-05T18:45:35.044Z |       |                  | "[""Hello Tokyo!"",""Hello Seattle!"",""Hello London!""]" | Slutfört           |
 
 Några anmärkningar om kolumn värden:
 
@@ -182,7 +186,7 @@ Orchestrator-funktioner kan också lägga till principer för återförsök för
 
 Mer information och exempel finns i artikeln [fel hantering](durable-functions-error-handling.md) .
 
-### <a name="critical-sections-durable-functions-2x"></a>Kritiska avsnitt (Durable Functions 2. x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>Kritiska avsnitt (Durable Functions 2. x, endast för närvarande .NET)
 
 Orchestration-instanser är entrådade, så det är inte nödvändigt att bekymra dig om tävlings villkor *i* ett Orchestration. Dock är det möjligt att dirigera villkor när dirigeringar interagerar med externa system. För att minska tävlings förhållandena när du interagerar med externa system kan Orchestrator Functions definiera *kritiska avsnitt* med hjälp av en `LockAsync` metod i .net.
 
@@ -212,7 +216,9 @@ Funktionen kritiskt avsnitt är också användbar för samordning av ändringar 
 
 Orchestrator-funktioner tillåts inte i/O, enligt beskrivningen i [Orchestrator-funktionens kod begränsningar](durable-functions-code-constraints.md). Den typiska lösningen för den här begränsningen är att omsluta all kod som behöver göra I/O i en aktivitets funktion. Dirigering som interagerar med externa system använder ofta aktivitets funktioner för att göra HTTP-anrop och returnera resultatet till dirigeringen.
 
-För att förenkla detta vanliga mönster kan Orchestrator-funktioner använda metoden `CallHttpAsync` i .NET för att anropa HTTP-API: er direkt. Förutom stöd för grundläggande fråge-/svars mönster, `CallHttpAsync` stöder automatisk hantering av vanliga asynkrona HTTP 202-avsöknings mönster och stöder även autentisering med externa tjänster med [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+För att förenkla detta vanliga mönster kan Orchestrator-funktioner använda metoden `CallHttpAsync` för att anropa HTTP-API: er direkt.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+Förutom stöd för grundläggande fråge-/svars mönster stöder metoden automatisk hantering av vanliga asynkrona HTTP 202-avsöknings mönster och stöder även autentisering med externa tjänster med [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md).
+
 Mer information och detaljerade exempel finns i artikeln om [http-funktioner](durable-functions-http-features.md) .
 
 > [!NOTE]
@@ -251,9 +263,11 @@ Mer information och detaljerade exempel finns i artikeln om [http-funktioner](du
 
 ### <a name="passing-multiple-parameters"></a>Skicka flera parametrar
 
-Det går inte att skicka flera parametrar till en aktivitets funktion direkt. Rekommendationen är att skicka i en matris med objekt eller att använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) -objekt i .net.
+Det går inte att skicka flera parametrar till en aktivitets funktion direkt. Rekommendationen är att skicka i en matris med objekt eller sammansatta objekt.
 
-Följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) som lagts till med [ C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+I .NET kan du också använda [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) -objekt. Följande exempel använder nya funktioner i [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) som lagts till med [ C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>Orchestrator
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>Aktivitet
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

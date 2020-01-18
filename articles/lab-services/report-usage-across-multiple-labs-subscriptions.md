@@ -1,5 +1,5 @@
 ---
-title: Rapportera Azure DevTest Labs användning över flera labb och prenumerationer – Azure | Microsoft Docs
+title: Azure DevTest Labs användning över flera labb och prenumerationer
 description: Lär dig hur du rapporterar Azure DevTest Labs användning över flera labb och prenumerationer.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 01/16/2020
 ms.author: takamath
-ms.openlocfilehash: 0d930263233056d8fa74ffe6ccb176ee39429121
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 912f510f6380c0ba1eb92b7c485091801123558e
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68829234"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169183"
 ---
 # <a name="report-azure-devtest-labs-usage-across-multiple-labs-and-subscriptions"></a>Rapportera Azure DevTest Labs användning över flera labb och prenumerationer
 
@@ -35,7 +35,7 @@ I det här avsnittet beskrivs hur du exporterar resursanvändning för ett enda 
 Innan du kan exportera resursanvändningen för DevTest Labs måste du konfigurera ett Azure Storage-konto så att de olika filer som innehåller de användnings data som ska lagras. Det finns två vanliga sätt att köra exporten av data:
 
 * [DevTest Labs REST API](https://docs.microsoft.com/rest/api/dtl/labs/exportresourceusage) 
-* PowerShell-AZ. Resource-modulen [Invoke-AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) med åtgärden `exportResourceUsage`, Lab-resurs-ID: t och de nödvändiga parametrarna. 
+* PowerShell-modulen AZ. Resource [anropar AzResourceAction](https://docs.microsoft.com/powershell/module/az.resources/invoke-azresourceaction?view=azps-2.5.0&viewFallbackFrom=azps-2.3.2) med åtgärden `exportResourceUsage`, labb resurs-ID: t och de nödvändiga parametrarna. 
 
     Artikeln [Exportera eller ta bort personliga data](personal-data-delete-export.md) innehåller ett exempel på ett PowerShell-skript med detaljerad information om de data som exporteras. 
 
@@ -83,9 +83,9 @@ Använd ett data visualiserings verktyg som du väljer för att ansluta till lå
 
 Du kan använda [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) för att skapa, länka och hantera dina resurser inom ett enda plats gränssnitt. Om du behöver mer kontroll kan du skapa en enskild resurs i en enda resurs grupp och hanterad oberoende av den Data Factory tjänsten.  
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Exempel: 
+När systemet har kon figurer ATS och data flyttas till långsiktig lagring, är nästa steg att följa de frågor som data behöver för att besvara. Ett exempel: 
 
 -   Vilken storlek används för virtuella datorer?
 

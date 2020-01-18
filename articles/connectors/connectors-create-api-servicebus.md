@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/19/2019
 tags: connectors
-ms.openlocfilehash: 26609bc95bf6fd49ded23d8f117911a02577405a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1b38b8508dbe17d42bf191149410f5db638cf834
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445901"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261627"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Exchange-meddelanden i molnet med hjälp av Azure Logic Apps och Azure Service Bus
 
@@ -45,7 +45,7 @@ Du kan använda utlösare som får svar från Service Bus och göra utdata tillg
 
 Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnrymd.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Gå till din Service Bus *namnrum*. På sidan namn område under **Inställningar**väljer du **principer för delad åtkomst**. Under **anspråk**kontrollerar du att du har behörighet att **Hantera** för det namn området.
 
@@ -154,7 +154,9 @@ Bekräfta att din Logic app har behörighet att komma åt din Service Bus-namnry
 
 ## <a name="connector-reference"></a>Referens för anslutningsapp
 
-Service Bus-anslutningen kan spara upp till 1 500 unika sessioner i taget från en Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. För annan teknisk information om utlösare, åtgärder och begränsningar, som beskrivs av kopplingens OpenAPI (tidigare Swagger), granskar du kopplingens [referens sida](/connectors/servicebus/).
+Service Bus-anslutningen kan spara upp till 1 500 unika sessioner i taget från en Service Bus till kopplingens cacheminne. Om antalet sessioner överskrider den här gränsen tas gamla sessioner bort från cachen. Mer information finns i [Message sessions](../service-bus-messaging/message-sessions.md).
+
+För annan teknisk information om utlösare, åtgärder och begränsningar, som beskrivs av kopplingens OpenAPI (tidigare Swagger), granskar du kopplingens [referens sida](/connectors/servicebus/). Mer information om Azure Service Bus meddelanden finns i [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 
 ## <a name="next-steps"></a>Nästa steg
 

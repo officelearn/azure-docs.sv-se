@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Använd storskalig funktion – Ansikts-API'
+title: 'Exempel: använda storskalig funktion – ansikte'
 titleSuffix: Azure Cognitive Services
 description: Den här guiden är en artikel om hur du skalar upp från befintliga PersonGroup-och FaceList-objekt till LargePersonGroup-och LargeFaceList-objekt.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743721"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169771"
 ---
 # <a name="example-use-the-large-scale-feature"></a>Exempel: Använd funktionen för storskalig skalning
 
@@ -23,14 +23,14 @@ Den här guiden är en avancerad artikel om hur du skalar upp från befintliga P
 
 LargePersonGroup och LargeFaceList kallas gemensamt för storskaliga åtgärder. LargePersonGroup kan innehålla upp till 1 000 000 personer, var och en med högst 248 ansikten. LargeFaceList kan innehålla upp till 1 000 000 ansikten. De storskaliga åtgärderna liknar de konventionella PersonGroup och FaceList, men har vissa skillnader på grund av den nya arkitekturen. 
 
-Exemplen skrivs i C# med klient biblioteket Azure Cognitive Services ansikts-API.
+Exemplen är skrivna C# med hjälp av klient biblioteket för Azure Cognitive Services Face.
 
 > [!NOTE]
 > Om du vill aktivera ansikts öknings prestanda för identifiering och FindSimilar i stor skala, introducerar du en åtgärd för att Förbearbeta LargeFaceList och LargePersonGroup. Inlärnings tiden varierar från sekunder till cirka en timme baserat på den faktiska kapaciteten. Under utbildnings perioden är det möjligt att utföra identifierings-och FindSimilar om en lyckad utbildning skedde innan. Nack delen är att nya personer och ansikten inte visas i resultatet förrän en ny post-migrering till storskalig utbildning har slutförts.
 
 ## <a name="step-1-initialize-the-client-object"></a>Steg 1: initiera klient objekt
 
-När du använder klient biblioteket för Ansikts-API skickas prenumerations nyckeln och prenumerations slut punkten in genom konstruktorn i klassen FaceClient. Till exempel:
+När du använder klient biblioteket ansikte skickas prenumerations nyckeln och prenumerations slut punkten in via FaceClient-klassens konstruktor. Ett exempel:
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -63,12 +63,12 @@ Lägg till alla ansikten och personer från PersonGroup till den nya LargePerson
 
 | FaceList API:er | LargeFaceList API:er |
 |:---:|:---:|
-| Skapa | Skapa |
+| Create | Create |
 | Ta bort | Ta bort |
 | Hämta | Hämta |
-| Visa lista | Visa lista |
+| Lista | Lista |
 | Uppdatering | Uppdatering |
-| - | Träna |
+| - | Lär in |
 | - | Hämta träningsstatus |
 
 Föregående tabell är en jämförelse av åtgärder på listnivå mellan FaceList och LargeFaceList. Som visas kommer LargeFaceList med nya åtgärder, träna och få inlärnings status jämfört med FaceList. Träna LargeFaceList är ett villkor för [FindSimilar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) -åtgärden. Träning krävs inte för FaceList. Följande kodfragment är en hjälp funktion som väntar på utbildning av en LargeFaceList:
@@ -201,7 +201,7 @@ Som tidigare visas är data hantering och FindSimilar delen i stort sett desamma
 |:---:|:---:|
 | 1,000 | 1-2 SEK |
 | 10 000 | 5-10 SEK |
-| 100 000 | 1-2 min |
+| 100 000 | 1-2 min |
 | 1,000,000 | 10-30 min |
 
 För att bättre kunna använda funktionen för storskalig skalning rekommenderar vi följande strategier.

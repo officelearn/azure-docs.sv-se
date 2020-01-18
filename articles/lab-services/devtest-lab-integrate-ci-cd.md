@@ -1,5 +1,5 @@
 ---
-title: Integrera Azure DevTest Labs i din kontinuerlig integrering och leverans pipeline i Azure Pipelines | Microsoft Docs
+title: Integrera Azure DevTest Labs i dina Azure-pipeliner
 description: Lär dig hur du integrerar Azure DevTest Labs i din Azure-Pipelines för kontinuerlig integrering och leverans pipeline
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 20ba297d22e26aa8c7e20db300173f12582d257e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 54b4e6e6a283f46e03f7b94ce96ba79a03f75523
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224473"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170384"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Integrera Azure DevTest Labs i din Azure-pipeline CI/CD-pipeline
 
@@ -35,7 +35,7 @@ Den här artikeln visar hur du använder Azure DevTest Labs uppgifter för att s
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Registrera dig eller logga in i din [Azure DevOps](https://dev.azure.com) -organisation och [skapa ett projekt](/vsts/organizations/projects/create-project) i organisationen. 
   
@@ -106,7 +106,7 @@ Så här skapar du skript filen:
 
 Så här skapar du en ny versions pipeline:
 
-1. På sidan för ditt Azure DevOps-projekt väljer du **pipeline** > -**utgåvor** från det vänstra navigerings fältet.
+1. Från sidan med ditt Azure DevOps-projekt väljer du **pipelines** > **releases** från det vänstra navigerings fältet.
 1. Välj **ny pipeline**.
 1. Under **Välj en mall**rullar du ned och väljer **Tom jobb**och väljer sedan **Använd**.
 
@@ -120,7 +120,7 @@ Så här lägger du till variabler för värdena:
    
 1. För varje variabel väljer du **Lägg till** och anger namn och värde:
    
-   |Name|Value|
+   |Namn|Värde|
    |---|---|
    |*vmName*|VM-namn som du har tilldelat i Resource Manager-mallen|
    |*Användar*|Användar namn för att komma åt den virtuella datorn|
@@ -130,7 +130,7 @@ Så här lägger du till variabler för värdena:
 
 Nästa steg är att skapa en virtuell dator i den gyllene avbildningen som ska användas för framtida distributioner. Du skapar den virtuella datorn i Azure DevTest Labs-instansen med hjälp av aktiviteten *Azure DevTest Labs Skapa virtuell dator* .
 
-1. På fliken release pipeline för **pipeline väljer** du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
+1. På fliken **pipeline** för pipeline för utgåva väljer du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
    
 1. Under **Lägg till aktiviteter**väljer du **Azure DevTest Labs Skapa virtuell dator**och väljer **Lägg till**. 
    
@@ -138,27 +138,27 @@ Nästa steg är att skapa en virtuell dator i den gyllene avbildningen som ska a
 
 1. I den högra rutan fyller du i formuläret enligt följande:
    
-   |Fält|Value|
+   |Field|Värde|
    |---|---|
    |**Azure RM-prenumeration**|Välj en tjänst anslutning eller prenumeration från **tillgängliga Azure-tjänst anslutningar** eller **tillgängliga Azure-prenumerationer** i list rutan och välj **auktorisera** vid behov.<br /><br />**Obs:** Information om hur du skapar en mer begränsad behörighets anslutning till din Azure-prenumeration finns i [Azure Resource Manager tjänstens slut punkt](/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).|
    |**Labb namn**|Välj namnet på ett befintligt labb där den virtuella labb datorn ska skapas.|
    |**Mallnamn**|Ange den fullständiga sökvägen till och namnet på mallfilen som du sparade i din käll kods lagrings plats. Du kan använda inbyggda egenskaper för att förenkla sökvägen, till exempel:<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**Mallparametrar**|Ange parametrarna för de variabler som du definierade tidigare:<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|
-   |**Utdata för utdata** **Lab VM ID**  > |Ange variabeln för det skapade Labbets VM-ID. Om du använder standard- **labVMId**kan du referera till variabeln i efterföljande uppgifter som *$ (labVMId)* .<br /><br />Du kan skapa ett annat namn än standardvärdet, men kom ihåg att använda rätt namn i efterföljande uppgifter. Du kan skriva ID: t för den virtuella datorns labb i följande format:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
+   |**Utdata-variabler** > **Lab VM ID**|Ange variabeln för det skapade Labbets VM-ID. Om du använder standard- **labVMId**kan du referera till variabeln i efterföljande uppgifter som *$ (labVMId)* .<br /><br />Du kan skapa ett annat namn än standardvärdet, men kom ihåg att använda rätt namn i efterföljande uppgifter. Du kan skriva ID: t för den virtuella datorns labb i följande format:<br /><br />`/subscriptions/{subscription Id}/resourceGroups/{resource group Name}/providers/Microsoft.DevTestLab/labs/{lab name}/virtualMachines/{vmName}`|
 
 ### <a name="collect-the-details-of-the-devtest-labs-vm"></a>Samla in information om den virtuella datorn DevTest Labs
 
 Kör skriptet som du skapade tidigare för att samla in information om DevTest Labs-VM. 
 
-1. På fliken release pipeline för **pipeline väljer** du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
+1. På fliken **pipeline** för pipeline för utgåva väljer du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
    
 1. Under **Lägg till aktiviteter**väljer du **Azure PowerShell**och väljer **Lägg till**. 
    
-1. Välj **Azure PowerShell skript: Sökväg** i det vänstra fönstret. 
+1. Välj **Azure PowerShell skript: sökväg** i det vänstra fönstret. 
    
 1. I den högra rutan fyller du i formuläret enligt följande:
    
-   |Fält|Value|
+   |Field|Värde|
    |---|---|
    |**Typ av Azure-anslutning**|Välj **Azure Resource Manager**.|
    |**Azure-prenumeration**|Välj din tjänst anslutning eller prenumeration.| 
@@ -172,20 +172,20 @@ Skriptet samlar in de nödvändiga värdena och lagrar dem i miljövariabler i v
 
 Nästa uppgift är att skapa en avbildning av den nyligen distribuerade virtuella datorn i Azure DevTest Labs-instansen. Du kan sedan använda avbildningen för att skapa kopior av den virtuella datorn på begäran när du vill köra en dev-uppgift eller köra vissa tester. 
 
-1. På fliken release pipeline för **pipeline väljer** du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
+1. På fliken **pipeline** för pipeline för utgåva väljer du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
    
 1. Under **Lägg till aktiviteter**väljer du **Azure DevTest Labs Skapa anpassad avbildning**och väljer **Lägg till**. 
    
 1. Konfigurera aktiviteten enligt följande:
    
-   |Fält|Value|
+   |Field|Värde|
    |---|---|
    |**Azure RM-prenumeration**|Välj din tjänst anslutning eller prenumeration.|
    |**Labb namn**|Välj namnet på ett befintligt labb där bilden ska skapas.|
    |**Namn på anpassad avbildning**|Ange ett namn för den anpassade avbildningen.|
-   |**Beskrivning** valfritt|Ange en beskrivning som gör det enkelt att välja rätt avbildning senare.|
-   |**Käll labb VM** > **käll labb VM ID**|Om du har ändrat standard namnet för LabVMId-variabeln anger du den här. Standardvärdet är **$(labVMId)** .|
-   |Anpassade bild **-ID** för utdata > |Du kan redigera standard namnet på variabeln om det behövs.|
+   |**Beskrivning** (valfritt)|Ange en beskrivning som gör det enkelt att välja rätt avbildning senare.|
+   |**Käll labb vm** > **Source Lab VM ID**|Om du har ändrat standard namnet för LabVMId-variabeln anger du den här. Standardvärdet är **$(labVMId)** .|
+   |**Variabler för utdata** > **anpassat bild-ID**|Du kan redigera standard namnet på variabeln om det behövs.|
    
 ### <a name="deploy-your-app-to-the-devtest-labs-vm-optional"></a>Distribuera din app till den virtuella DevTest Labs-datorn (valfritt)
 
@@ -197,7 +197,7 @@ Den VM-information som du behöver för parametrarna för dessa uppgifter lagras
 
 Den sista aktiviteten är att ta bort den virtuella dator som du har distribuerat i Azure DevTest Labs-instansen. Du skulle normalt tar bort den virtuella datorn när du kör uppgifterna för utveckling eller köra testerna som du behöver på den distribuerade virtuella datorn. 
 
-1. På fliken release pipeline för **pipeline väljer** du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
+1. På fliken **pipeline** för pipeline för utgåva väljer du den hyperlänkade texten i **steg 1** för att **Visa steg uppgifter**och väljer sedan plus tecknet **+** bredvid **Agent jobb**. 
    
 1. Under **Lägg till aktiviteter**väljer du **Azure DevTest Labs ta bort virtuell dator**och väljer **Lägg till**. 
    

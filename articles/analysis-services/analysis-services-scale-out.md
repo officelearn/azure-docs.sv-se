@@ -4,15 +4,15 @@ description: Replikera Azure Analysis Services-servrar med skalbarhet. Klient fr
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572629"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167952"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -30,13 +30,13 @@ Oavsett hur många repliker av frågan som du har i en frågenod, distribueras i
 
 Vid utskalning kan det ta upp till fem minuter innan nya repliker av frågan läggs till i frågesyntaxen. När alla nya repliker av repliker är igång är nya klient anslutningar belastningsutjämnade över resurser i frågesyntaxen. Befintliga klient anslutningar ändras inte från den resurs som de för närvarande är anslutna till. Vid skalning i avslutas alla befintliga klient anslutningar till en resurs för en frågegrupp som tas bort från lagringspoolen. Klienterna kan återansluta till en återstående resurs för frågearkivet.
 
-## <a name="how-it-works"></a>Hur det fungerar
+## <a name="how-it-works"></a>Så här fungerar det
 
 När du konfigurerar utskalning första gången synkroniseras modell databaser på den primära servern *automatiskt* med nya repliker i en ny frågenod. Automatisk synkronisering sker bara en gång. Under den automatiska synkroniseringen kopieras den primära serverns datafiler (krypterade i vila i blob-lagring) till en annan plats, som också krypteras i vila i Blob Storage. Repliker i Frågeredigeraren har sedan *dehydratiseras* med data från den andra uppsättningen filer. 
 
 Även om en automatisk synkronisering bara utförs när du skalar ut en server för första gången, kan du också utföra en manuell synkronisering. Synkronisering garanterar att data på repliker i frågesyntaxen matchar den primära servern. När du bearbetar (uppdaterar) modeller på den primära servern måste en synkronisering utföras *när* bearbetnings åtgärderna har slutförts. Den här synkroniseringen kopierar uppdaterade data från den primära serverns filer i Blob Storage till den andra uppsättningen filer. Repliker i Frågeredigeraren torkas sedan med uppdaterade data från den andra uppsättningen filer i Blob Storage. 
 
-När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet repliker i frågesyntaxen från två till fem, kommer de nya replikerna att vara torkade med data från den andra uppsättningen filer i Blob Storage. Det finns ingen synkronisering. Om du sedan utförde synkroniseringen efter en utskalning, skulle de nya replikerna i lagringspoolen bli dehydratiserade två gånger – en redundant hydrering. När du utför en efterföljande skalnings åtgärd är det viktigt att tänka på:
+När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet repliker i frågesyntaxen från två till fem, kommer de nya replikerna att vara torkade med data från den andra uppsättningen filer i Blob Storage. Det finns ingen synkronisering. Om du sedan utför en synkronisering efter att ha skalat, skulle de nya replikerna i lagringspoolen bli dehydratiserade två gånger – en redundant hydrering. När du utför en efterföljande skalnings åtgärd är det viktigt att tänka på:
 
 * Utför en synkronisering *före den skalbara åtgärden* för att undvika redundanta hydrering av de tillagda replikerna. Samtidig synkronisering och skalnings åtgärder som körs samtidigt är inte tillåtna.
 
@@ -44,9 +44,29 @@ När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet 
 
 * Synkronisering tillåts även när det inte finns några repliker i frågesyntaxen. Om du skalar bort från noll till en eller flera repliker med nya data från en bearbetnings åtgärd på den primära servern, ska du först utföra synkroniseringen utan repliker i frågesyntaxen och sedan skala ut. Om du synkroniserar innan du skalar ut undviker du redundanta hydrering av de nyligen tillagda replikerna.
 
-* När du tar bort en modell databas från den primära servern tas den inte automatiskt bort från repliker i frågesyntaxen. Du måste utföra en synkroniseringsåtgärd med hjälp av PowerShell [-kommandot Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) som tar bort filen/erna för databasen från replikens delade Blob Storage-plats och sedan tar bort modell databasen på replikerna i Frågeredigeraren. För att avgöra om en modell databas finns på repliker i frågesyntaxen men inte på den primära servern, kontrollerar du att inställningen för att **bearbeta servern från fråga pool** är **Ja**. Använd sedan SSMS för att ansluta till den primära servern med hjälp av `:rw`-kvalificeraren för att se om databasen finns. Anslut sedan till repliker i lagringspoolen genom att ansluta utan kvalificeraren `:rw` för att se om samma databas också finns. Om databasen finns på repliker i frågesyntaxen, men inte på den primära servern, kör du en synkronisering.   
+* När du tar bort en modell databas från den primära servern tas den inte automatiskt bort från repliker i frågesyntaxen. Du måste utföra en synkroniseringsåtgärd med hjälp av PowerShell [-kommandot Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) som tar bort filen/erna för databasen från replikens delade Blob Storage-plats och sedan tar bort modell databasen på replikerna i frågesyntaxen. För att avgöra om en modell databas finns på repliker i frågesyntaxen men inte på den primära servern, kontrollerar du att inställningen för att **bearbeta servern från fråga pool** är **Ja**. Använd sedan SSMS för att ansluta till den primära servern med hjälp av `:rw`-kvalificeraren för att se om databasen finns. Anslut sedan till repliker i lagringspoolen genom att ansluta utan kvalificeraren `:rw` för att se om samma databas också finns. Om databasen finns på repliker i frågesyntaxen, men inte på den primära servern, kör du en synkronisering.   
 
 * När du byter namn på en databas på den primära servern finns det ett ytterligare steg som krävs för att säkerställa att databasen är korrekt synkroniserad med alla repliker. När du har bytt namn utför du en synkronisering genom att använda kommandot [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) och ange parametern `-Database` med det gamla databas namnet. Den här synkroniseringen tar bort databasen och filerna med det gamla namnet från alla repliker. Utför sedan en annan synkronisering som anger den `-Database` parametern med det nya databas namnet. Den andra synkroniseringen kopierar den nyligen namngivna databasen till den andra uppsättningen filer och dehydratiserar alla repliker. De här Synkroniseringarna kan inte utföras med kommandot Synchronize Model i portalen.
+
+### <a name="synchronization-mode"></a>Synkroniseringstillstånd
+
+Som standard har fråge repliker rehydratiseras fullständigt, inte stegvis. ÅTERUPPVÄCKNING sker i steg. De kopplas bort och kopplas till två i taget (förutsatt att det finns minst tre repliker) för att se till att minst en replik hålls online för frågor vid en specifik tidpunkt. I vissa fall kan klienter behöva återansluta till en av replikerna online medan den här processen sker. Genom att använda **ReplicaSyncMode** -inställningen kan du nu ange synkronisering av synkronisering av repliker parallellt. Parallell synkronisering ger följande fördelar: 
+
+- Betydande minskning av tiden för synkronisering. 
+- Data över repliker är ofta mer konsekventa under synkroniseringsprocessen. 
+- Eftersom databaser hålls online på alla repliker under synkroniseringsprocessen, behöver inte klienterna ansluta igen. 
+- Minnet i minnet uppdateras stegvis med endast ändrade data, vilket kan vara snabbare än att helt återuppväcks modellen. 
+
+#### <a name="setting-replicasyncmode"></a>Ställer in ReplicaSyncMode
+
+Använd SSMS för att ange ReplicaSyncMode i avancerade egenskaper. Möjliga värden är: 
+
+- `1` (standard): fullständig replik databas ÅTERUPPVÄCKNING i steg (stegvis). 
+- `2`: optimerad synkronisering parallellt. 
+
+![RelicaSyncMode-inställning](media/analysis-services-scale-out/aas-scale-out-sync-mode.png)
+
+När du anger **ReplicaSyncMode = 2**, beroende på hur mycket av cachen som behöver uppdateras, kan ytterligare minne förbrukas av frågans repliker. Om du vill att databasen ska vara online och tillgänglig för frågor, beroende på hur mycket data som har ändrats, kan åtgärden kräva upp till *dubbelt* så mycket minne på repliken eftersom både det gamla och det nya segmentet hålls i minnet samtidigt. Replik-noderna har samma minnesallokering som den primära noden och det finns vanligt vis extra minne på den primära noden för uppdaterings åtgärder, så det kan vara osannolikt att replikerna inte får tillräckligt med minne. Dessutom är det vanliga scenariot att databasen uppdateras stegvis på den primära noden, och därför bör kravet på dubbelt minne vara ovanligt. Om det uppstår ett fel i synkroniseringsåtgärden vid synkroniseringen görs ett nytt försök med standard-metoden (Anslut/koppla från två i taget). 
 
 ### <a name="separate-processing-from-query-pool"></a>Separat bearbetning från frågenod
 
@@ -56,7 +76,7 @@ För högsta prestanda för både bearbetnings-och fråge åtgärder kan du väl
 
 Du kan kontrol lera om det är nödvändigt genom att övervaka servern i Azure Portal med hjälp av mått. Om din QPU regelbundet maxas ut, innebär det att antalet frågor mot dina modeller överskrider gränsen för QPU för ditt abonnemang. Längd måttet för programpoolstillstånd ökar också när antalet frågor i kön för trådpoolen överskrider tillgänglig QPU. 
 
-Ett annat mått att titta på är genomsnittlig QPU av ServerResourceType. Med det här måttet jämförs genomsnitts QPU för den primära servern med den i frågesyntaxen. 
+Ett annat mått att titta på är genomsnittlig QPU av ServerResourceType. Det här måttet jämför genomsnittlig QPU för den primära servern med Query-poolen. 
 
 ![Fråga för att skala ut mått](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
@@ -82,7 +102,7 @@ Läs [Övervaka servermått](analysis-services-monitor.md) för mer information.
 
 När du konfigurerar skalbarhet för en server första gången synkroniseras modeller på den primära servern automatiskt med repliker i frågesyntaxen. Automatisk synkronisering sker bara en gång, när du först konfigurerar att skala ut till en eller flera repliker. Efterföljande ändringar av antalet repliker på samma server *utlöser inte en annan automatisk synkronisering*. Den automatiska synkroniseringen utförs inte igen även om du ställer in servern på noll repliker och sedan på nytt skalar till ett valfritt antal repliker. 
 
-## <a name="synchronize"></a>Klockan 
+## <a name="synchronize"></a>Synkronisera 
 
 Synkroniseringsåtgärden måste utföras manuellt eller med hjälp av REST API.
 
@@ -92,7 +112,7 @@ I **översikt** > modell > **Synkronisera modell**.
 
 ![Skjutreglage för skala ut](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 Använd **synkroniseringsåtgärden** .
 
@@ -146,7 +166,7 @@ För SSMS, Visual Studio och anslutnings strängar i PowerShell, Azure Function-
 
 Du kan ändra pris nivån på en server med flera repliker. Samma pris nivå gäller för alla repliker. En skalnings åtgärd förflyttar först alla repliker på en gång och hämtar alla repliker på den nya pris nivån.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 **Problem:** Fel vid hämtning av användare **det går inte att hitta serverns\<namnet på server > instansen i anslutnings läget ReadOnly.**
 

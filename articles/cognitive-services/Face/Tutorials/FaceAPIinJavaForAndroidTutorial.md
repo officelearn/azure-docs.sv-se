@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Identifiera och rama in ansikten i en bild med hjälp av Android SDK'
 titleSuffix: Azure Cognitive Services
-description: I den här självstudien skapar du en enkel Android-app som använder Ansiktsigenkänning till att identifiera och rama in ansikten i en bild.
+description: I den här självstudien får du skapa en enkel Android-app som använder ansikts tjänsten för att identifiera och visa en bilds ansikten.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977802"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165970"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>Självstudie: Skapa en Android-app för att upptäcka och rama in ansikten i en bild
 
-I den här självstudien får du skapa ett Android-program som använder Azure-Ansikts-API, via Java SDK, för att identifiera mänskliga ansikten i en bild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
+I den här självstudien får du skapa ett Android-program som använder Azures ansikts tjänst, via Java SDK, för att identifiera mänskliga ansikten i en bild. Appen visar en utvald bild och ritar en ram runt varje identifierat ansikte.
 
 I den här självstudiekursen lär du dig att:
 
 > [!div class="checklist"]
 > - Skapa ett Android-program
-> - Installera ansikts-API-klientbiblioteket
+> - Installera ansikts klient biblioteket
 > - Använda klientbiblioteket för att identifiera ansikten i en bild
 > - Rita en ram runt varje identifierat ansikte
 
@@ -37,7 +37,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-- En ansikts-API-prenumerationsnyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Följ instruktionerna i [Skapa ett konto för Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på tjänsten Ansikts-API och få din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT`.
+- En ansikts prenumerations nyckel. Du kan hämta nycklar för en kostnadsfri utvärderingsprenumeration från [Testa Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på ansikts tjänsten och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `FACE_SUBSCRIPTION_KEY` respektive `FACE_ENDPOINT`.
 - Valfri version av [Visual Studio 2015 eller 2017](https://www.visualstudio.com/downloads/).
 - [Android Studio](https://developer.android.com/studio/) med API-nivå 22 eller senare (krävs av klientbiblioteket för ansiktsigenkänning).
 
@@ -123,7 +123,7 @@ Kör programmet och bläddra efter en bild med ett ansikte. Vänta några sekund
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig den grundläggande processen för att använda Java SDK för ansikts-API och skapat ett program för att visa och rama in ansikten i en bild. Härnäst får du mer information om ansiktsigenkänning.
+I den här självstudien har du lärt dig grunderna för att använda Java SDK i ansikte och skapa ett program för att identifiera och Visa bild rutor i en bild. Härnäst får du mer information om ansiktsigenkänning.
 
 > [!div class="nextstepaction"]
 > [Så identifierar du ansikten i en bild](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

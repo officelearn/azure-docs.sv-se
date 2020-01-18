@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Utforska en bildbearbetningsapp i C#'
+title: 'Exempel: utforska en app för bild bearbetning iC#'
 titleSuffix: Azure Cognitive Services
 description: Utforska en grundläggande Windows-app som använder API för visuellt innehåll i Azure Cognitive Services. Utför OCR, skapa miniatyrer och arbeta med visuella funktioner i en bild.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170048"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168868"
 ---
-# <a name="sample-explore-an-image-processing-app-with-c"></a>Exempel: Utforska en bildbearbetningsapp med C#
+# <a name="sample-explore-an-image-processing-app-with-c"></a>Exempel: utforska en app för bild bearbetning medC#
 
 Utforska ett grundläggande Windows-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella egenskaper, inklusive ansikten, i en bild. Med exemplet nedan kan du skicka en bild-URL eller en lokalt lagrad fil. Du kan använda det här exemplet med öppen källkod som en mall för att skapa din egen app för Windows med hjälp av API för visuellt innehåll och Windows Presentation Foundation (WPF), en del av .NET Framework.
 
@@ -28,7 +28,7 @@ Utforska ett grundläggande Windows-program som använder Visuellt innehåll fö
 > * Köra exempelappen och interagera med den för att utföra olika scenarier
 > * Utforska de olika scenarier som ingår i exempelappen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du utforskar exempelappen ska du uppfylla följande förutsättningar:
 
@@ -80,7 +80,7 @@ Du kan köra exempelappen om du vill se hur den interagerar med dig och med klie
    ![Sidan för hantering av prenumerationsnyckel](../Images/Vision_UI_Subscription.PNG)  
 1. Ange din prenumerationsnyckel i **Prenumerationsnyckel**.
 1. Ange slut punkts-URL: en i **slut punkten**.  
-   Om du till exempel använder prenumerations nyckeln från den Visuellt innehåll kostnads fria utvärderings versionen anger du följande slut punkts-URL:`https://westcentralus.api.cognitive.microsoft.com`  
+   Om du till exempel använder prenumerations nyckeln från den Visuellt innehåll kostnads fria utvärderings versionen anger du följande slut punkts-URL: `https://westcentralus.api.cognitive.microsoft.com`  
    [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 1. Om du inte vill ange prenumerationsnyckeln och slutpunkts-URL:en nästa gång du kör exempelappen väljer du **Save Setting** (Spara inställning) för att spara prenumerationsnyckeln och slutpunkts-URL:en till datorn. Om du vill ta bort din tidigare sparade prenumerationsnyckel och slutpunkts-URL väljer du **Delete Setting** (Ta bort inställning).
 
@@ -311,4 +311,4 @@ När du inte längre behöver den mapp dit du klonade lagringsplatsen `Microsoft
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Komma igång med Ansikts-API](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Kom igång med ansikts tjänsten](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351348"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260961"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Hantera Azure Blob Storage-livscykeln
 
@@ -246,6 +246,9 @@ Varje regel definition innehåller en filter uppsättning och en åtgärds upps�
 ### <a name="sample-rule"></a>Exempel regel
 
 Följande exempel regel filtrerar kontot för att köra åtgärder på objekt som finns i `container1` och börjar med `foo`.  
+
+>[!NOTE]
+>Livs cykel hantering har endast stöd för Block Blob-typ.  
 
 - Nivå-blob till låg frekvent nivå 30 dagar efter senaste ändring
 - Nivå-blob till Arkiv lag ring 90 dagar efter senaste ändring

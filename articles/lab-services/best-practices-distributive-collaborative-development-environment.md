@@ -1,6 +1,6 @@
 ---
-title: Distribuerade samarbetsfunktioner utvecklingen av resurser i Azure DevTest Labs | Microsoft Docs
-description: Ta del av metodtips för att konfigurera en distribuerad och samarbetsfunktioner utvecklingsmiljö för att utveckla DevTest Labs-resurser.
+title: Distribuerad samarbets utveckling för Azure DevTest Labs resurser
+description: Innehåller metod tips för att skapa en distribuerad och samarbets utvecklings miljö för att utveckla DevTest Labs-resurser.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,55 +11,55 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/10/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8ffc8ed3f84284ff69e9515cba0982790b823a37
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 9469591b1945adaffca973828d619d5d06655262
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543772"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170110"
 ---
-# <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Metodtips för distribuerade och samarbetsfunktioner utvecklingen av resurser i Azure DevTest Labs
-Distribuerade samarbetsfunktioner utveckling kan olika team eller personer att utveckla och underhålla en kod som bas. För att lyckas, beror utvecklingsprocessen på möjligheten att skapa, dela och integrera information. Denna utveckling-princip kan användas i Azure DevTest Labs. Det finns flera typer av resurser i ett laboratorium som distribueras ofta mellan olika labs inom företaget. De olika typerna av resurser är fokus i två områden:
+# <a name="best-practices-for-distributed-and-collaborative-development-of-azure-devtest-labs-resources"></a>Metod tips för distribuerad och samverkande utveckling av Azure DevTest Labs resurser
+Distribuerad samarbets utveckling gör att olika team eller personer kan utveckla och underhålla en kodbas. För att lyckas, är utvecklings processen beroende av möjligheten att skapa, dela och integrera information. Den här nyckel utvecklings principen kan användas i Azure DevTest Labs. Det finns flera typer av resurser i ett labb som ofta distribueras mellan olika labb i ett företag. De olika typerna av resurser fokuserar på två områden:
 
-- Resurser som lagras internt i labbet (labb-baserad)
-- Resurser som lagras i [externa databaser som är anslutna till labbet](devtest-lab-add-artifact-repo.md) (kod baserat på lagringsplatsen). 
+- Resurser som lagras internt i labbet (labbbaserade)
+- Resurser som lagras i [externa databaser som är anslutna till labbet](devtest-lab-add-artifact-repo.md) (kod databas-baserad). 
 
-Det här dokumentet beskriver metodtips som tillåter samarbete och distribution över flera team samtidigt anpassning och kvalitet på alla nivåer.
+I det här dokumentet beskrivs några metod tips som gör det möjligt att samar beta och distribuera över flera team samtidigt som du säkerställer anpassning och kvalitet på alla nivåer.
 
-## <a name="lab-based-resources"></a>Labb-baserade resurser
+## <a name="lab-based-resources"></a>Labbbaserade resurser
 
-### <a name="custom-virtual-machine-images"></a>Anpassade avbildningar
-Du kan ha en gemensam källa med anpassade avbildningar som distribueras till labs på basis av varje natt. Detaljerad information finns i [bild factory](image-factory-create.md).    
+### <a name="custom-virtual-machine-images"></a>Anpassade avbildningar av virtuella datorer
+Du kan ha en gemensam källa med anpassade avbildningar som distribueras till labbet på en natt basis. Detaljerad information finns i [bild fabrik](image-factory-create.md).    
 
-### <a name="formulas"></a>Formler
-[Formler](devtest-lab-manage-formulas.md) är labb-specifika och inte har en distributionsmekanism för. Lab medlemmar göra alla utvecklingen av formler. 
+### <a name="formulas"></a>formler
+[Formler](devtest-lab-manage-formulas.md) är labbbaserade och har inte en distributions mekanism. Labb medlemmarna gör all utveckling av formler. 
 
-## <a name="code-repository-based-resources"></a>Kod lagringsplats-baserade resurser
-Det finns två olika funktioner som är baserade på lagringsplatser, artefakter och miljöer. Den här artikeln går över funktionerna och hur du effektivt ställer in arbetsflöde och databaser så att möjligheten att anpassa tillgängliga artefakter och miljöer på organisationsnivå eller team.  Det här arbetsflödet baseras på Standardtaxor [källkoden styra branchning strategi](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
+## <a name="code-repository-based-resources"></a>Kod lagrings resurser
+Det finns två olika funktioner som baseras på kod databaser, artefakter och miljöer. Den här artikeln går igenom funktionerna och hur du effektivt konfigurerar databaser och arbets flöden så att du kan anpassa tillgängliga artefakter och miljöer på organisations nivå eller grupp nivå.  Det här arbets flödet baseras på standard [strategin för käll kods kontroll grenar](/azure/devops/repos/tfvc/branching-strategies-with-tfvc?view=azure-devops). 
 
-### <a name="key-concepts"></a>Viktiga begrepp
-Källinformation för artefakter innehåller metadata, skript. Källinformation för miljöer innehåller metadata och Resource Manager-mallar med eventuella stödfiler som PowerShell-skript, DSC-skript, Zip-filer och så vidare.  
+### <a name="key-concepts"></a>Nyckelkoncept
+Käll informationen för artefakter innehåller metadata, skript. Käll informationen för miljöer omfattar metadata-och Resource Manager-mallar med stödfiler som PowerShell-skript, DSC-skript, zip-filer och så vidare.  
 
-### <a name="repository-structure"></a>Struktur för databasen  
-Den vanligaste konfigurationen för källkodskontroll (SCC) är att ställa in en struktur med flera nivåer för att lagra kodfiler (Resource Manager-mallar, metadata och skript) som används för att i labs. Mer specifikt kan skapa olika databaser för att lagra resurser som hanteras av de olika nivåerna av företaget:   
+### <a name="repository-structure"></a>Databas struktur  
+Den vanligaste konfigurationen för käll kods kontroll (SCC) är att skapa en struktur med flera nivåer för lagring av kod filer (Resource Manager-mallar, metadata och skript) som används i labbet. Mer specifikt kan du skapa olika lagrings platser för resurser som hanteras av de olika nivåerna i företaget:   
 
-- Resurser för hela företaget.
-- Business unit/Division-hela resurser
-- Team-specifika resurser.
+- Resurser i hela företaget.
+- Affär senhet/avdelning – breda resurser
+- Team-/regionsspecifika resurser.
 
-Var och en av dessa nivåer länkar till en annan databas där huvudgrenen måste vara av produktionskvalitet. Den [grenar](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) i varje databas är för utveckling av dessa specifika resurser (artefakter och mallar). Den här strukturen matchar labb som du enkelt kan ansluta flera databaser och flera grenar på samma gång till organisationens övningar. Namnet på lagringsplatsen ingår i användargränssnittet (UI) för att undvika förvirring när det är identiska namn, beskrivning och utgivare.
+Var och en av dessa nivåer länkar till en annan lagrings plats där huvud grenen måste vara av produktions kvaliteten. [Grenarna](/azure/devops/repos/git/git-branching-guidance?view=azure-devops) i varje lagrings plats kan vara för utveckling av dessa resurser (artefakter eller mallar). Den här strukturen justeras bra med DevTest Labs eftersom du enkelt kan ansluta flera databaser och flera grenar samtidigt till organisationens labb. Databas namnet ingår i användar gränssnittet (UI) för att undvika förvirring när det finns identiska namn, beskrivning och utgivare.
      
-Följande diagram visar två databaser: en lagringsplats för företag som underhålls av IT-avdelningen och en division databas som hanteras av divisionen R & D.
+Följande diagram visar två databaser: en företags lagrings plats som underhålls av IT-avdelningen och en avdelnings lagrings plats som underhålls av R & D-delningen.
 
-![En exempel parti-och detaljhandeln och samarbetsfunktioner utvecklingsmiljö](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
+![En exempel distributions miljö och samarbets miljö](./media/best-practices-distributive-collaborative-dev-env/distributive-collaborative-dev-env.png)
    
-Den här överlappande strukturen möjliggör utveckling samtidigt som högre kvalitet på huvudgrenen när du har flera databaser som är anslutna till ett labb kan större flexibilitet.
+Med den här lager strukturen kan du utveckla och upprätthålla en högre nivå av kvalitet vid huvud grenen samtidigt som flera databaser är anslutna till ett labb och ger större flexibilitet.
 
 ## <a name="next-steps"></a>Nästa steg    
 Se följande artiklar:
 
-- Lägg till en databas till ett labb med hjälp av antingen den [Azure-portalen](devtest-lab-add-artifact-repo.md) eller via [Azure Resource Manager-mall](add-artifact-repository.md)
-- [DevTest Labs artefakter](devtest-lab-artifact-author.md)
+- Lägg till en lagrings plats i ett labb med antingen [Azure Portal](devtest-lab-add-artifact-repo.md) eller via [Azure Resource Management-mallen](add-artifact-repository.md)
+- [DevTest Labs-artefakter](devtest-lab-artifact-author.md)
 - [DevTest Labs miljöer](devtest-lab-create-environment-from-arm.md).

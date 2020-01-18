@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 50325b75280160a3fefa5b5487df29a25e53bddd
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: dcb12da680d70e1f0ce4cd763bee340bb3416c6b
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966954"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169953"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Använd din modell med förutsägelse-API: et
 
@@ -109,9 +109,9 @@ I den här guiden ska du använda en lokal avbildning, så kopiera URL: en under
     ```
 
 1. Ändra följande information:
-   * `namespace` Ange fältet till namnet på ditt projekt.
+   * Ange fältet `namespace` till namnet på ditt projekt.
    * Ersätt plats hållaren `<Your prediction key>` med det nyckel värde som du hämtade tidigare.
-   * Ersätt plats hållaren `<Your prediction URL>` med URL: en som du hämtade tidigare.
+   * Ersätt plats hållaren `<Your prediction URL>` med den URL som du hämtade tidigare.
 
 ## <a name="run-the-application"></a>Köra programmet
 
@@ -135,7 +135,7 @@ När du kör programmet uppmanas du att ange en sökväg till en avbildnings fil
 I den här guiden har du lärt dig hur du skickar avbildningar till din anpassade avbildnings klassificerare/detektor och får ett svar C# program mässigt med SDK: n. Härnäst lär du dig hur du slutför scenarier från slut punkt till slut C#punkt med eller kom igång med ett annat språk-SDK.
 
 * [Quickstart: .NET SDK](csharp-tutorial.md)
-* [Snabbstart: Python SDK](python-tutorial.md)
-* [Snabbstart: Java SDK](java-tutorial.md)
-* [Snabbstart: Node SDK](node-tutorial.md)
-* [Snabbstart: Go SDK](go-tutorial.md)
+* [Snabb start: python SDK](python-tutorial.md)
+* [Snabb start: Java SDK](java-tutorial.md)
+* [Snabb start: Node SDK](node-tutorial.md)
+* [Snabb start: go SDK](go-tutorial.md)

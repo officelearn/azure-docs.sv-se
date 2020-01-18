@@ -1,5 +1,5 @@
 ---
-title: Använda DevTest Labs i Azure pipelines build and release pipelines | Microsoft Docs
+title: Använda DevTest Labs i Build and Release-pipelines i Azure Pipelines
 description: 'Lär dig hur du använder Azure DevTest Labs i pipeline: build och release i Azure.'
 services: devtest-lab, lab-services
 documentationcenter: na
@@ -10,20 +10,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 032f598fed765b281d4a6a124f8855abc201ee94
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: e16f3c5a0c0b2b86d6a893f541cefb275a8e7d07
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774555"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169225"
 ---
-# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Använda DevTest Labs i Azure pipelines build and release-pipelines
+# <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Använda DevTest Labs i Build and Release-pipelines i Azure Pipelines
 Den här artikeln innehåller information om hur DevTest Labs kan användas i pipeline: build och release i Azure. 
 
 ## <a name="overall-flow"></a>Övergripande flöde
-Det grundläggande flödet är att ha en **pipeline** för bygge som utför följande uppgifter:
+Det grundläggande flödet är att ha en **pipeline för bygge** som utför följande uppgifter:
 
 1. Bygg program koden.
 1. Skapa bas miljön i DevTest Labs.
@@ -31,11 +31,11 @@ Det grundläggande flödet är att ha en **pipeline** för bygge som utför föl
 1. Distribuera programmet till DevTest Labs-miljön
 1. Testa koden. 
 
-När bygget har slutförts använder lanserings **pipeline** Bygg artefakterna för att distribuera mellanlagringen eller produktionen. 
+När bygget har slutförts använder **lanserings pipeline** Bygg artefakterna för att distribuera mellanlagringen eller produktionen. 
 
 En av de nödvändiga anläggningarna är att all information som behövs för att återskapa det testade eko systemet är tillgänglig i versions artefakterna, inklusive konfigurationen av Azure-resurserna. Eftersom Azure-resurser betalar en kostnad när de används vill företag antingen styra eller spåra användningen av dessa resurser. I vissa situationer kan Azure Resource Manager mallar som används för att skapa och konfigurera resurser hanteras av en annan avdelning, till exempel. Och de här mallarna kan lagras i en annan lagrings plats. Det leder till en intressant situation där en version skapas och testas, och både koden och konfigurationen måste lagras i bygg artefakterna för att återskapa systemet i produktion på rätt sätt. 
 
-Med DevTest Labs under build/test-fasen kan du lägga till Azure Resource Manager mallar och stödfiler till versions källorna så att den exakta konfigurationen som används för att testa med distribueras till produktion under den versions fas som används för att testa med. Med rätt konfiguration sparas Resource Manager-mallarna i versions artefakterna för aktiviteten **skapa Azure DevTest Labss miljö** med rätt konfiguration. I det här exemplet ska du använda koden från [självstudien: Bygg en .net Core-och SQL Database-webbapp i](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)Azure App Service för att distribuera och testa webbappen i Azure.
+Med DevTest Labs under build/test-fasen kan du lägga till Azure Resource Manager mallar och stödfiler till versions källorna så att den exakta konfigurationen som används för att testa med distribueras till produktion under den versions fas som används för att testa med. Med rätt konfiguration sparas Resource Manager-mallarna i versions artefakterna för aktiviteten **skapa Azure DevTest Labss miljö** med rätt konfiguration. I det här exemplet använder du koden från [självstudien: Bygg en .net Core-och SQL Database-webbapp i Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)för att distribuera och testa webbappen i Azure.
 
 ![Övergripande flöde](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -49,7 +49,7 @@ Det finns ett par objekt som måste skapas i förväg:
 Pipelinen build skapar en DevTest Labs-miljö och distribuerar koden för testning.
 
 ## <a name="set-up-a-build-pipeline"></a>Konfigurera en pipeline för bygge
-I Azure-pipeline skapar du en versions pipeline med hjälp av koden från [självstudien: Bygg en .NET Core-och SQL Database-webbapp i](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md)Azure App Service. Använd **ASP.net Core** mall, som fyller i den nödvändiga uppgiften för att bygga, testa och publicera koden.
+I Azure-pipeline skapar du en versions pipeline med hjälp av koden från [självstudien: skapa en .net Core-och SQL Database-webbapp i Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Använd **ASP.net Core** mall, som fyller i den nödvändiga uppgiften för att bygga, testa och publicera koden.
 
 ![Välj mallen ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 
@@ -67,7 +67,7 @@ I aktiviteten skapa miljö (**Azure DevTest Labs Skapa miljö** ) använder du L
 
 Vi rekommenderar att du använder list rutor på sidan i stället för att ange informationen manuellt. Om du anger informationen manuellt anger du fullständigt kvalificerade ID för Azure-resurs. Uppgiften visar de egna namnen i stället för resurs-ID. 
 
-Miljö namnet är det namn som visas i DevTest Labs. Det bör vara ett unikt namn för varje version. Exempel: **TestEnv $ (build. BuildId)** . 
+Miljö namnet är det namn som visas i DevTest Labs. Det bör vara ett unikt namn för varje version. Till exempel: **TestEnv $ (build. BuildId)** . 
 
 Du kan ange antingen parameter filen eller parametrar för att skicka information till Resource Manager-mallen. 
 
@@ -86,7 +86,7 @@ Den tredje aktiviteten är aktiviteten **Azure App service distribution** . Appe
 ![App Service distribuera uppgift](./media/use-devtest-labs-build-release-pipelines/app-service-deploy.png)
 
 ## <a name="set-up-release-pipeline"></a>Konfigurera versions pipeline
-Du skapar en versions pipeline med två uppgifter: **Azure-distribution: Skapa eller uppdatera resurs gruppen** och **Distribuera Azure App Service**. 
+Du skapar en versions pipeline med två uppgifter: **Azure-distribution: skapa eller uppdatera resurs grupp** och **Distribuera Azure App Service**. 
 
 För den första aktiviteten anger du namn och plats för resurs gruppen. Sökvägen är en länkad artefakt. Om Resource Manager-mallen innehåller länkade mallar måste en anpassad distribution av resurs grupper implementeras. Mallen finns i den publicerade Drop-artefakten. Åsidosätt mallparametrar för Resource Manager-mallen. Du kan lämna kvar de återstående inställningarna med standardvärdena. 
 

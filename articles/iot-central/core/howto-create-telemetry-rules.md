@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 0b24c064424b00fa9acb96b03c0a3c5ca69f67f2
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930188"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264432"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Skapa en regel för telemetri och konfigurera aviseringar i ditt Azure IoT Central-program
 
@@ -27,13 +27,13 @@ Enheter kan använda telemetri mått för att skicka numeriska data från enhete
 
 ## <a name="create-a-telemetry-rule"></a>Skapa en regel för telemetri
 
-För att skapa en telemetri-regel måste enhets mal len ha minst en definierad telemetri mått. I det här exemplet används en kyld Vending-enhet som skickar telemetri för temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det hamnar ovanför 80 grader.
+För att skapa en telemetri-regel måste enhets mal len ha minst en definierad telemetri mått. I det här exemplet används en kyld Vending-enhet som skickar telemetri för temperatur och fuktighet. Regeln övervakar temperaturen som rapporteras av enheten och skickar ett e-postmeddelande när det går över 70&deg; F.
 
 1. Använd sidan **enhetsspecifika** och navigera till den enhets mall som du lägger till regeln för.
 
 1. Om du inte har skapat några regler än visas följande skärm:
 
-    ![Inga regler ännu](media/howto-create-telemetry-rules/rules_landing_page1.png)
+    ![Inga regler än](media/howto-create-telemetry-rules/rules_landing_page1.png)
 
 1. På fliken **regler** väljer du **+ ny regel** för att se vilka typer av regler som du kan skapa.
 
@@ -43,7 +43,7 @@ För att skapa en telemetri-regel måste enhets mal len ha minst en definierad t
 
 1. Ange ett namn som hjälper dig att identifiera regeln i den här enhets mal len.
 
-1. Om du vill aktivera regeln direkt för alla enheter som skapats för den här mallen kan du växla **Aktivera regel för alla enheter för den här mallen**.
+1. Om du vill aktivera regeln direkt för alla enheter som skapats för den här mallen kan du växla **Aktivera regel för alla enheter i den här mallen**.
 
    ![Regel information](media/howto-create-telemetry-rules/rule_detail1.png)
 
@@ -58,10 +58,10 @@ Villkor definierar de kriterier som övervakas av regeln.
 1. Välj den telemetri som du vill övervaka från List rutan **mått** .
 
 1. Välj sedan **agg regering**, **operator**och ange ett **tröskelvärde** .
-   - Aggregator är valfritt. Utan agg regering utlöser regeln för varje telemetri-datapunkt som uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 80, utlöses regeln nästan omedelbart när enheten rapporterar temperatur > 80.
-   - Om en mängd funktion som till exempel Average, min, Max, antal väljs, måste användaren ange ett **sammanställt tids fönster** som villkoret måste utvärderas över. Om du till exempel ställer in perioden "5 minuter" och regeln söker efter genomsnitts temperatur över 80, utlöses regeln när genomsnitts temperaturen är över 80 i minst 5 minuter. Regel utvärderings frekvensen är samma som den **sammanställda tids perioden**, vilket innebär att regeln utvärderas var femte minut i det här exemplet.
+   - Aggregator är valfritt. Utan agg regering utlöser regeln för varje telemetri-datapunkt som uppfyller villkoret. Om regeln till exempel har kon figurer ATS för att utlösas när temperaturen är över 70&deg; F, utlöses regeln nästan omedelbart när enheten rapporterar temperatur > 70.
+   - Om en mängd funktion som till exempel Average, min, Max, antal väljs, måste användaren ange ett **sammanställt tids fönster** som villkoret måste utvärderas över. Om du till exempel anger perioden "5 minuter" och regeln söker efter genomsnitts temperatur över 70, utlöses regeln när genomsnitts temperaturen är över 70&deg; F i minst 5 minuter. Regel utvärderings frekvensen är samma som den **sammanställda tids perioden**, vilket innebär att regeln utvärderas var femte minut i det här exemplet.
 
-     ![Tillstånd](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
+     ![Villkor](media/howto-create-telemetry-rules/aggregate_condition_filled_out1.png)
 
      >[!NOTE]
      >Mer än en mätning av telemetri kan läggas till under **villkor**. När flera villkor har angetts måste alla villkor vara uppfyllda för att regeln ska kunna utlösas. Varje conditon kopplas ihop med en AND-sats implicit. När du använder agg regering måste varje mått aggregeras.
@@ -90,7 +90,7 @@ Du kan lägga till andra åtgärder till regeln, till exempel Microsoft Flow och
 
 ## <a name="parameterize-the-rule"></a>Parameterisera regeln
 
-Regler kan härleda vissa Vales från **enhets egenskaper** som parametrar. Att använda parametrar är användbart i scenarier där tröskelvärdena för telemetri varierar för olika enheter. När du skapar regeln väljer du en enhets egenskap som anger tröskelvärdet, till exempel **maximalt idealt tröskelvärde**, i stället för att tillhandahålla ett absolut värde, till exempel 80 grader. När regeln körs matchar den telemetri för enheten med värdet som anges i egenskapen enhet.
+Regler kan härleda vissa Vales från **enhets egenskaper** som parametrar. Att använda parametrar är användbart i scenarier där tröskelvärdena för telemetri varierar för olika enheter. När du skapar regeln väljer du en enhets egenskap som anger tröskelvärdet, till exempel **maximalt idealt tröskelvärde**, i stället för att tillhandahålla ett absolut värde, till exempel 70&deg; F. När regeln körs matchar den telemetri för enheten med värdet som anges i egenskapen enhet.
 
 Att använda parametrar är ett effektivt sätt att minska antalet regler som ska hanteras per enhets mall.
 

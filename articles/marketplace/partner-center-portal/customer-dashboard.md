@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: d1d94e07fc38ae5de62793666df5a73dbf8b79eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2eaaf2ec2f3dad1da345d0cfeadf1cae223a592
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480572"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264024"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Kund instrument panel på kommersiell Marketplace-analys
 
@@ -72,7 +72,7 @@ I tabellen med **kund trender** visas antalet kunder, inklusive nya, befintliga 
 
 Diagrammet **kunder per order/användning** har tre flikar, "order", "normaliserad användning" och "rå användning". Den **främsta kund percentilen** visas längs x-axeln, vilket bestäms av antalet beställningar. Y-axeln visar kundens order antal. Den sekundära y-axeln (linje diagram) visar den ackumulerade procent andelen av det totala antalet beställningar. Du kan visa information genom att hovra över punkter längs linje diagrammet.
 
-Som exempel kan du se diagrammet nedan för normaliserad användning: den översta 30: e percentilen av kunder bidrar till 87% av den normaliserade användningen ackumulerat. Den 30: e percentilen av kunder bidrar endast med 1.57 M timmars användning.
+Som exempel kan du se diagrammet nedan för normaliserad användning: den översta 30: e percentilen av kunder bidrar till 87% av den normaliserade användningen ackumulerat. Den 30: e percentilen av kunder bidrar bara till 1 570 000 timmars användning.
 
 ### <a name="customers-by-skus"></a>Kunder per SKU
 

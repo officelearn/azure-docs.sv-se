@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: d95a3334fe5a7767446c92f8f8668e4da09fca42
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659601"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169862"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>Snabb start: skapa ett Azure Stream Analytics jobb i Visual Studio Code (för hands version)
 
@@ -179,9 +179,11 @@ Följ anvisningarna i [testa frågor lokalt med exempel data](visual-studio-code
    |IotHubNamespace|MyASAIoTHub|Välj eller ange namnet på din IoT Hub. Namn på IoT Hub identifieras automatiskt om de har skapats i samma prenumeration.|
    |SharedAccessPolicyName|iothubowner| |
 
-   Du kan använda funktionen CodeLens för att ange en sträng, välja i en nedrullningsbar listruta eller ändra texten direkt i filen. Följande skärm bild visar **val från dina prenumerationer** som exempel.
+   Du kan använda funktionen CodeLens för att ange en sträng, välja i en nedrullningsbar listruta eller ändra texten direkt i filen. Följande skärm bild visar **val från dina prenumerationer** som exempel. Autentiseringsuppgifterna anges automatiskt och sparas i Hanteraren för lokal autentiseringsuppgift.
 
    ![Konfigurera indatatyper i Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+   ![Konfigurera indatamängds värde i Visual Studio Code](./media/quick-create-vs-code/configure-input-value.png)
 
 ## <a name="preview-input"></a>Förhandsgranska ininformation
 

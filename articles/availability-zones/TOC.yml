@@ -33,7 +33,7 @@
         - name: Lastbalanserare
           items:
             - name: Vad är lastbalanserare?
-              href: ../load-balancer/load-balancer-standard-overview.md
+              href: ../load-balancer/load-balancer-overview.md
             - name: Load Balancer Standard och tillgänglighetszoner
               href: ../load-balancer/load-balancer-standard-availability-zones.md
             - name: Skapa en zonredundant offentlig Standard Load Balancer

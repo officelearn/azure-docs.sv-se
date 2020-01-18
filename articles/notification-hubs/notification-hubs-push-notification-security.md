@@ -1,6 +1,6 @@
 ---
-title: Notification Hubs säkerhet
-description: I det här avsnittet beskrivs säkerheten för Azure Notification Hubs.
+title: Notification Hubs säkerhets modell
+description: Lär dig mer om säkerhets modellen för Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: a9598f6a01e5536351fb20b7c352a5eaf5746042
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273625"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263769"
 ---
 # <a name="notification-hubs-security"></a>Notification Hubs säkerhet
 
@@ -48,7 +48,7 @@ Med den här nyckeln med **avlyssnings** åtkomst kan en klient app registrera s
 
 På samma sätt som andra entiteter tillåts Notification Hub-åtgärder för tre säkerhets anspråk: **Lyssna**, **Skicka**och **Hantera**.
 
-| Begäran   | Beskrivning                                          | Tillåtna åtgärder |
+| Begär   | Beskrivning                                          | Tillåtna åtgärder |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Lyssna  | Skapa/uppdatera, läsa och ta bort enstaka registreringar | Skapa/uppdatera registrering<br><br>Läs registrering<br><br>Läs alla registreringar för en referens<br><br>Ta bort registrering |
 | Skicka    | Skicka meddelanden till Notification Hub                | Skicka meddelande |

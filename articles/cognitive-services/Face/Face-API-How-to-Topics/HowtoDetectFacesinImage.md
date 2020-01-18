@@ -1,5 +1,5 @@
 ---
-title: Identifiera ansikten i en bild – Ansikts-API
+title: Identifiera ansikten i en bild – ansikte
 titleSuffix: Azure Cognitive Services
 description: Den här guiden visar hur du använder ansikts igenkänning för att extrahera attribut som kön, ålder eller attityd från en specifik bild.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7070cb3bcd1b519828a750cf4ba6caf7ecb34bbb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744280"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169882"
 ---
 # <a name="get-face-detection-data"></a>Hämta ansikts identifierings data
 
-Den här guiden visar hur du använder ansikts igenkänning för att extrahera attribut som kön, ålder eller attityd från en specifik bild. Kodfragmenten i den här hand boken är skrivna C# med hjälp av klient biblioteket Azure Cognitive Services ansikts-API. Samma funktioner är tillgängliga via [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Den här guiden visar hur du använder ansikts igenkänning för att extrahera attribut som kön, ålder eller attityd från en specifik bild. Kodfragmenten i den här hand boken är skrivna C# med hjälp av klient biblioteket för Azure Cognitive Services Face. Samma funktioner är tillgängliga via [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 Den här guiden visar hur du:
 
@@ -27,7 +27,7 @@ Den här guiden visar hur du:
 - Få plats för olika ansikts landmärken, till exempel elever, näsa och mun, i en bild.
 - Gissa kön, ålder, känslo och andra attribut för ett identifierat ansikte.
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
 Den här guiden förutsätter att du redan har skapat ett [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -objekt med namnet `faceClient`, med en ansikts prenumerations nyckel och en slut punkts-URL. Härifrån kan du använda funktionen för ansikts igenkänning genom att anropa antingen [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), som används i den här hand boken eller [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Instruktioner för hur du konfigurerar den här funktionen finns i en av snabb starterna.
 

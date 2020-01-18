@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: d4fd443959604f1a50dffbcb646bbe66fa159f8d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0f2181a388a5329dbc16ce8968da79529b22ea85
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402602"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168178"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Använda Tjänstkarta lösning i Azure
 
@@ -27,7 +27,7 @@ I den här artikeln beskrivs hur du onboarding och använder Tjänstkarta. Infor
 * Beroende agenten som är installerad på Windows-datorn eller Linux-servern.
 
 >[!NOTE]
->Om du redan har distribuerat Tjänstkarta kan du nu även visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Läs mer i [Azure Monitor for VMS översikt](../../azure-monitor/insights/vminsights-overview.md). Mer information om skillnaderna mellan Tjänstkarta lösning och Azure Monitor for VMs kart funktion finns i följande [vanliga frågor och svar](vminsights-faq.md#how-is-azure-monitor-for-vms-map-feature-different-from-service-map).
+>Om du redan har distribuerat Tjänstkarta kan du nu även visa dina kartor i Azure Monitor for VMs, som innehåller ytterligare funktioner för att övervaka hälso tillstånd och prestanda för virtuella datorer. Läs mer i [Azure Monitor for VMS översikt](../../azure-monitor/insights/vminsights-overview.md). Mer information om skillnaderna mellan Tjänstkarta lösning och Azure Monitor for VMs kart funktion finns i följande [vanliga frågor och svar](../faq.md#azure-monitor-for-vms-preview).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -321,7 +321,7 @@ Eftersom det kan finnas flera poster för en angiven process och dator inom ett 
 
 ### <a name="connections"></a>Anslutningar
 
-Anslutnings mått skrivs till en ny tabell i Log Analytics-VMConnection. Den här tabellen innehåller information om anslutningarna för en dator (inkommande och utgående). Anslutnings måtten exponeras också med API: er som gör det möjligt att hämta ett mått i ett tids fönster.  TCP-anslutningar som orsakas av "*Accept*-ing på en lyssnande socket" är inkommande, medan de som skapats av *Connect*-ing till en specifik IP-adress och port är utgående. Riktningen för en anslutning representeras av egenskapen Direction, som kan anges till antingen **inkommande** eller **utgående**. 
+Anslutnings mått skrivs till en ny tabell i Log Analytics-VMConnection. Den här tabellen innehåller information om anslutningarna för en dator (inkommande och utgående). Anslutnings måtten exponeras också med API: er som gör det möjligt att hämta ett mått i ett tids fönster.  TCP-anslutningar som orsakas av att de godkänns på en lyssnande socket är inkommande, medan de som skapas genom att ansluta till en specifik IP-adress och port är utgående. Riktningen för en anslutning representeras av egenskapen Direction, som kan anges till antingen **inkommande** eller **utgående**. 
 
 Poster i dessa tabeller genereras från data som rapporteras av beroende agenten. Varje post representerar en observation över ett tidsintervall med en minut. Egenskapen TimeGenerated anger start tiden för tidsintervallet. Varje post innehåller information för att identifiera respektive entitet, det vill säga anslutning eller port, samt mått som är associerade med den entiteten. För närvarande rapporteras endast nätverks aktivitet som sker med TCP över IPv4.
 
@@ -539,7 +539,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 | summarize Remote=makeset(iff(isempty(RemoteMachine), todynamic('{}'), pack('Machine', RemoteMachine, 'Process', Process1, 'ProcessName', ProcessName1))) by ConnectionId, Direction, Machine, Process, ProcessName, SourceIp, DestinationIp, DestinationPort, Protocol
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
 Alla Server-, process-och beroende data i Tjänstkarta är tillgängliga via [Tjänstkarta REST API](https://docs.microsoft.com/rest/api/servicemap/).
 

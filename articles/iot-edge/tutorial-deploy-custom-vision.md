@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/15/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 41a2fac48980cf376c833b022b833cfcf1e99821
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 07350ffe4a57bfe4a79bfce5d821b51535867935
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701876"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167001"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Självstudie: Utföra bildklassificering på gränsen med Custom Vision Service
 
@@ -22,7 +22,7 @@ Azure IoT Edge kan göra din IoT-lösning effektivare genom att flytta arbetsbel
 
 Till exempel kan Custom Vision på en IoT Edge-enhet avgöra om det förekommer mer eller mindre trafik än normalt på en motorväg eller huruvida det finns lediga platser på en viss sträcka i ett parkeringshus. Dessa insikter kan delas med en annan tjänst i åtgärdssyfte.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 >
@@ -42,7 +42,7 @@ I den här guiden får du lära dig att:
 >[!TIP]
 >Den här självstudien är en förenklad version av [Custom vision och Azure IoT Edge på ett Raspberry Pi 3](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) -exempel projekt. Den här självstudien har utformats för att köras på en virtuell dator i molnet och använder statiska avbildningar för att träna och testa avbildnings klassificeraren, vilket är användbart för någon som börjar utvärdera Custom Vision på IoT Edge. Exempel projektet använder fysisk maskin vara och konfigurerar en live-kamera för att träna och testa bildklassificeraren, vilket är användbart för någon som vill testa ett mer detaljerat scenario med verklig livs längd.
 
-Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats: 
+Innan du påbörjar den här självstudien bör du ha gått igenom den föregående kursen för att konfigurera din miljö för att utveckla Linux-behållare: [utveckla IoT Edge moduler för Linux-enheter](tutorial-develop-for-linux.md). När du har slutfört den här självstudien bör du ha följande krav på plats:
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En [Linux-enhet som kör Azure IoT Edge](quickstart-linux.md)
@@ -50,29 +50,29 @@ Innan du påbörjar den här självstudien bör du ha gått igenom den föregåe
 * [Visual Studio-kod](https://code.visualstudio.com/) som kon figurer ATS med [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
 * [Docker CE](https://docs.docker.com/install/) konfigurerat för att köra Linux-behållare.
 
-Om du vill utveckla en IoT Edge-modul med tjänsten Custom Vision installerar du följande ytterligare krav på utvecklings datorn: 
+Om du vill utveckla en IoT Edge-modul med tjänsten Custom Vision installerar du följande ytterligare krav på utvecklings datorn:
 
 * [Python](https://www.python.org/downloads/)
 * [Git](https://git-scm.com/downloads)
-* [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python) 
+* [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Skapa en bildklassificerare med Custom Vision
 
 För att skapa en bildklassificerare måste du skapa ett Custom Vision-projekt och förse träningsbilder. Mer information om de steg som du vidtar i det här avsnittet finns på sidan om [hur du skapar en klassificerare med Custom Vision](../cognitive-services/custom-vision-service/getting-started-build-a-classifier.md).
 
-När din bildklassificerare har skapats och tränats kan du exportera den som en Docker-container och distribuera den till en IoT Edge-enhet. 
+När din bildklassificerare har skapats och tränats kan du exportera den som en Docker-container och distribuera den till en IoT Edge-enhet.
 
 ### <a name="create-a-new-project"></a>Skapa ett nytt projekt
 
 1. I din webbläsare navigerar du till [Custom Vision-webbplatsen](https://customvision.ai/).
 
-2. Välj **Logga in** och logga in med samma konto som du använder för att få åtkomst till Azure-resurser. 
+2. Välj **Logga in** och logga in med samma konto som du använder för att få åtkomst till Azure-resurser.
 
 3. Välj **Nytt projekt**.
 
 4. Skapa ditt projekt med följande värden:
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Namn | Ange ett namn för projektet, till exempel **EdgeTreeClassifier**. |
    | Beskrivning | Valfri projektbeskrivning. |
@@ -86,21 +86,21 @@ När din bildklassificerare har skapats och tränats kan du exportera den som en
 
 ### <a name="upload-images-and-train-your-classifier"></a>Ladda upp bilder och träna klassificeraren
 
-För att skapa en bildklassificerare krävs en uppsättning träningsbilder samt testbilder. 
+För att skapa en bildklassificerare krävs en uppsättning träningsbilder samt testbilder.
 
-1. Klona eller ladda ned exempelbilder från lagringsplatsen [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows) till din lokala utvecklingsdator. 
+1. Klona eller ladda ned exempelbilder från lagringsplatsen [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows) till din lokala utvecklingsdator.
 
    ```cmd/sh
    git clone https://github.com/Microsoft/Cognitive-CustomVision-Windows.git
    ```
 
-2. Återgå till Custom Vision-projektet och välj **Lägg till bilder**. 
+2. Återgå till Custom Vision-projektet och välj **Lägg till bilder**.
 
-3. Bläddra till den git-lagringsplats som du klonade lokalt och navigera till den första bildmappen, **Cognitive-CustomVision-Windows/Samples/Images/Hemlock**. Välj alla 10 bilder i mappen och sedan **Öppna**. 
+3. Bläddra till den git-lagringsplats som du klonade lokalt och navigera till den första bildmappen, **Cognitive-CustomVision-Windows/Samples/Images/Hemlock**. Välj alla 10 bilder i mappen och sedan **Öppna**.
 
-4. Lägg till taggen **hemlock** (hemlockgran) till den här gruppen med bilder och tryck på **Retur** för att tillämpa taggen. 
+4. Lägg till taggen **hemlock** (hemlockgran) till den här gruppen med bilder och tryck på **Retur** för att tillämpa taggen.
 
-5. Välj **Ladda upp 10 filer**. 
+5. Välj **Ladda upp 10 filer**.
 
    ![Ladda filer taggade med hemlockgran till Custom Vision](./media/tutorial-deploy-custom-vision/upload-hemlock.png)
 
@@ -108,17 +108,17 @@ För att skapa en bildklassificerare krävs en uppsättning träningsbilder samt
 
 7. Välj **Lägg till bilder**  igen.
 
-8. Bläddra till den andra bildmappen, **Cognitive-CustomVision-Windows/Samples/Images/Japanese Cherry**. Välj alla 10 bilder i mappen och sedan **Öppna**. 
+8. Bläddra till den andra bildmappen, **Cognitive-CustomVision-Windows/Samples/Images/Japanese Cherry**. Välj alla 10 bilder i mappen och sedan **Öppna**.
 
-9. Lägg till taggen **japanese cherry** (japanskt körsbärsträd) till den här gruppen med bilder och tryck på **Retur** för att tillämpa taggen. 
+9. Lägg till taggen **japanese cherry** (japanskt körsbärsträd) till den här gruppen med bilder och tryck på **Retur** för att tillämpa taggen.
 
-10. Välj **Ladda upp 10 filer**. När bilderna har laddats upp väljer du **Klar**. 
+10. Välj **Ladda upp 10 filer**. När bilderna har laddats upp väljer du **Klar**.
 
-11. När båda uppsättningarna med bilder har taggats och laddats upp väljer du **Träna** för att träna klassificeraren. 
+11. När båda uppsättningarna med bilder har taggats och laddats upp väljer du **Träna** för att träna klassificeraren.
 
 ### <a name="export-your-classifier"></a>Exportera klassificeraren
 
-1. När du har tränat klassificeraren väljer du **Exportera** på sidan Prestanda för klassificeraren. 
+1. När du har tränat klassificeraren väljer du **Exportera** på sidan Prestanda för klassificeraren.
 
    ![Exportera din tränade bildklassificerare](./media/tutorial-deploy-custom-vision/export.png)
 
@@ -142,15 +142,15 @@ Nu har du filerna för en containerversion av bildklassificeraren på din utveck
 
 En lösning är ett logiskt sätt att utveckla och organisera flera moduler för en enskild IoT Edge-distribution. En lösning innehåller kod för en eller flera moduler samt det distributionsmanifest som deklarerar hur de ska konfigureras på en IoT Edge-enhet. 
 
-1. Välj **Visa** > **Kommandopalett** för att öppna kommandopaletten i VS Code. 
+1. Öppna kommandopaletten i VS Code genom att välja **Visa** > **Kommandopalett**. 
 
 1. Skriv och kör kommandot **Azure IoT Edge: New IoT Edge solution** (Ny IoT Edge-lösning) på kommandopaletten. Ange följande information i kommandopaletten för att skapa din lösning: 
 
-   | Fält | Värde |
+   | Field | Värde |
    | ----- | ----- |
    | Välj mapp | Välj den plats på utvecklingsdatorn där Visual Studio Code ska skapa lösningsfilerna. |
    | Ange ett namn på lösningen | Ange ett beskrivande namn för lösningen, till exempel **CustomVisionSolution**, eller acceptera standardnamnet. |
-   | Välja modulmall | Välj **Python-modul**. |
+   | Välj modulmall | Välj **Python-modul**. |
    | Ange ett modulnamn | Ge modulen namnet **classifier** (klassificerare).<br><br>Det är viktigt att modulnamnet endast innehåller gemener. IoT Edge är skiftlägeskänsligt när det gäller referenser till moduler, och den här lösningen använder ett bibliotek som formaterar alla begäranden som gemener. |
    | Ange Docker-bildlagringsplats för modulen | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Containeravbildningen har fyllts i från föregående steg. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen.<br><br>Den sista strängen ser ut som **\<register namn\>. azurecr.io/classifier**. |
  
@@ -215,7 +215,7 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
    | Uppmaning | Värde | 
    | ------ | ----- |
    | Välj distributionsmallfil | Välj filen deployment.template.json i mappen CustomVisionSolution. |
-   | Välja modulmall | Välj **Python-modul** |
+   | Välj modulmall | Välj **Python-modul** |
    | Ange ett modulnamn | Ge modulen namnet **cameraCapture** |
    | Ange Docker-bildlagringsplats för modulen | Ersätt **localhost:5000** med värdet för inloggningsservern för ditt Azure-containerregister.<br><br>Den slutgiltiga strängen ser ut så här: **\<registernamn\>.azurecr.io/cameracapture**. |
 
@@ -263,7 +263,8 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
                 print("Response from classification service: (" + str(response.status_code) + ") " + json.dumps(response.json()) + "\n")
             except Exception as e:
                 print(e)
-                print("Response from classification service: (" + str(response.status_code))
+                print("No response from classification service")
+                return None
 
         return json.dumps(response.json())
 
@@ -282,7 +283,8 @@ I det här avsnittet lägger du till en ny modul i samma CustomVisionSolution oc
 
             while True:
                 classification = sendFrameForProcessing(imagePath, imageProcessingEndpoint)
-                send_to_hub(classification)
+                if classification:
+                    send_to_hub(classification)
                 time.sleep(10)
 
         except KeyboardInterrupt:
@@ -326,15 +328,15 @@ I stället för att använda en verklig kamera för att ge en bildfeed för det 
 
 3. Bläddra till katalogen för IoT Edge-lösningen och klistra in testbilden i mappen **modules** / **cameraCapture**. Bilden ska vara i samma mapp som filen main.py, som du redigerade i föregående avsnitt. 
 
-3. I Visual Studio Code öppnar du filen **Dockerfile.amd64** för modulen cameraCapture. 
+4. I Visual Studio Code öppnar du filen **Dockerfile.amd64** för modulen cameraCapture.
 
-4. Efter den rad som upprättar arbetskatalogen, `WORKDIR /app`, lägger du till följande kodrad: 
+5. Efter den rad som upprättar arbetskatalogen, `WORKDIR /app`, lägger du till följande kodrad:
 
    ```Dockerfile
    ADD ./test_image.jpg .
    ```
 
-5. Spara Dockerfile. 
+6. Spara Dockerfile.
 
 ### <a name="prepare-a-deployment-manifest"></a>Förbereda ett distributionsmanifest
 
@@ -358,7 +360,7 @@ IoT Edge-tillägget för Visual Studio Code innehåller en mall i varje IoT Edge
 
     Om du gav Custom Vision-modulen något annat namn än *classifier* uppdaterar du slutpunktsvärdet för bildbearbetning så att det matchar. 
 
-5. Längst ned i filen uppdaterar du parametern **routes** för modulen $edgeHub. Du behöver dirigera förutsägelseresultaten från cameraCapture till IoT Hub. 
+6. Längst ned i filen uppdaterar du parametern **routes** för modulen $edgeHub. Du behöver dirigera förutsägelseresultaten från cameraCapture till IoT Hub.
 
     ```json
         "routes": {
@@ -410,15 +412,13 @@ Från Visual Studio Code högerklickar du på namnet på din IoT Edge enhet och 
 
 Resultatet från Custom Vision-modulen, som skickas som meddelanden från modulen cameraCapture, innefattar sannolikheten att bilden föreställer antingen en hemlockgran eller ett körsbärsträd. Eftersom bilden föreställer en hemlockgran bör du se sannolikheten 1.0. 
 
-
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
+Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du använde i den här artikeln för att undvika avgifter. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
 
 ## <a name="next-steps"></a>Nästa steg
 

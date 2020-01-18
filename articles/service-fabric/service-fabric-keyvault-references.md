@@ -3,12 +3,12 @@ title: Azure Service Fabric – använda referenser för Service Fabric-program 
 description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: b0e882c2b39c06a3040d22fc6694599966ceeb39
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463030"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167130"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
 
@@ -61,6 +61,7 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
 
     > [!NOTE] 
     > Vi rekommenderar att du använder ett separat krypterings certifikat för CSS. Du kan lägga till det under avsnittet "CentralSecretService".
+    
 
     ```json
         {
@@ -68,7 +69,18 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
             "value": "<EncryptionCertificateThumbprint for CSS>"
         }
     ```
-
+För att ändringarna ska träda i kraft måste du också ändra uppgraderings principen för att ange en tvingande omstart av Service Fabric runtime på varje nod när uppgraderingen fortskrider genom klustret. Den här omstarten säkerställer att den nyligen aktiverade system tjänsten startas och körs på varje nod. I kodfragmentet nedan är forceRestart den viktigaste inställningen. Använd dina befintliga värden för resten av inställningarna.
+```json
+"upgradeDescription": {
+    "forceRestart": true,
+    "healthCheckRetryTimeout": "00:45:00",
+    "healthCheckStableDuration": "00:05:00",
+    "healthCheckWaitDuration": "00:05:00",
+    "upgradeDomainTimeout": "02:00:00",
+    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
+    "upgradeTimeout": "12:00:00"
+}
+```
 - Bevilja programmets åtkomst behörighet för hanterad identitet till nyckel valvet
 
     Referera till det här [dokumentet](how-to-grant-access-other-resources.md) för att se hur du beviljar hanterad identitets åtkomst till nyckel valv. Observera också om du använder systemtilldelad hanterad identitet skapas den hanterade identiteten endast efter program distributionen.

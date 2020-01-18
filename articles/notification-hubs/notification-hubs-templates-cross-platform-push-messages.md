@@ -1,6 +1,6 @@
 ---
-title: Mallar
-description: Det här avsnittet beskriver mallar för Azure Notification Hub.
+title: Azure Notification Hubs-mallar
+description: Lär dig mer om att använda mallar för Azure Notification Hubs.
 services: notification-hubs
 documentationcenter: .net
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 54c53fee260062960d6bce9c1822971c935d88d1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 7d88f57fe92b9da62cc9f90d64bdec4c27642fb0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212984"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263752"
 ---
 # <a name="templates"></a>Mallar
 
@@ -139,13 +139,13 @@ Följande tabell visar det språk som tillåts i mallar:
 | $ (prop, n)       | Som ovan, men texten är explicit beskuren med n tecken, till exempel $ (rubrik, 20) klipp innehåll i egenskapen title med 20 tecken. |
 | . (prop, n)       | Som ovan, men texten suffixs med tre punkter när den klipps ut. Den totala storleken på den urklippta strängen och suffixet innehåller inte fler än n tecken. . (rubrik, 20) med inmatad egenskap "det här är rubrik raden" resulterar i **Detta är rubriken...** |
 | % (prop)          | Liknar $ (Name) förutom att utdata är URI-kodad. |
-| # (prop)          | Används i JSON-mallar (till exempel för iOS-och Android-mallar).<br><br>Den här funktionen fungerar exakt på samma sätt som $ (prop) som tidigare angavs, förutom när den används i JSON-mallar (till exempel Apple-mallar). I det här fallet, om den här funktionen inte omges av "{", "}" (till exempel "myJsonProperty": "# (Name)") och den utvärderas till ett tal i JavaScript-format, till exempel regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)) (\.&#91;0-9&#93;+)? ((e&#124;-e) (&#124;+-)? &#91;0-9&#93;+)?, är utdata-JSON ett tal.<br><br>Till exempel "Badge:" # (namn) "blir" BADGE ": 40 (och inte "40"). |
+| # (prop)          | Används i JSON-mallar (till exempel för iOS-och Android-mallar).<br><br>Den här funktionen fungerar exakt på samma sätt som $ (prop) som tidigare angavs, förutom när den används i JSON-mallar (till exempel Apple-mallar). I det här fallet, om den här funktionen inte omges av "{", "}" (till exempel "myJsonProperty": "# (Name)") och den utvärderas till ett tal i JavaScript-format, t. ex. regexp:&#124;(&#91;0&#93;&#91;(&#93;1-9 0-9 *)) &#91;(&#93;\.0-9 +)? ((e&#124;-e) (&#124;+-)? &#91;0-9&#93;+)?, är utdata-JSON ett tal.<br><br>Till exempel "Badge:" # (namn) "blir" BADGE ": 40 (och inte" 40 "). |
 | ' text ' eller ' text ' | En literal. Litteraler innehåller godtycklig text omgiven av enkla eller dubbla citat tecken. |
 | Uttr1 + Expr2    | Sammanfognings operatorn kopplar ihop två uttryck i en enda sträng. |
 
 Uttrycken kan vara något av de föregående formulären.
 
-När du använder sammanfogning måste hela uttrycket omges av `{}`. Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
+När du använder sammanfogning måste hela uttrycket omges med `{}`. Till exempel `{$(prop) + ‘ - ’ + $(prop2)}`.
 
 Följande mall är till exempel inte en giltig XML-mall:
 
@@ -159,7 +159,7 @@ Följande mall är till exempel inte en giltig XML-mall:
 </tile>
 ```
 
-Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Exempel:
+Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges av klammerparenteser. Ett exempel:
 
 ```xml
 <tile>
@@ -170,3 +170,7 @@ Som förklaras tidigare, när du använder sammanfogning, måste uttryck omges a
   </visual>
 </tile>
 ```
+
+## <a name="next-steps"></a>Nästa steg
+
+[Lär dig mer om Azure Notification Hubs](notification-hubs-push-notification-overview.md)

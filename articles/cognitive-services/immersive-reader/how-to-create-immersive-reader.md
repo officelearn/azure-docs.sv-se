@@ -1,5 +1,5 @@
 ---
-title: Skapa en fördjupad läsar resurs
+title: Skapa en resurs för Avancerad läsare
 titleSuffix: Azure Cognitive Services
 description: Den här artikeln visar hur du skapar en ny fördjupad läsar resurs med en anpassad under domän och sedan konfigurerar Azure AD i din Azure-klient.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: a806e6eeecc6976286566d05a0f19dac684b2c0b
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a2a404a03c06dde59edc88436afdc9dba3d74797
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75946093"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170168"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Skapa en fördjupad läsar resurs och konfigurera Azure Active Directory autentisering
 
@@ -153,7 +153,7 @@ Skriptet är utformat för att vara flexibelt. Den letar först efter befintliga
     | SubscriptionName |Namnet på den Azure-prenumeration som ska användas för den fördjupade läsar resursen. Du måste ha en prenumeration för att kunna skapa en resurs. |
     | ResourceName |  Måste vara alfanumeriska och kan innehålla "-", förutsatt att "-" inte är det första eller sista. Längden får inte överskrida 63 tecken.|
     | ResourceSubdomain |En anpassad under domän krävs för den fördjupande läsar resursen. Under domänen används av SDK när tjänsten för avancerad läsare anropas för att starta läsaren. Under domänen måste vara globalt unik. Under domänen måste vara alfanumerisk och kan innehålla "-", förutsatt att "-" inte är det första eller sista. Längden får inte överskrida 63 tecken. Den här parametern är valfri om resursen redan finns. |
-    | ResourceSKU |Alternativ: `S0` eller `S1`. Besök vår [Cognitive Services prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) om du vill veta mer om de olika tillgängliga SKU: er. Den här parametern är valfri om resursen redan finns. |
+    | ResourceSKU |Alternativ: `S0`. Besök vår [Cognitive Services prissättnings sida](https://azure.microsoft.com/pricing/details/cognitive-services/immersive-reader/) om du vill veta mer om de olika tillgängliga SKU: er. Den här parametern är valfri om resursen redan finns. |
     | ResourceLocation |Alternativ: `eastus`, `eastus2`, `southcentralus`, `westus`, `westus2`, `australiaeast`, `southeastasia`, `centralindia`, `japaneast`, `northeurope`, `uksouth`, `westeurope`. Den här parametern är valfri om resursen redan finns. |
     | ResourceGroupName |Resurser skapas i resurs grupper inom prenumerationer. Ange namnet på en befintlig resurs grupp. Om resurs gruppen inte redan finns skapas en ny med det här namnet. |
     | ResourceGroupLocation |Om din resurs grupp inte finns måste du ange en plats där gruppen ska skapas. Du hittar en lista över platser genom att köra `az account list-locations`. Använd egenskapen *namn* (utan blank steg) för det returnerade resultatet. Den här parametern är valfri om din resurs grupp redan finns. |

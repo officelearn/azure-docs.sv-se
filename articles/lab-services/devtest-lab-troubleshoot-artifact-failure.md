@@ -1,5 +1,5 @@
 ---
-title: Diagnostisera artefakt fel på en Azure DevTest Labs virtuell dator | Microsoft Docs
+title: Diagnostisera artefakt fel i en Azure DevTest Labs virtuell dator
 description: Lär dig hur du felsöker artefakt fel i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 8b7a72c03d41d54aa80505e781b6f6d32cd2a2c0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 50cb3138b8d79c4d60c94513d931996d667d9c01
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991372"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170316"
 ---
 # <a name="diagnose-artifact-failures-in-the-lab"></a>Diagnostisera artefakt fel i labbet 
 När du har skapat en artefakt kan du kontrol lera om den har lyckats eller misslyckats. Artefakt loggar i Azure DevTest Labs innehåller information som du kan använda för att diagnostisera ett artefakt fel. Det finns ett par alternativ för att Visa artefakt logg information för en virtuell Windows-dator:

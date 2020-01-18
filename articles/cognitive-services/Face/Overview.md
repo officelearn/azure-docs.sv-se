@@ -1,7 +1,7 @@
 ---
-title: Vad är Ansikts-API?
+title: Vad är ansikts tjänsten?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Ansikts-API innehåller algoritmer som används för att identifiera, identifiera och analysera mänskliga ansikten i bilder.
+description: Tjänsten Azure Cognitive Services Face tillhandahåller algoritmer som används för att identifiera, identifiera och analysera mänskliga ansikten i bilder.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,25 +9,25 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961547"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170259"
 ---
-# <a name="what-is-the-azure-face-api"></a>Vad är Azure Ansikts-API?
+# <a name="what-is-the-azure-face-service"></a>Vad är Azure Face service?
 
-Azure Cognitive Services Ansikts-API innehåller algoritmer som används för att identifiera, identifiera och analysera mänskliga ansikten i bilder. Möjligheten att bearbeta information om människo ansikte är viktig i många olika program scenarier. Exempel scenarier är säkerhet, naturliga användar gränssnitt, bild innehålls analys och hantering, mobilappar och Robotics.
+Tjänsten Azure Cognitive Services Face tillhandahåller algoritmer som används för att identifiera, identifiera och analysera mänskliga ansikten i bilder. Möjligheten att bearbeta information om människo ansikte är viktig i många olika program scenarier. Exempel scenarier är säkerhet, naturliga användar gränssnitt, bild innehålls analys och hantering, mobilappar och Robotics.
 
-Ansikts-API tillhandahåller flera olika funktioner. Varje funktion beskrivs i följande avsnitt. Läs vidare om du vill veta mer om dem.
+Ansikts tjänsten tillhandahåller flera olika funktioner. Varje funktion beskrivs i följande avsnitt. Läs vidare om du vill veta mer om dem.
 
 ## <a name="face-detection"></a>Ansiktsspårning
 
-Ansikts-API identifierar människo ansikten i en bild och returnerar Rectangle-koordinaterna för deras platser. Om du vill kan ansikts igenkänning extrahera en serie av ansikts attribut. Exempel är Head-attityd, kön, ålder, känslo, ansikts hår och glasögon.
+Ansikts tjänsten identifierar människo ansikten i en bild och returnerar Rectangle-koordinaterna för deras platser. Om du vill kan ansikts igenkänning extrahera en serie av ansikts attribut. Exempel är Head-attityd, kön, ålder, känslo, ansikts hår och glasögon.
 
 > [!NOTE]
-> Funktionen för ansikts igenkänning är också tillgänglig via [API för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Om du vill utföra ytterligare åtgärder med ansikts data använder du Ansikts-API, som är den tjänst som beskrivs i den här artikeln.
+> Funktionen för ansikts igenkänning är också tillgänglig via [API för visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Om du vill utföra ytterligare åtgärder med ansikts data använder du ansikts tjänsten, som är den tjänst som beskrivs i den här artikeln.
 
 ![En bild av en kvinna och en man, med rektanglar som ritas runt deras ansikten och ålder och kön visas](./Images/Face.detection.jpg)
 
@@ -73,9 +73,9 @@ Mer information om person identifiering finns i rikt linjer för [ansikts igenk�
 
 ## <a name="sample-apps"></a>Exempelappar
 
-Följande exempel program visar några sätt att använda Ansikts-API:
+Följande exempel program visar några sätt att använda ansikts tjänsten:
 
-- [Microsoft ansikts-API: Windows-klient bibliotek och exempel](https://github.com/Microsoft/Cognitive-Face-Windows) är en WPF-app som visar flera scenarier för ansikts igenkänning, analys och identifiering.
+- [Ansikts-API: Windows-klient bibliotek och exempel](https://github.com/Microsoft/Cognitive-Face-Windows) är en WPF-app som visar flera scenarier för ansikts igenkänning, analys och identifiering.
 - [FAMILYNOTES UWP-appen](https://github.com/Microsoft/Windows-appsample-familynotes) är en universell Windows-plattform-app (UWP) som använder ansikts identifiering tillsammans med tal, Cortana, bläck och kamera i ett antecknings delnings scenario.
 
 ## <a name="data-privacy-and-security"></a>Datasekretess och säkerhet

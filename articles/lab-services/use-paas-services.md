@@ -1,5 +1,5 @@
 ---
-title: Använda PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs | Microsoft Docs
+title: Använd PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs
 description: Lär dig hur du använder tjänster som plattform som en tjänst (pass) i Azure DevTest Labs.
 services: devtest-lab,lab-services
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 088913959b5850e87dc3a6a39d2907d30b7e5ade
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 88bbf921fedae4bcdba2b6386ce6e08105206cd2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976238"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169196"
 ---
 # <a name="use-platform-as-a-service-paas-services-in-azure-devtest-labs"></a>Använd PaaS-tjänster (Platform-as-a-Service) i Azure DevTest Labs
 PaaS stöds i DevTest Labs via miljö funktionen. Miljöer i DevTest Labs stöds av förkonfigurerade Azure Resource Manager mallar i en git-lagringsplats. Miljöer kan innehålla både PaaS-och IaaS-resurser. De gör att du kan skapa komplexa system som kan omfatta Azure-resurser, till exempel virtuella datorer, databaser, virtuella nätverk och webbappar, som är anpassade för att fungera tillsammans. Dessa mallar ger konsekvent distribution och förbättrad hantering av miljöer med käll kods kontroll. 
@@ -57,7 +57,7 @@ DevTest Labs stöder användning av [kapslade Resource Manager-mallar](../azure-
 
 ## <a name="user-experience"></a>Användarens upplevelse
 
-## <a name="developer"></a>Developer
+## <a name="developer"></a>Utvecklare
 Utvecklare använder samma arbets flöde för att skapa en virtuell dator för att skapa en speciell miljö. De väljer miljön eller dator avbildningen och anger nödvändig information som krävs för mallen. Varje utvecklare som har en miljö möjliggör distribution av ändringar och förbättrad fel sökning av inre loopar. Miljön kan skapas när som helst med den senaste mallen.  Den här funktionen gör att miljöer kan förstöras och återskapas för att minska stillestånds tiden från att behöva skapa systemet manuellt eller återställning från fel testning.  
 
 ### <a name="testing"></a>Testning

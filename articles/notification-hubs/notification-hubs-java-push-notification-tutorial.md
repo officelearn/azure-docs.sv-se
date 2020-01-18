@@ -1,5 +1,5 @@
 ---
-title: Använda Notification Hubs med Java
+title: Använda Azure Notification Hubs med Java
 description: Lär dig hur du använder Azure Notification Hubs från en Java-backend.
 services: notification-hubs
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 532ffc7a7393f016f27264b67b4ee5d3e6e5888f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: d48973cc7c5ed1fc7ae3f96128d488f3f1df3a05
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213203"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263871"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Använda Notification Hubs från Java
 
@@ -53,7 +53,7 @@ För att bygga:
 
     mvn package
 
-## <a name="code"></a>Kod
+## <a name="code"></a>Programmera
 
 ### <a name="notification-hub-cruds"></a>CRUDs för Notification Hub
 
@@ -188,7 +188,7 @@ Installations-API är en alternativ metod för registrerings hantering. I ställ
 
 Installationen innehåller allt du behöver: push-kanal (enhets-token), taggar, mallar, sekundära paneler (för WNS och APN). Du behöver inte anropa tjänsten för att hämta ID: t längre – skapa GUID eller någon annan identifierare, behåll den på enheten och skicka till Server delen tillsammans med push-kanal (enhets-token).
 
-På Server delen bör du bara göra ett enda anrop till `CreateOrUpdateInstallation`. det är helt idempotenta, så du kan försöka igen om det behövs.
+På Server delen bör du bara göra ett enda anrop till `CreateOrUpdateInstallation`. den är helt idempotenta, så du kan försöka igen om det behövs.
 
 Som exempel för Amazon Kindle-brand:
 
@@ -221,7 +221,7 @@ Ta bort installation:
     hub.deleteInstallation(installation.getInstallationId());
     ```
 
-`CreateOrUpdate`, `Patch`och är `Delete` till slut konsekvent med `Get`. Den begärda åtgärden går bara till system kön under anropet och körs i bakgrunden. Get är inte avsett för huvud körnings scenariot, men bara för fel söknings-och fel söknings syfte begränsas tjänsten.
+`CreateOrUpdate`, `Patch`och `Delete` är slutligen konsekvent med `Get`. Den begärda åtgärden går bara till system kön under anropet och körs i bakgrunden. Get är inte avsett för huvud körnings scenariot, men bara för fel söknings-och fel söknings syfte begränsas tjänsten.
 
 Skicka flöde för installationer är detsamma som för registreringar. Rikta meddelande till den specifika installationen – Använd bara taggen "InstallationId: {Desired-ID}". I det här fallet är koden:
 
@@ -294,7 +294,7 @@ Du kan behöva utföra Mass åtgärder mot registreringar. Det är vanligt vis f
 
 **URI med SAS-signatur:**
 
- URL: en är URL: en för en BLOB-fil eller BLOB-behållare plus en uppsättning parametrar som behörigheter och förfallo tid plus signaturen för alla dessa saker som gjorts med kontots SAS-nyckel. Azure Storage Java SDK har omfattande funktioner, inklusive att skapa dessa URI: er. Det är enkelt alternativ att `ImportExportE2E` ta en titt på test klassen (från GitHub-platsen) som har grundläggande och kompakt implementering av signeringsalgoritmen.
+ URL: en är URL: en för en BLOB-fil eller BLOB-behållare plus en uppsättning parametrar som behörigheter och förfallo tid plus signaturen för alla dessa saker som gjorts med kontots SAS-nyckel. Azure Storage Java SDK har omfattande funktioner, inklusive att skapa dessa URI: er. Som ett enkelt alternativ kan du ta en titt på `ImportExportE2E` test klass (från GitHub-platsen) som har grundläggande och kompakt implementering av Signeringsalgoritm.
 
 ### <a name="send-notifications"></a>Skicka meddelanden
 
@@ -374,7 +374,7 @@ Om du kör Java-koden bör du nu skapa ett meddelande som visas på mål enheten
 
 ## <a name="next-steps"></a>Nästa steg
 
-I det här avsnittet visas hur du skapar en enkel Java REST-klient för Notification Hubs. Härifrån kan du:
+I det här avsnittet visas hur du skapar en enkel Java REST-klient för Notification Hubs. Här kan göra du följande:
 
 * Hämta hela [Java SDK], som innehåller hela SDK-koden.
 * Spela med exemplen:

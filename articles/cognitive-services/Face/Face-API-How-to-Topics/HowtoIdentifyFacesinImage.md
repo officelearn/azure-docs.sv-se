@@ -1,5 +1,5 @@
 ---
-title: 'Exempel: Identifiera ansikten i bilder – Ansikts-API'
+title: 'Exempel: identifiera ansikten i bilder – ansikte'
 titleSuffix: Azure Cognitive Services
 description: Den här guiden visar hur du identifierar okända ansikten med PersonGroup-objekt, som skapas från kända personer i förväg.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977190"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169916"
 ---
 # <a name="example-identify-faces-in-images"></a>Exempel: identifiera ansikten i bilder
 
-Den här guiden visar hur du identifierar okända ansikten med PersonGroup-objekt, som skapas från kända personer i förväg. Exemplen skrivs i C# med klient biblioteket Azure Cognitive Services ansikts-API.
+Den här guiden visar hur du identifierar okända ansikten med PersonGroup-objekt, som skapas från kända personer i förväg. Exemplen är skrivna C# med hjälp av klient biblioteket för Azure Cognitive Services Face.
 
 ## <a name="preparation"></a>Förberedelse
 
@@ -33,7 +33,7 @@ För att genomföra demonstrationen av det här exemplet förbereder du:
 - Några foton med personens ansikte. [Hämta exempel foton](https://github.com/Microsoft/Cognitive-Face-Windows/tree/master/Data) för Anna, Bill och Clare.
 - En serie test foton. Fotona kan vara eller inte innehålla ansikten för Anna, Bill eller Clare. De används för att testa identifiering. Välj också några exempel bilder från föregående länk.
 
-## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anropet
+## <a name="step-1-authorize-the-api-call"></a>Steg 1: Auktorisera API-anrop
 
 Varje anrop till ett ansikts-API för visuellt innehåll kräver en prenumerationsnyckel. Den här nyckeln kan antingen skickas via en frågesträngparametern eller anges i begär ande huvudet. Om du vill skicka prenumerations nyckeln via en frågesträng, se URL: en för frågan [identifiera](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) som exempel:
 ```
@@ -42,7 +42,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 ```
 
 Alternativt kan du ange prenumerations nyckeln i HTTP-begärans huvud **OCP-APIM-Subscription-Key: &lt;prenumerations nyckel&gt;** .
-När du använder ett klient bibliotek skickas prenumerations nyckeln genom FaceClient-klassens konstruktor. Exempel:
+När du använder ett klient bibliotek skickas prenumerations nyckeln genom FaceClient-klassens konstruktor. Ett exempel:
  
 ```csharp 
 private readonly IFaceClient faceClient = new FaceClient(
@@ -131,7 +131,7 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>Steg 4: Identifiera ett ansikte mot en definierad PersonGroup
 
-När Ansikts-API utför identifieringar, beräknar den likheten hos ett test ansikte mellan alla ansikten i en grupp. Den returnerar de mest jämförbara personerna för testets ansikte. Den här processen görs via API: t för [ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) igenkänning eller IdentifyAsync-metoden för klient biblioteket.
+När ansikts tjänsten utför identifieringar, beräknar den likheten av ett test ansikte mellan alla ansikten i en grupp. Den returnerar de mest jämförbara personerna för testets ansikte. Den här processen görs via API: t för [ansikts](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) igenkänning eller IdentifyAsync-metoden för klient biblioteket.
 
 Test ansikte måste identifieras med hjälp av föregående steg. Sedan skickas ansikts-ID: t till ID: t som ett andra argument. Du kan identifiera flera ansikts-ID: n samtidigt. Resultatet innehåller alla identifierade resultat. Som standard returnerar identifierings processen bara en person som matchar test ytans bästa. Om du vill kan du ange den valfria parametern maxNumOfCandidatesReturned så att identifierings processen kan returnera fler kandidater.
 

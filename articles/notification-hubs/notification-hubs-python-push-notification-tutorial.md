@@ -1,6 +1,6 @@
 ---
 title: Använda Notification Hubs med python
-description: Lär dig hur du använder Azure Notification Hubs från en python-backend.
+description: Lär dig hur du använder Azure Notification Hubs från en python-Server del.
 services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 5321802023d57bedc135e2d19b2289f1d66deb72
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: db5174ed6f008be0fed1fdf3c2c83d33277c3b4e
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213075"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263803"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Använda Notification Hubs från python
 
@@ -103,7 +103,7 @@ class NotificationHub:
 ### <a name="create-security-token"></a>Skapa säkerhetstoken
 
 Information om hur säkerhetstoken skapas finns [här](https://msdn.microsoft.com/library/dn495627.aspx).
-Lägg till följande metoder i `NotificationHub` klassen för att skapa token baserat på URI: n för den aktuella begäran och de autentiseringsuppgifter som extraheras från anslutnings strängen.
+Lägg till följande metoder i `NotificationHub`-klassen för att skapa token baserat på URI: n för den aktuella begäran och de autentiseringsuppgifter som har extraherats från anslutnings strängen.
 
 ```python
 @staticmethod
@@ -165,7 +165,7 @@ Den här klassen är en behållare för en intern meddelande text eller en upps�
 
 Läs [Notification HUBS REST API-dokumentationen](https://msdn.microsoft.com/library/dn495827.aspx) och de speciella meddelande plattforms formaten för alla alternativ som är tillgängliga.
 
-Nu med den här klassen skriver du sändnings meddelande metoderna i `NotificationHub` klassen.
+Nu med den här klassen skriver du metoder för att skicka meddelanden i `NotificationHub`-klassen.
 
 ```python
 def make_http_request(self, url, payload, headers):
@@ -378,7 +378,7 @@ Om du kör python-koden bör du skapa ett meddelande som visas på mål enheten.
 
 ## <a name="examples"></a>Exempel
 
-### <a name="enabling-the-debug-property"></a>`debug` Aktivera egenskapen
+### <a name="enabling-the-debug-property"></a>Aktivera egenskapen `debug`
 
 När du aktiverar fel söknings flaggan vid initieringen av NotificationHub visas detaljerad HTTP-begäran och svars dumpning samt NotificationOutcome som följande där du kan förstå vilka HTTP-huvuden som skickas i begäran och vilka HTTP-svar som har mottaget från Notification Hub:
 
@@ -445,9 +445,9 @@ hub.send_template_notification(template_payload)
 
 ![][5]
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-Den här artikeln visar hur du skapar en python REST-klient för Notification Hubs. Härifrån kan du:
+Den här artikeln visar hur du skapar en python REST-klient för Notification Hubs. Här kan göra du följande:
 
 - Hämta det fullständiga [Exempel på python REST], som innehåller all kod i den här artikeln.
 - Fortsätt lära dig mer om Notification Hubs taggnings funktionen i [Själv studie kurs om att dela nyheter]

@@ -1,66 +1,99 @@
 ---
-title: Autentisera och skydda användare – Azure Active Directory
-description: Hur kan jag som Azure AD-administratör skydda användarautentisering och samtidigt minska påverkan för slutanvändarna?
+title: Översikt över Azure Active Directory autentisering
+description: Lär dig mer om olika autentiseringsmetoder och säkerhetsfunktioner för användar inloggningar med Azure Active Directory.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: overview
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3077851f5feafdec9d46d9365c45f5729ca2b0b1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 9f4c2fa8488490561e8f11746e8e737718ee9f37
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846682"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261270"
 ---
-# <a name="what-methods-are-available-for-authentication"></a>Vilka metoder är tillgängliga för autentisering?
+# <a name="what-is-azure-active-directory-authentication"></a>Vad är Azure Active Directory autentisering?
 
-Vi hör på nyheterna att lösenord stjäls och identiteter komprometteras. Genom att kräva en andra faktor utöver ett lösenord ökar du direkt säkerheten för din organisation. Microsoft Azure Active Directory (Azure AD) innehåller funktioner såsom Azure Multi-Factor Authentication (Azure MFA) och självåterställning av lösenord (SSPR) med Azure AD för att hjälpa administratörer att skydda sina organisationer och användare med ytterligare autentiseringsmetoder.
+En av huvud funktionerna i en identitets plattform är att verifiera, eller *autentisera*, autentiseringsuppgifter när en användare loggar in på en enhet, ett program eller en tjänst. I Azure Active Directory (Azure AD) omfattar autentiseringen mer än bara verifieringen av ett användar namn och lösen ord. Azure AD-autentisering innehåller följande komponenter för att förbättra säkerheten och minska behovet av support support:
 
-Det finns många scenarier som omfattar inloggning till ett program, återställning av lösenord, aktivering av Windows Hello och annat, och dina användare kan bli ombedda att tillhandahålla ytterligare verifiering för att identifiera sig.
+* Återställning av lösenord för självbetjäning
+* Azure Multi-Factor Authentication
+* Hybrid integrering för att skriva lösen ords ändringar tillbaka till en lokal miljö
+* Hybrid integrering som tillämpar principer för lösen ords skydd för en lokal miljö
+* Lösenordsfri autentisering
 
-Ytterligare verifiering kan ges i form av autentiseringsmetoder som:
+## <a name="improve-the-end-user-experience"></a>Förbättra slut användar upplevelsen
 
-* En kod som tillhandahålls i ett e-post- eller textmeddelande
-* Ett telefonsamtal
-* En avisering eller kod på telefonen
-* Svar på säkerhetsfrågor
+Azure AD hjälper till att skydda en användares identitet och förenkla inloggnings upplevelsen. Funktioner som självbetjäning för återställning av lösen ord gör att användare kan uppdatera eller ändra sina lösen ord med hjälp av en webbläsare från vilken enhet som helst. Den här funktionen är särskilt användbar när användaren har glömt sitt lösen ord eller om kontot är låst. Utan att behöva vänta på supportavdelningen eller administratören för att få support kan en användare avblockera sig själva och fortsätta att fungera.
 
-![Exempel på inloggningssidan login.microsoftonline.com i Chrome](media/overview-authentication/overview-login.png)
+Med Azure Multi-Factor Authentication kan användarna välja ytterligare en form av autentisering vid inloggning, till exempel ett telefonsamtal eller ett meddelande om mobilapp. Den här möjligheten minskar kravet på en enskild, fast form av sekundär autentisering som en maskinvaru-token. Om användaren inte har en form av ytterligare autentisering kan de välja en annan metod och fortsätta att fungera.
 
-Självåterställning av lösenord med Azure MFA och Azure AD ger administratörer kontroll över konfiguration, princip, övervakning och rapportering med hjälp av Azure AD och Azure-portalen för att skydda sina organisationer.
+![Autentiseringsmetoder som används på inloggnings skärmen](media/concept-authentication-methods/overview-login.png)
+
+Med lösen ords lös autentisering elimineras behovet av att användaren skapar och kommer ihåg ett säkert lösen ord. Funktioner som Windows Hello för företag eller FIDO2 säkerhets nycklar låter användarna logga in på en enhet eller ett program utan lösen ord. Den här möjligheten kan minska komplexiteten med att hantera lösen ord i olika miljöer.
 
 ## <a name="self-service-password-reset"></a>Återställning av lösenord för självbetjäning
 
-Självåterställning av lösenord ger användarna möjlighet att återställa sina lösenord utan inblandning av administratören, när och var som helst.
+Lösen ords återställning via självbetjäning ger användarna möjlighet att ändra eller återställa sitt lösen ord, utan administratörs-eller support inblandning. Om ett användar konto är låst eller om det glömmer sitt lösen ord, kan de följa prompter för att avblockera sig själva och komma tillbaka till arbetet. Detta minskar risken för support och produktivitets förlust när en användare inte kan logga in på sin enhet eller ett program.
 
-> [!VIDEO https://www.youtube.com/embed/hc97Yx5PJiM]
+Lösen ords återställning via självbetjäning fungerar i följande scenarier:
 
-Självåterställning av lösenord inkluderar:
+* **Lösen ords ändring –** när en användare känner till sitt lösen ord men vill ändra det till något nytt.
+* **Lösen ords återställning –** när en användare inte kan logga in, t. ex. när de glömmer bort lösen ordet, och vill återställa sina lösen ord.
+* **Upplåsning av konto –** när en användare inte kan logga in eftersom deras konto är utelåst och vill låsa upp sitt konto.
 
-* **Lösenordsändring:** Jag känner till mitt lösenord men jag vill ändra det till något nytt.
-* **Lösenordsåterställning:** Jag kan inte logga in, och jag vill återställa lösenordet med hjälp av en eller flera godkända autentiseringsmetoder.
-* **Kontoupplåsning:** Jag kan inte logga in eftersom mitt konto är låst, och jag vill låsa upp det med hjälp av en eller flera godkända autentiseringsmetoder.
+När en användare uppdaterar eller återställer sitt lösen ord med hjälp av lösen ords återställning via självbetjäning, kan lösen ordet också skrivas tillbaka till en lokal Active Directory miljö. Tillbakaskrivning av lösen ord ser till att en användare omedelbart kan använda sina uppdaterade autentiseringsuppgifter med lokala enheter och program.
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication
 
-Azure Multi-Factor Authentication (MFA) är Microsofts verifieringslösning i två steg. Med autentiseringsmetoder som är godkända av administratör hjälper Azure MFA till att skydda din åtkomst till data och program, samtidigt som behovet av en enkel inloggningsprocess uppfylls.
+Multi-Factor Authentication är en process där en användare uppmanas att ange en ytterligare typ av identifiering, till exempel för att ange en kod på mobilen eller för att tillhandahålla en finger avsökning.
 
-## <a name="license-requirements"></a>Licenskrav
+Om du bara använder ett lösen ord för att autentisera en användare lämnar den osäker vektor för angrepp. Om lösen ordet är svagt eller har exponerats någon annan stans, är det verkligen användaren som loggar in med användar namnet och lösen ordet, eller är det en angripare? När du behöver en andra form av autentisering, ökar säkerheten eftersom den här ytterligare faktorn inte är något som är lätt för en angripare att hämta eller duplicera.
 
-[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
+![Konceptuell bild av de olika formerna av Multi-Factor Authentication](./media/concept-mfa-howitworks/methods.png)
+
+Azure Multi-Factor Authentication fungerar genom att kräva två eller fler av följande autentiseringsmetoder:
+
+* Något du känner, vanligt vis ett lösen ord.
+* Något du har, till exempel en betrodd enhet som inte är enkel att duplicera, till exempel en telefon eller maskin varu nyckel.
+* Något du är-biometrik som ett finger avtryck eller en ansikts skanning.
+
+Användare kan registrera sig själva för lösen ords återställning via självbetjäning och Azure Multi-Factor Authentication i ett steg för att förenkla den här upplevelsen. Administratörer kan definiera vilka former av sekundär autentisering som kan användas. Azure Multi-Factor Authentication kan också krävas när användare utför en lösen ords återställning via självbetjäning för att ytterligare skydda processen.
+
+## <a name="password-protection"></a>Lösen ords skydd
+
+Som standard blockerar Azure AD svaga lösen ord som *Password1*. En global lista över blockerade lösen ord uppdateras automatiskt och tillämpas som innehåller kända svaga lösen ord. Om en Azure AD-användare försöker ange sitt lösen ord till något av dessa svaga lösen ord får de ett meddelande om att välja ett säkrare lösen ord.
+
+För att öka säkerheten kan du definiera anpassade lösen ords skydds principer. Dessa principer kan använda filter för att blockera alla varianter av ett lösen ord som innehåller ett namn som *contoso* eller en plats som *London*, till exempel.
+
+För hybrid säkerhet kan du integrera Azure AD Password Protection med en lokal Active Directory miljö. En komponent som installeras i lokal-miljön tar emot den globala listan över förbjudna lösen ord och anpassade lösen ords skydds principer från Azure AD, och domän kontrol Lanterna använder dem för att bearbeta lösen ords ändrings händelser. Den här hybrid metoden ser till att det oavsett hur eller var en användare ändrar sina autentiseringsuppgifter, att du tvingar användningen av starka lösen ord.
+
+## <a name="passwordless-authentication"></a>Lösenordsfri autentisering
+
+Slut målet för många miljöer är att ta bort användningen av lösen ord som en del av inloggnings händelser. Funktioner som Azure Password Protection eller Azure Multi-Factor Authentication hjälper till att förbättra säkerheten, men ett användar namn och lösen ord är inte en svag form av autentisering som kan exponeras eller resultera i brutet angrepp.
+
+![Säkerhet och bekvämlighet med autentiseringsprocessen som leder till lösen ords lös](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+När du loggar in med en metod utan lösen ord tillhandahålls autentiseringsuppgifter genom att använda metoder som biometrik med Windows Hello för företag, eller en säkerhets nyckel för FIDO2. Dessa autentiseringsmetoder kan inte enkelt dupliceras av en angripare.
+
+Azure AD tillhandahåller olika sätt att autentisera med hjälp av lösen ords lös metoder för att förenkla inloggnings upplevelsen för användare och minska risken för attacker.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nästa steg är att sätta igång och konfigurera självåterställning av lösenord och Azure Multi-Factor Authentication.
+För att komma igång, se [snabb starten för självbetjäning för återställning av lösen ord][quickstart-sspr] och [Azure Multi-Factor Authentication själv studie kursen][tutorial-mfa-applications].
 
-Kom igång med självåterställning av lösenord genom att läsa [snabbstartsartikeln om att aktivera SSPR](quickstart-sspr.md).
+Mer information om koncept för lösen ords återställning via självbetjäning finns i [så här fungerar lösen ords återställning i Azure AD][concept-sspr].
 
-Mer information om självåterställning av lösenord finns i artikeln om [hur självåterställning av lösenord i Azure AD fungerar](concept-sspr-howitworks.md)
+Mer information om Multi-Factor Authentication-koncept finns i [hur Azure Multi-Factor Authentication fungerar][concept-mfa].
 
-Läs mer om Azure Multi-Factor Authentication i artikeln om [hur Azure Multi-Factor Authentication fungerar](concept-mfa-howitworks.md)
+<!-- INTERNAL LINKS -->
+[quickstart-sspr]: quickstart-sspr.md
+[tutorial-mfa-applications]: tutorial-mfa-applications.md
+[concept-sspr]: concept-sspr-howitworks.md
+[concept-mfa]: concept-mfa-howitworks.md

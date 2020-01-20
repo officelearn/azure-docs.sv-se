@@ -254,7 +254,7 @@ Medan skriptet hämtas från CDN, är all spårning av sidan i kö. När det ned
 
 ![Chrome](https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![IE](https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![Opera](https://raw.githubusercontent.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Safari](https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png)
 --- | --- | --- | --- | --- |
-Chrome senaste ✔ |  Senaste ✔ för Firefox | IE 9 + & Edge-✔ | Senaste ✔ för Opera | Senaste ✔ för Safari |
+Chrome senaste ✔ |  Senaste ✔ för Firefox | IE 9 + & Microsoft Edge-✔ | Senaste ✔ för Opera | Senaste ✔ för Safari |
 
 ## <a name="open-source-sdk"></a>SDK för öppen källkod
 

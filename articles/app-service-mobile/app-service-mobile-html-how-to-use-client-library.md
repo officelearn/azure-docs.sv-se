@@ -87,7 +87,7 @@ Att köra lokalt kan orsaka problem eftersom App Service-autentisering som stand
     Ersätt URL: erna i matrisen med URL: er för din tjänst, som i det här exemplet är `http://localhost:3000` för den lokala Node. js-exempelprogrammet. Du kan också använda `http://localhost:4400` för Krusnings tjänsten eller någon annan URL, beroende på hur appen har kon figurer ATS.
 8. Klicka på **Läs/skriv**på sidans överkant och klicka sedan på **Lägg** för att spara dina uppdateringar.
 
-Du måste också lägga till samma loopback-URL: er till CORS vitlista-inställningarna:
+Du måste också lägga till samma loopback-URL: er till CORS lista över tillåtna-inställningarna:
 
 1. Gå tillbaka till [Azure-portalen].
 2. Navigera till Server delen för mobilappen.

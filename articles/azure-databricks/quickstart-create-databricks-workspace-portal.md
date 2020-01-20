@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 452efd5c790244ff035f06673342a36522db9580
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e212c95a827b01485d4bdfdc557e459a92162c88
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889020"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263223"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
@@ -27,7 +27,7 @@ I den här snabb starten använder du Azure Portal för att skapa en Azure Datab
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -54,11 +54,8 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/management/overview.md). |
     |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **standard**, **Premium**eller **utvärdering**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
-    |**Virtual Network**     |  Välj att distribuera en Azure Databricks arbets yta i din egen Virtual Network (VNet). Mer information finns i [distribuera Azure Databricks i Azure-Virtual Network (VNet-insprutning)](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).        |
 
-    Välj **Skapa**.
-
-4. Det tar några minuter att skapa arbetsytan. När du skapar arbets ytan kan du Visa distributions status i **meddelanden**.
+4. Välj **Granska + skapa**och sedan **skapa**. Det tar några minuter att skapa arbetsytan. När du skapar arbets ytan kan du Visa distributions status i **meddelanden**.
 
     ![Databricks distributions panel](./media/quickstart-create-databricks-workspace-portal/databricks-deployment-tile.png "Databricks distributions panel")
 

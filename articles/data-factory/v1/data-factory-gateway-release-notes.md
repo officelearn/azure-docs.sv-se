@@ -39,14 +39,14 @@ Det går inte att uppdatera viktig information här. Hämta senaste versions inf
 ## <a name="earlier-versions"></a>Tidigare versioner
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Funktioner
-- Du kan lägga till DNS-poster i vitlista Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Du kan hitta respektive DNS-post på Azure Portal (Data Factory-> "författare och distribuera"-> "gateways"-> "serviceUrls" (i JSON)
+- Du kan lägga till DNS-poster i lista över tillåtna Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Du kan hitta respektive DNS-post på Azure Portal (Data Factory-> "författare och distribuera"-> "gateways"-> "serviceUrls" (i JSON)
 - HDFS Connector stöder nu självsignerat offentligt certifikat genom att låta dig hoppa över SSL-verifiering.
 - Åtgärdat: problem med Gateway offline under uppdateringen (på grund av klock skevning)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Funktioner
--   Du kan lägga till DNS-poster i vitlista Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Mer information finns här.
+-   Du kan lägga till DNS-poster i lista över tillåtna Service Bus istället för att vit listning alla Azure IP-adresser från brand väggen (om det behövs). Mer information finns här.
 -   Nu kan du kopiera data till/från en enda Block-Blob upp till 4,75 TB, vilket är den högsta tillåtna storleken för Block-Blob. (den tidigare gränsen var 195 GB).
 -   Fast: problem med slut på minne när flera små filer har zippats under kopierings aktiviteten.
 -   Fixed: index out of Range-problem vid kopiering från dokument databas till en lokal SQL Server med idempotens-funktion.

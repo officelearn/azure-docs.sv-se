@@ -233,7 +233,7 @@ Om du väljer **Använd systemproxy** -inställningen för HTTP-proxyn använder
 > [!IMPORTANT]
 > Glöm inte att uppdatera **både** diahost. exe. config och diawp. exe. config.
 
-Förutom dessa punkter måste du också se till att Microsoft Azure är i företagets vitlista. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Förutom dessa punkter måste du också se till att Microsoft Azure är i företagets lista över tillåtna. Listan över giltiga Microsoft Azure IP-adresser kan laddas ned från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 #### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Möjliga problem för brand Väggs-och proxy server-relaterade problem
 Om det uppstår fel som liknar följande, beror det förmodligen på felaktig konfiguration av brand väggen eller proxyservern, som blockerar Gateway från att ansluta till Data Factory för att autentisera sig själv. Se föregående avsnitt för att kontrol lera att din brand vägg och proxyserver är korrekt konfigurerade.

@@ -1352,9 +1352,9 @@ Resurs leverantörs åtgärderna utvecklas alltid. Använd [Get-AzProviderOperat
 > | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/användare/tillstånd/Skriv | Uppdatera användar tillstånd |
 > | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/användare/nivå/Skriv | *NotDefined* |
 > | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/användare/läsa | *NotDefined* |
-> | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/vitlista/Delete | Tar bort en vit listas-användare med en speciell funktion |
-> | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/vitlista/Read | Hämtar en lista över vit listas-användare med en speciell funktion |
-> | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/vitlista/Write | Uppdaterar eller skapar en användare i vitlista med en speciell funktion |
+> | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/lista över tillåtna/Delete | Tar bort en vit listas-användare med en speciell funktion |
+> | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/lista över tillåtna/Read | Hämtar en lista över vit listas-användare med en speciell funktion |
+> | DataAction | Microsoft. CognitiveServices/Accounts/CustomVision. förutsägelse/lista över tillåtna/Write | Uppdaterar eller skapar en användare i lista över tillåtna med en speciell funktion |
 > | Åtgärd | Microsoft. CognitiveServices/Accounts/Delete | Tar bort API-konton |
 > | DataAction | Microsoft. CognitiveServices/Accounts/EntitySearch/search/Action | Hämta entiteter och placerar resultat för en specifik fråga. |
 > | DataAction | Microsoft. CognitiveServices/konton/ansikte/identifiera/åtgärd | Identifiera mänskliga ansikten i en bild, returnera ansikts rektanglar och eventuellt med faceIds, landmärken och attribut. |

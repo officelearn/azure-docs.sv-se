@@ -7,7 +7,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Komma igång
+    - name: Kom igång
       href: video-indexer-get-started.md
     - name: Bjuda in användare
       href: invite-users.md
@@ -45,7 +45,7 @@
       href: connect-to-azure.md
     - name: Hantera konto som är anslutet till Azure
       href: manage-account-connected-to-azure.md
-    - name: Använda API för att ladda upp och indexera videor
+    - name: Ladda upp och indexera videor
       href: upload-index-videos.md
     - name: Undersöka utdata för Video Indexer
       href: video-indexer-output-json-v2.md

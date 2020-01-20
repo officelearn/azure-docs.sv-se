@@ -1,9 +1,9 @@
-- name: Dokumentation om Ansikts-API
+- name: Dokumentation om Ansiktsigenkänning
   href: index.yml
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är Ansikts-API?
+    - name: Vad är tjänsten Ansiktsigenkänning?
       href: Overview.md
 - name: Snabbstarter
   items:
@@ -77,7 +77,7 @@
           href: face-resource-container-config.md
         - name: Använda containerinstanser
           href: Face-API-How-to-Topics/deploy-face-container-on-container-instances.md
-    - name: Använda den anslutna tjänsten för Ansikts-API
+    - name: Använda den anslutna tjänsten för Ansiktsigenkänning
       href: vs-face-connected-service.md
 - name: Referens
   items:
@@ -101,7 +101,7 @@
   items:
     - name: Exempel
       items:
-        - name: Exempel på ansikts-API
+        - name: Exempel på Ansiktsigenkänning
           href: 'https://docs.microsoft.com/samples/browse/?products=azure&term=face'
     - name: Priser och begränsningar
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/face-api'

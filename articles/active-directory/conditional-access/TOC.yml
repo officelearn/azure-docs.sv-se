@@ -19,6 +19,8 @@
       href: concept-conditional-access-policy-common.md
     - name: Komponenter för princip för villkorsstyrd åtkomst
       href: concept-conditional-access-policies.md
+    - name: Molnappar och åtgärder
+      href: concept-conditional-access-cloud-apps.md
     - name: Villkor
       href: conditions.md
     - name: Platsvillkor
@@ -35,7 +37,7 @@
       href: policy-migration.md
     - name: Principer för baslinjeskydd
       href: concept-baseline-protection.md
-- name: Instruktionsguider
+- name: Anvisningar
   expanded: true
   items:
     - name: Planera distributionen av villkorsstyrd åtkomst

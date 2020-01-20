@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433325"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263004"
 ---
 # <a name="entity-functions"></a>Enhets funktioner
 
@@ -53,7 +53,9 @@ För närvarande är de två distinkta API: erna för att definiera entiteter:
 
 **Function-baserad syntax**där entiteter representeras som funktioner och åtgärder uttryckligen skickas av programmet. Den här syntaxen fungerar bra för entiteter med enkel status, få åtgärder eller en dynamisk uppsättning åtgärder som i program ramverk. Den här syntaxen kan vara omständlig att underhålla eftersom den inte fångar in typ fel vid kompilering.
 
-**Klass-baserad syntax**, där entiteter och åtgärder representeras av klasser och metoder. Den här syntaxen ger enklare läsbar kod och gör att åtgärder kan anropas på ett typ säkert sätt. Den klassbaserade syntaxen är ett tunt lager ovanpå den Function-baserade syntaxen, så att båda variantarna kan användas i samma program.
+**Klass-baserad syntax (endast .net)** , där entiteter och åtgärder representeras av klasser och metoder. Den här syntaxen ger enklare läsbar kod och gör att åtgärder kan anropas på ett typ säkert sätt. Den klassbaserade syntaxen är ett tunt lager ovanpå den Function-baserade syntaxen, så att båda variantarna kan användas i samma program.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>Exempel: Function-baserad syntax-C#
 
@@ -107,11 +109,13 @@ Status för den här entiteten är ett objekt av typen `Counter`, som innehålle
 
 Mer information om den klassbaserade syntaxen och hur du använder den finns i [definiera enhets klasser](durable-functions-dotnet-entities.md#defining-entity-classes).
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ### <a name="example-javascript-entity"></a>Exempel: JavaScript-entitet
 
 Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.0** av `durable-functions` NPM-paketet. Följande kod är `Counter` entiteten som implementeras som en varaktig funktion som skrivits i Java Script.
 
-**function.json**
+**Counter/function. JSON**
 ```json
 {
   "bindings": [
@@ -125,7 +129,7 @@ Varaktiga entiteter är tillgängliga i Java Script från och med version **1.3.
 }
 ```
 
-**index. js**
+**Counter/index. js**
 ```javascript
 const df = require("durable-functions");
 
@@ -146,6 +150,8 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+---
+
 ## <a name="access-entities"></a>Åtkomst till entiteter
 
 Entiteter kan nås med envägs-eller tvåvägs kommunikation. Följande terminologi särskiljer två former av kommunikation: 
@@ -161,12 +167,14 @@ Entiteter kan nås från klient funktioner, inifrån Orchestrator-funktioner ell
 
 Följande exempel illustrerar dessa olika sätt att komma åt entiteter.
 
-> [!NOTE]
-> För enkelhetens skull visar följande exempel den strikt skrivna syntaxen för åtkomst till entiteter. I allmänhet rekommenderar vi att du [kommer åt entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger mer typ kontroll.
-
 ### <a name="example-client-signals-an-entity"></a>Exempel: klienten signalerar en entitet
 
 Om du vill komma åt entiteter från en vanlig Azure Function, som även kallas en klient funktion, använder du [enhets klient bindningen](durable-functions-bindings.md#entity-client). I följande exempel visas en köade funktion som signalerar en entitet som använder den här bindningen.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+> [!NOTE]
+> För enkelhetens skull visar följande exempel den strikt skrivna syntaxen för åtkomst till entiteter. I allmänhet rekommenderar vi att du [kommer åt entiteter via gränssnitt](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) eftersom det ger mer typ kontroll.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -181,6 +189,8 @@ public static Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -191,11 +201,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 Termen *signal* innebär att entitets-API-anropet är enkelriktat och asynkront. Det är inte möjligt att en klient funktion vet när entiteten har bearbetat åtgärden. Dessutom kan inte klient funktionen Observera resultat värden eller undantag. 
 
 ### <a name="example-client-reads-an-entity-state"></a>Exempel: klienten läser ett enhets tillstånd
 
 Klient funktioner kan också fråga efter status för en entitet, som visas i följande exempel:
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -209,6 +223,8 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -220,11 +236,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 Frågor för enhets tillstånd skickas till lagrings platsen för beständig spårning och returnerar entitetens senast sparade tillstånd. Det här läget är alltid ett "dedikerat" tillstånd, det vill säga det är aldrig ett tillfälligt mellanliggande tillstånd som antas i mitten av körningen av en åtgärd. Det är dock möjligt att det här läget är inaktuellt jämfört med enhetens minnes tillstånd. Endast dirigering kan läsa en entitets minnes intern tillstånd enligt beskrivningen i följande avsnitt.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>Exempel: Orchestration-signaler och anropa en entitet
 
 Orchestrator-funktioner har åtkomst till entiteter med hjälp av API: er på [bindningen för Orchestration-utlösaren](durable-functions-bindings.md#orchestration-trigger) Följande exempel kod visar en Orchestrator-funktion som anropar och signalerar en `Counter` entitet.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -243,6 +263,8 @@ public static async Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -257,6 +279,8 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > Java Script stöder för närvarande inte att signalera en entitet från en Orchestrator. Använd `callEntity` i stället.
 
+---
+
 Endast dirigering kan anropa entiteter och få svar, vilket kan vara antingen ett retur värde eller ett undantag. Klient funktioner som använder [klient bindningen](durable-functions-bindings.md#entity-client) kan bara signalerar entiteter.
 
 > [!NOTE]
@@ -266,6 +290,8 @@ Endast dirigering kan anropa entiteter och få svar, vilket kan vara antingen et
 
 En entitets funktion kan skicka signaler till andra entiteter, eller till och med sig själv, medan en åtgärd körs.
 Vi kan till exempel ändra föregående `Counter` entitets exempel så att den skickar en "mil stolpe-nådd"-signal till en övervaknings enhet när räknaren når värdet 100.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -280,6 +306,8 @@ Vi kan till exempel ändra föregående `Counter` entitets exempel så att den s
         break;
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
     case "add":
         const amount = context.df.getInput();
@@ -291,7 +319,9 @@ Vi kan till exempel ändra föregående `Counter` entitets exempel så att den s
         break;
 ```
 
-## <a name="entity-coordination"></a>Organisations samordning
+---
+
+## <a name="entity-coordination"></a>Organisations koordinering (endast för närvarande .NET)
 
 Det kan finnas tillfällen när du behöver koordinera åtgärder över flera entiteter. I ett bank program kan du till exempel ha entiteter som representerar enskilda bank konton. När du överför betalningar från ett konto till ett annat, måste du se till att käll kontot har tillräckligt med penning belopp. Du måste också se till att uppdateringar av både käll-och mål kontona görs på ett transaktions konsekvent sätt.
 

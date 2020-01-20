@@ -6,6 +6,8 @@
       href: overview.md
     - name: Ändringar i terminologi
       href: terminology.md
+    - name: VANLIGA FRÅGOR OCH SVAR
+      href: faq.md
 - name: Snabbstarter
   items:
     - name: Övervaka Azure-resurs
@@ -113,14 +115,6 @@
       href: visualizations.md
     - name: Partnerintegrering
       href: platform/partners.md
-    - name: VANLIGA FRÅGOR OCH SVAR
-      items:
-        - name: Log Analytics
-          displayName: FAQ
-          href: platform/log-faq.md
-        - name: Application Insights
-          displayName: FAQ
-          href: app/troubleshoot-faq.md
 - name: Anvisningar
   items:
     - name: Hantera Azure Monitor
@@ -162,6 +156,8 @@
       items:
         - name: Översikt över Application Insights
           href: app/app-insights-overview.md
+        - name: VANLIGA FRÅGOR OCH SVAR
+          href: app/troubleshoot-faq.md
         - name: Kodbaserad övervakning
           items:
             - name: ASP.NET Core
@@ -535,6 +531,8 @@
           items:
             - name: Översikt över agenter
               href: platform/agents-overview.md
+            - name: VANLIGA FRÅGOR OCH SVAR
+              href: 'faq.md#agents'
             - name: Azure Diagnostics-tillägg
               items:
                 - name: Översikt
@@ -633,7 +631,7 @@
             - name: Vanliga frågor och svar om allmän tillgänglighet
               href: insights/vminsights-ga-release-faq.md
             - name: VANLIGA FRÅGOR OCH SVAR
-              href: insights/vminsights-faq.md
+              href: 'faq.md#azure-monitor-for-vms-preview'
             - name: Aktivera övervakning
               items:
                 - name: Aktivera övervakningsöversikt
@@ -679,7 +677,7 @@
             - name: Översikt
               href: insights/container-insights-overview.md
             - name: VANLIGA FRÅGOR OCH SVAR
-              href: insights/container-insights-faq.md
+              href: 'faq.md#azure-monitor-for-containers'
             - name: Aktivera övervakning
               items:
                 - name: Aktivera övervakningsöversikt

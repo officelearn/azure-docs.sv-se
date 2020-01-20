@@ -63,6 +63,8 @@
           href: container-instances-encrypt-data.md
         - name: Distribuera på dedikerade värdar
           href: container-instances-dedicated-hosts.md
+        - name: Använda Logic Apps-anslutningsapp
+          href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
     - name: Containerscenarier
       items:
         - name: Konfigurera omstartsprincipen för åtgärder som endast körs en gång

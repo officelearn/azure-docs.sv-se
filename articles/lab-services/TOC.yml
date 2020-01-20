@@ -66,8 +66,6 @@
           href: enable-browser-connection-lab-virtual-machines.md
         - name: Konfigurera kostnadshantering
           href: devtest-lab-configure-cost-management.md
-        - name: Skicka meddelanden om automatisk avstängning
-          href: devtest-lab-auto-shutdown.md
         - name: Ställa in automatisk start för virtuella labbdatorer
           href: devtest-lab-auto-startup-vm.md
         - name: Skala ditt labb
@@ -124,8 +122,8 @@
           href: devtest-lab-resize-vm.md
         - name: Distribuera om en VM
           href: devtest-lab-redeploy-vm.md
-        - name: Konfigurera automatisk avstängning av en virtuell dator
-          href: devtest-lab-auto-shutdown-vm.md
+        - name: Konfigurera automatisk avstängning av virtuella datorer för beräkning och labb
+          href: devtest-lab-auto-shutdown.md
         - name: Skapa och hantera tillgängliga virtuella datorer
           href: devtest-lab-add-claimable-vm.md
         - name: Konfigurera hemligheter

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2019
 ms.author: allensu
-ms.openlocfilehash: 93fce95ad73f5e93afdbb794af3279a35243e2e2
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046256"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263548"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Load Balancer komponenter och begränsningar
 Azure Load Balancer innehåller flera viktiga komponenter för den här åtgärden.  Dessa komponenter kan konfigureras i din prenumeration via Azure Portal, Azure CLI eller Azure PowerShell.  
@@ -31,7 +31,8 @@ Azure Load Balancer innehåller flera viktiga komponenter för den här åtgärd
     - **[Offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address)**
     - **[Privat IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses)**
 
-* **Backend-pool**: gruppen med virtuella datorer eller instanser i den virtuella datorns skalnings uppsättning som ska betjäna inkommande begäran. Om du vill skala kostnads effektivt för att möta stora volymer inkommande trafik rekommenderar vi att du lägger till fler instanser i Server dels poolen. Belastnings utjämning konfigurerar genast om sig själv via automatisk omkonfiguration när du skalar upp eller ned instanser. Om du lägger till eller tar bort virtuella datorer från backend-poolen omkonfigureras belastningsutjämnaren utan ytterligare åtgärder på belastnings Utjämnings resursen.
+* **Backend-pool**: gruppen med virtuella datorer eller instanser i den virtuella datorns skalnings uppsättning som ska betjäna inkommande begäran. Om du vill skala kostnads effektivt för att möta stora volymer inkommande trafik rekommenderar vi att du lägger till fler instanser i Server dels poolen. Load Balancer omkonfigureras omedelbart via automatisk omkonfiguration när du skalar upp eller ned instanser. Om du lägger till eller tar bort virtuella datorer från backend-poolen omkonfigureras Load Balancer utan ytterligare åtgärder. Omfånget för backend-poolen är en virtuell dator i det virtuella nätverket. En backend-pool kan ha upp till 1000 Server dels instanser eller IP-konfigurationer.
+Grundläggande belastningsutjämnare har begränsad omfattning (tillgänglighets uppsättning) kan bara skala upp till 300 IP-konfigurationer. Mer information om gränser finns [Load Balancer gränser](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). När du överväger att utforma en backend-pool kan du utforma för det minsta antalet enskilda resurser för Server dels poolen för att ytterligare optimera varaktigheten för hanterings åtgärder. Det finns ingen skillnad i prestanda eller skalning för data planet.
 * **Hälso avsökningar**: en **[hälso avsökning](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)** används för att fastställa hälso tillståndet för instanserna i backend-poolen. Du kan definiera tröskelvärdet för hälso avsökningar. När en avsökning inte svarar slutar lastbalanseraren att skicka nya anslutningar till de ohälsosamma instanserna. Ett avsöknings haveri påverkar inte befintliga anslutningar. 
     
     Anslutningen fortsätter tills programmet: 
@@ -42,14 +43,15 @@ Azure Load Balancer innehåller flera viktiga komponenter för den här åtgärd
     Load Balancer innehåller olika typer av hälso avsökningar för slut punkter:
     - TCP
     - HTTP
-    - HTTPS
+    - HTTPS (HTTP-avsökning med Transport Layer Security (TLS))
      
+     Basic Load Balancer stöder inte HTTPS-avsökningar. Dessutom kommer grundläggande Load Balancer att avsluta alla TCP-anslutningar (inklusive etablerade anslutningar). 
     Mer information finns i [avsöknings typer](load-balancer-custom-probe-overview.md#types).
 
 * **Belastnings Utjämnings regler**: regler för belastnings utjämning är de som talar om för Load Balancer vad som måste göras när. 
 * **Inkommande NAT-regler**: en inkommande NAT-regel vidarebefordrar trafik från en speciell port för en speciell klient dels-IP-adress till en angiven port för en speciell Server dels instans i det virtuella nätverket. **[Vidarebefordran av portar](https://docs.microsoft.com/azure/load-balancer/tutorial-load-balancer-port-forwarding-portal)** utförs av samma hash-baserade distribution som belastnings utjämning. Vanliga scenarier för den här funktionen är Remote Desktop Protocol (RDP) eller Secure Shell-sessioner (SSH) till enskilda VM-instanser i en Azure-Virtual Network. Du kan mappa flera interna slut punkter till portar på samma IP-adress för klient delen. Du kan använda klient dels-IP-adresserna för att fjärradministrera dina virtuella datorer utan någon ytterligare hopp ruta.
-* **Utgående regler**: en **[utgående regel](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** konfigurerar utgående NAT (Network Address Translation) för alla virtuella datorer eller instanser som identifieras av backend-poolen som ska översättas till klient delen.
-
+* **Utgående regler**: en **[utgående regel](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)** konfigurerar utgående NAT (Network Address Translation) för alla virtuella datorer eller instanser som identifieras av backend-poolen för standard Load Balancer som ska översättas till klient delen.
+Basic Load Balancer stöder inte utgående regler.
 ![Azure Load Balancer](./media/load-balancer-overview/load-balancer-overview.png)
 
 ## <a name = "load-balancer-concepts"></a>Load Balancer begrepp
@@ -81,12 +83,45 @@ Följande bild visar den hash-baserade distributionen:
   * Program nytto laster är transparenta för Load Balancer. Alla UDP-eller TCP-program kan stödjas.
   * Eftersom Load Balancer inte samverkar med TCP-nyttolasten och tillhandahålla TLS-avlastning, kan du skapa krypterade scenarier från slut punkt till slut punkt. Genom att använda Load Balancer får du stor skalbarhet för TLS-program genom att avsluta TLS-anslutningen på den virtuella datorn. Din nyckel kapacitet för TLS-sessioner begränsas till exempel bara av typen och antalet virtuella datorer som du lägger till i backend-poolen.
 
-* **Utgående anslutningar (SNAT)** : alla utgående flöden från privata IP-adresser i ditt virtuella nätverk till offentliga IP-adresser på Internet kan översättas till en klient-IP-adress för Load Balancer. När en offentlig klient del är knuten till en VM-baserad VM med en belastnings Utjämnings regel översätter Azure utgående anslutningar till den offentliga klient delens IP-adress. Den här konfigurationen har följande fördelar:
+* **Utgående anslutningar**: alla utgående flöden från privata IP-adresser i ditt virtuella nätverk till offentliga IP-adresser på Internet kan översättas till en IP-adress för klient delen för Load Balancer. När en offentlig klient del är kopplad till en VM-baserad virtuell dator via en belastnings Utjämnings regel översätter Azure utgående anslutningar till den offentliga IP-adressen för klient delen. Den här konfigurationen har följande fördelar:
   * Enkel uppgradering och haveri beredskap för tjänster, eftersom klient delen kan mappas dynamiskt till en annan instans av tjänsten.
   * Enklare hantering av åtkomst kontrol lista (ACL). ACL: er uttryckt som klient-IP-adresser ändras inte när tjänster skalas upp eller ned eller omdistribueras. Översättning av utgående anslutningar till ett mindre antal IP-adresser än datorer minskar belastningen på att implementera listor över betrodda mottagare.
-Mer information finns i [utgående anslutningar i Azure](load-balancer-outbound-connections.md).
-Standard Load Balancer har ytterligare SKU-/regionsspecifika funktioner utöver de här grunderna, enligt beskrivningen nedan.
 
+  Standard Load Balancer använder sig av en [robust, skalbar och förutsägbar SNAT-algoritm](load-balancer-outbound-connections.md#snat). Det här är de viktiga Tenets som du behöver tänka på när du arbetar med Standard Load Balancer:
+
+    - regler för belastnings utjämning härleder hur SNAT programmeras. Belastnings Utjämnings regler är protokoll information. SNAT är protokoll information och konfigurationen bör avspegla detta i stället för att skapa en sido effekt.
+
+    - **Flera klient** delar När flera klient delar är tillgängliga används alla-frontend och varje klient del multiplicerar antalet tillgängliga SNAT-portar. Om du vill ha fler SNAT-portar eftersom du förväntar dig eller redan har en hög efter frågan för utgående anslutningar, kan du också lägga till en incrementy-port inventering genom att konfigurera ytterligare klient portar, regler och backend-pooler till samma virtuella dator resurser.
+
+    - **Styr vilken klient del som används för utgående** Du kan välja och kontrol lera om du inte vill att en viss klient del ska användas för utgående anslutningar. Om du vill begränsa utgående anslutningar till endast härstammar från en särskild IP-adress för klient delen kan du välja att inaktivera utgående SNAT för regeln som uttrycker utgående mappning.
+
+    - Kontroll av utgående scenarier för **utgående anslutningar** är explicit och utgående anslutning finns inte förrän det har angetts. Standard Load Balancer finns inom kontexten för det virtuella nätverket.  Ett virtuellt nätverk är ett isolerat privat nätverk.  Om det inte finns någon Association med en offentlig IP-adress, tillåts inte offentlig anslutning.  Du kan komma åt [VNet-tjänstens slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md) eftersom de finns inuti och lokalt i det virtuella nätverket.  Om du vill upprätta utgående anslutning till ett mål utanför det virtuella nätverket har du två alternativ:
+        - tilldela en offentlig IP-adress för standard-SKU som en offentlig IP-adress på instans nivå till den virtuella dator resursen eller
+        - Placera den virtuella dator resursen i backend-poolen för en offentlig Standard Load Balancer.
+
+        Båda kommer att tillåta utgående anslutningar från det virtuella nätverket till utanför det virtuella nätverket. 
+
+        Om du _bara_ har ett internt standard Load Balancer associerat med den backend-pool där din virtuella dator resurs finns, kan den virtuella datorn bara komma åt virtuella nätverks resurser och virtuella nätverks [slut punkter](../virtual-network/virtual-network-service-endpoints-overview.md).  Du kan följa stegen som beskrivs i föregående stycke för att skapa utgående anslutning.
+
+        Den utgående anslutningen för en virtuell dator resurs som inte är associerad med standard-SKU: er finns kvar som tidigare.
+
+        Granska [detaljerad diskussion om utgående anslutningar](load-balancer-outbound-connections.md).
+
+* **Tillgänglighetszoner**: standard Load Balancer har stöd för ytterligare möjligheter i regioner där Tillgänglighetszoner är tillgängliga. Dessa funktioner är stegvisa för alla Standard Load Balancer tillhandahåller.  Tillgänglighetszoner konfigurationer är tillgängliga för både typer, offentliga och interna Standard Load Balancer.
+ En zon-redundant klient del överleva zon haveri och betjänas av dedikerad infrastruktur i alla zoner samtidigt. 
+Dessutom kan du garantera en klient del till en speciell zon. En zonindelade-frontend-resurs avbildar med respektive zon och hanteras endast av dedikerad infrastruktur i en enda zon.
+Belastnings utjämning mellan zoner är tillgänglig för backend-poolen och alla virtuella dator resurser i ett virtuellt nätverk kan ingå i en backend-pool.
+Basic Load Balancer stöder inte zoner.
+Mer information hittar du [i detaljerad beskrivning av Tillgänglighetszoner relaterade](load-balancer-standard-availability-zones.md) funktioner och [Tillgänglighetszoner översikt](../availability-zones/az-overview.md) .
+
+* **Ha-portar**: du kan konfigurera regler för belastnings utjämning för att göra programmets skalning och vara mycket tillförlitlig. När du använder en belastnings Utjämnings regel för belastnings utjämning ger Standard Load Balancer per flödes belastnings utjämning för varje tillfällig port i en intern Standard Load Balancers IP-adress för klient delen.  Funktionen är användbar för andra scenarier där det är opraktiskt eller olämpligt att ange enskilda portar. Med belastnings Utjämnings regeln för en belastnings utjämning kan du skapa aktiva, passiva eller aktiva-aktiva n + 1-scenarier för virtuella nätverks enheter och program, vilket kräver stora intervall av inkommande portar.  En hälso avsökning kan användas för att avgöra vilka Server delar som ska ta emot nya flöden.  Du kan använda en nätverks säkerhets grupp för att emulera ett scenario för port intervall. Basic Load Balancer stöder inte HA-portar.
+Granska [detaljerad diskussion om ha-portar](load-balancer-ha-ports-overview.md)
+>[!IMPORTANT]
+> Om du planerar att använda en virtuell nätverks installation kontaktar du leverantören för att få vägledning om huruvida produkten har testats med HA-portar och följer de rikt linjer som gäller för implementeringen. 
+
+* **Flera klient**delar: Load Balancer stöder flera regler med flera klient delar.  Standard Load Balancer expanderar detta till utgående scenarier.  Utgående scenarier är i stort sett inversen till en inkommande regel för belastnings utjämning.  Den inkommande belastnings Utjämnings regeln skapar även en koppling för utgående anslutningar. Standard Load Balancer använder alla frontend-klienter som är kopplade till en virtuell dator resurs via en belastnings Utjämnings regel.  Dessutom kan du använda en parameter i belastnings Utjämnings regeln och låta dig utelämna en belastnings Utjämnings regel för utgående anslutningar, vilket gör att du kan välja vissa klient delar, inklusive ingen.
+
+För jämförelsen väljer Basic Load Balancer en enskild klient del slumpmässigt och det finns ingen möjlighet att styra vilken som har valts.
 ## <a name="load-balancer-types"></a>Load Balancer typer
 
 ### <a name = "publicloadbalancer"></a>Offentlig lastbalanserare
@@ -135,16 +170,21 @@ Fristående virtuella datorer, tillgänglighetsuppsättningar och VM-skalningsup
 
 Mer information finns i [gränser för belastnings utjämning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#load-balancer). Information om Standard Load Balancer finns i [översikt](load-balancer-standard-overview.md), [prissättning](https://aka.ms/lbpricing) och [serviceantal](https://aka.ms/lbsla).
 
-
 ## <a name = "limitations"></a>Hos
 
-* Load Balancer tillhandahåller belastnings utjämning och port vidarebefordring för vissa TCP-eller UDP-protokoll. Regler för belastnings utjämning och inkommande NAT-regler stöder TCP och UDP, men inte andra IP-protokoll, inklusive ICMP.
+- SKU: er är inte föränderligt. Du kan inte ändra SKU: n för en befintlig resurs.
+- En fristående virtuell dator resurs, tillgänglighets uppsättnings resurs eller en resurs för skalnings uppsättning för virtuell dator kan referera till en SKU, aldrig båda.
+- En Load Balancer regel kan inte omfatta två virtuella nätverk.  Frontend-enheter och deras relaterade Server dels instanser måste finnas i samma virtuella nätverk.  
+- [Flytt av prenumerations åtgärder](../azure-resource-manager/management/move-resource-group-and-subscription.md) stöds inte för standard-lb-och offentliga IP-resurser.
+- Webb arbets roller utan ett virtuellt nätverk och andra Microsofts plattforms tjänster kan nås från instanser enbart bakom en intern Standard Load Balancer. Du måste inte förlita dig på detta eftersom själva själva tjänsten eller den underliggande plattformen kan ändras utan föregående meddelande. Du måste alltid anta att du behöver skapa [utgående anslutningar](load-balancer-outbound-connections.md) om du vill när du bara använder en intern standard Load Balancer.
+
+- Load Balancer tillhandahåller belastnings utjämning och port vidarebefordring för vissa TCP-eller UDP-protokoll. Regler för belastnings utjämning och inkommande NAT-regler stöder TCP och UDP, men inte andra IP-protokoll, inklusive ICMP.
 
   Load Balancer avslutas inte, svarar eller på annat sätt interagerar med nytto lasten för ett UDP-eller TCP-flöde. Det är inte en proxy. Verifieringen av anslutningen till en klient del måste ske i band med samma protokoll som används i en belastnings utjämning eller en inkommande NAT-regel. Minst en av dina virtuella datorer måste generera ett svar för en klient för att kunna se ett svar från klient delen.
 
   Att inte ta emot ett in-band-svar från Load Balancer klient delen anger att inga virtuella datorer kan svara. Ingenting kan samverka med en Load Balancer klient del utan att en virtuell dator kan svara. Den här principen gäller även för utgående anslutningar där port maskerade SNAT endast stöds för TCP och UDP. Andra IP-protokoll, inklusive ICMP, fungerar inte. Tilldela en offentlig IP-adress på instans nivå för att undvika det här problemet. Mer information finns i [förstå SNAT och Pat](load-balancer-outbound-connections.md#snat).
 
-* Interna belastningsutjämnare översätter inte utgående, ursprungliga anslutningar till klient delen av en intern Load Balancer eftersom båda finns i privata IP-adressutrymme. Publika belastningsutjämnare tillhandahåller [utgående anslutningar](load-balancer-outbound-connections.md) från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser. För interna belastningsutjämnare gör den här metoden att du undviker möjliga SNAT-portar i ett unikt internt IP-adressutrymme, där översättning inte krävs.
+- Interna belastningsutjämnare översätter inte utgående, ursprungliga anslutningar till klient delen av en intern Load Balancer eftersom båda finns i privata IP-adressutrymme. Publika belastningsutjämnare tillhandahåller [utgående anslutningar](load-balancer-outbound-connections.md) från privata IP-adresser i det virtuella nätverket till offentliga IP-adresser. För interna belastningsutjämnare gör den här metoden att du undviker möjliga SNAT-portar i ett unikt internt IP-adressutrymme, där översättning inte krävs.
 
   En sido effekt är att om ett utgående flöde från en virtuell dator i backend-poolen försöker använda ett flöde till klient delen av den interna Load Balancer i poolen _och_ som mappas tillbaka till sig själv, matchar inte de två benen i flödet. Eftersom de inte matchar, Miss lyckas flödet. Flödet lyckas om flödet inte mappades tillbaka till samma virtuella dator i backend-poolen som skapade flödet till klient delen.
 
@@ -154,8 +194,18 @@ Mer information finns i [gränser för belastnings utjämning](https://docs.micr
 
   Du kan kombinera ett internt Load Balancer med valfri tredjeparts-proxy eller använda interna [Application Gateway](../application-gateway/application-gateway-introduction.md) för proxy-scenarier med http/https. Även om du kan använda en offentlig Load Balancer för att undvika det här problemet, är det här scenariot känsligt för [SNAT-belastning](load-balancer-outbound-connections.md#snat). Undvik den andra metoden om du inte noggrant hanterar den.
 
-* I allmänhet stöds inte vidarebefordrande IP-fragment i regler för belastnings utjämning. IP-fragmentering av UDP-och TCP-paket stöds inte i regler för belastnings utjämning. Belastnings Utjämnings regler för portar med hög tillgänglighet kan användas för att vidarebefordra befintliga IP-fragment. Mer information finns i [Översikt över portar med hög tillgänglighet](load-balancer-ha-ports-overview.md).
+- I allmänhet stöds inte vidarebefordrande IP-fragment i regler för belastnings utjämning. IP-fragmentering av UDP-och TCP-paket stöds inte i regler för belastnings utjämning. Belastnings Utjämnings regler för portar med hög tillgänglighet kan användas för att vidarebefordra befintliga IP-fragment. Mer information finns i [Översikt över portar med hög tillgänglighet](load-balancer-ha-ports-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer: skapa en, skapa virtuella datorer med ett anpassat IIS-tillägg installerat och belastningsutjämna webbappen mellan de virtuella datorerna.
+- Se [skapa en offentlig standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) för att komma igång med att använda en Load Balancer: skapa en, skapa virtuella datorer med ett anpassat IIS-tillägg installerat och belastningsutjämna webbappen mellan de virtuella datorerna.
+- Läs mer om [Azure Load Balancer](load-balancer-overview.md).
+- Lär dig mer om att använda [standard Load Balancer och Tillgänglighetszoner](load-balancer-standard-availability-zones.md).
+- Läs mer om [hälso avsökningar](load-balancer-custom-probe-overview.md).
+- Lär dig mer om [standard Load Balancer Diagnostics](load-balancer-standard-diagnostics.md).
+- Läs om hur du använder [belastningsutjämnare för utgående anslutningar](load-balancer-outbound-connections.md).
+- Läs mer om [utgående regler](load-balancer-outbound-rules-overview.md).
+- Läs mer om [TCP-återställning vid inaktivitet](load-balancer-tcp-reset.md).
+- Lär dig mer om att [standard Load Balancer med belastnings Utjämnings regler för belastnings utjämning](load-balancer-ha-ports-overview.md).
+- Lär dig mer om att använda [Load Balancer med flera klient](load-balancer-multivip-overview.md)delar.
+- Läs mer om [nätverks säkerhets grupper](../virtual-network/security-overview.md).

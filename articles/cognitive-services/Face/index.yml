@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om ansiktsigenkänning
-summary: Det molnbaserade ansikts-API:et ger utvecklare åtkomst till avancerade ansiktsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.
+summary: Det molnbaserade tjänsten Ansiktsigenkänning ger utvecklare åtkomst till avancerade ansiktsigenkänningsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.
 metadata:
-  title: Dokumentation om API för ansiktsigenkänning – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
-  description: Det molnbaserade ansikts-API:et ger utvecklare åtkomst till avancerade ansiktsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.
+  title: Dokumentation om Ansiktsigenkänning – snabbstarter, självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  description: Det molnbaserade tjänsten Ansiktsigenkänning ger utvecklare åtkomst till avancerade ansiktsigenkänningsalgoritmer. Microsofts ansiktsalgoritmer möjliggör identifiering av ansiktsattribut och ansiktsigenkänning. Lär dig hur du analyserar innehåll på olika sätt med snabbstarter, självstudier och exempel.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: face-api
@@ -11,18 +11,18 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/24/2019
-  ms.openlocfilehash: 438fe3ff0e48eba21acea596f8cbed4498aaca18
-  ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+  ms.openlocfilehash: 6a078d8504ea988d44ff5d4bce190c72da28452f
+  ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 11/16/2019
-  ms.locfileid: "74132702"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76166399"
 landingContent:
-- title: Om ansiktsigenkännings-API:et
+- title: Om tjänsten Ansiktsigenkänning
   linkLists:
   - linkListType: overview
     links:
-    - text: Vad är Ansikts-API?
+    - text: Vad är tjänsten Ansiktsigenkänning?
       url: Overview.md
 - title: Identifiera ansikten
   linkLists:

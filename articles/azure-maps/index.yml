@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Dokumentation för Azure Maps
-summary: Microsoft Azure Maps ger utvecklare från alla branscher kraftfulla geospatiala funktioner fullmatade med de senaste mappningsdata som är tillgängliga för att tillhandahålla geografisk kontext till webb- och mobilprogram. Azure Maps är en Azure One API-kompatibel uppsättning med API:er för kartor, sökning, routning, trafik, mobilitet, väder, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder med SDK:er för både webben och Android som gör utvecklingen enkel, flexibel och portabel på olika plattformar.
+summary: Microsoft Azure Maps ger utvecklare från alla branscher med kraftfulla geospatiala funktioner. De geospatiala funktionerna är fullpackade med de senaste mappningsdata. Azure Maps finns tillgängligt för både webbprogram och mobila program. Azure Maps är en Azure One-API-kompatibel uppsättning av REST-API:er. Följande är endast en övergripande översikt över de tjänster som Azure Maps erbjuder – kartor, sökning, routning, trafik, mobilitet, väder, tidszoner, geoplatser, geoavgränsning, kartdata och rumsliga åtgärder. Webb- och Android-SDK:erna gör utveckling över flera medier enkel, flexibel och portabel.
 metadata:
   title: Dokumentation för Azure Maps | Microsoft Docs
   description: Ta reda på mer om Azure Maps och hur du använder det för att tillhandahålla rumsliga tjänster till webben eller din mobilapp.
@@ -8,13 +8,13 @@ metadata:
   ms.topic: landing-page
   author: philmea
   ms.author: philmea
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 66721caadce09816368d673c217c9bf97daf1b6c
-  ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+  ms.date: 1/15/2020
+  ms.openlocfilehash: f4ae414179f77413e5d5daa4fda635e0bf24c2aa
+  ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 12/25/2019
-  ms.locfileid: "75408654"
+  ms.lasthandoff: 01/17/2020
+  ms.locfileid: "76264109"
 landingContent:
 - title: Om Azure Maps
   linkLists:
@@ -94,7 +94,7 @@ landingContent:
       url: how-to-add-tile-layer-android-map.md
     - text: Lägga till former till en karta
       url: how-to-add-shapes-to-android-map.md
-- title: Utveckla med Location Based Services
+- title: Utveckla med platsbaserade tjänster
   linkLists:
   - linkListType: concept
     links:

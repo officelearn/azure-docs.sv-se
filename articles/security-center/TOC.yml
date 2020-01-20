@@ -173,8 +173,6 @@
           href: security-center-investigation.md
         - name: Hantera användardata för undersökning
           href: security-center-investigation-user-data.md
-        - name: Logic Apps-spelböcker
-          href: security-center-playbooks.md
         - name: Planering och drift
           href: security-center-planning-and-operations-guide.md
 - name: Referens

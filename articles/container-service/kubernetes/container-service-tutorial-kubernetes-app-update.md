@@ -1,25 +1,23 @@
 ---
 title: (INAKTUELL) Självstudie för Azure Container Service – Uppdatera ett program
 description: Självstudie för Azure Container Service – Uppdatera ett program
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 3c0be935a4ffb51c03d2f63b14ab7c0c713dd2ae
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4b893f185ba7e205ffebd7d939b8a2aa20a3e13
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576721"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275551"
 ---
 # <a name="deprecated-update-an-application-in-kubernetes"></a>(INAKTUELL) Uppdatera ett program i Kubernetes
 
 > [!TIP]
-> För den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service läser du[Självstudie: Uppdatera ett program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: uppdatera ett program i Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-app-update.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -39,7 +37,7 @@ I senare självstudier konfigureras Log Analytics för att övervaka Kubernetes-
 
 I tidigare självstudier paketerades ett program i en behållaravbildning, avbildningen laddades upp till Azure Container Registry och ett Kubernetes-kluster skapades. Programmet kördes därefter i Kubernetes-klustret. 
 
-En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog med namnet `azure-vote` och en fil med namnet `docker-compose.yml`.
+En programlagringsplats klonades också, med programmets källkod och en färdig Docker Compose-fil som används i den här självstudien. Verifiera att du har skapat en klon av lagringsplatsen och att du har ändrat kataloger i den klonade katalogen. Inuti finns en katalog som heter `azure-vote` och en fil med namnet `docker-compose.yml`.
 
 Om du inte har slutfört dessa steg och vill följa med återgår du till [Självstudie 1 – Skapa containeravbildningar](./container-service-tutorial-kubernetes-prepare-app.md). 
 
@@ -67,7 +65,7 @@ Spara och stäng filen.
 
 ## <a name="update-container-image"></a>Uppdatera containeravbildningen
 
-Använd [docker-compose](https://docs.docker.com/compose/) till att skapa kilentdelsavbildningen igen och kör det uppdaterade programmet. Argumentet `--build` används till att instruera Docker Compose att skapa programavbildningen på nytt.
+Använd [docker-compose](https://docs.docker.com/compose/) till att skapa kilentdelsavbildningen igen och kör det uppdaterade programmet. Argumentet `--build` används för att instruera Docker Compose att skapa programavbildningen på nytt.
 
 ```bash
 docker-compose up --build -d
@@ -89,13 +87,13 @@ Hämta inloggningsserverns namn med kommandot [az acr list](/cli/azure/acr#az-ac
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Använd [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) till att tagga avbildningen. Ersätt `<acrLoginServer>` med namnet på inloggningsservern för Azure Container Registry eller värdnamnet för ett offentligt register. Lägg även märke till att avbildningsversionen har uppdaterats till `redis-v2`.
+Använd [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) till att tagga avbildningen. Ersätt `<acrLoginServer>` med ditt Azure Container Registry-inloggningsservernamn eller offentliga registervärdnamn. Lägg även märke till att avbildningsversionen har uppdaterats till `redis-v2`.
 
 ```bash
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:redis-v2
 ```
 
-Använd [docker push](https://docs.docker.com/engine/reference/commandline/push/) och ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med namnet på inloggningsservern för Azure Container Registry.
+Använd [docker push](https://docs.docker.com/engine/reference/commandline/push/) och ladda upp avbildningen till registret. Ersätt `<acrLoginServer>` med ditt Azure Container Registry-inloggningsservernamn.
 
 ```bash
 docker push <acrLoginServer>/azure-vote-front:redis-v2
@@ -109,7 +107,7 @@ Du får minimala störningar om flera instanser av programpodden körs. Verifier
 kubectl get pod
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -119,7 +117,7 @@ azure-vote-front-233282510-dhrtr   1/1       Running   0          10m
 azure-vote-front-233282510-pqbfk   1/1       Running   0          10m
 ```
 
-Om du inte har flera poddar som kör avbildningen azure-vote-front skalar du ut `azure-vote-front`-distributionen.
+Om du inte har flera poddar som kör avbildningen azure-vote skalar du `azure-vote-front`-distribueringen.
 
 
 ```azurecli-interactive
@@ -138,7 +136,7 @@ Du övervakar distributionen med kommandot [kubectl get pod](https://kubernetes.
 kubectl get pod
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE

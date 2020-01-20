@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5000d79db0d9036fe8904322764e4c480111d6cc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b301bc6c1674cad26288556957ba6214df74f18d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863401"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278677"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Övervaka och minimera begränsningen för att minska svars tiden i Azure Time Series Insights
 
@@ -30,7 +30,7 @@ Du upplever förmodligen svars tid och begränsning när du:
 - Lägg till en händelse källa som innehåller gamla data som kan överskrida den tilldelade ingångs takten (Time Series Insights måste fångas upp).
 - Lägg till fler händelse källor i en miljö, vilket resulterar i en ökning från ytterligare händelser (vilket kan överstiga din miljös kapacitet).
 - Skicka stora mängder historiska händelser till en händelse källa, vilket resulterar i en fördröjning (Time Series Insights måste fångas upp).
-- Koppla referens data med telemetri, vilket resulterar i större händelse storlek.  Från ett begränsnings perspektiv behandlas ett inträngt data paket med en paket storlek på 32 KB som 32-händelser, varje storlek 1 KB. Den största tillåtna händelse storleken är 32 KB; data paket som är större än 32 KB trunkeras.
+- Koppla referens data med telemetri, vilket resulterar i större händelse storlek. Från ett begränsnings perspektiv behandlas ett inträngt data paket med en paket storlek på 32 KB som 32-händelser, varje storlek 1 KB. Den största tillåtna händelse storleken är 32 KB; data paket som är större än 32 KB trunkeras.
 
 ## <a name="video"></a>Video
 
@@ -40,13 +40,13 @@ Du upplever förmodligen svars tid och begränsning när du:
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Övervaka svars tid och begränsning med aviseringar
 
-Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som orsakas av din miljö.
+Aviseringar kan hjälpa dig att diagnostisera och minimera latens problem som uppstår i din miljö.
 
 1. I Azure Portal väljer du din Time Series Insights miljö. Välj sedan **aviseringar**.
 
    [![lägga till en avisering i Time Series Insightss miljön](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
-1. Panelen **Skapa regel** visas sedan. Välj **Lägg till** under **villkor**.
+1. Välj **+ Ny aviseringsregel**. Panelen **Skapa regel** visas sedan. Välj **Lägg till** under **villkor**.
 
    [![Lägg till aviserings fönster](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 

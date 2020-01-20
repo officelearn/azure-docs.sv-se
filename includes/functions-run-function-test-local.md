@@ -1,20 +1,18 @@
 ---
 title: ta med fil
 description: ta med fil
-services: functions
 author: ggailey777
-manager: jeconnoc
 ms.service: azure-functions
 ms.topic: include
 ms.date: 10/20/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: dcfa65c655d1508510282fe66e90e4076278b29b
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: 343321b43d219401f0b494ab3f6a54074fbc36f3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68949972"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279617"
 ---
 ## <a name="run-the-function-locally"></a>Kör funktionen lokalt
 

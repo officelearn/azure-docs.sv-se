@@ -1,29 +1,27 @@
 ---
 title: (INAKTUELL) Snabbstart – Azure Kubernetes-kluster för Linux
 description: Lär dig snabbt att skapa ett Kubernetes-kluster på Linux-behållare i Azure Container Service med Azure CLI.
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 70c9fec818147b76feb306cc47ba2e72cd865fe8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5c182d6119f59daaf21e4b4e1304363eeb0c11e5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335037"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273505"
 ---
 # <a name="deprecated-deploy-kubernetes-cluster-for-linux-containers"></a>(INAKTUELL) Snabbstart – Distribuera Kubernetes-kluster för Linux-containrar
 
 > [!TIP]
-> Den uppdaterade versionen av den här snabbstarten som använder Azure Kubernetes Service finns i [Snabbstart: Distribuera ett AKS-kluster (Azure Kubernetes Service)](../../aks/kubernetes-walkthrough.md).
+> Den uppdaterade versionen av den här snabb starten som använder Azure Kubernetes-tjänsten finns i [snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS)](../../aks/kubernetes-walkthrough.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-I den här snabbstartsguiden ska vi distribuera ett Kubernetes-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flerbehållarprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet. 
+I den här snabbstartsguiden ska vi distribuera ett Kubernetes-kluster med hjälp av Azure CLI. Därefter distribuerar vi och kör ett flercontainerprogram som består av en webbklientdel och en Redis-instans i klustret. När vi har gjort det kan programmet nås via Internet. 
 
 Exempelprogrammet som används i det här dokumentet är skrivet i Python. Begreppen och anvisningarna här kan användas för att distribuera valfri containeravbildning till ett Kubernetes-kluster. Koden, Dockerfile, och befintliga Kubernetes-manifestfiler som hör till projektet, finns på [GitHub](https://github.com/Azure-Samples/azure-voting-app-redis.git).
 
@@ -47,7 +45,7 @@ I följande exempel skapas en resursgrupp med namnet *myResourceGroup* på plats
 az group create --name myResourceGroup --location westeurope
 ```
 
-Utdata:
+Resultat:
 
 ```json
 {
@@ -92,7 +90,7 @@ Du kan kontrollera anslutningen till klustret genom att köra kommandot [kubectl
 kubectl get nodes
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -175,7 +173,7 @@ Använd kommandot [kubectl create](https://kubernetes.io/docs/reference/generate
 kubectl create -f azure-vote.yml
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 deployment "azure-vote-back" created
@@ -220,7 +218,7 @@ I den här snabbstartsguiden har fördefinierade containeravbildningar använts 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det. 
+I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flercontainerprogram till det. 
 
 Om du vill lära dig mer om Azure Container Service, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 

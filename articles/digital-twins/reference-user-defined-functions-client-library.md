@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 01/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 41baacd4485e6702ec29057f5d539724b74e353b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bd6095daca51ddca0cfb4b34ca86e763df9a3d02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383248"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276818"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Klient biblioteks referens för användardefinierade funktioner
 
@@ -32,7 +32,7 @@ Med en utrymmes identifierare hämtar den här funktionen utrymmet från grafen.
 
 | Parameter  | Typ                | Beskrivning  |
 | ---------- | ------------------- | ------------ |
-| *identitet*  | `guid` | Utrymmes identifierare |
+| *ID*  | `guid` | Utrymmes identifierare |
 
 ### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒ `sensor`
 
@@ -42,7 +42,7 @@ Med den här funktionen hämtar sensor identifieraren från grafen.
 
 | Parameter  | Typ                | Beskrivning  |
 | ---------- | ------------------- | ------------ |
-| *identitet*  | `guid` | Sensor identifierare |
+| *ID*  | `guid` | Sensor identifierare |
 
 ### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒ `device`
 
@@ -52,7 +52,7 @@ Med en enhets identifierare hämtar den här funktionen enheten från grafen.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *identitet* | `guid` | Enhets identifierare |
+| *ID* | `guid` | Enhets identifierare |
 
 ### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, datatyp) ⇒ `value`
 
@@ -74,7 +74,7 @@ Med en utrymmes identifierare och värde namnet hämtar den här funktionen det 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId*  | `guid` | Utrymmes identifierare |
-| *Värdets namn* | `string` | Utrymmes egenskaps namn |
+| *valueName* | `string` | Utrymmes egenskaps namn |
 
 ### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, datatyp) ⇒ `value[]`
 
@@ -96,9 +96,9 @@ Med en blank stegs identifierare och värde namnet hämtar den här funktionen d
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
-| *Värdets namn* | `string` | Utrymmes egenskaps namn |
+| *valueName* | `string` | Utrymmes egenskaps namn |
 
-### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces (spaceId) ⇒ `space[]`
+### <a name="getspacechildspacesspaceid--space"></a>getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
 Med en utrymmes identifierare hämtar den här funktionen de underordnade utrymmena för det överordnade utrymmet.
 
@@ -138,7 +138,7 @@ Med en enhets identifierare hämtar den här funktionen de underordnade sensorer
 | ------ | ------------------- | ------------ |
 | *deviceId* | `guid` | Enhets identifierare |
 
-### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace (childSpaceId) ⇒ `space`
+### <a name="getspaceparentspacechildspaceid--space"></a>getSpaceParentSpace(childSpaceId) ⇒ `space`
 
 Med en utrymmes identifierare hämtar den här funktionen sitt överordnade utrymme.
 
@@ -302,7 +302,7 @@ Den här funktionen returnerar värdet för det aktuella utrymmet.
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *Värdets namn* | `string` | Namn på värdet |
+| *valueName* | `string` | Namn på värdet |
 
 #### <a name="historyvaluename--value"></a>Historik (valueName) ⇒ `value[]`
 
@@ -310,7 +310,7 @@ Den här funktionen returnerar de historiska värdena för det aktuella utrymmet
 
 | Parameter  | Typ                | Beskrivning  |
 | ------ | ------------------- | ------------ |
-| *Värdets namn* | `string` | Namn på värdet |
+| *valueName* | `string` | Namn på värdet |
 
 #### <a name="notifypayload"></a>Meddela (nytto Last)
 

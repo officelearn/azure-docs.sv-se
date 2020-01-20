@@ -1,25 +1,23 @@
 ---
 title: (INAKTUELL) Självstudie om Azure Container Service – Distribuera ett kluster
 description: Självstudie för Azure Container Service – Distribuera ett kluster
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 58fef0357a903f2ab1d238bbab7b2d9dca673eb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cb21bff2834751843061910184499f37bde834e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60576177"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275445"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(INAKTUELL) Distribuera ett Kubernetes-kluster i Azure Container Service
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service finns i [Självstudie: Distribuera ett AKS-kluster (Azure Kubernetes Service)](../../aks/tutorial-kubernetes-deploy-cluster.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: Distribuera ett Azure Kubernetes service-kluster (AKS)](../../aks/tutorial-kubernetes-deploy-cluster.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -78,7 +76,7 @@ Kontrollera anslutningen till klustret med kommandot [kubectl get nodes](https:/
 kubectl get nodes
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME                    STATUS                     AGE       VERSION
@@ -88,7 +86,7 @@ k8s-agent-98dc3136-2    Ready                      5m        v1.6.2
 k8s-master-98dc3136-0   Ready,SchedulingDisabled   5m        v1.6.2
 ```
 
-När självstudien är utförd har du ett Kubernetes ACS-kluster som är redo för arbetsbelastningar. I senare självstudier distribuerar du ett program med flera behållare i det här klustret, skalar ut programmet, uppdaterar och övervakar det.
+När självstudien är utförd har du ett Kubernetes ACS-kluster som är redo för arbetsbelastningar. I senare självstudier distribuerar du ett program med flera container i det här klustret, skalar ut programmet, uppdaterar och övervakar det.
 
 ## <a name="next-steps"></a>Nästa steg
 

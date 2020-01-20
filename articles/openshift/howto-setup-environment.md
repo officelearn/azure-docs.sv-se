@@ -1,20 +1,18 @@
 ---
-title: Konfigurera din Azure Red Hat-utvecklings miljö | Microsoft Docs
+title: Konfigurera din Azure Red Hat-utvecklings miljö för OpenShift
 description: Här är kraven för att arbeta med Microsoft Azure Red Hat OpenShift.
-services: openshift
 keywords: Red Hat OpenShift-installation konfigureras
 author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: container-service
-manager: jeconnoc
-ms.openlocfilehash: fa09ed90258a62d37dafeea5f4760e1fabdc210b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 559c932c4826e82f36c09b85ee8da4186d90d34d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581605"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276077"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Konfigurera Azure Red Hat OpenShift-utvecklingsmiljön
 
@@ -100,7 +98,7 @@ Om du vill registrera dessa providers och funktioner manuellt kan du använda f�
 
 Tjänsten Azure Red Hat OpenShift kräver en associerad Azure Active Directory (Azure AD)-klient som representerar din organisation och dess relation till Microsoft. Med din Azure AD-klient kan du registrera, bygga och hantera appar, samt använda andra Azure-tjänster.
 
-Om du inte har en Azure AD att använda som klient för ditt Azure Red Hat OpenShift-kluster, eller om du vill skapa en klient för testning, följer du anvisningarna i [skapa en Azure AD-klient för ditt Azure Red Hat OpenShift-kluster](howto-create-tenant.md) innan du fortsätter med den här guiden .
+Om du inte har en Azure AD att använda som klient för ditt Azure Red Hat OpenShift-kluster, eller om du vill skapa en klient för testning, följer du anvisningarna i [skapa en Azure AD-klient för ditt Azure Red Hat OpenShift-kluster](howto-create-tenant.md) innan du fortsätter med den här guiden.
 
 ## <a name="create-an-azure-ad-user-security-group-and-application-object"></a>Skapa en Azure AD-användare, en säkerhets grupp och ett program objekt
 

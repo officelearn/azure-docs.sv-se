@@ -1,65 +1,57 @@
 ---
-title: Använda tillägg finns med Azure VM scale sets | Microsoft Docs
-description: Lär dig hur du sekvenserar tillägget etablering när du distribuerar flera tillägg på VM-skalningsuppsättningar.
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Använd tilläggs-sekvenseringen med skalnings uppsättningar för virtuella Azure-datorer
+description: Lär dig hur du sekvenserar tillägg när du distribuerar flera tillägg på virtuella datorers skalnings uppsättningar.
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: manayar
-ms.openlocfilehash: 2e5dfda16c4828b3113fc50d4cffc79fe6ff19e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cde3fb8b56d8509a45bde00dde55e3c69d015b8e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60620180"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278059"
 ---
-# <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Anger sekvens tillägget etablering i VM-skalningsuppsättning
-Azure VM-tillägg ger funktioner, till exempel konfigurationen efter distribution och hantering, övervakning, säkerhet och mer. Produktionsdistribution använder vanligtvis en kombination av flera tillägg som konfigurerats för VM-instanser för att uppnå önskat resultat.
+# <a name="sequence-extension-provisioning-in-virtual-machine-scale-sets"></a>Etablering av sekvens tillägg i skalnings uppsättningar för virtuella datorer
+Tillägg för virtuella Azure-datorer innehåller funktioner som konfiguration och hantering av konfiguration och hantering, övervakning, säkerhet och mycket annat. Produktions distributioner använder vanligt vis en kombination av flera tillägg som kon figurer ATS för de virtuella dator instanserna för att uppnå önskade resultat.
 
-När du använder flera tillägg på en virtuell dator, är det viktigt att se till att tillägg som kräver samma OS-resurser inte försöker hämta dessa resurser på samma gång. Vissa tillägg beror också på andra tillägg att tillhandahålla nödvändiga konfigurationer, till exempel miljöinställningar och hemligheter. Utan rätt ordning och sekvensering på plats, kan beroende tillägget distributioner misslyckas.
+När du använder flera tillägg på en virtuell dator är det viktigt att se till att tillägg som kräver samma OS-resurser inte försöker att förvärva resurserna på samma gång. Vissa tillägg är också beroende av andra tillägg för att tillhandahålla obligatoriska konfigurationer, till exempel miljö inställningar och hemligheter. Det går inte att utföra beroende tilläggs distributioner utan rätt ordning och sortering på plats.
 
-Den här artikeln beskriver hur du kan ordna tillägg som ska konfigureras för VM-instanser i skalningsuppsättningar för virtuella datorer.
+Den här artikeln beskriver hur du kan sekvensera tillägg som ska konfigureras för de virtuella dator instanserna i den virtuella datorns skalnings uppsättningar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du är bekant med:
--   Azure-dator [tillägg](../virtual-machines/extensions/overview.md)
--   [Ändra](virtual-machine-scale-sets-upgrade-scale-set.md) VM-skalningsuppsättningar
+-   [Tillägg](../virtual-machines/extensions/overview.md) för virtuella Azure-datorer
+-   [Ändra](virtual-machine-scale-sets-upgrade-scale-set.md) skalnings uppsättningar för virtuella datorer
 
-## <a name="when-to-use-extension-sequencing"></a>När du ska använda ordningsföljd
-Ordningsföljd för tillägg i inte obligatorisk för att skala anger och om inget anges, tillägg kan etableras på en skala set-instans i valfri ordning.
+## <a name="when-to-use-extension-sequencing"></a>När du ska använda fil namns sekvenseringen
+Sekvensering av tillägg i är inte obligatoriskt för skalnings uppsättningar och om inget annat anges kan tillägg tillhandahållas på en skalnings uppsättnings instans i vilken ordning som helst.
 
-Till exempel om din skalningsuppsättningen har två tillägg – ExtensionA och ExtensionB – anges i modellen, uppstå sedan något av följande etablering sekvenser:
+Exempel: om din skalnings uppsättnings modell har två tillägg – tillägg och ExtensionB – anges i modellen, kan någon av följande etablerings sekvenser inträffa:
 -   ExtensionA -> ExtensionB
--   ExtensionB -> ExtensionA
+-   ExtensionB-> tillägg
 
-Om programmet kräver ett tillägg som alltid ska etableras innan tillägg B, bör du använda ordningsföljd som beskrivs i den här artikeln. Med tillägg finns inträffar bara en sekvens nu:
--   ExtensionA - > ExtensionB
+Om ditt program kräver tillägg A för att alltid vara etablerad före tillägg B, bör du använda tilläggs ordningen enligt beskrivningen i den här artikeln. Vid inökning av sekvenser görs bara en sekvens:
+-   Utöka-> ExtensionB
 
-Några tillägg som inte har angetts i en sekvens med definierade etablering kan etableras när som helst, inklusive före, efter eller under en definierad sekvens. Ordningsföljd för enbart anger att ett visst tillägg kommer att tillhandahållas när du har en annan specifika tillägget. Det påverkar inte etableringen av alla andra tillägg som definierats i modellen.
+Alla tillägg som inte anges i en definierad etablerings ordning kan tillhandahållas när som helst, inklusive före, efter, eller under en definierad sekvens. För att utöka ordningsföljden anges endast att ett angivet tillägg kommer att tillhandahållas efter ett annat angivet tillägg. Det påverkar inte etableringen av andra tillägg som definierats i modellen.
 
-Exempel: om din skalningsuppsättningen har tre tillägg – tillägget A, tillägg B och tillägg C – anges i modellen, och tillägg C har angetts som ska etableras när tillägget A, sedan något av följande etablering sekvenser förekomma:
+Om din skalnings uppsättnings modell har tre tillägg – tillägg A, tillägg B och tillägg C – anges i modellen, och tillägg C är inställt på att tillhandahållas efter tillägg A, kan antingen följande etablerings sekvenser uppstå:
 -   ExtensionA -> ExtensionC -> ExtensionB
 -   ExtensionB -> ExtensionA -> ExtensionC
 -   ExtensionA -> ExtensionB -> ExtensionC
 
-Om du behöver säkerställa att inga andra tillägg etableras medan de definierade tillägget körs, rekommenderar vi ordningsföljd för alla tillägg i din skalningsuppsättningen. I exemplet ovan kan du ange tillägg B som ska etableras efter tillägg C, så att endast en sekvens kan inträffa:
+Om du behöver se till att inga andra tillägg är etablerade medan den definierade tilläggs ordningen körs, rekommenderar vi att du sekvenserar alla tillägg i skalnings uppsättnings modellen. I ovanstående exempel kan tillägg B ställas in för att tillhandahållas efter tillägg C så att endast en sekvens kan inträffa:
 -   ExtensionA -> ExtensionC -> ExtensionB
 
 
-## <a name="how-to-use-extension-sequencing"></a>Hur du använder tillägg finns
-Att sekvens tillägget etablering, måste du uppdatera tillägget definitionen i skalningsuppsättningen att egenskapen ”provisionAfterExtensions”, som tar emot en matris med datatilläggsnamnen. De tillägg som nämns i matrisen egenskapsvärdet måste fullständigt definieras i modellen i skalningsuppsättningen.
+## <a name="how-to-use-extension-sequencing"></a>Använda sekvenseringen av tillägg
+Om du vill lägga till etablering av tillägg måste du uppdatera tilläggs definitionen i skalnings uppsättnings modellen för att inkludera egenskapen "provisionAfterExtensions", som godkänner en matris med tilläggs namn. De tillägg som anges i egenskaps mat ris svärdet måste anges fullständigt i skalnings uppsättnings modellen.
 
-### <a name="template-deployment"></a>Malldistribution
-I följande exempel definierar en mall där skalningsuppsättningen har tre tillägg – ExtensionA, ExtensionB och ExtensionC – så att tillägg levereras i ordning:
+### <a name="template-deployment"></a>Mall distribution
+I följande exempel definieras en mall där skalnings uppsättningen har tre tillägg – tillägga, ExtensionB och ExtensionC – så att tilläggen tillhandahålls i följande ordning:
 -   ExtensionA -> ExtensionB -> ExtensionC
 
 ```json
@@ -107,7 +99,7 @@ I följande exempel definierar en mall där skalningsuppsättningen har tre till
 }
 ```
 
-Eftersom egenskapen ”provisionAfterExtensions” tar emot en matris med Tilläggsnamn, kan exemplet ovan ändras så att ExtensionC har etablerats efter ExtensionA och ExtensionB, men ingen ordning krävs mellan ExtensionA och ExtensionB. Följande mall kan användas för att uppnå det här scenariot:
+Eftersom egenskapen "provisionAfterExtensions" accepterar en matris med tilläggs namn, kan ovanstående exempel ändras så att ExtensionC tillhandahålls efter tillägg och ExtensionB, men ingen ordning krävs mellan tillägg och ExtensionB. Följande mall kan användas för att uppnå det här scenariot:
 
 ```json
 "virtualMachineProfile": {
@@ -151,8 +143,8 @@ Eftersom egenskapen ”provisionAfterExtensions” tar emot en matris med Tillä
 }
 ```
 
-### <a name="rest-api"></a>REST-API
-I följande exempel lägger till ett nytt tillägg med namnet ExtensionC i en skalningsuppsättningsmodell. ExtensionC har beroenden på ExtensionA och ExtensionB, vilka har redan definierats i modellen i skalningsuppsättningen.
+### <a name="rest-api"></a>REST API
+I följande exempel läggs ett nytt tillägg till med namnet ExtensionC i en skalnings uppsättnings modell. ExtensionC har beroenden för tillägg och ExtensionB, som redan har definierats i skalnings uppsättnings modellen.
 
 ```
 PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/ExtensionC?api-version=2018-10-01`
@@ -174,7 +166,7 @@ PUT on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/
 }
 ```
 
-Om ExtensionC definierades tidigare i skaluppsättningen modell och du nu vill du lägga till dess beroenden, kan du köra en `PATCH` att redigera egenskaperna för redan distribuerade tillägget.
+Om ExtensionC definierades tidigare i skalnings uppsättnings modellen och du nu vill lägga till dess beroenden kan du köra en `PATCH` för att redigera egenskaperna för redan distribuerade tillägg.
 
 ```
 PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/extensions/ExtensionC?api-version=2018-10-01`
@@ -189,12 +181,12 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
   }                  
 }
 ```
-Ändringar i befintliga skalningsuppsättningsinstanser tillämpas på nästa [uppgradera](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
+Ändringar i befintliga skalnings uppsättnings instanser tillämpas vid nästa [uppgradering](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-Använd den [Lägg till AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) cmdlet för att lägga till tillägget programmets hälsotillstånd till skalan modellen principuppsättningsdefinition. Ordningsföljd för kräver användning av Az PowerShell 1.2.0 eller senare.
+Använd cmdleten [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension) för att lägga till program hälso tillägget i modell definitionen för skalnings uppsättningen. För att kunna använda sekvenseringen krävs AZ PowerShell-1.2.0 eller senare.
 
-I följande exempel läggs den [Programhälsa tillägget](virtual-machine-scale-sets-health-extension.md) till den `extensionProfile` i en skalningsuppsättning skalningsuppsättningsmodellen för en Windows-baserad skalningsuppsättning. Tillägget programmets hälsotillstånd kommer att tillhandahållas när du har etablerat den [tillägget för anpassat skript](../virtual-machines/extensions/custom-script-windows.md)har redan definierats i skalningsuppsättningen.
+I följande exempel läggs [program hälso tillägget](virtual-machine-scale-sets-health-extension.md) till i `extensionProfile` i en skalnings uppsättnings modell för en Windows-baserad skalnings uppsättning. Program hälso tillägget kommer att tillhandahållas efter etableringen av det [anpassade skript tillägget](../virtual-machines/extensions/custom-script-windows.md), som redan har definierats i skalnings uppsättningen.
 
 ```azurepowershell-interactive
 # Define the scale set variables
@@ -229,9 +221,9 @@ Update-AzVmss -ResourceGroupName $vmScaleSetResourceGroup `
 ```
 
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-Använd [az vmss-tilläggsuppsättningen](/cli/azure/vmss/extension#az-vmss-extension-set) att lägga till tillägget programmets hälsotillstånd till skalningsuppsättningen Service-definitionen. Ordningsföljd för kräver användning av Azure CLI 2.0.55 eller senare.
+Använd [AZ VMSS Extension set](/cli/azure/vmss/extension#az-vmss-extension-set) för att lägga till program hälso tillägget i modell definitionen för skalnings uppsättningen. För att använda sekvensering måste du använda Azure CLI-2.0.55 eller senare.
 
-I följande exempel läggs den [Programhälsa tillägget](virtual-machine-scale-sets-health-extension.md) till skalan skalningsuppsättningsmodellen för en Windows-baserad skalningsuppsättning. Tillägget programmets hälsotillstånd kommer att tillhandahållas när du har etablerat den [tillägget för anpassat skript](../virtual-machines/extensions/custom-script-windows.md)har redan definierats i skalningsuppsättningen.
+I följande exempel läggs [program hälso tillägget](virtual-machine-scale-sets-health-extension.md) till i skalnings uppsättnings modellen för en Windows-baserad skalnings uppsättning. Program hälso tillägget kommer att tillhandahållas efter etableringen av det [anpassade skript tillägget](../virtual-machines/extensions/custom-script-windows.md), som redan har definierats i skalnings uppsättningen.
 
 ```azurecli-interactive
 az vmss extension set \
@@ -245,15 +237,15 @@ az vmss extension set \
 ```
 
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
-### <a name="not-able-to-add-extension-with-dependencies"></a>Det går inte att lägga till tillägget med beroenden?
-1. Se till att de tillägg som anges i provisionAfterExtensions definieras i modellen i skalningsuppsättningen.
-2. Se till att det finns inga cirkulärt tjänstberoende som introduceras. Till exempel är inte följande sekvens tillåten: ExtensionA -> ExtensionB -> ExtensionC -> ExtensionA
-3. Kontrollera att alla tillägg du vidta beroenden, har en ”inställningar”-egenskap under tillägget ”egenskaper”. Till exempel om ExtentionB behöver etableras efter ExtensionA, ha sedan ExtensionA fältet ”inställningar” under ExtensionA ”egenskaper”. Du kan ange en tom ”inställningar”-egenskap om filnamnstillägget inte tvingade inställningar som krävs.
+### <a name="not-able-to-add-extension-with-dependencies"></a>Kan du inte lägga till tillägg med beroenden?
+1. Se till att de tillägg som anges i provisionAfterExtensions definieras i skalnings uppsättnings modellen.
+2. Se till att inga cirkulära beroenden har introducerats. Följande sekvens tillåts till exempel inte: tillägga-> ExtensionB-> ExtensionC-> tillägg
+3. Se till att alla tillägg som du tar beroenden på har egenskapen "Inställningar" under tillägget "egenskaper". Om t. ex. ExtentionB behöver tillhandahållas efter tillägg måste de ha fältet "Inställningar" under tillägget "egenskaper". Du kan ange en tom egenskap "Inställningar" om tillägget inte definierar några nödvändiga inställningar.
 
-### <a name="not-able-to-remove-extensions"></a>Det går inte att ta bort tillägg?
+### <a name="not-able-to-remove-extensions"></a>Kan du inte ta bort tillägg?
 Se till att tilläggen som tas bort inte visas under provisionAfterExtensions för alla andra tillägg.
 
 ## <a name="next-steps"></a>Nästa steg
-Lär dig hur du [distribuera ditt program](virtual-machine-scale-sets-deploy-app.md) på virtuella datorer du anger.
+Lär dig hur du [distribuerar ditt program](virtual-machine-scale-sets-deploy-app.md) på virtuella datorers skalnings uppsättningar.

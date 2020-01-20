@@ -1,30 +1,28 @@
 ---
-title: Dela galleriavbildningar över klienter i Azure | Microsoft Docs
-description: Lär dig mer om att dela VM-avbildningar i Azure-klienter med hjälp av delad Image Galleries.
-services: virtual-machine-scale-sets
+title: Dela Galleri bilder över klienter i Azure
+description: Lär dig hur du delar VM-avbildningar i Azure-klienter med hjälp av delade avbildnings gallerier.
 author: cynthn
-manager: jeconnoc
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: cynthn
-ms.openlocfilehash: cbaaac629fd013602eed75cc7dc357f13a62e3b1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a29999102ad8a10d8965145b31a7d804675e0e57
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65160132"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276344"
 ---
-# <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela galleriet VM-avbildningar i Azure-klienter
+# <a name="share-gallery-vm-images-across-azure-tenants"></a>Dela Galleri VM-avbildningar i Azure-klienter
 
 [!INCLUDE [virtual-machines-share-images-across-tenants](../../includes/virtual-machines-share-images-across-tenants.md)]
 
 
-## <a name="create-a-scale-set-using-azure-cli"></a>Skapa en skalningsuppsättning med Azure CLI
+## <a name="create-a-scale-set-using-azure-cli"></a>Skapa en skalnings uppsättning med Azure CLI
 
-Logga in tjänstens huvudnamn för klient 1 använda appID, appnyckeln och ID för klient 1. Du kan använda `az account show --query "tenantId"` att skaffa klientens ID: N om det behövs.
+Logga in tjänstens huvud namn för klient organisation 1 med hjälp av appID, appens nyckel och ID för klient 1. Du kan använda `az account show --query "tenantId"` för att hämta klient-ID: n vid behov.
 
 ```azurecli-interactive
 az account clear
@@ -32,14 +30,14 @@ az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 1 ID>
 az account get-access-token 
 ```
  
-Logga in tjänstens huvudnamn för klient 2 med appID, appnyckeln och ID-klient 2:
+Logga in tjänstens huvud namn för klient 2 med hjälp av appID, appens nyckel och ID: t för klient organisationen 2:
 
 ```azurecli-interactive
 az login --service-principal -u '<app ID>' -p '<Secret>' --tenant '<tenant 2 ID>'
 az account get-access-token
 ```
 
-Skapa skalningsuppsättningen. Ersätt informationen i det här exemplet med dina egna.
+Skapa skalnings uppsättningen. Ersätt informationen i exemplet med din egen.
 
 ```azurecli-interactive
 az vmss create \
@@ -52,4 +50,4 @@ az vmss create \
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du stöter på problem, kan du [Felsöka delade bildgallerier](troubleshooting-shared-images.md).
+Om du stöter på problem kan du [Felsöka delade avbildnings gallerier](troubleshooting-shared-images.md).

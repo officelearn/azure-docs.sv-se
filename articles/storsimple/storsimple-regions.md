@@ -1,25 +1,17 @@
 ---
-title: Tillgänglighet för StorSimple-regionen | Microsoft Docs
+title: Tillgänglighet för StorSimple-regionen
 description: Förklarar de Azure-regioner där de olika StorSimple enhets modellerna är tillgängliga.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 5b41f738c2419f806aef60374a545ff004a6f19e
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: a2f04d6faa7770eef7768437ae0e624b76713f98
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965128"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275113"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Tillgängliga regioner för din StorSimple
 
@@ -77,14 +69,14 @@ Om du använder en fysisk enhet på StorSimple 8100 eller 8600 är enheten tillg
 | 4  | Belgien               | 19 | Indien              | 34 | Peru                | 49 | Sri Lanka                  |
 | 5  | Brasilien                | 20 | Indonesien          | 35 | Filippinerna         | 50 | Sverige                     |
 | 6  | Kanada                | 21 | Irland            | 36 | Polen              | 51 | Schweiz                |
-| 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan (Taiwan)                     |
+| 7  | Chile                 | 22 | Israel             | 37 | Portugal            | 52 | Taiwan                     |
 | 8  | Colombia              | 23 | Italien              | 38 | Puerto Rico         | 53 | Thailand                   |
 | 9  | Tjeckien        | 24 | Japan              | 39 | Qatar               | 54 | Turkiet                     |
 | 10 | Danmark               | 25 | Kenya              | 40 | Rumänien             | 55 | Ukraina                    |
 | 11 | Egypten                 | 26 | Kuwait             | 41 | Ryssland              | 56 | Förenade Arabemiraten       |
-| 12 | Finland               | 27 | Macao SAR          | 42 | Saudiarabien        | 57 | Storbritannien och Nordirland             |
+| 12 | Finland               | 27 | Macao SAR          | 42 | Saudiarabien        | 57 | Storbritannien             |
 | 13 | Frankrike                | 28 | Malaysia           | 43 | Singapore           | 58 | USA              |
-| 14 | Tyskland               | 29 | Mexico             | 44 | Slovakien            | 59 | Vietnam                    |
+| 14 | Tyskland               | 29 | Mexiko             | 44 | Slovakien            | 59 | Vietnam                    |
 | 15 | Grekland                | 30 | Nederländerna        | 45 | Slovenien            | 60 | Kroatien                    |
 
 Den här listan ändras när fler länder/regioner läggs till. Om du vill ha en uppdaterad lista över geografiska områden går du till bilaga för lagrings mat ris villkor i [produkt villkoren](https://www.microsoft.com/en-us/licensing/product-licensing/products).
@@ -96,7 +88,7 @@ Microsoft kan leverera fysisk maskin vara och tillhandahålla ersättnings reser
 
 ### <a name="storsimple-cloud-appliance-models-80108020"></a>StorSimple Cloud Appliance (modeller 8010/8020)
 
-Om du använder en StorSimple Cloud Appliance 8010 eller 8020, stöds enheten och är tillgänglig i alla regioner där den underliggande virtuella datorn stöds. 8010 använder en virtuell dator med _Standard_A3_ som stöds i alla Azure-regioner.
+Om du använder en StorSimple Cloud Appliance 8010 eller 8020, stöds enheten och är tillgänglig i alla regioner där den underliggande virtuella datorn stöds. 8010 använder en _Standard_A3_ VM som stöds i alla Azure-regioner.
 
 8020 använder Premium Storage och _Standard_DS3_ VM för att skapa en moln installation. 8020 stöds i Azure-regioner som stöder Premium Storage och _Standard_DS3_ virtuella Azure-datorer. Använd [listan](https://azure.microsoft.com/regions/services/) för att se om både **virtuella datorer > DS-serien** och **lagring > disklagring** är tillgängligt i din region.
 

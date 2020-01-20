@@ -1,27 +1,21 @@
 ---
-title: Distribuera skalnings uppsättningen för virtuella datorer med Visual Studio | Microsoft Docs
+title: Distribuera skalnings uppsättningen för virtuella datorer med Visual Studio
 description: Distribuera Virtual Machine Scale Sets med Visual Studio och en Resource Manager-mall
-services: virtual-machine-scale-sets
 ms.custom: H1Hack27Feb2017
-ms.workload: na
-documentationcenter: ''
+ms.workload: azure-vs
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
 ms.service: virtual-machine-scale-sets
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: d397f81ce29e0ec738156b755948985a4edfc70b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 0d0dc3fbb7e48b1f7e6936cfb65473dba882b776
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802256"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274223"
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en skalnings uppsättning för virtuella datorer med Visual Studio
 
@@ -31,7 +25,7 @@ Den här artikeln visar hur du distribuerar en skalnings uppsättning för en vi
 
 Distributioner av Azure-resurs grupper är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda distributions åtgärd. Mer information finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång med att distribuera Virtual Machine Scale Sets i Visual Studio behöver du följande förutsättningar:
 
@@ -71,7 +65,7 @@ Med belastningsutjämnaren kan du ansluta till de virtuella dator instanserna me
 
 Distribuera Azure Resource Manager-mallen för att skapa den virtuella datorns skalnings uppsättnings resurs:
 
-1. I **Solution Explorer**högerklickar du på projektet och väljer **distribuera** > **ny**.
+1. I **Solution Explorer**högerklickar du på projektet och väljer **distribuera** > **nytt**.
 
     ![Distribuera projektet](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 

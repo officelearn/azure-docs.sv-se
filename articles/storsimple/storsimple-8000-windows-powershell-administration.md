@@ -1,33 +1,25 @@
 ---
-title: PowerShell för StorSimple-enhetshantering | Microsoft Docs
+title: PowerShell för hantering av StorSimple-enheter
 description: Lär dig hur du använder Windows PowerShell för StorSimple för att hantera din StorSimple-enhet.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 7e488a1b2a63323361a597aaa6a438630fc09a05
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 7d59f00d655bc7b2395c46713a56f52c61ffa42c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621623"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277112"
 ---
-# <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använda Windows PowerShell för StorSimple för att administrera din enhet
+# <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Använd Windows PowerShell för StorSimple för att administrera din enhet
 
 ## <a name="overview"></a>Översikt
 
-Windows PowerShell för StorSimple tillhandahåller ett kommandoradsgränssnitt som du kan använda för att hantera din Microsoft Azure StorSimple-enhet. Som namnet antyder är en Windows PowerShell-baserat kommandoradsgränssnitt som är inbyggd i ett begränsat körningsutrymme. Perspektiv för användare på kommandoraden visas ett begränsat körningsutrymme som en begränsad version av Windows PowerShell. Samtidigt några av de grundläggande funktionerna i Windows PowerShell, har det här gränssnittet ytterligare dedicerade cmdlets som är avsedda för att hantera din Microsoft Azure StorSimple-enhet.
+Windows PowerShell för StorSimple tillhandahåller ett kommando rads gränssnitt som du kan använda för att hantera din Microsoft Azure StorSimple-enhet. Som namnet antyder är det ett Windows PowerShell-baserat kommando rads gränssnitt som är byggt i en begränsad körnings utrymme. Från användarens perspektiv på kommando raden visas ett begränsat körnings utrymme som en begränsad version av Windows PowerShell. Även om det finns några av de grundläggande funktionerna i Windows PowerShell har det här gränssnittet ytterligare dedikerade cmdlets som är kopplade till att hantera din Microsoft Azure StorSimple-enhet.
 
-Den här artikeln beskriver Windows PowerShell för StorSimple-funktioner, inklusive hur du kan ansluta till det här gränssnittet och innehåller länkar till stegvisa procedurer eller arbetsflöden som du kan utföra med hjälp av det här gränssnittet. Arbetsflöden är bland annat hur du registrerar din enhet, konfigurera nätverksgränssnittet på din enhet, installera uppdateringar som enheten måste vara i underhållsläge, ändra enhetens tillstånd och felsöka eventuella problem som kan uppstå.
+Den här artikeln beskriver Windows PowerShell för StorSimple funktioner, inklusive hur du kan ansluta till det här gränssnittet och innehåller länkar till stegvisa procedurer eller arbets flöden som du kan utföra med hjälp av det här gränssnittet. Arbets flödena innehåller anvisningar om hur du registrerar din enhet, konfigurerar nätverks gränssnittet på enheten, installerar uppdateringar som kräver att enheten är i underhålls läge, ändrar enhetens tillstånd och felsöker eventuella problem som kan uppstå.
 
 När du har läst den här artikeln kommer du att kunna:
 
@@ -36,154 +28,154 @@ När du har läst den här artikeln kommer du att kunna:
 * Få hjälp i Windows PowerShell för StorSimple.
 
 > [!NOTE]
-> * Windows PowerShell för StorSimple cmdlets kan du hantera din StorSimple-enhet från en seriell konsol eller via en fjärranslutning via Windows PowerShell-fjärrkommunikation. Mer information om var och en av de enskilda cmdletar som kan användas i det här gränssnittet går du till [cmdlet-referens för Windows PowerShell för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * StorSimple för Azure PowerShell-cmdlets finns en annan uppsättning cmdletar som om du vill automatisera StorSimple tjänstnivå och migreringen från kommandoraden. Mer information om Azure PowerShell-cmdlets för StorSimple går du till den [cmdlet-referens för Azure StorSimple](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
+> * Med Windows PowerShell för StorSimple-cmdletar kan du hantera din StorSimple-enhet från en serie konsol eller via fjärr anslutning via Windows PowerShell-fjärrkommunikation. Mer information om var och en av de enskilda cmdletar som kan användas i det här gränssnittet finns i [cmdlet-referens för Windows PowerShell för StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
+> * De Azure PowerShell StorSimple-cmdletarna är en annan samling cmdletar som gör att du kan automatisera StorSimple service nivå-och migreringsåtgärder från kommando raden. Mer information om Azure PowerShell-cmdletar för StorSimple finns i [referens för Azure StorSimple-cmdlet](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
 Du kan komma åt Windows PowerShell för StorSimple med någon av följande metoder:
 
-* [Ansluta till StorSimple-enhetens seriekonsol](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
-* [Fjärransluta till StorSimple med hjälp av Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
+* [Ansluta till StorSimple enhets serie konsol](#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console)
+* [Fjärrans luta till StorSimple med Windows PowerShell](#connect-remotely-to-storsimple-using-windows-powershell-for-storsimple)
 
-## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Ansluta till Windows PowerShell för StorSimple via enhetens seriekonsol
+## <a name="connect-to-windows-powershell-for-storsimple-via-the-device-serial-console"></a>Ansluta till Windows PowerShell för StorSimple via enhetens serie konsol
 
-Du kan [ladda ned PuTTY](https://www.putty.org/) eller liknande programvara för terminalemulering att ansluta till Windows PowerShell för StorSimple. Du måste konfigurera PuTTY speciellt utformade för att få åtkomst till Microsoft Azure StorSimple-enheten. Följande avsnitt innehåller detaljerade anvisningar om hur du konfigurerar PuTTy och ansluta till enheten. Olika menyalternativen i seriekonsolen beskrivs också.
+Du kan [Ladda ned SparaTillFil](https://www.putty.org/) eller liknande program för terminalemulering för att ansluta till Windows PowerShell för StorSimple. Du måste konfigurera SparaTillFil särskilt för att få åtkomst till den Microsoft Azure StorSimple enheten. Följande avsnitt innehåller detaljerade anvisningar om hur du konfigurerar SparaTillFil och ansluter till enheten. Olika meny alternativ i serie konsolen förklaras också.
 
 ### <a name="putty-settings"></a>PuTTY-inställningar
 
-Se till att du använder följande inställningar för PuTTY för att ansluta till Windows PowerShell-gränssnittet från seriell konsol.
+Se till att du använder följande inställningar för SparaTillFil för att ansluta till Windows PowerShell-gränssnittet från serie konsolen.
 
-#### <a name="to-configure-putty"></a>Konfigurera PuTTY
+#### <a name="to-configure-putty"></a>Så här konfigurerar du SparaTillFil
 
-1. I PuTTY **omkonfiguration** i dialogrutan den **kategori** väljer **tangentbord**.
-2. Kontrollera att följande alternativ är valt (detta är standardinställningarna när du startar en ny session).
+1. Välj **tangent bord**i rutan **kategori** i dialog rutan SparaTillFil- **omkonfiguration** .
+2. Kontrol lera att följande alternativ är markerade (de är standardinställningarna när du startar en ny session).
    
-   | Tangentbord objekt | Välj |
+   | Tangent bords objekt | Välj |
    | --- | --- |
-   | BACKSTEG |Control-? (127) |
-   | Start- och slutdatum nycklar |Standard |
-   | Funktionstangenter och tangentbordet |ESC[n~ |
-   | Ursprungligt tillstånd för markören nycklar |Normal |
-   | Ursprungligt tillstånd för numeriska tangentbordet |Normal |
-   | Aktivera funktioner för extra tangentbord |CTRL + ALT + skiljer sig från AltGr |
+   | Backsteg-nyckel |Kontroll –? (127) |
+   | Home-och end-nycklar |Standard |
+   | Funktions tangenter och knapps ATS |ESC [n ~ |
+   | Ursprungligt tillstånd för markör nycklar |Normal |
+   | Ursprungligt tillstånd för numeriskt tangent bord |Normal |
+   | Aktivera extra tangent bords funktioner |Ctrl-Alt skiljer sig från AltGr |
    
-    ![Putty-inställningar som stöds](./media/storsimple-windows-powershell-administration/IC740877.png)
-3. Klicka på **Verkställ**.
-4. I den **kategori** väljer **Translation**.
-5. I den **Remote teckenuppsättningen** väljer **UTF-8**.
-6. Under **hantering av Linjeteckning tecken**väljer **Använd Unicode Linjeteckning kodpunkter**. Följande skärmbild visar rätt PuTTY val.
+    ![Inställningar för SparaTillFil som stöds](./media/storsimple-windows-powershell-administration/IC740877.png)
+3. Klicka på **Använd**.
+4. I fönstret **kategori** väljer du **översättning**.
+5. Välj **UTF-8**i list rutan **teckenuppsättning för fjärrobjekt** .
+6. Under **hantering av linje ritnings tecken**väljer du **Använd Unicode-linje ritning kod punkter**. Följande skärm bild visar rätt val av SparaTillFil.
    
-    ![UTF Putty-inställningar](./media/storsimple-windows-powershell-administration/IC740878.png)
-7. Klicka på **Verkställ**.
+    ![UTF-inställningar](./media/storsimple-windows-powershell-administration/IC740878.png)
+7. Klicka på **Använd**.
 
-Du kan nu använda PuTTY för att ansluta till enhetens seriekonsol genom att göra följande steg.
+Du kan nu använda SparaTillFil för att ansluta till enhetens serie konsol genom att utföra följande steg.
 
 [!INCLUDE [storsimple-use-putty](../../includes/storsimple-use-putty.md)]
 
-### <a name="about-the-serial-console"></a>Om seriekonsolen
+### <a name="about-the-serial-console"></a>Om serie konsolen
 
-När du använder Windows PowerShell-gränssnittet för StorSimple-enheten via seriekonsolen Banderollmeddelandet visas, följt av menyalternativ.
+När du använder Windows PowerShell-gränssnittet för din StorSimple-enhet via serie konsolen visas ett informations meddelande, följt av meny alternativ.
 
-Banderollmeddelandet innehåller grundläggande StorSimple-enhetsinformation som modell, namn, version installerad programvara och status för den domänkontrollant som du ansluter till. Följande bild visar ett exempel på en Banderollmeddelandet.
+Informations meddelandet innehåller grundläggande information om StorSimple-enheten, till exempel modell, namn, installerad program version och status för den kontroll enhet som du ansluter till. Följande bild visar ett exempel på ett informations meddelande.
 
-![Seriell Banderollmeddelandet](./media/storsimple-windows-powershell-administration/IC741098.png)
+![Serie informations meddelande](./media/storsimple-windows-powershell-administration/IC741098.png)
 
 > [!IMPORTANT]
-> Du kan använda Banderollmeddelandet för att identifiera om den domänkontrollant som du är ansluten till är _Active_ eller _passiva_.
+> Du kan använda informations meddelandet för att identifiera om den enhet som du är ansluten till är _aktiv_ eller _passiv_.
 
-Följande bild visar de olika alternativen för körningsutrymme som är tillgängliga i menyn för seriekonsolen.
+Följande bild visar de olika körnings utrymme-alternativ som är tillgängliga i menyn för serie konsolen.
 
 ![Registrera din enhet 2](./media/storsimple-windows-powershell-administration/IC740906.png)
 
-Du kan välja mellan följande inställningar:
+Du kan välja bland följande inställningar:
 
-1. **Logga in med fullständig åtkomst** det här alternativet kan du ansluta (med korrekta autentiseringsuppgifter) till den **SSAdminConsole** körningsutrymme på den lokala styrenheten. (Den lokala domänkontrollanten är den styrenhet som du för närvarande kommer åt via seriekonsolen för StorSimple-enheten.) Det här alternativet kan också användas för att tillåta Microsoft Support till obegränsad körningsutrymme (en supportsession) för att felsöka eventuella problem med möjliga enheter. När du använder alternativ 1 för att logga in, kan Microsoft Support-tekniker för att få åtkomst till obegränsad körningsutrymme genom att köra en viss cmdlet. Mer information finns att [starta en supportsession](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
+1. **Logga in med fullständig åtkomst** Med det här alternativet kan du ansluta (med rätt autentiseringsuppgifter) till **SSAdminConsole** -körnings utrymme på den lokala styrenheten. (Den lokala styrenheten är den kontroll enhet som du för närvarande använder via serie konsolen för din StorSimple-enhet.) Det här alternativet kan också användas för att ge Microsoft Support åtkomst till obegränsade körnings utrymme (en supportbegäran) för att felsöka eventuella enhets problem. När du har använt alternativ 1 för att logga in kan du låta Microsoft Support-teknikern komma åt obegränsade körnings utrymme genom att köra en angiven cmdlet. Mer information finns i [starta en support-session](storsimple-8000-contact-microsoft-support.md#start-a-support-session-in-windows-powershell-for-storsimple).
    
-2. **Logga in till peer-styrenhet med fullständig åtkomst** det här alternativet är detsamma som alternativ 1, förutom att du kan ansluta (med korrekta autentiseringsuppgifter) till den **SSAdminConsole** körningsutrymme på peer-styrenheten. Eftersom StorSimple-enheten är en hög tillgänglighet med två domänkontrollanter i en aktiv-passiv konfiguration refererar peer till den andra styrenheten i den enhet som du kommer åt via seriekonsolen).
-   Liknande alternativ 1, det här alternativet kan också användas för att tillåta Microsoft Support till obegränsad runspace på en peer-domänkontrollant.
+2. **Logga in på peer-styrenhet med fullständig åtkomst** Det här alternativet är detsamma som alternativ 1, förutom att du kan ansluta (med rätt autentiseringsuppgifter) till **SSAdminConsole** -körnings utrymme på peer-styrenheten. Eftersom StorSimple-enheten är en enhet med hög tillgänglighet med två kontrollanter i en aktiv-passiv konfiguration, refererar peer till den andra kontrollanten i enheten som du ansluter till via serie konsolen).
+   I likhet med alternativ 1 kan det här alternativet också användas för att ge Microsoft Support åtkomst till obegränsade körnings utrymme på en peer-styrenhet.
 
-3. **Ansluta med begränsad åtkomst** det här alternativet används för att komma åt Windows PowerShell-gränssnittet i begränsat läge. Du ombeds inte ange autentiseringsuppgifter. Det här alternativet ansluter till ett mer begränsat körningsutrymme jämfört med alternativ 1 och 2.  Några av de uppgifter som är tillgängliga via alternativ 1 som **kan* utföras i den här körningsutrymme är:
+3. **Anslut med begränsad åtkomst** Det här alternativet används för att få åtkomst till Windows PowerShell-gränssnittet i begränsat läge. Du uppmanas inte att ange autentiseringsuppgifter. Det här alternativet ansluter till en mer begränsad körnings utrymme jämfört med alternativ 1 och 2.  Några av de uppgifter som är tillgängliga via alternativ 1 som **inte kan* utföras i den här körnings utrymme är:
    
-   * Återställa till fabriksinställningarna
+   * Återställ fabriks inställningarna
    * Ändra lösenordet
-   * Aktivera eller inaktivera tillgången till support
+   * Aktivera eller inaktivera support åtkomst
    * Tillämpa uppdateringar
-   * Installera snabbkorrigeringar
+   * Installera snabb korrigeringar
 
      > [!NOTE]
-     > Detta är alternativet som rekommenderas om du har glömt administratörslösenord för enheten och kan inte ansluta via 1 eller 2.
+     > Detta är det bästa alternativet om du har glömt enhetens administratörs lösen ord och inte kan ansluta via alternativ 1 eller 2.
 
-4. **Ändra språk** det här alternativet kan du ändra visningsspråket på Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, Sydkorea, spanska, italienska, tyska, kinesiska och portugisiska (Brasilien).
+4. **Ändra språk** Med det här alternativet kan du ändra visnings språket för Windows PowerShell-gränssnittet. De språk som stöds är engelska, japanska, ryska, franska, södra koreanska, spanska, italienska, tyska, kinesiska och brasiliansk portugisiska.
 
-## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Fjärransluta till StorSimple med hjälp av Windows PowerShell för StorSimple
+## <a name="connect-remotely-to-storsimple-using-windows-powershell-for-storsimple"></a>Fjärrans luta till StorSimple med hjälp av Windows PowerShell för StorSimple
 
-Du kan använda Windows PowerShell-fjärrkommunikation för att ansluta till din StorSimple-enhet. När du ansluter på så sätt visas inte en meny. (Du se en meny bara om du använder seriekonsolen på enheten för att ansluta. Fjärransluta kommer du direkt till motsvarande ”alternativ 1 – fullständig åtkomst” på seriekonsolen.) Med Windows PowerShell-fjärrkommunikation ansluta till en specifik körningsutrymme. Du kan också ange språk för visning.
+Du kan använda Windows PowerShell-fjärrkommunikation för att ansluta till din StorSimple-enhet. När du ansluter på det här sättet visas ingen meny. (Du ser bara en meny om du använder serie konsolen på enheten för att ansluta. Fjärr anslutning tar dig direkt till motsvarigheten till "alternativ 1 – fullständig åtkomst" i serie konsolen.) Med Windows PowerShell-fjärrkommunikation ansluter du till en speciell körnings utrymme. Du kan också ange visnings språk.
 
-Visningsspråket är oberoende av det språk som du anger med hjälp av den **ändra språk** alternativ i seriemenyn för konsolen. Fjärr-PowerShell avläsa automatiskt de nationella inställningarna på enheten du ansluter från om inget anges.
+Visnings språket är oberoende av språket som du anger med hjälp av alternativet **ändra språk** i menyn för serie konsolen. Fjärrpowershell hämtar automatiskt de nationella inställningarna för enheten som du ansluter från om ingen har angetts.
 
 > [!NOTE]
-> Om du arbetar med Microsoft Azure virtuella värdar och StorSimple Cloud Appliances kan använda du Windows PowerShell-fjärrkommunikation och den virtuella värden för att ansluta till molninstallationen. Om du har konfigurerat en plats på värden som du vill spara informationen från Windows PowerShell-session, bör du vara medveten som den _alla_ huvudnamn innehåller endast autentiserade användare. Därför, om du har lagt upp resursen för att tillåta åtkomst av _alla_ och du ansluta utan att ange autentiseringsuppgifter, oautentiserade anonym huvudnamn används och visas ett felmeddelande. Om du vill åtgärda problemet på resursen värd som du måste aktivera gästkontot och ge sedan gästkontot konto fullständig åtkomst till resursen eller du måste ange giltiga autentiseringsuppgifter tillsammans med Windows PowerShell-cmdleten.
+> Om du arbetar med Microsoft Azure virtuella värdar och StorSimple-moln enheter kan du använda Windows PowerShell-fjärrkommunikation och den virtuella värden för att ansluta till moln installationen. Om du har konfigurerat en resurs plats på den värd där du vill spara information från Windows PowerShell-sessionen, bör du vara medveten om att _alla_ huvud konton endast innehåller autentiserade användare. Om du har konfigurerat delningen för att tillåta åtkomst av _alla_ och du ansluter utan att ange autentiseringsuppgifter, används det oautentiserade anonyma objektet och du får ett fel meddelande. För att åtgärda det här problemet måste du aktivera gäst kontot på resurs värden och sedan ge gäst kontot fullständig åtkomst till resursen, eller så måste du ange giltiga autentiseringsuppgifter tillsammans med Windows PowerShell-cmdleten.
 
 
-Du kan använda HTTP eller HTTPS för att ansluta via Windows PowerShell-fjärrkommunikation. Följ instruktionerna i följande Självstudier:
+Du kan använda HTTP eller HTTPS för att ansluta via Windows PowerShell-fjärrkommunikation. Följ anvisningarna i följande Självstudier:
 
-* [Anslut via en fjärranslutning med HTTP](storsimple-8000-remote-connect.md#connect-through-http)
-* [Ansluta via en fjärranslutning med hjälp av HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
+* [Fjärrans luta via HTTP](storsimple-8000-remote-connect.md#connect-through-http)
+* [Fjärrans luta via HTTPS](storsimple-8000-remote-connect.md#connect-through-https)
 
-## <a name="connection-security-considerations"></a>Säkerhetsöverväganden för anslutning
+## <a name="connection-security-considerations"></a>Säkerhets överväganden för anslutning
 
-Tänk på följande när du bestämmer hur du ansluter till Windows PowerShell för StorSimple:
+Tänk på följande när du bestämmer hur du ska ansluta till Windows PowerShell för StorSimple:
 
-* Ansluta direkt till enhetens seriekonsol är säkra, men är ansluta till seriekonsol nätverksväxlar inte. Se upp för säkerhetsrisken när du ansluter till enheten seriell över nätverksväxlar.
-* Ansluta via en HTTP-session kan erbjuda mer säkerhet än att ansluta via seriekonsolen över nätverket. Även om detta inte är den säkraste metoden är det acceptabelt på betrodda nätverk.
-* Ansluta via en HTTPS-session är den säkraste och det rekommenderade alternativet.
+* Anslutning direkt till enhetens serie konsol är säker, men det går inte att ansluta till serie konsolen över nätverks växlar. Var försiktig med säkerhets risken när du ansluter till enhets serie över nätverks växlar.
+* Att ansluta via en HTTP-session kan erbjuda mer säkerhet än att ansluta via serie konsolen över nätverket. Även om detta inte är den säkraste metoden, är det acceptabelt i betrodda nätverk.
+* Anslutning via en HTTPS-session är den säkraste och rekommenderade alternativet.
 
 ## <a name="administer-your-storsimple-device-using-windows-powershell-for-storsimple"></a>Administrera din StorSimple-enhet med hjälp av Windows PowerShell för StorSimple
 
-I följande tabell visas en sammanfattning av alla vanliga administrationsuppgifter och komplexa arbetsflöden som kan utföras i Windows PowerShell-gränssnittet för StorSimple-enheten. Mer information om varje arbetsflöde klickar du på lämplig posten i tabellen.
+I följande tabell visas en översikt över alla vanliga hanterings uppgifter och komplexa arbets flöden som kan utföras i Windows PowerShell-gränssnittet på din StorSimple-enhet. Klicka på lämplig post i tabellen om du vill ha mer information om varje arbets flöde.
 
-#### <a name="windows-powershell-for-storsimple-workflows"></a>Windows PowerShell för StorSimple-arbetsflöden
+#### <a name="windows-powershell-for-storsimple-workflows"></a>Windows PowerShell för StorSimple arbets flöden
 
-| Om du vill göra detta... | Använd den här proceduren. |
+| Om du vill göra det här... | Använd den här proceduren. |
 | --- | --- |
 | Registrera din enhet |[Konfigurera och registrera enheten med hjälp av Windows PowerShell för StorSimple](storsimple-8000-deployment-walkthrough-u2.md#step-3-configure-and-register-the-device-through-windows-powershell-for-storsimple) |
-| Konfigurera webbproxy</br>Visa Webbproxyinställningar |[Konfigurera webbproxy för din StorSimple-enhet](storsimple-8000-configure-web-proxy.md) |
-| Ändra DATA 0 inställningar för nätverksgränssnittet på din enhet |[Ändra DATA 0-nätverksgränssnittet för din StorSimple-enhet](storsimple-8000-modify-data-0.md) |
-| Stoppa en kontrollant </br> Starta om eller stänga av en domänkontrollant </br> Stänga av en enhet</br>Återställa enheten till fabriksinställningarna |[Hantera styrenheter](storsimple-8000-manage-device-controller.md) |
-| Installera uppdateringar av underhållsläge och snabbkorrigeringar |[Uppdatera din enhet](storsimple-update-device.md) |
-| Ange underhållsläge </br>Avsluta underhållsläget |[Lägen för StorSimple-enhet](storsimple-8000-device-modes.md) |
-| Skapa ett supportpaket</br>Dekryptera och redigera ett supportpaket |[Skapa och hantera ett supportpaket](storsimple-8000-create-manage-support-package.md) |
-| Starta en supportsession</br> |[Starta en supportsession i Windows PowerShell för StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
+| Konfigurera webbproxy</br>Visa webbproxy-inställningar |[Konfigurera webbproxy för din StorSimple-enhet](storsimple-8000-configure-web-proxy.md) |
+| Ändra inställningarna för nätverks gränssnittet på enheten för DATA 0 |[Ändra nätverks gränssnittet för DATA 0 för din StorSimple-enhet](storsimple-8000-modify-data-0.md) |
+| Stoppa en kontroll enhet </br> Starta om eller stänga av en styrenhet </br> Stänga av en enhet</br>Återställa enheten till fabriks inställningarna |[Hantera enhets styrenheter](storsimple-8000-manage-device-controller.md) |
+| Installera uppdateringar och snabb korrigeringar för underhålls läge |[Uppdatera din enhet](storsimple-update-device.md) |
+| Ange underhålls läge </br>Avsluta underhålls läge |[StorSimple enhets lägen](storsimple-8000-device-modes.md) |
+| Skapa ett support paket</br>Dekryptera och redigera ett support paket |[Skapa och hantera ett support paket](storsimple-8000-create-manage-support-package.md) |
+| Starta en support-session</br> |[Starta en support-session i Windows PowerShell för StorSimple](storsimple-8000-create-manage-support-package.md#create-a-support-package) |
 
 ## <a name="get-help-in-windows-powershell-for-storsimple"></a>Få hjälp i Windows PowerShell för StorSimple
 
-I Windows PowerShell för StorSimple är cmdlet hjälp tillgänglig. En aktuell version av den här hjälpen finns även tillgänglig, som du kan använda för att uppdatera hjälp på datorn.
+I Windows PowerShell för StorSimple är cmdlet-hjälpen tillgänglig. En online-uppdaterad version av den här hjälpen är också tillgänglig, som du kan använda för att uppdatera hjälpen i systemet.
 
-Få hjälp i det här gränssnittet är ungefär som i Windows PowerShell och de flesta av hjälp-relaterade cmdlets fungerar. Du hittar hjälp för Windows PowerShell online: [Microsoft.PowerShell.Core](/powershell/module/Microsoft.PowerShell.Core/).
+Att få hjälp i det här gränssnittet liknar det i Windows PowerShell och de flesta av de Help-relaterade cmdletarna fungerar. Du kan hitta hjälp för Windows PowerShell online: [Microsoft. PowerShell. Core](/powershell/module/Microsoft.PowerShell.Core/).
 
-Här följer en kort beskrivning av typerna av hjälp för det här Windows PowerShell-gränssnittet, inklusive hur du uppdaterar hjälp.
+Följande är en kort beskrivning av de olika typerna av hjälp för Windows PowerShell-gränssnittet, inklusive hur du uppdaterar hjälpen.
 
-### <a name="to-get-help-for-a-cmdlet"></a>Att få hjälp för en cmdlet
+### <a name="to-get-help-for-a-cmdlet"></a>För att få hjälp med en cmdlet
 
-* Om du behöver hjälp för cmdleten eller funktionen, använder du följande kommando: `Get-Help <cmdlet-name>`
-* Om du vill få hjälp online för alla cmdletar, använder du cmdleten tidigare med den `-Online` parameter: `Get-Help <cmdlet-name> -Online`
-* Fullständig hjälp du kan använda den `–Full` parametern och exempel, använder de `–Examples` parametern.
+* Använd följande kommando för att få hjälp med en cmdlet eller funktion: `Get-Help <cmdlet-name>`
+* Om du vill få onlinehjälp för en cmdlet använder du föregående cmdlet med parametern `-Online`: `Get-Help <cmdlet-name> -Online`
+* För fullständig hjälp kan du använda `–Full` parameter, och för exempel använder du parametern `–Examples`.
 
-### <a name="to-update-help"></a>Uppdatera hjälp
+### <a name="to-update-help"></a>Så här uppdaterar du hjälpen
 
-Du kan enkelt uppdatera hjälp i Windows PowerShell-gränssnittet. Utför följande steg om du vill uppdatera hjälp på datorn.
+Du kan enkelt uppdatera hjälpen i Windows PowerShell-gränssnittet. Utför följande steg för att uppdatera hjälpen i systemet.
 
-#### <a name="to-update-cmdlet-help"></a>Uppdatera cmdlet hjälp
-1. Starta Windows PowerShell med den **kör som administratör** alternativet.
-2. I Kommandotolken skriver du:  `Update-Help`
+#### <a name="to-update-cmdlet-help"></a>Så här uppdaterar du cmdlet-hjälpen
+1. Starta Windows PowerShell med alternativet **Kör som administratör** .
+2. Skriv följande i kommando tolken: `Update-Help`
 3. De uppdaterade hjälpfilerna kommer att installeras.
-4. När hjälpfilerna är installerade, skriver du: `Get-Help Get-Command`. Detta visar en lista över cmdlets som hjälp är tillgänglig.
+4. När hjälpfilerna har installerats skriver du: `Get-Help Get-Command`. Detta visar en lista över cmdletar för vilka hjälpen är tillgänglig.
 
 > [!NOTE]
-> Om du vill hämta en lista över tillgängliga cmdlets i ett körningsutrymme, logga in på motsvarande menyalternativ och köra den `Get-Command` cmdlet.
+> Om du vill hämta en lista över alla tillgängliga cmdlets i en körnings utrymme loggar du in på motsvarande meny alternativ och kör `Get-Command`-cmdleten.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du får problem med din StorSimple-enhet när du utför en av de ovanstående arbetsflödena, se [verktyg vid felsökning av StorSimple-distributioner](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
+Om du får problem med din StorSimple-enhet när du utför något av ovanstående arbets flöden, se [verktyg för fel sökning av StorSimple-distributioner](storsimple-8000-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
 

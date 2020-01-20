@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e10979e26cacdc0c2071a6030c945adad21a51c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173798"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277430"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>Övervaka Azure Datautforskaren-inmatnings åtgärder med diagnostikloggar (för hands version)
 
@@ -25,7 +25,7 @@ Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Konfigurera diagnostikloggar för ett Azure Datautforskaren-kluster
 
@@ -52,7 +52,7 @@ Diagnostikloggar är inaktiverade som standard. Gör så här för att aktivera 
     1. Välj **namn** för den diagnostiska inställningen.
     1. Välj ett eller flera mål: ett lagrings konto, en Event Hub-eller Log Analytics.
     1. Välj loggar som ska samlas in: `SucceededIngestion` eller `FailedIngestion`.
-    1. Välj [mått](using-metrics.md) som ska samlas in (valfritt).   
+    1. Välj [mått](using-metrics.md#supported-azure-data-explorer-metrics) som ska samlas in (valfritt).  
     1. Välj **Spara** för att spara de nya inställningarna och måtten för diagnostikloggar.
     1. Skapa en **ny supportbegäran** i Azure Portal för att begära aktivering av diagnostikloggar.
 
@@ -104,7 +104,7 @@ Log JSON-strängar innehåller element som anges i följande tabell:
 |---                |---
 |succeededOn        |Tid för slut för ande av inmatning
 |operationId        |ID för inmatnings åtgärd i Azure Datautforskaren
-|database           |Namnet på mål databasen
+|databas           |Namnet på mål databasen
 |table              |Namn på mål tabellen
 |ingestionSourceId  |ID för data källan för inmatning
 |ingestionSourcePath|Sökväg till inmatnings data källan eller BLOB-URI
@@ -145,7 +145,7 @@ Log JSON-strängar innehåller element som anges i följande tabell:
 |---                |---
 |failedOn           |Tid för slut för ande av inmatning
 |operationId        |ID för inmatnings åtgärd i Azure Datautforskaren
-|database           |Namnet på mål databasen
+|databas           |Namnet på mål databasen
 |table              |Namn på mål tabellen
 |ingestionSourceId  |ID för data källan för inmatning
 |ingestionSourcePath|Sökväg till inmatnings data källan eller BLOB-URI

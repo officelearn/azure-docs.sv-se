@@ -1,25 +1,23 @@
 ---
 title: (INAKTUELL) Självstudie för Azure Container Service – Skala ut ett program
 description: Självstudie för Azure Container Service – Skala ut ett program
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: b16682535e7311648e832286e1e876ee0e694712
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b0aa78a519567a8e1ffd76e26f1d9ea3ca701fca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61230393"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274180"
 ---
 # <a name="deprecated-scale-kubernetes-pods-and-kubernetes-infrastructure"></a>(INAKTUELL) Skala ut Kubernetes-poddar och Kubernetes-infrastrukturen
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service finns i [Självstudie: Skala program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-scale.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: skala program i Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-scale.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -48,7 +46,7 @@ Hittills har vi distribuerat klientdelen av Azure Vote och Redisinstansen, var o
 kubectl get pods
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME                               READY     STATUS    RESTARTS   AGE
@@ -68,7 +66,7 @@ Kör [kubectl get pods](https://kubernetes.io/docs/reference/generated/kubectl/k
 kubectl get pods
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME                                READY     STATUS    RESTARTS   AGE
@@ -107,7 +105,7 @@ Om du vill se status för autoskalningen kör du följande kommando:
 kubectl get hpa
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 NAME               REFERENCE                     TARGETS    MINPODS   MAXPODS   REPLICAS   AGE

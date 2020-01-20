@@ -1,20 +1,18 @@
 ---
 title: FÖRÅLDRAD CI/CD med Azure Container Service och Swarm
 description: Använd Azure Container Service med Docker Swarm, en Azure Container Registry och Azure DevOps för att leverera kontinuerligt ett .NET Core-program med flera behållare
-services: container-service
 author: jcorioland
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 8990f1f8e4cda5a6cc8b8d3197b843662b1397a5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598535"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277896"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>FÖRÅLDRAD Full CI/CD-pipeline för att distribuera ett program med flera behållare på Azure Container Service med Docker Swarm med hjälp av Azure DevOps Services
 
@@ -22,7 +20,6 @@ ms.locfileid: "68598535"
 
 En av de största utmaningarna när man utvecklar moderna program för molnet kan leverera dessa program kontinuerligt. I den här artikeln får du lära dig hur du implementerar en fullständig kontinuerlig integrering och distribution (CI/CD) genom att använda Azure Container Service med Docker Swarm, Azure Container Registry och hantering av pipelines i Azure.
 
-Den här artikeln baseras på ett enkelt program som är tillgängligt på [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs)och som har utvecklats med ASP.net Core. Programmet består av fyra olika tjänster: tre webb-API: er och en front webb:
 
 ![Exempel program för köp](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
@@ -41,7 +38,7 @@ Här är en kort beskrivning av stegen:
 1. Docker-Swarm i klustret hämtar den senaste versionen av avbildningarna 
 1. Den nya versionen av programmet distribueras med hjälp av Docker Compose 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien måste du utföra följande uppgifter:
 
@@ -55,7 +52,7 @@ Innan du påbörjar den här självstudien måste du utföra följande uppgifter
 
 Du behöver också en Ubuntu-dator (14,04 eller 16,04) med Docker installerat. Den här datorn används av Azure DevOps Services under processerna för Azures pipeliner. Ett sätt att skapa den här datorn är att använda avbildningen som är tillgänglig på [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
-## <a name="step-1-configure-your-azure-devops-services-organization"></a>Steg 1: Konfigurera Azure DevOps Services-organisationen 
+## <a name="step-1-configure-your-azure-devops-services-organization"></a>Steg 1: Konfigurera din Azure DevOps Services-organisation 
 
 I det här avsnittet konfigurerar du Azure DevOps Services-organisationen.
 
@@ -83,7 +80,7 @@ Konfigurera en anslutning mellan ditt Azure DevOps Services-projekt och ditt Git
 
     ![Azure DevOps Services – extern anslutning](./media/container-service-docker-swarm-setup-ci-cd/vsts-services-menu.png)
 
-1. Klicka på **ny tjänst slut punkt** > **GitHub**till vänster.
+1. Till vänster klickar du på **ny tjänst slut punkt** > **GitHub**.
 
     ![Azure DevOps-tjänster – GitHub](./media/container-service-docker-swarm-setup-ci-cd/vsts-github.png)
 
@@ -95,7 +92,7 @@ Konfigurera en anslutning mellan ditt Azure DevOps Services-projekt och ditt Git
 
 De senaste stegen innan du kom in i CI/CD-pipeline är att konfigurera externa anslutningar till behållar registret och ditt Docker Swarm-kluster i Azure. 
 
-1. I **tjänste** inställningarna för ditt Azure DevOps Services-projekt lägger du till en tjänst slut punkt av typen Docker- **register**. 
+1. I **tjänste** inställningarna för ditt Azure DevOps Services-projekt lägger du till en tjänst slut punkt av typen **Docker-register**. 
 
 1. I popup-fönstret som öppnas anger du webb adressen och autentiseringsuppgifterna för ditt Azure Container Registry.
 
@@ -107,7 +104,7 @@ De senaste stegen innan du kom in i CI/CD-pipeline är att konfigurera externa a
 
 All konfiguration görs nu. I nästa steg skapar du CI/CD-pipeline som bygger och distribuerar programmet till Docker Swarm-klustret. 
 
-## <a name="step-2-create-the-build-pipeline"></a>Steg 2: Skapa pipeline för bygge
+## <a name="step-2-create-the-build-pipeline"></a>Steg 2: skapa en pipeline för bygge
 
 I det här steget skapar du en pipeline för ditt Azure DevOps Services-projekt och definierar Bygg arbets flödet för behållar avbildningarna
 
@@ -127,7 +124,7 @@ I det här steget skapar du en pipeline för ditt Azure DevOps Services-projekt 
 
     ![Azure DevOps Services – konfiguration av databas för skapande](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-repo-conf.png)
 
-1. På fliken utlösare konfigurerar du att build ska utlösas efter varje genomförande. Välj **kontinuerlig integrering** och **batch-ändringar**.
+1. På fliken **utlösare** konfigurerar du att build ska utlösas efter varje genomförande. Välj **kontinuerlig integrering** och **batch-ändringar**.
 
     ![Azure DevOps Services – Bygg utlösarens konfiguration](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
 
@@ -146,15 +143,15 @@ Du måste lägga till två Docker-steg för varje avbildning, en för att bygga 
 
     ![Azure DevOps Services – Lägg till bygg steg](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-add-task.png)
 
-1. Konfigurera ett steg som använder `docker build` kommandot för varje bild.
+1. Konfigurera ett steg som använder kommandot `docker build` för varje avbildning.
 
     ![Azure DevOps Services – Docker-version](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
 
-    För build-åtgärden väljer du Azure Container Registry, åtgärden för att **bygga en avbildning** och den Dockerfile som definierar varje avbildning. Ange **Bygg kontexten** som rot katalogen för Dockerfile och definiera avbildnings **namnet**. 
+    För build-åtgärden väljer du Azure Container Registry, åtgärden för att **bygga en avbildning** och den Dockerfile som definierar varje avbildning. Ange **Bygg kontexten** som rot katalogen för Dockerfile och definiera **avbildnings namnet**. 
     
     Som du ser på föregående skärm, startar du avbildnings namnet med URI: n för Azure Container Registry. (Du kan också använda en build-variabel för att Parameterisera tag gen, till exempel build-identifieraren i det här exemplet.)
 
-1. Konfigurera ett andra steg som använder `docker push` kommandot för varje bild.
+1. För varje avbildning konfigurerar du ett andra steg som använder kommandot `docker push`.
 
     ![Azure DevOps Services – Docker push](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-push.png)
 
@@ -172,7 +169,7 @@ Du måste lägga till två Docker-steg för varje avbildning, en för att bygga 
 
 1. Klicka på **Spara** och namnge din Bygg-pipeline.
 
-## <a name="step-3-create-the-release-pipeline"></a>Steg 3: Skapa lanserings pipelinen
+## <a name="step-3-create-the-release-pipeline"></a>Steg 3: skapa en version av pipelinen
 
 Med Azure DevOps Services kan du [hantera versioner i olika miljöer](https://www.visualstudio.com/team-services/release-management/). Du kan aktivera kontinuerlig distribution för att se till att ditt program har distribuerats i dina olika miljöer (till exempel utveckling, testning, för produktion och produktion) på ett smidigt sätt. Du kan skapa en ny miljö som representerar ditt Azure Container Service Docker Swarm-kluster.
 
@@ -180,13 +177,13 @@ Med Azure DevOps Services kan du [hantera versioner i olika miljöer](https://ww
 
 ### <a name="initial-release-setup"></a>Installation av inledande version
 
-1. Om du vill skapa en versions pipeline > klickar du på releases **+ release**
+1. Om du vill skapa en versions pipeline klickar du på **versioner** >  **+ version**
 
 1. Konfigurera artefakt källan genom att klicka på **artefakter** > **Länka en artefakt källa**. Här länkar du den nya versions pipelinen till den version som du definierade i föregående steg. Detta gör att filen filen Docker. yml är tillgänglig i versions processen.
 
     ![Azure DevOps Services – versions artefakter](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
-1. Om du vill konfigurera versions utlösaren klickar du på utlösare och väljer **kontinuerlig distribution**. Ange utlösaren på samma artefakt källa. Den här inställningen ser till att en ny version startar så snart versionen har slutförts.
+1. Om du vill konfigurera versions utlösaren klickar du på **utlösare** och väljer **kontinuerlig distribution**. Ange utlösaren på samma artefakt källa. Den här inställningen ser till att en ny version startar så snart versionen har slutförts.
 
     ![Azure DevOps Services – versions utlösare](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-trigger.png) 
 
@@ -198,19 +195,19 @@ Versions arbets flödet består av två uppgifter som du lägger till.
 
     ![Azure DevOps Services – version SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
 
-1. Konfigurera en andra aktivitet för att köra ett bash-kommando `docker` för `docker-compose` att köra och kommandon på huvud-noden. Se följande skärm för mer information.
+1. Konfigurera en andra aktivitet för att köra ett bash-kommando för att köra `docker`-och `docker-compose`-kommandon på huvudnoden. Se följande skärm för mer information.
 
     ![Azure DevOps Services – version bash](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-bash.png)
 
     Kommandot som körs på huvud servern använder Docker CLI och Docker-CLI för att utföra följande uppgifter:
 
    - Logga in på Azure Container Registry (det använder tre build-variab'les som har definierats på fliken **variabler** )
-   - Definiera variabeln **DOCKER_HOST** så att den fungerar med Swarm-slutpunkten (: 2375)
+   - Definiera variabeln **DOCKER_HOST** för att arbeta med Swarm-slutpunkten (: 2375)
    - Navigera till mappen *Deploy* som skapades av föregående säkerhets kopierings aktivitet och som innehåller filen filen Docker. yml 
-   - Kör `docker-compose` kommandon som hämtar de nya avbildningarna, stoppar tjänsterna, tar bort tjänsterna och skapar behållarna.
+   - Kör `docker-compose` kommandon som tar emot de nya avbildningarna, stoppar tjänsterna, tar bort tjänsterna och skapar behållarna.
 
      >[!IMPORTANT]
-     > Låt kryss rutan **misslyckad stderr** vara omarkerad, som du ser på föregående skärm. Detta är en viktig inställning, eftersom `docker-compose` skriver ut flera diagnostiska meddelanden, t. ex. att behållare stoppas eller tas bort, på standard fel utdata. Om du markerar kryss rutan rapporterar Azure DevOps Services fel som uppstått under versionen, även om alla går bra.
+     > Låt kryss rutan **misslyckad stderr** vara omarkerad, som du ser på föregående skärm. Detta är en viktig inställning eftersom `docker-compose` skriver ut flera diagnostiska meddelanden, t. ex. att behållare stoppas eller tas bort, på standard fel utdata. Om du markerar kryss rutan rapporterar Azure DevOps Services fel som uppstått under versionen, även om alla går bra.
      >
 1. Spara den nya versions pipelinen.
 
@@ -223,6 +220,6 @@ Versions arbets flödet består av två uppgifter som du lägger till.
 
 Nu när du är färdig med konfigurationen är det dags att testa den nya CI/CD-pipelinen. Det enklaste sättet att testa det är att uppdatera käll koden och spara ändringarna i GitHub-lagringsplatsen. Några sekunder efter att du har push-överfört koden ser du en ny version som körs i Azure DevOps Services. När den har slutförts kommer en ny version att utlösas och distribuerar den nya versionen av programmet på Azure Container Service klustret.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 * Mer information om CI/CD med Azure DevOps Services finns i artikeln om [pipeline-dokumentation för Azure](/azure/devops/pipelines/?view=azure-devops) .

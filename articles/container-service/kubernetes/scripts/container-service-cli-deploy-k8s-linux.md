@@ -1,27 +1,21 @@
 ---
-title: Skriptexempel för Azure CLI – Skapa ACS Linux Kubernetes-kluster| Microsoft Docs
+title: Skriptexempel för Azure CLI – Skapa ACS Linux Kubernetes-kluster
 description: Skriptexempel för Azure CLI – Skapa ACS Linux Kubernetes-kluster
-services: container-service
-documentationcenter: ''
 author: iainfoulds
-manager: jeconnoc
-editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Kubernetes, DC/OS, Azure
 ms.assetid: ''
 ms.service: container-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 05/30/2017
 ms.author: iainfou
-ms.openlocfilehash: 11549e730e38c72e09ed2e94a72113c6e7e5bbb9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7b5c6d5931b5d36069850b1bba90413731a48022
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60901885"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270697"
 ---
 # <a name="deprecated-create-an-azure-container-service-kubernetes-linux-cluster"></a>(INAKTUELL) Skapa en Azure Container Service med Kubernetes Linux-kluster
 

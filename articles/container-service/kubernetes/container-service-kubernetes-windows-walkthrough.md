@@ -1,22 +1,20 @@
 ---
-title: (INAKTUELL) Snabbstart – Azure Kubernetes-kluster för Windows
+title: FÖRÅLDRAD Snabb start – Azure Kubernetes-kluster för Windows
 description: Lär dig snabbt att skapa ett Kubernetes-kluster på Windows-behållare i Azure Container Service med Azure CLI.
-services: container-service
 author: dlepow
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: d7ce702bb726fb89780d251f31023c9490112c36
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e36de9f2a6af3643b6f609339d413968f6a8d6e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66148798"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277650"
 ---
-# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>(INAKTUELL) Distribuera Kubernetes-kluster för Windows-behållare
+# <a name="deprecated-deploy-kubernetes-cluster-for-windows-containers"></a>FÖRÅLDRAD Distribuera Kubernetes-kluster för Windows-behållare
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -162,7 +160,7 @@ Om du vill exponera din pod för alla med en offentlig IP-adress skriver du föl
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Med detta kommando skapar Kubernetes en tjänst och en Azure load balancer-regel med en offentlig IP-adress för tjänsten. 
+Med det här kommandot skapar Kubernetes en tjänst och en Azure Load Balancer-regel med en offentlig IP-adress för tjänsten. 
 
 Kör följande kommando för att se status för tjänsten.
 

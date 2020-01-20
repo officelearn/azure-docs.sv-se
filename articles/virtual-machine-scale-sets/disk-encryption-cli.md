@@ -1,20 +1,19 @@
 ---
 title: Kryptera diskar för Azures skalnings uppsättningar med Azure CLI
 description: Lär dig hur du använder Azure PowerShell för att kryptera VM-instanser och anslutna diskar i en skalnings uppsättning för virtuella Windows-datorer
-services: virtual-machine-scale-sets
 author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2577eef95cad3405eb42af22e4c57511a660c1a6
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 557d5c023acbc7987d58c9e78bfe11e25f314879
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530815"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279083"
 ---
 # <a name="encrypt-os-and-attached-data-disks-in-a-virtual-machine-scale-set-with-the-azure-cli"></a>Kryptera OS och anslutna data diskar i en skalnings uppsättning för virtuella datorer med Azure CLI
 
@@ -127,7 +126,7 @@ az vmss encryption enable \
 >  Syntaxen för värdet för parametern Disk-Encryption-nyckel valv är den fullständiga ID-strängen:</br>
 /Subscriptions/[Subscription-ID-GUID]/resourceGroups/[resurs grupp-namn]/providers/Microsoft.KeyVault/vaults/[nyckel valv-namn]</br></br>
 > Syntaxen för värdet för nyckeln Key-Encryption-Key är fullständig URI till KEK som i:</br>
-https://[nyckel valv-namn]. valv. Azure. net/Keys/[kekname]/[KEK-Unique-ID]
+https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 ## <a name="check-encryption-progress"></a>Kontrol lera krypterings förlopp
 
@@ -176,4 +175,4 @@ az vmss encryption disable --resource-group myResourceGroup --name myScaleSet
 
 - I den här artikeln använde du Azure CLI för att kryptera en skalnings uppsättning för virtuella datorer. Du kan också använda [Azure PowerShell](disk-encryption-powershell.md) -eller [Azure Resource Manager-mallar](disk-encryption-azure-resource-manager.md).
 - Om du vill att Azure Disk Encryption ska användas efter att ett annat tillägg har tillhandahållits, kan du använda [fil namns sekvenseringen](virtual-machine-scale-sets-extension-sequencing.md). 
-- Ett exempel på en kommando fil från slut punkt till slut punkt för data disk kryptering för Linux-skalnings uppsättning hittar du [här](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Det här exemplet skapar en resurs grupp, en Linux-skalnings uppsättning, monterar en data disk på 5 GB och krypterar den virtuella datorns skal uppsättning.
+- Ett exempel på en kommando fil från slut punkt till slut punkt för data disk kryptering för Linux-skalnings uppsättning hittar du [här](https://gist.githubusercontent.com/ejarvi/7766dad1475d5f7078544ffbb449f29b/raw/03e5d990b798f62cf188706221ba6c0c7c2efb3f/enable-linux-vmss.bat). Det här exemplet skapar en resursgrupp, en Linux-skalningsuppsättning, monterar en datadisk på 5 GB och krypterar virtuella datorns skalningsuppsättning.

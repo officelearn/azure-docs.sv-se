@@ -1,26 +1,18 @@
 ---
-title: Avsluta meddelandet för instanser av skalnings uppsättningar för virtuella Azure-datorer | Microsoft Docs
+title: Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig hur du aktiverar uppsägnings meddelanden för instanser av skalnings uppsättningar för virtuella Azure-datorer
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705930"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271743"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer (för hands version)
 Skalnings uppsättnings instanser kan välja att ta emot meddelanden om instans avslutning och ange en fördefinierad fördröjnings-timeout för åtgärden avsluta. Uppsägnings meddelandet skickas via Azure Metadata Service – [schemalagda händelser](../virtual-machines/windows/scheduled-events.md), som innehåller aviseringar för och fördröjning av påverkan på åtgärder som omstarter och omdistribueras. För hands versions lösningen lägger till en annan händelse – Avbryt – till listan över Schemalagda händelser och den associerade fördröjningen av händelsen avbryts beror på den fördröjnings gräns som anges av användarna i deras skal uppsättnings modell konfiguration.
@@ -35,7 +27,7 @@ När du har registrerat i funktionen behöver inte skalnings uppsättnings insta
 ## <a name="enable-terminate-notifications"></a>Aktivera avsluta meddelanden
 Det finns flera sätt att aktivera avslutnings meddelanden för dina skalnings uppsättnings instanser enligt beskrivningen i exemplen nedan.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 
 I följande exempel aktive ras meddelanden i skalnings uppsättnings modellen.
 

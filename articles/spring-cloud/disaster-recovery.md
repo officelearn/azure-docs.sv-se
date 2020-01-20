@@ -1,17 +1,17 @@
 ---
 title: Azure våren Cloud geo-Disaster Recovery | Microsoft Docs
 description: Lär dig hur du skyddar ditt våren Cloud-program från regionala avbrott
-author: jpconnock
+author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: jeconnoc
-ms.openlocfilehash: 54289e808461e6374dee57763ef7ba0d0429c54c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.author: brendm
+ms.openlocfilehash: 4961e5a63e5bc1933cf19b1f291b521d89cbda0e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607836"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279143"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Haveri beredskap för Azure våren Cloud
 
@@ -19,7 +19,7 @@ I den här artikeln beskrivs några strategier som du kan använda för att skyd
 
 ## <a name="plan-your-application-deployment"></a>Planera program distributionen
 
-Azure våren Cloud-program körs i en angiven region.  Azure fungerar i flera geografiska områden runtom i världen. En Azure-geografi är ett definierat område i världen som innehåller minst en Azure-region. En Azure-region är ett område inom ett geografiskt område som innehåller ett eller flera data Center.  Varje Azure-region är kopplad till en annan region inom samma geografi, tillsammans med ett regionalt par. Azure serialiserar plattforms uppdateringar (planerat underhåll) över regionala par, vilket säkerställer att endast en region i varje par uppdateras i taget. I händelse av ett avbrott som påverkar flera regioner prioriteras minst en region i varje par för återställning.
+Azure våren Cloud-program körs i en angiven region.  Azure körs i ett antal geografier över hela världen. En Azure-geografi är ett definierat område i världen som innehåller minst en Azure-region. En Azure-region är ett område inom ett geografiskt område som innehåller ett eller flera data Center.  Varje Azure-region är kopplad till en annan region inom samma geografi, tillsammans med ett regionalt par. Azure serialiserar plattforms uppdateringar (planerat underhåll) över regionala par, vilket säkerställer att endast en region i varje par uppdateras i taget. I händelse av ett avbrott som påverkar flera regioner prioriteras minst en region i varje par för återställning.
 
 Att säkerställa hög tillgänglighet och skydd från katastrofer kräver att du distribuerar dina moln program till flera regioner.  Azure tillhandahåller en lista över [kopplade regioner](../best-practices-availability-paired-regions.md) så att du kan planera dina våren-moln distributioner till regionala par.  Vi rekommenderar att du beaktar tre viktiga faktorer när du utformar en mikrotjänsts arkitektur: regions tillgänglighet, Azure-kopplade regioner och tjänst tillgänglighet.
 

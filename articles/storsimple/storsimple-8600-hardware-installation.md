@@ -1,25 +1,18 @@
 ---
-title: Installera Microsoft Azure StorSimple 8600-enhet | Microsoft Docs
+title: Installera Microsoft Azure StorSimple 8600-enhet
 description: Beskriver hur du packar upp, rackerar montering och kabelansluter din StorSimple 8600-enhet innan du distribuerar och konfigurerar program varan.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 3d82ba5f-3e34-40dc-9c33-50f952bc6be8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 571c8b729408d7b9e805b875baccfd9ac8d6b9be
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 8d118e71b29b54b034788c37916091ad8f8b996f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965268"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277117"
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8600-device"></a>Packa upp, rack montering och kabel din StorSimple 8600-enhet
 
@@ -34,7 +27,7 @@ Följande steg innehåller tydliga och detaljerade instruktioner om hur du packa
 ### <a name="prepare-to-unpack-your-device"></a>Förbered för att packa upp enheten
 Läs följande information innan du packar upp enheten.
 
-![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
+varnings ikonen för ![](./media/storsimple-safety/IC740879.png)![hög vikts ikon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **Varning!**
 
 1. Se till att du har två personer som är tillgängliga för att hantera vikten av enheten om du hanterar den manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 2. Placera lådan på en plan, jämn yta.
@@ -92,7 +85,7 @@ Höljen måste installeras i ett standardiserat 19-tums rack som har både fram-
 2. Kontrol lera att den plats där du planerar att konfigurera har standard ström från en oberoende källa eller en enhet för rack ström distribution (PDU) med en avbrotts fri ström källa (UPS).
 3. Se till att en 4U-kortplats (2 X 2U) är tillgänglig i racket där du tänker montera höljen.
 
-![Varnings](./media/storsimple-safety/IC740879.png)![ikon varning vid](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) hög vikts ikon **!**
+varnings ikonen för ![](./media/storsimple-safety/IC740879.png)![hög vikts ikon](./media/storsimple-8600-hardware-installation/HCS_HeavyWeight_Icon.png) **Varning!**
 
  Se till att du har två personer som är tillgängliga för att hantera vikten om du hanterar enhets installationen manuellt. En fullständigt konfigurerad hölje kan väga upp till 32 kg (70 kg).
 
@@ -171,7 +164,7 @@ Nästa steg är att ansluta enheten till strömförsörjning, nätverk och serie
 ## <a name="cable-your-storsimple-8600-device"></a>Kabelanslut din StorSimple 8600-enhet
 Följande procedurer beskriver hur du kan ansluta din StorSimple 8600-enhet för strömförsörjning, nätverk och seriella anslutningar.
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 Innan du börjar kabeln till enheten behöver du:
 
 * Ditt primära hölje och EBOD-höljet, helt packas upp
@@ -218,12 +211,12 @@ För att stödja redundans av redundanta styrenheter måste du kontakta enhetens
 
 | Etikett | Beskrivning |
 | --- | --- |
-| G |LAN med Internet åtkomst |
+| A |LAN med Internet åtkomst |
 | B |Kontrollant 0 |
 | C |PCM 0 |
 | D |Kontrollant 1 |
 | E |PCM 1 |
-| f |EBOD Controller 0 |
+| F |EBOD Controller 0 |
 | G |EBOD Controller 1 |
 | H,I |Värdar (till exempel fil servrar) |
 | 0-5 |Nätverksgränssnitt |

@@ -13,15 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: faf297ef4b07b76f98bb7773c636cd8f6228bbc0
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b4a2617bec145cf735058bc13c01bf8ebdfe6550
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201736"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275505"
 ---
 # <a name="security-playbook-in-azure-security-center-preview"></a>Säkerhetsspelbok i Azure Security Center (förhandsversion)
 Det här dokumentet hjälper dig att använda strategiböcker för säkerhet i Azure Security Center för att svara på säkerhetsrelaterade problem.
+
+> [!NOTE]
+> Funktionen Security Spelbok har bytt namn till automatisering av arbets flöde. Uppdaterad innehålls information finns på sidan för [arbets flödes automatisering (för hands version)](https://docs.microsoft.com/azure/security-center/workflow-automation) . Det här är tillfälligt arkiverat innehåll som är tillgängligt för kunder som skulle ha förvisat detta tidigare och som kommer att tas bort gradvis. Alla funktioner i förhands granskningen guidas av [kompletterande användnings villkor för Microsoft Azure för hands](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) versioner
 
 ## <a name="what-is-security-playbook-in-security-center"></a>Vad är en säkerhetsspelbok i Security Center?
 Säkerhetsspelbok är en samling processer som kan köras från Security Center när en viss spelbok löses ut av en vald avisering. Säkerhetsspelboken kan hjälpa till att automatisera och dirigera svaret på en viss säkerhetshändelse som upptäcks av Security Center. Strategiböcker för säkerhet i Security Center bygger på [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps), vilket innebär att du kan använda mallarna som finns i säkerhetskategorin i Logic Apps-mallarna och ändra dem efter dina behov, eller så kan du skapa nya strategiböcker med hjälp av [arbetsflödet i Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-a-logic-app) och använda Security Center som utlösare.
@@ -35,7 +38,7 @@ Gör så här för att skapa en ny säkerhetsspelbok från Security Center:
 1.  Öppna instrumentpanelen **Security Center**.
 2.  Under **Automation & Orchestration** (Automatisering och orkestrering) i den vänstra rutan klickar du på **Playbooks (Preview)** (Strategiböcker (förhandsversion)).
 
-    ![Logikapp](./media/security-center-playbooks/security-center-playbooks-fig17.png)
+    ![Logisk app](./media/security-center-playbooks/security-center-playbooks-fig17.png)
 
 3. På sidan **Security Center – Playbooks (Preview)** (Security Center – Strategiböcker (förhandsversion)) klickar du på knappen för att **lägga till**.
 
@@ -73,7 +76,7 @@ Du kan köra en säkerhetsspelbok i Security Center när du vill dirigera, hämt
 
 5. På sidan med strategiböcker väljer du den bok som du vill köra och klickar på knappen **Kör**. Om du vill se spelboken innan den löses ut kan du klicka på den för att öppna designern.
 
-    ![Spelböcker](./media/security-center-playbooks/security-center-playbooks-fig13.png)
+    ![Strategiböcker](./media/security-center-playbooks/security-center-playbooks-fig13.png)
 
 ### <a name="history"></a>Historik
 

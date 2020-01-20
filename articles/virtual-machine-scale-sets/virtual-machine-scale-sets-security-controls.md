@@ -1,20 +1,17 @@
 ---
 title: Säkerhets kontroller för Azure Virtual Machine Scale Sets
 description: En check lista över säkerhets kontroller för utvärdering av Azure-Virtual Machine Scale Sets
-services: virtual-machine-scale-sets
 ms.service: virtual-machine-scale-sets
-documentationcenter: ''
 author: msmbaldwin
-manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6aee9edaf3c594a2e7083416726da8e57bbf5c6b
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 51ddd4f3775ae8e41c0d0bdd4ed8a3a2a59b7db4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529150"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271784"
 ---
 # <a name="security-controls-for-azure-virtual-machine-scale-sets"></a>Säkerhets kontroller för Azure Virtual Machine Scale Sets
 
@@ -37,7 +34,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 |---|---|--|
 | Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring) och [övervaka och uppdatera en virtuell Windows-dator i Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
-| Loggning och granskning av data planet | Nej |  |
+| Loggning och granskning av data planet | Inga |  |
 
 ## <a name="identity"></a>Identitet
 

@@ -1,29 +1,27 @@
 ---
 title: (INAKTUELL) Självstudie för Azure Container Service – Förbereda programmet
 description: Självstudie för Azure Container Service – Förbereda programmet
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 961f09d7581a26596b03e7a2f8e97d98fe83e6aa
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b67e3008bc2ad681e222af6b9edc4a08875732e4
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61217101"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275433"
 ---
 # <a name="deprecated-create-container-images-to-be-used-with-azure-container-service"></a>(INAKTUELL) Skapa containeravbildningar som ska användas med Azure Container Service
 
 > [!TIP]
-> För den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service läser du[Självstudie: Förbereda ett program för Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: förbereda ett program för Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-prepare-app.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-I den här självstudien, som är del ett av sju, förbereds ett program med flera behållare för användning i Kubernetes. Det här är några av stegen:  
+I den här självstudien, som är del ett av sju, förbereds ett program med flera container för användning i Kubernetes. Det här är några av stegen:  
 
 > [!div class="checklist"]
 > * Klona programkällan från GitHub  
@@ -93,7 +91,7 @@ Kör kommandot [docker ps](https://docs.docker.com/engine/reference/commandline/
 docker ps
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 CONTAINER ID        IMAGE             COMMAND                  CREATED             STATUS              PORTS                           NAMES

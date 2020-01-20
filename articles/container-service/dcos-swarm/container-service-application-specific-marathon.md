@@ -1,22 +1,20 @@
 ---
-title: (INAKTUELL) Program- eller användarspecifik Marathon-tjänst
+title: FÖRÅLDRAD Program-eller användarspecifik Marathon-tjänst
 description: Skapa en program- eller användarspecifik Marathon-tjänst
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1ba5ca54c0aa604289eab9c4475297b12580b69a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 423dc7f62806f774a5ec4855faa8be9001292773
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60557578"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277723"
 ---
-# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>(INAKTUELL) Skapa en program- eller användarspecifik Marathon-tjänst
+# <a name="deprecated-create-an-application-or-user-specific-marathon-service"></a>FÖRÅLDRAD Skapa en program-eller användarspecifik Marathon-tjänst
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
@@ -26,7 +24,7 @@ I den här artikeln förklarar vi hur du lägger till en användar- eller progra
 
 Eftersom den här tjänsten tillhör en enskild användare eller ett enskilt team kan den konfigureras på önskat sätt. Azure Container Service säkerställer också att tjänsten fortsätter att köras. Om tjänsten slutar att fungera, startar Azure Container Service om den åt dig. I de flesta fall märker du inte ens att det varit driftstopp.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 [Distribuera en instans av Azure Container Service](container-service-deployment.md) med orchestrator-typ DC/OS och [kontrollera att klienten kan ansluta till klustret](../container-service-connect.md). Utför följande steg.
 
 [!INCLUDE [install the DC/OS CLI](../../../includes/container-service-install-dcos-cli-include.md)]

@@ -1,37 +1,30 @@
 ---
-title: Ändra en Azure VM-skalningsuppsättning | Microsoft Docs
-description: 'Lär dig hur du ändrar och uppdatera en Azure VM-skalningsuppsättning med REST API: er, Azure PowerShell och Azure CLI'
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Ändra en skalnings uppsättning för virtuella Azure-datorer
+description: 'Lär dig hur du ändrar och uppdaterar en skalnings uppsättning för en virtuell Azure-dator med REST-API: erna, Azure PowerShell och Azure CLI'
 author: mayanknayar
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: e229664e-ee4e-4f12-9d2e-a4f456989e5d
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 49327ff0c3aeab25de02fc67c049f24597215d45
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60803129"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274457"
 ---
-# <a name="modify-a-virtual-machine-scale-set"></a>Ändra en VM-skalningsuppsättning
+# <a name="modify-a-virtual-machine-scale-set"></a>Ändra en skalnings uppsättning för virtuell dator
 
-Du kan behöva ändra eller uppdatera din skalningsuppsättning för virtuella datorer under hela livscykeln för programmen. De här uppdateringarna kan omfatta uppdatera konfigurationen för skaluppsättningen eller ändra programkonfigurationen. Den här artikeln beskriver hur du ändrar en befintlig skalningsuppsättning med REST API: er, Azure PowerShell eller Azure CLI.
+Under hela livs cykeln för dina program kan du behöva ändra eller uppdatera skalnings uppsättningen för den virtuella datorn. Dessa uppdateringar kan omfatta hur du uppdaterar konfigurationen av skalnings uppsättningen eller ändrar program konfigurationen. I den här artikeln beskrivs hur du ändrar en befintlig skalnings uppsättning med REST-API: er, Azure PowerShell eller Azure CLI.
 
 ## <a name="fundamental-concepts"></a>Grundläggande koncept
 
-### <a name="the-scale-set-model"></a>Skalningsuppsättningsmodell
-En skalningsuppsättning har en ”skalningsuppsättningsmodell” som samlar in den *önskade* status skalans inställd som helhet. Om du vill fråga modellen för en skalningsuppsättning, kan du använda den 
+### <a name="the-scale-set-model"></a>Skalnings uppsättnings modellen
+En skalnings uppsättning har en "skalnings uppsättnings modell" som fångar det *önskade* läget för skalnings uppsättningen som helhet. Om du vill fråga modellen efter en skalnings uppsättning kan du använda 
 
-- REST-API [beräkning/virtualmachinescalesets/hämta](/rest/api/compute/virtualmachinescalesets/get) på följande sätt:
+- REST API med [Compute/virtualmachinescalesets/get](/rest/api/compute/virtualmachinescalesets/get) enligt följande:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
@@ -43,15 +36,15 @@ En skalningsuppsättning har en ”skalningsuppsättningsmodell” som samlar in
     Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
     ```
 
-- Azure CLI med [az vmss show](/cli/azure/vmss):
+- Azure CLI med [AZ VMSS show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet
     ```
 
-- Du kan också använda [resources.azure.com](https://resources.azure.com) eller språkspecifika [Azure SDK: er](https://azure.microsoft.com/downloads/).
+- Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller språkspecifika Azure- [SDK](https://azure.microsoft.com/downloads/): er.
 
-Hur utdata är beroende av de alternativ som du anger i kommandot. I följande exempel visas komprimerade exempel på utdata från Azure CLI:
+Den exakta presentationen av utdata beror på vilka alternativ du anger för kommandot. I följande exempel visas komprimerade exempel utdata från Azure CLI:
 
 ```azurecli
 az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -69,13 +62,13 @@ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Dessa egenskaper gäller i skalningsuppsättningen som helhet.
+Dessa egenskaper gäller för skalnings uppsättningen som helhet.
 
 
-### <a name="the-scale-set-instance-view"></a>Instansvy för skalningsuppsättningen
-En skalningsuppsättning också har en ”skalningsuppsättningens datorinstans Visa” som samlar in aktuellt *runtime* status skalans inställd som helhet. Om du vill fråga instansvyn för en skalningsuppsättning, kan du använda:
+### <a name="the-scale-set-instance-view"></a>Vyn skalnings uppsättnings instans
+En skalnings uppsättning har också en "skalnings uppsättnings instans vy" som samlar in aktuellt *körnings* tillstånd för skalnings uppsättningen som helhet. Om du vill fråga instans visningen för en skalnings uppsättning kan du använda:
 
-- REST-API [beräkning/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) på följande sätt:
+- REST API med [Compute/virtualmachinescalesets/getinstanceview](/rest/api/compute/virtualmachinescalesets/getinstanceview) på följande sätt:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/instanceView?api-version={apiVersion}
@@ -87,15 +80,15 @@ En skalningsuppsättning också har en ”skalningsuppsättningens datorinstans 
     Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceView
     ```
 
-- Azure CLI med [az vmss get-instance-view](/cli/azure/vmss):
+- Azure CLI med [AZ VMSS get-instance-View](/cli/azure/vmss):
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
     ```
 
-- Du kan också använda [resources.azure.com](https://resources.azure.com) eller språkspecifika [Azure SDK: er](https://azure.microsoft.com/downloads/)
+- Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller språkspecifika Azure- [SDK](https://azure.microsoft.com/downloads/) : er
 
-Hur utdata är beroende av de alternativ som du anger i kommandot. I följande exempel visas komprimerade exempel på utdata från Azure CLI:
+Den exakta presentationen av utdata beror på vilka alternativ du anger för kommandot. I följande exempel visas komprimerade exempel utdata från Azure CLI:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
@@ -123,13 +116,13 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Dessa egenskaper innehåller en sammanfattning av det aktuella runtime-tillståndet för de virtuella datorerna i skalningsuppsättningen, till exempel status för tillägg som tillämpas på skalningsuppsättningen.
+Dessa egenskaper ger en översikt över det aktuella körnings tillståndet för de virtuella datorerna i skalnings uppsättningen, till exempel status för tillägg som tillämpas på skalnings uppsättningen.
 
 
-### <a name="the-scale-set-vm-model-view"></a>Skaluppsättningen VM modellvy
-Liknande hur en skalningsuppsättning har en modellvy varje virtuell datorinstans i skalningsuppsättningen har en egen modellvy. Om du vill fråga modellvy för specifika Virtuella datorinstanser i en skalningsuppsättning, kan du använda:
+### <a name="the-scale-set-vm-model-view"></a>Vyn skalnings uppsättning för virtuell dator modell
+På liknande sätt som en skalnings uppsättning har en modell-vy, har varje VM-instans i skalnings uppsättningen sin egen modell vy. Om du vill fråga vyn modell för en viss VM-instans i en skalnings uppsättning kan du använda:
 
-- REST-API [beräkning/virtualmachinescalesetvms/hämta](/rest/api/compute/virtualmachinescalesetvms/get) på följande sätt:
+- REST API med [Compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) enligt följande:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId?api-version={apiVersion}
@@ -141,15 +134,15 @@ Liknande hur en skalningsuppsättning har en modellvy varje virtuell datorinstan
     Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI med [az vmss show](/cli/azure/vmss):
+- Azure CLI med [AZ VMSS show](/cli/azure/vmss):
 
     ```azurecli
     az vmss show --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Du kan också använda [resources.azure.com](https://resources.azure.com) eller [Azure SDK: er](https://azure.microsoft.com/downloads/).
+- Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller [Azure SDK](https://azure.microsoft.com/downloads/): er.
 
-Hur utdata är beroende av de alternativ som du anger i kommandot. I följande exempel visas komprimerade exempel på utdata från Azure CLI:
+Den exakta presentationen av utdata beror på vilka alternativ du anger för kommandot. I följande exempel visas komprimerade exempel utdata från Azure CLI:
 
 ```azurecli
 $ az vmss show --resource-group myResourceGroup --name myScaleSet
@@ -163,13 +156,13 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Dessa egenskaper beskriver konfigurationen av en VM-instans i en skalningsuppsättning, inte konfigurationen av skaluppsättningen som helhet. Skalningsuppsättningsmodell har exempelvis `overprovision` som en egenskap, men inte av modellen för en VM-instans i en skalningsuppsättning. Den här skillnaden beror på att skaffa stora resurser är en egenskap för skalningsuppsättningen som en hel, inte för enskilda VM-instanser i skalningsuppsättningen (Läs mer om överetablering [designöverväganden för skalningsuppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Dessa egenskaper beskriver konfigurationen av en virtuell dator instans i en skalnings uppsättning, inte konfigurationen av skalnings uppsättningen som helhet. Skalnings uppsättnings modellen har till exempel `overprovision` som en egenskap, medan modellen för en VM-instans i en skalnings uppsättning inte gör det. Den här skillnaden beror på att överetablering är en egenskap för skalnings uppsättningen som helhet, inte enskilda VM-instanser i skalnings uppsättningen (mer information om överetablering finns i [design överväganden för skalnings uppsättningar](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
-### <a name="the-scale-set-vm-instance-view"></a>Den instansvyn för VM-skalningsuppsättning
-Liknande hur en skalningsuppsättning har en Instansvy för varje virtuell datorinstans i skalningsuppsättningen har en egen instansvyn. Om du vill fråga instansvyn för en specifik VM-instans i en skalningsuppsättning, kan du använda:
+### <a name="the-scale-set-vm-instance-view"></a>Vyn skalnings uppsättning för virtuell dator instans
+På samma sätt som för en skalnings uppsättning har en instans visning, har varje VM-instans i skalnings uppsättningen en egen instans visning. Om du vill fråga instans visningen för en viss VM-instans i en skalnings uppsättning kan du använda:
 
-- REST-API [beräkning/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) på följande sätt:
+- REST API med [Compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) på följande sätt:
 
     ```rest
     GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/virtualmachines/instanceId/instanceView?api-version={apiVersion}
@@ -181,15 +174,15 @@ Liknande hur en skalningsuppsättning har en Instansvy för varje virtuell dator
     Get-AzVmssVm -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -InstanceView
     ```
 
-- Azure CLI med [az vmss get-instance-view](/cli/azure/vmss)
+- Azure CLI med [AZ VMSS get-instance-View](/cli/azure/vmss)
 
     ```azurecli
     az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Du kan också använda [resources.azure.com](https://resources.azure.com) eller [Azure SDK: er](https://azure.microsoft.com/downloads/)
+- Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller [Azure SDK](https://azure.microsoft.com/downloads/) : er
 
-Hur utdata är beroende av de alternativ som du anger i kommandot. I följande exempel visas komprimerade exempel på utdata från Azure CLI:
+Den exakta presentationen av utdata beror på vilka alternativ du anger för kommandot. I följande exempel visas komprimerade exempel utdata från Azure CLI:
 
 ```azurecli
 $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
@@ -240,168 +233,168 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Dessa egenskaper beskriver det aktuella runtime-tillståndet för en VM-instans i en skalningsuppsättning som innehåller några tillägg som tillämpas på skalningsuppsättningen.
+Dessa egenskaper beskriver det aktuella körnings läget för en virtuell dator instans i en skalnings uppsättning, vilket inkluderar alla tillägg som tillämpas på skalnings uppsättningen.
 
 
-## <a name="how-to-update-global-scale-set-properties"></a>Så här uppdaterar du global skala ange egenskaper
-Om du vill uppdatera globala skalningsuppsättningsegenskapen, måste du uppdatera egenskapen i modellen i skalningsuppsättningen. Du kan göra den här uppdateringen via:
+## <a name="how-to-update-global-scale-set-properties"></a>Så här uppdaterar du egenskaper för global skalnings uppsättning
+Om du vill uppdatera en global skalnings uppsättnings egenskap måste du uppdatera egenskapen i skalnings uppsättnings modellen. Du kan göra den här uppdateringen via:
 
-- REST-API [beräkning/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) på följande sätt:
+- REST API med [Compute/virtualmachinescalesets/createorupdate](/rest/api/compute/virtualmachinescalesets/createorupdate) på följande sätt:
 
     ```rest
     PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version={apiVersion}
     ```
 
-- Du kan distribuera en Resource Manager-mall med egenskaper från REST-API för att uppdatera ange egenskaper för global skala.
+- Du kan distribuera en Resource Manager-mall med egenskaperna från REST API för att uppdatera globala skalnings uppsättnings egenskaper.
 
-- Azure PowerShell med [uppdatering AzVmss](/powershell/module/az.compute/update-azvmss):
+- Azure PowerShell med [Update-AzVmss](/powershell/module/az.compute/update-azvmss):
 
     ```powershell
     Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -VirtualMachineScaleSet {scaleSetConfigPowershellObject}
     ```
 
-- Azure CLI med [az vmss uppdatera](/cli/azure/vmss):
+- Azure CLI med [AZ VMSS-uppdatering](/cli/azure/vmss):
     - Ändra en egenskap:
 
         ```azurecli
         az vmss update --set {propertyPath}={value}
         ```
 
-    - Att lägga till ett objekt i en lista-egenskap i en skalningsuppsättning: 
+    - Så här lägger du till ett objekt i en List egenskap i en skalnings uppsättning: 
 
         ```azurecli
         az vmss update --add {propertyPath} {JSONObjectToAdd}
         ```
 
-    - Ta bort ett objekt från en lista-egenskap i en skalningsuppsättning: 
+    - Ta bort ett objekt från en List egenskap i en skalnings uppsättning: 
 
         ```azurecli
         az vmss update --remove {propertyPath} {indexToRemove}
         ```
 
-    - Om du tidigare har distribuerat skalningsuppsättningen med den `az vmss create` kommandot, kan du köra den `az vmss create` kommandot igen för att uppdatera skalningsuppsättningen. Se till att alla egenskaper i den `az vmss create` kommandot är samma som tidigare förutom de egenskaper som du vill ändra.
+    - Om du tidigare har distribuerat skalnings uppsättningen med kommandot `az vmss create` kan du köra kommandot `az vmss create` igen för att uppdatera skalnings uppsättningen. Kontrol lera att alla egenskaper i `az vmss create` kommandot är desamma som tidigare, förutom de egenskaper som du vill ändra.
 
-- Du kan också använda [resources.azure.com](https://resources.azure.com) eller [Azure SDK: er](https://azure.microsoft.com/downloads/).
+- Du kan också använda [Resources.Azure.com](https://resources.azure.com) eller [Azure SDK](https://azure.microsoft.com/downloads/): er.
 
-När skalningsuppsättningsmodell har uppdaterats, gäller den nya konfigurationen för nya virtuella datorer skapas i skalningsuppsättningen. Dock måste modeller för befintliga virtuella datorer i skalningsuppsättningen fortfarande framställas uppdaterade med den senaste övergripande skalningsuppsättningen. I modellen för varje virtuell dator en boolesk egenskap kallas `latestModelApplied` -värde som anger om den virtuella datorn är uppdaterade med den senaste övergripande skalningsuppsättningsmodell (`true` innebär att den virtuella datorn är uppdaterade med den senaste modellen).
+När skalnings uppsättnings modellen har uppdaterats, gäller den nya konfigurationen för alla nya virtuella datorer som skapats i skalnings uppsättningen. Modellerna för befintliga virtuella datorer i skalnings uppsättningen måste dock fortfarande vara uppdaterade med den senaste modellen för skalnings uppsättningar. I modellen för varje virtuell dator är en boolesk egenskap som heter `latestModelApplied` som anger om den virtuella datorn är uppdaterad med den senaste modellen för skalnings uppsättning (`true` innebär att den virtuella datorn är uppdaterad med den senaste modellen).
 
 
-## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Hur du hanterar virtuella datorer uppdaterade med den senaste modellen för skalningsuppsättningen
-Skalningsuppsättningar har en ”uppgraderingsprincip” som avgör hur virtuella datorer ansluts uppdaterade med den senaste modellen för skalningsuppsättningen. Det finns tre lägen för uppgraderingsprincipen:
+## <a name="how-to-bring-vms-up-to-date-with-the-latest-scale-set-model"></a>Så här tar du med virtuella datorer uppdaterade med den senaste skalnings uppsättnings modellen
+Skalnings uppsättningar har en "uppgraderings princip" som avgör hur virtuella datorer hämtas med den senaste skalnings uppsättnings modellen. De tre lägena för uppgraderings principen är:
 
-- **Automatisk** – i det här läget skalningsuppsättningen ger inga garantier om i vilken ordning av virtuella datorer som tas. Skalningsuppsättningen kan ta bort alla virtuella datorer på samma gång. 
-- **Löpande** – i det här läget skalningsuppsättningen samlar du uppdateringen i batchar med ett valfritt pausa mellan batchar.
-- **Manuell** – i det här läget, när du uppdaterar skalningsuppsättningen, händer ingenting på befintliga virtuella datorer.
+- **Automatiskt** i det här läget ger skalnings uppsättningen inga garantier om ordningen på de virtuella datorer som tas ur bruk. Skalnings uppsättningen kan ta bort alla virtuella datorer samtidigt. 
+- I det här läget används skalnings uppsättningen för att **lyfta** fram uppdateringen i batchar med en valfri paus tid mellan batchar.
+- **Manuellt** i det här läget, när du uppdaterar skalnings uppsättnings modellen, händer ingenting i befintliga virtuella datorer.
  
-För att uppdatera befintliga virtuella datorer, måste du göra en ”manuell uppgradering” på varje befintlig virtuell dator. Du kan göra det här manuell uppgradering med:
+Om du vill uppdatera befintliga virtuella datorer måste du göra en "manuell uppgradering" av varje befintlig virtuell dator. Du kan göra den här manuella uppgraderingen med:
 
-- REST-API [beräkning/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) på följande sätt:
+- REST API med [Compute/virtualmachinescalesets/updateinstances](/rest/api/compute/virtualmachinescalesets/updateinstances) på följande sätt:
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/manualupgrade?api-version={apiVersion}
     ```
 
-- Azure PowerShell med [uppdatering AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
+- Azure PowerShell med [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance):
     
     ```powershell
     Update-AzVmssInstance -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId
     ```
 
-- Azure CLI med [az vmss update-instances](/cli/azure/vmss)
+- Azure CLI med [AZ VMSS Update-instances](/cli/azure/vmss)
 
     ```azurecli
     az vmss update-instances --resource-group myResourceGroup --name myScaleSet --instance-ids {instanceIds}
     ```
 
-- Du kan också använda språkspecifika [Azure SDK: er](https://azure.microsoft.com/downloads/).
+- Du kan också använda språkspecifika Azure- [SDK](https://azure.microsoft.com/downloads/): er.
 
 >[!NOTE]
-> Service Fabric-kluster kan bara använda *automatisk* läge, men uppdateringen hanteras på olika sätt. Mer information finns i [Service Fabric programuppgraderingar](../service-fabric/service-fabric-application-upgrade.md).
+> Service Fabric kluster kan bara använda *automatiskt* läge, men uppdateringen hanteras på olika sätt. Mer information finns i [Service Fabric program uppgraderingar](../service-fabric/service-fabric-application-upgrade.md).
 
-Det finns en typ av ändring av global skala ange egenskaper som inte följer uppgraderingsprincipen. Ändringar för skalningsuppsättningen OS-profil (till exempel administratörens användarnamn och lösenord) kan bara ändras i API-versionen *2017-12-01* eller senare. Dessa ändringar gäller endast för virtuella datorer som skapas när ändringen i skalan skalningsuppsättningsmodellen. För att lägga till befintliga virtuella datorer uppdaterade, måste du göra en ”reimage” för varje befintlig virtuell dator. Du kan göra det här reimage via:
+Det finns en typ av ändring i globala skalnings uppsättnings egenskaper som inte följer uppgraderings principen. Ändringar av skalnings uppsättningens OS-profil (till exempel Admin-användarnamn och-lösen ord) kan bara ändras i API version *2017-12-01* eller senare. Dessa ändringar gäller bara för virtuella datorer som skapats efter ändringen i skalnings uppsättnings modellen. Om du vill att befintliga virtuella datorer ska vara uppdaterade måste du göra en avbildning av varje befintlig virtuell dator. Du kan göra om avbildningen via:
 
-- REST-API [beräkning/virtualmachinescalesets/reimage](/rest/api/compute/virtualmachinescalesets/reimage) på följande sätt:
+- REST API med [Compute/virtualmachinescalesets/Reimage](/rest/api/compute/virtualmachinescalesets/reimage) enligt följande:
 
     ```rest
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/reimage?api-version={apiVersion}
     ```
 
-- Azure PowerShell med [Set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
+- Azure PowerShell med [set-AzVmssVm](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm):
 
     ```powershell
     Set-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId instanceId -Reimage
     ```
 
-- Azure CLI med [az vmss reimage](https://docs.microsoft.com/cli/azure/vmss):
+- Azure CLI med [AZ VMSS-avbildning](https://docs.microsoft.com/cli/azure/vmss):
 
     ```azurecli
     az vmss reimage --resource-group myResourceGroup --name myScaleSet --instance-id instanceId
     ```
 
-- Du kan också använda språkspecifika [Azure SDK: er](https://azure.microsoft.com/downloads/).
+- Du kan också använda språkspecifika Azure- [SDK](https://azure.microsoft.com/downloads/): er.
 
 
-## <a name="properties-with-restrictions-on-modification"></a>Egenskaper med begränsningar för ändringar
+## <a name="properties-with-restrictions-on-modification"></a>Egenskaper med begränsningar vid ändring
 
-### <a name="create-time-properties"></a>Skapa tid-egenskaper
-Vissa egenskaper kan bara anges när du skapar skalningsuppsättningen. De här egenskaperna är:
+### <a name="create-time-properties"></a>Egenskaper för Create-Time
+Vissa egenskaper kan bara anges när du skapar skalnings uppsättningen. Bland dessa egenskaper finns:
 
 - Tillgänglighetszoner
-- Bildutgivare referens
-- Erbjudande om referens
-- Hanterade lagringskontotypen för OS-disk
+- Bild referens utgivare
+- Bild referens erbjudande
+- Lagrings konto typ för hanterad OS-disk
 
-### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Egenskaper som kan bara ändras baserat på det aktuella värdet
-Vissa egenskaper kan ändras, med undantag beroende på det aktuella värdet. De här egenskaperna är:
+### <a name="properties-that-can-only-be-changed-based-on-the-current-value"></a>Egenskaper som bara kan ändras baserat på det aktuella värdet
+Vissa egenskaper kan ändras, med undantag beroende på det aktuella värdet. Bland dessa egenskaper finns:
 
-- **singlePlacementGroup** - om singlePlacementGroup är sant, den kan ändras till false. Men om singlePlacementGroup är falsk, den **får inte** ändras till true.
-- **undernät** - undernätet för en skalningsuppsättning kan ändras så länge som det ursprungliga undernätet och det nya undernätet finns i samma virtuella nätverk.
+- **singlePlacementGroup** – om singlePlacementGroup är sant kan den ändras till false. Om singlePlacementGroup är false kan det dock **inte** ändras till sant.
+- **undernät** – under nätet för en skalnings uppsättning kan ändras så länge det ursprungliga under nätet och det nya under nätet finns i samma virtuella nätverk.
 
-### <a name="properties-that-require-deallocation-to-change"></a>Egenskaper som kräver flyttningen är att ändra
-Vissa egenskaper kan bara ändras till vissa värden om de virtuella datorerna i skalningsuppsättningen frigörs. De här egenskaperna är:
+### <a name="properties-that-require-deallocation-to-change"></a>Egenskaper som kräver att tilldelningen ändras
+Vissa egenskaper kan bara ändras till vissa värden om de virtuella datorerna i skalnings uppsättningen är friallokerade. Bland dessa egenskaper finns:
 
-- **SKU-namnet**– om den nya VM SKU inte stöds på den maskinvara som skalningsuppsättningen är för närvarande, måste du frigöra de virtuella datorerna i skaluppsättningen innan du ändrar SKU-namnet. Mer information finns i [ändra storlek på en Azure VM](../virtual-machines/windows/resize-vm.md).
+- **SKU-namn**– om den nya VM-SKU: n inte stöds på den maskin vara som skalnings uppsättningen är på, måste du frigöra de virtuella datorerna i skalnings uppsättningen innan du ändrar SKU-namnet. Mer information finns i [så här ändrar du storlek på en virtuell Azure-dator](../virtual-machines/windows/resize-vm.md).
 
 
-## <a name="vm-specific-updates"></a>VM-specifika uppdateringar
-Vissa ändringar kan tillämpas på specifika virtuella datorer i stället för global skala ange egenskaper. För närvarande den enda VM-specifik uppdatering som stöds är att koppla/koppla från datadiskar till/från virtuella datorer i skalningsuppsättningen. Den här funktionen är en förhandsversion. Mer information finns i den [Förhandsgranska dokumentation](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
+## <a name="vm-specific-updates"></a>VM-/regionsspecifika uppdateringar
+Vissa ändringar kan tillämpas på specifika virtuella datorer i stället för globala skalnings uppsättnings egenskaper. För närvarande är den enda VM-anpassade uppdateringen som stöds att ansluta/koppla från data diskar till/från virtuella datorer i skalnings uppsättningen. Den här funktionen finns i förhandsversion. Mer information finns i [förhands gransknings dokumentationen](https://github.com/Azure/vm-scale-sets/tree/master/preview/disk).
 
 
 ## <a name="scenarios"></a>Scenarier
 
-### <a name="application-updates"></a>Programuppdateringar
-Om ett program har distribuerats till en skalningsuppsättning via tillägg, gör en uppdatering av tilläggskonfigurationen programmet för att uppdatera i enlighet med uppgraderingsprincipen. Till exempel om du har en ny version av ett skript köras i ett anpassat skripttillägg kan du uppdatera den *fileUris* egenskapen att peka mot det nya skriptet. I vissa fall kanske du vill framtvinga en uppdatering, även om tilläggskonfigurationen är oförändrad (till exempel du uppdaterat skriptet utan en ändring till URI: N för skriptet). I dessa fall kan du ändra den *forceUpdateTag* tvinga fram en uppdatering. Azure-plattformen tolka inte den här egenskapen. Om du ändrar värdet, finns det ingen effekt på hur tillägget körs. En ändring tvingar helt enkelt att köra tillägget. Mer information om den *forceUpdateTag*, finns i den [REST API-dokumentation för tilläggen](/rest/api/compute/virtualmachineextensions/createorupdate). Observera att den *forceUpdateTag* kan användas med alla tillägg, inte bara det anpassade skripttillägget.
+### <a name="application-updates"></a>Program uppdateringar
+Om ett program distribueras till en skalnings uppsättning via tillägg, gör en uppdatering av tilläggs konfigurationen att programmet uppdateras i enlighet med uppgraderings principen. Om du till exempel har en ny version av ett skript som ska köras i ett anpassat skript tillägg kan du uppdatera egenskapen *fileUris* så att den pekar på det nya skriptet. I vissa fall kanske du vill framtvinga en uppdatering även om tilläggs konfigurationen är oförändrad (till exempel om du uppdaterade skriptet utan att ändra URI för skriptet). I dessa fall kan du ändra *forceUpdateTag* för att framtvinga en uppdatering. Azure-plattformen tolkar inte den här egenskapen. Om du ändrar värdet finns det ingen påverkan på hur tillägget körs. En ändring tvingar bara tillägget att köras igen. Mer information om *forceUpdateTag*finns i [REST API dokumentationen för tillägg](/rest/api/compute/virtualmachineextensions/createorupdate). Observera att *forceUpdateTag* kan användas med alla tillägg, inte bara det anpassade skript tillägget.
 
-Det är också vanligt för program som ska distribueras via en anpassad avbildning. Det här scenariot beskrivs i följande avsnitt.
+Det är också vanligt att program distribueras via en anpassad avbildning. Det här scenariot beskrivs i följande avsnitt.
 
 ### <a name="os-updates"></a>OS-uppdateringar
-Om du använder Azure-plattformsavbildningar du kan uppdatera avbildningen genom att ändra den *imageReference* (Mer information finns i den [REST API-dokumentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Om du använder Azure Platform-avbildningar kan du uppdatera avbildningen genom att ändra *imageReference* (mer information finns i [dokumentationen för REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> Med plattformsavbildningar är det vanligt att ange ”senaste” för referens Avbildningsversion. När du skapar, skala ut och återställa avbildningar, virtuella datorer skapas med den senaste tillgängliga versionen. Men det **inte** innebära att OS-avbildningen uppdateras automatiskt med tiden när den nya avbildningsversioner är tillgängliga. En separat funktion är för närvarande i förhandsversion som tillhandahåller automatiska uppgraderingar av Operativsystemet. Mer information finns i den [automatisk Operativsystemuppgradering dokumentation](virtual-machine-scale-sets-automatic-upgrade.md).
+> Med plattforms avbildningar är det vanligt att ange "senaste" för avbildnings referens versionen. När du skapar, skalar ut och återskapar en avbildning skapas virtuella datorer med den senaste tillgängliga versionen. Det innebär dock **inte** att operativ system avbildningen uppdateras automatiskt med tiden när nya avbildnings versioner släpps. En separat funktion är för närvarande en för hands version som ger automatiska OS-uppgraderingar. Mer information finns i dokumentationen om [automatiska operativ system uppgraderingar](virtual-machine-scale-sets-automatic-upgrade.md).
 
-Om du använder anpassade avbildningar kan du uppdatera avbildningen genom att uppdatera den *imageReference* ID (Mer information finns i den [REST API-dokumentation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
+Om du använder anpassade avbildningar kan du uppdatera avbildningen genom att uppdatera *imageReference* -ID: t (mer information finns i [dokumentationen för REST API](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 ## <a name="examples"></a>Exempel
 
-### <a name="update-the-os-image-for-your-scale-set"></a>Uppdatera OS-avbildningen för din skalningsuppsättning
-Du kan ha en skalningsuppsättning som kör en äldre version av Ubuntu LTS, 16.04. Du vill uppdatera till en nyare version av Ubuntu LTS 16.04, till exempel version *16.04.201801090*. Bild referens versionsegenskapen är inte en del av en lista, så kan du direkt ändra dessa egenskaper med något av följande kommandon:
+### <a name="update-the-os-image-for-your-scale-set"></a>Uppdatera operativ system avbildningen för din skalnings uppsättning
+Du kan ha en skalnings uppsättning som kör en gammal version av Ubuntu LTS 16,04. Du vill uppdatera till en nyare version av Ubuntu LTS 16,04, till exempel version *16.04.201801090*. Egenskapen bild referens version är inte en del av en lista, så du kan ändra dessa egenskaper direkt med något av följande kommandon:
 
-- Azure PowerShell med [uppdatering AzVmss](/powershell/module/az.compute/update-azvmss) på följande sätt:
+- Azure PowerShell med [Update-AzVmss](/powershell/module/az.compute/update-azvmss) på följande sätt:
 
     ```powershell
     Update-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -ImageReferenceVersion 16.04.201801090
     ```
 
-- Azure CLI med [az vmss uppdatera](/cli/azure/vmss):
+- Azure CLI med [AZ VMSS-uppdatering](/cli/azure/vmss):
 
     ```azurecli
     az vmss update --resource-group myResourceGroup --name myScaleSet --set virtualMachineProfile.storageProfile.imageReference.version=16.04.201801090
     ```
 
-Alternativt kan du ändra avbildningen din skalningsuppsättning använder. Du kan till exempel vill uppdatera eller ändra en anpassad avbildning som används av din skalningsuppsättning. Du kan ändra den avbildning som din skalningsuppsättning använder genom att uppdatera egenskapen bild referens-ID: T. Image referens-ID-egenskapen är inte en del av en lista, så att du kan ändra den här egenskapen med något av följande kommandon direkt:
+Du kan också vilja ändra avbildningen som används i skalnings uppsättningen. Du kanske till exempel vill uppdatera eller ändra en anpassad avbildning som används av din skalnings uppsättning. Du kan ändra avbildningen som skalnings uppsättningen använder genom att uppdatera egenskapen bild referens-ID. Egenskapen bild referens-ID är inte en del av en lista, så du kan ändra den här egenskapen direkt med något av följande kommandon:
 
-- Azure PowerShell med [uppdatering AzVmss](/powershell/module/az.compute/update-azvmss) på följande sätt:
+- Azure PowerShell med [Update-AzVmss](/powershell/module/az.compute/update-azvmss) på följande sätt:
 
     ```powershell
     Update-AzVmss `
@@ -410,7 +403,7 @@ Alternativt kan du ändra avbildningen din skalningsuppsättning använder. Du k
         -ImageReferenceId /subscriptions/{subscriptionID}/resourceGroups/myResourceGroup/providers/Microsoft.Compute/images/myNewImage
     ```
 
-- Azure CLI med [az vmss uppdatera](/cli/azure/vmss):
+- Azure CLI med [AZ VMSS-uppdatering](/cli/azure/vmss):
 
     ```azurecli
     az vmss update \
@@ -420,10 +413,10 @@ Alternativt kan du ändra avbildningen din skalningsuppsättning använder. Du k
     ```
 
 
-### <a name="update-the-load-balancer-for-your-scale-set"></a>Uppdatera belastningsutjämnaren för din skalningsuppsättning
-Vi antar att du har en skalningsuppsättning med en Azure Load Balancer och du vill ersätta Azure Load Balancer med Azure Application Gateway. Load balancer och Application Gateway-egenskaperna för en skalningsuppsättning är en del av en lista, så du kan använda kommandon för att ta bort eller lägga till element i stället för att ändra egenskaperna direkt:
+### <a name="update-the-load-balancer-for-your-scale-set"></a>Uppdatera belastningsutjämnaren för din skalnings uppsättning
+Anta att du har en skalnings uppsättning med en Azure Load Balancer och att du vill ersätta Azure Load Balancer med en Azure Application Gateway. Belastnings utjämnings-och Application Gateway egenskaperna för en skalnings uppsättning är en del av en lista, så du kan använda kommandona för att ta bort eller lägga till List element i stället för att ändra egenskaperna direkt:
 
-- Azure Powershell:
+- Azure PowerShell:
 
     ```powershell
     # Get the current model of the scale set and store it in a local PowerShell object named $vmss
@@ -453,8 +446,8 @@ Vi antar att du har en skalningsuppsättning med en Azure Load Balancer och du v
     ```
 
 >[!NOTE]
-> Kommandona förutsätter att det finns endast en IP-konfiguration och load balancer på skalningsuppsättningen. Om det finns flera kan du behöva använda en ListIndex än *0*.
+> Dessa kommandon förutsätter att det bara finns en IP-konfiguration och belastningsutjämnare på skalnings uppsättningen. Om det finns flera kan du behöva använda ett List index som inte är *0*.
 
 
 ## <a name="next-steps"></a>Nästa steg
-Du kan också utföra vanliga administrationsuppgifter på skalningsuppsättningar med det [Azure CLI](virtual-machine-scale-sets-manage-cli.md) eller [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).
+Du kan också utföra vanliga hanterings uppgifter i skalnings uppsättningar med [Azure CLI](virtual-machine-scale-sets-manage-cli.md) eller [Azure PowerShell](virtual-machine-scale-sets-manage-powershell.md).

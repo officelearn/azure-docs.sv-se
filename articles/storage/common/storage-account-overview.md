@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8f912635fc0fb14fc54426a108af5f67d26213f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5034aaaee335bbd87e7ea42b448e4e8fbf6aacca
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975692"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274543"
 ---
 # <a name="storage-account-overview"></a>Översikt över lagringskonto
 
@@ -64,17 +64,15 @@ Du bör använda General-Purpose v2-konton i de flesta fall. Du kan använda gen
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage-konton
 
-Ett BlockBlobStorage-konto är ett specialiserat lagrings konto som du använder för att lagra ostrukturerade objekt data som block blobbar. Du kan också använda ett BlockBlobStorage-konto för att skapa Premium block-blobar. Den här typen av lagrings konto stöder block-blobbar och tillägg av blobbar, men inte sid-blobar, tabeller eller köer.
+Ett BlockBlobStorage-konto är ett specialiserat lagrings konto i Premium Performance-nivån för att lagra ostrukturerade objekt data som block-blobbar eller bifoga blobbar. Jämfört med General-Purpose v2-och BlobStorage-konton ger BlockBlobStorage-konton låg, konsekvent svars tid och högre transaktions taxa.
 
-Jämfört med General-Purpose v2-och BlobStorage-konton ger BlockBlobStorage-konton låga och konsekventa svars tider och högre transaktions kostnader.
-
-BlockBlobStorage-konton stöder för närvarande inte nivåer för frekvent åtkomst, låg frekvent åtkomst eller Arkiv lag rings nivåer.
+BlockBlobStorage-konton stöder för närvarande inte nivåer för frekvent åtkomst, låg frekvent åtkomst eller Arkiv lag rings nivåer. Den här typen av lagrings konto har inte stöd för sid-blobar, tabeller eller köer.
 
 ### <a name="filestorage-accounts"></a>FileStorage-konton
 
 Ett FileStorage-konto är ett specialiserat lagrings konto som används för att lagra och skapa Premium-filresurser. Den här typen av lagrings konto stöder filer, men inte blockering av blobbar, tillägg av blobbar, sid-BLOB, tabeller eller köer.
 
-FileStorage-konton ger unika prestanda dedikerade egenskaper som IOPS-burst. Mer information om dessa egenskaper finns i avsnittet om [prestanda nivåer för fil resurser](../files/storage-files-planning.md#file-share-performance-tiers) i planerings guiden för filer.
+FileStorage-konton ger unika prestanda egenskaper, till exempel IOPS-burst. Mer information om dessa egenskaper finns i avsnittet om [prestanda nivåer för fil resurser](../files/storage-files-planning.md#file-share-performance-tiers) i planerings guiden för filer.
 
 ## <a name="naming-storage-accounts"></a>Namnge lagrings konton
 
@@ -85,12 +83,20 @@ Tänk på dessa regler när du namnger lagringskontot:
 
 ## <a name="performance-tiers"></a>Prestandanivåer
 
+Beroende på vilken typ av lagrings konto du skapar kan du välja mellan standard-och Premium prestanda nivåer.
+
+### <a name="general-purpose-storage-accounts"></a>Allmänna lagringskonton
+
 Allmänna lagrings konton kan konfigureras för någon av följande prestanda nivåer:
 
 - En standard prestanda nivå för att lagra blobbar, filer, tabeller, köer och virtuella Azure-datorer. Mer information om skalbarhets mål för standard lagrings konton finns i [skalbarhets mål för standard lagrings konton](scalability-targets-standard-account.md).
-- En Premium prestanda nivå för lagring av ohanterade virtuella dator diskar. Microsoft rekommenderar att du använder hanterade diskar med virtuella Azure-datorer i stället för ohanterade diskar. Mer information om skalbarhets mål för prestanda nivån Premium finns i [skalbarhets mål för Premium Page Blob Storage-konton](../blobs/scalability-targets-premium-page-blobs.md).
+- En Premium Performance-nivå för lagring av ohanterade virtuella dator diskar. Microsoft rekommenderar att du använder hanterade diskar med virtuella Azure-datorer i stället för ohanterade diskar. Mer information om skalbarhets mål för prestanda nivån Premium finns i [skalbarhets mål för Premium Page Blob Storage-konton](../blobs/scalability-targets-premium-page-blobs.md).
+
+### <a name="blockblobstorage-storage-accounts"></a>BlockBlobStorage lagrings konton
 
 BlockBlobStorage lagrings konton ger en förstklassig prestanda nivå för lagring av block-blobbar och tillägg av blobbar. Mer information finns i [skalbarhets mål för Premium Block Blob Storage-konton](../blobs/scalability-targets-premium-block-blobs.md).
+
+### <a name="filestorage-storage-accounts"></a>FileStorage lagrings konton
 
 FileStorage lagrings konton ger en förstklassig prestanda nivå för Azure-filresurser. Mer information finns i [Azure Files skalbarhets-och prestanda mål](../files/storage-files-scale-targets.md).
 
@@ -102,7 +108,7 @@ Tillgängliga åtkomst nivåer är:
 
 - Frekvent **åtkomst nivå** . Den här nivån är optimerad för frekvent åtkomst av objekt i lagrings kontot. Att komma åt data på frekvent nivå är mest kostnads effektivt, medan lagrings kostnaderna är högre. Nya lagrings konton skapas som standard på frekvent nivå.
 - Låg **frekvent åtkomst nivå** . Den här nivån är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Att lagra data i den låg frekventa nivån är mer kostnads effektivt, men att komma åt dessa data kan vara dyrare än att komma åt data på frekvent nivå.
-- **Arkiv** nivån. Den här nivån är endast tillgänglig för enskilda block blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och som kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data. Att komma åt dessa data är dock dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
+- **Arkiv** nivån. Den här nivån är endast tillgänglig för enskilda block blobbar och bifogade blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och som kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data. Att komma åt dessa data är dock dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
 
 Om det finns en ändring i användnings mönstret för dina data kan du när som helst växla mellan dessa åtkomst nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
 

@@ -4,7 +4,6 @@ description: Azure PowerShell-skriptexempel – Skapa en programgateway med en b
 services: application-gateway
 documentationcenter: networking
 author: vhorne
-manager: jpconnock
 editor: tysonn
 tags: azure-resource-manager
 ms.service: application-gateway
@@ -14,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/29/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: d3dfb9708e22a86af8fb9854e424f7da7d1f410a
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: fd36775e15376054bed34d9e828344c529313d3b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202860"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273406"
 ---
 # <a name="restrict-web-traffic-using-azure-powershell"></a>Begränsa webbtrafik med hjälp av Azure PowerShell
 
@@ -64,7 +63,7 @@ Det här skriptet använder följande kommandon för att skapa distributionen. V
 | [Set-AzVmssStorageProfile](/powershell/module/az.compute/set-azvmssstorageprofile) | Skapar en lagringsprofil för skalningsuppsättningen. |
 | [Set-AzVmssOsProfile](/powershell/module/az.compute/set-azvmssosprofile) | Definierar operativsystemet för skalningsuppsättningen. |
 | [Add-AzVmssNetworkInterfaceConfiguration](/powershell/module/az.compute/add-azvmssnetworkinterfaceconfiguration) | Definierar nätverksgränssnittet för skalningsuppsättningen. |
-| [New-AzVmss](/powershell/module/az.compute/new-azvm) | Skapar en VM-skalningsuppsättning. |
+| [New-AzVmss](/powershell/module/az.compute/new-azvm) | Skapa en VM-skalningsuppsättning. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Skapar ett lagringskonto. |
 | [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) | Konfigurerar diagnostik för registrering av data. |
 | [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) | Hämtar den offentliga IP-adressen för en programgateway. |

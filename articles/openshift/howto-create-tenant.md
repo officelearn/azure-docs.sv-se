@@ -1,49 +1,48 @@
 ---
-title: Skapa en Azure AD-klient för Azure Red Hat OpenShift | Microsoft Docs
-description: Här är hur du skapar en Azure Active Directory (Azure AD)-klient som värd för ditt Microsoft Azure Red Hat OpenShift-kluster.
+title: Skapa en Azure AD-klient för Azure Red Hat OpenShift
+description: Så här skapar du en Azure Active Directory-klient (Azure AD) som är värd för ditt Microsoft Azure Red Hat OpenShift-kluster.
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 560cdcf8a99a486c7f5177b675cff327c6fb6a41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306452"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270455"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Skapa en Azure AD-klient för Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift kräver en [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) klient där du vill skapa klustret. En *klient* är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när de skapar en relation med Microsoft genom att registrera dig för Azure, Microsoft Intune och Microsoft 365. Varje Azure AD-klient skiljer sig och separat från andra Azure AD-klienter och har sitt eget arbete och skola identiteter och app-registreringar.
+Microsoft Azure Red Hat OpenShift kräver en [Azure Active Directory-klient (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) som du kan använda för att skapa klustret. En *klient* organisation är en dedikerad instans av Azure AD som en organisation eller app-utvecklare får när de skapar en relation med Microsoft genom att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är distinkt och åtskild från andra Azure AD-klienter och har sina egna arbets-och skol identiteter och app-registreringar.
 
-Om du inte redan har en Azure AD-klient, följer du dessa instruktioner för att skapa en.
+Om du inte redan har en Azure AD-klient kan du följa de här anvisningarna för att skapa en.
 
 ## <a name="create-a-new-azure-ad-tenant"></a>Skapa en ny Azure AD-klient
 
-Skapa en klient:
+Så här skapar du en klient:
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com/) med hjälp av det konto som du vill associera med ditt Azure Red Hat OpenShift-kluster.
-2. Öppna den [Azure Active Directory-bladet](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) att skapa en ny klient (kallas även en ny *Azure Active Directory*).
-3. Ange en **organisationsnamn**.
-4. Ange en **inledande domännamnet**. Detta har *onmicrosoft.com* läggas till den. Du kan återanvända värdet för *organisationsnamn* här.
-5. Välj ett land eller region där klienten kommer att skapas.
+1. Logga in på [Azure Portal](https://portal.azure.com/) med det konto som du vill koppla till ditt Azure Red Hat OpenShift-kluster.
+2. Öppna [bladet Azure Active Directory](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) för att skapa en ny klient organisation (även kallat en ny *Azure Active Directory*).
+3. Ange ett **organisations namn**.
+4. Ange ett **första domän namn**. Detta kommer att ha *onmicrosoft.com* tillagd till. Du kan återanvända värdet för *organisations namn* här.
+5. Välj ett land eller en region där klienten ska skapas.
 6. Klicka på **Skapa**.
-7. När din Azure AD-klient har skapats kan du välja den **Klicka här för att hantera din nya katalog** länk. Ditt nya klientnamn ska visas i det övre högra hörnet i Azure Portal:  
+7. När din Azure AD-klient har skapats väljer du länken **Klicka här för att hantera din nya katalog** . Ditt nya klient namn ska visas längst upp till höger i Azure Portal:  
 
-    ![Skärmbild av portalen som visar innehavarens namn i det övre högra hörnet][tenantcallout]  
+    ![Skärm bild av portalen som visar klient namnet längst upp till höger][tenantcallout]  
 
-8. Anteckna den *klient-ID* så att du senare kan ange var du vill skapa klustret Azure Red Hat OpenShift. Du bör nu se Azure Active Directory-översiktsbladet för den nya klientorganisationen i portalen. Välj **egenskaper** och kopiera värdet för din **katalog-ID**. Vi kommer att referera till det här värdet som `TENANT` i den [skapa ett kluster i Azure Red Hat OpenShift](tutorial-create-cluster.md) självstudien.
+8. Anteckna *klient-ID: t* så att du senare kan ange var du vill skapa ditt Azure Red Hat OpenShift-kluster. I portalen bör du nu se bladet Azure Active Directory översikt för din nya klient. Välj **Egenskaper** och kopiera värdet för ditt **katalog-ID**. Vi kommer att referera till det här värdet som `TENANT` i själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
 
 [tenantcallout]: ./media/howto-create-tenant/tenant-callout.png
 
 ## <a name="resources"></a>Resurser
 
-Kolla in [dokumentation om Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) för mer information om [Azure AD-klienter](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Se [Azure Active Directory-dokumentationen](https://docs.microsoft.com/azure/active-directory/) för mer information om [Azure AD-klienter](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du skapar ett huvudnamn för tjänsten, generera en klient-hemlighet och autentisering Motringnings-URL och skapa en ny Active Directory-användare för att testa appar i Azure Red Hat OpenShift-klustret.
+Lär dig hur du skapar ett huvud namn för tjänsten, genererar en URL för klient hemlighet och autentiserings-motanrop och skapar en ny Active Directory användare för att testa appar i ditt Azure Red Hat OpenShift-kluster.
 
-[Skapa en Azure AD app-objekt och en användare](howto-aad-app-configuration.md)
+[Skapa ett Azure AD-App-objekt och-användare](howto-aad-app-configuration.md)

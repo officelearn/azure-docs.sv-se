@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 83b167baa29a54e53f7fe8bdb7b7e5c88bc3eddf
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264092"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276783"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -29,7 +29,7 @@ Application Insights kan användas med alla webbsidor – du lägger bara till e
     * [JavaScript-kodfragment](#snippet-based-setup)
 
 > [!IMPORTANT]
-> > Använd bara en metod för att lägga till Java Script SDK i ditt program. Om du använder installations programmet för NPM ska du inte använda kodfragmentet och vice versa.
+> Använd bara en metod för att lägga till Java Script SDK i ditt program. Om du använder installations programmet för NPM ska du inte använda kodfragmentet och vice versa.
 
 > [!NOTE]
 > NPM-installationen installerar JavaScript SDK som ett beroende av ditt projekt, vilket aktiverar IntelliSense, medan kodfragmentet hämtar SDK vid körning. Båda har stöd för samma funktioner. Men utvecklare som vill ha mer anpassade händelser och konfiguration brukar välja NPM-installation, medan användare söker efter snabb aktivering av den färdiga Web Analytics-valet för kodfragmentet.

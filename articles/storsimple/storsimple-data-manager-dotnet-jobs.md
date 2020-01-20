@@ -1,95 +1,87 @@
 ---
-title: Använd .NET SDK för Microsoft Azure StorSimple Data Manager-jobb | Microsoft Docs
+title: Använda .NET SDK för Microsoft Azure StorSimple Data Manager jobb
 description: Lär dig hur du använder .NET SDK för att starta StorSimple Data Manager-jobb
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 80f01a926b94deebab59f8ef91bfc36a4600b5f0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b7cf1d3b9d4a9d751348c4792f904062b00ac104
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632406"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270731"
 ---
-# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Använda .NET SDK för att initiera data-transformering
+# <a name="use-the-net-sdk-to-initiate-data-transformation"></a>Använd .NET SDK för att initiera data omvandlingen
 
 ## <a name="overview"></a>Översikt
 
-Den här artikeln förklarar hur du kan använda funktionen transformering i StorSimple Data Manager-tjänsten för att omvandla data för StorSimple-enheten. Transformerade data används sedan av andra Azure-tjänster i molnet.
+Den här artikeln förklarar hur du kan använda funktionen datatransformering i StorSimple Data Manager-tjänsten för att transformera StorSimple enhets data. Transformerade data används sedan av andra Azure-tjänster i molnet.
 
-Du kan starta ett jobb för omvandling av data på två sätt:
+Du kan starta ett data omvandlings jobb på två sätt:
 
 - Använda .NET SDK
-- Använda Azure Automation-runbook
+- Använd Azure Automation Runbook
  
-  Den här artikeln beskriver hur du skapar ett .NET konsolexempelprogram att initiera ett omvandlingsjobb och spåra det för slutförande. Om du vill veta mer om hur du startar Dataomvandling via Automation kan du gå till [Använd Azure Automation-runbook att utlösaren datatransformeringsjobb](storsimple-data-manager-job-using-automation.md).
+  Den här artikeln beskriver hur du skapar ett exempel på ett .NET-konsol program som initierar ett datatransformerings jobb och sedan spårar det för slut för ande. Om du vill veta mer om hur du initierar datatransformering via Automation går du till [använd Azure Automation Runbook för att utlösa data omvandlings jobb](storsimple-data-manager-job-using-automation.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du kontrollera att du har:
+Innan du börjar ska du kontrol lera att du har:
 *   En dator som kör:
 
     - Visual Studio 2012, 2013, 2015 eller 2017.
 
-    - Azure Powershell. [Hämta Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-*   En korrekt konfigurerad jobbdefinition i StorSimple Data Manager inom en resursgrupp.
-*   Alla nödvändiga DLL-filer. Ladda ned dessa DLL-filer från den [GitHub-lagringsplatsen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
-*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) skriptet från GitHub-lagringsplatsen.
+    - Azure PowerShell. [Ladda ned Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*   En korrekt konfigurerad jobb definition i StorSimple Data Manager inom en resurs grupp.
+*   Alla obligatoriska DLL-filer. Hämta DLL-filerna från [GitHub-lagringsplatsen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls).
+*   [`Get-ConfigurationParams.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) skript från GitHub-lagringsplatsen.
 
-## <a name="step-by-step-procedure"></a>Stegvisa anvisningar
+## <a name="step-by-step-procedure"></a>Steg för steg-procedur
 
-Utför följande steg om du vill använda .NET för att starta ett omvandlingsjobb.
+Utför följande steg för att använda .NET för att starta ett data omvandlings jobb.
 
-1. Om du vill hämta konfigurationsparametrarna, gör du följande:
-    1. Ladda ned den `Get-ConfigurationParams.ps1` från GitHub-lagringsplatsen skriptet i `C:\DataTransformation` plats.
-    1. Kör den `Get-ConfigurationParams.ps1` skriptet från GitHub-lagringsplatsen. Ange följande kommando:
+1. Gör så här för att hämta konfigurations parametrarna:
+    1. Ladda ned `Get-ConfigurationParams.ps1` från GitHub-lagringsplatsen på `C:\DataTransformation` plats.
+    1. Kör `Get-ConfigurationParams.ps1`-skriptet från GitHub-lagringsplatsen. Ange följande kommando:
 
         ```
         C:\DataTransformation\Get-ConfigurationParams.ps1 -SubscriptionName "AzureSubscriptionName" -ActiveDirectoryKey "AnyRandomPassword" -AppName "ApplicationName"
          ```
-        Du kan skicka alla värden för ActiveDirectoryKey och AppName.
+        Du kan skicka in värden för ActiveDirectoryKey och AppName.
 
-2. Det här skriptet returnerar följande värden:
+2. Det här skriptet matar ut följande värden:
     * Klientorganisations-ID
     * Klient-ID:t
-    * Active Directory-nyckel (detsamma som det som anges ovan)
-    * Prenumerations-ID:t
+    * Active Directory nyckel (samma som den som anges ovan)
+    * Prenumerations-ID
 
-        ![Konfigurationsparametrar skript utdata](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
+        ![Skript utdata för konfigurations parametrar](media/storsimple-data-manager-dotnet-jobs/get-config-parameters.png)
 
-3. Med hjälp av Visual Studio 2012, 2013 eller 2015, skapar en C# .NET-konsolprogram.
+3. Skapa ett C# .net-konsol program med hjälp av Visual Studio 2012, 2013 eller 2015.
 
     1. Starta **Visual Studio 2012/2013/2015**.
     1. Välj **Arkiv > Nytt > Projekt**.
 
         ![Skapa ett projekt 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-7.png)        
-    2. Välj **installerat > Mallar > Visual C# > Konsolapp**.
-    3. Ange **DataTransformationApp** för den **namn**.
-    4. Välj **C:\DataTransformation** för den **plats**.
+    2. Välj **installerade > mallar > program C# för visuell >-konsol**.
+    3. Ange **DataTransformationApp** som **namn**.
+    4. Välj **C:\DataTransformation** för **platsen**.
     6. Klicka på **OK** för att skapa projektet.
 
         ![Skapa ett projekt 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-1.png)
 
-4. Lägg nu till alla DLL: er finns i den [DLL-filer mappen](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) som **referenser** i projektet som du skapade. Om du vill lägga till dll-filer, utför du följande:
+4. Nu ska du lägga till alla DLL-filer som finns i [mappen dll](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) -filer som **referenser** i projektet som du har skapat. Gör så här för att lägga till DLL-filerna:
 
-   1. I Visual Studio går du till **Visa > Solution Explorer**.
-   2. Klicka på pilen till vänster om Data Transformation App-projekt. Klicka på **referenser** och högerklicka sedan på att **Lägg till referens**.
+   1. Gå till **visa > Solution Explorer**i Visual Studio.
+   2. Klicka på pilen till vänster om data omvandling-exempelprojektet. Klicka på **referenser** och högerklicka för att **lägga till referens**.
     
-       ![Lägg till DLL-filer 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
+       ![Lägg till dll 1](media/storsimple-data-manager-dotnet-jobs/create-new-project-4.png)
 
-   3. Bläddra till platsen för mappen packages, Välj alla DLL: er och klicka på **Lägg till**, och klicka sedan på **OK**.
+   3. Bläddra till platsen för mappen packages, Välj alla DLL: er och klicka på **Lägg till**och sedan på **OK**.
 
-       ![Lägg till DLL-filer 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
+       ![Lägg till DLL 2](media/storsimple-data-manager-dotnet-jobs/create-new-project-6.png)
 
 5. Lägg till följande **genom att använda** instruktioner till källfilen (Program.cs) i projektet.
 
@@ -102,7 +94,7 @@ Utför följande steg om du vill använda .NET för att starta ett omvandlingsjo
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
     ```
     
-6. Följande kod initierar jobbinstansen data omvandling. Lägg till detta i den **Main-metoden**. Ersätt värdena för konfigurationsparametrar som du fick tidigare. Plugin-värdena för **Resursgruppsnamn** och **ResourceName**. Den **ResourceGroupName** är associerad med där jobbdefinitionen konfigurerades StorSimple Data Manager. Den **ResourceName** är namnet på StorSimple Data Manager-tjänsten.
+6. Följande kod initierar data omvandlings jobb instansen. Lägg till det i **main-metoden**. Ersätt värdena för de konfigurations parametrar som hämtades tidigare. Anslut värdena för **resurs gruppens namn** och **resourceName**. **ResourceGroupName** är associerad med StorSimple Data Manager som jobb definitionen har kon figurer ATS på. **ResourceName** är namnet på din StorSimple Data Manager-tjänst.
 
     ```
     // Setup the configuration parameters.
@@ -120,7 +112,7 @@ Utför följande steg om du vill använda .NET för att starta ett omvandlingsjo
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
     ```
    
-7. Ange de parametrar som jobbdefinitionen måste köras
+7. Ange de parametrar som jobb definitionen måste köras med
 
     ```
     string jobDefinitionName = "job-definition-name";
@@ -128,9 +120,9 @@ Utför följande steg om du vill använda .NET för att starta ett omvandlingsjo
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
     ```
 
-    (OR)
+    ELLER
 
-    Om du vill ändra definitionen jobbparametrar under körning och Lägg sedan till följande kod:
+    Om du vill ändra jobb definitions parametrarna under körnings tiden lägger du till följande kod:
 
     ```
     string jobDefinitionName = "job-definition-name";
@@ -157,7 +149,7 @@ Utför följande steg om du vill använda .NET för att starta ett omvandlingsjo
     };
     ```
 
-8. Efter initieringen, lägger du till följande kod för att utlösa ett omvandlingsjobb på jobbdefinitionen. Plugin-lämplig **Jobbdefinitionsnamn**.
+8. Efter initieringen lägger du till följande kod för att utlösa ett data omvandlings jobb på jobb definitionen. Anslut lämpligt **jobb definitions namn**.
 
     ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.
@@ -168,13 +160,13 @@ Utför följande steg om du vill använda .NET för att starta ett omvandlingsjo
     Console.ReadLine();
 
     ```
-    När koden ska klistras in, skapa lösningen. Här är en skärmbild av kodfragmentet att initiera data-transformering jobbinstans.
+    När koden har klistrats in skapar du lösningen. Här är en skärm bild av kodfragmentet för att initiera data omvandlings jobb instansen.
 
-   ![Kodfragment för att initiera omvandlingsjobb](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
+   ![Kodfragment för att initiera data omvandlings jobb](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet-1.png)
 
-9. Det här jobbet omvandlar data som matchar rotkatalogen och filen filtrerar i StorSimple-volym och placerar dem i den angivna behållare /-filresursen. När en fil omvandlas, läggs ett meddelande till en lagringskö (i samma lagringskonto som behållare/filresurs) med samma namn som jobbdefinitionen. Det här meddelandet kan användas som en utlösare för att initiera vidare bearbetning av filen.
+9. Det här jobbet transformerar data som matchar rot katalogen och fil filtren i StorSimple-volymen och placerar dem i den angivna behållaren/fil resursen. När en fil omvandlas läggs ett meddelande till i en lagrings kö (i samma lagrings konto som behållaren/fil resursen) med samma namn som jobb definitionen. Det här meddelandet kan användas som en utlösare för att initiera eventuell bearbetning av filen.
 
-10. När jobbet har aktiverats, kan du använda följande kod för att spåra jobb för slutförande. Det är inte obligatoriskt att lägga till den här koden för jobbet kör.
+10. När jobbet har utlösts kan du använda följande kod för att spåra jobbet för slut för ande. Det är inte obligatoriskt att lägga till den här koden för jobb körningen.
 
     ```
     Job jobDetails = null;
@@ -196,10 +188,10 @@ Utför följande steg om du vill använda .NET för att starta ett omvandlingsjo
     Console.Read();
 
     ```
-    Här är en skärmbild av hela kodexemplet används för att utlösa jobbet med hjälp av .NET.
+    Här är en skärm bild av hela kod exemplet som används för att utlösa jobbet med .NET.
 
-    ![Fullständig kodstycke att utlösa ett jobb för .NET](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
+    ![Fullständigt kod avsnitt för att utlösa ett .NET-jobb](media/storsimple-data-manager-dotnet-jobs/start-dotnet-job-code-snippet.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd StorSimple Data Manager UI och omvandla data](storsimple-data-manager-ui.md).
+[Använd StorSimple Data Manager användar gränssnitt för att transformera data](storsimple-data-manager-ui.md).

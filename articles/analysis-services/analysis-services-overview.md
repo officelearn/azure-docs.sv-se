@@ -4,15 +4,15 @@ description: Lär dig mer om Azure Analysis Services, en fullständigt hanterad 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749683"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274795"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -34,7 +34,7 @@ Azure Analysis Services integreras med många Azure-tjänster vilket gör att du
 
 ## <a name="the-right-tier-when-you-need-it"></a>Rätt nivå när du behöver den
 
-Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic** och **Standard**. Inom varje nivå varierar kostnaderna för prenumerationsavtalen utifrån bearbetningskraft, QPU:er och minnesstorlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
+Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic** och **Standard**. På varje nivå varierar plan kostnaderna beroende på processor kraft, Qpu: er (Query Processing units) och minnes storlek. När du skapar en server kan välja du en plan inom en nivå. Du kan ändra planer uppåt eller nedåt i samma nivå eller uppgradera till en högre nivå, men det går inte att nedgradera från en högre nivå till en lägre nivå.
 
 ### <a name="developer-tier"></a>Developer-nivå
 
@@ -47,7 +47,7 @@ Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarie
 
 ### <a name="basic-tier"></a>Basic-nivå
 
-Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
+Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Utskalning av frågans replik *är inte tillgängligt* för den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
 
 |Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
@@ -232,7 +232,7 @@ Azure Analysis Services stöder även [dynamiska hanteringsvyer (DMV: er)](https
 
 Dokumentation specifik för Azure Analysis Services ingår. Använd innehållsförteckningen på vänster sida av webbläsarskärmen för att hitta artiklar. 
 
-Eftersom Azure Analysis Services tabell modeller är mycket samma som tabell modeller i SQL Server Analysis Services, finns det ett omfattande bibliotek med delade koncept-, procedur-, utvecklings-och referens artiklar i [SQL Server Analysis Services dokumentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
+Eftersom Azure Analysis Services tabell modeller är mycket samma som tabell modeller i SQL Server Analysis Services, finns det ett omfattande bibliotek med självstudier för delade data modeller, konceptuella, procedur mässiga, utvecklings-och referens artiklar i [SQL Server Analysis Services dokumentation](https://docs.microsoft.com/analysis-services/analysis-services-overview). Artiklar i dokumentation för SQL Server Analysis Services visar om de gäller även för Azure Analysis Services med banderollen GÄLLER FÖR under rubriken.
 
 ![Delad dokumentation](./media/analysis-services-overview/aas-overview-applies-to.png)
 

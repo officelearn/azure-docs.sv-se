@@ -1,29 +1,27 @@
 ---
-title: (INAKTUELL) Övervaka ett Azure Container Service-kluster med Sysdig
+title: FÖRÅLDRAD Övervaka ett Azure Container Service kluster med Sysdig
 description: Övervaka ett Azure Container Service-kluster med Sysdig.
-services: container-service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 39cd5a3fe7db0c442608e7943e7cbd6e3198edfb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a22d48554573e2517b318f6172b759864bf46612
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60509571"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277735"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med Sysdig
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-sysdig"></a>FÖRÅLDRAD Övervaka ett Azure Container Service kluster med Sysdig
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
 I den här artikeln ska vi distribuera Sysdig-agenter till alla agentnoder i ditt Azure Container Service-kluster. Du behöver ett konto hos Sysdig för den här konfigurationen. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-[Distribuera](container-service-deployment.md) och [anslut](../container-service-connect.md) ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [ https://app.sysdigcloud.com ](https://app.sysdigcloud.com) att ställa in ett Sysdig-molnkonto. 
+## <a name="prerequisites"></a>Krav
+[Distribuera](container-service-deployment.md) och [anslut](../container-service-connect.md) ett kluster som konfigurerats av Azure Container Service. Utforska [Marathon-gränssnittet](container-service-mesos-marathon-ui.md). Gå till [https://app.sysdigcloud.com](https://app.sysdigcloud.com) om du vill konfigurera ett moln konto för Sysdig. 
 
 ## <a name="sysdig"></a>Sysdig
 Sysdig är en övervakningstjänst som gör att du kan övervaka dina containrar i klustret. Sysdig är kända för att hjälpa till med felsökning men innehåller även grundläggande övervakningsmätvärden för processor, nätverk, minne och I/O. Sysdig gör det enkelt att se vilka containrar som arbetar hårdast eller använder mest minne och CPU. Den här vyn finns i avsnittet ”Översikt”, som för närvarande är en betaversion. 
@@ -33,7 +31,7 @@ Sysdig är en övervakningstjänst som gör att du kan övervaka dina containrar
 ## <a name="configure-a-sysdig-deployment-with-marathon"></a>Konfigurera en Sysdig-distribution med Marathon
 Här visas hur du konfigurerar och distribuerar Sysdig-program till klustret med Marathon. 
 
-Komma åt DC/OS-Gränssnittet via [ http://localhost:80/ ](http://localhost:80/) en gång i DC/OS-Användargränssnittet navigerar du till ”Universe”, som är längst ned till vänster och söker sedan efter ”Sysdig”.
+Kom åt ditt DC/OS-gränssnitt via [http://localhost:80/](http://localhost:80/) en gång i DC/OS-gränssnittet navigerar du till "universum", som finns längst ned till vänster och sedan söker efter "Sysdig".
 
 ![Sysdig i DC/OS Universe](./media/container-service-monitoring-sysdig/sysdig1.png)
 

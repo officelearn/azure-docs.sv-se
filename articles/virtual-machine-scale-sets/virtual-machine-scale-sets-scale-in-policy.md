@@ -1,22 +1,20 @@
 ---
-title: Använd anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer | Microsoft Docs
+title: Använd anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig hur du använder anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer som använder automatisk skalnings konfiguration för att hantera instans antal
-services: virtual-machine-scale-sets
 author: avverma
-manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: avverma
-ms.openlocfilehash: c1618c398c0f7c4f0f54647e5232fdacc17de186
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453165"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271767"
 ---
 # <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>För hands version: Använd anpassade skalnings principer med skalnings uppsättningar för virtuella Azure-datorer
 
@@ -24,7 +22,7 @@ En distribution av skalnings uppsättningar för virtuella datorer kan skalas up
 
 Funktionen för skalnings-i-princip ger användarna möjlighet att konfigurera i vilken ordning de virtuella datorerna ska skalas. I för hands versionen introduceras tre konfigurations inställningar: 
 
-1. Standard
+1. Default
 2. NewestVM
 3. OldestVM
 
@@ -133,7 +131,7 @@ Skalnings uppsättningar för virtuella datorer ger två typer av [instans skydd
 1. Skydda från skalbarhet
 2. Skydda från skalnings uppsättnings åtgärder
 
-En skyddad virtuell dator tas inte bort via en skalnings åtgärd, oavsett vilken skalnings princip som tillämpas. Till exempel, om VM_0 (äldsta VM i skalnings uppsättningen) är skyddad från Scale-in och skalnings uppsättningen har "OldestVM" skalnings princip aktive rad, kommer VM_0 inte att anses vara skalad i, även om det är den äldsta virtuella datorn i skalnings uppsättningen. 
+En skyddad virtuell dator tas inte bort via en skalnings åtgärd, oavsett vilken skalnings princip som tillämpas. Till exempel, om VM_0 (äldsta virtuella datorn i skalnings uppsättningen) är skyddad från Scale-in och skalnings uppsättningen har "OldestVM" skalnings princip aktive rad, kommer VM_0 inte att beaktas för skalning i, även om det är den äldsta virtuella datorn i skalnings uppsättningen. 
 
 En skyddad virtuell dator kan när som helst tas bort manuellt av användaren, oavsett vilken skalnings princip som är aktive rad i skalnings uppsättningen. 
 
@@ -145,7 +143,7 @@ I exemplen nedan visas hur en skalnings uppsättning för virtuella datorer väl
 
 | Händelse                 | Instans-ID: n i zon 1  | Instans-ID: n i 1  | Instans-ID: n i zon 3  | Skalning – i markering                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Grund               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Initialt               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Skala in              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | Välj mellan Zon 1 och 2, även om Zon 3 har den äldsta virtuella datorn. Ta bort VM2 från Zon 2 eftersom det är den äldsta virtuella datorn i zonen.   |
 | Skala in              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | Välj Zon 1 även om Zon 3 har den äldsta virtuella datorn. Ta bort VM3 från Zon 1 eftersom det är den äldsta virtuella datorn i zonen.                  |
 | Skala in              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | Zoner är balanserade. Ta bort VM1 i Zon 3 eftersom det är den äldsta virtuella datorn i skalnings uppsättningen.                                               |
@@ -159,7 +157,7 @@ För icke-zonindelade virtuella datorers skalnings uppsättningar väljer princi
 
 | Händelse                 | Instans-ID: n i zon 1  | Instans-ID: n i 1  | Instans-ID: n i zon 3  | Skalning – i markering                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Grund               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| Initialt               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | Skala in              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | Välj mellan Zon 1 och 2. Ta bort VM11 – från Zon 2 eftersom det är den senaste virtuella datorn i de två zonerna.                                |
 | Skala in              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | Välj Zon 1 som har fler virtuella datorer än de andra två zonerna. Ta bort VM10 från Zon 1 som den senaste virtuella datorn i zonen.          |
 | Skala in              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | Zoner är balanserade. Ta bort VM9 i Zon 2 eftersom det är den nyaste virtuella datorn i skalnings uppsättningen.                                                |

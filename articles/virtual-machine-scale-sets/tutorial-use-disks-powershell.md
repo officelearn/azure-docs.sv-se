@@ -1,31 +1,23 @@
 ---
-title: Självstudie – skapa och använd diskar för skalningsuppsättningar med Azure PowerShell | Microsoft Docs
+title: Självstudie – Skapa och Använd diskar för skalnings uppsättningar med Azure PowerShell
 description: Läs hur du använder Azure PowerShell för att skapa och använda hanterade diskar med VM-skalningsuppsättningar, inklusive hur du lägger till, förbereder, listar och kopplar från diskarna.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728586"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278260"
 ---
-# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Självstudier: Skapa och använda diskar med VM-skalningsuppsättningar med Azure PowerShell
+# <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: skapa och använd diskar med VM-skalningsuppsättningar med Azure PowerShell
 
-VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här självstudiekursen får du lära du dig att:
+VM-skalningsuppsättningar använder diskar för att lagra den virtuella datorinstansens operativsystem, program och data. När du skapar och hanterar en skalningsuppsättning, är det viktigt att välja en diskstorlek och konfiguration som lämpar sig för den förväntade arbetsbelastningen. Den här självstudien beskriver hur du skapar och hanterar virtuella datordiskar. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * OS-diskar och temporära diskar
@@ -49,7 +41,7 @@ När en skalningsuppsättning skapas eller skalas, ansluts två diskar automatis
 **Temporär disk** – Temporära diskar använder en SSD-enhet som finns på samma Azure-värd som den virtuella datorinstansen. Det här är högpresterande diskar och kan användas för åtgärder som till exempel tillfällig databearbetning. Om den virtuella datorinstansen flyttas till en ny värddator tas dock alla data som lagras på den temporära disken bort. Storleken på den temporära disken bestäms av den virtuella datorinstansens storlek. Temporära diskar kallas */dev/sdb* och har monteringspunkten */mnt*.
 
 ### <a name="temporary-disk-sizes"></a>Storlekar för temporära diskar
-| Type | Normala storlekar | Maxstorlek för temporär disk (GiB) |
+| Typ | Normala storlekar | Maxstorlek för temporär disk (GiB) |
 |----|----|----|
 | [Generellt syfte](../virtual-machines/windows/sizes-general.md) | A-, B- och D-serien | 1600 |
 | [Beräkningsoptimerad](../virtual-machines/windows/sizes-compute.md) | F-serien | 576 |
@@ -63,7 +55,7 @@ När en skalningsuppsättning skapas eller skalas, ansluts två diskar automatis
 Du kan lägga till ytterligare datadiskar om du behöver installera program och lagra data. Datadiskar används när du behöver hållbar och responsiv datalagring. Varje datadisk har en maxkapacitet på 4 TB. Storleken på den virtuella datorinstansen avgör hur många datadiskar som kan anslutas. Två datadiskar kan kopplas för varje VM vCPU.
 
 ### <a name="max-data-disks-per-vm"></a>Maximalt antal datadiskar per VM
-| Type | Normala storlekar | Maximalt antal datadiskar per VM |
+| Typ | Normala storlekar | Maximalt antal datadiskar per VM |
 |----|----|----|
 | [Generellt syfte](../virtual-machines/windows/sizes-general.md) | A-, B- och D-serien | 64 |
 | [Beräkningsoptimerad](../virtual-machines/windows/sizes-compute.md) | F-serien | 64 |
@@ -85,8 +77,8 @@ Premiumdiskar backas upp av SSD-baserade diskar med hög prestanda och låg late
 ### <a name="premium-disk-performance"></a>Premiumdiskprestanda
 |Premium Storage-disktyp | P4 | P6 | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
-| Högsta IOPS per disk | 120 | 240 | 500 | 2,300 | 5 000 | 7 500 | 7,500 |
+| Diskens storlek (avrundas uppåt) | 32 GB | 64 GB | 128 GB | 512 GB | 1 024 GB (1 TB) | 2 048 GB (2 TB) | 4 095 GB (4 TB) |
+| Högsta IOPS per disk | 120 | 240 | 500 | 2 300 | 5 000 | 7 500 | 7 500 |
 Dataflöde per disk | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s |
 
 I tabellen ovan visas högsta IOPS per disk, men högre prestanda kan uppnås genom strimling över flera datadiskar. En Standard_GS5 virtuell dator kan till exempel uppnå maximalt 80 000 IOPS. Mer information om högsta IOPS per virtuell dator finns i [Storlekar för virtuella Windows-datorer](../virtual-machines/windows/sizes.md).

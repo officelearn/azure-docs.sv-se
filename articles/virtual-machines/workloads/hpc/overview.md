@@ -1,58 +1,54 @@
 ---
-title: Högpresterande data på virtuella datorer i H-serien – Azure Virtual Machines | Microsoft Docs
-description: Läs mer om funktioner och egenskaper i H-serien virtuella datorer som optimerats för HPC.
-services: virtual-machines
-documentationcenter: ''
+title: Data behandling med höga prestanda på virtuella datorer i H-serien – Azure Virtual Machines
+description: Lär dig mer om funktionerna i H-seriens virtuella datorer som är optimerade för HPC.
 author: vermagit
-manager: jeconnoc
-editor: ''
+ms.author: amverma
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 07/02/2019
-ms.author: amverma
-ms.openlocfilehash: d6e857a87e4c7df8ffb2be1eefb7a0290da5b10a
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: b3d5d003db89a11a013c3236a3afbe03ffe68557
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800066"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271025"
 ---
-# <a name="high-performance-computing-on-h-series-vms"></a>Högpresterande data på virtuella datorer i H-serien
+# <a name="high-performance-computing-on-h-series-vms"></a>Data behandling med höga prestanda på virtuella datorer i H-serien
 
-Högpresterande Datorsystem på HB-serien och HC-seriens virtuella datorer kan de mest optimerade HPC-prestandan på virtuella datorer på Azure. HPC optimerade virtuella datorer används för att lösa några av de svåraste matematiska problem som: fluiddynamik, olja och gas simuleringar och vädermodellering.
+Data behandling med höga prestanda (HPC) på virtuella datorer i HB-serien och HC-serien möjliggör de mest optimerade HPC-prestanda för alla virtuella datorer i Azure. HPC-optimerade virtuella datorer används för att lösa några av de mest svåra matematiska problemen som: Fluid Dynamics, olje-och gas simulering och väder modellering.
 
-Den här artikeln beskriver några viktiga funktioner i HB-serien och HC-seriens virtuella datorer, varför dessa virtuella datorer fungerar väl med HPC-scenarier och hur du kommer igång.
+Den här artikeln beskriver några viktiga funktioner i virtuella datorer i HB-serien och HC-serien, varför de virtuella datorerna fungerar bra i HPC-scenarier och hur du kommer igång.
 
-## <a name="features-and-capabilities"></a>Funktioner och egenskaper
+## <a name="features-and-capabilities"></a>Funktioner
 
-HB-serien och virtuella datorer HC-serien är utformad för att ge bästa HPC prestanda message passing interface (MPI) skalbarhet och kostnadseffektivitet för HPC-arbetsbelastningar.
+Virtuella datorer i HB-serien och HC-serien har utformats för att ge bästa möjliga HPC-prestanda, skalbarhet för Message Passing Interface (MPI) och kostnads effektivitet för HPC-arbetsbelastningar.
 
-### <a name="message-passing-interface"></a>Meddelandet passerar gränssnittet
+### <a name="message-passing-interface"></a>Gränssnitt för meddelande överföring
 
-HB- och HC-serien stöder nästan alla typer av MPI och versioner. Några av de vanliga, stöds MPI typer är: Åtkomst till (RDMA)-verb OpenMPI, MVAPICH2, plattform MPI, Intel MPI och alla direkt fjärråtkomst till minne. Mer information finns i [konfigurera Message Passing Interface för HPC](setup-mpi.md).
+HB-serien och HC-serien stöder nästan alla MPI-typer och-versioner. Några av de vanligaste typerna av MPI-typer som stöds är: OpenMPI, MVAPICH2, Platform MPI, Intel MPI och alla RDMA-verb (Remote Direct Memory Access). Mer information finns i [Konfigurera Message Passing Interface för HPC](setup-mpi.md).
 
-### <a name="rdma-and-infiniband"></a>RDMA and InfiniBand
+### <a name="rdma-and-infiniband"></a>RDMA och InfiniBand
 
-RDMA-gränssnitt är standard på HB-serien och HC-seriens virtuella datorer. RDMA-kompatibla förekomster kommunicerar via ett InfiniBand-nätverk fungerar enligt priserna för datalagringen (EDR) för HB- och HC-serien virtuella datorer. RDMA-kompatibla förekomster kan öka skalbarheten och prestandan i vissa MPI-program.
+RDMA-gränssnittet är standard på virtuella datorer i HB-serien och HC-serien. Instanser av RDMA-kapacitet kommunicerar över ett InfiniBand-nätverk, som arbetar med förbättrade data hastigheter (EDR) för virtuella datorer i HB-serien och HC-serien. RDMA-kompatibla instanser kan öka skalbarheten och prestandan för vissa MPI-program.
 
-InfiniBand-konfigurationen stöder HB-serien och virtuella datorer HC-serien är icke-blockerande fat träd med en låg diameter design för RDMA.
+InfiniBand-konfigurationen som stöder virtuella datorer i HB-serien och HC-serien är icke-blockerande fett träd med en design med låg diameter för konsekvent RDMA-prestanda.
 
-Se [aktivera InfiniBand](enable-infiniband.md) mer information om hur du konfigurerar InfiniBand på HB-serien eller HC-seriens virtuella datorer.
+Se [Aktivera InfiniBand](enable-infiniband.md) för att lära dig mer om hur du konfigurerar InfiniBand på dina virtuella datorer i HB-serien eller HC-serien.
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
-Bestäm först vilken H-serien virtuell dator som du ska använda. Information om HPC optimerade virtuella datorer, finns i [översikt över HB serie](hb-series-overview.md) och [HC-serien översikt](hc-series-overview.md). Specifikationer, se [högpresterande compute VM-storlekar](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
+Bestäm först vilken virtuell dator i H-serien som du ska använda. Mer information om HPC-optimerade virtuella datorer finns i Översikt [över HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md). För specifikationer, se [storlekar för beräkning av virtuella datorer med höga prestanda](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc).
 
-När du har valt och skapat en virtuell dator för ditt program, måste du konfigurera genom att aktivera InfiniBand. Läs hur du aktiverar InfiniBand på både Windows och Linux-datorer i [aktivera InfiniBand](enable-infiniband.md).
+När du har valt och skapat en virtuell dator för ditt program måste du konfigurera den genom att aktivera InfiniBand. Information om hur du aktiverar InfiniBand i både virtuella Windows-och Linux-datorer finns i [Aktivera InfiniBand](enable-infiniband.md).
 
-En kritisk komponent för HPC-arbetsbelastningar är MPI. HB- och HC-serien stöder nästan alla typer av MPI och versioner. Mer information finns i [konfigurera Message Passing Interface för HPC](setup-mpi.md).
+En viktig komponent i HPC-arbetsbelastningar är MPI. HB-serien och HC-serien stöder nästan alla MPI-typer och-versioner. Mer information finns i [Konfigurera Message Passing Interface för HPC](setup-mpi.md).
 
-När du har valt VM-serien, ställa in Infiniband och MPI, är du redo att börja bygga ditt HPC-arbetsbelastningar.
+När du har valt din VM-serie, konfigurerat InfiniBand och MPI är du redo att börja skapa dina HPC-arbetsbelastningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska den [översikt över HB serie](hb-series-overview.md) och [HC-serien översikt](hc-series-overview.md) och se hur viktiga skillnader och specifikationer.
+- Läs översikten över [HB-serien](hb-series-overview.md) och [HC-serien](hc-series-overview.md) för att lära dig mer om viktiga skillnader och specifikationer.
 
-- En högre nivå, arkitektoniska vy över kör HPC-arbetsbelastningar, finns i [HPC High Performance Computing () på Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
+- För en högre nivå, arkitektonisk visning av aktiva HPC-arbetsbelastningar, se [HPC (data behandling med höga prestanda) i Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).

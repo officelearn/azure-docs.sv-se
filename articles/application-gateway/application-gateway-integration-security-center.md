@@ -1,88 +1,82 @@
 ---
-title: Application Gateway-integration med Azure Security Center | Microsoft Docs
-description: Den här sidan innehåller information om hur Application Gateway är integrerad i Azure Security Center.
-documentationcenter: na
+title: Application Gateway integration med Azure Security Center | Microsoft Docs
+description: Den här sidan innehåller information om hur Application Gateway integreras i Azure Security Center.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
+ms.author: victorh
 ms.assetid: e5ea5cf9-3b41-4b85-a12c-e758bff7f3ec
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.custom: ''
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.author: victorh
-ms.openlocfilehash: 10f115b64f0bd3f7e557da2bedbf3327d0ef483d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5ecd2334ca80f5561c0611239b5bb00d222112a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122311"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277190"
 ---
-# <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Översikt över integreringen mellan Application Gateway och Azure Security Center
+# <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Översikt över integrering mellan Application Gateway och Azure Security Center
 
-Lär dig hur Application Gateway och Security Center till att skydda resurser i ditt webbprogram. Application gateway waf (WAF) som kan integreras med [Security Center](../security-center/security-center-intro.md) för att ge en sömlös vy för att förhindra, upptäcka och svara på hot mot oskyddade webbappar i din miljö.
+Lär dig hur Application Gateway och Security Center hjälper dig att skydda dina webb programs resurser. Brand vägg för webbaserade program i Application Gateway (WAF) integreras med [Security Center](../security-center/security-center-intro.md) för att ge en sömlös vy för att förhindra, identifiera och svara på hot mot oskyddade webb program i din miljö.
 
 ## <a name="overview"></a>Översikt
 
-Application Gateway WAF är en rekommendation i Security Center för att skydda webbprogram från kryphål och säkerhetsproblem. -Aktiverade webbresurser som inte skyddas av WAF visas i security center som rekommendationer med hög allvarlighetsgrad. Rekommendationer för brandväggar för webbprogram visas på den **översikt** sidan under **program**.
+Application Gateway WAF är en rekommendation i Security Center för att skydda webb program mot sårbarheter och sårbarheter. Web-aktiverade resurser som inte skyddas av WAF visas i Security Center som rekommendationer med hög allvarlighets grad. Rekommendationer för brand väggar för webb program visas på sidan **Översikt** under **program**.
 
-![integrering med security center][1]
+![integrering med Security Center][1]
 
-Klicka på några rekommendationer om Brandvägg för webbaserade program öppnas en ny sida som visar information om rekommendationen.
+Om du klickar på alla rekommendationer om brand vägg för webbaserade program öppnas en ny sida som visar information om rekommendationen.
 
-## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Lägg till en brandvägg för webbaserade program i en befintlig resurs
+## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Lägg till en brand vägg för webbaserade program i en befintlig resurs
 
-Gå till **alla tjänster** > **säkerhet + identitet** > **Security Center** på **Security Center – översikt**, klickar du på **program**. På **Security Center - program**, tabellen innehåller en lista över program som Security Center som identifierats i din prenumeration.
+Gå till **alla tjänster** > **säkerhet och identitet** > **Security Center** och klicka på **program**på **Security Center – översikt**. I **Security Center-program**innehåller tabellen en lista över program som Security Center identifierats i din prenumeration.
 
-![Webbprogram][3]
+![webb program][3]
 
-Genom att klicka på ett webbprogram med ett kritiskt problem, du får den **programmets säkerhetshälsa** sidan. I bilden nedan, webbprogram som inte skyddas av en brandvägg för webbaserade program. 
+Genom att klicka på ett webb program med ett kritiskt problem får du sidan **program säkerhets hälsa** . I bilden nedan är webb programmet som inte skyddas av en brand vägg för webbaserade program. 
 
-![webbresurser som inte skyddas][2]
+![webb resurser som inte är skyddade][2]
 
-Klicka på **lägga till en brandvägg för webbaserade program** under **rekommendationer** att öppna den **lägga till en brandvägg för webbaserade program** sidan.
+Klicka på **Lägg till en brand vägg för webbaserade program** under **rekommendationer** för att öppna sidan **Lägg till en brand vägg för webb program** .
 
-Om du inte har en befintlig Application Gateway eller vill skapa en ny, klickar du på **Skapa ny** på **skapa en ny Brandvägg för webbaserade program**, och klicka på **Microsoft – Application Gateway** . Detta tar dig igenom stegen för att skapa en Programgateway. Webbprogrammet har nu lagts till som en skyddad resurs Security Center nu spårar att den här resursen skyddas av en brandvägg för webbaserade program. Detta lägger inte till den som en medlem för backend-poolen.
+Om du inte har ett befintligt Application Gateway eller om du vill skapa en ny, klickar du på **Skapa ny** och på **skapa en ny brand vägg för webbaserade program**och klickar på **Microsoft-Application Gateway**. Detta tar dig igenom stegen för att skapa en Programgateway. Nu läggs ditt webb program till som en skyddad resurs, Security Center nu spårar att den här resursen skyddas av en brand vägg för webbaserade program. Detta lägger inte till den som medlem i en server del.
 
-Om du har en befintlig application gateway kan du välja den under **Använd befintlig lösning**
+Om du har en befintlig Application Gateway kan du välja den under **Använd befintlig lösning**
 
-![Brandvägg för webbaserade program Lägg till sida][4]
+![Sida för att lägga till en brand vägg för webbaserade program][4]
 
-Att lägga till ett webbprogram till en application gateway, via Security Center lägger inte till resursen som en medlem för backend-poolen. Detta måste göras på programgatewayresursen direkt.
+Om du lägger till ett webb program till en Programgateway via Security Center läggs inte resursen till i en medlem i en Server grupp. Detta måste göras i Application Gateway-resursen direkt.
 
-## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Lägg till en resurs i en befintlig Brandvägg för webbaserade program
+## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Lägga till en resurs i en befintlig brand vägg för webbaserade program
 
-Gå till **alla tjänster** > **säkerhet + identitet** > **Security Center** på **Security Center – översikt**, klickar du på **partnerlösningar**. Befintliga Security Center medveten programgatewayer visa i den **partnerlösningar** sidan.
+Gå till **alla tjänster** > **säkerhet och identitet** > **Security Center** och klicka på **partner lösningar**på **Security Center-översikt**. Befintliga Security Center medveten Application gateways visas på sidan **partner lösningar** .
 
-![Partnerlösningar][7]
+![partner lösningar][7]
 
-Klicka på **länka app** att öppna **länka program**, här ges du alternativ att välja befintliga program. Välj de program som ska skydda och klickar på **OK**. Detta lägger inte till webbappen till serverdelspoolen för application gateway. Detta anger resurserna som en skyddad resurs så att Security Center kan spåra den. Om du vill lägga till resursen som medlem backend-pool, måste du göra det på programgatewayen från den aktuella sidan som du kan klicka på **lösningskonsol** som ska vidtas på den programgatewayresurs där du kan lägga till det webbaserade programmet och den backend-pool.
+Klicka på **Länka app** för att öppna **länk program**, här får du alternativ för att välja befintliga program. Välj de program som du vill skydda och klicka på **OK**. Detta lägger inte till webb programmet i backend-poolen för Application Gateway. Detta anger resurserna som en skyddad resurs så Security Center kan spåra den. Om du vill lägga till resursen som medlem i en server del måste du göra detta på Application Gateway, från den aktuella sidan kan du klicka på **lösnings konsolen** för att gå till den Application Gateway-resurs där du kan lägga till webb programmet i backend-poolen.
 
-![program från partner lösningar][6]
+![partner Solutions-program][6]
 
 ## <a name="finalize-configuration"></a>Slutför konfiguration
 
-Security Center spårar program som har lagts till i en application gateway som en skyddad resurs.  Den övervakar hälsotillståndet för den här resursen och ser till att den är skyddad med en Programgateway. Nästa steg är att lägga till privata IP-Adressen, offentlig IP-adress eller NIC för den virtuella datorn till i serverdelspoolen för programgatewayen. Tills detta görs en ytterligare rekommendation av **Slutför programskydd** visas tills resursen har lagts till.
+Security Center spårar program som har lagts till i en Application Gateway som en skyddad resurs.  Den övervakar resursens hälso tillstånd och säkerställer att den skyddas av en Programgateway. Nästa steg är att lägga till den privata IP-adressen, den offentliga IP-adressen eller NIC-adressen för den virtuella datorn i backend-poolen för Application Gateway. Tills detta görs ytterligare en rekommendation om att **slutföra program skydd** visas tills resursen har lagts till.
 
-![Brandvägg för webbaserade program Lägg till sida][5]
+![Sida för att lägga till en brand vägg för webbaserade program][5]
 
 ## <a name="security-alerts"></a>Säkerhetsaviseringar
 
-Navigera till i Security Center **identifiering** > **säkerhetsaviseringar**.  Här hittar du WAF aviseringar för dina programgatewayer. Aviseringar är uppdelade efter WAF-regel.
+I Security Center navigerar du till **identifiering** > **säkerhets aviseringar**.  Här hittar du WAF-aviseringar för dina programgatewayer. Aviseringar delas upp av WAF-regeln.
 
-![Säkerhetsaviseringar][8]
+![säkerhets aviseringar][8]
 
-Klicka på en regel får en lista över aviseringar för den specifika WAF-regeln. Varje avisering innehåller ytterligare uppgifter om hittar. Informationen tillhandahåller en länk till application gateway.
+Om du väljer en regel visas en lista över aviseringar för den aktuella WAF-regeln. Varje avisering visar ytterligare information om att hitta. Informationen innehåller en länk till Application Gateway.
  
-![Aviseringsinformation][9]
+![aviserings information][9]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du kan få veta hur du aktiverar Brandvägg för webbaserade program på en befintlig Programgateway [skapa eller uppdatera en Azure-Programgateway med brandväggen för webbaserade program](application-gateway-web-application-firewall-portal.md).
+Om du vill lära dig hur du aktiverar brand vägg för webbaserade program på en befintlig Programgateway kan du gå [till skapa eller uppdatera en Azure Application Gateway med brand vägg för webb program](application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

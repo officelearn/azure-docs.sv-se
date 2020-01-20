@@ -1,37 +1,30 @@
 ---
-title: Hantera VM-Skalningsuppsättningar med Azure PowerShell | Microsoft Docs
-description: Vanliga Azure PowerShell-cmdletar för att hantera Virtual Machine Scale Sets, till exempel att starta och stoppa en instans eller ändra skala Ange kapacitet.
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Hantera Virtual Machine Scale Sets med Azure PowerShell
+description: Vanliga Azure PowerShell-cmdletar för att hantera Virtual Machine Scale Sets, till exempel hur du startar och stoppar en instans eller ändrar skalnings uppsättningens kapacitet.
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: d35fa77a-de96-4ccd-a332-eb181d1f4273
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: a6474320fd8b1545d61320cd43e155ab077ba310
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc83c8b73c73b2aa70bc36bad175e5c19c1ab700
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64683534"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275703"
 ---
-# <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en VM-skalningsuppsättning med Azure PowerShell
+# <a name="manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Hantera en skalnings uppsättning för virtuella datorer med Azure PowerShell
 
-Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. Den här artikeln beskriver några vanliga Azure PowerShell-cmdlets som låter dig utföra dessa uppgifter.
+Under livscykeln för en VM-skalningsuppsättning kan du behöva köra en eller flera hanteringsuppgifter. Dessutom kanske du vill skapa skript som automatiserar olika livscykeluppgifter. I den här artikeln beskrivs några vanliga Azure PowerShell-cmdletar som låter dig utföra dessa uppgifter.
 
-Om du vill skapa en skalningsuppsättning för virtuell dator kan du [skapa en skalningsuppsättning med Azure PowerShell](quick-create-powershell.md).
+Om du behöver skapa en skalnings uppsättning för virtuella datorer kan du [skapa en skalnings uppsättning med Azure PowerShell](quick-create-powershell.md).
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="view-information-about-a-scale-set"></a>Visa information om en skalningsuppsättning
-Du kan visa den övergripande informationen om en skalningsuppsättning [Get-AzVmss](/powershell/module/az.compute/get-azvmss). I följande exempel hämtar information om skalningsuppsättningen *myScaleSet* i den *myResourceGroup* resursgrupp. Ange egna namn enligt följande:
+## <a name="view-information-about-a-scale-set"></a>Visa information om en skalnings uppsättning
+Om du vill visa den övergripande informationen om en skalnings uppsättning använder du [Get-AzVmss](/powershell/module/az.compute/get-azvmss). I följande exempel får du information om skalnings uppsättningen med namnet *myScaleSet* i resurs gruppen *myResourceGroup* . Ange dina egna namn enligt följande:
 
 ```powershell
 Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
@@ -39,13 +32,13 @@ Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 
 
 ## <a name="view-vms-in-a-scale-set"></a>Visa virtuella datorer i en skalningsuppsättning
-Du kan visa en lista över VM-instans i en skalningsuppsättning [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). I följande exempel visar en lista över alla Virtuella datorinstanser i skalningsuppsättningen *myScaleSet* och i den *myResourceGroup* resursgrupp. Ange egna värden för dessa namn:
+Om du vill visa en lista över virtuella dator instanser i en skalnings uppsättning, använder du [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm). I följande exempel visas alla virtuella dator instanser i skalnings uppsättningen med namnet *myScaleSet* och i resurs gruppen *myResourceGroup* . Ange dina egna värden för följande namn:
 
 ```powershell
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet"
 ```
 
-Om du vill visa mer information om en specifik VM-instans, lägger du till den `-InstanceId` parameter [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) och anger en instans för att visa. I följande exempel visar information om den Virtuella datorinstansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna namn enligt följande:
+Om du vill visa ytterligare information om en speciell VM-instans lägger du till parametern `-InstanceId` för att [Get-AzVmssVM](/powershell/module/az.compute/get-azvmssvm) och anger en instans som ska visas. Följande exempel visar information om den virtuella dator instansen *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* . Ange dina egna namn enligt följande:
 
 ```powershell
 Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -53,9 +46,9 @@ Get-AzVmssVM -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -
 
 
 ## <a name="change-the-capacity-of-a-scale-set"></a>Ändra kapaciteten för en skalningsuppsättning
-I föregående kommandon som visar information om din skalningsuppsättning och VM-instanser. Om du vill öka eller minska antalet instanser i skalningsuppsättningen, kan du ändra kapaciteten. Skalningsuppsättning automatiskt skapar eller tar bort det begärda antalet virtuella datorer och sedan konfigurerar de virtuella datorerna för att ta emot trafik.
+Föregående kommandon visade information om din skalnings uppsättning och de virtuella dator instanserna. Om du vill öka eller minska antalet instanser i skalnings uppsättningen kan du ändra kapaciteten. Skalnings uppsättningen skapar eller tar bort det antal virtuella datorer som krävs, och konfigurerar sedan de virtuella datorerna för att ta emot program trafik.
 
-Skapa först ett skalningsuppsättningsobjekt med [Get-AzVmss](/powershell/module/az.compute/get-azvmss) och ange sedan ett nytt värde för `sku.capacity`. Om du vill tillämpa kapacitetsändringen, använder du [Update-AzVmss](/powershell/module/az.compute/update-azvmss). Följande exempel uppdateringar *myScaleSet* i den *myResourceGroup* resursgrupp till en kapacitet på *5* instanser. Ange egna värden enligt följande:
+Skapa först ett skalningsuppsättningsobjekt med [Get-AzVmss](/powershell/module/az.compute/get-azvmss) och ange sedan ett nytt värde för `sku.capacity`. Om du vill tillämpa kapacitetsändringen, använder du [Update-AzVmss](/powershell/module/az.compute/update-azvmss). I följande exempel uppdateras *myScaleSet* i resurs gruppen *myResourceGroup* till en kapacitet på *5* instanser. Ange dina egna värden på följande sätt:
 
 ```powershell
 # Get current scale set
@@ -66,13 +59,13 @@ $vmss.sku.capacity = 5
 Update-AzVmss -ResourceGroupName "myResourceGroup" -Name "myScaleSet" -VirtualMachineScaleSet $vmss
 ```
 
-Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du minskar kapaciteten för en skala ange de virtuella datorerna med den högsta instans-ID tas bort först.
+Det tar några minuter att uppdatera kapaciteten för din skalningsuppsättning. Om du minskar kapaciteten för en skalnings uppsättning tas de virtuella datorerna med de högsta instans-ID: na bort först.
 
 
-## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppa och starta virtuella datorer i en skalningsuppsättning
-Om du vill stoppa en eller flera virtuella datorer i en skalningsuppsättning, använder du [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Stoppa flera virtuella datorer genom att avgränsa varje instans-ID med kommatecken.
+## <a name="stop-and-start-vms-in-a-scale-set"></a>Stoppa och starta virtuella datorer i en skalnings uppsättning
+Om du vill stoppa en eller flera virtuella datorer i en skalningsuppsättning, använder du [Stop-AzVmss](/powershell/module/az.compute/stop-azvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att stoppa. Om du inte anger ett instans-ID, stoppas alla virtuella datorer i skalningsuppsättningen. Om du vill stoppa flera virtuella datorer avgränsar du varje instans-ID med ett kommatecken.
 
-I följande exempel stoppar instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
+I följande exempel stoppas instans *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* . Ange dina egna värden på följande sätt:
 
 ```powershell
 Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -81,30 +74,30 @@ Stop-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -I
 Som standard frigörs stoppade virtuella datorer och uppbär inga beräkningskostnader. Om du vill att den virtuella datorn är kvar i etablerat tillstånd när den stoppats, lägger du till parametern `-StayProvisioned` till det föregående kommandot. Stoppade virtuella datorer som fortsätter att vara etablerade, kostar vanliga beräkningsavgifter.
 
 
-### <a name="start-vms-in-a-scale-set"></a>Starta virtuella datorer i en skalningsuppsättning
-Om du vill starta en eller flera virtuella datorer i en skalningsuppsättning, använder du [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen. Starta flera virtuella datorer genom att avgränsa varje instans-ID med kommatecken.
+### <a name="start-vms-in-a-scale-set"></a>Starta virtuella datorer i en skalnings uppsättning
+Om du vill starta en eller flera virtuella datorer i en skalningsuppsättning, använder du [Start-AzVmss](/powershell/module/az.compute/start-azvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att starta. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen. Om du vill starta flera virtuella datorer avgränsar du varje instans-ID med ett kommatecken.
 
-Följande exempel startar instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
+I följande exempel startas instans *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* . Ange dina egna värden på följande sätt:
 
 ```powershell
 Start-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
-## <a name="restart-vms-in-a-scale-set"></a>Starta om virtuella datorer i en skalningsuppsättning
-Om du vill starta om en eller flera virtuella datorer i en skalningsuppsättning, använder [omstart AzVmss](/powershell/module/az.compute/restart-azvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen om. Avgränsa varje instans-ID för att starta om flera virtuella datorer med ett kommatecken.
+## <a name="restart-vms-in-a-scale-set"></a>Starta om virtuella datorer i en skalnings uppsättning
+Om du vill starta om en eller flera virtuella datorer i en skalnings uppsättning använder du [restart-AzVmss](/powershell/module/az.compute/restart-azvmss). Parametern `-InstanceId` låter dig ange en eller flera virtuella datorer att starta om. Om du inte anger ett instans-ID, startas alla virtuella datorer i skalningsuppsättningen om. Om du vill starta om flera virtuella datorer måste du avgränsa varje instans-ID med ett kommatecken.
 
-I följande exempel startar om instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
+I följande exempel startas instans *0* om i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* . Ange dina egna värden på följande sätt:
 
 ```powershell
 Restart-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
 ```
 
 
-## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skalningsuppsättning
-Ta bort en eller flera virtuella datorer i en skalningsuppsättning med [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). Den `-InstanceId` parametern kan du ange en eller flera virtuella datorer att ta bort. Om du inte anger ett instans-ID kommer alla virtuella datorer i skalningsuppsättningen tas bort. Avgränsa varje instans-ID för att ta bort flera virtuella datorer med ett kommatecken.
+## <a name="remove-vms-from-a-scale-set"></a>Ta bort virtuella datorer från en skalnings uppsättning
+Om du vill ta bort en eller flera virtuella datorer i en skalnings uppsättning använder du [Remove-AzVmss](/powershell/module/az.compute/remove-azvmss). Med parametern `-InstanceId` kan du ange en eller flera virtuella datorer som ska tas bort. Om du inte anger ett instans-ID tas alla virtuella datorer i skalnings uppsättningen bort. Om du vill ta bort flera virtuella datorer avgränsar du varje instans-ID med kommatecken.
 
-I följande exempel tar bort instansen *0* i skalningsuppsättningen *myScaleSet* och *myResourceGroup* resursgrupp. Ange egna värden enligt följande:
+I följande exempel tas instans *0* i skalnings uppsättningen med namnet *myScaleSet* och resurs gruppen *myResourceGroup* bort. Ange dina egna värden på följande sätt:
 
 ```powershell
 Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" -InstanceId "0"
@@ -112,4 +105,4 @@ Remove-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myScaleSet" 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Andra vanliga aktiviteter för scale sets omfattar så [distribuera ett program](virtual-machine-scale-sets-deploy-app.md), och [uppgradera VM-instanser](virtual-machine-scale-sets-upgrade-scale-set.md). Du kan också använda Azure PowerShell för att [konfigurera regler för automatisk skalning](virtual-machine-scale-sets-autoscale-overview.md).
+Andra vanliga uppgifter för skalnings uppsättningar är hur du [distribuerar ett program](virtual-machine-scale-sets-deploy-app.md)och [uppgraderar VM-instanser](virtual-machine-scale-sets-upgrade-scale-set.md). Du kan också använda Azure PowerShell för att [Konfigurera regler för automatisk skalning](virtual-machine-scale-sets-autoscale-overview.md).

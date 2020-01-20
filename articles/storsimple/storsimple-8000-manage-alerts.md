@@ -1,233 +1,225 @@
 ---
-title: Visa och hantera aviseringar för enhet i StorSimple 8000-serien | Microsoft Docs
-description: Beskriver StorSimple aviseringsvillkor och allvarlighetsgrad, hur du konfigurerar aviseringar och hur du använder StorSimple Device Manager-tjänsten för att hantera aviseringar.
-services: storsimple
-documentationcenter: NA
+title: Visa och hantera aviseringar för enhet med StorSimple 8000-serien
+description: Beskriver StorSimple-aviserings villkor och allvarlighets grad, hur du konfigurerar varnings meddelanden och hur du använder tjänsten StorSimple Enhetshanteraren för att hantera aviseringar.
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff50836e1438b8d35f26ddfdf165084406f52faf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60320438"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76270829"
 ---
-# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använda StorSimple Device Manager-tjänsten för att visa och hantera aviseringar för StorSimple
+# <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Använd tjänsten StorSimple Enhetshanteraren för att visa och hantera StorSimple-aviseringar
 
 ## <a name="overview"></a>Översikt
 
-Den **aviseringar** bladet i StorSimple Device Manager-tjänsten gör det möjligt för dig att granska och ta bort StorSimple-enhet – relaterade aviseringar på basis av i realtid. Från det här bladet kan du centralt övervaka hälsoproblem för din StorSimple-enheter och den övergripande Microsoft Azure StorSimple-lösningen.
+Med bladet **aviseringar** i StorSimple Enhetshanteraren-tjänsten kan du granska och rensa StorSimple-relaterade aviseringar i real tid. Från det här bladet kan du centralt övervaka hälso problemen för dina StorSimple-enheter och den övergripande Microsoft Azure StorSimples lösningen.
 
-Den här självstudien beskrivs vanliga aviseringsvillkor nivåer för aviseringarnas allvarlighetsgrad och hur du konfigurerar aviseringar. Den innehåller dessutom avisering Snabbreferens tabeller, som gör det möjligt att snabbt hitta en specifik avisering och svara på rätt sätt.
+I den här självstudien beskrivs vanliga aviserings villkor, allvarlighets grader för aviseringar och hur du konfigurerar aviserings meddelanden. Dessutom innehåller den snabb referens tabeller för varningar, som gör att du snabbt kan hitta en speciell avisering och svara på lämpligt sätt.
 
-![Sidan varningar](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
+![Sidan aviseringar](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
-## <a name="common-alert-conditions"></a>Vanliga aviseringsvillkor
+## <a name="common-alert-conditions"></a>Vanliga aviserings villkor
 
-StorSimple-enheten genererar varningar som svar på en mängd olika villkor. Följande är de vanligaste typerna av aviseringsvillkor:
+Din StorSimple-enhet genererar aviseringar som svar på olika villkor. Följande är de vanligaste typerna av aviserings villkor:
 
-* **Problem med hårdvaran** – dessa aviseringar meddelar dig om hälsotillståndet för maskinvaran. De meddelar dig om firmware uppgraderingar krävs om ett nätverksgränssnitt har problem med, eller om det finns ett problem med en av dina enheter.
-* **Problem med nätverksanslutningen** – dessa aviseringar inträffar när det är svårt att överföra data. Kommunikationsproblem kan uppstå under överföring av data till och från Azure storage-kontot eller på grund av avsaknad av anslutning mellan enheter och StorSimple Device Manager-tjänsten. Kommunikationsproblem är några av de svåraste åtgärda eftersom det finns så många felpunkter. Du bör alltid först kontrollera att nätverksanslutningen och tillgång till Internet är tillgängliga innan du fortsätter till mer avancerad felsökning. För hjälp med felsökning kan du gå till [felsöka med cmdleten Test-Connection](storsimple-8000-troubleshoot-deployment.md).
-* **Prestandaproblem** – de här aviseringarna orsakas när datorn inte är presterar optimalt, till exempel när den är hårt belastat.
+* **Maskin varu problem** – de här aviseringarna anger om maskin varans hälso tillstånd. De meddelar dig om uppgraderingar av inbyggd program vara behövs, om ett nätverks gränssnitt har problem eller om det är problem med en av dina data enheter.
+* **Anslutnings problem** – dessa aviseringar inträffar när det är svårt att överföra data. Kommunikations problem kan uppstå under överföring av data till och från Azure Storage-kontot eller på grund av bristande anslutning mellan enheterna och tjänsten StorSimple Enhetshanteraren. Kommunikations problem är några av de svåra att åtgärda eftersom det finns så många fel punkter. Först bör du först kontrol lera att nätverks anslutningen och Internet åtkomst är tillgängliga innan du fortsätter till mer avancerad fel sökning. Om du behöver hjälp med fel sökning går du till [Felsöka med cmdleten Test-Connection](storsimple-8000-troubleshoot-deployment.md).
+* **Prestanda problem** – de här aviseringarna orsakas när systemet inte fungerar optimalt, till exempel när det är under en tung belastning.
 
-Du kan dessutom se aviseringar som rör säkerhet, uppdateringar eller misslyckade jobb.
+Dessutom kan du se aviseringar relaterade till säkerhet, uppdateringar eller jobb haverier.
 
-## <a name="alert-severity-levels"></a>Nivåer för aviseringarnas allvarlighetsgrad
+## <a name="alert-severity-levels"></a>Allvarlighets nivåer för aviseringar
 
-Aviseringar har olika allvarlighetsgrader, beroende på effekten som aviseringen situationen har och behovet av att ett svar på aviseringen. Allvarlighetsgraderna finns:
+Aviseringar har olika allvarlighets grader, beroende på vilken effekt som aviserings situationen kommer att ha och behovet av svar på aviseringen. Allvarlighetsgraderna är:
 
-* **Kritiska** – den här aviseringen är reaktion på ett villkor som påverkar systemets lyckad prestanda. Åtgärd krävs för att se till att StorSimple tjänsten inte avbryts.
-* **Varning** – det här tillståndet kan bli kritiska om inte matcha. Du bör undersöka situationen och vidta några åtgärder som krävs för att rensa problemet.
-* **Information** – den här aviseringen innehåller information som kan vara användbara i spåra och hantera dina system.
+* **Kritisk** – den här aviseringen är som svar på ett villkor som påverkar systemets prestanda. Åtgärd krävs för att säkerställa att StorSimple-tjänsten inte avbryts.
+* **Varning** – det här tillståndet kan bli kritiskt om det inte är löst. Du bör undersöka situationen och vidta alla åtgärder som krävs för att ta bort problemet.
+* **Information** – den här aviseringen innehåller information som kan vara användbar vid spårning och hantering av systemet.
 
-## <a name="configure-alert-settings"></a>Konfigurera aviseringsinställningar
+## <a name="configure-alert-settings"></a>Konfigurera aviserings inställningar
 
-Du kan välja om du vill bli meddelad via e-post om aviseringsvillkoren för var och en av dina StorSimple-enheter. Du kan dessutom identifiera andra aviseringsmottagare genom att ange deras e-postadresser i den **andra e-postmottagare** box, avgränsade med semikolon.
+Du kan välja om du vill få ett meddelande via e-post om aviserings villkoren för var och en av dina StorSimple-enheter. Dessutom kan du identifiera andra aviserings mottagare genom att ange deras e-postadresser i rutan **andra e-postmottagare** , avgränsade med semikolon.
 
 > [!NOTE]
 > Du kan ange högst 20 e-postadresser per enhet.
 
-När du aktiverar e-postmeddelande om en enhet kan får medlemmar i meddelandelistan över ett e-postmeddelande varje gång en kritisk varning inträffar. Meddelanden skickas från *storsimple-aviseringar-noreply\@mail.windowsazure.com* och beskriver aviseringstillståndet. Mottagare kan klicka på **Unsubscribe** att ta bort själva från listan över e-post-meddelande.
+När du har aktiverat e-postavisering för en enhet kommer medlemmar i meddelande listan att få ett e-postmeddelande varje gången en kritisk varning inträffar. Meddelandena skickas från *StorSimple-Alerts-noreply\@mail.windowsazure.com* och beskriver varnings villkoret. Mottagare kan klicka på **Avbryt** för att ta bort sig själva från listan med e-postaviseringar.
 
-#### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Aktivera e-postmeddelande för aviseringar för en enhet
-1. Gå till StorSimple Device Manager-tjänsten. Välj i listan med enheter, och klicka på den enhet som du vill konfigurera.
-2. Gå till **inställningar** > **Allmänt** för enheten.
+#### <a name="to-enable-email-notification-of-alerts-for-a-device"></a>Så här aktiverar du e-postavisering om aviseringar för en enhet
+1. Gå till StorSimple Device Manager-tjänsten. I listan med enheter väljer du och klickar på den enhet som du vill konfigurera.
+2. Gå till **inställningar** > **allmänna** för enheten.
 
-   ![Bladet med säkerhetsaviseringar](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
+   ![Varnings blad](./media/storsimple-8000-manage-alerts/configure-alerts-email2.png)
    
-2. I den **allmänna inställningar** gå till bladet **varningsinställningar** och ange följande:
+2. I bladet **allmänna inställningar** går du till **aviserings inställningar** och anger följande:
    
-   1. I den **skicka e-postavisering** väljer **Ja**.
-   2. I den **e-tjänstadministratörer** väljer **Ja** att tjänstadministratören och alla medadministratörer ska få aviseringar skickas.
-   3. I den **andra e-postmottagare** fältet, anger du e-postadresserna för alla andra mottagare som ska ta emot aviseringar skickas. Ange namn i formatet *någon\@somewhere.com*. Avgränsa e-postadresser med semikolon. Du kan konfigurera högst 20 e-postadresser per enhet. 
+   1. I fältet **skicka e-postavisering** väljer du **Ja**.
+   2. I fältet **Administratörer för e-posttjänst** väljer du **Ja** om du vill att tjänst administratören och alla medadministratörer ska få aviserings meddelanden.
+   3. I fältet **andra e-postmottagare** anger du e-postadresserna till alla andra mottagare som ska få aviserings meddelanden. Ange namn i formatet *någon\@Somewhere.com*. Använd semikolon för att avgränsa e-postadresserna. Du kan konfigurera högst 20 e-postadresser per enhet. 
       
-3. Om du vill skicka ett testmeddelande för e-post, klickar du på **skicka e-posttestmeddelande**. StorSimple Device Manager-tjänsten visar statusmeddelanden som vidarebefordras av test-meddelande.
+3. Skicka ett test-e-postmeddelande genom att klicka på **Skicka test-e-post**. Tjänsten StorSimple Enhetshanteraren visar status meddelanden när det vidarebefordrar test meddelandet.
 
-    ![aviseringsinställningar](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
+    ![Aviserings inställningar](./media/storsimple-8000-manage-alerts/configure-alerts-email3.png)
 
-4. Du får ett meddelande när test-e-postmeddelande skickas. 
+4. Du ser ett meddelande när test-e-postmeddelandet skickas. 
    
-    ![Testa e-postmeddelande skickas för aviseringar](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
+    ![Aviseringar om test av e-postmeddelande har skickats](./media/storsimple-8000-manage-alerts/configure-alerts-email4.png)
    
    > [!NOTE]
-   > Om inte går att skicka testmeddelandet, visas ett lämpligt felmeddelande med StorSimple Device Manager-tjänsten. Vänta några minuter och försök sedan att skicka din testnotismeddelande igen. 
+   > Om test aviserings meddelandet inte kan skickas visar tjänsten StorSimple Enhetshanteraren ett lämpligt fel meddelande. Vänta några minuter och försök sedan att skicka ett test meddelande igen. 
 
-5. När du har slutfört konfigurationen, klickar du på **spara**. Klicka på **Ja** när du uppmanas att bekräfta åtgärden.
+5. När du har slutfört konfigurationen klickar du på **Spara**. Klicka på **Ja** när du uppmanas att bekräfta åtgärden.
 
-     ![Testa e-postmeddelande skickas för aviseringar](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
+     ![Aviseringar om test av e-postmeddelande har skickats](./media/storsimple-8000-manage-alerts/configure-alerts-email5.png)
 
 ## <a name="view-and-track-alerts"></a>Visa och spåra aviseringar
 
-Sammanfattningsbladet för StorSimple Device Manager-tjänsten ger dig en snabb titt på hur många aviseringar på dina enheter, ordnade efter allvarlighetsgrad.
+Bladet StorSimple Enhetshanteraren tjänst Sammanfattning ger dig en snabb överblick över antalet aviseringar på dina enheter, ordnat efter allvarlighets grad.
 
-![Instrumentpanel för aviseringar](./media/storsimple-8000-manage-alerts/device-summary4.png)
+![Instrument panel för aviseringar](./media/storsimple-8000-manage-alerts/device-summary4.png)
 
-Om du klickar på allvarlighetsgraden öppnas den **aviseringar** bladet. Resultatet innehåller bara de aviseringar som matchar den allvarlighetsgraden.
+Om du klickar på allvarlighets grad öppnas **aviserings** bladet. Resultaten innehåller bara de aviseringar som matchar allvarlighets graden.
 
-Klicka på en avisering i listan får du ytterligare information för aviseringen, inklusive den senaste gången aviseringen rapporterades antalet förekomster av avisering på enheten och den rekommenderade åtgärden för att lösa aviseringen. Om det är en avisering om maskinvara, kommer det också identifiera maskinvarukomponenten.
+Om du klickar på en avisering i listan får du ytterligare information om aviseringen, inklusive den senaste gången aviseringen rapporterades, antalet förekomster av aviseringen på enheten och den rekommenderade åtgärden för att lösa aviseringen. Om det är en maskin varu varning kommer den också att identifiera maskin varu komponenten.
 
-![Maskinvara-aviseringsexemplet](./media/storsimple-8000-manage-alerts/configure-alerts-email14.png)
+![Exempel på maskin varu varning](./media/storsimple-8000-manage-alerts/configure-alerts-email14.png)
 
-Du kan kopiera Aviseringsinformationen till en textfil, om du vill skicka information till Microsoft Support. När du har följt rekommendationerna och löst varningsvillkor lokala platser, du bör ta bort aviseringen från enheten genom att välja aviseringen i den **aviseringar** bladet och klicka på **Rensa**. Om du vill ta bort flera aviseringar, väljer varje avisering, klickar du på alla kolumner utom den **avisering** kolumnen och klicka sedan på **Rensa** när du har valt alla aviseringar rensas. Observera att vissa aviseringar automatiskt rensas när problemet är löst eller när systemet uppdaterar aviseringen med ny information.
+Du kan kopiera aviserings informationen till en textfil om du behöver skicka informationen till Microsoft Support. När du har följt rekommendationen och löst aviserings villkoret lokalt bör du ta bort aviseringen från enheten genom att välja aviseringen i bladet **aviseringar** och klicka på **Rensa**. Om du vill ta bort flera aviseringar markerar du varje avisering, klickar på en kolumn förutom kolumnen **avisering** och klickar sedan på **Rensa** när du har valt att alla aviseringar ska rensas. Observera att vissa aviseringar rensas automatiskt när problemet löses eller när systemet uppdaterar aviseringen med ny information.
 
-När du klickar på **Rensa**, du har möjlighet att ange kommentarer om aviseringen och de steg som du har gjort för att lösa problemet. Vissa händelser kommer att tas bort av systemet om en annan händelsen utlöses med den nya informationen. I så fall visas följande meddelande.
+När du klickar på **Rensa**har du möjlighet att ange kommentarer om aviseringen och de steg som du har vidtagit för att lösa problemet. Vissa händelser raderas av systemet om en annan händelse utlöses med ny information. I så fall visas följande meddelande.
 
-![Rensa avisering](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
+![Rensa aviserings meddelande](./media/storsimple-manage-alerts/admin_alerts_system_clear.png)
 
-## <a name="sort-and-review-alerts"></a>Sortera aktiviteter och aviseringar
+## <a name="sort-and-review-alerts"></a>Sortera och granska aviseringar
 
-Du kan det vara mer effektivt att köra rapporter om aviseringar så att du kan granska och tar bort dem i grupper. Dessutom kan den **aviseringar** bladet kan visa upp till 250 aviseringar. Om du har överskridit det antalet aviseringar visas inte alla aviseringar i standardvyn. Du kan kombinera följande fält om du vill anpassa vilka aviseringar visas:
+Det kan vara mer effektivt att köra rapporter om aviseringar så att du kan granska och ta bort dem i grupper. Dessutom kan **aviserings** bladet Visa upp till 250 aviseringar. Om du har överskridit det antalet aviseringar visas inte alla aviseringar i standardvyn. Du kan kombinera följande fält för att anpassa vilka aviseringar som visas:
 
-* **Status för** – du kan visa antingen **Active** eller **avmarkerad** aviseringar. Aktiva aviseringar aktiveras fortfarande i systemet, medan avmarkerad aviseringar antingen har rensats manuellt av en administratör eller programmatiskt eftersom systemet uppdateras aviseringstillståndet med den nya informationen.
-* **Allvarlighetsgrad** – du kan visa aviseringar för alla allvarlighetsgrader (kritisk, varning, information) eller bara en viss allvarlighetsgrad, till exempel endast kritiska aviseringar.
-* **Källan** – du kan visa aviseringar från alla källor eller begränsa aviseringar till dem som kommer från tjänsten eller en eller alla enheter.
-* **Tidsintervall** – genom att ange den **från** och **till** datum och tidsstämplar, kan du titta på aviseringar under den tidsperiod som du är intresserad av.
+* **Status** – du kan visa antingen **aktiva** eller **rensade** aviseringar. Aktiva aviseringar aktive ras fortfarande i systemet, medan rensade aviseringar antingen har rensats manuellt av en administratör eller program mässigt rensas eftersom systemet har uppdaterat varnings villkoret med ny information.
+* **Allvarlighets grad** – du kan visa aviseringar för alla allvarlighets nivåer (kritisk, varning, information) eller bara en viss allvarlighets grad, till exempel endast kritiska aviseringar.
+* **Källa** – du kan visa aviseringar från alla källor eller begränsa aviseringarna till de som kommer från antingen tjänsten eller en eller flera av enheterna.
+* **Tidsintervall** – genom att ange **från** -och **till** -datum och tidsstämplar kan du titta på aviseringar under den tids period som du är intresse rad av.
 
-![Aviseringslistan](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
+![Aviserings lista](./media/storsimple-8000-manage-alerts/configure-alerts-email11.png)
 
-## <a name="alerts-quick-reference"></a>Snabbreferens för aviseringar
+## <a name="alerts-quick-reference"></a>Snabb referens för varningar
 
-I tabellerna nedan listas några av de Microsoft Azure StorSimple-aviseringar som kan uppstå, samt ytterligare information och rekommendationer där det är tillgängligt. StorSimple-enhetsaviseringar indelas i följande kategorier:
+I följande tabeller visas några av de Microsoft Azure StorSimple aviseringar som du kan stöta på, samt ytterligare information och rekommendationer som är tillgängliga. StorSimple enhets aviseringar ingår i någon av följande kategorier:
 
-* [Anslutningsvarningar i molnet](#cloud-connectivity-alerts)
-* [Kluster-aviseringar](#cluster-alerts)
-* [Disaster recovery aviseringar](#disaster-recovery-alerts)
-* [Maskinvara-aviseringar](#hardware-alerts)
-* [Varningar om jobbfel](#job-failure-alerts)
-* [Lokalt fixerade volymer av aviseringar](#locally-pinned-volume-alerts)
-* [Aviseringar för nätverk](#networking-alerts)
-* [Aviseringar om programprestanda](#performance-alerts)
+* [Aviseringar om moln anslutning](#cloud-connectivity-alerts)
+* [Kluster varningar](#cluster-alerts)
+* [Aviseringar om haveri beredskap](#disaster-recovery-alerts)
+* [Maskin varu aviseringar](#hardware-alerts)
+* [Aviseringar om jobb haveri](#job-failure-alerts)
+* [Lokalt fästa volym aviseringar](#locally-pinned-volume-alerts)
+* [Nätverks aviseringar](#networking-alerts)
+* [Prestanda varningar](#performance-alerts)
 * [Säkerhetsaviseringar](#security-alerts)
-* [Stöd för paketet aviseringar](#support-package-alerts)
+* [Aviseringar om support paket](#support-package-alerts)
 
-### <a name="cloud-connectivity-alerts"></a>Anslutningsvarningar i molnet
+### <a name="cloud-connectivity-alerts"></a>Aviseringar om moln anslutning
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Anslutningen till <*molnet autentiseringsuppgiftsnamn*> kan inte upprättas. |Det går inte att ansluta till lagringskontot. |Det verkar som det kan finnas anslutningsproblem med enheten. Kör den `Test-HcsmConnection` cmdlet från Windows PowerShell-gränssnittet för StorSimple på enheten för att identifiera och åtgärda problemet. Om inställningarna är korrekta kan problemet vara med autentiseringsuppgifterna för lagringskontot som varningen skapades. I det här fallet den `Test-HcsStorageAccountCredential` cmdlet för att avgöra om det finns problem som du kan lösa.<ul><li>Kontrollera dina nätverksinställningar.</li><li>Kontrollera autentiseringsuppgifterna för ditt lagringskonto.</li></ul> |
-| Vi har inte tagit emot något pulsslag från enheten under senaste <*nummer*> minuter. |Det går inte att ansluta till enheten. |Det verkar som det finns ett anslutningsproblem med enheten. Använd den `Test-HcsmConnection` cmdlet från Windows PowerShell-gränssnittet för StorSimple på enheten för att identifiera och åtgärda problemet eller kontakta din nätverksadministratör. |
+| Det går inte att upprätta en anslutning till <*molnets autentiseringsuppgifter*>. |Det går inte att ansluta till lagrings kontot. |Det verkar som om det kan finnas problem med anslutningen till enheten. Kör cmdleten `Test-HcsmConnection` från Windows PowerShell-gränssnittet för StorSimple på enheten för att identifiera och åtgärda problemet. Om inställningarna är korrekta kan problemet vara med autentiseringsuppgifterna för det lagrings konto som aviseringen genererades för. I det här fallet använder du `Test-HcsStorageAccountCredential`-cmdlet för att avgöra om det finns problem som du kan lösa.<ul><li>Kontrol lera nätverks inställningarna.</li><li>Kontrol lera autentiseringsuppgifterna för lagrings kontot.</li></ul> |
+| Vi har inte tagit emot något pulsslag från enheten under det senaste <*antalet*> minuter. |Det går inte att ansluta till enheten. |Det verkar som om det finns problem med anslutningen till enheten. Använd `Test-HcsmConnection`-cmdleten från Windows PowerShell-gränssnittet för StorSimple på enheten för att identifiera och åtgärda problemet eller kontakta nätverks administratören. |
 
-### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>StorSimple-beteendet när molnanslutning misslyckas
+### <a name="storsimple-behavior-when-cloud-connectivity-fails"></a>StorSimple beteende när det inte går att ansluta till molnet
 
-Vad händer om molnanslutning misslyckas för min StorSimple-enhet som körs i produktionsmiljön?
+Vad händer om det inte går att använda moln anslutning för min StorSimple-enhet som körs i produktion?
 
-Om molnanslutning misslyckas på din StorSimple-enhet för produktion, kan sedan beroende på din enhet, följande inträffa:
+Om det inte går att ansluta till en StorSimple produktions enhet kan följande inträffa, beroende på enhetens status:
 
-* **För den lokala data på din enhet**: Det blir inga avbrott under en period och läsningar fortsätter att hanteras. När antalet utestående I/o ökar och överskrider en gräns, startade läsningar misslyckas.
+* **För lokala data på din enhet**: under en viss tid kommer inga avbrott och läsningar fortsätta att hanteras. Men eftersom antalet utestående IOs ökar och överskrider en gräns kan läsningarna börja fungera.
 
-    Beroende på mängden data på din enhet fortsätter även skrivningar kan förekomma första några timmar efter avbrott i molnanslutning. Skrivningar kommer sedan långsammare och starta så småningom att misslyckas om molnanslutning avbryts under flera timmar. (Det är tillfälligt lagringsutrymme på enheten för data som ska skickas till molnet. Det här området har rensats när data skickas. Om anslutningen misslyckas data i den här lagringsområde överförs inte till molnet och i/o misslyckas.)
-* **För data i molnet**: För de flesta cloud-anslutningsfel returneras ett fel. När anslutningen återupprättas återupptas IOs utan att användaren måste aktivera volymen online. I sällsynta fall kan det krävas åtgärder från användaren att aktivera tillbaka online volymen från Azure-portalen.
-* **För ögonblicksbilder av molnet håller på att**: Åtgärden görs några gånger inom 4 – 5 timmar och ögonblicksbilder av molnet misslyckas om anslutningen inte har återställts.
+    Beroende på hur mycket data som finns på enheten fortsätter skrivningarna att ske under de första timmarna efter avbrott i moln anslutningen. Skrivningarna saktar ned och slutligen slutar att fungera om moln anslutningen avbryts under flera timmar. (Det finns temporär lagring på enheten för data som ska flyttas till molnet. Det här fältet töms när data skickas. Om anslutningen Miss lyckas kommer inte data i det här lagrings utrymmet att skickas till molnet och det går inte att utföra IO.)
+* **För data i molnet**: för de flesta moln anslutnings fel returneras ett fel. När anslutningen har återställts återupptas IOs utan att användaren måste ta volymen online. I sällsynta fall kan det krävas åtgärder från användaren att ta tillbaka volymen online från Azure Portal.
+* **För moln ögonblicks bilder pågår**: åtgärden provas några gånger inom 4-5 timmar och om anslutningen inte återställs kommer moln ögonblicks bilderna att Miss par.
 
-### <a name="cluster-alerts"></a>Kluster-aviseringar
+### <a name="cluster-alerts"></a>Kluster varningar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Enheten redundansväxlades till <*enhetsnamn*>. |Enheten är i underhållsläge. |Enheten redundansväxlades på grund av att delta eller lämnar underhållsläge. Detta är normalt och ingen åtgärd krävs. När du har godkänt aviseringen kan du radera den från aviseringssidan. |
-| Enheten redundansväxlades till <*enhetsnamn*>. |Enhetens inbyggda programvara eller programvara har nyss uppdaterats. |Det uppstod ett fel i ett kluster på grund av en uppdatering. Detta är normalt och ingen åtgärd krävs. När du har godkänt aviseringen kan du radera den från aviseringssidan. |
-| Enheten redundansväxlades till <*enhetsnamn*>. |Kontrollenheten stängdes eller startas om. |Enheten redundansväxlades eftersom den aktiva kontrollenheten stängdes av eller startades om av en administratör. Ingen åtgärd krävs. När du har godkänt aviseringen kan du radera den från aviseringssidan. |
-| Enheten redundansväxlades till <*enhetsnamn*>. |Planerad redundans. |Kontrollera att det var en planerad redundans. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan. |
-| Enheten redundansväxlades till <*enhetsnamn*>. |Oplanerad redundans. |StorSimple är utformat för att återställa automatiskt från oplanerade redundanser. Om du ser ett stort antal dessa aviseringar kan du kontakta Microsoft Support. |
-| Enheten redundansväxlades till <*enhetsnamn*>. |Andra/okänd orsak. |Om du ser ett stort antal dessa aviseringar kan du kontakta Microsoft Support. Radera aviseringen från aviseringssidan när problemet är löst. |
-| En tjänst för kritiska enheter rapporterar status som misslyckad. |DataPath tjänstfel. |Kontakta Microsoft Support för hjälp. |
-| Virtuella IP-adressen för nätverksgränssnittet <*DATA #* > rapporterar status som misslyckad. |Andra/okänd orsak. |Ibland kan tillfälliga förhållanden utlösa dessa aviseringar. Om så är fallet, sedan rensas den här aviseringen automatiskt efter en stund. Kontakta Microsoft-supporten om problemet kvarstår. |
-| Virtuella IP-adressen för nätverksgränssnittet <*DATA #* > rapporterar status som misslyckad. |Namnet på nätverksgränssnittet som: <*DATA #* > IP-adress `<IP address>` kunde inte försättas online eftersom en duplicerad IP-adress har identifierats i nätverket. |Se till att IP-adressdubblett tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
+| Enheten växlade över till <*enhets namnet*>. |Enheten är i underhålls läge. |Enheten växlades över på grund av att underhålls läget skulle gå in eller avslutas. Detta är normalt och ingen åtgärd krävs. När du har bekräftat den här aviseringen avmarkerar du den från sidan aviseringar. |
+| Enheten växlade över till <*enhets namnet*>. |Enhetens inbyggda program vara eller program vara har precis uppdaterats. |Det uppstod en redundanskluster på grund av en uppdatering. Detta är normalt och ingen åtgärd krävs. När du har bekräftat den här aviseringen avmarkerar du den från sidan aviseringar. |
+| Enheten växlade över till <*enhets namnet*>. |Styrenheten stängdes av eller startades om. |Enheten avbröts på grund av att den aktiva styrenheten stängdes av eller startades om av en administratör. Ingen åtgärd krävs. När du har bekräftat den här aviseringen avmarkerar du den från sidan aviseringar. |
+| Enheten växlade över till <*enhets namnet*>. |Planerad redundansväxling. |Kontrol lera att det var en planerad redundansväxling. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan. |
+| Enheten växlade över till <*enhets namnet*>. |Oplanerad redundansväxling. |StorSimple är byggd för att automatiskt återställa från oplanerad redundans. Om du ser ett stort antal aviseringar kontaktar du Microsoft Support. |
+| Enheten växlade över till <*enhets namnet*>. |Annan/okänd orsak. |Om du ser ett stort antal aviseringar kontaktar du Microsoft Support. När problemet har lösts tar du bort den här aviseringen från aviserings sidan. |
+| En kritisk enhets tjänst rapporterar status som misslyckad. |Datapath-tjänstens haveri. |Kontakta Microsoft Support om du behöver hjälp. |
+| Virtuell IP-adress för nätverks gränssnitt <*data #* > rapporterar status som misslyckad. |Annan/okänd orsak. |Ibland kan tillfälliga förhållanden orsaka dessa aviseringar. I så fall kommer den här aviseringen att rensas automatiskt efter en stund. Kontakta Microsoft Support om problemet kvarstår. |
+| Virtuell IP-adress för nätverks gränssnitt <*data #* > rapporterar status som misslyckad. |Gränssnitts namn: <*data #* > IP-adress `<IP address>` inte kan anslutas på grund av att en dubblett av en IP-adress har identifierats i nätverket. |Se till att den duplicerade IP-adressen tas bort från nätverket eller konfigurera om gränssnittet med en annan IP-adress. |
 
-### <a name="disaster-recovery-alerts"></a>Disaster recovery aviseringar
+### <a name="disaster-recovery-alerts"></a>Aviseringar om haveri beredskap
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Återställningsåtgärder kunde inte återställa alla inställningar för den här tjänsten. Enhetens konfigurationsinformation är i ett inkonsekvent tillstånd för vissa enheter. |Datainkonsekvens upptäcktes efter katastrofåterställning. |Krypterade data på tjänsten är inte synkroniserad med den på enheten. Auktorisera enheten <*enhetsnamn*> från StorSimple Device Manager för att starta synkroniseringsprocessen. Använda Windows PowerShell-gränssnittet för StorSimple för att köra den `Restore-HcsmEncryptedServiceData` på enhet <*enhetsnamn*> cmdlet, vilket ger det gamla lösenordet som indata till denna cmdlet för att återställa säkerhetsprofilen. Kör sedan den `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet för att uppdatera krypteringsnyckeln för tjänstdata. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan. |
+| Det gick inte att återställa alla inställningar för den här tjänsten under återställnings åtgärder. Enhetens konfigurations data är i ett inkonsekvent tillstånd för vissa enheter. |Inkonsekventa data upptäcktes efter haveri beredskap. |Krypterade data på tjänsten är inte synkroniserade med det på enheten. Auktorisera enhetens <*enhets namn*> från StorSimple Enhetshanteraren för att starta synkroniseringsprocessen. Använd Windows PowerShell-gränssnittet för StorSimple för att köra `Restore-HcsmEncryptedServiceData` på enhets <*enhets namn*> cmdlet, och ange det gamla lösen ordet som inmatat för denna cmdlet för att återställa säkerhets profilen. Kör sedan `Invoke-HcsmServiceDataEncryptionKeyChange`-cmdlet: en för att uppdatera krypterings nyckeln för tjänst data. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan. |
 
-### <a name="hardware-alerts"></a>Maskinvara-aviseringar
+### <a name="hardware-alerts"></a>Maskin varu aviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Maskinvarukomponent <*komponent-ID*> rapporterar statusen <*status*>. | |Ibland kan tillfälliga förhållanden utlösa dessa aviseringar. I så, fall kommer den här aviseringen lösas automatiskt efter en stund. Kontakta Microsoft-supporten om problemet kvarstår. |
-| Passiv styrenhet fungerar inte. |Den passiva styrenheten för (sekundär) fungerar inte. |Enheten fungerar men en av kontrollenheterna fungerar inte. Försök att starta om den styrenheten. Kontakta Microsoft Support om problemet kvarstår. |
+| Maskin varu komponent <*komponent-ID*> rapporterar status som <*status*>. | |Ibland kan tillfälliga förhållanden orsaka dessa aviseringar. I så fall kommer den här aviseringen att rensas automatiskt efter en stund. Kontakta Microsoft Support om problemet kvarstår. |
+| Passiv styrenhet fungerar inte. |Den passiva (sekundära) styrenheten fungerar inte. |Enheten fungerar, men en av dina styrenheter fungerar inte. Försök att starta om kontrollanten. Kontakta Microsoft Support om problemet inte är löst. |
 
-### <a name="job-failure-alerts"></a>Varningar om jobbfel
+### <a name="job-failure-alerts"></a>Aviseringar om jobb haveri
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Säkerhetskopiering av <*grupp-ID för volymen*> misslyckades. |Säkerhetskopieringsjobbet misslyckades. |Problem med nätverksanslutningen kan göra att säkerhetskopieringen inte kan slutföras. Om det finns några anslutningsproblem kan har du nått det maximala antalet säkerhetskopieringar. Ta bort eventuella säkerhetskopior som inte behövs längre och försök igen. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan. |
-| Klon av <*käll-ID: N säkerhetskopieringselementets*> till <*mål volym serienummer*> misslyckades. |Det gick inte att klona. |Uppdatera listan säkerhetskopiering för att verifiera att säkerhetskopian fortfarande är giltig. Om säkerhetskopian är giltig, är det möjligt att molnet anslutningsproblem förhindrar klonåtgärden inte kan slutföras. Om det finns några anslutningsproblem kan har du nått gränsen för lagring. Ta bort eventuella säkerhetskopior som inte behövs längre och försök igen. Radera aviseringen från aviseringssidan när du har vidtagit de åtgärder som att lösa problemet. |
-| Återställning av <*käll-ID: N säkerhetskopieringselementets*> misslyckades. |Det gick inte att återställa. |Uppdatera listan säkerhetskopiering för att verifiera att säkerhetskopian fortfarande är giltig. Om säkerhetskopian är giltig, är det möjligt att molnet anslutningsproblem förhindrar återställningen inte kan slutföras. Om det finns några anslutningsproblem kan har du nått gränsen för lagring. Ta bort eventuella säkerhetskopior som inte behövs längre och försök igen. Radera aviseringen från aviseringssidan när du har vidtagit de åtgärder som att lösa problemet. |
+| Det gick inte att säkerhetskopiera <*käll volym grupps-ID*>. |Säkerhets kopierings jobbet misslyckades. |Anslutnings problem kan hindra säkerhets kopieringen från att slutföras. Om det inte finns några anslutnings problem kan du ha nått maximalt antal säkerhets kopior. Ta bort eventuella säkerhets kopior som inte längre behövs och försök igen. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan. |
+| Kloning av <*käll-ID för säkerhets kopierings element*> till < det inte gick att > på*mål volymen*. |Klonings jobbet misslyckades. |Uppdatera säkerhets kopierings listan för att kontrol lera att säkerhets kopian fortfarande är giltig. Om säkerhets kopieringen är giltig är det möjligt att problem med moln anslutningen hindrar klonings åtgärden från att slutföras. Om det inte finns några anslutnings problem kan du ha nått lagrings gränsen. Ta bort eventuella säkerhets kopior som inte längre behövs och försök igen. När du har vidtagit lämpliga åtgärder för att lösa problemet tar du bort den här aviseringen från aviserings sidan. |
+| Det gick inte att återställa <*källans ID för säkerhets kopierings element*>. |Återställnings jobbet misslyckades. |Uppdatera säkerhets kopierings listan för att kontrol lera att säkerhets kopian fortfarande är giltig. Om säkerhets kopieringen är giltig är det möjligt att problem med moln anslutningen hindrar återställnings åtgärden från att slutföras. Om det inte finns några anslutnings problem kan du ha nått lagrings gränsen. Ta bort eventuella säkerhets kopior som inte längre behövs och försök igen. När du har vidtagit lämpliga åtgärder för att lösa problemet tar du bort den här aviseringen från aviserings sidan. |
 
-### <a name="locally-pinned-volume-alerts"></a>Lokalt fixerade volymer av aviseringar
+### <a name="locally-pinned-volume-alerts"></a>Lokalt fästa volym aviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Skapandet av lokal volym <*volymnamn*> misslyckades. |Det gick inte att jobbet för att skapa volymen. <*Felmeddelande för misslyckad felkoden*>. |Anslutningsproblem kan hindra utrymme skapas åtgärden inte kan slutföras. Lokalt Fäst volym etableras tjockt och processen för att skapa utrymme skapas spills nivåindelade volymer över till molnet. Om det finns några anslutningsproblem kan ha du förbrukat det lokala utrymmet på enheten. Avgör om finns utrymme på enheten innan du försöker igen. |
-| Utökningen av lokal volym <*volymnamn*> misslyckades. |Volymen ändring av jobbet misslyckades på grund av <*felmeddelande för misslyckad felkoden*>. |Anslutningsproblem kan hindra volym expansion åtgärden inte kan slutföras. Lokalt Fäst volym etableras tjockt och processen med att utöka befintliga utrymmet utökas spills nivåindelade volymer över till molnet. Om det finns några anslutningsproblem kan ha du förbrukat det lokala utrymmet på enheten. Avgör om finns utrymme på enheten innan du försöker igen. |
-| Konvertering av volymen <*volymnamn*> misslyckades. |Volymomvandlingen att omvandla volymtypen från lokalt fästa på nivåindelade misslyckades. |Omvandlingen av volymen från typen lokalt fixerade till nivåer gick inte att slutföra. Se till att det inte finns några anslutningsproblem som hindrar åtgärden slutförs. För felsökning av anslutningsmöjligheter problem går du till [felsöka med cmdleten Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Den ursprungliga lokalt fixerade volymen har nu markerats som en nivåindelad volym eftersom vissa data från lokalt fixerad volym har hamnat till molnet under konverteringen. Den resulterande nivåindelade volymen fortfarande några lokalt utrymme på den enhet som kan vara frigöras för framtida lokala volymer.<br>Lös eventuella problem med nätverksanslutningen, radera aviseringen och konvertera den här volymen tillbaka till den ursprungliga typen lokalt Fäst volym att kontrollera att alla data görs tillgänglig lokalt igen. |
-| Konvertering av volymen <*volymnamn*> misslyckades. |Volymomvandlingen att omvandla volymtypen från nivåindelad till lokalt fixerade misslyckades. |Omvandlingen av volymen från typen nivåindelad till lokalt fixerade kunde inte slutföras. Se till att det inte finns några anslutningsproblem som hindrar åtgärden slutförs. För felsökning av anslutningsmöjligheter problem går du till [felsöka med cmdleten Test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Den ursprungliga nivåindelade volymen nu markerats som en lokalt Fäst volym som en del av processen fortsätter att ha data som finns i molnet, medan det tjockt allokerade utrymmet på enheten för den här volymen kan inte längre vara frigöras för framtida lokala volymer.<br>Lös eventuella problem med nätverksanslutningen, radera aviseringen och konvertera den här volymen tillbaka till den ursprungliga typen nivåindelad volym så lokalt utrymme tjockt angetts på enheten kan vara frigöras. |
-| Närmar sig lokalt utrymme för lokala ögonblicksbilder av <*volym gruppnamn*> |Lokala ögonblicksbilder för säkerhetskopieringsprincipen snart slut på utrymme och kommer att ogiltigförklaras för att undvika värdskrivningsfel. |Frekventa lokala ögonblicksbilder samt hög dataomsättning i de volymer som är associerade med den här orsakar lokalt utrymme på enheten förbrukas snabbt. Ta bort lokala ögonblicksbilder som inte längre behövs. Uppdatera också lokal ögonblicksbild scheman för den här säkerhetskopieringsprincipen ska ta mindre frekventa lokala ögonblicksbilder och se till att molnögonblicksbilder tas regelbundet. Om dessa åtgärder inte utförs, kan snart vara förbrukat lokalt utrymme för de här ögonblicksbilderna och tas automatiskt bort dem för att se till att värden skrivningar har bearbetats. |
-| Lokala ögonblicksbilder för <*volym gruppnamn*> har ogiltigförklarats. |Lokala ögonblicksbilder för <*volym gruppnamn*> har ogiltig och sedan tas bort eftersom de mer än det lokala utrymmet på enheten. |För att säkerställa att detta inte återkommer i framtiden, granska scheman för lokala ögonblicksbilder för den här säkerhetskopieringsprincipen och ta bort lokala ögonblicksbilder som inte längre behövs. Frekventa lokala ögonblicksbilder samt hög dataomsättning i de volymer som är associerade med den här orsaka lokalt utrymme på enheten förbrukas snabbt. |
-| Återställning av <*käll-ID: N säkerhetskopieringselementets*> misslyckades. |Återställningsjobbet har misslyckats. |Om du har lokalt fixerade eller en blandning av lokalt fixerade och nivåindelade volymer i den här säkerhetskopieringsprincipen uppdatera listan säkerhetskopiering för att kontrollera att är säkerhetskopian fortfarande giltigt. Om säkerhetskopian är giltig, är det möjligt att molnet anslutningsproblem förhindrar återställningen inte kan slutföras. Lokalt fixerade volymerna som återställdes som en del av den här ögonblicksbilden gruppen har inte alla sina data som hämtas till enheten och, om du har en blandning av nivåindelade och lokalt fixerade volymer i den här ögonblicksbilden-gruppen, kan de inte synkroniserade med varandra. För att slutföra återställningen igen, ta volymerna i den här gruppen offline på värden och försök återställa igen. Observera att alla volymdata som utfördes under återställningsprocessen ändringar går förlorade. |
+| Det gick inte att skapa en lokal volym <*volym namnet*>. |Det gick inte att skapa volymen. <*fel meddelande som motsvarar den felkod som returnerades*>. |Anslutnings problem kan förhindra att åtgärden för att skapa utrymme slutförs. Lokalt fästa volymer är tjockt etablerade och processen för att skapa utrymme innebär att volymer på nivå av data spill i molnet. Om det inte finns några anslutnings problem kan du ha förbrukat det lokala utrymmet på enheten. Kontrol lera om det finns utrymme på enheten innan du försöker igen. |
+| Det gick inte att utöka den lokala volymens <*volym namn*>. |Volym ändrings jobbet misslyckades på grund av <*fel meddelande som motsvarar felkoden som returnerades*>. |Anslutnings problem kan hindra volym expansions åtgärden från att slutföras. Lokalt fästa volymer är tjockt etablerade och processen för att utöka det befintliga utrymmet innebär att det finns spill i nivå volymer i molnet. Om det inte finns några anslutnings problem kan du ha förbrukat det lokala utrymmet på enheten. Kontrol lera om det finns utrymme på enheten innan du försöker igen. |
+| Det gick inte att konvertera volymens <*volym namn*>. |Volym konverterings jobbet för att konvertera volym typen från lokalt fäst till nivå misslyckades. |Det gick inte att slutföra konverteringen av volymen från typen lokalt fäst till nivå. Kontrol lera att det inte finns några anslutnings problem som hindrar åtgärden från att slutföras. Fel sökning av anslutnings problem finns i [Felsöka med cmdleten test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Den ursprungliga lokalt fästa volymen har nu marker ATS som en nivå volym eftersom vissa data från den lokalt fästa volymen har spillat i molnet under konverteringen. Den resulterande nivån volym tar fortfarande upp lokalt utrymme på enheten som inte kan återtas för framtida lokala volymer.<br>Lös eventuella anslutnings problem, rensa aviseringen och konvertera volymen tillbaka till den ursprungliga lokalt fasta volym typen för att säkerställa att alla data görs tillgängliga lokalt. |
+| Det gick inte att konvertera volymens <*volym namn*>. |Volym konverterings jobbet för att konvertera volym typen från nivå till lokalt fästes misslyckades. |Det gick inte att slutföra konverteringen av volymen från typ skiktad till lokalt fäst. Kontrol lera att det inte finns några anslutnings problem som hindrar åtgärden från att slutföras. Fel sökning av anslutnings problem finns i [Felsöka med cmdleten test-HcsmConnection](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-test-hcsmconnection-cmdlet).<br>Den ursprungliga nivå volymen är nu markerad som en lokalt fixerad volym som en del av konverterings processen fortsätter att ha data som finns i molnet, medan det tjockt allokerade utrymmet på enheten för volymen inte längre kan återtas för framtida lokala volymer.<br>Lös eventuella anslutnings problem, rensa aviseringen och konvertera volymen tillbaka till den ursprungliga volym typen för att säkerställa att lokalt utrymme som är tjockt allokerat på enheten kan frigöras. |
+| Nära användning av lokalt utrymme för lokala ögonblicks bilder av <*volym grupp namn*> |Lokala ögonblicks bilder för säkerhets kopierings principen kan snart få slut på utrymme och bli ogiltiga för att undvika skrivfel på värden. |Vanliga lokala ögonblicks bilder tillsammans med en hög data omsättning i de volymer som är associerade med den här säkerhets kopierings princip gruppen gör att det lokala utrymmet på enheten kan förbrukas snabbt. Ta bort eventuella lokala ögonblicks bilder som inte längre behövs. Uppdatera även dina lokala ögonblicks bild scheman för den här säkerhets kopierings principen för att ta mindre frekventa lokala ögonblicks bilder och se till att moln ögonblicks bilder tas regelbundet. Om dessa åtgärder inte vidtas kan det lokala utrymmet för de här ögonblicks bilderna snart bli förbrukat och systemet tar bort dem automatiskt för att säkerställa att värden skriver fortsätter att bearbetas korrekt. |
+| Lokala ögonblicks bilder för <*volym grupp namn*> har ogiltig förklarats. |De lokala ögonblicks bilderna för <*volym grupp namn*> har ogiltig förklarats och sedan tagits bort eftersom de överskred det lokala utrymmet på enheten. |För att säkerställa att detta inte återkommer i framtiden granskar du de lokala ögonblicks bild scheman för den här säkerhets kopierings principen och tar bort eventuella lokala ögonblicks bilder som inte längre behövs. Vanliga lokala ögonblicks bilder tillsammans med en hög data omsättning i de volymer som är associerade med den här säkerhets kopierings princip gruppen kan leda till att det lokala utrymmet på enheten förbrukas snabbt. |
+| Det gick inte att återställa <*källans ID för säkerhets kopierings element*>. |Återställnings jobbet misslyckades. |Om du har fäst lokalt eller en blandning av lokalt fästa volymer och skiktade volymer i den här säkerhets kopierings principen uppdaterar du säkerhets kopierings listan för att kontrol lera att säkerhets kopian fortfarande är giltig. Om säkerhets kopieringen är giltig är det möjligt att problem med moln anslutningen hindrar återställnings åtgärden från att slutföras. De lokalt fästa volymer som återställdes som en del av den här ögonblicks bild gruppen har inga data som hämtats till enheten, och om du har en blandning av skiktade och lokalt fästa volymer i den här ögonblicks bild gruppen kommer de inte att synkroniseras med varandra. Slutför återställnings åtgärden genom att ta volymerna i den här gruppen offline på värden och försök utföra återställnings åtgärden igen. Observera att eventuella ändringar av volym data som utfördes under återställnings processen går förlorade. |
 
-### <a name="networking-alerts"></a>Aviseringar för nätverk
+### <a name="networking-alerts"></a>Nätverks aviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Det gick inte att starta StorSimple-tjänst(er). |DataPath fel |Kontakta Microsoft-supporten om problemet kvarstår. |
-| Duplicerad IP-adress har identifierats för 'Data0'. | |Systemet har upptäckt en konflikt för IP-adress ”10.0.0.1”. Nätverksresursen 'Data0' på enheten  *\<device1 >* är offline. Se till att den här IP-adressen inte används av någon annan enhet i det här nätverket. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta administratören för hjälp med att lösa problemet. Kontakta Microsoft-supporten om problemet kvarstår. |
-| IPv4 (eller IPv6)-adress för 'Data0' är offline. | |Nätverksresursen 'Data0 ”med IP-adressen 10.0.0.1. och prefixlängden ”22” på enheten  *\<device1 >* är offline. Säkerställa att växelportarna som gränssnittet är anslutet till fungerar. Om du vill felsöka nätverksproblem, gå till [felsöka med cmdleten Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
-| Det gick inte att ansluta till Autentiseringstjänsten. |DataPath fel |URLthat används för att autentisera kan inte nås. Se till att brandväggsreglerna omfattar URL-mönster som angetts för StorSimple-enheten. Mer information om URL-mönster i Azure-portalen går du till https:\//aka.ms/ss-8000-network-reqs. Om du använder Azure Government-molnet, gå till URL-mönster i https:\//aka.ms/ss8000-gov-network-reqs.|
+| Det gick inte att starta StorSimple-tjänst (er). |Datapath-fel |Kontakta Microsoft Support om problemet kvarstår. |
+| En duplicerad IP-adress har identifierats för ' Data0 '. | |Systemet har upptäckt en konflikt för IP-adressen 10.0.0.1. Nätverks resursen "Data0" på enheten *\<device1 >* är offline. Se till att den här IP-adressen inte används av någon annan entitet i det här nätverket. Om du vill felsöka nätverks problem går du till [Felsöka med cmdleten Get-netadapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Kontakta nätverks administratören om du behöver hjälp med att lösa problemet. Kontakta Microsoft Support om problemet kvarstår. |
+| IPv4-adressen (eller IPv6) för ' Data0 ' är offline. | |Nätverks resursen "Data0" med IP-adressen 10.0.0.1. " prefixlängden "22" på enheten *\<device1 >* är offline. Se till att växel portarna som det här gränssnittet är anslutna till fungerar. Om du vill felsöka nätverks problem går du till [Felsöka med cmdleten Get-netadapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Det gick inte att ansluta till Autentiseringstjänsten. |Datapath-fel |Det går inte att hitta URLthat som används för att autentisera. Se till att brand Väggs reglerna innehåller de URL-mönster som anges för StorSimple-enheten. Mer information om URL-mönster i Azure Portal finns i https:\//aka.ms/ss-8000-network-reqs. Om du använder Azure Government Cloud går du till URL-mönstren i https:\//aka.ms/ss8000-gov-network-reqs.|
 
-### <a name="performance-alerts"></a>Aviseringar om programprestanda
+### <a name="performance-alerts"></a>Prestanda varningar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder | |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder | |
 |:--- |:--- |:--- | --- |
-| Enhetsbelastningen har överskridit <*tröskelvärdet*>. |Långsammare än förväntat svarstider. |Enheten rapporterar utnyttjande hårt belastat indata/utdata. Detta kan bero på att inte fungerar som den ska. Granska de arbetsbelastningar som du har kopplat till enheten och ta reda på om det finns några, som kan flyttas till en annan enhet eller som inte längre behövs.|
-| Det gick inte att starta StorSimple-tjänst(er). |DataPath fel |Kontakta Microsoft-supporten om problemet kvarstår. |
+| Enhets belastningen har överskridit <*tröskelvärdet*>. |Långsammare än förväntat svars tider. |Din enhet rapporterar användning under tung inläsning/utdata. Detta kan leda till att enheten inte fungerar som den ska. Granska de arbets belastningar som du har kopplat till enheten och kontrol lera om det finns några som kan flyttas till en annan enhet eller som inte längre behövs.|
+| Det gick inte att starta StorSimple-tjänst (er). |Datapath-fel |Kontakta Microsoft Support om problemet kvarstår. |
 
 ### <a name="security-alerts"></a>Säkerhetsaviseringar
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Microsoft Support-session har startat. |Från tredje part används supportsessionen. |Bekräfta att åtkomsten tillåts. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan. |
-| Lösenordet för <*elementet*> går ut om <*lång tid*>. |Lösenordets giltighetstid närmar sig. |Ändra lösenordet innan det upphör att gälla. |
-| Säkerhetskonfigurationsinformation saknas för <*element-ID*>. | |Volymer som är associerade med den här volymcontainern kan inte användas för att replikera din StorSimple-konfiguration. För att säkerställa att dina data lagras på ett säkert sätt, rekommenderar vi att du tar bort volymcontainern och alla volymer som är associerade med volymbehållaren. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan. |
-| <*antal*> inloggningsförsök misslyckades för <*element-ID*>. |Flera inloggningsförsök misslyckade. |Enheten kan vara utsatt för angrepp eller också kan en obehörig användare försöka ansluta med ett felaktigt lösenord.<ul><li>Kontakta dina behöriga användare och kontrollera att försöken gjordes från en säker källa. Om du fortsätter att se ett stort antal inloggningsförsök kan du inaktivera fjärrhantering och kontakta nätverksadministratören. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan.</li><li>Kontrollera att dina Snapshot Manager-instanserna är konfigurerade med rätt lösenord. När du har vidtagit åtgärder, radera aviseringen från aviseringssidan.</li></ul>Mer information går du till [ändra ett enhetslösenord har upphört att gälla](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password). |
-| En eller flera fel inträffade när krypteringsnyckeln för tjänstdata. | |Det fanns fel inträffade när krypteringsnyckeln för tjänstdata. När du har åtgärdat felförhållandena kör du den `Invoke-HcsmServiceDataEncryptionKeyChange` cmdlet från Windows PowerShell-gränssnittet för StorSimple på enheten för att uppdatera tjänsten. Kontakta Microsoft-supporten om problemet kvarstår. Radera aviseringen från aviseringssidan när du har löst problemet. |
+| Microsoft Support-sessionen har påbörjats. |Support session från tredje part. |Bekräfta att åtkomsten är auktoriserad. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan. |
+| Lösen ordet för <*element*> upphör att gälla om <*tids*>. |Lösen ordets giltighets tid närmar sig. |Ändra lösen ordet innan det upphör att gälla. |
+| Säkerhets konfigurations information saknas för <*element-ID*>. | |Volymerna som är associerade med den här volym behållaren kan inte användas för att replikera StorSimple-konfigurationen. För att säkerställa att dina data lagras säkert, rekommenderar vi att du tar bort volym behållaren och alla volymer som är associerade med volym containern. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan. |
+| <*nummer*> inloggnings försök misslyckades för <*element-ID*>. |Flera misslyckade inloggnings försök. |Enheten kan vara utsatt för en attack eller en behörig användare försöker ansluta med ett felaktigt lösen ord.<ul><li>Kontakta dina auktoriserade användare och kontrol lera att de här försöken kommer från en legitim källa. Om du fortsätter att se ett stort antal misslyckade inloggnings försök bör du inaktivera fjärrhantering och kontakta nätverks administratören. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan.</li><li>Kontrol lera att Snapshot Manager instanserna är konfigurerade med rätt lösen ord. När du har vidtagit en lämplig åtgärd tar du bort den här aviseringen från aviserings sidan.</li></ul>Mer information finns i [ändra ett förfallet enhets lösen ord](storsimple-snapshot-manager-manage-devices.md#change-an-expired-device-password). |
+| Ett eller flera fel inträffade när krypterings nyckeln för tjänst data ändrades. | |Fel inträffade när krypterings nyckeln för tjänst data ändrades. När du har åtgärdat fel villkoren kan du köra cmdleten `Invoke-HcsmServiceDataEncryptionKeyChange` från Windows PowerShell-gränssnittet för StorSimple på enheten för att uppdatera tjänsten. Kontakta Microsoft-supporten om problemet kvarstår. Ta bort den här aviseringen från aviserings sidan när du har löst problemet. |
 
-### <a name="support-package-alerts"></a>Stöd för paketet aviseringar
+### <a name="support-package-alerts"></a>Aviseringar om support paket
 
-| Aviseringstext | Händelse | Mer information / rekommenderade åtgärder |
+| Aviserings text | Händelse | Mer information/rekommenderade åtgärder |
 |:--- |:--- |:--- |
-| Det gick inte att skapa supportpaket. |StorSimple kunde inte generera paketet. |Försök igen. Kontakta Microsoft-supporten om problemet kvarstår. När du har löst problemet kan du radera den här aviseringen från aviseringssidan. |
+| Det gick inte att skapa support paketet. |StorSimple kunde inte generera paketet. |Försök igen. Kontakta Microsoft Support om problemet kvarstår. När du har löst problemet tar du bort den här aviseringen från aviserings sidan. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [StorSimple fel och felsöka problem med distribution](storsimple-8000-troubleshoot-deployment.md).
+Läs mer om [StorSimple-fel och fel sökning av problem med enhets distribution](storsimple-8000-troubleshoot-deployment.md).
 

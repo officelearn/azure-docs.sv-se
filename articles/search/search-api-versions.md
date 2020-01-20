@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 03dbb679c25ea692d2c52f80b9493889e367823d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c2f774401f32ff02ced690173c418dafc4c789b5
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112143"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278798"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>API-versioner i Azure Kognitiv sökning
 
@@ -30,7 +30,7 @@ Samma regel gäller för SDK-uppdateringar. Azure Kognitiv sökning SDK följer 
 Nedan visas en ögonblicks bild av de aktuella versionerna av alla programmerings gränssnitt till Azure Kognitiv sökning.
 
 
-| Intervall | Senaste huvud version | Status |
+| Gränssnitt | Senaste huvud version | Status |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |Allmänt tillgänglig, lanserad maj 2019 |
 | [För hands version av .NET SDK](https://aka.ms/search-sdk-preview) |8,0 – för hands version |För hands version, lanserad april 2019 |
@@ -49,6 +49,9 @@ För REST-API: er, inklusive `api-version` för varje anrop måste anges. Med hj
 > Tjänsten REST API och hantering REST API versioner oberoende av varandra. Alla likheter i versions nummer är samincidenter.
 
 Allmänt tillgängliga API: er (eller GA) kan användas i produktion och omfattas av Azure Service nivå avtal. För hands versioner har experimentella funktioner som inte alltid migreras till en GA-version. **Du rekommenderas starkt att undvika att använda för hands versioner av API: er i produktions program.**
+
+## <a name="update-to-the-latest-version-of-the-rest-api-by-october-15-2020"></a>Uppdatera till den senaste versionen av REST API den 15 oktober 2020
+Följande versioner av Azure Kognitiv sökning REST API dras tillbaka och stöds inte längre den 15 oktober 2020: **2014-07-31 – för hands**version, **2014-10-20-för hands**version, **2015-02-28-för hands version**och **2015-02-28**. Dessutom dras versioner av Azure Kognitiv sökning .NET SDK som är äldre än **3.0.0-RC** tillbaka, eftersom de är riktade mot någon av dessa REST API-versioner. Efter det här datumet kommer program som använder någon av de inaktuella REST API-eller SDK-versionerna inte längre att fungera och måste uppgraderas. Som med alla ändringar av den här typen ger vi 12 månaders varsel, så du har tillräckligt med tid för att justera.  Om du vill fortsätta att använda Azure Kognitiv sökning kan du migrera den befintliga koden som är avsedd för [REST API](search-api-migration.md) till [REST API version 2019-05-06](https://docs.microsoft.com/rest/api/searchservice/) eller nyare eller .net SDK till [version 3,0](search-dotnet-sdk-migration.md) eller nyare senast den 15 oktober 2020.  Om du har frågor om att uppdatera till den senaste versionen kan du skicka e-post till azuresearch_contact@microsoft.com den 15 maj 2020 för att se till att du har tillräckligt med tid för att uppdatera koden.
 
 ## <a name="about-preview-and-generally-available-versions"></a>Om förhands granskning och allmänt tillgängliga versioner
 Azure Kognitiv sökning alltid för hands versioner av experimentella funktioner via REST API först, sedan till hands versioner av .NET SDK.

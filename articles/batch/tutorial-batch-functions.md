@@ -1,22 +1,19 @@
 ---
 title: Utlös ett batch-jobb med Azure Functions
 description: Självstudie – Använd OCR för skannade dokument när de läggs till i en Storage-BLOB
-services: batch
 author: ju-shim
-manager: jeconnoc
-ms.assetid: ''
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: peshultz
 ms.custom: mvc
-ms.openlocfilehash: 6e3cdb6c7e2774eeb29df6986088f822cbb894cf
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e3c85d7dfceecfb85223a9688debf4e8937e7c35
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029235"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275976"
 ---
 # <a name="tutorial-trigger-a-batch-job-using-azure-functions"></a>Självstudie: utlösa ett batch-jobb med Azure Functions
 
@@ -31,7 +28,7 @@ I den här självstudien får du lära dig hur du utlöser ett batch-jobb med hj
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-batch-pool-and-batch-job-using-batch-explorer"></a>Skapa en batch-pool och ett batch-jobb med Batch Explorer
 

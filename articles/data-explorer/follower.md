@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: b4e09bf84d78c88d3625b0f6b478746db09cc2d8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030059"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277022"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använd följande databas för att koppla databaser i Azure Datautforskaren
 
@@ -127,7 +127,7 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 ### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Koppla en databas med en Azure Resource Manager mall
 
-I det här avsnittet får du lära dig hur du skapar ett uppföljnings kluster och kopplar en databas till den med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/management/overview.md). Om du redan har ett kluster tar du bort `Microsoft.Kusto/clusters` resursen från resurs listan nedan.
+I det här avsnittet får du lära dig hur du kopplar en databas till en befintlig kluster med hjälp av en [Azure Resource Manager mall](../azure-resource-manager/management/overview.md). 
 
 ```json
 {
@@ -138,7 +138,7 @@ I det här avsnittet får du lära dig hur du skapar ett uppföljnings kluster o
             "type": "string",
             "defaultValue": "",
             "metadata": {
-                "description": "Name of the follower cluster."
+                "description": "Name of the cluster to which the database will be attached."
             }
         },
         "attachedDatabaseConfigurationsName": {
@@ -180,17 +180,6 @@ I det här avsnittet får du lära dig hur du skapar ett uppföljnings kluster o
     "variables": {},
     "resources": [
         {
-            "name": "[parameters('followerClusterName')]",
-            "type": "Microsoft.Kusto/clusters",
-            "sku": {
-                "name": "Standard_D13_v2",
-                "tier": "Standard",
-                "capacity": 2
-            },
-            "apiVersion": "2019-09-07",
-            "location": "[parameters('location')]"
-        },
-        {
             "name": "[concat(parameters('followerClusterName'), '/', parameters('attachedDatabaseConfigurationsName'))]",
             "type": "Microsoft.Kusto/clusters/attachedDatabaseConfigurations",
             "apiVersion": "2019-09-07",
@@ -217,7 +206,7 @@ Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](ht
 
 |**Inställning**  |**Beskrivning**  |
 |---------|---------|
-|Namn på Uppföljnings kluster     |  Namnet på Uppföljnings klustret. Om kluster namnet finns tar du bort `Microsoft.Kusto/clusters` resursen från resurs listan i ARM-mallen. Annars kommer ett nytt kluster att skapas.     |
+|Namn på Uppföljnings kluster     |  Namnet på Uppföljnings klustret.  |
 |Konfigurations namn för bifogad databas    |    Namnet på det anslutna databas konfigurations objekt. Namnet måste vara unikt på kluster nivån.     |
 |Databasnamn     |      Namnet på databasen som ska följas. Om du vill följa alla ledares databaser använder du "*".   |
 |Resurs-ID för ledar kluster    |   Resurs-ID för ledar klustret.      |

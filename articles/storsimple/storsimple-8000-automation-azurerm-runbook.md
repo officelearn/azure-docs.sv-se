@@ -1,46 +1,38 @@
 ---
-title: Använd Azure Automation-Runbook för att hantera StorSimple-enheter | Microsoft Docs
-description: Lär dig hur du använder Azure Automation-Runbook för att automatisera uppgifter för StorSimple
-services: storsimple
-documentationcenter: NA
+title: Använd Azure Automation Runbook för att hantera StorSimple-enheter
+description: Lär dig hur du använder Azure Automation Runbook för att automatisera StorSimple-jobb
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 727bebe0c190ed4dff4408884c45fe166ad541a9
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60310217"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276962"
 ---
-# <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation-runbooks för att hantera StorSimple-enheter
+# <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Använd Azure Automation runbooks för att hantera StorSimple-enheter
 
-Den här artikeln beskriver hur du använder Azure Automation-runbooks att hantera din enhet i StorSimple 8000-serien i Azure-portalen. En exempel-runbook ingår för att vägleder dig genom stegen för att konfigurera din miljö för att köra denna runbook.
+I den här artikeln beskrivs hur Azure Automation runbooks används för att hantera din StorSimple 8000-serie enhet i Azure Portal. En exempel-Runbook ingår för att vägleda dig genom stegen för att konfigurera din miljö för att köra denna Runbook.
 
 
-## <a name="configure-add-and-run-azure-runbook"></a>Konfigurera, lägga till och köra Azure runbook
+## <a name="configure-add-and-run-azure-runbook"></a>Konfigurera, lägga till och köra Azure Runbook
 
-Det här avsnittet tar ett exempel Windows PowerShell-skript för StorSimple och information om de olika stegen som krävs för att importera skriptet till en runbook och sedan publicera och kör en runbook.
+Det här avsnittet tar ett exempel på Windows PowerShell-skript för StorSimple och beskriver de olika stegen som krävs för att importera skriptet till en Runbook och sedan publicera och köra runbooken.
 
-### <a name="prerequisites"></a>Nödvändiga komponenter
+### <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du kontrollera att du har:
+Innan du börjar ska du kontrol lera att du har:
 
-* en aktiv Azure-prenumeration som är associerade med din StorSimple Device Manager-tjänst som har registrerats med en enhet i StorSimple 8000-serien.
+* en aktiv Azure-prenumeration som är associerad med din StorSimple Enhetshanteraren-tjänst som registrerats med en StorSimple 8000-serie enhet.
 
-* Windows PowerShell 5.0 är installerat på datorn (eller Windows Server som värd för din StorSimple om du använder en).
+* Windows PowerShell 5,0 installerat på datorn (eller Windows Server-värden för din StorSimple om du använder en).
 
-### <a name="create-automation-runbook-module-in-windows-powershell"></a>Skapa automation runbook-modulen i Windows PowerShell
+### <a name="create-automation-runbook-module-in-windows-powershell"></a>Skapa Automation Runbook-modul i Windows PowerShell
 
-Om du vill skapa en automation-modul för enhetshantering för StorSimple 8000-serien, utför du följande steg:
+Utför följande steg för att skapa en Automation-modul för enhets hantering i StorSimple 8000-serien:
 
 1. Starta Windows PowerShell. Skapa en ny mapp och ändra katalogen till den nya mappen.
 
@@ -49,15 +41,15 @@ Om du vill skapa en automation-modul för enhetshantering för StorSimple 8000-s
         cd C:\scripts\StorSimpleSDKTools
     ```
 
-2. [Ladda ned NuGet CLI](https://www.nuget.org/downloads) under mappen skapade i föregående steg. Det finns olika versioner av _nuget.exe_. Välj den version som motsvarar din SDK. Varje länk för hämtning pekar direkt till en _.exe_ fil. Se till att högerklicka på och spara filen på datorn i stället för att köra den från webbläsaren.
+2. [Hämta NUGET CLI](https://www.nuget.org/downloads) under den mapp som skapades i föregående steg. Det finns olika versioner av _NuGet. exe_. Välj den version som motsvarar din SDK. Varje nedladdnings länk pekar direkt till en _. exe_ -fil. Tänk på att högerklicka och spara filen på datorn i stället för att köra den från webbläsaren.
 
-    Du kan också köra följande kommando för att hämta och lagra skriptet i samma mapp som du skapade tidigare.
+    Du kan också köra följande kommando för att ladda ned och lagra skriptet i samma mapp som du skapade tidigare.
 
     ```
         wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
     ```
 
-3. Hämta beroende SDK.
+3. Hämta det beroende SDK: n.
 
     ```
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
@@ -65,13 +57,13 @@ Om du vill skapa en automation-modul för enhetshantering för StorSimple 8000-s
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
     ```
 
-4. Ladda ned skriptet från GitHub exempelprojektet.
+4. Hämta skriptet från exemplet GitHub Project.
 
     ```
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
     ```
 
-5. Skapa en Azure Automation Runbook-modul för enhetshantering i StorSimple 8000-serien. Skriv följande kommandon i Windows Powershell-fönstret:
+5. Skapa en Azure Automation Runbook-modul för enhets hantering i StorSimple 8000-serien. Skriv följande kommandon i Windows PowerShell-fönstret:
 
     ```powershell
         # set path variables
@@ -91,11 +83,11 @@ Om du vill skapa en automation-modul för enhetshantering för StorSimple 8000-s
         compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
-6. Kontrollera att ett automation-modul zip-filen skapas i `C:\scripts\StorSimpleSDKTools`.
+6. Kontrol lera att zip-filen för Automation-modulen skapas i `C:\scripts\StorSimpleSDKTools`.
 
     ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
-7. Följande utdata visas när automation-modul har skapats via Windows PowerShell.
+7. Följande utdata visas när Automation-modulen skapas via Windows PowerShell.
 
     ```powershell
     mkdir C:\scripts\StorSimpleSDKTools
@@ -177,51 +169,51 @@ Om du vill skapa en automation-modul för enhetshantering för StorSimple 8000-s
     compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
-### <a name="import-publish-and-run-automation-runbook"></a>Importera, publicera och köra Automation-runbook
+### <a name="import-publish-and-run-automation-runbook"></a>Importera, publicera och köra Automation-Runbook
 
-1. Skapa ett Azure kör som automation-konto i Azure-portalen. Du gör detta genom att gå till **Azure marketplace > allt** och söker sedan efter **Automation**. Välj **automationskonton**.
+1. Skapa ett Azure kör som Automation-konto i Azure Portal. Det gör du genom att gå till **Azure marketplace > allt** och sedan söka efter **Automation**. Välj **Automation-konton**.
 
-    ![search-automation](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
+    ![Sök-automatisering](./media/storsimple-8000-automation-azurerm-runbook/automation1.png)
 
-2. I den **Lägg till Automation-konto** bladet:
+2. På bladet **Lägg till Automation-konto** :
 
-   1. Ange den **namn** av ditt Automation-konto.
-   2. Välj den **prenumeration** länkad till din StorSimple Device Manager-tjänsten.
-   3. Skapa en ny resursgrupp eller välj en befintlig resursgrupp.
-   4. Välj en **plats** (om möjligt samma som där din tjänst körs).
-   5. Låt standardvärdet **skapa kör som-konto** alternativ som valts.
-   6. Du kan också kontrollera **fäst på instrumentpanelen**. Klicka på **Skapa**.
+   1. Ange **namnet** på ditt Automation-konto.
+   2. Välj den **prenumeration** som är länkad till din StorSimple Enhetshanteraren-tjänst.
+   3. Skapa en ny resurs grupp eller Välj en befintlig resurs grupp.
+   4. Välj en **plats** (om möjligt är det samma som var tjänsten körs).
+   5. Låt standard alternativet **skapa kör som-konto** vara markerat.
+   6. Du kan också markera **Fäst på instrument panelen**. Klicka på **Skapa**.
 
-       ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Skapa-Automation – konto](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-      När automation-kontot har skapats, du får ett meddelande. Mer information om hur du skapar ett Automation-konto går du till [skapa ett kör som-konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      När Automation-kontot har skapats får du ett meddelande. Mer information om hur du skapar ett Automation-konto finns i [skapa ett Kör som-konto](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
-3. För att säkerställa att skapade automation-kontot har åtkomst till StorSimple Device Manager-tjänsten, måste du tilldela behörighet till automation-kontot. Gå till **åtkomstkontroll** i StorSimple Device Manager-tjänsten. Klicka på **+ Lägg till** och ange namnet på ditt Azure Automation-konto. **Spara** inställningarna.
+3. För att säkerställa att Automation-kontot som skapas kan komma åt StorSimple-Enhetshanteraren tjänsten måste du tilldela lämpliga behörigheter till Automation-kontot. Gå till **åtkomst kontroll** i din StorSimple Enhetshanteraren-tjänst. Klicka på **+ Lägg till** och ange namnet på ditt Azure Automation konto. **Spara** inställningarna.
 
-    ![add-permissions-automation-account](./media/storsimple-8000-automation-azurerm-runbook/goto-add-roles.png)
+    ![Add-Permissions-Automation-Account](./media/storsimple-8000-automation-azurerm-runbook/goto-add-roles.png)
 
-4. I det nya kontot går du till **delade resurser > moduler** och klicka på **+ Lägg till modulen**.
+4. I det nyligen skapade kontot går du till **delade resurser > moduler** och klickar på **+ Lägg till modul**.
 
-5. I den **Lägg till modulen** bladet Bläddra till platsen för den komprimerade modulen och välj och öppna modulen. Klicka på **OK**.
+5. I bladet **Lägg till modul** bläddrar du till platsen för den zippade modulen och väljer och öppnar modulen. Klicka på **OK**.
 
-    ![add-module](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
+    ![Lägg till modul](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Gå till **Processautomatisering > Runbooks och klicka på + Lägg till en runbook**. I den **Lägg till runbook** bladet klickar du på **importera en befintlig runbook**. Peka på Windows PowerShell-skriptfil för den **Runbook-filen**. Runbook-typen väljs automatiskt. Ange ett namn och en valfri beskrivning för runbook. Klicka på **Skapa**.
+6. Gå till **process automatisering > Runbooks och klicka på + Lägg till en Runbook**. På bladet **Lägg till Runbook** klickar du på **Importera en befintlig Runbook**. Peka på Windows PowerShell-skriptfilen för Runbook- **filen**. Runbook-typen väljs automatiskt. Ange ett namn och en valfri beskrivning för runbooken. Klicka på **Skapa**.
 
-    ![add-module](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
+    ![Lägg till modul](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 
-7. Runbook har lagts till i listan med runbooks. Välj och klicka på denna runbook.
+7. Runbooken läggs till i listan över Runbooks. Välj och klicka på denna Runbook.
 
     ![click-new-runbook](./media/storsimple-8000-automation-azurerm-runbook/verify-runbook-created.png)
 
-8. Redigera runbooken och klicka på **Testfönster**. Ange parametrar, till exempel namnet på din StorSimple Device Manager-tjänsten, namnet på StorSimple-enheten och prenumerationen. **Starta** testet. Rapporten genereras när körningen är klar. Mer information går du till [hur du testar en runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+8. Redigera runbooken och klicka på **test fönster**. Ange parametrar som namn på din StorSimple-Enhetshanteraren tjänst, namnet på StorSimple-enheten och prenumerationen. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här [testar du en Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
     ![test-runbook](./media/storsimple-8000-automation-azurerm-runbook/test-runbook.png)
 
-9. Granska utdata från runbooken i rutan. Stäng fönstret om klar. Klicka på **publicera** och när du uppmanas att bekräfta bekräfta och publicera en runbook.
+9. Granska utdata från runbooken i test fönstret. Stäng fönstret om det är uppfyllt. Klicka på **publicera** och när du uppmanas att bekräfta, bekräfta och publicera runbooken.
 
-    ![Publicera runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
+    ![publicera – Runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd StorSimple Device Manager-tjänsten för att hantera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+[Använd StorSimple Enhetshanteraren-tjänsten för att hantera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).

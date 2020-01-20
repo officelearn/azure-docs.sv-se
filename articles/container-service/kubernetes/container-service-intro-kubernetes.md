@@ -1,20 +1,18 @@
 ---
 title: (INAKTUELL) Introduktion till Azure Container Service för Kubernetes
 description: Med Azure Container Service för Kubernetes kan du enkelt distribuera och hantera behållarbaserade program i Azure.
-services: container-service
 author: gabrtv
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 07/21/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: e00ac57cc36b3331cfb847ecedc6c75132cdeb6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c0ef7255a087dd5dc26532316deab337f9eff715
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60712560"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271572"
 ---
 # <a name="deprecated-introduction-to-azure-container-service-for-kubernetes"></a>(INAKTUELL) Introduktion till Azure Container Service för Kubernetes
 
@@ -48,7 +46,7 @@ Arkitekturdiagram över Kubernetes som distribuerats via Azure Container Service
 
 ![Azure Container Service konfigurerat för Kubernetes.](media/acs-intro/kubernetes.png)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 Stöd för Kubernetes i Azure Container Service (Azure fredag, januari 2017):
 

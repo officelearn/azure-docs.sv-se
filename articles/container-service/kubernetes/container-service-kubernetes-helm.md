@@ -1,65 +1,63 @@
 ---
-title: (INAKTUELL) Distribuera behållare med Helm i Azure Kubernetes
-description: Använda Helm paketering för att distribuera behållare i ett Kubernetes-kluster i Azure Container Service
-services: container-service
+title: FÖRÅLDRAD Distribuera behållare med Helm i Azure Kubernetes
+description: Använd Helm packnings verktyg för att distribuera behållare i ett Kubernetes-kluster i Azure Container Service
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 05edbf40e8cd5f8edbdc8b74b540962b1a25c8de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a32c9fab3877a693d2df26571b9fae4aa7b4380c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712330"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271089"
 ---
-# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>(INAKTUELL) Använd Helm för att distribuera behållare i ett Kubernetes-kluster
+# <a name="deprecated-use-helm-to-deploy-containers-on-a-kubernetes-cluster"></a>FÖRÅLDRAD Använda Helm för att distribuera behållare i ett Kubernetes-kluster
 
 > [!TIP]
-> Den uppdaterade versionen som den här artikeln som använder Azure Kubernetes Service, finns i [installera program med Helm i Azure Kubernetes Service (AKS)](../../aks/kubernetes-helm.md).
+> Den uppdaterade versionen av den här artikeln som använder Azure Kubernetes-tjänsten finns i [installera program med Helm i Azure Kubernetes service (AKS)](../../aks/kubernetes-helm.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-[Helm](https://github.com/kubernetes/helm/) är ett verktyg med öppen källkod paketering som hjälper dig att installera och hantera livscykeln för Kubernetes-program. Liknar Linux pakethanterare, till exempel Apt-get- och Yum, Helm används för att hantera Kubernetes-diagram, som är paket med förkonfigurerade Kubernetes-resurser. Den här artikeln visar hur du arbetar med Helm på ett Kubernetes-kluster som distribueras i Azure Container Service.
+[Helm](https://github.com/kubernetes/helm/) är ett paket med öppen källkod som hjälper dig att installera och hantera livs cykeln för Kubernetes-program. På samma sätt som Linux-paket hanterare som apt-get och yum, används Helm för att hantera Kubernetes-diagram, som är paket med förkonfigurerade Kubernetes-resurser. Den här artikeln visar hur du arbetar med Helm i ett Kubernetes-kluster som distribueras i Azure Container Service.
 
-Helm består av två komponenter: 
-* Den **Helm CLI** är en klient som körs på datorn lokalt eller i molnet  
+Helm har två komponenter: 
+* **Helm CLI** är en klient som körs på datorn lokalt eller i molnet  
 
-* **Tiller** är en server som körs på Kubernetes-kluster och hanterar livscykeln för Kubernetes-program 
+* **Till** en-server som körs på Kubernetes-klustret och hanterar livs cykeln för dina Kubernetes-program 
  
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Skapa ett Kubernetes-kluster](container-service-kubernetes-walkthrough.md) i Azure Container Service
 
-* [Installera och konfigurera `kubectl` ](../container-service-connect.md) på en lokal dator
+* [Installera och konfigurera `kubectl`](../container-service-connect.md) på en lokal dator
 
 * [Installera Helm](https://github.com/kubernetes/helm/blob/master/docs/install.md) på en lokal dator
 
-## <a name="helm-basics"></a>Helm-grunderna 
+## <a name="helm-basics"></a>Grundläggande om Helm 
 
-Om du vill visa information om Kubernetes-klustret att du installerar Tiller och distribuera ditt program till, skriver du följande kommando:
+Om du vill visa information om det Kubernetes-kluster som du installerar till och distribuerar dina program till, skriver du följande kommando:
 
 ```bash
 kubectl cluster-info 
 ```
-![kubectl-klusterinformation](./media/container-service-kubernetes-helm/clusterinfo.png)
+![kubectl-kluster – info](./media/container-service-kubernetes-helm/clusterinfo.png)
  
-När du har installerat Helm, installera Tiller i Kubernetes-klustret genom att skriva följande kommando:
+När du har installerat Helm installerar du till på ditt Kubernetes-kluster genom att skriva följande kommando:
 
 ```bash
 helm init --upgrade
 ```
-När processen är klar, kan du se utdata som liknar följande:
+När den har slutförts visas utdata som liknar följande:
 
-![Tiller-installation](./media/container-service-kubernetes-helm/tiller-install.png)
+![Till-installation](./media/container-service-kubernetes-helm/tiller-install.png)
  
  
  
  
-Om du vill visa alla Helm-diagram som finns tillgängliga i databasen, skriver du följande kommando:
+Om du vill visa alla Helm-diagram som är tillgängliga i databasen skriver du följande kommando:
 
 ```bash 
 helm search 
@@ -67,30 +65,30 @@ helm search
 
 Du ser utdata som liknar följande:
 
-![Helm search](./media/container-service-kubernetes-helm/helm-search.png)
+![Helm-sökning](./media/container-service-kubernetes-helm/helm-search.png)
  
-Om du vill uppdatera diagrammen för att få de senaste versionerna, skriver du:
+Om du vill uppdatera diagrammen för att hämta de senaste versionerna skriver du:
 
 ```bash 
 helm repo update 
 ```
-## <a name="deploy-an-nginx-ingress-controller-chart"></a>Distribuera en Nginx ingående controller diagram 
+## <a name="deploy-an-nginx-ingress-controller-chart"></a>Distribuera ett nginx ingress-styrkort 
  
-Om du vill distribuera en Nginx ingående controller diagram, skriver du ett enda kommando:
+Om du vill distribuera ett nginx-styrkort, anger du ett enda kommando:
 
 ```bash
 helm install stable/nginx-ingress 
 ```
 ![Distribuera ingress-kontrollant](./media/container-service-kubernetes-helm/nginx-ingress.png)
 
-Om du skriver `kubectl get svc` om du vill visa alla tjänster som körs på klustret som du ser att en IP-adress har tilldelats ingress-kontrollant. (Medan tilldelningen pågår kan du se `<pending>`. Det tar några minuter att slutföra.) 
+Om du skriver `kubectl get svc` för att visa alla tjänster som körs i klustret, ser du att en IP-adress har tilldelats till ingångs styrenheten. (Medan tilldelningen pågår visas `<pending>`. Det tar några minuter att slutföra.) 
 
-Efter IP-adress tilldelas, navigerar till värdet för den externa IP-adressen för att se Nginx-serverdel som körs. 
+När IP-adressen har tilldelats navigerar du till värdet för den externa IP-adressen för att se nginx-Server delen som körs. 
  
-![Inkommande IP-adress](./media/container-service-kubernetes-helm/ingress-ip-address.png)
+![Ingress IP-adress](./media/container-service-kubernetes-helm/ingress-ip-address.png)
 
 
-Om du vill se en lista över diagrammen som installerats på ditt kluster, skriver du:
+Om du vill se en lista över diagram som är installerade i klustret skriver du:
 
 ```bash
 helm list 
@@ -101,11 +99,11 @@ Du kan förkorta kommandot till `helm ls`.
  
  
  
-## <a name="deploy-a-mariadb-chart-and-client"></a>Distribuera en MariaDB diagram och klient
+## <a name="deploy-a-mariadb-chart-and-client"></a>Distribuera ett MariaDB-diagram och-klient
 
-Nu distribuera ett MariaDB-diagram och en MariaDB-klient för att ansluta till databasen.
+Distribuera nu ett MariaDB-diagram och en MariaDB-klient för att ansluta till databasen.
 
-Om du vill distribuera MariaDB-diagram, skriver du följande kommando:
+Om du vill distribuera MariaDB-diagrammet skriver du följande kommando:
 
 ```bash
 helm install --name v1 stable/mariadb
@@ -114,42 +112,42 @@ helm install --name v1 stable/mariadb
 där `--name` är en tagg som används för versioner.
 
 > [!TIP]
-> Om distributionen inte köra `helm repo update` och försök igen.
+> Om distributionen Miss lyckas kör du `helm repo update` och försöker igen.
 >
  
  
-Om du vill visa alla diagram som har distribuerat i klustret, skriver du:
+Om du vill visa alla diagram som har distribuerats i klustret skriver du:
 
 ```bash 
 helm list
 ```
  
-Om du vill visa alla distributioner som körs på klustret, skriver du:
+Om du vill visa alla distributioner som körs i klustret skriver du:
 
 ```bash
 kubectl get deployments 
 ``` 
  
  
-Slutligen, om du vill köra en pod för att komma åt klienten, skriver du:
+Slutligen, för att köra en POD för att få åtkomst till klienten, skriver du:
 
 ```bash
 kubectl run v1-mariadb-client --rm --tty -i --image bitnami/mariadb --command -- bash  
 ``` 
  
  
-För att ansluta till klienten, skriver du följande kommando, ersätta `v1-mariadb` med namnet på din distribution:
+Om du vill ansluta till klienten skriver du följande kommando och ersätter `v1-mariadb` med namnet på distributionen:
 
 ```bash
 sudo mysql –h v1-mariadb
 ```
  
  
-Du kan nu använda standard SQL-kommandon för att skapa databaser, tabeller osv. Till exempel `Create DATABASE testdb1;` skapar en tom databas. 
+Nu kan du använda standard-SQL-kommandon för att skapa databaser, tabeller osv. `Create DATABASE testdb1;` skapar till exempel en tom databas. 
  
  
  
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om hur du hanterar Kubernetes diagram finns i den [Helm dokumentation](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
+* Mer information om hur du hanterar Kubernetes-diagram finns i [Helm-dokumentationen](https://github.com/kubernetes/helm/blob/master/docs/index.md). 
 

@@ -1,129 +1,121 @@
 ---
-title: Skapa ett supportpaket för StorSimple 8000-serien | Microsoft Docs
-description: Lär dig hur du skapar, dekryptera och redigera ett supportpaket för din enhet i StorSimple 8000-serien.
-services: storsimple
-documentationcenter: ''
+title: Skapa ett support paket för StorSimple 8000-serien
+description: Lär dig hur du skapar, dekrypterar och redigerar ett support paket för din StorSimple 8000-serie enhet.
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: dfc2d8d763a1eb64a37af73e03992f2d948a6856
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9ca033f6f786c0142261dafa31b93b71a8b3336a
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61481879"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277074"
 ---
-# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett supportpaket för StorSimple 8000-serien
+# <a name="create-and-manage-a-support-package-for-storsimple-8000-series"></a>Skapa och hantera ett support paket för StorSimple 8000-serien
 
 ## <a name="overview"></a>Översikt
 
-Ett supportpaket för StorSimple är en enkel att använda mekanism som samlar in alla relevanta loggar för att hjälpa Microsoft Support med felsökning av problem med StorSimple-enheten. Insamlade loggar krypterade och komprimerade.
+Ett StorSimple-stödpaket är en lättanvänd mekanism som samlar in alla relevanta loggar för att hjälpa Microsoft Support med fel sökning av problem med StorSimple-enheter. De insamlade loggarna är krypterade och komprimerade.
 
-Den här självstudien innehåller stegvisa instruktioner för att skapa och hantera supportpaket för din enhet i StorSimple 8000-serien. Om du arbetar med en StorSimple Virtual Array kan du gå till [skapa ett paket för log](storsimple-ova-web-ui-admin.md#generate-a-log-package).
+Den här självstudien innehåller stegvisa instruktioner för att skapa och hantera support paketet för din StorSimple 8000-serie enhet. Om du arbetar med en virtuell StorSimple-matris går du till [skapa ett logg paket](storsimple-ova-web-ui-admin.md#generate-a-log-package).
 
-## <a name="create-a-support-package"></a>Skapa ett supportpaket
+## <a name="create-a-support-package"></a>Skapa ett support paket
 
-I vissa fall måste du manuellt skapar supportpaket via Windows PowerShell för StorSimple. Exempel:
+I vissa fall måste du skapa ett support paket manuellt via Windows PowerShell för StorSimple. Ett exempel:
 
-* Om du vill ta bort känslig information från dina loggfiler innan du delar med Microsoft Support.
-* Om du har problem med laddar upp paketet på grund av anslutningsproblem.
+* Om du behöver ta bort känslig information från dina loggfiler innan du delar med Microsoft Support.
+* Om du har problem med att ladda upp paketet på grund av anslutnings problem.
 
-Du kan dela din manuellt genererad supportpaket med Microsoft Support via e-post. Utför följande steg för att skapa ett supportpaket i Windows PowerShell för StorSimple.
+Du kan dela ditt manuellt genererade support paket med Microsoft Support via e-post. Utför följande steg för att skapa ett support paket i Windows PowerShell för StorSimple.
 
-#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Skapa ett supportpaket i Windows PowerShell för StorSimple
+#### <a name="to-create-a-support-package-in-windows-powershell-for-storsimple"></a>Så här skapar du ett support paket i Windows PowerShell för StorSimple
 
-1. Ange följande kommando för att starta en Windows PowerShell-session som administratör på den fjärrdator som används för att ansluta till din StorSimple-enhet:
+1. Starta en Windows PowerShell-session som administratör på den fjärrdator som används för att ansluta till din StorSimple-enhet genom att ange följande kommando:
    
     `Start PowerShell`
-2. Anslut till konsolen SSAdmin för din enhet i Windows PowerShell-session:
+2. I Windows PowerShell-sessionen ansluter du till SSAdmin-konsolen för enheten:
    
    1. Skriv följande i kommandotolken:
      
        `$MS = New-PSSession -ComputerName <IP address for DATA 0> -Credential SSAdmin -ConfigurationName "SSAdminConsole"`
-   2. I dialogrutan som öppnas anger du lösenordet för enhetsadministratören. Standardlösenordet är _Password1_.
+   2. I dialog rutan som öppnas anger du enhetens administratörs lösen ord. Standard lösen ordet är _Password1_.
      
-      ![Dialogrutan för PowerShell-autentiseringsuppgifter](./media/storsimple-8000-create-manage-support-package/IC740962.png)
+      ![Dialog rutan PowerShell-autentiseringsuppgift](./media/storsimple-8000-create-manage-support-package/IC740962.png)
    3. Välj **OK**.
    4. Skriv följande i kommandotolken:
      
       `Enter-PSSession $MS`
 3. I sessionen som öppnas anger du lämpligt kommando.
    
-   * För nätverksresurser som skyddas med lösenord, anger du:
+   * För nätverks resurser som är lösenordsskyddade anger du:
      
        `Export-HcsSupportPackage -Path <\\IP address\location of the shared folder> -Include Default -Credential domainname\username`
      
-       Du uppmanas för ett lösenord och en krypteringslösenfras (eftersom supportpaketet krypteras). Ett supportpaket skapas i standardmappen (enhetsnamn läggas till med aktuellt datum och tid).
-   * För resurser som inte är lösenordsskyddad, behöver du inte den `-Credential` parametern. Ange följande:
+       Du uppmanas att ange ett lösen ord och en krypterings lösen fras (eftersom support paketet är krypterat). Ett support paket skapas sedan i standardmappen (enhets namn som lagts till med aktuellt datum och aktuell tid).
+   * För resurser som inte är lösenordsskyddade behöver du inte parametern `-Credential`. Ange följande:
      
        `Export-HcsSupportPackage`
      
-       Supportpaketet skapas för båda styrenheterna i standardmappen. Paketet är en krypterad, komprimerad fil som kan skickas till Microsoft Support för felsökning. Mer information finns i [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
+       Support paketet skapas för båda styrenheterna i standardmappen. Paketet är en krypterad komprimerad fil som kan skickas till Microsoft Support för fel sökning. Mer information finns i [kontakta Microsoft Support](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Export-HcsSupportPackage cmdlet-parametrarna
+### <a name="the-export-hcssupportpackage-cmdlet-parameters"></a>Cmdlet-parametrarna export-HcsSupportPackage
 
-Du kan använda följande parametrar med cmdleten Export-HcsSupportPackage.
+Du kan använda följande parametrar med cmdleten export-HcsSupportPackage.
 
-| Parameter | Krävs/valfritt | Beskrivning |
+| Parameter | Obligatorisk/valfri | Beskrivning |
 | --- | --- | --- |
-| `-Path` |Obligatoriskt |Använd för att ange platsen för den delade nätverksmappen där supportpaketet är placerad. |
-| `-EncryptionPassphrase` |Obligatoriskt |Använd för att ange en lösenfras för att kryptera supportpaketet. |
-| `-Credential` |Valfri |Använd det här alternativet om du vill definiera autentiseringsuppgifter för den delade nätverksmappen. |
-| `-Force` |Valfri |Använd för att hoppa över bekräftelse-steget kryptering lösenfras. |
-| `-PackageTag` |Valfri |Använd för att ange en katalog under *sökväg* i supportpaketet är placerad. Standardvärdet är [enhetsnamn]-[aktuellt datum och time:yyyy-MM-dd-HH-mm-ss]. |
-| `-Scope` |Valfri |Ange som **kluster** (standard) för att skapa ett supportpaket för båda styrenheterna. Om du vill skapa ett paket endast för den aktuella kontrollanten anger **Controller**. |
+| `-Path` |Krävs |Används för att ange platsen för den delade nätverksmapp där support paketet placeras. |
+| `-EncryptionPassphrase` |Krävs |Används för att ge en lösen fras för att kryptera support paketet. |
+| `-Credential` |Valfritt |Använd för att ange autentiseringsuppgifter för den delade nätverksmappen. |
+| `-Force` |Valfritt |Används för att hoppa över bekräftelse steget för kryptering av lösen fras. |
+| `-PackageTag` |Valfritt |Används för att ange en katalog under *sökvägen* där support paketet placeras. Standardvärdet är [enhets namn]-[aktuellt datum och tid: ÅÅÅÅ-MM-dd-HH-mm-SS]. |
+| `-Scope` |Valfritt |Ange som **kluster** (standard) om du vill skapa ett support paket för båda styrenheterna. Om du bara vill skapa ett paket för den aktuella kontrollanten anger du **kontrollant**. |
 
-## <a name="edit-a-support-package"></a>Redigera ett supportpaket
+## <a name="edit-a-support-package"></a>Redigera ett support paket
 
-När du har genererat ett supportpaket, kan du behöva redigera paket för att ta bort känslig information. Detta kan inkludera volymnamn, enhetens IP-adresser och säkerhetskopiering namn i loggfilerna.
+När du har genererat ett support paket kan du behöva redigera paketet för att ta bort känslig information. Detta kan inkludera volym namn, enhets-IP-adresser och namn på säkerhets kopior från loggfilerna.
 
 > [!IMPORTANT]
-> Du kan bara redigera ett supportpaket som genererades via Windows PowerShell för StorSimple. Du kan inte redigera ett paket som skapats i Azure portal med StorSimple Device Manager-tjänsten.
+> Du kan bara redigera ett support paket som genererades via Windows PowerShell för StorSimple. Du kan inte redigera ett paket som skapats i Azure Portal med tjänsten StorSimple Enhetshanteraren.
 
-Om du vill redigera ett supportpaket innan du laddar upp den på webbplatsen Microsoft Support, först dekryptera supportpaketet, redigera filerna och krypterar den igen. Utför följande steg.
+Om du vill redigera ett support paket innan du laddar upp det på Microsoft Support-platsen måste du först dekryptera support paketet, redigera filerna och sedan kryptera det igen. Utför följande steg.
 
-#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Så här redigerar du ett supportpaket i Windows PowerShell för StorSimple
+#### <a name="to-edit-a-support-package-in-windows-powershell-for-storsimple"></a>Så här redigerar du ett support paket i Windows PowerShell för StorSimple
 
-1. Skapa ett supportpaket som beskrivs tidigare i [att skapa ett supportpaket i Windows PowerShell för StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
-2. [Ladda ned skriptet](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalt på din klient.
-3. Importera Windows PowerShell-modulen. Ange sökvägen till den lokala mappen där du har hämtat skriptet. Ange om du vill importera modulen:
+1. Generera ett support paket enligt beskrivningen ovan i [för att skapa ett support paket i Windows PowerShell för StorSimple](#to-create-a-support-package-in-windows-powershell-for-storsimple).
+2. [Ladda ned skriptet](https://gallery.technet.microsoft.com/scriptcenter/Script-to-decrypt-a-a8d1ed65) lokalt på klienten.
+3. Importera Windows PowerShell-modulen. Ange sökvägen till den lokala mappen där du laddade ned skriptet. För att importera modulen, ange:
    
     `Import-module <Path to the folder that contains the Windows PowerShell script>`
-4. Alla filer är *.aes* filer som komprimeras och krypteras. För att expandera och dekryptera filer, anger du:
+4. Alla filer är *AES* -filer som är komprimerade och krypterade. För att expandera och dekryptera filer, ange:
    
     `Open-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    Observera att de faktiska filnamnstillägg nu visas för alla filer.
+    Observera att de faktiska fil namns tilläggen nu visas för alla filer.
    
-    ![Redigera supportpaket](./media/storsimple-8000-create-manage-support-package/IC750706.png)
-5. När du uppmanas att ange den krypterade lösenfrasen som ska du ange lösenfrasen som du använde när supportpaketet skapades.
+    ![Redigera support paket](./media/storsimple-8000-create-manage-support-package/IC750706.png)
+5. När du uppmanas att ange lösen frasen för kryptering anger du den lösen fras som du använde när du skapade support paketet.
    
         cmdlet Open-HcsSupportPackage at command pipeline position 1
    
         Supply values for the following parameters:EncryptionPassphrase: ****
-6. Bläddra till den mapp som innehåller filerna. Eftersom filerna är nu expanderas och dekrypteras, kommer dessa har ursprungliga filnamnstillägg. Ändra de här filerna för att ta bort eventuell kundspecifika information, till exempel namn och IP-adresser för enheten och spara filerna.
-7. Stäng på filerna så att komprimeras med gzip och kryptera dem med AES-256. Det här är för hastighet och säkerhet i överföra supportpaketet via ett nätverk. För att komprimera och kryptera filer, anger du följande:
+6. Bläddra till den mapp som innehåller loggfilerna. Eftersom loggfilerna nu expanderas och dekrypteras har de ursprungliga fil namns tillägg. Ändra dessa filer om du vill ta bort all kundspecifik information, till exempel volym namn och IP-adresser för enheten, och spara filerna.
+7. Stäng filerna för att komprimera dem med gzip och kryptera dem med AES-256. Detta är för snabbhet och säkerhet vid överföring av support paketet över ett nätverk. Om du vill komprimera och kryptera filer anger du följande:
    
     `Close-HcsSupportPackage <Path to the folder that contains support package files>`
    
-    ![Redigera supportpaket](./media/storsimple-8000-create-manage-support-package/IC750707.png)
-8. När du uppmanas, anger du en krypteringslösenfrasen för det ändrade supportpaketet.
+    ![Redigera support paket](./media/storsimple-8000-create-manage-support-package/IC750707.png)
+8. När du uppmanas anger du en krypterings lösen fras för det ändrade support paketet.
    
         cmdlet Close-HcsSupportPackage at command pipeline position 1
         Supply values for the following parameters:EncryptionPassphrase: ****
-9. Skriv ned den nya lösenfrasen så att du kan dela den med Microsoft Support vid begäran.
+9. Skriv ner den nya lösen frasen så att du kan dela den med Microsoft Support när den begärs.
 
-### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exempel: Redigera filer i ett supportpaket på en lösenordsskyddad resurs
+### <a name="example-editing-files-in-a-support-package-on-a-password-protected-share"></a>Exempel: redigera filer i ett support paket på en lösenordsskyddad resurs
 
-I följande exempel visar hur du dekryptera, redigera och kryptera ett supportpaket.
+I följande exempel visas hur du dekrypterar, redigerar och omkrypterar ett support paket.
 
         PS C:\WINDOWS\system32> Import-module C:\Users\Default\StorSimple\SupportPackage\HCSSupportPackageTools.psm1
 
@@ -147,7 +139,7 @@ I följande exempel visar hur du dekryptera, redigera och kryptera ett supportpa
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om den [information som samlas in i supportpaketet](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
-* Lär dig hur du [använder supportpaket och enhetsloggar för att felsöka distributionen av enheten](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
-* Lär dig hur du [använda StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Läs mer om den [information som samlas in i support paketet](https://support.microsoft.com/help/3193606/storsimple-support-packages-and-device-logs)
+* Lär dig hur du [använder support paket och enhets loggar för att felsöka enhets distributionen](storsimple-8000-troubleshoot-deployment.md#support-packages-and-device-logs-available-for-troubleshooting).
+* Lär dig hur du [använder tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

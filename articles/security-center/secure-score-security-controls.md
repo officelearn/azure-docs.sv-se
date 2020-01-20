@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 8f0b7b1225d78c7626c5be3e68c3dcd2dd557aa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0287a8011eb10120e273fb063c98ccd3c1a85782
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158161"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278029"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>Förbättrade säkra poäng (för hands version) 
 
-Den här artikeln beskriver de förbättrade säkra poängen (för närvarande i för hands version), de tillhör ande säkerhets kontrollerna och de fördelar de får.
+Den här artikeln beskriver de förbättrade säkra poängen (för närvarande i för hands version), de tillhör ande säkerhets kontrollerna och de fördelar de får. Det förklarar också hur poängen beräknas.
 
 ## <a name="introduction-to-secure-score"></a>Introduktion till säkra Poäng
 
@@ -32,11 +32,11 @@ Security Center utvärderar kontinuerligt dina resurser, prenumerationer och din
 
 Den *förbättrade* säkra poängen (för närvarande i för hands version) är **angrepps yta fokuserad** och ger tre fördelar:
 
-- Säkerhets kontroller – säkerhets rekommendationer är nu grupperade i logiska uppsättningar som bättre återspeglar dina sårbara angrepps ytor. Mer information finns i [så här beräknas de säkra poängen](secure-score-security-controls.md#how-the-secure-score-is-calculated) nedan.
+- **Säkerhets kontroller** – säkerhets rekommendationer är nu grupperade i logiska uppsättningar som bättre återspeglar dina sårbara angrepps ytor. Mer information finns i [så här beräknas de säkra poängen](secure-score-security-controls.md#how-the-secure-score-is-calculated) nedan.
 
-- Det totala resultatet bättre återspeglar de övergripande position-punkterna som beviljats på rekommendations nivå. Med den här förbättringen kan poängen bara förbättras när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Det innebär att poängen bara ökar när säkerheten för en resurs förbättras. 
+- **Det totala resultatet bättre återspeglar de övergripande position** -punkterna som beviljats på rekommendations nivå. Med den här förbättringen kan poängen bara förbättras när du reparerar *alla* rekommendationer för en enskild resurs i en kontroll. Det innebär att poängen bara ökar när säkerheten för en resurs förbättras. 
 
-- Säkerhets status för enskilda attack ytor är mer synlig genom att Visa poängen per säkerhets kontroll, sidan säker poäng blir den plats där du kan få en detaljerad översikt över hur väl din organisation skyddar varje enskild attack yta.
+- **Säkerhets status för enskilda attack ytor är mer synlig** genom att Visa poängen per säkerhets kontroll, sidan säker poäng blir den plats där du kan få en detaljerad översikt över hur väl din organisation skyddar varje enskild attack yta.
 
 De förbättrade säkra poängen visas som en procents ATS, som du ser på följande skärm bild:
 
@@ -63,7 +63,7 @@ Säkerhets kontrollen "tillämpa system uppdateringar" har till exempel en högs
 
 [![säkerhets kontrollen tillämpa system uppdateringar](media/secure-score-security-controls/apply-system-updates-control.png)](media/secure-score-security-controls/apply-system-updates-control.png#lightbox)
 
-Värdet för säkerhets kontrollen "Använd System uppdateringar" i skärm bilden ovan visar "2% (1 punkt)". Det innebär att om du reparerar alla rekommendationer i den här kontrollen kommer poängen att öka med 2% (vilket i det här fallet är en punkt). För enkelhetens skull avrundas värdena i kolumnen "potentiell ökning" till heltal. Knapp beskrivningarna visar de exakta värdena:
+Risken för säkerhets kontrollen "Använd System uppdateringar" i skärm bilden ovan visar "2% (1 punkt)". Det innebär att om du reparerar alla rekommendationer i den här kontrollen kommer poängen att öka med 2% (i det här fallet en punkt). För enkelhetens skull avrundas värdena i kolumnen "potentiell ökning" till heltal. Knapp beskrivningarna visar de exakta värdena:
 
 * **Eventuell ökning** – de återstående punkterna är tillgängliga i kontrollen. Om du vill få de här punkterna tillagda på dina säkra Poäng kan du åtgärda alla kontrollers rekommendationer. I exemplet ovan är den ena punkten som visas för kontrollen faktiskt 0,96 punkter.
 * **Aktuell Poäng** – den aktuella poängen för den här kontrollen. Varje kontroll bidrar till den totala poängen. I det här exemplet bidrar kontrollen 5,04 punkter till summan. 

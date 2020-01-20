@@ -1,24 +1,22 @@
 ---
-title: (INAKTUELL) Skala Azure Container Service-kluster
-description: Så här att skala agentnoder i ett DC/OS, Docker Swarm eller Kubernetes-kluster i Azure Container Service med hjälp av Azure CLI eller Azure-portalen.
-services: container-service
+title: FÖRÅLDRAD Skala Azure Container Service kluster
+description: Hur du skalar agent-noder i ett DC/OS-, Docker Swarm-eller Kubernetes-kluster i Azure Container Service med hjälp av Azure CLI eller Azure Portal.
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d259d5d53ec8d45f584eebe614a0bd8892514a4c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d53369128a660805df7e144fbec67b1bad787b7b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60576432"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275629"
 ---
-# <a name="deprecated-scale-agent-nodes-in-a-container-service-cluster"></a>(INAKTUELL) Skala agentnoder i ett Container Service-kluster
+# <a name="deprecated-scale-agent-nodes-in-a-container-service-cluster"></a>FÖRÅLDRAD Scale agent-noder i ett Container Service-kluster
 
 > [!TIP]
-> Den uppdaterade versionen som den här artikeln som använder Azure Kubernetes Service, finns i [skala ett kluster i Azure Kubernetes Service (AKS)](../../aks/scale-cluster.md).
+> Den uppdaterade versionen av den här artikeln som använder Azure Kubernetes-tjänsten finns i [skala ett Azure Kubernetes service-kluster (AKS)](../../aks/scale-cluster.md).
 
 [!INCLUDE [container-service-scale.md](../../../includes/container-service-scale.md)]

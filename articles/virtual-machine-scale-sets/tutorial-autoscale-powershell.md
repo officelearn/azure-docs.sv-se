@@ -1,33 +1,25 @@
 ---
-title: Självstudie – Skala en skalningsuppsättning automatiskt med Azure PowerShell | Microsoft Docs
+title: Självstudie – Autoskala en skalnings uppsättning med Azure PowerShell
 description: Läs hur du automatiskt skalar en VM-skalningsuppsättning med Azure PowerShell allteftersom CPU-kraven varierar
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677596"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278416"
 ---
-# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudier: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
+# <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Självstudie: Skala en VM-skalningsuppsättning automatiskt med Azure PowerShell
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här självstudiekursen får du lära du dig att:
+När du skapar en skalningsuppsättning, definierar du antalet virtuella datorinstanser som du vill köra. När ditt program behöver ändras, kan du automatiskt öka eller minska antalet virtuella datorinstanser. Möjligheten att skala automatiskt låter dig hålla dig uppdaterad med kundernas behov eller svara på ändringar i programprestandan under hela livscykeln för din app. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Använd automatisk skalning med en skalningsuppsättning
@@ -72,18 +64,18 @@ Nu ska vi skapa en regel med [New-AzureRmAutoscaleRule](/powershell/module/Azure
 
 Följande parametrar används för den här regeln:
 
-| Parameter               | Förklaring                                                                                                         | Value          |
+| Parameter               | Förklaring                                                                                                         | Värde          |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------|----------------|
 | *-MetricName*           | Prestandamått för att övervaka och tillämpa åtgärder för skalningsuppsättningar på.                                                   | Procent CPU |
 | *-TimeGrain*            | Hur ofta måtten samlas in för analys.                                                                   | 1 minut       |
 | *-MetricStatistic*      | Definierar hur de insamlade mätvärdena ska aggregeras för analys.                                                | Medel        |
-| *-TimeWindow*           | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter      |
+| *-TimeWindow*           | Tidsperioden som övervakas innan värdena för måttet och tröskelvärdet jämförs.                                   | 5 minuter      |
 | *-Operator*             | Operator som används för att jämföra måttinformationen mot tröskelvärdet.                                                     | Större än   |
-| *-Threshold*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
+| *-Threshold*            | Det värde som får regeln för automatisk skalning att utlösa en åtgärd.                                                      | 70 %            |
 | *-ScaleActionDirection* | Anger om skalningsuppsättningen ska skala upp eller ner när regeln gäller.                                             | Öka       |
-| *–ScaleActionScaleType* | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal   |
+| *-ScaleActionScaleType* | Anger att antalet virtuella datorinstanser ska ändras med ett specifikt värde.                                    | Ändra antal   |
 | *-ScaleActionValue*     | Procentandelen av virtuella datorinstanser som ska ändras när regeln utlöser.                                            | 3              |
-| *-ScaleActionCooldown*  | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter      |
+| *-ScaleActionCooldown*  | Hur lång tid ska gå innan regeln tillämpas igen så att de automatiska skalningsåtgärderna har tid att börja gälla. | 5 minuter      |
 
 I följande exempel skapas ett objekt med namnet *myRuleScaleOut* som innehåller den här regeln för att skapa upp. *-MetricResourceId* använder de variabler som tidigare definierats för prenumerations-ID, resursgruppnamn och namn på skalningsuppsättning:
 
@@ -97,7 +89,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -119,7 +111,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 
@@ -172,7 +164,7 @@ myRDPRule.0 Tcp             50001        3389
 myRDPRule.1 Tcp             50002        3389
 ```
 
-*Namnet* på regeln överensstämmer med namnet på VM-instansen såsom visas i ett tidigare [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm)-kommando. Till exempel för att ansluta till VM-instans *0*, använder du *myRDPRule.0* och ansluter till porten *50001*. För att ansluta till VM-instans *1*, använder du värdet från *myRDPRule.1* och ansluter till porten *50002*.
+*Namnet* på regeln överensstämmer med namnet på den virtuella datorinstansen som det visas i ett tidigare [Get-AzureRmVmssVM](/powershell/module/azurerm.compute/get-azurermvmssvm)-kommando. Till exempel för att ansluta till VM-instans *0*, använder du *myRDPRule.0* och ansluter till porten *50001*. För att ansluta till VM-instans *1*, använder du värdet från *myRDPRule.1* och ansluter till porten *50002*.
 
 Visa den offentliga IP-adressen för lastbalanseraren med [Get-AzureRmPublicIpAddress](/powershell/module/AzureRM.Network/Get-AzureRmPublicIpAddress):
 
@@ -188,7 +180,7 @@ IpAddress
 52.168.121.216
 ```
 
-Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona, de är *azureuser* och *\@P Ssw0Rd!* ). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
+Skapa en fjärranslutning till din första virtuella datorinstans. Ange din egna offentliga IP-adress och ditt portnummer för nödvändig VM-instans såsom visas i föregående kommandon. När du uppmanas till det anger du de autentiseringsuppgifter som användes när du skapade skalnings uppsättningen (som standard i exempel kommandona är de *azureuser* och *P\@Ssw0Rd!* ). Om du använder Azure Cloud Shell, utför du den här åtgärden från en lokal PowerShell-kommandotolk eller klienten för fjärrskrivbord. Följande exempel ansluter till VM-instans *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

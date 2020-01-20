@@ -1,25 +1,23 @@
 ---
 title: (INAKTUELL) Självstudie om Azure Container Service – Förbereda ACR
 description: Självstudie för Azure Container Service – Förbereda ACR
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: d0107e09bf8706ba7d4c813814103ca109262d8d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fbd718b62246e820bfa01353080815b62912bd00
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60641185"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274132"
 ---
 # <a name="deprecated-deploy-and-use-azure-container-registry"></a>(INAKTUELL) Distribuera och använda Azure Container Registry
 
 > [!TIP]
-> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service finns i [Självstudie: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: Distribuera och använda Azure Container Registry](../../aks/tutorial-kubernetes-prepare-acr.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -74,7 +72,7 @@ Om du vill se en lista med aktuella avbildningar använder du kommandot [docker 
 docker images
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 REPOSITORY                   TAG                 IMAGE ID            CREATED             SIZE
@@ -103,7 +101,7 @@ När taggningen har gjorts kör du [docker-avbildningar](https://docs.docker.com
 docker images
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 REPOSITORY                                           TAG                 IMAGE ID            CREATED             SIZE
@@ -133,7 +131,7 @@ Du kan returnera en lista med avbildningar som push-överförts till Azure-conta
 az acr repository list --name <acrName> --output table
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 Result
@@ -147,7 +145,7 @@ Om du sedan vill se taggarna för en viss avbildning använder du kommandot [az 
 az acr repository show-tags --name <acrName> --repository azure-vote-front --output table
 ```
 
-Utdata:
+Resultat:
 
 ```azurecli
 Result

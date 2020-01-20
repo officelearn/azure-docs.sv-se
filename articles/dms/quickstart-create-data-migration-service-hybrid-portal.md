@@ -11,17 +11,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708299"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274815"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>Snabb start: skapa en instans i hybrid läge med Azure Portal & Azure Database Migration Service
 
-Azure Database Migration Service hybrid läge hanterar migrering av databasen med hjälp av en migrering som finns lokalt med en instans av Azure Database Migration Service som körs i molnet. Hybrid läge är särskilt användbart för scenarier där det inte finns någon plats-till-plats-anslutning mellan det lokala nätverket och Azure, eller om det finns begränsad plats-till-plats-anslutningens bandbredd.
+Azure Database Migration Service hybrid läge hanterar migrering av databasen med hjälp av en migrering som finns lokalt tillsammans med en instans av Azure Database Migration Service som körs i molnet. Hybrid läge är särskilt användbart för scenarier där det inte finns någon plats-till-plats-anslutning mellan det lokala nätverket och Azure, eller om det finns begränsad plats-till-plats-anslutningens bandbredd.
 
 >[!NOTE]
 >Azure Database Migration Service som körs i hybrid läge stöder för närvarande SQL Server migreringar till:
@@ -73,7 +73,7 @@ Registrera Microsoft. data migration-resurs leverantören innan du skapar din f�
     - Välj den **plats** som ligger närmast din käll- eller målserver.
     - För **tjänst läge**väljer du **hybrid (för hands version)** .
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![Skapa migration service – grundläggande information](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. Välj **Granska + skapa**.
 
@@ -186,7 +186,7 @@ Det här skriptet är avsett för snabb prototyper när användaren redan har al
 > [!IMPORTANT]
 > Det här skriptet förutsätter att det finns en befintlig instans av Azure Database Migration Service i hybrid läge och att det använda Azure-kontot har behörighet att skapa AdApps i klienten och ändra RBAC för-prenumerationen.
 
-Fyll bara i parametrarna överst i skriptet och kör skriptet från en administratör PowerShell-instans.
+Fyll i parametrarna överst i skriptet och kör skriptet från en administratör PowerShell-instans.
 
 ## <a name="next-steps"></a>Nästa steg
 

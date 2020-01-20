@@ -1,25 +1,17 @@
 ---
-title: Använd ny autentisering för StorSimple 8000 Enhetshanteraren-tjänsten i Azure | Microsoft Docs
+title: Använd ny autentisering för StorSimple 8000 Enhetshanteraren-tjänsten i Azure
 description: Förklarar hur du använder AAD-baserad autentisering för din tjänst, genererar en ny registrerings nyckel och utför manuell registrering av enheterna.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: 88badf6de5e7181763dd72c7a51262d16697bffd
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 798b3bf054d5ade2a441bbef5875bb014f526aee
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963479"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276948"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Använd den nya autentiseringen för din StorSimple
 
@@ -47,7 +39,7 @@ För att säkerställa att tjänsten använder AAD-baserad autentisering måste 
 
 Om du använder StorSimple 8000-serien ser du till att följande URL ingår i brand Väggs reglerna:
 
-| URL-mönster                         | Molnet | Komponent/funktion         |
+| URL-mönster                         | I molnet | Komponent/funktion         |
 |------------------------------------|-------|----------------------------------|
 | `https://login.windows.net`        | Azure Public |AAD-autentiseringstjänst      |
 | `https://login.microsoftonline.us` | Amerikanska myndigheter |AAD-autentiseringstjänst      |
@@ -62,9 +54,9 @@ Om du använder en StorSimple 8000-serien het använder du följande tabell för
 
 | Om enheten körs| Vidta följande åtgärder                                    |
 |--------------------------|------------------------|
-| Uppdatering 5 eller senare och enheten är offline. <br> Du ser en varning om att URL: en inte är vit listas.|1. Ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en. Se [URL: er för autentisering](#url-changes-for-aad-authentication).<br>2. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys).<br>3. [Anslut till Windows PowerShell-gränssnittet för enheten StorSimple 8000-serien](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Använd `Redo-DeviceRegistration` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
+| Uppdatering 5 eller senare och enheten är offline. <br> Du ser en varning om att URL: en inte är vit listas.|1. ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en. Se [URL: er för autentisering](#url-changes-for-aad-authentication).<br>2. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys).<br>3. [Anslut till Windows PowerShell-gränssnittet för enheten StorSimple 8000-serien](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console).<br>4. Använd `Redo-DeviceRegistration` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
 | Uppdatera 5 eller senare och enheten online.| Ingen åtgärd krävs.                                       |
-| Uppdatering 4 eller tidigare och enheten är offline. |1. Ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en.<br>2. [Hämta uppdatering 5 till katalog servern](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Installera uppdatering 5 via snabb korrigerings metoden](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys).<br>5. [Anslut till Windows PowerShell-gränssnittet för enheten StorSimple 8000-serien](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Använd `Redo-DeviceRegistration` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
+| Uppdatering 4 eller tidigare och enheten är offline. |1. ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en.<br>2. [Ladda ned uppdatering 5 till katalog servern](storsimple-8000-install-update-5.md#download-updates-for-your-device).<br>3. [Använd uppdatering 5 via snabb korrigerings metoden](storsimple-8000-install-update-5.md#install-update-5-as-a-hotfix).<br>4. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys).<br>5. [Anslut till Windows PowerShell-gränssnittet för enheten StorSimple 8000-serien](storsimple-8000-deployment-walkthrough-u2.md#use-putty-to-connect-to-the-device-serial-console). <br>6. Använd `Redo-DeviceRegistration` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
 | Uppdatering 4 eller tidigare och enheten är online. |Ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en.<br> Installera uppdatering 5 via Azure Portal.              |
 | Fabriks återställning till en version före uppdatering 5.      |Portalen visar en AAD-baserad registrerings nyckel medan enheten kör äldre program vara. Följ stegen i föregående scenario när enheten kör uppdatering 4 eller tidigare.              |
 
@@ -83,7 +75,7 @@ Utför följande steg för att skapa en registrerings nyckel för AAD-tjänsten.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Så här skapar du registrerings nyckeln för AAD-tjänsten
 
-1. I **StorSimple Enhetshanteraren**går du till  **&gt; hanterings** **nycklar**. Du kan också söka efter _nycklar_med hjälp av Sök fältet.
+1. I **StorSimple Enhetshanteraren**går du till **hantering &gt;** - **nycklar**. Du kan också söka efter _nycklar_med hjälp av Sök fältet.
     
 2. Klicka på **generera nyckel**.
 

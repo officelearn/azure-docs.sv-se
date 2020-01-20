@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5be8668f9a2761bf1aa9809749fa44f21d622dde
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045809"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277994"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -415,7 +415,7 @@ Anpassning som stöds omfattar:
 |Anpassning|Definition|
 |--|--|
 |Uppdatering av kolumn syfte|Åsidosätt funktions typ för den angivna kolumnen.|
-|Transformering av parameter uppdatering |Uppdatera parametrar för den angivna transformeraren. Stöder för närvarande imputerade-och HashOneHotEncoder.|
+|Transformering av parameter uppdatering |Uppdatera parametrar för den angivna transformeraren. Stöder för närvarande imputerade (medel, de vanligaste & median) och HashOneHotEncoder.|
 |Släpp kolumner |Kolumner att släppa från bearbetas.|
 |Block transformatorer| Block transformatorer som ska användas för funktionalisering-processen.|
 

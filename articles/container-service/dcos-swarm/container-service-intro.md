@@ -1,20 +1,18 @@
 ---
 title: (INAKTUELL) Dockercontainervärdar i Azure-molnet
 description: Azure Container Service erbjuder ett sätt att förenkla skapande, konfiguration och hantering av ett kluster på virtuella datorer som är förkonfigurerade för att köra program i behållare.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 957725d40c66ffe9d8d7ce1362279c2bb4d4fded
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: f13e3b8c861d963c2e9e0b827ba00ee6fa70d31e
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65788727"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277826"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(INAKTUELL) Introduktion till värdlösningar med Dockerbehållare med Azure Container Service 
 
@@ -29,7 +27,7 @@ I Azure Container Service används formatet med Docker-behållare så att dina p
 Genom att använda Azure Container Service kan du dra nytta av Azures funktioner på företagsnivå samtidigt som programmen fortsätter att vara bärbara – det gäller även orkestreringslagren.
 
 ## <a name="using-azure-container-service"></a>Använda Azure Container Service
-Vårt mål med Azure Container Service är att tillhandahålla en behållarvärdmiljö genom att använda verktyg och teknik med öppen källkod som är populära bland kunderna idag. Därför exponerar vi standard API-slutpunkter för den dirigering du väljer (DC/OS, Docker Swarm eller Kubernetes). Genom att använda dessa slutpunkter kan du använda all programvara som kan kommunicera till slutpunkterna. För exempelvis Docker Swarm-slutpunkten kan du använda kommandoradsgränssnittet Docker (CLI). För DC/OS kanske du väljer DCOS CLI. För Kubernetes kanske du väljer `kubectl`.
+Vårt mål med Azure Container Service är att tillhandahålla en behållar värd miljö med hjälp av verktyg och tekniker med öppen källkod som är populära bland användarna idag. Därför exponerar vi standard API-slutpunkter för den dirigering du väljer (DC/OS, Docker Swarm eller Kubernetes). Genom att använda dessa slutpunkter kan du använda all programvara som kan kommunicera till slutpunkterna. För exempelvis Docker Swarm-slutpunkten kan du använda kommandoradsgränssnittet Docker (CLI). För DC/OS kanske du väljer DCOS CLI. För Kubernetes kanske du väljer `kubectl`.
 
 ## <a name="creating-a-docker-cluster-by-using-azure-container-service"></a>Skapa ett Docker-kluster med Azure Container Service
 Om du vill börja använda Azure Container Service distribuerar du ett Azure Container Service-kluster via portalen (sök efter **Azure Container Service** på Marketplace) med hjälp av en Azure Resource Manager-mall ([Docker Swarm](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm), [DC/OS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos) eller [Kubernetes](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes)) eller med [Azure CLI](container-service-create-acs-cluster-cli.md). De tillhandahållna snabbstartsmallarna kan ändras så att de inkluderar ytterligare eller avancerad Azure-konfiguration. Mer information finns i [Distribuera ett Azure Container Service-kluster](container-service-deployment.md).
@@ -45,7 +43,7 @@ DC/OS är ett distribuerat operativsystem som baseras på Apache Mesos distribue
 DC/OS och Apache Mesos har en imponerande funktionsuppsättning:
 
 * Beprövad skalbarhet
-* Feltolerant replikeras primära och sekundära databaser med hjälp av Apache ZooKeeper
+* Feltolerant replikerad primär och sekundär restandarder med Apache ZooKeeper
 * Stöd för Docker-formaterade container
 * Intern isolering mellan aktiviteter med Linux-container
 * Schemaläggning med flera resurser (minne, CPU, disk och portar)
@@ -58,11 +56,11 @@ Som standard innehåller DC/OS som körs på Azure Container Service Marathon-di
 
 #### <a name="using-marathon"></a>Använda Marathon
 Marathon är ett klusteromfattande init- och kontrollsystem för tjänster i cgroups – eller, när det gäller Azure Container Service, Docker-formaterade behållare. Marathon tillhandahåller ett webbgränssnitt som du kan distribuera dina program från. Du får tillgång till den via en webbadress som ser ut ungefär så här: `http://DNS_PREFIX.REGION.cloudapp.azure.com`
-där DNS\_PREFIX och REGION definieras vid distributionen. Du kan naturligtvis också ange ett eget DNS-namn. Mer information om hur du kör en container med Marathon-webbgränssnittet finns i avsnittet om [hur du hanterar DC/OS-containrar via webbgränssnittet för Marathon](container-service-mesos-marathon-ui.md).
+där DNS\_PREFIX och REGION definieras vid distributionen. Du kan också ange ett eget DNS-namn. Mer information om hur du kör en container med Marathon-webbgränssnittet finns i avsnittet om [hur du hanterar DC/OS-containrar via webbgränssnittet för Marathon](container-service-mesos-marathon-ui.md).
 
 ![Marathon-programlista](media/dcos/marathon-applications-list.png)
 
-Du kan också använda REST API:er för att kommunicera med Marathon. Det finns ett antal klientbibliotek som är tillgängliga för varje verktyg. De täcker flera olika språk – och naturligtvis kan du använda HTTP-protokollet på ett annat språk. Dessutom har många DevOps-verktyg stöd för Marathon. Detta ger maximal flexibilitet för driftsgruppen när du arbetar med Azure Container Service-kluster. Mer information om hur du kör en container med REST-API:et för Marathon finns i avsnittet om [hur du hanterar DC/OS-containrar via REST-API:et för Marathon](container-service-mesos-marathon-rest.md).
+Du kan också använda REST API:er för att kommunicera med Marathon. Det finns ett antal klientbibliotek som är tillgängliga för varje verktyg. De har en mängd olika språk – och du kan använda HTTP-protokollet på valfritt språk. Dessutom har många DevOps-verktyg stöd för Marathon. Detta ger maximal flexibilitet för driftsgruppen när du arbetar med Azure Container Service-kluster. Mer information om hur du kör en container med REST-API:et för Marathon finns i avsnittet om [hur du hanterar DC/OS-containrar via REST-API:et för Marathon](container-service-mesos-marathon-rest.md).
 
 ### <a name="using-docker-swarm"></a>Använda Docker Swarm
 Docker Swarm tillhandahåller interna kluster för Docker. Eftersom Docker Swarm tillhandahåller standard-API för Docker API kan vilket verktyg som helst som redan kommunicerar med en Docker-daemon använda Swarm för att transparent skala till flera värdar i Azure Container Service.
@@ -90,7 +88,7 @@ Det har en omfattande uppsättning funktioner. Till exempel:
 * API-baserade automatiserade distributioner och återställningar
 * Självåterställning
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 Komma igång med Azure Container Service (101):  
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Container-Service-101/player]

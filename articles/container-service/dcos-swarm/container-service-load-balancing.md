@@ -1,26 +1,24 @@
 ---
 title: (INAKTUELL) Belastningsutjämningscontainrar i Azure DC/OS-kluster
 description: Belastningsutjämna mellan flera behållare i ett Azure Container Service DC/OS-kluster.
-services: container-service
 author: rgardler
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 1e4c978a8767154fb6a1f9a822cb0dd8d1b8796e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8dff1dc063cc3b940fbdf0698b8b328b90d60b6
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66148898"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277834"
 ---
 # <a name="deprecated-load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>(INAKTUELL) Belastningsutjämna containrar i ett Azure Container Service DC/OS-kluster
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I den här artikeln visar vi hur du skapar en intern lastbalanserare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en lastbalanserare på det offentliga klustret och dina programbehållare på det privata klustret. I den här kursen för du göra följande:
+I den här artikeln visar vi hur du skapar en intern lastbalanserare i en DC/OS-hanterad Azure Container Service med Marathon-LB. Med den här konfigurationen kan du skala program vågrätt. Du kan också använda offentliga och privata agentkluster genom att placera en lastbalanserare på det offentliga klustret och dina programcontainrar på det privata klustret. I den här kursen har du:
 
 > [!div class="checklist"]
 > * Konfigurera en Marathon-lastbalanserare
@@ -39,7 +37,7 @@ Det finns två lager av belastningsutjämning i ett Azure Container Service DC/O
 
 **Azure Load Balancer** tillhandahåller offentliga startpunkter (de som slutanvändarna får åtkomst till). En Azure-lastbalanserare tillhandahålls automatiskt av Azure Container Service och konfigureras som standard att exponera port 80, 443 och 8080.
 
-**Marathon-lastbalanseraren (marathon-lb)** dirigerar inkommande begäranden till behållarinstanser som hanterar dessa begäranden. När vi skalar containrarna som tillhandahåller vår webbtjänst anpassas marathon-lb dynamiskt. Den här lastbalanseraren tillhandahålls inte som standard i Container Service, men är enkel att installera.
+**Marathon-lastbalanseraren (marathon-lb)** dirigerar inkommande begäranden till containerinstanser som hanterar dessa begäranden. När vi skalar containrarna som tillhandahåller vår webbtjänst anpassas marathon-lb dynamiskt. Den här lastbalanseraren tillhandahålls inte som standard i Container Service, men är enkel att installera.
 
 ## <a name="configure-marathon-load-balancer"></a>Konfigurera Marathon-lastbalanserare
 

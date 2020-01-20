@@ -1,129 +1,121 @@
 ---
-title: Använd Azure Automation för att starta ett jobb i StorSimple Data Manager | Microsoft Docs
-description: Lär dig hur du använder Azure Automation för att utlösa StorSimple Data Manager-jobb
-services: storsimple
-documentationcenter: NA
+title: Använd Azure Automation för att starta ett jobb i StorSimple Data Manager
+description: Lär dig hur du använder Azure Automation för att utlösa StorSimple Data Manager jobb
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 034b4996672f0961cf31d342aa6055482f099b9f
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634258"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273995"
 ---
-# <a name="use-azure-automation-to-trigger-a-job"></a>Använd Azure Automation för att utlösa ett jobb
+# <a name="use-azure-automation-to-trigger-a-job"></a>Använda Azure Automation för att utlösa ett jobb
 
-Den här artikeln förklarar hur du kan använda funktionen transformering i StorSimple Data Manager-tjänsten för att omvandla data för StorSimple-enheten. Du kan starta ett jobb för omvandling av data på två sätt: 
+Den här artikeln förklarar hur du kan använda funktionen datatransformering i StorSimple Data Manager-tjänsten för att transformera StorSimple enhets data. Du kan starta ett data omvandlings jobb på två sätt: 
 
  - Använda .NET SDK
- - Använda Azure Automation-runbook
+ - Använd Azure Automation Runbook
  
-Den här artikeln beskriver hur du skapar en Azure Automation-runbook och sedan använda den för att initiera ett omvandlingsjobb. Om du vill veta mer om hur du startar Dataomvandling via .NET SDK kan du gå till [Använd .NET SDK till utlösaren datatransformeringsjobb](storsimple-data-manager-dotnet-jobs.md).
+Den här artikeln beskriver hur du skapar en Azure Automation Runbook och sedan använder den för att initiera ett data omvandlings jobb. Om du vill veta mer om hur du initierar datatransformering via .NET SDK går du till [använda .NET SDK för att utlösa data omvandlings jobb](storsimple-data-manager-dotnet-jobs.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Innan du börjar måste du kontrollera att du har:
+Innan du börjar ska du kontrol lera att du har:
 
-*   Azure PowerShell installerad på klientdatorn. [Hämta Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
-*   En korrekt konfigurerad jobbdefinition i en StorSimple Data Manager-tjänst inom en resursgrupp.
-*   Ladda ned [ `DataTransformationApp.zip` ](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) filen från GitHub-lagringsplatsen. 
-*   Ladda ned [ `Trigger-DataTransformation-Job.ps1` ](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) skriptet från GitHub-lagringsplatsen.
+*   Azure PowerShell installerat på klient datorn. [Ladda ned Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+*   En korrekt konfigurerad jobb definition i en StorSimple Data Manager tjänst inom en resurs grupp.
+*   Ladda ned [`DataTransformationApp.zip`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/raw/master/Azure%20Automation%20For%20Data%20Manager/DataTransformationApp.zip) -filen från GitHub-lagringsplatsen. 
+*   Ladda ned [`Trigger-DataTransformation-Job.ps1`](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Azure%20Automation%20For%20Data%20Manager/Trigger-DataTransformation-Job.ps1) -skript från GitHub-lagringsplatsen.
 
-## <a name="step-by-step-procedure"></a>Stegvisa anvisningar
+## <a name="step-by-step-procedure"></a>Steg för steg-procedur
 
-### <a name="set-up-the-automation-account"></a>Konfigurera Automation-konto
+### <a name="set-up-the-automation-account"></a>Konfigurera Automation-kontot
 
-1. Skapa ett Azure kör som automation-konto i Azure-portalen. Du gör detta genom att gå till **Azure marketplace > allt** och söker sedan efter **Automation**. Välj **automationskonton**.
+1. Skapa ett Azure kör som Automation-konto i Azure Portal. Det gör du genom att gå till **Azure marketplace > allt** och sedan söka efter **Automation**. Välj **Automation-konton**.
 
-    ![Skapa kör som-konto för automation](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
+    ![Skapa Kör som Automation-konto](./media/storsimple-data-manager-job-using-automation/search-automation-account1.png)
 
-2. Om du vill lägga till ett nytt automation-konto, klickar du på **+ Lägg till**.
+2. Klicka på **+ Lägg**till för att lägga till ett nytt Automation-konto.
 
-    ![Skapa kör som-konto för automation](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Skapa Kör som Automation-konto](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
-3. I den **Lägg till automatisering**:
+3. I **Lägg till Automation**:
 
-   1. Ange den **namn** av ditt automation-konto.
-   2. Välj den **prenumeration** länkad till StorSimple Data Manager-tjänsten.
-   3. Skapa en ny resursgrupp eller välj en befintlig resursgrupp.
+   1. Ange **namnet** på ditt Automation-konto.
+   2. Välj den **prenumeration** som är länkad till StorSimple data managers Tjänsten.
+   3. Skapa en ny resurs grupp eller Välj en befintlig resurs grupp.
    4. Välj en **Plats**.
-   5. Låt standardvärdet **skapa kör som-konto** alternativ som valts.
-   6. Får du en länk för snabb åtkomst på instrumentpanelen **fäst på instrumentpanelen**. Klicka på **Skapa**.
+   5. Låt standard alternativet **skapa kör som-konto** vara markerat.
+   6. Om du vill hämta en länk till snabb åtkomst på instrument panelen, kontrollerar **du fäst på instrument panelen**. Klicka på **Skapa**.
 
-      ![Skapa kör som-konto för automation](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Skapa Kör som Automation-konto](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-      När automation-kontot har skapats, du får ett meddelande.
+      När Automation-kontot har skapats får du ett meddelande.
     
-      ![Meddelande för distribution av automation-konto](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Meddelande om distribution av Automation-konto](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-      Mer information går du till [skapa ett kör som-konto](../automation/automation-create-runas-account.md).
+      Mer information finns i [skapa ett Kör som-konto](../automation/automation-create-runas-account.md).
 
-3. I det nya kontot går du till **delade resurser > moduler** och klicka på **+ Lägg till modulen**.
+3. I det nyligen skapade kontot går du till **delade resurser > moduler** och klickar på **+ Lägg till modul**.
 
     ![Importera modul 1](./media/storsimple-data-manager-job-using-automation/import-module-1.png)
 
-4. Bläddra till platsen för `DataTransformationApp.zip` fil från din lokala dator och välj och öppna modulen. Klicka på **OK** att importera modulen.
+4. Bläddra till platsen för `DataTransformationApp.zip`-filen från den lokala datorn och välj och öppna modulen. Importera modulen genom att klicka på **OK** .
 
-    ![Importera modulen 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
+    ![Importera modul 2](./media/storsimple-data-manager-job-using-automation/import-module-2.png)
 
-   När Azure Automation importerar en modul till ditt konto, extraherar metadata om modulen. Den här åtgärden kan ta några minuter.
+   När Azure Automation importerar en modul till ditt konto extraheras metadata om modulen. Den här åtgärden kan ta några minuter.
 
-   ![Importera modulen 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
+   ![Importera modul 4](./media/storsimple-data-manager-job-using-automation/import-module-4.png)
 
-5. Du får ett meddelande att modulen distribueras och ett nytt meddelande när processen är klar.  Statusen i **moduler** ändras till **tillgänglig**.
+5. Du får ett meddelande om att modulen har distribuerats och ett annat meddelande när processen är klar.  Status i **moduler** ändras till **tillgänglig**.
 
-    ![Importera modulen 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
+    ![Importera modul 5](./media/storsimple-data-manager-job-using-automation/import-module-5.png)
 
-### <a name="import-publish-and-run-automation-runbook"></a>Importera, publicera och köra Automation-runbook
+### <a name="import-publish-and-run-automation-runbook"></a>Importera, publicera och köra Automation-Runbook
 
-Utför följande steg om du vill importera, publicera och kör en runbook för att utlösa jobbdefinitionen.
+Utför följande steg för att importera, publicera och köra runbooken för att utlösa jobb definitionen.
 
-1. Öppna ditt Automation-konto på Azure Portal. Gå till **Processautomatisering > Runbooks** och klicka på **+ Lägg till en runbook**.
+1. Öppna ditt Automation-konto på Azure Portal. Gå till **process automatisering > Runbooks** och klicka på **+ Lägg till en Runbook**.
 
-    ![Lägg till runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
+    ![Lägg till Runbook 1](./media/storsimple-data-manager-job-using-automation/add-runbook-1.png)
 
-2. I **Lägg till runbook**, klickar du på **importera en befintlig runbook**.
+2. I **Lägg till Runbook**klickar du på **Importera en befintlig Runbook**.
 
-3. Peka på Azure PowerShell-skriptfil `Trigger-DataTransformation-Job.ps1` för den **Runbook-filen**. Runbook-typen väljs automatiskt. Ange ett namn och en valfri beskrivning för runbook. Klicka på **Skapa**.
+3. Peka på Azure PowerShell skript filen `Trigger-DataTransformation-Job.ps1` för Runbook- **filen**. Runbook-typen väljs automatiskt. Ange ett namn och en valfri beskrivning för runbooken. Klicka på **Skapa**.
 
-    ![Lägg till runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
+    ![Lägg till Runbook 2](./media/storsimple-data-manager-job-using-automation/add-runbook-2.png)
 
-4. Ny runbook visas i listan med runbook-flöden för Automation-kontot. Välj och klicka på denna runbook.
+4. Den nya runbooken visas i listan över Runbooks för Automation-kontot. Välj och klicka på denna Runbook.
 
-    ![Lägg till runbook 3](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
+    ![Lägg till Runbook 3](./media/storsimple-data-manager-job-using-automation/add-runbook-3.png)
 
-5. Redigera runbooken och klicka på **Test** fönstret.
+5. Redigera runbooken och klicka på **test** fönster.
 
-    ![Lägg till runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
+    ![Lägg till Runbook 4](./media/storsimple-data-manager-job-using-automation/add-runbook-4.png)
 
-6. Ange parametrar, till exempel namnet på StorSimple Data Manager-tjänsten, den associerade resursgruppen och namnet på jobbdefinitionen. **Starta** testet. Rapporten genereras när körningen är klar. Mer information finns i så här [testar en runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
+6. Ange parametrarna, till exempel namnet på din StorSimple Data Manager-tjänst, den associerade resurs gruppen och jobb definitions namnet. **Starta** testet. Rapporten skapas när körningen har slutförts. Mer information finns i så här testar du [en Runbook](../automation/automation-first-runbook-textual-powershell.md#step-3---test-the-runbook).
 
-    ![Lägg till runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
+    ![Lägg till Runbook 8](./media/storsimple-data-manager-job-using-automation/add-runbook-8.png)    
 
-7. Granska utdata från runbooken i rutan. Stäng fönstret om klar. Klicka på **publicera** och när du uppmanas att bekräfta bekräfta och publicera en runbook.
+7. Granska utdata från runbooken i test fönstret. Stäng fönstret om det är uppfyllt. Klicka på **publicera** och när du uppmanas att bekräfta, bekräfta och publicera runbooken.
 
-    ![Lägg till runbook 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
+    ![Lägg till Runbook 6](./media/storsimple-data-manager-job-using-automation/add-runbook-6.png)
 
 8. Gå tillbaka till **Runbooks** och välj den nyligen skapade runbooken.
 
-    ![Lägg till runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
+    ![Lägg till Runbook 7](./media/storsimple-data-manager-job-using-automation/add-runbook-7.png)
 
-9. **Starta** runbook. I **starta runbook**, ange alla parametrar. Klicka på **OK** att skicka och starta omvandlingsjobb.
+9. **Starta** runbooken. I **starta Runbook**anger du alla parametrar. Klicka på **OK** för att skicka och starta data omvandlings jobbet.
 
-10. Du kan övervaka jobbförloppet i Azure-portalen, gå till **jobb** i StorSimple Data Manager-tjänsten. Välj och klicka på jobbet om du vill visa Jobbinformationen.
+10. Om du vill övervaka jobb förloppet i Azure Portal går du till **jobb** i StorSimple Data Manager-tjänsten. Välj och klicka på jobbet för att visa jobb informationen.
 
-    ![Lägg till runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
+    ![Lägg till Runbook 10](./media/storsimple-data-manager-job-using-automation/add-runbook-10.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Använd StorSimple Data Manager UI och omvandla data](storsimple-data-manager-ui.md).
+[Använd StorSimple Data Manager användar gränssnitt för att transformera data](storsimple-data-manager-ui.md).

@@ -1,25 +1,18 @@
 ---
-title: Översikt över Microsoft Azure StorSimple virtuell matris | Microsoft Docs
+title: Översikt över Microsoft Azure StorSimple virtuell matris
 description: Beskriver den virtuella StorSimple-matrisen, en integrerad lagrings lösning som hanterar lagrings aktiviteter mellan en lokal virtuell matris och Microsoft Azure moln lagring.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 169c639b-1124-46a5-ae69-ba9695525b77
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cbfc69c7d8d9354ae4e727b9eb0180583165abab
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 32781a83aec996b23f161f5fe695f39a0de38685
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516712"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273873"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduktion till den virtuella StorSimple-matrisen
 
@@ -31,7 +24,7 @@ Den Microsoft Azure StorSimple virtuella matrisen är en integrerad lagrings lö
 
 Den här artikeln innehåller en översikt över den virtuella matrisen – här är några andra resurser:
 
-* Bästa praxis finns i [metod tips för virtuella StorSimple](storsimple-ova-best-practices.md)-matriser.
+* Bästa praxis finns i [metod tips för virtuella StorSimple-matriser](storsimple-ova-best-practices.md).
 * En översikt över enheter med StorSimple 8000-serien finns i [StorSimple 8000-serien: en hybrid moln lösning](storsimple-overview.md).
 * Information om enheter med StorSimple 5000/7000-serien finns i [onlinehjälpen för StorSimple](http://onlinehelp.storsimple.com/).
 
@@ -39,9 +32,9 @@ Den virtuella matrisen stöder iSCSI-eller SMB-protokollet (Server Message Block
 
 I följande tabell sammanfattas viktiga funktioner i den virtuella StorSimple-matrisen.
 
-| Funktion | StorSimple virtuell matris |
+| Funktion | StorSimple Virtual Array |
 | --- | --- |
-| Installations krav |Använder Virtualization Infrastructure (Hyper-V eller VMware) |
+| Installationskrav |Använder Virtualization Infrastructure (Hyper-V eller VMware) |
 | Tillgänglighet |Enkel nod |
 | Total kapacitet (inklusive moln) |Upp till 64 TB användbar kapacitet per virtuell matris |
 | Lokal kapacitet |390 GB till 6,4 TB användbar kapacitet per virtuell matris (du måste etablera 500 GB till 8 TB disk utrymme) |
@@ -52,11 +45,11 @@ I följande tabell sammanfattas viktiga funktioner i den virtuella StorSimple-ma
 | Support |Virtualiseringsbaserad infrastruktur som stöds av leverantören |
 | Prestanda |Varierar beroende på underliggande infrastruktur |
 | Data mobilitet |Kan återställa till samma enhet eller göra en återställning på objekt nivå (fil Server) |
-| Lagrings nivåer |Lokal hypervisor-lagring och moln |
+| Lagringsnivåer |Lokal hypervisor-lagring och moln |
 | Resurs storlek |Skiktat: upp till 20 TB; lokalt fäst: upp till 2 TB |
-| Volym storlek |Nivåindelade 500 GB till 5 TB; lokalt fäst: 50 GB till 200 GB <br> Maximal lokal reservation för skiktade volymer är 200 GB. |
+| Volym storlek |Skiktad: 500 GB till 5 TB; lokalt fäst: 50 GB till 200 GB <br> Maximal lokal reservation för skiktade volymer är 200 GB. |
 | Ögonblicksbilder |Krasch konsekvens |
-| Återställning på objekt nivå |Ja användare kan återställa från resurser |
+| Återställning på objektnivå |Ja användare kan återställa från resurser |
 
 ## <a name="why-use-storsimple"></a>Varför ska jag använda StorSimple?
 
@@ -89,7 +82,7 @@ När flera samtidiga användare har åtkomst till den virtuella matrisen, delar 
 
 StorSimple virtuella matris passar inte för arbets belastningar som kräver hög tillgänglighet. Den virtuella matrisen är en enskild nod enhet som upplever nedtid när program uppdateringar installeras. Administratörer bör planera för en underhålls period på 30 minuter 3-4 gånger per år.
 
-## <a name="workflows"></a>Workflows
+## <a name="workflows"></a>Arbetsflöden
 
 Den virtuella StorSimple-matrisen är särskilt lämplig för följande arbets flöden:
 
@@ -139,7 +132,7 @@ Den virtuella matrisen har följande funktioner:
 > [!NOTE]
 > Det går inte att expandera en virtuell matris. Därför är det viktigt att tillhandahålla tillräckligt med lagrings utrymme när du skapar den virtuella matrisen.
 
-### <a name="storsimple-device-manager-service"></a>StorSimple Device Manager-tjänst
+### <a name="storsimple-device-manager-service"></a>StorSimple Device Manager-tjänsten
 
 Microsoft Azure StorSimple tillhandahåller ett webbaserat användar gränssnitt, tjänsten StorSimple Enhetshanteraren som gör det möjligt att centralt hantera StorSimple-lagring. Du kan använda tjänsten StorSimple Enhetshanteraren för att utföra följande uppgifter:
 

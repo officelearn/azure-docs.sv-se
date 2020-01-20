@@ -1,25 +1,19 @@
 ---
-title: Underhålls meddelanden för skalnings uppsättningar för virtuella datorer i Azure | Microsoft Docs
+title: Underhålls meddelanden för skalnings uppsättningar för virtuella datorer i Azure
 description: Visa underhålls meddelanden och starta självbetjänings underhåll för skalnings uppsättningar för virtuella datorer i Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shants123
-editor: ''
 tags: azure-service-management,azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: shants
-ms.openlocfilehash: 07580c8b8ea00039b48bd1f8765735ec5a5082ee
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8d8c32c2a2f3e31c1b7f4645fe61abf2d5d0e014
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746646"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275781"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planerade underhålls aviseringar för skalnings uppsättningar för virtuella datorer
 
@@ -77,7 +71,7 @@ Det är bäst att använda självbetjänings underhåll i följande fall:
 
 När du har schemalagt en planerad underhålls våg kan du Visa en lista över de skalnings uppsättningar för virtuella datorer som påverkas av den kommande underhålls vågen med hjälp av Azure Portal. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **alla tjänster**på den vänstra menyn och välj sedan **Virtual Machine Scale Sets**.
 3. Under **skalnings uppsättningar för virtuella datorer**väljer du **Redigera kolumner** för att öppna listan över tillgängliga kolumner.
 4. I avsnittet **tillgängliga kolumner** väljer du **självbetjänings underhåll**och flyttar det sedan till listan över **valda kolumner** . Välj **Använd**.  
@@ -96,7 +90,7 @@ Kolumnen för självbetjänings **Underhåll** visas nu i listan över skalnings
 
 Azure kommunicerar ett schema för planerat underhåll genom att skicka ett e-postmeddelande till Prenumerationens ägare och gruppen med medägare. Du kan lägga till mottagare och kanaler i den här kommunikationen genom att skapa aktivitets logg aviseringar. Mer information finns i [övervaka prenumerations aktivitet med Azure aktivitets logg](../azure-monitor/platform/platform-logs-overview.md).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. På den vänstra menyn väljer du **övervaka**. 
 3. I fönstret **Övervaka – aviseringar (klassisk)** väljer du **+ Lägg till aktivitets logg avisering**.
 4. På sidan **Lägg till aktivitets logg avisering** väljer eller anger du den begärda informationen. I **villkor**, se till att du anger följande värden:

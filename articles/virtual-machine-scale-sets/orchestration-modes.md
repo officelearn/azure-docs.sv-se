@@ -1,21 +1,18 @@
 ---
 title: Lär dig mer om Orchestration-lägen för skalnings uppsättningar för virtuella datorer i Azure
 description: Lär dig mer om Orchestration-lägen för skalnings uppsättningar för virtuella datorer i Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: gwallace
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: vashan
-ms.openlocfilehash: 063b3210877c06edf7eeddab37c50ed84033098a
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 4a0be30f181921461ad0bacea6f18ce439d22353
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73065917"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76279067"
 ---
 # <a name="orchestration-mode-preview"></a>Orchestration-läge (för hands version)
 
@@ -38,7 +35,7 @@ Skalnings uppsättningar för virtuella datorer har stöd för 2 distinkta Orche
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-## <a name="orchestration-modes"></a>Orchestration-lägen
+## <a name="orchestration-modes"></a>Orkestreringslägen
 
 |                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|

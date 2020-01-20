@@ -1,77 +1,70 @@
 ---
-title: StorSimple 8000-serien uppdatering 5 viktig information | Microsoft Docs
-description: Beskriver de nya funktionerna, problem och lösningar för StorSimple 8000-serien uppdatering 5.
-services: storsimple
-documentationcenter: NA
+title: Viktig information om StorSimple 8000-seriens uppdatering 5
+description: Beskriver de nya funktionerna, problemen och lösningarna för StorSimple 8000-serien uppdatering 5.
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
+ms.topic: conceptual
 ms.date: 11/13/2017
 ms.author: alkohli
-ms.openlocfilehash: 462cbd6261723aa91bbfd23292611e758a800ed2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4fed65e12a166c046a0c63d7c4849f86805bbe9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60844099"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275158"
 ---
-# <a name="storsimple-8000-series-update-5-release-notes"></a>Viktig information om StorSimple 8000-serien uppdatering 5
+# <a name="storsimple-8000-series-update-5-release-notes"></a>Viktig information om StorSimple 8000-seriens uppdatering 5
 
 ## <a name="overview"></a>Översikt
 
-Följande viktiga information beskriver de nya funktionerna och identifiera kritiska öppna ärenden för StorSimple 8000-serien uppdatering 5. De innehåller också en lista över de StorSimple-programuppdateringar som ingår i denna version.
+I följande versions information beskrivs de nya funktionerna och de kritiska öppnings problemen för StorSimple 8000-serien uppdatering 5. De innehåller också en lista över de StorSimple program uppdateringar som ingår i den här versionen.
 
-Uppdatering 5 kan tillämpas på alla StorSimple-enhet som kör uppdatering 0.1 via uppdatering 4. Enhetsversion som är associerade med uppdatering 5 är 6.3.9600.17845.
+Uppdatering 5 kan tillämpas på alla StorSimple-enheter som kör uppdatering 0,1 via uppdatering 4. Den enhets version som är associerad med uppdatering 5 är 6.3.9600.17845.
 
-Granska informationen i den viktiga informationen innan du distribuerar uppdateringen i din StorSimple-lösning.
+Granska informationen i versions anteckningarna innan du distribuerar uppdateringen i StorSimple-lösningen.
 
 > [!IMPORTANT]
-> * Uppdatering 5 är en obligatorisk uppdatering och måste installeras omedelbart. Läs mer om hur du [gäller uppdatering 5](storsimple-8000-install-update-5.md).
-> * Uppdatering 5 har enhetsprogrammet, inbyggda programvaran för disken, OS-säkerhet och andra OS-uppdateringar. Det tar cirka 4 timmar att installera uppdateringen. Uppdatering av inbyggd programvara för disk är en störande uppdatering och resulterar i ett driftstopp för din enhet. Vi rekommenderar att du tillämpar uppdatering 5 för att hålla din enhet uppdaterade.
-> * För nya versioner, kan du inte se uppdateringar direkt, eftersom vi gör en stegvis distribution av uppdateringar. Vänta några få dagar och sedan söker efter uppdateringar igen som de här uppdateringarna är snart tillgängligt.
+> * Uppdatering 5 är en obligatorisk uppdatering och måste installeras omedelbart. Mer information finns i så här [installerar du uppdatering 5](storsimple-8000-install-update-5.md).
+> * Uppdatering 5 har enhets program vara, inbyggd disk program vara, OS-säkerhet och andra OS-uppdateringar. Det tar cirka 4 timmar att installera den här uppdateringen. Uppdatering av inbyggd disk program vara är en störnings uppdatering och resulterar i en stillestånds tid för enheten. Vi rekommenderar att du installerar uppdatering 5 för att hålla enheten uppdaterad.
+> * För nya versioner kanske du inte ser uppdateringar direkt eftersom vi gör en stegvis distribution av uppdateringarna. Vänta några dagar och Sök sedan efter uppdateringar igen eftersom uppdateringarna blir tillgängliga snart.
 
-## <a name="whats-new-in-update-5"></a>Vad är nytt i uppdatering 5
+## <a name="whats-new-in-update-5"></a>Nyheter i uppdatering 5
 
-Följande viktiga förbättringar och felkorrigeringar har gjorts i uppdatering 5.
+Följande viktiga förbättringar och fel korrigeringar har gjorts i uppdatering 5.
 
-* **Användning av Azure Active Directory (AAD) att autentisera med StorSimple Device Manager-tjänsten** – från uppdatering 5 och senare, Azure Active Directory används för att autentisera med StorSimple Device Manager-tjänsten. Gamla autentiseringsmekanismen upphör att gälla från och med December 2017. Alla användare måste ange de nya URL: er för autentisering på sina brandväggsregler. Mer information går du till [autentisering URL: er enligt nätverkskraven för StorSimple-enheten](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
+* **Användning av Azure Active Directory (AAD) för att autentisera med StorSimple Enhetshanteraren-tjänsten** – från och med uppdatering 5 och senare används Azure Active Directory för att autentisera med StorSimple Enhetshanteraren-tjänsten. Den gamla mekanismen för autentisering kommer att föråldras med 2017 december. Alla användare måste inkludera de nya autentiserings-URL: erna i brand Väggs reglerna. Mer information finns [i URL: erna för autentiseringar som anges i nätverks kraven för din StorSimple-enhet](storsimple-8000-system-requirements.md#url-patterns-for-azure-portal).
 
-    Om URL: en för autentisering inte är inkluderat i brandväggsreglerna, ser användarna en kritisk varning som deras StorSimple-enheten inte kunde autentisera med tjänsten. Om användarna ser den här aviseringen, som de behöver inkludera den nya URL: en för autentisering. Mer information går du till [StorSimple nätverk aviseringar](storsimple-8000-manage-alerts.md#networking-alerts).
+    Om URL: en för autentisering inte ingår i brand Väggs reglerna, ser användarna en kritisk varning om att deras StorSimple-enhet inte kunde autentiseras med tjänsten. Om användarna ser den här aviseringen måste de inkludera den nya autentiserings-URL: en. Mer information finns i [StorSimple Network Alerts](storsimple-8000-manage-alerts.md#networking-alerts).
 
-* **Ny version av StorSimple Snapshot Manager** – en ny version av StorSimple Snapshot Manager släpps med uppdatering 5 och är kompatibla med alla StorSimple-enheter som kör uppdatering 4 eller senare. Vi rekommenderar att du uppdaterar till den här versionen. Den tidigare versionen av StorSimple Snapshot Manager är för StorSimple-enheter som kör uppdatering 3 eller tidigare. [Hämta den aktuella versionen av StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220) och referera till [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
+* **Ny version av StorSimple Snapshot Manager** – en ny version av StorSimple Snapshot Manager lanseras med uppdatering 5 och är kompatibel med alla StorSimple-enheter som kör uppdatering 4 eller senare. Vi rekommenderar att du uppdaterar till den här versionen. Den tidigare versionen av StorSimple Snapshot Manager används för StorSimple-enheter som kör uppdatering 3 eller tidigare. [Hämta rätt version av StorSimple Snapshot Manager](https://www.microsoft.com/en-us/download/details.aspx?id=44220) och se [distribuera StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md).
 
 
-## <a name="issues-fixed-in-update-5"></a>Problem som åtgärdas i uppdatering 5
+## <a name="issues-fixed-in-update-5"></a>Problem som korrigeras i uppdatering 5
 
-Följande tabell innehåller en översikt över problem som har åtgärdats i uppdatering 5.
+Följande tabell innehåller en sammanfattning av problem som korrigerades i uppdatering 5.
 
-| Nej | Funktion | Problem | Gäller för fysisk enhet | Gäller för virtuella enheten |
+| Inga | Funktion | Problem | Gäller fysisk enhet | Gäller för virtuell enhet |
 | --- | --- | --- | --- | --- |
-| 1 |Windows PowerShell-fjärrkommunikation |I den tidigare versionen, skulle en användare får ett felmeddelande när du försöker upprätta en fjärranslutning till StorSimple-Molninstallationen via Windows PowerShell. Det här problemet har orsakades av rotcertifikatutfärdare och åtgärdas i den här versionen. |Nej |Ja |
-| 2 |Bandbreddsmallar |Det uppstod ett problem med bandbreddsmallar som resulterade i lägre bandbredd än enheten har konfigurerats för i tidigare version. Det här problemet är löst i den här versionen. |Ja |Ja |
-| 3 |Redundans |I tidigare version, när en enhet med ett stort antal volymer har redundansväxlats till en annan enhet som kör uppdatering 4 skulle processen misslyckas vid försök att tillämpa åtkomstkontrollposterna. Det här problemet löses i den här versionen. |Ja |Ja |
+| 1 |Fjärrkommunikation med Windows PowerShell |I den tidigare versionen skulle en användare få ett fel meddelande vid försök att upprätta en fjärr anslutning till StorSimple Cloud Appliance via Windows PowerShell. Det här problemet var rot-orsakade och korrigerade i den här versionen. |Inga |Ja |
+| 2 |Mallar för bandbredd |I en tidigare version fick du ett problem med bandbredds-mallar som resulterade i lägre bandbredd än vad enheten hade kon figurer ATS för. Det här problemet har lösts i den här versionen. |Ja |Ja |
+| 3 |växling vid fel |När en enhet med ett stort antal volymer redundansväxlats till en annan enhet som kör uppdatering 4 i en tidigare version, skulle processen Miss lyckas vid försök att tillämpa åtkomst kontroll posterna. Det här problemet åtgärdas i den här versionen. |Ja |Ja |
 
 
 
 ## <a name="known-issues-in-update-5-from-previous-releases"></a>Kända problem i uppdatering 5 från tidigare versioner
 
-Det finns inga nya kända problem i uppdatering 5. En lista över problem som överföras till uppdatering 5 från tidigare versioner, går du till [uppdatering 3 viktig](storsimple-update3-release-notes.md#known-issues-in-update-3).
+Det finns inga nya kända problem i uppdatering 5. En lista över problem som överförts till uppdatering 5 från tidigare versioner finns i [viktig information om uppdatering 3](storsimple-update3-release-notes.md#known-issues-in-update-3).
 
-## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-5"></a>Seriellt ansluten SCSI (SAS) domänkontrollant och firmware-uppdateringar i uppdatering 5
+## <a name="serial-attached-scsi-sas-controller-and-firmware-updates-in-update-5"></a>Serial-Attached SCSI (SAS) och uppdateringar av inbyggd program vara i uppdatering 5
 
-Den här versionen har SAS-styrenhet och LSI-drivrutinen och firmware-uppdateringar. Mer information om hur du installerar de här uppdateringarna finns i [installera uppdatering 5](storsimple-8000-install-update-5.md) på StorSimple-enheten.
+Den här versionen har SAS-styrenheter och uppdateringar för inbyggd driv rutin och inbyggd program vara. Mer information om hur du installerar dessa uppdateringar finns i [installera uppdatering 5](storsimple-8000-install-update-5.md) på din StorSimple-enhet.
 
 ## <a name="storsimple-cloud-appliance-updates-in-update-5"></a>StorSimple Cloud Appliance uppdateringar i uppdatering 5
 
-Den här uppdateringen kan inte tillämpas på StorSimple-Molninstallationen (även känt som den virtuella enheten). Nya molninstallationer måste skapas med uppdatering 5-avbildningen. Information om hur du skapar en StorSimple-Molninstallation går du till [distribuera och hantera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
+Den här uppdateringen kan inte tillämpas på StorSimple Cloud Appliance (kallas även den virtuella enheten). Nya moln enheter måste skapas med hjälp av uppdatering 5-avbildningen. Information om hur du skapar en StorSimple Cloud Appliance finns i [distribuera och hantera en StorSimple Cloud Appliance](storsimple-8000-cloud-appliance-u2.md).
 
 ## <a name="next-step"></a>Nästa steg
 
-Lär dig hur du [installera uppdatering 5](storsimple-8000-install-update-5.md) på StorSimple-enheten.
+Lär dig hur du [installerar uppdatering 5](storsimple-8000-install-update-5.md) på din StorSimple-enhet.
 

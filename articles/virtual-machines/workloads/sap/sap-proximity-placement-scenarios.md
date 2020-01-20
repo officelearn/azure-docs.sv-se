@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cef5058936a45badd700a573611c82398ca4d546
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 01ce1599f86082aef3ff53d298cc53896074af66
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805713"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277600"
 ---
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program
 SAP-program som baseras på SAP NetWeaver-eller SAP S/4HANA-arkitekturen är känsliga för nätverks fördröjning mellan SAP-programnivån och SAP-databasnivå. Den här känsligheten är resultatet av det mesta av affärs logiken som körs i program skiktet. Eftersom SAP-programlagret kör affärs logiken, utfärdar den frågor till databas nivån med hög frekvens, med en hastighet av tusentals eller flera tusen tusen per sekund. I de flesta fall är arten av frågorna enkel. De kan ofta köras på databas nivå i 500 mikrosekunder eller mindre.
@@ -156,7 +156,7 @@ Resultatet av distributionen är:
 > Eftersom du distribuerar en virtuell DBMS-dator till en zon och den andra DBMS-datorn i en annan zon för att skapa en hög tillgänglighets konfiguration måste du ha en annan närhets placerings grupp för var och en av zonerna. Samma sak gäller för alla tillgänglighets uppsättningar som du använder.
 
 ## <a name="move-an-existing-system-into-proximity-placement-groups"></a>Flytta ett befintligt system till närhets placerings grupper
-Om du redan har distribuerat SAP-system kanske du vill optimera nätverks fördröjningen för några av dina kritiska system och leta upp program lagret och DBMS-skiktet i samma data Center. Under den offentliga för hands versionen av grupper med närhets placering måste du ta bort de virtuella datorerna och skapa nya för att flytta systemet till närhets placerings grupper. Du kan för närvarande inte bara stänga av de virtuella datorerna och tilldela dem till närhets placerings grupper.
+Om du redan har distribuerat SAP-system kanske du vill optimera nätverks fördröjningen för några av dina kritiska system och leta upp program lagret och DBMS-skiktet i samma data Center. Om du vill flytta de virtuella datorerna för en fullständig Azure-tillgänglighets uppsättning till en befintlig närhets grupp som redan är begränsad, måste du stänga alla virtuella datorer i tillgänglighets uppsättningen och tilldela tillgänglighets uppsättningen till den befintliga närhets placerings gruppen via Azure Portal PowerShell eller CLI. Om du vill flytta en virtuell dator som inte ingår i en tillgänglighets uppsättning till en befintlig närhets placerings grupp, behöver du bara stänga av den virtuella datorn och tilldela den till en befintlig närhets placerings grupp. 
 
 
 ## <a name="next-steps"></a>Nästa steg

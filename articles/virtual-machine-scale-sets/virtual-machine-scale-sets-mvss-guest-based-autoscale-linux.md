@@ -1,38 +1,30 @@
 ---
-title: Använd automatisk skalning i Azure med gästmått i en skalningsuppsättningsmall för Linux | Microsoft Docs
-description: Lär dig hur du automatisk skalning med hjälp av gästmått i en mall för Linux Virtual Machine Scale Sets
-services: virtual-machine-scale-sets
-documentationcenter: ''
+title: Använd Azure Autoscale med gäst mått i en mall för Linux-skalnings uppsättning
+description: Lär dig hur du skalar med hjälp av gäst mått i en virtuell Linux-dators mall för skalnings uppsättning
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: na
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: manayar
-ms.openlocfilehash: 8cd665ffd82547c4f554eb4a515a8da7dc5b3f5f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 88f839b281e4d345b012a7e6acff3770dc536045
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868994"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271956"
 ---
-# <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Automatisk skalning med gästmått i en skalningsuppsättningsmall för Linux
+# <a name="autoscale-using-guest-metrics-in-a-linux-scale-set-template"></a>Skala med hjälp av gäst mått i en mall för en Linux-skalnings uppsättning
 
-Det finns två generella typer av mått i Azure som har samlats in från virtuella datorer och skalningsuppsättningar: Värdmått och gästmått. På en hög nivå om du vill använda standard CPU, disk och nätverk mätvärden, är sedan värdmått ett bra alternativ. Om du behöver dock ett större antal mått, sedan gästmått bör ha i åtanke till.
+Det finns två breda typer av mått i Azure som samlas in från virtuella datorer och skalnings uppsättningar: värd mått och gäst mått. Om du vill använda standardvärden för processor, disk och nätverk på hög nivå är värd måtten en bra anpassning. Om du däremot behöver ett större urval av mått bör du titta på gäst mått.
 
-Värdmått kräver inte ytterligare inställningar eftersom de har samlats in av värden VM, medan gästmått måste du installera den [Windows Azure-diagnostiktillägget](../virtual-machines/windows/extensions-diagnostics-template.md) eller [Linux Azure-diagnostiktillägget ](../virtual-machines/linux/diagnostic-extension.md) på den Virtuella gästdatorn. En vanlig orsak till att använda gästmått i stället för värdmått är att gästmått ger ett större antal mått än värdmått. Ett exempel är minnesförbrukning mätvärden, som endast är tillgängliga via gästmått. Mått för stöds värden [här](../azure-monitor/platform/metrics-supported.md), och i vanliga gästmått [här](../azure-monitor/platform/autoscale-common-metrics.md). Den här artikeln visar hur du ändrar den [grundläggande lönsamma skaluppsättningsmall](virtual-machine-scale-sets-mvss-start.md) att använda regler för automatisk skalning baserat på gästmått för Linux-skalningsuppsättningar.
+Värd mått kräver inte ytterligare konfiguration eftersom de samlas in av den virtuella värddatorn, medan gäst mått kräver att du installerar [Windows Azure-diagnostik-tillägget](../virtual-machines/windows/extensions-diagnostics-template.md) eller [Linux Azure-diagnostik-tillägget](../virtual-machines/linux/diagnostic-extension.md) på den virtuella gäst datorn. En vanlig orsak till att använda gäst mått i stället för värd mått är att gäst mått ger större urval av mått än värd mått. Ett sådant exempel är minnes förbruknings mått som endast är tillgängliga via gäst mått. De värd mått som stöds visas [här](../azure-monitor/platform/metrics-supported.md)och ofta använda gäst mått som visas [här](../azure-monitor/platform/autoscale-common-metrics.md). Den här artikeln visar hur du ändrar [mallen för grundläggande skalbara skalnings uppsättningar](virtual-machine-scale-sets-mvss-start.md) för att använda regler för autoskalning baserat på gäst mått för Linux-skalnings uppsättningar.
 
-## <a name="change-the-template-definition"></a>Ändra malldefinitionen
+## <a name="change-the-template-definition"></a>Ändra mal len definition
 
-I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) vi har skapat en grundläggande skalningsuppsättningsmall. Vi kommer nu använda mallen som tidigare och ändra det om du vill skapa en mall som distribuerar en Linux-skalningsuppsättning med gästen mått baserat automatisk skalning.
+I en [föregående artikel](virtual-machine-scale-sets-mvss-start.md) har vi skapat en grundläggande mall för skalnings uppsättningar. Vi kommer nu att använda den tidigare mallen och ändra den för att skapa en mall som distribuerar en Linux-skalnings uppsättning med gäst mått baserat autoskalning.
 
-Lägg först till parametrar för `storageAccountName` och `storageAccountSasToken`. Diagnostics-agenten lagrar måttdata i en [tabell](../cosmos-db/table-storage-how-to-use-dotnet.md) i det här lagringskontot. Från och med Diagnostikagenten Linux version 3.0 stöds med hjälp av en lagringsåtkomstnyckel inte längre. Använd i stället en [SAS-Token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Lägg först till parametrar för `storageAccountName` och `storageAccountSasToken`. Diagnostics-agenten lagrar mått data i en [tabell](../cosmos-db/table-storage-how-to-use-dotnet.md) i det här lagrings kontot. Från och med version 3,0 av Linux Diagnostics-agenten stöds inte längre en lagrings åtkomst nyckel. Använd i stället en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
 ```diff
      },
@@ -48,7 +40,7 @@ Lägg först till parametrar för `storageAccountName` och `storageAccountSasTok
    },
 ```
 
-Sedan ändrar skalningsuppsättningen `extensionProfile` att inkludera diagnostics-tillägg. Ange resurs-ID för skalningsuppsättningen att samla in mått från, samt lagringskontot och SAS-token som du använder för att lagra mått i den här konfigurationen. Ange hur ofta måtten sammanställs (i det här fallet varje minut) och vilka mått som ska spåras (i det här fallet, Procent använt minne). Mer detaljerad information om den här konfigurationen och mått än Procent använt minne finns i [den här dokumentationen](../virtual-machines/linux/diagnostic-extension.md).
+Ändra sedan skalnings uppsättningen `extensionProfile` att ta med tillägget Diagnostics. I den här konfigurationen anger du resurs-ID för den skalnings uppsättning som du vill samla in mått från, samt det lagrings konto och SAS-token som ska användas för att lagra måtten. Ange hur ofta måtten ska aggregeras (i det här fallet varje minut) och vilka mått som ska spåras (i det här fallet procent använt minne). Mer detaljerad information om den här konfigurationen och andra mått än procent använt minne finns i [den här dokumentationen](../virtual-machines/linux/diagnostic-extension.md).
 
 ```diff
                  }
@@ -111,7 +103,7 @@ Sedan ändrar skalningsuppsättningen `extensionProfile` att inkludera diagnosti
        }
 ```
 
-Slutligen lägger du till en `autoscaleSettings` resursen för att konfigurera automatisk skalning baserat på de här måtten. Den här resursen har en `dependsOn` satsen som refererar till skalan ställa in så att det finns skalningsuppsättningen innan du försöker att automatiskt skala den. Om du väljer ett annat mått för automatisk skalning på, använder du den `counterSpecifier` från konfigurationen för diagnostiktillägg som den `metricName` i konfigurationen för automatisk skalning. Mer information om autoskalningskonfigurationen finns i den [Metodtips för autoskalning](../azure-monitor/platform/autoscale-best-practices.md) och [Azure Monitor REST API-referensdokumentation](/rest/api/monitor/autoscalesettings).
+Lägg slutligen till en `autoscaleSettings` resurs för att konfigurera autoskalning baserat på dessa mått. Den här resursen har en `dependsOn`-sats som refererar till skalnings uppsättningen för att säkerställa att skalnings uppsättningen finns innan du försöker Autoskala den. Om du väljer ett annat mått för automatisk skalning på, använder du `counterSpecifier` från konfigurationen för diagnostik-tillägg som `metricName` i konfigurationen för automatisk skalning. Mer information om konfiguration av autoskalning finns i [metod tips för autoskalning](../azure-monitor/platform/autoscale-best-practices.md) och [Azure Monitor REST API referens dokumentation](/rest/api/monitor/autoscalesettings).
 
 ```diff
 +    },

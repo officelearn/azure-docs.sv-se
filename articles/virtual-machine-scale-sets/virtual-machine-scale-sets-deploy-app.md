@@ -1,26 +1,19 @@
 ---
-title: Distribuera ett program till en skalnings uppsättning för en virtuell Azure-dator | Microsoft Docs
+title: Distribuera ett program till en skalnings uppsättning för virtuella Azure-datorer
 description: Lär dig hur du distribuerar program till instanser av virtuella Linux-och Windows-datorer i en skalnings uppsättning
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 ms.assetid: f8892199-f2e2-4b82-988a-28ca8a7fd1eb
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 0dc1c52e65090acd5f63d1b23d8da6f37e3cf567
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6bc319ea50da4ff6a654b2c9ab09bbe218695533
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960733"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278105"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program på virtuella datorers skalnings uppsättningar
 

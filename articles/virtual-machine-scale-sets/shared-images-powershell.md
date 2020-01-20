@@ -1,28 +1,19 @@
 ---
-title: Använd delade VM-avbildningar för att skapa en skalnings uppsättning i Azure | Microsoft Docs
+title: Använd delade VM-avbildningar för att skapa en skalnings uppsättning i Azure
 description: Lär dig hur du använder Azure PowerShell för att skapa delade VM-avbildningar som ska användas för distribution av skalnings uppsättningar för virtuella datorer i Azure.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: axayjo
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.custom: ''
-ms.openlocfilehash: 13c870ec87fa914f74bcfc4297dbe2fcc0bea282
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: b60a00828cfed8ef5d47704de2b2d7ede309ed6d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875611"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276301"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Skapa och Använd delade avbildningar för skalnings uppsättningar för virtuella datorer med Azure PowerShell
 
@@ -34,7 +25,7 @@ Galleriet är en resurs på den översta nivån som ger fullständig rollbaserad
 
 Funktionen för delad bild galleri har flera resurs typer. Vi kommer att använda eller skapa dessa i den här artikeln:
 
-| Resource | Beskrivning|
+| Resurs | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | Detta är en grundläggande bild som kan användas separat eller användas för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från generaliserade virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
@@ -49,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till en återanvändbar anpassad avbildning som du kan skapa nya VM-instanser med.
 
-Du måste ha en befintlig hanterad avbildning för att kunna slutföra exemplet i den här artikeln. Du kan följa [själv studie kursen: Skapa och Använd en anpassad avbildning för skalnings uppsättningar för virtuella datorer](tutorial-use-custom-image-powershell.md) med Azure PowerShell för att skapa en vid behov. Om den hanterade avbildningen innehåller en datadisk får data disk storleken inte vara större än 1 TB.
+Du måste ha en befintlig hanterad avbildning för att kunna slutföra exemplet i den här artikeln. Du kan följa [Självstudier: skapa och använda en anpassad avbildning för skalnings uppsättningar för virtuella datorer med Azure PowerShell](tutorial-use-custom-image-powershell.md) för att skapa en om det behövs. Om den hanterade avbildningen innehåller en datadisk får data disk storleken inte vara större än 1 TB.
 
 När du arbetar genom artikeln ersätter du resurs gruppen och VM-namnen där det behövs.
 

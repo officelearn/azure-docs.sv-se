@@ -1,24 +1,22 @@
 ---
-title: Introduktion till Azure Red Hat OpenShift | Microsoft Docs
+title: Introduktion till Azure Red Hat OpenShift
 description: Lär dig om funktionerna och fördelarna med Microsoft Azure Red Hat OpenShift för att distribuera och hantera program som baseras på behållare.
-services: container-service
 author: jimzim
 ms.author: jzim
 ms.service: container-service
-manager: jeconnoc
 ms.topic: overview
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: f76f5d4dc84d1f8827248ab8399c1ae450a643a0
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4be388eec3851154fd0f6af37d03a468fc52197b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620153"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276060"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
-Med OpenShift-tjänsten Microsoft *Azure Red Hat* kan du distribuera fullständigt hanterade OpenShift-kluster. [](https://www.openshift.com/)
+Med OpenShift-tjänsten Microsoft *Azure Red Hat* kan du distribuera fullständigt hanterade [OpenShift](https://www.openshift.com/) -kluster.
 
 Azure Red Hat OpenShift utökar [Kubernetes](https://kubernetes.io/). Att köra behållare i produktion med Kubernetes kräver ytterligare verktyg och resurser, till exempel ett avbildnings register, lagrings hantering, nätverks lösningar och verktyg för loggning och övervakning, som alla måste vara versioner och testas tillsammans. Att skapa behållar program kräver ännu mer integrerings arbete med mellanprogram, ramverk, databaser och CI/CD-verktyg. Azure Red Hat OpenShift kombinerar allt detta till en enda plattform, och gör det enkelt för IT-team att ge program team vad de behöver utföra.
 

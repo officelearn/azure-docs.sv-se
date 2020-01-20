@@ -1,26 +1,18 @@
 ---
-title: Automatisk uppgradering av operativ system avbildningar med skalnings uppsättningar för virtuella Azure-datorer | Microsoft Docs
+title: Automatisk uppgradering av OS-avbildningar med skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig hur du automatiskt uppgraderar OS-avbildningen på virtuella dator instanser i en skalnings uppsättning
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: shandilvarun
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/16/2019
 ms.author: vashan
-ms.openlocfilehash: 95a313b3c6995d55b86561c685641b447edae127
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c452ba5b8abfce4227d72922139824d639c62755
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240931"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278162"
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-image-upgrades"></a>Automatisk uppgradering av operativ system avbildningar för virtuella Azure-datorer
 
@@ -60,14 +52,14 @@ Följande SKU: er stöds för närvarande (och fler läggs till regelbundet):
 |-------------------------|---------------|--------------------|
 | Canonical               | UbuntuServer  | 16.04-LTS          |
 | Canonical               | UbuntuServer  | 18.04-LTS          |
-| Falsk våg (OpenLogic)  | CentOS        | 7,5                |
+| Falsk våg (OpenLogic)  | CentOS        | 7.5                |
 | CoreOS                  | CoreOS        | Stable             |
 | Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter |
-| Microsoft Corporation   | WindowsServer | 2016 – Data Center    |
-| Microsoft Corporation   | WindowsServer | 2016-datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter    |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2016-Data Center-med-containers |
-| Microsoft Corporation   | WindowsServer | 2019 – Data Center |
-| Microsoft Corporation   | WindowsServer | 2019-datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter |
+| Microsoft Corporation   | WindowsServer | 2019-Datacenter-Smalldisk |
 | Microsoft Corporation   | WindowsServer | 2019-Data Center-med-containers |
 | Microsoft Corporation   | WindowsServer | Data Center Core-1903-med-containers-smalldisk |
 
@@ -78,7 +70,7 @@ Följande SKU: er stöds för närvarande (och fler läggs till regelbundet):
 - Använd program hälso avsökningar eller [program hälso tillägg](virtual-machine-scale-sets-health-extension.md) för icke-Service Fabric skalnings uppsättningar.
 - Använd Compute API version 2018-10-01 eller högre.
 - Se till att externa resurser som anges i skalnings uppsättnings modellen är tillgängliga och uppdaterade. Exempel på detta är SAS URI för start nytto Last i egenskaper för VM-tillägg, nytto Last i lagrings konto, referens till hemligheter i modellen med mera.
-- För skalnings uppsättningar som använder virtuella Windows-datorer, från och med Compute API version 2019-03-01, måste egenskapen *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* anges till *false* i skalnings uppsättnings modellen definition. Egenskapen ovan aktiverar uppgraderingar i VM där "Windows Update" tillämpar operativ Systems korrigeringar utan att ersätta operativ system disken. Med automatiska uppgraderingar av OS-avbildningar aktiverade på din skalnings uppsättning, krävs ingen ytterligare uppdatering via "Windows Update".
+- För skalnings uppsättningar som använder virtuella Windows-datorer, från och med Compute API version 2019-03-01, måste egenskapen *virtualMachineProfile. osProfile. windowsConfiguration. enableAutomaticUpdates* anges till *false* i modell definitionen för skalnings uppsättningen. Egenskapen ovan aktiverar uppgraderingar i VM där "Windows Update" tillämpar operativ Systems korrigeringar utan att ersätta operativ system disken. Med automatiska uppgraderingar av OS-avbildningar aktiverade på din skalnings uppsättning, krävs ingen ytterligare uppdatering via "Windows Update".
 
 ### <a name="service-fabric-requirements"></a>Service Fabric krav
 
@@ -92,7 +84,7 @@ Se till att hållbarhets inställningarna inte stämmer överens med Service Fab
 ## <a name="configure-automatic-os-image-upgrade"></a>Konfigurera automatisk uppgradering av operativ system avbildning
 Om du vill konfigurera automatisk uppgradering av OS-avbildningen kontrollerar du att egenskapen *automaticOSUpgradePolicy. enableAutomaticOSUpgrade* är inställd på *True* i skalnings uppsättningens modell definition.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 I följande exempel beskrivs hur du ställer in automatiska OS-uppgraderingar i en skalnings uppsättnings modell:
 
 ```
@@ -171,7 +163,7 @@ Det finns flera sätt att distribuera program hälso tillägget till dina skalni
 ## <a name="get-the-history-of-automatic-os-image-upgrades"></a>Hämta historiken för automatiska uppgraderingar av operativ system avbildningar
 Du kan kontrol lera historiken för den senaste OS-uppgraderingen som har utförts på din skalnings uppsättning med Azure PowerShell, Azure CLI 2,0 eller REST API: erna. Du kan hämta historiken för de senaste fem uppgraderings försöken för operativ systemet under de senaste två månaderna.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 I följande exempel används [REST API](/rest/api/compute/virtualmachinescalesets/getosupgradehistory) för att kontrol lera status för skalnings uppsättningen med namnet *myScaleSet* i resurs gruppen med namnet *myResourceGroup*:
 
 ```
@@ -233,7 +225,7 @@ az vmss get-os-upgrade-history --resource-group myResourceGroup --name myScaleSe
 
 Du kan hämta tillgängliga avbildnings versioner för automatisk OS-uppgradering som stöds SKU: er med hjälp av exemplen nedan:
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 ```
 GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
 ```
@@ -256,7 +248,7 @@ I vissa fall där du inte vill vänta på att Orchestrator ska tillämpa den sen
 > [!NOTE]
 > Manuell utlösare av OS-avbildningsfiler ger inte automatiska återställnings funktioner. Om en instans inte återställer sitt hälso tillstånd efter en uppgraderings åtgärd kan den tidigare OS-disken inte återställas.
 
-### <a name="rest-api"></a>REST-API
+### <a name="rest-api"></a>REST API
 Använd [Start operativ systemets uppgraderings](/rest/api/compute/virtualmachinescalesetrollingupgrades/startosupgrade) -API-anrop för att starta en rullande uppgradering för att flytta alla instanser av en skalnings uppsättning för virtuella datorer till den senaste tillgängliga plattforms AVBILDNINGens OS Instanser som redan kör den senaste tillgängliga OS-versionen påverkas inte. Följande exempel beskriver hur du kan starta en rullande uppgradering av operativ systemet på en skalnings uppsättning med namnet *myScaleSet* i resurs gruppen med namnet *myResourceGroup*:
 
 ```

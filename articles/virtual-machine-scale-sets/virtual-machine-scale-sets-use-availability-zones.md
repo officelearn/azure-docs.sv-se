@@ -1,26 +1,20 @@
 ---
-title: Skapa en Azure-skalnings uppsättning som använder Tillgänglighetszoner | Microsoft Docs
+title: Skapa en Azure-skalnings uppsättning som använder Tillgänglighetszoner
 description: Lär dig hur du skapar skalnings uppsättningar för virtuella Azure-datorer som använder Tillgänglighetszoner för ökad redundans mot avbrott
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0a31ed174c7a5986594f7c07b7ce00b1649413c8
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 11695eb889a10dc689b00399a37382a3b9772eae
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907972"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274412"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Skapa en skalnings uppsättning för virtuell dator som använder Tillgänglighetszoner
 
@@ -45,7 +39,7 @@ När du distribuerar en skalnings uppsättning kan du också välja att distribu
 
 ### <a name="zone-balancing"></a>Zon utjämning
 
-Slutligen, för skalnings uppsättningar som distribueras över flera zoner, kan du också välja "bästa möjliga zon balans" eller "strikt zon balans". En skalnings uppsättning betraktas som "bal anse rad" om varje zon har samma antal virtuella\\datorer eller +-1 virtuell dator i alla andra zoner för skalnings uppsättningen. Exempel:
+Slutligen, för skalnings uppsättningar som distribueras över flera zoner, kan du också välja "bästa möjliga zon balans" eller "strikt zon balans". En skalnings uppsättning betraktas som "bal anse rad" om varje zon har samma antal virtuella datorer eller +\\-1 virtuell dator i alla andra zoner för skalnings uppsättningen. Ett exempel:
 
 - En skalnings uppsättning med 2 virtuella datorer i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 betraktas som balanserade. Det finns bara en zon med ett annat antal virtuella datorer och den är bara 1 mindre än de andra zonerna. 
 - En skalnings uppsättning med 1 virtuell dator i zon 1, 3 virtuella datorer i zon 2 och 3 virtuella datorer i zon 3 betraktas som obalanser. Zon 1 har 2 färre virtuella datorer än zon 2 och 3.
@@ -64,12 +58,12 @@ När du skapar en skalnings uppsättning i en enda zon, styr du vilken zon alla 
 
 Om du vill använda Tillgänglighetszoner måste din skalnings uppsättning skapas i en [Azure-region som stöds](../availability-zones/az-overview.md#services-support-by-region). Du kan skapa en skalnings uppsättning som använder Tillgänglighetszoner med någon av följande metoder:
 
-- [Azure Portal](#use-the-azure-portal)
+- [Azure-portalen](#use-the-azure-portal)
 - Azure CLI
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager mallar](#use-azure-resource-manager-templates)
 
-## <a name="use-the-azure-portal"></a>Använda Azure-portalen
+## <a name="use-the-azure-portal"></a>Använd Azure Portal
 
 Processen för att skapa en skalnings uppsättning som använder en tillgänglighets zon är densamma som beskrivs i [artikeln komma igång](quick-create-portal.md). När du väljer en Azure-region som stöds kan du skapa en skalnings uppsättning i en eller flera tillgängliga zoner, som du ser i följande exempel:
 
@@ -81,7 +75,7 @@ Skalnings uppsättningen och de stödda resurserna, till exempel Azure Load Bala
 
 Processen för att skapa en skalnings uppsättning som använder en tillgänglighets zon är densamma som beskrivs i [artikeln komma igång](quick-create-cli.md). Om du vill använda Tillgänglighetszoner måste du skapa din skalnings uppsättning i en Azure-region som stöds.
 
-[](/cli/azure/vmss) Lägg till parameternikommandotAZVMSSCreateochangevilkenzonsomskaanvändas(tillexempelzon1,2eller3).`--zones` I följande exempel skapas en skalnings uppsättning med en zon med namnet *myScaleSet* i zon *1*:
+Lägg till parametern `--zones` i kommandot [AZ VMSS Create](/cli/azure/vmss) och ange vilken zon som ska användas (till exempel zon *1*, *2*eller *3*). I följande exempel skapas en skalnings uppsättning med en zon med namnet *myScaleSet* i zon *1*:
 
 ```azurecli
 az vmss create \
@@ -100,7 +94,7 @@ Ett fullständigt exempel på en skalnings uppsättning för en zon och nätverk
 
 Om du vill skapa en zon – redundant skalnings uppsättning använder du en offentlig IP-adress och en belastningsutjämnare med *standard* -SKU. För förbättrad redundans skapar *standard* -SKU: n de zoner som är redundanta nätverks resurser. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-standard-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
 
-Om du vill skapa en zon – redundant skalnings uppsättning anger du flera `--zones` zoner med parametern. I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över zon *1, 2, 3*:
+Om du vill skapa en zon – redundant skalnings uppsättning anger du flera zoner med parametern `--zones`. I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över zon *1, 2, 3*:
 
 ```azurecli
 az vmss create \
@@ -115,9 +109,9 @@ az vmss create \
 
 Det tar några minuter att skapa och konfigurera alla skalnings uppsättnings resurser och virtuella datorer i den eller de zoner som du anger. Ett fullständigt exempel på en zon – redundant skalnings uppsättning och nätverks resurser finns i [det här EXEMPLET CLI-skript](https://github.com/Azure/azure-docs-cli-python-samples/blob/master/virtual-machine-scale-sets/create-zone-redundant-scale-set/create-zone-redundant-scale-set.sh)
 
-## <a name="use-azure-powershell"></a>Använda Azure PowerShell
+## <a name="use-azure-powershell"></a>Använd Azure PowerShell
 
-Om du vill använda Tillgänglighetszoner måste du skapa din skalnings uppsättning i en Azure-region som stöds. [](/powershell/module/az.compute/new-azvmssconfig) Lägg till parameternikommandotNew-AzVmssConfigochangevilkenzonsomskaanvändas(tillexempelzon1,2eller3).`-Zone`
+Om du vill använda Tillgänglighetszoner måste du skapa din skalnings uppsättning i en Azure-region som stöds. Lägg till parametern `-Zone` till kommandot [New-AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) och ange vilken zon som ska användas (till exempel zon *1*, *2*eller *3*).
 
 I följande exempel skapas en skalnings uppsättning med en zon med namnet *myScaleSet* i *östra USA 2* zon *1*. Azure-nätverksresurser för virtuellt nätverk, offentlig IP-adress och lastbalanserare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
@@ -136,7 +130,7 @@ New-AzVmss `
 
 ### <a name="zone-redundant-scale-set"></a>Zon – redundant skalnings uppsättning
 
-Om du vill skapa en zon – redundant skalnings uppsättning anger du flera `-Zone` zoner med parametern. I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över *USA, östra 2* zon *1, 2, 3*. Den zon – redundanta Azure-nätverks resurser för virtuellt nätverk, offentlig IP-adress och belastningsutjämnare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
+Om du vill skapa en zon – redundant skalnings uppsättning anger du flera zoner med parametern `-Zone`. I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över *USA, östra 2* zon *1, 2, 3*. Den zon – redundanta Azure-nätverks resurser för virtuellt nätverk, offentlig IP-adress och belastningsutjämnare skapas automatiskt. När du uppmanas, anger du dina egna önskade administrativa autentiseringsuppgifter för de virtuella datorinstanserna i skalningsuppsättning:
 
 ```powershell
 New-AzVmss `
@@ -153,7 +147,7 @@ New-AzVmss `
 
 ## <a name="use-azure-resource-manager-templates"></a>Använda Azure Resource Manager-mallar
 
-Processen för att skapa en skalnings uppsättning som använder en tillgänglighets zon är densamma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). Om du vill använda Tillgänglighetszoner måste du skapa din skalnings uppsättning i en Azure-region som stöds. Lägg till egenskapentillresurstypenMicrosoft.Compute/virtualMachineScaleSetsimallenochangevilkenzonsomskaanvändas(tillexempelzon1,2eller3).`zones`
+Processen för att skapa en skalnings uppsättning som använder en tillgänglighets zon är densamma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). Om du vill använda Tillgänglighetszoner måste du skapa din skalnings uppsättning i en Azure-region som stöds. Lägg till egenskapen `zones` till resurs typen *Microsoft. Compute/virtualMachineScaleSets* i mallen och ange vilken zon som ska användas (till exempel zon *1*, *2*eller *3*).
 
 I följande exempel skapas en skalnings uppsättning med en enda zon med namnet *myScaleSet* i *USA, östra 2* zon *1*:
 
@@ -199,7 +193,7 @@ Ett fullständigt exempel på en skalnings uppsättning för en zon och nätverk
 
 ### <a name="zone-redundant-scale-set"></a>Zon – redundant skalnings uppsättning
 
-Om du vill skapa en zon – redundant skalnings uppsättning anger du flera `zones` värden i egenskapen för resurs typen *Microsoft. Compute/virtualMachineScaleSets* . I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över *USA, östra 2* zon *1, 2, 3*:
+Om du vill skapa en zon – redundant skalnings uppsättning anger du flera värden i egenskapen `zones` för resurs typen *Microsoft. Compute/virtualMachineScaleSets* . I följande exempel skapas en zon – redundant skalnings uppsättning med namnet *myScaleSet* över *USA, östra 2* zon *1, 2, 3*:
 
 ```json
 {
@@ -215,7 +209,7 @@ Om du vill skapa en zon – redundant skalnings uppsättning anger du flera `zon
 }
 ```
 
-Om du skapar en offentlig IP-adress eller en belastningsutjämnare anger *du "SKU": {"name":*  Egenskapen "standard"} för att skapa zoner-redundanta nätverks resurser. Du måste också skapa en nätverks säkerhets grupp och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-standard-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
+Om du skapar en offentlig IP-adress eller en belastningsutjämnare anger du *"SKU": {"name": "standard"} "* egenskapen för att skapa zoner som är redundanta nätverks resurser. Du måste också skapa en nätverks säkerhets grupp och regler för att tillåta all trafik. Mer information finns i [Azure Load Balancer standard – översikt](../load-balancer/load-balancer-standard-overview.md) och [standard Load Balancer och Tillgänglighetszoner](../load-balancer/load-balancer-standard-availability-zones.md).
 
 Ett fullständigt exempel på en zon – redundant skalnings uppsättning och nätverks resurser finns i [den här exempel på en Resource Manager-mall](https://github.com/Azure/vm-scale-sets/blob/master/preview/zones/multizone.json)
 

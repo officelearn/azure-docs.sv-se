@@ -1,68 +1,66 @@
 ---
-title: (INAKTUELL) Övervaka ett Azure DC/OS-kluster - ELK-stacken
-description: Övervaka ett DC/OS-kluster i Azure Container Service-kluster med ELK (Elasticsearch, Logstash och Kibana).
-services: container-service
+title: FÖRÅLDRAD Övervaka en Azure DC/OS-ELK stack
+description: Övervaka ett DC/OS-kluster i Azure Container Service kluster med ELK (ElasticSearch, Logstash och Kibana).
 author: sauryadas
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 342cf23db2df7d7c79a2b56df96d1a78d6ba215e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d34ebe22344be8acc6ec3cc974071639293e2b3
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467776"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277763"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>(INAKTUELL) Övervaka ett Azure Container Service-kluster med ELK
+# <a name="deprecated-monitor-an-azure-container-service-cluster-with-elk"></a>FÖRÅLDRAD Övervaka ett Azure Container Service kluster med ELK
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-I den här artikeln visar vi hur du distribuerar ELK (Elasticsearch, Logstash, Kibana)-stacken på ett DC/OS-kluster i Azure Container Service. 
+I den här artikeln visar vi hur du distribuerar ELK-stacken (ElasticSearch, Logstash, Kibana) på ett DC/OS-kluster i Azure Container Service. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-[Distribuera](container-service-deployment.md) och [ansluta](../container-service-connect.md) ett DC/OS-kluster som har konfigurerats med Azure Container Service. Utforska instrumentpanelen för DC/OS och Marathon tjänster [här](container-service-mesos-marathon-ui.md). Även installera den [Marathon Load Balancer](container-service-load-balancing.md).
+## <a name="prerequisites"></a>Krav
+[Distribuera](container-service-deployment.md) och [Anslut](../container-service-connect.md) ett DC/OS-kluster som kon figurer ATS av Azure Container Service. Utforska DC/OS-instrumentpanelen och Marathon-tjänsterna [här](container-service-mesos-marathon-ui.md). Installera även [Marathon-Load Balancer](container-service-load-balancing.md).
 
 
-## <a name="elk-elasticsearch-logstash-kibana"></a>ELK (Elasticsearch, Logstash, Kibana)
-ELK-stacken är en kombination av Elasticsearch, Logstash och Kibana som tillhandahåller en stack för slutpunkt till slutpunkt som kan användas för att övervaka och analysera loggar i klustret.
+## <a name="elk-elasticsearch-logstash-kibana"></a>ELK (ElasticSearch, Logstash, Kibana)
+ELK-stack är en kombination av ElasticSearch, Logstash och Kibana som tillhandahåller en slut punkt till slut punkt som kan användas för att övervaka och analysera loggar i klustret.
 
-## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Konfigurera ELK-stacken på en DC/OS-klustret
-Komma åt DC/OS-Gränssnittet via [ http://localhost:80/ ](http://localhost:80/) en gång i DC/OS-Användargränssnittet navigerar du till **Universe**. Sök efter och installera Elasticsearch, Logstash och Kibana från DC/OS Universe och i den specifika ordningen. Du kan lära dig mer om konfiguration om du går till den **avancerade installationen** länk.
+## <a name="configure-the-elk-stack-on-a-dcos-cluster"></a>Konfigurera ELK-stacken på ett DC/OS-kluster
+Kom åt ditt DC/OS-gränssnitt via [http://localhost:80/](http://localhost:80/) en gång i DC/OS-gränssnittet navigera till **universum**. Sök efter och installera ElasticSearch, Logstash och Kibana från DC/OS-universum och i den aktuella ordningen. Du kan läsa mer om konfigurationen om du går till den **avancerade installations** länken.
 
 ![ELK1](./media/container-service-monitoring-elk/elk1.PNG) ![ELK2](./media/container-service-monitoring-elk/elk2.PNG) ![ELK3](./media/container-service-monitoring-elk/elk3.PNG) 
 
-När ELK-behållare och är igång, måste du aktivera Kibana är tillgängliga via Marathon-LB. Gå till **Services** > **kibana**, och klicka på **redigera** enligt nedan.
+När ELK-behållarna och är igång måste du aktivera Kibana för åtkomst via Marathon-LB. Gå till **tjänster** > **Kibana**och klicka på **Redigera** som visas nedan.
 
 ![ELK4](./media/container-service-monitoring-elk/elk4.PNG)
 
 
-Växla till **JSON-läget** och rulla ned till avsnittet etiketter.
+Växla till **JSON-läge** och rulla ned till avsnittet etiketter.
 Du måste lägga till en `"HAPROXY_GROUP": "external"` post här som visas nedan.
-När du klickar på **distribuera ändringar**, din behållare startas om.
+När du klickar på **distribuera ändringar**startar behållaren om.
 
 ![ELK5](./media/container-service-monitoring-elk/elk5.PNG)
 
 
-Om du vill kontrollera att Kibana är registrerad som en tjänst i HAPROXY instrumentpanelen som du behöver öppna port 9090 på agenten klustret som HAPROXY körs på port 9090.
-Som standard det öppna portarna 80, 8080 och 443 i klustret för DC/OS-agenten.
-Anvisningar för att öppna en port och tillhandahålla offentliga utvärdera tillhandahålls [här](container-service-enable-public-access.md).
+Om du vill kontrol lera att Kibana har registrerats som en tjänst på HAPROXY-instrumentpanelen måste du öppna port 9090 på agent klustret när HAPROXY körs på port 9090.
+Som standard öppnar vi portarna 80, 8080 och 443 i DC/OS agent-klustret.
+Instruktioner för att öppna en port och tillhandahålla allmän utvärdering finns [här](container-service-enable-public-access.md).
 
-Öppna admin-gränssnittet för Marathon-LB på för att komma åt instrumentpanelen HAPROXY: `http://$PUBLIC_NODE_IP_ADDRESS:9090/haproxy?stats`.
-När du navigerar till URL: en bör du se HAPROXY instrumentpanelen som visas nedan och du bör se en för Kibana.
+Öppna HAPROXY-instrumentpanelen genom att öppna Marathon-LB admin-gränssnittet på: `http://$PUBLIC_NODE_IP_ADDRESS:9090/haproxy?stats`.
+När du navigerar till webb adressen bör du se HAPROXY-instrumentpanelen som visas nedan och du bör se en tjänst post för Kibana.
 
 ![ELK6](./media/container-service-monitoring-elk/elk6.PNG)
 
 
-För att komma åt Kibana-instrumentpanelen, som har distribuerats på port 5601, måste du öppna port 5601. Följ instruktionerna [här](container-service-enable-public-access.md). Öppna Kibana-instrumentpanelen på: `http://localhost:5601`.
+För att komma åt Kibana-instrumentpanelen, som distribueras på port 5601, måste du öppna port 5601. Följ instruktionerna [här](container-service-enable-public-access.md). Öppna sedan Kibana-instrumentpanelen på: `http://localhost:5601`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* För systemets och programmets logg vidarebefordran och installationen finns i [Logghantering i DC/OS med ELK](https://docs.mesosphere.com/1.8/administration/logging/elk/).
+* För vidarebefordring och konfiguration av system-och program loggen, se [logg hantering i DC/OS med Elk](https://docs.mesosphere.com/1.8/administration/logging/elk/).
 
-* Om du vill filtrera loggar finns i [filtrering loggar med ELK](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/). 
+* För att filtrera loggar, se [filtrera loggar med Elk](https://docs.mesosphere.com/1.8/administration/logging/filter-elk/). 
 
  
 

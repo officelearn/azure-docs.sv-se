@@ -1,104 +1,102 @@
 ---
-title: (INAKTUELL) Övervaka Azure DC/OS-kluster – åtgärdshantering
+title: FÖRÅLDRAD Övervaka Azure DC/OS-kluster – drift hantering
 description: Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics.
-services: container-service
 author: keikhara
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ab8d1cf3eb38a17f0b3d6c8137e37237498a527
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810098"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277325"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(INAKTUELL) Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics
+# <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>FÖRÅLDRAD Övervaka ett Azure Container Service DC/OS-kluster med Log Analytics
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-Log Analytics är Microsofts molnbaserade IT-hanteringslösning som hjälper dig att hantera och skydda dina lokala och molnbaserade infrastruktur. Behållarlösningen är en lösning i Log Analytics, som hjälper dig att visa behållaren inventering, prestanda och loggar på en enda plats. Du kan granska, Felsök behållare genom att visa loggarna på central plats och ta bort störande förbrukar överflödiga behållare på en värd.
+Log Analytics är Microsofts molnbaserade IT-hanterings lösning som hjälper dig att hantera och skydda din lokala infrastruktur och moln infrastruktur. Container lösning är en lösning i Log Analytics, som hjälper dig att Visa behållar inventering, prestanda och loggar på en enda plats. Du kan granska, felsöka behållare genom att visa loggarna på den centrala platsen och hitta störningar som konsumerar överskotts behållare på en värd.
 
 ![](media/container-service-monitoring-oms/image1.png)
 
-Mer information om Behållarlösningen finns i den [behållare lösning Log Analytics](../../azure-monitor/insights/containers.md).
+Mer information om container lösning finns i [behållar lösningen Log Analytics](../../azure-monitor/insights/containers.md).
 
-## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Ställa in Log Analytics från DC/OS universe
+## <a name="setting-up-log-analytics-from-the-dcos-universe"></a>Konfigurera Log Analytics från universum för DC/OS
 
 
-Den här artikeln förutsätter att du har konfigurerat ett DC/OS och har distribuerat program med enkel behållare i klustret.
+Den här artikeln förutsätter att du har konfigurerat en DC/OS och har distribuerat enkla webb behållar program i klustret.
 
 ### <a name="pre-requisite"></a>Förhandskrav
-- [Microsoft Azure-prenumeration](https://azure.microsoft.com/free/) – du kan skaffa en prenumeration utan kostnad.  
-- Logga Analytics arbetsyta-installation - Se ”steg 3” nedan
-- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) installerad.
+- [Microsoft Azure prenumeration](https://azure.microsoft.com/free/) – du kan få en prenumeration kostnads fritt.  
+- Log Analytics arbets ytans konfiguration – se "steg 3" nedan
+- [DC/OS CLI](https://docs.mesosphere.com/1.12/cli) installerat.
 
-1. I DC/OS-instrumentpanelen klickar du på Universe och Sök efter ”OMS” enligt nedan.
+1. Klicka på universum på DC/OS-instrumentpanelen och Sök efter ' OMS ' som visas nedan.
 
    >[!NOTE]
    >OMS kallas nu för Log Analytics.
 
    ![](media/container-service-monitoring-oms/image2.png)
 
-2. Klicka på **Installera**. Visas ett popup-fönster med versionsinformationen och en **installera paket** eller **avancerade installationen** knappen. När du klickar på **avancerade Installation**, vilket innebär att du den **OMS specifika konfigurationsegenskaper** sidan.
+2. Klicka på **Installera**. Ett popup-fönster med versions information och ett **installations paket** eller en **Avancerad installations** knapp visas. När du klickar på **Avancerad installation**som leder dig till sidan **OMS-speciella konfigurations egenskaper** .
 
    ![](media/container-service-monitoring-oms/image3.png)
 
    ![](media/container-service-monitoring-oms/image4.png)
 
-3. Här kan du bli ombedd att ange den `wsid` (Log Analytics arbetsyte-ID) och `wskey` (primärnyckel för arbetsyte-ID). Att hämta båda `wsid` och `wskey` måste du skapa ett konto på <https://mms.microsoft.com>.
-   Följ stegen för att skapa ett konto. När du är klar skapar du behöver hämta din `wsid` och `wskey` genom att klicka på **inställningar**, sedan **anslutna källor**, och sedan **Linux-servrar**, enligt nedan.
+3. Här uppmanas du att ange `wsid` (Log Analytics arbetsyte-ID) och `wskey` (den primära nyckeln för arbetsyte-ID). Du måste skapa ett konto på <https://mms.microsoft.com>för att kunna hämta både `wsid` och `wskey`.
+   Följ stegen för att skapa ett konto. När du har skapat kontot måste du skaffa `wsid` och `wskey` genom att klicka på **Inställningar**, sedan på **anslutna källor**och sedan på Linux- **servrar**, som du ser nedan.
 
    ![](media/container-service-monitoring-oms/image5.png)
 
-4. Välj antalet instanser som du vill och klicka på knappen ”Granska och installera”. Normalt vill du ha så många instanser som är lika med antalet Virtuella datorer du har i klustret för agenten. Log Analytics-agenten för Linux installerar som enskilda behållare på varje virtuell dator som du vill samla in information för övervakning och loggning.
+4. Välj det antal instanser som du vill ha och klicka på knappen granska och installera. Vanligt vis vill du ha antalet instanser som motsvarar antalet virtuella datorer som du har i agent klustret. Log Analytics agent för Linux installeras som enskilda behållare på varje virtuell dator som den vill samla in information om övervakning och loggning.
 
    [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
 ## <a name="setting-up-a-simple-log-analytics-dashboard"></a>Konfigurera en enkel Log Analytics-instrumentpanel
 
-När du har installerat Log Analytics-agenten för Linux på de virtuella datorerna, är nästa steg att ställa in Log Analytics-instrumentpanelen. Du kan ställa in instrumentpanelen via Azure-portalen.
+När du har installerat Log Analytics agent för Linux på de virtuella datorerna är nästa steg att konfigurera Log Analytics instrument panelen. Du kan ställa in instrument panelen via Azure Portal.
 
-### <a name="azure-portal"></a>Azure Portal 
+### <a name="azure-portal"></a>Azure portal 
 
-Logga in på Azure portal på <https://portal.microsoft.com/>. Gå till **Marketplace**väljer **övervakning + hantering** och klicka på **finns i alla**. Skriv sedan `containers` i sökningen. Du ser ”behållare” i sökresultatet. Välj **behållare** och klicka på **skapa**.
+Logga in på Azure Portal på <https://portal.microsoft.com/>. Gå till **Marketplace**, Välj **övervakning + hantering** och klicka på **Visa alla**. Skriv `containers` i Sök. Du kommer att se "behållare" i Sök resultaten. Välj **behållare** och klicka på **skapa**.
 
 ![](media/container-service-monitoring-oms/image9.png)
 
-När du klickar på **skapa**, den ber dig om din arbetsyta. Välj din arbetsyta eller om du inte har någon kan du skapa en ny arbetsyta.
+När du klickar på **skapa**uppmanas du att ange din arbets yta. Välj din arbets yta eller skapa en ny arbets yta om du inte har en.
 
 ![](media/container-service-monitoring-oms/image10.PNG)
 
-När du har valt din arbetsyta, klickar du på **skapa**.
+När du har valt din arbets yta klickar du på **skapa**.
 
 ![](media/container-service-monitoring-oms/image11.png)
 
-Mer information om Behållarlösningen för Log Analytics finns i den [behållare lösning Log Analytics](../../azure-monitor/insights/containers.md).
+Mer information om Log Analytics container-lösningen finns i [behållar lösningen Log Analytics](../../azure-monitor/insights/containers.md).
 
-### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Så här skalar du Log Analytics-agenten med ACS DC/OS 
+### <a name="how-to-scale-log-analytics-agent-with-acs-dcos"></a>Så här skalar du Log Analytics agent med ACS DC/OS 
 
-Om du har installerat Log Analytics-agenten ont om antalet faktiska noder eller skalningsuppsättning genom att lägga till mer på virtuella datorer proportionellt, kan du göra det genom att skala den `msoms` service.
+Om du behöver installera Log Analytics-agenten kort av det faktiska antalet noder eller om du skalar upp en virtuell dators skalnings uppsättning genom att lägga till fler virtuella datorer kan du göra det genom att skala `msoms`s tjänsten.
 
-Du kan gå till Marathon eller på fliken tjänster för DC/OS-Användargränssnittet och skala upp din antal noder.
+Du kan antingen gå till Marathon eller fliken DC/OS UI Services och skala upp antalet noder.
 
 ![](media/container-service-monitoring-oms/image12.PNG)
 
-Det innebär att distribueras till andra noder som inte har distribuerat Log Analytics-agenten.
+Detta kommer att distribueras till andra noder som ännu inte har distribuerat Log Analytics agenten.
 
 ## <a name="uninstall-ms-oms"></a>Avinstallera MS OMS
 
-Om du vill avinstallera anger MS OMS du följande kommando:
+Avinstallera MS OMS genom att ange följande kommando:
 
 ```bash
 $ dcos package uninstall msoms
 ```
 
-## <a name="let-us-know"></a>Berätta för oss!
-Vad fungerar? Vad är saknas? Vad behöver du för detta ska vara användbar för dig? Berätta för oss på <a href="mailto:OMSContainers@microsoft.com">OMSContainers</a>.
+## <a name="let-us-know"></a>Berätta för oss!!!
+Vad fungerar? Vad saknas? Vad behöver du göra mer för att det ska vara användbart för dig? Berätta för oss på <a href="mailto:OMSContainers@microsoft.com">OMSContainers</a>.
 
 ## <a name="next-steps"></a>Nästa steg
 
- Nu när du har ställt in Log Analytics för att övervaka din behållare[finns i behållaren instrumentpanelen](../../azure-monitor/insights/containers.md).
+ Nu när du har konfigurerat Log Analytics för att övervaka dina behållare,[se din behållar instrument panel](../../azure-monitor/insights/containers.md).

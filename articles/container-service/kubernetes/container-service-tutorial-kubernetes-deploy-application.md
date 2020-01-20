@@ -1,25 +1,23 @@
 ---
 title: (INAKTUELL) Självstudie för Azure Container Service – Distribuera ett program
 description: Självstudie för Azure Container Service – Distribuera ett program
-services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: dafbb8d1221d5e9c6194611ad338b3714a089cea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7e10fd982c19e45be8c5da4ffc7f7248276352c1
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60309239"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76275496"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(INAKTUELL) Köra program i Kubernetes
 
 > [!TIP]
-> För den uppdaterade versionen av den här självstudien som använder Azure Kubernetes Service läser du[Självstudie: Köra program i Azure Kubernetes Service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
+> Den uppdaterade versionen av den här självstudien som använder Azure Kubernetes-tjänsten finns i [Självstudier: köra program i Azure Kubernetes service (AKS)](../../aks/tutorial-kubernetes-deploy-application.md).
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
@@ -76,7 +74,7 @@ Använd kommandot [kubectl create](https://kubernetes.io/docs/reference/generate
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
-Utdata:
+Resultat:
 
 ```bash
 deployment "azure-vote-back" created

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1b421e7acd7f94654ea80e41340022c8ef7a130e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264228"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277877"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -24,36 +24,43 @@ ms.locfileid: "76264228"
 
 **Nya funktioner**
 
-- Konversation med flera enheter: Anslut flera enheter i ett tal-eller textbaserat samtal och eventuellt översätta meddelanden som skickas mellan dem. Läs mer i [den här artikeln](multi-device-conversation.md). 
+- Konversation med flera enheter: Anslut flera enheter till samma tal-eller textbaserade konversationer och eventuellt översätta meddelanden som skickas mellan dem. Läs mer i [den här artikeln](multi-device-conversation.md). 
 - Stöd för nyckelords igenkänning har lagts till för Android. AAR-paketet och stöd för x86 och x64 varianter har lagts till. 
-- `SendMessage`-och `SetMessageProperty`s metoder läggs till i `Connection` objekt i mål-C. Se dokumentationen [här](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- Mål-C: `SendMessage` och `SetMessageProperty` metoder som läggs till i `Connection`-objektet. Se dokumentationen [här](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - TTS C++ -API stöder nu `std::wstring` som text ingångs text, och du tar bort behovet av att konvertera en wstring till sträng innan du skickar den till SDK: n. Se information [här](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
-- [Språk-ID](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) och [käll språks konfiguration](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) är nu C#tillgängliga i.
+- C#: [Språk-ID](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) och [käll språks konfiguration](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) är nu tillgängliga.
+- Java Script: du har lagt till en funktion som `Connection` objekt för att skicka genom anpassade meddelanden från tal tjänsten som motanrop `receivedServiceMessage`.
+- Java Script: stöd har lagts till för `FromHost API` för att under lätta användningen med lokal behållare och suveräna moln. Se dokumentationen [här](speech-container-howto.md).
+- Java Script: vi följer nu `NODE_TLS_REJECT_UNAUTHORIZED` tack till ett bidrag från [orgads](https://github.com/orgads). Se information [här](https://github.com/microsoft/cognitive-services-speech-sdk-js/pull/75).
 
 
 **Större ändringar**
 
 - `OpenSSL` har uppdaterats till version 1.1.1 b och länkas statiskt till tal SDK Core-biblioteket för Linux. Detta kan orsaka en paus om din inkorg `OpenSSL` inte har installerats till `/usr/lib/ssl` Directory i systemet. Läs [vår dokumentation](how-to-configure-openssl-linux.md) under Speech SDK-dokument för att lösa problemet.
 - Vi har ändrat data typen som returnerades C# för `WordLevelTimingResult.Offset` från `int` till `long` för att tillåta åtkomst till `WordLevelTimingResults` när taldata är längre än två minuter.
+- `PushAudioInputStream` och `PullAudioInputStream` skicka nu information om WAV-huvud till tal tjänsten baserat på `AudioStreamFormat`som du eventuellt angav när de skapades. Kunderna måste nu använda [formatet för ljud inspelning som stöds](how-to-use-audio-input-streams.md). Andra format kommer att få under optimala igenkännings resultat eller kan orsaka andra problem. 
 
 
 **Felkorrigeringar**
 
 - Se `OpenSSL` uppdateringen under bryta ändringar ovan. Vi har åtgärdat både en tillfällig krasch och ett prestanda problem (Lås konkurrens under hög belastning) i Linux och Java. 
-- Gjort förbättringar av Java-objekt stängning i scenarier med hög samtidighet.
+- Java: förbättringar av objekt stängning i höga samtidighets scenarier.
 - Omstrukturerat vårt NuGet-paket. Vi har tagit bort de tre kopiorna av `Microsoft.CognitiveServices.Speech.core.dll` och `Microsoft.CognitiveServices.Speech.extension.kws.dll` under lib-mappar, gör NuGet-paketet mindre och snabbare att ladda ned och vi har lagt C++ till huvuden som behövs för att kompilera vissa inbyggda appar.
 - Fasta snabb starts exempel [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/cpp). De stängdes utan att "Det gick inte att hitta" mikrofon hittades "på Linux, MacOS, Windows.
 - Fast SDK kraschar med långa tal igenkännings resultat på vissa kod sökvägar som [det här exemplet](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp/uwp/speechtotext-uwp).
 - Fast SDK-distributions fel i Azure-webbappens miljö för att åtgärda [det här kund problemet](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/396).
 - Åtgärdat ett TTS-fel vid användning av multi `<voice>`-tagg eller `<audio>`-tagg för att hantera [det här kund problemet](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/433). 
 - Ett fel har åtgärd ATS i TTS 401 när SDK: n återställs från pausad.
+- Java Script: fast en cirkulär import av ljuddata tack till ett bidrag från [euirim](https://github.com/euirim). 
+- Java Script: stöd för att konfigurera tjänst egenskaper har lagts till i 1,7.
+- Java Script: åtgärdat ett problem där ett anslutnings fel kan resultera i kontinuerliga misslyckade WebSocket-återanslutnings försök.
 
 
 **Exempel**
 
 - Exempel på nyckelords igenkänning har lagts till för Android [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/java/android/sdkdemo).
-- Extra TTS-exempel för Server scenario [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/csharp). 
-- Har lagt till snabb starter för flera C++ enheter C# i och .net [här](multi-device-conversation.md).
+- Extra TTS-exempel för Server scenario [här](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/csharp/sharedcontent/console/speech_synthesis_server_scenario_sample.cs).
+- Snabb starter för flera enheter har lagts C# till C++ för och [här](quickstarts/multi-device-conversation.md).
 
 
 **Andra ändringar**

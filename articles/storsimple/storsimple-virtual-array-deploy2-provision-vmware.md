@@ -1,26 +1,19 @@
 ---
-title: Etablera StorSimple-virtuell matris i VMware | Microsoft Docs
+title: Etablera StorSimple-virtuell matris i VMware
 description: Den här andra själv studie kursen om distributions serien i StorSimple Virtual Array inbegriper etablering av en virtuell enhet i VMware.
-services: storsimple
-documentationcenter: NA
 author: alkohli
-manager: jeconnoc
-editor: ''
 ms.assetid: 0425b2a9-d36f-433d-8131-ee0cacef95f8
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab5ad8acc5d0769a19a4022c55e0461e7ce42762
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 5f5ded3faec3a080022eea70de2cca5d27529c4d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516830"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76272098"
 ---
 # <a name="deploy-storsimple-virtual-array---provision-in-vmware"></a>Distribuera StorSimple Virtual Array-etablera i VMware
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/vmware4.png)
@@ -37,10 +30,10 @@ Du måste ha administratörsbehörighet för att etablera och ansluta till en vi
 Kraven för att etablera en virtuell enhet på ett värd system som kör VMware ESXi 5,0, 5,5, 6,0 eller 6,5 är följande.
 
 ### <a name="for-the-storsimple-device-manager-service"></a>För StorSimple Device Manager-tjänsten
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 * Du har slutfört alla steg i [förbereda portalen för StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md).
-* Du har laddat ned den virtuella enhets avbildningen för VMware från Azure Portal. Mer information finns i **steg 3: Ladda ned den virtuella enhets avbildningen** av [förbereda portalen för StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md).
+* Du har laddat ned den virtuella enhets avbildningen för VMware från Azure Portal. Mer information finns i **steg 3: Hämta avbildningen av den virtuella enheten** [Förbered portalen för StorSimple Virtual Array guide](storsimple-virtual-array-deploy1-portal-prep.md).
 
 ### <a name="for-the-storsimple-virtual-device"></a>För den virtuella StorSimple-enheten
 Innan du distribuerar en virtuell enhet kontrollerar du att:
@@ -54,7 +47,7 @@ Innan du distribuerar en virtuell enhet kontrollerar du att:
   * En virtuell disk på 500 GB för system data.
 
 ### <a name="for-the-network-in-datacenter"></a>För nätverket i datacentret
-Innan du börjar ska du kontrollera att:
+Innan du börjar bör du kontrollera att:
 
 * Du har granskat nätverks kraven för att distribuera en virtuell StorSimple-enhet och konfigurerat Data Center nätverket enligt kraven. 
 
@@ -65,7 +58,7 @@ För att etablera och ansluta till en virtuell enhet måste du utföra följande
 2. Etablera en virtuell enhet i hypervisor-programmets.
 3. Starta den virtuella enheten och hämta IP-adressen.
 
-## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Steg 1: Se till att värd systemet uppfyller minimi kraven för virtuella enheter
+## <a name="step-1-ensure-host-system-meets-minimum-virtual-device-requirements"></a>Steg 1: se till att värd systemet uppfyller minimi kraven för virtuella enheter
 Om du vill skapa en virtuell enhet behöver du:
 
 * Åtkomst till ett värd system som kör VMware ESXi Server 5,0, 5,5, 6,0 eller 6,5.
@@ -76,13 +69,13 @@ Om du vill skapa en virtuell enhet behöver du:
   * Ett nätverksgränssnitt anslutet till det nätverk som kan dirigera trafik till Internet. Den minsta Internet bandbredden bör vara 5 Mbit/s för att enheten ska fungera optimalt.
   * En virtuell disk på 500 GB för data.
 
-## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Steg 2: Etablera en virtuell enhet i hypervisor-program
+## <a name="step-2-provision-a-virtual-device-in-hypervisor"></a>Steg 2: etablera en virtuell enhet i hypervisor
 Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-program.
 
 1. Kopiera avbildningen av den virtuella enheten i ditt system. Du laddade ned den här virtuella avbildningen via Azure Portal.
 
    1. Se till att du har hämtat den senaste avbildnings filen. Om du laddade ned avbildningen tidigare kan du hämta den igen för att se till att du har den senaste avbildningen. Den senaste avbildningen har två filer (i stället för en).
-   2. Anteckna den plats dit du kopierade avbildningen eftersom du använder den här avbildningen senare under proceduren.
+   2. Anteckna den plats dit du har kopierat avbildningen eftersom du använder den här avbildningen senare i proceduren.
 
 2. Logga in på ESXi-servern med vSphere-klienten. Du måste ha administratörsbehörighet för att kunna skapa en virtuell dator.
 
@@ -108,7 +101,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 9. Den nya mappen visas i det vänstrat fönstret i **Datastore Browser**.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image9.png)
-10. Klicka på ikonen ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) Ladda upp och välj **överför fil**.
+10. Klicka på ikonen för uppladdning ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image10.png) och välj **Ladda upp fil**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image11.png)
 11. Bläddra till och peka på de VMDK-filer du har laddat ned. Det finns två filer. Välj en fil att ladda upp.
@@ -123,7 +116,7 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 14. Återgå till vSphere-klientfönstret. När ESXi Server är markerat högerklickar du på den **nya virtuella datorn**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image15.png)
-15. Ett fönster för att **skapa en ny virtuell dator** visas. På sidan **konfiguration** väljer du alternativet **anpassad** . Klicka på **Nästa**.
+15. Ett fönster för att **skapa en ny virtuell dator** visas. På sidan **konfiguration** väljer du alternativet **anpassad** . Klicka på **Next**.
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image16.png)
 16. På sidan **namn och plats** anger du namnet på den virtuella datorn. Namnet måste matcha mappnamnet (rekommenderad metod) som du angav tidigare i steg 8.
 
@@ -131,28 +124,28 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 17. På sidan **lagring** väljer du ett data lager som du vill använda för att etablera den virtuella datorn.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image18.png)
-18. På sidan **version av virtuell dator** väljer **du version för virtuell dator: 8**.
+18. På sidan **version av virtuell dator** väljer du **version för virtuell dator: 8**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image19.png)
 19. På sidan **gäst operativ system** väljer du **gäst operativ systemet** som **Windows**. För **version**väljer du **Microsoft Windows Server 2012 (64-bitars)** i list rutan.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image20.png)
-20. På sidan **processorer** justerar du **antalet virtuella Sockets** och **antalet kärnor per virtuell socket** så att det **totala antalet kärnor** är 4 (eller mer). Klicka på **Nästa**.
+20. På sidan **processorer** justerar du **antalet virtuella Sockets** och **antalet kärnor per virtuell socket** så att det **totala antalet kärnor** är 4 (eller mer). Klicka på **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image21.png)
-21. På sidan **minne** anger du 8 GB (eller mer) RAM-minne. Klicka på **Nästa**.
+21. På sidan **minne** anger du 8 GB (eller mer) RAM-minne. Klicka på **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image22.png)
 22. På sidan **nätverk** anger du antalet nätverks gränssnitt. Minimi kravet är ett nätverks gränssnitt.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image23.png)
-23. På sidan **SCSI-styrenhet** accepterar du standard SAS-styrenheten för **LSI Logic**.
+23. På sidan **SCSI-styrenhet** accepterar du standard **SAS-styrenheten för LSI Logic**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image24.png)
-24. På sidan **Välj en disk** väljer du **Använd en befintlig virtuell disk**. Klicka på **Nästa**.
+24. På sidan **Välj en disk** väljer du **Använd en befintlig virtuell disk**. Klicka på **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image25.png)
-25. På sidan **Välj befintlig disk** , under **sökväg för disk fil**, klickar du på **Bläddra**. Då öppnas dialog rutan **Bläddra i data lager** . Navigera till den plats där du laddade upp VMDK. Nu visas bara en fil i data lagret eftersom de två filer som du ursprungligen laddade upp har slagits samman. Markera filen och klicka på **OK**. Klicka på **Nästa**.
+25. På sidan **Välj befintlig disk** , under **sökväg för disk fil**, klickar du på **Bläddra**. Då öppnas dialog rutan **Bläddra i data lager** . Navigera till den plats där du laddade upp VMDK. Nu visas bara en fil i data lagret eftersom de två filer som du ursprungligen laddade upp har slagits samman. Markera filen och klicka på **OK**. Klicka på **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image26.png)
 26. På sidan **Avancerade alternativ** godkänner du standardvärdet och klickar på **Nästa**.
@@ -167,10 +160,10 @@ Utför följande steg för att etablera en virtuell enhet i ditt hypervisor-prog
 29. Du ser ett fönster för att **lägga till maskin vara** . Välj **hård disk**under **Välj den typ av enhet som du vill lägga till**på sidan **enhets typ** och klicka på **Nästa**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image30.png)
-30. På sidan **Välj en disk** väljer du **skapa en ny virtuell disk**. Klicka på **Nästa**.
+30. På sidan **Välj en disk** väljer du **skapa en ny virtuell disk**. Klicka på **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image31.png)
-31. På sidan **skapa en disk** ändrar du **Disk storleken** till 500 GB (eller mer). Även om 500 GB är minimi kravet, kan du alltid etablera en större disk. Observera att det inte går att utöka eller krympa disken när den har allokerats. Mer information om storleken på disken som ska etableras finns i avsnittet storlek i [dokumentet metod tips](storsimple-ova-best-practices.md). Under **disk etablering**väljer du **tunn etablering**. Klicka på **Nästa**.
+31. På sidan **skapa en disk** ändrar du **Disk storleken** till 500 GB (eller mer). Även om 500 GB är minimi kravet, kan du alltid etablera en större disk. Observera att det inte går att utöka eller krympa disken när den har allokerats. Mer information om storleken på disken som ska etableras finns i avsnittet storlek i [dokumentet metod tips](storsimple-ova-best-practices.md). Under **disk etablering**väljer du **tunn etablering**. Klicka på **Next**.
 
     ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image32.png)
 32. På sidan **Avancerade alternativ** godkänner du standardvärdet.
@@ -191,14 +184,14 @@ Den virtuella datorn är nu etablerad. Nästa steg är att aktivera datorn och h
 > [!NOTE]
 > Vi rekommenderar att du inte installerar VMware-verktyg på den virtuella matrisen (som tillhandahålls ovan). Installation av VMware-verktyg resulterar i en konfiguration som inte stöds.
 
-## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Steg 3: Starta den virtuella enheten och hämta IP-adressen
+## <a name="step-3-start-the-virtual-device-and-get-the-ip"></a>Steg 3: starta den virtuella enheten och hämta IP-adressen
 Utför följande steg för att starta den virtuella enheten och ansluta till den.
 
 #### <a name="to-start-the-virtual-device"></a>Så startar du den virtuella enheten
 1. Starta den virtuella enheten. I vSphere Configuration Manager i det vänstra fönstret väljer du din enhet och högerklickar för att öppna snabb menyn. Välj **Power** (Av/på) och sedan **Power on** (På). Den virtuella datorn bör aktiveras. Du kan visa statusen i det nedre fönstret med **senaste aktiviteter** i vSphere-klienten.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image37.png)
-2. Det tar några minuter att slutföra installations uppgifterna. När enheten är igång går du till **konsol** -fliken. Skicka Ctrl + Alt + Delete för att logga in på enheten. Alternativt kan du peka markören i konsol fönstret och trycka på CTRL + ALT + INSERT. Standard användaren är *StorSimpleAdmin* och standard lösen ordet är *Password1*.
+2. Det tar några minuter att slutföra installations uppgifterna. När enheten är igång navigerar du till fliken **konsol** . skicka CTRL + ALT + Delete för att logga in på enheten. Alternativt kan du peka markören i konsol fönstret och trycka på CTRL + ALT + INSERT. Standard användaren är *StorSimpleAdmin* och standard lösen ordet är *Password1*.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image38.png)
 3. Av säkerhetsskäl upphör enhetens administratörslösenord vid första inloggningen. Du uppmanas att ändra lösenordet.
@@ -215,7 +208,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image42m.png)
 
    Konfigurera sedan nätverket.
-7. `Get-HcsIpAddress` Använd kommandot för att visa en lista över nätverks gränssnitt som är aktiverade på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
+7. Använd kommandot `Get-HcsIpAddress` för att visa en lista över nätverks gränssnitt som är aktiverade på den virtuella enheten. Om enheten har ett enda nätverksgränssnitt aktiverad är det tilldelade standardnamnet för gränssnittet `Ethernet`.
 
    ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image43m.png)
 8. Använd cmdleten `Set-HcsIpAddress` för att konfigurera nätverket. Ett exempel på detta visas nedan:
@@ -238,7 +231,7 @@ Utför följande steg för att starta den virtuella enheten och ansluta till den
        >
        >
 
-Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten (visas nedan). Du måste ändra enhetskonfigurationen så att den har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se minimi kraven för konfiguration i [steg 1: Se till att värd systemet uppfyller minimi kraven](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements)för virtuella enheter.
+Om enheten inte uppfyller minimikraven för konfiguration visas ett felmeddelande i banderollstexten (visas nedan). Du måste ändra enhetskonfigurationen så att den har tillräckliga resurser för att uppfylla minimikraven. Du kan sedan starta om och ansluta till enheten. Se till minikraven för konfiguration i [Steg 1: Kontrollera att värdsystemet uppfyller minimikraven för virtuella enheter](#step-1-ensure-host-system-meets-minimum-virtual-device-requirements).
 
 ![](./media/storsimple-virtual-array-deploy2-provision-vmware/image46.png)
 

@@ -1,41 +1,39 @@
 ---
-title: Felsöka Azure Red Hat OpenShift | Microsoft Docs
+title: Felsökning av Azure Red Hat OpenShift
 description: Felsöka och lösa vanliga problem med Azure Red Hat OpenShift
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 05/08/2019
-ms.openlocfilehash: 7f2bdf643f12671bec3d0c087d8775844099fe9a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ee032cdf4a3f72b2cd2e7da0658effe75b6fb1fa
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66306251"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274934"
 ---
-# <a name="troubleshooting-for-azure-red-hat-openshift"></a>Felsökning för Azure Red Hat OpenShift
+# <a name="troubleshooting-for-azure-red-hat-openshift"></a>Fel sökning för Azure Red Hat OpenShift
 
-Den här artikeln beskriver några vanliga problem som uppstod när du skapar eller hanterar Microsoft Azure Red Hat OpenShift kluster.
+Den här artikeln beskriver några vanliga problem som uppstår när du skapar eller hanterar Microsoft Azure Red Hat OpenShift-kluster.
 
-## <a name="retrying-the-creation-of-a-failed-cluster"></a>Ett nytt försök görs skapandet av en misslyckad kluster
+## <a name="retrying-the-creation-of-a-failed-cluster"></a>Försöker skapa ett misslyckat kluster igen
 
-Om hur du skapar en Azure Red Hat OpenShift klustret med hjälp av den `az` CLI-kommando misslyckas, försöker skapa fortsätter att misslyckas.
-Använd `az openshift delete` om du vill ta bort det misslyckade klustret, sedan skapa ett helt nytt kluster.
+Om du skapar ett Azure Red Hat OpenShift-kluster med kommandot `az` CLI Miss lyckas, kommer försök att Miss lyckas om du försöker skapa igen.
+Använd `az openshift delete` för att ta bort det misslyckade klustret och skapa sedan ett helt nytt kluster.
 
-## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Dolda Azure Red Hat OpenShift klusterresursgrupp
+## <a name="hidden-azure-red-hat-openshift-cluster-resource-group"></a>Dolt Azure Red Hat OpenShift-kluster resurs grupp
 
-För närvarande den `Microsoft.ContainerService/openShiftManagedClusters` resurs som skapas automatiskt av Azure CLI (`az openshift create` kommandot) är dold i Azure-portalen. I den **resursgrupp** vyn, kontrollera **Visa dolda typer** att visa resursgruppen.
+För närvarande är `Microsoft.ContainerService/openShiftManagedClusters` resursen som skapas automatiskt av Azure CLI (`az openshift create` kommandot) dold i Azure Portal. I vyn **resurs grupp** markerar du **Visa dolda typer** för att Visa resurs gruppen.
 
-![Skärmbild av kryssrutan dolda typ i portalen](./media/aro-portal-hidden-type.png)
+![Skärm bild av kryss rutan dold typ i portalen](./media/aro-portal-hidden-type.png)
 
-## <a name="creating-a-cluster-results-in-error-that-no-registered-resource-provider-found"></a>Skapa ett kluster resultat i fel som ingen registrerad resursprovider hittades
+## <a name="creating-a-cluster-results-in-error-that-no-registered-resource-provider-found"></a>Att skapa ett kluster resulterar i ett fel som inte gick att hitta någon registrerad Resource Provider
 
-Om du skapar en kluster-resultaten i ett fel som `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview`, du har en del av förhandsversionen och nu behöver [köp Azure-dator reserverade instanser](https://aka.ms/openshift/buy) att använda den allmänt tillgängliga produkten. En reservation minskar dina utgifter per förväg betala för fullständigt hanterade Azure-tjänster. Referera till [ *vad är Azure reservationer* ](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) mer information om reservationer och hur de spara pengar.
+Om du skapar ett kluster resulterar det i ett fel som `No registered resource provider found for location '<location>' and API version '2019-04-30' for type 'openShiftManagedClusters'. The supported api-versions are '2018-09-30-preview`. därefter är du en del av förhands granskningen och måste nu [köpa reserverade instanser för virtuella Azure-datorer](https://aka.ms/openshift/buy) för att kunna använda den allmänt tillgängliga produkten. En reservation minskar dina utgifter genom förskotts betalning för fullständigt hanterade Azure-tjänster. Se [*vad som är Azure reservations*](https://docs.microsoft.com/azure/billing/billing-save-compute-costs-reservations) för att lära dig mer om reservationer och hur de sparar pengar.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Prova den [Hjälpcenter för Red Hat OpenShift](https://help.openshift.com/) mer om OpenShift felsökningsinformation.
+- Testa [Hjälp Center med Red Hat OpenShift](https://help.openshift.com/) för mer information om OpenShift-felsökning.
 
-- Få svar på [vanliga frågor och svar om Azure Red Hat OpenShift](openshift-faq.md).
+- Få svar på [vanliga frågor om Azure Red Hat OpenShift](openshift-faq.md).

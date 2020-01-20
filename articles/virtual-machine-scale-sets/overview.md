@@ -1,27 +1,19 @@
 ---
-title: Översikt över skalningsuppsättningar för virtuella datorer i Azure | Microsoft Docs
+title: Översikt över skalnings uppsättningar för virtuella Azure-datorer
 description: Lär dig mer om VM-skalningsuppsättningar i Azure och hur du skalar dina program automatiskt
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: mayanknayar
-manager: drewm
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e6201f9ac2e9b813de5a4622fc7996eb1202a164
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679391"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273694"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
 Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
@@ -53,7 +45,7 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Skillnader mellan virtuella datorer och skalningsuppsättningar
 Skalningsuppsättningar skapas från virtuella datorer. Med skalningsuppsättningar tillhandahålls hantering och automatiseringsnivåer för körning och skalning av dina program. Du kan även skapa och hantera enskilda virtuella datorer manuellt eller integrera befintliga verktyg för att skapa en liknande automatiseringsnivå. I följande tabell beskrivs fördelarna med skalningsuppsättningar jämfört med att manuellt hantera flera VM-instanser.
 
-| Scenario                           | Manuell grupp av virtuella datorer                                                                    | Skaluppsättning för den virtuella datorn |
+| Scenario                           | Manuell grupp av virtuella datorer                                                                    | Skaluppsättning för virtuella datorer |
 |------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
 | Lägg till ytterligare VM-instanser        | Bearbeta manuellt för att skapa, konfigurera och säkerställa efterlevnad                             | Skapa automatiskt från central konfiguration |
 | Trafikbalansering och distribution | Bearbeta manuellt för att skapa och konfigurera Azure Load Balancer eller Application Gateway      | Kan automatiskt skapa och integrera med Azure Load Balancer eller Application Gateway |

@@ -1,172 +1,164 @@
 ---
-title: Fjärransluta till din StorSimple-enhet | Microsoft Docs
-description: Beskriver hur du konfigurerar din enhet för fjärrhantering och hur du ansluter till Windows PowerShell för StorSimple via HTTP eller HTTPS.
-services: storsimple
-documentationcenter: ''
+title: Fjärrans luta till din StorSimple-enhet
+description: Förklarar hur du konfigurerar enheten för fjärrhantering och hur du ansluter till Windows PowerShell för StorSimple via HTTP eller HTTPS.
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
+ms.topic: conceptual
 ms.date: 01/02/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05bec60f4c56c98e9b910b50e858656a2e5554b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 70d0246debc532260d287104bacea2f15c1b94d2
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60631875"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277284"
 ---
-# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärransluta till din enhet i StorSimple 8000-serien
+# <a name="connect-remotely-to-your-storsimple-8000-series-device"></a>Fjärrans luta till din StorSimple 8000-serie enhet
 
 ## <a name="overview"></a>Översikt
 
-Du kan fjärransluta till din enhet via Windows PowerShell. När du ansluter på så sätt kan ser du inte en meny. (Du se en meny bara om du använder seriekonsolen på enheten för att ansluta.) Med Windows PowerShell-fjärrkommunikation ansluta till en specifik körningsutrymme. Du kan också ange språk för visning.
+Du kan fjärrans luta till din enhet via Windows PowerShell. När du ansluter på det här sättet ser du ingen meny. (Du ser bara en meny om du använder serie konsolen på enheten för att ansluta.) Med Windows PowerShell-fjärrkommunikation ansluter du till en speciell körnings utrymme. Du kan också ange visnings språk.
 
-Mer information om hur du använder Windows PowerShell-fjärrkommunikation för att hantera din enhet går du till [Använd Windows PowerShell för StorSimple att administrera din StorSimple-enhet](storsimple-8000-windows-powershell-administration.md).
+Om du vill ha mer information om hur du använder Windows PowerShell-fjärrkommunikation för att hantera enheten går du till [använda Windows PowerShell för StorSimple för att administrera din StorSimple-enhet](storsimple-8000-windows-powershell-administration.md).
 
-Den här självstudien beskrivs hur du konfigurerar din enhet för fjärrhantering och sedan hur du ansluter till Windows PowerShell för StorSimple. Du kan använda HTTP eller HTTPS för att fjärransluta via Windows PowerShell. Men när du bestämmer hur du ansluter till Windows PowerShell för StorSimple, Tänk på följande:
+I den här självstudien beskrivs hur du konfigurerar din enhet för fjärrhantering och hur du ansluter till Windows PowerShell för StorSimple. Du kan använda HTTP eller HTTPS för fjärr anslutning via Windows PowerShell. Men när du bestämmer dig för att ansluta till Windows PowerShell för StorSimple bör du tänka på följande:
 
-* Ansluta direkt till enhetens seriekonsol är säkra, men är ansluta till seriekonsol nätverksväxlar inte. Se upp för säkerhetsrisken när du ansluter till enhetens seriekonsol över nätverksväxlar.
-* Ansluta via en HTTP-session kan erbjuda mer säkerhet än att ansluta via seriekonsolen över nätverket. Även om detta inte är den säkraste metoden är det acceptabelt på betrodda nätverk.
-* Ansluta via en HTTPS-session med ett självsignerat certifikat är det säkraste alternativet och det rekommenderade alternativet.
+* Anslutning direkt till enhetens serie konsol är säker, men det går inte att ansluta till serie konsolen över nätverks växlar. Var försiktig med säkerhets risken när du ansluter till enhetens serie konsol över nätverks växlar.
+* Att ansluta via en HTTP-session kan erbjuda mer säkerhet än att ansluta via serie konsolen över nätverket. Även om detta inte är den säkraste metoden, är det acceptabelt i betrodda nätverk.
+* Att ansluta via en HTTPS-session med ett självsignerat certifikat är det säkraste och rekommenderade alternativet.
 
-Du kan fjärransluta till Windows PowerShell-gränssnittet. Fjärråtkomst till din StorSimple-enhet via Windows PowerShell-gränssnittet är inte aktiverad som standard. Du måste aktivera fjärrhantering på enheten först och sedan på klienten som används för att komma åt enheten.
+Du kan fjärrans luta till Windows PowerShell-gränssnittet. Fjärråtkomst till din StorSimple-enhet via Windows PowerShell-gränssnittet är dock inte aktiverat som standard. Du måste aktivera fjärrhantering på enheten först och sedan på klienten som används för att få åtkomst till enheten.
 
-Stegen som beskrivs i den här artikeln utfördes på ett värdsystem som kör Windows Server 2012 R2.
+Stegen som beskrivs i den här artikeln utfördes på ett värd system som kör Windows Server 2012 R2.
 
-## <a name="connect-through-http"></a>Ansluta via HTTP
+## <a name="connect-through-http"></a>Anslut via HTTP
 
-Ansluta till Windows PowerShell för StorSimple via en HTTP-session ger högre säkerhet än Anslut via seriekonsol för StorSimple-enheten. Även om detta inte är den säkraste metoden är det acceptabelt på betrodda nätverk.
+Att ansluta till Windows PowerShell för StorSimple via en HTTP-session ger högre säkerhet än att ansluta via StorSimple-enhetens serie konsol. Även om detta inte är den säkraste metoden, är det acceptabelt i betrodda nätverk.
 
-Du kan använda Azure portal eller seriell konsol för att konfigurera fjärrhantering. Välj följande procedurer:
+Du kan använda antingen Azure Portal eller serie konsolen för att konfigurera fjärrhantering. Välj någon av följande procedurer:
 
-* Använd Azure portal för att aktivera fjärrhantering över HTTP
-* [Använd seriekonsol för att aktivera fjärrhantering över HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
+* Använd Azure Portal för att aktivera fjärrhantering över HTTP
+* [Använd serie konsolen för att aktivera fjärrhantering över HTTP](#use-the-serial-console-to-enable-remote-management-over-http)
 
-När du har aktiverat fjärrhantering, följ anvisningarna för att förbereda klienten för en fjärranslutning.
+När du har aktiverat fjärrhantering kan du använda följande procedur för att förbereda klienten för en fjärr anslutning.
 
-* [Förbered för fjärranslutning](#prepare-the-client-for-remote-connection)
+* [Förbered klienten för fjärr anslutning](#prepare-the-client-for-remote-connection)
 
-### <a name="use-the-azure-portal-to-enable-remote-management-over-http"></a>Använd Azure portal för att aktivera fjärrhantering över HTTP
+### <a name="use-the-azure-portal-to-enable-remote-management-over-http"></a>Använd Azure Portal för att aktivera fjärrhantering över HTTP
 
-Utför följande steg i Azure portal för att aktivera fjärrhantering via HTTP.
+Utför följande steg i Azure Portal för att aktivera fjärrhantering över HTTP.
 
-#### <a name="to-enable-remote-management-through-the-azure-portal"></a>Aktivera fjärrhantering via Azure portal
+#### <a name="to-enable-remote-management-through-the-azure-portal"></a>Så här aktiverar du fjärrhantering via Azure Portal
 
-1. Gå till StorSimple Device Manager-tjänsten. Välj **enheter** och markera och klicka på den enhet som du vill konfigurera för fjärrhantering. Gå till **Enhetsinställningar > säkerhet**.
-2. I den **säkerhetsinställningar** bladet klickar du på **fjärrhantering**.
-3. I den **fjärrhantering** , anger du **aktivera fjärrhantering** till **Ja**.
-4. Nu kan du välja att ansluta med HTTP. (Standard är att ansluta via HTTPS.) Se till att HTTP är markerad.
+1. Gå till StorSimple Device Manager-tjänsten. Välj **enheter** och välj sedan och klicka på den enhet som du vill konfigurera för fjärrhantering. Gå till **enhets inställningar > säkerhet**.
+2. I bladet **säkerhets inställningar** klickar du på **fjärrhantering**.
+3. På bladet **fjärrhantering** anger du **aktivera fjärrhantering** till **Ja**.
+4. Nu kan du välja att ansluta med HTTP. (Standard är att ansluta via HTTPS.) Kontrol lera att HTTP är markerat.
    
    > [!NOTE]
    > Det är bara acceptabelt att ansluta över HTTP på betrodda nätverk.
    
-5. Klicka på **spara** och när du uppmanas att bekräfta väljer **Ja**.
+5. Klicka på **Spara** och välj **Ja**när du uppmanas att bekräfta.
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Använd seriekonsol för att aktivera fjärrhantering över HTTP
-Utför följande steg på enhetens seriekonsol vill aktivera fjärrhantering.
+### <a name="use-the-serial-console-to-enable-remote-management-over-http"></a>Använd serie konsolen för att aktivera fjärrhantering över HTTP
+Utför följande steg i enhetens serie konsol för att aktivera fjärrhantering.
 
-#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Aktivera fjärrhantering via enhetens seriekonsol
-1. På menyn för seriekonsolen väljer du alternativ 1. Mer information om hur du använder seriekonsolen på enheten går du till [Anslut till Windows PowerShell för StorSimple via enhetens seriekonsol](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. I Kommandotolken skriver du: `Enable-HcsRemoteManagement –AllowHttp`
-3. Du får ett meddelande om säkerhetsrisker med att använda HTTP för att ansluta till enheten. När du uppmanas bekräfta genom att skriva **Y**.
-4. Kontrollera att HTTP är aktiverat genom att skriva: `Get-HcsSystem`
-5. Kontrollera att den **RemoteManagementMode** fältet visar **HttpsAndHttpEnabled**. Följande bild visar de här inställningarna i PuTTY.
+#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Så här aktiverar du fjärrhantering via enhetens serie konsol
+1. I menyn serie konsol väljer du alternativ 1. Mer information om hur du använder serie konsolen på enheten finns i [ansluta till Windows PowerShell för StorSimple via enhetens serie konsol](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. Skriv följande i prompten: `Enable-HcsRemoteManagement –AllowHttp`
+3. Du får ett meddelande om säkerhets sårbarheter i att använda HTTP för att ansluta till enheten. Bekräfta genom att skriva **Y**när du uppmanas till detta.
+4. Verifiera att HTTP har Aktiver ATS genom att skriva: `Get-HcsSystem`
+5. Kontrol lera att fältet **RemoteManagementMode** visar **HttpsAndHttpEnabled**. Följande bild visar dessa inställningar i SparaTillFil.
    
-     ![Seriell HTTPS och HTTP som aktiverats](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
+     ![Seriellt HTTPS och HTTP aktiverat](./media/storsimple-remote-connect/HCS_SerialHttpsAndHttpEnabled.png)
 
-### <a name="prepare-the-client-for-remote-connection"></a>Förbered för fjärranslutning
+### <a name="prepare-the-client-for-remote-connection"></a>Förbered klienten för fjärr anslutning
 Utför följande steg på klienten för att aktivera fjärrhantering.
 
-#### <a name="to-prepare-the-client-for-remote-connection"></a>Förbereda klienten för fjärranslutning
-1. Starta en Windows PowerShell-session som administratör. Om du använder en Windows 10-klient som standard, är Windows Remote Management-tjänsten inställd till manuell. Du kan behöva starta tjänsten genom att skriva:
+#### <a name="to-prepare-the-client-for-remote-connection"></a>Så här förbereder du klienten för fjärr anslutning
+1. Starta en Windows PowerShell-session som administratör. Om du använder en Windows 10-klient är Windows Remote Management-tjänsten som standard inställd på manuell. Du kan behöva starta tjänsten genom att skriva:
 
     `Start-Service WinRM`
     
-2. Skriv följande kommando för att lägga till IP-adressen för StorSimple-enheten i listan över betrodda värdar klientens:
+2. Skriv följande kommando för att lägga till IP-adressen för StorSimple-enheten i klientens lista över betrodda värdar:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-     Ersätt <*device_ip*> med IP-adressen för din enhet, till exempel: 
+     Ersätt <*device_ip*> med ENHETens IP-adress. exempel: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
-3. Skriv följande kommando för att spara enhetsautentiseringsuppgifterna i en variabel: 
+3. Skriv följande kommando för att spara autentiseringsuppgifterna för enheten i en variabel: 
    
     ```
     $cred = Get-Credential
     ```
     
-4. I dialogrutan som visas:
+4. I dialog rutan som visas:
    
-   1. Skriv användarnamnet i följande format: *device_ip\SSAdmin*.
-   2. Ange enhetens administratörslösenord som angavs när enheten konfigurerades med installationsguiden. Standardlösenordet är *Password1*.
+   1. Ange användar namnet i följande format: *device_ip \ssadmin*.
+   2. Ange enhetens administratörs lösen ord som angavs när enheten konfigurerades med installations guiden. Standard lösen ordet är *Password1*.
 5. Starta en Windows PowerShell-session på enheten genom att skriva följande kommando:
    
      `Enter-PSSession -Credential $cred -ConfigurationName SSAdminConsole -ComputerName <device_ip>`
    
    > [!NOTE]
-   > Skapa en Windows PowerShell-session för användning med den virtuella StorSimple-enheten genom att lägga till den `–Port` parametern och ange den offentliga porten som du konfigurerade i fjärrkommunikation för StorSimple Virtual Appliance.
+   > Om du vill skapa en Windows PowerShell-session för användning med den virtuella StorSimple-enheten lägger du till parametern `–Port` och anger den offentliga port som du konfigurerade i fjärr kommunikation för StorSimple Virtual-installation.
    
    
-Du bör nu ha en aktiv fjärransluten Windows PowerShell-session till enheten.
+I det här läget bör du ha en aktiv Windows PowerShell-fjärrsession till enheten.
    
 ![PowerShell-fjärrkommunikation med HTTP](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTP.png)
 
-## <a name="connect-through-https"></a>Ansluta via HTTPS
+## <a name="connect-through-https"></a>Anslut via HTTPS
 
-Ansluta till Windows PowerShell för StorSimple via en HTTPS-session är den mest säkra och rekommenderade metoden för att fjärransluta till din Microsoft Azure StorSimple-enhet. Följande procedurer beskriver hur du ställer in de seriella konsolen och klientdatorerna så att du kan använda HTTPS för att ansluta till Windows PowerShell för StorSimple.
+Anslutning till Windows PowerShell för StorSimple via en HTTPS-session är den säkraste och rekommenderade metoden för fjärr anslutning till din Microsoft Azure StorSimple-enhet. Följande procedurer beskriver hur du konfigurerar serie konsolen och klient datorerna så att du kan använda HTTPS för att ansluta till Windows PowerShell för StorSimple.
 
-Du kan använda Azure portal eller seriell konsol för att konfigurera fjärrhantering. Välj följande procedurer:
+Du kan använda antingen Azure Portal eller serie konsolen för att konfigurera fjärrhantering. Välj någon av följande procedurer:
 
-* Använd Azure portal för att aktivera fjärrhantering via HTTPS
-* [Använd seriekonsol för att aktivera fjärrhantering via HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
+* Använd Azure Portal för att aktivera fjärrhantering över HTTPS
+* [Använd serie konsolen för att aktivera fjärrhantering över HTTPS](#use-the-serial-console-to-enable-remote-management-over-https)
 
-När du har aktiverat fjärrhantering kan du använda följande procedurer för att förbereda värden för en fjärrhantering och ansluta till enheten från fjärrvärden.
+När du har aktiverat fjärrhantering kan du använda följande procedurer för att förbereda värden för fjärrhantering och ansluta till enheten från fjärrvärden.
 
-* [Förbereda värden för fjärrhantering](#prepare-the-host-for-remote-management)
+* [Förbered värden för fjärrhantering](#prepare-the-host-for-remote-management)
 * [Ansluta till enheten från fjärrvärden](#connect-to-the-device-from-the-remote-host)
 
-### <a name="use-the-azure-portal-to-enable-remote-management-over-https"></a>Använd Azure portal för att aktivera fjärrhantering via HTTPS
+### <a name="use-the-azure-portal-to-enable-remote-management-over-https"></a>Använd Azure Portal för att aktivera fjärrhantering över HTTPS
 
-Utför följande steg i Azure portal för att aktivera fjärrhantering via HTTPS.
+Utför följande steg i Azure Portal för att aktivera fjärrhantering över HTTPS.
 
-#### <a name="to-enable-remote-management-over-https-from-the-azure-portal"></a>Aktivera fjärrhantering via HTTPS från Azure portal
+#### <a name="to-enable-remote-management-over-https-from-the-azure-portal"></a>Så här aktiverar du fjärrhantering över HTTPS från Azure Portal
 
-1. Gå till StorSimple Device Manager-tjänsten. Välj **enheter** och markera och klicka på den enhet som du vill konfigurera för fjärrhantering. Gå till **Enhetsinställningar > säkerhet**.
-2. I den **säkerhetsinställningar** bladet klickar du på **fjärrhantering**.
+1. Gå till StorSimple Device Manager-tjänsten. Välj **enheter** och välj sedan och klicka på den enhet som du vill konfigurera för fjärrhantering. Gå till **enhets inställningar > säkerhet**.
+2. I bladet **säkerhets inställningar** klickar du på **fjärrhantering**.
 3. Ställ in **Aktivera fjärrhantering** på **Ja**.
-4. Du kan nu välja att ansluta med hjälp av HTTPS. (Standard är att ansluta via HTTPS.) Kontrollera att HTTPS har valts.
-5. Klicka på... och klicka sedan på **ladda ned Fjärrhanteringscertifikatet**. Ange en plats för att spara den här filen. Du måste installera detta certifikat på klienten eller värddatorn datorn som du använder för att ansluta till enheten.
-6. Klicka på **spara** och klicka sedan på **Ja** när du uppmanas att bekräfta.
+4. Nu kan du välja att ansluta med HTTPS. (Standard är att ansluta via HTTPS.) Kontrol lera att HTTPS är markerat.
+5. Klicka på... och klicka sedan på **Hämta certifikat för fjärrhantering**. Ange en plats där du vill spara filen. Du måste installera det här certifikatet på den klient eller värddator som du ska använda för att ansluta till enheten.
+6. Klicka på **Spara** och sedan på **Ja** när du uppmanas att bekräfta.
 
-### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Använd seriekonsol för att aktivera fjärrhantering via HTTPS
+### <a name="use-the-serial-console-to-enable-remote-management-over-https"></a>Använd serie konsolen för att aktivera fjärrhantering över HTTPS
 
-Utför följande steg på enhetens seriekonsol vill aktivera fjärrhantering.
+Utför följande steg i enhetens serie konsol för att aktivera fjärrhantering.
 
-#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Aktivera fjärrhantering via enhetens seriekonsol
-1. På menyn för seriekonsolen väljer du alternativ 1. Mer information om hur du använder seriekonsolen på enheten går du till [Anslut till Windows PowerShell för StorSimple via enhetens seriekonsol](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
-2. I Kommandotolken skriver du:
+#### <a name="to-enable-remote-management-through-the-device-serial-console"></a>Så här aktiverar du fjärrhantering via enhetens serie konsol
+1. I menyn serie konsol väljer du alternativ 1. Mer information om hur du använder serie konsolen på enheten finns i [ansluta till Windows PowerShell för StorSimple via enhetens serie konsol](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console).
+2. Skriv följande i prompten:
    
      `Enable-HcsRemoteManagement`
    
-    Detta bör aktivera HTTPS på din enhet.
-3. Kontrollera att HTTPS har aktiverats genom att skriva: 
+    Detta bör Aktivera HTTPS på enheten.
+3. Kontrol lera att HTTPS har Aktiver ATS genom att skriva: 
    
      `Get-HcsSystem`
    
-    Se till att den **RemoteManagementMode** fältet visar **HttpsEnabled**. Följande bild visar de här inställningarna i PuTTY.
+    Kontrol lera att fältet **RemoteManagementMode** visar **HttpsEnabled**. Följande bild visar dessa inställningar i SparaTillFil.
    
-     ![Seriell HTTPS-aktiverade](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
-4. Från utdata från `Get-HcsSystem`, kopiera serienumret för enheten och spara den för senare användning.
+     ![Seriell HTTPS aktive rad](./media/storsimple-remote-connect/HCS_SerialHttpsEnabled.png)
+4. Kopiera enhetens serie nummer från utdata från `Get-HcsSystem`och spara den för senare användning.
    
    > [!NOTE]
-   > Serienumret mappar till CN-namnet i certifikatet.
+   > Serie numret mappar till CN-namnet i certifikatet.
    
 5. Hämta ett certifikat för fjärrhantering genom att skriva: 
    
@@ -175,77 +167,77 @@ Utför följande steg på enhetens seriekonsol vill aktivera fjärrhantering.
     Ett certifikat som liknar följande visas.
    
     ![Hämta certifikat för fjärrhantering](./media/storsimple-remote-connect/HCS_GetRemoteManagementCertificate.png)
-6. Kopiera informationen i certifikatet från **---BEGIN CERTIFICATE---** till **---END CERTIFICATE---** i en textredigerare, till exempel Anteckningar och spara den som en .cer-fil. (Du kommer att kopiera den här filen till din fjärrvärd när du förbereder värden.)
+6. Kopiera informationen i certifikatet från **-----Starta certifikat-----** till **-----slut certifikat-----** i en text redigerare, till exempel anteckningar, och spara den som en CER-fil. (Du kommer att kopiera den här filen till fjärrvärden när du förbereder värden.)
    
    > [!NOTE]
-   > Generera ett nytt certifikat genom att använda den `Set-HcsRemoteManagementCert` cmdlet.
+   > Använd `Set-HcsRemoteManagementCert`-cmdleten om du vill generera ett nytt certifikat.
    
 ### <a name="prepare-the-host-for-remote-management"></a>Förbereda värden för fjärrhantering
 
-Utför följande procedurer för att förbereda värddatorn för en anslutning som använder en HTTPS-session:
+Utför följande procedurer för att förbereda värddatorn för en fjärr anslutning som använder en HTTPS-session:
 
-* [Importera CER-filen till rotcertifikatutfärdare på klienten eller fjärrvärden](#to-import-the-certificate-on-the-remote-host).
-* [Lägga till enhetens serienummer i hosts-filen på din fjärrvärden](#to-add-device-serial-numbers-to-the-remote-host).
+* [Importera. CER-filen till rot arkivet för klienten eller fjärrvärden](#to-import-the-certificate-on-the-remote-host).
+* [Lägg till enhetens serie nummer i hosts-filen på fjärrvärden](#to-add-device-serial-numbers-to-the-remote-host).
 
 Var och en av de föregående procedurerna beskrivs nedan.
 
-#### <a name="to-import-the-certificate-on-the-remote-host"></a>Importera certifikatet på fjärrvärden
+#### <a name="to-import-the-certificate-on-the-remote-host"></a>Importera certifikatet på den fjärranslutna värden
 1. Högerklicka på .cer-filen och välj **Installera certifikat**. Då startas guiden för att importera certifikat.
    
-    ![Certifikatimport 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
+    ![Guiden Importera certifikat 1](./media/storsimple-remote-connect/HCS_CertificateImportWizard1.png)
 2. För **Store location** (Lagringsplats) väljer du **Lokal dator** och klickar sedan på **Nästa**.
 3. Välj **Place all certificates in the following store** (Placera alla certifikat i följande lagringsplats) och klicka sedan på **Bläddra**. Gå till rotcertifikatarkivet på fjärrvärden och klicka på **Nästa**.
    
-    ![Certifikatimport 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
+    ![Guiden Importera certifikat 2](./media/storsimple-remote-connect/HCS_CertificateImportWizard2.png)
 4. Klicka på **Slutför**. Ett meddelande visas där det står att importen lyckades.
    
-    ![Certifikatimport 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
+    ![Guiden Importera certifikat 3](./media/storsimple-remote-connect/HCS_CertificateImportWizard3.png)
 
-#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Att lägga till Enhetsserienummer fjärrvärden
-1. Starta Anteckningar som administratör och sedan öppna värdfilen som finns på \Windows\System32\Drivers\etc.
-2. Lägg till följande tre poster i hosts-filen: **DATA 0 IP-adress**, **fasta IP-adress för kontrollenhet 0**, och **styrenhet 1 fasta IP-adress**.
-3. Ange enhetens serienummer som du sparade tidigare. Mappa detta till IP-adressen som visas i följande bild. Lägg till för styrenhet 0 och 1 **Controller0** och **Controller1** i slutet av serienummer (CN-namn).
+#### <a name="to-add-device-serial-numbers-to-the-remote-host"></a>Så här lägger du till enhets serie nummer till fjärrvärden
+1. Starta anteckningar som administratör och öppna sedan hosts-filen som finns på \Windows\System32\Drivers\etc.
+2. Lägg till följande tre poster i hosts-filen: **data 0 IP-adress**, **kontrollant 0 fast IP-adress**och **domänkontrollant 1 fast IP-adress**.
+3. Ange enhetens serie nummer som du sparade tidigare. Mappa detta till IP-adressen som det visas i följande bild. För Controller 0 och styrenhet 1 lägger du till **Controller0** och **Controller1** i slutet av serie numret (CN-namn).
    
-    ![Att lägga till CN-namnet i hosts-filen](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
-4. Spara i hosts-filen.
+    ![Lägger till CN-namn till värd filen](./media/storsimple-remote-connect/HCS_AddingCNNameToHostsFile.png)
+4. Spara hosts-filen.
 
 ### <a name="connect-to-the-device-from-the-remote-host"></a>Ansluta till enheten från fjärrvärden
 
-Ange en SSAdmin-session på din enhet från en fjärrvärd eller -klient med hjälp av Windows PowerShell och SSL. Sessionen SSAdmin mappar till alternativ 1 i den [seriekonsolen](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) menyn på din enhet.
+Använd Windows PowerShell och SSL för att ange en SSAdmin-session på enheten från en fjärran sluten värd eller klient. SSAdmin-sessionen mappar till alternativ 1 i den [seriella konsol](storsimple-8000-windows-powershell-administration.md#connect-to-windows-powershell-for-storsimple-via-the-device-serial-console) menyn på enheten.
 
-Utför följande procedur på den dator som du vill skapa fjärranslutning i Windows PowerShell.
+Utför följande procedur på den dator som du vill göra till en fjärran sluten Windows PowerShell-anslutning från.
 
-#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Ange en SSAdmin-session på enheten med hjälp av Windows PowerShell och SSL
-1. Starta en Windows PowerShell-session som administratör. Om du använder en Windows 10-klient som standard, är Windows Remote Management-tjänsten inställd till manuell. Du kan behöva starta tjänsten genom att skriva:
+#### <a name="to-enter-an-ssadmin-session-on-the-device-by-using-windows-powershell-and-ssl"></a>Så här anger du en SSAdmin-session på enheten med hjälp av Windows PowerShell och SSL
+1. Starta en Windows PowerShell-session som administratör. Om du använder en Windows 10-klient är Windows Remote Management-tjänsten som standard inställd på manuell. Du kan behöva starta tjänsten genom att skriva:
 
     `Start-Service WinRM`
 
-2. Lägg till enhetens IP-adress i klientens betrodda värdar genom att skriva:
+2. Lägg till enhetens IP-adress till klientens betrodda värdar genom att skriva:
    
      `Set-Item wsman:\localhost\Client\TrustedHosts <device_ip> -Concatenate -Force`
    
-    Där <*device_ip*> är IP-adressen för din enhet, till exempel: 
+    Där <*device_ip*> är ENHETens IP-adress. exempel: 
    
      `Set-Item wsman:\localhost\Client\TrustedHosts 10.126.173.90 -Concatenate -Force`
-3. Om du vill skapa en ny autentiseringsuppgift, skriver du:
+3. Om du vill skapa en ny autentiseringsuppgift skriver du:
    
      `$cred = New-Object pscredential @("<IP of target device>\SSAdmin", (ConvertTo-SecureString -Force -AsPlainText "<Device Administrator Password>"))`
    
-    Där <*IP-Adressen för målenheten*> är IP-adressen för DATA 0 för din enhet, till exempel **10.126.173.90** som visas i föregående bild av hosts-filen. Dessutom ange ett administratörslösenord för enheten.
+    Där <*IP-adress för mål enheten*> är IP-adressen för data 0 för enheten. till exempel **10.126.173.90** som visas i föregående bild av hosts-filen. Ange även administratörs lösen ordet för enheten.
 4. Skapa en session genom att skriva:
    
      `$session = New-PSSession -UseSSL -ComputerName <Serial number of target device> -Credential $cred -ConfigurationName "SSAdminConsole"`
    
-    -ComputerName-parameter i cmdleten, ange den <*target enhetens serienummer*>. Det här serienumret mappades till IP-adressen för DATA 0 i hosts-filen på din fjärrvärden; till exempel **SHX0991003G44MT** enligt följande bild.
-5. Ange:
+    För parametern-ComputerName i cmdleten anger du <*serie numret för mål enheten*>. Det här serie numret har mappats till IP-adressen för DATA 0 i värd filen på fjärrvärden. till exempel **SHX0991003G44MT** som visas i följande bild.
+5. Typ:
    
      `Enter-PSSession $session`
-6. Du kommer att behöva vänta några minuter och sedan du ansluts till din enhet via HTTPS via SSL. Du ser ett meddelande som anger att du är ansluten till din enhet.
+6. Du kommer att behöva vänta några minuter och sedan ansluts du till din enhet via HTTPS via SSL. Du ser ett meddelande som anger att du är ansluten till din enhet.
    
-    ![PowerShell-fjärrkommunikation med hjälp av HTTPS och SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
+    ![PowerShell-fjärrkommunikation med HTTPS och SSL](./media/storsimple-remote-connect/HCS_PSRemotingUsingHTTPSAndSSL.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [använder Windows PowerShell för att administrera din StorSimple-enhet](storsimple-8000-windows-powershell-administration.md).
-* Läs mer om [med StorSimple Device Manager-tjänsten för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
+* Lär dig mer om [att använda Windows PowerShell för att administrera din StorSimple-enhet](storsimple-8000-windows-powershell-administration.md).
+* Lär dig mer om [att använda tjänsten StorSimple Enhetshanteraren för att administrera din StorSimple-enhet](storsimple-8000-manager-service-administration.md).
 

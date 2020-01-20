@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: feaecbf3b9a39d77f6a60593c8e5f57f14c24ad7
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4eafd0fbaed067a0852edea010408a1d82353392
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768987"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277968"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Arbeta med Azure Functions Core Tools
 
@@ -35,7 +35,7 @@ Det finns tre versioner av Azure Functions Core Tools. Vilken version du använd
 
 + **Version 1. x**: stöder version 1. x av Azure Functions Runtime. Den här versionen av verktygen stöds endast på Windows-datorer och installeras från ett [NPM-paket](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Version 2. x/3. x**](#v2): stöder antingen [version 2. x eller 3. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux) och använder plattformsspecifika paket hanterare eller NPM för installation.
++ [**Version 2. x/3. x**](#v2): stöder antingen [version 2. x eller 3. x av Azure Functions runtime](functions-versions.md). Dessa versioner stöder [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2) och använder plattformsspecifika paket hanterare eller NPM för installation.
 
 Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
@@ -45,12 +45,12 @@ Om inget annat anges är exemplen i den här artikeln för version 3. x.
 
 ### <a name="v2"></a>Version 2. x och 3. x
 
-Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](#windows-npm), [MacOS](#brew)och [Linux](#linux). 
+Version 2. x/3. x av verktygen använder den Azure Functions runtime som bygger på .NET Core. Den här versionen stöds på alla plattformar som .NET Core stöder, inklusive [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [MacOS](/azure/azure-functions/functions-run-local?tabs=macos#v2)och [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Du kan kringgå kravet för att installera .NET Core SDK med hjälp av [tilläggs paket].
 
-#### <a name="windows-npm"></a>Windows
+# <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 I följande steg används NPM för att installera kärn verktyg i Windows. Du kan också använda [choklad](https://chocolatey.org/). Mer information finns i Readme- [verktyg för viktiga verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
@@ -76,7 +76,7 @@ I följande steg används NPM för att installera kärn verktyg i Windows. Du ka
 
 1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för Windows](https://www.microsoft.com/net/download/windows).
 
-#### <a name="brew"></a>MacOS med homebrew
+# <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
 I följande steg används homebrew för att installera kärn verktygen på macOS.
 
@@ -100,7 +100,7 @@ I följande steg används homebrew för att installera kärn verktygen på macOS
     brew link --overwrite azure-functions-core-tools@3
     ```
 
-#### <a name="linux"></a>Linux (Ubuntu/Debian) med APT
+# <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 I följande steg används [apt](https://wiki.debian.org/Apt) för att installera kärn verktyg på din Ubuntu/Debian Linux-distribution. Andra Linux-distributioner finns i [README-verktyg](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
@@ -122,7 +122,7 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
    Kör följande kommando för att ställa in APT-källistan för Debian:
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/debian/$(lsb_release -rs | cut -d'.' -f 1)/prod $(lsb_release -cs) main" > /etc/apt/sources.list.d/dotnetdev.list'
     ```
 
 1. Kontrol lera `/etc/apt/sources.list.d/dotnetdev.list`-filen för någon av de lämpligaste Linux-versions strängarna i listan nedan:
@@ -149,6 +149,8 @@ I följande steg används [apt](https://wiki.debian.org/Apt) för att installera
     ```
 
 1. Om du inte planerar att använda [tilläggs paket]installerar du [.net Core 2. x SDK för Linux](https://www.microsoft.com/net/download/linux).
+
+---
 
 ## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
 
@@ -292,9 +294,9 @@ Du kan också ange alternativen i kommandot med följande argument:
 | Argument     | Beskrivning                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Version 2. x) Genererar samma C# skript-mallar (. CSX) som används i version 1. x och i portalen. |
-| **`--language -l`**| Programmeringsspråket för mallar, till exempel C#, F#eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet i version 2. x eller Välj ett språk som matchar arbets körningen. |
-| **`--name -n`** | Funktions namnet. |
-| **`--template -t`** | Använd kommandot `func templates list` för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
+| **`--language`** , **`-l`**| Programmeringsspråket för mallar, till exempel C#, F#eller Java Script. Det här alternativet krävs i version 1. x. Använd inte det här alternativet i version 2. x eller Välj ett språk som matchar arbets körningen. |
+| **`--name`** , **`-n`** | Funktions namnet. |
+| **`--template`** , **`-t`** | Använd kommandot `func templates list` för att se en fullständig lista över tillgängliga mallar för varje språk som stöds.   |
 
 Om du till exempel vill skapa en JavaScript-HTTP-utlösare i ett enda kommando kör du:
 
@@ -352,12 +354,12 @@ func host start
 | **`--cors-credentials`** | Tillåt kors ursprung autentiserade begär Anden (dvs. cookies och Authentication-huvudet) version 2. x. |
 | **`--cors`** | En kommaavgränsad lista med CORS-ursprung, utan blank steg. |
 | **`--language-worker`** | Argument för att konfigurera språk arbets tagaren. Du kan till exempel aktivera fel sökning för språk arbetare genom att tillhandahålla [fel söknings port och andra obligatoriska argument](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). Endast version 2. x. |
-| **`--nodeDebugPort -n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
+| **`--nodeDebugPort`** , **`-n`** | Porten för Node. js-felsökaren att använda. Standard: ett värde från Launch. JSON eller 5858. Endast version 1. x. |
 | **`--password`** | Antingen lösen ordet eller en fil som innehåller lösen ordet för en PFX-fil. Används endast med `--cert`. Endast version 2. x. |
-| **`--port -p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
+| **`--port`** , **`-p`** | Den lokala porten att lyssna på. Standardvärde: 7071. |
 | **`--pause-on-error`** | Pausa för ytterligare indatatyper innan du avslutar processen. Används endast när du startar kärn verktyg från en Integrated Development Environment (IDE).|
-| **`--script-root --prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
-| **`--timeout -t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
+| **`--script-root`** , **`--prefix`** | Används för att ange sökvägen till roten för Function-appen som ska köras eller distribueras. Detta används för kompilerade projekt som genererar projektfiler i en undermapp. När du till exempel skapar ett C# klass biblioteks projekt skapas värden. JSON, Local. Settings. JSON och function. JSON-filerna i en *rotmapp* med en sökväg som `MyProject/bin/Debug/netstandard2.0`. I det här fallet ställer du in prefixet som `--script-root MyProject/bin/Debug/netstandard2.0`. Detta är roten i Function-appen när du kör i Azure. |
+| **`--timeout`** , **`-t`** | Tids gränsen för funktionens värd att starta, i sekunder. Standard: 20 sekunder.|
 | **`--useHttps`** | Bind till `https://localhost:{port}` i stället för att `http://localhost:{port}`. Som standard skapar det här alternativet ett betrott certifikat på din dator.|
 
 När Functions-värden startar matar den in URL: en för HTTP-utlösta funktioner:
@@ -437,10 +439,10 @@ Du kan också anropa en funktion direkt genom att använda `func run <FunctionNa
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--content -c`** | Infogat innehåll. |
-| **`--debug -d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
-| **`--timeout -t`** | Vänte tiden (i sekunder) tills den lokala funktionens värd är klar.|
-| **`--file -f`** | Fil namnet som ska användas som innehåll.|
+| **`--content`** , **`-c`** | Infogat innehåll. |
+| **`--debug`** , **`-d`** | Koppla en fel sökare till värd processen innan du kör funktionen.|
+| **`--timeout`** , **`-t`** | Vänte tiden (i sekunder) tills den lokala funktionens värd är klar.|
+| **`--file`** , **`-f`** | Fil namnet som ska användas som innehåll.|
 | **`--no-interactive`** | Kräver inte någon indatamängd. Användbart för automatiserings scenarier.|
 
 Om du till exempel vill anropa en HTTP-utlöst funktion och skicka innehålls texten kör du följande kommando:
@@ -480,12 +482,12 @@ Följande publicerings alternativ stöds bara i version 2. x:
 
 | Alternativ     | Beskrivning                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only -o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
+| **`--publish-settings-only`** , **`-o`** |  Publicera bara inställningar och hoppa över innehållet. Standardvärdet är prompt. |
 |**`--list-ignored-files`** | Visar en lista över filer som ignoreras under publicering, som baseras på. funcignore-filen. |
 | **`--list-included-files`** | Visar en lista över publicerade filer, som baseras på. funcignore-filen. |
 | **`--nozip`** | Stänger av standard `Run-From-Package`s läget. |
 | **`--build-native-deps`** | Hoppar över genereringen av. Wheels-mappen när du publicerar python Function-appar. |
-| **`--build`**<br/>**`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local`. |
+| **`--build`** , **`-b`** | Utför Bygg åtgärd när du distribuerar till en Linux Function-app. Accepterar: `remote` och `local`. |
 | **`--additional-packages`** | Lista över paket som ska installeras när du skapar interna beroenden. Till exempel: `python3-dev libevent-dev`. |
 | **`--force`** | Ignorera för publicerings verifiering i vissa scenarier. |
 | **`--csx`** | Publicera ett C# skript (. CSX)-projekt. |

@@ -4,7 +4,7 @@ description: Arkitektur och scenarier med hög tillgänglighet för SAP NetWeave
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: msjuergent
-manager: patfilot
+manager: bburns
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/15/2019
+ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f5186f456003c341af41fc6067f3b5c08acb2b4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 698c198f58ead88b01b1c4b8b2e1fd9da4198c93
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078892"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277469"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
@@ -57,7 +57,7 @@ När du distribuerar virtuella Azure-datorer i Tillgänglighetszoner och upprät
 
 - Du måste använda [Azure-Managed disks](https://azure.microsoft.com/services/managed-disks/) när du distribuerar till Azure-tillgänglighetszoner. 
 - Mappningen av zon uppräkningar till fysiska zoner är fast för en Azure-prenumeration. Om du använder olika prenumerationer för att distribuera dina SAP-system måste du definiera de idealiska zonerna för varje prenumeration.
-- Du kan inte distribuera Azures tillgänglighets uppsättningar i en tillgänglighets zon för Azure om du inte använder [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur du kan distribuera SAP-DBMS-skiktet och de centrala tjänsterna över zoner och samtidigt distribuera SAP-programlagret med hjälp av tillgänglighets uppsättningar och fortfarande uppnå nära de virtuella datorerna som finns dokumenterade i artikelns [närhet av Azure Grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md). Om du inte använder Azure närhets placerings grupper måste du välja en eller en annan som distributions ramverk för virtuella datorer.
+- Du kan inte distribuera Azures tillgänglighets uppsättningar i en tillgänglighets zon för Azure om du inte använder [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur du kan distribuera SAP-DBMS-skiktet och de centrala tjänsterna över zoner och samtidigt distribuera SAP-programlagret med tillgänglighets uppsättningar och fortfarande uppnå nära de virtuella datorerna finns dokumenterade i artikelernas [närhets grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md). Om du inte använder Azure närhets placerings grupper måste du välja en eller en annan som distributions ramverk för virtuella datorer.
 - Du kan inte använda ett [Azure Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) för att skapa lösningar för redundanskluster som baseras på Windows Server-redundanskluster eller Linux-pacemaker. I stället måste du använda [Azure standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
@@ -75,6 +75,8 @@ För att fastställa svars tiden mellan olika zoner måste du:
 - Distribuera VM-SKU: n som du vill använda för din DBMS-instans i alla tre zoner. Kontrol lera att [Azure-accelererat nätverk](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) är aktiverat när du utför den här mätningen.
 - När du hittar de två zonerna med minsta nätverks svars tid distribuerar du ytterligare tre virtuella datorer av VM-SKU: n som du vill använda som den virtuella program skiktet i de tre Tillgänglighetszoner. Mät nätverks fördröjningen mot de två virtuella DBMS-datorerna i de två DBMS-zonerna som du har valt. 
 - Använd **niping** som Mät verktyg. Det här verktyget, från SAP, beskrivs i SAP support Notes [#500235](https://launchpad.support.sap.com/#/notes/500235) och [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E). Fokusera på de kommandon som dokumenteras för svars tids mätningar. Eftersom **ping** inte fungerar via Sök vägarna för Azure accelererade nätverks koder rekommenderar vi inte att du använder den.
+
+Du behöver inte utföra de här testerna manuellt. Du hittar ett svar på en [fördröjning för tillgänglighets zonen](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/master/AvZone-Latency-Test) i PowerShell-proceduren som automatiserar svars tiderna som beskrivs. 
 
 Utifrån dina mått och tillgängligheten för dina VM-SKU: er i Tillgänglighetszoner måste du fatta några beslut:
 
@@ -103,7 +105,7 @@ Ett förenklat schema för en aktiv/aktiv-distribution över två zoner kan se u
 Följande överväganden gäller för den här konfigurationen:
 
 - Genom att inte använda [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)hanterar du Azure-tillgänglighetszoner som fel-och uppdaterings domäner för alla virtuella datorer eftersom det inte går att distribuera tillgänglighets uppsättningar i Azure-tillgänglighetszoner.
-- Om du vill kombinera zonindelade-distributioner för DBMS-skiktet och centrala tjänster, men vill använda Azures tillgänglighets uppsättningar för program lagret, måste du använda Azure närhets grupper enligt beskrivningen i artikeln [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
+- Om du vill kombinera zonindelade-distributioner för DBMS-skiktet och centrala tjänster, men vill använda Azures tillgänglighets uppsättningar för program lagret, måste du använda Azure närhets grupper enligt beskrivningen i artikel [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md).
 - För belastningsutjämnare för redundanskluster i SAP Central Services och DBMS-skiktet måste du använda [standard-SKU-Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones). Basic-Load Balancer fungerar inte mellan zoner.
 - Det virtuella Azure-nätverket som du har distribuerat som värd för SAP-systemet, tillsammans med dess undernät, sträcks ut över zoner. Du behöver inte separata virtuella nätverk för varje zon.
 - För alla virtuella datorer som du distribuerar måste du använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/). Ohanterade diskar stöds inte för zonindelade-distributioner.

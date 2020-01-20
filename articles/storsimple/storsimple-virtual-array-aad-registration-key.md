@@ -1,25 +1,17 @@
 ---
-title: Ny autentisering för virtuella StorSimple-matriser | Microsoft Docs
+title: Ny autentisering för virtuella StorSimple-matriser
 description: Förklarar hur du använder AAD-baserad autentisering för din tjänst, genererar en ny registrerings nyckel och utför manuell registrering av enheterna.
-services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
 ms.service: storsimple
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 723d5e969ba2f635724ffa50d562a7abaf936dcf
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 89f367e866c1a794f4359c76b8b8a8a9cfefd50d
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68517140"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76273811"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Använd den nya autentiseringen för din StorSimple
 
@@ -46,7 +38,7 @@ För att säkerställa att tjänsten använder AAD-baserad autentisering måste 
 
 Om du använder StorSimple virtuell matris kontrollerar du att följande URL ingår i brand Väggs reglerna:
 
-| URL-mönster                         | Molnet | Komponent/funktion         |
+| URL-mönster                         | I molnet | Komponent/funktion         |
 |------------------------------------|-------|---------------------------------|
 | `https://login.windows.net`        | Azure Public |AAD-autentiseringstjänst      |
 | `https://login.microsoftonline.us` | Amerikanska myndigheter |AAD-autentiseringstjänst      |
@@ -61,9 +53,9 @@ Om du använder en virtuell StorSimple-matris kan du använda följande tabell f
 
 | Om enheten körs  | Vidta följande åtgärder                                    |
 |----------------------------|--------------------------------------------------------------|
-| Uppdatera 1,0 eller senare och är offline. <br> Du ser en varning om att URL: en inte är vit listas.| 1. Ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en. Se [URL: er för autentisering](#url-changes-for-aad-authentication). <br> 2. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys). <br> 3. Utför steg 1-5 för att [ansluta till Windows PowerShell-gränssnittet för den virtuella matrisen](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Använd `Invoke-HcsReRegister` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
+| Uppdatera 1,0 eller senare och är offline. <br> Du ser en varning om att URL: en inte är vit listas.| 1. ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en. Se [URL: er för autentisering](#url-changes-for-aad-authentication). <br> 2. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys). <br> 3. Utför steg 1-5 för att [ansluta till Windows PowerShell-gränssnittet för den virtuella matrisen](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br> 4. Använd `Invoke-HcsReRegister` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
 | Uppdatera 1,0 eller senare och enheten är online.| Ingen åtgärd krävs.                                       |
-| Uppdatering 0,6 eller tidigare och enheten är offline. | 1. [Hämta uppdatering 1,0 via katalog servern](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [Tillämpa uppdatering 1,0 via det lokala webb gränssnittet](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys). <br>4. Utför steg 1-5 för att [ansluta till Windows PowerShell-gränssnittet för den virtuella matrisen](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Använd `Invoke-HcsReRegister` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
+| Uppdatering 0,6 eller tidigare och enheten är offline. | 1. [Hämta uppdatering 1,0 via katalog servern](storsimple-virtual-array-install-update-1.md#download-the-update-or-the-hotfix).<br>2. [installera uppdatering 1,0 via det lokala webb gränssnittet](storsimple-virtual-array-install-update-1.md#install-the-update-or-the-hotfix).<br>3. [Hämta registrerings nyckeln för AAD från tjänsten](#aad-based-registration-keys). <br>4. Utför steg 1-5 för att [ansluta till Windows PowerShell-gränssnittet för den virtuella matrisen](storsimple-virtual-array-deploy2-provision-hyperv.md#step-2-provision-a-virtual-array-in-hypervisor).<br>5. Använd `Invoke-HcsReRegister` cmdlet för att registrera enheten via Windows PowerShell. Ange den nyckel du fick i föregående steg.|
 | Uppdatering 0,6 eller tidigare och enheten är online | Ändra brand Väggs reglerna så att de inkluderar autentiserings-URL: en.<br> Installera uppdatering 1,0 via Azure Portal. |
 
 ## <a name="aad-based-registration-keys"></a>AAD-baserade registrerings nycklar
@@ -80,7 +72,7 @@ Utför följande steg för att skapa en registrerings nyckel för AAD-tjänsten.
 
 #### <a name="to-generate-the-aad-service-registration-key"></a>Så här skapar du registrerings nyckeln för AAD-tjänsten
 
-1. I **StorSimple Enhetshanteraren**går du till  **&gt; hanterings** **nycklar**.
+1. I **StorSimple Enhetshanteraren**går du till **hantering &gt;** - **nycklar**.
     
     ![Gå till nycklar](./media/storsimple-virtual-array-aad-registration-key/aad-registration-key1.png)
 

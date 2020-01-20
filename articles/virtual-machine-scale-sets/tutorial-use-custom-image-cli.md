@@ -1,27 +1,19 @@
 ---
-title: Självstudie – Använd en anpassad virtuell datoravbildning i en skalningsuppsättning med Azure CLI | Microsoft Docs
+title: Självstudie – Använd en anpassad VM-avbildning i en skalnings uppsättning med Azure CLI
 description: Läs hur du använder Azure CLI för att skapa en anpassad virtuell datoravbildning som du kan använda för att distribuera en VM-skalningsuppsättning
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 95e22b40b56d3ac3129573958c77b8643c0e72dc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311578"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276137"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
 När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
@@ -99,7 +91,7 @@ Det kan ta några minuter att frigöra och generalisera den virtuella datorn.
 
 Nu kan du skapa en avbildning av den virtuella datorn med [az image create](/cli//azure/image). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
 
-> Lägg Om resurs gruppen och den virtuella datorns plats skiljer sig åt kan du lägga till parametern `--location` till nedanstående kommandon för att ange platsen för den virtuella käll datorn som används för att skapa avbildningen. 
+> Lägg Om resurs gruppen och den virtuella datorns plats skiljer sig åt kan du lägga till `--location`-parametern till nedanstående kommandon för att ange platsen för den virtuella käll datorn som används för att skapa avbildningen. 
 
 ```azurecli-interactive
 az image create \

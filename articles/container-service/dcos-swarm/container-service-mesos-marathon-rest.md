@@ -1,41 +1,39 @@
 ---
-title: (INAKTUELL) Hantera Azure DC/OS-kluster med Marathon REST API
-description: Distribuera behållare till ett Azure Container Service DC/OS-kluster med Marathon REST API.
-services: container-service
+title: FÖRÅLDRAD Hantera Azure DC/OS-kluster med Marathon REST API
+description: Distribuera behållare till ett Azure Container Service DC/OS-kluster med hjälp av Marathon-REST API.
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 73fa9c4433a2af780798f0439c0a119bc32a678f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3492f35d54dd3ee61ab8d29a3af06e4998bbd477
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64916686"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277788"
 ---
-# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>(INAKTUELL) Hantering av DC/OS-behållare via Marathon REST API
+# <a name="deprecated-dcos-container-management-through-the-marathon-rest-api"></a>FÖRÅLDRAD Hantering av DOMÄNKONTROLLANT/OS-behållare via Marathon-REST API
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-deprecation.md)]
 
-DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar. Även om ramverk är tillgängliga för många populära arbetsbelastningar kan hjälper det här dokumentet dig att börja skapa och skala behållardistributioner med Marathon REST API. 
+DC/OS erbjuder en miljö för att distribuera och skala klustrade arbetsbelastningar samtidigt som den underliggande maskinvaran abstraheras. Utöver DC/OS finns det ett ramverk som hanterar schemaläggning och beräkning av arbetsbelastningar. Även om ramverk är tillgängliga för många populära arbets belastningar, kommer det här dokumentet att börja skapa och skala distributioner av behållare med hjälp av Marathon-REST API. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar med de här exemplen behöver du ett DC/OS-kluster som har konfigurerats i Azure Container Service. Du måste också kunna fjärransluta till det här klustret. Mer information finns i följande artiklar:
 
 * [Distribuera ett Azure Container Service-kluster](container-service-deployment.md)
 * [Ansluta till ett Azure Container Service-kluster](../container-service-connect.md)
 
-## <a name="access-the-dcos-apis"></a>Komma åt DC/OS-API: er
-När du har anslutit till Azure Container Service-kluster kan du komma åt DC/OS och relaterade REST API: er via http:\//localhost:local-port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel Marathon-slutpunkter kan nås på URI: er från och med http: \/ /localhost/marathon/v2 /. 
+## <a name="access-the-dcos-apis"></a>Åtkomst till DC/OS-API: er
+När du är ansluten till Azure Container Service klustret kan du komma åt DC/OS och relaterade REST-API: er via http:\//localhost: lokal port. Exemplen i det här dokumentet förutsätter att du använder tunneltrafik på port 80. Till exempel kan Marathon-slutpunkterna nås i URI: er som börjar med http:\//localhost/Marathon/v2/. 
 
 Mer information om de olika API:erna finns i Mesosphere-dokumentationen för [Marathon API](https://mesosphere.github.io/marathon/docs/rest-api.html) och [Chronos API](https://mesos.github.io/chronos/docs/api.html), samt Apache-dokumentationen för [Mesos Scheduler API](https://mesos.apache.org/documentation/latest/scheduler-http-api/).
 
 ## <a name="gather-information-from-dcos-and-marathon"></a>Samla in information från DC/OS och Marathon
-Samla in information om DC/OS-klustret, till exempel namn och status för DC/OS-agenter innan du distribuerar behållare i DC/OS-klustret. Det gör du genom att fråga `master/slaves`-slutpunkten för DC/OS REST API. Om allt går bra returnerar frågan en lista över DC/OS-agenter och flera egenskaper för varje agent.
+Innan du distribuerar behållare till DC/OS-klustret kan du samla in information om DC/OS-klustret, till exempel namn och status för DC/OS-agenterna. Det gör du genom att fråga `master/slaves`-slutpunkten för DC/OS REST API. Om allt går bra returnerar frågan en lista över DC/OS-agenter och flera egenskaper för varje agent.
 
 ```bash
 curl http://localhost/mesos/master/slaves
@@ -50,7 +48,7 @@ curl localhost/marathon/v2/apps
 ```
 
 ## <a name="deploy-a-docker-formatted-container"></a>Distribuera en Docker-formaterad container
-Du kan distribuera Docker-formaterade behållare via Marathon REST API med hjälp av en JSON-fil som beskriver den avsedda distributionen. I följande exempel distribueras Nginx-behållaren till en privat agent i klustret. 
+Du distribuerar Docker-formaterade behållare via Marathon-REST API med hjälp av en JSON-fil som beskriver den avsedda distributionen. I följande exempel distribueras en nginx-behållare till en privat agent i klustret. 
 
 ```json
 {
@@ -71,7 +69,7 @@ Du kan distribuera Docker-formaterade behållare via Marathon REST API med hjäl
 }
 ```
 
-För att distribuera en Docker-formaterad behållare kan lagra JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera containern. Ange namnet på JSON-fil (`marathon.json` i det här exemplet).
+Om du vill distribuera en Docker-formaterad behållare lagrar du JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera containern. Ange namnet på JSON-filen (`marathon.json` i det här exemplet).
 
 ```bash
 curl -X POST http://localhost/marathon/v2/apps -d @marathon.json -H "Content-type: application/json"
@@ -89,41 +87,41 @@ Om du nu frågar Marathon efter program visas det här nya programmet i resultat
 curl localhost/marathon/v2/apps
 ```
 
-## <a name="reach-the-container"></a>Nå ut till behållaren
+## <a name="reach-the-container"></a>Når behållaren
 
-Du kan kontrollera att Nginx körs i en behållare på en av de privata agenterna i klustret. För att hitta värden och den port där behållaren körs, fråga Marathon efter aktiviteterna som körs: 
+Du kan kontrol lera att nginx körs i en behållare på en av de privata agenterna i klustret. För att hitta värden och porten där behållaren körs, fråga Marathon efter de aktiviteter som körs: 
 
 ```bash
 curl localhost/marathon/v2/tasks
 ```
 
-Hitta värdet för `host` i utdata (en IP-adress som liknar `10.32.0.x`), och värdet för `ports`.
+Hitta värdet för `host` i utdata (en IP-adress som liknar `10.32.0.x`) och värdet för `ports`.
 
 
-Nu skapar du en terminal SSH-anslutning (inte en tunnel anslutning) för management FQDN i klustret. När du är ansluten, se följande begäran, och Ersätt värdena för `host` och `ports`:
+Skapa nu en SSH-fjärråtkomstanslutning (inte en tunnel anslutning) till det hanterade fullständiga domän namnet för klustret. När du är ansluten, gör följande begäran och ersätter rätt värden för `host` och `ports`:
 
 ```bash
 curl http://host:ports
 ```
 
-Nginx-serverutdata ser ut ungefär så här:
+Nginx-serverns utdata ser ut ungefär så här:
 
-![Nginx från behållaren](./media/container-service-mesos-marathon-rest/nginx.png)
+![Nginx från behållare](./media/container-service-mesos-marathon-rest/nginx.png)
 
 
 
 
 ## <a name="scale-your-containers"></a>Skala containrarna
-Du kan använda Marathon API för att skala ut eller skala in programdistributioner. I föregående exempel distribuerade du en instans av ett program. Nu kan vi skala ut det här till tre instanser av ett program. Det gör du genom att skapa en JSON-fil med nedanstående JSON-text och lagra den på en tillgänglig plats.
+Du kan använda Marathon-API: et för att skala ut eller skala in program distributioner. I föregående exempel distribuerade du en instans av ett program. Nu kan vi skala ut det här till tre instanser av ett program. Det gör du genom att skapa en JSON-fil med nedanstående JSON-text och lagra den på en tillgänglig plats.
 
 ```json
 { "instances": 3 }
 ```
 
-Kör följande kommando för att skala ut programmet från din tunneltrafik anslutning.
+Kör följande kommando från din tunnel anslutning för att skala ut programmet.
 
 > [!NOTE]
-> URI: N är http: \/ /localhost/marathon/v2/appar/följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här är URI: N skulle vara http:\//localhost/marathon/v2/apps/nginx.
+> URI: n är http:\//localhost/Marathon/v2/Apps/följt av ID: t för det program som ska skalas. Om du använder det nginx-exempel som finns här blir URI: n http:\//localhost/Marathon/v2/Apps/nginx.
 
 ```bash
 curl http://localhost/marathon/v2/apps/nginx -H "Content-type: application/json" -X PUT -d @scale.json
@@ -138,7 +136,7 @@ curl localhost/marathon/v2/apps
 ## <a name="equivalent-powershell-commands"></a>Motsvarande PowerShell-kommandon
 Du kan utföra samma åtgärder genom att använda PowerShell-kommandon på en Windows-dator.
 
-För att samla in information om DC/OS-klustret, t.ex agentnamn och agentstatus, kör du följande kommando:
+Om du vill samla in information om DC/OS-klustret, till exempel agent namn och agent status, kör du följande kommando:
 
 ```powershell
 Invoke-WebRequest -Uri http://localhost/mesos/master/slaves
@@ -165,7 +163,7 @@ Du kan distribuera Docker-formaterade containrar via Marathon genom att använda
 }
 ```
 
-För att distribuera en Docker-formaterad behållare kan lagra JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera containern. Ange sökvägen till JSON-fil (`marathon.json` i det här exemplet).
+Om du vill distribuera en Docker-formaterad behållare lagrar du JSON-filen på en tillgänglig plats. Kör följande kommando för att distribuera containern. Ange sökvägen till JSON-filen (`marathon.json` i det här exemplet).
 
 ```powershell
 Invoke-WebRequest -Method Post -Uri http://localhost/marathon/v2/apps -ContentType application/json -InFile 'c:\marathon.json'
@@ -180,7 +178,7 @@ Du kan även använda Marathon API för att skala ut eller skala in programdistr
 Kör följande kommando för att skala ut programmet:
 
 > [!NOTE]
-> URI: N är http: \/ /localhost/marathon/v2/appar/följt av ID: T för programmet som ska skalas. Om du använder Nginx-exemplet som anges här blir URI: N blir http:\//localhost/marathon/v2/apps/nginx.
+> URI: n är http:\//localhost/Marathon/v2/Apps/följt av ID: t för det program som ska skalas. Om du använder nginx-exemplet som anges här blir URI: n http:\//localhost/Marathon/v2/Apps/nginx.
 
 ```powershell
 Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -ContentType application/json -InFile 'c:\scale.json'
@@ -188,5 +186,5 @@ Invoke-WebRequest -Method Put -Uri http://localhost/marathon/v2/apps/nginx -Cont
 
 ## <a name="next-steps"></a>Nästa steg
 * [Läs mer om Mesos HTTP-slutpunkter](https://mesos.apache.org/documentation/latest/endpoints/)
-* [Läs mer om Marathon REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
+* [Läs mer om Marathon-REST API](https://mesosphere.github.io/marathon/docs/rest-api.html)
 

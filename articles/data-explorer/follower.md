@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 41d48bdd7cc7972536d0cf0e0cb78483f727d7f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: eb0b5ea960aa7bc9158791d1fc9fa0986e7d99e6
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277022"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281350"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Använd följande databas för att koppla databaser i Azure Datautforskaren
 
@@ -383,6 +383,7 @@ Databas administratören för databaserna kan ändra [principen för cachelagrin
 
 * Följaren och ledar klustren måste vara i samma region.
 * [Strömnings](/azure/data-explorer/ingest-data-streaming) inmatning kan inte användas för en databas som följs.
+* Data kryptering med hjälp av [Kundhanterade nycklar](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault) stöds inte i både ledande kluster och kluster för efterföljande. 
 * Du kan inte ta bort en databas som är kopplad till ett annat kluster innan du kopplar från den.
 * Du kan inte ta bort ett kluster som har en databas som är kopplad till ett annat kluster innan du kopplar bort det.
 * Det går inte att stoppa ett kluster som har bifogad följare eller ledar databas (er). 

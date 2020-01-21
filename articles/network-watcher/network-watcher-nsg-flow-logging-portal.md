@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 0b71566b802076f437fd23c08dfd6b23d4fd2fba
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 7f4466b6f6de5028db8b62389c9d5ddbdafc9d62
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170264"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280993"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
 
@@ -107,9 +107,8 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 9. Välj lagringskontot som du skapade i steg 3.
    > [!NOTE]
-   > NSG flödes loggar fungerar inte med lagrings konton om:
-   > * Lagrings kontona har en brand vägg aktive rad.
-   > * [Hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) har Aktiver ATS för lagrings kontona.
+   > NSG flödes loggar fungerar inte med ett lagrings konto om:
+   > * Lagrings kontot har ett [hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) aktiverat.
 1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
 

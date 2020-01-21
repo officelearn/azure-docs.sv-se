@@ -1,5 +1,5 @@
 ---
-title: Hitta Textanalys resurs slut punkt och nyckel
+title: Hitta Textanalys resurs slut punkt och nyckel-v3-klient bibliotek
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du skapar en Cognitive Services Textanalys-resurs.
 services: cognitive-services
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/14/2019
 ms.author: aahi
-ms.openlocfilehash: b56bb8dfdce58de60f82693b511f7923b80fc37a
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: d432e2c9ccf0563e18d7f3958a030dd7ce32f4d0
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158938"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281205"
 ---
 > [!IMPORTANT]
 > Gå till den resurs som du har skapat för att hitta din nyckel och slut punkt. De finns på sidan **snabb start** för resursen under **resurs hantering**.

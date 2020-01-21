@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 358895f84b43437a174214eaf75e77574b3f02e8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 239438133dc16630852626c49e8ffda08590976b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462466"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281010"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Planerings- och användningsguide för Azure Security Center
 Den här guiden är till för IT-experter, IT-arkitekter, informations säkerhets analytiker och moln administratörer som planerar att använda Azure Security Center.
@@ -239,7 +239,7 @@ Den här sidan visar information om när angreppet upptäcktes, varifrån det ko
 
 På den här sidan kan du även starta en [undersökning](https://docs.microsoft.com/azure/security-center/security-center-investigation) för att bättre förstå attackens tidslinje, hur attacken skedde, vilka system som möjligen har drabbats, vilka autentiseringsuppgifter som användes samt visa en grafisk representation av hela attackkedjan.
 
-När du har identifierat det drabbade systemet kan du köra [strategiböcker för säkerhet](https://docs.microsoft.com/azure/security-center/security-center-playbooks) som har skapats tidigare. Säkerhetsspelbok är en samling processer som kan köras från Security Center när en viss spelbok löses ut av en vald avisering.
+När du har identifierat det komprometterade systemet kan du köra en [arbets flödes automatisering](workflow-automation.md) som skapats tidigare. Detta är en samling procedurer som kan köras från Security Center när de utlöses av en avisering.
 
 I [hur du utnyttjar Azure Security Center & Microsoft Operations Management Suite för en incident svars](https://channel9.msdn.com/Blogs/Taste-of-Premier/ToP1703) video kan du se vissa demonstrationer som kan hjälpa dig att förstå hur Security Center kan användas i var och en av dessa steg.
 
@@ -254,5 +254,5 @@ I det här dokumentet har du lärt dig hur du planerar integreringen av Security
 * [Hantera och åtgärda säkerhetsaviseringar i Azure Security Center](security-center-managing-and-responding-alerts.md)
 * [Övervakning av säkerhetshälsa i Azure Security Center](security-center-monitoring.md) – Lär dig hur du övervakar Azure-resursernas hälsa.
 * [Övervaka partnerlösningar med Azure Security Center](security-center-partner-solutions.md) – Lär dig hur du övervakar dina partnerlösningars hälsostatus.
-* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här hittar du vanliga frågor och svar om tjänsten.
+* [Vanliga frågor och svar om Azure Security Center](security-center-faq.md) – Här finns vanliga frågor om tjänsten.
 * [Azures säkerhetsblogg](https://blogs.msdn.com/b/azuresecurity/) – Här hittar du blogginlägg om säkerhet och regelefterlevnad i Azure.

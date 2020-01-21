@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 4603240a76ec72223b88853c63ed11152707201c
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520743"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281299"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Beredskapsöversikt för Azure Security Center
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -32,11 +32,11 @@ Artiklar
 * [Introduktion till Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Snabbstartsguide för Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
-Videoklipp
+Videor
 * [Snabb introduktionsvideo](https://azure.microsoft.com/resources/videos/introduction-to-azure-security-center/)
 * [Översikt över Security Center-funktioner för skydd, identifiering och svar](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
-## <a name="planning-and-operations"></a>Planering och drift
+## <a name="planning-and-operations"></a>Planering och åtgärder
 För att få ut mesta möjliga av Security Center är det viktigt att veta hur olika medarbetare och avdelningar i organisationen kommer att använda tjänsten så att kraven på säkerhet vid drift, övervakning, styrning och incidenthantering uppfylls.
 
 Med följande resurser får du hjälp under planerings- och driftprocesserna.
@@ -79,13 +79,13 @@ För att minska kostnaderna och skadorna är det viktigt att ha en incidenthante
 
 Med följande resurser kan du lära dig hur Security Center kan införlivas i processen för incidenthantering.
 
-Videoklipp  
+Videor  
 * [Incidenthantering i Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [Reagera snabbt på hot med nästa generations säkerhetsåtgärder och undersökning](https://youtu.be/e8iFCz5RM4g)
 
 Artiklar    
 * [Använda Azure Security Center vid incidenthantering](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
-* [Automatisera svar med säkerhetsspelbok](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
+* [Automatisera svar med automatisering av arbets flöde](workflow-automation.md)
 
 ## <a name="advanced-cloud-defense"></a>Avancerat molnskydd
 
@@ -93,7 +93,7 @@ Virtuella Azure-datorer kan dra nytta av funktioner för avancerat molnskydd i S
 
 Använd följande resurser för att lära dig mer om hur du använder funktionerna i Security Center.
 
-Videoklipp  
+Videor  
 * [Azure Security Center – just-in-Time VM-åtkomst](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center – Anpassningsbara programkontroller](https://youtu.be/wWWekI1Y9ck)
 

@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 5e4a8afdb9bea4f528e57c914149f611b0578c63
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28e3f276da231ef0186dba8ecd9c064cdd10a5a8
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973480"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281231"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -381,7 +381,7 @@ När du aktiverar inställningen **Tillåt betrodda Microsoft-tjänster...** , b
 | Azure HDInsight          | Microsoft.HDInsight        | Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](/azure/hdinsight/hdinsight-hadoop-use-blob-storage). |
 | Azure import-export      | Microsoft.ImportExport     | Möjliggör import av data till Azure och export av data från Azure med hjälp av import/export-tjänsten. [Läs mer](/azure/storage/common/storage-import-export-service).  |
 | Azure Monitor            | Microsoft.Insights         | Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Azure-nätverk         | Microsoft.Network          | Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview). |
+| Azure-nätverk         | Microsoft.Network          | Store och analysera loggar med webbtrafik. [Läs mer](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Aktivera replikering för haveri beredskap för virtuella Azure IaaS-datorer när du använder brand Väggs-aktiverade cache-, käll-eller mål lagrings konton.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
 Inställningen **Tillåt betrodda Microsoft-tjänster...** tillåter också att en viss instans av nedanstående tjänster får åtkomst till lagrings kontot, om du uttryckligen [tilldelar en RBAC-roll](storage-auth-aad.md#assign-rbac-roles-for-access-rights) till den [systemtilldelade hanterade identiteten](../../active-directory/managed-identities-azure-resources/overview.md) för den resurs instansen. I det här fallet motsvarar åtkomst omfånget för instansen den RBAC-roll som tilldelats den hanterade identiteten.

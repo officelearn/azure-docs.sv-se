@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 4e05de1fc1bfb880767d113e88d5c49082fc146c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 76e9526ab39cbccd45a48d2cd24e05867c953774
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75976089"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280840"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>Skapa och hantera privat länk för Azure Database for MariaDB (för hands version) med hjälp av portalen
 
@@ -23,7 +23,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 > Den här funktionen är tillgänglig i alla Azure-regioner där Azure Database for MariaDB stöder Generell användning och minnesoptimerade pris nivåer.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-an-azure-vm"></a>Skapa en virtuell Azure-dator
 
@@ -66,7 +66,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -111,7 +111,7 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
     | **Server information** |  |
     |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
     | Administratörens användar namn| Ange ett administratörs namn som du väljer. |
-    | lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
+    | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Location | Välj en Azure-region där du vill att MariaDB-servern ska finnas. |
     |Version  | Välj den databas version av MariaDB-servern som krävs.|
     | Compute + Storage| Välj den pris nivå som krävs för servern baserat på arbets belastningen. |
@@ -122,7 +122,7 @@ I det här avsnittet ska du skapa en Azure Database for MariaDB-server i Azure.
 9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
 10. När du ser meddelandet valideringen har skickats väljer du skapa. 
 
-## <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
+## <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 
 I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern. 
 
@@ -163,7 +163,7 @@ I det här avsnittet ska du skapa en privat slut punkt till MariaDB-servern.
     | Undernät | Välj *undernät*. |
     |**PRIVAT DNS-INTEGRERING**||
     |Integrera med privat DNS-zon |Välj **Ja**. |
-    |Privat DNS zon |Välj *(ny) privatelink. Database. Azure. com* |
+    |Privat DNS zon |Välj *(ny) privatelink. MariaDB. Database. Azure. com* |
     |||
 
 1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
@@ -201,14 +201,14 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
-2. Ange `nslookup mydemomserver.mariadb.privatelink.database.azure.com`. 
+2. Ange `nslookup mydemomserver.privatelink.mariadb.database.azure.com`. 
 
     Du får ett meddelande som liknar detta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
     Non-authoritative answer:
-    Name:    mydemoMariaDBserver.mariadb.privatelink.database.azure.com
+    Name:    mydemoMariaDBserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
 
 3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
@@ -219,7 +219,7 @@ När du har skapat **myVm**ansluter du till den från Internet på följande sä
     | Setting | Value |
     | ------- | ----- |
     | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoserver.MariaDB.privatelink.database.azure.com* |
+    | Server name| Select *mydemoserver.privatelink.mariadb.database.azure.com* |
     | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
     |Password |Enter a password provided during the MariaDB server creation. |
     |SSL|Select **Required**.|

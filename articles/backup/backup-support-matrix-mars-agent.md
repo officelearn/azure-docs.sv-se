@@ -3,12 +3,12 @@ title: Support mat ris för MARS-agenten
 description: I den här artikeln sammanfattas Azure Backup support när du säkerhetskopierar datorer som kör Microsoft Azure Recovery Services-agenten (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 26f3dde0bb20443753e2b443ffc00ee23c9124c4
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 27ad81c42a079485d8eab95bb1250cba41e8fb5b
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893985"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76281282"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Support mat ris för säkerhets kopiering med Microsoft Azure Recovery Services MARS-agenten
 
@@ -44,7 +44,7 @@ När du använder MARS-agenten för att säkerhetskopiera data tar agenten en ö
 **Cache** | **Detaljer**
 --- | ---
 Storlek |  Det lediga utrymmet i cache-mappen bör vara minst 5 till 10 procent av den totala storleken på dina säkerhets kopierings data.
-Plats | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
+Location | Cache-mappen måste lagras lokalt på den dator som säkerhets kopie ras och måste vara online. Cache-mappen får inte finnas på en nätverks resurs, på flyttbara medier eller på en frånkopplad volym.
 Mapp | Cache-mappen ska inte vara krypterad på en deduplicerad volym eller i en mapp som är komprimerad, som är sparse eller som har en referens punkt.
 Plats ändringar | Du kan ändra cache-platsen genom att stoppa säkerhets kopierings motorn (`net stop bengine`) och kopiera cache-mappen till en ny enhet. (Kontrol lera att det finns tillräckligt med utrymme på den nya enheten.) Uppdatera sedan två register poster under **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** och **config/CloudBackupProvider/ScratchLocation**) till den nya platsen och starta om motorn.
 
@@ -88,21 +88,23 @@ Operativ systemen måste vara 64-bitars och köra de senaste paketen och uppdate
 
 **Operativsystem** | **Filer/mappar** | **System tillstånd** | **Krav för program/modul**
 --- | --- | --- | ---
-Windows 10 (Enterprise, Pro, Home) | Ja | Nej |  Kontrol lera motsvarande Server version för program-/modul krav
-Windows 8,1 (Enterprise, Pro)| Ja |Nej | Kontrol lera motsvarande Server version för program-/modul krav
-Windows 8 (Enterprise, Pro) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
-Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja | Nej | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 10 (Enterprise, Pro, Home) | Ja | Inga |  Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8,1 (Enterprise, Pro)| Ja |Inga | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 8 (Enterprise, Pro) | Ja | Inga | Kontrol lera motsvarande Server version för program-/modul krav
+Windows 7 (Ultimate, Enterprise, Pro, Home Premium/Basic, starter) | Ja | Inga | Kontrol lera motsvarande Server version för program-/modul krav
 Windows Server 2016 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 R2 (Standard, Datacenter, Foundation, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2012 (Standard, Datacenter, Foundation) | Ja | Ja |– .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
 Windows Server 2008 R2 (standard, Enterprise, data Center, Foundation) | Ja | Ja | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe)
-Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Nej | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe) <br> – Virtual Server 2005 Base + KB KB948515
-Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Nej | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
+Windows Server 2008 SP2 (Standard, Datacenter, Foundation) | Ja | Inga | – .NET 3,5, .NET 4,5 <br> – Windows PowerShell <br> -Kompatibel Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0 <br> – Underhåll och hantering av distributions avbildning (DISM. exe) <br> – Virtual Server 2005 Base + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (standard, arbets grupp) | Ja | Inga | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 Windows Server 2019 (Standard, Datacenter, Essentials) | Ja | Ja | – .NET 4,5 <br> – Windows PowerShell <br> -Senaste kompatibla Microsoft VC + + Redistributable <br> – Microsoft Management Console (MMC) 3,0
 
 Mer information finns i [Mabs-och DPM-operativsystem som stöds](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
 
 ## <a name="backup-limits"></a>Säkerhets kopierings gränser
+
+### <a name="size-limits"></a>Storleksbegränsningar
 
 Azure Backup begränsar storleken på en fil eller mapp data källa som kan säkerhets kopie ras. De objekt som du säkerhetskopierar från en enskild volym får inte överstiga storlekarna som sammanfattas i den här tabellen:
 
@@ -114,6 +116,10 @@ Windows Server 2008 SP2| 1 700 GB
 Windows 8 eller senare| 54 400 GB
 Windows 7| 1 700 GB
 
+### <a name="other-limitations"></a>Andra begränsningar
+
+- MARS stöder inte skydd av flera datorer med samma namn i ett enda valv.
+
 ## <a name="supported-file-types-for-backup"></a>Filtyper som stöds för säkerhets kopiering
 
 **Typ** | **Support**
@@ -122,12 +128,12 @@ Krypterad| Stöds.
 Komprimerade | Stöds.
 Utspridda | Stöds.
 Komprimerad och sparse |Stöds.
-Hårda länkar| Stöds ej. Hoppades.
-Referenspunkt| Stöds ej. Hoppades.
-Krypterad och sparse |Stöds ej. Hoppades.
-Komprimerad ström| Stöds ej. Hoppades.
-Utspridd ström| Stöds ej. Hoppades.
-OneDrive (synkroniserade filer är sparse-strömmar)| Stöds ej.
+Hårda länkar| Stöds inte. Hoppades.
+Referenspunkt| Stöds inte. Hoppades.
+Krypterad och sparse |Stöds inte. Hoppades.
+Komprimerad ström| Stöds inte. Hoppades.
+Utspridd ström| Stöds inte. Hoppades.
+OneDrive (synkroniserade filer är sparse-strömmar)| Stöds inte.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>Enheter eller volymer som stöds för säkerhets kopiering
 

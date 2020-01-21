@@ -4,17 +4,19 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 01/07/2020
 ms.author: orspodek
-ms.openlocfilehash: 5443ee6912c30b89cee6fdb43f84f3bc1fbcfe68
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0d78e48fead7b1f53e67860e6be8fe6d77469e87
+ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76020909"
+ms.lasthandoff: 01/20/2020
+ms.locfileid: "76280617"
 ---
 Azure Datautforskaren krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange Kundhanterade nycklar som ska användas för data kryptering. Kundhanterade nycklar måste lagras i en [Azure Key Vault](/azure/key-vault/key-vault-overview). Du kan skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda ett Azure Key Vault API för att generera nycklar. Azure Datautforskaren-klustret och nyckel valvet måste finnas i samma region, men de kan finnas i olika prenumerationer. En detaljerad förklaring om Kundhanterade nycklar finns i [Kundhanterade nycklar med Azure Key Vault](/azure/storage/common/storage-service-encryption). Den här artikeln visar hur du konfigurerar Kundhanterade nycklar.
 
-> [!Note]
-> Om du vill konfigurera Kundhanterade nycklar med Azure Datautforskaren måste du [Ange två egenskaper för nyckel valvet](/azure/key-vault/key-vault-ovw-soft-delete): **mjuk borttagning** och **Rensa inte**. Dessa egenskaper är inte aktiverade som standard. Om du vill aktivera dessa egenskaper använder du [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) eller [Azure CLI](/azure/key-vault/key-vault-soft-delete-cli). Endast RSA-nycklar och nyckel storlek 2048 stöds.
+Om du vill konfigurera Kundhanterade nycklar med Azure Datautforskaren måste du [Ange två egenskaper för nyckel valvet](/azure/key-vault/key-vault-ovw-soft-delete): **mjuk borttagning** och **Rensa inte**. Dessa egenskaper är inte aktiverade som standard. Om du vill aktivera dessa egenskaper använder du [PowerShell](/azure/key-vault/key-vault-soft-delete-powershell) eller [Azure CLI](/azure/key-vault/key-vault-soft-delete-cli). Endast RSA-nycklar och nyckel storlek 2048 stöds.
+
+> [!NOTE]
+> Data kryptering med hjälp av Kundhanterade nycklar stöds inte i [ledare och Uppföljnings kluster](/azure/data-explorer/follower). 
 
 ## <a name="assign-an-identity-to-the-cluster"></a>Tilldela en identitet till klustret
 

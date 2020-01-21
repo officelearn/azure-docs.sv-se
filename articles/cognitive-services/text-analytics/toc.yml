@@ -14,8 +14,10 @@
   items:
     - name: Klientbibliotek
       items:
-        - name: Analysera text med klientbiblioteket
+        - name: Analysera text med v3.0-preview
           href: quickstarts/text-analytics-sdk.md
+        - name: Analysera text med v2
+          href: quickstarts/text-analytics-sdk-v2.md
     - name: REST-API
       items:
         - name: Använda Java
@@ -42,7 +44,7 @@
     - name: 'Använda Flask till att översätta text, analysera sentiment och syntetisera tal'
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: 'Anropa API:t för textanalys'
       href: How-tos/text-analytics-how-to-call-api.md

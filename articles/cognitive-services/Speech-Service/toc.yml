@@ -201,7 +201,7 @@
           href: quickstarts/translate-speech-to-speech.md
     - name: Självstudier
       items:
-        - name: 'Skapa en Flask-app för att översätta och syntetisera text, REST'
+        - name: 'Skapa en Flask-app för att översätta och syntetisera text med REST-API:er'
           href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
     - name: Referens
       items:
@@ -327,7 +327,7 @@
       items:
         - name: Utföra anpassade kommandon med Speech SDK
           href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: Lägga till parametervalidering till anpassade kommandon
+        - name: Lägga till parametervalidering till ett anpassat kommando
           href: how-to-custom-speech-commands-validations.md
         - name: Lägga till en bekräftelse till ett anpassat kommando
           href: how-to-custom-speech-commands-confirmations.md
@@ -360,7 +360,7 @@
               href: how-to-custom-speech-train-model.md
             - name: Distribuera en anpassad modell
               href: how-to-custom-speech-deploy-model.md
-            - name: Guide för att skapa transkriptioner med mänsklig etikett
+            - name: Skapa transkriptioner med mänsklig etikett
               href: how-to-custom-speech-human-labeled-transcriptions.md
         - name: Klientmodeller
           items:
@@ -395,7 +395,7 @@
               href: record-custom-voice-samples.md
         - name: Skapa ljudinnehåll
           items:
-            - name: 'Instruktioner: Skapa ljudinnehåll'
+            - name: Skapa ljudinnehåll
               href: how-to-audio-content-creation.md
     - name: Riktlinjer för anpassad namngivning av nyckelord
       href: speech-devices-sdk-kws-guidelines.md
@@ -440,9 +440,9 @@
       items:
         - name: 'REST API:er'
           items:
-            - name: REST API för batch-transkription och anpassning
+            - name: REST-API för batch-transkription och anpassning
               href: 'https://westus.cris.ai/swagger/ui/index'
-            - name: REST API för samtalstranskription
+            - name: REST-API för samtalstranskription
               href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
             - name: REST API för tal-till-text
               href: rest-speech-to-text.md
@@ -468,18 +468,18 @@
           displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
     - name: Anvisningar
       items:
-        - name: Så här aktiverar du loggning
+        - name: Aktivera loggning
           href: how-to-use-logging.md
-        - name: Så här spårar du minnesanvändning
+        - name: Spåra minnesanvändning
           href: how-to-track-speech-sdk-memory-usage.md
-        - name: Så här konfigurerar du OpenSSL för Linux
+        - name: Konfigurera OpenSSL för Linux
           href: how-to-configure-openssl-linux.md
           displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
     - name: Exempel
       items:
         - name: Speech SDK-exempel (GitHub)
           href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk'
-        - name: Speech Device SDK-exempel (GitHub)
+        - name: Speech Devices SDK-exempel (GitHub)
           href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
     - name: Referens
       items:

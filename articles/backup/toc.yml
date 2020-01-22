@@ -148,10 +148,28 @@
           href: backup-mabs-sharepoint-azure-stack.md
         - name: Skydda SQL Server-databas
           href: backup-mabs-sql-azure-stack.md
-    - name: Azure-filresurser
+    - name: Säkerhetskopiering av Azure-filresurser
       items:
-        - name: Säkerhetskopiera Azure-filresurser
-          href: backup-azure-files.md
+        - name: Från Azure-portalen
+          items:
+            - name: Säkerhetskopiera Azure-filresurser
+              href: backup-afs.md
+            - name: Återställa Azure-filresurser
+              href: restore-afs.md
+            - name: Hantera säkerhetskopior av Azure-filresurser
+              href: manage-afs-backup.md
+        - name: Med Azure CLI
+          items:
+            - name: Säkerhetskopiera Azure-filresurser med CLI
+              href: backup-afs-cli.md
+            - name: Återställa Azure-filresurser med CLI
+              href: restore-afs-cli.md
+            - name: Hantera säkerhetskopior av Azure-filresurser med CLI
+              href: manage-afs-backup-cli.md
+        - name: Med PowerShell
+          items:
+            - name: Säkerhetskopiering av Azure-filresurs med PowerShell
+              href: backup-azure-afs-automation.md
     - name: Säkerhetskopiera virtuella Azure-datorer
       items:
         - name: Om Säkerhetskopiering av virtuella Azure-datorer
@@ -222,8 +240,6 @@
           href: backup-dpm-automation.md
         - name: Windows Server i Azure-portalen
           href: backup-client-automation.md
-        - name: Azure-filresurser i Azure-portalen
-          href: backup-azure-afs-automation.md
         - name: SQL i säkerhetskopior av virtuella Azure-datorer
           href: backup-azure-sql-automation.md
     - name: Använda Azure Backup REST API

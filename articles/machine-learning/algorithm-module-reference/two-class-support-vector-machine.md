@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0ab4a0ebf2844d064e40c8417ab22162d2d0ded6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ca47bed45f8d726010dde40a936da6f93eb0b140
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485866"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315022"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Dubbelriktad Vector Machine-modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en modell som baseras på algoritmen för att stödja Vector-datorer. 
 
@@ -66,16 +66,15 @@ För den här modell typen rekommenderar vi att du normaliserar data uppsättnin
   
     -   Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](train-model.md) .
   
-
 10. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 
 När utbildningen är klar:
 
-+ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen, högerklickar du på utdata från [träna modell](./train-model.md)och väljer **visualisera**.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
-+ Om du vill använda de tränade modellerna för att göra förutsägelser ansluter du den tränade modellen till [score-modell](score-model.md) -modulen.
++ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg

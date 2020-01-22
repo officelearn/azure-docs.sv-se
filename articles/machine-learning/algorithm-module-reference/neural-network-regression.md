@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38b37a386e4e9829b5d90e31067ec9f6aaf75502
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466004"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314920"
 ---
 # <a name="neural-network-regression-module"></a>Neurala Network regression-modul
 
@@ -24,7 +24,7 @@ ms.locfileid: "73466004"
   
 ## <a name="module-overview"></a>Översikt över modul  
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
   
@@ -91,10 +91,7 @@ Neurala-nätverk kan anpassas i stor utsträckning. I det här avsnittet beskriv
 
 När utbildningen är klar:
 
-+ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen och andra parametrar för neurala-nätverket, högerklickar du på utdata från [träna modell](./train-model.md)och väljer **visualisera**.  
-
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma pipeline.
-
+- Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
 ## <a name="next-steps"></a>Nästa steg
 

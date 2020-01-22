@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 46c2cd49258b8eb6813caaf50e9895990ce67287
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 67cafbb7934381cd4c2936d6e6dfe7fb19d70735
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529557"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314699"
 ---
 # <a name="ports-used-by-apache-hadoop-services-on-hdinsight"></a>Portar som används av Apache Hadoop Services i HDInsight
 
@@ -53,6 +53,7 @@ Följande är tillgängliga för vissa kluster typer:
 | Livy |443 |HTTPS |Spark |Spark-REST API. Se [skicka Apache Spark jobb via fjärr anslutning med Apache livy](spark/apache-spark-livy-rest-interface.md) |
 | Spark Thrift-Server |443 |HTTPS |Spark |Spark Thrift-server som används för att skicka Hive-frågor. Se [använda Beeline med Apache Hive på HDInsight](hadoop/apache-hadoop-use-hive-beeline.md) |
 | Storm |443 |HTTPS |Storm |Webb gränssnitt för storm. Se [distribuera och hantera Apache Storm-topologier i HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md) |
+| Kafka rest-proxy |443 |HTTPS |Kafka |Kafka REST API. Se [interagera med Apache Kafka kluster i Azure HDInsight med hjälp av en rest-proxy](kafka/rest-proxy.md) |
 
 ### <a name="authentication"></a>Autentisering
 
@@ -87,10 +88,10 @@ Exempel:
 | Tjänst | Noder | Port | Protokoll | Beskrivning |
 | --- | --- | --- | --- | --- |
 | NameNode webb gränssnitt |Huvudnoder |30070 |HTTPS |Webb gränssnitt för att visa status |
-| NameNode-metadatatjänst |huvudnoder |8020 |PROCESS |Metadata för fil system |
+| NameNode-metadatatjänst |huvudnoder |8020 |IPC |Metadata för fil system |
 | DataNode |Alla arbetsnoder |30075 |HTTPS |Webb gränssnitt för att visa status, loggar osv. |
 | DataNode |Alla arbetsnoder |30010 |&nbsp; |Dataöverföring |
-| DataNode |Alla arbetsnoder |30020 |PROCESS |Metadata-åtgärder |
+| DataNode |Alla arbetsnoder |30020 |IPC |Metadata-åtgärder |
 | Sekundär NameNode |Huvudnoder |50090 |HTTP |Kontroll punkt för NameNode metadata |
 
 ### <a name="yarn-ports"></a>GARN portar
@@ -99,7 +100,7 @@ Exempel:
 | --- | --- | --- | --- | --- |
 | Webb gränssnitt för Resource Manager |Huvudnoder |8088 |HTTP |Webb gränssnitt för Resource Manager |
 | Webb gränssnitt för Resource Manager |Huvudnoder |8090 |HTTPS |Webb gränssnitt för Resource Manager |
-| Administrations gränssnitt för Resource Manager |huvudnoder |8141 |PROCESS |För program inlämningar (Hive, Hive-Server, gris osv.) |
+| Administrations gränssnitt för Resource Manager |huvudnoder |8141 |IPC |För program inlämningar (Hive, Hive-Server, gris osv.) |
 | Schemaläggaren i Resource Manager |huvudnoder |8030 |HTTP |Administrativt gränssnitt |
 | Resource Manager Application Interface |huvudnoder |8050 |HTTP |Adress till program hanterarens gränssnitt |
 | NodeManager |Alla arbetsnoder |30050 |&nbsp; |Adressen till behållar hanteraren |
@@ -157,6 +158,7 @@ Exempel:
 | --- | --- | --- | --- | --- |
 | Utjämning |Arbetsnoder |9092 |[Kafka Wire Protocol](https://kafka.apache.org/protocol.html) |Används för klient kommunikation |
 | &nbsp; |Zookeeper-noder |2181 |&nbsp; |Den port som klienter använder för att ansluta till Zookeeper |
+| REST-proxy | Kafka hanterings noder |9400 |HTTPS |[Kafka REST-specifikation](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) |
 
 ### <a name="spark-ports"></a>Spark-portar
 

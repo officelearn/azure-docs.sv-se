@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1b5950c3769431420c199711190a02ad0be1e177
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 71041012bc77da6d7613deb178c3cec1413e57e2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863503"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314901"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Skapa en referens data uppsättning för din Time Series Insights-miljö med hjälp av Azure Portal
 
@@ -34,11 +34,13 @@ Referens data har inte anslutits retroaktivt. Det innebär att endast aktuella o
 
 ## <a name="add-a-reference-data-set"></a>Lägg till en referens data uppsättning
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Leta upp din befintliga Azure Time Series Insights-miljö. Välj **alla resurser** på menyn på vänster sida av Azure Portal. Välj Time Series Insights-miljö.
 
-1. Välj **översikts** sidan. Leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
+1. Välj **översikts** sidan. Expandera avsnittet **Essentials** överst på sidan för att leta upp **URL: en för Time Series Insights Explorer** och öppna länken.  
+
+   [avsnittet ![expandera Essentials](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
    Visa Utforskaren för din Time Series Insightss miljö.
 

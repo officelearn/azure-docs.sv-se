@@ -9,14 +9,14 @@ manager: craigg
 ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 01/21/2020
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 888f50d645c9b3babf95335e434db65423108ccb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f793fd68c83f90b87182647eef47a07eb452f45
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693029"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314784"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Uppgradera ditt informations lager till Gen2
 
@@ -33,41 +33,12 @@ I följande tabell sammanfattas efter region när den nedre Gen2 beräknings niv
 
 | **Region** | **Lägre tillgängliga Gen2** | **Automatiska uppgraderingar börjar** |
 |:--- |:--- |:--- |
-| Östra Australien |Tillgängligt |Slutför |
-| Sydöstra Australien |Tillgängligt |Slutför |
-| Södra Brasilien |Tillgängligt |Slutför |
-| Centrala Kanada |Tillgängligt |Slutför |
-| Östra Kanada |Den 1 juni 2020 |Den 1 juli 2020 |
-| Centrala USA |Tillgängligt |Slutför |
+| Kanada, östra |Den 1 juni 2020 |Den 1 juli 2020 |
 | Kina, östra |\* |\* |
-| Kina, östra 2 |Tillgängligt |Slutför |
 | Kina, norra |\* |\* |
-| Kina, norra 2 |Tillgängligt |Slutför |
-| Östasien |Tillgängligt |Slutför |
-| Östra USA |Tillgängligt |Slutför |
-| USA, östra 2 |Tillgängligt |Slutför |
-| Frankrike, centrala |Tillgängligt |Pågår |
-| Centrala Tyskland |\* |\* |
-| Tyskland, västra centrala |1 september 2019|1 oktober 2019 |
-| Centrala Indien |Tillgängligt |Slutför |
-| Södra Indien |Tillgängligt |Slutför |
-| Västra Indien |Den 1 juli 2019 |Pågår |
-| Östra Japan |Tillgängligt |Slutför |
-| Västra Japan |Tillgängligt |Slutför |
-| Sydkorea, centrala |Tillgängligt |Slutför |
-| Sydkorea, södra |Tillgängligt |Slutför |
-| Norra centrala USA |Tillgängligt |Slutför |
-| Norra Europa |Tillgängligt |Slutför |
-| Sydafrika, norra |12 juli 2019 |Slutför |
-| Södra centrala USA |Tillgängligt |Slutför |
-| Sydostasien |Tillgängligt |Slutför |
-| Förenade Arabemiraten, norra |20 juli 2019 |Slutför |
-| Storbritannien, södra |Tillgängligt |Pågår |
-| Storbritannien, västra |Tillgängligt |Pågår |
-| Västra centrala USA |1 november 2019 |Den 1 december 2019|
-| Västra Europa |Tillgängligt |Slutför |
-| Västra USA |Tillgängligt |Slutför |
-| Västra USA 2 |Tillgängligt |Slutför |
+| Tyskland, centrala |\* |\* |
+| Tyskland, västra centrala |Tillgänglig |Den 1 maj 2020 |
+| Västra Indien |Tillgänglig |Den 1 maj 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderings process
 
@@ -135,7 +106,7 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 - A: om du kör en DW600 eller DW1200 på gen1, rekommenderar vi att du använder DW500c eller DW1000c eftersom Gen2 ger mer minne, resurser och högre prestanda än gen1.
 
 **F: kan jag inaktivera geo-säkerhetskopiering?**
-- A: Nej. Geo-Backup är en företags funktion som bevarar tillgängligheten för informations lagret i händelse av att en region blir otillgänglig. Öppna en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) om du har ytterligare frågor.
+- S: Nej. Geo-Backup är en företags funktion som bevarar tillgängligheten för informations lagret i händelse av att en region blir otillgänglig. Öppna en [support förfrågan](sql-data-warehouse-get-started-create-support-ticket.md) om du har ytterligare frågor.
 
 **F: finns det en skillnad i T-SQL-syntaxen mellan gen1 och Gen2?**
 
@@ -147,7 +118,7 @@ Mer information finns i [Uppgradera till Gen2](upgrade-to-latest-generation.md).
 
 **F: kan jag skapa en ny gen1-instans när min region har uppgraderats?**
 
-- A: Nej. När en region har uppgraderats kommer skapandet av nya gen1-instanser att inaktive ras.
+- S: Nej. När en region har uppgraderats kommer skapandet av nya gen1-instanser att inaktive ras.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: dd8b23f92f5b24101a7d42ca65f5835a8d4e9ff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1dd88eaa9c92a4f8ff5d491da950f7bb1cc48c20
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214558"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314512"
 ---
 # <a name="module-assign-data-to-clusters"></a>Modul: tilldela data till kluster
 
-Den här artikeln beskriver hur du använder modulen *tilldela data till kluster* i Azure Machine Learning designer (för hands version). Modulen genererar förutsägelser genom en kluster modell som har tränats med algoritmen *K-metod* .
+Den här artikeln beskriver hur du använder modulen *tilldela data till kluster* i Azure Machine Learning designer. Modulen genererar förutsägelser genom en kluster modell som har tränats med algoritmen *K-metod* .
 
 Modulen tilldela data till kluster returnerar en data uppsättning som innehåller de sannolika tilldelningarna för varje ny data punkt. 
 
@@ -47,5 +47,5 @@ Modulen tilldela data till kluster returnerar en data uppsättning som innehåll
   
 ### <a name="results"></a>Resultat
 
-+  Om du vill visa värdena i data uppsättningen högerklickar du på modulen, väljer **resultat data uppsättningar**och väljer sedan **visualisera**.
++  Om du vill visa värdena i data uppsättningen högerklickar du på modulen och väljer **visualisera**. Eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata** för att visualisera resultatet.
 

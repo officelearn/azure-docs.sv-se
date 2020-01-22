@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d8e27d13de6b1ac6940972022f66811eb75c8986
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9c17cd36d91d113ad59db7b7155c092e4aa7fad1
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485877"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315073"
 ---
 # <a name="two-class-neural-network-module"></a>Neurala-modul i två klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en neurala-nätverks modell som kan användas för att förutsäga ett mål som bara har två värden.
 
@@ -82,9 +82,9 @@ För att beräkna nätverkets utdata för ett visst indata beräknas ett värde 
 
 När utbildningen är klar:
 
-+ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen och andra parametrar för neurala-nätverket, högerklickar du på utdata från [träna modell](./train-model.md)och väljer **visualisera**.  
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata och väljer **Spara som utbildad modell**. Den här modellen uppdateras inte vid efterföljande körningar av samma pipeline.
++ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
 
 ## <a name="next-steps"></a>Nästa steg

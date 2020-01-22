@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4271a180a0f00ae921de9b8deb9a3e5123f9b519
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493884"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314495"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Regressions modul för besluts träd
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en ensemble of Regressions träd med förstärkning. *Förstärkning* innebär att varje träd är beroende av föregående träd. Algoritmen lär sig genom att anpassa resten av de träd som föregår det. Därför är det bättre att öka noggrannheten i besluts trädets ensemblen för att förbättra noggrannheten med liten risk för mindre täckning.  
   
@@ -29,8 +29,6 @@ Den här Regressions metoden är en övervakad inlärnings metod och kräver dä
 
 När du har definierat modellen tränar du den med hjälp av [träna-modellen](./train-model.md).
 
-> [!TIP]
-> Vill du veta mer om de träd som har skapats? När modellen har tränats högerklickar du på utdata från modulen [träna modell](./train-model.md) och väljer **visualisera** för att se trädet som skapades i varje iteration. Du kan öka detalj nivån i delningarna för varje träd och se reglerna för varje nod.  
   
 ## <a name="more-about-boosted-regression-trees"></a>Mer om Boosted Regressions träd  
 
@@ -91,13 +89,9 @@ Metoden för tonings förstärkning kan också användas för klassificerings pr
 
 När utbildningen är klar:
 
-+ Om du vill se trädet som skapades på varje iteration högerklickar du på utdata från modulen [träna modell](train-model.md) och väljer **visualisera**.
-  
-     Klicka på varje träd för att öka detalj nivån i delningarna och se reglerna för varje nod.  
-
 + Om du vill använda modellen för poängsättning ansluter du den till [Poäng modellen](./score-model.md)och förutsäger värdena för nya ingångs exempel.
 
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på den **tränade modellens** utdata i modulen utbildning och väljer **Spara som**. Kopian av den tränade modellen som du sparar uppdateras inte vid efterföljande körningar av pipelinen.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i den **tränade modellen** och klickar på ikonen **registrera data uppsättning** . Kopian av den tränade modellen sparas som en modul i modul trädet och kommer inte att uppdateras vid efterföljande körningar av pipelinen.
 
 ## <a name="next-steps"></a>Nästa steg
 

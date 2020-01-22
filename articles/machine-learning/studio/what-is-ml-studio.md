@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: c0dcd8f8f5ecd2d333e610c96ea89a44f8f4c547
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: f3be29dc222e0e9b98ed51d8f921fb9926b018ca
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75528359"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314086"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Vad är Machine Learning Studio (klassisk)?
 
@@ -38,13 +38,13 @@ Ingen programmering krävs, visuellt ansluta data uppsättningar och moduler fö
 <a name="compare"></a>
 ## <a name="how-does-machine-learning-studio-classic-differ-from-azure-machine-learning"></a>Hur skiljer sig Machine Learning Studio (klassisk) från Azure Machine Learning?
 
-[Azure Machine Learning](../overview-what-is-azure-ml.md) tillhandahåller både SDK **: er och** Azure Machine Learning designer (för hands version) för att snabbt kunna prepa data, träna och distribuera maskin inlärnings modeller. Designern har en liknande dra-och-släpp-upplevelse till Studio (klassisk). Men till skillnad från den tillverkarspecifika beräknings plattformen i Studio (klassisk) använder designern dina egna beräknings resurser och är helt integrerade i Azure Machine Learning.
+[Azure Machine Learning](../overview-what-is-azure-ml.md) tillhandahåller både SDK **: er och** Azure Machine Learning designer för att snabbt kunna prepa data, träna och distribuera maskin inlärnings modeller. Designern har en liknande dra-och-släpp-upplevelse till Studio (klassisk). Men till skillnad från den tillverkarspecifika beräknings plattformen i Studio (klassisk) använder designern dina egna beräknings resurser och är helt integrerade i Azure Machine Learning.
 
 Här är en snabb jämförelse:
 
 || Machine Learning Studio (klassisk) | Azure Machine Learning |
 |---| --- | --- |
-| Dra och släpp gränssnitt | Ja | Ja – [Azure Machine Learning designer (för hands version)](../concept-designer.md) |
+| Dra och släpp gränssnitt | Ja | Ja – [Azure Machine Learning designer](../concept-designer.md) |
 | Experiment | Skalbar (10 GB inlärnings data gräns) | Skala med beräknings mål |
 | Moduler för dra och släpp-gränssnitt | Mycket | Inledande uppsättning populära [moduler](../algorithm-module-reference/module-reference.md)|
 |Inlärnings mål| Patentskyddat beräknings mål, endast CPU-stöd| Stöder Azure Machine Learning Compute (GPU eller CPU) och virtuella notebook-datorer.<br/>([Andra beräkningar som stöds i SDK](../concept-compute-target.md#train))|

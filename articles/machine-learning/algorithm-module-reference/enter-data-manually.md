@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7c4d62c19984e1316a01213f579c059b97f709c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 509b82596ce4819152fcd8d0bc202df186a20095
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497939"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314852"
 ---
 # <a name="enter-data-manually-module"></a>Ange modulen data manuellt
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
   
@@ -36,7 +36,7 @@ Den här modulen kan vara till hjälp i scenarier som dessa:
   
 2.  Välj något av följande alternativ för **dataformat**. De här alternativen avgör hur de data som du anger ska tolkas. Kraven för varje format skiljer sig kraftigt, så se till att läsa närliggande ämnen.  
   
-    -   **Arff**. Fil formatet för attribut-relation som används av Wekas.   
+    -   **ARFF**. Fil formatet för attribut-relation som används av Wekas.   
   
     -   **CSV**. Format med kommaavgränsade värden. Mer information finns i [konvertera till CSV](./convert-to-csv.md).  
   
@@ -97,9 +97,9 @@ Den här modulen kan vara till hjälp i scenarier som dessa:
   
      Om du skapar rader med värden som saknas kan du alltid filtrera dem senare.  
   
-5.  Högerklicka på modulen och välj **Kör valt** för att parsa data och läsa in dem i arbets ytan som en data uppsättning.  
+5.  Anslut utgående port till andra moduler och kör pipelinen.  
   
-     Om du vill visa data uppsättningen klickar du på utdataporten och väljer **visualisera**.  
+     Om du vill visa data uppsättningen högerklickar du på modulen och väljer **visualisera**.  
 ## <a name="next-steps"></a>Nästa steg
 
 Se en [uppsättning moduler som är tillgängliga](module-reference.md) för Azure Machine Learning. 

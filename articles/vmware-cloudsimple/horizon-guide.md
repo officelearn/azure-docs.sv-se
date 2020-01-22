@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0936de818303117797e1704f3cecb7f877a3935e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 723821a78ecae308443c93567402e3b232c036f0
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206545"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314716"
 ---
 # <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Använd CloudSimple privata moln webbplats som värd för en virtuell Skriv bords infrastruktur med VMware-Horisont
 
@@ -47,7 +47,7 @@ I följande avsnitt beskrivs hur du distribuerar en VDI-lösning med hjälp av H
 ### <a name="estimate-the-size-of-your-desktop-environment"></a>Uppskatta storleken på din Skriv bords miljö
 
 * Kontrol lera att din identifierade konfiguration är i drift gränser i VMware.
-* Beräkna de resurser som behövs på din DR-plats för att skydda din lokala miljö.
+* Beräkna de resurser som behövs för alla dina Skriv bord och dina komponenter för Horisont hantering.
 
 ### <a name="create-a-private-cloud-for-your-environment"></a>Skapa ett privat moln för din miljö
 

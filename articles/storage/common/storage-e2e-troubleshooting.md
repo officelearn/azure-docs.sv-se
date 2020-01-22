@@ -9,12 +9,12 @@ ms.date: 12/20/2019
 ms.author: normesta
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 7a0cf3c41929eb6a020a9d4761b08a2a4f2f6caa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 69983502fb7d099f474fb1c4c084f5d381a173e9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460402"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314767"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Fel sökning från slut punkt till slut punkt med hjälp av Azure Storage mått och loggning, AzCopy och Message Analyzer
 
@@ -143,10 +143,10 @@ Mer information om hur du lägger till och anpassar mått diagram finns i [Anpas
 
 Azure Storage skriver serverns loggdata till blobbar, medan mått skrivs till tabeller. Log-blobbar är tillgängliga i den välkända `$logs` container för ditt lagrings konto. Log-blobbar namnges hierarkiskt efter år, månad, dag och timme, så att du enkelt kan hitta det tidsintervall som du vill undersöka. I `storagesample`-kontot är till exempel behållaren för log-blobarna för 01/02/2015, från 8-9 am, `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. De enskilda Blobbarna i den här behållaren namnges sekventiellt, från och med `000000.log`.
 
-Du kan använda kommando rads verktyget AzCopy för att hämta dessa loggfiler på Server sidan till en valfri plats på den lokala datorn. Du kan till exempel använda följande kommando för att ladda ned loggfilerna för BLOB-åtgärder som ägde rum den 2 januari 2015 till mappen `C:\Temp\Logs\Server`; Ersätt `<storageaccountname>` med namnet på ditt lagrings konto och `<storageaccountkey>` med din konto åtkomst nyckel:
+Du kan använda kommando rads verktyget AzCopy för att hämta dessa loggfiler på Server sidan till en valfri plats på den lokala datorn. Du kan till exempel använda följande kommando för att ladda ned loggfilerna för BLOB-åtgärder som ägde rum den 2 januari 2015 till mappen `C:\Temp\Logs\Server`; Ersätt `<storageaccountname>` med namnet på ditt lagrings konto:
 
 ```azcopy
-AzCopy.exe /Source:http://<storageaccountname>.blob.core.windows.net/$logs /Dest:C:\Temp\Logs\Server /Pattern:"blob/2015/01/02" /SourceKey:<storageaccountkey> /S /V
+azcopy copy 'http://<storageaccountname>.blob.core.windows.net/$logs/blob/2015/01/02' 'C:\Temp\Logs\Server'  --recursive
 ```
 
 AzCopy kan hämtas på sidan för [Azure-nedladdningar](https://azure.microsoft.com/downloads/) . Mer information om hur du använder AzCopy finns i [överföra data med kommando rads verktyget AzCopy](storage-use-azcopy.md).

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ce232fc9216166e94520203bb4afbf4c152aaf6f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497710"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314937"
 ---
 # <a name="partition-and-sample-module"></a>Partition och exempel modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att utföra sampling på en data uppsättning eller för att skapa partitioner från din data uppsättning.
 
@@ -44,8 +44,8 @@ Sampling är ett viktigt verktyg i Machine Learning eftersom det gör att du kan
 
 Den här modulen stöder flera metoder för att dela data i partitioner eller för att sampla. Välj först metoden och ange sedan ytterligare alternativ som krävs av metoden.
 
-- Head
-- Samling
+- Huvud
+- Sampling
 - Tilldela till vikning
 - Välj vikning
 
@@ -122,7 +122,7 @@ Använd det här alternativet om du vill dela upp data uppsättningen i del män
 
     - **Partition med anpassade proportioner**: Använd det här alternativet för att ange storleken på varje partition som en kommaavgränsad lista.
 
-        Om du till exempel vill skapa tre partitioner, med den första partitionen som innehåller 50% av data, och de återstående två partitionerna som innehåller 25% av data, klickar du på **listan med proportioner avgränsade med kommatecken** och skriver följande tal: @no_ _t_1_`.5, .25, .25`
+        Om du till exempel vill skapa tre partitioner, med den första partitionen som innehåller 50% av data, och de återstående två partitionerna som innehåller 25% av data, klickar du på **listan med proportioner avgränsade med kommatecken** och skriver följande tal: `.5, .25, .25`
 
         Summan av alla partition storlekar måste vara upp till exakt 1.
 

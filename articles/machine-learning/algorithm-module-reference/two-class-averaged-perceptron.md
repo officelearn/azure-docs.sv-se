@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 379cddd9654cc897b49fd085d8df55fcd77a7ce8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4180fced60c4a9f2402253c7c3b3d3ff97fe1e1
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490358"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314614"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Genomsnittlig Perceptron-modul med två klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en Machine Learning-modell som baseras på den genomsnittliga Perceptron-algoritmen.  
   
@@ -52,11 +52,7 @@ De enklare Perceptron-modellerna är lämpliga för inlärning av linjärt särs
   
     -   Om du ställer in **skapa utbildare** för **en parameter**använder du modulen [träna modell](train-model.md) .
 
-## <a name="results"></a>Resultat
 
-När utbildningen är klar:
-
-+ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikten från träningen, högerklickar du på utdata från [träna modell](./train-model.md).
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 55981279cb1902424d1a0f77af097dc379d7222f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5e1390cb45fc6f659883ddfc8624719e45f99ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493960"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314597"
 ---
 # <a name="add-columns-module"></a>Lägg till kolumner-modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att sammanfoga två data uppsättningar. Du kan kombinera alla kolumner från de två data uppsättningarna som du anger som indata för att skapa en enskild data uppsättning. Om du behöver sammanfoga fler än två data uppsättningar använder du flera instanser av **Lägg till kolumner**.
 
@@ -38,11 +38,11 @@ Använd den här modulen för att sammanfoga två data uppsättningar. Du kan ko
 ### <a name="results"></a>Resultat
 När pipelinen har körts:
 
-- Om du vill se de första raderna i den nya data uppsättningen högerklickar du på utdata från **Lägg till kolumner** och väljer visualisera.
+- Om du vill se de första raderna i den nya data uppsättningen högerklickar du på modulen **Lägg till kolumner** och väljer visualisera. Eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata** för att visualisera resultatet.
 
 Antalet kolumner i den nya data mängden motsvarar summan av kolumnerna i båda data uppsättningarna.
 
-Om det finns två kolumner med samma namn i indata-datauppsättningarna läggs ett numeriskt suffix till i kolumnens namn. Om det till exempel finns två instanser av en kolumn med namnet TargetOutcome skulle den vänstra kolumnen byta namn till TargetOutcome_1 och den högra kolumnen får namnet TargetOutcome_2.
+Om det finns två kolumner med samma namn i indata-datauppsättningarna läggs ett numeriskt suffix till i kolumnens namn. Om det till exempel finns två instanser av en kolumn med namnet TargetOutcome skulle den vänstra kolumnen byta namn TargetOutcome_1 och den högra kolumnen får namnet TargetOutcome_2.
 
 ## <a name="next-steps"></a>Nästa steg
 

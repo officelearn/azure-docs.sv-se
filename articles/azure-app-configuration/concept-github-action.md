@@ -6,12 +6,12 @@ ms.author: jeconnoc
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 52fa9a94d86dac2d49b078f98aaa494fbebf52d6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
-ms.translationtype: HT
+ms.openlocfilehash: 1b7586e6321318a3fe4566e8c744c17a1d7ee179
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294453"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310634"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>Synkronisera konfigurations instansen för din app med GitHub-åtgärder
 Azure App konfiguration använder GitHub-åtgärder för att uppdatera en konfigurations instans för appar när den utlöses av en åtgärd som utförs på en GitHub-lagringsplats. Du kan utnyttja GitHub-arbetsflöden för att uppdatera app-konfigurationen, så att du kan integrera uppdateringar av app-konfigurationen i samma arbets flöde som används för att uppdatera app-koden.

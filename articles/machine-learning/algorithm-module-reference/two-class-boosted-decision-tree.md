@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 7590cab00670c92e8a5b90006778542ec44bf83f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1cbbc3f0c78954b92c1265795ba365be9dc0e38c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490165"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315090"
 ---
 # <a name="two-class-boosted-decision-tree-module"></a>Modul för besluts träd med två klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en Machine Learning-modell som baseras på algoritmen för besluts träd. 
 
@@ -63,15 +63,14 @@ Du kan träna den här typen av modell med hjälp av [träna modell](././train-m
 9. Träna modellen.
   
     + Om du ställer in **skapa utbildare** för en **parameter**ansluter du en taggad data uppsättning och modulen [träna modell](./train-model.md) .  
-  
    
 ## <a name="results"></a>Resultat
 
-När modell träningen är klar högerklickar du på resultatet av [träna modell](./train-model.md) för att visa resultaten:
+När utbildningen är klar:
 
-+ Om du vill se trädet som skapades på varje iteration väljer du **visualisera**. 
-+ Klicka på varje träd för att öka detalj nivån i delningarna och se reglerna för varje nod.
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
++ Om du vill använda modellen för poängsättning lägger du till modulen **Poäng modell** i en pipeline.
 
 ## <a name="next-steps"></a>Nästa steg
 

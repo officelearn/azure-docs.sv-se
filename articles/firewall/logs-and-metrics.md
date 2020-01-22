@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 01/22/2020
 ms.author: victorh
-ms.openlocfilehash: 1267b3295762f6eb6af92b1cec909bae768886c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 89c6700d5df3bcef1332121c3cf7d8f720fe054c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974509"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76315039"
 ---
 # <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall-loggar och mått
 
@@ -103,17 +103,19 @@ Följande mått är tillgängliga för Azure-brand väggen:
 
     Enhet: byte
 
-- **Hälso tillstånd för brand vägg** – anger hälso tillståndet för brand väggen.
+- **Hälso tillstånd för brand vägg** – anger hälso tillståndet för brand väggen baserat på SNAT-portens tillgänglighet.
 
     Enhet: procent
 
    Det här måttet har två dimensioner:
-  - **Status**: möjliga värden är *felfria*, *degraderade*, *felaktiga*.
-  - **Orsak**: anger orsaken till brand väggens aktuella status. Det kan till exempel tyda på *SNAT-portar* om brand Väggs statusen är försämrad eller skadad.
+  - Status: möjliga värden är *felfria*, *degraderade*, *felaktiga*.
+  - Orsak: anger orsaken till brand väggens aktuella status. 
 
+     Om SNAT-portar används > 95% anses de vara uttömda och hälsan är 50% med status =**degraderad** och orsak =**SNAT-port**. Brand väggen fortsätter att bearbeta trafik och befintliga anslutningar påverkas inte. Nya anslutningar kanske däremot inte upprättas tillfälligt.
 
+     Om SNAT-portar används < 95%, anses brand väggen vara felfri och hälsa visas som 100%.
 
-
+     Om ingen användning av SNAT-portar rapporteras visas hälsan som 0%. 
 
 - **SNAT-port användning** – procent andelen SNAT-portar som används av brand väggen.
 

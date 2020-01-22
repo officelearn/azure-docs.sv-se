@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74d209adf745d1a3c319ef6567b2a7818a5fd514
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152264"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314733"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -167,6 +167,11 @@ Dokumentet lästes och bearbetades, men på grund av ett matchnings fel i konfig
 I alla dessa fall refererar du till [data typer som stöds](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) och [data typs mappning för indexerare](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) för att se till att du skapar index schemat korrekt och har konfigurerat lämpliga [fält mappningar för indexeraren](search-indexer-field-mappings.md). Fel meddelandet innehåller information som kan hjälpa till att spåra källan till matchnings felet.
 
 <a name="could-not-process-document-within-indexer-max-run-time"/>
+
+## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Fel: den integrerade principen för ändrings spårning kan inte användas eftersom tabellen har en sammansatt primär nyckel
+
+Detta gäller för SQL-tabeller och inträffar vanligt vis när nyckeln antingen definieras som en sammansatt nyckel eller, när tabellen har definierat ett unikt grupperat index (som i ett SQL-index, inte ett Azure Search index). Huvud orsaken är att nyckelattributet ändras till en sammansatt primär nyckel när ett [unikt grupperat index](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15)används. I så fall kontrollerar du att SQL-tabellen inte har ett unikt grupperat index eller att du mappar nyckel fältet till ett fält som garanterat inte har dubblettvärden.
+
 
 ## <a name="error-could-not-process-document-within-indexer-max-run-time"></a>Fel: det gick inte att bearbeta dokumentet inom indexeraren maximal kör tid
 

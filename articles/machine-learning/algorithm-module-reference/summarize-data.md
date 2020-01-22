@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 80e2acf08960796ccb2f3ad87c16674e477c9c00
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a037c959b44a6216724c285f932250b1b05cb509
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428460"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313756"
 ---
 # <a name="summarize-data"></a>Sammanfatta data
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd modulen sammanfatta data för att skapa en uppsättning standard statistiska mått som beskriver varje kolumn i inmatnings tabellen.
 
@@ -40,7 +40,7 @@ Modulen beräknar de viktiga poängen för varje kolumn och returnerar en rad me
 
 1. Inga ytterligare parametrar krävs. Som standard analyserar modulen alla kolumner som tillhandahålls som indata, och beroende på vilken typ av värden som finns i kolumnerna, matas ut en relevant uppsättning statistik enligt beskrivningen i avsnittet [resultat](#results) .
 
-1. Kör pipelinen eller högerklicka på modulen och välj **Kör vald**.
+1. Köra en pipeline.
 
 ## <a name="results"></a>Resultat
 

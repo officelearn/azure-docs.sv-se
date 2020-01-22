@@ -8,20 +8,35 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 11/04/2019
+ms.date: 01/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0e613dd1c47a9942d95bd668f1e9f85e42649b5c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 1cd9ca07aab1953d114caf748ca99170fae6b876
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122380"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293206"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens.
 
 Se [lista över kända problem](resource-known-issues.md) att lära dig om kända fel och lösningar.
+
+## <a name="2020-01-21"></a>2020-01-21
+
+### <a name="azure-machine-learning-designer-generally-available-ga"></a>Azure Machine Learning designer allmänt tillgänglig (GA)
+
+Designern är nu allmänt tillgänglig.
+
++ **Nya funktioner**
+    + Alternativet `Regenerate Output` modul har lagts till för att tvinga designer att ignorera cachelagrade resultat.
+    + Nya vyer har lagts till i körnings informationen för pipelinen:
+        + Vyn pipeline-lista.
+        + Logg visning i webbläsaren.
+    + Etiketter har lagts till i moduler för indata och utdata.
+    + Alternativet `Set as Default` pipelines har lagts till på [fliken slut punkter](how-to-run-batch-predictions-designer.md#versioning-endpoints).
+    + Kortkommandon och skärm läsarenas [hjälpmedels funktioner](designer-accessibility.md)har lagts till.
 
 ## <a name="2020-01-06"></a>2020-01-06
 

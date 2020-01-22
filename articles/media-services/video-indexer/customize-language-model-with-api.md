@@ -1,75 +1,45 @@
 ---
-title: 'Använda API: er för Video Indexer för att anpassa en språkmodell - Azure'
+title: 'Använd Video Indexer-API: er för att anpassa en språk modell – Azure'
 titlesuffix: Azure Media Services
-description: 'Den här artikeln visar hur du anpassar en språkmodell med API: er för Video Indexer.'
+description: 'Den här artikeln visar hur du anpassar en språk modell med Video Indexer API: er.'
 services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7517c8a8745569635a9570c02c851854eebeb96
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799597"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289500"
 ---
-# <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språkmodell med API: er för Video Indexer
+# <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Anpassa en språk modell med Video Indexer API: er
 
-Video Indexer kan du skapa anpassade språkmodeller om du vill anpassa taligenkänning genom att ladda upp anpassning text, nämligen text från domänen vars ordförråd som motorn efter behov. När du tränar modellen, identifieras nya ord visas i texten anpassning. 
+Med Video Indexer kan du skapa anpassade språk modeller för att anpassa tal igenkänning genom att överföra anpassnings text, nämligen text från den domän vars vokabulär du vill att motorn ska anpassa sig till. När du tränar din modell kommer nya ord som visas i anpassnings texten att identifieras. 
 
-En detaljerad översikt och bästa praxis för anpassade språkmodeller finns i [anpassa en språkmodell med Video Indexer](customize-language-model-overview.md).
+En detaljerad översikt och bästa praxis för anpassade språk modeller finns i [Anpassa en språk modell med video Indexer](customize-language-model-overview.md).
 
-Du kan använda API: er för Video Indexer för att skapa och redigera anpassade språkmodeller i ditt konto, enligt beskrivningen i det här avsnittet. Du kan också använda webbplatsen, enligt beskrivningen i [anpassa språkmodellen med Video Indexer webbplats](customize-language-model-with-api.md).
+Du kan använda Video Indexer API: er för att skapa och redigera anpassade språk modeller i ditt konto, enligt beskrivningen i det här avsnittet. Du kan också använda webbplatsen, enligt beskrivningen i [Anpassa språk modell med hjälp av video Indexer webbplats](customize-language-model-with-api.md).
 
-## <a name="create-a-language-model"></a>Skapa en språkmodell
+## <a name="create-a-language-model"></a>Skapa en språk modell
 
-Följande kommando skapar en ny anpassad språkmodell i det angivna kontot. Du kan ladda upp filer för språkmodellen i det här anropet. Du kan också skapa språkmodellen här och ladda upp filer för modellen senare genom att uppdatera språkmodellen.
+Med [skapa ett språk modells](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?) -API skapar du en ny anpassad språk modell i det angivna kontot. Du kan ladda upp filer för språk modellen i det här anropet. Du kan också skapa språk modellen här och ladda upp filer för modellen senare genom att uppdatera språk modellen.
 
 > [!NOTE]
-> Du måste fortfarande träna modellen med dess aktiverade filer för modellen Läs innehållet i filerna. Information om hur du tränar en språk finns i nästa avsnitt.
+> Du måste fortfarande träna modellen med de aktiverade filerna för modellen för att lära dig innehållet i dess filer. Anvisningar för utbildning ett språk finns i nästa avsnitt.
 
-### <a name="request-url"></a>URL för begäran
+Om du vill ladda upp filer som ska läggas till i språk modellen måste du ladda upp filer i texten med hjälp av formulär data förutom att ange värden för de obligatoriska parametrarna ovan. Det finns två sätt att göra detta: 
 
-Det här är en POST-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}&modelName={modelName}&language={language}"
-
---data-ascii "{body}" 
-```
-
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
-
-### <a name="request-parameters"></a>Begäranparametrar
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|modelName|string|Ja|Namn för språkmodellen|
-|language|string|Ja|Språket i språkmodellen. <br/>Den **språk** parametern måste anges språket i BCP-47 formatet ”språk tagg-regioner” (t.ex.: ”en-US”). Språk som stöds är engelska (en-US), tyska (de-DE), spanska (es-SP), arabiska (ar-t.ex.), franska (fr-FR), Hindi (Hej-HI), italienska (it-IT), japanska (ja-JP), portugisiska (pt-BR), ryska (ru-RU) och kinesiska (zh-CN).  |
-
-### <a name="request-body"></a>Begärandetext
-
-Om du vill ladda upp filer som ska läggas till språkmodellen, måste du överföra filer i brödtexten med formulärdata förutom att tillhandahålla värden för de obligatoriska parametrarna som ovan. Det finns två sätt att göra detta: 
-
-1. Nyckeln kommer att filnamnet och värdet kommer att vara txt-fil
-2. Nyckeln kommer att filnamnet och värdet kommer att vara en URL till txt-fil
+1. Nyckeln är fil namnet och värdet är txt-filen
+2. Nyckeln är fil namnet och värdet är en URL till txt-filen
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata om den nyligen skapade språkmodellen tillsammans med metadata på var och en av de modellfiler som följer formatet på de exempel på JSON-utdata.
+Svaret innehåller metadata för den nyligen skapade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata.
 
 ```json
 {
@@ -98,45 +68,16 @@ Svaret innehåller metadata om den nyligen skapade språkmodellen tillsammans me
 
 ```
 
-## <a name="train-a-language-model"></a>Träna en språkmodell
+## <a name="train-a-language-model"></a>Träna en språk modell
 
-Följande kommando träna en anpassad språkmodell i det angivna kontot med innehållet i filer som har överförts till och aktiverat i språkmodellen. 
+[Träna en språk modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train) API tågen en anpassad språk modell i det angivna kontot med innehållet i de filer som överförts till och Aktiver ATS i språk modellen. 
 
 > [!NOTE]
-> Du måste först skapa språkmodellen och överföra dess filer. Du kan överföra filer när du skapar språkmodellen eller genom att uppdatera språkmodellen. 
-
-### <a name="request-url"></a>URL för begäran
-
-Det här är en PUT-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Train?accessToken={accessToken}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Train-Language-Model?&pattern=train).
-
-### <a name="request-parameters"></a>Begäranparametrar
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+> Du måste först skapa språk modellen och överföra dess filer. Du kan ladda upp filer antingen när du skapar språk modellen eller genom att uppdatera språk modellen. 
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata om nyligen tränade språkmodellen tillsammans med metadata på var och en av de modellfiler som följer formatet på de exempel på JSON-utdata.
+Svaret innehåller metadata för den nytränade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata.
 
 ```json
 {
@@ -164,91 +105,33 @@ Svaret innehåller metadata om nyligen tränade språkmodellen tillsammans med m
 }
 ```
 
-Du bör använda den **id** värdet för språkmodellen för den **linguisticModelId** parametern när [ladda upp en video till indexet](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och för den  **languageModelId** parametern när [omindexering en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
+Du bör använda det returnerade **ID-** värdet för språk modellen för **linguisticModelId** -parametern när du [laddar upp en video för att indexera](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) och för **languageModelId** -parametern när du [indexerar om en video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?).
 
-## <a name="delete-a-language-model"></a>Ta bort en språkmodell
-
-Följande kommando tar bort en anpassad språkmodell från det angivna kontot. En video som använde har tagits bort språkmodellen behåller samma index tills du indexera om videon. Om du indexera om videon, kan du tilldela en ny språkmodell till videon. I annat fall använder Video Indexer dess standardmodell för att indexera om videon.
-
-### <a name="request-url"></a>URL för begäran
-
-Det här är en DELETE-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
-```
  
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete).
+## <a name="delete-a-language-model"></a>Ta bort en språk modell
 
-### <a name="request-parameters"></a>Begäranparametrar 
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+[Ta bort ett språk modells](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) -API tar bort en anpassad språk modell från det angivna kontot. Alla videoklipp som använder den borttagna språk modellen behåller samma index tills du Omindexerar videon igen. Om du indexerar om videon kan du tilldela en ny språk modell till videon. Annars kommer Video Indexer använda sin standard modell för att indexera om videon.
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerade innehåll när språkmodellen har tagits bort.
+Det finns inget returnerat innehåll när språk modellen har tagits bort.
 
-## <a name="update-a-language-model"></a>Uppdatera en språkmodell
+## <a name="update-a-language-model"></a>Uppdatera en språk modell
 
-Följande kommando uppdaterar en anpassad person för språkmodell i det angivna kontot.
+[Uppdateringen av ett språk modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update) -API uppdaterar en anpassad språk modell i det angivna kontot.
 
 > [!NOTE]
-> Du måste redan ha skapat språkmodellen. Du kan använda det här anropet för att aktivera eller inaktivera alla filer under modellen, uppdatera namnet på språkmodellen och ladda upp filer som ska läggas till språkmodellen.
+> Du måste redan ha skapat språk modellen. Du kan använda det här anropet för att aktivera eller inaktivera alla filer under modellen, uppdatera namnet på språk modellen och ladda upp filer som ska läggas till i språk modellen.
 
-### <a name="request-url"></a>URL för begäran
+Om du vill ladda upp filer som ska läggas till i språk modellen måste du ladda upp filer i texten med hjälp av formulär data förutom att ange värden för de obligatoriska parametrarna ovan. Det finns två sätt att göra detta: 
 
-Det här är en PUT-begäran.
+1. Nyckeln är fil namnet och värdet är txt-filen
+2. Nyckeln är fil namnet och värdet är en URL till txt-filen
 
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}[&modelName][&enable]
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}?modelName={string}&enable={string}"
-
---data-ascii "{body}" 
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model?&pattern=update).
-
-### <a name="request-parameters"></a>Begäranparametrar 
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|modelName|string|Nej|Nytt namn som du kan ge modellen|
-|Aktivera|boolesk|Nej|Välj om alla filer under den här modellen är aktiverad (SANT) eller inaktiverad (FALSKT)|
-
-### <a name="request-body"></a>Begärandetext
-
-Om du vill ladda upp filer som ska läggas till språkmodellen, måste du överföra filer i brödtexten med formulärdata förutom att tillhandahålla värden för de obligatoriska parametrarna som ovan. Det finns två sätt att göra detta: 
-
-1. Nyckeln kommer att filnamnet och värdet kommer att vara txt-fil
-2. Nyckeln kommer att filnamnet och värdet kommer att vara en URL till txt-fil
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata om nyligen tränade språkmodellen tillsammans med metadata på var och en av de modellfiler som följer formatet på de exempel på JSON-utdata.
+Svaret innehåller metadata för den nytränade språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata.
 
 ```json
 {
@@ -275,47 +158,16 @@ Svaret innehåller metadata om nyligen tränade språkmodellen tillsammans med m
     ]
 }
 ```
-Du kan använda den **id** filernas returnerade här att ladda ned innehållet i filen.
 
-## <a name="update-a-file-from-a-language-model"></a>Uppdatera en fil från en språkmodell
+Använd **ID: t** för de filer som returneras i svaret för att ladda ned innehållet i filen.
 
-Följande kommando gör att du kan uppdatera namn och **aktivera** läget för en fil i en anpassad språkmodell i det angivna kontot.
+## <a name="update-a-file-from-a-language-model"></a>Uppdatera en fil från en språk modell
 
-### <a name="request-url"></a>URL för begäran
-
-Det här är en PUT-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}[&fileName][&enable]
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}?fileName={string}&enable={string}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update).
-
-### <a name="request-parameters"></a>Begäranparametrar 
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountId|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-|fileName|string|Nej|Namn för att uppdatera filnamnet för att|
-|Aktivera|boolesk|Nej|Uppdatera om den här filen är aktiverad (SANT) eller inaktiverad (FALSKT) i språkmodellen|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+Med [Uppdatera en fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Language-Model-file?&pattern=update) kan du uppdatera namnet och **aktiverings** statusen för en fil i en anpassad språk modell i det angivna kontot.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata om filen som du har uppdaterat följande formatet för exempel JSON-utdata nedan.
+Svaret innehåller metadata för den fil som du uppdaterade efter formatet på exemplet JSON-utdata nedan.
 
 ```json
 {
@@ -326,43 +178,15 @@ Svaret innehåller metadata om filen som du har uppdaterat följande formatet f�
   "creationTime": "2018-04-27T20:10:10.5233333"
 }
 ```
-Du kan använda den **id** filens returnerade här att ladda ned innehållet i filen.
+Använd **ID** för filen som returnerades i svaret för att ladda ned innehållet i filen.
 
-## <a name="get-a-specific-language-model"></a>Hämta en specifik språkmodell
+## <a name="get-a-specific-language-model"></a>Hämta en specifik språk modell
 
-Följande kommando returnerar information på den angivna språkmodellen i det angivna kontot som språk och filer som finns i språkmodellen. 
-
-### <a name="request-url"></a>URL för begäran
-
-Det här är en GET-begäran.
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}?accessToken={accessToken}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get).
-
-### <a name="request-parameters-and-request-body"></a>Parametrar för begäran och begärandetexten
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|Språk modell-id (genereras när språkmodellen skapas)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+[Get](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model?&pattern=get) -API: et returnerar information om den angivna språk modellen i det angivna kontot, till exempel språk och de filer som finns i språk modellen. 
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller metadata om den angivna språkmodellen tillsammans med metadata på var och en av de modellfiler som följer formatet på exempel JSON-utdata nedan.
+Svaret innehåller metadata på den angivna språk modellen tillsammans med metadata på var och en av modellens filer som följer formatet på JSON-utdata nedan.
 
 ```json
 {
@@ -390,43 +214,15 @@ Svaret innehåller metadata om den angivna språkmodellen tillsammans med metada
 }
 ```
 
-Du kan använda den **id** filens returnerade här att ladda ned innehållet i filen.
+Använd **ID** för filen som returnerades i svaret för att ladda ned innehållet i filen.
 
-## <a name="get-all-the-language-models"></a>Hämta alla språkmodeller
+## <a name="get-all-the-language-models"></a>Hämta alla språk modeller
 
-Följande kommando returnerar alla anpassade språkmodeller i det angivna kontot i en lista.
-
-### <a name="request-url"></a>URL för begäran
-
-Det här är en hämta-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language?accessToken={accessToken}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get).
-
-### <a name="request-parameters"></a>Begäranparametrar
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+[Hämta alla](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Models?&pattern=get) API: er returnerar alla anpassade språk modeller i det angivna kontot i en lista.
 
 ### <a name="response"></a>Svar
 
-Svaret innehåller en lista över alla språkmodeller i ditt konto och var och en av deras metadata och filer som följer formatet på exempel JSON-utdata nedan.
+Svaret innehåller en lista över alla språk modeller i ditt konto och var och en av deras metadata och filer efter formatet på exemplet JSON-utdata nedan.
 
 ```json
 [
@@ -464,75 +260,17 @@ Svaret innehåller en lista över alla språkmodeller i ditt konto och var och e
 ]
 ```
 
-## <a name="delete-a-file-from-a-language-model"></a>Ta bort en fil från en språkmodell
+## <a name="delete-a-file-from-a-language-model"></a>Ta bort en fil från en språk modell
 
-Följande kommando tar bort den angivna filen från den angivna språkmodellen i det angivna kontot. 
-
-### <a name="request-url"></a>URL för begäran
-
-Det här är en DELETE-begäran.
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete).
-
-### <a name="request-parameters"></a>Begäranparametrar 
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+[Borttagnings](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model-File?&pattern=delete) -API: n tar bort den angivna filen från den angivna språk modellen i det angivna kontot. 
 
 ### <a name="response"></a>Svar
 
-Det finns inget returnerade innehåll när filen tas bort från språkmodellen.
+Det finns inget returnerat innehåll när filen tas bort från språk modellen.
 
-## <a name="get-metadata-on-a-file-from-a-language-model"></a>Hämta metadata för en fil från en språkmodell
+## <a name="get-metadata-on-a-file-from-a-language-model"></a>Hämta metadata för en fil från en språk modell
 
-Detta returnerar innehållet i och metadata på den angivna filen från den valda språkmodellen i på ditt konto.
-
-### <a name="request-url"></a>URL för begäran
-
-Det här är en GET-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-```curl
-curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}?accessToken={accessToken}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model).
-
-### <a name="request-parameters"></a>Begäranparametrar 
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+[Hämta metadata för ett fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Language-Model-File-Data?&pattern=get%20language%20model) -API returnerar innehållet i och metadata för den angivna filen från den valda språk modellen i ditt konto.
 
 ### <a name="response"></a>Svar
 
@@ -550,43 +288,16 @@ Svaret innehåller innehåll och metadata för filen i JSON-format, ungefär så
 ```
 
 > [!NOTE]
-> Innehållet i det här exemplet-filen är ord som ”hello” och world ”i två separata rader.
+> Innehållet i den här exempel filen är orden "Hello" och "World" i två separata rader.
 
-## <a name="download-a-file-from-a-language-model"></a>Hämta en fil från en språkmodell
+## <a name="download-a-file-from-a-language-model"></a>Ladda ned en fil från en språk modell
 
-Följande kommando laddar ned en textfil som innehåller innehållet i den angivna filen från den angivna språkmodellen i det angivna kontot. Den här filen ska matcha innehållet i textfilen som ursprungligen har överförts.
-
-### <a name="request-url"></a>URL för begäran
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}
-```
-
-Nedan visas begäran i Curl.
-
-```curl
-curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Language/{modelId}/Files/{fileId}/download?accessToken={accessToken}"
-```
- 
-[Visa obligatoriska parametrar och testa med hjälp av Video Indexer Developer Portal](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?).
-
-### <a name="request-parameters"></a>Begäranparametrar 
-
-|**Namn**|**Typ**|**Krävs**|**Beskrivning**|
-|---|---|---|---|
-|location|string|Ja|Azure-regionen som anropet ska dirigeras. Mer information finns i [Azure-regioner och Video Indexer](regions.md).|
-|accountID|string|Ja|Globalt unik identifierare för kontot|
-|modelId|string|Ja|ID för språkmodellen som innehåller filen (genereras när språkmodellen skapas)|
-|fileId|string|Ja|ID för den fil som ska uppdateras (genereras när filen har laddats upp när skapandet eller uppdatering av språkmodellen)|
-|accessToken|string|Ja|Åtkomst-token (måste vara av omfång [konto åtkomsttoken](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) att autentisera mot anropet. Åtkomsttoken upphör att gälla inom 1 timme.|
-
-### <a name="request-body"></a>Begärandetext 
-
-Det finns ingen ytterligare begärandetexten som krävs för det här anropet.
+[Hämtningen av ett fil](https://api-portal.videoindexer.ai/docs/services/operations/operations/Download-Language-Model-File-Content?) -API laddar ned en textfil som innehåller innehållet i den angivna filen från den angivna språk modellen i det angivna kontot. Text filen måste matcha innehållet i text filen som ursprungligen överfördes.
 
 ### <a name="response"></a>Svar
 
-Svaret ska ha hämtningen av en textfil med innehållet i filen i JSON-format. 
+Svaret kommer att hämtas till en textfil med innehållet i filen i JSON-format. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Anpassa språkmodellen med hjälp av webbplats](customize-language-model-with-website.md)
+[Anpassa språk modellen med hjälp av webbplats](customize-language-model-with-website.md)

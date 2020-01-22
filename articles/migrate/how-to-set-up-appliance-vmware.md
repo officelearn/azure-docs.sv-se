@@ -3,12 +3,12 @@ title: Konfigurera en Azure Migrate-apparat för VMware
 description: Lär dig hur du konfigurerar en Azure Migrate-apparat för att utvärdera och migrera virtuella VMware-datorer.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: da451149d0420bc71a355fdf4f4fb122b196d5a0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029057"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291948"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Konfigurera en installation för virtuella VMware-datorer
 
@@ -115,7 +115,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 3. Klicka på **Verifiera anslutning** för att kontrol lera att installationen kan ansluta till vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Ange autentiseringsuppgifter för virtuell dator
-För identifiering av program, roller och funktioner och visualisering av beroenden för de virtuella datorerna kan du ange en VM-autentiseringsuppgift som har åtkomst till de virtuella VMware-datorerna. Du kan lägga till en autentiseringsuppgift för virtuella Windows-datorer och en autentiseringsuppgift för virtuella Linux-datorer. [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) om de behörigheter som krävs.
+För identifiering av program, roller och funktioner och visualisering av beroenden för de virtuella datorerna kan du ange en VM-autentiseringsuppgift som har åtkomst till de virtuella VMware-datorerna. Du kan lägga till en autentiseringsuppgift för virtuella Windows-datorer och en autentiseringsuppgift för virtuella Linux-datorer. [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) om de behörigheter som krävs.
 
 > [!NOTE]
 > Den här indatamängden är valfri och behövs för att aktivera program identifiering och visualisering av beroenden för agenter.

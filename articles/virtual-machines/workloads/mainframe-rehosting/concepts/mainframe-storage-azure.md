@@ -1,51 +1,51 @@
 ---
-title: Flytta lagringen för stordatorprogram till Azure Storage
-description: Stora möjligheter till Azure storage-resurser kan hjälpa organisationer att stordatorprogram-baserade migrera och modernisera IBM z14 program.
+title: Flytta stordator lagring till Azure Storage
+description: Massivt skalbara Azure Storage-resurser kan hjälpa stordatorbaserade organisationer att migrera och modernisera IBM Z14-program.
 author: njray
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: dc78f87d9b47745119da91b8ed1f8f6c8572968c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 86419811cdf2c11204caae0ca5bf6f65fba063d2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65190447"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288922"
 ---
-# <a name="move-mainframe-storage-to-azure"></a>Flytta lagringen för stordatorprogram till Azure
+# <a name="move-mainframe-storage-to-azure"></a>Flytta stordator lagring till Azure
 
-För att köra stordatorprogram arbetsbelastningar på Microsoft Azure, som du behöver veta hur dina stordatorprogram funktioner jämfört med Azure. Stora möjligheter till storage-resurser kan hjälpa organisationer börjar modernisera utan att överge de program som de förlitar sig på.
+Om du vill köra stordator belastningar på Microsoft Azure måste du veta hur din stordators funktioner jämför med Azure. De enorma skalbara lagrings resurserna kan hjälpa organisationer att börja modernisera utan att behöva överge de program de använder.
 
-Azure tillhandahåller stordatorprogram-liknande funktioner och lagringskapacitet som är jämförbar med IBM z14-baserade system (den mest aktuella modellen när detta skrivs). Den här artikeln visar hur du hämtar jämförbara resultat på Azure.
+Azure ger stordatorer som liknar funktioner och lagrings kapacitet som är jämförbara med IBM Z14-baserade system (den mest aktuella modellen som skrivs). Den här artikeln beskriver hur du får jämförbara resultat på Azure.
 
-## <a name="mainframe-storage-at-a-glance"></a>Stordatorprogram lagring på ett ögonblick
+## <a name="mainframe-storage-at-a-glance"></a>En snabbt ITT på stordator lagring
 
-IBM-stordatorer karaktäriserar lagring på två sätt. Först är en direkt åtkomst lagringsenhet (DASD). Andra är sekventiella lagring. För att hantera lagring, ger stordatorprogram Data anläggning Storage Management undersystem (DFSMS). Den hanterar åtkomst till olika lagringsenheter.
+IBM-stordatoren karaktäriserar lagring på två sätt. Den första är en lagrings enhet med direkt åtkomst (DASD). Det andra är sekventiell lagring. För att hantera lagring tillhandahåller stordatorer DFSMS (data Facility Storage Management Subsystem). Den hanterar data åtkomst till de olika lagrings enheterna.
 
-[DASD](https://en.wikipedia.org/wiki/Direct-access_storage_device) refererar till en separat enhet för sekundär lagring av (inte i minnet) som gör att en unik adress som ska användas för direkt åtkomst av data. Ursprungligen, termen DASD som används för att skapa diskar, magnetiska FAT eller dataceller. Nu termen kan också gälla Solid State-lagringsenheter (solid-state drive), storage area network (SAN), nätverksansluten lagring (NAS) och optiska enheter. I det här dokumentet betecknas avser DASD centrifugeringsdiskar, SAN-nätverk och SSD.
+[Dasd](https://en.wikipedia.org/wiki/Direct-access_storage_device) refererar till en separat enhet för sekundär lagring (inte i minnet) som gör det möjligt att använda en unik adress för direkt åtkomst till data. Från början gjorde termen DASD till snurrande diskar, Magnet fat eller data celler. Men nu kan termen också gälla för lagrings enheter med solid state (SSD), San (Storage Area Network), Network Attached Storage (NAS) och optiska enheter. I det här dokumentet avser DASD snurrande diskar, San och SSD.
 
-Till skillnad från DASD lagring refererar sekventiella lagring på en stordatorprogram till enheter som bandenheter där data nås från en startpunkt och sedan läsas eller skrivas i en rad.
+I motsats till DASD-lagring, refererar sekventiell lagring på en stordator till enheter som band enheter där data nås från en start punkt och sedan läses eller skrivs på en linje.
 
-Lagringsenheter är vanligtvis kopplade med hjälp av en fiber-anslutning (FICON) eller kan nås direkt på stordatorprogram IO bus med [HiperSockets](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.znetwork/znetwork_85.htm), en IBM-teknik för höghastighetsnätverk kommunikation mellan partitioner på en server med en hypervisor-programmet.
+Lagrings enheter är vanligt vis kopplade via en fiber anslutning (FICON) eller nås direkt på stordatorens IO-buss med [HiperSockets](https://www.ibm.com/support/knowledgecenter/zosbasics/com.ibm.zos.znetwork/znetwork_85.htm), en IBM-teknik för snabb kommunikation mellan partitioner på en server med en hypervisor.
 
-De flesta stordatorprogram system separata lagringsutrymmen i två typer:
+De flesta stordator system är separata lagrings utrymmen i två typer:
 
-- *Onlinelagring* (även kallade frekvent lagring) krävs för dagliga verksamhet. DASD lagring används vanligtvis för detta ändamål. Sekventiella lagring, till exempel daglig säkerhetskopiering till band (logisk eller fysisk), kan dock också användas för detta ändamål.
+- *Online-lagring* (även kallad frekvent lagring) behövs för dagliga åtgärder. DASD-lagring används vanligt vis för det här ändamålet. Sekventiell lagring, t. ex. dagliga band säkerhets kopieringar (logiska eller fysiska), kan också användas för detta ändamål.
 
-- *Arkivlagring* (även kallat kall lagring) är inte säkert att monteras vid en given tidpunkt. Det är i stället monteras och komma åt efter behov. Arkivlagring implementeras ofta med sekventiella bandsäkerhetskopiering (logisk eller fysisk) för lagring.
+- *Arkiv lag* ring (kallas även kall lagring) är inte garanterat att monteras vid en viss tidpunkt. I stället är den monterad och används vid behov. Arkiv lag ring är ofta implementerat med sekventiella band säkerhets kopior (logiska eller fysiska) för lagring.
 
-## <a name="mainframe-versus-io-latency-and-iops"></a>Stordatorprogram jämfört med i/o-svarstid och IOPS
+## <a name="mainframe-versus-io-latency-and-iops"></a>Stordator jämfört med i/o-latens och IOPS
 
-Stordatorer används ofta för program som kräver hög i/o-prestanda och låg latens för i/o. De kan göra detta med hjälp av FICON anslutningar till i/o-enheter och HiperSockets. När HiperSockets används för att ansluta program och enheter direkt till en stordatorprogram-i/o-kanal, kan svarstid i mikrosekunder uppnås.
+Stordatorer används ofta för program som kräver hög prestanda i/o-svars tid. De kan göra detta med hjälp av FICON-anslutningar till IO-enheter och HiperSockets. När HiperSockets används för att ansluta program och enheter direkt till en stordators IO-kanal kan svars tiden i mikrosekunderna uppnås.
 
-## <a name="azure-storage-at-a-glance"></a>Azure storage på ett ögonblick
+## <a name="azure-storage-at-a-glance"></a>En snabbt ITT på Azure Storage
 
-Azure infrastructure-as-a-service ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)) alternativ för lagring ger jämförbara stordatorprogram kapacitet.
+Azure Infrastructure-as-a-Service ([IaaS](https://azure.microsoft.com/overview/what-is-iaas/)) alternativ för lagring ger jämförbar stordator kapacitet.
 
-Microsoft erbjuder petabyte tillhandahåller lagring för program på Azure och du har flera lagringsalternativ. Dessa allt från SSD-lagring för hög prestanda till låg kostnad blob storage för masslagringsenheter och Arkiv. Dessutom Azure tillhandahåller ett alternativ för dataredundans för lagring, något som tar mer arbete för att ställa in i en miljö med stordatorprogram.
+Microsoft erbjuder petabyte lagring för program som finns i Azure och du har flera lagrings alternativ. Detta sträcker sig från SSD-lagring för hög prestanda till blob-lagring med låg kostnad för Mass lagring och arkiv. Dessutom tillhandahåller Azure ett alternativ för dataredundans för lagring – något som tar mer ansträngning att konfigurera i en stordator miljö.
 
-Azure storage är tillgängligt som [Azure Disks](/azure/virtual-machines/windows/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction), och [Azure Blobs](/azure/storage/blobs/storage-blobs-overview) som i följande tabell sammanfattas. Läs mer om [när du ska använda varje](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+Azure Storage är tillgängligt som [Azure-diskar](/azure/virtual-machines/windows/managed-disks-overview), [Azure Files](/azure/storage/files/storage-files-introduction)och [Azure-blobbar](/azure/storage/blobs/storage-blobs-overview) som följande tabell sammanfattar. Läs mer om [när du ska använda dem](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 <!-- markdownlint-disable MD033 -->
 
@@ -57,75 +57,74 @@ Azure storage är tillgängligt som [Azure Disks](/azure/virtual-machines/window
 <tr><td>Azure Files
 </td>
 <td>
-Tillhandahåller ett gränssnitt för SMB, klientbibliotek och en <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">REST</a> gränssnitt som möjliggör åtkomst överallt till lagrade filer.
+Tillhandahåller ett SMB-gränssnitt, klient bibliotek och ett <a href="https://docs.microsoft.com/rest/api/storageservices/file-service-rest-api">rest</a> -gränssnitt som ger åtkomst från var som helst till lagrade filer.
 </td>
 <td><ul>
-<li>Flytta över ett program till molnet när programmet använder filsystemet interna API: er för att dela data mellan dem och andra program som körs i Azure.</li>
-<li>Store utvecklings- och felsökningsverktyg som måste kunna nås från många virtuella datorer.</li>
+<li>Lyft och flytta ett program till molnet när programmet använder inbyggda API: er för fil system för att dela data mellan dem och andra program som körs i Azure.</li>
+<li>Lagra utvecklings-och fel söknings verktyg som behöver nås från många virtuella datorer.</li>
 </ul>
 </td>
 </tr>
-<tr><td>Azure-Blobar
+<tr><td>Azure-blobbar
 </td>
-<td>Tillhandahåller klientbibliotek och en <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">REST</a> gränssnitt som gör att Ostrukturerade data kan lagras och används i massiv skala i blockblobar. Stöder också <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> för enterprise lösningar för analys av stordata.
+<td>Tillhandahåller klient bibliotek och ett <a href="https://docs.microsoft.com/rest/api/storageservices/blob-service-rest-api">rest</a> -gränssnitt som tillåter att ostrukturerade data lagras och används i en enorm skala i block-blobbar. Stöder också <a href="/azure/storage/blobs/data-lake-storage-introduction">Azure Data Lake Storage Gen2</a> för företags lösningar för Big data analys.
 </td>
 <td><ul>
-<li>Stöd direktuppspelning och direktåtkomst scenarier i ett program.</li>
-<li>Ha åtkomst till programdata från var som helst.</li>
-<li>Skapa ett data lake för enterprise på Azure och utföra analyser av stordata.</li>
+<li>Stöd för strömning och slumpmässiga åtkomst scenarier i ett program.</li>
+<li>Ha åtkomst till program data var som helst.</li>
+<li>Skapa ett företags data Lake på Azure och utför stor data analys.</li>
 </ul></td>
 </tr>
 <tr><td>Azure-diskar
 </td>
-<td>Tillhandahåller klientbibliotek och en <a href="https://docs.microsoft.com/rest/api/compute/disks">REST</a> gränssnitt som gör att data kan lagras beständigt och nås från en ansluten virtuell hårddisk.
+<td>Tillhandahåller klient bibliotek och ett <a href="https://docs.microsoft.com/rest/api/compute/disks">rest</a> -gränssnitt som gör att data kan lagras permanent och nås från en ansluten virtuell hård disk.
 </td>
 <td><ul>
-<li>Flytta över program som använder interna filsystemet API: er för att läsa och skriva data till beständiga diskar.</li>
-<li>Store data som inte behövs för åtkomst från utanför den virtuella datorn som disken är ansluten.</li>
+<li>Lyft och Shift-program som använder inbyggda API: er för fil system för att läsa och skriva data till beständiga diskar.</li>
+<li>Lagra data som inte behöver nås från utsidan av den virtuella dator som disken är ansluten till.</li>
 </ul></td>
 </tr>
 </tbody>
 </table>
 <!-- markdownlint-enable MD033 -->
 
-## <a name="azure-hot-online-and-cold-archive-storage"></a>Azure frekvent (online) och kallagring (Arkiv)
+## <a name="azure-hot-online-and-cold-archive-storage"></a>Azure het (online) och kall lagring (Arkiv)
 
-Typ av lagring för ett visst system är beroende av kraven i systemet, inklusive lagringsstorlek, dataflöde och IOPS. För DASD-type lagring på en stordatorprogram använder program på Azure vanligtvis Azure Disks enhet-lagring i stället. För stordatorprogram archive storage används blob storage på Azure.
+Lagrings typen för ett specifikt system beror på systemets krav, inklusive lagrings storlek, data flöde och IOPS. För DASD-typ lagring på en stordator använder program på Azure vanligt vis Azure-diskar enhets lagring i stället. För lagring av stordatorer används Blob Storage i Azure.
 
-SSD ger högsta lagringsprestanda på Azure. Följande alternativ är tillgängliga (från och med skrivning av det här dokumentet):
+SSD ger högsta möjliga lagrings prestanda på Azure. Följande alternativ är tillgängliga (när det här dokumentet skrivs):
 
 | Typ         | Storlek           | IOPS                  |
 |--------------|----------------|-----------------------|
-| Ultra SSD    | 4 GB till 64 TB  | 1 200 160,000 IOPS |
+| Ultra SSD    | 4 GB till 64 TB  | 1 200 till 160 000 IOPS |
 | Premium SSD  | 32 GB till 32 TB | 12 till 15 000 IOPS     |
-| Standard SSD | 32 GB till 32 TB | 12 – 2 000 IOPS      |
+| Standard SSD | 32 GB till 32 TB | 12 till 2 000 IOPS      |
 
-Bloblagring är den största mängden lagringsutrymme på Azure. Förutom lagringsstorleken erbjuder Azure både hanterade och ohanterade lagring. Med hanterad lagring hand Azure tar om att hantera de underliggande lagringskontona. Med ohanterade storage ansvarar användaren för att konfigurera Azure storage-konton av rätt storlek för att uppfylla lagringskraven.
+Blob Storage tillhandahåller störst lagrings volym på Azure. Utöver lagrings storleken erbjuder Azure både hanterade och ohanterade lagrings enheter. Med hanterad lagring sköter Azure hanteringen av de underliggande lagrings kontona. Med ohanterat lagrings utrymme tar användaren ansvar för att konfigurera Azure Storage-konton av lämplig storlek för att uppfylla lagrings kraven.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Stordatormigrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Stordatorprogram rehosting på Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
-- [Flytta stordatorprogram beräkning till Azure](mainframe-compute-Azure.md)
-- [Avgöra när du ska använda Azure Blobs, Azure Files eller Azure-diskar](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
-- [Standard SSD Managed Disks för Azure VM-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
+- [Stordator-migrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
+- [Revärdering av stordatorer på Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Flytta stordator beräkning till Azure](mainframe-compute-Azure.md)
+- [Bestämma när du ska använda Azure-blobbar, Azure Files eller Azure-diskar](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks)
+- [Standard SSD Managed Disks för virtuella Azure-arbetsbelastningar](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)
 
 ### <a name="ibm-resources"></a>IBM-resurser
 
-- [Parallell Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
-- [IBM CICS och funktionen koppling: Bortom grunderna](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Skapa nödvändiga användare för en Db2-pureScale funktionsinstallation](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt - skapa instans-kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
-- [Db2 pureScale klustrade databaslösning](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
+- [Parallella Sysplex på IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
+- [IBM-CICS och kopplings funktionen: utöver grunderna](https://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
+- [Skapa nödvändiga användare för en funktion installation av DB2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Db2icrt – skapa instans kommando](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [DB2 pureScale-klustrad databas lösning](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 - [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
-- [Microsoft Azure Government-molnet för stordatorprogram](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
+- [Microsoft Azure Government moln för stordator program](https://azure.microsoft.com/resources/microsoft-azure-government-cloud-for-mainframe-applications/)
 - [Microsoft och FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/FedRAMP)
 
-### <a name="more-migration-resources"></a>Fler migreringsresurser
+### <a name="more-migration-resources"></a>Fler migrerings resurser
 
-- [Plattformen modernisering Alliance: IBM Db2 i Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Azure Virtual Datacenter Lift and Shift-Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
+- [Guide för att lyfta och flytta Azure Virtual Data Center](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
 - [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

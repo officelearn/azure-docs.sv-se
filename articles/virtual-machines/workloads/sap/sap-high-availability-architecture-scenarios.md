@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/21/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1a52977a46c1222a1626fa5a4dcb4de7dd84f8dd
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638212"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291489"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>Arkitektur och scenarier med hög tillgänglighet för SAP NetWeaver
 
@@ -294,7 +294,7 @@ Azure håller på att genomföra ett koncept i [Azure-tillgänglighetszoner](htt
 Det finns några saker att tänka på när du använder Tillgänglighetszoner. Övervägande listan, t. ex.:
 
 - Du kan inte distribuera Azures tillgänglighets uppsättningar inom en tillgänglighets zon. Du måste välja antingen en tillgänglighets zon eller en tillgänglighets uppsättning som distributions ram för en virtuell dator.
-- Du kan inte använda [Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) för att skapa lösningar för redundanskluster baserat på Windows-kluster tjänster för växling vid fel eller Linux-pacemaker. I stället måste du använda [Azure standard Load Balancer SKU: n](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
+- Du kan inte använda [Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för att skapa lösningar för redundanskluster baserat på Windows-kluster tjänster för växling vid fel eller Linux-pacemaker. I stället måste du använda [Azure standard Load Balancer SKU: n](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)
 - Azure-tillgänglighetszoner inte ger garantier för vissa avstånd mellan olika zoner inom en region
 - Nätverks fördröjningen mellan olika Azure-tillgänglighetszoner i olika Azure-regioner kan skilja sig från Azure region till region. Det finns fall där du som kund kan köra SAP-program lagret distribuerat över olika zoner eftersom nätverks fördröjningen från en zon till den aktiva DBMS-datorn fortfarande är acceptabel från en affärs process. Det kommer att finnas kund scenarier där svars tiden mellan den aktiva DBMS-datorn i en zon och en SAP-programinstans i en virtuell dator i en annan zon kan vara för påträngande och inte accepteras för SAP-affärsprocesserna. Därför måste distributions arkitekturerna vara olika med en aktiv/aktiv-arkitektur för programmet eller aktiv/passiv arkitektur om svars tiden är för hög.
 - Att använda [Azure Managed disks](https://azure.microsoft.com/services/managed-disks/) är obligatoriskt för distribution till Azure-tillgänglighetszoner 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 698c198f58ead88b01b1c4b8b2e1fd9da4198c93
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 0ee3d1d896d99d892d0a41799c4c1695633d29c4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277469"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291506"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>SAP-arbetsbelastningskonfigurationer med Azure-tillgänglighetszoner
 [Azure-tillgänglighetszoner](https://docs.microsoft.com/azure/availability-zones/az-overview) är en av de funktioner för hög tillgänglighet som Azure tillhandahåller. Med Tillgänglighetszoner förbättras övergripande tillgänglighet för SAP-arbetsbelastningar på Azure. Den här funktionen är redan tillgänglig i vissa [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/). I framtiden kommer det att vara tillgängligt i fler regioner.
@@ -58,7 +58,7 @@ När du distribuerar virtuella Azure-datorer i Tillgänglighetszoner och upprät
 - Du måste använda [Azure-Managed disks](https://azure.microsoft.com/services/managed-disks/) när du distribuerar till Azure-tillgänglighetszoner. 
 - Mappningen av zon uppräkningar till fysiska zoner är fast för en Azure-prenumeration. Om du använder olika prenumerationer för att distribuera dina SAP-system måste du definiera de idealiska zonerna för varje prenumeration.
 - Du kan inte distribuera Azures tillgänglighets uppsättningar i en tillgänglighets zon för Azure om du inte använder [Azure närhets placerings grupp](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur du kan distribuera SAP-DBMS-skiktet och de centrala tjänsterna över zoner och samtidigt distribuera SAP-programlagret med tillgänglighets uppsättningar och fortfarande uppnå nära de virtuella datorerna finns dokumenterade i artikelernas [närhets grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md). Om du inte använder Azure närhets placerings grupper måste du välja en eller en annan som distributions ramverk för virtuella datorer.
-- Du kan inte använda ett [Azure Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) för att skapa lösningar för redundanskluster som baseras på Windows Server-redundanskluster eller Linux-pacemaker. I stället måste du använda [Azure standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
+- Du kan inte använda ett [Azure Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för att skapa lösningar för redundanskluster som baseras på Windows Server-redundanskluster eller Linux-pacemaker. I stället måste du använda [Azure standard load BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones).
 
 
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/07/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 68c50d3455c0ed240fa62532818a0b07b39ec772
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889513"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290401"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Migrera till Azure Kubernetes service (AKS)
 
@@ -45,7 +45,7 @@ I den här artikeln sammanfattas information om migreringen för:
 > * Se till att giltiga kvoter
 > * Hög tillgänglighet och affärs kontinuitet
 > * Överväganden för tillstånds lösa program
-> * Överväganden för statefull-program
+> * Överväganden för tillstånds känsliga program
 > * Distribution av kluster konfigurationen
 
 ## <a name="aks-with-standard-load-balancer-and-virtual-machine-scale-sets"></a>AKS med Standard Load Balancer och Virtual Machine Scale Sets
@@ -111,7 +111,7 @@ För att slutföra migreringen vill du peka klienter till de nya tjänster som k
 
 Tillstånds lös programmigrering är det enklaste fallet. Tillämpa dina resurs definitioner (YAML eller Helm) på det nya klustret, se till att allt fungerar som förväntat och dirigera om trafik för att aktivera det nya klustret.
 
-### <a name="considers-for-stateful-applications"></a>Tar hänsyn till tillstånds känsliga program
+### <a name="considerations-for-stateful-applications"></a>Överväganden för tillstånds känsliga program
 
 Planera noggrant migreringen av tillstånds känsliga program för att undvika data förlust eller oväntad stillestånds tid.
 
@@ -161,7 +161,7 @@ Vissa verktyg med öppen källkod kan hjälpa dig att skapa hanterade diskar och
 
 ### <a name="deployment-of-your-cluster-configuration"></a>Distribution av kluster konfigurationen
 
-Vi rekommenderar att du använder din befintliga-pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för att distribuera en fungerande konfiguration till AKS. Du kan använda Azure-pipelines för att [bygga och distribuera dina program till AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops) klona dina befintliga distributions uppgifter och se till att `kubeconfig` pekar på det nya AKS-klustret.
+Vi rekommenderar att du använder din befintliga-pipeline för kontinuerlig integrering (CI) och kontinuerlig leverans (CD) för att distribuera en fungerande konfiguration till AKS. Du kan använda Azure-pipelines för att [bygga och distribuera dina program till AKS](https://docs.microsoft.com/azure/devops/pipelines/ecosystems/kubernetes/aks-template?view=azure-devops). Klona dina befintliga distributions uppgifter och se till att `kubeconfig` pekar på det nya AKS-klustret.
 
 Om detta inte är möjligt exporterar du resurs definitioner från ditt befintliga Kubernetes-kluster och tillämpar dem sedan på AKS. Du kan använda `kubectl` för att exportera objekt.
 
@@ -177,5 +177,5 @@ I den här artikeln sammanfattas information om migreringen för:
 > * Se till att giltiga kvoter
 > * Hög tillgänglighet och affärs kontinuitet
 > * Överväganden för tillstånds lösa program
-> * Överväganden för statefull-program
+> * Överväganden för tillstånds känsliga program
 > * Distribution av kluster konfigurationen

@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: df0c90ba3784acb96bd9f76a436ff2746f7efe2c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a3d8c8769ff5026ec1dde98f3c4167aac302bf8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76262443"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292951"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatisera resurs distributionen för din Function-app i Azure Functions
 
@@ -129,6 +129,7 @@ Function app-resursen definieras genom att använda en resurs av typen **Microso
         "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]",
         "[resourceId('Microsoft.Insights/components', variables('appInsightsName'))]"
     ]
+}
 ```
 
 > [!IMPORTANT]
@@ -138,7 +139,7 @@ En Function-app måste innehålla följande program inställningar:
 
 | Inställningsnamn                 | Beskrivning                                                                               | Exempelvärden                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
-| AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime för intern kö | Se [lagrings konto](#storage)       |
+| AzureWebJobsStorage          | En anslutnings sträng till ett lagrings konto som Functions runtime använder för intern kö | Se [lagrings konto](#storage)       |
 | FUNCTIONS_EXTENSION_VERSION  | Versionen av Azure Functions runtime                                                | `~2`                                  |
 | FUNCTIONS_WORKER_RUNTIME     | Språk stacken som ska användas för funktioner i den här appen                                   | `dotnet`, `node`, `java`, `python`eller `powershell` |
 | WEBSITE_NODE_DEFAULT_VERSION | Krävs endast om du använder `node` språks Tacken, anger vilken version som ska användas              | `10.14.1`                             |
@@ -174,7 +175,7 @@ De här egenskaperna anges i `appSettings`-samlingen i `siteConfig`-egenskapen:
 
 ## <a name="deploy-on-consumption-plan"></a>Distribuera förbruknings plan
 
-Förbruknings planen allokerar automatiskt beräknings kraft när koden körs, skalar vid behov för att hantera belastningen och skalar sedan ned när koden inte körs. Du behöver inte betala för inaktiva virtuella datorer och du behöver inte reservera kapacitet i förväg. Läs mer i [Azure Functions skala och vara värd](functions-scale.md#consumption-plan).
+Förbruknings planen allokerar automatiskt beräknings kraft när koden körs, skalar vid behov för att hantera belastningen och skalar sedan i när koden inte körs. Du behöver inte betala för inaktiva virtuella datorer och du behöver inte reservera kapacitet i förväg. Läs mer i [Azure Functions skala och vara värd](functions-scale.md#consumption-plan).
 
 Ett exempel på en Azure Resource Manager mall finns i [Function app i förbruknings plan].
 

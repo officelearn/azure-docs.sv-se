@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: efb4e4f68935898c083c1dbca6a6c64512544095
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 83d5b7ffb49a08d02d5dd34ad561ce725ead7e0e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263480"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289143"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -58,7 +58,7 @@ Innan du kan skapa en anslutning måste du lägga till ITSM-anslutningsprogram-l
 3. I avsnittet **OMS-arbetsyta** väljer du den Azure Log Analytics-arbetsyta där du vill installera lösningen.
    >[!NOTE]
    > * Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-arbetsytor nu Log Analytics arbets ytor.
-   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra Europa, Sydostasien, sydöstra Australien, västra centrala USA, Östra Japan, södra Storbritannien, centrala Indien, centrala Kanada, västra 2; USA, södra centrala USA.
+   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, västra 2; USA, södra centrala USA, västra centrala USA, centrala Kanada, Västeuropa, södra Storbritannien, Sydostasien, Östra Japan, centrala Indien, sydöstra Australien.
 
 4. I avsnittet **Inställningar för OMS-arbetsyta** väljer du den ResourceGroup där du vill skapa lösnings resursen.
 

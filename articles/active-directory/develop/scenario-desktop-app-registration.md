@@ -17,20 +17,20 @@ ms.date: 09/09/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dabc96ef669f0c0c61a7bca4a16828294cf404df
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 878f942bf36fef999b90274b81eaa7735afa73e5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423842"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293359"
 ---
-# <a name="desktop-app-that-calls-web-apis---app-registration"></a>Stationär app som anropar webb-API: er – app-registrering
+# <a name="desktop-app-that-calls-web-apis-app-registration"></a>Skriv bords app som anropar webb-API: registrera appar
 
 Den här artikeln beskriver app-registreringen av specifika program för ett Skriv bords program.
 
-## <a name="supported-accounts-types"></a>Typer av konton som stöds
+## <a name="supported-account-types"></a>Kontotyper som stöds
 
-De konto typer som stöds i Skriv bords program beror på vilken upplevelse du vill se. På grund av den här relationen är de konto typer som stöds beroende av de flöden som du vill använda.
+De konto typer som stöds i ett Skriv bords program beror på vilken upplevelse du vill se. På grund av den här relationen är de konto typer som stöds beroende av de flöden som du vill använda.
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Mål grupp för hämtning av interaktiva token
 
@@ -38,30 +38,30 @@ Om ditt Skriv bords program använder interaktiv autentisering kan du logga in a
 
 ### <a name="audience-for-desktop-app-silent-flows"></a>Mål grupp för tyst flöden i Desktop-appen
 
-- Om du vill använda integrerad Windows-autentisering eller användar namn/lösen ord måste ditt program logga in användare i din egen klient organisation (LOB-utvecklare) eller i Azure Active Directory-organisationer (ISV-scenario). Dessa autentiserings flöden stöds inte för Microsoft-personliga konton.
-- Om du vill använda enhets kod flödet kan du inte logga in användare med sina Microsoft-personliga konton ännu.
-- Om du loggar in användare med sociala identiteter som skickar en B2C-auktoritet och-princip kan du bara använda autentiseringen interaktiv och username-Password.
+- Om du vill använda integrerad Windows-autentisering eller ett användar namn och ett lösen ord måste ditt program logga in användare i din egen klient, till exempel om du är en affärsutvecklare (LOB). Eller, i Azure Active Directory organisationer, måste ditt program logga in användare i din egen klient om det är ett ISV-scenario. Dessa autentiserings flöden stöds inte för Microsoft-personliga konton.
+- Om du vill använda enhets kod flödet kan du inte logga in användare med sina personliga Microsoft-konton ännu.
+- Om du loggar in användare med sociala identiteter som skickar en B2C-auktoritet (Business-to-Commerce) och-princip kan du bara använda autentiseringen interaktiv och username-Password.
 
 ## <a name="redirect-uris"></a>Omdirigerings-URI:er
 
-Omdirigerings-URI: erna som ska användas i Skriv bords program beror på det flöde som du vill använda.
+De omdirigerings-URI: er som ska användas i ett Skriv bords program beror på det flöde som du vill använda.
 
-- Om du använder den **interaktiva autentiseringen** eller **enhets kod flödet**ska du använda `https://login.microsoftonline.com/common/oauth2/nativeclient`. Du uppnår den här konfigurationen genom att klicka på motsvarande URL i avsnittet **autentisering** för ditt program.
+- Om du använder interaktiv autentisering eller enhets kod flöde använder du `https://login.microsoftonline.com/common/oauth2/nativeclient`. Välj motsvarande URL i avsnittet **autentisering** för ditt program för att uppnå den här konfigurationen.
   
   > [!IMPORTANT]
-  > I dag MSAL.NET används en annan omdirigerings-URI som standard i Skriv bords program som körs på Windows (`urn:ietf:wg:oauth:2.0:oob`). I framtiden kommer vi att vilja ändra denna standardinställning och vi rekommenderar därför att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient`
+  > Idag använder MSAL.NET en annan omdirigerings-URI som standard i Skriv bords program som körs på Windows (`urn:ietf:wg:oauth:2.0:oob`). I framtiden kommer vi att vilja ändra denna standard, så vi rekommenderar att du använder `https://login.microsoftonline.com/common/oauth2/nativeclient`.
 
-- Om du skapar en intern mål-C-eller Swift-app för macOS vill du registrera redirectUri baserat på programmets paket-ID i följande format: **msauth. <. app. bundle. id >://auth** (Ersätt < filen. app. bundle. ID > med programmets paket identifierare)
-- Om din app endast använder integrerad Windows-autentisering eller användar namn/lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. De här flödena gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten och programmet kommer inte att anropas tillbaka på någon specifik URI.
-- Om du vill särskilja enhets kod flödet, integrerad Windows-autentisering och användar namn/lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er (det flöde för klientautentisering som används i daemon-program), måste du uttrycka att ditt program är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du sedan **Ja** för frågan **behandla programmet som en offentlig klient**.
+- Om du skapar en ursprunglig mål-C-eller Swift-app för macOS registrerar du omdirigerings-URI: n baserat på programmets paket-ID i följande format: msauth. <. app. bundle. ID >://auth. Ersätt <. app. bundle. ID > med programmets paket-ID.
+- Om din app endast använder integrerad Windows-autentisering eller ett användar namn och ett lösen ord, behöver du inte registrera en omdirigerings-URI för programmet. Dessa flöden gör en tur och retur till Microsoft Identity Platform v 2.0-slutpunkten. Programmet kommer inte att anropas igen på någon specifik URI.
+- Om du vill särskilja enhets kod flödet, integrerad Windows-autentisering och ett användar namn och ett lösen ord från ett konfidentiellt klient program flöde som inte har omdirigerings-URI: er antingen (det flöde för klientautentisering som används i daemon-program) måste du uttrycka att ditt program är ett offentligt klient program. För att uppnå den här konfigurationen går du till avsnittet **autentisering** för ditt program. I underavsnittet **Avancerade inställningar** i stycket **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**.
 
   ![Tillåt offentlig klient](media/scenarios/default-client-type.png)
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Skriv bords program anropar API: er för den inloggade användaren. De måste begära delegerade behörigheter. De kan dock inte begära program behörigheter, som endast hanteras i daemon- [program](scenario-daemon-overview.md).
+Skriv bords program anropar API: er för den inloggade användaren. De måste begära delegerade behörigheter. De kan inte begära program behörigheter, som endast hanteras i [daemon-program](scenario-daemon-overview.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [App-app-konfiguration](scenario-desktop-app-configuration.md)
+> [Desktop-app: app-konfiguration](scenario-desktop-app-configuration.md)

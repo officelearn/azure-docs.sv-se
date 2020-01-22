@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/30/2019
-ms.openlocfilehash: 1002a19506ad0a59cb24ae4edb1f7c9726d68cb2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170867"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290350"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -94,7 +94,7 @@ Alla data hämtas från en Log Analytics-arbetsyta med hjälp av en logg fråga 
 Alla loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yta. En arbets yta är i grunden en behållare där loggdata samlas in från olika källor. Du kan ha en enda Log Analytics arbets yta för alla dina övervaknings data eller så kan det finnas krav för flera arbets ytor. Se [utforma distributioner av Azure Monitor loggar](platform/design-logs-deployment.md).
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Kan du flytta en befintlig Log Analytics arbets yta till en annan Azure-prenumeration?
-Du kan flytta en arbets yta mellan resurs grupper eller prenumerationer, men inte till en annan region. Se [flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp](/platform/move-workspace.md).
+Du kan flytta en arbets yta mellan resurs grupper eller prenumerationer, men inte till en annan region. Se [flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp](platform/move-workspace.md).
 
 
 ## <a name="alerts"></a>Aviseringar
@@ -345,7 +345,7 @@ Använd en enda resurs för alla komponenter eller roller i ett enda företags s
 ### <a name="what-are-the-user-and-session-counts"></a>Vad är antalet användare och sessioner?
 
 * Java Script SDK anger en användar-cookie på webb klienten, för att identifiera användare och en sessions-cookie för att gruppera aktiviteter.
-* Om det inte finns något skript på klient sidan kan du [Ange cookies på servern](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-app/).
+* Om det inte finns något skript på klient sidan kan du [Ange cookies på servern](https://apmtips.com/blog/2016/07/09/tracking-users-in-api-apps/).
 * Om en riktig användare använder din webbplats i olika webbläsare, eller använder privat/Incognito-surfning eller olika datorer, kommer de att räknas mer än en gång.
 * Om du vill identifiera en inloggad användare på datorer och webbläsare lägger du till ett anrop till [setAuthenticatedUserContext ()](app/api-custom-events-metrics.md#authenticated-users).
 
@@ -455,7 +455,7 @@ Din gateway ska dirigera trafik till vår slut punkts bas adress. I konfiguratio
 #### <a name="proxy-passthrough"></a>Proxy-genomströmning
 
 Du kan åstadkomma proxy genom att konfigurera antingen en proxy på dator nivå eller på program nivå.
-Mer information finns i dotNet-artikeln på [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-app/file-schema/network/defaultproxy-element-network-settings).
+Mer information finns i dotNet-artikeln på [DefaultProxy](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
  
  Exempel Web. config:
  ```xml

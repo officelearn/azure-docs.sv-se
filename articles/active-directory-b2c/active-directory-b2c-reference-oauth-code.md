@@ -11,12 +11,12 @@ ms.date: 02/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d738bfb8bcd11c8da4c39d873c7f298b8c49af98
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e813a16416343954ea92813cb53bbd81f1977320
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167200"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290129"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>OAuth 2,0 Authorization Code Flow i Azure Active Directory B2C
 
@@ -60,9 +60,9 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | response_type |Krävs |Svars typen, som måste innehålla `code` för flödets auktoriseringskod. |
 | redirect_uri |Krävs |Omdirigerings-URI för appen, där autentiseringsbegäranden skickas och tas emot av din app. Det måste exakt matcha en av de omdirigerings-URI: er som du har registrerat i portalen, förutom att den måste vara URL-kodad. |
 | omfång |Krävs |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar att Azure Active Directory (Azure AD) båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser. Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
-| response_mode |Rekommenderas |Den metod som du använder för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `query`, `form_post`eller `fragment`. |
-| state |Rekommenderas |Ett värde som ingår i begäran som kan vara en sträng med innehåll som du vill använda. Normalt används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en webbplats. Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel sidan användaren var på eller det användar flöde som kördes. |
-| visas |Valfri |Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login`, vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. Enkel inloggning träder inte i kraft. |
+| response_mode |Rekommenderad |Den metod som du använder för att skicka den resulterande auktoriseringskod tillbaka till din app. Det kan vara `query`, `form_post`eller `fragment`. |
+| state |Rekommenderad |Ett värde som ingår i begäran som kan vara en sträng med innehåll som du vill använda. Normalt används ett slumpmässigt genererat unikt värde för att förhindra förfalsknings attacker på begäran från en webbplats. Det här läget används också för att koda information om användarens tillstånd i appen innan autentiseringsbegäran inträffat. Till exempel sidan användaren var på eller det användar flöde som kördes. |
+| visas |Valfritt |Typ av användar interaktion som krävs. För närvarande är det enda giltiga värdet `login`, vilket tvingar användaren att ange sina autentiseringsuppgifter för begäran. Enkel inloggning träder inte i kraft. |
 
 Nu uppmanas användaren att slutföra användar flödets arbets flöde. Detta kan innebära att användaren anger sitt användar namn och lösen ord, loggar in med en social identitet, registrerar sig för katalogen eller något annat antal steg. Användar åtgärder är beroende av hur användar flödet definieras.
 
@@ -92,7 +92,7 @@ error=access_denied
 
 | Parameter | Beskrivning |
 | --- | --- |
-| error |En fel kods sträng som du kan använda för att klassificera de typer av fel som inträffar. Du kan också använda strängen för att reagera på fel. |
+| fel |En fel kods sträng som du kan använda för att klassificera de typer av fel som inträffar. Du kan också använda strängen för att reagera på fel. |
 | error_description |Ett fel meddelande som kan hjälpa dig att identifiera rotor saken till ett autentiseringsfel. |
 | state |Se den fullständiga beskrivningen i föregående tabell. Om en `state`-parameter ingår i begäran ska samma värde visas i svaret. Appen bör verifiera att `state` värden i begäran och svaret är identiska. |
 
@@ -102,8 +102,8 @@ Nu när du har skaffat en auktoriseringskod kan du lösa in `code` för en token
 Du kan också begära en åtkomsttoken för appens egna Server dels webb-API genom att använda appens klient-ID som begärda omfång (vilket leder till en åtkomsttoken med klient-ID: t som mål grupp):
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -117,7 +117,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com).|
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt och används därför inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
 | grant_type |Krävs |Typ av beviljande. För Authorization Code Flow måste tilldelnings typen `authorization_code`. |
-| omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
+| omfång |Rekommenderad |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
 | code |Krävs |Den auktoriseringskod som du förvärvade i den första delen av flödet. |
 | redirect_uri |Krävs |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
 
@@ -153,7 +153,7 @@ Fel svar ser ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| error |En fel kods sträng som du kan använda för att klassificera de typer av fel som inträffar. Du kan också använda strängen för att reagera på fel. |
+| fel |En fel kods sträng som du kan använda för att klassificera de typer av fel som inträffar. Du kan också använda strängen för att reagera på fel. |
 | error_description |Ett fel meddelande som kan hjälpa dig att identifiera rotor saken till ett autentiseringsfel. |
 
 ## <a name="3-use-the-token"></a>3. Använd token
@@ -169,8 +169,8 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 Åtkomsttoken och ID-token är korta. När de har gått ut måste du uppdatera dem för att fortsätta att få åtkomst till resurser. Det gör du genom att skicka en ny POST-begäran till `/token` slut punkten. Nu anger du `refresh_token` i stället för `code`:
 
 ```HTTP
-POST {tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
-Host: {tenant}.b2clogin.com
+POST https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/token HTTP/1.1
+
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
@@ -183,8 +183,8 @@ grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90
 | client_id |Krävs |Det program-ID som har tilldelats din app i [Azure Portal](https://portal.azure.com). |
 | client_secret | Ja, i Web Apps | Den program hemlighet som genererades i [Azure Portal](https://portal.azure.com/). Klient hemligheter används i det här flödet för scenarier med webb program, där klienten kan lagra en klient hemlighet på ett säkert sätt. För interna app-scenarier (offentliga klienter) kan inte klient hemligheter lagras på ett säkert sätt och används därför inte i det här anropet. Om du använder en klient hemlighet måste du ändra den regelbundet. |
 | grant_type |Krävs |Typ av beviljande. För den här delen av koden för auktoriseringskod måste tilldelnings typen `refresh_token`. |
-| omfång |Rekommenderas |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
-| redirect_uri |Valfri |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
+| omfång |Rekommenderad |En blankstegsavgränsad lista över omfång. Ett enda omfattnings värde indikerar Azure AD båda de behörigheter som begärs. Med hjälp av klient-ID som omfånget anger att din app behöver en åtkomsttoken som kan användas för din egen tjänst eller ditt webb-API som representeras av samma klient-ID.  `offline_access` omfånget indikerar att appen behöver en uppdateringstoken för långvarig åtkomst till resurser.  Du kan också använda `openid` omfång för att begära en ID-token från Azure AD B2C. |
+| redirect_uri |Valfritt |Omdirigerings-URI för programmet där du fick auktoriseringskod. |
 | refresh_token |Krävs |Den ursprungliga uppdateringstoken som du förvärvade i den andra delen av flödet. |
 
 Ett lyckat token-svar ser ut så här:
@@ -219,7 +219,7 @@ Fel svar ser ut så här:
 
 | Parameter | Beskrivning |
 | --- | --- |
-| error |En fel kods sträng som du kan använda för att klassificera typer av fel som inträffar. Du kan också använda strängen för att reagera på fel. |
+| fel |En fel kods sträng som du kan använda för att klassificera typer av fel som inträffar. Du kan också använda strängen för att reagera på fel. |
 | error_description |Ett fel meddelande som kan hjälpa dig att identifiera rotor saken till ett autentiseringsfel. |
 
 ## <a name="use-your-own-azure-ad-b2c-directory"></a>Använda din egen Azure AD B2C katalog

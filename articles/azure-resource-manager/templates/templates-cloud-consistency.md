@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 0c69c90410aab7fa37ab87e82314c53e4459ca25
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155663"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290656"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Utveckla Azure Resource Manager-mallar för att få konsekvens i molnet
 
@@ -55,7 +55,7 @@ Azure Resource Manager-funktioner kommer alltid att läggas till globala Azure f
 
 1. När du har en lokal klon av lagringsplatsen kan du ansluta till målet Azure Resource Manager med PowerShell.
 
-1. Importera psm1-modulen och kör cmdleten test-AzureRmureRmTemplateFunctions:
+1. Importera modulen psm1 och kör cmdleten Test-AzureRmTemplateFunctions:
 
    ```powershell
    # Import the module

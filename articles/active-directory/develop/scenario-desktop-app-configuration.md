@@ -15,27 +15,27 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1724c25ef2d85aa8f838811864104b49576a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 473f0895ca53fb78b48c828eac807feb25364378
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423902"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293138"
 ---
-# <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Skriv bords app som anropar webb-API: er – kod konfiguration
+# <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Skriv bords app som anropar webb-API: kod konfiguration
 
 Nu när du har skapat ditt program får du lära dig hur du konfigurerar koden med programmets koordinater.
 
-## <a name="msal-libraries"></a>MSAL-bibliotek
+## <a name="microsoft-authentication-libraries"></a>Microsoft Authentication libraries
 
-Microsoft-bibliotek som stöder Desktop-program är:
+Följande Microsoft-MSALs (Authentication Libraries) stöder Skriv bords program.
 
-  MSAL-bibliotek | Beskrivning
+  Microsofts autentiseringsbibliotek | Beskrivning
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Har stöd för att skapa ett Skriv bords program på flera plattformar – Linux, Windows och MacOS
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Har stöd för att skapa ett Skriv bords program på flera plattformar, till exempel Linux, Windows och macOS.
   ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Har stöd för att skapa ett Skriv bords program på flera plattformar.
   ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Har stöd för att skapa ett Skriv bords program på flera plattformar.
-  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Stöd för Skriv bords program som körs på macOS
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | Stöder Skriv bords program som bara körs på macOS.
 
 ## <a name="public-client-application"></a>Offentligt klient program
 
@@ -49,14 +49,14 @@ Du behöver bygga och manipulera MSAL.NET-`IPublicClientApplication`.
 
 ### <a name="exclusively-by-code"></a>Enbart med kod
 
-Följande kod instansierar ett offentligt klient program, inloggnings användare i det Microsoft Azure offentliga molnet, med ett arbets-och skol konto eller en personlig Microsoft-konto.
+Följande kod instansierar ett offentligt klient program och loggar in användare i det Microsoft Azure offentliga molnet med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 
 ```csharp
 IPublicClientApplication app = PublicClientApplicationBuilder.Create(clientId)
     .Build();
 ```
 
-Om du avser att använda interaktiv autentisering eller enhets kod flöde, som du ser ovan, vill du använda `.WithRedirectUri` modifieraren:
+Om du avser att använda interaktiv autentisering eller enhets kod flöde, som du tidigare sett, använder du `.WithRedirectUri` modifieraren.
 
 ```csharp
 IPublicClientApplication app;
@@ -65,9 +65,9 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="using-configuration-files"></a>Använda konfigurationsfiler
+### <a name="use-configuration-files"></a>Använda konfigurationsfiler
 
-Följande kod instansierar ett offentligt klient program från ett konfigurations objekt, som kan fyllas i program mässigt eller läses från en konfigurations fil
+Följande kod instansierar ett offentligt klient program från ett konfigurations objekt, som kan fyllas i program mässigt eller läsas från en konfigurations fil.
 
 ```csharp
 PublicClientApplicationOptions options = GetOptions(); // your own method
@@ -78,7 +78,7 @@ IPublicClientApplication app = PublicClientApplicationBuilder.CreateWithApplicat
 
 ### <a name="more-elaborated-configuration"></a>Mer avancerad konfiguration
 
-Du kan utveckla program byggnaden genom att lägga till ett antal modifierare. Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
+Du kan utveckla program byggnaden genom att lägga till ett antal modifierare. Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln, till exempel amerikanska myndigheter som visas här, kan du skriva:
 
 ```csharp
 IPublicClientApplication app;
@@ -89,7 +89,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-MSAL.NET innehåller också en modifierare för ADFS 2019:
+MSAL.NET innehåller också en modifierare för Active Directory Federation Services (AD FS) 2019:
 
 ```csharp
 IPublicClientApplication app;
@@ -98,7 +98,7 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-Slutligen, om du vill hämta token för en Azure AD B2C-klient, kan du ange din klient som visas i följande kodfragment:
+Slutligen, om du vill hämta token för en Azure Active Directory (Azure AD) B2C-klient, anger du din klient organisation så som visas i följande kodfragment:
 
 ```csharp
 IPublicClientApplication app;
@@ -111,8 +111,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Lär dig mer om hur du konfigurerar ett MSAL.NET Desktop-program:
 
-- Listan över alla modifierare som är tillgängliga på `PublicClientApplicationBuilder`finns i referens dokumentationen [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
-- För en beskrivning av alla alternativ som visas i `PublicClientApplicationOptions` se [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), i referens dokumentationen
+- En lista över alla modifierare som är tillgängliga på `PublicClientApplicationBuilder`finns i referens dokumentationen [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- En beskrivning av alla alternativ som visas i `PublicClientApplicationOptions`finns i [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) i referens dokumentationen.
 
 ### <a name="complete-example-with-configuration-options"></a>Slutför exempel med konfigurations alternativ
 
@@ -132,7 +132,7 @@ Föreställ dig ett .NET Core-konsolprogram med följande `appsettings.json` kon
 }
 ```
 
-Du har lite kod för att läsa den här filen med .NET-angivet konfigurations ramverk.
+Du har lite kod att läsa i den här filen med hjälp av. NET-tillhandahållet konfigurations ramverk:
 
 ```csharp
 public class SampleConfiguration
@@ -143,13 +143,13 @@ public class SampleConfiguration
  public PublicClientApplicationOptions PublicClientApplicationOptions { get; set; }
 
  /// <summary>
- /// Base URL for Microsoft Graph (it varies depending on whether the application is ran
- /// in Microsoft Azure public clouds or national / sovereign clouds
+ /// Base URL for Microsoft Graph (it varies depending on whether the application runs
+ /// in Microsoft Azure public clouds or national or sovereign clouds)
  /// </summary>
  public string MicrosoftGraphBaseEndpoint { get; set; }
 
  /// <summary>
- /// Reads the configuration from a json file
+ /// Reads the configuration from a JSON file
  /// </summary>
  /// <param name="path">Path to the configuration json file</param>
  /// <returns>SampleConfiguration as read from the json file</returns>
@@ -162,7 +162,7 @@ public class SampleConfiguration
                     .AddJsonFile(path);
   Configuration = builder.Build();
 
-  // Read the auth and graph endpoint config
+  // Read the auth and graph endpoint configuration
   SampleConfiguration config = new SampleConfiguration()
   {
    PublicClientApplicationOptions = new PublicClientApplicationOptions()
@@ -175,7 +175,7 @@ public class SampleConfiguration
 }
 ```
 
-För att skapa programmet behöver du nu bara skriva följande kod:
+Skriv nu följande kod för att skapa programmet:
 
 ```csharp
 SampleConfiguration config = SampleConfiguration.ReadFromJsonFile("appsettings.json");
@@ -184,11 +184,11 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-innan anropet till `.Build()`-metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
+Innan anropet till `.Build()`-metoden kan du åsidosätta konfigurationen med anrop till `.WithXXX` metoder som visas ovan.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Här är klassen som används i MSAL java dev-exempel för att konfigurera exemplen: [testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+Här är klassen som används i MSAL Java-utvecklingsprogram för att konfigurera exemplen: [testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
 
 ```Java
 PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
@@ -211,7 +211,7 @@ app = msal.PublicClientApplication(
 
 # <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
-Följande kod instansierar ett offentligt klient program, inloggnings användare i det Microsoft Azure offentliga molnet, med ett arbets-och skol konto eller en personlig Microsoft-konto.
+Följande kod instansierar ett offentligt klient program och loggar in användare i det Microsoft Azure offentliga molnet med ett arbets-eller skol konto eller en personlig Microsoft-konto.
 
 ### <a name="quick-configuration"></a>Snabb konfiguration
 
@@ -232,7 +232,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 ### <a name="more-elaborated-configuration"></a>Mer avancerad konfiguration
 
-Du kan utveckla program byggnaden genom att lägga till ett antal modifierare. Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln (här, amerikanska myndigheter) kan du skriva:
+Du kan utveckla program byggnaden genom att lägga till ett antal modifierare. Om du till exempel vill att ditt program ska vara ett program med flera innehavare i ett nationellt moln, till exempel amerikanska myndigheter som visas här, kan du skriva:
 
 Mål-C:
 

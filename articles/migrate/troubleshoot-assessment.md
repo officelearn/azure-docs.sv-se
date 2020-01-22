@@ -7,14 +7,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 3098e85fd21b6185defc4bbcf0a71d412846ab25
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: fb1e32d9f67febb09eadfb5d31221db33504eb05
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725746"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289483"
 ---
-# <a name="troubleshoot-assessmentdependency-visualization"></a>Felsök bedömning/beroende visualisering
+# <a name="troubleshoot-assessmentdependency-visualization"></a>Felsöka utvärdering/beroendevisualisering
 
 Den här artikeln hjälper dig att felsöka problem med utvärderings-och beroende visualisering med [Azure Migrate: Server utvärdering](migrate-services-overview.md#azure-migrate-server-assessment-tool).
 
@@ -92,6 +92,7 @@ Server utvärderings rapporter "PercentageOfCoresUtilizedMissing" eller "Percent
 - Detta kan inträffa om de virtuella datorerna är avstängda under utvärderings tiden. Enheten kan inte samla in prestanda data för en virtuell dator när den är avstängd.
 - Om endast minnes räknarna saknas och du försöker utvärdera virtuella Hyper-V-datorer, kontrollerar du om du har dynamiskt minne aktiverat på de här virtuella datorerna. Det finns ett känt problem för virtuella Hyper-V-datorer, där en Azure Migrate-apparat inte kan samla in minnes användnings data för virtuella datorer som inte har dynamiskt minne aktiverat.
 - Om någon av prestanda räknarna saknas går Azure Migrate Server utvärderingen tillbaka till allokerade kärnor och minne, och det rekommenderar en motsvarande VM-storlek.
+- Om alla prestanda räknare saknas kontrollerar du att port åtkomst kraven för utvärdering är uppfyllda. Läs mer om Port åtkomst krav för [VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#port-access), [Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#port-access) och utvärderingen av [fysiska](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-physical#port-access) servrar.
 
 ## <a name="is-the-operating-system-license-included"></a>Ingår licensen för operativ systemet?
 
@@ -151,7 +152,7 @@ När du har migrerat datorer med beroende visualisering aktive rad till Azure ka
 
 Samla in nätverks trafik loggar enligt följande:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Tryck på F12 för att starta Utvecklarverktyg. Om det behövs avmarkerar du **navigerings inställningen rensa poster** .
 3. Välj fliken **nätverk** och börja samla in nätverks trafik:
    - I Chrome väljer du **bevara logg**. Inspelningen bör starta automatiskt. En röd cirkel visar att trafiken fångas. Om den röda cirkeln inte visas väljer du den svarta cirkeln för att starta.

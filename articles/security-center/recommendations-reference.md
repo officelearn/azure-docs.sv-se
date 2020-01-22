@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/18/2019
 ms.author: memildin
-ms.openlocfilehash: fdcaaa981246e86e5b87b4af3c9a6e8c597ced25
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 686b8bedfeb4ae5e1b2b7bf3b750b51074677990
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553311"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288990"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Säkerhets rekommendationer – en referens guide
 
@@ -27,11 +27,10 @@ Information om hur du svarar på dessa rekommendationer finns i [åtgärda rekom
 
 Dina säkra Poäng baseras på hur många Security Center rekommendationer som du har begränsat. För att prioritera rekommendationerna för att lösa det första, bör du tänka igenom allvarlighets graden för var och en.
 
-## <a name="azure-security-center-recommendations"></a>Rekommendationer för Azure Security Center
+## <a name="recs-network"></a>Nätverks rekommendationer
 
-||Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
 |----|----|----|----|----|
-||<a name="recs-network"></a><h3>Nätverks rekommendationer – om nätverkets topologi och slut punkter mot Internet|
 |**Just-in-Time-kontroll för nätverks åtkomst ska tillämpas på virtuella datorer**|Använd just-in-Time (JIT)-åtkomst kontroll för att permanent låsa åtkomsten till valda portar och aktivera behöriga användare för att öppna dem via JIT, under en begränsad tid.<br>(Relaterad princip: just-in-Time Network Access Control ska tillämpas på virtuella datorer)|Hög|N|Virtuell dator|
 |**Nätverks säkerhets grupper på under näts nivån måste vara aktiverade**|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst till resurser som har distribuerats i dina undernät.<br>(Relaterad princip: undernät ska associeras med en nätverks säkerhets grupp)|Hög/medel|N|Undernät|
 |**Virtuella datorer ska associeras med en nätverks säkerhets grupp**|Aktivera nätverks säkerhets grupper för att kontrol lera nätverks åtkomst för dina virtuella datorer.<br>(Relaterad princip: virtuella datorer ska associeras med en nätverks säkerhets grupp)|Hög/medel|N|Virtuell dator|
@@ -44,7 +43,25 @@ Dina säkra Poäng baseras på hur många Security Center rekommendationer som d
 |**Webb program bör endast vara tillgängliga via HTTPS**|Aktivera "endast HTTPS"-åtkomst för webb program. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: webb programmet bör endast vara tillgängligt via HTTPS)|Medium|**Y**|Webbprogram|
 |**Funktionsapp bör endast vara tillgängligt via HTTPS**|Aktivera "endast HTTPS"-åtkomst för Function Apps. Användning av HTTPS garanterar serverautentisering och skyddar data i överföring från angrepp på nätverks nivå.<br>(Relaterad princip: Funktionsapp bör endast vara tillgänglig via HTTPS)|Medium|**Y**|Funktionsapp|
 |**Säker överföring till lagrings konton ska vara aktiverat**|Aktivera säker överföring till lagrings konton. Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). Användning av HTTPS garanterar autentisering mellan servern och tjänsten och skyddar data i överföring från angrepp på nätverks nivå, till exempel man-in-the-Middle, avlyssning och session-kapning.<br>(Relaterad princip: säker överföring till lagrings konton ska vara aktive rad)|Hög|**Y**|Lagringskonto|
-||<a name="recs-computeapp"></a><h3>Rekommendationer för beräknings- och app|
+||||||
+
+
+## <a name="recs-containers"></a>Rekommendationer för behållare
+
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|----|----|----|----|----|
+|**Rollbaserad Access Control ska användas för att begränsa åtkomsten till ett Kubernetes tjänst kluster (för hands version)**|Om du vill ge detaljerad filtrering av de åtgärder som användarna kan utföra använder du rollbaserad Access Control (RBAC) för att hantera behörigheter i Kubernetes-tjänstekluster och konfigurera relevanta Auktoriseringsprinciper. Mer information finns i [rollbaserad åtkomst kontroll i Azure](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac).<br>(Relaterad princip: [för hands version]: rollbaserad Access Control (RBAC) ska användas på Kubernetes-tjänster)|Medium|N|Beräknings resurser (behållare)|
+|**Kubernetes-tjänsten bör uppgraderas till den senaste Kubernetes-versionen (för hands version)**|Uppgradera Azure Kubernetes service-kluster till den senaste Kubernetes-versionen för att kunna dra nytta av uppdaterade säkerhets korrigeringar. Mer information om vissa Kubernetes sårbarheter finns i [Kubernetes CVEs](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes).<br>(Relaterad princip: [för hands version]: Kubernetes-tjänster bör uppgraderas till en icke-sårbar Kubernetes-version)|Hög|N|Beräknings resurser (behållare)|
+|**Pod säkerhets principer bör definieras för att minska angrepps vektorn genom att ta bort onödiga program behörigheter (förhands granskning)**|Definiera Pod säkerhets principer för att minska angrepps vektorn genom att ta bort onödiga program privilegier. Vi rekommenderar att du konfigurerar Pod säkerhets principer så att poddar endast kan komma åt resurser som de har åtkomst till.<br>(Relaterad princip: [för hands version]: Pod säkerhets principer bör definieras på Kubernetes-tjänster)|Medium|N|Beräknings resurser (behållare)|
+|**Åtkomst till ett Kubernetes Service Management-API ska begränsas genom att bara auktorisera särskilda IP-intervall (för hands version).**|Begränsa åtkomsten till Kubernetes Service Management-API genom att endast bevilja API-åtkomst till IP-adresser i vissa intervall. Vi rekommenderar att du konfigurerar auktoriserade IP-intervall så att endast program från tillåtna nätverk kan komma åt klustret.<br>(Relaterad princip: [för hands version]: tillåtna IP-adressintervall bör definieras för Kubernetes Services)|Hög|N|Beräknings resurser (behållare)|
+|**Säkerhets risker i Azure Container Registry avbildningar bör åtgärdas (drivs av Qualys) (förhands granskning)**|Sårbarhets bedömning för behållar avbildning söker igenom registret efter säkerhets sårbarheter på varje publicerade behållar avbildning och visar detaljerade resultat per bild. Att lösa sårbarheter kan avsevärt förbättra dina behållar säkerhets position och skydda dem mot angrepp.<br>(Ingen relaterad princip)|Hög|N|Beräknings resurser (behållare)|
+||||||
+
+
+## <a name="recs-appservice"></a>App Service rekommendationer
+
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|----|----|----|----|----|
 |**Webb program bör endast vara tillgängliga via HTTPS**|Begränsa åtkomst till webbprogram via HTTPS endast.<br>(Relaterad princip:)|Medium|N|Apptjänst|
 |**Funktionsapp bör endast vara tillgängligt via HTTPS**|Begränsa åtkomst till Funktionsappar via HTTPS endast.<br>(Relaterad princip:)|Medium|N|Apptjänst|
 |**API-appen bör bara vara tillgänglig via HTTPS**|Begränsa åtkomsten för API Apps endast över HTTPS.<br>(Relaterad princip:)|Medium|N|Apptjänst|
@@ -55,18 +72,19 @@ Dina säkra Poäng baseras på hur många Security Center rekommendationer som d
 |**CORS bör inte tillåta alla resurser att komma åt din Funktionsapp**|Tillåt endast nödvändiga domäner att interagera med ditt funktionsprogram. Mellan ursprung ska sharing (CORS) inte tillåta alla domäner åtkomst till ditt funktionsprogram.<br>(Relaterad princip: CORS bör inte tillåta alla resurser att komma åt din Funktionsapp)|Låg|**Y**|Apptjänst|
 |**CORS bör inte tillåta alla resurser åtkomst till din API-app**|Tillåt endast domäner som krävs för att interagera med ditt API-program. Resurs delning mellan ursprung (CORS) bör inte tillåta alla domäner att komma åt ditt API-program.<br>(Relaterad princip: CORS bör inte tillåta alla resurser åtkomst till din API-app)|Låg|**Y**|Apptjänst|
 |**Diagnostikloggar i App Services ska vara aktive rad**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i App Services ska vara aktive rad)</span>|Låg|N|Apptjänst|
+||||||
+
+
+## <a name="recs-computeapp"></a>Beräknings-och program rekommendationer
+
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|----|----|----|----|----|
 |**Diagnostikloggar i Azure Stream Analytics ska vara aktive rad**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Azure Stream Analytics ska vara aktive rad)|Låg|**Y**|Beräkningsresurser (stream analytics)|
 |**Diagnostikloggar i batch-konton måste vara aktiverade**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i batch-konton måste vara aktive rad)|Låg|**Y**|Beräkningsresurser (batch)|
 |**Diagnostikloggar i Händelsehubben måste vara aktive rad**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Event Hub måste vara aktive rad)|Låg|**Y**|Beräkningsresurser (händelsehubb)|
 |**Diagnostikloggar i Logic Apps ska vara aktive rad**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Logic Apps ska vara aktive rad)|Låg|**Y**|Beräkningsresurser (logikappar)|
 |**Diagnostikloggar i search Services ska vara aktive rad**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i search Services ska vara aktive rad)|Låg|**Y**|Beräkningsresurser (Sök)|
 |**Diagnostikloggar i Service Bus ska vara aktive rad**|Aktivera loggar och behålla upp till ett år. På så sätt kan du återskapa aktivitet spår undersökning när en säkerhetsincident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Service Bus ska vara aktive rad)|Låg|**Y**|Beräkningsresurser (service bus)|
-|**Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad**|Aktivera loggar och behåll dem i upp till ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte. Detta är användbart när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad)|Låg|N|Skaluppsättning för virtuella datorer|
-|**Rollbaserad Access Control ska användas för att begränsa åtkomsten till ett Kubernetes tjänst kluster (för hands version)**|Om du vill ge detaljerad filtrering av de åtgärder som användarna kan utföra använder du rollbaserad Access Control (RBAC) för att hantera behörigheter i Kubernetes-tjänstekluster och konfigurera relevanta Auktoriseringsprinciper. Mer information finns i [rollbaserad åtkomst kontroll i Azure](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac).<br>(Relaterad princip: [för hands version]: rollbaserad Access Control (RBAC) ska användas på Kubernetes-tjänster)|Medium|N|Beräknings resurser (behållare)|
-|**Kubernetes-tjänsten bör uppgraderas till den senaste Kubernetes-versionen (för hands version)**|Uppgradera Azure Kubernetes service-kluster till den senaste Kubernetes-versionen för att kunna dra nytta av uppdaterade säkerhets korrigeringar. Mer information om vissa Kubernetes sårbarheter finns i [Kubernetes CVEs](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes).<br>(Relaterad princip: [för hands version]: Kubernetes-tjänster bör uppgraderas till en icke-sårbar Kubernetes-version)|Hög|N|Beräknings resurser (behållare)|
-|**Pod säkerhets principer bör definieras för att minska angrepps vektorn genom att ta bort onödiga program behörigheter (förhands granskning)**|Definiera Pod säkerhets principer för att minska angrepps vektorn genom att ta bort onödiga program privilegier. Vi rekommenderar att du konfigurerar Pod säkerhets principer så att poddar endast kan komma åt resurser som de har åtkomst till.<br>(Relaterad princip: [för hands version]: Pod säkerhets principer bör definieras på Kubernetes-tjänster)|Medium|N|Beräknings resurser (behållare)|
-|**Åtkomst till ett Kubernetes Service Management-API ska begränsas genom att bara auktorisera särskilda IP-intervall (för hands version).**|Begränsa åtkomsten till Kubernetes Service Management-API genom att endast bevilja API-åtkomst till IP-adresser i vissa intervall. Vi rekommenderar att du konfigurerar auktoriserade IP-intervall så att endast program från tillåtna nätverk kan komma åt klustret.<br>(Relaterad princip: [för hands version]: tillåtna IP-adressintervall bör definieras för Kubernetes Services)|Hög|N|Beräknings resurser (behållare)|
-|**Säkerhets risker i Azure Container Registry avbildningar bör åtgärdas (drivs av Qualys) (förhands granskning)**|Sårbarhets bedömning för behållar avbildning söker igenom registret efter säkerhets sårbarheter på varje publicerade behållar avbildning och visar detaljerade resultat per bild. Att lösa sårbarheter kan avsevärt förbättra dina behållar säkerhets position och skydda dem mot angrepp.<br>(Ingen relaterad princip)|Hög|N|Beräknings resurser (behållare)|
 |**Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering**|Utför klientautentisering endast via Azure Active Directory i Service Fabric.<br>(Relaterad princip: Service Fabric kluster bör endast använda Azure Active Directory för klientautentisering)|Hög|N|Beräkningsresurser (service fabric)|
 |**Service Fabric-kluster ska ha egenskapen ClusterProtectionLevel inställd på EncryptAndSign**|Service Fabric tillhandahåller tre skydds nivåer (ingen, sign och EncryptAndSign) för nod-till-nod-kommunikation med ett primärt kluster certifikat. Ställa in skydd så att alla nod-till-nod-meddelanden är krypterad och har signerats digitalt.<br>(Relaterad princip: egenskapen ClusterProtectionLevel till EncryptAndSign i Service Fabric ska anges)|Hög|N|Beräkningsresurser (service fabric)|
 |**Alla auktoriseringsregler utom RootManageSharedAccessKey bör tas bort från Service Bus namnrymd**|Service Bus-klienter ska inte använda en namnområdesprincip administratörsnivå som ger åtkomst till alla köer och ämnen i ett namnområde. Om du vill justera med minsta behörighets säkerhets modell bör du skapa åtkomst principer på enhets nivå för köer och ämnen för att ge åtkomst till endast den specifika entiteten.<br>(Relaterad princip: alla auktoriseringsregler utom RootManageSharedAccessKey bör tas bort från namn området Service Bus)|Låg|N|Beräkningsresurser (service bus)|
@@ -78,7 +96,6 @@ Dina säkra Poäng baseras på hur många Security Center rekommendationer som d
 |**Installera Endpoint Protection-lösning på dina datorer**|Installera en Endpoint Protection-lösning på dina Windows-och Linux-datorer för att skydda dem mot hot och sårbarheter.<br>(Ingen relaterad princip)|Medium|N|Dator|
 |**Installera Endpoint Protection-lösning på virtuella datorer**|Installera en endpoint protection-lösning på dina virtuella datorer, att skydda dem mot hot och sårbarheter.<br>(Ingen relaterad princip)|Medium|N|Dator|
 |**OS-versionen bör uppdateras för dina moln tjänst roller**|Uppdatera operativsystemets version för dina molntjänstroller till den senaste tillgängliga versionen för din OS-familj.<br>(Ingen relaterad princip)|Hög|N|Dator|
-|**System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras**|Installera system säkerhet och viktiga uppdateringar som saknas för att skydda dina skalnings uppsättningar för virtuella Windows-och Linux-datorer.<br>(Relaterad princip: system uppdateringar på Virtual Machine Scale set bör installeras)|Hög|N|Skaluppsättning för virtuella datorer|
 |**System uppdateringar bör installeras på dina datorer**|Installera saknas systemsäkerhet och viktiga uppdateringar för att skydda dina Windows- och Linux-datorer och datorer<br>(Relaterad princip: system uppdateringar bör installeras på dina datorer)|Hög|N|Dator|
 |**Datorerna måste startas om för att tillämpa system uppdateringar**|Starta om dina datorer för att tillämpa systemuppdateringarna och skydda datorn från säkerhetsrisker.<br>(Ingen relaterad princip)|Medium|N|Dator|
 |**Variabler för Automation-konton ska vara krypterade**|Aktivera kryptering av Automation-konto variabler för tillgångar vid lagring av känsliga data.<br>(Relaterad princip: kryptering ska vara aktive rad för variabler för Automation-konto)|Hög|N|Beräkningsresurser (automation-konto)|
@@ -88,11 +105,26 @@ Dina säkra Poäng baseras på hur många Security Center rekommendationer som d
 |**Säkerhets risker bör åtgärdas av en lösning för sårbarhets bedömning**|Virtuella datorer som distribueras en 3 part lösning för sårbarhetsbedömning som kontinuerligt utvärderas mot program- och OS-säkerhetsproblem. När sådana sårbarheter finns finns dessa mer information som en del av rekommendationen.<br>(Relaterad princip: sårbarheter bör åtgärdas av en lösning för sårbarhets bedömning)|Hög|N|Dator|
 |**Säkerhets problem i säkerhets konfiguration på dina datorer bör åtgärdas**|Åtgärda sårbarheter i Säkerhetskonfiguration på dina datorer för att skydda dem från attacker.<br>(Relaterad princip: sårbarheter i säkerhets konfigurationen på dina datorer bör åtgärdas)|Låg|N|Dator|
 |**Säkerhets risker i behållar säkerhetskonfigurationer bör åtgärdas**|Åtgärda sårbarheter i säkerhetskonfigurationen på datorer med Docker installerat för att skydda dem mot angrepp.<br>(Relaterad princip: sårbarheter i säkerhets konfigurationerna för behållaren bör åtgärdas)|Hög|N|Dator|
-|**Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas**|Åtgärda sårbarheter i säkerhets konfiguration på dina virtuella datorers skalnings uppsättningar för att skydda dem mot angrepp. <br>(Relaterad princip: sårbarheter i säkerhets konfiguration i skalnings uppsättningar för virtuella datorer bör åtgärdas)|Hög|N|Skaluppsättning för virtuella datorer|
 |**Problem med slut punkts skydd bör lösas på dina datorer**|Lös övervakningsproblem agenten på dina datorer genom att följa anvisningarna i guiden för felsökning för fullständig Security Center-skydd.<br>(Ingen relaterad princip)|Medium|N|Dator|
+||||||
+
+
+## <a name="recs-vmscalesets"></a>Rekommendationer för skalnings uppsättning för virtuell dator
+
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|----|----|----|----|----|
+|**Diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad**|Aktivera loggar och behåll dem i upp till ett år. På så sätt kan du återskapa aktivitets spårningar i utrednings syfte. Detta är användbart när en säkerhets incident inträffar eller nätverket komprometteras.<br>(Relaterad princip: diagnostikloggar i Virtual Machine Scale Sets ska vara aktive rad)|Låg|N|Skaluppsättning för virtuella datorer|
+|**System uppdateringar på virtuella datorers skalnings uppsättningar bör installeras**|Installera system säkerhet och viktiga uppdateringar som saknas för att skydda dina skalnings uppsättningar för virtuella Windows-och Linux-datorer.<br>(Relaterad princip: system uppdateringar på Virtual Machine Scale set bör installeras)|Hög|N|Skaluppsättning för virtuella datorer|
+|**Säkerhets problem i säkerhets konfiguration på den virtuella datorns skalnings uppsättningar bör åtgärdas**|Åtgärda sårbarheter i säkerhets konfiguration på dina virtuella datorers skalnings uppsättningar för att skydda dem mot angrepp. <br>(Relaterad princip: sårbarheter i säkerhets konfiguration i skalnings uppsättningar för virtuella datorer bör åtgärdas)|Hög|N|Skaluppsättning för virtuella datorer|
 |**Hälso fel i Endpoint Protection bör åtgärdas på virtuella datorers skalnings uppsättningar**|Åtgärda problem med slut punkts skydd på den virtuella datorns skalnings uppsättningar för att skydda dem mot hot och sårbarheter.<br>(Ingen relaterad princip)|Låg|N|Skaluppsättning för virtuella datorer|
 |**Endpoint Protection-lösningen bör installeras på virtuella datorers skalnings uppsättningar**|Installera en Endpoint Protection-lösning på den virtuella datorns skalnings uppsättningar för att skydda dem mot hot och sårbarheter.<br>(Relaterad princip: Endpoint Protection-lösning bör installeras på virtuella datorers skalnings uppsättningar)|Hög|N|Skaluppsättning för virtuella datorer|
-||<a name="recs-datastorage"></a><h3>Rekommendationer för data och lagring|
+||||||
+
+
+## <a name="recs-datastorage"></a>Rekommendationer för data och lagring
+
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|----|----|----|----|----|
 |**En Azure Active Directory administratör bör tillhandahållas för SQL-servrar**|Etablera en Azure AD-administratör för SQL-servern för att aktivera Azure AD-autentisering. Azure AD-autentisering möjliggör förenklad behörighets hantering och centraliserad identitets hantering för databas användare och andra Microsoft-tjänster.<br>(Relaterad princip: gransknings etablering av en Azure Active Directory administratör för SQL Server)|Hög|N|SQL|
 |**Granskning på SQL Server måste vara aktiverat**|Aktivera granskning för Azure SQL-servrar. (Endast Azure SQL-tjänsten. Inkluderar inte SQL som körs på dina virtuella datorer.)<br>(Relaterad princip: granskning ska aktive ras på avancerade data säkerhets inställningar på SQL Server)|Låg|**Y**|SQL|
 |**Säker överföring till lagrings konton ska vara aktiverat**|Säker överföring är ett alternativ som tvingar ditt lagrings konto att endast godkänna begär Anden från säkra anslutningar (HTTPS). HTTPS säkerställer autentiseringen mellan servern och tjänsten och skyddar data i överföring från nätverks lager attacker, till exempel man-in-the-Middle, avlyssning och session-kapning.<br>(Relaterad princip: säker överföring till lagrings konton ska vara aktive rad)|Hög|N|Lagringskonto|
@@ -104,7 +136,13 @@ Dina säkra Poäng baseras på hur många Security Center rekommendationer som d
 |**Säkerhets risker i SQL-databaser bör åtgärdas**|SQL sårbarhet Assessment söker igenom din databas efter säkerhets risker och exponerar eventuella avvikelser från bästa praxis, till exempel felkonfigurationer, överdriven behörighet och oskyddade känsliga data. Att lösa de problem som upptäcks kan avsevärt förbättra din databas säkerhets datasekretesstandarder.<br>(Relaterad princip: sårbarheter på SQL-databaser bör åtgärdas)|Hög|N|SQL|
 |**Åtkomst till lagrings konton med brand väggar och virtuella nätverkskonfigurationer bör begränsas**|Granska obegränsad nätverks åtkomst i brand Väggs inställningarna för ditt lagrings konto. Konfigurera i stället nätverks regler så att endast program från tillåtna nätverk kan komma åt lagrings kontot. Om du vill tillåta anslutningar från vissa Internet-eller lokala klienter kan du bevilja åtkomst till trafik från vissa virtuella Azure-nätverk eller offentliga IP-adressintervall för Internet.<br>(Relaterad princip: granska obegränsad nätverks åtkomst till lagrings konton)|Låg|N|Lagringskonto|
 |**Lagrings konton ska migreras till nya Azure Resource Manager resurser**|Använd nya Azure Resource Manager för dina lagrings konton för att tillhandahålla säkerhets förbättringar, till exempel: starkare åtkomst kontroll (RBAC), bättre granskning, Resource Manager-baserad distribution och styrning, åtkomst till hanterade identiteter, åtkomst till nyckel valv för hemligheter, och Azure AD-baserad autentisering och stöd för taggar och resurs grupper för enklare säkerhets hantering.<br>(Relaterad princip: lagrings konton ska migreras till nya Azure Resource Manager-resurser)|Låg|N|Lagringskonto|
-||<a name="recs-identity"></a><h3>Identitets-och åtkomst rekommendationer|
+||||||
+
+
+## <a name="recs-identity"></a>Identitets-och åtkomst rekommendationer
+
+|Rekommendation|Beskrivning & relaterad princip|Allvarsgrad|Snabb korrigering aktive rad? ([Läs mer](https://docs.microsoft.com/azure/security-center/security-center-remediate-recommendations#recommendations-with-quick-fix-remediation))|Resurstyp|
+|----|----|----|----|----|
 |**MFA ska vara aktiverat på konton med Läs behörighet för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med Läs behörighet för att förhindra en överträdelse av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med Läs behörigheter för din prenumeration)|Hög|N|Prenumeration|
 |**MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med Skriv behörighet för att förhindra en överträdelse av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med Skriv behörighet för din prenumeration)|Hög|N|Prenumeration|
 |**MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration**|Aktivera Multi-Factor Authentication (MFA) för alla prenumerations konton med ägar behörighet för att förhindra överträdelser av konton eller resurser.<br>(Relaterad princip: MFA ska vara aktiverat på konton med ägar behörigheter för din prenumeration)|Hög|N|Prenumeration|

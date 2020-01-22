@@ -2,13 +2,13 @@
 title: Filnamnstillägg för resurstyper
 description: Visar en lista över Azures resurs typer som används för att utöka funktionerna i andra resurs typer.
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: af60bd648e41532cca364272fb0ded01c0c18239
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/20/2020
+ms.openlocfilehash: 47a98bca4912a1c59c8b2d9bad458769c6bf4ebf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75484680"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293274"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Resurs typer som utökar funktioner i andra resurser
 
@@ -23,12 +23,14 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. AlertsManagement/alertsSummary
 - Microsoft. Authorization/check Access
 - Microsoft. Authorization/denyAssignments
+- Microsoft. Authorization/findOrphanRoleAssignments
 - Microsoft. Authorization/låsen
 - Microsoft. Authorization/Permissions
 - Microsoft. Authorization/policyAssignments
 - Microsoft. Authorization/policyDefinitions
 - Microsoft. Authorization/policySetDefinitions
 - Microsoft. Authorization/roleAssignments
+- Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
 - Microsoft. fakturering/billingPeriods
 - Microsoft. fakturering/billingPermissions
@@ -82,6 +84,7 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. Insights/automatedExportSettings
 - Microsoft. Insights/bas linje
 - Microsoft. Insights/calculatebaseline
+- Microsoft. Insights/dataCollectionRuleAssociations
 - Microsoft. Insights/diagnosticSettings
 - Microsoft. Insights/diagnosticSettingsCategories
 - Microsoft. Insights/eventtypes
@@ -94,6 +97,8 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. Insights/metricbaselines
 - Microsoft. Insights/mått
 - Microsoft. Insights/mina arbets böcker
+- Microsoft. Insights/topologi
+- Microsoft. Insights/transaktioner
 - Microsoft. Insights/vmInsightsOnboardingStatuses
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
@@ -109,6 +114,7 @@ En tilläggs resurs är en resurs som lägger till en annan resurss funktioner. 
 - Microsoft. PolicyInsights/policyTrackedResources
 - Microsoft.PolicyInsights/remediations
 - Microsoft. RecoveryServices/backupProtectedItems
+- Microsoft. RecoveryServices/replicationEligibilityResults  
 - Microsoft. ResourceHealth/availabilityStatuses
 - Microsoft. ResourceHealth/childAvailabilityStatuses
 - Microsoft. ResourceHealth/childResources

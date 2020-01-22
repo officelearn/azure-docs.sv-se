@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: ac2c34b8de4ac9f66f1618d854e26aa431d35184
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 751179d9506267c95eee1d31724395a4fc5b87a7
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088947"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290758"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Dokumentation om Azure Data Lake Storage Gen1
 
@@ -198,7 +198,7 @@ Lär dig hur du använder Azure Data Lake Storage Gen1 (tidigare Azure Data Lake
                         <p><a href="/java/api/overview/azure/datalake">Java</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-store">Node.js</a></p>
                         <p><a href="/python/api/azure-mgmt-datalake-store/">Python (kontohantering)</a></p>
-                        <p><a href="https://azure-datalake-store.readthedocs.io/en/latest">Python (filsystemshantering)</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core">Python (filsystemshantering)</a></p>
                     </div>
                 </div>
             </div>

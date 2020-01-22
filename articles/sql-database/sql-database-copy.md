@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 11/14/2019
-ms.openlocfilehash: b3bc99d0fbdb551af0fb3711d74db537d3f9b1a5
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e1df345fb9a89972ad1857a937c22d6e10ad1fba
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421343"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289415"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Kopiera en transaktions konsekvent kopia av en Azure SQL-databas
 
@@ -151,7 +151,7 @@ Du kan använda stegen som beskrivs i föregående avsnitt för att kopiera data
 > Om du väljer att avbryta kopieringen medan den pågår kör du [Drop Database](https://msdn.microsoft.com/library/ms178613.aspx) -instruktionen på den nya databasen. Om du kör DROP DATABASE-instruktionen på käll databasen avbryts även kopierings processen.
 
 > [!IMPORTANT]
-> Om du behöver skapa en kopia med ett betydligt mindre service nivå mål än källan, kanske mål databasen inte har tillräckligt med resurser för att slutföra initierings processen och det kan leda till att kopieringen Miss lyckas. I det här scenariot använder du en geo-Restore-begäran för att skapa en kopia på en annan server och/eller en annan region. Mer information finns i [återställa en Azure SQL-databas med hjälp av databas säkerhets kopior](sql-database-recovery-using-backups.md#geo-restore) .
+> Om du behöver skapa en kopia med ett betydligt mindre service nivå mål än källan, kanske mål databasen inte har tillräckligt med resurser för att slutföra initierings processen och det kan leda till att kopierings åtgärden Miss lyckas. I det här scenariot använder du en geo-Restore-begäran för att skapa en kopia på en annan server och/eller en annan region. Mer information finns i [återställa en Azure SQL-databas med hjälp av databas säkerhets kopior](sql-database-recovery-using-backups.md#geo-restore) .
 
 ## <a name="resolve-logins"></a>Lösa inloggningar
 
@@ -165,7 +165,7 @@ Information om hur du hanterar användare och inloggningar när du kopierar en d
 
 Följande fel kan uppstå när du kopierar en databas i Azure SQL Database. Mer information finns i [Kopiera en Azure SQL Database](sql-database-copy.md).
 
-| Felkod | Severity | Beskrivning |
+| Felkod | Allvarsgrad | Beskrivning |
 | ---:| ---:|:--- |
 | 40635 |16 |Klienten med IP-adressen (%.&#x2a;ls) är tillfälligt inaktiverad. |
 | 40637 |16 |Skapa databas kopiering har inaktiverats för tillfället. |

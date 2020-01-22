@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 8f243527461a95d963854d8d018602dd81115482
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: b6b9d0f146fd98fd90aa8858e522449be571842c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497289"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293172"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduktion till tilläggs hanteraren för önskad tillstånds konfiguration i Azure
 
@@ -59,7 +59,7 @@ När tillägget anropas för första gången installeras en version av WMF med h
 - Om **wmfVersion** -egenskapen har angetts installeras den versionen av WMF, om inte den versionen är inkompatibel med den virtuella datorns operativ system.
 - Om ingen **wmfVersion** -egenskap anges installeras den senaste tillämpliga versionen av WMF.
 
-Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil. Tillägget kör sedan `Start-DscConfiguration -Force` med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
+Installation av WMF kräver en omstart. Efter omstarten laddar tillägget. zip-filen som anges i egenskapen **modulesUrl** , om den har angetts. Om den här platsen finns i Azure Blob Storage kan du ange en SAS-token i egenskapen **sasToken** för att komma åt filen. När. zip har hämtats och packats upp körs konfigurations funktionen som definieras i **configurationFunction** för att generera en MOF-fil ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Tillägget kör sedan `Start-DscConfiguration -Force` med hjälp av den genererade MOF-filen. Tillägget fångar utdata och skriver den till Azures status kanal.
 
 ### <a name="default-configuration-script"></a>Standard konfigurations skript
 

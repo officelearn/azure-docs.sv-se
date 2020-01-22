@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 854d98a4f2a1b2500bc301d2305c0dd1f27aaaa4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980817"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289534"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -41,11 +41,11 @@ Detta kan inträffa om installations datorn finns bakom en proxyserver.
 - Se till att du anger autentiseringsuppgifter för auktorisering om proxyn behöver dem.
 - Om du använder en URL-baserad brand Väggs-proxy för att kontrol lera utgående anslutningar lägger du till dessa URL: er i en lista över tillåtna:
 
-    - [URL: er för VMware-utvärdering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-    - [URL: er för Hyper-V-utvärdering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-    - [URL: er för migrering av VMware-agent](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-    - [URL: er för VMware agent-baserad migrering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-    - [URL: er för Hyper-V-migrering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
+    - [URL: er för VMware-utvärdering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URL: er för Hyper-V-utvärdering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
+    - [URL: er för migrering av VMware-agent](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URL: er för VMware agent-baserad migrering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
+    - [URL: er för Hyper-V-migrering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
 
 - Om du använder en avlyssnings-proxy för att ansluta till Internet importerar du det till den virtuella datorns dator med [de här stegen](https://docs.microsoft.com/azure/migrate/concepts-collector).
 

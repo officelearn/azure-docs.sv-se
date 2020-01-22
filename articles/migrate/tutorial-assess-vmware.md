@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 58e6e7b3cdf749909165d7ff071a2f3885d7e8b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 7f161afe13bad8c548806d4b4ceb9372dc511cc3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028743"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289449"
 ---
 # <a name="assess-vmware-vms-by-using-azure-migrate-server-assessment"></a>Utvärdera virtuella VMware-datorer med hjälp av Azure Migrate Server bedömning
 
@@ -176,7 +176,7 @@ Installations programmet måste ansluta till vCenter Server för att identifiera
 1. Välj **Verifiera anslutning** för att kontrol lera att enheten kan ansluta till vCenter Server.
 
 ### <a name="specify-vm-credentials"></a>Ange autentiseringsuppgifter för virtuell dator
-För identifiering av program, roller och funktioner och för visualisering av beroenden för de virtuella datorerna kan du ange autentiseringsuppgifter för virtuella datorer som har åtkomst till de virtuella VMware-datorerna. Du kan lägga till en autentiseringsuppgift för virtuella Windows-datorer och en autentiseringsuppgift för virtuella Linux-datorer. [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) om de nödvändiga åtkomst behörigheterna.
+För identifiering av program, roller och funktioner och för visualisering av beroenden för de virtuella datorerna kan du ange autentiseringsuppgifter för virtuella datorer som har åtkomst till de virtuella VMware-datorerna. Du kan lägga till en autentiseringsuppgift för virtuella Windows-datorer och en autentiseringsuppgift för virtuella Linux-datorer. [Läs mer](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) om de nödvändiga åtkomst behörigheterna.
 
 > [!NOTE]
 > Den här indatamängden är valfri, men du behöver det om du vill aktivera program identifiering och visualisering av en agent lös beroende visualisering.
@@ -210,7 +210,7 @@ Den här proceduren krävs för Server migrering utan agent.
 1.  Välj din vCenter Server-instans på den nedrullningsbara menyn.
 1.  Välj **skapa roll**.
 1.  Ange ett namn för den nya rollen (till exempel <em>Azure_Migrate</em>).
-1.  Tilldela [behörigheter](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) till den nyligen definierade rollen.
+1.  Tilldela [behörigheter](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) till den nyligen definierade rollen.
 1.  Välj **OK**.
 
 #### <a name="3-assign-permissions-on-vcenter-objects"></a>3. tilldela behörigheter för vCenter-objekt
@@ -219,7 +219,7 @@ Det finns två metoder för att tilldela behörigheter för inventerings objekt 
 
 För Server utvärdering måste du tillämpa den **skrivskyddade** rollen på vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska identifieras finns. Alla överordnade objekt kommer att ingå: värd, mapp med värdar, kluster och mapp för kluster i hierarkin upp till data centret. Dessa behörigheter kommer att spridas till underordnade objekt i hierarkin.
 
-På samma sätt som för Server migrering måste du tillämpa en användardefinierad roll med [behörigheter](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) till vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns. Den här rollen kan ha namnet <em>Azure _Migrate</em>.
+På samma sätt som för Server migrering måste du tillämpa en användardefinierad roll med [behörigheter](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) till vCenter-användarkontot för alla överordnade objekt där de virtuella datorer som ska migreras finns. Den här rollen kan ha namnet <em>Azure _Migrate</em>.
 
 ![Tilldela behörigheter](./media/tutorial-assess-vmware/assign-perms.png)
 

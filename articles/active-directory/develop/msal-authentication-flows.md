@@ -14,12 +14,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9e224218217b18ffc5c35ec45011097d93e5d797
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917207"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291592"
 ---
 # <a name="authentication-flows"></a>Autentiserings flöden
 
@@ -32,21 +32,21 @@ I den här artikeln beskrivs de olika autentiserings flöden som tillhandahålls
 | [Auktoriseringskod](#authorization-code) | Används i appar som är installerade på en enhet för att få åtkomst till skyddade resurser, till exempel webb-API: er. På så sätt kan du lägga till inloggnings-och API-åtkomst till dina mobila och Station ära appar. | [Skrivbordsappar](scenario-desktop-overview.md), [mobilappar](scenario-mobile-overview.md), [Web Apps](scenario-web-app-call-api-overview.md) | 
 | [On-behalf-of](#on-behalf-of) | Ett program anropar en tjänst eller ett webb-API, som i sin tur måste anropa en annan tjänst eller ett webb-API. Tanken är att sprida den delegerade användar identiteten och behörigheterna via begär ande kedjan. | [Webb-API:er](scenario-web-api-call-api-overview.md) |
 | [Klientautentiseringsuppgifter](#client-credentials) | Gör att du kan komma åt webb värd resurser genom att använda identiteten för ett program. Används ofta för server-till-Server-interaktioner som måste köras i bakgrunden, utan omedelbar interaktion med en användare. | [Daemon-appar](scenario-daemon-overview.md) |
-| [Enhets kod](#device-code) | Tillåter att användare loggar in på inmatade enheter, till exempel en smart TV, IoT-enhet eller skrivare. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#command-line-tool-without-web-browser) |
+| [Enhets kod](#device-code) | Tillåter att användare loggar in på inmatade enheter, till exempel en smart TV, IoT-enhet eller skrivare. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#command-line-tool-without-a-web-browser) |
 | [Integrerad Windows-autentisering](scenario-desktop-acquire-token.md#integrated-windows-authentication) | Gör det möjligt för program på domän-eller Azure Active Directory (Azure AD) anslutna datorer att hämta en token tyst (utan någon användar GRÄNSSNITTs interaktion från användaren).| [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#integrated-windows-authentication) |
-| [Användar namn/lösen ord](scenario-desktop-acquire-token.md#username--password) | Gör att ett program kan logga in användaren genom att direkt hantera lösen ordet. Det här flödet rekommenderas inte. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#username--password) |
+| [Användar namn/lösen ord](scenario-desktop-acquire-token.md#username-and-password) | Gör att ett program kan logga in användaren genom att direkt hantera lösen ordet. Det här flödet rekommenderas inte. | [Desktop/Mobile-appar](scenario-desktop-acquire-token.md#username-and-password) |
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>Hur varje flöde avger tokens och koder
  
 Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika tokens (id_tokens, uppdatera tokens, åtkomsttoken) och auktoriseringsregler, och kräver olika token för att de ska fungera. Det här diagrammet innehåller en översikt:
  
-|Flow | Kräver | id_token | Åtkomsttoken | uppdatera token | auktoriseringskod | 
+|Flow | Kräver | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
 |[Hybrid OIDC-flöde](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
 |[Uppdatera token-inlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
-|[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | Åtkomsttoken| x| x| x| |
+|[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
 |[Enhets kod flöde](v2-oauth2-device-code.md) | | x| x| x| |
 |[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
  

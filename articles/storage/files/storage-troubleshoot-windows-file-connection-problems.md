@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a466601bb68e9cec72408a590f2aec3d3dbfbf93
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 97fdb0b243f71701491f2d2424c04dbd19208ef0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968264"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291201"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Felsöka Azure Files problem i Windows
 
@@ -139,28 +139,31 @@ Om du vill stänga öppna referenser för en fil resurs, katalog eller fil anvä
 > [!Note]  
 > Cmdletarna get-AzStorageFileHandle och Close-AzStorageFileHandle ingår i AZ PowerShell-modul version 2,4 eller senare. Information om hur du installerar den senaste AZ PowerShell-modulen finns i [installera Azure PowerShell-modulen](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
-<a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel meddelandet "auktoriseringsfel" när du bläddrar till en Azure-filresurs i portalen
+<a id="noaaccessfailureportal"></a>
+## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel "ingen åtkomst" när du bläddrar till en Azure-filresurs i portalen
 
 När du bläddrar till en Azure-filresurs i portalen kan du få följande fel meddelande:
 
-Auktoriseringen misslyckades  
-Du har inte åtkomst 
+Ingen åtkomst  
+Felkod: 403 
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: ditt användar konto har inte åtkomst till lagrings kontot
+### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 1: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot
+### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 2: ditt användar konto har inte åtkomst till lagrings kontot
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs
+När du försöker ta bort en fil kan du få följande fel meddelande:
+
+Den angivna resursen har marker ATS för borttagning av en SMB-klient.
 
 ### <a name="cause"></a>Orsak
 Det här problemet uppstår vanligt vis om filen eller katalogen har en öppen referens. 

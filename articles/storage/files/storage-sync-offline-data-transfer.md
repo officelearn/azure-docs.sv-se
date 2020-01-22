@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b00948f8d0e1eb8538354a6c16febf81bd4d1f16
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b1c167c71907e5f8af1006dfabd8f81ce4425d09
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457382"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291166"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrera Mass data till Azure File Sync
 Du kan migrera Mass data till Azure File Sync på två sätt:
@@ -79,7 +79,7 @@ När servern har slutfört den första synkroniseringen av namn rummet använder
 Nu kan du rensa mellanlagrings resursen för att spara kostnader:
 
 1. På bladet **Egenskaper för Server slut punkt** när statusen är **slutförd**väljer du **inaktivera offline-dataöverföring**.
-2. Överväg att ta bort mellanlagrings resursen för att spara kostnader. Mellanlagrings resursen innehåller antagligen inte ACL: er för filer och mappar, så det är inte särskilt användbart. För säkerhets kopiering av tidpunkter för säkerhets kopiering skapar du en riktig [ögonblicks bild av synkroniseringen av Azure-filresursen](storage-snapshots-files.md). Du kan [konfigurera Azure Backup att ta ögonblicks bilder]( ../../backup/backup-azure-files.md) enligt ett schema.
+2. Överväg att ta bort mellanlagrings resursen för att spara kostnader. Mellanlagrings resursen innehåller antagligen inte ACL: er för filer och mappar, så det är inte särskilt användbart. För säkerhets kopiering av tidpunkter för säkerhets kopiering skapar du en riktig [ögonblicks bild av synkroniseringen av Azure-filresursen](storage-snapshots-files.md). Du kan [konfigurera Azure Backup att ta ögonblicks bilder]( ../../backup/backup-afs.md) enligt ett schema.
 
 Inaktivera data överförings läget offline endast när statusen är **slutförd** eller när du vill avbryta på grund av en felaktig konfiguration. Om du inaktiverar läget under en distribution kommer filerna att börja överföras från servern även om din mellanlagrings resurs fortfarande är tillgänglig.
 

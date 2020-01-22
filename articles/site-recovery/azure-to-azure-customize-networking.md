@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 96ffa34166797945afc04c66b03fe151d26c65bc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968868"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292866"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>Anpassa nätverkskonfigurationer för den virtuella Azure-måldatorn
 
@@ -27,7 +27,7 @@ Lär dig hur Site Recovery ger haveri beredskap för [det här scenariot](azure-
 
 Du kan ange följande nyckel resurs konfiguration för den virtuella datorn som ska återställas vid replikering av virtuella Azure-datorer:
 
-- [Intern belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview#what-is-standard-load-balancer)
+- [Intern belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)
 - [Offentlig IP-adress](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - [Nätverks säkerhets grupp](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) både för under nätet och för nätverkskortet
 

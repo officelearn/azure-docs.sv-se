@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: Den här snabb starten visar hur du använder Azure dev Spaces och Visual Studio Code för att felsöka och snabbt iterera ett .NET Core-program i Azure Kubernetes service
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 0025f395c89a8a9f2eff4204ed0859cda0fa86fc
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fe2bb61ccfc7285dc5f4a5c21f3c62abfecca343
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867523"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290605"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>Snabb start: Felsöka och iterera på Kubernetes: Visual Studio Code och .NET Core – Azure dev Spaces
 
@@ -96,13 +96,13 @@ Det här kommandot förbereder projektet att köras i Azure dev Spaces genom att
 > [!TIP]
 > [Dockerfile-och Helm-diagrammet](how-dev-spaces-works.md#prepare-your-code) för ditt projekt används av Azure dev Spaces för att skapa och köra din kod, men du kan ändra dessa filer om du vill ändra hur projektet skapas och körs.
 
-## <a name="build-and-run-code-in-kubernetes-from-visual-studio"></a>Skapa och kör kod i Kubernetes från Visual Studio
+## <a name="build-and-run-code-in-kubernetes-from-visual-studio-code"></a>Skapa och kör kod i Kubernetes från Visual Studio Code
 
 Klicka på ikonen *Felsök* till vänster och klicka på *.net Core Launch (AZDS)* överst.
 
 ![](media/get-started-netcore/debug-configuration.png)
 
-Det här kommandot skapar och kör tjänsten i Azure dev Spaces i fel söknings läge. *Terminalfönstret* längst ned visar Bygg utdata och URL: er för din tjänst som kör Azure dev Spaces. *Fel söknings konsolen* visar loggens utdata.
+Det här kommandot skapar och kör tjänsten i Azure dev Spaces i fel söknings läge. *Terminalfönstret* längst ned visar Bygg utdata och URL: er för din tjänst som körs i Azure dev Spaces. *Fel söknings konsolen* visar loggens utdata.
 
 > [!Note]
 > Om du inte ser några Azure dev Spaces-kommandon i *paletten*, kontrol lera att du har installerat [Visual Studio Code-tillägget för Azure dev Spaces](https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds). Kontrol lera också att du *har öppnat katalogen dev-Spaces/samples/dotnetcore/Startbok/webfrontend* i Visual Studio Code.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 807bb4b4dd07298635ff0cd3e18f095ccf862e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9ebc418327d8c73198d43d3c40e14d48c73ad209
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989805"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290248"
 ---
 # <a name="how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Så tillämpas rabatten för Azure-reservation på virtuella datorer
 
@@ -47,7 +47,7 @@ När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en an
 
 ![Skärmbild av en tillämpad reservation och två matchande VM-instanser](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
 
-1. All användning som är ovanför reservationslinjen debiteras enligt de vanliga Betala per användning-priserna. Du debiteras inte för användning under reservationslinjen eftersom den redan har betalats som en del av reservationsköpet.
+1. All användning som är ovanför reservationslinjen debiteras enligt de vanliga Betala per användning-priserna. Du debiteras inte för någon användning under reservations raden eftersom den redan har betalats som en del av reservations köpet.
 2. Under timme 1 körs instans 1 i 0,75 timmar och instans 2 körs i 0,5 timmar. Total användning för timme 1 är 1,25 timmar. Du debiteras Betala per användning-priser för de återstående 0,25 timmarna.
 3. För timme 2 och timme 3 kördes båda instanserna 1 timme vardera. Den ena instansen omfattas av reservationen och den andra debiteras enligt Betala per användning-priserna.
 4. För timme 4 körs instans 1 i 0,5 timmar och instans 2 körs i 1 timme. Instans 1 omfattas helt av reservationen och 0,5 timmar av instans 2 omfattas. Du debiteras Betala per användning-priser för de återstående 0,5 timmarna.

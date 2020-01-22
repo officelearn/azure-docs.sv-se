@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 285456c87835344aba083c68a7876ecc78d9e45e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76270562"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288972"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
@@ -90,8 +90,8 @@ Mer information om hur du skapar ett nytt Azure AD-program finns i [Registrera e
 ## <a name="add-api-permissions"></a>Lägg till API-behörigheter
 
 1. I avsnittet **Hantera** klickar du på **API-behörigheter**.
-2. Klicka på **Lägg till behörighet** och välj **Azure Active Directory graf** sedan **delegerade behörigheter**
-3. Expandera **användare** i listan nedan och se till att **User. Read** är aktiverat.
+2. Klicka på **Lägg till behörighet** och välj **Azure Active Directory graf** sedan **delegerade behörigheter**. 
+3. Expandera **användare** i listan nedan och aktivera **användaren. Läs** behörighet. Om **User. Read** är aktiverat som standard, se till att det är den **Azure Active Directory Graph** behörighet **användare. Läs**, *inte* **Microsoft Graph** behörighets **användare. Läs**.
 4. Rulla upp och välj **program behörigheter**.
 5. Expandera **katalogen** i listan nedan och aktivera **Directory. ReadAll**
 6. Klicka på **Lägg till behörigheter** för att acceptera ändringarna.

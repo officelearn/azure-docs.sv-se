@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7a3280e11d40a361c5a3305d71e58661b37b8bd1
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: e4bf079d46271cadc0176fe5602adcdc3954dee5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563436"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290724"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Distribuera Azure IoT Edge-moduler från Azure portal
 
@@ -53,7 +53,7 @@ Azure-portalen har en guide som visar hur du skapar distributionen manifestet, i
 
 ### <a name="specify-routes"></a>Ange vägar
 
-På fliken **vägar** definierar du hur meddelanden ska skickas mellan moduler och IoT Hub. Meddelanden skapas med hjälp av namn/värde-par. Som standard kallas en väg för **routning** och definieras som **från/Messages/* till $upstream * *, vilket innebär att alla meddelanden som skickas av alla moduler skickas till din IoT-hubb.  
+På fliken **vägar** definierar du hur meddelanden ska skickas mellan moduler och IoT Hub. Meddelanden skapas med hjälp av namn/värde-par. Som standard kallas en väg **väg** och definieras som **från/messages/\* i $upstream**, vilket innebär att alla meddelanden som skickas av alla moduler skickas till IoT-hubben.  
 
 Lägg till eller uppdatera vägarna med information från [deklarera vägar](module-composition.md#declare-routes)och välj sedan **Nästa: granska + skapa** för att fortsätta till nästa steg i guiden.
 

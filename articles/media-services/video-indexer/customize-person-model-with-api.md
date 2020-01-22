@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 01/14/2020
 ms.author: anzaman
-ms.openlocfilehash: 44f97e3d9af9daac8d62ae42be76bd73dedbd453
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 370e9e515359e2e2e598db90aa379f796b13c3fe
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838272"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292407"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Anpassa en person modell med Video Indexer API
 
@@ -35,38 +35,7 @@ Varje konto har en gräns på 50 person modeller. Om du inte behöver stöd för
 
 ## <a name="create-a-new-person-model"></a>Skapa en ny person modell
 
-Skapa en ny person modell i det angivna kontot. 
-
-### <a name="request-url"></a>URL för begäran
-
-Detta är en POST-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}
-```
-
-Nedan visas en förfrågan i spiral.
-
-```curl
-curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?name={name}&accessToken={accessToken}"
-```
-
-[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?).
-
-### <a name="request-parameters"></a>Parametrar för begäran 
-
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
-|---|---|---|---|
-|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|namn|sträng|Ja|Namnet på person modellen|
-|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Ingen ytterligare begär ande text krävs för det här anropet.
-
-### <a name="response"></a>Svar
+Om du vill skapa en ny person modell i det angivna kontot använder du [skapa en person modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Create-Person-Model?) -API.
 
 Svaret innehåller namnet och det genererade modell-ID: t för den person modell som du nyss skapade enligt formatet i exemplet nedan.
 
@@ -81,73 +50,15 @@ Du bör sedan använda **ID-** värdet för parametern **personModelId** när du
 
 ## <a name="delete-a-person-model"></a>Ta bort en person modell
 
-Ta bort en anpassad person modell från det angivna kontot. 
+Om du vill ta bort en anpassad person modell från det angivna kontot använder du [ta bort en person modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?) -API. 
 
 När person modellen har tagits bort förblir indexet för dina aktuella videor som använde den borttagna modellen oförändrade tills du indexerar om dem. Vid Omindexering kommer de ansikten som beskrevs i den borttagna modellen inte att kännas igen av Video Indexer i dina aktuella videor som har indexerats med modellen. dessa ansikten kommer dock fortfarande att identifieras. Dina aktuella videor som indexeras med den borttagna modellen använder nu ditt kontos standard person modell. Om ansikten från den borttagna modellen också är namngivna i ditt kontos standard modell, kommer dessa ansikten att fortsätta att kännas igen i videor.
-
-### <a name="request-url"></a>URL för begäran
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}
-```
-
-Nedan visas en förfrågan i spiral.
-```curl
-curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels/{id}?accessToken={accessToken}"
-```
-
-[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Person-Model?).
-
-### <a name="request-parameters"></a>Parametrar för begäran
-
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
-|---|---|---|---|
-|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|id|sträng|Ja|ID för person modell (skapas när person modellen skapas)|
-|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Ingen ytterligare begär ande text krävs för det här anropet.
-
-### <a name="response"></a>Svar
 
 Det finns inget returnerat innehåll när person modellen har tagits bort.
 
 ## <a name="get-all-person-models"></a>Hämta alla person modeller
 
-Hämta alla person modeller på det angivna kontot. 
-
-### <a name="request-call"></a>Begär anrop
-
-Detta är en GET-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}
-```
-
-Nedan visas en förfrågan i spiral.
-
-```curl
-curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/PersonModels?accessToken={accessToken}"
-```
-
-[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?).
-
-### <a name="request-parameters"></a>Parametrar för begäran
-
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
-|---|---|---|---|
-|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
-
-### <a name="request-body"></a>Begärandetext
-
-Ingen ytterligare begär ande text krävs för det här anropet.
-
-### <a name="response"></a>Svar
+Om du vill hämta alla person modeller på det angivna kontot använder du [Hämta en person modell](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Person-Models?) -API.
 
 Svaret innehåller en lista över alla person modeller i ditt konto (inklusive standard person modellen i det angivna kontot) och var och en av deras namn och ID: n efter formatet i exemplet nedan.
 
@@ -174,42 +85,9 @@ När detta händer känner den igen förekomster av samma ansikte i dina andra a
 
 Du kan uppdatera en ansikte som Video Indexer identifieras som en kändis med ett nytt namn. Det nya namnet som du ger företräde framför den inbyggda kändis-igenkänningen.
 
-### <a name="request-call"></a>Begär anrop
-
-Detta är en POST-begäran.
-
-```
-https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}
-```
-
-Nedan visas en förfrågan i spiral.
-
-```curl
-curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Videos/{videoId}/Index/Faces/{faceId}?accessToken={accessToken}&newName={newName}"
-```
-
-[Se nödvändiga parametrar och testa att använda video Indexer Developer-portalen](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?).
-
-### <a name="request-parameters"></a>Parametrar för begäran
-
-|**Namn**|**Typ**|**Kunna**|**Beskrivning**|
-|---|---|---|---|
-|location|sträng|Ja|Den Azure-region som anropet ska dirigeras till. Mer information finns i [Azure-regioner och video Indexer](regions.md).|
-|accountId|sträng|Ja|Globalt unik identifierare för kontot|
-|videoId|sträng|Ja|ID för videon där ytan som du vill uppdatera visas. Detta skapas när videon laddas upp och indexeras.|
-|faceId|heltal|Ja|ID för det ansikte som ska uppdateras. Du kan hämta faceId från video indexet|
-|accessToken|sträng|Ja|Åtkomsttoken (måste vara av åtkomst- [token](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)för scope-kontot) för att autentisera mot anropet. Åtkomsttoken upphör att gälla inom en timme.|
-|namn|sträng|Ja|Nytt namn att uppdatera ansikte med.|
+Om du vill uppdatera FACET använder du [Uppdatera ett video ansikts](https://api-portal.videoindexer.ai/docs/services/operations/operations/Update-Video-Face?) -API.
 
 Namnen är unika för person modeller, så om du ger två olika ansikten i samma person modell samma **namn** parameter värde video Indexer Visa ansikten som samma person och konvergerar dem när du har indexerat om videon. 
-
-### <a name="request-body"></a>Begärandetext
-
-Ingen ytterligare begär ande text krävs för det här anropet.
-
-### <a name="response"></a>Svar
-
-Det finns inget returnerat innehåll när FACET har uppdaterats.
 
 ## <a name="next-steps"></a>Nästa steg
 

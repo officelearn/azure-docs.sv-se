@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 577dc6d4344cd6d7a38c4d538218c9dd89e883aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643645"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289092"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -27,7 +27,7 @@ Det finns två vanliga orsaker till varför Azure AD-tillägget inte fungerar f�
 
 ### <a name="can-i-use-azure-ad-b2c-features-in-my-existing-employee-based-azure-ad-tenant"></a>Kan jag använda Azure AD B2C funktioner i min befintliga, anställd-baserade Azure AD-klient?
 
-Azure AD och Azure AD B2C är separata produkt erbjudanden och kan inte samverka i samma klient organisation. En Azure AD-klient representerar en organisation. En Azure AD B2C klient representerar en samling identiteter som ska användas med förlitande parters program. Med anpassade principer kan Azure AD B2C federera till Azure AD som tillåter autentisering av anställda i en organisation.
+Azure AD och Azure AD B2C är separata produkt erbjudanden och kan inte samverka i samma klient organisation. En Azure AD-klient representerar en organisation. En Azure AD B2C klient representerar en samling identiteter som ska användas med förlitande parters program. Genom att lägga till en **ny OpenID Connect-Provider** under **Azure AD B2C > identitets leverantörer** eller med anpassade principer, kan Azure AD B2C FEDERERa till Azure AD som tillåter autentisering av anställda i en organisation.
 
 ### <a name="can-i-use-azure-ad-b2c-to-provide-social-login-facebook-and-google-into-office-365"></a>Kan jag använda Azure AD B2C för att tillhandahålla social inloggning (Facebook och Google +) i Office 365?
 
@@ -77,8 +77,8 @@ Du kan använda [funktionen företags anpassning](../active-directory/fundamenta
 E-postsignaturen innehåller Azure AD B2C klientens namn som du angav när du först skapade Azure AD B2C klienten. Du kan ändra namnet med hjälp av följande anvisningar:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör.
-1. Öppna bladet **Azure Active Directory** .
-1. Klicka på fliken **Egenskaper** .
+1. Öppna **Azure Active Directory**-bladet.
+1. Klicka på den **egenskaper** fliken.
 1. Ändra fältet **namn** .
 1. Klicka på **Spara** längst upp på sidan.
 
@@ -150,7 +150,7 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Under **Hantera**väljer du **användar inställningar**.
 1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
-1. Under **åtkomst hantering för Azure-resurser**väljer du **Ja**och väljer sedan **Spara**.
+1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.
@@ -170,7 +170,7 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Under **Hantera**väljer du **användar inställningar**.
 1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
-1. Under **åtkomst hantering för Azure-resurser**väljer du **Ja**och väljer sedan **Spara**.
+1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.

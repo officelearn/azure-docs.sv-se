@@ -10,16 +10,16 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 58755a0ac49b9549813ddb507dfbd986d83dfce5
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: ccdeefabeedfca4959239696361ccce0bc6c1c78
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305855"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289806"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Omvärdering av stordator på Azure Virtual Machines
 
-Genom att migrera arbets belastningar från stordator miljöer till molnet kan du modernisera infrastrukturen och ofta Spara pengar. Många arbets belastningar kan överföras till Azure med bara smärre kod ändringar, till exempel uppdatering av namn på databaser.
+Genom att migrera arbets belastningar från stordator miljöer till molnet kan du modernisera infrastrukturen och ofta Spara pengar. Många arbetsbelastningar kan överföras till Azure med bara mindre kodändringar, till exempel uppdatering av namn på databaser.
 
 I allmänhet kan termen *stordatorer* betyda ett stort dator system. Mer specifikt är den enorma majoriteten som används för närvarande IBM-system Z-servrar eller IBM plug-kompatibla system som kör MVS, DOS, VSE, OS/390 eller Z/OS.
 
@@ -29,11 +29,11 @@ Virtuella Azure-datorer kan köra stordator-emuleringsklienter och kompilatorer 
 
 ![Emuleringsklienter i Azure gör det möjligt att köra z/OS-baserade system.](media/01-overview.png)
 
-Vissa stordator arbets belastningar kan migreras till Azure med relativt enkelt, medan andra kan vara värd för Azure med hjälp av en partner lösning. För detaljerad information om hur du väljer en partner lösning, kan Azures stordatorer- [flyttnings Center](https://azure.microsoft.com/migration/mainframe/) hjälpa dig.
+Vissa stordator arbets belastningar kan migreras till Azure med relativt enkelt, medan andra kan vara värd för Azure med hjälp av en partner lösning. För detaljerad information om hur du väljer en partner lösning, kan [Azures stordatorer-flyttnings Center](https://azure.microsoft.com/migration/mainframe/) hjälpa dig.
 
 ## <a name="mainframe-migration"></a>Stordatormigrering
 
-Rehost, återskapa, ersätta eller ta ur bruk? IaaS eller PaaS? För att fastställa rätt migrations strategi för stordator programmet, se Guide [](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) för stordatorer i Azure Architecture Center.
+Rehost, återskapa, ersätta eller ta ur bruk? IaaS eller PaaS? För att fastställa rätt migrations strategi för stordator programmet, se Guide för [stordatorer](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview) i Azure Architecture Center.
 
 ## <a name="micro-focus-rehosting-platform"></a>Omvärdering av Micro Focus-plattform
 
@@ -76,7 +76,7 @@ För att komma igång, se [IBM DB2 pureScale på Azure](/azure/virtual-machines/
 
 När du migrerar stordator belastningar till Azure Infrastructure as a Service (IaaS) kan du välja mellan flera olika typer av skalbara dator resurser på begäran, inklusive virtuella Azure-datorer. Azure erbjuder en rad virtuella [Linux](/azure/virtual-machines/linux/overview) -och [Windows](/azure/virtual-machines/windows/overview) -datorer.
 
-### <a name="compute"></a>Compute
+### <a name="compute"></a>Databearbetning
 
 Azure Compute Power jämför favorably med en stordator kapacitet. Om du tänker flytta en stordator till Azure ska du jämföra stordator måttet med 1 000 000-instruktioner per sekund (MIPS) till virtuella processorer. 
 
@@ -92,7 +92,7 @@ Med Azure IaaS, till exempel en virtuell dator, ger vissa systemfunktioner stöd
 
 Stordatorer skalar vanligt vis upp, medan moln miljöerna skalas ut. Azure erbjuder ett utbud av [Linux](/azure/virtual-machines/linux/sizes) -och [Windows](/azure/virtual-machines/windows/sizes) -storlekar för att uppfylla dina behov. Molnet kan också skalas upp eller ned för att matcha exakta specifikationer för användare. Beräkning [av strömförsörjning](/azure/architecture/best-practices/auto-scaling) , lagring och tjänster på begäran under en användnings-baserad fakturerings modell.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Lagring
 
 I molnet har du ett intervall med flexibla, skalbara lagrings alternativ och du betalar bara för det du behöver. [Azure Storage](/azure/storage/common/storage-introduction) erbjuder en massivt skalbar objekt lagring för data objekt, en fil system tjänst för molnet, ett Reliable Messaging Store och ett NoSQL-lager. För virtuella datorer, hanterade och ohanterade diskar finns beständiga, säkra disk lagring.
 
@@ -112,13 +112,13 @@ Kom igång genom att ladda ned [Microsoft Azure Government Cloud för stordator 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Be våra [partner](partner-workloads.md) att hjälpa dig att migrera eller vara värd för dina stordator program. Detaljerad vägledning om hur du väljer en partner lösning finns på webbplatsen [Platform modernisering Alliance](https://www.platformmodernization.org/pages/mainframe.aspx) .
+Be våra [partner](partner-workloads.md) att hjälpa dig att migrera eller vara värd för dina stordator program. 
 
 Se även:
 
 - [Fakta blad om stordator ämnen](mainframe-white-papers.md)
 - [Stordator-migrering](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Felsökning](/azure/virtual-machines/troubleshooting/)
+- [Troubleshooting](/azure/virtual-machines/troubleshooting/) (Felsökning)
 - [Avmystifiera-stordator till Azure-migrering](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

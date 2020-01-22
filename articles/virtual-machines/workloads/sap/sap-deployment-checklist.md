@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/08/2019
+ms.date: 01/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3a424c142fbfcbfe5e4c1802f3ba61da655f77f
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896037"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291523"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>SAP-arbetsbelastningar på Azure: planering och distribution check lista
 
@@ -53,7 +53,7 @@ Under den här fasen planerar du migreringen av din SAP-arbetsbelastning till Az
         - SAP HANA-stödda virtuella Azure-datorer och [Hana-stora instanser](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) visas på [SAP-webbplatsen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
         - [Produkt tillgänglighets mat ris för SAP](https://support.sap.com/en/).
         - SAP-kommentarer för andra SAP-/regionsspecifika produkter.     
-    - Vi rekommenderar strikta design system på tre nivåer för SAP-produktionssystem. Vi rekommenderar inte att kombinera ASCS-och App-servrar på en virtuell dator. Användning av klusterkonfigurationer med flera-SID för SAP Central Services stöds på Windows gäst operativ system på Azure. Men den här konfigurationen stöds inte för SAP-centrala tjänster på Linux-operativsystem på Azure. Du hittar dokumentation för scenariot för Windows gäst operativ system i följande artiklar:
+    - Vi rekommenderar strikta design system på tre nivåer för SAP-produktionssystem. Vi rekommenderar inte att kombinera ASCS och/eller DBMS och/eller App-servrar på en virtuell dator. Användning av klusterkonfigurationer med flera-SID för SAP Central Services stöds på Windows gäst operativ system på Azure. Men den här konfigurationen stöds inte för SAP-centrala tjänster på Linux-operativsystem på Azure. Du hittar dokumentation för scenariot för Windows gäst operativ system i följande artiklar:
         - [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med Windows Server-redundanskluster och delad disk i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
         - [SAP ASCS/SCS-instans multi-SID hög tillgänglighet med kluster för växling vid fel i Windows Server och fil resurs på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
     - Hög tillgänglighet och katastrof återställnings arkitektur.
@@ -135,7 +135,7 @@ Vi rekommenderar att du ställer in och validerar en fullständig HADR-lösning 
         - Om du inte behöver hög tillgänglighet för SAP Central Services och DBMS kan du distribuera de virtuella datorerna till samma tillgänglighets uppsättning som SAP-program skiktet.
         - Om du skyddar SAP Central Services och DBMS-skiktet för hög tillgänglighet genom att använda passiv replikering, placerar du de två noderna för SAP Central Services i en separat tillgänglighets uppsättning och de två DBMS-noderna i en annan tillgänglighets uppsättning.
         - Om du distribuerar till Azure-tillgänglighetszoner kan du inte använda tillgänglighets uppsättningar. Men du måste kontrol lera att du distribuerar aktiva och passiva centrala tjänster-noder i två olika Tillgänglighetszoner. Använd Tillgänglighetszoner som har den lägsta svars tiden mellan dem.
-          Tänk på att du måste använda [Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) för att skapa Windows-eller pacemaker-redundanskluster för skiktet DBMS och SAP Central Services i Tillgänglighetszoner. Du kan inte använda [Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus) för zonindelade-distributioner.
+          Tänk på att du måste använda [Azure standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) för att skapa Windows-eller pacemaker-redundanskluster för skiktet DBMS och SAP Central Services i Tillgänglighetszoner. Du kan inte använda [Basic-Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) för zonindelade-distributioner.
    5. Timeout-inställningar.
         - Kontrol lera SAP NetWeaver Developer-spår för SAP-instanserna för att se till att det inte finns några anslutnings avbrott mellan Server kön och SAP-arbetsprocesserna. Du kan undvika dessa anslutnings avbrott genom att ange dessa två register parametrar:
             - HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters\KeepAliveTime = 120000. Mer information finns i [KeepAliveTime](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-2000-server/cc957549(v=technet.10)).

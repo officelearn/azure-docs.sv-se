@@ -1,5 +1,5 @@
 ---
-title: 'Autentisering från tjänst till tjänst: Python med Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs'
+title: 'Tjänst-till-tjänst-autentisering: python med Azure Data Lake Storage Gen1 som använder Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du uppnår tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 att använda Azure Active Directory med python
 services: data-lake-store
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b63209c9174867e69356bb6800d70502f2afdaa4
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 009aff2703829e6d30f93b3c8e3696724594f29b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088818"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290775"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1 med python
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "71088818"
 I den här artikeln får du lära dig hur du använder python SDK för att utföra tjänst-till-tjänst-autentisering med Azure Data Lake Storage Gen1. För autentisering med slutanvändare med Data Lake Storage Gen1 med python, se [slutanvändarens autentisering med data Lake Storage gen1 med python](data-lake-store-end-user-authenticate-python.md).
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Python**. Du kan hämta Python [här](https://www.python.org/downloads/). I den här artikeln används Python 3.6.2.
 
@@ -43,8 +43,8 @@ I den här artikeln får du lära dig hur du använder python SDK för att utfö
 Om du vill arbeta med Data Lake Storage Gen1 med python måste du installera tre moduler.
 
 * `azure-mgmt-resource`-modulen, som innehåller Azure-moduler för Active Directory osv.
-* `azure-mgmt-datalake-store` Modulen, som innehåller data Lake Storage gen1 konto hanterings åtgärder. Mer information om den här modulen finns i [referens för Azure Data Lake Storage gen1 Management-modulen](/python/api/azure-mgmt-datalake-store/).
-* `azure-datalake-store` Modulen, som innehåller data Lake Storage gen1 fil Systems åtgärder. Mer information om den här modulen finns i [referens för Azure-datalake-Store-filsystem-modul](https://azure-datalake-store.readthedocs.io/en/latest/).
+* `azure-mgmt-datalake-store`-modulen, som innehåller Data Lake Storage Gen1 konto hanterings åtgärder. Mer information om den här modulen finns i [referens för Azure Data Lake Storage gen1 Management-modulen](/python/api/azure-mgmt-datalake-store/).
+* `azure-datalake-store`-modulen, som innehåller Data Lake Storage Gen1 fil Systems åtgärder. Mer information om den här modulen finns i [referens för Azure-datalake-Store-filsystem-modul](https://docs.microsoft.com/python/api/azure-datalake-store/azure.datalake.store.core/).
 
 Installera modulerna med hjälp av följande kommandon.
 
@@ -99,7 +99,7 @@ Använd det här kodfragmentet för att autentisera med Azure AD för konto hant
 
 ## <a name="service-to-service-authentication-with-client-secret-for-filesystem-operations"></a>Tjänst-till-tjänst-autentisering med klienthemlighet för filsystemsåtgärder
 
-Använd följande kodfragment för att autentisera med Azure AD för fil Systems åtgärder på Data Lake Storage Gen1, till exempel skapa mapp, ladda upp fil osv. Du kan använda följande kodfragment för att autentisera ditt program icke-interaktivt, med hjälp av klienthemligheten för ett program/tjänstobjekt. Använd detta med ett befintligt Azure AD-webbappsprogram.
+Använd följande kodfragment för att autentisera med Azure AD för fil Systems åtgärder på Data Lake Storage Gen1, till exempel skapa mapp, ladda upp fil osv. Följande kodfragment kan användas för att autentisera ditt program icke-interaktivt, med hjälp av klient hemligheten för ett program/tjänstens huvud namn. Använd detta med ett befintligt Azure AD-webbappsprogram.
 
     tenant = '<TENANT>'
     RESOURCE = 'https://datalake.azure.net/'

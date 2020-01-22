@@ -3,12 +3,12 @@ title: Översikt över Azure Functions körnings versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig mer om skillnaderna mellan dem och hur du väljer det som passar dig bäst.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 88c151149d1d960746ff449819d31e8b32d98120
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921856"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290384"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Översikt över Azure Functions körnings versioner
 
@@ -143,7 +143,7 @@ I Visual Studio väljer du kör tids versionen när du skapar ett projekt. Azure
 ```
 
 > [!NOTE]
-> Azure Functions 3. x och .NET kräver att `Microsoft.Sdk.NET.Functions`-tillägget är minst `3.0.0`.
+> Azure Functions 3. x och .NET kräver att `Microsoft.NET.Sdk.Functions`-tillägget är minst `3.0.0`.
 
 ###### <a name="updating-2x-apps-to-3x-in-visual-studio"></a>Uppdaterar 2. x-appar till 3. x i Visual Studio
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/27/2019
-ms.openlocfilehash: d5b3733947876958b4d72da4cb7bb0f10a3a9165
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.date: 01/21/2020
+ms.openlocfilehash: b8cf7992617b7263b86fd98e5def8be1d43ca68c
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614951"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293376"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -325,7 +325,7 @@ I följande tabell visas flera egenskaper, som är tillgängliga via Transact SQ
 
 |Egenskap|Värde|Kommentar|
 |---|---|---|
-|`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database.|
+|`@@VERSION`|Microsoft SQL Azure (RTM) – 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Värdet är samma som i SQL Database. Detta indikerar **inte** SQL-motor version 12 (SQL Server 2014). Den hanterade instansen kör alltid den senaste säkra versionen av SQL-motorn, som är lika med eller högre än den senaste tillgängliga RTM-versionen av SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Värdet är samma som i SQL Database.|
 |`SERVERPROPERTY('EngineEdition')`|8|Det här värdet identifierar en hanterad instans unikt.|
 |`@@SERVERNAME`, `SERVERPROPERTY ('ServerName')`|Komplett instans DNS-namn i följande format:`<instanceName>`.`<dnsPrefix>`.Database.Windows.NET, där `<instanceName>` är namn som tillhandahålls av kunden, medan `<dnsPrefix>` är automatiskt genererade del av namnet, vilket ger global unikhet för DNS-namn (”wcus17662feb9ce98”, till exempel)|Exempel: my-managed-instance.wcus17662feb9ce98.database.windows.net|

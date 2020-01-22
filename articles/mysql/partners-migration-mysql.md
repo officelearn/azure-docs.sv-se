@@ -1,30 +1,30 @@
 ---
-title: Azure Database for MySQL-Migreringspartner | Microsoft Docs
-description: Listor med tredje parts migreringspartner med lösningar som stöder Azure Database for MySQL.
+title: Azure Database for MySQL migrations partner | Microsoft Docs
+description: Visar en lista över migrerings partner från tredje part med lösningar som har stöd för Azure Database for MySQL.
 author: HJToland3
 ms.author: jtoland
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: eea8a919665a773c48ac3e138c19a54160f41b2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f922275e5541baabc77a1efb19e48fa8be4c5ac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66160379"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76289432"
 ---
-# <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL-migreringspartner
-Du kan välja från ett brett utbud av branschledande partners och verktyg för att stödja brett din Azure Database för MySQL-lösningen. Den här artikeln visar Microsoft-partner med lösningar som stöder Azure Database for MySQL.
+# <a name="azure-database-for-mysql-migration-partners"></a>Azure Database for MySQL migrations partner
+Om du vill ha stöd för din Azure Database for MySQL-lösning kan du välja bland en mängd olika branschledande partner och verktyg. I den här artikeln beskrivs Microsofts partner med migrations lösningar som har stöd för Azure Database for MySQL.
 
 ## <a name="migration-partners"></a>Migreringspartner
-| Partner | Beskrivning | Länkar | Videoklipp |
+| Partner | Beskrivning | Länkar | Videor |
 | --- | --- | --- | --- |
-| ![SNP tekniker][1] |**SNP tekniker**<br>SNP Technologies är en molnbaserad leverantör, att skapa säkra och tillförlitliga lösningar för företag i framtiden. Företaget anser i genereringen av verkliga värdet för din verksamhet. Från ansedda fjärrkörning av delar SNP tekniker en gemensam syftet med klienter är att aktivera sina investeringar i en fördel.|[Webbplats][snp_website]<br>[Twitter][snp_twitter]<br>[Kontakta][snp_contact] | |
-| ![DB Best Technologies, LLC][2] |**DB Best Technologies, LLC**<br>DB bästa hjälper kunderna att få ut mest av en hanterad databastjänst för Azure. Företaget erbjuder flera olika sätt för dig att komma igång, inklusive [framtiden tillstånd arkitektoniska Design](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [Data Management optimering för Microsofts dataplattform](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Microsoft Azure Distributionsplanerings-tjänster](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services), och [Azure Data Platform beredskap utbildning](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Webbplats][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Kontakta][dbbest_contact] | |
-| ![Pragmatisk fungerar][3] |**Pragmatisk fungerar**<br>Pragmatisk Works är ett upplärning och konsult företag med djup kompetens för datahantering och prestanda, Business Intelligence, Stordata, Power BI och Azure. De fokuserar på dataoptimering och förbättring av hantering av SQL Server och molnet.|[Webbplats][pragmatic-works_website]<br>[Twitter][pragmatic-works_twitter]<br>[YouTube][pragmatic-works_youtube]<br>[Kontakta][pragmatic-works_contact] | |
-| ![Infosys][4] |**Infosys**<br>Infosys är en global ledare i de senaste digitala tjänsterna och rådgivning. Med över tre lång erfarenhet av hanteringssystem globala företag, får Infosys flytta klienter via sin digitala resa genom att organisationer med en AI-driven core. Om du gör det hjälper dig att prioritera körningen av ändringen. Infosys innehåller också företag med flexibel digital skala för att leverera oöverträffad prestandanivåer och roa för kunden.|[Webbplats][infosys_website]<br>[Twitter][infosys_twitter]<br>[YouTube][infosys_youtube]<br>[Kontakta][infosys_contact] | |
-| ![credativ][5] |**credativ**<br>credativ är en oberoende consulting och företagets-tjänster. Sedan 1999, har de erbjuder omfattande tjänster och teknisk support för implementering och driften av programvara med öppen källkod i affärsprogram. Deras mängd Service innehåller strategiska consulting, ljud tekniska råd, kvalificerade utbildning och stöd för anpassade upp till 24 timmar per dag för alla IT-behov.|[Marketplace][credativ_marketplace]<br>[Webbplats][credativ_website]<br>[Twitter][credative_twitter]<br>[YouTube][credativ_youtube]<br>[Kontakta][credativ_contact] | |
-| ![Pactera][6] |**Pactera**<br>Pactera är ett globalt företag som erbjuder tjänster för rådgivning, digitala, teknik och åtgärder till världens ledande företag. Från sina ursprung inom teknik till senast inom digital omvandling ger de kunder en Konkurrensmässig fördel. Kontrollera att dina data är säkra, autentisk och korrekt sina beprövade metoder och verktyg.|[Webbplats][pactera_website]<br>[Twitter][pactera_twitter]<br>[Kontakta][pactera_contact] | |
+| ![SNP tekniker][1] |**SNP-teknik**<br>SNP-teknik är en moln tjänst leverantör som skapar säkra och pålitliga lösningar för företag i framtiden. Företaget anser att du genererar verkligt värde för ditt företag. Med hjälp av den här typen av teknik delar SNP-teknikerna ett gemensamt syfte med klienter, så att deras investeringar blir en fördel.|[Webbplats][snp_website]<br>[Twitter][snp_twitter]<br>[Kontakta][snp_contact] | |
+| ![Best DB-teknik, LLC][2] |**Best DB-teknik, LLC**<br>DB hjälper kunderna att få ut mesta möjliga av en hanterad Azure Database-tjänst. Företaget erbjuder flera sätt att komma igång, inklusive [arkitektur design i framtida läge](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2F www.dbbest.com%2Fservices%2Ffuture-state-architectural-design%2F&data=02%7C01%7Cjtoland%40microsoft.com%7C7311aa2024894a80eff208d5cfd45696%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636643433261194557&sdata=SCr3kseFvcU7mI1%2FZt7K2elXAqLY%2FyL6AO944QiWoLg%3D&reserved=0), [datahantering optimering för Microsoft Data Platform](https://www.dbbest.com/services/data-management-optimization-for-microsoft-data-platform/), [Microsoft Azure distributions planerings tjänster](https://www.dbbest.com/services/microsoft-azure-deployment-planning-services)och utbildning för [Azure Data Platform readiness](https://www.dbbest.com/services/azure-data-platform-readiness-training).|[Webbplats][dbbest_website]<br>[Twitter][dbbest_twitter]<br>[YouTube][dbbest_youtube]<br>[Kontakta][dbbest_contact] | |
+| ![Pragmatic Works][3] |**Pragmatic Works**<br>Pragmatic Works är ett utbildnings-och konsult företag med djupgående expertis inom data hantering och prestanda, Business Intelligence, Big data, Power BI och Azure. De fokuserar på data optimering och förbättrar effektiviteten i SQL Server-och moln hantering.|[Webbplats][pragmatic-works_website]<br>[Twitter][pragmatic-works_twitter]<br>[YouTube][pragmatic-works_youtube]<br>[Kontakta][pragmatic-works_contact] | |
+| ![Infosys][4] |**Infosys**<br>Infosys är en global ledare i de senaste digitala tjänsterna och konsulterna. Med över tre årtionden som har erfarenhet av att hantera system i globala företag, Infosys experten kunder genom sin digitala resa genom att göra det möjligt för organisationer med en AI-Powered Core. På så sätt kan du prioritera körningen av ändringar. Infosys ger också företag med flexibel Digital i skala för att leverera oöverträffade nivåer av prestanda-och kund nöjda.|[Webbplats][infosys_website]<br>[Twitter][infosys_twitter]<br>[YouTube][infosys_youtube]<br>[Kontakta][infosys_contact] | |
+| ![credativ][5] |**credativ**<br>credativ är ett oberoende konsult-och tjänst företag. Sedan 1999 har de erbjudit omfattande tjänster och teknisk support för implementering och drift av program vara med öppen källkod i företags program. Deras omfattande utbud av tjänster innefattar strategisk rådgivning, tekniska råd, kvalificerad utbildning och anpassad support på upp till 24 timmar per dag för alla dina IT-behov.|[Marketplace][credativ_marketplace]<br>[Webbplats][credativ_website]<br>[Twitter][credative_twitter]<br>[YouTube][credativ_youtube]<br>[Kontakta][credativ_contact] | |
+| ![Pactera][6] |**Pactera**<br>PACTERA är ett globalt företag som erbjuder konsult-, Digital-, teknik-och drift tjänster till världens ledande företag. Från sina rötter i teknik till den senaste i den digitala omvandlingen ger de kunderna en konkurrens för gräns. Sina beprövade metoder och verktyg garanterar att dina data är säkra, autentiska och korrekta.|[Webbplats][pactera_website]<br>[Twitter][pactera_twitter]<br>[Kontakta][pactera_contact] | |
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om några av Microsofts andra partner, finns det [Microsoft Partner-webbplats](https://partner.microsoft.com/en-US/).
@@ -43,7 +43,7 @@ Mer information om några av Microsofts andra partner, finns det [Microsoft Part
 [pragmatic-works_website]:https://pragmaticworks.com//
 [infosys_website]:https://www.infosys.com/
 [credativ_website]:https://www.credativ.com/postgresql-competence-center/microsoft-azure
-[pactera_website]:https://en.pactera.com/service/azure-data-platform-services/
+[pactera_website]:https://en.pactera.com/
 
 <!--Get Started Links-->
 <!--Datasheet Links-->

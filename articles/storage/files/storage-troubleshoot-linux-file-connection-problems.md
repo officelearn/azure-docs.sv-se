@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: fa60cbeb3dc2dea928168529a7e7a58cf01657c4
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 8b7a743ebcdf74f6ad740e4e4193bbd98da1536d
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615007"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291132"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -130,25 +130,25 @@ Krypteringsfunktionen för SMB 3.0 för Linux introducerades i kernel 4.11. Den 
 
 Om din Linux SMB-klient inte stöder kryptering monterar du Azure Files med SMB 2.1 från en virtuell Linux-dator på Azure som är i samma datacenter som filresursen. Kontrollera att inställningen [Säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad för lagringskontot. 
 
-<a id="authorizationfailureportal"></a>
-## <a name="error-authorization-failure-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel meddelandet "auktoriseringsfel" när du bläddrar till en Azure-filresurs i portalen
+<a id="noaaccessfailureportal"></a>
+## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel "ingen åtkomst" när du bläddrar till en Azure-filresurs i portalen
 
 När du bläddrar till en Azure-filresurs i portalen kan du få följande fel meddelande:
 
-Auktoriseringen misslyckades  
-Du har inte åtkomst
+Ingen åtkomst  
+Felkod: 403 
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 1: ditt användar konto har inte åtkomst till lagrings kontot
+### <a name="cause-1-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 1: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot
 
 ### <a name="solution-for-cause-1"></a>Lösning för orsak 1
 
-Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
+Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>Orsak 2: virtuella nätverk eller brand Väggs regler är aktiverade på lagrings kontot
+### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Orsak 2: ditt användar konto har inte åtkomst till lagrings kontot
 
 ### <a name="solution-for-cause-2"></a>Lösning för orsak 2
 
-Kontrollera att det virtuella nätverket och brandväggsreglerna har konfigurerats korrekt på lagringskontot. Om du vill testa om det virtuella nätverket eller brandväggsreglerna som orsakar problemet kan du tillfälligt ändra inställningen på lagringskontot för att **tillåta åtkomst från alla nätverk**. Mer information finns i [Konfigurera Azure Storage-brandväggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Bläddra till det lagrings konto där Azure-filresursen finns, klicka på **åtkomst kontroll (IAM)** och kontrol lera att ditt användar konto har åtkomst till lagrings kontot. Mer information finns i [så här skyddar du ditt lagrings konto med hjälp av rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/storage/blobs/security-recommendations#data-protection).
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Det går inte att ta bort en fil eller katalog i en Azure-filresurs

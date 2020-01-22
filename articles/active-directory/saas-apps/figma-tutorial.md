@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb2da2214cd5fab378368a363e6f18e02626b9d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dfa07b3df7071ed99a02b854ff41ad6a5137c8dc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373105"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292849"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-figma"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Figma
 
@@ -85,14 +85,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>`
 
-    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/consume`
+    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/consume`
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
-    I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/start`
+    I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://www.figma.com/saml/<TENANT ID>/start`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får `TENANT ID` från steg 11 i Figma-artikeln [konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+    > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska identifieraren, svars-URL och inloggnings-URL. Du får `TENANT ID` från steg # 11 i Figma-artikeln [konfigurera Azure Active Directory SAML SSO-processen](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 1. Figma-programmet förväntar sig SAML-försäkringar i ett specifikt format, vilket kräver att du lägger till anpassade attributmappningar i konfigurationen av SAML-tokenattribut. I följande skärmbild visas listan över standardattribut.
 
@@ -146,7 +146,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-figma-sso"></a>Konfigurera Figma SSO
 
-Om du vill konfigurera enkel inloggning på Figma-sidan måste du följa Figma-artikeln [konfigurera Azure Active Directory SAML SSO-process](https://help.figma.com/article/243-configure-azure-active-directory-saml-sso).
+Om du vill konfigurera enkel inloggning på Figma-sidan måste du följa Figma-artikeln [konfigurera Azure Active Directory SAML SSO-process](https://help.figma.com/hc/en-us/articles/360040532413-Configure-and-Provision-SAML-SSO-with-Azure-Active-Directory).
 
 ### <a name="create-figma-test-user"></a>Skapa Figma-testanvändare
 
@@ -156,7 +156,7 @@ I det här avsnittet skapas en användare som heter Britta Simon i Figma. Figma 
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Figma-panelen i åtkomstpanelen bör du automatiskt loggas in på Figma som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Figma-panelen i åtkomstpanelen bör du automatiskt loggas in på Figma som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

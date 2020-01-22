@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 4bc2e67d276deeea01989ed76be7352ce27abd71
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280823"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76288971"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>Konfigurera en agent utan beroende visualisering för utvärdering
 
@@ -87,10 +87,10 @@ Välj de datorer där du vill aktivera beroende identifiering.
 
 1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
-3. Klicka på **Start beroende identifiering**.
-3. På sidan **starta beroende identifiering** väljer du den installation som identifierar relevanta datorer.
+3. Klicka på **Lägg till servrar**.
+3. På sidan **Lägg till servrar** väljer du den installation som identifierar relevanta datorer.
 4. Välj datorerna i listan dator.
-5. Klicka på **Start beroende identifiering**.
+5. Klicka på **Lägg till servrar**.
 
     ![Starta beroende identifiering](./media/how-to-create-group-machine-dependencies-agentless/start-dependency-discovery.png)
 
@@ -123,10 +123,10 @@ Välj de datorer där du vill stoppa beroende identifiering.
 
 1. Klicka på **identifierade servrar**i **Azure Migrate: Server bedömning**.
 2. Klicka på ikonen **beroende analys** .
-3. Klicka på **stoppa beroende identifiering**.
-3. På sidan **stoppa beroende identifiering** väljer du den installation som identifierar de virtuella **datorer där du** vill stoppa beroende identifiering.
+3. Klicka på **ta bort servrar**.
+3. På sidan **ta bort servrar** **väljer du den installation som identifierar** de virtuella datorer där du vill stoppa beroende identifiering.
 4. Välj datorerna i listan dator.
-5. Klicka på **stoppa beroende identifiering**
+5. Klicka på **ta bort servrar**.
 
 
 ## <a name="next-steps"></a>Nästa steg

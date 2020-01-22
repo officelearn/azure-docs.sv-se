@@ -76,7 +76,7 @@
   items:
     - name: Appintegrering
       items:
-        - name: Registrera ett OIDC-program
+        - name: Registrera ett program
           href: tutorial-register-applications.md
         - name: Registrera en SAML-tjänstprovider
           href: connect-with-saml-service-providers.md
@@ -282,6 +282,11 @@
                   items:
                     - name: Sträng-ID för lokalisering
                       href: localization-string-ids.md
+                - name: DisplayControls
+                  href: display-controls.md
+                  items:
+                    - name: Verifiering
+                      href: display-control-verification.md
             - name: ClaimsProviders
               href: claimsproviders.md
               items:
@@ -320,11 +325,6 @@
                       href: active-directory-b2c-reference-sso-custom.md
                     - name: Validering
                       href: validation-technical-profile.md
-            - name: DisplayControls
-              href: display-controls.md
-              items:
-                - name: Verifiering
-                  href: display-control-verification.md
             - name: UserJourneys
               href: userjourneys.md
             - name: RelyingParty

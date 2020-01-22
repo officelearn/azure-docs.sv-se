@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 93fad58e971d761f626b79dc68f9576ccc2e1892
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a68393b2852f8ddc758e2a47b9e1b5d94befb7b4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994004"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290146"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Förstå villkoren i filen för din Azure-användning och dina avgifter
 
@@ -90,11 +90,11 @@ PublisherType | Alla | Typ av utgivare (värden: **Azure**, **AWS**, **Marketpla
 Kvantitet | Alla | Antalet köpta eller förbrukade enheter.
 ReservationId | EA, MCA | Unik identifierare för den köpta reservationsinstansen.
 ReservationName | EA, MCA | Namn på den köpta reservationsinstansen.
-ResourceGroup | Alla | Namnet på den [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som resursen finns i.
+ResourceGroup | Alla | Namnet på den [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som resursen finns i. Alla avgifter kommer inte från resurser som distribuerats till resurs grupper. Avgifter som inte har någon resurs grupp visas som null/tomma, **andra**eller **inte tillämpliga**.
 ResourceId<sup>1</sup> | Alla | Unik identifierare för [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources)-resursen.
 ResourceLocation | Alla | Platsen för det datacenter där resursen körs. Se Location.
-ResourceName | EA, PAYG | Namn på resursen.
-ResourceType | MCA | Typ av resursinstans.
+ResourceName | EA, PAYG | Namn på resursen. Alla avgifter kommer inte från distribuerade resurser. Avgifter som inte har någon resurs typ visas som null/tom, **andra**eller **ej tillämpliga**.
+ResourceType | MCA | Typ av resursinstans. Alla avgifter kommer inte från distribuerade resurser. Avgifter som inte har någon resurs typ visas som null/tom, **andra**eller **ej tillämpliga**.
 ServiceFamily | MCA | Den tjänstfamilj som tjänsten tillhör.
 ServiceInfo1 | Alla | Tjänstspecifika metadata.
 ServiceInfo2 | Alla | Äldre fält med valfria servicespecifika metadata.

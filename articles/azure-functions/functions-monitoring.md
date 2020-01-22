@@ -4,12 +4,12 @@ description: Lär dig hur du använder Azure Application insikter med Azure Func
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.openlocfilehash: 4a182ddffd4c1ee4d2e71e7d9e6385df23e4260e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dda62e3041d04d5becc9179fff1c56d0c587ba1e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978091"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76292934"
 ---
 # <a name="monitor-azure-functions"></a>Övervaka Azure Functions
 
@@ -31,7 +31,7 @@ För att en Function-app ska skicka data till Application Insights måste den k�
 
 ### <a name="new-function-app-in-the-portal"></a>Ny function-app i portalen
 
-När du [skapar en Function-app i Azure Portal](functions-create-first-azure-function.md)aktive ras Application Insights integration som standard. Application Insights resursen har samma namn som din Function-app, och den skapas antingen i samma region eller i närmaste region.
+När du [skapar en Function-app i Azure Portal](functions-create-first-azure-function.md)aktive ras Application Insights integration som standard. Application Insights resursen har samma namn som din Function-app, och den skapas antingen i samma region eller i den närmaste regionen.
 
 Om du vill granska Application Insights resurs som skapas väljer du den för att expandera fönstret **Application Insights** . Du kan ändra det **nya resurs namnet** eller välja en annan **plats** i ett [Azure-geografi](https://azure.microsoft.com/global-infrastructure/geographies/) där du vill lagra dina data.
 
@@ -74,7 +74,7 @@ Du kan se att båda sidorna har en **körning i Application Insights** länk til
 
 ![Kör i Application Insights](media/functions-monitoring/run-in-ai.png)
 
-Följande fråga visas. Du kan se att anrops listan är begränsad till de senaste 30 dagarna. Listan innehåller högst 20 rader (`where timestamp > ago(30d) | take 20`). Listan med information om anrop är under de senaste 30 dagarna utan begränsning.
+Följande fråga visas. Du kan se att frågeresultaten är begränsade till de senaste 30 dagarna (`where timestamp > ago(30d)`). Dessutom visar resultatet högst 20 rader (`take 20`). Listan med information om anrop för din funktion är däremot under de senaste 30 dagarna utan begränsning.
 
 ![Lista med Application Insights analys anrop](media/functions-monitoring/ai-analytics-invocation-list.png)
 
@@ -98,7 +98,7 @@ Följande områden i Application Insights kan vara användbara när du ska utvä
 | **[Historik](../azure-monitor/app/performance-counters.md)** | Analysera prestanda problem. |
 | **Servrar** | Visa resursutnyttjande och data flöde per server. Dessa data kan vara användbara för fel sökning av scenarier där funktioner är bogging de underliggande resurserna. Servrar kallas för **moln roll instanser**. |
 | **[Mått](../azure-monitor/app/metrics-explorer.md)** | Skapa diagram och aviseringar som baseras på mått. Mått inkluderar antalet funktions anrop, körnings tid och lyckade kostnader. |
-| **[Live-ström med mätvärden](../azure-monitor/app/live-stream.md)** | Visa mått data när de skapas i real tid. |
+| **[Live-ström med mätvärden](../azure-monitor/app/live-stream.md)** | Visa mått data när de skapas i nära real tid. |
 
 ## <a name="query-telemetry-data"></a>Fråga telemetri-data
 
@@ -155,7 +155,7 @@ Om du skriver loggar i funktions koden är kategorin `Function` i version 1. x i
 
 Azure Functions loggen innehåller också en *logg nivå* med varje logg. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) är en uppräkning och heltals koden indikerar relativ prioritet:
 
-|Loggnivå    |Programmera|
+|LogLevel    |Programmera|
 |------------|---|
 |Spårning       | 0 |
 |Felsöka       | 1 |
@@ -337,7 +337,7 @@ Du kan skriva loggar i funktions koden som visas som spår i Application Insight
 
 Använd en [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) -parameter i dina funktioner i stället för en `TraceWriter`-parameter. Loggar som skapats med `TraceWriter` gå till Application Insights, men `ILogger` gör det möjligt att göra [strukturerade loggningar](https://softwareengineering.stackexchange.com/questions/312197/benefits-of-structured-logging-vs-basic-logging).
 
-Med ett `ILogger`-objekt anropar du `Log<level>` [tilläggs metoder på ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) för att skapa loggar. Följande kod skriver `Information` loggar med kategorin "function".
+Med ett `ILogger`-objekt anropar du `Log<level>` [tilläggs metoder på ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.loggerextensions#methods) för att skapa loggar. Följande kod skriver `Information` loggar med kategorin "function. < YOUR_FUNCTION_NAME >. Användare. "
 
 ```cs
 public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, ILogger logger)
@@ -561,7 +561,7 @@ namespace functionapp0915
 
 Anropa inte `TrackRequest` eller `StartOperation<RequestTelemetry>` eftersom du ser dubbla begär Anden för ett funktions anrop.  Functions-körningen spårar automatiskt begär Anden.
 
-Ange inte `telemetryClient.Context.Operation.Id`. Den här globala inställningen orsakar felaktig korrelation när många funktioner körs samtidigt. Skapa i stället en ny telemetri-instans (`DependencyTelemetry``EventTelemetry`) och ändra dess `Context` egenskap. Skicka sedan telemetri-instansen till motsvarande `Track` metod på `TelemetryClient` (`TrackDependency()``TrackEvent()`). Den här metoden säkerställer att Telemetrin har rätt korrelations information för det aktuella funktions anropet.
+Ange inte `telemetryClient.Context.Operation.Id`. Den här globala inställningen orsakar felaktig korrelation när många funktioner körs samtidigt. Skapa i stället en ny telemetri-instans (`DependencyTelemetry``EventTelemetry`) och ändra dess `Context` egenskap. Skicka sedan telemetri-instansen till motsvarande `Track` metod på `TelemetryClient` (`TrackDependency()`, `TrackEvent()`, `TrackMetric()`). Den här metoden säkerställer att Telemetrin har rätt korrelations information för det aktuella funktions anropet.
 
 ## <a name="log-custom-telemetry-in-javascript-functions"></a>Logga anpassad telemetri i JavaScript-funktioner
 
@@ -590,7 +590,7 @@ Parametern `tagOverrides` anger `operation_Id` till funktionens anrops-ID. Med d
 
 ## <a name="dependencies"></a>Beroenden
 
-Functions v2 samlar automatiskt in beroenden för HTTP-begäranden, Service Bus och SQL.
+Functions v2 samlar automatiskt in beroenden för HTTP-begäranden, Service Bus, EventHub och SQL.
 
 Du kan skriva anpassad kod för att Visa beroenden. Exempel finns i exempel koden i [ C# avsnittet anpassad telemetri](#log-custom-telemetry-in-c-functions). Exempel koden resulterar i en *program karta* i Application Insights som ser ut som på följande bild:
 
@@ -612,7 +612,7 @@ Det finns två sätt att visa en ström med loggfiler som genereras av dina funk
 
 Logg strömmar kan visas både i portalen och i de flesta lokala utvecklings miljöer. 
 
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 
 Du kan visa båda typerna av logg strömmar i portalen.
 

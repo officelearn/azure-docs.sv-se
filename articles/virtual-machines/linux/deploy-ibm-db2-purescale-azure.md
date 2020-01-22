@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: fe6e581963753cac33092285fee0c8d16959bde8
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: c4db27b938934aafa350866991ff174cbdbed0ac
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530110"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291557"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuera IBM DB2 pureScale på Azure
 
@@ -150,7 +150,5 @@ Mer information om dessa och andra kända problem finns i kb.md-filen i [DB2onAz
 -   [Data lösning för DB2 pureScale-kluster](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
-
--   [Platform modernisering Alliance: IBM DB2 på Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
 
 -   [Guide för att lyfta och flytta Azure Virtual Data Center](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)

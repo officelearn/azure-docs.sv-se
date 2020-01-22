@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 69ae6766414dbe533500860b01852ee8d25c3a1e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513918"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291387"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>Översikt över Azure Kubernetes service (AKS)-diagnostik
 
@@ -24,13 +24,13 @@ Fel sökning av problem med Azure Kubernetes service (AKS) är en viktig del av 
 
 - Navigera till ditt Kubernetes-kluster i [Azure Portal](https://portal.azure.com).
 - Klicka på **diagnostisera och lös problem** i det vänstra navigerings fönstret, som öppnar AKS-diagnostik.
-- Välj en kategori som bäst beskriver problemet med ditt kluster genom att använda nyckelorden på sidan Start sida eller ange ett nyckelord som bäst beskriver problemet i Sök fältet, till exempel _klusternoder_.
+- Välj en kategori som bäst beskriver problemet med klustret med hjälp av nyckelorden på Start sidan eller Skriv ett nyckelord som bäst beskriver problemet i Sök fältet, till exempel _klusternoder_.
 
-![Start](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
+![Startsida](./media/concepts-diagnostics/aks-diagnostics-homepage.png)
 
 ## <a name="view-a-diagnostic-report"></a>Visa en diagnostisk rapport
 
-När du har klickat på en kategori kan du Visa en diagnostisk rapport som är speciell för klustret. Diagnostiska rapporter anropar intelligentt om det finns något problem i klustret med status ikoner. Du kan öka detalj nivån för varje ämne genom att klicka på **Mer information** för att se detaljerad beskrivning av problemet, rekommenderade åtgärder, länkar till användbara dokument, relaterade mått och loggnings data. Diagnostiska rapporter skapas intelligent baserat på klustrets aktuella tillstånd när du har kört flera olika kontroller. Diagnostiska rapporter kan vara ett användbart verktyg för att hitta problem med klustret och hitta nästa steg för att lösa problemet.
+När du har klickat på en kategori kan du Visa en diagnostisk rapport som är speciell för klustret. Diagnostiska rapporter anropar intelligentt om det finns något problem i klustret med status ikoner. Du kan öka detalj nivån för varje ämne genom att klicka på **Mer information** för att se detaljerad beskrivning av problemet, rekommenderade åtgärder, länkar till användbara dokument, relaterade mått och loggnings data. Diagnostiska rapporter skapas intelligent baserat på klustrets aktuella tillstånd när du har kört en rad olika kontroller. Diagnostiska rapporter kan vara ett användbart verktyg för att hitta problem med klustret och hitta nästa steg för att lösa problemet.
 
 ![Diagnostisk rapport](./media/concepts-diagnostics/diagnostic-report.png)
 
@@ -76,7 +76,7 @@ Identitets-och säkerhets hantering identifierar autentiserings-och auktoriserin
 
 - Auktoriseringsfel för nod
 - 401 fel
-- 403 fel
+- 403-fel
 
 ## <a name="next-steps"></a>Nästa steg
 

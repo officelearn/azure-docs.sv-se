@@ -8,12 +8,12 @@ ms.assetid: 444f0959-aa7f-472c-a6c7-9eecea3a34b9
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: d59cca4b5c956134516aa2c8066894aa14e5d33d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec7091a32a1be8d875e16d8e0a9b20b5e80de387
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453111"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291965"
 ---
 # <a name="build-mobile-back-end-components-with-compute-services"></a>Bygg mobila Server dels komponenter med beräknings tjänster
 Varje mobil program behöver en server del som ansvarar för data lagring, affärs logik och säkerhet. Genom att hantera infrastrukturen som värd och köra backend-kod måste du ändra storlek, etablera och skala flera servrar. Du måste också hantera OS-uppdateringar och den berörda maskin varan och använda säkerhets korrigeringar. Sedan måste du övervaka alla dessa infrastruktur komponenter för prestanda, tillgänglighet och fel tolerans. 
@@ -36,7 +36,7 @@ Använd följande tjänster för att aktivera server lös beräknings funktioner
 - Händelse driven och skalbart där du kan använda utlösare och bindningar för att definiera när en funktion anropas och vilka data som den ansluter till.
 - Ta med dina egna beroenden eftersom Functions har stöd för NuGet och NPM, så att du kan använda dina favorit bibliotek.
 - Integrerad säkerhet så att du kan skydda HTTP-utlösta funktioner med OAuth-leverantörer som Azure Active Directory, Facebook, Google, Twitter och Microsoft-konto.
-- Förenklad integrering med olika [Azure-tjänster](/azure/azure-functions/functions-overview#integrations) och SaaS-erbjudanden (Software as a Service).
+- Förenklad integrering med olika [Azure-tjänster](/azure/azure-functions/functions-overview) och SaaS-erbjudanden (Software as a Service).
 - Flexibel utveckling så att du kan koda dina funktioner direkt i Azure Portal eller konfigurera kontinuerlig integrering och distribuera din kod via GitHub, Azure DevOps Services och andra utvecklingsverktyg som stöds.
 - Functions runtime är öppen källkod och tillgänglig på [GitHub](https://github.com/azure/azure-webjobs-sdk-script).
 - Förbättrad utvecklings upplevelse där du kan koda, testa och felsöka lokalt med hjälp av deras prioriterade redigerings program eller lättanvända webb gränssnitt med övervakning med integrerade verktyg och inbyggda DevOps-funktioner.

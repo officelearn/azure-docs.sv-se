@@ -63,7 +63,7 @@
     - name: Portar med hög tillgänglighet
       href: load-balancer-ha-ports-overview.md
     - name: IPv6-stöd
-      href: load-balancer-ipv6-overview.md
+      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: Flera klienter
       href: load-balancer-multivip-overview.md
     - name: Utgående anslutningar
@@ -107,11 +107,11 @@
     - name: Skapa offentlig Load Balancer med IPv6
       items:
         - name: Azure CLI
-          href: load-balancer-ipv6-internet-cli.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli'
         - name: Azure PowerShell
-          href: load-balancer-ipv6-internet-ps.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell'
         - name: Mall
-          href: load-balancer-ipv6-internet-template.md
+          href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
     - name: Konfigurera intern Load Balancer
       items:
         - name: Azure CLI

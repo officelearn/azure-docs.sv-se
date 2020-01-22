@@ -88,6 +88,8 @@
       href: templates-cloud-consistency.md
     - name: Distributionsmodeller
       href: deployment-modes.md
+    - name: Borttagning i complete-läget
+      href: complete-mode-deletion.md
     - name: Distributionshanteraren
       items:
         - name: Översikt
@@ -237,12 +239,6 @@
           href: template-functions-resource.md
         - name: Strängfunktioner
           href: template-functions-string.md
-    - name: Resursfunktioner
-      items:
-        - name: Borttagning i complete-läget
-          href: complete-mode-deletion.md
-        - name: Filnamnstillägg för resurstyper
-          href: extension-resource-types.md
     - name: REST
       href: /rest/api/resources/
     - name: Azure PowerShell

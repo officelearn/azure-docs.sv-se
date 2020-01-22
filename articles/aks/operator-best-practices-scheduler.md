@@ -1,47 +1,47 @@
 ---
-title: Operatorn metodtips – grundläggande scheduler funktioner i Azure Kubernetes Services (AKS)
-description: Läs kluster operatorn metodtipsen för att använda grundläggande scheduler-funktioner, till exempel resurskvoter och pod avbrott budgetar i Azure Kubernetes Service (AKS)
+title: Bästa praxis för Operator – grundläggande Scheduler-funktioner i Azure Kubernetes Services (AKS)
+description: Lär dig metod tips för kluster operatörer för att använda grundläggande funktioner i Schemaläggaren, till exempel resurs kvoter och Pod avbrott i Azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 3ce59784b2c7c1d145d99786b10927c230146c8b
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614628"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293614"
 ---
-# <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för grundläggande scheduler funktioner i Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för grundläggande funktioner i Schemaläggaren i Azure Kubernetes service (AKS)
 
-Du hanterar kluster i Azure Kubernetes Service (AKS) bör behöva du ofta isolera team och arbetsbelastningar. Scheduler Kubernetes tillhandahåller funktioner som låter dig styra distributionen av beräkningsresurser eller begränsa effekten av underhållshändelser.
+När du hanterar kluster i Azure Kubernetes service (AKS) behöver du ofta isolera team och arbets belastningar. Kubernetes Scheduler innehåller funktioner som du kan använda för att styra distributionen av beräknings resurser, eller begränsa påverkan av underhålls händelser.
 
-Den här bästa praxis artikeln handlar om grundläggande Kubernetes schemaläggningsfunktioner för klusteroperatörer. I den här artikeln kan du se hur du:
+I den här artikeln fokuserar vi på grundläggande funktioner för Kubernetes-schemaläggning för kluster operatörer. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Använda resurskvoter för att tillhandahålla en fast mängd resurser till team eller arbetsbelastningar
-> * Begränsa effekten av schemalagt underhåll med hjälp av pod avbrott budgetar
-> * Sök efter saknade pod resursbegäranden och begränsningar med hjälp av den `kube-advisor` verktyget
+> * Använd resurs kvoter för att tillhandahålla en fast mängd resurser till team eller arbets belastningar
+> * Begränsa effekten av planerat underhåll med hjälp av Pod-avbrott i budgetar
+> * Sök efter saknade Pod-resursposter och begränsningar med hjälp av `kube-advisor`-verktyget
 
-## <a name="enforce-resource-quotas"></a>Framtvinga resurskvoter
+## <a name="enforce-resource-quotas"></a>Framtvinga resurs kvoter
 
-**Bästa praxis riktlinjer** -Plan och tillämpa resurskvoter på namnområdesnivå. Om poddar inte definierar resursbegäranden och begränsningar, avvisa distributionen. Övervaka Resursanvändning och justera kvoter efter behov.
+**Vägledning för bästa praxis** – planera och tillämpa resurs kvoter på namn områdes nivå. Om poddar inte definierar resurs begär Anden och begränsningar avvisar du distributionen. Övervaka resursanvändningen och justera kvoterna efter behov.
 
-Resursbegäranden och begränsningar är placerade i pod-specifikationen. Dessa gränser som används av scheduler Kubernetes vid tidpunkten för distribution för att hitta en tillgänglig nod i klustret. Dessa begränsningar och begäranden fungerar på enskilda pod-nivå. Mer information om hur du definierar dessa värden finns i [definiera pod resursbegäranden och begränsningar][resource-limits]
+Resurs förfrågningar och-gränser placeras i pod-specifikationen. Dessa gränser används av Kubernetes Scheduler vid distributions tiden för att hitta en tillgänglig nod i klustret. Dessa gränser och begär Anden fungerar på individuell Pod-nivå. Mer information om hur du definierar dessa värden finns i [definiera resurs begär Anden och begränsningar för Pod][resource-limits]
 
-För att ge ett sätt att reservera och begränsa resurser över ett utvecklingsteam eller projekt, bör du använda *resurskvoter*. Dessa kvoter har definierats för ett namnområde och kan användas för att ange kvoter för följande:
+För att tillhandahålla ett sätt att reservera och begränsa resurser i en utvecklings grupp eller ett projekt, bör du använda *resurs kvoter*. Dessa kvoter definieras i ett namn område och kan användas för att ange kvoter på följande sätt:
 
-* **Beräkningsresurser**, till exempel CPU och minne eller GPU: er.
-* **Lagringsresurser**, innehåller det totala antalet volymer och hur mycket diskutrymme för en angiven klass.
-* **Objektantal**, t.ex högsta tillåtna antalet hemligheter, tjänster eller jobb kan skapas.
+* **Beräknings resurser**, till exempel processor och minne, eller GPU: er.
+* **Lagrings resurser**, innehåller det totala antalet volymer eller mängden disk utrymme för en specifik lagrings klass.
+* **Antal objekt**, till exempel maximalt antal hemligheter, tjänster och jobb kan skapas.
 
-Kubernetes överanstränga inte resurser. När totalen antalet resursbegäranden om eller gränser klarar den tilldelade kvoten, har inga ytterligare distributioner lyckats.
+Kubernetes överallokerar inte resurser. När det totala antalet resurs begär Anden eller gränser har passerat den tilldelade kvoten lyckas inga ytterligare distributioner.
 
-När du definierar resurskvoter måste alla poddar som skapats i namnområdet ange gränser eller begäranden i sina pod-specifikationer. Om de inte anger dessa värden kan avvisa du distributionen. I stället kan du [konfigurera standard-begäranden och gränser för ett namnområde][configure-default-quotas].
+När du definierar resurs kvoter måste alla poddar som skapats i namn rymden tillhandahålla gränser eller begär anden i sina Pod-specifikationer. Om de inte anger dessa värden kan du avvisa distributionen. I stället kan du [Konfigurera standardvärden och gränser för ett namn område][configure-default-quotas].
 
-Följande exempel YAML manifestet med namnet *dev-app-team-quotas.yaml* anger en hård gräns på totalt *10* processorer, *20Gi* minne och *10*poddarna:
+Följande exempel på YAML-manifest med namnet *dev-app-team-kvoter. yaml* ställer in en hård gräns på totalt *10* processorer, *20Gi* minne och *10* poddar:
 
 ```yaml
 apiVersion: v1
@@ -55,32 +55,32 @@ spec:
     pods: "10"
 ```
 
-Den här resurskvoten kan användas genom att ange namnområdet, som *dev-apps*:
+Den här resurs kvoten kan tillämpas genom att ange namn området, till exempel *dev-Apps*:
 
 ```console
 kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 ```
 
-Arbeta med programutvecklare och ägare för att förstå deras behov och tillämpa lämpliga resurskvoter.
+Samar beta med dina program utvecklare och ägare för att förstå deras behov och tillämpa lämpliga resurs kvoter.
 
-Läs mer om tillgängliga resursobjekt, omfång och prioritet, [resurskvoter i Kubernetes][k8s-resource-quotas].
+Mer information om tillgängliga resurs objekt, omfattningar och prioriteringar finns [i resurs kvoter i Kubernetes][k8s-resource-quotas].
 
-## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Planera för tillgänglighet med pod avbrott budgetar
+## <a name="plan-for-availability-using-pod-disruption-budgets"></a>Planera för tillgänglighet med hjälp av Pod-avbrott i budgetar
 
-**Bästa praxis riktlinjer** – för att upprätthålla tillgängligheten för program, definiera Pod avbrott budgetar (PDB-filer) för att se till att ett minsta antal poddar är tillgängliga i klustret.
+**Rekommendationer för bästa praxis** – om du vill behålla program varans tillgänglighet definierar du Pod-avbrotts budget (PDBs) för att se till att det finns ett minsta antal poddar i klustret.
 
-Det finns två störande händelser som orsakar poddar som ska tas bort:
+Det finns två störande händelser som gör att poddar tas bort:
 
-* *Antal ofrivilliga avbrott* är händelser utöver vanliga kontrollen av operatorn kluster eller programmets ägare.
-  * Dessa ofrivilliga avbrott inkludera ett maskinvarufel på den fysiska datorn, en kernel panic-meddelande eller borttagningen av en nod VM
-* *Frivillig avbrott* är händelser som begärs av operatorn kluster eller programmets ägare.
-  * Dessa frivillig avbrott vara klusteruppgradering, en uppdaterad Distributionsmall eller av misstag tar bort en pod.
+* *Infrivilliga avbrott* är händelser utöver den typiska kontrollen av kluster operatören eller program ägaren.
+  * Dessa infrivilliga avbrott omfattar ett maskin varu problem på den fysiska datorn, en kernel-panik eller borttagningen av en virtuell nod
+* *Frivilliga avbrott* är händelser som begärs av kluster operatören eller program ägaren.
+  * Dessa frivilliga avbrott omfattar kluster uppgraderingar, en uppdaterad distributionsmall eller oavsiktligt borttagning av en pod.
 
-Antal ofrivilliga avbrott kan undvikas genom att använda flera kopior av dina poddar i en distribution. Köra flera noder i AKS-klustret hjälper också med de här ofrivilliga avbrott. För frivillig avbrott, Kubernetes tillhandahåller *pod avbrott budgetar* som gör att klustret operatorn definiera ett minsta tillgängliga eller högsta otillgänglig resursantalet. Dessa pod avbrott budgetar kan du planera för hur distributioner eller replikuppsättningar svarar när en frivillig avbrott inträffar.
+De infrivilliga avbrotten kan minskas genom att använda flera repliker av din poddar i en distribution. Att köra flera noder i AKS-klustret hjälper också till med dessa inaktiva störningar. För frivilliga avbrott ger Kubernetes *Pod avbrotts budgetar* som låter kluster operatören definiera minst eller maximalt antal otillgängliga resurser. Dessa Pod avbrotts budgetar låter dig planera för hur distributioner eller replik uppsättningar svarar när en frivillig störnings händelse inträffar.
 
-Om ett kluster som ska uppgraderas eller en Distributionsmall uppdateras, Kubernetes-scheduler gör att ytterligare är poddar schemalagda på andra noder innan händelserna frivillig avbrott kan fortsätta. Scheduler väntar innan en nod startas om förrän det angivna antalet poddar är schemalagt på andra noder i klustret.
+Om ett kluster ska uppgraderas eller om en distributionsmall uppdateras, ser Kubernetes Scheduler till att ytterligare poddar är schemalagda för andra noder innan de frivilliga avbrotts händelserna kan fortsätta. Scheduler väntar innan en nod startas om tills det definierade antalet poddar har schemalagts på andra noder i klustret.
 
-Nu ska vi titta på ett exempel på en replik med fem poddar som kör NGINX. Poddarna i repliken ange som tilldelas etiketten `app: nginx-frontend`. När frivillig avbrott händelser, till exempel en uppgradering av klustret, som du vill kontrollera att minst tre poddar fortsätter att köras. Följande YAML manifest för en *PodDisruptionBudget* objektet definierar dessa krav:
+Nu ska vi titta på ett exempel på en replik uppsättning med fem poddar som kör NGINX. Poddar i replik uppsättningen tilldelas etiketten `app: nginx-frontend`. Under en frivillig störnings händelse, till exempel en kluster uppgradering, vill du se till att minst tre poddar fortsätter att köras. Följande YAML-manifest för ett *PodDisruptionBudget* -objekt definierar dessa krav:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -94,9 +94,9 @@ spec:
       app: nginx-frontend
 ```
 
-Du kan också definiera en procentsats, till exempel *60%* , vilket gör att du automatiskt kompensera för repliken ange skala upp antalet poddar.
+Du kan också definiera ett procent värde, till exempel *60%* , som gör att du automatiskt kan kompensera för replik uppsättningen för att skala upp antalet poddar.
 
-Du kan definiera ett maximalt antal tillgängliga instanser i en replikuppsättning. Igen, kan också procent för maximal otillgänglig poddarna definieras. Följande pod avbrott budget YAML manifestet definierar att mer än två poddar i replikeringen vara otillgänglig:
+Du kan definiera ett maximalt antal otillgängliga instanser i en replik uppsättning. En procents ATS för den högsta otillgängliga poddar kan också definieras. Följande Pod-avbrott i budget YAML-manifestet definierar att det inte finns fler än två poddar i replik uppsättningen:
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -110,32 +110,32 @@ spec:
       app: nginx-frontend
 ```
 
-När din pod avbrott budget har definierats kan skapa du den i AKS-klustret precis som med andra Kubernetes-objekt:
+När din POD-störning har definierats skapar du den i ditt AKS-kluster som med andra Kubernetes-objekt:
 
 ```console
 kubectl apply -f nginx-pdb.yaml
 ```
 
-Arbeta med programutvecklare och ägare för att förstå deras behov och tillämpa lämpliga pod avbrott budgetar.
+Samar beta med dina program utvecklare och ägare för att förstå deras behov och tillämpa lämpliga Pod-avbrott i budgeten.
 
-Läs mer om hur du använder pod avbrott budgetar [anger en avbrott budget för ditt program][k8s-pdbs].
+Mer information om hur du använder Pod avbrotts budgetar finns i [Ange en avbrotts budget för programmet][k8s-pdbs].
 
-## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Kontrollera regelbundet kluster problem med kube-advisor
+## <a name="regularly-check-for-cluster-issues-with-kube-advisor"></a>Sök regelbundet efter kluster problem med Kube-Advisor
 
-**Bästa praxis riktlinjer** -regelbundet kör den senaste versionen av `kube-advisor` verktyg med öppen källkod att identifiera problem i klustret. Om du använder resurskvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har resursbegäranden och gränser som definierats.
+**Vägledning för bästa praxis** – kör regelbundet den senaste versionen av `kube-advisor` verktyg för öppen källkod för att identifiera problem i klustret. Om du använder resurs kvoter i ett befintligt AKS-kluster, kör `kube-advisor` först för att hitta poddar som inte har några resurs begär Anden och gränser definierade.
 
-Den [kube-advisor][kube-advisor] verktyget är ett projekt med associerade AKS öppen källkod som genomsöker ett Kubernetes-kluster och rapporter på problem som hittas. En användbar check är att identifiera poddar som inte har resursbegäranden och begränsningar på plats.
+Verktyget [Kube-Advisor][kube-advisor] är ett associerat AKS-projekt med öppen källkod som söker igenom ett Kubernetes-kluster och rapporterar om problem som hittas. En bra kontroll är att identifiera poddar som inte har resurs begär Anden och begränsningar på plats.
 
-Verktyget kube-advisor kan rapportera om resursbegäran och begränsningar som saknas i PodSpecs för Windows-program samt Linux-program, men själva kube-advisor-verktyget måste planeras på en Linux-pod. Du kan schemalägga en pod ska köras på en nodpool med ett specifikt operativsystem med en [noden väljare][k8s-node-selector] i en pod-konfiguration.
+Kube-verktyget kan rapportera om resurs begär Anden och gränser som saknas i PodSpecs för Windows-program och Linux-program, men Kube-Advisor-verktyget måste vara schemalagt för en Linux-pod. Du kan schemalägga en POD så att den körs på en adresspool med ett särskilt operativ system med hjälp av en [Node-selektor][k8s-node-selector] i pod-konfigurationen.
 
-I ett AKS-kluster som är värd för flera utvecklingsteam och program, kan det vara svårt att spåra poddar utan dessa resurs-begäranden och begränsar uppsättningen. Som bästa praxis, regelbundet kör `kube-advisor` på dina AKS-kluster, särskilt om du inte tilldelar resurskvoter till namnområden.
+I ett AKS-kluster som är värd för flera utvecklings team och program, kan det vara svårt att spåra poddar utan dessa resurs begär Anden och begränsningar. Vi rekommenderar att du regelbundet kör `kube-advisor` på dina AKS-kluster, särskilt om du inte tilldelar resurs kvoter till namn områden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserar på grundläggande funktioner som Kubernetes scheduler. Mer information om kluster i AKS finns i följande metoder:
+Den här artikeln fokuserar på Basic Kubernetes Scheduler-funktioner. Mer information om kluster åtgärder i AKS finns i följande metod tips:
 
-* [Isolering för flera innehavare och kluster][aks-best-practices-cluster-isolation]
-* [Avancerade funktioner för Kubernetes scheduler][aks-best-practices-advanced-scheduler]
+* [Flera innehavare och kluster isolering][aks-best-practices-cluster-isolation]
+* [Avancerade funktioner i Kubernetes Scheduler][aks-best-practices-advanced-scheduler]
 * [Autentisering och auktorisering][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

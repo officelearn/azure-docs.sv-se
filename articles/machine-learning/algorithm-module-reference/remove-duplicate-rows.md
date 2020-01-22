@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91434a5392f37a297e474fedf00fac6b1e4d8362
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497694"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314172"
 ---
 # <a name="remove-duplicate-rows-module"></a>Ta bort modul för dubbla rader
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att ta bort potentiella dubbletter från en data uppsättning.
 
@@ -33,8 +33,8 @@ Anta till exempel att dina data ser ut som följande och representerar flera pos
 |4| F.M.| M| 23| Feb|
 | | F.M.| M| 23| |
 |5| F.A.M.| M| 53| |
-|6| F.A.M.| M| Ndet| |
-|7| F.A.M.| M| Ndet| |
+|6| F.A.M.| M| NaN| |
+|7| F.A.M.| M| NaN| |
 
 Detta exempel har flera kolumner med data som kan dupliceras. Oavsett om de egentligen är dubbletter beror på dina kunskaper om dina data. 
 
@@ -71,7 +71,7 @@ När du kör modulen skapar den en Candidate-datauppsättning och returnerar en 
 
 5. Köra en pipeline.
 
-6. Granska resultaten genom att högerklicka på modulen, välja **resultat data uppsättning**och klicka på **visualisera**. 
+6. Om du vill granska resultaten högerklickar du på modulen och väljer **visualisera**. 
 
 > [!TIP]
 > Om resultatet är svårt att förstå, eller om du vill undanta vissa kolumner från att beaktas, kan du ta bort kolumner med hjälp av modulen [Välj kolumner i data uppsättning](./select-columns-in-dataset.md) .

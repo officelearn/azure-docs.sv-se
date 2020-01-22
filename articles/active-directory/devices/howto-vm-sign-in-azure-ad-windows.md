@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b70a475d841c3649ba9e2bcc63187fc4484a23d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 42d1fde92e9315e8df3f65b2ab91ced74b377c0a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119983"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293461"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Logga in på den virtuella Windows-datorn i Azure med Azure Active Directory autentisering (för hands version)
 
@@ -63,10 +63,10 @@ Följande Azure-regioner stöds för närvarande i för hands versionen av den h
 
 Om du vill aktivera Azure AD-autentisering för dina virtuella Windows-datorer i Azure måste du se till att nätverks konfigurationen för virtuella datorer tillåter utgående åtkomst till följande slut punkter via TCP-port 443:
 
-- https://enterpriseregistration.windows.net
-- https://login.microsoftonline.com
-- https://device.login.microsoftonline.com
-- https://pas.windows.net
+- https:\//enterpriseregistration.windows.net
+- https:\//login.microsoftonline.com
+- https:\//device.login.microsoftonline.com
+- https:\//pas.windows.net
 
 ## <a name="enabling-azure-ad-login-in-for-windows-vm-in-azure"></a>Aktivera Azure AD-inloggning för virtuell Windows-dator i Azure
 
@@ -248,15 +248,15 @@ AADLoginForWindows-tillägget måste kunna installeras för att den virtuella da
 
 1. Se till att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
    
-   - spiral https://login.microsoftonline.com/ -D –
-   - spiral https://login.microsoftonline.com/`<TenantID>` /-D –
+   - spiral-https:\//login.microsoftonline.com/-D –
+   - spiral-https:\//login.microsoftonline.com/`<TenantID>`/-D –
 
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen.
 
-   - spiral https://enterpriseregistration.windows.net/ -D-
-   - spiral https://device.login.microsoftonline.com/ -D-
-   - spiral https://pas.windows.net/ -D-
+   - spiral-https:\//enterpriseregistration.windows.net/-D-
+   - spiral-https:\//device.login.microsoftonline.com/-D-
+   - spiral-https:\//pas.windows.net/-D-
 
 1. Enhetens tillstånd kan visas genom att köra `dsregcmd /status`. Målet är för enhets tillstånd att visas som `AzureAdJoined : YES`.
 
@@ -283,15 +283,15 @@ Den här avslutnings koden översätts till DSREG_AUTOJOIN_DISC_FAILED eftersom 
 
 1. Verifiera att de nödvändiga slut punkterna är tillgängliga från den virtuella datorn med hjälp av kommando raden:
 
-   - spiral https://login.microsoftonline.com/ -D –
-   - spiral https://login.microsoftonline.com/`<TenantID>` /-D –
+   - spiral-https:\//login.microsoftonline.com/-D –
+   - spiral-https:\//login.microsoftonline.com/`<TenantID>`/-D –
    
    > [!NOTE]
    > Ersätt `<TenantID>` med det Azure AD-klient-ID som är associerat med Azure-prenumerationen. Om du behöver hitta klient-ID: t kan du hovra över ditt konto namn för att hämta katalog-ID eller välja Azure Active Directory > Egenskaper > katalog-ID i Azure Portal.
 
-   - spiral https://enterpriseregistration.windows.net/ -D-
-   - spiral https://device.login.microsoftonline.com/ -D-
-   - spiral https://pas.windows.net/ -D-
+   - spiral-https:\//enterpriseregistration.windows.net/-D-
+   - spiral-https:\//device.login.microsoftonline.com/-D-
+   - spiral-https:\//pas.windows.net/-D-
 
 1. Om något av kommandona Miss lyckas med "Det gick inte att matcha värd `<URL>`", kan du prova att köra det här kommandot för att avgöra vilken DNS-server som används av den virtuella datorn.
    

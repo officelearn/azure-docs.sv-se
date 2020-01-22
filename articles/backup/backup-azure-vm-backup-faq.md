@@ -4,12 +4,12 @@ description: I den här artikeln hittar du svar på vanliga frågor om hur du s�
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: b8e259c6212e9a1e81b6b0c8825287f3025f9068
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: d70f4832daba59739d6798517902e921927194d6
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680536"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293988"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Vanliga frågor och svar – säkerhetskopiera virtuella Azure-datorer
 
@@ -92,6 +92,19 @@ Den schemalagda säkerhets kopieringen aktive ras inom 2 timmar efter den schema
 ### <a name="what-is-the-minimum-allowed-retention-range-for-daily-backup-point"></a>Vad är det lägsta tillåtna kvarhållningsintervallet för daglig säkerhets kopierings punkt?
 
 Säkerhets kopierings principen för virtuella Azure-datorer stöder ett minsta kvarhållningsintervall på sju dagar upp till 9999 dagar. Ändringar i en befintlig princip för säkerhets kopiering av virtuella datorer med mindre än sju dagar kräver en uppdatering för att uppfylla det lägsta kvarhållningsintervallet på sju dagar.
+
+### <a name="can-i-backup-or-restore-selective-disks-attached-to-a-vm"></a>Kan jag säkerhetskopiera eller återställa selektiva diskar som är anslutna till en virtuell dator?
+
+Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
+
+Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
+
+Den här lösningen är särskilt användbar i följande scenarier:
+  
+1. Du har viktiga data som ska säkerhets kopie ras på bara en disk och du vill inte säkerhetskopiera resten av diskarna som är anslutna till en virtuell dator. Detta minimerar kostnaderna för lagring av säkerhets kopior.  
+2. Du har andra säkerhets kopierings lösningar för en del av dina VM-data. Du kan till exempel säkerhetskopiera dina databaser eller data med en annan lösning för säkerhets kopiering av arbets belastning och du vill använda säkerhets kopiering av Azure VM-nivå för resten av dina diskar och data för att skapa ett effektivt och robust system som använder bästa möjliga kapacitet.
+
+Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
 
 ## <a name="restore"></a>Återställ
 

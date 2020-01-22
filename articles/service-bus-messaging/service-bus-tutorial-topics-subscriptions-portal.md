@@ -1,26 +1,26 @@
 ---
-title: Självstudie – uppdatera butikssortimentet med publicera/avpublicera kanaler och ämnesfilter med Azure-portalen | Microsoft Docs
+title: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer
 description: I den här självstudien får du lära dig hur du skickar och tar emot meddelanden från ett ämne och en prenumeration och hur du lägger till och använder filterregler med .NET
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.author: spelluru
-ms.date: 09/22/2018
+ms.date: 01/21/2020
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 5424a07f8ecd7eab962a4f865fac91741810e4b1
-ms.sourcegitcommit: cfbc8db6a3e3744062a533803e664ccee19f6d63
+ms.openlocfilehash: b6a3f38e0b83dc927a225c630b8178be1dc539ce
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65991928"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310126"
 ---
 # <a name="tutorial-update-inventory-using-azure-portal-and-topicssubscriptions"></a>Självstudie: Uppdatera lagret med Azure-portalen och ämnen/prenumerationer
 
 Azure Service Bus är en meddelandetjänst i molnet för flera klienter som skickar information mellan program och tjänst. Asynkrona åtgärder ger dig en flexibel, asynkron meddelandetjänst med funktioner för strukturerade meddelanden enligt FIFO-metoden (först-in-först-ut) och funktioner för publicering/prenumeration. Den här kursen visar hur du använder Service Bus-ämnen och prenumerationer i ett scenario med butikslager, med publicera/prenumerera kanaler med Azure-portalen och .NET.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 > [!div class="checklist"]
 > * Skapa ett Service Bus-ämne och en eller flera prenumerationer på det ämnet med Azure-portalen
 > * Lägg till ämnesfilter med .NET-kod
@@ -32,9 +32,9 @@ Ett exempel på det här scenariot är en uppdatering av lagersortimentet för f
 
 ![ämne](./media/service-bus-tutorial-topics-subscriptions-portal/about-service-bus-topic.png)
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][] innan du börjar.
+Om du inte har en Azure-prenumeration, kan du skapa ett [kostnadsfritt][] konto innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa de här självstudierna ska du kontrollera att du har installerat:
 
@@ -65,7 +65,7 @@ Om du vill köra koden gör du följande:
    git clone https://github.com/Azure/azure-service-bus.git
    ```
 
-2. Navigera till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
+2. Gå till exempelmappen `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveTutorialwithFilters`.
 
 3. Hämta anslutningssträngen som du kopierade till Anteckningar i avsnittet Hämta autentiseringsuppgifter för hantering i den här självstudien. Du behöver också namnet på det ämne som du skapade i föregående avsnitt.
 
@@ -395,7 +395,7 @@ private async Task ReceiveMessages(string subscription)
 ```
 
 > [!NOTE]
-> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer tillåter användare att ansluta till ett Service Bus-namnområde och administrera meddelandeentiteter på ett enkelt sätt. Verktyget tillhandahåller avancerade funktioner som import/export-funktionalitet eller möjligheten att testa ämne, köer, prenumerationer, relätjänster, meddelandehubbar och händelser hubs. 
+> Du kan hantera Service Bus-resurser med [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer gör det möjligt för användare att ansluta till en Service Bus namnrymd och administrera meddelande enheter på ett enkelt sätt. Verktyget innehåller avancerade funktioner som import/export-funktioner eller möjlighet att testa ämnen, köer, prenumerationer, relä tjänster, Notification Hub och Event Hub. 
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -415,7 +415,7 @@ Gå vidare till nästa självstudie för att läsa mer om att använda Service B
 > [!div class="nextstepaction"]
 > [Uppdatera lagerplatsen med PowerShell och ämnen/prenumerationer](service-bus-tutorial-topics-subscriptions-powershell.md)
 
-[kostnadsfritt konto]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[kostnadsfritt]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name
 [Azure portal]: https://portal.azure.com/
 

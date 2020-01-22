@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2019
 ms.author: spelluru
-ms.openlocfilehash: d7a0c757f7314e45d5b4d13273df984739912b27
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 43223f7cb9ed254340c99d235d494d1e93583c7f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942417"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293546"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-using-python"></a>Avbilda Event Hubs data i Azure Storage och läsa det med python 
 Du kan använda Konfigurera en händelsehubben så att data som skickas till en Event Hub samlas in i en Azure Storage eller Azure Data Lake Storage. Den här artikeln visar hur du använder Skriv python-kod för att skicka händelser till en händelsehubben och läsa fångade data från en Azure Blob Storage. Mer information om den här funktionen finns i [Översikt över Event Hubs Capture-funktionen](event-hubs-capture-overview.md).
@@ -42,9 +42,9 @@ I den här snabbstarten kommer du att göra följande:
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 - [Skapa ett Event Hubs-namnområde och en händelsehubben i namn området](event-hubs-create.md). Anteckna namnet på namn området Event Hubs, namnet på händelsehubben och den primära åtkomst nyckeln för namn området. Hämta åtkomst nyckeln genom att följa anvisningarna i artikeln: [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Standard nyckelnamnet är: **RootManageSharedAccessKey**. Du behöver inte anslutnings strängen för självstudien. Du behöver bara den primära nyckeln. 
 - Följ dessa steg om du vill skapa ett **Azure Storage-konto** och en **BLOB-behållare**:
-    1. [Skapa ett Azure Storage-konto](/storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
-    2. [Skapa en BLOB-behållare i lagringen](/storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
-    3. [Hämta anslutnings strängen till lagrings kontot](/storage/common/storage-configure-connection-string?#view-and-copy-a-connection-string)
+    1. [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    2. [Skapa en BLOB-behållare i lagringen](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container). 
+    3. [Hämta anslutnings strängen till lagrings kontot](../storage/common/storage-configure-connection-string.md#view-and-copy-a-connection-string).
 
         Anteckna **anslutnings sträng** och **behållar namn**. Du kommer att använda dem senare i koden. 
 - Aktivera funktionen **Capture** för Event Hub genom att följa anvisningarna nedan: [Aktivera Event Hubs avbildning med hjälp av Azure Portal](event-hubs-capture-enable-through-portal.md). Välj det lagrings konto och den BLOB-behållare som du skapade i föregående steg. Du kan också aktivera funktionen när du skapar en Event Hub. 

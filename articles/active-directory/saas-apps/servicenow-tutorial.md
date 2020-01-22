@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79f5284f95f6157c70461179177179a9fbee4fe0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562004"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293699"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med ServiceNow
 
@@ -46,9 +46,15 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. ServiceNow stöder **SP** -initierad SSO och [Automatisk användar etablering](servicenow-provisioning-tutorial.md).
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. 
 
-Du kan konfigurera det klassiska ServiceNow-programmet (mobil) med Azure AD för att aktivera SSO. Det stöder både Android-och iOS-användare. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+* ServiceNow stöder **SP** -initierad SSO.
+
+* ServiceNow har stöd för [Automatisk användar etablering](servicenow-provisioning-tutorial.md).
+
+* När du har konfigurerat ServiceNow kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* Du kan konfigurera det klassiska ServiceNow-programmet (mobil) med Azure AD för att aktivera SSO. Det stöder både Android-och iOS-användare. I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
 ## <a name="add-servicenow-from-the-gallery"></a>Lägg till ServiceNow från galleriet
 
@@ -460,3 +466,7 @@ När du väljer panelen ServiceNow på åtkomst panelen, bör du loggas in autom
 - [Konfigurera användar etablering](servicenow-provisioning-tutorial.md)
 
 - [Prova ServiceNow med Azure AD](https://aad.portal.azure.com)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [Så här skyddar du ServiceNow med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

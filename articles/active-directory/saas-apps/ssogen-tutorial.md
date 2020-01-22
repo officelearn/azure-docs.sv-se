@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/03/2020
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 841c2b7067427b703d2aa7647e0c0c3ef2287c6e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 74b56e30eb8851913f91cbee377204a575311375
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75775679"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293682"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ssogen---azure-ad-sso-gateway-for-oracle-e-business-suite---ebs-peoplesoft-and-jde"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med SSOGEN – Azure AD SSO Gateway för Oracle E-Business Suite-EBS, östra och JDE
 
@@ -43,7 +43,8 @@ För att komma igång behöver du följande objekt:
 
 I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
 
-* SSOGEN – Azure AD SSO Gateway för Oracle E-Business Suite-EBS, östra och JDE stöder **SP och IDP** INITIERAd SSO
+* SSOGEN – Azure AD SSO Gateway för Oracle E-Business Suite-EBS, östra och JDE stöder **SP och IDP** initierad SSO.
+* När du har konfigurerat SSOGEN – Azure AD SSO Gateway för Oracle E-Business Suite-EBS, östra och JDE kan du genomdriva sessionsnycklar, som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 > [!NOTE]
 > ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
@@ -161,3 +162,7 @@ När du klickar på SSOGEN-Azure AD SSO Gateway för Oracle E-Business Suite-EBS
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Prova SSOGEN – Azure AD SSO Gateway för Oracle E-Business Suite-EBS, östra och JDE med Azure AD](https://aad.portal.azure.com/)
+
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Skydda SSOGEN – Azure AD SSO Gateway för Oracle E-Business Suite-EBS, liboch JDE med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

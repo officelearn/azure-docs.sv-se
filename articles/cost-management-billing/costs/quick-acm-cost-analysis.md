@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 0221930f0b9fff0c9d4e398559f8d12999a66e91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f053b30d344e5372617a5bf98c087056c4fe2911
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75987567"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294158"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabb start: utforska och analysera kostnader med kostnads analys
 
@@ -138,24 +138,29 @@ Du kan Visa fullständig data uppsättning för alla vyer. De val eller filter s
 
 I följande tabell visas några av de vanligaste grupperings-och filtrerings alternativen och när du ska använda dem.
 
-| Egenskap | Används till att |
-| --- | --- |
-| **Fakturerings period** | Dela upp kostnader per faktura månad. Det här alternativet är viktigt för att betala per användning och utveckling/test-prenumerationer som inte är kopplade till kalender månader. EA/MCA-konton kan använda Kalender månader i datum väljaren eller månads kornig het för att utföra samma mål. |
-| **Avgifts typ** | Bryt ned användningen, Köp, åter betalning och outnyttjade reservations kostnader. Köp och åter betalningar av reservationer är bara tillgängliga när du använder åtgärds kostnader och inte när du använder periodiserade kostnader. Oanvända reservations kostnader är bara tillgängliga när du tittar på periodiserade kostnader. |
-| **Moln** | Dela upp kostnader med AWS och Azure. AWS-kostnader är bara tillgängliga från hanterings grupper, externa fakturerings konton och externa prenumerationer. |
-| Avsnittet **avdelnings** / **faktura** | Dela upp kostnader efter EA-eller MCA-faktura-avsnittet. Det här alternativet är endast tillgängligt för EA/MCA-fakturerings konton och MCA-fakturerings profiler. |
-| **Registrerings konto** | Dela upp kostnader efter EA-kontots ägare. Det här alternativet är endast tillgängligt för EA-fakturerings konton och-avdelningar. |
-| **Frekvens** | Bryt ned användnings-baserade, engångs-och återkommande kostnader. |
-| **Mätare** | Dela upp kostnader per användnings mätare i Azure. Det här alternativet är endast tillgängligt för Azure-användning. Alla inköp och Marketplace-användning visas som **ej specificerade** eller **otilldelade**. |
-| **Utgivar typ** | Bryt ned AWS-, Azure-och Marketplace-kostnader. |
-| **Reservation** | Dela upp kostnader per reservation. All användning som inte inkluderar en reservation visas som **Ej angiven**. |
-| **Resurs** | Dela upp kostnader per resurs. Alla inköp visas som **ej specificerade**eftersom de används på ett EA-/PAYG fakturerings konto eller en MCA-fakturerings profil nivå.  |
-| **Resursgrupp** | Dela upp kostnader per resurs grupp. Det här alternativet är endast tillgängligt för icke-klassisk användning. Klassisk Resursanvändning visas som **övrigt**och inköp visas som **ej angivet**. |
-| **Resurstyp** | Dela upp kostnader efter resurs typ. Det här alternativet är endast tillgängligt för icke-klassisk användning. Klassisk Resursanvändning visas som **övrigt**och inköp visas som **ej angivet**. |
-| **Tjänst namn** eller **mätnings kategori** | Dela upp kostnad per Azure-tjänst. Det här alternativet är endast tillgängligt för Azure-användning. Alla inköp och Marketplace-användning visas som **ej specificerade** eller **otilldelade**. |
-| **Tjänste nivå** eller **mätar under kategori** | Dela upp kostnaden med under klassificering av Azure-förbruknings mätare. Det här alternativet är endast tillgängligt för Azure-användning. Alla inköp och Marketplace-användning visas som **ej specificerade** eller **otilldelade**. |
-| **Prenumeration** | Dela upp kostnader per prenumeration. Alla inköp visas som **ej specificerade**. |
-| **Tag** | Dela upp kostnader efter tagg värden för en speciell tagg nyckel. |
+| Egenskap | Används till att | Anteckningar |
+| --- | --- | --- |
+| **Tillgänglighets zoner** | Bryt ned AWS-kostnader per tillgänglighets zon. | Gäller endast för AWS-scope och hanterings grupper. Azure data inkluderar inte tillgänglighets zon och visas som **ej tillämpligt**. |
+| **Fakturerings period** | Bryt ned PAYG-kostnader efter den månad som de var (eller kommer att) faktureras. | Använd **fakturerings perioden** för att få en korrekt representation av FAKTURERAde PAYG-avgifter. Inkludera 2 extra dagar före och efter fakturerings perioden om du filtrerar ned till ett anpassat datum intervall. Begränsning av de exakta datumen för fakturerings perioden stämmer inte överens med fakturan. Kommer att Visa kostnader från alla fakturor under fakturerings perioden. Använd **faktura-ID** för att filtrera ned till en speciell faktura. Endast tillgängligt för PAYG-prenumerationer eftersom EA och MCA faktureras per kalender månad. EA/MCA-konton kan använda Kalender månader i datum väljaren eller månads kornig het för att utföra samma mål. |
+| **Avgifts typ** | Bryt ned användningen, Köp, åter betalning och outnyttjade reservations kostnader. | Köp och åter betalningar av reservationer är bara tillgängliga när du använder faktiska kostnader och inte när du använder periodiserade kostnader. Oanvända reservations kostnader är bara tillgängliga när du tittar på periodiserade kostnader. |
+| **Department** | Dela upp kostnader efter EA-avdelning. | Endast tillgängligt för EA-och hanterings grupper. PAYG-prenumerationer har ingen avdelning och visas som **ej tillämpligt** eller **otilldelade**. |
+| **Registrerings konto** | Dela upp kostnader efter EA-kontots ägare. | Endast tillgängligt för EA-fakturerings konton, avdelningar och hanterings grupper. PAYG-prenumerationer har inga EA-registrerings konton och visas som **ej tillämpliga** eller **otilldelade**. |
+| **Frekvens** | Bryt ned användnings-baserade, engångs-och återkommande kostnader. | |
+| **Faktura-ID** | Dela upp kostnader per fakturerad faktura. | Unfakturerade avgifter har inte något faktura-ID ännu och EA-kostnader inkluderar inte faktura information och visas som **ej tillämpligt**.  |
+| **Mätare** | Dela upp kostnader per användnings mätare. | Inköp och Marketplace-användning visas som **ej tillämpligt**. Se **avgifts typ** för att identifiera inköp och **utgivar typ** för att identifiera Marketplace-avgifter. |
+| **Åtgärd** | Bryt ned AWS kostnader per åtgärd. | Gäller endast för AWS-scope och hanterings grupper. Azure data omfattar inte åtgärd och visas som **ej tillämpligt** – Använd **mätare** i stället. |
+| **Pris modell** | Bryt ned kostnader på begäran, reservation eller dekor användning. | Inköp visas som **OnDemand**. Om du **inte ser tillämpligt**kan du gruppera efter **reservation** för att avgöra om användningen är reservation eller användning på begäran och **avgifts typ** för att identifiera köp.
+| **Leverantör** | Dela upp kostnader med AWS och Azure. | Endast tillgängligt för hanterings grupper. |
+| **Utgivar typ** | Bryt ned AWS-, Azure-och Marketplace-kostnader. |  |
+| **Reservation** | Dela upp kostnader per reservation. | All användning eller alla inköp som inte är associerade med en reservation visas som **ej tillämpligt**. Gruppera efter **utgivar typ** för att identifiera andra Azure-, AWS-eller Marketplace-köp. |
+| **Resurs** | Dela upp kostnader per resurs. | Köp visas som **ej tillämpligt**eftersom de används på ett EA-/PAYG fakturerings konto eller en MCA-fakturerings profil nivå och inte är associerade med en speciell resurs. Gruppera efter **utgivar typ** för att identifiera andra Azure-, AWS-eller Marketplace-köp. |
+| **Resursgrupp** | Dela upp kostnader per resurs grupp. | Köp, klient resurser som inte är associerade med prenumerationer, prenumerations resurser som inte har distribuerats till en resurs grupp och klassiska resurser har ingen resurs grupp och visas som **andra**, **klassiska tjänster**, **$system**eller **inte tillämpligt**. |
+| **Resurstyp** | Dela upp kostnader efter resurs typ. | Inköps-och klassiska tjänster har inte Azure Resource Manager resurs typ och visas som **andra**, **klassiska tjänster**eller **inte tillämpliga**. |
+| **Resurs plats** | Dela upp kostnader efter plats eller region. | Köp-och Marketplace-användning kan visas som **otilldelade**, **okänd**, **omappad**eller **ej tillämpligt**. |
+| **Tjänst namn** eller **mätnings kategori** | Dela upp kostnad per Azure-tjänst. | Inköp och Marketplace-användning visas som **ej tillämpligt** eller **otilldelade**. |
+| **Tjänste nivå** eller **mätar under kategori** | Dela upp kostnaden med under klassificering av Azure-förbruknings mätare. | Inköp och Marketplace-användning visas som **ej tillämpligt** eller **otilldelade**. |
+| **Prenumeration** | Dela upp kostnader med Azure-prenumeration och AWS-länkat konto. | Köp-och klient resurser kan visas som **ej tillämpliga**. |
+| **Tag** | Dela upp kostnader efter tagg värden för en speciell tagg nyckel. | Taggar är inte tillgängliga för köp, klient resurser som inte är associerade med prenumerationer, prenumerations resurser som inte har distribuerats till en resurs grupp eller klassiska resurser. Observera att vissa tjänster inte innehåller taggar i användnings data. Lär dig mer om [stöd för taggar för varje resurs typ](https://docs.microsoft.com/azure/azure-resource-manager/management/tag-support). |
 
 Mer information om villkor finns i [förstå de termer som används i filen för Azure-användning och-debitering](../understand/understand-usage.md).
 

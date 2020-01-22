@@ -4,14 +4,14 @@ description: Den här artikeln innehåller en översikt över hur du använder A
 services: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/03/2019
+ms.date: 01/21/2020
 ms.custom: mvc
-ms.openlocfilehash: 2cb9f7824f0dab583ffe5ca770e175c071930cb9
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3922f8a2478f00c632b6daf294f23c7b5ad8c261
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76168063"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310143"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer
 
@@ -141,7 +141,7 @@ Under **Ny uppdateringsdistribution** anger du följande information:
 
 * **Datorer som ska uppdateras**: Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**. Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md)
 
-* **Uppdatera klassificering**: Välj vilka typer av programvara som ska tas med i uppdateringsdistributionen. Låt alla typer vara markerade för den här självstudien.
+* **Uppdaterings klassificering**: Välj de uppdaterings klassificeringar som stöds för varje produkt som kan tas med i uppdaterings distributionen. Låt alla typer vara markerade för den här självstudien.
 
   Klassificeringstyper:
 

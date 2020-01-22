@@ -8,18 +8,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: 122a66894bbe5ce1787282d69e4022da75d31696
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ea545919436201524a1c77b27e9b187f3b1c3b64
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994082"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314053"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Byten och återbetalning för Azure-reservationer via självbetjäning
 
-Azure-reservationer ger flexibilitet för att tillgodose dina föränderliga behov. Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den.
+Azure-reservationer ger flexibilitet för att tillgodose dina föränderliga behov. Du kan byta en reservation mot en annan reservation av samma typ. Du kan också få återbetalning för en reservation, upp till 50 000 USD per år, om du inte längre behöver den. Max gränsen för exporten gäller för alla reservationer inom avtals området med Microsoft.
 
 Byte eller annullering av kapacitet via självbetjäning är inte tillgängligt för US Government-kunder med Enterprise-avtal. Andra typer av US Government-prenumerationer, inklusive betala per användning och CSP stöds.
 

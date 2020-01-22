@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a004fdf0ed01c97fe5c21cc9011c46f5e4c51648
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00414bea82a7a78dd88ff4b1a592a6e35b5241c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428576"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314410"
 ---
 # <a name="convert-to-dataset"></a>Konvertera till datamängd
 
-Den här artikeln beskriver hur du använder modulen konvertera till dataset i Azure Machine Learning designer (för hands version) för att konvertera data för en pipeline till designerns interna format.
+Den här artikeln beskriver hur du använder modulen konvertera till data uppsättning i Azure Machine Learning designer för att konvertera data för en pipeline till designerns interna format.
   
 Konvertering krävs inte i de flesta fall. Azure Machine Learning implicit konverterar data till det ursprungliga data uppsättnings formatet när en åtgärd utförs på data. 
 
@@ -51,11 +51,11 @@ Vi rekommenderar att du använder modulen [Redigera metadata](edit-metadata.md) 
     Observera att **ReplaceValues** -åtgärden endast gäller för exakta matchningar. Dessa strängar kommer till exempel inte att påverkas: `obs.``obsolete`.  
  
   
-5.  Kör pipelinen eller högerklicka på modulen konvertera till data uppsättning och välj **Kör vald**.  
+5.  Köra en pipeline.  
 
 ## <a name="results"></a>Resultat
 
-+  Om du vill spara den resulterande data uppsättningen med ett nytt namn högerklickar du på utdata från konvertera till data uppsättning och väljer **Spara som data uppsättning**.  
++  Om du vill spara den resulterande data uppsättningen med ett nytt namn väljer du på ikonen **registrera data uppsättning** under fliken **utdata** i den högra panelen i modulen.  
   
 ## <a name="technical-notes"></a>Tekniska anteckningar  
 

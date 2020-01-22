@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 68f73afbf81914938f78baad2cacda7327e7789a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ca35af997834a897572555e752597026b5159712
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428590"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314461"
 ---
 # <a name="clip-values"></a>Beskärningsvärden
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd modulen Clip Values för att identifiera och ersätta data värden som är över eller under en angiven tröskel med ett medelvärde, en konstant eller något annat värde.  
 
@@ -86,7 +86,7 @@ Om du behöver tillämpa urklipps metoder eller andra villkor för vissa kolumne
   
 1.  Köra en pipeline.  
   
-    Högerklicka på utdata från modulen **Clip Values** och välj **visualisera** för att granska värdena och se till att urklipps åtgärden uppfyller dina förväntningar.  
+    Högerklicka på modulen **Clip Values** och välj **visualisera** eller Välj modulen och växla till fliken **utdata** i den högra panelen, klicka på histogrammets ikon i **portens utdata**för att granska värdena och se till att urklipps åtgärden uppfyller dina förväntningar.  
  
 ### <a name="examples-for-clipping-using-percentiles"></a>Exempel på Urklipp med hjälp av percentiler
 

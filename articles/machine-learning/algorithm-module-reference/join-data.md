@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c984b38498085567441fb0c4f965602d437589e5
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232611"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311503"
 ---
 # <a name="join-data"></a>Koppla data
 
-Den här artikeln beskriver hur du använder modulen **koppla data** i Azure Machine Learning designer (för hands version) för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
+Den här artikeln beskriver hur du använder modulen **koppla data** i Azure Machine Learning designer för att slå samman två data uppsättningar med en kopplings åtgärd i databas format.  
 
 ## <a name="how-to-configure-join-data"></a>Så här konfigurerar du kopplings data
 
@@ -62,9 +62,9 @@ Om du vill utföra en koppling på två data uppsättningar ska de relateras av 
     * Välj det här alternativet om du vill visa nycklarna från båda ingångs tabellerna.
     * Avmarkera för att endast returnera nyckel kolumnerna från den vänstra indatatypen.
 
-1. Kör pipelinen eller Välj modulen koppla data och vald **körning vald** för att utföra kopplingen.
+1. Köra en pipeline.
 
-1. Om du vill visa resultaten högerklickar du på data uppsättningen för att **ansluta Data** > **resultat** > **visualisera**.
+1. Om du vill visa resultaten högerklickar du på **kopplings data** och väljer **visualisera**.
 
 ## <a name="next-steps"></a>Nästa steg
 

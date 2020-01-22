@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa19425de41b182db8c0a8c3b1a7940dbdf5701f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429457"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294107"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -96,6 +96,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |50072|Användaren måste registrera sig för tvåfaktorautentisering (interaktiv).|
 |50074|Användaren godkändes inte av MFA-kontrollen.|
 |50076|Användaren godkände inte MFA-utmaningen (icke-interaktiv).|
+|50078|Den uppvisade Multi-Factor Authentication har upphört att gälla, du måste uppdatera Multi-Factor Authentication för att få åtkomst.|
 |50079|Användaren måste registrera sig för två Factor Authentication (icke-interaktiva inloggningar).|
 |50085|Det krävs social IDP-inloggning för att token ska kunna uppdateras. Låt användaren försöka logga in igen med sitt användar namn och lösen ord.|
 |50089|Flow-token har gått ut-autentisering misslyckades. Låt användaren försöka logga in igen med sitt användar namn och lösen ord|
@@ -184,7 +185,8 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |90014| Ett obligatoriskt fält för ett protokoll meddelande saknas, kontakta program ägaren. Om du är program ägaren ser du till att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90051| Ogiltig Delegerings-token. Ogiltigt nationellt moln-ID ({cloudId}) har angetts.|
 |90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
-|90094| Tilldelningen kräver administratörs behörighet. Be klient administratören att tillhandahålla medgivande för det här programmet.|
+|90094| Appen har begärd behörighet som den inloggade användaren inte har behörighet att godkänna och användaren blockerades. |
+|90095| Appen har de behörigheter som den inloggade användaren inte har behörighet att godkänna, och användaren visade formuläret för [administrativt medgivande](../manage-apps/configure-admin-consent-workflow.md) . |
 |500011| Det gick inte att hitta resurs huvud namnet <site address> i klient organisationen med namnet <tenant ID>. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din begäran om autentisering till fel klient.|
 |500021| Klienten är begränsad av företagets proxy. Neka resurs åtkomst.|
 |500121| Autentiseringen misslyckades under begäran om stark autentisering.|
@@ -193,6 +195,8 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |530032|Blockerad av säkerhets princip.| 
 |700016|Det gick inte att hitta programmet med identifieraren {appIdentifier} i katalogen {tenantName}. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kan ha skickat din autentiseringsbegäran till fel klient.|
 |900432|Konfidentiell klient stöds inte i en begäran mellan moln.|
+|5000811|Det gick inte att verifiera SAML-token signatur. Signerings nyckel identifieraren matchar inte några giltiga registrerade nycklar.|
+|7000215|Ogiltig klient hemlighet angavs.|
 |7000218|Begär ande texten måste innehålla följande parameter: client_assertion eller client_secret.|
 
 

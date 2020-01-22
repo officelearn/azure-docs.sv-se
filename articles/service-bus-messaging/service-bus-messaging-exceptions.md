@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2020
 ms.author: aschhab
-ms.openlocfilehash: a795aa536e6e72b487abd18e60cfa52d6ab633ee
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 20d9fc141fa19a5c6d01f33c2a5398ca84497b9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264890"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309973"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Fel söknings guide för Azure Service Bus
 Den här artikeln innehåller några av de .NET-undantag som genereras av Service Bus .NET Framework API: er och även andra tips för fel söknings problem. 
@@ -110,6 +110,23 @@ För köer och ämnen anges tids gränsen antingen i egenskapen [MessagingFactor
 Följande steg kan hjälpa dig med fel sökning av problem med anslutning/certifikat/tids gräns för alla tjänster under *. servicebus.windows.net. 
 
 - Bläddra till eller [wget](https://www.gnu.org/software/wget/) `https://<yournamespace>.servicebus.windows.net/`. Det hjälper till med att kontrol lera om du har problem med IP-filtrering eller problem med virtuella nätverk eller certifikat kedjan (vanligt vis när du använder Java SDK).
+
+    Ett exempel på ett slutfört meddelande:
+    
+    ```xml
+    <feed xmlns="http://www.w3.org/2005/Atom"><title type="text">Publicly Listed Services</title><subtitle type="text">This is the list of publicly-listed services currently available.</subtitle><id>uuid:27fcd1e2-3a99-44b1-8f1e-3e92b52f0171;id=30</id><updated>2019-12-27T13:11:47Z</updated><generator>Service Bus 1.1</generator></feed>
+    ```
+    
+    Ett exempel på fel meddelande:
+
+    ```json
+    <Error>
+        <Code>400</Code>
+        <Detail>
+            Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
+        </Detail>
+    </Error>
+    ```
 - Kör följande kommando för att kontrol lera om någon port är blockerad i brand väggen. Portarna som används är 443 (HTTPS), 5671 (AMQP) och 9354 (net Messaging/SBMP). Beroende på vilket bibliotek du använder används även andra portar. Här är exempel kommandot som kontrollerar om 5671-porten är blockerad. 
 
     ```powershell

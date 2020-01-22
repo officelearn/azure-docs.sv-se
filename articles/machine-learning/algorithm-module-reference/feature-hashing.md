@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 60a9c6b237423337abb520b335c98d3c8c7549be
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497825"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312215"
 ---
 # <a name="feature-hashing-module-reference"></a>Modulreferens för funktion för hashing
 
-I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul som ingår i Azure Machine Learning designer.
 
 Använd modulen funktion-hash för att transformera en strömmande engelsk text till en uppsättning med heltals funktioner. Du kan sedan skicka den här hash-funktionen till en Machine Learning-algoritm för att träna en text analys modell.
 
@@ -50,7 +50,7 @@ Du kan kontrol lera storleken på n-gram med hjälp av egenskapen **n-g** . Om d
 
 |Term (unigrams)|Frequency|
 |------------|---------------|
-|bokfilen|3|
+|bok|3|
 |I|3|
 |böcker|1|
 |upptäckt|1|
@@ -59,7 +59,7 @@ När ord listan har skapats konverteras ord listans villkor till hash-värden i 
 
 Till exempel kan funktions kolumnerna se ut ungefär så här efter hashing:
 
-|Bedömnings|Hash-funktion 1|Hash-funktion 2|Hash-funktion 3|
+|Klassificering|Hash-funktion 1|Hash-funktion 2|Hash-funktion 3|
 |-----|-----|-----|-----|
 |4|1|1|0|
 |5|0|0|0|
@@ -111,7 +111,7 @@ När bearbetningen är klar matar modulen ut en transformerad data uppsättning 
 
 När du har skapat den transformerade data uppsättningen kan du använda den som indata för modulen träna modell.
  
-### <a name="best-practices"></a>Bästa praxis
+### <a name="best-practices"></a>Bästa metoder
 
 Följande metod tips kan hjälpa dig att få ut mesta möjliga av modulen för funktions-hash:
 

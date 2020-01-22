@@ -8,12 +8,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6022bf975352f9f70c4ba8aa716a695ead590a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432391"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310874"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Felsöka problem med att aktivera eller Visa Application Insights Profiler
 
@@ -47,6 +47,7 @@ Profiler skriver spårnings meddelanden och anpassade händelser till din Applic
 * Om din webbapp är ett ASP.NET Core program måste den köra minst ASP.NET Core 2,0.
 * Om de data du försöker visa är äldre än några veckor kan du försöka begränsa ditt tids filter och försöka igen. Spårningar tas bort efter sju dagar.
 * Kontrol lera att proxyservrar eller en brand vägg inte har blockerat åtkomst till https://gateway.azureserviceprofiler.net.
+* Profiler stöds inte på kostnads fria eller delade App Service-planer. Om du använder någon av dessa planer kan du prova att skala upp till en av de grundläggande planerna och profileraren ska börja fungera.
 
 ### <a id="double-counting"></a>Dubbel inventering i parallella trådar
 

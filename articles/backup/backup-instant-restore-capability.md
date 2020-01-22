@@ -4,12 +4,12 @@ description: Azure Instant Restore-funktion och vanliga frågor och svar om VM b
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 19ecd6843422f1843631278626ef8971b0791b1f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21e5ae82fc8274874e97d5e91a140b811b36c05e
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391308"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293835"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Få förbättrad säkerhets kopiering och återställning av prestanda med Azure Backup omedelbar återställnings funktion
 
@@ -111,3 +111,15 @@ Den nya modellen tillåter inte borttagning av återställnings punkten (– niv
 ### <a name="why-is-my-snapshot-existing-even-after-the-set-retention-period-in-backup-policy"></a>Varför är min ögonblicks bild befintlig även efter den angivna kvarhållningsperioden i säkerhets kopierings policyn?
 
 Om återställnings punkten har ögonblicks bilder och det är den senaste tillgängliga RP-filen, behålls den tills tiden det finns en nästa lyckade säkerhets kopiering. Detta är enligt den designade principen "skräp insamling" (GC) idag som bestämmer att minst en senaste RP alltid är tillgänglig om alla säkerhets kopieringar är misslyckade på grund av ett problem på den virtuella datorn. I normala scenarier rensas RPs på högst 24 timmar efter att de gått ut.
+
+>[!NOTE]
+> Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
+>
+>Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
+>
+> Den här lösningen är särskilt användbar i följande scenarier:
+>  
+>1. Du har viktiga data som ska säkerhets kopie ras på bara en disk och du vill inte säkerhetskopiera resten av diskarna som är anslutna till en virtuell dator. Detta minimerar kostnaderna för lagring av säkerhets kopior.  
+>2. Du har andra säkerhets kopierings lösningar för en del av dina VM-data. Du kan till exempel säkerhetskopiera dina databaser eller data med en annan lösning för säkerhets kopiering av arbets belastning och du vill använda säkerhets kopiering av Azure VM-nivå för resten av dina diskar och data för att skapa ett effektivt och robust system som använder bästa möjliga kapacitet.
+>
+>Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com

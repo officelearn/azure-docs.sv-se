@@ -3,18 +3,18 @@ title: Instruktionsvideoserie om Azure-portalen
 description: Hitta video demonstrationer om hur du arbetar med Azure-tjänster i portalen. Visa och länka direkt till de senaste instruktions videorna.
 services: azure-portal
 keywords: ''
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 12/20/2019
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: c23a6bcffca3f23c67e82ca8c401d354fc0b74d6
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 93c9ce45fd660f444146827e2f5bafaeb12fc471
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75637481"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310537"
 ---
 # <a name="azure-portal-how-to-video-series"></a>Instruktionsvideoserie om Azure-portalen
 

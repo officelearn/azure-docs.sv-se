@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 44430f5a150952ba7cfc32b3e54d004cb0d0b761
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348815"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312353"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -86,17 +86,27 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste v
 >[!NOTE]
 >Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
 
-De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha utgående TCP 443-åtkomst till följande URL: er:
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha åtkomst till följande URL: er:
 
-* *. wvd.microsoft.com
-* *.blob.core.windows.net
-* *.core.windows.net
-* *.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|Adress|Utgående port|Syfte|
+|---|---|---|
+|*. wvd.microsoft.com|TCP-port 443|Tjänst trafik|
+|*.blob.core.windows.net|TCP-port 443|Agent, SXS stack-uppdateringar och agent trafik|
+|*.core.windows.net|TCP-port 443|Agent trafik|
+|*.servicebus.windows.net|TCP-port 443|Agent trafik|
+|prod.warmpath.msftcloudes.com|TCP-port 443|Agent trafik|
+|catalogartifact.azureedge.net|TCP-port 443|Azure Marketplace|
+|kms.core.windows.net|TCP-port 1688|Aktivering av Windows 10|
+
+>[!IMPORTANT]
+>Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure AD.
 
 >[!NOTE]
->Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure AD.
+>Du måste använda jokertecknet (*) för URL: er som involverar tjänst trafiken. Om du inte vill använda * för agent-relaterad trafik så här hittar du URL: erna utan jokertecken:
+>
+>1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
+>2. Öppna **logg boken** och navigera till **Windows** > **program loggar** och leta efter händelse-ID 3712.
+>3. Vitlista de URL: er som du hittar under händelse-ID 3712. URL: erna under händelse-ID 3712 är landsspecifika. Du måste upprepa vit listning-processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
 
 Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Skriv bord och appar kan distribueras på virtuella datorer i valfri Azure-region och hanterings lösningen och data för dessa virtuella datorer finns i USA. Detta kan leda till att data överförs till USA.
 

@@ -3,12 +3,12 @@ title: Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 description: Innehåller en översikt över support inställningar och begränsningar vid säkerhets kopiering av virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 36fbc4813cdc9849b77e8309c97a2d42511a31d0
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: c57f625e7f44dc5de6a801ec93bad5433e9a9a66
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75829552"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294294"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Supportmatris för säkerhetskopiering av virtuella Azure-datorer
 
@@ -31,6 +31,18 @@ Direkt säkerhets kopiering av virtuella Azure-datorer (endast Windows)  | Säke
 Säkerhetskopiera virtuell Azure-dator till säkerhets kopierings Server  | Säkerhetskopiera filer/mappar/volymer. system tillstånd/Bare Metal-filer; AppData till System Center DPM eller till Microsoft Azure Backup Server (MABS).<br/><br/> DPM/MABS säkerhetskopierar sedan till säkerhets kopierings valvet. | Installera DPM/MABS-skyddsagenten på den virtuella datorn. MARS-agenten installeras på DPM/MABS.| Återställ filer/mappar/volymer; system tillstånd/Bare Metal-filer; AppData.
 
 Läs mer om säkerhets kopiering [med en säkerhets kopierings Server](backup-architecture.md#architecture-back-up-to-dpmmabs) och om [support krav](backup-support-matrix-mabs-dpm.md).
+
+>[!NOTE]
+> Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
+>
+>Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
+>
+> Den här lösningen är särskilt användbar i följande scenarier:
+>  
+>1. Du har viktiga data som ska säkerhets kopie ras på bara en disk och du vill inte säkerhetskopiera resten av diskarna som är anslutna till en virtuell dator. Detta minimerar kostnaderna för lagring av säkerhets kopior.  
+>2. Du har andra säkerhets kopierings lösningar för en del av dina VM-data. Du kan till exempel säkerhetskopiera dina databaser eller data med en annan lösning för säkerhets kopiering av arbets belastning och du vill använda säkerhets kopiering av Azure VM-nivå för resten av dina diskar och data för att skapa ett effektivt och robust system som använder bästa möjliga kapacitet.
+>
+>Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
 
 ## <a name="supported-backup-actions"></a>Säkerhets kopierings åtgärder som stöds
 

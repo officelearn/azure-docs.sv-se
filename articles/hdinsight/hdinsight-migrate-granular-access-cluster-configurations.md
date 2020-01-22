@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: ea8e1565a5ebe4e5cb40049fbfcb329feb83bdda
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1fdb9dffbe06430ea7e3eb9339e23f5239e4e36
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498205"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310840"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
 
@@ -24,7 +24,7 @@ Tidigare kunde hemligheter erhållas via HDInsight-API: t av kluster användare 
 
 Från och med den 3 september 2019 kräver åtkomst till dessa hemligheter `Microsoft.HDInsight/clusters/configurations/action` behörighet, vilket innebär att de inte längre kan nås av användare med rollen läsare. Rollerna som har den här behörigheten är deltagare, ägare och den nya rollen för HDInsight-klustret (mer information nedan).
 
-Vi introducerar också en ny roll för [HDInsight-kluster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Att sammanfatta:
+Vi introducerar också en ny roll för [HDInsight-kluster](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) som kommer att kunna hämta hemligheter utan att ha behörighet som deltagares eller ägares administrativa behörigheter. Sammanfattningsvis:
 
 | Roll                                  | Tidigare                                                                                       | Gå framåt       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
@@ -132,9 +132,7 @@ Uppdatera till [version 1.0.0](https://pypi.org/project/azure-mgmt-hdinsight/1.0
 Uppdatera till [version 1.0.0](https://search.maven.org/artifact/com.microsoft.azure.hdinsight.v2018_06_01_preview/azure-mgmt-hdinsight/1.0.0/jar) eller senare av HDInsight SDK för Java. Minimala kod ändringar kan krävas om du använder en metod som påverkas av dessa ändringar:
 
 - [`ConfigurationsInner.get`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.get) kommer **inte längre att returnera känsliga parametrar** som lagrings nycklar (Core-site) eller http-autentiseringsuppgifter (Gateway).
-    - Om du vill hämta alla konfigurationer, inklusive känsliga parametrar, använder [`ConfigurationsInner.list`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.configurationsinner.list?view=azure-java-stable) vidarebefordra.  Observera att användare med rollen läsare inte kommer att kunna använda den här metoden. Detta ger detaljerad kontroll över vilka användare som kan komma åt känslig information för ett kluster. 
-    - Använd [`ClustersInner.getGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.getgatewaysettings?view=azure-java-stable)för att hämta bara HTTP Gateway-autentiseringsuppgifter.
-- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) är nu föråldrad och har ersatts av [`ClustersInner.updateGatewaySettings`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018_06_01_preview.implementation.clustersinner.updategatewaysettings?view=azure-java-stable).
+- [`ConfigurationsInner.update`](https://docs.microsoft.com/java/api/com.microsoft.azure.management.hdinsight.v2018__06__01__preview.implementation._configurations_inner.update) är nu föråldrad.
 
 ### <a name="sdk-for-go"></a>SDK för go
 
@@ -187,7 +185,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 Du kan också använda Azure Portal för att lägga till roll tilldelningen HDInsight-kluster för en användare. Se dokumentationen, [Hantera åtkomst till Azure-resurser med RBAC och Azure Portal – Lägg till en roll tilldelning](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 ### <a name="why-am-i-seeing-a-403-forbidden-response-after-updating-my-api-requests-andor-tool"></a>Varför ser jag ett 403-svar (förbjudet) efter att ha uppdaterat mina API-förfrågningar och/eller-verktyg?
 

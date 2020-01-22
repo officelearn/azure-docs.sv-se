@@ -4,12 +4,12 @@ description: Vanliga frågor och svar om Service Fabric, inklusive funktioner, a
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 7638a360821e73b7485014c8e6f006e91bbea551
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614646"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293529"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
@@ -183,4 +183,4 @@ Följ [Service Fabric blogg](https://blogs.msdn.microsoft.com/azureservicefabric
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [core Service Fabric Concepts](service-fabric-technical-overview.md) och [Best Practices](service-fabric-best-practices-overview.md) Ice Fabric-koncept] (Service-Fabric-Technical-overview.MD) och [bästa praxis](service-fabric-best-practices-overview.md)
+Lär dig mer om [kärn Service Fabric koncept](service-fabric-technical-overview.md) och [bästa praxis](service-fabric-best-practices-overview.md)

@@ -13,12 +13,12 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 01/16/2020
 ms.author: shvija
-ms.openlocfilehash: 96eaae81a25e361c0041fb02099b8e0cb9da8c28
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: de5b95bd10bf72f60ba5d63c4b3a799556fcce33
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260469"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309786"
 ---
 # <a name="troubleshooting-guide-for-azure-event-hubs"></a>Fel söknings guide för Azure Event Hubs
 Den här artikeln innehåller några av de .NET-undantag som genereras av Event Hubs .NET Framework API: er och även andra tips för fel söknings problem. 
@@ -104,18 +104,7 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 Följande steg kan hjälpa dig med fel sökning av problem med anslutning/certifikat/tids gräns för alla tjänster under *. servicebus.windows.net. 
 
 - Bläddra till eller [wget](https://www.gnu.org/software/wget/) `https://<yournamespacename>.servicebus.windows.net/`. Det hjälper till med att kontrol lera om du har problem med IP-filtrering eller problem med virtuella nätverk eller certifikat kedjan (vanligt vis när du använder Java SDK).
-- Kör följande kommando för att kontrol lera om någon port är blockerad i brand väggen. Portarna som används är 443 (HTTPS), 5671 (AMQP) och 9093 (Kafka). Beroende på vilket bibliotek du använder används även andra portar. Här är exempel kommandot som kontrollerar om 5671-porten är blockerad.
 
-    ```powershell
-    tnc <yournamespacename>.servicebus.windows.net -port 5671
-    ```
-
-    I Linux:
-
-    ```shell
-    telnet <yournamespacename>.servicebus.windows.net 5671
-    ```
-    
     Ett exempel på ett slutfört meddelande:
     
     ```xml
@@ -131,6 +120,17 @@ Följande steg kan hjälpa dig med fel sökning av problem med anslutning/certif
             Bad Request. To know more visit https://aka.ms/sbResourceMgrExceptions. . TrackingId:b786d4d1-cbaf-47a8-a3d1-be689cda2a98_G22, SystemTracker:NoSystemTracker, Timestamp:2019-12-27T13:12:40
         </Detail>
     </Error>
+    ```
+- Kör följande kommando för att kontrol lera om någon port är blockerad i brand väggen. Portarna som används är 443 (HTTPS), 5671 (AMQP) och 9093 (Kafka). Beroende på vilket bibliotek du använder används även andra portar. Här är exempel kommandot som kontrollerar om 5671-porten är blockerad.
+
+    ```powershell
+    tnc <yournamespacename>.servicebus.windows.net -port 5671
+    ```
+
+    I Linux:
+
+    ```shell
+    telnet <yournamespacename>.servicebus.windows.net 5671
     ```
 - När det finns tillfälliga anslutnings problem kör du följande kommando för att kontrol lera om det finns några paket som ignoreras. Med det här kommandot görs ett försök att upprätta 25 olika TCP-anslutningar varje sekund med tjänsten. Sedan kan du kontrol lera hur många av dem som har lyckats/misslyckats och även se TCP-anslutningssträngen. Du kan hämta verktyget `psping` [här](/sysinternals/downloads/psping).
 

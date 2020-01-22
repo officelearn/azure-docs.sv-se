@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: e9f7a10f19ed23e4f3b4fefa38fbb2d1912f2ac0
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348782"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293648"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>Metod tips för kluster isolering i Azure Kubernetes service (AKS)
 
@@ -54,7 +54,7 @@ En vanlig metod för kluster isolering är att använda fysiskt separata AKS-klu
 
 ![Fysisk isolering av enskilda Kubernetes-kluster i AKS](media/operator-best-practices-cluster-isolation/physical-isolation.png)
 
-Fysiskt separata kluster har vanligt vis en låg Pod-densitet. Eftersom varje team eller arbets belastning har sitt eget AKS-kluster, är klustret ofta överallokerat med beräknings resurser. Ett litet antal poddar schemaläggs ofta på dessa noder. Oanvänd kapacitet på noderna kan inte användas för program eller tjänster som utvecklas av andra team. Dessa överskott resurser bidrar till ytterligare kostnader i fysiskt separata kluster.
+Fysiskt separata kluster har vanligt vis en låg Pod-densitet. Eftersom varje team eller arbets belastning har sitt eget AKS-kluster, är klustret ofta överallokerat med beräknings resurser. Ofta schemaläggs ett litet antal poddar på noderna. Oanvänd kapacitet på noderna kan inte användas för program eller tjänster som utvecklas av andra team. Dessa överskott resurser bidrar till ytterligare kostnader i fysiskt separata kluster.
 
 ## <a name="next-steps"></a>Nästa steg
 

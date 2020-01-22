@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: d3a12dec64d481c5c877039fecc71b46f224e91d
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 8208bbf4d196091a6fe4cd962ddc7373d303e125
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541834"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312438"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Vad är Azure Machine Learning designer (för hands version)? 
+# <a name="what-is-azure-machine-learning-designer"></a>Vad är Azure Machine Learning designer? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Med Azure Machine Learning Designer kan du visuellt ansluta [data uppsättningar](#datasets) och [moduler](#module) på en interaktiv arbets yta för att skapa maskin inlärnings modeller. Information om hur du kommer igång med design verktyget finns i [Självstudier: förutsäga Automobile-priset med designern](tutorial-designer-automobile-price-train-score.md)
@@ -116,7 +116,7 @@ Designern skapar samma [PublishedPipeline](https://docs.microsoft.com/python/api
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>Flytta från det visuella gränssnittet till designern
 
-Visual Interface (för hands version) har uppdaterats och är nu Azure Machine Learning designer (för hands version). Designern har återskapats för att använda en pipeline-baserad server del som helt kan integreras med de andra funktionerna i Azure Machine Learning. 
+Visual Interface (för hands version) har uppdaterats och är nu Azure Machine Learning designer. Designern har återskapats för att använda en pipeline-baserad server del som helt kan integreras med de andra funktionerna i Azure Machine Learning. 
 
 Som ett resultat av dessa uppdateringar har vissa begrepp och villkor för det visuella gränssnittet ändrats eller bytt namn. Se tabellen nedan för de viktigaste koncept ändringarna. 
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 1cf9ce6d57c1e106472caeef6c1f2a4b008a09bd
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 15a118dc72ae9ffc4b6c99b0e0b527a252d3ded8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277877"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293597"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -26,7 +26,7 @@ ms.locfileid: "76277877"
 
 - Konversation med flera enheter: Anslut flera enheter till samma tal-eller textbaserade konversationer och eventuellt översätta meddelanden som skickas mellan dem. Läs mer i [den här artikeln](multi-device-conversation.md). 
 - Stöd för nyckelords igenkänning har lagts till för Android. AAR-paketet och stöd för x86 och x64 varianter har lagts till. 
-- Mål-C: `SendMessage` och `SetMessageProperty` metoder som läggs till i `Connection`-objektet. Se dokumentationen [här](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
+- Mål-C: `SendMessage` och `SetMessageProperty` metoder som läggs till i `Connection`-objektet. Se dokumentationen [här](https://docs.microsoft.com/objectivec/cognitive-services/speech/spxconnection).
 - TTS C++ -API stöder nu `std::wstring` som text ingångs text, och du tar bort behovet av att konvertera en wstring till sträng innan du skickar den till SDK: n. Se information [här](https://docs.microsoft.com/cpp/cognitive-services/speech/speechsynthesizer#speaktextasync). 
 - C#: [Språk-ID](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-automatic-language-detection?pivots=programming-language-csharp) och [käll språks konfiguration](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-specify-source-language?pivots=programming-language-csharp) är nu tillgängliga.
 - Java Script: du har lagt till en funktion som `Connection` objekt för att skicka genom anpassade meddelanden från tal tjänsten som motanrop `receivedServiceMessage`.

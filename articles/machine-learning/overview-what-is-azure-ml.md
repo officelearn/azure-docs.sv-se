@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: b8dbbb2810277bef20cb3b9b47a63deeea3e0ff9
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155459"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314342"
 ---
 # <a name="what-is-azure-machine-learning"></a>Vad är Azure Machine Learning?
 
@@ -66,7 +66,7 @@ Du kan också [Automatisera modell träning och-justering](tutorial-auto-train-m
 
 För kod kostnads fri eller låg kod utbildning och distribution, försök:
 
-+ **Azure Machine Learning designer (för hands version)**
++ **Azure Machine Learning designer**
 
   Använd designern för att prepare data, träna, testa, distribuera, hantera och spåra maskin inlärnings modeller utan att skriva någon kod. Det krävs ingen programmering, du ansluter visuellt data uppsättningar och moduler visuellt för att skapa din modell. Prova [själv studie kursen om designer](tutorial-designer-automobile-price-train-score.md).
 

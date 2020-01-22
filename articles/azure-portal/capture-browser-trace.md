@@ -3,18 +3,18 @@ title: Avbilda en webb läsar spårning för fel sökning | Microsoft Docs
 description: Samla in nätverks information från en webb läsar spårning för att felsöka problem med Azure Portal.
 services: azure-portal
 keywords: ''
-author: mblythe
+author: mgblythe
 ms.author: mblythe
 ms.date: 01/09/2020
 ms.topic: troubleshooting
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 86a1f522810a29fa2f3188a2ef3a5e0a470187ba
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2b506c9d15dafcd23b24207fe15ed0532939209f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030372"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310704"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Avbilda en webb läsar spårning för fel sökning
 
@@ -24,7 +24,7 @@ Om du felsöker ett problem med Azure Portal och du måste kontakta Microsoft Su
 
 Google Chrome och Microsoft Edge (krom) är båda baserade på [projektet krom öppen källkod](https://www.chromium.org/Home). Följande steg visar hur du använder utvecklarverktyg, som liknar varandra i de två webbläsarna. Mer information finns i [DevTools för Chrome](https://developers.google.com/web/tools/chrome-devtools) och [Microsoft Edge (krom) utvecklarverktyg](/microsoft-edge/devtools-guide-chromium).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
+1. Logga in på [Azure Portal](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
 
 1. Börja spela in de steg du tar i portalen med hjälp av [steg registrering](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
@@ -70,7 +70,7 @@ Google Chrome och Microsoft Edge (krom) är båda baserade på [projektet krom �
 
 Följande steg visar hur du använder utvecklarverktyg i Microsoft Edge (EdgeHTML). Mer information finns i [Microsoft Edge (EdgeHTML) utvecklarverktyg](/microsoft-edge/devtools-guide).
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
+1. Logga in på [Azure Portal](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
 
 1. Börja spela in de steg du tar i portalen med hjälp av [steg registrering](https://support.microsoft.com/help/22878/windows-10-record-steps).
 
@@ -126,7 +126,7 @@ Följande steg visar hur du använder utvecklarverktyg i Apple Safari. Mer infor
 
         ![Skärm bild av avancerade inställningar för Safari](media/capture-browser-trace/safari-show-develop-menu.png)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
+1. Logga in på [Azure Portal](https://portal.azure.com). Det är viktigt att logga in _innan_ du börjar spåra så att spårningen inte innehåller känslig information som rör din inloggning. 
 
 1. Börja spela in de steg du tar i portalen. Mer information finns i [så här registrerar du skärmen på din Mac](https://support.apple.com/HT208721).
 

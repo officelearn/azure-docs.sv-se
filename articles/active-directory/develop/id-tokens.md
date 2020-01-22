@@ -14,12 +14,12 @@ ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0aa868d5ed57e27a89f2791f617dcdda74e766b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7e910faaf9875b6791135c8721090fa801a7e08
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167455"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294192"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Microsoft Identity Platform ID-token
 
@@ -85,6 +85,12 @@ I den här listan visas de anspråk som finns i de flesta id_tokens som standard
 |`unique_name` | String | Innehåller ett läsbart värde som identifierar subjektet för token. Det här värdet är unikt vid varje viss tidpunkt, men när e-postmeddelanden och andra identifierare kan återanvändas kan det här värdet visas igen på andra konton och bör därför endast användas för visning. Endast utfärdat i v 1.0 `id_tokens`. |
 |`uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Ignoreras. |
 |`ver` | Sträng, antingen 1,0 eller 2,0 | Anger versionen för id_token. |
+
+
+> [!NOTE]
+> V1-och v2-id_token har skillnader i mängden information som de kommer att ha som visas i exemplen ovan. Versionen anger i princip slut punkten för Azure AD-plattformen varifrån den utfärdades. [Azure AD OAuth-implementeringen](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) har utvecklats genom åren. För närvarande har vi två olika oAuth-slutpunkter för AzureAD-program. Du kan använda någon av de nya slut punkterna som är kategoriserade som v2 eller den gamla som är v1. OAuth-slutpunkterna för båda är olika. V2-slutpunkten är den nyare där vi försöker migrera alla funktioner i v1-slutpunkt och rekommendera nya utvecklare att använda v2-slutpunkten. 
+> - V1: Azure Active Directory slut punkter: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - V2: slut punkter för Microsoft Identity Platform: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
 
 ## <a name="validating-an-id_token"></a>Verifiera en id_token
 

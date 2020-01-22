@@ -3,16 +3,16 @@ title: Så här riktar du Azure Functions runtime-versioner
 description: Azure Functions stöder flera versioner av körnings miljön. Lär dig hur du anger körnings versionen av en Function-app som finns i Azure.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 60953d10aeb92083b0aad3432921c7c55bc77e39
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942281"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294175"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Så här riktar du Azure Functions runtime-versioner
 
-En Function-App körs på en viss version av Azure Functions Runtime. Det finns två huvud versioner: [1. x och 2. x](functions-versions.md), med version 3. x i för hands versionen. Som standard är Function-appar skapade version 2. x av körnings miljön. Den här artikeln förklarar hur du konfigurerar en Function-app i Azure så att den körs på den version du väljer. Information om hur du konfigurerar en lokal utvecklings miljö för en angiven version finns i [kod-och test Azure Functions lokalt](functions-run-local.md).
+En Function-App körs på en viss version av Azure Functions Runtime. Det finns tre huvud versioner: [1. x, 2. x och 3. x](functions-versions.md). Som standard skapas Function apps i version 2. x i körnings miljön. Den här artikeln förklarar hur du konfigurerar en Function-app i Azure så att den körs på den version du väljer. Information om hur du konfigurerar en lokal utvecklings miljö för en angiven version finns i [kod-och test Azure Functions lokalt](functions-run-local.md).
 
 ## <a name="automatic-and-manual-version-updates"></a>Automatiska och manuella versions uppdateringar
 

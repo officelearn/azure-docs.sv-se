@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 828301724dae58437f7818668cd0be879ae2ac70
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497968"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314189"
 ---
 # <a name="decision-forest-regression-module"></a>Besluts skogs Regressions modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en Regressions modell som baseras på en ensemble i besluts träd.
 
@@ -38,7 +38,7 @@ Besluts träd har följande fördelar:
 
 Denna Regressions modell består av en ensemble i besluts träd. Varje träd i en Regressions besluts skog matar ut en Gaussisk-distribution som en förutsägelse. En agg regering utförs över ensemblen i träd för att hitta en Gaussisk-distribution som är närmast den kombinerade distributionen för alla träd i modellen.
 
-Mer information om det teoretiska ramverket för den här algoritmen och dess implementering finns i den här artikeln: [besluts skogar: ett enhetligt ramverk för klassificering, regression, densitets beräkning, plattforms inlärning och delvis övervakad inlärning ](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
+Mer information om det teoretiska ramverket för den här algoritmen och dess implementering finns i den här artikeln: [besluts skogar: ett enhetligt ramverk för klassificering, regression, densitets beräkning, plattforms inlärning och delvis övervakad inlärning](https://www.microsoft.com/en-us/research/publication/decision-forests-a-unified-framework-for-classification-regression-density-estimation-manifold-learning-and-semi-supervised-learning/?from=http%3A%2F%2Fresearch.microsoft.com%2Fapps%2Fpubs%2Fdefault.aspx%3Fid%3D158806#)
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>Konfigurera Regressions modellen för besluts skogar
 
@@ -88,11 +88,7 @@ Mer information om det teoretiska ramverket för den här algoritmen och dess im
 
 När utbildningen är klar:
 
-+ Om du vill se trädet som skapades på varje iteration högerklickar du på utdata i modulen utbildning och väljer **visualisera**.
-
-+ Om du vill se reglerna för varje nod klickar du på varje träd och ökar detalj nivån i delningarna.
-
-+ Om du vill spara en ögonblicks bild av den tränade modellen högerklickar du på utdata från modulen utbildning och väljer **Spara som utbildad modell**. Den här kopian av modellen uppdateras inte vid efterföljande körningar av pipelinen. 
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du modulen utbildning och växlar sedan till fliken **utdata** i den högra panelen. Klicka på ikonen **Registrera modell**.  Du hittar den sparade modellen som en modul i modul trädet. 
 
 ## <a name="next-steps"></a>Nästa steg
 

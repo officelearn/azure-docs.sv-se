@@ -3,12 +3,12 @@ title: Självstudie – säkerhetskopiera Azure Files fil resurser
 description: I den här självstudien får du lära dig hur du använder Azure Portal för att konfigurera ett Recovery Services-valv och säkerhetskopiera Azure-filresurser.
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.openlocfilehash: b002d1ea092d2d0507dc761f56ca7835f1521fb3
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ec9074a39f2ece7878c0c3ef828dc21748d0ab89
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921635"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293937"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Säkerhetskopiera Azure-filresurser i Azure Portal
 
@@ -43,29 +43,29 @@ Den här självstudien förutsätter att du redan har skapat en filresurs i Azur
 
 1. Skapa ett Recovery Services-valv i samma region som din filresurs. Om du redan har ett valv öppnar du valvets översiktssida och klickar på **Backup**.
 
-    ![Klicka på säkerhets kopiering på ditt valvs översikts sida](./media/backup-file-shares/overview-backup-page.png)
+    ![Klicka på säkerhets kopiering på ditt valvs översikts sida](./media/tutorial-backup-azure-files/overview-backup-page.png)
 
 2. På menyn **säkerhets kopierings mål** , från **vad vill du säkerhetskopiera? väljer du**Azure fileshare.
 
-    ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
+    ![Välj Azure-filresursen som mål för säkerhetskopieringen](./media/tutorial-backup-azure-files/choose-azure-fileshare-from-backup-goal.png)
 
 3. Klicka på **Säkerhetskopiering** för att konfigurera Azure-filresursen till Recovery Services-valvet.
 
-   ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/backup-file-shares/set-backup-goal.png)
+   ![klicka på säkerhetskopian för att associera Azure-filresursen med valvet](./media/tutorial-backup-azure-files/set-backup-goal.png)
 
     När valvet är associerat med Azure-filresursen öppnas säkerhets kopierings menyn och du blir ombedd att välja ett lagrings konto. Menyn visar alla lagrings konton som stöds i den region där valvet finns som inte redan är kopplat till ett Recovery Services-valv.
 
-   ![Välj ditt lagrings konto](./media/backup-file-shares/list-of-storage-accounts.png)
+   ![Välj ditt lagrings konto](./media/tutorial-backup-azure-files/list-of-storage-accounts.png)
 
 4. Välj ett konto i listan med lagringskonton och klicka på **OK**. Azure söker i lagringskontot efter filresurser som kan säkerhetskopieras. Om du nyligen har lagt till filresurser och inte ser dem i listan, bör du vänta lite på att filresurserna ska visas.
 
-   ![Fil resurser identifieras](./media/backup-file-shares/discover-file-shares.png)
+   ![Fil resurser identifieras](./media/tutorial-backup-azure-files/discover-file-shares.png)
 
 5. I listan **fil resurser** väljer du en eller flera av de fil resurser som du vill säkerhetskopiera och klickar på **OK**.
 
 6. När du har valt dina filresurser växlar säkerhetskopieringsmenyn över till **Säkerhetskopieringspolicy**. I den här menyn väljer du antingen en befintlig säkerhetskopieringspolicy eller skapar en ny. Klicka sedan på **Aktivera säkerhetskopiering**.
 
-   ![Välj en säkerhets kopierings princip eller skapa en ny](./media/backup-file-shares/apply-backup-policy.png)
+   ![Välj en säkerhets kopierings princip eller skapa en ny](./media/tutorial-backup-azure-files/apply-backup-policy.png)
 
     När du har etablerat en säkerhetskopieringspolicy tas en ögonblicksbild av filresurserna vid den schemalagda tiden och en återställningspunkt sparas för den valda perioden.
 
@@ -77,19 +77,19 @@ När du har konfigurerat säkerhets kopierings policyn vill du skapa en säkerhe
 
 1. Öppna det Recovery Services-valv som innehåller filresursens återställningspunkter och klicka på **Säkerhetskopieringsobjekt**. En lista med typer av säkerhetskopieringsobjekt visas.
 
-   ![Lista över säkerhets kopierings objekt](./media/backup-file-shares/list-of-backup-items.png)
+   ![Lista över säkerhets kopierings objekt](./media/tutorial-backup-azure-files/list-of-backup-items.png)
 
 2. I listan väljer du **Azure Storage (Azure Files)** . Listan med Azure-filresurser visas.
 
-   ![Lista över Azure-filresurser](./media/backup-file-shares/list-of-azure-files-backup-items.png)
+   ![Lista över Azure-filresurser](./media/tutorial-backup-azure-files/list-of-azure-files-backup-items.png)
 
 3. Välj önskad filresurs i listan med Azure-filresurser. Menyn Säkerhetskopieringsobjekt för den valda filresursen öppnas.
 
-   ![Meny för säkerhets kopierings objekt för den valda fil resursen](./media/backup-file-shares/backup-item-menu.png)
+   ![Meny för säkerhets kopierings objekt för den valda fil resursen](./media/tutorial-backup-azure-files/backup-item-menu.png)
 
 4. I menyn Säkerhetskopieringsobjekt klickar du på **Säkerhetskopiera nu**. Eftersom detta är en säkerhetskopiering på begäran finns det ingen bevarandeprincip som är associerad med återställningspunkten. Dialogrutan **Säkerhetskopiera nu** öppnas. Ange den senaste dag som du vill behålla återställningspunkten för.
 
-   ![Välj datum för kvarhållning av återställnings punkt](./media/backup-file-shares/backup-now-menu.png)
+   ![Välj datum för kvarhållning av återställnings punkt](./media/tutorial-backup-azure-files/backup-now-menu.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -103,4 +103,4 @@ I den här självstudien använde du Azure Portal för att:
 Fortsätt till nästa artikel för att återställa från en säkerhets kopia av en Azure-filresurs.
 
 > [!div class="nextstepaction"]
-> [Återställa från en säkerhets kopia av Azure-filresurser](./backup-azure-files.md#restore-from-backup-of-azure-file-share)
+> [Återställa från en säkerhets kopia av Azure-filresurser](restore-afs.md)

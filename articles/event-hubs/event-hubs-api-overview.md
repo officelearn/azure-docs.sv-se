@@ -1,6 +1,6 @@
 ---
 title: Översikt över Azure Event Hubs API | Microsoft Docs
-description: 'Översikt över tillgängliga Azure Event Hubs API: er'
+description: 'Den här artikeln innehåller en översikt över tillgängliga API: er (körning och hantering) för användning av Azure Event Hubs-tjänsten.'
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,24 +14,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2018
 ms.author: shvija
-ms.openlocfilehash: 80566b0246179064d2a479b8c9bf3c79a2a93aac
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c852bdeb30efe6acf626ae67028ec1ccb9e0b6db
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60822620"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310976"
 ---
-# <a name="available-event-hubs-apis"></a>Tillgängliga Event Hubs API: er
+# <a name="available-event-hubs-apis"></a>Tillgängliga Event Hubs-API: er
 
-Den här artikeln beskriver uppsättningen tillgängliga API-klienter som du kan använda för att hantera Event Hubs-resurser.
+I den här artikeln beskrivs en uppsättning tillgängliga API-klienter som du kan använda för att hantera Event Hubs-resurser.
 
-## <a name="runtime-apis"></a>Runtime-API: er
+## <a name="runtime-apis"></a>Körnings-API: er
 
-I följande avsnitt beskrivs alla tillgängliga Azure Event Hubs runtime-klienter. Några av dessa bibliotek är också begränsad hanteringsfunktioner, men det finns också [specifika bibliotek](#management-apis) för hanteringsåtgärder. Dessa bibliotek core fokus är att skicka och ta emot meddelanden från en event hub.
+I följande avsnitt beskrivs alla Azure Event Hubs runtime-klienter som är tillgängliga för närvarande. Vissa av dessa bibliotek innehåller även begränsade hanterings funktioner, men det finns också [särskilda bibliotek](#management-apis) som är reserverade för hanterings åtgärder. Kärn fokus i dessa bibliotek är att skicka och ta emot meddelanden från en Event Hub.
 
-Läs mer om aktuell status för varje runtime-bibliotek, [ytterligare information](#additional-information).
+Mer information om aktuell status för varje körnings bibliotek finns i [Ytterligare information](#additional-information).
 
-| Språk/plattform | Klientpaketet | EventProcessorHost paket | Lagringsplats |
+| Språk/plattform | Klientpaketet | EventProcessorHost-paket | Lagringsplats |
 | --- | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | Gäller inte |
@@ -43,23 +43,23 @@ Läs mer om aktuell status för varje runtime-bibliotek, [ytterligare informatio
 
 #### <a name="net"></a>.NET
 
-.NET-ekosystem har flera körningar, så det finns flera .NET-bibliotek för Event Hubs. .NET Standard-biblioteket kan köras med .NET Core eller .NET Framework, medan i .NET Framework-biblioteket kan bara köras i en miljö med .NET Framework. Mer information om .NET Framework-versioner finns i [ramverksversioner](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
+.NET-eko systemet har flera körningar, så det finns flera .NET-bibliotek för Event Hubs. Du kan köra .NET standard-biblioteket med hjälp av antingen .NET Core eller .NET Framework, medan .NET Frameworks biblioteket bara kan köras i en .NET Framework miljö. Mer information om .NET Framework-versioner finns i [Framework-versioner](https://docs.microsoft.com/dotnet/articles/standard/frameworks).
 
 #### <a name="node"></a>Nod
 
-Den [Node.js-bibliotek](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) är för närvarande i förhandsversion och underhålls som ett sida-projekt av Microsoft-anställda och externa deltagare. Alla bidrag inklusive källkoden är välkomna och kommer att granskas.
+[Node. js-biblioteket](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) är för närvarande en för hands version och underhålls som ett Side projekt av Microsoft-anställda och externa bidrags givare. Alla bidrag inklusive käll koden är Välkomst och kommer att granskas.
 
 ## <a name="management-apis"></a>API:er för hantering
 
-I följande tabell visas alla tillgängliga bibliotek för management-specifika. Ingen av dessa bibliotek innehåller runtime operations och är för att hantera Händelsehubbar entiteter.
+I följande tabell visas alla aktuella bibliotek som är tillgängliga för hantering. Inget av dessa bibliotek innehåller körnings åtgärder och är enbart för att hantera Event Hubs entiteter.
 
-| Språk/plattform | Hanteringspaket | Lagringsplats |
+| Språk/plattform | Hanterings paket | Lagringsplats |
 | --- | --- | --- |
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Management.EventHub) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/ResourceManagement/EventHub) |
 
 ## <a name="next-steps"></a>Nästa steg
 Du kan lära dig mer om Event Hubs genom att gå till följande länkar:
 
-* [Event Hubs-översikt](event-hubs-what-is-event-hubs.md)
+* [Översikt över Event Hubs](event-hubs-what-is-event-hubs.md)
 * [Skapa en Event Hub](event-hubs-create.md)
 * [Vanliga frågor och svar om Event Hubs](event-hubs-faq.md)

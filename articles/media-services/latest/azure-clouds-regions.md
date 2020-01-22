@@ -1,6 +1,6 @@
 ---
-title: Moln och regioner där Azure Media Services v3 är tillgängligt | Microsoft Docs
-description: Den här artikeln handlar om Azure-moln och regioner där Azure Media Services v3 är tillgängligt.
+title: Moln och regioner där Azure Media Services v3 är tillgängligt
+description: Den här artikeln pratar om Azure-moln och regioner där Azure Media Services v3 är tillgängligt.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -9,45 +9,45 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/21/2020
 ms.author: juliako
-ms.openlocfilehash: 7b2691f543cf38a56eefb1e8521169aeccbf3221
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58b5b749e81aab4d8563d09cbfd139629520531c
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65409289"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310583"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Moln och regioner där Azure Media Services v3 finns
 
-Azure Media Services v3 är tillgängligt via Azure Resource Manager-manifestet i globala Azure, Azure Government, Azure Tyskland, Azure Kina 21Vianet. Men finns inte alla Media Services-funktioner i alla moln på Azure. Det här dokumentet beskrivs tillgången på Media Services v3 huvudkomponenter.
+Azure Media Services v3 är tillgängligt via Azure Resource Manager manifest i Global Azure, Azure Government, Azure Germany, Azure Kina 21Vianet. Alla Media Services funktioner är dock inte tillgängliga i alla Azure-moln. Det här dokumentet beskriver tillgänglighet av Main Media Services v3-komponenter.
 
-## <a name="feature-availability-in-azure-clouds"></a>Tillgängliga funktioner i Azure-moln
+## <a name="feature-availability-in-azure-clouds"></a>Funktions tillgänglighet i Azure-moln
 
-| Funktion|Global Azure Regions | Azure Government|Azure Tyskland|Azure Kina 21Vianet|
+| Funktion|Globala Azure-regioner | Azure Government|Azure Germany|Azure Kina 21Vianet|
 | --- | --- | --- | --- | --- |
-| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgängligt | Inte tillgängligt | Inte tillgängligt | Inte tillgängligt |
-| [StandardEncoderPreset](encoding-concept.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
-| [LiveEvents](live-streaming-overview.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
-| [Strömningsslutpunkter](streaming-endpoint-concept.md) | Tillgängligt | Tillgängligt | Tillgängligt | Tillgängligt |
+| [Azure EventGrid](reacting-to-media-services-events.md) | Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [VideoAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md) |  Tillgänglig | Inte tillgänglig | Inte tillgänglig | Inte tillgänglig |
+| [StandardEncoderPreset](encoding-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+| [LiveEvents](live-streaming-overview.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
+| [Strömnings slut punkter](streaming-endpoint-concept.md) | Tillgänglig | Tillgänglig | Tillgänglig | Tillgänglig |
 
-## <a name="regionsgeographieslocations"></a>Regioner-geografiska områden-platser
+## <a name="regionsgeographieslocations"></a>Regioner/geografiska områden/platser
 
-[Regioner som Azure Media Services-tjänsten har distribuerats](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
+[Regioner där Azure Media Servicess tjänsten har distribuerats](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)
 
-### <a name="region-code-name"></a>Kod Regionsnamn 
+### <a name="region-code-name"></a>Region kod namn 
 
-När du behöver ange den **plats** parameter, måste du ange kodnamnet region som den **plats** värde. Hämtar namnet på koden för den region som ditt konto tillhör och att ditt samtal ska vidarebefordras till, kan du köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+När du behöver ange **plats** parametern måste du ange regions kod namnet som **plats** värde. Om du vill hämta kod namnet för den region där ditt konto finns och att ditt anrop ska dirigeras till kan du köra följande rad i [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
 ```bash
 az account list-locations
 ```
 
-När du kör raden ovan kan du hämta en lista över alla Azure-regioner. Gå till Azure-region som har den *displayName* du letar efter och använda dess *namn* värde för den **plats** parametern.
+När du har kört raden som visas ovan får du en lista över alla Azure-regioner. Navigera till den Azure-region som har det *visnings* namn du söker och använd dess *Name* -värde för parametern **location** .
 
-Till exempel för Azure-regionen USA, västra 2 (visas nedan), använder du ”västra USA 2” för den **plats** parametern.
+För Azure-regionen Västra USA 2 (visas nedan) använder du till exempel "westus2" för **plats** parametern.
 
 ```json
    {
@@ -62,7 +62,7 @@ Till exempel för Azure-regionen USA, västra 2 (visas nedan), använder du ”v
 
 ## <a name="endpoints"></a>Slutpunkter  
 
-Följande slutpunkter är viktigt att veta när du ansluter till Media Services-konton från olika nationella Azure-moln.
+Följande slut punkter är viktiga att känna till när du ansluter till Media Services konton från olika nationella Azure-moln.
 
 ### <a name="global-azure"></a>Global Azure
 
@@ -70,7 +70,7 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 | --- | --- | 
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Autentisering | `https://login.microsoftonline.com/` | 
-| Tokenmålgruppen | `https://management.core.windows.net/` |
+| Token-Audience | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
@@ -78,15 +78,15 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 | --- | --- | 
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Autentisering | `https://login.microsoftonline.us/` | 
-| Tokenmålgruppen | `https://management.core.usgovcloudapi.net/` |
+| Token-Audience | `https://management.core.usgovcloudapi.net/` |
 
-### <a name="azure-germany"></a>Azure Tyskland
+### <a name="azure-germany"></a>Azure Germany
 
 | Slutpunkter ||
 | --- | --- |  
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Autentisering | `https://login.microsoftonline.de/` |
-| Tokenmålgruppen | `https://management.core.cloudapi.de/`|
+| Token-Audience | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure Kina 21Vianet
 
@@ -94,12 +94,12 @@ Följande slutpunkter är viktigt att veta när du ansluter till Media Services-
 | --- | --- | 
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Autentisering | `https://login.chinacloudapi.cn/` |
-| Tokenmålgruppen |  `https://management.core.chinacloudapi.cn/` |
+| Token-Audience |  `https://management.core.chinacloudapi.cn/` |
 
 ## <a name="see-also"></a>Se också
 
 * [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/)
-* [Geografiska Azure-områden](https://azure.microsoft.com/global-infrastructure/geographies/)
+* [Geografiska områden i Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
 * [Azure-platser](https://azure.microsoft.com/global-infrastructure/locations/)
 
 ## <a name="next-steps"></a>Nästa steg

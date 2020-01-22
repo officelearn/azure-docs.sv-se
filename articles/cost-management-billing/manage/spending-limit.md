@@ -9,14 +9,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: ddb906aeb8d1c2b0d1f0c97fc12bd389da431646
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989948"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314153"
 ---
 # <a name="azure-spending-limit"></a>Utgiftsgräns i Azure
 
@@ -34,20 +34,21 @@ Azure skickar e-postaviseringar när du når utgiftsgränsen. Logga in i [Azure-
 
 Om du har ett kostnadsfritt Azure-konto och når utgiftsgränsen kan du uppgradera till att [betala per användning](upgrade-azure-subscription.md) för att ta bort utgiftsgränsen och automatiskt aktivera prenumerationen på nytt.
 
-<a id="remove"></a>
-
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Ta bort utgiftsgränsen i Azure-portalen
+
+<a id="remove"></a>
 
 Du kan ta bort utgiftsgränsen när som helst så länge det finns en giltig betalningsmetod som är associerad med din Azure-prenumeration. För prenumerationstyper som har kredit under flera månader, som Visual Studio Enterprise och Visual Studio Professional, kan du också aktivera utgiftsgränsen i början av nästa faktureringsperiod.
 
 Om du vill ta bort utgiftsgränsen följer du dessa anvisningar:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Välj en prenumeration. Om du når utgiftsgränsen för prenumerationen inaktiveras den.
-1. Välj **Ta bort utgiftsgräns** längst upp på sidan.
-1. Välj ett alternativ som passar dig.
-
-![Välja ett alternativ för att ta bort utgiftsgränsen](./media/spending-limit/remove-spending-limit01.png)
+1. Logga in på [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+1. Navigera till **prenumerationer**.
+1. Välj din prenumeration. Till exempel *Visual Studio Enterprise*.
+1. Välj **Hantera**längst upp på sidan. Du omdirigeras till https://account.azure.com/. Välj **ta bort utgifts gräns**på höger sida av sidan.  
+  ![exempel som visar ta bort utgifts gräns](./media/spending-limit/account-azure-com-spending-limit.png)
+1. Du omdirigeras tillbaka till Azure Portal. Välj ett alternativ som passar dig och välj sedan en betalnings metod. Välj **Slutför**.  
+  ![välja ett alternativ för att ta bort utgifts gränsen](./media/spending-limit/remove-spending-limit.png)
 
 | Alternativ | Verkan |
 | --- | --- |
@@ -67,7 +68,7 @@ Utgiftsgränsen kan hindra dig från att distribuera eller använda vissa tjäns
 Den här funktionen är bara tillgänglig när du har tagit bort utgiftsgränsen tills vidare för prenumerationstyper med krediter under flera månader. Du kan använda den här funktionen till att aktivera utgiftsgränsen automatiskt i början av nästa faktureringsperiod.
 
 1. Logga in på [Kontocenter](https://account.windowsazure.com/Subscriptions).
-1. Klicka på den gula banderollen för att ändra alternativet för utgiftsgräns.
+1. Välj den gula banderollen för att ändra alternativet för utgifts gräns.
 1. Välj **Aktivera utgiftsgränsen under nästa faktureringsperiod \<startdatum för faktureringsperioden\>**
 
 ## <a name="custom-spending-limit"></a>Anpassad utgiftsgräns

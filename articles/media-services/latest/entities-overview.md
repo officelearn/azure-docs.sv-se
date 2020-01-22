@@ -1,5 +1,5 @@
 ---
-title: Filtrering, sortering och sid indelning av Media Services entiteter
+title: Filtrering, sortering och växling av Media Services v3-entiteter
 titleSuffix: Azure Media Services
 description: Lär dig mer om filtrering, sortering och växling av Azure Media Services entiteter.
 services: media-services
@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: c5ae9839b7bbb86e28c9f8adab0aa0ec5e885087
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186249"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311707"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrering, sortering och sid indelning av Media Services entiteter
 
@@ -45,7 +45,7 @@ Intervall operatorer:
 - `ge`: testa om ett fält är *större än eller lika* med ett konstant värde.
 - `le`: testa om ett fält är *mindre än eller lika* med ett konstant värde.
 
-## <a name="filter"></a>Filter
+## <a name="filter"></a>Filtrera
 
 Använd `$filter` för att ange en OData filter-parameter för att bara hitta de objekt som du är intresse rad av.
 
@@ -64,7 +64,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ## <a name="order-by"></a>Sortera efter
 
-Använd `$orderby` för att sortera de returnerade objekten med den angivna parametern. Till exempel:  
+Använd `$orderby` för att sortera de returnerade objekten med den angivna parametern. Ett exempel:  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
@@ -156,7 +156,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 Följande tabell visar hur du kan använda filtrerings-och sorterings alternativen för olika entiteter:
 
-|Entitetsnamn|Egenskapsnamn|Filter|Beställa|
+|Entitetsnamn|Egenskapsnamn|Filtrera|Beställning|
 |---|---|---|---|
 |[Tillgångar](https://docs.microsoft.com/rest/api/media/assets/)|namn|`eq`, `gt`, `lt`, `ge`, `le`|`asc` och `desc`|
 ||properties.alternateId |`eq`||

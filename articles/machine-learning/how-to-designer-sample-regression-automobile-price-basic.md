@@ -10,20 +10,20 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 156b963fc1644d1f863d8ddd1d86c15b311e18a8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 18a9f9d49dce96b037f10a95a458e52d020fe6c7
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763393"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311078"
 ---
 # <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>Använd regression för att förutsäga bil priser med Azure Machine Learning designer
 
-**Designer (för hands version), exempel 1**
+**Design exempel 1**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Lär dig hur du skapar en Regressions modell för Machine Learning utan att skriva en enda rad kod med hjälp av designern (för hands version).
+Lär dig hur du skapar en Regressions modell för Machine Learning utan att skriva en enda rad kod med hjälp av designern.
 
 Den här pipelinen använder en **linjär modellerings regressor** för att förutsäga bils pris baserat på tekniska funktioner som märke, modell, häst krafter och storlek. Eftersom du försöker besvara frågan "hur mycket?" Detta kallas för ett Regressions problem. Du kan dock använda samma grundläggande steg i det här exemplet för att ta itu med alla typer av maskin inlärnings problem, oavsett om det är regression, klassificering, klustring och så vidare.
 

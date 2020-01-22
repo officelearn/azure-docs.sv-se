@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: b3e2b6fbfb11c0ee89e56cd29fa3bf606c336235
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 10889f6d872510fb53e76ab3722343aa2ee6a5e8
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278544"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293920"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Kom igång med Azure Cost Management för partner
 
@@ -120,7 +120,7 @@ Oavsett principen kan partner också se kostnaderna om de har åtkomst till pren
 
 Partner använder följande information för att aktivera principen för att Visa Azures användnings kostnader för sina kunder.
 
-Logga in på partner klienten i Azure Portal och välj **Cost Management + fakturering**. Välj ett fakturerings konto och välj sedan **kunder**. Listan över kunder är kopplad till fakturerings kontot.
+Logga in på partner klienten i Azure Portal och välj **Cost Management + fakturering**. Välj önskat fakturerings konto för Microsoft partner avtal och välj sedan **kunder**. Listan över kunder är kopplad till fakturerings kontot.
 
 I listan över kunder väljer du den kund som du vill tillåta för att Visa kostnader.
 
@@ -137,7 +137,7 @@ När kostnads principen är inställd på **Ja**kan prenumerations användare so
 
 När principen för kostnads synlighet är aktive rad visar alla tjänster som har prenumerations användningen kostnader enligt priserna för betala per användning. Reservations användningen visas med noll kostnader för faktiska och periodiserade kostnader. Köp och rättigheter är inte kopplade till en speciell prenumeration. Därför visas inte inköpen i prenumerations omfånget.
 
-Om du vill visa kostnader för kund klienten öppnar du Cost Management + fakturering och väljer sedan fakturerings konton. Välj ett fakturerings konto i listan över fakturerings konton.
+Om du vill visa kostnader för kund klienten öppnar du **Cost Management + fakturering** och väljer önskat fakturerings konto för Microsoft partner avtal.
 
 ![Välj ett fakturerings konto](./media/get-started-partners/select-billing-account.png)
 
@@ -263,7 +263,7 @@ Användare med RBAC-åtkomst till prenumerationen kan också exportera kostnads 
 
 ### <a name="create-an-export-in-a-partner-tenant-or-customer-tenant"></a>Skapa en export i en partner klient organisation eller kund klient organisation
 
-Logga in på partner klient organisationen eller kund klienten i Azure Portal och välj **Cost Management + fakturering**. Välj ett lämpligt omfång, till exempel ett fakturerings konto och välj sedan **kostnads analys**. När sidan läses in väljer du **Exportera**. Välj **Visa alla exporter** under Schemalägg export.
+Logga in på partner klient organisationen eller kund klienten i Azure Portal och välj **Cost Management + fakturering**. Välj ett lämpligt omfång, till exempel ett Microsoft partner avtal fakturerings konto och välj sedan **kostnads analys**. När sidan läses in väljer du **Exportera**. Välj **Visa alla exporter** under Schemalägg export.
 
 ![Välj Exportera och Visa alla exporter](./media/get-started-partners/export01.png)
 

@@ -4,12 +4,12 @@ description: Innehåller en lista över vanliga gränser, kvoter och begränsnin
 tags: billing
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: 4a6d5664d76df5401a2bb5c55f42d86b48e99017
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75662953"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294124"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 
@@ -48,6 +48,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Azure-Kognitiv sökning](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
+* [Azure-Datautforskaren](#azure-data-explorer-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
@@ -102,7 +103,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
 * [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [Lagring](#storage-limits)
+* [Storage](#storage-limits)
 * [StorSimple-system](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Prenumeration](#subscription-limits)
@@ -299,6 +300,10 @@ I följande tabell visas gränserna för Azure BizTalk Services.
 ### <a name="azure-cosmos-db-limits"></a>Azure Cosmos DB gränser
 
 För Azure Cosmos DB gränser, se [gränser i Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
+
+### <a name="azure-data-explorer-limits"></a>Azure Datautforskaren-gränser
+
+[!INCLUDE [azure-data-explorer-limits](../../../includes/data-explorer-limits.md)]
 
 ### <a name="azure-database-for-mysql"></a>Azure-databas för MySQL
 

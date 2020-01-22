@@ -3,14 +3,14 @@ title: Visa Azure Uppdateringshantering Update-utvärderingar
 description: Den här artikeln beskriver hur du visar uppdaterings utvärderingar för uppdaterings distributioner.
 services: automation
 ms.subservice: update-management
-ms.date: 05/17/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: b6f86c72bfc1a1d51ed509a70d786e67f11d8166
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58d3cf6261456c09195ad6dafaeb781b55d9e5ee
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419889"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310092"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Visa Azure Uppdateringshantering Update-utvärderingar
 
@@ -30,7 +30,7 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ## <a name="update-classifications"></a>Uppdatera klassificeringar
 
-I följande tabeller visas uppdaterings klassificeringarna i Uppdateringshantering, med en definition för varje klassificering.
+I följande tabeller visas de uppdaterings klassificeringar som stöds i Uppdateringshantering, med en definition för varje klassificering.
 
 ### <a name="windows"></a>Windows
 
@@ -59,6 +59,8 @@ sudo yum -q --security check-update
 ```
 
 Det finns för närvarande ingen metod som stöds för att aktivera intern klassificerings data tillgänglighet på CentOS. För närvarande erbjuds kunder som har aktiverat den här funktionen på egen hand support.
+
+Om du vill klassificera uppdateringar i Red Hat Enterprise version 6 måste du installera plugin-programmet yum-Security. På Red Hat Enterprise Linux 7 är plugin-programmet redan en del av yum, men du behöver inte installera något. Mer information finns i följande artiklar om Red Hat- [kunskap](https://access.redhat.com/solutions/10021).
 
 ## <a name="next-steps"></a>Nästa steg
 

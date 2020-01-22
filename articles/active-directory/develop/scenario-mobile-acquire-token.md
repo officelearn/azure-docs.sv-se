@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d584dc2eef27747627133511af3defe085068ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7570030f4b0cc2e7bc1a1d64ad9eea7a74429eee
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423832"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293478"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Mobilapp som anropar webb-API: er – hämta en token
 
@@ -241,7 +241,7 @@ Klassen definierar följande konstanter:
 
 ##### <a name="withextrascopetoconsent"></a>WithExtraScopeToConsent
 
-Den här modifieraren används i ett avancerat scenario där du vill att användaren ska godkänna flera resurser på förhand (och inte vill använda det stegvisa godkännandet som normalt används med MSAL.NET/Microsoft Identity Platform v 2.0). Mer information finns i [så här gör du för att få användar medgivande för flera resurser](scenario-desktop-production.md#how-to-have--the-user-consent-upfront-for-several-resources).
+Den här modifieraren används i ett avancerat scenario där du vill att användaren ska godkänna flera resurser på förhand (och inte vill använda det stegvisa godkännandet som normalt används med MSAL.NET/Microsoft Identity Platform v 2.0). Mer information finns i [så här gör du för att få användar medgivande för flera resurser](scenario-desktop-production.md#have-the-user-consent-upfront-for-several-resources).
 
 ```csharp
 var result = await app.AcquireTokenInteractive(scopesForCustomerApi)

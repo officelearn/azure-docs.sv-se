@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f0c2f4c48875ca2e13a026c2c8ded8f217a97a08
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867547"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293767"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Vad är Azure Privat Link? (Förhandsversion)
 Med Azures privata länk kan du komma åt Azure PaaS Services (till exempel Azure Storage, Azure Cosmos DB och SQL Database) och Azure-värdbaserade kund-/partner tjänster via en [privat slut punkt](private-endpoint-overview.md) i det virtuella nätverket. Trafik mellan ditt virtuella nätverk och tjänsten passerar över Microsofts stamnätverk, vilket eliminerar exponering från det offentliga Internet. Du kan också skapa en egen [privat länk-tjänst](private-link-service-overview.md) i ditt virtuella nätverk (VNet) och leverera den privat för kunderna. Installations-och användnings upplevelsen med Azure Private Link är konsekvent i Azure PaaS, kundägda och delade partner tjänster.
@@ -49,6 +50,7 @@ Azure Private-länken ger följande fördelar:
 |  |  Azure Database for PostgreSQL-enskild server         | Alla offentliga regioner      |   Förhandsversion      |
 |  |  Azure-databas för MySQL         | Alla offentliga regioner      |   Förhandsversion      |
 |  |  Azure-databas för MariaDB         | Alla offentliga regioner      |   Förhandsversion      |
+|  |  Kognitiv sökning i Azure | Västra USA 2, västra centrala USA, östra USA, södra centrala USA, östra Australien, sydöstra Australien | Förhandsversion <br/> [Läs mer](/azure/search/service-create-private-endpoint) |
 
 Du hittar de senaste aviseringarna på [sidan för Azure Virtual Network-uppdateringar](https://azure.microsoft.com/updates/?product=virtual-network).
 

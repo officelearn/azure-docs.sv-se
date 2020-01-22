@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med Concur | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Concur | Microsoft Docs'
 description: Läs hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur.
 services: active-directory
 documentationCenter: na
@@ -11,19 +11,18 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de806e764b4a73414604fe6ea64b03aa96666f5f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0cfe569fde8f290c9272520630c2e903e770f223
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68988408"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293716"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Concur
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med Concur
 
 I den här självstudien får du lära dig hur du integrerar Concur med Azure Active Directory (Azure AD). När du integrerar Concur med Azure AD kan du:
 
@@ -33,7 +32,7 @@ I den här självstudien får du lära dig hur du integrerar Concur med Azure Ac
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -46,6 +45,7 @@ I den här självstudien konfigurerar och testar du Azure AD SSO i en test milj�
 
 * Concur stöder **SP**-initierad enkel inloggning
 * Concur stöder **Just-in-time**-användaretablering
+* När du har konfigurerat Concur kan du framtvinga sessionsnycklar som skyddar exfiltrering och intrånget för organisationens känsliga data i real tid. Sessions kontroller utökas från villkorlig åtkomst. [Lär dig hur du tvingar fram sessions kontroll med Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-concur-from-the-gallery"></a>Lägga till Concur från galleriet
 
@@ -66,7 +66,7 @@ Om du vill konfigurera och testa Azure AD SSO med Concur, slutför du följande 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 2. **[Konfigurera Concur SSO](#configure-concur-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Concur test User](#create-concur-test-user)** -om du vill ha en motsvarighet till B. Simon i Concur som är länkad till Azure AD-representation av användare.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -85,14 +85,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://www.concursolutions.com/UI/SSO/<OrganizationId>`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://<customer-domain>.concursolutions.com`
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://<customer-domain>.concursolutions.com`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska inloggnings-URL:en och identifieraren. Kontakta [Concurs klientsupportteam](https://www.concur.co.in/contact) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [Concurs klientsupportteam](https://www.concur.co.in/contact) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 4. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 6. I avsnittet **Konfigurera Concur** kopierar du lämpliga URL: er baserat på ditt krav.
 
@@ -103,14 +103,14 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
     1. I **Namn**-fältet skriver du `B.Simon`.  
     1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
     1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
     1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Concur.
 
@@ -118,7 +118,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **Concur**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-    ![Länken ”användare och grupper”](common/users-groups-blade.png)
+    ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -130,7 +130,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-concur-sso"></a>Konfigurera Concur SSO
 
-Om du vill konfigurera enkel inloggning på **Concur** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Concur](https://www.concur.co.in/contact). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+Om du vill konfigurera enkel inloggning på **Concur** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [support teamet för Concur](https://www.concur.co.in/contact). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
   > [!NOTE]
   > Konfiguration för din Concur-prenumerationen för federerad enkel inloggning via SAML är en separat uppgift som du måste kontakta [Concur klientsupportteamet](https://www.concur.co.in/contact) för att utföra.
@@ -141,7 +141,7 @@ I det här avsnittet skapas en användare som heter B. Simon i Concur. Concur st
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
 När du klickar på Concur-panelen i åtkomstpanelen så bör du automatiskt loggas in på Concur som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
@@ -155,3 +155,6 @@ När du klickar på Concur-panelen i åtkomstpanelen så bör du automatiskt log
 
 - [Prova Concur med Azure AD](https://aad.portal.azure.com)
 
+- [Vad är session Control i Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [Så här skyddar du Concur med avancerad synlighet och kontroller](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

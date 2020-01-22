@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b62e03184453c4daea8615ee2bea39c936de5c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490367"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313985"
 ---
-# <a name="train-model-module"></a>Träna modell modul
+# <a name="train-model-module"></a>Train-modell
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att träna en klassificerings-eller Regressions modell. Träningen sker efter att du har definierat en modell och angett dess parametrar och kräver taggade data. Du kan också använda **träna modell** för att omträna en befintlig modell med nya data. 
 
@@ -68,10 +68,9 @@ I Azure Machine Learning är det vanligt vis en tre stegs process att skapa och 
 
 När modellen har tränats:
 
-+ Om du vill visa modell parametrar och funktions vikter högerklickar du på utdata och väljer **visualisera**.
-+ Om du vill använda modellen i andra pipeliner högerklickar du på modellen och väljer **Spara modell**. Ange ett namn för modellen. 
 
-    Detta sparar modellen som en ögonblicks bild som inte uppdateras genom upprepade körningar av pipelinen.
++ Om du vill använda modellen i andra pipeliner väljer du modulen och väljer ikonen **registrera data uppsättning** under fliken **utdata** i den högra panelen. Du kan komma åt sparade modeller i modulen modul under **data uppsättningar**.
+
 + Om du vill använda modellen för att förutsäga nya värden ansluter du den till modulen [Poäng modell](./score-model.md) tillsammans med nya indata.
 
 

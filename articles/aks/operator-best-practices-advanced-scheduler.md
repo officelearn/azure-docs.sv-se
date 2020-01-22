@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ac66e46d449100fcdd004627820252473f6e2f3
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472598"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293665"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för avancerade Scheduler-funktioner i Azure Kubernetes service (AKS)
 
-När du hanterar kluster i Azure Kubernetes service (AKS) behöver du ofta isolera team och arbets belastningar. Kubernetes Scheduler innehåller avancerade funktioner som gör att du kan styra vilka poddar som kan schemaläggas på vissa noder, eller hur program med flera Pod kan distribueras på lämpligt sätt i klustret. 
+När du hanterar kluster i Azure Kubernetes service (AKS) behöver du ofta isolera team och arbets belastningar. Kubernetes Scheduler innehåller avancerade funktioner som låter dig styra vilka poddar som kan schemaläggas på vissa noder, eller hur program med flera Pod kan distribueras på ett lämpligt sätt i klustret. 
 
 I den här artikeln fokuserar vi på avancerade funktioner för Kubernetes-schemaläggning för kluster operatörer. I den här artikeln kan du se hur du:
 
@@ -69,7 +69,7 @@ spec:
     effect: "NoSchedule"
 ```
 
-När den här Pod distribueras, t. ex. genom att använda `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den använda bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
+När den här Pod distribueras, till exempel med hjälp av `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den tillämpade bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
 
 När du använder smakarna arbetar du med dina programutvecklare och ägare för att tillåta dem att definiera de nödvändiga tolererarna i sina distributioner.
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: bf4f176eef502cdd1c68f19904a24bd2500e1302
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 939ac7caacac7cfb55bd29ed9a5d9c136a8e5c90
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428501"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314257"
 ---
 # <a name="one-vs-all-multiclass"></a>En-mot-alla – multiklass
 
-I den här artikeln beskrivs hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning designer (för hands version). Målet är att skapa en klassificerings modell som kan förutsäga flera klasser med hjälp av metoden *One-och-all* .
+I den här artikeln beskrivs hur du använder modulen En-mot-alla – multiklass i Azure Machine Learning designer. Målet är att skapa en klassificerings modell som kan förutsäga flera klasser med hjälp av metoden *One-och-all* .
 
 Den här modulen är användbar för att skapa modeller som förutsäger tre eller fler möjliga resultat, när resultatet beror på kontinuerliga eller kategoriska för förutsägande variabler. Med den här metoden kan du också använda binära klassificerings metoder för problem som kräver flera utgående klasser.
 

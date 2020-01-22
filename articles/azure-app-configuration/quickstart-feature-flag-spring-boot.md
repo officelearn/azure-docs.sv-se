@@ -3,8 +3,7 @@ title: Snabb start för att lägga till funktions flaggor till våren Boot-Azure
 description: En snabb start för att lägga till funktions flaggor till våren Boot Apps och hantera dem i Azure App konfiguration
 services: azure-app-configuration
 documentationcenter: ''
-author: mrm9084
-manager: zhenlwa
+author: lisaguthrie
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,22 +11,22 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: Spring Boot
 ms.workload: tbd
-ms.date: 09/26/2019
-ms.author: mametcal
-ms.openlocfilehash: cae1e7b205869fd41850c1adfaeae97658dd02f0
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: 3e82354116969b01743700485b5c2dd75b4887e4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184954"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310075"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Snabb start: Lägg till funktions flaggor i en våren Boot-app
 
 I den här snabb starten inkluderar du Azure App konfiguration i en våren Boot-webbapp för att skapa en slut punkt till slutpunkt-implementering av funktions hantering. Du kan använda app Configuration service för att centralt lagra alla funktions flaggor och kontrol lera deras tillstånd.
 
-Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. De här biblioteken har **inget** beroende av eventuella Azure lib-återställre. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
+Biblioteken våren Boot Feature Management utökar ramverket med omfattande stöd för funktions flaggor. Dessa bibliotek har **inget** beroende av några Azure-bibliotek. De integreras sömlöst med app-konfigurationen via sin våren Boot Configuration Provider.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - En [Java Development Kit SDK](https://docs.microsoft.com/java/azure/jdk) som stöds med version 8.
@@ -39,7 +38,7 @@ Biblioteken våren Boot Feature Management utökar ramverket med omfattande stö
 
 6. Välj **funktions hanteraren** >  **+ skapa** för att lägga till följande funktions flaggor:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | Av |
 
@@ -54,7 +53,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
    - Generera ett **Maven**-projekt med **Java**.
    - Ange en **våren Boot** -version som är lika med eller större än 2,0.
    - Ange namnen för **Group** (Grupp) och **Artifact** (Artefakt) för ditt program.
-   - Lägga till beroendet **Web**.
+   - Lägg till **våren-** webbberoendet.
 
 3. När du har angett föregående alternativ väljer du **generera projekt**. När du uppmanas laddar du ned projektet till en sökväg på den lokala datorn.
 
@@ -68,12 +67,12 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-appconfiguration-config</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0</version>
     </dependency>
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-azure-feature-management-web</artifactId>
-        <version>1.1.0.M4</version>
+        <version>1.1.0</version>
     </dependency>
     <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -86,27 +85,46 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Öppna `bootstrap.properties` som finns under katalogen resurser i din app och Lägg till följande rader i filen. Lägg till konfigurations information för appen.
+1. Öppna _bootstrap. Properties_ under katalogen _resurser_ i din app. Om _bootstrap. Properties_ inte finns skapar du det. Lägg till följande rad i filen.
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].name= ${APP_CONFIGURATION_CONNECTION_STRING}
     ```
 
-2. I appens konfigurations Portal för config Store går du till åtkomst nycklar. Välj fliken skrivskyddade nycklar. På den här fliken kopierar du värdet för en av anslutnings strängarna och lägger till den som en ny miljö variabel med variabel namnet `APP_CONFIGURATION_CONNECTION_STRING`.
+1. I appens konfigurations Portal för config Store går du till åtkomst nycklar. Välj fliken skrivskyddade nycklar. På den här fliken kopierar du värdet för en av anslutnings strängarna och lägger till den som en ny miljö variabel med variabel namnet `APP_CONFIGURATION_CONNECTION_STRING`.
 
-3. Öppna huvudprogrammets Java-fil och lägg till `@EnableConfigurationProperties` för att aktivera den här funktionen.
+1. Öppna huvudprogrammets Java-fil och lägg till `@EnableConfigurationProperties` för att aktivera den här funktionen.
 
     ```java
+    import org.springframework.boot.context.properties.EnableConfigurationProperties;
+
     @SpringBootApplication
     @EnableConfigurationProperties(MessageProperties.class)
-    public class AzureConfigApplication {
+    public class DemoApplication {
         public static void main(String[] args) {
-            SpringApplication.run(AzureConfigApplication.class, args);
+            SpringApplication.run(DemoApplication.class, args);
         }
     }
     ```
 
-4. Skapa en ny Java-fil med namnet *HelloController.java* i appens paketkatalog. Lägg till följande rader:
+1. Skapa en ny Java-fil med namnet *MessageProperties.java* i appens paketkatalog. Lägg till följande rader:
+
+    ```java
+    @ConfigurationProperties(prefix = "config")
+    public class MessageProperties {
+        private String message;
+
+        public String getMessage() {
+            return message;
+        }
+
+        public void setMessage(String message) {
+            this.message = message;
+        }
+    }
+    ```
+
+1. Skapa en ny Java-fil med namnet *HelloController.java* i appens paketkatalog. Lägg till följande rader:
 
     ```java
     @Controller
@@ -127,7 +145,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
     }
     ```
 
-5. Skapa en ny HTML-fil med namnet *Welcome. html* i mappen mallar i appen. Lägg till följande rader:
+1. Skapa en ny HTML-fil med namnet *Welcome. html* i mappen mallar i appen. Lägg till följande rader:
 
     ```html
     <!DOCTYPE html>
@@ -184,7 +202,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
     ```
 
-6. Skapa en ny mapp med namnet CSS under statisk och inuti den som en ny CSS-fil med namnet *main. CSS*. Lägg till följande rader:
+1. Skapa en ny mapp med namnet CSS under statisk och inuti den som en ny CSS-fil med namnet *main. CSS*. Lägg till följande rader:
 
     ```css
     html {
@@ -232,7 +250,7 @@ Du kan använda [våren Initializr](https://start.spring.io/) för att skapa ett
 
 3. I konfigurations portalen för app väljer du **funktions hanteraren**och ändrar status för **beta** nyckeln till **på**:
 
-    | Nyckel | State |
+    | Nyckel | Status |
     |---|---|
     | Beta | På |
 

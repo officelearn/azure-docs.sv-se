@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a28b77a25971128b9474f18d860f6204c3433c73
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497863"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312302"
 ---
 # <a name="execute-python-script-module"></a>Köra Python-skript modul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att köra python-kod. Mer information om arkitektur och design principer för python finns i [följande artikel](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts).
 
@@ -34,13 +34,13 @@ Azure Machine Learning använder Anaconda-distributionen av python, som innehål
  -  Anaconda 4.5 + distribution för python 3,6 
 
 De förinstallerade paketen är:
--  asn1crypto = = 0.24.0
+-  asn1crypto==0.24.0
 - attr = = 19.1.0
-- Azure-common = = 1.1.18
+- azure-common==1.1.18
 - Azure-Storage-BLOB = = 1.5.0
-- Azure-Storage – common = = 1.4.0
+- azure-storage-common==1.4.0
 - certifiera = = 2019.3.9
-- cffi = = 1.12.2
+- cffi==1.12.2
 - chardet = = 3.0.4
 - kryptografi = = 2.6.1
 - distribution = = 1.4.0
@@ -49,22 +49,22 @@ De förinstallerade paketen är:
 - lightgbm = = 2.2.3
 - Mer-itertools = = 6.0.0
 - numpy = = 1.16.2
-- Pandas = = 0.24.2
+- pandas==0.24.2
 - Pillow = = 6.0.0
 - PIP = = 19.0.3
 - pyarrow = = 0.12.1
 - pycparser = = 2.19
 - pycryptodomex = = 3.7.3
 - pyrsistent = = 0.14.11
-- python-dateutil = = 2.8.0
-- pytz = = 2018.9
+- python-dateutil==2.8.0
+- pytz==2018.9
 - begär Anden = = 2.21.0
 - scikit – lära = = 0.20.3
 - scipy = = 1.2.1
 - installations verktyg = = 40.8.0
 - sex = = 1.12.0
 - Torch = = 1.0.1. post2
-- torchvision = = 0.2.2. post3
+- torchvision==0.2.2.post3
 - urllib3 = = 1.24.1
 - Wheel = = 0.33.1 
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/16/2020
 ms.author: radeltch
-ms.openlocfilehash: 94cf30d2d3650212707cf92db83236882fe5e49f
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 7471fc6d7f10c849ba79fedf88961d6c3c99913f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169359"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314206"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>Hög tillgänglighet för SAP NetWeaver på virtuella Azure-datorer på SUSE Linux Enterprise Server för SAP-program med flera SID-guide
 
@@ -129,8 +129,8 @@ I följande lista visas konfigurationen av (A) SCS-och ERS-belastningsutjämnare
 
 * Konfiguration av klient del
   * IP-adress för NW1-10.3.1.15
-  * IP-adress för NW1-10.3.1.17
-  * IP-adress för NW1-10.3.1.19
+  * IP-adress för NW2-10.3.1.17
+  * IP-adress för NW3-10.3.1.19
 * Server dels konfiguration
   * Anslutna till primära nätverks gränssnitt för alla virtuella datorer som ska ingå i (A) SCS/ERS-kluster
 * Avsöknings port

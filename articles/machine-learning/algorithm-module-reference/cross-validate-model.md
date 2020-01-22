@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: b7c898c232dc39398b13f16beea814aa4e554845
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 680cf04e79a9cb6d5748723dad3cb37cf3c76468
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428551"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314223"
 ---
 # <a name="cross-validate-model"></a>Korsvalidera modell
 
-Den här artikeln beskriver hur du använder modulen för att validera modeller i Azure Machine Learning designer (för hands version). *Kors validering* är en teknik som ofta används i Machine Learning för att utvärdera både variabiliteten hos en data uppsättning och tillförlitligheten för en modell som har tränas genom dessa data.  
+Den här artikeln beskriver hur du använder modulen för att validera modeller i Azure Machine Learning designer. *Kors validering* är en teknik som ofta används i Machine Learning för att utvärdera både variabiliteten hos en data uppsättning och tillförlitligheten för en modell som har tränas genom dessa data.  
 
 Modulen för att validera modell tar sig in som indata för en etikettad data uppsättning, tillsammans med en klass som inte är tränad eller Regressions modell. Den delar in data uppsättningen i ett antal del mängder (*vikning*), skapar en modell på varje vikning och returnerar sedan en uppsättning noggrannhets statistik för varje vikning. Genom att jämföra noggrannhets statistiken för alla vik objekt kan du tolka data uppsättningens kvalitet. Du kan sedan förstå om modellen är mottaglig för variationer i data.  
 
@@ -76,7 +76,7 @@ I det här scenariot tränar du och testar modellen med hjälp av kors validerin
 
 7. Se avsnittet [Results](#results) för en beskrivning av rapporterna.
 
-    För att få en kopia av modellen för åter användning senare, högerklickar du på utdata från modulen som innehåller algoritmen (till exempel den **två Bayes punkt datorn**). Välj sedan **Spara som utbildad modell**.
+    Om du vill få en kopia av modellen för åter användning senare växlar du till fliken **utdata** i den högra panelen i modulen som innehåller algoritmen (till exempel den **två Bayes Point-datorn**). Välj sedan ikonen **registrera data uppsättning** för att spara en kopia av den tränade modellen i modul trädet.
 
 ## <a name="results"></a>Resultat
 
@@ -86,7 +86,7 @@ När alla iterationer har slutförts skapar kors validerings modellen Poäng fö
 
 Den första utdata i modulen tillhandahåller källdata för varje rad, tillsammans med vissa förväntade värden och relaterade sannolikheter. 
 
-Om du vill visa de här resultaten högerklickar du på modulen för att validera modell i pipelinen. Välj **resultat resultat**och välj sedan **visualisera**.
+Om du vill visa resultaten går du till pipelinen och högerklickar på modulen för att validera modell. Välj **visualisera Poäng resultat**.
 
 | Nytt kolumnnamn      | Beskrivning                              |
 | -------------------- | ---------------------------------------- |
@@ -100,7 +100,7 @@ Den andra rapporten är grupperad efter vikning. Kom ihåg att vid körning dela
 
 I den här rapporten visas vikningarna efter index värde i stigande ordning.  Om du vill sortera efter andra kolumner kan du spara resultaten som en data uppsättning.
 
-Om du vill visa de här resultaten högerklickar du på modulen för att validera modell i pipelinen. Välj **utvärderings resultat efter vikning**och välj sedan **visualisera**.
+Om du vill visa resultaten går du till pipelinen och högerklickar på modulen för att validera modell. Välj **visualisera utvärderings resultat per vikning**.
 
 
 |Kolumnnamn| Beskrivning|

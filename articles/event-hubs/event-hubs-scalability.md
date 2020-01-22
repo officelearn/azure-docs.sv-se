@@ -1,6 +1,6 @@
 ---
 title: Skalbarhet – Azure Event Hubs | Microsoft Docs
-description: Innehåller information om hur du skalar Azure Event Hubs.
+description: Den här artikeln innehåller information om hur du skalar Azure-Event Hubs med partitioner och data flödes enheter.
 services: event-hubs
 documentationcenter: na
 author: ShubhaVijayasarathy
@@ -14,22 +14,22 @@ ms.workload: na
 ms.custom: seodec18
 ms.date: 06/18/2019
 ms.author: shvija
-ms.openlocfilehash: c46b333f2cc304cc12ddf78670b60940c7bc0db3
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.openlocfilehash: 2b36faef8c39a8e9b02a056576ae7f5a77b1f6bf
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827691"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309531"
 ---
-# <a name="scaling-with-event-hubs"></a>Skala med Händelsehubbar
+# <a name="scaling-with-event-hubs"></a>Skalning med Event Hubs
 
-Det finns två faktorerna som påverkar skala med Händelsehubbar.
-*   Genomflödesenheter
+Det finns två faktorer som påverkar skalning med Event Hubs.
+*   Dataflödesenheter
 *   Partitioner
 
-## <a name="throughput-units"></a>Genomflödesenheter
+## <a name="throughput-units"></a>Dataflödesenheter
 
-Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. Ett enda dataflöde kan du:
+Genomflödeskapaciteten i Event Hubs styrs av *genomflödesenheter*. Genomflödesenheter är färdiga kapacitetsenheter. Med ett enda data flöde kan du:
 
 * Ingång: Upp till 1 MB per sekund eller 1 000 händelser per sekund (beroende på vilket som inträffar först).
 * Utgång: Upp till 2 MB per sekund eller 4096 händelser per sekund.
@@ -45,7 +45,7 @@ Den **automatisk ökning** i Event Hubs automatiskt skalar upp genom att öka an
 
 Händelsehubbtjänsten ökar dataflödet när belastningen ökar den minsta överskrids utan några förfrågningar som misslyckas med ServerBusy fel. 
 
-Mer information om den automatisk ökning av funktionen, se [skala dataflödesenheter automatiskt](event-hubs-auto-inflate.md).
+Mer information om funktionen för automatiskt öknings funktionen finns i [skala data flödes enheter automatiskt](event-hubs-auto-inflate.md).
 
 ## <a name="partitions"></a>Partitioner
 [!INCLUDE [event-hubs-partitions](../../includes/event-hubs-partitions.md)]

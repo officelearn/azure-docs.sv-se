@@ -1,6 +1,6 @@
 ---
 title: Algoritm- och modulreferens
-description: Lär dig mer om modulerna som är tillgängliga i Azure Machine Learning designer (för hands version)
+description: Lär dig mer om modulerna som är tillgängliga i Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 12/17/2019
-ms.openlocfilehash: 659c205bd12d7ca27bfc28e3ab6e62f58d9743ac
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c265c2386b31fd02a5aa635c343be5d3cb227722
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978659"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312188"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Algoritmen & module-referens för Azure Machine Learning designer
 
-Det här referens innehållet ger teknisk bakgrund på var och en av Machine Learning-algoritmerna och modulerna som är tillgängliga i Azure Machine Learning designer (för hands version).
+Detta referens innehåll ger teknisk bakgrund på var och en av Machine Learning-algoritmer och moduler som är tillgängliga i Azure Machine Learning designer.
 
 Varje modul representerar en uppsättning kod som kan köras separat och utföra en maskin inlärnings uppgift, med de nödvändiga inmatningarna. En modul kan innehålla en viss algoritm eller utföra en uppgift som är viktig i Machine Learning, till exempel värde utbyte som saknas eller statistisk analys.
 

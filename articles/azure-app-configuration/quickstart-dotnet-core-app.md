@@ -2,17 +2,17 @@
 title: Snabbstart för Azure App Configuration med .NET Core | Microsoft Docs
 description: En snabbstart för användning av Azure App Configuration med .NET Core-appar
 services: azure-app-configuration
-author: yegu-ms
+author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.author: yegu
-ms.openlocfilehash: 46aab7bcb9ec941bee465b0d87430b7415b2dfeb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/9/2019
+ms.author: lcozzens
+ms.openlocfilehash: cf6c84e0fa3d3d5306e3295d082efc4a27cfdea6
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75413674"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310041"
 ---
 # <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Snabb start: skapa en .NET Core-app med app-konfiguration
 
@@ -52,7 +52,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 1. Lägg till en referens till `Microsoft.Extensions.Configuration.AzureAppConfiguration` NuGet-paketet genom att köra följande kommando:
 
     ```CLI
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 2.0.0-preview-009470001-1371
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 3.0.0-preview-010550001-251
     ```
 
 2. Kör följande kommando för att återställa paket för ditt projekt:

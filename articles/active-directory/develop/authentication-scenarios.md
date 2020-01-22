@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb09228b561718819c0c48aac4fc66d8205fe384
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ff9af6a6f51ca89fa7e852609ceed1ee02c6e23f
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424618"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294362"
 ---
 # <a name="authentication-basics"></a>Grundläggande om autentisering
 
@@ -168,4 +168,4 @@ Som standard använder MSAL system webbläsare, förutom .NET Framework Skriv bo
 - Se [ord listan för Microsoft Identity Platform Developer](developer-glossary.md) för att bekanta dig med vanliga villkor.
 - Mer information om andra scenarier för autentisering av användare som stöds av Microsoft Identity Platform finns i [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) .
 - Se [MSAL-bibliotek](msal-overview.md) för att lära dig om de Microsoft-bibliotek som hjälper dig att utveckla program som fungerar med Microsoft-konton, Azure AD-konton och Azure AD B2C användare i en enda, strömlinjeformad programmerings modell.
-- Mer information om hur du konfigurerar autentisering för din App Service-app finns i [integrera App Service med Microsfot Identity Platform](/azure/app-service/configure-authentication-provider-aad) .
+- Mer information om hur du konfigurerar autentisering för din App Service-app finns i [integrera App Service med Microsoft Identity Platform](/azure/app-service/configure-authentication-provider-aad) .

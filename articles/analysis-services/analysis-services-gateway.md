@@ -4,15 +4,15 @@ description: En lokal gateway krävs om din Analysis Services-server i Azure ska
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/21/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f1fc00ced0d933884ca0fe6dce91fed4602eb825
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 648646b6f973762245c344cd2629a874a219b170
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263446"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310160"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
@@ -24,11 +24,11 @@ För Azure Analysis Services hämtar installationen med gatewayen första gånge
 
 - **Hämta och kör installationen** – det här steget installerar en gateway-tjänst på en dator i din organisation. Du loggar också in på Azure med ett konto i [klient organisationens](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) Azure AD. Konton för Azure B2B (gäst) stöds inte.
 
-- **Registrera din gateway** – i det här steget anger du ett namn och en återställnings nyckel för din gateway och väljer en region, registrerar din gateway med moln tjänsten Gateway. Din gateway-resurs kan registreras i valfri region, men vi rekommenderar att den finns i samma region som dina Analysis Services-servrar. 
+- **Registrera din gateway** – i det här steget anger du ett namn och en återställnings nyckel för din gateway och väljer en region, registrerar din gateway med moln tjänsten Gateway. Din gateway-resurs kan registreras i vilken region som helst, men det rekommenderas att den finns i samma region som dina Analysis Services-servrar. 
 
-- **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i en Azure.
+- **Skapa en gateway-resurs i Azure** – i det här steget skapar du en gateway-resurs i Azure.
 
-- **Anslut dina servrar till din gateway-resurs** – när du har en gateway-resurs kan du börja ansluta dina servrar till den. Du kan ansluta flera servrar och andra resurser, förutsatt att de finns i samma region.
+- **Anslut dina servrar till din gateway-resurs** – när du har en gateway-resurs kan du börja ansluta servrar till den. Du kan ansluta flera servrar och andra resurser förutsatt att de finns i samma region.
 
 
 
@@ -54,7 +54,7 @@ När du installerar för en Azure Analysis Services-miljö är det viktigt att d
 
 Gatewayen skapar en utgående anslutning till Azure Service Bus. Den kommunicerar via utgående portar: TCP 443 (standard), 5671, 5672, 9350 till 9354.  Gatewayen behöver inte några ingående portar.
 
-Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653). Listan uppdateras en gång i veckan. De IP-adresser som finns i IP-listan för Azure Datacenter använder CIDR-notering. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+Du kan behöva inkludera IP-adresser för ditt data område i brand väggen. Du kan ladda ned [IP-listan för Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=56519). Listan uppdateras en gång i veckan. De IP-adresser som finns i IP-listan för Azure Datacenter använder CIDR-notering. Mer information finns i [Interplatsroutning mellan domäner](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
 Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 

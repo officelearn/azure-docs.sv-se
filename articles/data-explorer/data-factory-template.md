@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/08/2019
-ms.openlocfilehash: ca50a1ecd4d2a21593ddd11f83337ae7476cf916
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 884f4e956b37c2def6c25d0acdf20f15eddf7767
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300448"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293563"
 ---
 # <a name="copy-in-bulk-from-a-database-to-azure-data-explorer-by-using-the-azure-data-factory-template"></a>Kopiera i bulk från en databas till Azure Datautforskaren med hjälp av Azure Data Factory-mallen 
 
 Azure Datautforskaren är en snabb, fullständigt hanterad tjänst för data analys. Det erbjuder real tids analys av stora mängder data som strömmas från många källor, till exempel program, webbplatser och IoT-enheter. 
 
-Azure Data Factory är en fullständigt hanterad, molnbaserad tjänst för data integrering. Du kan använda den för att fylla i Azure Datautforskaren-databasen med data från ditt befintliga system. Och det kan hjälpa dig att spara tid när du skapar analys lösningar. 
+Om du vill kopiera data från en databas i Oracle server, Netezza, Teradata eller SQL Server till Azure Datautforskaren måste du läsa in stora mängder data från flera tabeller. Normalt måste data partitioneras i varje tabell så att du kan läsa in rader med flera trådar parallellt från en enda tabell. I den här artikeln beskrivs en mall som du kan använda i dessa scenarier.
 
 [Azure Data Factory mallar](/azure/data-factory/solution-templates-introduction) är fördefinierade Data Factory pipeliner. De här mallarna kan hjälpa dig att komma igång snabbt med Data Factory och minska utvecklings tiden för data integrerings projekt. 
 
@@ -30,7 +30,7 @@ Du skapar *Mass kopieringen från databasen till Azure datautforskaren* -mallen 
 > * Använd *Mass kopiering från databasen till azure datautforskaren* -mallen för att kopiera stora mängder data från databaser som SQL Server och Google BigQuery till Azure datautforskaren. 
 > * Använd [*verktyget Data Factory kopiera data*](data-factory-load-data.md) för att kopiera några tabeller med små eller stora data mängder till Azure datautforskaren. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Data Explorer-kluster och en databas](create-cluster-database-portal.md).
@@ -55,7 +55,7 @@ Kod elementen beskrivs i följande tabell:
 
 |Egenskap  |Beskrivning  | Exempel
 |---------|---------| ---------|
-|Partition   |  Kopierings ordningen | 1  |  
+|PartitionId   |  Kopierings ordningen | 1  |  
 |SourceQuery   |  Frågan som anger vilka data som ska kopieras under pipeline-körningen | <br>`select * from table where lastmodifiedtime  LastModifytime >= ''2015-01-01 00:00:00''>` </br>    
 |ADXTableName  |  Mål tabellens namn | MyAdxTable       |  
 

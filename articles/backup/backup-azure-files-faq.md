@@ -3,12 +3,12 @@ title: Vanliga frågor och svar om säkerhetskopiering av Azure Files
 description: I den här artikeln hittar du svar på vanliga frågor om hur du skyddar dina Azure-filresurser med Azure Backup-tjänsten.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 053fe38b07fff5d289c72024ef185fbf5d647f70
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892584"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294005"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Frågor om hur du säkerhetskopierar Azure Files
 
@@ -36,7 +36,7 @@ När du försöker säkerhetskopiera och väljer ett lagringskonto för att iden
 
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>Kan jag ändra valvet till vilket jag säkerhetskopierar mina fil resurser?
 
-Ja. Men du måste [stoppa skyddet](backup-azure-files.md#stop-protecting-an-azure-file-share) från det anslutna valvet, [avregistrera](troubleshoot-azure-files.md#configuring-backup) det här lagringskontot och sedan skydda det från ett annat valv.
+Ja. Du måste dock [stoppa skyddet av en fil resurs](manage-afs-backup.md#stop-protection-on-a-file-share) från det anslutna valvet, [avregistrera](troubleshoot-azure-files.md#configuring-backup) lagrings kontot och sedan skydda det från ett annat valv.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares"></a>I vilken geografiska områden kan jag säkerhetskopiera Azure-filresurser?
 

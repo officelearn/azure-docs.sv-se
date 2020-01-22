@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: c9ed7ddc6287239c90cc074f1c171f2d28206732
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 452b0e597d0b4ad027ff62303afe2f0e7fd6abb9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154610"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314376"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -46,9 +46,9 @@ Använd följande verktyg för Azure Machine Learning:
 
 +  Interagera med tjänsten i valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Interagera med tjänsten i valfri R-miljö med [Azure Machine Learning SDK för R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
++ Automatisera dina Machine Learning-aktiviteter med [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli).
 + Skriva kod i Visual Studio Code med [Azure Machine Learning vs Code-tillägg](tutorial-setup-vscode-extension.md)
-+ Använd [Azure Machine Learning designer (för hands version)](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod.
++ Använd [Azure Machine Learning designer](concept-designer.md) för att utföra arbets flödes stegen utan att skriva kod.
 
 
 > [!NOTE]
@@ -111,77 +111,77 @@ Ett **data lager** är en lagrings abstraktion över ett Azure Storage-konto. Da
 
 ### <a name="endpoints"></a>Slutpunkter
 
-An endpoint is an instantiation of your model into either a web service that can be hosted in the cloud or an IoT module for integrated device deployments.
+En slut punkt är en instansiering av din modell i antingen en webb tjänst som kan finnas i molnet eller en IoT-modul för integrerade enhets distributioner.
 
-#### <a name="web-service-endpoint"></a>Web service endpoint
+#### <a name="web-service-endpoint"></a>Webb tjänst slut punkt
 
-When deploying a model as a web service the endpoint can be deployed on Azure Container Instances, Azure Kubernetes Service, or FPGAs. You create the service from your model, script, and associated files. These are placed into a base container image which contains the execution environment for the model. The image has a load-balanced, HTTP endpoint that receives scoring requests that are sent to the web service.
+När du distribuerar en modell som en webb tjänst kan slut punkten distribueras på Azure Container Instances, Azure Kubernetes-tjänsten eller FPGAs. Du skapar tjänsten från din modell, ditt skript och tillhör ande filer. De placeras i en bas behållar avbildning som innehåller körnings miljön för modellen. Avbildningen har en belastningsutjämnad HTTP-slutpunkt som tar emot Poäng begär Anden som skickas till webb tjänsten.
 
-Azure helps you monitor your web service by collecting Application Insights telemetry or model telemetry, if you've chosen to enable this feature. The telemetry data is accessible only to you, and it's stored in your Application Insights and storage account instances.
+Azure hjälper dig att övervaka din webb tjänst genom att samla in Application Insights telemetri eller modellera telemetri, om du har valt att aktivera den här funktionen. Telemetridata är bara tillgängliga för dig och lagras i Application Insights-och lagrings konto instanser.
 
-If you've enabled automatic scaling, Azure automatically scales your deployment.
+Om du har aktiverat automatisk skalning skalar Azure automatiskt distributionen.
 
-For an example of deploying a model as a web service , see [Deploy an image classification model in Azure Container Instances](tutorial-deploy-models-with-aml.md).
+Ett exempel på hur du distribuerar en modell som en webb tjänst finns [i Distribuera en bild klassificerings modell i Azure Container instances](tutorial-deploy-models-with-aml.md).
 
-#### <a name="iot-module-endpoints"></a>IoT module endpoints
+#### <a name="iot-module-endpoints"></a>IoT-modulens slut punkter
 
-A deployed IoT module endpoint is a Docker container that includes your model and associated script or application and any additional dependencies. You deploy these modules by using Azure IoT Edge on edge devices.
+En distribuerad IoT module-slutpunkt är en Docker-behållare som innehåller din modell och tillhör ande skript eller program och eventuella ytterligare beroenden. Du distribuerar dessa moduler genom att använda Azure IoT Edge på gräns enheter.
 
-If you've enabled monitoring, Azure collects telemetry data from the model inside the Azure IoT Edge module. The telemetry data is accessible only to you, and it's stored in your storage account instance.
+Om du har aktiverat övervakning samlar Azure in telemetridata från modellen i Azure IoT Edge-modulen. Telemetridata är bara tillgängliga för dig och lagras i din lagrings konto instans.
 
-Azure IoT Edge ensures that your module is running, and it monitors the device that's hosting it.
+Azure IoT Edge säkerställer att modulen körs och övervakar den enhet som är värd för den.
 
 ### <a name="environments"></a>Miljöer
 
-Azure ML Environments are used to specify the configuration (Docker / Python / Spark / etc.) used to create a reproducible environment for data preparation, model training and model serving. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable, and portable machine learning workflows across different compute targets.
+Azure ML-miljöer används för att ange konfigurationen (Docker/python/Spark/osv.) som används för att skapa en miljö för förberedelse av data, modell utbildning och modell hantering. De är hanterade och versions bara entiteter inom din Azure Machine Learning arbets yta som möjliggör återskapande, gransknings bara och bärbara Machine Learning-arbetsflöden över olika beräknings mål.
 
-You can use an environment object on your local compute to develop your training script, reuse that same environment on Azure Machine Learning Compute for model training at scale, and even deploy your model with that same environment. 
+Du kan använda ett miljö objekt i din lokala beräkning för att utveckla ditt utbildnings skript, återanvända samma miljö på Azure Machine Learning beräkning för modell utbildning i stor skala och till och med distribuera din modell med samma miljö. 
 
-Learn [how to create and manage a reusable ML environment](how-to-use-environments.md) for training and inference.
+Lär dig [hur du skapar och hanterar en ÅTERANVÄNDBAR ml-miljö](how-to-use-environments.md) för utbildning och härledning.
 
-### <a name="estimators"></a>Estimators
+### <a name="estimators"></a>Kostnadsberäknare
 
-To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+För att under lätta modell träningen med populära ramverk, gör klassen uppskattning att du enkelt kan skapa körnings konfigurationer. Du kan skapa och använda en generisk [uppskattning](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) för att skicka utbildnings skript som använder valfritt ramverk för inlärning (till exempel scikit – lära).
 
-For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
+För PyTorch-, TensorFlow-och kedje uppgifter-aktiviteter tillhandahåller Azure Machine Learning även de olika uppskattningarna [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)och [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) för att förenkla användningen av dessa ramverk.
 
 Mer information finns i följande artiklar:
 
-* [Train ML models with estimators](how-to-train-ml-models.md).
-* [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
-* [Train and register TensorFlow models at scale with Azure Machine Learning](how-to-train-tensorflow.md).
-* [Train and register Chainer models at scale with Azure Machine Learning](how-to-train-chainer.md).
+* [Träna ml-modeller med uppskattningar](how-to-train-ml-models.md).
+* [Utbilda Pytorch djup inlärnings modeller i stor skala med Azure Machine Learning](how-to-train-pytorch.md).
+* [Träna och registrera TensorFlow-modeller i stor skala med Azure Machine Learning](how-to-train-tensorflow.md).
+* [Träna och registrera kedje modeller i skala med Azure Machine Learning](how-to-train-chainer.md).
 
 ### <a name="experiments"></a>Experiment
 
-An experiment is a grouping of many runs from a specified script. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. If you submit a run and specify an experiment name that doesn't exist, a new experiment with that newly specified name is automatically created.
+Ett experiment är en gruppering av många körningar från ett angivet skript. Det är alltid hör till en arbetsyta. När du skickar in en körning ska ange du ett namn på experiment. Information om körningen lagras under försöket. Om du skickar in en körning och anger ett experiment namn som inte finns, skapas ett nytt experiment med det nyligen angivna namnet automatiskt.
 
-For an example of using an experiment, see [Tutorial: Train your first model](tutorial-1st-experiment-sdk-train.md).
+Ett exempel på hur du använder ett experiment finns i [Självstudier: träna din första modell](tutorial-1st-experiment-sdk-train.md).
 
 
-### <a name="github-tracking-and-integration"></a>GitHub tracking and integration
+### <a name="github-tracking-and-integration"></a>GitHub spårning och integrering
 
-When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. This works with runs submitted using an estimator, ML pipeline, or script run. It also works for runs submitted from the SDK or Machine Learning CLI.
+När du startar en utbildning som kör där käll katalogen är en lokal git-lagringsplats, lagras information om lagrings platsen i körnings historiken. Detta fungerar med körningar som skickats med en uppskattning, ML-pipeline eller skript körning. Den fungerar även för körningar som skickats från SDK eller Machine Learning CLI.
 
-For more information, see [Git integration for Azure Machine Learning](concept-train-model-git-integration.md).
+Mer information finns i [git-integrering för Azure Machine Learning](concept-train-model-git-integration.md).
 
 ### <a name="logging"></a>Loggning
 
-When you develop your solution, use the Azure Machine Learning Python SDK in your Python script to log arbitrary metrics. After the run, query the metrics to determine whether the run has produced the model you want to deploy.
+När du utvecklar din lösning använder du Azure Machine Learning python SDK i python-skriptet för att logga godtyckliga mått. Efter körningen frågar du måtten för att avgöra om körningen har genererat den modell som du vill distribuera.
 
 ### <a name="ml-pipelines"></a>ML-Pipelines
 
-You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål. 
+Du använder maskin inlärnings pipeliner för att skapa och hantera arbets flöden som häftar ihop Machine Learning-faser. En pipeline kan till exempel omfatta förberedelse av data, modell utbildning, modell distribution och steg för härledning/poängsättning. Varje fas kan omfatta flera steg, som kan köras obevakat i olika beräkningsmål. 
 
-Pipeline steps are reusable, and can be run without rerunning subsequent steps if the output of that step hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed. Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
+Pipeline-steg kan återanvändas och kan köras utan att köra efterföljande steg om utdata från det steget inte har ändrats. Du kan till exempel omträna en modell utan att köra kostsamma data förberedelse steg om data inte har ändrats. Pipelines gör det också möjligt för data experter att samar beta medan de arbetar med olika delar av ett Machine Learning-arbetsflöde.
 
-For more information about machine learning pipelines with this service, see [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
+Mer information om maskin inlärnings pipeliner med den här tjänsten finns i [pipelines och Azure Machine Learning](concept-ml-pipelines.md).
 
 ### <a name="models"></a>Modeller
 
 I sin enklaste är en modell en typ av kod som hämtar indata och utdata. Skapa en modell för maskininlärning innebär att välja en algoritm, att förse den med data och justering av hyperparametrar. Utbildning är en iterativ process som skapar en tränad modell, som kapslar in det modellen har lärt dig under utbildning.
 
-En modell produceras av en körning i Azure Machine Learning. You can also use a model that's trained outside of Azure Machine Learning. Du kan registrera en modell i en Azure Machine Learning-arbetsyta.
+En modell produceras av en körning i Azure Machine Learning. Du kan också använda en modell som har tränats utanför Azure Machine Learning. Du kan registrera en modell i en Azure Machine Learning-arbetsyta.
 
 Azure Machine Learning är en Framework-oberoende. När du skapar en modell kan du använda alla populära ramverk för maskin inlärning, till exempel Scikit – lära, XGBoost, PyTorch, TensorFlow och kedjor.
 

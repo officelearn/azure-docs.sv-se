@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/8/2019
-ms.openlocfilehash: 5d4e8c081e4009b1115d6b56ffc7244ad41001e8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/18/2010
+ms.openlocfilehash: 6d8957fc5d4ba49dd034d6687df61c68b9d35ada
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638926"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314291"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -61,7 +61,7 @@ I följande tabell visas egenskaps namnen och deras beskrivning för att skapa e
 | Databas | Namnet på databasen dit du skickar dina utdata. |
 | servernamn | SQL Database-servernamn. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342* |
 | Användarnamn | Det användar namn som har Skriv behörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
-| lösenord | Lösenordet för att ansluta till databasen. |
+| Lösenord | Lösenordet för att ansluta till databasen. |
 | Tabell | Tabellnamnet där skrivs utdata. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar. |
 |Ärv partitionsschema| Ett alternativ för att ärva partitionerings schema i föregående fråga-steg för att aktivera helt parallell topologi med flera skrivare till tabellen. Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batchantal| Den rekommenderade övre gränsen för antalet poster som skickas med varje Mass infognings transaktion.|

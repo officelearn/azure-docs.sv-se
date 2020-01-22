@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: bdf2fa700b96c6110143a4557985ac1a30ed9096
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e4bc440d59f41988a52b8b7b808b74f95acdf46
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466054"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314274"
 ---
 # <a name="normalize-data-module"></a>Normalisera datamodul
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att transformera en data uppsättning via *normalisering*.
 
@@ -72,7 +72,7 @@ Du kan bara använda en normaliserings metod i taget med den här modulen. Därf
       
       Värdena i kolumnen omvandlas med hjälp av följande formel:  
   
-      ![normalisering med minsta&#45;Max-funktionen](media/module/aml-normalization-minmax.png "AML_normalization-minmax")  
+      ![normalisering med minsta&#45;Max-funktionen](media/module/aml-normalization-minmax.png "AML_normalization-MinMax")  
   
     - **Logistisk**: värdena i kolumnen omvandlas med hjälp av följande formel:
 
@@ -98,11 +98,11 @@ Du kan bara använda en normaliserings metod i taget med den här modulen. Därf
 
 **Normaliserings data** module genererar två utdata:
 
-- Om du vill visa transformerade värden högerklickar du på modulen, väljer **transformerad data uppsättning**och klickar på **visualisera**.
+- Om du vill visa transformerade värden högerklickar du på modulen och väljer **visualisera**.
 
     Som standard omvandlas värdena på plats. Om du vill jämföra omvandlade värden till de ursprungliga värdena använder du modulen [Lägg till kolumner](./add-columns.md) för att kombinera data uppsättningarna igen och Visa kolumnerna sida vid sida.
 
-- Om du vill spara omvandlingen så att du kan använda samma normaliserings metod på en annan liknande data uppsättning, högerklickar du på modulen, väljer **omvandlings funktion**och klickar på **Spara som transformering**.
+- Om du vill spara omvandlingen så att du kan använda samma normaliserings metod på en annan data uppsättning väljer du modulen och väljer **registrera data uppsättning** under fliken **utdata** i den högra panelen.
 
     Du kan sedan läsa in de sparade omvandlingarna från gruppen **transformeringar** i det vänstra navigerings fönstret och tillämpa den på en data uppsättning med samma schema med hjälp av [./Apply-omvandling](apply-transformation.md).  
 

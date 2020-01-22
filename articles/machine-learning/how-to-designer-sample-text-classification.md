@@ -10,20 +10,20 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 06a88ba1e477054aa6080baa9c9644d4da396442
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 73861456edbb7493038fbf2adbf12300d170cab2
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771435"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311056"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Bygg en klassificerare för att förutse företags kategori med Azure Machine Learning designer.
 
-**Designer (för hands version) exempel 7**
+**Design exempel 7**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-Det här exemplet visar hur du använder text analys moduler för att bygga en pipeline för text klassificering i Azure Machine Learning designer (för hands version).
+Det här exemplet visar hur du använder text analys moduler för att bygga en pipeline för text klassificering i Azure Machine Learning designer.
 
 Målet med text klassificering är att tilldela vissa text delar till en eller flera fördefinierade klasser eller kategorier. Texten kan vara ett dokument, nyhets artikel, Sök fråga, e-post, Tweet, support biljetter, kundfeedback, användar produkt granskning osv. Program med text klassificering inkluderar kategorisering av tidnings artiklar och nyhets brev innehåll i ämnen, organisering av webb sidor i hierarkiska kategorier, filtrering av skräp post, sentiment analys, förutsägelse av användar avsikt från Sök frågor, routning Support biljetter och analys av kundfeedback. 
 

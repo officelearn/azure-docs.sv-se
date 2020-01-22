@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed3e5c543f96876d9b6078f1bd47839a0a0396a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227496"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>Självstudie: Azure Active Directory integrering med MCM
 
@@ -53,7 +53,7 @@ För att konfigurera integreringen av MCM i Azure AD behöver du lägga till MCM
 
 **Utför följande steg för att lägga till MCM från galleriet:**
 
-1. I **[Azure-portalen](https://portal.azure.com)** går du till den vänstra navigeringspanelen och klickar på **Azure Active Directory**-ikonen.
+1. I **[Azure-portalen](https://portal.azure.com)** , i den vänstra navigeringspanelen, klickar du på **Azure Active Directory**-ikonen.
 
     ![Azure Active Directory-knappen](common/select-azuread.png)
 
@@ -78,7 +78,7 @@ För att kunna konfigurera och testa enkel inloggning i Azure AD med MCM slutfö
 
 1. **[Konfigurera enkel inloggning med Azure AD](#configure-azure-ad-single-sign-on)** – så att användarna kan använda den här funktionen.
 2. **[Konfigurera enkel inloggning för MCM](#configure-mcm-single-sign-on)** – för att konfigurera inställningarna för enkel inloggning på programsidan.
-3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa enkel inloggning med Azure AD med Britta Simon.
+3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** – för att testa en	 med Azure AD med Britta Simon.
 4. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** – så att Britta Simon kan använda enkel inloggning med Azure AD.
 5. **[Skapa MCM-testanvändare](#create-mcm-test-user)** – för att ha en motsvarighet för Britta Simon i MCM som är länkad till Azure AD-representationen av användaren.
 6. **[Testa enkel inloggning](#test-single-sign-on)** – för att verifiera om konfigurationen fungerar.
@@ -91,7 +91,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med MCM:
 
 1. I [Azure-portalen](https://portal.azure.com/) går du till programintegreringssidan för **MCM** och väljer **Enkel inloggning**.
 
-    ![Konfigurera länk för enkel inloggning](common/select-sso.png)
+    ![Konfigurera enkel inloggning-länk](common/select-sso.png)
 
 2. I dialogrutan **Välj en metod för enkel inloggning** väljer du läget **SAML/WS-Fed** för att aktivera enkel inloggning.
 
@@ -110,9 +110,9 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med MCM:
     b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://myaba.co.uk/<companyname>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för MCM](https://mcmtechnology.com/support/) och be om dessa värden. Du kan även se de mönster som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [kundsupporten för MCM](https://mcmtechnology.com/support) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-4. Klicka på **Ladda ned** i avsnittet **SAML-signeringscertifikat** på sidan **Konfigurera enkel inloggning med SAML** när du ska ladda ned **Federation Metadata XML** från de angivna alternativen enligt dina behov och spara det på datorn.
+4. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
@@ -128,7 +128,7 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med MCM:
 
 ### <a name="configure-mcm-single-sign-on"></a>Konfigurera enkel inloggning för MCM
 
-För att konfigurera enkel inloggning på **MCM**-sidan behöver du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för MCM](https://mcmtechnology.com/support/). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
+För att konfigurera enkel inloggning på **MCM**-sidan behöver du skicka den nedladdade **XML:en med federationsmetadata** och lämpliga kopierade URL:er från Azure-portalen till [supportteamet för MCM](https://mcmtechnology.com/support). De anger inställningen så att SAML SSO-anslutningen ställs in korrekt på båda sidorna.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare 
 
@@ -183,7 +183,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
 ### <a name="create-mcm-test-user"></a>Skapa MCM-testanvändare
 
-I det här avsnittet skapar du en användare med namnet Britta Simon i MCM. Ta hjälp av [supportteamet för MCM](https://mcmtechnology.com/support/) för att lägga till användarna i MCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare med namnet Britta Simon i MCM. Ta hjälp av [supportteamet för MCM](https://mcmtechnology.com/support) för att lägga till användarna i MCM-plattformen. Användare måste skapas och aktiveras innan du använder enkel inloggning.
 
 >[!NOTE]
 >Du kan använda andra verktyg för MCM av användar konton eller API: er som tillhandahålls av MCM för att etablera Azure AD-användarkonton.

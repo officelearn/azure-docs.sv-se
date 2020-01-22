@@ -5,15 +5,15 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 5/31/2019
+ms.date: 01/21/2020
 ms.author: mlearned
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 89bb7014ddb04b63a83dc8c5b520bcf500bdc707
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0269a6c710fe16271e333a1e9414208b278a93d
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472687"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310211"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure Portal
 
@@ -33,7 +33,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Du skapar ett AKS-kluster genom att slutföra följande steg:
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**.
 
 2. Välj **behållare** >  **Kubernetes-tjänsten**.
 
@@ -95,7 +95,7 @@ En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till 
 > [!TIP]
 > I den här snabbstarten skapar och distribuerar du manuellt programmanifest till AKS-kluster. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
-I Cloud Shell använder du `nano` eller `vi` för att skapa en fil med namnet `azure-vote.yaml` och kopiera i följande YAML-definition:
+I Cloud Shell använder du antingen kommandot `nano azure-vote.yaml` eller `vi azure-vote.yaml` för att skapa en fil med namnet `azure-vote.yaml`. Kopiera sedan följande YAML-definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -262,7 +262,7 @@ I den här snabbstarten har fördefinierade containeravbildningar användes för
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flerbehållarprogram till det.
+I den här snabbstartsguiden distribuerade du ett Kubernetes-kluster och distribuerade sedan ett flercontainerprogram till det.
 
 Om du vill lära dig mer om AKS, och gå igenom ett exempel med fullständig distributionskod, fortsätter du till självstudiekursen om Kubernetes-kluster.
 

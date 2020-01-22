@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bdc9e8cbea77b504cfdc2c3b1c83c74ea4ab8ed1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe1b5b4171dc5e61c1c82abfd723d0b77a05a5b9
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935981"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294345"
 ---
 # <a name="define-and-use-moderation-jobs-net"></a>Definiera och använda kontroll jobb (.NET)
 
@@ -124,7 +124,7 @@ public static class Clients
 Lägg till följande konstanter och statiska fält till klassen **Program** i Program.cs.
 
 > [!NOTE]
-> Du kan ange konstanten TeamName till det namn som du använde när du skapade Content Moderator-prenumerationen. Du hämtar TeamName från den [Content Moderator-webbplatsen](https://westus.contentmoderator.cognitive.microsoft.com/).
+> Du kan ange konstanten TeamName till det namn som du använde när du skapade Content Moderator-prenumerationen. Du hämtar TeamName från Content Moderator webbplats.
 > När du har loggat in väljer du **Autentiseringsuppgifter** från menyn **Inställningar** (kugghjulet).
 >
 > Teamnamnet är värdet för **Id**-fältet i avsnittet **API**.
@@ -235,7 +235,7 @@ using (TextWriter writer = new StreamWriter(OutputFile, false))
 > [!NOTE]
 > Din tjänstnyckel för Content Moderator har en hastighetsgräns för begäranden per sekund (RPS). Om du överskrider gränsen utlöser SDK:n ett undantag med felkoden 429.
 >
-> En nyckel på den kostnadsfria nivån har en hastighetsgräns på en RPS.
+> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
 
 ## <a name="run-the-program-and-review-the-output"></a>Kör programmet och granska resultatet
 

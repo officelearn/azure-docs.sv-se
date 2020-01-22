@@ -1,6 +1,6 @@
 ---
-title: Stordatorprogram arbetsbelastningar som stöds i Azure | Microsoft Docs
-description: Använda en stordatorprogram emulator och andra tjänster från Microsoft-partners för att ange ny värd för din stordatorprogram arbetsbelastningar som till exempel IBM Z-baserade system använder Microsoft Azure.
+title: Stordator arbets belastningar som stöds i Azure | Microsoft Docs
+description: Använd en stordator-emulator och andra tjänster från Microsofts partner för att vara värd för dina stordator arbets belastningar, till exempel IBM Z-baserade system med hjälp av Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -10,50 +10,50 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 1923d6fe71a0a7c4b469dc88b61a6ab3a794c45e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf02ff7078fe5d33f220c0abc2d941d483e5c125
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61487315"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293512"
 ---
-# <a name="mainframe-workloads-supported-on-azure"></a>Stordatorprogram arbetsbelastningar som stöds i Azure
+# <a name="mainframe-workloads-supported-on-azure"></a>Stordator arbets belastningar som stöds i Azure
 
-Med hjälp av de lösningar som anges här kan du migrera stordatorprogram arbetsbelastningen till Microsoft Azure. Vissa arbetsbelastningar kan migreras utan större besvär. Andra arbetsbelastningar som är beroende av programvara med äldre system kan vara rehosted. 
+Lösningarna som listas här kan hjälpa dig att migrera din stordator belastning till Microsoft Azure. Vissa arbets belastningar kan migreras med relativt enkelt. Andra arbets belastningar som är beroende av äldre system program vara kan vara värd för. 
 
-Mer hjälp med stordatorprogram emulering och tjänster finns i den [Azure Stordatormigrering center](https://azure.microsoft.com/migration/mainframe/).
+Mer hjälp med stordator-emulering och-tjänster finns i [Azures stordator migration Center](https://azure.microsoft.com/migration/mainframe/).
 
-## <a name="migrate-mainframe-closer-to-azure"></a>Migrera stordatorprogram närmare till Azure
+## <a name="migrate-mainframe-closer-to-azure"></a>Migrera stordatorer närmare Azure
 
-- [Micro fokus Visual COBOL](https://www.microfocus.com/products/visual-cobol/) verktyg för utveckling och integration.
-- [Micro fokus PL / jag](https://www.microfocus.com/campaign/download/pli-modernization/) äldre-kompilatorn för .NET-plattformen som stöder stordatorprogram PL / jag syntax, datatyper och beteende.
-- [Micro fokus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordatorprogram integrationsplattform.
-- [Fujitsu NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) verktyg för utveckling och integration.
-- [NTT Data Enterprise COBOL](https://www.nttdataservices.com/en-ie/services/application-modernization-services) verktyg för utveckling och integration.
-- [Öppna NTT PL / jag](https://www.nttdataservices.com/en-ie/services/application-modernization-services) äldre-kompilatorn för .NET-plattformen som stöder stordatorprogram PL / jag syntax, datatyper och beteende.
-- [Raincode COBOL kompilatorn](https://www.raincode.com/products/cobol/) verktyg för utveckling och integration.
-- [Raincode PL / jag kompilatorn](https://www.raincode.com/products/pli/) plattformen stöder stordatorprogram PL för .NET / jag syntax, datatyper och beteende.
-- [Raincode ASM370 kompilatorn](https://www.raincode.com/technical-landscape/asm370/) för stordatorprogram Assembler 370 och HLASM syntax.
-- [ASNA Visual RPG för .NET](https://asna.com/us/products/visual-rpg) -kompilatorn för .NET Framework via Visual Studio-pluginprogram.
-- [Moderna system CTU (COBOL till Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) verktyg för utveckling och integration.
+- [Micro Focus](https://www.microfocus.com/products/visual-cobol/) -verktyg för utveckling och integrering av visuella COBOL.
+- [Micro Focus pl/i](https://www.microfocus.com/campaign/download/pli-modernization/) en äldre kompilator för .NET-plattformen, stöd för stordatorer, data typer och beteenden.
+- [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordator integrations plattform.
+- Verktyg för utveckling och integrering av [Fujitsu-NetCOBOL](https://www.fujitsu.com/global/products/software/developer-tool/netcobol/) .
+- [NTT Data Enterprise COBOL](https://us.nttdata.com/en/digital/application-development-and-modernization) Development and integration tools.
+- [NTT öppna pl/i Legacy-](https://us.nttdata.com/en/digital/application-development-and-modernization) kompilator för .NET-plattformen, stöd för stordator pl/i syntax, data typer och beteende.
+- [RAINCODE COBOL compiler](https://www.raincode.com/products/cobol/) -verktyg för utveckling och integrering.
+- [RAINCODE pl/i-kompilatorn](https://www.raincode.com/products/pli/) för .NET-plattformen stöder stordator-/i-syntax, data typer och beteende.
+- [RAINCODE ASM370-kompilator](https://www.raincode.com/technical-landscape/asm370/) för stordator assembler 370 och HLASM syntax.
+- [ASNA Visual RPG for .net](https://asna.com/us/products/visual-rpg) compiler for the .NET Framework via Visual Studio-plugin-programmet.
+- [Moderna system CTU-verktyg (COBOL-to-Universal)](https://modernsystems.com/automatic-cobol-to-java-conversion/) utveckling och integrering.
 
-## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Distribuera en emulering miljö för online och batch-bearbetning
+## <a name="deploy-an-emulation-environment-for-online-and-batch-processing"></a>Distribuera en emulation-miljö för online-och batchbearbetning
 
-- [Micro fokus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordatorprogram integrationsplattform.
-- [Rehosting utvecklingsmiljö för NTT DATA stordatorprogram](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) interna transaktion bearbetningsmiljön.
-- [NTT DATA Batch bearbetar miljö](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) (BPE) innehåller funktioner som JCL transaktion.
-- [Raincode CICS](https://www.raincode.com/technical-landscape/cics/) emulator för .NET och Azure-plattformar.
-- [Raincode JCL](https://www.raincode.com/products/jcl/) plug-compatible JCL-tolk.
+- [Micro Focus Enterprise Server](https://www.microfocus.com/products/enterprise-suite/enterprise-server/) stordator integrations plattform.
+- [NTT Data stordator](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) som är värd för den ursprungliga transaktions bearbetnings miljön i utvecklings miljön.
+- Funktions växlaren BPE ( [NTT Data Batch Processing Environment](https://us.nttdata.com/en/-/media/assets/white-paper/apps-mainframe-re-hosting-development-environment-whitepaper.pdf) ), inklusive JCL transaktions funktioner.
+- [RAINCODE CICS](https://www.raincode.com/technical-landscape/cics/) -emulator för .net-och Azure-plattformar.
+- [RAINCODE JCL](https://www.raincode.com/products/jcl/) -plugin-kompatibel JCL-tolk.
 
-## <a name="code-conversion"></a>Konvertering av kod
+## <a name="code-conversion"></a>Kod konvertering
 
-- [Asysco](https://www.asysco.com/azure-cloud/) source code konvertering.
-- [LzLabs programvara definierats stordatorprogram](https://www.lzlabs.com/) hanterad programvara behållare för migrera stordatorprogram till Linux-datorer eller privat, offentlig, och hybridmolnmiljöer.
-- [Blu ålder](https://www.bluage.com/) verktyg för digitaliseringen äldre program och databaser.
-- [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) konvertera stordatorprogram COBOL, CICS och VSAM till Java-tjänster.
+- [Asysco](https://www.asysco.com/azure-cloud/) för käll kods konvertering.
+- [LzLabs Software Defined stordator](https://www.lzlabs.com/) hanterad program varu behållare för migrering av stordator program till Linux-datorer eller privata, offentliga och hybrida moln miljöer.
+- [Blu-ålders](https://www.bluage.com/) verktyg för att digitalisera äldre affärs program och databaser.
+- [Heirloom Computing](https://www.heirloomcomputing.com/tag/convert-cobol-to-java/) Services för att konvertera stordator Cobol, CICS och VSAM till Java.
 
-## <a name="modernization-services"></a>Modernisering tjänster
+## <a name="modernization-services"></a>Modernisering-tjänster
 
-Microsoft-partner med globala systemintegrerare (GSIs) som kan hjälpa organisationer att stora utforma, bygga och hantera lösningar. 
+Microsoft samarbetar med globala system integrerare (GSIs) som kan hjälpa stora organisationer att utforma, bygga och hantera lösningar. 
 
-- [Azure Stordatormigrering center](https://azure.microsoft.com/migration/mainframe/)
+- [Azure stordator migration Center](https://azure.microsoft.com/migration/mainframe/)

@@ -17,34 +17,34 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe727afcfdec204c92c82c3e695961707af90e65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a07a28837abf2fb6df3dd0583309ec1f3d278a58
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423813"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293495"
 ---
-# <a name="desktop-app-that-calls-web-apis---move-to-production"></a>Skriv bords app som anropar webb-API: er – flytta till produktion
+# <a name="desktop-app-that-calls-web-apis-move-to-production"></a>Stationär app som anropar webb-API: er: flytta till produktion
 
-Den här artikeln innehåller information om hur du flyttar din Desktop-app som anropar webb-API: er till produktion.
+I den här artikeln får du lära dig hur du flyttar din Desktop-app som anropar webb-API: er till produktion.
 
-## <a name="handling-errors-in-desktop-applications"></a>Hantera fel i Skriv bords program
+## <a name="handle-errors-in-desktop-applications"></a>Hantera fel i Skriv bords program
 
-I de olika flödena har du lärt dig hur du hanterar felen för de tysta flödena (som visas i kodfragment). Du har också sett att det finns fall där interaktion krävs (stegvist medgivande och villkorlig åtkomst).
+I de olika flödena har du lärt dig hur du hanterar felen för de tysta flödena, som du ser i kodfragmenten. Du har också sett att det finns fall där interaktion krävs, som i stegvisa medgivande och villkorlig åtkomst.
 
-## <a name="how-to-have--the-user-consent-upfront-for-several-resources"></a>Så här får du användar medgivande för flera resurser
+## <a name="have-the-user-consent-upfront-for-several-resources"></a>Låt användaren godkännas framför flera resurser
 
 > [!NOTE]
-> Att få ett medgivande för flera resurser fungerar för Microsoft Identity Platform, men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administrativt godkännande, inte användar medgivande.
+> Att få ett medgivande för flera resurser fungerar för Microsoft Identity Platform men inte för Azure Active Directory (Azure AD) B2C. Azure AD B2C stöder endast administrativt godkännande, inte användar medgivande.
 
-Slut punkten för Microsoft Identity Platform (v 2.0) låter dig inte hämta en token för flera resurser på en gång. Därför kan `scopes`-parametern bara innehålla omfång för en enskild resurs. Du kan se till att användaren har samtyckt till flera resurser genom att använda `extraScopesToConsent`-parametern.
+Du kan inte hämta en token för flera resurser samtidigt med slut punkten för Microsoft Identity Platform (v 2.0). Parametern `scopes` kan bara innehålla omfång för en enda resurs. Du kan se till att användaren har samtyckt till flera resurser genom att använda `extraScopesToConsent`-parametern.
 
-Om du till exempel har två resurser som har två omfång:
+Du kan till exempel ha två resurser som har två omfång:
 
-- `https://mytenant.onmicrosoft.com/customerapi`-med 2 omfattningar `customer.read` och `customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-med 2 omfattningar `vendor.read` och `vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi` med omfången `customer.read` och `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi` med omfången `vendor.read` och `vendor.write`
 
-Du bör använda `.WithAdditionalPromptToConsent` modifierare som har parametern `extraScopesToConsent`.
+I det här exemplet använder du `.WithAdditionalPromptToConsent` modifierare som har parametern `extraScopesToConsent`.
 
 Exempel:
 
@@ -101,15 +101,15 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 Det här anropet får du en åtkomsttoken för det första webb-API: et.
 
-När du behöver anropa det andra webb-API: et kan du anropa `AcquireTokenSilent` API:
+När du behöver anropa det andra webb-API: et, anropar du `AcquireTokenSilent` API.
 
 ```csharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();
 ```
 
-### <a name="microsoft-personal-account-requires-reconsenting-each-time-the-app-is-run"></a>Microsoft personal-kontot kräver att du godkänner varje tillfälle som appen körs
+### <a name="microsoft-personal-account-requires-reconsent-each-time-the-app-runs"></a>Microsoft personal Account kräver godkännande varje gången appen körs
 
-För användare av Microsoft personal, uppmanas du att svara på varje intern klient (stationär dator/mobilapp) anrop till auktorisera är det avsedda beteendet. Den interna klient identiteten är osäker (till skillnad från konfidentiellt klient program som utbyter en hemlighet med Microsoft Identity Platform för att bevisa sin identitet). Microsoft Identity Platform valde att minimera den här insäkerheten för konsument tjänster genom att meddela användaren om godkännande, varje gången programmet auktoriseras.
+För användare av Microsofts personliga konto uppmanas du att ange medgivande för varje intern klient (stationär eller mobilapp) anrop till auktoriseran. Intern klient identitet är insäker, vilket strider mot konfidentiell klient program identitet. Konfidentiella klient program utbyter en hemlighet med Microsofts identitets plattform för att bevisa sin identitet. Microsoft Identity Platform valde att minimera den här insäkerheten för konsument tjänster genom att användaren uppmanas att ange medgivande varje gången programmet auktoriseras.
 
 ## <a name="next-steps"></a>Nästa steg
 

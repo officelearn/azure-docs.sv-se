@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 01/21/2020
 ms.author: banders
-ms.openlocfilehash: 0671843b09cd90123b856b94db2618bac617dd5b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a673dc7949d5ce05aa1a701cc8b939a766fd99
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75995785"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313934"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-sql-data-warehouse"></a>Så här tillämpas reservationsrabatter för Azure SQL Data Warehouse
 
@@ -31,9 +31,9 @@ För informationslager som inte körs under hela timmen tillämpas reservationen
 
 I följande exempel visas hur rabatten för reserverad SQL Data Warehouse-kapacitet tillämpas beroende på distributionen.
 
-- **Exempel 1**: du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kör en DW1500c SQL Data Warehouse-instans under en timme. I det här fallet genereras en användning på 15 enheter om 100 cDWU. Reservationsrabatten gäller de 5 enheter du använde. Du debiteras enligt Betala per användning-priser för de återstående 10 enheterna om 100 cDWU som du använde.
+- **Exempel 1**: du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kör en DW1500c SQL Data Warehouse-instans under en timme. I det här fallet genereras en användning på 15 enheter om 100 cDWU. Reservationsrabatten gäller de 5 enheter du använde. Du debiteras enligt Betala per användning-priser för de återstående 10 enheterna om 100 cDWU som du använde. Med andra ord är delvis täckning möjlig för flera reservationer.
 
-- **Exempel 2**: du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kör två DW100c SQL Data Warehouse-instanser under en timme. I det här fallet genereras två användningshändelser på 1 enhet om 100 cDWU. Båda användningshändelserna erhåller rabatt för reserverad kapacitet. Återstående 3 enheter om 100 cDWU reserverad kapacitet går förlorade och kan inte användas för framtida användning.
+- **Exempel 2**: du köper 5 enheter om 100 cDWU reserverad kapacitet. Du kör två DW100c SQL Data Warehouse-instanser under en timme. I det här fallet genereras två användningshändelser på 1 enhet om 100 cDWU. Båda användningshändelserna erhåller rabatt för reserverad kapacitet. Återstående 3 enheter om 100 cDWU reserverad kapacitet går förlorade och kan inte användas för framtida användning. Med andra ord kan en enda reservation matchas mot flera SQL Data Warehouse instanser.
 
 - **Exempel 3**: du köper 1 enhet 100 cDWU reserverad kapacitet. Du kör två DW100c SQL Data Warehouse-instanser. Varje instans körs i 30 minuter. I det här fallet erhåller båda användningshändelserna rabatt för reserverad kapacitet. Ingen användning debiteras enligt Betala per användning-priser.
 

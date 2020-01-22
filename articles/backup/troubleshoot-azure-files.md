@@ -3,12 +3,12 @@ title: Felsöka säkerhetskopiering av Azure-filresurser
 description: Den här artikeln kan användas som felsökningsinformation om det skulle uppstå problem när du skyddar dina Azure (filresurser).
 ms.date: 08/20/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 8b88ae568b07b36d2dd80c0ef30fe86646335043
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 050df5b96c265e468346535ff011e1baf7d86ad5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664623"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293954"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Felsöka problem med att säkerhetskopiera Azure-filresurser
 
@@ -69,5 +69,5 @@ Följande tabell används för att konfigurera säkerhetskopieringen:
 
 Mer information om hur du säkerhetskopierar Azure-filresurser finns i:
 
-- [Säkerhetskopiera Azure-filresurser](backup-azure-files.md)
+- [Säkerhetskopiera Azure-filresurser](backup-afs.md)
 - [Säkerhetskopiera Azure-filresurser – Vanliga frågor och svar](backup-azure-files-faq.md)

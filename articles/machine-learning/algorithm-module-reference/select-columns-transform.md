@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: d0dfbec3abd379c7bf8add6445296dff74d92a76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8d58180b11c12afb256dc888406c7c0d58fb119
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428478"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314325"
 ---
 # <a name="select-columns-transform"></a>Välja kolumntranformering
 
-I den här artikeln beskrivs hur du använder Transform-modulen Select columns i Azure Machine Learning designer (för hands version). Syftet med modulen Välj kolumn omvandling är att säkerställa att en förutsägbar, konsekvent uppsättning kolumner används i efterföljande Machine Learning-åtgärder.
+Den här artikeln beskriver hur du använder Transform-modulen Välj kolumner i Azure Machine Learning designer. Syftet med modulen Välj kolumn omvandling är att säkerställa att en förutsägbar, konsekvent uppsättning kolumner används i efterföljande Machine Learning-åtgärder.
 
 Den här modulen är användbar för uppgifter som poängsättning, som kräver vissa kolumner. Ändringar i de tillgängliga kolumnerna kan bryta pipelinen eller ändra resultatet.
 

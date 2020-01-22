@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045387"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293818"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>Offentlig slut punkts anslutning för Virtual Machines med Azure Standard Load Balancer i SAP-scenarier med hög tillgänglighet
 
@@ -35,7 +35,7 @@ När du implementerar hög tillgänglighet för SAP-lösningar via klustring är
 
 Standard Azure Load Balancer erbjuder vissa fördelar jämfört med den grundläggande belastningsutjämnaren. Till exempel fungerar det över Azures tillgänglighets zoner och har bättre övervaknings-och loggnings funktioner för enklare fel sökning, kortare latens. Funktionen "HA portar" omfattar alla portar, det vill säga det är inte längre nödvändigt att lista alla enskilda portar.  
 
-Det finns några viktiga skillnader mellan Basic-och standard-SKU: n för Azure Load Balancer. En av dem är hanteringen av utgående trafik till en offentlig slut punkt. För fullständiga bas-och standardsku: er för belastningsutjämnare, se [load BALANCER SKU-jämförelse](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus).  
+Det finns några viktiga skillnader mellan Basic-och standard-SKU: n för Azure Load Balancer. En av dem är hanteringen av utgående trafik till en offentlig slut punkt. För fullständiga bas-och standardsku: er för belastningsutjämnare, se [load BALANCER SKU-jämförelse](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview).  
  
 När virtuella datorer utan offentliga IP-adresser placeras i backend-poolen för interna (ingen offentlig IP-adress) standard Azure-belastningsutjämnare finns det ingen utgående anslutning till offentliga slut punkter, om inte ytterligare konfiguration görs.  
 
@@ -71,7 +71,7 @@ Läs följande dokument först:
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>Ytterligare extern Azure-Standard Load Balancer för utgående anslutningar till Internet
 
-Ett alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från den offentliga slut punkten, är att skapa en andra belastningsutjämnare med offentlig IP-adress, lägga till de virtuella datorerna i backend-poolen för den andra belastningsutjämnaren och definiera endast [utgående regler](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
+Ett alternativ för att få en utgående anslutning till offentliga slut punkter, utan att tillåta inkommande anslutning till den virtuella datorn från den offentliga slut punkten, är att skapa en andra belastningsutjämnare med offentlig IP-adress, lägga till de virtuella datorerna i backend-poolen för den andra belastningsutjämnaren och definiera enbart [utgående regler](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview).  
 Använd [nätverks säkerhets grupper](https://docs.microsoft.com/azure/virtual-network/security-overview) för att kontrol lera de offentliga slut punkterna som är tillgängliga för utgående samtal från den virtuella datorn.  
 Mer information finns i scenario 2 i dokument [utgående anslutningar](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios).  
 Konfigurationen skulle se ut så här:  
@@ -89,7 +89,7 @@ Konfigurationen skulle se ut så här:
 
 ### <a name="deployment-steps"></a>Distributionssteg
 
-1. Skapa Load Balancer  
+1. Skapa belastningsutjämnare  
    1. Klicka på alla resurser i [Azure Portal](https://portal.azure.com) , Lägg till och Sök sedan efter **Load Balancer**  
    1. Klicka på **Skapa** 
    1. Load Balancer namn **MyPublicILB**  

@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213915"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311486"
 ---
 # <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
-Den här artikeln beskriver hur du använder modulen *K-: Clustering* i Azure Machine Learning designer (för hands version) för att skapa en modell som inte är tränad k-: 
+Den här artikeln beskriver hur du använder modulen *k-: kluster* modul i Azure Machine Learning designer för att skapa en modell modell med en modell som inte är tränad k-: 
  
 K-betyder en av de enklaste och bästa kända, ej *övervakade* inlärnings algoritmerna. Du kan använda algoritmen för en mängd olika Machine Learning-uppgifter, till exempel: 
 
@@ -115,9 +115,9 @@ När du har konfigurerat och tränat modellen har du en modell som du kan använ
 
 Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
-1. Högerklicka på modulen **träna klustring modell** .
+1. Välj modulen **träna klustring modell** och öppna den högra panelen.
 
-2. Välj **tränad modell**och välj sedan **Spara som utbildad modell**.
+2. Välj fliken **utdata** . Välj ikonen **registrera data uppsättning** för att spara en kopia av den tränade modellen.
 
 Den sparade modellen representerar tränings data vid den tidpunkt då du sparade modellen. Om du senare uppdaterar de tränings data som används i pipelinen, uppdateras inte den sparade modellen. 
 
@@ -127,7 +127,7 @@ Om du använde modulen [träna klustring modell](train-clustering-model.md) :
 
 1. Högerklicka på modulen **träna klustring modell** .
 
-2. Välj **resultat data uppsättning**och välj sedan **visualisera**.
+2. Välj **visualisera**.
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Tips för att skapa den bästa kluster modellen  
 

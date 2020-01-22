@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 1c352ad5d18f891cd82d90eef7d0a8c6c3d1cdb9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcab5f76b95939b0a9a4232eab2bcf8b2a5fd40b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441680"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309990"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -283,7 +283,6 @@ Som standard kan du skapa upp till 25 behållare med fast storlek (stöds endast
 Om du försöker skapa en behållare när det aktuella antalet partitioner har överskridits, genererar emulatorn ett ServiceUnavailable-undantag med följande meddelande.
 
 "Tyvärr har vi för närvarande hög efter frågan i den här regionen och kan inte slutföra din begäran för tillfället. Vi arbetar kontinuerligt för att få mer och mer kapacitet online och uppmana dig att försöka igen.
-Ta inte ovilliga till e-askcosmosdb@microsoft.com när som helst eller av någon anledning.
 ActivityId: 12345678-1234-1234-1234-123456789abc "
 
 Kör följande steg för att ändra antalet behållare som är tillgängliga i Azure Cosmos-emulatorn:
@@ -496,7 +495,7 @@ Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmo
 
 - Om du har installerat en ny version av emulatorn och fel uppstår ska du återställa dina data. Du kan återställa dina data genom att högerklicka på ikonen för Azure Cosmos-emulatorn i system fältet och sedan klicka på Återställ data.... Om detta inte löser felen kan du avinstallera emulatorn och eventuella äldre versioner av emulatorn om de hittas, ta bort katalogen C:\Program files\Azure Cosmos DB emulator och installera om emulatorn. I [Avinstallera den lokala emulatorn](#uninstall) finns instruktioner.
 
-- Om Azure Cosmos-emulatorn kraschar samlar du in dumpa filer från mappen%LOCALAPPDATA%\CrashDumps, komprimerar dem och bifogar dem till ett e-postmeddelande till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- Om Azure Cosmos-emulatorn kraschar samlar du in dumpa filer från mappen%LOCALAPPDATA%\CrashDumps, komprimerar dem och öppnar ett support ärende från [Azure Portal](https://portal.azure.com).
 
 - Om du upplever krascher i `Microsoft.Azure.Cosmos.ComputeServiceStartupEntryPoint.exe`kan detta vara ett symtom där prestanda räknarna är i ett skadat tillstånd. Genom att köra följande kommando från en administratörs kommando tolk åtgärdar du problemet:
 
@@ -504,7 +503,7 @@ Använd följande tips för att felsöka problem som kan uppstå med Azure Cosmo
   lodctr /R
    ```
 
-- Om du stöter på ett anslutningsfel ska du [samla in spårningsfiler](#trace-files), komprimera dem och bifoga dem i ett e-postmeddelande till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+- Om du stöter på problem med anslutningen [samlar du in spårningsfiler](#trace-files), komprimerar dem och öppnar ett support ärende i [Azure Portal](https://portal.azure.com).
 
 - Om du ser ett meddelande om att **tjänsten inte är tillgänglig** kanske emulatorn misslyckas med att initiera nätverksstacken. Se efter om du har Pulse Secure-klienten eller Juniper-nätverksklienten installerad, eftersom deras nätverksfilterdrivrutiner kan orsaka problemet. Avinstallation av nätverksfilterdrivrutiner från tredje part åtgärdar vanligen problemet. Du kan också starta emulatorn med/DisableRIO, som växlar kommunikationen mellan emulatorn och den vanliga Winsock-anslutningen. 
 
@@ -519,9 +518,9 @@ För att samla in felsökningsspårningar kör du följande kommandon från en a
 3. `Microsoft.Azure.Cosmos.Emulator.exe /startwprtraces`
 4. `Microsoft.Azure.Cosmos.Emulator.exe`
 5. Återskapa problemet. Om Datautforskaren inte fungerar behöver du vara vänta tills webbläsaren öppnas i några sekunder för att upptäcka felet.
-5. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
-6. Gå till `%ProgramFiles%\Azure Cosmos DB Emulator` och leta rätt på filen docdbemulator_000001.etl.
-7. Skicka .etl-filen tillsammans med reproduktionssteg till [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com) för felsökning.
+6. `Microsoft.Azure.Cosmos.Emulator.exe /stopwprtraces`
+7. Gå till `%ProgramFiles%\Azure Cosmos DB Emulator` och leta rätt på filen docdbemulator_000001.etl.
+8. Öppna ett support ärende i [Azure Portal](https://portal.azure.com) och inkludera. ETL-filen tillsammans med återskapnings-steg.
 
 ### <a id="uninstall"></a>Avinstallera den lokala emulatorn
 

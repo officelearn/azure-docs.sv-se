@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 16ae6775494f9076d442e181f70a2ecde5863dab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4b6944f7703500a2c3859e8e3111eceefbd5ff10
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428438"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311418"
 ---
 # <a name="smote"></a>SMOTE
 
-Den här artikeln beskriver hur du använder SMOTE-modulen i Azure Machine Learning designer (för hands version) för att öka antalet undervisade fall i en data uppsättning som används för Machine Learning. SMOTE är ett bättre sätt att öka antalet sällsynta fall än att helt enkelt duplicera befintliga fall.  
+Den här artikeln beskriver hur du använder modulen SMOTE i Azure Machine Learning designer för att öka antalet undervisade ärenden i en data uppsättning som används för maskin inlärning. SMOTE är ett bättre sätt att öka antalet sällsynta fall än att helt enkelt duplicera befintliga fall.  
 
 Du ansluter SMOTE-modulen till en data uppsättning som är *obalanserad*. Det finns många orsaker till varför en data uppsättning kan vara obalanserat. Den kategori som du är mål för kan till exempel vara sällsynt i populationen, eller så kan det vara svårt att samla in data. Normalt använder du SMOTE när *klassen* som du vill analysera är underordnad. 
   

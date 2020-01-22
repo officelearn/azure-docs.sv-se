@@ -2,13 +2,13 @@
 title: Mall funktioner – resurser
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: 85e421d4d4e53d275613ff8848abd405fdf175c2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/20/2020
+ms.openlocfilehash: 56ace8c75ea27eb4d730b1630115b6fcbdc3f575
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979446"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310550"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -533,6 +533,16 @@ När du skapar en fullständigt kvalificerad referens till en resurs, är ordnin
 Ett exempel:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt` är rätt `Microsoft.Compute/virtualMachines/extensions/myVM/myExt` fel
+
+### <a name="get-managed-identity"></a>Hämta hanterad identitet
+
+[Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är [tilläggs resurs typer](extension-resource-types.md) som skapas implicit för vissa resurser. Eftersom den hanterade identiteten inte uttryckligen definieras i mallen måste du referera till den resurs som identiteten tillämpas på. Använd `Full` för att hämta alla egenskaper, inklusive den implicit skapade identiteten.
+
+Om du till exempel vill hämta klient-ID: t för en hanterad identitet som används för en skalnings uppsättning för virtuella datorer använder du:
+
+```json
+"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+```
 
 ### <a name="reference-example"></a>Referens exempel
 

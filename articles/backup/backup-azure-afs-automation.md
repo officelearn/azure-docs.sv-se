@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa Azure Files med PowerShell
 description: I den här artikeln får du lära dig hur du säkerhetskopierar och återställer Azure Files med hjälp av Azure Backup-tjänsten och PowerShell.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 78000bc669eb7a61f8698ad8c39ef49f65b245a2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224163"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76294056"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>Säkerhetskopiera och återställa Azure Files med PowerShell
 
@@ -28,7 +28,7 @@ Den här artikeln förklarar hur du:
 ## <a name="before-you-start"></a>Innan du börjar
 
 * [Läs mer](backup-azure-recovery-services-vault-overview.md) om Recovery Services-valv.
-* Läs om förhands gransknings funktionerna för att [säkerhetskopiera Azure-filresurser](backup-azure-files.md).
+* Läs om förhands gransknings funktionerna för att [säkerhetskopiera Azure-filresurser](backup-afs.md).
 * Granska PowerShell-objektcachen för Recovery Services.
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services objektets hierarki
@@ -83,7 +83,7 @@ Konfigurera PowerShell på följande sätt:
 
 9. I kommandot utdata kontrollerar du att **RegistrationState** ändras till **registrerad**. Om den inte gör det kör du cmdleten **register-AzResourceProvider** igen.
 
-## <a name="create-a-recovery-services-vault"></a>Skapa ett Recovery Services-valv
+## <a name="create-a-recovery-services-vault"></a>skapar ett Recovery Services-valv
 
 Recovery Services valvet är en Resource Manager-resurs, så du måste placera den i en resurs grupp. Du kan använda en befintlig resurs grupp, eller så kan du skapa en resurs grupp med cmdleten **New-AzResourceGroup** . När du skapar en resurs grupp anger du namn och plats för resurs gruppen.
 
@@ -419,4 +419,4 @@ $job.ErrorDetails
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Lär dig mer om](backup-azure-files.md) att säkerhetskopiera Azure Files i Azure Portal.
+[Lär dig mer om](backup-afs.md) att säkerhetskopiera Azure Files i Azure Portal.

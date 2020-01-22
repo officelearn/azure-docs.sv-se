@@ -9,18 +9,18 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d44e85b069a38f48ad4ad06814db5fbcb58c9dc6
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 10e218098c1831f213db25b87ef2c9ebfdd9e749
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665222"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293886"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att utveckla C-kod och distribuera den till en Windows-enhet som kör Azure IoT Edge. 
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig hur man:    
+Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig hur man:    
 
 > [!div class="checklist"]
 > * Använd Visual Studio för att skapa en IoT Edge-modul som baseras på C SDK.
@@ -110,33 +110,37 @@ Distributions manifestet delar autentiseringsuppgifterna för behållar registre
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
+   
+3. Öppna **. kuvert** -filen i din modul-lösning. (Den är dold som standard i Solution Explorer, så du kan behöva välja knappen **Visa alla filer** för att visa den.) . Kuvert-filen ska innehålla samma användar namn och lösen ord som du såg i filen Deployment. template. JSON. 
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+4. Lägg till värdena för **användar namn** och **lösen ord** från Azure Container Registry. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+5. Spara ändringarna i. kuvert-filen.
 
-5. Save your changes to the .env file.
+### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-### Update the module with custom code
-
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem vidare via en utgående kö. Nu ska vi lägga till ytterligare kod så att modulen bearbetar meddelandena på gränsen innan de vidarebefordrar dem till IoT Hub. Uppdatera modulen så att den analyserar temperatur data i varje meddelande, och skickar endast meddelandet till IoT Hub om temperaturen överskrider ett visst tröskelvärde. 
 
 
-1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. Data från sensorn i det här scenariot kommer i JSON-format. Om du vill filtrera meddelanden i JSON-format importerar du ett JSON-bibliotek för C. Den här självstudien använder Parson.
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
+   1. Ladda ned den [Parson GitHub-lagringsplatsen](https://github.com/kgabis/parson). Kopiera **Parson. c** -och **Parson. h** -filerna till **CModule** -projektet.
 
-   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. I Visual Studio öppnar du filen **CMakeLists. txt** från projektmappen CModule. Längst upp i filen importerar du Parson-filerna som ett bibliotek med namnet **my_parson**.
 
       ```
-      add_library (my_parson Parson. c Parson. h)
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
       ```
 
-   3. Add `my_parson` to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
+   3. Lägg till `my_parson` i listan över bibliotek i avsnittet **target_link_libraries** i filen CMakeLists. txt.
 
-   4. Save the **CMakeLists.txt** file.
+   4. Spara filen **CMakeLists.txt**.
 
-   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. Öppna **CModule** > **main. c**. Lägg till en ny i slutet av listan över include-instruktioner för att ta med `parson.h` för JSON-stöd:
 
       ```c
       #include "parson.h"

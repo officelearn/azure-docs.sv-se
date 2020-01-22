@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 56a3d4f172cde70bdd1a875c76213c43184cbbc3
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167952"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310194"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Utskalning för Azure Analysis Services
 
@@ -50,7 +50,7 @@ När du utför en efterföljande skalnings åtgärd, till exempel ökar antalet 
 
 ### <a name="synchronization-mode"></a>Synkroniseringstillstånd
 
-Som standard har fråge repliker rehydratiseras fullständigt, inte stegvis. ÅTERUPPVÄCKNING sker i steg. De kopplas bort och kopplas till två i taget (förutsatt att det finns minst tre repliker) för att se till att minst en replik hålls online för frågor vid en specifik tidpunkt. I vissa fall kan klienter behöva återansluta till en av replikerna online medan den här processen sker. Genom att använda **ReplicaSyncMode** -inställningen kan du nu ange synkronisering av synkronisering av repliker parallellt. Parallell synkronisering ger följande fördelar: 
+Som standard har fråge repliker rehydratiseras fullständigt, inte stegvis. ÅTERUPPVÄCKNING sker i steg. De kopplas bort och kopplas till två i taget (förutsatt att det finns minst tre repliker) för att se till att minst en replik hålls online för frågor vid en specifik tidpunkt. I vissa fall kan klienter behöva återansluta till en av replikerna online medan den här processen sker. Genom att använda **ReplicaSyncMode** -inställningen (i förhands granskning) kan du nu ange synkronisering av synkronisering av repliker parallellt. Parallell synkronisering ger följande fördelar: 
 
 - Betydande minskning av tiden för synkronisering. 
 - Data över repliker är ofta mer konsekventa under synkroniseringsprocessen. 

@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: b6ea5c9ef5e128116ef389675a09e6ab4b230b75
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982443"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311350"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -83,7 +83,7 @@ Den här koden skapar ett generiskt uppskattnings objekt, `est`, som anger
 
 * En skript katalog för dina skript. Alla filer i den här katalogen laddas upp till klusternoderna för körning.
 * Övnings skriptet *train_titanic. py*.
-* Data uppsättningen för indata för träning, `titanic`.
+* Data uppsättningen för indata för träning, `titanic`. `as_named_input()` krävs så att indata-datauppsättningen kan refereras till av det tilldelade namnet i utbildnings skriptet. 
 * Compute-målet för experimentet.
 * Miljö definitionen för experimentet.
 
@@ -126,7 +126,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>Konfigurera uppskattningen
 
-I stället för att skicka data uppsättningen via `inputs`-parametern i uppskattningen kan du också skicka data uppsättningen via `script_params` och hämta data Sök vägen (monterings punkten) i utbildnings skriptet via argument. På så sätt kan du komma åt dina data och använda ett befintligt utbildnings skript.
+Förutom att skicka data uppsättningen via `inputs`-parametern i uppskattningen kan du också skicka data uppsättningen via `script_params` och hämta data Sök vägen (monterings punkten) i utbildnings skriptet via argument. På så sätt kan du behålla ditt utbildnings skript oberoende av azureml-SDK. Med andra ord kommer du att kunna använda samma utbildnings skript för lokal fel sökning och fjärran sluten utbildning på vilken moln plattform som helst.
 
 Ett [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) -behållarobjekt används för att skicka in körningen för scikit-se experiment. Lär dig mer om utbildning med [SKlearn-uppskattningen](how-to-train-scikit-learn.md).
 

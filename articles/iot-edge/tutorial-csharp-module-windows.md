@@ -9,18 +9,18 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c9a5138146897fdfed4661b85198cbff6b74bf5a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665214"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293869"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att C# utveckla kod och distribuera den till en Windows-enhet som kör Azure IoT Edge. 
 
-Du kan använda Azure IoT Edge-moduler till att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig hur man:    
+Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt på dina IoT Edge-enheter. Den här självstudien vägleder dig genom att skapa och distribuera en IoT Edge-modul som filtrerar sensordata. I den här guiden får du lära dig hur man:    
 
 > [!div class="checklist"]
 > * Använd Visual Studio för att skapa en IoT Edge-modul som baseras på C# SDK: n.
@@ -102,20 +102,21 @@ Distributions manifestet delar autentiseringsuppgifterna för behållar registre
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+3. Öppna **. kuvert** -filen i din modul-lösning. (Den är dold som standard i Solution Explorer, så du kan behöva välja knappen **Visa alla filer** för att visa den.) . Kuvert-filen ska innehålla samma användar namn och lösen ord som du såg i filen Deployment. template. JSON. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+4. Lägg till värdena för **användar namn** och **lösen ord** från Azure Container Registry. 
 
-5. Save your changes to the .env file.
+5. Spara ändringarna i. kuvert-filen.
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>Uppdatera modulen med anpassad kod
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem vidare via en utgående kö. Nu ska vi lägga till ytterligare kod så att modulen bearbetar meddelandena på gränsen innan de vidarebefordrar dem till IoT Hub. Uppdatera modulen så att den analyserar temperatur data i varje meddelande, och skickar endast meddelandet till IoT Hub om temperaturen överskrider ett visst tröskelvärde. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. Öppna **CSharpModule** > **program.cs**i Visual Studio.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. Överst i **CSharpModule**-namnrymden läger du till tre **using**-instruktioner för typer som ska användas senare:
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

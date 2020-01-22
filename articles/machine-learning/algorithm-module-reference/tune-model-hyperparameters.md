@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 3db20110571203588ac15f4f64a2ae0a6ab6ef27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4dd2cd89e8edb4e636bf46d2a8125a0f1d00f2f3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428397"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76312251"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
-I den här artikeln beskrivs hur du använder modulen finjustera modells för hands parametrar i Azure Machine Learning designer (för hands version). Målet är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
+I den här artikeln beskrivs hur du använder modulen för att finjustera modells parametrar i Azure Machine Learning designer. Målet är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
 
 Villkors *parametern* och den andra *parametern* kan vara förvirrande. Modellens *parametrar* är det du anger i rutan Egenskaper. I princip utför den här modulen en *parameter rensning* över de angivna parameter inställningarna. Den lär sig en optimal uppsättning av _grundparametrar_, som kan vara olika för varje särskilt besluts träd, data uppsättning eller Regressions metod. Processen för att hitta den optimala konfigurationen kallas ibland *justering*. 
 
@@ -81,11 +81,11 @@ I det här avsnittet beskrivs hur du utför en grundläggande parameter rensning
 
 När inlärningen är klar:
 
-+ Om du vill visa en uppsättning noggrannhets mått för den bästa modellen högerklickar du på modulen, väljer **svep resultat**och väljer sedan **visualisera**.
++ Om du vill visa en uppsättning noggrannhets mått för den bästa modellen högerklickar du på modulen och väljer **visualisera**.
 
     Utdata innehåller alla noggrannhets mått som gäller för modell typen, men måttet som du har valt för rangordning avgör vilken modell som betraktas som "bäst".
 
-+ Om du vill använda modellen för poängsättning i andra pipeliner utan att behöva upprepa justerings processen högerklickar du på modellens utdata och väljer **Spara som utbildad modell**. 
++ Om du vill spara en ögonblicks bild av den tränade modellen väljer du fliken **utdata** i den högra panelen i modulen **träna modell** . Välj ikonen **registrera data uppsättning** för att spara modellen som en återanvändbar modul.
 
 
 ## <a name="technical-notes"></a>Tekniska anteckningar

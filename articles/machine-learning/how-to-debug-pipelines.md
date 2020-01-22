@@ -9,17 +9,17 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: e0e4ea4689baeb8e85a765a33c3f8124d6bc4362
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 991f7ebf51be5f805a8b12fa0af0fefeff0ef582
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764294"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76309565"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka och felsöka maskin inlärnings pipeliner
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Azure Machine Learning designer (för hands version)](https://docs.microsoft.com/azure/machine-learning/concept-designer).
+I den här artikeln får du lära dig att felsöka och felsöka [maskin inlärnings pipeliner](concept-ml-pipelines.md) i [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) och [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer).
 
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Felsöka och Felsök i Azure Machine Learning SDK
@@ -79,7 +79,7 @@ Följande tabell innehåller vanliga problem under utveckling av pipeline, med m
 | Pipeline återanvändar inte steg | Steg åter användning är aktiverat som standard, men se till att du inte har inaktiverat det i ett steg i pipeline. Om åter användning är inaktive rad kommer `allow_reuse`-parametern i steget att ställas in på `False`. |
 | Pipelinen körs inte nödvändigt vis | För att se till att stegen bara körs igen när deras underliggande data eller skript ändras, kan du koppla ihop dina kataloger för varje steg. Om du använder samma käll katalog för flera steg kan du få onödig omkörning. Använd `source_directory`-parametern i ett pipeline-objekt för att peka på den isolerade katalogen för det steget och se till att du inte använder samma `source_directory` sökväg för flera steg. |
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Felsöka och Felsök i Azure Machine Learning designer (för hands version)
+## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer"></a>Felsöka och Felsök i Azure Machine Learning designer
 
 Det här avsnittet innehåller en översikt över hur du felsöker pipelines i designern.
 För pipeliner som skapats i designern kan du hitta **loggfilerna** på antingen sidan redigering eller på sidan körnings information för pipelinen.

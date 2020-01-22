@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/14/2019
-ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.date: 01/20/2020
+ms.openlocfilehash: bb08cf4db45a378b35a8245eadd56a2ab3e48bab
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74819135"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293631"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Integrera Azure-Datautforskaren med Azure Data Factory
 
@@ -44,6 +44,14 @@ En detaljerad genom gång av kommando aktiviteten finns i [använda Azure Data F
 ### <a name="copy-in-bulk-from-a-database-template"></a>Kopiera i bulk från en databas mall
 
 [Kopian i bulk från en databas till Azure datautforskaren med hjälp av Azure Data Factory mal len](data-factory-template.md) är en fördefinierad Azure Data Factory pipeline. Mallen används för att skapa många pipeliner per databas eller per tabell för snabbare data kopiering. 
+
+### <a name="mapping-data-flows"></a>Mappa dataflöden 
+
+[Azure Data Factory mappa data flöden](/azure/data-factory/concepts-data-flow-overview) visuellt utformade data transformationer som gör det möjligt för data tekniker att utveckla logik för grafisk data omvandling utan att skriva kod. Om du vill skapa ett data flöde och mata in data till Azure Datautforskaren använder du följande metod:
+
+1. Skapa [data flödet för mappning](/azure/data-factory/data-flow-create).
+1. [Exportera data till Azure Blob](/azure/data-factory/data-flow-sink). 
+1. Definiera [Event Grid](/azure/data-explorer/ingest-data-event-grid) eller [ADF kopierings aktivitet](/azure/data-explorer/data-factory-load-data) för att mata in data till Azure datautforskaren.
 
 ## <a name="select-between-copy-and-azure-data-explorer-command-activities-when-copy-data"></a>Välj mellan kopierings-och Azure Datautforskaren kommando aktiviteter vid kopiering av data 
 

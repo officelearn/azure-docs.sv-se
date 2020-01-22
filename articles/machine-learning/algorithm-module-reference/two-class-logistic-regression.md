@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ee52f3a0bec058f1b94820123ac5514e4e855c05
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485940"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311401"
 ---
 # <a name="two-class-logistic-regression-module"></a>Logistik Regressions modul i två klasser
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
+I den här artikeln beskrivs en modul i Azure Machine Learning designer.
 
 Använd den här modulen för att skapa en logistik Regressions modell som kan användas för att förutsäga två (och endast två) resultat. 
 
@@ -45,7 +45,6 @@ Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" elle
 3.  För **optimerings tolerans**anger du ett tröskelvärde som ska användas när modellen optimeras. Om förbättringen mellan iterationer sjunker under det angivna tröskelvärdet anses algoritmen ha konvergerat till en lösning och träningen stoppas.  
   
 4.  För **L1-regulariseringshastigheten vikt** och **L2-regulariseringshastigheten**anger du ett värde som ska användas för regulariseringshastigheten-parametrarna L1 och L2. Ett värde som inte är noll rekommenderas för båda.  
-  
      *Regulariseringshastigheten* är en metod för att förhindra övermontering genom att motverka modeller med extrema koefficient värden. Regulariseringshastigheten fungerar genom att lägga till den påföljd som är kopplad till koefficienterna till felet i hypotesen. Därför skulle en korrekt modell med extrema koefficienter bli mer, men en mindre exakt modell med fler restriktiva värden skulle bli mindre.  
   
      L1-och L2-regulariseringshastigheten har olika effekter och användnings områden.  
@@ -79,8 +78,7 @@ Etikett kolumnen kan till exempel vara [röstat] med möjliga värden "Yes" elle
 ## <a name="results"></a>Resultat
 
 När utbildningen är klar:
-
-+ Om du vill se en översikt över modellens parametrar, tillsammans med funktions vikterna från träningen, högerklickar du på utdata från [träna modell](./train-model.md) och väljer **visualisera**.   
+ 
   
 + Om du vill göra förutsägelser för nya data använder du den tränade modellen och nya data som indata till modulen [Poäng modell](./score-model.md) . 
 

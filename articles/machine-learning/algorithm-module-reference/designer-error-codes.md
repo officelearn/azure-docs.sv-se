@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 12/03/2019
-ms.openlocfilehash: d491a67a44a2cb01e4968c4d31d20dee4b75a60a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a6aeb4022ee7cbce465f88a246303f80acfb883b
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980288"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311673"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Undantag och fel koder för designern (för hands version)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Undantag och fel koder för designern
 
-I den här artikeln beskrivs fel meddelandena och undantags koderna i Azure Machine Learning designer (för hands version) för att hjälpa dig att felsöka dina pipelines i Machine Learning.
+I den här artikeln beskrivs fel meddelandena och undantags koderna i Azure Machine Learning designer som hjälper dig att felsöka dina pipelines i Machine Learning.
 
 Det finns två sätt att hämta den fullständiga texten i ett fel meddelande i designern:  
 
@@ -348,7 +348,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 ## <a name="error-0018"></a>Fel 0018  
  Undantaget inträffar om indata-datauppsättningen är ogiltig.  
 
-**Lösning:** Det här felet i Azure Machine Learning kan visas i många sammanhang, så det finns ingen enskild lösning. I allmänhet anger felet att data som angetts som indata till en modul har fel antal kolumner eller att data typen inte överensstämmer med kraven för modulen. Exempel:  
+**Lösning:** Det här felet i Azure Machine Learning kan visas i många sammanhang, så det finns ingen enskild lösning. I allmänhet anger felet att data som angetts som indata till en modul har fel antal kolumner eller att data typen inte överensstämmer med kraven för modulen. Ett exempel:  
 
 -   Modulen kräver en etikett kolumn, men ingen kolumn har marker ATS som en etikett eller så har du inte valt en etikett kolumn ännu.  
   
@@ -427,7 +427,7 @@ För kolumner som du tänker använda för gruppering eller kategorisering, vidt
 ## <a name="error-0022"></a>Fel 0022  
  Undantag uppstår om antalet markerade kolumner i indata-datamängd inte motsvarar det förväntade antalet.  
 
- Det här felet i Azure Machine Learning kan inträffa när den underordnade modulen eller åtgärden kräver ett särskilt antal kolumner eller indata, och du har angett för få eller för många kolumner eller indata. Exempel:  
+ Det här felet i Azure Machine Learning kan inträffa när den underordnade modulen eller åtgärden kräver ett särskilt antal kolumner eller indata, och du har angett för få eller för många kolumner eller indata. Ett exempel:  
 
 -   Du anger en enskild etikett kolumn eller nyckel kolumn och har valt flera kolumner av misstag.  
   

@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 67e2675dbf65daf929407a437447f5d977c7a6c3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75750409"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76310789"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -1299,7 +1299,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Modelldistribution Startad|Modelldistribution Startad|Antal|Totalt|Antal modell distributioner som startats på den här arbets ytan|Scenario|
 |Modelldistribution lyckades|Modelldistribution lyckades|Antal|Totalt|Antal modell distributioner som har slutförts på den här arbets ytan|Scenario|
 |Modelldistribution misslyckades|Modelldistribution misslyckades|Antal|Totalt|Antal modell distributioner som misslyckades på den här arbets ytan|Scenario, StatusCode|
-|Totalt antal noder|Totalt antal noder|Antal|Medel|Totalt antal noder. Den här summan innehåller några aktiva noder, inaktiva noder, oanvändbara noder, Premepted noder, lämnar noder|Scenario, kluster namn|
+|Totalt antal noder|Totalt antal noder|Antal|Medel|Totalt antal noder. Den här summan innehåller några aktiva noder, inaktiva noder, oanvändbara noder, vilande noder, lämnar noder|Scenario, kluster namn|
 |Aktiva noder|Aktiva noder|Antal|Medel|Antal Active-noder. Detta är de noder som aktivt kör ett jobb.|Scenario, kluster namn|
 |Inaktiva noder|Inaktiva noder|Antal|Medel|Antal inaktiva noder. Inaktiva noder är noder som inte kör några jobb, men som kan ta emot nya jobb om de är tillgängliga.|Scenario, kluster namn|
 |Oanvändbara noder|Oanvändbara noder|Antal|Medel|Antal oanvändbara noder. Oanvändbara noder fungerar inte på grund av ett problem som inte kan matchas. De här noderna återanvänds av Azure.|Scenario, kluster namn|

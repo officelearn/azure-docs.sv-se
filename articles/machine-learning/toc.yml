@@ -93,6 +93,8 @@
       href: concept-designer.md
     - name: Algoritmfacit
       href: /azure/machine-learning/algorithm-cheat-sheet
+    - name: Så här väljer du algoritmer
+      href: /azure/machine-learning/how-to-select-algorithms
     - name: Automatiserad maskininlärning
       displayName: 'automl, auto ml'
       href: concept-automated-ml.md

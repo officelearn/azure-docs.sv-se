@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Dokumentation om Azure Media Services v3
+title: Läs mer om den Azure Media Services v3-molnbaserade plattformen
 summary: Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 metadata:
   title: Dokumentation om Azure Media Services v3
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 10/07/2019
-  ms.openlocfilehash: b55677aba5f99d4960d51d3a717175d47db026e2
-  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.openlocfilehash: 70eab66c3bd2d8536e415c9ac7c62161f3710c0c
+  ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/10/2019
-  ms.locfileid: "72244233"
+  ms.lasthandoff: 01/22/2020
+  ms.locfileid: "76314682"
 landingContent:
 - title: Om Media Services
   linkLists:
@@ -41,7 +41,7 @@ landingContent:
       url: use-azure-media-player.md
     - text: Utveckla med API-vägledning för v3
       url: media-services-apis-overview.md
-- title: Komma igång
+- title: Kom igång
   linkLists:
   - linkListType: how-to-guide
     links:

@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: dec6faab0dfc7f073639186429767bbf653ceda1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953080"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513617"
 ---
 # <a name="offline-evaluation"></a>Offlineutvärdering
 
-Offline-utvärdering är en metod som gör att du kan testa och utvärdera effektiviteten hos tjänsten personanpassa utan att ändra din kod eller påverka användar upplevelsen. Offline-utvärdering använder tidigare data som har skickats från ditt program till ranknings-API: et för att jämföra hur olika rankning har utförts.
+Offline-utvärdering är en metod som gör att du kan testa och utvärdera effektiviteten hos tjänsten personanpassa utan att ändra din kod eller påverka användar upplevelsen. Offline-utvärdering använder tidigare data som skickats från ditt program till API: erna rang och belöning, för att jämföra hur olika rankning har utförts.
 
 Offline-utvärdering utförs i ett datum intervall. Intervallet kan sluta så sent som den aktuella tiden. Början av intervallet får inte vara mer än antalet dagar som har angetts för [datakvarhållning](how-to-settings.md).
 
@@ -56,9 +56,9 @@ När du kör en offline-utvärdering är det mycket viktigt att analysera _fört
 
 ## <a name="how-offline-evaluations-are-done"></a>Hur offline-utvärderingar utförs
 
-Offline-utvärderingar görs med hjälp av en metod som kallas **Counterfactual-utvärdering**. 
+Offline-utvärderingar görs med hjälp av en metod som kallas **Counterfactual-utvärdering**.
 
-En personanpassare bygger på antagandet att användarens beteende (och därmed förmåner) inte kan förutsäga retroaktivt (det går inte att förutsäga vad som skulle ha hänt om användaren hade visat något annorlunda än vad de gjorde) och endast för att lära sig från uppmätta förmåner. 
+En personanpassare bygger på antagandet att användarens beteende (och därmed förmåner) inte kan förutsäga retroaktivt (det går inte att förutsäga vad som skulle ha hänt om användaren hade visat något annorlunda än vad de gjorde) och endast för att lära sig från uppmätta förmåner.
 
 Detta är den konceptuella processen som används för utvärderingar:
 
@@ -70,11 +70,11 @@ Detta är den konceptuella processen som används för utvärderingar:
     [For every chronological event in the logs]
     {
         - Perform a Rank call
-    
+
         - Compare the reward of the results against the logged user behavior.
             - If they match, train the model on the observed reward in the logs.
             - If they don't match, then what the user would have done is unknown, so the event is discarded and not used for training or measurement.
-        
+
     }
 
     Add up the rewards and statistics that were predicted, do some aggregation to aid visualizations, and save the results.

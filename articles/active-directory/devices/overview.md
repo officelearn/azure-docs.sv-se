@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73104cc1bcd9266cbb9e5b1985dac4a4566f0a74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d593e5f27dbcd676e2b42975251778a6c48a7d79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423125"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511883"
 ---
 # <a name="what-is-a-device-identity"></a>Vad är en enhetsidentitet?
 
@@ -54,7 +54,7 @@ För att få en enhet i Azure AD har du flera alternativ:
 
 ## <a name="device-management"></a>Enhetshantering
 
-Enheter i Azure AD kan hanteras med verktyg för hantering av mobila enheter (MDM) som Microsoft Intune, System Center Configuration Manager, grupprincip (hybrid Azure AD Join), verktyg för hantering av mobila program (MAM) eller andra verktyg från tredje part.
+Enheter i Azure AD kan hanteras med verktyg för hantering av mobila enheter (MDM) som Microsoft Intune, Microsoft Endpoint Configuration Manager, grupprincip (hybrid Azure AD-anslutning), verktyg för hantering av mobil program (MAM) eller andra verktyg från tredje part.
 
 ## <a name="resource-access"></a>Resurs åtkomst
 
@@ -68,12 +68,12 @@ Enheter som är Azure AD-anslutna eller hybrid Azure AD-anslutna fördelar från
 ## <a name="device-security"></a>Enhetssäkerhet
 
 - **Registrerade Azure AD-enheter** använder ett konto som hanteras av slutanvändaren. det här kontot är antingen en Microsoft-konto eller en annan lokalt hanterad autentiseringsuppgift som skyddas med ett eller flera av följande.
-   - lösenord
+   - Lösenord
    - FÄST
    - Mönster
    - Windows Hello
 - **Azure AD-anslutna eller hybrid Azure AD-anslutna enheter** använder ett organisations konto i Azure AD som skyddas med en eller flera av följande.
-   - lösenord
+   - Lösenord
    - Windows Hello för företag
 
 ## <a name="provisioning"></a>Etablering

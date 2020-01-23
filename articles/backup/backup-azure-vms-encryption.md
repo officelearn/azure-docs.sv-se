@@ -3,12 +3,12 @@ title: Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 description: Beskriver hur du säkerhetskopierar och återställer krypterade virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 2ce0453c0b57ab682fa102f76c31afa567d80778
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 754a0899d25f2672c6a66eeafe5013f98b7a8f4d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449969"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513787"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Säkerhetskopiera och återställa krypterade virtuella Azure-datorer
 
@@ -53,7 +53,6 @@ Innan du börjar gör du följande:
 Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
 - **Installera VM-agenten på den virtuella datorn**: Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning installeras och körs agenten. Om du skapar en anpassad virtuell dator, eller om du migrerar en lokal dator, kan du behöva [Installera agenten manuellt](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-- **Tillåt uttryckligen utgående åtkomst**: vanligt vis behöver du inte uttryckligen tillåta utgående nätverks åtkomst för en virtuell Azure-dator för att den ska kunna kommunicera med Azure Backup. Vissa virtuella datorer kan dock drabbas av anslutnings problem, vilket visar **ExtensionSnapshotFailedNoNetwork** -fel vid försök att ansluta. Om detta händer bör du [uttryckligen tillåta utgående åtkomst](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access), så Azure Backup tillägget kan kommunicera med offentliga Azure-IP-adresser för säkerhets kopierings trafik.
 
 ## <a name="configure-a-backup-policy"></a>Konfigurera en säkerhetskopieringspolicy
 

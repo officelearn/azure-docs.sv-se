@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: 44430f5a150952ba7cfc32b3e54d004cb0d0b761
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312353"
+ms.locfileid: "76514280"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -105,8 +105,8 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 >Du måste använda jokertecknet (*) för URL: er som involverar tjänst trafiken. Om du inte vill använda * för agent-relaterad trafik så här hittar du URL: erna utan jokertecken:
 >
 >1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
->2. Öppna **logg boken** och navigera till **Windows** > **program loggar** och leta efter händelse-ID 3712.
->3. Vitlista de URL: er som du hittar under händelse-ID 3712. URL: erna under händelse-ID 3712 är landsspecifika. Du måste upprepa vit listning-processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
+>2. Öppna **logg boken** och navigera till **Windows** > **program loggar** och leta efter händelse-ID 3702.
+>3. Vitlista de URL: er som du hittar under händelse-ID 3702. URL: erna under händelse-ID 3702 är landsspecifika. Du måste upprepa vit listning-processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
 
 Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Skriv bord och appar kan distribueras på virtuella datorer i valfri Azure-region och hanterings lösningen och data för dessa virtuella datorer finns i USA. Detta kan leda till att data överförs till USA.
 

@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 10/28/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 1c14d1dd171f9bca6b6bdc61e35c0d541b29cb3c
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 1ba133acda414d9779e2fb10150bbdd57285e9a5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73026166"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511220"
 ---
 # <a name="what-is-azure-iot-edge"></a>Vad är Azure IoT Edge?
 
@@ -26,7 +26,7 @@ Analyser ger IoT-lösningar värde, men alla analyser behövs inte i molnet. Om 
 Azure IoT Edge består av tre komponenter:
 
 * **IoT Edge moduler** är behållare som kör Azure-tjänster, tjänster från tredje part eller din egen kod. Moduler distribueras till IoT Edge-enheter och körs lokalt på enheterna.
-* **IoT Edge runtime** körs på varje IoT Edge enhet och hanterar de moduler som distribueras till varje enhet. 
+* **IoT Edge runtime** körs på varje IoT Edge enhet och hanterar de moduler som distribueras till varje enhet.
 * Med ett **moln baserat gränssnitt** kan du fjärrövervaka och hantera IoT Edge enheter.
 
 >[!NOTE]
@@ -62,7 +62,7 @@ Azure IoT Edge runtime körs på en stor uppsättning IoT-enheter som gör det m
 
 ## <a name="iot-edge-cloud-interface"></a>IoT Edge-molngränssnitt
 
-Det är svårt att hantera program varans livs cykel för miljon tals IoT-enheter som ofta är olika tillverkare och modeller eller geografiskt spridda. Arbets belastningar skapas och konfigureras för en viss typ av enhet, distribueras till alla dina enheter och övervakas för att fånga upp eventuella enheter som inte går att hitta. Dessa aktiviteter kan inte utföras på enhetsbasis och måste göras i stor skala.
+Det är svårt att hantera program varans livs cykel för miljon tals IoT-enheter som ofta är olika tillverkare och modeller eller geografiskt spridda. Arbetsbelastningar skapas och konfigureras för en viss typ av enhet, distribueras till alla dina enheter och övervakas så att enheter som inte fungerar som de ska identifieras. Dessa aktiviteter kan inte utföras på enhetsbasis och måste göras i stor skala.
 
 Azure IoT Edge integreras sömlöst med Azure IoT-lösningsacceleratorer för att tillhandahålla en kontrollplan för lösningens behov. Med molntjänster kan du:
 

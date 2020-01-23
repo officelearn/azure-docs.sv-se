@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 318b73011901e9ab07643bc2ecec28e5016e8702
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613915"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514837"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatisera mobilitets tjänst installation
 
@@ -19,8 +19,8 @@ Den här artikeln beskriver hur du automatiserar installation och uppdateringar 
 När du distribuerar Site Recovery för haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar till Azure, installerar du mobilitets tjänst agenten på varje dator som du vill replikera. Mobilitets tjänsten samlar in data skrivningar på datorn och vidarebefordrar dem till den Site Recovery processervern för replikering. Du kan distribuera mobilitets tjänsten på ett par olika sätt:
 
 - **Push-installation**: låt Site Recovery installera mobilitets tjänst agenten när du aktiverar replikering för en dator i Azure Portal.
-- **Manuell installation**: installera mobilitets tjänsten manuellt på varje dator. [Läs mer](vmware-physical-mobility-service-overview.md) om push och manuell installation.
-- **Automatiserad distribution**: automatiserad installation med verktyg för program varu distribution, till exempel System Center Configuration Manager eller verktyg från tredje part, till exempel Intigua JetPatch.
+- **Manuell installation**: installera mobilitets tjänsten manuellt på varje dator. [Läs mer](/vmware-physical-mobility-service-overview.md) om push och manuell installation.
+- **Automatiserad distribution**: automatiserad installation med verktyg för program varu distribution, till exempel Microsoft Endpoint Configuration Manager eller verktyg från tredje part, till exempel Intigua JetPatch.
 
 Automatisk installation och uppdatering tillhandahåller en lösning om:
 

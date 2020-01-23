@@ -3,12 +3,12 @@ title: Mall funktioner – resurser
 description: Beskriver funktionerna du använder i en Azure Resource Manager-mall för att hämta värden om resurser.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 56ace8c75ea27eb4d730b1630115b6fcbdc3f575
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 1b860876b0d8967a6a3f90c7bb68f20d6c442109
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310550"
+ms.locfileid: "76513872"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Resursfunktioner för Azure Resource Manager-mallar
 
@@ -32,7 +32,7 @@ Om du vill hämta värden från parametrar, variabler eller den aktuella distrib
 extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)
 ```
 
-Returnerar resurs-ID för en [tilläggs resurs](extension-resource-types.md), som är en resurs typ som används på en annan resurs för att lägga till dess funktioner.
+Returnerar resurs-ID för en [tilläggs resurs](../management/extension-resource-types.md), som är en resurs typ som används på en annan resurs för att lägga till dess funktioner.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -536,7 +536,7 @@ Ett exempel:
 
 ### <a name="get-managed-identity"></a>Hämta hanterad identitet
 
-[Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är [tilläggs resurs typer](extension-resource-types.md) som skapas implicit för vissa resurser. Eftersom den hanterade identiteten inte uttryckligen definieras i mallen måste du referera till den resurs som identiteten tillämpas på. Använd `Full` för att hämta alla egenskaper, inklusive den implicit skapade identiteten.
+[Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md) är [tilläggs resurs typer](../management/extension-resource-types.md) som skapas implicit för vissa resurser. Eftersom den hanterade identiteten inte uttryckligen definieras i mallen måste du referera till den resurs som identiteten tillämpas på. Använd `Full` för att hämta alla egenskaper, inklusive den implicit skapade identiteten.
 
 Om du till exempel vill hämta klient-ID: t för en hanterad identitet som används för en skalnings uppsättning för virtuella datorer använder du:
 

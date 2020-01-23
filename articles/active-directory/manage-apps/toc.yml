@@ -139,6 +139,8 @@
               href: configure-linked-sign-on.md
         - name: Tilldela användare och hantera åtkomst till appar
           items:
+            - name: Konfigurera användarmedgivande
+              href: configure-user-consent.md
             - name: Hantera och utvärdera samtyckesbegäranden
               href: manage-consent-requests.md
             - name: Bevilja administratörsmedgivande för hela klientorganisationen

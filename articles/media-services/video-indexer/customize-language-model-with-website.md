@@ -1,5 +1,5 @@
 ---
-title: Använd Video Indexer webbplats för att anpassa en språk modell – Azure
+title: Anpassa språk modeller med Video Indexer webbplats – Azure
 titleSuffix: Azure Media Services
 description: Den här artikeln visar hur du anpassar en språk modell med Video Indexer webbplats.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 329da39914ef957d3a5376ba59e0c7103ad6a5dd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838446"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513923"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Anpassa en språk modell med Video Indexer webbplats
 

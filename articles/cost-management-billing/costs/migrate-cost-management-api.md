@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/25/2019
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0dfb7245135097780f027185e4037b6cafbae690
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b0c30cd35efd598767d21dbdafc5100d8896380c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989363"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514722"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrera från Enterprise-avtal till Microsoft kund avtals-API: er
 
@@ -81,7 +81,7 @@ Om du använder några befintliga EA-API: er måste du uppdatera dem så att de 
 | Syfte | Gammalt erbjudande | Nytt erbjudande |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | Innehålls paket och anslutnings program för [Microsoft konsumtions Insights](/power-bi/desktop-connect-azure-consumption-insights) | [Microsoft Azure Consumption Insights Power BI app](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) och [Azure Consumption Insights koppling](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | Innehålls paket och anslutnings program för [Microsoft konsumtions Insights](/power-bi/desktop-connect-azure-consumption-insights) |  [Azure Consumption Insights koppling](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API: er för att få saldo och krediter
 
@@ -216,7 +216,7 @@ Egenskaps namnet som innehåller matrisen med användnings poster som har ändra
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| Taggar | tagg | Egenskapen Taggar gäller för rotobjektet, inte egenskapen kapslade egenskaper. |
+| Taggar | tags | Egenskapen Taggar gäller för rotobjektet, inte egenskapen kapslade egenskaper. |
 | UnitOfMeasure | unitOfMeasure | Exakta sträng värden skiljer sig åt. |
 | usageEndDate | date | &nbsp;  |
 | Year | Inget | Tolkar året från datum. |
@@ -432,7 +432,7 @@ De äldre egenskaperna för [Azure Resource Manager pris dokuments-API: er](/res
 | --- | --- | --- |
 | Mätar-ID | _meterId_ | Unik identifierare för mätaren. Samma som meterID. |
 | Mätar namn | meterName | Namnet på mätaren. Mätaren visar den Azure-tjänst som är distributions bara resurs. |
-| Mätar kategori  | tjänst | Namn på mätarens klassificeringskategori. Samma som tjänsten i pris dokumentet för Microsofts kund avtal. Exakta sträng värden skiljer sig åt. |
+| Mätar kategori  | tjänst | Namnet på mätarens klassificeringskategori. Samma som tjänsten i pris dokumentet för Microsofts kund avtal. Exakta sträng värden skiljer sig åt. |
 | Mätar under kategori | meterSubCategory | Namn på kategorin för mätarens underklassificering. Baserat på klassificeringen av funktions uppsättnings differentiering på hög nivå i tjänsten. Till exempel Basic SQL DB vs standard SQL DB. |
 | Mätar region | meterRegion | &nbsp;  |
 | Enhet | _Ej tillämpligt_ | Kan parsas från unitOfMeasure. |

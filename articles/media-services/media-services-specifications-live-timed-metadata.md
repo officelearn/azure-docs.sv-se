@@ -1,5 +1,5 @@
 ---
-title: Timed metadata för Azure Media Services signalering i direktsänd strömning | Microsoft Docs
+title: Timed metadata för Azure Media Services signalering i Live Streaming
 description: Den här specifikationen beskriver metoder för att signalera Timed metadata vid inmatning och strömning till Azure Media Services. Detta omfattar stöd för allmänna timeed metadata-signaler (ID3), samt SCTE-35-signaler för annons infogning och splice-villkor signaler.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: fd8533ff310e307604e5ce25a4285cc90f3ea4ab
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933991"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514246"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
@@ -46,7 +46,7 @@ Den här specifikationen beskriver flera lägen som stöds av Media Services fö
 | ------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | AD-avbrott            | En plats eller tidpunkt då en eller flera annonser kan schemaläggas för leverans; samma som DISP-och placerings möjlighet.                                                                                                                     |
 | AD-besluts tjänst | extern tjänst som avgör vilka AD (er) och varaktigheter som ska visas för användaren. Tjänsterna tillhandahålls vanligt vis av en partner och är utanför omfånget för det här dokumentet.                                                                    |
-| Utlösare                 | Indikering av tid och parametrar för den kommande AD-rasten. Observera att stacken kan indikera en väntande växel till en AD Break, väntar på att växla till nästa AD i en AD Break och väntande växel från en AD Break till huvud innehållet.           |
+| utlösare                 | Indikering av tid och parametrar för den kommande AD-rasten. Observera att stacken kan indikera en väntande växel till en AD Break, väntar på att växla till nästa AD i en AD Break och väntande växel från en AD Break till huvud innehållet.           |
 | Packager            | Azure Media Services slut punkt för direkt uppspelning tillhandahåller funktioner för dynamisk paketering för streck-och HLS och kallas för "Paketeraren" i medie branschen.                                                                              |
 | Presentations tid   | Den tid som en händelse presenteras för ett visnings program. Tiden visar tidpunkten för den medie tids linje som ett visnings program skulle se händelsen. Till exempel är presentations tiden för kommando meddelandet SCTE-35 splice_info () splice_time (). |
 | Införsel tid        | Den tidpunkt då ett händelse meddelande tas emot. Tiden är vanligt vis distinkt från händelsens presentations tid, eftersom händelse meddelanden skickas före händelsens presentations tid.                                                    |

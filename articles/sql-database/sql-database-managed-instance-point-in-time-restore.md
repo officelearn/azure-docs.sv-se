@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: b106b1da5d012309e8d92c8e9555ee3982602e12
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707654"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515130"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>Återställa en SQL-databas i en hanterad instans till en tidigare tidpunkt
 
@@ -48,8 +48,8 @@ I följande tabell visas scenarier för återställning av tidpunkter för hante
 
 |           |Återställ en befintlig databas till samma hanterade instans| Återställ befintlig databas till en annan hanterad instans|Återställ utelämnad databas till samma hanterade instans|Återställ släppt databas till en annan hanterad instans|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure-portalen**| Ja|Nej |Nej|Nej|
-|**Azure CLI**|Ja |Ja |Nej|Nej|
+|**Azure-portalen**| Ja|Inga |Inga|Inga|
+|**Azure CLI**|Ja |Ja |Inga|Inga|
 |**PowerShell**| Ja|Ja |Ja|Ja|
 
 ## <a name="restore-an-existing-database"></a>Återställa en befintlig databas
@@ -58,7 +58,7 @@ I följande tabell visas scenarier för återställning av tidpunkter för hante
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
+1. Logga in på [Azure Portal](https://portal.azure.com). 
 2. Gå till din hanterade instans och välj den databas som du vill återställa.
 3. Välj **Återställ** på databas sidan:
 
@@ -136,7 +136,7 @@ En detaljerad förklaring av tillgängliga parametrar finns i [CLI-dokumentation
 
 ## <a name="restore-a-deleted-database"></a>Återställa en borttagen databas
 
-Det går bara att återställa en borttagen databas med hjälp av PowerShell. Databasen kan återställas till samma instans eller till en annan instans.
+Du kan återställa en borttagen databas med hjälp av PowerShell eller Azure Portal. Använd det här dokumentet för att göra detta från [Azure Portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1). Databasen kan återställas till samma instans eller till en annan instans.
 
 Om du vill återställa en borttagen databas med hjälp av PowerShell anger du värdena för parametrarna i följande kommando. Kör sedan kommandot:
 
@@ -195,7 +195,7 @@ Använd någon av följande metoder för att ansluta till databasen i den hanter
 
 - [SSMS/Azure Data Studio via en virtuell Azure-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Offentlig slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
 
@@ -237,7 +237,7 @@ Använd någon av följande metoder för att ansluta till databasen i den hanter
 
 - [Virtuell Azure-dator](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [Punkt-till-plats](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
-- [Offentlig slut punkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
+- [Offentlig slutpunkt](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## <a name="next-steps"></a>Nästa steg
 

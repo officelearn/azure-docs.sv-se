@@ -1,5 +1,5 @@
 ---
-title: Identifiera det talade språket automatiskt med Video Indexer – Azure
+title: Använd Video Indexer för att automatiskt identifiera talade språk – Azure
 titleSuffix: Azure Media Services
 description: Den här artikeln beskriver hur den Video Indexer språk identifierings modellen används för att automatiskt identifiera det talade språket i en video.
 services: media-services
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: ce3e488a6387f9a823d7c1b514b52af24944776b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7a2e03b8dacbf6c3ff20e02c804804b671e86d97
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838998"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513889"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>Identifiera det talade språket automatiskt med språk identifierings modellen
 
@@ -29,7 +29,7 @@ När du använder portalen går du till dina **konto videor** på Start sidan f�
 
 ![identifiera automatiskt](./media/language-identification-model/auto-detect.png)
 
-## <a name="model-output"></a>Modellens utdata
+## <a name="model-output"></a>Modell-utdata
 
 Video Indexer beskrivar videon enligt det mest sannolika språket om förtroendet för det språket är `> 0.6`. Om språket inte kan identifieras med förtroende förutsätter det att det talade språket är engelska. 
 

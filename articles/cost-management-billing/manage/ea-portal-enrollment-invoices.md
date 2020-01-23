@@ -4,16 +4,16 @@ description: Den här artikeln förklarar hur du hanterar och använder din Azur
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 95df54eb096588fe23da87f7334f9d693e54cf9d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992327"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514365"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Fakturor för Azure Enterprise-registrering
 
@@ -370,7 +370,7 @@ När du använder Excel för att modellera avrundnings- och konverteringsregler 
 | Avrundning av priser (2 decimaler) | =MROUND({_källa_}, 0.02) |
 | Avrundning av priser (0 decimaler) | =MROUND({_källa_}, 2) |
 
-**Tabell**  **2**  **– konvertering av moln tjänst och virtuell dator tid**
+**Tabell** **2** **– konvertering av timmar för molntjänst och virtuell dator**
 
 ### <a name="conversion-between-download-usage-file-and-usage-summary-portal-view"></a>Konvertering mellan den nedladdningsbara filen för användning och vyn som visar en sammanfattning av användningen i portalen
 
@@ -417,7 +417,7 @@ För de tjänster där zon och region påverkar prissättningen visar följande 
 | Zon 2 | Östra Asien/Stillahavsområdet <br> Sydöstra stillahavsområdet i Asien <br> Japan, östra <br> Japan, västra <br> Australien, östra <br> Australien, sydöstra | Asien och stillahavsområdet <br> Japan <br> Latinamerika <br> Mellanöstern/Afrika <br> Australien, östra <br> Australien, sydöstra |
 | Zon 3 | Brasilien, södra |   |
 
-**Tabell**  **4**  **– dataöverföring regioner**
+**Tabell** **4** **– dataöverföringsregioner**
 
 Det finns inga kostnader för utgående data mellan tjänster (till exempel O365 och Azure) i samma datacenter.
 
@@ -557,7 +557,7 @@ Mer information finns i dessa ytterligare informationskällor. De här filerna u
 | [**Friendly Service Names**](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) | Innehåller en lista över alla aktiva tjänster med tjänstkategorin, friendly service name, åtagandenamn och artikelnummer, förbrukningsnamn och artikelnummer, måttenheter och konverteringsfaktorer mellan rapporterad användning och visad användning i EA-portalen. | Friendly\_Service\_Names.xlsx |
 | [**Service Download Fields**](https://azurepricing.blob.core.windows.net/supplemental/Service_Download_Fields.xlsx) | Det här kalkylbladet innehåller en lista över alla möjliga kombinationer av tjänsterelaterade fält i den nedladdningsbara användningsrapporten. | Service\_Download\_Fields.xlsx |
 
-**Tabell**  **5**  **– ytterligare informations källor**
+**Tabell** **5** **– ytterligare informationskällor**
 
 ## <a name="power-bi-reporting"></a>Power BI-rapportering
 
@@ -585,7 +585,7 @@ Registrera dig för den kostnadsfria utvärderingsversionen genom att gå till k
 1. Ange din API-åtkomstnyckel för att ansluta. Du hittar nyckeln för registreringen i [EA-portalen](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Klicka på **Logga in**.
 1. Importen startar automatiskt. När den är klar visas en ny instrumentpanel, rapport och modell i navigeringsfönstret. Klicka på instrumentpanelen för att visa dina importerade data.
 
-Mer information om hur du skapar API-nyckeln för din registrering finns i hjälpfilen för API-rapporter i [EA-portalen](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Om du vill ha mer information om det nya innehållspaketet kan du ladda ned dokumentet [Microsoft Azure Consumption Insights](https://automaticbillingspec.blob.core.windows.net/spec/Microsoft%20Azure%20Consumption%20Insights.docx?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26).
+Mer information om hur du skapar API-nyckeln för din registrering finns i hjälpfilen för API-rapporter i [EA-portalen](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26). Mer information om det nya innehålls paketet finns i [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management).
 
 ### <a name="to-access-the-legacy-power-bi-ea-content-pack"></a>Så här kommer du åt det tidigare Power BI EA-innehållspaketet:
 
@@ -593,7 +593,7 @@ Mer information om hur du skapar API-nyckeln för din registrering finns i hjäl
  1. Logga in med ett giltigt arbets- eller skolkonto.
     - Arbets- eller skolkontot kan vara detsamma eller ett annat än det som används för att komma åt registreringen via Azure EA-portalen.
  1. Välj **Microsoft Azure Enterprise** på instrumentpanelen för tjänster och klicka på **Anslut**.
- 1. På skärmen Connect to Azure Enterprise (Anslut till Azure Enterprise) väljer du:
+ 1. På sidan ”Connect to Azure Enterprise” (Anslut till Azure Enterprise) väljer du:
     - URL till Azure-miljön: [https://ea.azure.com](https://ea.azure.com/).
     - Antal månader: Välj ett värde mellan 1 och 36.
     - Registreringsnummer: ange registreringsnumret.

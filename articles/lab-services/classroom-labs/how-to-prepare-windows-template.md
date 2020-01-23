@@ -10,12 +10,12 @@ ms.service: lab-services
 ms.topic: article
 ms.date: 11/21/2019
 ms.author: enewman
-ms.openlocfilehash: d7cff4e2afff4678bf7aa437aefa9d8deea220bc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c52a1212d160adce3a0a0638164833bc2907a856
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428954"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515011"
 ---
 # <a name="guide-to-setting-up-a-windows-template-machine-in-azure-lab-services"></a>Guide för att konfigurera en Windows-mall i Azure Lab Services
 
@@ -142,7 +142,7 @@ Om din dator behöver Office rekommenderar vi att du installerar Office via [Off
 
 ### <a name="change-the-microsoft-office-365-update-channel"></a>Ändra Microsoft Office 365-uppdaterings kanal
 
-Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar.  Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL.  Uppdatera kanal-URL-adresser finns på [Ändra uppdaterings kanalen när du har aktiverat att Office 365-klienter ska ta emot uppdateringar från Configuration Manager]/ConfigMgr/sum/Deploy-use/Manage-Office-365-ProPlus-updates # bkmk_channel). Exemplet nedan visar hur du ställer in Office 365 för att använda månads uppdaterings kanalen.
+Med hjälp av konfigurations verktyget för Office kan du ange hur ofta Office ska ta emot uppdateringar. Men om du behöver ändra hur ofta Office tar emot uppdateringar efter installationen kan du ändra uppdaterings kanalens URL. Uppdatera kanal-URL-adresser finns i [Ändra Office 365 ProPlus-uppdaterings kanal för enheter i din organisation](https://docs.microsoft.com/deployoffice/change-update-channels). Exemplet nedan visar hur du ställer in Office 365 för att använda månads uppdaterings kanalen.
 
 ```powershell
 # Update to the Office 365 Monthly Channel

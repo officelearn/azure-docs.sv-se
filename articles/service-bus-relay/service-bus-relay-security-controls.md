@@ -1,18 +1,18 @@
 ---
 title: Säkerhets kontroller för Azure Service Bus relä
-description: En check lista över säkerhets kontroller för att utvärdera Azure Service Bus relä
+description: De här artiklarna innehåller en check lista över inbyggda säkerhets kontroller för att utvärdera Azure Service Bus relä.
 services: service-bus-relay
 ms.service: service-bus-relay
 author: spelluru
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 7f4e2a31673905a7e28d1dbb5520650aefc6f368
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 28d3ba14aa7769ac4f3fc22bd2b5bd7acd30557c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219980"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514025"
 ---
 # <a name="security-controls-for-azure-service-bus-relay"></a>Säkerhets kontroller för Azure Service Bus relä
 
@@ -24,8 +24,8 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Stöd för tjänst slut punkt| Nej |  |   |
-| Stöd för nätverks isolering och brand vägg| Nej |  |   |
+| Stöd för tjänst slut punkt| Inga |  |   |
+| Stöd för nätverks isolering och brand vägg| Inga |  |   |
 | Stöd för Tvingad tunnel trafik| Gäller inte | Relä är TLS-tunneln  |   |
 
 ## <a name="monitoring--logging"></a>Övervaka & loggning
@@ -40,15 +40,15 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar| Dokumentation |
 |---|---|--|--|
-| Authentication| Ja | Via SAS. | [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md) |
-| Authorization|  Ja | Via SAS. | [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md) |
+| Autentisering| Ja | Via SAS. | [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md) |
+| Autentisering|  Ja | Via SAS. | [Azure Relay autentisering och auktorisering](relay-authentication-and-authorization.md) |
 
 ## <a name="data-protection"></a>Dataskydd
 
 | Säkerhets kontroll | Ja/nej | Anteckningar | Dokumentation |
 |---|---|--|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar |  Gäller inte | Relay är en webbsocket och bevarar inte data. |   |
-| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Nej | Använder endast Microsoft TLS-certifikat.  |   |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar |  Gäller inte | Relay är en webbsocket och bevarar inte data. |   |
+| Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Inga | Använder endast Microsoft TLS-certifikat.  |   |
 | Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |   |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Tjänsten kräver TLS. |   |
 | Krypterade API-anrop| Ja | HTTPS. |

@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid händelse källor
-description: Beskriver de händelse källor som stöds för Azure Event Grid
+description: I den här artikeln beskrivs de händelse källor som stöds för Azure Event Grid. En händelse källa är den plats där händelsen inträffar.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 63cd7cea65515488649507cb7d3c52877211ca04
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3a87475146e2b23c4a824e568ea3da33e1f4abf0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531453"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512954"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Händelse källor i Azure Event Grid
 
@@ -129,7 +129,7 @@ Prenumerera på Service Bus händelser för att svara på meddelanden utan en ak
 | [Översikt: Azure Service Bus till Event Grid-integrering](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Översikt över att integrera Service Bus med Event Grid. |
 | [Händelse schema](event-schema-service-bus.md) | Visar fält i Service Bus händelser. |
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 Prenumerera på Blob Storage händelser för att svara på BLOB-skapade och borttagna händelser.
 

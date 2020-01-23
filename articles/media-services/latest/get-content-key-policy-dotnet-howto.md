@@ -1,6 +1,6 @@
 ---
-title: Hämta en signeringsnyckel från den befintliga principen med hjälp av Media Services v3 .NET SDK - Azure | Microsoft Docs
-description: Det här avsnittet visar hur du hämtar en signeringsnyckel från den befintliga principen med hjälp av Media Services v3 .NET SDK.
+title: Hämta en signerings nyckel från en princip med hjälp av Azure Media Services v3 .NET
+description: Det här avsnittet visar hur du hämtar en signerings nyckel från den befintliga principen med hjälp av Media Services v3 .NET SDK.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,32 +12,32 @@ ms.topic: article
 ms.custom: seodec18
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ff27ae0fd639316f03fe89ffc906561b3ef85f6f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60322642"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515079"
 ---
-# <a name="get-a-signing-key-from-the-existing-policy"></a>Hämta en signeringsnyckel från den befintliga principen
+# <a name="get-a-signing-key-from-the-existing-policy"></a>Hämta en signerings nyckel från den befintliga principen
 
-En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er inte returnerar hemligheter eller autentiseringsuppgifter på **hämta** eller **lista** åtgärder. Se en detaljerad förklaring: Mer information finns i [RBAC och Media Services-konton](rbac-overview.md)
+En av de viktigaste designprinciperna för v3 API är att göra API:et säkrare. v3-API: er returnerar inte hemligheter eller autentiseringsuppgifter för **Get** -eller **list** åtgärder. Se den detaljerade förklaringen här: Mer information finns i [RBAC-och Media Services-konton](rbac-overview.md)
 
-I exemplet i den här artikeln visar hur du använder .NET för att få en signeringsnyckel från den befintliga principen. 
+Exemplet i den här artikeln visar hur du använder .NET för att hämta en signerings nyckel från den befintliga principen. 
  
 ## <a name="download"></a>Ladda ned 
 
-Klona en GitHub-lagringsplats som innehåller det fullständiga .NET-exemplet till din dator med följande kommando:  
+Klona en GitHub-lagringsplats som innehåller det fullständiga .NET-exemplet på din dator med hjälp av följande kommando:  
 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials.git
  ```
  
-ContentKeyPolicy med hemligheter exempel finns i den [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) mapp.
+Exemplet på ContentKeyPolicy med hemligheter finns i mappen [EncryptWithDRM](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/tree/master/AMSV3Tutorials/EncryptWithDRM) .
 
 ## <a name="get-contentkeypolicy-with-secrets"></a>Hämta ContentKeyPolicy med hemligheter 
 
-Gå till nyckeln genom att använda **GetPolicyPropertiesWithSecretsAsync**, vilket visas i exemplet nedan.
+Använd **GetPolicyPropertiesWithSecretsAsync**, som du ser i exemplet nedan, för att komma till nyckeln.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetOrCreateContentKeyPolicy)]
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/8/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 1b24258efdd75977b5571506b3eabf952a4ae0a4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027777"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514637"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -41,8 +41,15 @@ Om du försöker installera Sync-agenten på en Active Directory domänkontrolla
 
 Du löser problemet genom att överföra PDC-rollen till en annan domänkontrollant som kör Windows Server 2012 R2 eller senare och sedan installera Sync.
 
-<a id="server-registration-prerequisites"></a>**Följande meddelande visas i Server registreringen: "krav saknas"**
+<a id="parameter-is-incorrect"></a>**Det går inte att komma åt en volym på Windows Server 2012 R2 med felet: parametern är felaktig**  
+När du har skapat en server slut punkt på Windows Server 2012 R2 uppstår följande fel vid åtkomst till volymen:
 
+DriveLetter: \ är inte tillgänglig.  
+Parametern är felaktig.
+
+Lös problemet genom att installera de senaste uppdateringarna för Windows Server 2012 R2 och starta om servern.
+
+<a id="server-registration-prerequisites"></a>**Följande meddelande visas i Server registreringen: "krav saknas"**  
 Det här meddelandet visas om AZ eller AzureRM PowerShell-modulen inte är installerad på PowerShell 5,1. 
 
 > [!Note]  

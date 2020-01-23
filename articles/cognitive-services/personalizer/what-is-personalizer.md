@@ -8,68 +8,97 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707950"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514314"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
-Azure-personanpassa är en molnbaserad API-tjänst som gör att ditt program kan välja den bästa upplevelsen för användarna, lära sig från deras kollektiva real tids beteende.
+Azure-personanpassa är en molnbaserad API-tjänst som hjälper ditt klient program att välja det bästa, enda _innehålls_ objektet för att visa varje användare. Tjänsten väljer det bästa objektet, från innehålls objekt, baserat på samlad real tids information som du tillhandahåller om innehåll och kontext.
 
-* Ange information om dina användare och innehåll och ta emot den främsta åtgärden för att visa dina användare. 
-* Du behöver inte rensa och märka data innan du använder Personanpassaren.
-* Ge dig feedback till Personanpassaren när det passar dig. 
-* Visa analys i real tid. 
+När du har presenterat innehålls objekt för din användare övervakar systemet användar beteende och rapporterar en belönings poäng till Personanpassaren för att förbättra möjligheten att välja det bästa innehållet baserat på den Sammanhangs information som den tar emot.
 
-Se en demonstration av [hur en personanpassare fungerar](https://personalizercontentdemo.azurewebsites.net/)
+**Innehåll** kan vara vilken enhet som helst information, till exempel text, bilder, webb adresser eller e-postmeddelanden som du vill välja från för att visa för användaren.
 
-## <a name="how-does-personalizer-work"></a>Hur fungerar Personanpassare?
+<!--
+![What is personalizer animation](./media/what-is-personalizer.gif)
+-->
 
-I personanpassaren används maskin inlärnings modeller för att identifiera vilken åtgärd som ska rangordnas högst i en kontext. Klient programmet innehåller en lista över möjliga åtgärder, med information om dem. och information om kontexten, som kan innehålla information om användaren, enheten osv. Personanpassaren bestämmer vilken åtgärd som ska vidtas. När ditt klient program använder den valda åtgärden ger det feedback till Personanpassaren i form av en belönings poäng. När feedbacken har tagits emot uppdaterar Personanpassaren automatiskt sin egen modell som används för framtida rangordning. Med tiden tränar vi en modell som kan föreslå den bästa åtgärden att välja i varje sammanhang baserat på deras funktioner.
+## <a name="how-does-personalizer-select-the-best-content-item"></a>Hur väljer Personanpassare det bästa innehålls objektet?
 
-## <a name="how-do-i-use-the-personalizer"></a>Hur gör jag för att använder du Personanpassaren?
+Personanpassare använder **förstärknings inlärning** för att välja det bästa objektet (_åtgärd_) baserat på kollektivt beteende och belönings resultat för alla användare. Åtgärder är innehålls objekt, till exempel nyhets artiklar, vissa filmer eller produkter att välja bland.
 
-![Använda Personanpassaren för att välja vilken video som ska visas för en användare](media/what-is-personalizer/personalizer-example-highlevel.png)
+**Ranknings** anropet tar objektet Action, tillsammans med funktionerna i åtgärden och kontext funktionerna för att välja det översta objektet:
 
-1. Välj en upplevelse i din app för att anpassa.
-1. Skapa och konfigurera en instans av anpassnings tjänsten i Azure Portal. Varje instans är en personanpassa slinga.
-1. Använd [rang-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank) för att anropa personanpassaren med information (_funktioner_) om dina användare och innehållet (_åtgärder_). Du behöver inte tillhandahålla rena, märkta data innan du använder Personanpassaren. API: er kan anropas direkt eller använda SDK: er som är tillgängliga för olika programmeringsspråk.
-1. I klient programmet visar du användaren den åtgärd som valts av Personanpassaren.
-1. Använd [belönings-API: et](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) för att ge feedback till en person som anger om användaren har valt att utföra åtgärden. Detta är en _[belönings Poäng](concept-rewards.md)_ .
-1. Visa analyser i Azure Portal för att utvärdera hur systemet fungerar och hur dina data bidrar till anpassning.
+* **Åtgärder med funktioner** – innehålls objekt med funktioner som är speciella för varje objekt
+* **Kontext funktioner** – funktioner för dina användare, deras kontext eller deras miljö när du använder din app
 
-## <a name="where-can-i-use-personalizer"></a>Var kan jag använda Personanpassare?
+Rang anropet returnerar det ID för vilket innehålls objekt, __åtgärd__, som ska visas för användaren i fältet **belönings åtgärds-ID** .
+Den __åtgärd__ som visas för användaren väljs med Machine Learning-modeller, vilket försöker maximera det totala antalet förmåner över tid.
 
-Ditt klient program kan till exempel lägga till en Personanpassare till:
+Det finns flera exempel scenarier:
 
-* Anpassa vilken artikel som är markerad på en nyhets webbplats.    
-* Optimera AD-placering på en webbplats.
-* Visa ett personligt "rekommenderat objekt" på en shopping webbplats.
-* Föreslå användar gränssnitts element, till exempel filter som ska användas för ett bestämt foto.
-* Välj ett svar för chatt-roboten för att klargöra användar avsikten eller föreslå en åtgärd.
-* Prioritera förslag på vad en användare ska göra som nästa steg i en affärs process.
+|Innehållstyp|**Åtgärder (med funktioner)**|**Kontext funktioner**|Returnerat åtgärds-ID för belöning<br>(Visa det här innehållet)|
+|--|--|--|--|
+|Nyhets lista|a. `The president...` (National, politiken, [text])<br>b. `Premier League ...` (global, sport, [text, bild, video])<br> c. `Hurricane in the ...` (regional, väder, [text, bild]|Enhetens Nyheter läses från<br>Månad eller säsong<br>|en `The president...`|
+|Film lista|1. `Star Wars` (1977, [Action, Adventure, fantasi], George Lucas)<br>2. `Hoop Dreams` (1994, [dokument, idrotts], Steve Jonas<br>3. `Casablanca` (1942, [romantik, drama, War], Michael Curtiz)|Enhets filmen bevakas från<br>skärm storlek<br>Typ av användare<br>|3. `Casablanca`|
+|Produkt lista|i. `Product A` (3 kg, $ $ $ $, leverera på 24 timmar)<br>ii. `Product B` (20 kg, $ $, 2 veckor som levereras med tull)<br>iii. `Product C` (3 kg, $ $ $, leverans på 48 timmar)|Enhets köp läses från<br>Utgifts nivå för användare<br>Månad eller säsong|ii. `Product B`|
 
-Personanpassaren är inte en tjänst för att spara och hantera information om användar profiler, eller för att logga enskilda användares inställningar eller historik. Personanpassaren lär sig från varje interaktions funktion i en enskild modell som kan få högsta möjliga belöning när liknande funktioner inträffar. 
+Personanpassare använder förstärknings undervisning för att välja den enda bästa åtgärden, som kallas för _belönings åtgärds-ID_, baserat på en kombination av:
+* Tränad modell – information om den tidigare tjänsten för att personanpassa tjänsten togs emot
+* Aktuella data-/regionsspecifika åtgärder med funktioner och kontext funktioner
 
-## <a name="personalization-for-developers"></a>Anpassning för utvecklare
+## <a name="when-to-call-personalizer"></a>När du ska anropa en Personanpassare
 
-Tjänsten för personliga tjänster har två API: er:
+En persons **rang** - [API](https://go.microsoft.com/fwlink/?linkid=2092082) anropas _varje gång_ du presenterar innehåll i real tid. Detta kallas en **händelse**som anges med ett _händelse-ID_.
 
-* *Rankning*: Använd rang-API: et för att avgöra vilken _åtgärd_ som ska visas i den aktuella _kontexten_. Åtgärder skickas som en matris med JSON-objekt, med ID och information (_funktioner_) om var och en. kontexten skickas som ett annat JSON-objekt. API: t returnerar de actionId som programmet ska återge för användaren.
-* *Belöning*: när din användare interagerar med ditt program, mäter du hur väl anpassningen fungerar som ett tal mellan 0 och 1 och skickar den som en [belönings Poäng](concept-rewards.md). 
+Personens **belönings** - [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward) kan anropas i real tid eller fördröjs för att bättre passa din infrastruktur. Du fastställer belönings poängen utifrån dina affärs behov. Det kan vara ett enda värde, till exempel 1 för bra, och 0 för dåligt, eller ett tal som skapats av en algoritm som du skapar med tanke på dina affärs mål och mät värden.
 
-![Grundläggande sekvens med händelser för anpassning](media/what-is-personalizer/personalization-intro.png)
+## <a name="personalizer-content-requirements"></a>Innehålls krav för personligare
+
+Använd Personanpassare när ditt innehåll:
+
+* Har en begränsad uppsättning objekt (max ~ 50) att välja från. Om du har en större lista kan du [använda en rekommendations motor](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines) för att minska listan till 50 objekt.
+* Innehåller information som beskriver det innehåll som du vill rangordna: _åtgärder med funktioner_ och _kontext funktioner_.
+* Har minst ~ 1 – a innehålls relaterade händelser som är relaterade till att personanpassa ska vara effektiva. Om Personanpassaren inte får den lägsta trafik som krävs tar det längre tid för tjänsten att fastställa det enkla innehålls objektet.
+
+Eftersom Personanpassaren använder samlad information i nära real tid för att returnera det enda bästa innehålls objektet, så är tjänsten inte:
+* Behåll och hantera information om användar profiler
+* Logga enskilda användares inställningar eller historik
+* Kräv rensad och märkt innehåll
+
+## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>Så här utformar och implementerar du personanpassa för ditt klient program
+
+1. [Utforma](concepts-features.md) och planera för innehåll, **_åtgärder_** och **_kontext_** . Fastställ belönings algoritmen för **_belönings_** poängen.
+1. Varje [personanpassa resurs](how-to-settings.md) som du skapar betraktas som en inlärnings slinga. Slingan tar emot både rang-och belönings anrop för det innehållet eller användar upplevelsen.
+1. Lägg till en Personanpassare till din webbplats eller ditt innehålls system:
+    1. Lägg till ett **rang** anrop till personanpassaren i ditt program, din webbplats eller ditt system för att fastställa det bästa, enda _innehålls_ posten innan innehållet visas för användaren.
+    1. Visa det bästa, enda _innehålls_ objekt, vilket är det returnerade _Åtgärds-ID: t för belöning_, till användare.
+    1. Använd _algoritmen_ för insamlad information om hur användaren beter sig för att fastställa **belönings** poängen, till exempel:
+
+        |Beteende|Beräknad belönings Poäng|
+        |--|--|
+        |Användaren har valt bästa, enskilt _innehålls_ objekt (ID för belönings åtgärd)|**1**|
+        |Användaren har valt annat innehåll|**0**|
+        |Användaren pausade, rullade runt på ett avgörande sätt innan du väljer bästa, enskilt _innehålls_ objekt (belönings ÅTGÄRDS-ID)|**0,5**|
+
+    1. Lägg till ett **belönings** samtal som skickar en belönings Poäng mellan 0 och 1
+        * Direkt efter att ha visat ditt innehåll
+        * Eller någon gång senare i ett offline-system
+    1. [Utvärdera din loop](concepts-offline-evaluation.md) med en offline-utvärdering efter en användnings period. Med en offline-utvärdering kan du testa och utvärdera effektiviteten för tjänsten personanpassa utan att ändra din kod eller påverka användar upplevelsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Vad är nytt i Personanpassaren?](whats-new.md)
-* [Hur fungerar personanpassa?](how-personalizer-works.md)
+
+* [Så här fungerar Personanpassaren](how-personalizer-works.md)
 * [Vad är förstärknings inlärning?](concepts-reinforcement-learning.md)
 * [Lär dig mer om funktioner och åtgärder för rang förfrågan](concepts-features.md)
 * [Läs om hur du avgör poängen för belönings förfrågan](concept-rewards.md)
+* [Snabbstarter]()
+* [Självstudie]()
 * [Använd den interaktiva demonstrationen](https://personalizationdemo.azurewebsites.net/)

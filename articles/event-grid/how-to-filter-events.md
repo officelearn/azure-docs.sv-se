@@ -1,30 +1,30 @@
 ---
-title: Så här filtrerar du händelser för Azure Event Grid
-description: Visar hur du skapar Azure Event Grid-prenumerationer som Filtrera händelser.
+title: Filtrera händelser för Azure Event Grid
+description: Den här artikeln visar hur du filtrerar händelser (efter händelse typ, efter ämne, efter operatorer och data osv.) när du skapar en Event Grid-prenumeration.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 5bb95b80e12c818641e2be2b929cdfd01f8f5b5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 58da209c68449d3a28b08f52ec575f7db520f121
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304233"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514569"
 ---
 # <a name="filter-events-for-event-grid"></a>Filtrera händelser för Event Grid
 
-Den här artikeln visar hur du filtrerar händelser när du skapar en Event Grid-prenumeration. Läs mer om alternativen för händelsefiltrering, i [förstå händelse filtrering för Event Grid-prenumerationer](event-filtering.md).
+Den här artikeln visar hur du filtrerar händelser när du skapar en Event Grid-prenumeration. Information om alternativen för händelse filtrering finns i [förstå händelse filtrering för Event Grid prenumerationer](event-filtering.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="filter-by-event-type"></a>Filtrera efter händelsetyp
+## <a name="filter-by-event-type"></a>Filtrera efter händelse typ
 
-När du skapar en Event Grid-prenumeration kan du ange vilka [händelsetyper](event-schema.md) att skicka till slutpunkten. Exemplen i det här avsnittet Skapa prenumerationer på händelser för en resursgrupp, men begränsar de händelser som skickas till `Microsoft.Resources.ResourceWriteFailure` och `Microsoft.Resources.ResourceWriteSuccess`. Om du behöver mer flexibilitet när du filtrerar händelser efter händelsetyper kan se filtrera efter avancerade operatorer och fält.
+När du skapar en Event Grid-prenumeration kan du ange vilka [händelse typer](event-schema.md) som ska skickas till slut punkten. Exemplen i det här avsnittet skapar händelse prenumerationer för en resurs grupp, men begränsar de händelser som skickas till `Microsoft.Resources.ResourceWriteFailure` och `Microsoft.Resources.ResourceWriteSuccess`. Om du behöver mer flexibilitet när du filtrerar händelser efter händelse typer, se filtrera efter avancerade operatorer och data fält.
 
-Du använder PowerShell använder den `-IncludedEventType` parameter när du skapar prenumerationen.
+För PowerShell använder du parametern `-IncludedEventType` när du skapar prenumerationen.
 
 ```powershell
 $includedEventTypes = "Microsoft.Resources.ResourceWriteFailure", "Microsoft.Resources.ResourceWriteSuccess"
@@ -36,7 +36,7 @@ New-AzEventGridSubscription `
   -IncludedEventType $includedEventTypes
 ```
 
-Azure CLI, använder de `--included-event-types` parametern. I följande exempel används Azure CLI i Bash-gränssnittet:
+För Azure CLI använder du parametern `--included-event-types`. I följande exempel används Azure CLI i ett bash-gränssnitt:
 
 ```azurecli
 includedEventTypes="Microsoft.Resources.ResourceWriteFailure Microsoft.Resources.ResourceWriteSuccess"
@@ -48,7 +48,7 @@ az eventgrid event-subscription create \
   --included-event-types $includedEventTypes
 ```
 
-En Resource Manager-mall, använda den `includedEventTypes` egenskapen.
+Använd egenskapen `includedEventTypes` för en Resource Manager-mall.
 
 ```json
 "resources": [
@@ -79,9 +79,9 @@ En Resource Manager-mall, använda den `includedEventTypes` egenskapen.
 
 ## <a name="filter-by-subject"></a>Filtrera efter ämne
 
-Du kan filtrera händelserna efter ämne i informationen om händelsen. Du kan ange ett värde att matcha för början eller slutet av ämne. Om du behöver mer flexibilitet när du filtrerar händelser efter ämne, läser du filtrera efter avancerade operatorer och fält.
+Du kan filtrera händelser efter ämne i händelse data. Du kan ange ett värde som ska matchas i början eller slutet av ämnet. Om du behöver mer flexibilitet när du filtrerar händelser efter ämne, se filtrera efter avancerade operatorer och data fält.
 
-I följande PowerShell-exempel skapar du en händelseprenumeration som filtrerar genom att i början av ämne. Du använder den `-SubjectBeginsWith` parametern för att begränsa händelser till de som för en specifik resurs. Du skickar resurs-ID för en grupp.
+I följande PowerShell-exempel skapar du en händelse prenumeration som filtrerar efter ämnets början. Du kan använda parametern `-SubjectBeginsWith` för att begränsa händelser till för en speciell resurs. Du skickar resurs-ID: t för en nätverks säkerhets grupp.
 
 ```powershell
 $resourceId = (Get-AzResource -ResourceName demoSecurityGroup -ResourceGroupName myResourceGroup).ResourceId
@@ -93,7 +93,7 @@ New-AzEventGridSubscription `
   -SubjectBeginsWith $resourceId
 ```
 
-I nästa PowerShell-exempel skapas en prenumeration för ett blob storage. Det begränsar händelser till sådana med ett ämne som slutar med `.jpg`.
+Nästa PowerShell-exempel skapar en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar i `.jpg`.
 
 ```powershell
 $storageId = (Get-AzStorageAccount -ResourceGroupName myResourceGroup -AccountName $storageName).Id
@@ -105,7 +105,7 @@ New-AzEventGridSubscription `
   -SubjectEndsWith ".jpg"
 ```
 
-I följande exempel för Azure CLI skapar du en händelseprenumeration som filtrerar genom att i början av ämne. Du använder den `--subject-begins-with` parametern för att begränsa händelser till de som för en specifik resurs. Du skickar resurs-ID för en grupp.
+I följande Azure CLI-exempel skapar du en händelse prenumeration som filtrerar efter ämnets början. Du kan använda parametern `--subject-begins-with` för att begränsa händelser till för en speciell resurs. Du skickar resurs-ID: t för en nätverks säkerhets grupp.
 
 ```azurecli
 resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
@@ -117,7 +117,7 @@ az eventgrid event-subscription create \
   --subject-begins-with $resourceId
 ```
 
-I nästa Azure CLI-exempel skapas en prenumeration för ett blob storage. Det begränsar händelser till sådana med ett ämne som slutar med `.jpg`.
+Nästa Azure CLI-exempel skapar en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar i `.jpg`.
 
 ```azurecli
 storageid=$(az storage account show --name $storageName --resource-group myResourceGroup --query id --output tsv)
@@ -129,7 +129,7 @@ az eventgrid event-subscription create \
   --subject-ends-with ".jpg"
 ```
 
-I följande exempelmall för Resource Manager kan du skapa en händelseprenumeration som filtrerar genom att i början av ämne. Du använder den `subjectBeginsWith` egenskapen att begränsa händelser till de som för en specifik resurs. Du skickar resurs-ID för en grupp.
+I följande exempel på en Resource Manager-mall skapar du en händelse prenumeration som filtrerar efter ämnets början. Du kan använda egenskapen `subjectBeginsWith` för att begränsa händelser till dem för en bestämd resurs. Du skickar resurs-ID: t för en nätverks säkerhets grupp.
 
 ```json
 "resources": [
@@ -155,7 +155,7 @@ I följande exempelmall för Resource Manager kan du skapa en händelseprenumera
 ]
 ```
 
-I nästa exempel för Resource Manager-mallen skapar en prenumeration för ett blob storage. Det begränsar händelser till sådana med ett ämne som slutar med `.jpg`.
+I nästa exempel på en Resource Manager-mall skapas en prenumeration för en blob-lagring. Den begränsar händelser till dem med ett ämne som slutar i `.jpg`.
 
 ```json
 "resources": [
@@ -183,13 +183,13 @@ I nästa exempel för Resource Manager-mallen skapar en prenumeration för ett b
 
 ## <a name="filter-by-operators-and-data"></a>Filtrera efter operatorer och data
 
-Du kan använda operatorer och egenskaper för data att filtrera händelser för mer flexibilitet vid filtrering.
+Om du vill ha mer flexibilitet i filtreringen kan du använda operatorer och data egenskaper för att filtrera händelser.
 
 ### <a name="subscribe-with-advanced-filters"></a>Prenumerera med avancerade filter
 
-Läs om operatörer och nycklar som du kan använda för avancerade filter i [avancerad filtrering](event-filtering.md#advanced-filtering).
+Mer information om operatörer och nycklar som du kan använda för avancerad filtrering finns i [avancerad filtrering](event-filtering.md#advanced-filtering).
 
-Följande exempel skapar ett anpassat ämne. De prenumerera på anpassat ämne och filtrera efter ett värde i dataobjektet. Händelser som har egenskapen färg har angetts till blått, rött eller grönt skickas till prenumerationen.
+I de här exemplen skapas ett anpassat ämne. De prenumererar på det anpassade ämnet och filtrerar efter ett värde i dataobjektet. Händelser som har egenskapen färg inställd på blå, röd eller grön skickas till prenumerationen.
 
 Om du använder Azure CLI använder du:
 
@@ -234,9 +234,9 @@ New-AzEventGridSubscription `
   -AdvancedFilter @($AdvFilter1)
 ```
 
-### <a name="test-filter"></a>Test-filter
+### <a name="test-filter"></a>Test filter
 
-Testa filtret genom att skicka en händelse med färgfältet inställd grönt. Eftersom grön är ett av värdena i filtret, händelsen skickas till slutpunkten.
+Testa filtret genom att skicka en händelse med färg fältet inställt på grönt. Eftersom grönt är ett av värdena i filtret skickas händelsen till slut punkten.
 
 Om du använder Azure CLI använder du:
 
@@ -275,7 +275,7 @@ $body = "["+(ConvertTo-Json $htbody)+"]"
 Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-key" = $keys.Key1}
 ```
 
-Testa ett scenario där händelsen inte skickas genom att skicka en händelse med färgfältet inställd gult. Gul inte något av värdena som anges i prenumerationen, så att händelsen inte levereras till din prenumeration.
+Om du vill testa ett scenario där händelsen inte skickas skickar du en händelse med färg fältet inställt på gult. Gult är inte ett av de värden som anges i prenumerationen, så händelsen levereras inte till din prenumeration.
 
 Om du använder Azure CLI använder du:
 
@@ -306,6 +306,6 @@ Invoke-WebRequest -Uri $endpoint -Method POST -Body $body -Headers @{"aeg-sas-ke
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du övervakar händelse leveranser finns i [övervaka Event Grid meddelandeleverans](monitor-event-delivery.md).
-* Läs mer om autentiseringsnyckeln [Event Grid säkerhet och autentisering](security-authentication.md).
-* Läs mer om hur du skapar en Azure Event Grid-prenumeration, [Event Grid prenumerationsschema](subscription-creation-schema.md).
+* Information om övervakning av händelse leveranser finns i [övervaka Event Grid meddelande leverans](monitor-event-delivery.md).
+* Mer information om nyckeln för autentisering finns i [Event Grid säkerhet och autentisering](security-authentication.md).
+* Mer information om hur du skapar en Azure Event Grid-prenumeration finns i [Event Grid prenumerations schema](subscription-creation-schema.md).

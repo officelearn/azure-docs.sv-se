@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 12/16/2019
-ms.openlocfilehash: 96e7cbd09873192d8b73b57cb2b46bf5b7679742
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263463"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76515045"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -160,7 +160,7 @@ Vissa kopplings åtgärder gör asynkrona anrop eller lyssnar efter webhook-beg�
 | Namn | Anteckningar |
 |------|-------|
 | Gräns för uttrycksutvärdering | 131 072 tecken | `@concat()`, `@base64()`, `@string()` uttryck får inte vara längre än den här gränsen. |
-| Tecken gräns för begär ande URL | 32K-tecken |
+| Tecken gräns för begär ande URL | 16 384 tecken |
 |||
 
 #### <a name="retry-policy"></a>Återförsöksprincip

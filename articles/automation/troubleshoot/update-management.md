@@ -8,12 +8,12 @@ ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: f60ec802af0c88ee8cb3809bf27feef89e11570a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769803"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513277"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Fel sökning av problem med Uppdateringshantering
 
@@ -376,7 +376,7 @@ Om du inte kan lösa ett uppdaterings problem gör du en kopia av följande logg
 
 ### <a name="i-know-updates-are-available-but-they-dont-show-as-available-on-my-machines"></a>Jag vet att uppdateringar är tillgängliga, men de visas inte som tillgängliga på mina datorer
 
-* Detta händer ofta om datorerna har kon figurer ATS för att hämta uppdateringar från WSUS eller System Center Configuration Manager (SCCM), men WSUS och SCCM inte har godkänt uppdateringarna.
+* Detta händer ofta om datorerna har kon figurer ATS för att hämta uppdateringar från WSUS eller Microsoft Endpoint Configuration Manager, men WSUS och Configuration Manager inte har godkänt uppdateringarna.
 * Du kan kontrol lera om datorerna har kon figurer ATS för WSUS och SCCM genom [att referera till register nyckeln UseWUServer till register nycklarna i avsnittet "Konfigurera automatiska uppdateringar genom att redigera registret" i den här artikeln](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 * Om uppdateringar inte är godkända i WSUS installeras de inte. Du kan söka efter ej godkända uppdateringar i Log Analytics genom att köra följande fråga:
 

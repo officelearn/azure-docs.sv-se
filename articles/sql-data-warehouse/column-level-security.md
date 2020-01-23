@@ -1,6 +1,6 @@
 ---
-title: Säkerhet på kolumnnivå
-description: Säkerhet på kolumn nivå (CLS) gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap. CLS fören klar utformningen och kodningen av säkerhet i ditt program. Med CLS kan du implementera begränsningar för kolumn åtkomst.
+title: Vad är säkerhet på kolumn nivå för SQL Data Warehouse?
+description: Säkerhet på kolumn nivå gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap, förenkla utformningen och kodningen av säkerhet i ditt program och tillåta att du implementerar begränsningar i kolumnen fjärråtkomstservrar.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,21 +11,24 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85f705022a0ff5970d30c61206d4f2631254b7ce
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 344701989a753e17d8a026f6bb771a6030bdb71f
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077108"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513056"
 ---
 # <a name="column-level-security"></a>Säkerhet på kolumn nivå
-Säkerhet på kolumn nivå (CLS) gör det möjligt för kunder att kontrol lera åtkomsten till databas tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
-Uppdatera till video nedan eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) är också tillgänglig i SQL Data Warehouse. 
+
+Säkerhet på kolumn nivå gör det möjligt för kunder att styra åtkomsten till tabell kolumner baserat på användarens körnings kontext eller grupp medlemskap.
+
+
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
+Eftersom den här videon har publicerats [säkerhet på radnivå](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) blev tillgänglig för SQL Data Warehouse. 
 
-CLS fören klar utformningen och kodningen av säkerhet i ditt program. Med CLS kan du implementera begränsningar för kolumn åtkomst för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång som data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör ditt säkerhets system mer tillförlitligt och stabilt genom att minska det övergripande säkerhets systemets Area. Dessutom eliminerar CLS även behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.
+Säkerhet på kolumn nivå fören klar utformningen och kodningen av säkerhet i ditt program, så att du kan begränsa kolumn åtkomsten för att skydda känsliga data. Till exempel ser du till att specifika användare bara har åtkomst till vissa kolumner i en tabell som är relevanta för deras avdelning. Logiken för åtkomst begränsning finns i databas nivån i stället för bort från data i en annan program nivå. Databasen tillämpar åtkomst begränsningar varje gång data åtkomsten görs från vilken nivå som helst. Den här begränsningen gör din säkerhet mer tillförlitlig och robust genom att minska det totala säkerhets systemets Area. Dessutom eliminerar säkerhet på kolumn nivå behovet av att introducera vyer för att filtrera bort kolumner för att få åtkomst begränsningar för användarna.
 
-Du kan implementera CLS med [Grant](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) -T-SQL-instruktionen. Med den här mekanismen stöds både SQL-och Azure Active Directory-autentisering (AAD).
+Du kan implementera säkerhet på kolumn nivå med instruktionen [bevilja](https://docs.microsoft.com/sql/t-sql/statements/grant-transact-sql) T-SQL. Med den här mekanismen stöds både SQL-och Azure Active Directory-autentisering (AAD).
 
 ![CLS](./media/column-level-security/cls.png)
 
@@ -48,9 +51,9 @@ GRANT <permission> [ ,...n ] ON
 ```
 
 ## <a name="example"></a>Exempel
-I följande exempel visas hur du begränsar "TestUser" från åtkomst till kolumnen "SSN" i tabellen "Membership":
+I följande exempel visas hur du begränsar `TestUser` från att komma åt kolumnen `SSN` i `Membership`s tabellen:
 
-Skapa medlems tabellen "medlemskap" med kolumnen SSN som används för att lagra socialförsäkrings nummer:
+Skapa `Membership` tabell med SSN-kolumnen som används för att lagra sociala säkerhets nummer:
 
 ```sql
 CREATE TABLE Membership
@@ -62,13 +65,13 @@ CREATE TABLE Membership
    Email varchar(100) NULL);
 ```
 
-Tillåt ' TestUser ' för att få åtkomst till alla kolumner utom SSN-kolumnen som har känsliga data:
+Tillåt `TestUser` åtkomst till alla kolumner förutom kolumnen SSN, som har känsliga data:
 
 ```sql
 GRANT SELECT ON Membership(MemberID, FirstName, LastName, Phone, Email) TO TestUser;
 ```
 
-Frågor som har utförts som "TestUser" Miss söker om de innehåller kolumnen SSN:
+Frågor som körs som `TestUser` Miss förfaller om de inkluderar kolumnen SSN:
 
 ```sql
 SELECT * FROM Membership;
@@ -78,6 +81,8 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="use-cases"></a>Användningsfall
-Några exempel på hur CLS används idag:
+
+Några exempel på hur säkerhet på kolumn nivå används idag:
+
 - Ett finansiellt tjänste företag ger endast konto ansvariga åtkomst till kundens socialförsäkrings nummer (SSN), telefonnummer och annan personligt identifierbar information (PII).
 - En hälso vårds leverantör tillåter endast att läkare och anställda har till gång till känsliga medicinska poster samtidigt som medlemmarna i fakturerings avdelningen inte kan visa dessa data.

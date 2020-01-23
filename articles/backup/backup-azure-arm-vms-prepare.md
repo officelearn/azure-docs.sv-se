@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: f2954ad2693d7b4f56e3f1b33e804a6936cf8a65
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5ff3a00d8cb3bf0c5fa3cb4929b7c22d92c7834
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450150"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513821"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -36,16 +36,15 @@ I den här artikeln kan du se hur du:
 Dessutom finns det några saker som du kan behöva göra i vissa fall:
 
 * **Installera VM-agenten på den virtuella datorn**: Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett tillägg till Azure VM-agenten som körs på datorn. Om den virtuella datorn skapades från en Azure Marketplace-avbildning installeras och körs agenten. Om du skapar en anpassad virtuell dator, eller om du migrerar en lokal dator, kan du behöva [Installera agenten manuellt](#install-the-vm-agent).
-* **Tillåt uttryckligen utgående åtkomst**: vanligt vis behöver du inte uttryckligen tillåta utgående nätverks åtkomst för en virtuell Azure-dator för att den ska kunna kommunicera med Azure Backup. Vissa virtuella datorer kan dock drabbas av anslutnings problem, vilket visar **ExtensionSnapshotFailedNoNetwork** -fel vid försök att ansluta. Om detta händer bör du [uttryckligen tillåta utgående åtkomst](#explicitly-allow-outbound-access), så Azure Backup tillägget kan kommunicera med offentliga Azure-IP-adresser för säkerhets kopierings trafik.
 
 ## <a name="create-a-vault"></a>Skapa ett valv
 
  Ett valv lagrar säkerhets kopior och återställnings punkter som skapats med tiden och lagrar säkerhets kopierings principer som är associerade med säkerhetskopierade datorer. Skapa ett valv på följande sätt:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. I Sök skriver du **Recovery Services**. Under **tjänster**klickar du på **Recovery Services valv**.
 
-     ![Sök efter Recovery Services valv](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
+     ![Sök efter Recovery Services valv](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png)
 
 3. I menyn **Recovery Services valv** klickar du på **+ Lägg till**.
 
@@ -121,6 +120,7 @@ När du har aktiverat säkerhets kopiering:
 * Tänk på följande när säkerhets kopieringarna körs:
   * En virtuell dator som kör har störst chans att fånga en programkonsekvent återställnings punkt.
   * Men även om den virtuella datorn är avstängd, säkerhets kopie ras. En sådan virtuell dator kallas för en virtuell dator som är offline. I det här fallet är återställnings punkten krasch-konsekvent.
+* Explicit utgående anslutning krävs inte för att tillåta säkerhets kopiering av virtuella Azure-datorer.
 
 ### <a name="create-a-custom-policy"></a>Skapa en anpassad princip
 
@@ -177,7 +177,7 @@ Misslyckad | Misslyckad | Misslyckad
 Med den här funktionen kan två säkerhets kopior för samma virtuella dator köras parallellt, men i båda skedet (ögonblicks bilder, överför data till valv) kan endast en under aktivitet köras. I situationer då en pågående säkerhets kopiering resulterade i att säkerhets kopieringen till nästa dag inte kunde köras, undviks den här kopplings funktionen. Efterföljande dagars säkerhets kopieringar kan ha en ögonblicks bild som slutförts medan **överföring av data till valvet** hoppades över om en tidigare säkerhets kopierings jobb pågår.
 Den stegvisa återställnings punkten som skapades i valvet fångar upp omsättningen från den senaste återställnings punkten som skapades i valvet. Det kostar inget att påverka användaren.
 
-## <a name="optional-steps-install-agentallow-outbound"></a>Valfria steg (installera agent/Tillåt utgående)
+## <a name="optional-steps"></a>Valfria steg
 
 ### <a name="install-the-vm-agent"></a>Installera VM-agenten
 
@@ -188,113 +188,17 @@ Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett
 **Windows** | 1. [Ladda ned och installera](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) agent-MSI-filen.<br/><br/> 2. Installera med administratörs behörighet på datorn.<br/><br/> 3. kontrol lera installationen. I *C:\WindowsAzure\Packages* på den virtuella datorn högerklickar du på **WaAppAgent. exe** > **Egenskaper**. **Produkt versionen** bör vara 2.6.1198.718 eller högre på fliken **information** .<br/><br/> Om du uppdaterar agenten ser du till att inga säkerhets kopierings åtgärder körs och [installerar om agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
 
-### <a name="explicitly-allow-outbound-access"></a>Tillåt uttryckligen utgående åtkomst
-
-Säkerhets kopierings tillägget som körs på den virtuella datorn behöver utgående åtkomst till offentliga Azure-IP-adresser.
-
-* Normalt behöver du inte uttryckligen tillåta utgående nätverks åtkomst för en virtuell Azure-dator för att kunna kommunicera med Azure Backup.
-* Om du stöter på problem med att ansluta virtuella datorer, eller om du ser felet **ExtensionSnapshotFailedNoNetwork** vid försök att ansluta, bör du uttryckligen tillåta åtkomst så att säkerhets kopierings tillägget kan kommunicera med Azures offentliga IP-adresser för säkerhets kopierings trafik. Åtkomst metoder sammanfattas i följande tabell.
-
-**Alternativ** | **Åtgärd** | **Detaljer**
---- | --- | ---
-**Konfigurera NSG-regler** | Tillåt [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> I stället för att tillåta och hantera varje adress intervall kan du lägga till en regel som tillåter åtkomst till den Azure Backup tjänsten med hjälp av en [service tag](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Lär dig mer](../virtual-network/security-overview.md#service-tags) om service märken.<br/><br/> Services-Taggar fören klar åtkomst hanteringen och debiteras inte ytterligare kostnader.
-**Distribuera en proxy** | Distribuera en HTTP-proxyserver för routning av trafik. | Ger åtkomst till hela Azure och inte bara lagring.<br/><br/> Detaljerad kontroll över lagrings-URL: er tillåts.<br/><br/> Enskild punkt för Internet åtkomst för virtuella datorer.<br/><br/> Ytterligare kostnader för proxy.
-**Konfigurera Azure-brandvägg** | Tillåt trafik via Azure-brandväggen på den virtuella datorn med hjälp av en FQDN-tagg för tjänsten Azure Backup | Enkelt att använda om du har konfigurerat Azure-brandväggen i ett VNet-undernät.<br/><br/> Du kan inte skapa egna FQDN-taggar eller ändra FQDN i en-tagg.<br/><br/> Om dina virtuella Azure-datorer har hanterade diskar kan du behöva öppna ytterligare en port (8443) i brand väggarna.
-
-#### <a name="establish-network-connectivity"></a>Etablera nätverksanslutning
-
-Upprätta anslutningar med NSG, via proxy eller brand väggen
-
-##### <a name="set-up-an-nsg-rule-to-allow-outbound-access-to-azure"></a>Konfigurera en NSG-regel för att tillåta utgående åtkomst till Azure
-
-Om en NSG hanterar VM-åtkomsten tillåter du utgående åtkomst för lagring av säkerhets kopior till de obligatoriska intervallen och portarna.
-
-1. I egenskaperna för den virtuella datorn > **nätverk**väljer du **Lägg till regel för utgående port**.
-2. I **Lägg till utgående säkerhets regel**väljer du **Avancerat**.
-3. I **källa**väljer du **VirtualNetwork**.
-4. I **käll ports intervall**anger du en asterisk (*) för att tillåta utgående åtkomst från vilken port som helst.
-5. I **mål**väljer du **service tag**. I listan väljer du **Storage. region**. Regionen är den plats där valvet och de virtuella datorer som du vill säkerhetskopiera finns.
-6. I **mål ports intervall**väljer du porten.
-    * Virtuell dator med ohanterade diskar med okrypterade lagrings konton: 80
-    * Virtuell dator med ohanterade diskar med krypterat lagrings konto: 443 (standardinställning)
-    * Virtuell dator med hanterade diskar: 8443.
-7. I **protokoll**väljer du **TCP**.
-8. I **prioritet**anger du ett prioritets värde som är mindre än reglerna för högre neka.
-
-   Om du har en regel som nekar åtkomst måste den nya regeln för Tillåt vara högre. Om du till exempel har en **Deny_All** regel inställd på prioritet 1000 måste den nya regeln vara lägre än 1000.
-9. Ange ett namn och en beskrivning för regeln och välj **OK**.
-
-Du kan tillämpa NSG-regeln på flera virtuella datorer för att tillåta utgående åtkomst. Den här videon vägleder dig genom processen.
-
->[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
-
-##### <a name="route-backup-traffic-through-a-proxy"></a>Dirigera säkerhets kopierings trafik via en proxy
-
-Du kan dirigera säkerhets kopierings trafik via en proxy och ge proxy-åtkomst till de nödvändiga Azure-intervallen. Konfigurera den virtuella proxy-datorn så att den tillåter följande:
-
-* Den virtuella Azure-datorn ska dirigera all HTTP-trafik som är kopplad till det offentliga Internet via proxyservern.
-* Proxyservern ska tillåta inkommande trafik från virtuella datorer i det aktuella virtuella nätverket.
-* NSG **NSF-Lockdown** behöver en regel som tillåter utgående Internet trafik från den virtuella proxy-datorn.
-
-###### <a name="set-up-the-proxy"></a>Konfigurera proxyn
-
-Om du inte har en system konto-proxy anger du ett på följande sätt:
-
-1. Ladda ned [PsExec](https://technet.microsoft.com/sysinternals/bb897553).
-2. Kör **PsExec. exe-i-s cmd. exe** för att köra kommando tolken under ett system konto.
-3. Kör webbläsaren i system kontexten. Använd till exempel **%ProgramFiles%\Internet Explorer\iexplore.exe** för Internet Explorer.  
-4. Definiera proxyinställningarna.
-   * På Linux-datorer:
-     * Lägg till den här raden i **/etc/Environment** -filen:
-       * **http_proxy = http:\//proxy IP-adress: proxy-port**
-     * Lägg till dessa rader i **/etc/waagent.conf** -filen:
-         * **HttpProxy. Host = proxy-IP-adress**
-         * **HttpProxy. port = proxy-port**
-   * I webb läsar inställningarna på Windows-datorer anger du att en proxy ska användas. Om du för närvarande använder en proxyserver för ett användar konto kan du använda det här skriptet för att tillämpa inställningen på system konto nivå.
-
-       ```powershell
-      $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name DefaultConnectionSettings -Value $obj.DefaultConnectionSettings
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections" -Name SavedLegacySettings -Value $obj.SavedLegacySettings
-      $obj = Get-ItemProperty -Path Registry::"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings"
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name ProxyEnable -Value $obj.ProxyEnable
-      Set-ItemProperty -Path Registry::"HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Internet Settings" -Name Proxyserver -Value $obj.Proxyserver
-
-       ```
-
-###### <a name="allow-incoming-connections-on-the-proxy"></a>Tillåt inkommande anslutningar på proxyn
-
-Tillåt inkommande anslutningar i proxyinställningarna.
-
-1. Öppna **Windows-brandväggen med avancerad säkerhet**i Windows-brandväggen.
-2. Högerklicka på **regler för inkommande** **trafik > ny regel**.
-3. I **regel typ**väljer du **anpassad** > **Nästa**.
-4. I **program**väljer du **alla program** > **Nästa**.
-5. I **protokoll och portar**:
-   * Ange **TCP**som typ.
-   * Ange **lokala portar** för **vissa portar**.
-   * Ange **fjärrporten** till **alla portar**.
-
-6. Slutför guiden och ange ett namn för regeln.
-
-###### <a name="add-an-exception-rule-to-the-nsg-for-the-proxy"></a>Lägg till en undantags regel i NSG för proxyn
-
-På NSG **NSF-Lockdown**tillåter du trafik från alla portar på 10.0.0.5 till valfri Internet adress på port 80 (http) eller 443 (https).
-
-Följande PowerShell-skript ger ett exempel på hur trafik tillåts.
-I stället för att tillåta utgående till alla offentliga Internet adresser, kan du ange ett IP-adressintervall (`-DestinationPortRange`) eller använda taggen Storage. region service.
-
-```powershell
-Get-AzureNetworkSecurityGroup -Name "NSG-lockdown" |
-Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -Type Outbound -Priority 200 -SourceAddressPrefix "10.0.0.5/32" -SourcePortRange "*" -DestinationAddressPrefix Internet -DestinationPortRange "80-443"
-```
-
-##### <a name="allow-firewall-access-with-an-fqdn-tag"></a>Tillåt brand Väggs åtkomst med en FQDN-tagg
-
-Du kan konfigurera Azure-brandväggen så att den tillåter utgående åtkomst för nätverks trafik till Azure Backup.
-
-* [Lär dig mer om](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal) att distribuera Azure-brandväggen.
-* [Läs om](https://docs.microsoft.com/azure/firewall/fqdn-tags) FQDN-taggar.
+>[!NOTE]
+> Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
+>
+>Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
+>
+> Den här lösningen är särskilt användbar i följande scenarier:
+>  
+>1. Du har viktiga data som ska säkerhets kopie ras på bara en disk och du vill inte säkerhetskopiera resten av diskarna som är anslutna till en virtuell dator. Detta minimerar kostnaderna för lagring av säkerhets kopior.  
+>2. Du har andra säkerhets kopierings lösningar för en del av dina VM-data. Du kan till exempel säkerhetskopiera dina databaser eller data med en annan lösning för säkerhets kopiering av arbets belastning och du vill använda säkerhets kopiering av Azure VM-nivå för resten av dina diskar och data för att skapa ett effektivt och robust system som använder bästa möjliga kapacitet.
+>
+>Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
 
 ## <a name="next-steps"></a>Nästa steg
 

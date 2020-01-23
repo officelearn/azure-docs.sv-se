@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: b4a567bc0495595da77ef7d6cd240ee7fb30f0ed
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170155"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513940"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -20,7 +20,7 @@ Att mata in historiska data från Sakernas Internet-resurser (IoT) som enheter o
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och samlat in historiska data från IoT.
+Innan du fortsätter med den här artikeln måste du kontrol lera att du har installerat FarmBeats och samlat in historiska data från dina IoT-enheter.
 Du måste också aktivera partner åtkomst som anges i följande steg.
 
 ## <a name="enable-partner-access"></a>Aktivera partner åtkomst
@@ -38,31 +38,36 @@ Följ de här stegen.
 >[!NOTE]
 > Du måste vara administratör för att utföra följande steg.
 
-1. Hämta det här [skriptet](https://aka.ms/farmbeatspartnerscript)och extrahera det på din lokala enhet. Två filer finns inuti zip-filen.
-2. Logga in i [Azure-portalen](https://portal.azure.com/) och öppna Azure Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet i portalen.
+1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
+2. Logga in på https://portal.azure.com/ och gå till Azure Active Directory-> App-registreringar
 
-    ![Azure Portal verktygsfält](./media/for-tutorials/navigation-bar-1.png)
+3. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
 
-3. Kontrol lera att miljön är inställd på **PowerShell**.
+4. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
 
-    ![PowerShell-inställning](./media/for-tutorials/power-shell-new-1.png)
+5. Öppna Cloud Shell. Det här alternativet är tillgängligt i verktygsfältet i det övre högra hörnet av Azure Portal.
 
-4. Ladda upp de två filerna som du laddade ned från steg 1 i Cloud Shell-instansen.
+    ![Azure Portal verktygsfält](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-    ![Knappen Ladda upp i verktygsfältet](./media/for-tutorials/power-shell-two-1.png)
+6. Kontrol lera att miljön är inställd på **PowerShell**. Som standard är den inställd på bash.
 
-5. Gå till den katalog där filerna överfördes.
+    ![Inställning för PowerShell-verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-   >[!NOTE]
-   > Som standard laddas filerna upp till hem katalogen/hem/användar namn.
-6. Kör skriptet med det här kommandot:
+7. Ladda upp filen från steg 1 i Cloud Shell-instansen.
 
-    ```azurepowershell-interactive
-    ./generateCredentials.ps1
+    ![Knappen Ladda upp verktygsfält](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+
+8. Gå till den katalog där filen laddades upp. Som standard laddas filerna upp till hem katalogen under användar namnet.
+
+9. Kör följande skript. Skriptet frågar efter klient-ID som kan hämtas från översikts sidan för Azure Active Directory->.
+
+    ```azurepowershell-interactive 
+
+    ./generatePartnerCredentials.ps1   
+
     ```
 
-7. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**. EventHub-anslutningssträngen är tillgänglig som en del av API-svaret i Swagger.
-
+10. Följ anvisningarna på skärmen för att samla in värdena för **API-slutpunkt**, klient-ID, **klient-ID**, **klient hemlighet**och EventHub **-** **anslutningssträng**.
 ## <a name="create-device-or-sensor-metadata"></a>Skapa metadata för enhet eller sensor
 
  Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer. Du gör detta genom att skapa metadata genom att anropa FarmBeats-API: er. Observera att du måste anropa API: erna som den klient app som du skapade i ovanstående avsnitt

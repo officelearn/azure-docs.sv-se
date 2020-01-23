@@ -5,20 +5,20 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 7c40cfc8fbc6a9957281be842f6714fa9289a3c8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122227"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513751"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
 Azure FarmBeats hjälper dig att ta strömma data från dina IoT-enheter och sensorer till Datahub. För närvarande stöds följande sensor enhets partner.
 
-  ![FarmBeats-partner](./media/get-sensor-data-from-sensor-partner/partner-information-1.png)
+  ![FarmBeats-partner](./media/get-sensor-data-from-sensor-partner/partner-information-2.png)
 
-Genom att integrera enhets data med Azure FarmBeats kan du hämta grunddata från IoT-sensorer som distribuerats i Server gruppen till Datahub. Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn. Data kan användas för data fusion och Machine Learning/artificiell intelligens (ML/AI) modell uppbyggnad med hjälp av FarmBeats.
+Genom att integrera enhets data med Azure FarmBeats kan du hämta grunddata från IoT-sensorer som distribuerats i Server gruppen till datahubben. Data, när de är tillgängliga, kan visualiseras genom FarmBeats-acceleratorn. Data kan användas för data fusion och Machine Learning/artificiell intelligens (ML/AI) modell uppbyggnad med hjälp av FarmBeats.
 
 För att starta strömning av sensor data kontrollerar du följande:
 
@@ -44,7 +44,7 @@ Du kan också generera autentiseringsuppgifterna genom att köra skriptet från 
 1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
 2. Logga in på https://portal.azure.com/ och gå till Azure Active Directory-> App-registreringar
 
-3. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som din FarmBeats-Datahub.
+3. Klicka på den app-registrering som skapades som en del av din FarmBeats-distribution. Det får samma namn som FarmBeats-datahubben.
 
 4. Klicka på "exponera ett API" – > på Lägg till ett klient program och ange **04b07795-8ddb-461A-BBEE-02f9e1bf7b46** och kontrol lera "auktorisera omfång". Detta ger åtkomst till Azure CLI (Cloud Shell) för att utföra stegen nedan.
 

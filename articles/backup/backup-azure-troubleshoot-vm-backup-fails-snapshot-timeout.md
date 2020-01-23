@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 255c18144fe0089a3f630d90f527a57d2b4ed68b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47adda38bb39a95fe9abc0775a1822d677f19dab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391849"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513855"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Felsöka Azure Backup fel: problem med agenten eller tillägget
 
@@ -89,7 +89,6 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 
 **Orsak 1: [ögonblicks bilds statusen kan inte hämtas eller så går det inte att hämta en ögonblicks bild](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 2: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
-**Orsak 3: [den virtuella datorn har inte Internet åtkomst](#the-vm-has-no-internet-access)**
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot-tilläggs åtgärd misslyckades
 
@@ -113,7 +112,7 @@ När du har registrerat och schemalagt en virtuell dator för Azure Backup tjän
 **Orsak 3: [ögonblicks bilds status kan inte hämtas eller så går det inte att hämta ögonblicks bilder](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Orsak 4: [säkerhets kopierings tillägget kan inte uppdateras eller läsas in](#the-backup-extension-fails-to-update-or-load)**  
 **Orsak 5: säkerhets kopierings tjänsten har inte behörighet att ta bort de gamla återställnings punkterna på grund av ett resurs grupp lås** <br>
-**Orsak 6: [den virtuella datorn har inte Internet åtkomst](#the-vm-has-no-internet-access)**
+
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize – de konfigurerade disk storlekarna stöds för närvarande inte av Azure Backup.
 
@@ -141,16 +140,6 @@ Det senaste säkerhets kopierings jobbet misslyckades på grund av att en befint
 Om den schemalagda säkerhets kopierings åtgärden tar längre tid, i konflikt med nästa säkerhets kopierings konfiguration, granskar du de [bästa metoderna](backup-azure-vms-introduction.md#best-practices), [säkerhets kopierings prestanda](backup-azure-vms-introduction.md#backup-performance)och [återställnings överväganden](backup-azure-vms-introduction.md#backup-and-restore-considerations).
 
 ## <a name="causes-and-solutions"></a>Orsaker och lösningar
-
-### <a name="the-vm-has-no-internet-access"></a>Den virtuella datorn har inte Internet åtkomst
-
-Den virtuella datorn har inte Internet åtkomst per distributions kravet. Eller så kan det ha begränsningar som förhindrar åtkomst till Azure-infrastrukturen.
-
-För att det ska fungera korrekt kräver säkerhets kopierings tillägget anslutning till offentliga Azure-IP-adresser. Tillägget skickar kommandon till en Azure Storage-slutpunkt (HTTPs-URL) för att hantera ögonblicks bilder av den virtuella datorn. Om tillägget inte har åtkomst till det offentliga Internet Miss lyckas säkerhets kopieringen.
-
-#### <a name="solution"></a>Lösning
-
-Information om hur du löser nätverks problemet finns i [upprätta nätverks anslutning](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Agenten installeras på den virtuella datorn, men den svarar inte (för virtuella Windows-datorer)
 

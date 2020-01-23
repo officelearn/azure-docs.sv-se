@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 1e71f6f711bcee78538c573a8869b8fdfa2a10b0
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664628"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513804"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -262,7 +262,6 @@ Verifiera VM-agentens version på virtuella Windows-datorer:
 
 VM-säkerhetskopiering är beroende av utfärdande av ögonblicks bild kommandon för underliggande lagring. Om du inte har åtkomst till lagring eller fördröjningar i en ögonblicks bild aktivitet kan säkerhets kopierings jobbet inte köras. Följande villkor kan orsaka ögonblicks bild aktivitets fel:
 
-* **Nätverks åtkomst till lagring blockeras med hjälp av NSG**. Läs mer om hur du [etablerar nätverks åtkomst](backup-azure-arm-vms-prepare.md#establish-network-connectivity) till lagrings utrymme med hjälp av antingen listan över tillåtna IP-adresser eller via en proxyserver.
 * **Virtuella datorer med SQL Server säkerhets kopia konfigurerad kan orsaka aktivitets fördröjning i ögonblicks bilder**. Som standard skapar VM-säkerhetskopiering en fullständig VSS-säkerhetskopiering på virtuella Windows-datorer. Virtuella datorer som kör SQL Server, med SQL Server säkerhets kopiering konfigurerad, kan uppleva fördröjningar i ögonblicks bilder. Om ögonblicks bildernas fördröjning orsakar problem med säkerhets kopieringen anger du följande register nyckel:
 
    ```text
@@ -276,29 +275,9 @@ VM-säkerhetskopiering är beroende av utfärdande av ögonblicks bild kommandon
 
 ## <a name="networking"></a>Nätverk
 
-Precis som alla tillägg måste du ha åtkomst till det offentliga Internet för att kunna arbeta med säkerhets kopierings tillägg. Att inte ha åtkomst till det offentliga Internet kan själva manifesta på olika sätt:
+DHCP måste vara aktiverat i gästen för att IaaS VM-säkerhetskopiering ska fungera. Om du behöver en statisk privat IP-adress konfigurerar du den via Azure Portal eller PowerShell. Kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat.
+Få mer information om hur du konfigurerar en statisk IP-adress med hjälp av PowerShell:
 
-* Det går inte att installera tillägget.
-* Säkerhets kopierings åtgärder som disk ögonblicks bild kan inte fungera.
-* Det går inte att visa status för säkerhets kopierings åtgärden.
+* [Så här lägger du till en statisk intern IP-adress till en befintlig virtuell dator](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Ändra tilldelnings metoden för en privat IP-adress som tilldelats till ett nätverks gränssnitt](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 
-Behovet av att lösa offentliga Internet adresser beskrivs i [den här bloggen för Azure-support](https://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). Kontrol lera DNS-konfigurationerna för det virtuella nätverket och se till att Azure-URI: erna kan lösas.
-
-När namn matchningen har utförts måste du också tillhandahålla åtkomst till Azure IP-adresser. Gör något av följande om du vill avblockera åtkomst till Azure-infrastrukturen:
-
-* Lista över tillåtna IP-intervall för Azure-datacenter:
-   1. Hämta listan över [Azure datacenter-IP-adresser](https://www.microsoft.com/download/details.aspx?id=41653) som ska finnas i listan över tillåtna.
-   1. Avblockera IP-adresserna med hjälp av cmdleten [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) . Kör denna cmdlet i den virtuella Azure-datorn i ett upphöjd PowerShell-fönster. Kör som administratör.
-   1. Lägg till regler i NSG, om du har ett på plats, för att tillåta åtkomst till IP-adresser.
-* Skapa en sökväg för HTTP-trafik som ska flödas:
-   1. Om du har en viss nätverks begränsning på plats kan du distribuera en HTTP-proxyserver för att dirigera trafiken. Ett exempel är en nätverks säkerhets grupp. Se stegen för att distribuera en HTTP-proxyserver i [upprätta nätverks anslutningar](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
-   1. Lägg till regler i NSG, om du har ett på plats, för att tillåta åtkomst till Internet från HTTP-proxyn.
-
-> [!NOTE]
-> DHCP måste vara aktiverat i gästen för att IaaS VM-säkerhetskopiering ska fungera. Om du behöver en statisk privat IP-adress konfigurerar du den via Azure Portal eller PowerShell. Kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat.
-> Få mer information om hur du konfigurerar en statisk IP-adress med hjälp av PowerShell:
->
-> * [Så här lägger du till en statisk intern IP-adress till en befintlig virtuell dator](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> * [Ändra tilldelnings metoden för en privat IP-adress som tilldelats till ett nätverks gränssnitt](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
->
->

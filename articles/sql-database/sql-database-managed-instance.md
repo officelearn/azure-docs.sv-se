@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: b8cf7992617b7263b86fd98e5def8be1d43ca68c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293376"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514563"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -72,7 +72,7 @@ Huvud funktionerna i hanterade instanser visas i följande tabell:
 
 ## <a name="vcore-based-purchasing-model"></a>Köpmodell baserad på virtuell kärna
 
-Den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) för hanterade instanser ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att översätta lokala arbets belastnings krav till molnet. Med den här modellen kan du ändra beräkning, minne och lagring baserat på dina arbets belastnings behov. VCore-modellen är också berättigad till upp till 30 procent besparingar med [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Den [vCore-baserade inköps modellen](sql-database-service-tiers-vcore.md) för hanterade instanser ger dig flexibilitet, kontroll, transparens och ett enkelt sätt att översätta lokala arbets belastnings krav till molnet. Med den här modellen kan du ändra beräkning, minne och lagring baserat på dina arbets belastnings behov. VCore-modellen är också kvalificerad för upp till 55 procent besparingar med [Azure Hybrid-förmån för SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
 I vCore-modellen kan du välja mellan generationens maskin vara.
 

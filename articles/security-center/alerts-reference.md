@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: cfb77548217cf173438ab0407320cbdff8db092e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 322b7656a5e8cb5d0fd0274cc9f09adec2c2c5e1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276996"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514773"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -27,27 +27,16 @@ Information om hur du svarar på dessa aviseringar finns [i hantera och svara p�
 
 Information om hur du exporterar aviseringar (och rekommendationer) finns i [Exportera säkerhets aviseringar och rekommendationer (för hands version)](continuous-export.md).
 
-Under tabellen aviseringar finns en tabell som beskriver den Azure Security Center Kill-kedja som används för att kategorisera syftet med dessa aviseringar. 
+Under aviserings tabellerna finns en tabell som beskriver Azure Security Center Kill-kedjan som används för att kategorisera syftet med dessa aviseringar. 
 
-Typer av aviseringar som ingår i den här tabellen:
-* [Aviseringar för Windows-datorer](#alerts-windows)
-* [Aviseringar för Linux-datorer](#alerts-linux)
-* [Aviseringar för Azure App Service](#alerts-azureappserv)
-* [Aviseringar för AKS-kluster nivå](#alerts-akscluster)
-* [Aviseringar för värd nivå för behållare](#alerts-containerhost)
-* [Aviseringar för SQL Database och SQL Data Warehouse](#alerts-sql-db-and-warehouse)
-* [Aviseringar för Azure Storage](#alerts-azurestorage)
-* [Aviseringar för Azure Cosmos DB](#alerts-azurecosmos)
-* [Aviseringar för Azure nätverks lager](#alerts-azurenetlayer)
-* [Aviseringar för Azure Resource Manager (för hands version)](#alerts-azureresourceman)
-* [Aviseringar för Azure Key Vault (för hands version)](#alerts-azurekv)
-* [Aviseringar för Azure DDoS Protection](#alerts-azureddos)
 
-## <a name="azure-security-center-alerts"></a>Azure Security Center aviseringar
+
+## <a name="alerts-windows"></a>Aviseringar för Windows-datorer
+
+[Mer information och anmärkningar](security-center-alerts-iaas.md#windows-)
 
 |Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
 |----|----|:----:|
-||<a name="alerts-windows"></a><h3>Windows-datorer</h3> [Mer information och anmärkningar](security-center-alerts-iaas.md#windows-)||
 |**En inloggning från en skadlig IP-adress har identifierats**|En lyckad fjärrautentisering för kontot "Tristan. schleining" och processen "advapi" inträffade, men inloggnings-IP-adressen [IP-adress] har tidigare rapporter ATS som skadlig eller mycket ovanlig. Ett lyckat angrepp har förmodligen inträffat.|-|
 |**En inloggning från en skadlig IP-adress har identifierats. [sett flera gånger]**|En lyckad fjärrautentisering för kontot "IUSR_10001" och processen "advapi" inträffade, men inloggnings-IP-adressen [IP-adress] har tidigare rapporter ATS som skadlig eller mycket ovanlig. Ett lyckat angrepp har förmodligen inträffat. Filer med fil namns tilläggen. scr är skärmsläckare och finns vanligt vis i och körs i Windows system katalog.|-|
 |**Tillägg av gäst konto till lokal administratörs grupp**|Analys av värd data har identifierat tillägget av det inbyggda gäst kontot i den lokala administratörs gruppen på% {komprometterade värden}, vilket är starkt kopplat till angrepps aktivitet.|-|
@@ -129,7 +118,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Misstänkt kod segment identifierat**|Anger att ett kod segment har tilldelats med metoder som inte är standard, till exempel reflekterande injektion och process ihålig. Aviseringen ger ytterligare egenskaper för det kod segment som har bearbetats för att ge kontext för funktioner och beteenden för det rapporterade kod segmentet.|-|
 |**Shellcode identifierad**|Shellcode är nyttolasten som körs när skadlig kod har utnyttjat en sårbarhet i ett program.<br>Den här varningen anger att krasch dumpnings analys har identifierat körbar kod som innehåller beteenden som ofta utförs av skadliga nytto laster. Även om icke-skadliga program också kan utföra det här beteendet är det inte vanligt i normal program utvecklings praxis.|-|
 |**Filbaserad attack teknik upptäcktes**|Den angivna processens minne innehåller en fil med filbaserad attack: [Toolkit Name]. Filbaserade angrepps verktyg har vanligt vis ingen närvaro på fil systemet, vilket gör att det inte går att hitta något traditionellt antivirus program.|DefenseEvasion/körning|
-||<a name="alerts-linux"></a><h3>Linux-datorer</h3> [Mer information och anmärkningar](security-center-alerts-iaas.md#linux-)||
+||||
+
+
+## <a name="alerts-linux"></a>Aviseringar för Linux-datorer
+
+[Mer information och anmärkningar](security-center-alerts-iaas.md#linux-)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Process som ser åtkomst till filen SSH-auktoriserade nycklar på ett ovanligt sätt**|En SSH-auktoriserad nyckel fil har öppnats i en metod som liknar kända kampanjer från skadlig kod. Den här åtkomsten kan indikera att en angripare försöker få beständig åtkomst till en dator.|-|
 |**Identifierat beständigt försök**|Värd data analys har identifierat att ett start skript för enanvändarläge har installerats.<br>Eftersom det är sällsynt att alla legitima processer måste köras i detta läge kan det tyda på att en angripare har lagt till en skadlig process på varje körnings nivå för att garantera beständighet. |Bevarande|
 |**Ändring av misstänkt fil tidsstämpel**|Värd data analysen identifierade en misstänkt tids stämplings ändring. Angripare kopierar ofta tidsstämplar från befintliga, legitima filer till nya verktyg för att undvika att de nyligen släppta filerna identifieras.|Persistens/DefenseEvasion|
@@ -163,24 +160,24 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Inaktiverar gransknings loggning [sett flera gånger]**|Linux audit-systemet är ett sätt att spåra säkerhetsrelaterad information i systemet. Den registrerar så mycket information om händelserna som inträffar i systemet som möjligt. Om du inaktiverar granskad loggning kan det hindra identifiering av överträdelser av säkerhets principer som används i systemet. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
 |**En körbar fil hittades som körs från en misstänkt plats**|Analysen av värd data upptäckte en körbar fil på% {komprometterad värd} som körs från en plats som är gemensam med kända misstänkta filer. Den här körbara filen kan antingen vara en legitim aktivitet eller en indikation på en komprometterad värd.|-|
 |**Användning av xorg sårbarhet [sett flera gånger]**|Analys av värd data på% {komprometterad värd} identifierade användaren av xorg med misstänkta argument. Angripare kan använda den här metoden i försök att eskalera privilegier. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Exponerad Docker-daemon identifierad**|Dator loggar indikerar att Docker daemon (dockerd) exponerar en TCP-socket. By default, Docker configuration, does not use encryption or authentication when a TCP socket is enabled. This enables full access to the Docker daemon, by anyone with access to the relevant port.|-|
-|**Failed SSH brute force attack**|Failed brute force attacks were detected from the following attackers: %{Attackers}.  Attackers were trying to access the host with the following user names: %{Accounts used on failed sign in to host attempts}.|-|
-|**Hidden file execution detected**|Analysis of host data indicates that a hidden file was execute by %{user name}. This activity could either be legitimate activity, or an indication of a compromised host.|-|
-|**Indicators associated with DDOS toolkit detected**|Analysis of host data on %{Compromised Host} detected file names that are part of a toolkit associated with malware capable of launching DDoS attacks, opening ports and services and taking full control over the infected system. This could also possibly be legitimate activity.|-|
-|**Indicators associated with DDOS toolkit detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected file names that are part of a toolkit associated with malware capable of launching DDoS attacks, opening ports and services and taking full control over the infected system. This could also possibly be legitimate activity. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Local host reconnaissance detected**|Analysis of host data on %{Compromised Host} detected the execution of a command normally associated with common Linux bot reconnaissance.|-|
-|**Local host reconnaissance detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected the execution of a command normally associated with common Linux bot reconnaissance. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Manipulation of host firewall detected**|Analysis of host data on %{Compromised Host} detected possible manipulation of the on-host firewall. Attackers will often disable this to exfiltrate data.|-|
-|**Manipulation of host firewall detected [seen multiple times]**|Analysis of host data on %{Compromised Host} detected possible manipulation of the on-host firewall. Attackers will often disable this to exfiltrate data. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**New SSH key added**|A new SSH key was added to the authorized keys file|-|
-|**New SSH key added [seen multiple times]**|A new SSH key was added to the authorized keys file. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Possible attack tool detected**|Machine logs indicate that the suspicious process: '%{Suspicious Process}' was running on %{Compromised Host}. This tool is often associated with malicious users attacking other machines in some way.|-|
-|**Possible attack tool detected [seen multiple times]**|Machine logs indicate that the suspicious process: '%{Suspicious Process}' was running on %{Compromised Host}. This tool is often associated with malicious users attacking other machines in some way. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Possible backdoor detected [seen multiple times]**|Analysis of host data has detected a suspicious file being downloaded then run on %{Compromised Host} in your subscription. This activity has previously been associated with installation of a backdoor. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Possible credential access tool detected**|Machine logs indicate a possible known credential access tool was running on %{Compromised Host} launched by process: '%{Suspicious Process}'. This tool is often associated with attacker attempts to access credentials.|-|
-|**Possible credential access tool detected [seen multiple times]**|Machine logs indicate a possible known credential access tool was running on %{Compromised Host} launched by process: '%{Suspicious Process}'. This tool is often associated with attacker attempts to access credentials. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
-|**Possible exploitation of Hadoop Yarn**|Analysis of host data on %{Compromised Host} detected the possible exploitation of the Hadoop Yarn service.|-|
-|**Possible Log Tampering Activity Detected**|Analys av värd data på% {komprometterad värd} har upptäckt eventuell borttagning av filer som spårar användarens aktivitet under driften. Angripare försöker ofta undvika identifiering och lämnar ingen spårning av skadlig aktivitet genom att ta bort sådana loggfiler.|-|
+|**Exponerad Docker-daemon identifierad**|Dator loggar indikerar att Docker daemon (dockerd) exponerar en TCP-socket. Som standard använder Docker-konfigurationen inte kryptering eller autentisering när en TCP-socket är aktive rad. Detta möjliggör fullständig åtkomst till Docker daemon, av alla som har åtkomst till den relevanta porten.|-|
+|**Misslyckad SSH brute force-attack**|Misslyckade angrepp med brute force upptäcktes från följande angripare:% {angripare}.  Angripare försökte komma åt värden med följande användar namn:% {konton som används vid misslyckade inloggningar till värd försök}.|-|
+|**Körning av dold fil upptäcktes**|Analys av värd data indikerar att en dold fil kördes av% {User Name}. Den här aktiviteten kan antingen vara en legitim aktivitet eller en indikation på en komprometterad värd.|-|
+|**Indikatorer som är associerade med DDOS Toolkit upptäcktes**|Analys av värd data på% {komprometterad värd} identifierade fil namn som är en del av ett verktyg som är associerat med skadlig kod och som kan starta DDoS attacker, öppna portar och tjänster och få fullständig kontroll över det infekterade systemet. Detta kan även vara en legitim aktivitet.|-|
+|**Indikatorer som är associerade med DDOS Toolkit upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} identifierade fil namn som är en del av ett verktyg som är associerat med skadlig kod och som kan starta DDoS attacker, öppna portar och tjänster och få fullständig kontroll över det infekterade systemet. Detta kan även vara en legitim aktivitet. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Lokal värd rekognosering identifierad**|Analys av värd data på% {komprometterad värd} upptäckte körningen av ett kommando som vanligt vis är kopplat till vanliga Linux bot-rekognosering.|-|
+|**En lokal värd rekognosering har identifierats [sett flera gånger]**|Analys av värd data på% {komprometterad värd} upptäckte körningen av ett kommando som vanligt vis är kopplat till vanliga Linux bot-rekognosering. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Manipulering av värd brand väggen upptäcktes**|Analys av värd data på% {komprometterad värd} upptäckte möjlig modifiering av brand väggen på värden. Angripare kommer ofta att inaktivera detta för att stjäla data.|-|
+|**Manipulering av värd brand väggen upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} upptäckte möjlig modifiering av brand väggen på värden. Angripare kommer ofta att inaktivera detta för att stjäla data. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Ny SSH-nyckel har lagts till**|En ny SSH-nyckel har lagts till i den auktoriserade nyckel filen|-|
+|**Ny SSH-nyckel har lagts till [sett flera gånger]**|En ny SSH-nyckel har lagts till i filen med auktoriserade nycklar. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Möjligt attack verktyg identifierat**|Dator loggar indikerar att den misstänkta processen:% {misstänkt process} kördes på% {komprometterad värd}. Det här verktyget är ofta kopplat till skadliga användare som angriper andra datorer på något sätt.|-|
+|**Möjligt attack verktyg identifierat [sett flera gånger]**|Dator loggar indikerar att den misstänkta processen:% {misstänkt process} kördes på% {komprometterad värd}. Det här verktyget är ofta kopplat till skadliga användare som angriper andra datorer på något sätt. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Möjlig bakdörr upptäcktes [sett flera gånger]**|Analys av värd data har identifierat en misstänkt fil som laddats ned och körs sedan på% {komprometterad värd} i din prenumeration. Den här aktiviteten har tidigare associerats med installationen av en bakdörr. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Möjligt åtkomst verktyg för autentiseringsuppgifter har identifierats**|Dator loggar indikerar att ett möjligt känt Credential Access-verktyg körs på% {komprometterad värd} startades av processen:% {misstänkt process}. Det här verktyget är ofta kopplat till angripare försöker få åtkomst till autentiseringsuppgifter.|-|
+|**Möjligt åtkomst verktyget för autentiseringsuppgifter upptäcktes [sett flera gånger]**|Dator loggar indikerar att ett möjligt känt Credential Access-verktyg körs på% {komprometterad värd} startades av processen:% {misstänkt process}. Det här verktyget är ofta kopplat till angripare försöker få åtkomst till autentiseringsuppgifter. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
+|**Möjligt utnyttjande av Hadoop-garn**|Analys av värd data på% {komprometterad värd} upptäckte eventuell användning av Hadoop garn-tjänsten.|-|
+|**Möjlig logg manipulations aktivitet har identifierats**|Analys av värd data på% {komprometterad värd} har upptäckt eventuell borttagning av filer som spårar användarens aktivitet under driften. Angripare försöker ofta undvika identifiering och lämnar ingen spårning av skadlig aktivitet genom att ta bort sådana loggfiler.|-|
 |**Möjlig logg manipulations aktivitet har identifierats [sett flera gånger]**|Analys av värd data på% {komprometterad värd} har upptäckt eventuell borttagning av filer som spårar användarens aktivitet under driften. Angripare försöker ofta undvika identifiering och lämnar ingen spårning av skadlig aktivitet genom att ta bort sådana loggfiler. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
 |**Eventuell förlust av data har identifierats**|Analys av värd data på% {komprometterad värd} upptäckte ett möjligt villkor för utgående data. Angripare kommer ofta att utsätta data från datorer som de har komprometterat.|-|
 |**Möjlig förlust av data upptäcktes [sett flera gånger]**|Analys av värd data på% {komprometterad värd} upptäckte ett möjligt villkor för utgående data. Angripare kommer ofta att utsätta data från datorer som de har komprometterat. Den här funktionen visade [x]] gånger idag på följande datorer: [dator namn]|-|
@@ -210,7 +207,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Misstänkt lösen ords åtkomst [sett flera gånger]**|Analys av värd data har identifierat misstänkt åtkomst till krypterade användar lösen ord på% {komprometterad värd}. Det här beteendet visade [x] gånger idag på följande datorer: [dator namn]|-|
 |**Misstänkt PHP-körning har identifierats**|Dator loggar indikerar att en misstänkt PHP-process körs. Åtgärden innehöll ett försök att köra OS-kommandon eller PHP-kod från kommando raden med PHP-processen. Även om det här beteendet kan vara legitimt i webb program, observeras även det här beteendet i skadliga aktiviteter som försök att infektera webbplatser med webb gränssnitt.|-|
 |**Misstänkt begäran till Kubernetes-API**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-API: et. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|-|
-||<a name="alerts-azureappserv"></a><h3>Azure Apptjänst</h3> [Mer information och anmärkningar](security-center-alerts-compute.md#azure-app-service-)||
+||||
+
+
+## <a name="alerts-azureappserv"></a>Aviseringar för Azure App Service
+
+[Mer information och anmärkningar](security-center-alerts-compute.md#azure-app-service-)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Ett misstänkt WordPress-tema har påträffats**|App Service aktivitets loggen indikerar en möjlig kod inmatnings aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten liknar aktivitet som manipulerar ett WordPress-tema som stöder körning av kod på Server sidan, följt av en direkt webbegäran om att anropa den manipulerade tema filen. Den här typen av aktivitet kan vara en del av en angrepps kampanj över WordPress.|-|
 |**Webb-finger avtryck upptäckt**<br>(NMAP/blind elefant)|I aktivitets loggen för App Service anges en möjlig webb finger avtrycks aktivitet på din App Service-resurs.<br>Den här misstänkta aktiviteten är associerad med ett verktyg som kallas blind elefant. Verktyget finger avtrycks webb servrar och försöker identifiera installerade program och deras versioner. Angripare använder ofta verktyget för att söka efter sårbarheter i webb programmen. |-|
 |**Misstänkt åtkomst till möjligen sårbar webb sida upptäcktes**|App Service aktivitets loggen anger att en webb sida som verkar vara känslig har öppnats.<br>Den här misstänkta aktiviteten härstammar från en käll adress vars åtkomst mönster liknar en webb skanner. Den här typen av aktivitet är ofta kopplad till ett försök från en angripare att söka igenom nätverket och försöka få åtkomst till känsliga eller sårbara webb sidor. |-|
@@ -226,7 +231,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Misstänkt användar agent identifierad**|Azure App Service aktivitets loggen anger begär Anden med misstänkt användar agent. Detta kan tyda på att försök att utnyttja ett säkerhets problem i App Service-programmet.|-|
 |**PHP-fil i upload-mapp**|Azure App Service aktivitets loggen visar en åtkomst till en misstänkt PHP-sida som finns i upload-mappen. Den här typen av mapp innehåller vanligt vis PHP-filer. Förekomsten av den här typen av fil kan tyda på att det finns ett utnyttjande av eventuella sårbarheter för fil uppladdning.|-|
 |**Mönster för avvikande begär Anden upptäcktes**|Aktivitets loggen för Azure App Service anger en avvikande HTTP-aktivitet till App Service från% {source IP}. Den här aktiviteten liknar ett mönster för att göra en suddiga Force-aktivitet.|-|
-||<a name="alerts-akscluster"></a><h3>AKS kluster nivå</h3> [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)||
+||||
+
+
+## <a name="alerts-akscluster"></a>Aviseringar för AKS-kluster nivå
+
+[Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**För hands version – roll bindning till rollen kluster-admin har identifierats**|Kubernetes gransknings loggs analys upptäckte en ny bindning till kluster administratörs rollen som resulterade i administratörs behörighet. Onödigt att ge administratörs behörighet kan leda till problem med eskalering av privilegier i klustret.|Bevarande|
 |**För hands VERSIONs Kubernetes-instrumentpanelen har identifierats**|Kubernetes Gransknings logg analys upptäckte exponering av Kubernetes-instrumentpanelen av en LoadBalancer-tjänst. Exponerade instrument paneler tillåter oautentiserad åtkomst till kluster hantering och utgör en säkerhets risk.|Bevarande|
 |**För hands version – ny roll med hög behörighet har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny roll med hög behörighet. En bindning till en roll med hög behörighet ger utökade privilegier för användare/grupp i klustret. Om du inte behöver utökade privilegier kan det leda till problem med eskalering av privilegier i klustret.|Bevarande|
@@ -234,7 +247,14 @@ Typer av aviseringar som ingår i den här tabellen:
 |**PREVIEW – utvinnings behållare för digital valuta har identifierats**|Kubernetes Gransknings logg analys har identifierat en behållare som har en avbildning kopplad till ett verktyg för digital valuta utvinning.|Körning|
 |**Förhands granskning-identifierad behållare**|Kubernetes Gransknings logg analys upptäckte en ny privilegie rad behållare. En privilegie rad behållare har åtkomst till nodens resurser och bryter isoleringen mellan behållare. Om en angripare har komprometterats kan en angripare använda den privilegierade behållaren för att få åtkomst till noden.|PrivilegeEscalation|
 |**PREVIEW-container med en känslig volym montering har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny behållare med en känslig volym montering. Den volym som upptäcktes är en hostPath-typ som monterar en känslig fil eller mapp från noden till behållaren. Om behållaren komprometteras kan angriparen använda den här monteringen för att få åtkomst till noden.|PrivilegeEscalation|
-||<a name="alerts-containerhost"></a><h3>Värd nivå för behållare</h3> [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)||
+||||
+
+## <a name="alerts-containerhost"></a>Aviseringar för behållares värd nivå
+
+[Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Privilegie rad behållare upptäcktes**|Dator loggar indikerar att en privilegie rad Docker-behållare körs. En privilegie rad behållare har fullständig åtkomst till värdens resurser. Om en angripare har komprometterats kan en angripare använda den privilegierade behållaren för att få åtkomst till värddatorn.|PrivilegeEscalation/körning|
 |**Privilegie rad kommando körning i behållare**|Dator loggar indikerar att ett privilegie rad kommando kördes i en Docker-behållare. Ett privilegie rad kommando har utökade privilegier på värddatorn.|PrivilegeEscalation|
 |**Exponerad Docker-daemon identifierad**|Dator loggar indikerar att Docker daemon (dockerd) exponerar en TCP-socket. Docker-konfigurationen använder som standard inte kryptering eller autentisering när en TCP-socket är aktive rad. Alla som har åtkomst till den relevanta porten kan sedan få fullständig åtkomst till Docker daemon.|Exploatering/körning|
@@ -242,7 +262,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Container med en Miner-avbildning identifierad**|Dator loggar indikerar körning av en Docker-behållare som kör en avbildning som är kopplad till den digitala valuta utvinning. Detta kan bero på att dina resurser missbrukas.|Körning|
 |**Misstänkt begäran till Kubernetes-API**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-API: et. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|Körning|
 |**Misstänkt förfrågan till Kubernetes-instrumentpanelen**|Dator loggar indikerar att en misstänkt begäran gjordes till Kubernetes-instrumentpanelen. Begäran skickades från en Kubernetes-nod, eventuellt från en av de behållare som körs i noden. Även om det här beteendet kan vara avsiktligt kan det tyda på att noden kör en komprometterad behållare.|-|
-||<a name="alerts-sql-db-and-warehouse"></a><h3>SQL Database och SQL Data Warehouse</h3> [Mer information och anmärkningar](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-) ||
+||||
+
+
+## <a name="alerts-sql-db-and-warehouse"></a>Aviseringar för SQL Database och SQL Data Warehouse
+
+[Mer information och anmärkningar](security-center-alerts-data-services.md#sql-database-and-sql-data-warehouse-)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**En möjlig sårbarhet vid SQL-inmatning**|Ett program har genererat en felaktig SQL-instruktion i databasen. Detta kan tyda på en möjlig sårbarhet vid SQL-injektering. Det finns två möjliga orsaker till en felaktig instruktion. Ett fel i program koden kan ha konstruerat den felaktiga SQL-instruktionen. Eller, program kod eller lagrade procedurer har inte sanerat användarindata vid konstruktion av den felaktiga SQL-instruktionen, som kan utnyttjas för SQL-inmatning.|-|
 |**Potentiell SQL-inmatning**|En aktiv sårbarhet har inträffat mot ett identifierat program som är sårbart för SQL-inmatning. Det innebär att en angripare försöker mata in skadliga SQL-uttryck med hjälp av den sårbara program koden eller lagrade procedurer.|-|
 |**Logga in från en ovanlig plats**|Åtkomst mönstret har ändrats till SQL Server, där någon har loggat in på servern från en ovanlig geografisk plats. I vissa fall identifierar aviseringen en giltig åtgärd (ett nytt program eller nytt underhåll av utvecklare). I andra fall identifierar aviseringen en skadlig åtgärd (en tidigare anställd eller extern angripare).|Utnyttjande|
@@ -252,7 +280,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Logga in från ett ovanligt Azure-datacenter**|Åtkomst mönstret har ändrats till en SQL Server, där någon har loggat in på servern från ett ovanligt Azure-datacenter. I vissa fall identifierar aviseringen en legitim åtgärd (ett nytt program eller en Azure-tjänst). I andra fall identifierar aviseringen en skadlig åtgärd (angripare som körs från en komprometterad resurs i Azure).|Avsökning|
 |**Potentiellt osäker åtgärd**|SQL-kommandot med hög privilegier som ofta används i skadliga sessioner har körts i en SQL Server. De här kommandona rekommenderas att inaktive ras som standard. I vissa fall identifierar aviseringen en legitim åtgärd (administrativt skript körs). I andra fall identifierar aviseringen en skadlig åtgärd (angripare som använder SQL-förtroenden för att bryta mot Windows-skikt).|Körning|
 |**Ovanlig export plats**|Det har gjorts en ändring i export målet för en SQL import-och export åtgärd. I vissa fall identifierar aviseringen en legitim ändring (nytt mål för säkerhets kopieringen). I andra fall identifierar aviseringen en skadlig åtgärd (angripare enkelt exfiltrated data till en fil).|Exfiltrering|
-||<a name="alerts-azurestorage"></a><h3>Azure Storage</h3> [Mer information och anmärkningar](security-center-alerts-data-services.md#azure-storage-)||
+||||
+
+
+## <a name="alerts-azurestorage"></a>Aviseringar för Azure Storage
+
+[Mer information och anmärkningar](security-center-alerts-data-services.md#azure-storage-)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Åtkomst från en ovanlig plats till ett lagrings konto**|Anger att åtkomst mönstret har ändrats till ett Azure Storage-konto. Någon har åtkomst till det här kontot från en IP-adress som ansågs okänd vid jämförelse med senaste aktivitet. Antingen har en angripare fått åtkomst till kontot eller så har en legitim användare anslutits från en ny eller ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|Utnyttjande|
 |**Ovanligt program har åtkomst till ett lagrings konto**|Indikerar att ett ovanligt program har åtkomst till det här lagrings kontot. En möjlig orsak är att en angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.|Utnyttjande|
 |**Anonym åtkomst till ett lagrings konto**|Indikerar att det finns en ändring i åtkomst mönstret till ett lagrings konto. Till exempel har kontot åtkomst till anonymt (utan autentisering), vilket är oväntat jämfört med det senaste åtkomst mönstret för det här kontot. En möjlig orsak är att en angripare har utnyttjat offentlig Läs behörighet för en behållare som innehåller Blob Storage.|Utnyttjande|
@@ -265,10 +301,26 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Ovanlig åtkomst kontroll i ett lagrings konto**|Anger att åtkomst behörigheterna för ett lagrings konto har inspekterats på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har genomfört rekognosering för framtida angrepp.|Samling|
 |**Ovanlig data utforskning i ett lagrings konto**|Anger att blobbar eller behållare i ett lagrings konto har räknats upp på ett onormalt sätt, jämfört med senaste aktivitet på det här kontot. En möjlig orsak är att en angripare har genomfört rekognosering för framtida angrepp.|Samling|
 |**För hands version – potentiell skadlig kod som laddats upp till ett lagrings konto**|Anger att en blob som innehåller potentiell skadlig kod har överförts till ett lagrings konto. Potentiella orsaker kan vara en avsiktlig överföring av skadlig kod av en angripare eller en oavsiktlig uppladdning av en legitim användare av en potentiellt skadlig blob.|LateralMovement|
-||<a name="alerts-azurecosmos"></a><h3>Azure Cosmos DB</h3> [Mer information och anmärkningar](security-center-alerts-data-services.md#azure-cosmos-db)||
+||||
+
+
+## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+
+[Mer information och anmärkningar](security-center-alerts-data-services.md#azure-cosmos-db)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Åtkomst från en ovanlig plats till ett Cosmos DB konto**|Anger att åtkomst mönstret har ändrats till ett Azure Cosmos DB-konto. Någon har använt det här kontot från en okänd IP-adress jämfört med senaste aktivitet. Antingen har en angripare åtkomst till kontot eller så har en legitim användare åtkomst till den från en ny och ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|Utnyttjande|
 |**Ovanlig mängd data som extraherats från ett Cosmos DB konto**|Indikerar att det har ändrats ett data extraherings mönster från ett Azure Cosmos DB konto. Någon har extraherat en ovanlig mängd data jämfört med senaste aktivitet. En angripare kan ha extraherat en stor mängd data från en Azure Cosmos DB databas (till exempel data exfiltrering eller läckage eller en obehörig överföring av data). Eller så kanske en legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare (till exempel för aktiviteten underhålls säkerhets kopiering).|Exfiltrering|
-||<a name="alerts-azurenetlayer"></a><h3>Azure nätverks lager</h3> [Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-network-layer)||
+||||
+
+
+## <a name="alerts-azurenetlayer"></a>Aviseringar för Azure nätverks lager
+
+[Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-network-layer)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Trafik upptäcktes från IP-adresser som rekommenderas för blockering**|Azure Security Center identifierat inkommande trafik från IP-adresser som rekommenderas att blockeras. Detta inträffar vanligt vis när den här IP-adressen inte kommunicerar regelbundet med den här resursen. Alternativt har IP-adressen flaggats som skadlig genom Security Center s hot informations källor.|Avsökning|
 |**Nätverkskommunikation med en skadlig dator upptäcktes**|Analysen av nätverks trafik anger att datorn (IP% {offer IP}) har kommunicerat med vad som möjligen är ett kommando-och kontroll Center. När den komprometterade resursen är en belastningsutjämnare eller en Programgateway kan den misstänkta aktiviteten indikera att en eller flera av resurserna i backend-poolen (av belastningsutjämnaren eller Application Gateway) har kommunicerat med vad som eventuellt är ett kommando och Kontroll Center.|-|
 |**Möjlig komprometterad dator upptäcktes**|Hot information anger att datorn (på IP% {Machine IP}) kan ha komprometterats av en skadlig kod av typen Conficker. Conficker var en dator mask som är avsedd för Microsoft Windows-operativsystemet och upptäcktes först i november 2008. Conficker infekterade miljon tals datorer, inklusive myndigheter, företags-och hem datorer i över 200 länder, vilket gör det till den största kända datorn Worm-infektion sedan 2003 Welchia Worm.|-|
@@ -285,7 +337,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Misstänkt utgående RDP-nätverks aktivitet till flera destinationer**|Analysen av nätverks trafik upptäckte avvikande inkommande Remote Desktop Protocol (RDP)-kommunikation till flera destinationer från% {komprometterad värd} (% {angriparens IP}), en resurs i distributionen. När den komprometterade resursen är en belastningsutjämnare eller en Programgateway har den misstänkta utgående trafiken härstammar från till en eller flera av resurserna i backend-poolen (av belastningsutjämnaren eller programgatewayen). Mer specifikt visar exempel på nätverks data att datorn ansluter till% {antal attackerade IP-adresser} unika IP-adresser, vilket anses onormalt för den här miljön. Den här aktiviteten kan indikera att din resurs har komprometterats och nu används för att avbryta externa RDP-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|-|
 |**Misstänkt utgående SSH-nätverks aktivitet**|Analysen av nätverks trafik upptäckte avvikande utgående SSH-kommunikation till% {offer IP} från% {komprometterad värd} (% {angriparens IP}), en resurs i distributionen. När den komprometterade resursen är en belastningsutjämnare eller en Programgateway har den misstänkta utgående trafiken härstammar från till en eller flera av resurserna i backend-poolen (av belastningsutjämnaren eller programgatewayen). Mer specifikt visar exempel på nätverks data% {antal anslutningar} utgående anslutningar från din resurs, vilket anses onormalt för den här miljön. Den här aktiviteten kan indikera att din resurs har komprometterats och nu används för att bryta tvingande externa SSH-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|-|
 |**Misstänkt utgående SSH-nätverks aktivitet till flera mål**|Analysen av nätverks trafik upptäckte avvikande utgående SSH-kommunikation till flera mål från% {komprometterad värd} (% {angriparens IP}), en resurs i distributionen. När den komprometterade resursen är en belastningsutjämnare eller en Programgateway har den misstänkta utgående trafiken härstammar från till en eller flera av resurserna i backend-poolen (av belastningsutjämnaren eller programgatewayen). Mer specifikt visar exempel på nätverks data din resurs som ansluter till% {antal attackerade IP-adresser} unika IP-adresser, vilket anses onormalt för den här miljön. Den här aktiviteten kan indikera att din resurs har komprometterats och nu används för att bryta tvingande externa SSH-slutpunkter. Observera att den här typen av aktivitet skulle kunna göra att din IP-adress flaggas som skadlig av externa enheter.|-|
-||<a name="alerts-azureresourceman"></a><h3>Azure Resource Manager (för hands version)</h3> [Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)||
+||||
+
+
+## <a name="alerts-azureresourceman"></a>Aviseringar för Azure Resource Manager (för hands version)
+
+[Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-management-layer-azure-resource-manager-preview)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**PREVIEW – mikroburst Toolkit-funktionen har upptäckts**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget [mikroburst](https://github.com/NetSPI/MicroBurst) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser, identifiera oskyddade konfigurationer och avslöja konfidentiell information.|-|
 |**PREVIEW-Azurite Toolkit-körning upptäckt**|En känd rekognosering Toolkit-körning i moln miljö har upptäckts i din miljö. Verktyget [Azurite](https://github.com/mwrlabs/Azurite) kan användas av en angripare (eller utträngande testare) för att mappa dina prenumerations resurser och identifiera oskyddade konfigurationer.|-|
 |**För hands version – misstänkt hanterings-session med ett inaktivt konto upptäckt**|Analysen av prenumerations aktivitets loggar har identifierat ett misstänkt beteende. Ett huvud konto som inte används under en lång tids period utför nu åtgärder som kan skydda beständigheten för en angripare.|Bevarande|
@@ -295,7 +355,15 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Aktivitet från ovanligt land**|Aktivitet från en plats som inte nyligen har ägt rum eller någonsin varit besökt av någon användare i organisationen har inträffat.<br>Den här identifieringen tar hänsyn till de senaste aktivitet platser att fastställa nya och ovanliga platser. Avvikelseidentifieringsmotorn lagrar information om tidigare platser som används av användarna i organisationen.|-|
 |**Aktivitet från anonyma IP-adresser**|Användares aktivitet från en IP-adress som har identifierats som en anonym proxy-IP-adress har identifierats.<br>Dessa proxyservrar används av personer som vill dölja deras enhets IP-adress och som kan användas för skadliga avsikter. Den här identifieringen använder en Machine Learning-algoritm som minskar falska positiva identifieringar, till exempel felmärkta IP-adresser som används ofta av användare i organisationen.|-|
 |**Omöjlig resa-aktivitet**|Två användar aktiviteter (i en eller flera sessioner) har inträffat och härstammar från geografiskt avlägsna platser. Detta inträffar inom en tids period som är kortare än den tid det skulle ha tagit användaren att resa från den första platsen till den andra. Detta indikerar att en annan användare använder samma autentiseringsuppgifter.<br>Den här identifieringen använder en Machine Learning-algoritm som ignorerar uppenbara falska positiva identifieringar som bidrar till omöjliga rese villkor, t. ex. VPN och platser som regelbundet används av andra användare i organisationen. Identifieringen har en inledande inlärnings period på sju dagar, under vilken den lär sig en ny användares aktivitets mönster. |-|
-||<a name="alerts-azurekv"></a><h3>Azure Key Vault (för hands version)</h3> [Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-keyvault)||
+||||
+
+
+## <a name="alerts-azurekv"></a>Aviseringar för Azure Key Vault (för hands version)
+
+[Mer information och anmärkningar](security-center-alerts-service-layer.md#azure-keyvault)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**Åtkomst från en TOR-stängningsmodul till en Key Vault**|Den Key Vault har öppnats av någon som använder TOR IP-anonymisering för att dölja deras plats. Skadliga aktörer försöker ofta dölja sin plats vid försök att få obehörig åtkomst till Internet-anslutna resurser.|-|
 |**Misstänkt princip ändring och hemlig fråga i en Key Vault**|En Key Vault princip ändring har gjorts och åtgärder för att lista och/eller hämta hemligheter har inträffat. Dessutom utförs detta åtgärds mönster normalt inte av användaren i det här valvet. Detta är starkt känsligt att Key Vault komprometteras och hemligheterna i har blivit stulna av en obehörig aktör.|-|
 |**Misstänkt hemlig lista och fråga i en Key Vault**|En åtgärd för en hemlig lista följdes av många hemliga get-åtgärder. Detta åtgärds mönster utförs vanligt vis inte av användaren i det här valvet. Det innebär att någon kan dumpa hemligheter som lagras i Key Vault för potentiellt skadliga syfte.|-|
@@ -305,11 +373,18 @@ Typer av aviseringar som ingår i den här tabellen:
 |**Ovanligt åtgärds mönster i en Key Vault**|En ovanlig uppsättning Key Vault åtgärder har utförts jämfört med historiska data. Key Vault aktivitet är vanligt vis samma över tid. Detta kan vara en legitim förändring i aktiviteten. Alternativt kan din infrastruktur bli komprometterad och ytterligare undersökningar krävs.|-|
 |**Hög mängd åtgärder i en Key Vault**|En större mängd Key Vault åtgärder har utförts jämfört med historiska data. Key Vault aktivitet är vanligt vis samma över tid. Detta kan vara en legitim förändring i aktiviteten. Alternativt kan din infrastruktur bli komprometterad och ytterligare undersökningar krävs.|-|
 |**Användaren har åtkomst till hög volym med nyckel valv**|Antalet valv som användare eller program har åtkomst till har ändrats jämfört med historiska data. Key Vault aktivitet är vanligt vis samma över tid. Detta kan vara en legitim förändring i aktiviteten. Alternativt kan din infrastruktur bli komprometterad och ytterligare undersökningar krävs.|-|
-||<a name="alerts-azureddos"></a><h3>Azure DDoS-skydd</h3> [Mer information och anmärkningar](security-center-alerts-integration.md#azure-ddos)||
+||||
+
+
+## <a name="alerts-azureddos"></a>Aviseringar för Azure DDoS Protection
+
+[Mer information och anmärkningar](security-center-alerts-integration.md#azure-ddos)
+
+|Avisering|Beskrivning|Avsikt ([Läs mer](#intentions))|
+|----|----|:----:|
 |**DDoS-attack identifierad för offentlig IP**|DDoS-attack identifierad för offentlig IP (IP-adress) och begränsas.|Avsökning|
 |**DDoS-attack minimerad för offentlig IP**|DDoS-attack minimerad för offentlig IP (IP-adress).|Avsökning|
 ||||
-
 
 ## <a name="intentions"></a>Beslut
 

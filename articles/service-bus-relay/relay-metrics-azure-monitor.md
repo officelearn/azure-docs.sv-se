@@ -1,6 +1,6 @@
 ---
 title: Azure Relay mått i Azure Monitor (förhands granskning) | Microsoft Docs
-description: Använd Azure Monitoring för att övervaka Azure Relay
+description: Den här artikeln innehåller information om hur du kan använda Azure Monitor för att övervaka till Azure Relays tillstånd.
 services: service-bus-relay
 documentationcenter: .NET
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 9933b7857580f29cbb6a54ebc82d4e7207456ad4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5c548186ec51cf86f34942cb15d8f984afa60268
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261792"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514943"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Relay mått i Azure Monitor (förhands granskning)
 Azure Relay mått ger dig tillstånd för resurser i din Azure-prenumeration. Med en omfattande uppsättning Mät data kan du utvärdera övergripande hälso tillstånd för dina relä resurser, inte bara på namn områdes nivå, utan även på enhets nivå. Den här statistiken kan vara viktig när de hjälper dig att övervaka status för Azure Relay. Mått kan också hjälpa till att felsöka problem med grundorsaken utan att behöva kontakta Azure-supporten.
@@ -60,24 +60,24 @@ Alla mått-värden skickas till Azure Monitor varje minut. Tidskornighet definie
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| ListenerConnections – lyckades (för hands version) | Antalet lyckade lyssnar anslutningar som har gjorts till Azure Relay under en angiven period. <br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|ListenerConnections-ClientError (för hands version)|Antalet klient fel i lyssnar anslutningar under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|ListenerConnections-ServerError (för hands version)|Antalet Server fel på lyssnar anslutningar under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|SenderConnections – lyckades (för hands version)|Antalet lyckade avsändare som gjorts under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|SenderConnections-ClientError (för hands version)|Antalet klient fel på avsändarens anslutningar under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|SenderConnections-ServerError (för hands version)|Antalet Server fel på avsändarens anslutningar under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|ListenerConnections-TotalRequests (för hands version)|Det totala antalet lyssnar anslutningar under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|SenderConnections-TotalRequests (för hands version)|Anslutnings förfrågningar som skickats av avsändarna under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|ActiveConnections (förhandsversion)|Antalet aktiva anslutningar under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|ActiveListeners (för hands version)|Antalet aktiva lyssnare under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|ListenerDisconnects (för hands version)|Antalet frånkopplade lyssnare under en angiven period.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|SenderDisconnects (för hands version)|Antalet frånkopplade avsändare under en angiven period.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+| ListenerConnections – lyckades (för hands version) | Antalet lyckade lyssnar anslutningar som har gjorts till Azure Relay under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|ListenerConnections-ClientError (för hands version)|Antalet klient fel i lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|ListenerConnections-ServerError (för hands version)|Antalet Server fel på lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|SenderConnections – lyckades (för hands version)|Antalet lyckade avsändare som gjorts under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|SenderConnections-ClientError (för hands version)|Antalet klient fel på avsändarens anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|SenderConnections-ServerError (för hands version)|Antalet Server fel på avsändarens anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|ListenerConnections-TotalRequests (för hands version)|Det totala antalet lyssnar anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|SenderConnections-TotalRequests (för hands version)|Anslutnings förfrågningar som skickats av avsändarna under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|ActiveConnections (förhandsversion)|Antalet aktiva anslutningar under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|ActiveListeners (för hands version)|Antalet aktiva lyssnare under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|ListenerDisconnects (för hands version)|Antalet frånkopplade lyssnare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|SenderDisconnects (för hands version)|Antalet frånkopplade avsändare under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Minnes användnings mått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|BytesTransferred (för hands version)|Antalet byte som överförts under en angiven period.<br/><br/> Processor Byte <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|BytesTransferred (för hands version)|Antalet byte som överförts under en angiven period.<br/><br/> Enhet: byte <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 

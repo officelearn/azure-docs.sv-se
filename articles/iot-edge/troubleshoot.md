@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8022304af0f429024a796e02e64f6e23b938bd57
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912289"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514263"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -105,7 +105,7 @@ I Windows:
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>Om IoT Edge Security Manager inte körs, kontrollera din yaml-konfigurationsfil
 
 > [!WARNING]
-> YAML-filer får inte innehålla tabbar som indrag. Använd 2 blanksteg i stället.
+> YAML-filer får inte innehålla tabbar som indrag. Använd 2 blanksteg i stället. Element på den översta nivån får inte innehålla några inledande blank steg.
 
 I Linux:
 
@@ -121,7 +121,7 @@ I Windows:
 
 ### <a name="check-container-logs-for-issues"></a>Kontrollera behållarloggarna för problem
 
-När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta sedan på de behållare som utgör den IoT Edge körningen: edgeAgent och edgeHub. IoT Edge agent loggar ger vanligt vis information om livs cykeln för varje behållare. IoT Edge Hubbs loggar innehåller information om meddelanden och routning. 
+När IoT Edge Security Daemon körs kan du titta på loggarna för behållarna för att identifiera problem. Börja med dina distribuerade behållare och titta sedan på de behållare som utgör den IoT Edge körningen: edgeAgent och edgeHub. IoT Edge agent loggar ger vanligt vis information om livs cykeln för varje behållare. IoT Edge Hubbs loggar innehåller information om meddelanden och routning.
 
    ```cmd
    iotedge logs <container name>
@@ -163,7 +163,7 @@ Ersätt `env: {}` med:
    ```
 
    > [!WARNING]
-   > YAML-filer får inte innehålla flikar som indrag. Använd 2 blanksteg i stället.
+   > YAML-filer får inte innehålla flikar som indrag. Använd 2 blanksteg i stället. Toppnivå objekt får inte ha inledande blank steg.
 
 Spara filen och starta om säkerhetshanteraren IoT Edge.
 
@@ -249,7 +249,7 @@ Det går inte att köra en behållare och edgeAgent-loggarna visar ett 403-fel.
 
 **Rotor saken**
 
-IoT Edge-agenten har inte behörighet att komma åt en moduls avbildning.
+IoT Edge agent har inte behörighet att komma åt en moduls avbildning.
 
 **Lösning**
 
@@ -435,6 +435,6 @@ Se till att ange detta för *edgeAgent* -och *edgeHub* -modulerna också.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett ärende](https://github.com/Azure/iotedge/issues) så att vi kan fortsätta att förbättra. 
+Tror du att du har hittat ett fel i IoT Edge-plattformen? [Skicka in ett ärende](https://github.com/Azure/iotedge/issues) så att vi kan fortsätta att förbättra.
 
 Om du har fler frågor kan du skapa en [supportförfrågan](https://portal.azure.com/#create/Microsoft.Support) om du behöver hjälp.

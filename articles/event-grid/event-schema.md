@@ -1,19 +1,19 @@
 ---
 title: Azure Event Grid händelse schema
-description: Beskriver de egenskaper som anges för händelser med Azure Event Grid
+description: Beskriver de egenskaper och schema som finns för alla händelser. Händelser består av en uppsättning av fem obligatoriska sträng egenskaper och ett obligatoriskt data objekt.
 services: event-grid
 author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: reference
-ms.date: 01/20/2019
+ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: 44cc611a9a7d71a3ac4ac7b0d779b18778d0aacd
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 1fceda6fcbb6e8db1fa8afbc5181315bd0c98940
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607611"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512988"
 ---
 # <a name="azure-event-grid-event-schema"></a>Azure Event Grid händelse schema
 
@@ -86,13 +86,13 @@ Alla händelser har samma följande toppnivå data:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| Motiv | sträng | Publisher-definierad sökväg till händelsens ämne. |
-| Typ | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| subject | sträng | Utgivardefinierad sökväg till händelseobjektet. |
+| eventType | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
 | data | objekt | Händelse data som är speciella för resurs leverantören. |
-| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
-| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 
 Information om egenskaperna i data-objektet finns i händelse källan:
 

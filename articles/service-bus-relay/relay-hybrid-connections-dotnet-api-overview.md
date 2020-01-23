@@ -1,6 +1,6 @@
 ---
-title: 'Översikt över Azure Relay .NET Standard API: er | Microsoft Docs'
-description: Översikt över Azure Relay .NET Standard-API
+title: 'Översikt över Azure Relay .NET standard-API: er | Microsoft Docs'
+description: I den här artikeln sammanfattas några av de viktigaste en översikt över Azure Relay Hybridanslutningar .NET standard-API.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: spelluru
-ms.openlocfilehash: 78ad3ab49db162af060b4273deea717cd3472668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18eaf2d2daae817107be6cdb0da9359bb5f9b4e9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60749027"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514543"
 ---
-# <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Översikt över Azure Relay Hybrid .NET Standard-API: T
+# <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Översikt över Azure Relay Hybridanslutningar .NET standard API
 
-Den här artikeln sammanfattas några av nyckeln Azure Relay Hybrid anslutningar .NET Standard [klientens API: er](/dotnet/api/microsoft.azure.relay).
+I den här artikeln sammanfattas några av de viktigaste Azure Relay Hybridanslutningar [API: er](/dotnet/api/microsoft.azure.relay)för .net-standard klienten.
   
-## <a name="relay-connection-string-builder-class"></a>Relay Anslutningssträngsverktyget-klass
+## <a name="relay-connection-string-builder-class"></a>Klass för relä anslutnings sträng
 
-Den [RelayConnectionStringBuilder] [ RelayConnectionStringBuilder] klass formaterar anslutningssträngar som är specifika för Relay-Hybridanslutningar. Du kan använda den för att kontrollera formatet på en anslutningssträng eller skapa en anslutningssträng från grunden. Se följande kod för ett exempel:
+[RelayConnectionStringBuilder][RelayConnectionStringBuilder] -klassen formaterar anslutnings strängar som är speciella för relä hybridanslutningar. Du kan använda den för att kontrol lera formatet på en anslutnings sträng, eller för att bygga en anslutnings sträng från grunden. Se följande kod för ett exempel:
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -44,7 +44,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-Du kan även skicka en anslutningssträng direkt till den `RelayConnectionStringBuilder` metoden. Den här åtgärden kan du kontrollera att anslutningssträngen är ett giltigt format. Om någon av parametrarna är ogiltiga konstruktorn genererar en `ArgumentException`.
+Du kan också skicka en anslutnings sträng direkt till `RelayConnectionStringBuilder`-metoden. Med den här åtgärden kan du kontrol lera att anslutnings strängen har ett giltigt format. Om någon av parametrarna är ogiltig genererar konstruktorn en `ArgumentException`.
 
 ```csharp
 var myConnectionString = "[RelayConnectionString]";
@@ -61,15 +61,15 @@ catch (ArgumentException ae)
 }
 ```
 
-## <a name="hybrid-connection-stream"></a>Hybrid anslutning stream
+## <a name="hybrid-connection-stream"></a>Hybrid anslutnings ström
 
-Den [HybridConnectionStream] [ HCStream] klassen är det primära objektet som används för att skicka och ta emot data från en Azure Relay-slutpunkt, oavsett om du arbetar med en [HybridConnectionClient] [ HCClient], eller en [HybridConnectionListener][HCListener].
+[HybridConnectionStream][HCStream] -klassen är det primära objektet som används för att skicka och ta emot data från en Azure Relay slut punkt, oavsett om du arbetar med en [HybridConnectionClient][HCClient]eller en [HybridConnectionListener][HCListener].
 
-### <a name="getting-a-hybrid-connection-stream"></a>Hämtar en dataström med Hybrid-anslutning
+### <a name="getting-a-hybrid-connection-stream"></a>Hämta en hybrid anslutnings ström
 
 #### <a name="listener"></a>Lyssnare
 
-Med hjälp av en [HybridConnectionListener] [ HCListener] objekt kan du kan hämta en `HybridConnectionStream` objekt enligt följande:
+Med hjälp av ett [HybridConnectionListener][HCListener] -objekt kan du hämta ett `HybridConnectionStream`-objekt på följande sätt:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -80,9 +80,9 @@ await listener.OpenAsync();
 var hybridConnectionStream = await listener.AcceptConnectionAsync();
 ```
 
-#### <a name="client"></a>Klient
+#### <a name="client"></a>Client
 
-Med hjälp av en [HybridConnectionClient] [ HCClient] objekt kan du kan hämta en `HybridConnectionStream` objekt enligt följande:
+Med hjälp av ett [HybridConnectionClient][HCClient] -objekt kan du hämta ett `HybridConnectionStream`-objekt på följande sätt:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -91,11 +91,11 @@ var client = new HybridConnectionClient(csb.ToString());
 var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
-### <a name="receiving-data"></a>Ta emot data
+### <a name="receiving-data"></a>Tar emot data
 
-Den [HybridConnectionStream] [ HCStream] klass möjliggör dubbelriktad kommunikation. I de flesta fall får du kontinuerligt från dataströmmen. Om du läser text från strömmen, kan du också vill använda en [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) -objektet, vilket möjliggör enklare tolkning av data. Du kan till exempel läsa data som text och inte som `byte[]`.
+[HybridConnectionStream][HCStream] -klassen möjliggör tvåvägs kommunikation. I de flesta fall får du ständigt från strömningen. Om du läser text från data strömmen kanske du också vill använda ett [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) -objekt, vilket gör det lättare att parsa data. Du kan till exempel läsa data som text, i stället för som `byte[]`.
 
-Följande kod läser enskilda rader med text från strömmen tills ett avbrott har begärts:
+Följande kod läser enskilda text rader från data strömmen tills en uppsägning begärs:
 
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
@@ -120,14 +120,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Skicka data
 
-När du har en anslutning upprättats kan skicka du ett meddelande till Relay-slutpunkten. Eftersom anslutningsobjektet ärver [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), skicka dina data som en `byte[]`. I följande exempel visas hur du gör detta:
+När en anslutning har upprättats kan du skicka ett meddelande till relä slut punkten. Eftersom anslutningsobjektet ärver data [strömmen](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx)skickar du dina data som en `byte[]`. I följande exempel visas hur du gör detta:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-Men om du vill skicka text direkt, utan att behöva koda strängen varje gång du kan packa ihop den `hybridConnectionStream` objekt med en [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) objekt.
+Men om du vill skicka text direkt, utan att behöva koda strängen varje tid, kan du figursätta `hybridConnectionStream`-objektet med ett [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) -objekt.
 
 ```csharp
 // The StreamWriter object only needs to be created once
@@ -137,11 +137,11 @@ await textWriter.WriteLineAsync("hello");
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure Relay finns i följande länkar:
+Om du vill veta mer om Azure Relay går du till följande länkar:
 
-* [Microsoft.Azure.Relay referens](/dotnet/api/microsoft.azure.relay)
+* [Referens för Microsoft. Azure. Relay](/dotnet/api/microsoft.azure.relay)
 * [Vad är Azure Relay?](relay-what-is-it.md)
-* [Tillgängliga Relay API: er](relay-api-overview.md)
+* [Tillgängliga relä-API: er](relay-api-overview.md)
 
 [RelayConnectionStringBuilder]: /dotnet/api/microsoft.azure.relay.relayconnectionstringbuilder
 [HCStream]: /dotnet/api/microsoft.azure.relay.hybridconnectionstream

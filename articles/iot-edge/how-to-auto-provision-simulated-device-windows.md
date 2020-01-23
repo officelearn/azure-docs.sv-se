@@ -8,18 +8,18 @@ ms.date: 01/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ad92d4cf0d5b61c778b87114d4be6c23557f8e26
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ee4f01c3ec57b0cf9e3ecf47254b57be95ea051a
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457134"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510948"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Skapa och etablera en simulerad IoT Edge enhet med en virtuell TPM i Windows
 
-Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge-enheter kan vara automatisk etablering med hjälp av den [Device Provisioning-tjänsten](../iot-dps/index.yml) precis som enheter som inte är Microsoft edge-aktiverade. Om du är bekant med processen för automatisk etablering kan du granska den [begrepp inom Automatisk etablering](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
 
-DPS stöder symmetrisk nyckel attestering för IoT Edge enheter i både enskilda registreringar och grupp registrering. Om du markerar alternativet "är IoT Edge enhet" för att få en grupp registrering markeras alla enheter som är registrerade under den registrerings gruppen som IoT Edge enheter. 
+DPS stöder symmetrisk nyckel attestering för IoT Edge enheter i både enskilda registreringar och grupp registrering. Om du markerar alternativet "är IoT Edge enhet" för att få en grupp registrering markeras alla enheter som är registrerade under den registrerings gruppen som IoT Edge enheter.
 
 Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT Edge enhet med följande steg:
 
@@ -27,9 +27,6 @@ Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT
 * Skapa en simulerad enhet på din Windows-dator med en simulerad Trusted Platform Module (TPM) för maskinvara säkerhet.
 * Skapa en enskild registrering för enheten.
 * Installera IoT Edge-körningen och ansluta enheten till IoT Hub.
-
-> [!NOTE]
-> TPM 2,0 krävs när du använder TPM-attestering med DPS och kan endast användas för att skapa enskilda, inte grupper, registreringar.
 
 > [!TIP]
 > I den här artikeln beskrivs hur du testar automatisk etablering genom att använda TPM-attestering på virtuella enheter, men det är mycket som gäller när du använder den fysiska TPM-maskinvaran.
@@ -39,11 +36,14 @@ Den här artikeln visar hur du testar automatisk etablering på en simulerad IoT
 * En Windows-utvecklingsdator. Den här artikeln använder Windows 10.
 * En aktiv IoT-hubb.
 
+> [!NOTE]
+> TPM 2,0 krävs när du använder TPM-attestering med DPS och kan endast användas för att skapa enskilda, inte grupper, registreringar.
+
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurera IoT Hub Device Provisioning-tjänsten
 
-Skapa en ny instans av IoT Hub Device Provisioning-tjänsten i Azure och länka det till din IoT hub. Du kan följa anvisningarna i [konfigurera IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
+Skapa en ny instans av IoT Hub Device Provisioning-tjänsten i Azure och länka det till din IoT hub. Du kan följa anvisningarna i [konfigurera IoT Hub-DPS](../iot-dps/quick-setup-auto-provision.md).
 
-När du har installerat enhets etablerings tjänsten kopierar du värdet för **ID-omfång** från översikts sidan. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
+När du har Device Provisioning-tjänsten körs, kopierar du värdet för **ID-omfång** från översiktssidan. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
 
 > [!TIP]
 > Om du använder en fysisk TPM-enhet måste du bestämma **bekräftelse nyckeln**, som är unik för varje TPM-chip och hämtas från TPM-kretsen som är kopplad till den. Du kan härleda ett unikt **registrerings-ID** för din TPM-enhet genom att till exempel skapa en SHA-256-hash för bekräftelse nyckeln.
@@ -54,7 +54,7 @@ När du har installerat enhets etablerings tjänsten kopierar du värdet för **
 
 Skapa en simulerad TPM-enhet på en Windows-utvecklingsdator. Hämta **registrerings-ID** och **bekräftelse nyckel** för enheten och Använd dem för att skapa en enskild registrerings post i DPS.
 
-När du skapar en registrering i DPS har du möjlighet att deklarera en **första enhets dubbla tillstånd**. I enhetstvillingen kan du ställa in etiketter att gruppera enheter efter valfritt mått som du behöver i din lösning som region, miljö, plats eller enhet. De här taggarna används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
+När du skapar en registrering i DPS har möjlighet att deklarera en **starttillstånd för Enhetstvilling**. I enhetstvillingen kan du ställa in etiketter att gruppera enheter efter valfritt mått som du behöver i din lösning som region, miljö, plats eller enhet. Dessa taggar som används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
 
 Välj den SDK-språk som du vill använda för att skapa den simulerade enheten och följ stegen förrän du har skapat den enskilda registreringen.
 
@@ -68,7 +68,7 @@ Simulerade enheter och guider för enskild registrering:
 * [Node.js](../iot-dps/quick-create-simulated-device-tpm-node.md)
 * [Python](../iot-dps/quick-create-simulated-device-tpm-python.md)
 
-När du har skapat den enskilda registreringen sparar du värdet för **registrerings-ID: t**. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
+När du har skapat den enskilda registreringen, spara värdet för den **registrerings-ID**. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
 
 ## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
@@ -130,4 +130,4 @@ iotedge list
 
 ## <a name="next-steps"></a>Nästa steg
 
-Registreringen Device Provisioning-tjänsten kan du ange enhets-ID och device twin taggar samtidigt som du etablerar den nya enheten. Du kan använda dessa värden för att rikta enskilda enheter eller grupper av enheter med hjälp av automatisk enheter. Lär dig hur du [distribuerar och övervakar IoT Edge moduler i skala med hjälp av Azure Portal](how-to-deploy-monitor.md) eller [med hjälp av Azure CLI](how-to-deploy-monitor-cli.md)
+Registreringen Device Provisioning-tjänsten kan du ange enhets-ID och device twin taggar samtidigt som du etablerar den nya enheten. Du kan använda dessa värden för att rikta enskilda enheter eller grupper av enheter med hjälp av automatisk enheter. Lär dig hur du [distribuera och övervaka IoT Edge-moduler i skala med Azure portal](how-to-deploy-monitor.md) eller [med Azure CLI](how-to-deploy-monitor-cli.md)

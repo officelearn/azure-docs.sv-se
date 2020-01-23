@@ -9,21 +9,18 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 4a8725e3ba7be2dc572798d1397e098046a4b352
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: HT
+ms.openlocfilehash: af53dea76670be500e7be20063487e3e4a2177b6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76510234"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548738"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge runtime på Debian-baserade Linux-system
 
 Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet. Mer information finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime på en x64-, ARM32-eller ARM64 Linux-enhet. Installations paket tillhandahålls för Ubuntu Server 16,04, Ubuntu Server 18,04 och Raspbian utsträckt. Se [Azure IoT Edge system som stöds](support.md#operating-systems) för en lista över operativ system och arkitekturer som stöds av Linux.
-
->[!NOTE]
->Stöd för ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime på en x64-, ARM32-eller ARM64 Linux-enhet. Vi tillhandahåller installations paket för Ubuntu Server 16,04, Ubuntu Server 18,04 och Raspbian utsträckt. Se [Azure IoT Edge system som stöds](support.md#operating-systems) för en lista över operativ system och arkitekturer som stöds av Linux.
 
 > [!NOTE]
 > Paket i databaser för Linux-programvara är gäller under licensvillkor som finns i varje paket (/ usr/dela/docs/*paketnamn*). Läs licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
@@ -31,6 +28,9 @@ Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime p�
 ## <a name="install-the-latest-runtime-version"></a>Installera den senaste körnings versionen
 
 Använd följande avsnitt för att installera den senaste versionen av Azure IoT Edge runtime på din enhet.
+
+>[!NOTE]
+>Stöd för ARM64-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>Registrera Microsoft nyckeln och program lagringsplats feed
 
@@ -71,9 +71,9 @@ Installera offentlig nyckel för Microsoft GPG
 
 ### <a name="install-the-container-runtime"></a>Installera runtime behållare
 
-Azure IoT Edge förlitar sig på en [OCI-kompatibel](https://www.opencontainers.org/) container Runtime. För produktions scenarier rekommenderar vi att du använder den [Moby-baserade](https://mobyproject.org/) motorn som anges nedan. Det är den enda behållare motorn officiellt stöds med Azure IoT Edge. Docker CE/EE-behållaravbildningar är kompatibla med Moby runtime.
+Azure IoT Edge förlitar sig på en [OCI-kompatibel](https://www.opencontainers.org/) container Runtime. För produktions scenarier rekommenderar vi att du använder den [Moby-baserade](https://mobyproject.org/) motorn som anges nedan. Moby-motorn är den enda behållar motorn som stöds officiellt med Azure IoT Edge. Docker CE/EE-behållaravbildningar är kompatibla med Moby runtime.
 
-Utför apt-uppdatering.
+Uppdatera paket listor på enheten.
 
    ```bash
    sudo apt-get update
@@ -91,7 +91,7 @@ Installera Moby kommandoradsgränssnittet (CLI). CLI är användbart för utveck
    sudo apt-get install moby-cli
    ```
 
-Om du stöter på fel när du installerar Moby container runtime följer du stegen för att [kontrol lera din Linux-kernel för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som beskrivs längre fram i den här artikeln.
+Om du får fel när du installerar Moby container runtime följer du stegen för att [kontrol lera din Linux-kernel för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som tillhandahålls längre fram i den här artikeln.
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
 
@@ -99,7 +99,7 @@ Om du stöter på fel när du installerar Moby container runtime följer du steg
 
 Installations kommandot installerar även standard versionen av **libiothsm** om den inte redan finns.
 
-Utför apt-uppdatering.
+Uppdatera paket listor på enheten.
 
    ```bash
    sudo apt-get update
@@ -111,37 +111,37 @@ Installera daemonen säkerhet. Paketet har installerats på `/etc/iotedge/`.
    sudo apt-get install iotedge
    ```
 
-När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets demon](#configure-the-security-daemon) för att slutföra etableringen av enheten.
+När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets daemon](#configure-the-security-daemon) för att slutföra enhets etableringen.
 
 ## <a name="install-a-specific-runtime-version"></a>Installera en viss körnings version
 
 Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stället för att använda de senaste versionerna kan du rikta in komponentfilerna direkt från IoT Edge GitHub-lagringsplatsen. Använd följande steg för att hämta alla IoT Edge-komponenter på enheten: Moby-motorn och CLI, libiothsm och slutligen IoT Edge Security daemon. Gå vidare till nästa avsnitt, [Konfigurera Security daemon](#configure-the-security-daemon), om du inte vill ändra till en viss körnings version.
 
-1. Gå till [Azure IoT Edge versioner](https://github.com/Azure/azure-iotedge/releases)och leta upp den version som du vill använda som mål. 
+1. Gå till [Azure IoT Edge versioner](https://github.com/Azure/azure-iotedge/releases)och leta upp den version som du vill använda som mål.
 
 2. Expandera avsnittet **till gångar** för den versionen.
 
-3. Det kan hända att det inte finns uppdateringar av Moby-motorn i en specifik version. Om du ser filer som börjar med **Moby-Engine** och **Moby-CLI**använder du följande kommandon för att uppdatera komponenterna. Om du inte ser några Moby-filer går du tillbaka genom de äldre versions resurserna tills du hittar den senaste versionen. 
+3. Det kan hända att det inte finns uppdateringar av Moby-motorn i en specifik version. Om du ser filer som börjar med **Moby-Engine** och **Moby-CLI**använder du följande kommandon för att uppdatera komponenterna. Om du inte ser några Moby-filer går du tillbaka genom de äldre versions resurserna tills du hittar den senaste versionen.
 
    1. Hitta den **Moby** som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
 
-   2. Använd den kopierade länken i följande kommando för att installera den versionen av Moby-motorn: 
+   2. Använd den kopierade länken i följande kommando för att installera den versionen av Moby-motorn:
 
       ```bash
       curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
       ```
 
-   3. Hitta den **Moby-CLI-** fil som matchar IoT Edge enhetens arkitektur. Moby CLI är en valfri komponent, men kan vara till hjälp under utvecklingen. Högerklicka på fil länken och Kopiera länk adressen. 
+   3. Hitta den **Moby-CLI-** fil som matchar IoT Edge enhetens arkitektur. Moby CLI är en valfri komponent, men kan vara till hjälp under utvecklingen. Högerklicka på fil länken och Kopiera länk adressen.
 
-   4. Använd den kopierade länken i följande kommando för att installera den versionen av Moby CLI: 
+   4. Använd den kopierade länken i följande kommando för att installera den versionen av Moby CLI:
 
       ```bash
       curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
       ```
 
-4. Varje utgåva bör ha nya filer för IoT Edge Security daemon och hsmlib. Använd följande kommandon för att uppdatera dessa komponenter. 
+4. Varje utgåva bör ha nya filer för IoT Edge Security daemon och hsmlib. Använd följande kommandon för att uppdatera dessa komponenter.
 
-   1. Hitta filen **libiothsm-STD** som matchar IoT Edge enhetens arkitektur. Högerklicka på fil länken och Kopiera länk adressen. 
+   1. Hitta filen **libiothsm-STD** som matchar IoT Edge enhetens arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
 
    2. Använd den kopierade länken i följande kommando för att installera den versionen av hsmlib:
 
@@ -149,15 +149,15 @@ Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stäl
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
 
-   3. Hitta den **iotedge** -fil som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen. 
+   3. Hitta den **iotedge** -fil som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen.
 
-   4. Använd den kopierade länken i följande kommando för att installera den versionen av IoT Edge Security daemon. 
+   4. Använd den kopierade länken i följande kommando för att installera den versionen av IoT Edge Security daemon.
 
       ```bash
       curl -L <iotedge link> -o iotedge.deb && sudo dpkg -i ./iotedge.deb
       ```
 
-När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i nästa avsnitt för att slutföra etableringen av enheten. 
+När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i nästa avsnitt för att slutföra enhets etableringen.
 
 ## <a name="configure-the-security-daemon"></a>Konfigurera Security daemon
 
@@ -263,7 +263,7 @@ Granska daemon-loggar:
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Kör en automatisk kontroll av de vanligaste konfigurations-och nätverks felen: 
+Kör en automatisk kontroll av de vanligaste konfigurations-och nätverks felen:
 
 ```bash
 sudo iotedge check
@@ -297,8 +297,7 @@ Många inbäddade enhets tillverkare levererar enhets avbildningar som innehåll
    ./check-config.sh
    ```
 
-Detta ger en detaljerad utmatning som innehåller statusen för de kernel-funktioner som används av Moby-körningsmiljön. Du bör se till att alla objekt under `Generally Necessary` och `Network Drivers` är aktiverade för att säkerställa att din kernel är helt kompatibel med Moby-körningsmiljön.  Om du har identifierat vilka funktioner som saknas kan du aktivera dem genom att återskapa din kernel från källa och välja de associerade modulerna som ska ingå i den aktuella kernel. config.  Om du använder en kernel-konfigurations generator som defconfig eller menuconfig, kan du söka efter och aktivera respektive funktioner och återskapa din kernel på motsvarande sätt.  När du har distribuerat den nyligen ändrade kärnan kör du check config-skriptet igen för att kontrol lera att alla nödvändiga funktioner har Aktiver ATS.
-
+Det här kommandot innehåller en detaljerad utmatning som innehåller statusen för de kernel-funktioner som används av Moby-körningsmiljön. Du bör se till att alla objekt under `Generally Necessary` och `Network Drivers` är aktiverade för att säkerställa att din kernel är helt kompatibel med Moby-körningsmiljön.  Om du har identifierat vilka funktioner som saknas kan du aktivera dem genom att återskapa din kernel från källa och välja de associerade modulerna som ska ingå i den aktuella kernel. config.  Om du använder en kernel-konfigurations generator som defconfig eller menuconfig, kan du söka efter och aktivera respektive funktioner och återskapa din kernel på motsvarande sätt.  När du har distribuerat den nyligen ändrade kärnan kör du check config-skriptet igen för att kontrol lera att alla nödvändiga funktioner har Aktiver ATS.
 
 ## <a name="uninstall-iot-edge"></a>Avinstallera IoT Edge
 
@@ -310,7 +309,7 @@ Ta bort IoT Edge-körningen.
 sudo apt-get remove --purge iotedge
 ```
 
-När IoT Edge runtime tas bort stoppas den behållare som den skapade men finns fortfarande på enheten. Visa alla behållare för att se vilka som är kvar.
+När IoT Edge runtime tas bort stoppas de behållare som den skapade, men de finns kvar på enheten. Visa alla behållare för att se vilka som är kvar.
 
 ```bash
 sudo docker ps -a

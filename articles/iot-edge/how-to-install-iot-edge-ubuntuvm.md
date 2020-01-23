@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 03c517ac80ed42f96cae00001a154e519ec94148
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 84dd1b6d657dfe5061f53698114f3dc4e0197571
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263344"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510064"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Kör Azure IoT Edge på Ubuntu Virtual Machines
 
@@ -22,7 +22,7 @@ Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Kö
 
 Läs mer om hur IoT Edge-körningen fungerar och vilka komponenter som ingår i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
-Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Ubuntu 16,04-dator med hjälp av den förkonfigurerade [Azure IoT Edge på Azure Marketplace-erbjudandet](https://aka.ms/azure-iot-edge-ubuntuvm). 
+Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Ubuntu 16,04-dator med hjälp av den förkonfigurerade [Azure IoT Edge på Azure Marketplace-erbjudandet](https://aka.ms/azure-iot-edge-ubuntuvm).
 
 Vid den första starten förinstallerar Azure IoT Edge Ubuntu VM den senaste versionen av Azure IoT Edge Runtime. Det innehåller också ett skript för att ange anslutnings strängen och sedan starta om körningen, som kan utlösas via en fjärr anslutning via Azures virtuella dator portal eller Azure-kommandoraden, så att du enkelt kan konfigurera och ansluta IoT Edge-enheten utan att starta en SSH eller fjärr anslutning fjärrskrivbordssession. Det här skriptet väntar på att ange anslutnings strängen tills IoT Edge-klienten är helt installerad så att du inte behöver skapa den i din automatisering.
 
@@ -52,22 +52,22 @@ Från Azure Portal söker du efter "Azure IoT Edge" och väljer **Ubuntu Server 
    ```azurecli-interactive
    az login
    ```
-    
+
 1. Om du har flera prenumerationer väljer du den prenumeration som du vill använda:
    1. Lista dina prenumerationer:
-    
+
       ```azurecli-interactive
       az account list --output table
       ```
-    
+
    1. Kopiera SubscriptionID-fältet för den prenumeration du vill använda.
 
    1. Ange din arbets prenumeration med det ID som du precis har kopierat:
-    
-      ```azurecli-interactive 
+
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
-    
+
 1. Skapa en ny resurs grupp (eller ange en befintlig i nästa steg):
 
    ```azurecli-interactive
@@ -93,7 +93,6 @@ Från Azure Portal söker du efter "Azure IoT Edge" och väljer **Ubuntu Server 
    ```
 
 Om du vill använda SSH i den här virtuella datorn efter installationen använder du publicIpAddress med kommandot: `ssh azureuser@{publicIpAddress}`
-
 
 ## <a name="next-steps"></a>Nästa steg
 

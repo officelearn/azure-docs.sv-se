@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919349"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511900"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Referens guide för Azure Active Directory hanterings åtgärder för autentisering
 
@@ -127,8 +127,8 @@ Som en användare i din organisation är en enhet en kärn identitet som du vill
 
 Du kan utföra det här målet genom att sätta enhets identiteter och hantera dem i Azure AD genom att använda någon av följande metoder:
 
-- Organisationer kan använda [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) för att hantera enheten och genomdriva efterlevnadsprinciper, intyga enhetens hälsa och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (via JAMF-integrering), Windows-skrivbord (internt med hantering av mobila enheter för Windows 10 och samhantering med Microsoft Endpoint Manager/System Center Configuration Manager) och mobila Android-enheter.
-- [Hybrid Azure AD-anslutning](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) ger hantering med grup principer, System Center Configuration Manager eller Microsoft Endpoint Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med för [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) på samma gång.
+- Organisationer kan använda [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) för att hantera enheten och genomdriva efterlevnadsprinciper, intyga enhetens hälsa och ange principer för villkorlig åtkomst baserat på om enheten är kompatibel. Microsoft Intune kan hantera iOS-enheter, Mac-datorer (via JAMF-integrering), Windows-skrivbord (internt med hantering av mobila enheter för Windows 10 och samhantering med Microsoft Endpoint Configuration Manager) och mobila Android-enheter.
+- [Hybrid Azure AD-anslutning](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-managed-domains) ger hantering med grup principer eller Microsoft Endpoint Configuration Manager i en miljö med Active Directory domänanslutna dator enheter. Organisationer kan distribuera en hanterad miljö antingen via PHS eller PTA med sömlös SSO. Genom att ta med dina enheter till Azure AD kan du maximera användar produktiviteten via SSO i molnet och lokala resurser samtidigt som du kan skydda åtkomsten till molnet och lokala resurser med för [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal) på samma gång.
 
 Om du har domänanslutna Windows-enheter som inte är registrerade i molnet, eller domänanslutna Windows-enheter som är registrerade i molnet men utan principer för villkorlig åtkomst, bör du registrera de oregistrerade enheterna och i båda fallen [använda hybrid Azure AD Join som en kontroll](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices) i dina principer för villkorlig åtkomst.
 
@@ -309,7 +309,7 @@ Nedan visas en lista över appar med behörigheter som du kanske vill granska f�
 | | Mail. Read. Shared |
 | | Mail. ReadWrite |
 
-- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Exempel:
+- Appar har beviljat fullständig användar personifiering av den inloggade användaren. Ett exempel:
 
 |Resurs | Behörighet |
 | :- | :- |

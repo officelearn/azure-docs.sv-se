@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822425"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545032"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>Använda batching för att förbättra SQL Database programmets prestanda
 
@@ -91,27 +91,27 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för [transaktions loggen för Skriv](https://msdn.microsoft.com/library/ms186259.aspx)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
+Transaktioner används faktiskt i båda dessa exempel. I det första exemplet är varje enskilt anrop en implicit transaktion. I det andra exemplet radbryts alla anrop i en explicit transaktion. I dokumentationen för [transaktions loggen för Skriv](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)åtgärder rensas logg posterna till disken när transaktionen genomförs. Så genom att inkludera fler anrop i en transaktion kan Skriv till transaktions loggen skjuta tills transaktionen är genomförd. I praktiken aktiverar du batching för skrivningar till serverns transaktions logg.
 
 I följande tabell visas några ad hoc-testnings resultat. Testerna utförde samma sekventiella infogningar med och utan transaktioner. För mer perspektiv kördes den första uppsättningen tester från en bärbar dator till databasen i Microsoft Azure. Den andra uppsättningen tester kördes från en moln tjänst och databas som båda finns i samma Microsoft Azure Data Center (västra USA). I följande tabell visas varaktigheten i millisekunder av sekventiella infogningar med och utan transaktioner.
 
 **Lokalt till Azure**:
 
-| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
+| Operations | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
-| 1000 |128852 |102917 |
+| 1 000 |128852 |102917 |
 
 **Azure till Azure (samma data Center)** :
 
-| Åtgärder | Ingen transaktion (MS) | Transaktion (MS) |
+| Operations | Ingen transaktion (MS) | Transaktion (MS) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
 | 100 |2145 |341 |
-| 1000 |21479 |2756 |
+| 1 000 |21479 |2756 |
 
 > [!NOTE]
 > Resultaten är inte benchmarks. Se [information om tidtagnings resultat i den här artikeln](#note-about-timing-results-in-this-article).
@@ -124,7 +124,7 @@ Föregående exempel visar att du kan lägga till en lokal transaktion till valf
 
 Mer information om transaktioner i ADO.NET finns i [lokala transaktioner i ADO.net](https://docs.microsoft.com/dotnet/framework/data/adonet/local-transactions).
 
-### <a name="table-valued-parameters"></a>tabell värdes parametrar
+### <a name="table-valued-parameters"></a>Tabell värdes parametrar
 
 Tabell värdes parametrar stöder användardefinierade tabell typer som parametrar i Transact-SQL-uttryck, lagrade procedurer och funktioner. Med den här batching-tekniken på klient sidan kan du skicka flera rader med data i tabell värdes parametern. Om du vill använda tabell värdes parametrar definierar du först en tabell typ. Följande Transact-SQL-instruktion skapar en tabell typ med namnet **MyTableType**.
 
@@ -193,12 +193,12 @@ I de flesta fall har tabell värdes parametrar motsvarande eller bättre prestan
 
 I följande tabell visas ad hoc-testresultat för användning av tabell värdes parametrar i millisekunder.
 
-| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
+| Operations | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
 | 100 |338 |51 |
-| 1000 |2615 |382 |
+| 1 000 |2615 |382 |
 | 10000 |23830 |3586 |
 
 > [!NOTE]
@@ -233,12 +233,12 @@ Det finns vissa fall där Mass kopiering föredras över tabell värdes parametr
 
 Följande ad hoc-testresultat visar prestanda för batch-körning med **SqlBulkCopy** i millisekunder.
 
-| Åtgärder | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
+| Operations | Lokalt till Azure (MS) | Azure-samma data Center (MS) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
 | 100 |636 |53 |
-| 1000 |2535 |341 |
+| 1 000 |2535 |341 |
 | 10000 |21605 |2737 |
 
 > [!NOTE]
@@ -278,7 +278,7 @@ Det här exemplet är tänkt att visa det grundläggande konceptet. Ett mer real
 
 Följande ad hoc-testresultat visar prestandan för den här typen av INSERT-instruktion i millisekunder.
 
-| Åtgärder | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
+| Operations | Tabell värdes parametrar (MS) | Infoga en sats (MS) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |
@@ -299,7 +299,7 @@ Med klassen **DataAdapter** kan du ändra ett **data mängds** objekt och sedan 
 
 Entity Framework stöder för närvarande inte batchbearbetning. Olika utvecklare i communityn har försökt att demonstrera lösningar, till exempel att åsidosätta metoden **saveChanges** . Men lösningarna är vanligt vis komplexa och anpassade till program-och data modellen. Det Entity Framework CodePlex-projektet har en diskussions sida för den här funktions förfrågan. Om du vill visa den här diskussionen, se [design Mötes anteckningar – 2 augusti 2012](https://entityframework.codeplex.com/wikipage?title=Design%20Meeting%20Notes%20-%20August%202%2c%202012).
 
-### <a name="xml"></a>FIL
+### <a name="xml"></a>XML
 
 För klar Ande är det viktigt att prata om XML som en batch-strategi. Användningen av XML har dock inga fördelar jämfört med andra metoder och flera nack delar. Metoden liknar tabell värdes parametrar, men en XML-fil eller sträng skickas till en lagrad procedur i stället för en användardefinierad tabell. Den lagrade proceduren tolkar kommandona i den lagrade proceduren.
 
@@ -327,7 +327,7 @@ I våra tester var det vanligt vis ingen fördel med att dela upp stora partier 
 
 | Batchstorlek | Iterationer | Tabell värdes parametrar (MS) |
 | --- | --- | --- |
-| 1000 |1 |347 |
+| 1 000 |1 |347 |
 | 500 |2 |355 |
 | 100 |10 |465 |
 | 50 |20 |630 |
@@ -343,7 +343,7 @@ En annan faktor är att om den totala batchen blir för stor, kan SQL Database b
 
 Slutligen kan du balansera storleken på batchen med de risker som är kopplade till batchen. Om det uppstår tillfälliga fel eller om rollen Miss lyckas, bör du överväga konsekvenserna av att försöka utföra åtgärden igen eller förlora data i batchen.
 
-### <a name="parallel-processing"></a>Parallell bearbetning
+### <a name="parallel-processing"></a>Parallellbearbetning
 
 Vad händer om du använde metoden för att minska batchstorleken men använda flera trådar för att köra jobbet? Vi har återigen visat att flera mindre flertrådade batchar vanligt vis utfördes sämre än en enda större grupp. Följande test försöker infoga 1000 rader i en eller flera parallella batchar. Det här testet visar hur fler samtidiga batchar faktiskt försämrade prestanda.
 
@@ -382,7 +382,7 @@ Om tabell värdes parametrar använder en lagrad procedur kan du använda komman
 
 I följande avsnitt beskrivs hur du använder tabell värdes parametrar i tre program scenarier. Det första scenariot visar hur buffring och batchbearbetning kan fungera tillsammans. Det andra scenariot förbättrar prestanda genom att utföra Master-detail-åtgärder i ett enda lagrat procedur anrop. Det slutliga scenariot visar hur du använder tabell värdes parametrar i en "UPSERT"-åtgärd.
 
-### <a name="buffering"></a>Buffring
+### <a name="buffering"></a>Buffrar
 
 Även om det finns några scenarier som är uppenbara för batching, finns det många scenarier som kan dra nytta av satsvis kompilering genom fördröjd bearbetning. Fördröjd bearbetning medför dock också en större risk att data förloras vid ett oväntat fel. Det är viktigt att förstå den här risken och ta hänsyn till konsekvenserna.
 

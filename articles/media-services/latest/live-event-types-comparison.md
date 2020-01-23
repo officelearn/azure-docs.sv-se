@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888401"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543060"
 ---
 # <a name="live-event-types-comparison"></a>Jämförelse av händelse typer i real tid
 
@@ -28,19 +28,19 @@ I Azure Media Services kan en [Live-händelse](https://docs.microsoft.com/rest/a
 
 I följande tabell jämförs funktionerna i de olika typerna av Live-händelser. Typerna anges när du skapar med [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** – en lokal Live-kodare skickar en data ström med flera bit hastigheter. De inmatade strömmarna passerar genom Live-händelsen utan ytterligare bearbetning. 
+* **LiveEventEncodingType. None** – en lokal Live-kodare skickar en data ström med flera bit hastigheter. De inmatade strömmarna passerar genom Live-händelsen utan ytterligare bearbetning. Kallas även direkt sändnings händelse.
 * **LiveEventEncodingType. standard** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Om bidrags flödet är av 720p eller högre, kommer **Default720p** för för inställningen att koda en uppsättning med 6 lösnings-/bit hastighets par (information följer senare i artikeln).
 * **LiveEventEncodingType. Premium1080p** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. För inställningen Default1080p anger utdata för upplösnings-och bit hastighets par (information följer senare i artikeln). 
 
 | Funktion | Direkt sändnings händelse | Standard-eller Premium1080p Live-händelse |
 | --- | --- | --- |
-| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Nej |Ja |
+| Inmatade enstaka bit hastighet kodas till flera bit hastigheter i molnet |Inga |Ja |
 | Maximal video upplösning för bidrags flöden |4K (4096x2160 vid 60 bild rutor/SEK) |1080p (1920x1088 vid 30 bild rutor/SEK)|
 | Rekommenderade högsta skikt i bidrags flödet|Upp till 12|Ett ljud|
 | Maximalt antal lager i utdata| Samma som indatamängden|Upp till 6 (se system för inställningar nedan)|
 | Maximal sammanställd bandbredd för bidrags flödet|60 Mbit/s|Gäller inte|
 | Högsta bit hastighet för ett enskilt lager i bidraget |20 Mbit/s|20 Mbit/s|
-| Stöd för flera språk ljud spår|Ja|Nej|
+| Stöd för flera språk ljud spår|Ja|Inga|
 | Codecs för inkompatibla video |H. 264/AVC och H. 265/HEVC|H. 264/AVC|
 | Video-codecar som stöds|Samma som indatamängden|H. 264/AVC|
 | Video bitdjup, indata och utdata som stöds|Upp till 10 bitar, inklusive HDR 10/HLG|8-bitars|
@@ -52,13 +52,14 @@ I följande tabell jämförs funktionerna i de olika typerna av Live-händelser.
 | Pris|Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video"|Se [sidan med priser](https://azure.microsoft.com/pricing/details/media-services/) och klicka på fliken "live video"|
 | Maximal kör tid| 24 timmar x 365 dagar, direkt linjärt | 24 timmar x 365 dagar, direkt linjärt (för hands version)|
 | Möjlighet att gå igenom inbäddade CEA 608/708-textning|Ja|Ja|
-| Stöd för att infoga mellanliggande|Nej|Nej|
-| Stöd för AD-signalering via API| Nej|Nej|
+| Möjlighet att aktivera direkt avskrift|Ja|Ja|
+| Stöd för att infoga mellanliggande|Inga|Inga|
+| Stöd för AD-signalering via API| Inga|Inga|
 | Stöd för AD-signalering via SCTE-35-meddelanden på band|Ja|Ja|
 | Möjlighet att återställa från korta bås i bidrags flödet|Ja|Delvis|
 | Stöd för icke-uniform GOPs|Ja|Nej – indatatyper måste ha fast GOP varaktighet|
 | Stöd för variabla bild Rute frekvens inmatade|Ja|Nej – indatatyper måste vara fasta bild hastigheter. Mindre variationer tolereras, till exempel vid hög rörelse i bakgrunden. Men bidrags flödet kan inte släppa bild Rute frekvensen (till exempel till 15 bild rutor per sekund).|
-| Shutoff av direkt sändning när inmatnings flöde förloras|Nej|Efter 12 timmar, om ingen LiveOutput körs|
+| Shutoff av direkt sändning när inmatnings flöde förloras|Inga|Efter 12 timmar, om ingen LiveOutput körs|
 
 ## <a name="system-presets"></a>System för inställningar
 

@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 733b0d7650d68bddae60cf524947590c2b689968
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 92496fa572c5c1cae4588f82ac61c18de3024045
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779368"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512835"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planera en distribution för enkel inloggning
 
@@ -31,7 +31,7 @@ Många organisationer förlitar sig på SaaS-program (program vara som en tjäns
 
 Azure Marketplace har över 3000 program med förintegrerade SSO-anslutningar, vilket gör det enkelt att integrera dem i din klient.
 
-## <a name="licensing"></a>Licenser
+## <a name="licensing"></a>Licensiering
 
 - **Azure AD-licensiering** – SSO för förintegrerade SaaS-program är kostnads fri. Antalet objekt i din katalog och de funktioner som du vill distribuera kan dock kräva ytterligare licenser. En fullständig lista över licens krav finns i [Azure Active Directory prissättning](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Program licens** – du behöver lämpliga licenser för dina SaaS-program för att uppfylla dina affärs behov. Arbeta med program ägaren för att avgöra om de användare som har tilldelats programmet har rätt licenser för deras roller i programmet. Om Azure AD hanterar automatisk etablering baserat på roller måste rollerna som tilldelats i Azure AD justeras med antalet licenser som ägs i programmet. Felaktigt antal licenser som ägs i programmet kan leda till fel vid etablering/uppdatering av en användare.
@@ -62,7 +62,7 @@ Det finns två huvudsakliga sätt som du kan använda för att göra det möjlig
 Att använda Azure AD för lösenordsbaserad SSO kräver att du distribuerar ett webb läsar tillägg som på ett säkert sätt hämtar autentiseringsuppgifterna och fyller i inloggnings formulären. Definiera en mekanism för att distribuera tillägget i skala med [webbläsare som stöds](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Alternativen är:
 
 - [grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-- [System Center Configuration Manager (SCCM) för Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+- [Configuration Manager för Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 - [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Mer information finns i [så här konfigurerar du lösen ord enkel inloggning](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-password-sso-non-gallery).
@@ -115,11 +115,11 @@ Några av de viktiga ämnen som du bör planera för när du konfigurerar åtkom
 
 ### <a name="plan-auditing"></a>Planera granskning
 
-Azure AD tillhandahåller [rapporter som innehåller tekniska och affärs](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/)insikter. 
+Azure AD tillhandahåller [rapporter som innehåller tekniska och affärs insikter](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
-Både säkerhets-och aktivitets rapporter är tillgängliga. Säkerhets rapporter visar användare som har flaggats för risk och riskfyllda inloggningar. Aktivitets rapporter hjälper dig att förstå beteendet för användare i din organisation genom detaljerad inloggnings aktivitet och att tillhandahålla gransknings historik för alla inloggningar. Du kan använda rapporter för att hantera risker, öka produktiviteten och övervaka efterlevnad.
+Både säkerhets-och aktivitets rapporter är tillgängliga. Säkerhets rapporter visar användare som har flaggats för risk och riskfyllda inloggningar. med aktivitets rapporter får du hjälp att förstå beteendet för användare i organisationen genom att Beskriv inloggnings aktiviteten och tillhandahålla gransknings historik för alla inloggningar. Du kan använda rapporter för att hantera risker, öka produktiviteten och övervaka efterlevnad.
 
-| Rapporttyp | Åtkomstgranskning | Säkerhetsrapporter | Inloggnings rapport |
+| Rapporttyp | Åtkomst granskning | Säkerhetsrapporter | Inloggnings rapport |
 |-------------|---------------|------------------|----------------|
 | Använd för att granska | Program behörigheter och användning. | Potentiellt komprometterade konton | Vem som har åtkomst till programmen |
 | Möjliga åtgärder | Granska åtkomst; återkalla behörigheter | Återkalla åtkomst; Framtvinga säkerhets återställning | Återkalla åtkomst |
@@ -140,13 +140,13 @@ Genom att distribuera MCAS kan du:
 
 MCAS-kontroll för program säkerhet () är tillgänglig för alla webbläsare på alla större plattformar på alla operativ system. Microsoft Cloud Mobilappar och skrivbordsappar kan också blockerad eller tillåten. Genom inbyggd integrering med Azure AD kan alla appar som är konfigurerade med SAML eller öppna ID Connect-appar med enkel inloggning i Azure AD stödjas, inklusive [flera aktuella appar](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad).
 
-Mer information om MCAS finns i [Översikt över Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS är en användarbaserad prenumerations tjänst. Du kan granska licens informationen i [MCAS License](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO)-databladet.
+Mer information om MCAS finns i [Översikt över Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security). MCAS är en användarbaserad prenumerations tjänst. Du kan granska licens informationen i [MCAS License-databladet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NXYO).
 
 ### <a name="use-conditional-access"></a>Använd villkorlig åtkomst
 
 Med villkorlig åtkomst kan du automatisera kriterier baserade åtkomst kontroll beslut för dina molnappar.
 
-Principer för villkorlig åtkomst tillämpas när den första faktorn har slutförts. Därför är villkorlig åtkomst inte avsedd som en första rad för scenarier som denial-of-service (DoS)-attacker, men kan använda signaler från dessa händelser för att fastställa åtkomst. Till exempel kan inloggnings risk nivån, platsen för begäran och så vidare användas. Mer information om villkorlig åtkomst finns i [översikten](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) och distributions [planen](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
+Principer för villkorlig åtkomst tillämpas när den första faktorn har slutförts. Därför är villkorlig åtkomst inte avsedd som en första rad för scenarier som denial-of-service (DoS)-attacker, men kan använda signaler från dessa händelser för att fastställa åtkomst. Till exempel kan inloggnings risk nivån, platsen för begäran och så vidare användas. Mer information om villkorlig åtkomst finns i [översikten](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access) och [distributions planen](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access).
 
 ## <a name="azure-sso-technical-requirements"></a>Tekniska krav för Azure SSO
 
@@ -164,7 +164,7 @@ För alla förintegrerade SaaS-appar ger Microsoft en själv studie kurs och du 
 
 Det finns en förkonfigurerad uppsättning attribut och attribut mappningar mellan Azure AD-användarkonton och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt, till exempel grupper. Planera mappningen av användarattribut från Azure AD till ditt program och [Anpassa standardattributen – mappningar](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) efter dina affärs behov.
 
-### <a name="certificate-requirements"></a>Certifikat krav
+### <a name="certificate-requirements"></a>Certifikatkrav
 
 Certifikatet för programmet måste vara uppdaterat eller så finns det risk för att användare inte kan komma åt programmet. De flesta SaaS program certifikat är lämpliga i 36 månader. Du ändrar certifikatets varaktighet i program bladet. Se till att dokumentera förfallo datum och veta hur du ska hantera certifikat förnyelsen. 
 
@@ -236,11 +236,11 @@ Använd alltid rollen med minst de behörigheter som krävs för att utföra den
 
 | Person| Roller | Azure AD-roll (om det behövs) |
 |--------|-------|-----------------------------|
-| Support administratör | Nivå 1-stöd | Ingen |
+| Support administratör | Nivå 1-stöd | Inget |
 | Identitets administratör | Konfigurera och Felsök när problem påverkar Azure AD | Global administratör |
-| Program administratör | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
+| Programadministratör | Användar attestering i program, konfiguration av användare med behörigheter | Inget |
 | Infrastruktur administratörer | Certifikat förnyelse ägare | Global administratör |
-| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Inga |
+| Företags ägare/från intressenter | Användar attestering i program, konfiguration av användare med behörigheter | Inget |
 
 Vi rekommenderar att du använder [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) för att hantera dina roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
 
@@ -264,7 +264,7 @@ Tillgängligheten för autentiseringsmetoder i programmet avgör den bästa stra
 
 - **Om appen inte har stöd för flera IDP: er** , men tillåter att användare loggar in med formulärbaserad autentisering (användar namn/lösen ord), bör du se till att användarna kan gå tillbaka till den här metoden om den nya konfigurationen för enkel inloggning Miss lyckas.
 
-### <a name="access-management"></a>Åtkomst hantering
+### <a name="access-management"></a>Åtkomsthantering
 
 Vi rekommenderar att du väljer en skalad metod när du hanterar åtkomst till resurser. Vanliga metoder är bland annat användning av lokala grupper genom synkronisering via Azure AD Connect, att [skapa dynamiska grupper i Azure AD baserat på användarattribut](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal)eller skapa självbetjänings [grupper](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) i Azure AD som hanteras av en resurs ägare.
 
@@ -272,7 +272,7 @@ Vi rekommenderar att du väljer en skalad metod när du hanterar åtkomst till r
 
 Vi rekommenderar att du konfigurerar en vanlig takt där du kan granska de olika aspekterna av SaaS App Security och utföra eventuella åtgärder som krävs.
 
-### <a name="troubleshooting"></a>Felsökning
+### <a name="troubleshooting"></a>Felsöka
 
 Följande länkar visar fel söknings scenarier. Du kanske vill skapa en speciell guide för support personalen som införlivar de här scenarierna och stegen för att åtgärda dem.
 
@@ -318,7 +318,7 @@ Följande länkar visar fel söknings scenarier. Du kanske vill skapa en speciel
 
 [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b) (för externa användare som partner och leverantörer)
 
-[Villkorlig åtkomst för Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
+[Azure AD Conditional Access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)
 
 [Azure Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 

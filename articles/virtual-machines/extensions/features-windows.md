@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 79c6658d2b3758eed94f273bf0b3685bbd146278
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 69d08af9fd34728860343db3578f7283802f1611
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073070"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544760"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
-Tillägg för virtuella Azure-datorer (VM) är små program som ger konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Om till exempel en virtuell dator kräver program varu installation, antivirus skydd eller för att köra ett skript i den, kan ett VM-tillägg användas. Azure VM-tillägg kan köras med Azure CLI, PowerShell, Azure Resource Manager mallar och Azure Portal. Tillägg kan paketeras med en ny VM-distribution eller köras mot befintliga system.
+Azure-tillägg för virtuella datorer är små program som ger konfigurations- och automationsuppgifter på virtuella Azure-datorer efter distribution. Om en virtuell dator till exempel behöver programvaruinstallation, antivirusskydd eller körning av ett skript på den kan ett VM-tillägg användas. Azure VM-tillägg kan köras med Azure CLI, PowerShell, Azure Resource Manager-mallar och Azure-portalen. Tillägg kan paketeras med en ny VM-distribution eller köras mot valfritt befintligt system.
 
 Den här artikeln innehåller en översikt över VM-tillägg, krav för att använda Azure VM-tillägg och rikt linjer för hur du identifierar, hanterar och tar bort VM-tillägg. Den här artikeln innehåller generaliserad information eftersom många VM-tillägg är tillgängliga, var och en med en potentiellt unik konfiguration. Tilläggs information finns i varje dokument som är specifikt för det enskilda tillägget.
 
@@ -65,7 +65,7 @@ Vissa tillägg stöds inte för alla operativ system och genererar *felkod 51, O
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via privilegie rad kanal för privat IP- [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
+Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version av agenterna som [stöds](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) , behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via den privilegierade kanalen på privat IP- [168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
 
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen att fungera oberoende av ovanstående. Portarna 80, 443 och 32526 krävs.
@@ -140,7 +140,7 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
 `Set-AzVMExtension`-kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -252,6 +252,10 @@ Om du flyttar **kommandot för att köra** egenskapen till den **skyddade** konf
 }
 ```
 
+På en virtuell Azure IaaS-dator som använder tillägg i certifikat konsolen kan du se certifikat som har **_certifikats generatorn Windows Azure CRP_** . På en klassisk RDFE-VM har dessa certifikat ämnes namnet **_Windows Azure Service Management för tillägg_** .
+
+Dessa certifikat skyddar kommunikationen mellan den virtuella datorn och dess värd under överföringen av skyddade inställningar (lösen ord, andra autentiseringsuppgifter) som används av tillägg. Certifikaten skapas av Azure Fabric-styrenheten och skickas till VM-agenten. Om du stoppar och startar den virtuella datorn varje dag kan ett nytt certifikat skapas av infrastruktur styrenheten. Certifikatet lagras i datorns Arkiv med personliga certifikat. Dessa certifikat kan tas bort. VM-agenten återskapar certifikat vid behov.
+
 ### <a name="how-do-agents-and-extensions-get-updated"></a>Hur uppdateras agenter och tillägg?
 
 Agenterna och tilläggen delar samma uppdaterings funktion. Vissa uppdateringar kräver inga ytterligare brand Väggs regler.
@@ -262,7 +266,7 @@ När det finns en tillgänglig uppdatering installeras den bara på den virtuell
 - Tillägg
 - Behållare för startdiagnostik
 - Gäst operativ system hemligheter
-- Storlek på virtuell dator
+- VM-storlek
 - Nätverks profil
 
 Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika regioner i olika versioner.
@@ -419,7 +423,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 ## <a name="common-vm-extensions-reference"></a>Common VM Extensions-referens
 | Tilläggs namn | Beskrivning | Mer information |
 | --- | --- | --- |
-| Anpassat skript tillägg för Windows |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Windows](custom-script-windows.md) |
+| Anpassat skript tillägg för Windows |Kör skript mot en virtuell Azure-dator |[Tillägg för anpassat skript för Windows](custom-script-windows.md) |
 | DSC-tillägg för Windows |PowerShell DSC (Desired State Configuration)-tillägg |[DSC-tillägg för Windows](dsc-overview.md) |
 | Azure Diagnostics-tillägg |Hantera Azure-diagnostik |[Azure Diagnostics-tillägg](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 | Tillägg för Azure VM Access |Hantera användare och autentiseringsuppgifter |[Åtkomst tillägg för virtuella datorer för Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

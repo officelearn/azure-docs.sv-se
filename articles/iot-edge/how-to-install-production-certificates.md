@@ -8,17 +8,17 @@ ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8232a71140dcded907562a4f1c0f2196ff012c12
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf073572cd5b371ec484c99f14cbefb4cba75ce7
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486253"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509911"
 ---
 # <a name="install-production-certificates-on-an-iot-edge-device"></a>Installera produktions certifikat på en IoT Edge enhet
 
 Alla IoT Edge enheter använder certifikat för att skapa säkra anslutningar mellan körningen och alla moduler som körs på enheten.
-IoT Edge enheter som fungerar som gateways använder samma certifikat för att ansluta till deras underordnade enheter också. 
+IoT Edge enheter som fungerar som gateways använder samma certifikat för att ansluta till deras underordnade enheter också.
 
 När du först installerar IoT Edge och etablerar enheten, konfigureras enheten med tillfälliga certifikat så att du kan testa tjänsten.
 Dessa tillfälliga certifikat upphör att gälla om 90 dagar eller kan återställas genom att starta om datorn.
@@ -28,9 +28,9 @@ Den här artikeln visar stegen för att installera certifikat på dina IoT Edge 
 Mer information om de olika typerna av certifikat och deras roller i ett IoT Edge scenario finns i [förstå hur Azure IoT Edge använder certifikat](iot-edge-certs.md).
 
 >[!NOTE]
->Termen "rot certifikat utfärdare" som används i den här artikeln refererar till det offentliga utfärdade certifikat kedjan för din IoT-lösning. Du behöver inte använda certifikat roten för en insyndikerad certifikat utfärdare eller roten för organisationens certifikat utfärdare. I många fall är det faktiskt ett offentligt certifikat för certifikat utfärdare. 
+>Termen "rot certifikat utfärdare" som används i den här artikeln refererar till det offentliga utfärdade certifikat kedjan för din IoT-lösning. Du behöver inte använda certifikat roten för en insyndikerad certifikat utfärdare eller roten för organisationens certifikat utfärdare. I många fall är det faktiskt ett offentligt certifikat för certifikat utfärdare.
 
-## <a name="prerequisites"></a>Krav 
+## <a name="prerequisites"></a>Krav
 
 * En IoT Edge enhet som körs antingen på [Windows](how-to-install-iot-edge-windows.md) eller [Linux](how-to-install-iot-edge-linux.md).
 * Ha ett certifikat från en rot certifikat utfärdare (CA), antingen självsignerat eller köpt från en betrodd kommersiell certifikat utfärdare som Baltimore, VeriSign, DigiCert eller GlobalSign.
@@ -40,17 +40,18 @@ Om du inte har en rot certifikat utfärdare än, men vill testa IoT Edge funktio
 ## <a name="create-production-certificates"></a>Skapa produktions certifikat
 
 Du bör använda din egen certifikat utfärdare för att skapa följande filer:
+
 * Rotcertifikatutfärdare
 * Enhets-CA-certifikat
 * Privat nyckel för enhets certifikat utfärdare
 
-I den här artikeln refererar vi till som *rot certifikat utfärdare* är inte den översta certifikat utfärdaren för en organisation. Det är den översta certifikat utfärdaren för IoT Edge scenariot, som IoT Edge Hub-modulen, användarattribut och eventuella underordnade enheter använder för att upprätta förtroende mellan varandra. 
+I den här artikeln refererar vi till som *rot certifikat utfärdare* är inte den översta certifikat utfärdaren för en organisation. Det är den översta certifikat utfärdaren för IoT Edge scenariot, som IoT Edge Hub-modulen, användarattribut och eventuella underordnade enheter använder för att upprätta förtroende mellan varandra.
 
-Om du vill se ett exempel på dessa certifikat granskar du skripten som skapar demo certifikat i [Hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/iotedge/tree/master/tools/CACertificates). 
+Om du vill se ett exempel på dessa certifikat granskar du skripten som skapar demo certifikat i [Hantera test CA-certifikat för exempel och självstudier](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
 ## <a name="install-certificates-on-the-device"></a>Installera certifikat på enheten
 
-Installera certifikat kedjan på den IoT Edge enheten och konfigurera IoT Edge runtime så att den refererar till de nya certifikaten. 
+Installera certifikat kedjan på den IoT Edge enheten och konfigurera IoT Edge runtime så att den refererar till de nya certifikaten.
 
 Om du till exempel använde exempel skripten för att [skapa demo certifikat](how-to-create-test-certificates.md), är de tre filer som du måste kopiera till din IoT Edge-enhet följande:
 
@@ -62,12 +63,12 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
 
    Du kan använda en tjänst som [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) eller en funktion som [Secure Copy Protocol](https://www.ssh.com/ssh/scp/) för att flytta certifikatfiler.  Om du har genererat certifikaten på själva enheten för IoT Edge kan du hoppa över det här steget och använda sökvägen till arbets katalogen.
 
-2. Öppna konfigurationsfilen för IoT Edge security daemon. 
+2. Öppna konfigurationsfilen för IoT Edge security daemon.
 
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-3. Ange **certifikat** egenskaperna i filen config. yaml till fil-URI: n för certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort `#`-tecknen innan certifikat egenskaperna tar bort kommentarer till de fyra raderna. Kom ihåg att indrag i yaml är två blank steg. Ett exempel:
+3. Ange **certifikat** egenskaperna i filen config. yaml till fil-URI: n för certifikatet och nyckelfilen på den IoT Edge enheten. Ta bort `#`-tecknen innan certifikat egenskaperna tar bort kommentarer till de fyra raderna. Se till att det inte finns några föregående blank steg i raden **certifikat:** rad och att kapslade objekt är indragna med två blank steg. Ett exempel:
 
    * Windows:
 
@@ -77,8 +78,9 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
         device_ca_pk: "file:///c:/path/device-ca.key.pem"
         trusted_ca_certs: "file:///c:/path/root-ca.root.ca.cert.pem"
       ```
-   
-   * Linux: 
+
+   * Linux:
+
       ```yaml
       certificates:
         device_ca_cert: "file:///path/device-ca.cert.pem"
@@ -86,7 +88,7 @@ Om du till exempel använde exempel skripten för att [skapa demo certifikat](ho
         trusted_ca_certs: "file:///path/root-ca.root.ca.cert.pem"
       ```
 
-4. På Linux-enheter ser du till att användar **iotedge** har Läs behörighet för den katalog som innehåller certifikaten. 
+4. På Linux-enheter ser du till att användar **iotedge** har Läs behörighet för den katalog som innehåller certifikaten.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 26ae70f9283ac7be847a59753130dd8ba8c11c18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979895"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512672"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Kända problem: vanliga aviseringar och lösningar i Azure Active Directory Domain Services
 
@@ -37,7 +37,7 @@ Det här felet uppstår vanligt vis när en Azure-prenumeration flyttas till en 
 Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort din befintliga Azure AD DS-hanterade domän](delete-aadds.md) och återskapar den i din nya katalog. Om du har problem med att ta bort den hanterade domänen i Azure AD DS kan du [öppna en support förfrågan för Azure][azure-support] för ytterligare fel söknings hjälp.
 
 ## <a name="aadds101-azure-ad-b2c-is-running-in-this-directory"></a>AADDS101: Azure AD B2C körs i den här katalogen
- 
+
 ### <a name="alert-message"></a>Aviserings meddelande
 
 *Azure AD Domain Services kan inte aktive ras i en Azure AD B2C katalog.*
@@ -78,7 +78,7 @@ För att lösa den här aviseringen tar du bort din befintliga Azure AD DS-hante
 1. Välj **undernät** i det vänstra navigerings fältet.
 1. Välj det undernät som du vill redigera eller skapa ett nytt undernät.
 1. Uppdatera eller ange ett privat IP-adressintervall och **Spara** ändringarna.
-1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md). Se till att välja ett uppdaterat virtuellt nätverks under nät med ett privat IP-adressintervall.
+1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett privat IP-adressintervall.
 
 Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
 
@@ -129,7 +129,7 @@ Azure AD DS kräver en aktiv prenumeration och kan inte flyttas till en annan pr
 
 ### <a name="resolution"></a>Upplösning
 
-Azure AD DS skapar särskilda resurser för att fungera korrekt, till exempel offentliga IP-adresser, nätverkskort och en belastningsutjämnare. Om någon av dessa resurser tas bort är den hanterade domänen i ett tillstånd som inte stöds och hindrar domänen från att hanteras. Mer information om dessa resurser finns i [nätverks resurser som används av Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
+Azure AD DS skapar ytterligare resurser för att fungera korrekt, till exempel offentliga IP-adresser, virtuella nätverks gränssnitt och en belastningsutjämnare. Om någon av dessa resurser tas bort är den hanterade domänen i ett tillstånd som inte stöds och hindrar domänen från att hanteras. Mer information om dessa resurser finns i [nätverks resurser som används av Azure AD DS](network-considerations.md#network-resources-used-by-azure-ad-ds).
 
 Den här aviseringen skapas när en av de nödvändiga resurserna tas bort. Om resursen har tagits bort under 4 timmar sedan, finns det en risk att Azure-plattformen automatiskt kan återskapa den borttagna resursen. Följande steg beskriver hur du kontrollerar hälso status och tidsstämpel för borttagning av resurser:
 
@@ -160,7 +160,7 @@ Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort
 
 ### <a name="resolution"></a>Upplösning
 
-Vissa automatiskt genererade tjänstens huvud namn används för att hantera och skapa resurser för en hanterad Azure AD DS-domän. Om åtkomst behörigheterna för något av dessa tjänst huvud namn har ändrats kan du inte hantera resurser korrekt. Följande steg visar hur du förstår och ger åtkomst behörighet till ett huvud namn för tjänsten:
+Vissa automatiskt genererade tjänstens huvud namn används för att hantera och skapa resurser för en hanterad Azure AD DS-domän. Om åtkomst behörigheterna för något av dessa tjänst huvud namn ändras kan inte domänen hantera resurser på rätt sätt. Följande steg visar hur du förstår och ger åtkomst behörighet till ett huvud namn för tjänsten:
 
 1. Läs om [rollbaserad åtkomst kontroll och hur du beviljar åtkomst till program i Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
 2. Granska åtkomsten till tjänstens huvud namn med ID- *abba844e-bc0e-44b0-947a-dc74e5d09022* och bevilja åtkomst som nekades vid ett tidigare datum.
@@ -178,13 +178,13 @@ Det virtuella nätverkets undernät för Azure AD DS behöver tillräckligt med 
 För att lösa den här aviseringen tar du bort din befintliga Azure AD DS-hanterade domän och återskapar den i ett virtuellt nätverk med ett stort tillräckligt IP-adressintervall. Den här processen kan störas eftersom den hanterade domänen i Azure AD DS inte är tillgänglig och alla anpassade resurser som du har skapat som organisationsenheter eller tjänst konton går förlorade.
 
 1. [Ta bort den Azure AD DS-hanterade domänen](delete-aadds.md) från katalogen.
-1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverket för Azure AD DS som det lilla IP-adressintervallet.
+1. Om du vill uppdatera det virtuella nätverkets IP-adressintervall söker du efter och väljer *virtuella nätverk* i Azure Portal. Välj det virtuella nätverket för Azure AD DS som har det lilla IP-adressintervallet.
 1. Under **Inställningar**väljer du *adress utrymme*.
 1. Uppdatera adress intervallet genom att välja det befintliga adress intervallet och redigera det eller lägga till ytterligare ett adress intervall. Kontrol lera att det nya IP-adressintervallet är tillräckligt stort för intervallet för Azure AD DS-undernät. **Spara** ändringarna när du är klar.
 1. Välj **undernät** i det vänstra navigerings fältet.
 1. Välj det undernät som du vill redigera eller skapa ett nytt undernät.
 1. Uppdatera eller ange ett stort tillräckligt IP-adressintervall och **Spara** sedan ändringarna.
-1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md). Se till att välja ett uppdaterat virtuellt nätverks under nät med ett tillräckligt stort IP-adressintervall.
+1. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md). Se till att du väljer det uppdaterade virtuella nätverkets undernät med ett tillräckligt stort IP-adressintervall.
 
 Azure AD DS-hanterad domän hälsa uppdateras automatiskt inom två timmar och tar bort aviseringen.
 
@@ -216,11 +216,11 @@ Det här felet kan inte återställas. Om du vill lösa aviseringen [tar du bort
 
 ### <a name="resolution"></a>Upplösning
 
-Resurs lås kan tillämpas på Azure-resurser och resurs grupper för att förhindra ändringar eller borttagningar. Eftersom Azure AD DS är en hanterad tjänst behöver Azure-plattformen möjlighet att göra konfigurations ändringar. Om ett resurs lås används på vissa Azure AD DS-komponenter kan Azure-plattformen inte utföra sina hanterings uppgifter.
+Resurs lås kan tillämpas på Azure-resurser för att förhindra ändringar eller borttagningar. Eftersom Azure AD DS är en hanterad tjänst behöver Azure-plattformen möjlighet att göra konfigurations ändringar. Om ett resurs lås används på vissa Azure AD DS-komponenter kan Azure-plattformen inte utföra sina hanterings uppgifter.
 
 Utför följande steg för att kontrol lera om det finns resurs lås på Azure AD DS-komponenterna och ta bort dem:
 
-1. För var och en av Azure AD DS-nätverks komponenterna i resurs gruppen, till exempel virtuellt nätverk, NIC eller offentlig IP-adress, kontrollerar du åtgärds loggarna i Azure Portal. I dessa åtgärds loggar anges varför en åtgärd misslyckades och var ett resurs lås används.
+1. För var och en av Azure AD DS-nätverks komponenterna i resurs gruppen, till exempel virtuellt nätverk, nätverks gränssnitt eller offentlig IP-adress, kontrollerar du åtgärds loggarna i Azure Portal. I dessa åtgärds loggar anges varför en åtgärd misslyckades och var ett resurs lås används.
 1. Välj den resurs där ett lås används och välj och ta bort låsen under **Lås**.
 
 ## <a name="aadds116-resources-are-unusable"></a>AADDS116: resurserna är oanvändbara
@@ -231,7 +231,7 @@ Utför följande steg för att kontrol lera om det finns resurs lås på Azure A
 
 ### <a name="resolution"></a>Upplösning
 
-Principer tillämpas på Azure-resurser och resurs grupper för att kontrol lera vilka konfigurations åtgärder som tillåts. Eftersom Azure AD DS är en hanterad tjänst behöver Azure-plattformen möjlighet att göra konfigurations ändringar. Om en princip tillämpas på vissa Azure AD DS-komponenter kanske inte Azure-plattformen kan utföra sina hanterings uppgifter.
+Principer tillämpas på Azure-resurser och resurs grupper som styr vilka konfigurations åtgärder som tillåts. Eftersom Azure AD DS är en hanterad tjänst behöver Azure-plattformen möjlighet att göra konfigurations ändringar. Om en princip tillämpas på vissa Azure AD DS-komponenter kanske inte Azure-plattformen kan utföra sina hanterings uppgifter.
 
 Utför följande steg för att kontrol lera om det finns tillämpade principer på Azure AD DS-komponenterna och uppdatera dem:
 
@@ -246,7 +246,7 @@ Utför följande steg för att kontrol lera om det finns tillämpade principer p
 
 ### <a name="resolution"></a>Upplösning
 
-[Kontrol lera Azure AD DS-hälsan](check-health.md) för alla aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Problem med nätverks konfigurationen kan blockera synkroniseringen från Azure AD. Om du kan lösa eventuella aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts.
+[Kontrol lera Azure AD DS-hälsan](check-health.md) för alla aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Problem med nätverks konfigurationen kan blockera synkroniseringen från Azure AD. Om du kan lösa aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts.
 
 Följande vanliga orsaker leder till att synkronisering stoppas i en Azure AD DS-hanterade domäner:
 
@@ -261,7 +261,7 @@ Följande vanliga orsaker leder till att synkronisering stoppas i en Azure AD DS
 
 ### <a name="resolution"></a>Upplösning
 
-[Kontrol lera Azure AD DS-hälsan](check-health.md) för alla aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Problem med nätverks konfigurationen kan blockera Azure-plattformen från att ta säkerhets kopior. Om du kan lösa eventuella aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts.
+[Kontrol lera Azure AD DS-hälsan](check-health.md) för aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Problem med nätverks konfigurationen kan blockera Azure-plattformen från att ta säkerhets kopior. Om du kan lösa aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts.
 
 ## <a name="aadds503-suspension-due-to-disabled-subscription"></a>AADDS503: SUS Pension på grund av inaktive rad prenumeration
 
@@ -292,7 +292,7 @@ När den hanterade domänen är aktive rad uppdaterar Azure AD DS-hanterad domä
 > [!WARNING]
 > Om en Azure AD DS-hanterad domän har pausats under en längre tid, finns det en risk för att den tas bort. Lös orsaken till uppskjutningen så snabbt som möjligt. Mer information finns i [förstå pausade tillstånd för Azure AD DS](suspension.md).
 
-[Kontrol lera Azure AD DS-hälsan](check-health.md) för alla aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Om du kan lösa eventuella aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts. När du är klar kan du [öppna en Azure-supportbegäran][azure-support] för att återaktivera den hanterade domänen i Azure AD DS.
+[Kontrol lera Azure AD DS-hälsan](check-health.md) för aviseringar som indikerar problem med konfigurationen av den hanterade domänen. Om du kan lösa aviseringar som indikerar ett konfigurations problem väntar du två timmar och kontrollerar tillbaka för att se om synkroniseringen har slutförts. När du är klar kan du [öppna en Azure-supportbegäran][azure-support] för att återaktivera den hanterade domänen i Azure AD DS.
 
 ## <a name="next-steps"></a>Nästa steg
 

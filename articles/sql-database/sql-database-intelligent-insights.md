@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745117"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545168"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Intelligent Insights att använda AI för att övervaka och felsöka databas prestanda (för hands version)
 
 Azure SQL Database Intelligent Insights kan du veta vad som händer med din SQL Database och hanterade instans databas prestanda.
 

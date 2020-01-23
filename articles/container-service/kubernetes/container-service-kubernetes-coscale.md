@@ -1,85 +1,83 @@
 ---
-title: (INAKTUELL) Övervaka ett Azure Kubernetes-kluster med CoScale
-description: Övervaka ett Kubernetes-kluster i Azure Container Service med CoScale
-services: container-service
+title: FÖRÅLDRAD Övervaka ett Azure Kubernetes-kluster med samskala
+description: Övervaka ett Kubernetes-kluster i Azure Container Service med hjälp av samskala
 author: fryckbos
-manager: jeconnoc
 ms.service: container-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 895346447e33926dcaa5ca09302f35c9d6636ed9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f1d0ca1ffc2e7a3d645ac5acbaafdf45f85550be
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60713085"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271102"
 ---
-# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>(INAKTUELL) Övervaka ett Azure Container Service Kubernetes-kluster med CoScale
+# <a name="deprecated-monitor-an-azure-container-service-kubernetes-cluster-with-coscale"></a>FÖRÅLDRAD Övervaka ett Azure Container Service Kubernetes-kluster med samskala
 
 [!INCLUDE [ACS deprecation](../../../includes/container-service-kubernetes-deprecation.md)]
 
-I den här artikeln visar vi dig hur du distribuerar den [CoScale](https://web.archive.org/web/20180317071550/ https://www.coscale.com/) agent för att övervaka alla noderna och behållarna i ett Kubernetes-kluster i Azure Container Service. Du behöver ett konto med CoScale för den här konfigurationen. 
+I den här artikeln visar vi hur du distribuerar en [storskalig](https://web.archive.org/web/20180317071550/https://www.coscale.com/) agent för att övervaka alla noder och behållare i ditt Kubernetes-kluster i Azure Container Service. Du behöver ett konto med samskala för den här konfigurationen. 
 
 
-## <a name="about-coscale"></a>Om CoScale 
+## <a name="about-coscale"></a>Om samskala 
 
-CoScale är en övervakningsplattform som samlar in mått och händelser från alla behållare i flera orchestration-plattformar. CoScale erbjuder fullständig övervakning för Kubernetes-miljöer. Det ger visualiseringar och analysverktyg för alla lager i stacken: OS, Kubernetes, Docker och program som körs i dina behållare. CoScale erbjuder flera inbyggda övervakning instrumentpaneler och har inbyggd avvikelseidentifiering att tillåta operatorer och utvecklare att snabbt hitta problem med infrastruktur och program.
+Samskala är en övervaknings plattform som samlar in mått och händelser från alla behållare på flera Dirigerings plattformar. Med Samskalan får du full stack-övervakning för Kubernetes-miljöer. Den innehåller visualiseringar och analyser för alla skikt i stacken: operativ systemet, Kubernetes, Docker och program som körs i dina behållare. Samskala erbjuder flera inbyggda övervaknings instrument paneler och har inbyggd avvikelse identifiering för att tillåta operatörer och utvecklare att snabbt hitta infrastruktur-och program problem.
 
-![CoScale UI](./media/container-service-kubernetes-coscale/coscale.png)
+![Användar gränssnitt för samskala](./media/container-service-kubernetes-coscale/coscale.png)
 
-I den här artikeln visas kan du installera agenter på ett Kubernetes-kluster för att köra CoScale som en SaaS-lösning. Om du vill behålla dina data på plats är CoScale också tillgängliga för en lokal installation.
+Som du ser i den här artikeln kan du installera agenter i ett Kubernetes-kluster för att köra samskala som en SaaS-lösning. Om du vill behålla data på plats är samskala också tillgänglig för lokal installation.
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Du måste först [skapa ett konto med CoScale](https://web.archive.org/web/20170507123133/ https://www.coscale.com/free-trial).
+Du måste först [skapa ett konto för samskala](https://web.archive.org/web/20170507123133/https://www.coscale.com/free-trial).
 
-Den här genomgången förutsätter att du har [skapade ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
+I den här genom gången förutsätter vi att du har [skapat ett Kubernetes-kluster med Azure Container Service](container-service-kubernetes-walkthrough.md).
 
-Den förutsätter också att du har den `az` Azure CLI och `kubectl` tools har installerats.
+Det förutsätter också att du har `az` Azure CLI och `kubectl` verktyg installerat.
 
-Du kan testa om du har den `az` verktyget installerat genom att köra:
+Du kan testa om du har installerat `az`-verktyget genom att köra:
 
 ```azurecli
 az --version
 ```
 
-Om du inte har den `az` verktyget installerat, det finns anvisningar [här](/cli/azure/install-azure-cli).
+Om du inte har installerat `az`-verktyget finns det instruktioner [här](/cli/azure/install-azure-cli).
 
-Du kan testa om du har den `kubectl` verktyget installerat genom att köra:
+Du kan testa om du har installerat `kubectl`-verktyget genom att köra:
 
 ```bash
 kubectl version
 ```
 
-Om du inte har `kubectl` installerat, kan du köra:
+Om du inte har `kubectl` installerat kan du köra:
 
 ```azurecli
 az acs kubernetes install-cli
 ```
 
-## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Installera agenten CoScale med ett DaemonSet
-[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) som används av Kubernetes för att köra en instans av en behållare på varje värd i klustret.
-Det är perfekt för att köra övervakningsagenter, till exempel CoScale agenten.
+## <a name="installing-the-coscale-agent-with-a-daemonset"></a>Installera en samskalnings agent med en DaemonSet
+[DaemonSets](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) används av Kubernetes för att köra en enda instans av en behållare på varje värd i klustret.
+De är perfekta för att köra övervaknings agenter som till exempel en storskalig agent.
 
-När du loggar in på CoScale går du till den [agent-sidan](https://app.coscale.com/) att installera CoScale agenter i klustret med hjälp av ett DaemonSet. Gränssnittet för CoScale ger guidad konfigurationssteg för att skapa en agent och börja övervaka fullständig Kubernetes-klustret.
+När du har loggat in på Samskalan går du till [agent sidan](https://app.coscale.com/) för att installera samskalande agenter i klustret med hjälp av en DaemonSet. Samskalnings gränssnittet innehåller guidade konfigurations steg för att skapa en agent och börja övervaka ditt kompletta Kubernetes-kluster.
 
-![CoScale agentkonfiguration](./media/container-service-kubernetes-coscale/installation.png)
+![Konfiguration av samskalad agent](./media/container-service-kubernetes-coscale/installation.png)
 
-Om du vill starta agenten på klustret, kör du det angivna kommandot:
+Starta agenten på klustret genom att köra det angivna kommandot:
 
-![Starta agenten CoScale](./media/container-service-kubernetes-coscale/agent_script.png)
+![Starta den storskaliga agenten](./media/container-service-kubernetes-coscale/agent_script.png)
 
-Klart! När agenterna är igång kan bör du se data i konsolen på några få minuter. Gå till den [agent-sidan](https://app.coscale.com/) för att visa en sammanfattning av ditt kluster, utföra ytterligare konfigurationssteg och se instrumentpaneler som den **Kubernetes-kluster översikt**.
+Klart! När agenterna är igång bör du se data i-konsolen på några få minuter. Besök [sidan agent](https://app.coscale.com/) om du vill se en sammanfattning av klustret, utföra ytterligare konfigurations steg och se instrument paneler som Kubernetes- **klustrets översikt**.
 
 ![Översikt över Kubernetes-kluster](./media/container-service-kubernetes-coscale/dashboard_clusteroverview.png)
 
-CoScale-agenten distribueras automatiskt på nya datorer i klustret. Agentuppdateringar automatiskt när en ny version har släppts.
+Superskalnings agenten distribueras automatiskt på nya datorer i klustret. Agenten uppdateras automatiskt när en ny version släpps.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se den [CoScale dokumentation](https://web.archive.org/web/20180415164304/ http://docs.coscale.com:80/) och [blogg](https://web.archive.org/web/20170501021344/ http://www.coscale.com:80/blog) för mer information om CoScale övervakningslösningar. 
+Se [dokumentationen](https://web.archive.org/web/20180415164304/http://docs.coscale.com:80/) och [bloggen](https://web.archive.org/web/20170501021344/http://www.coscale.com:80/blog) för att få mer information om storskaliga övervaknings lösningar. 
 

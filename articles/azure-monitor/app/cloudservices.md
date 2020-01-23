@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/05/2018
-ms.openlocfilehash: 860694a750ae313f04aceab924429dcf08ecbb66
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f915764deaa70117b96a42c5e7310b691125d731
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887545"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75979855"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights för Azure Cloud Services
 [Application Insights][start] kan övervaka [Azure Cloud Service-appar](https://azure.microsoft.com/services/cloud-services/) för tillgänglighet, prestanda, haverier och användning genom att kombinera data från Application Insights sdk: er med [Azure-diagnostik](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) data från moln tjänsterna. Med den feedback du får om appens prestanda och effektivitet kan du fatta välgrundade beslut om designen i varje utvecklingslivscykel.
@@ -26,7 +26,7 @@ Innan du börjar behöver du:
 * Microsoft Azure Tools 2,9 eller senare.
 * Developer Analytics tools 7,10 eller senare.
 
-## <a name="get-started-quickly"></a>Kom igång snabbt
+## <a name="get-started-quickly"></a>Kom i gång snabbt
 Det snabbaste och enklaste sättet att övervaka din molntjänst med Application Insights är att välja det här alternativet när du publicerar din tjänst till Azure.
 
 ![Exempel på sidan diagnostikinställningar](./media/cloudservices/azure-cloud-application-insights.png)
@@ -52,7 +52,7 @@ I nästa avsnitt får du lära dig hur du anpassar ditt eget moln tjänst projek
 ## <a name="plan-resources-and-resource-groups"></a>Planera resurser och resursgrupper
 Telemetrin från din app lagras, analyseras och visas i en Azure-resurs av typen Application Insights. 
 
-Varje resurs tillhör en resursgrupp. Resurs grupper används för att hantera kostnader, för att bevilja åtkomst till grupp medlemmar och för att distribuera uppdateringar i en enda koordinerad transaktion. Du kan till exempel [skriva ett skript för att distribuera](../../azure-resource-manager/resource-group-template-deploy.md) en moln tjänst i Azure och dess Application Insights övervakning av resurser i en enda åtgärd.
+Varje resurs tillhör en resursgrupp. Resurs grupper används för att hantera kostnader, för att bevilja åtkomst till grupp medlemmar och för att distribuera uppdateringar i en enda koordinerad transaktion. Du kan till exempel [skriva ett skript för att distribuera](../../azure-resource-manager/templates/deploy-powershell.md) en moln tjänst i Azure och dess Application Insights övervakning av resurser i en enda åtgärd.
 
 ### <a name="resources-for-components"></a>Resurser för komponenter
 Vi rekommenderar att du skapar en separat resurs för varje komponent i din app. Det innebär att du skapar en resurs för varje webb roll och arbets roll. Du kan analysera varje komponent separat, men du skapar en [instrument panel](../../azure-monitor/app/overview-dashboard.md) som sammanför nyckel diagrammen från alla komponenter så att du kan jämföra och övervaka dem tillsammans i en enda vy. 

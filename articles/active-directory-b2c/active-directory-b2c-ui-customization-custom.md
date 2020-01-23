@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db9b95f82a18072af538d4aa946431dcef8d9cff
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949634"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154649"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C
 
@@ -64,7 +64,7 @@ Skapa HTML-innehåll med produktens varumärke namn i rubriken.
 
 Utför följande steg för att vara värd för detta HTML-innehåll i Blob Storage:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. På menyn **hubb** väljer du **ny** > **lagring** > **lagrings konto**.
 1. Välj en **prenumeration** för ditt lagrings konto.
 1. Skapa en **resurs grupp** eller Välj en befintlig.
@@ -106,7 +106,7 @@ Konfigurera Blob Storage för resurs delning mellan ursprung genom att utföra f
 1. För **tillåtna huvuden**anger du en asterisk (*).
 1. För **exponerade rubriker**anger du en asterisk (*).
 1. Ange 200 för **högsta ålder**.
-1. Klicka på **Save** (Spara).
+1. Klicka på **Spara**.
 
 ## <a name="test-cors"></a>Testa CORS
 
@@ -120,7 +120,7 @@ Verifiera att du är redo genom att utföra följande steg:
 
 Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess underordnade element från bas filen till tilläggs filen.
 
-1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> . Detta är en av de principfiler som ingår i Start paketet för den anpassade principen, som du bör ha fått i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
+1. Öppna bas filen för din princip. Till exempel <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em>  . Detta är en av de principfiler som ingår i Start paketet för den anpassade principen, som du bör ha fått i förutsättningen, [Kom igång med anpassade principer](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom).
 1. Sök efter och kopiera hela innehållet i **ContentDefinitions** -elementet.
 1. Öppna tilläggs filen. Till exempel *TrustFrameworkExtensions. XML*. Sök efter **BuildingBlocks** -elementet. Om elementet inte finns lägger du till det.
 1. Klistra in hela innehållet i **ContentDefinitions** -elementet som du kopierade som ett underordnat objekt till **BuildingBlocks** -elementet.
@@ -146,19 +146,19 @@ Om du vill konfigurera UI-anpassning kopierar du **ContentDefinition** och dess 
 
 1. Spara tilläggs filen.
 
-## <a name="upload-your-updated-custom-policy"></a>Ladda upp en uppdaterad anpassad princip
+## <a name="upload-and-test-your-updated-custom-policy"></a>Ladda upp och testa din uppdaterade anpassade princip
+
+### <a name="upload-the-custom-policy"></a>Överför den anpassade principen
 
 1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
-1. Välj **ramverk för identitets upplevelse**.
-1. Klicka på **alla principer**.
-1. Klicka på **Ladda upp princip**.
+1. Sök efter och välj **Azure AD B2C**.
+1. Under **principer**väljer du **Identity Experience Framework**.
+1. Välj **överför anpassad princip**.
 1. Ladda upp tilläggs filen som du har ändrat tidigare.
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>Testa den anpassade principen med hjälp av **Kör nu**
+### <a name="test-the-custom-policy-by-using-run-now"></a>Testa den anpassade principen med hjälp av **Kör nu**
 
-1. På sidan **Azure AD B2C** går du till **alla principer**.
-1. Välj den anpassade princip som du överförde och klicka på knappen **Kör nu** .
+1. Välj den princip som du överförde och välj sedan **Kör nu**.
 1. Du bör kunna registrera dig med hjälp av en e-postadress.
 
 ## <a name="reference"></a>Referens

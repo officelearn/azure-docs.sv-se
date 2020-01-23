@@ -191,6 +191,9 @@
         - name: Etikettavbildningar
           displayName: 'data, dataset, labeling'
           href: how-to-label-images.md
+        - name: Skapa datauppsättningar med etiketter
+          displayName: 'data, labels, torchvision'
+          href: how-to-use-labeled-dataset.md
     - name: Inlärningsmodeller
       items:
         - name: Använda designern

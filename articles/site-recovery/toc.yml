@@ -309,7 +309,7 @@
                   href: vmware-physical-mobility-service-overview.md
                 - name: Förbereda för push-installation av mobilitetstjänsten
                   href: vmware-azure-install-mobility-service.md
-                - name: Distribuera mobilitetstjänsten med System Center Configuration Manager
+                - name: Distribuera mobilitetstjänsten med Configuration Manager
                   href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Köra redundans och återställning efter fel
           href: physical-to-azure-failover-failback.md

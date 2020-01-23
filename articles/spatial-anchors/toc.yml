@@ -57,7 +57,7 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: I C++/WinRT
           href: how-tos/create-locate-anchors-cpp-winrt.md
-    - name: Använda sensorer på enheten för att identifiera närliggande fästpunkter
+    - name: Använda grov omlokalisering för att identifiera närliggande fästpunkter
       items:
         - name: 'I C#/Unity'
           href: how-tos/set-up-coarse-reloc-unity.md

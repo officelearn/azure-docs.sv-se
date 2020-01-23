@@ -16,6 +16,8 @@
       href: azure-resource-manager-security-controls.md
     - name: Resursprovidrar som stöds av tjänsten
       href: azure-services-resource-providers.md
+    - name: Filnamnstillägg för resurstyper
+      href: extension-resource-types.md
     - name: Resursinstansgräns
       href: resources-without-resource-group-limit.md
 - name: Gör så här för att
@@ -68,44 +70,44 @@
           href: tag-resources.md
         - name: Stöd för taggar
           href: tag-support.md
-    - name: Hantera
+    - name: Hantera resursgrupper
       items:
-        - name: Hantera resursgrupper
-          items:
-            - name: Använda Azure-portalen
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-portal.md
-            - name: Använda Azure CLI
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-cli.md
-            - name: Använda Azure PowerShell
-              displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
-              href: manage-resource-groups-powershell.md
-        - name: Hantera resurser
-          items:
-            - name: Använda Azure-portalen
-              displayName: 'open,delete,deploy,move,lock,tag,monitor'
-              href: manage-resources-portal.md
-            - name: Använda Azure CLI
-              displayName: 'open,delete,deploy,move,lock,tag'
-              href: manage-resources-cli.md
-            - name: Använda Azure PowerShell
-              displayName: 'open,delete,deploy,move,lock,tag'
-              href: manage-resources-powershell.md
-        - name: Ta bort resurser och resursgrupper
-          href: delete-resource-group.md
-        - name: Lås resurser
-          href: lock-resources.md
-        - name: Skapa EA-prenumerationer
+        - name: Azure Portal
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-portal.md
+        - name: Azure CLI
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-cli.md
+        - name: Azure PowerShell
+          displayName: 'create,list,open,delete,deploy,move,lock,tag,export'
+          href: manage-resource-groups-powershell.md
+    - name: Hantera resurser
+      items:
+        - name: Azure Portal
+          displayName: 'open,delete,deploy,move,lock,tag,monitor'
+          href: manage-resources-portal.md
+        - name: Azure CLI
+          displayName: 'open,delete,deploy,move,lock,tag'
+          href: manage-resources-cli.md
+        - name: Azure PowerShell
+          displayName: 'open,delete,deploy,move,lock,tag'
+          href: manage-resources-powershell.md
+    - name: EA-prenumerationer
+      items:
+        - name: Skapa
           href: programmatically-create-subscription.md
-        - name: Bevilja åtkomst för att skapa EA-prenumerationer
+        - name: Bevilja åtkomst för att skapa
           href: grant-access-to-create-subscription.md
-        - name: Autentisera mellan klienter
-          href: authenticate-multi-tenant.md
-    - name: Visa aktivitetsloggar
-      href: view-activity-logs.md
     - name: Resursprovidrar och resurstyper
       href: resource-providers-and-types.md
+    - name: Ta bort resurser och resursgrupper
+      href: delete-resource-group.md
+    - name: Lås resurser
+      href: lock-resources.md
+    - name: Autentisera mellan klienter
+      href: authenticate-multi-tenant.md
+    - name: Visa aktivitetsloggar
+      href: view-activity-logs.md
     - name: Begränsningsbegäranden
       href: request-limits-and-throttling.md
     - name: Spåra asynkrona åtgärder

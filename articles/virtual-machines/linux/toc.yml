@@ -43,9 +43,11 @@
       href: tutorial-azure-security.md
     - name: 14a – Skapa med Jenkins
       href: tutorial-jenkins-github-docker-cicd.md
-    - name: 14b – Distribuera med Azure Pipelines (klassisk)
+    - name: 14b – Integrera Jenkins med Azure DevOps
       href: tutorial-build-deploy-jenkins.md
-    - name: 15 – CI/CD med Azure Pipelines (YAML)
+    - name: 15a – DevOps för IaaS och PaaS på Azure
+      href: tutorial-devops-azure-pipelines-classic.md
+    - name: 15b – CI/CD med Azure Pipelines (YAML)
       href: tutorial-build-deploy-azure-pipelines.md
     - name: 16a – Skapa LAMP-stack
       href: tutorial-lamp-stack.md

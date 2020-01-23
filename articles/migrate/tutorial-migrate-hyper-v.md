@@ -4,12 +4,12 @@ description: Lär dig hur du migrerar lokala virtuella Hyper-V-datorer till Azur
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028980"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545916"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Migrera virtuella Hyper-V-datorer till Azure 
 
@@ -17,7 +17,7 @@ I den här artikeln lär du dig hur du migrerar lokala virtuella Hyper-V-datorer
 
 [Azure Migrate](migrate-services-overview.md) tillhandahåller en central hubb för att spåra identifiering, utvärdering och migrering av dina lokala appar och arbets belastningar och privata/offentliga virtuella moln datorer till Azure. Hubben innehåller Azure Migrate verktyg för utvärdering och migrering samt oberoende program varu leverantörer från tredje part (ISV).
 
-Den här självstudien är den tredje i en serie som visar hur du kan utvärdera och migrera Hyper-V till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här guiden får du lära dig hur man:
+Den här självstudien är den tredje i en serie som visar hur du kan utvärdera och migrera Hyper-V till Azure med hjälp av Azure Migrate Server bedömning och migrering. I den här självstudiekursen får du lära du dig att:
 
 
 > [!div class="checklist"]
@@ -181,7 +181,7 @@ Om det här är den första virtuella dator som du replikerar i Azure Migrate pr
 - **Service Bus**: Azure Migrate: Server-migreringen använder Service Bus för att skicka Dirigerings meddelanden för replikering till enheten.
 - **Gateway Storage-konto**: Azure Migrate: Server Migration använder Gateway Storage-kontot för att lagra statusinformation om de virtuella datorer som replikeras.
 - **Logg lagrings konto**: Azure Migrate-installationen överför replik loggar för virtuella datorer till ett logg lagrings konto. Azure Migrate använder replikeringsinformation på de replik hanterade diskarna.
-- **Nyckel valv**: Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen. Du bör ha ställt in de behörigheter som nyckel valvet behöver för att komma åt lagrings kontot när du för beredde. för [beredde Azure](tutorial-prepare-hyper-v.md#prepare-azure) för utvärdering av Hyper-V VM och migrering. 
+- **Nyckel valv**: Azure Migrates enheten använder nyckel valvet för att hantera anslutnings strängar för Service Bus och åtkomst nycklar för de lagrings konton som används i replikeringen. Du bör ha ställt in de behörigheter som nyckel valvet behöver för att komma åt lagrings kontot när du för [beredde Azure](tutorial-prepare-hyper-v.md#prepare-azure) för utvärdering av Hyper-V-VM och migrering. 
 
 
 ## <a name="track-and-monitor"></a>Spåra och övervaka

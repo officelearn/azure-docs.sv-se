@@ -1,5 +1,5 @@
 ---
-title: Jämförelse av Video Indexer och Azure Media Services v3-för inställningar | Microsoft Docs
+title: Jämförelse av Video Indexer och Azure Media Services v3-förinställningar
 description: I den här artikeln jämförs Video Indexer-funktioner och Azure Media Services v3-för inställningar.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 055e210efbb01268654e7823a0fc1320e9c27646
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2e2abd4ffe5a6d0a6336d811599db687da146f1e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892829"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513192"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Jämför Azure Media Services v3 för inställningar och Video Indexer 
 

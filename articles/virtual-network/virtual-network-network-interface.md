@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/24/2017
+ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: df2eb0886b71a2d5daaa95f33ef29a2afc7e112a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11e6285ef70ffde5344add951801997f8541eaad
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980724"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543111"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Skapa, ändra eller ta bort ett nätverks gränssnitt
 
@@ -90,7 +90,7 @@ Du kan visa och ändra de flesta inställningar för ett nätverks gränssnitt n
    - **Egenskaper:** Visar nyckel inställningar för nätverks gränssnittet, inklusive MAC-adressen (tomt om nätverks gränssnittet inte är kopplat till en virtuell dator) och den prenumeration som det finns i.
    - **Effektiva säkerhets regler:**  Säkerhets regler anges om nätverks gränssnittet är kopplat till en virtuell dator som körs och en NSG är kopplad till nätverks gränssnittet, under nätet som den är tilldelad till eller båda. Mer information om vad som visas finns i [Visa effektiva säkerhets regler](#view-effective-security-rules). Mer information om NSG: er finns i [nätverks säkerhets grupper](security-overview.md).
    - **Effektiva vägar:** Vägar anges om nätverks gränssnittet är kopplat till en virtuell dator som körs. Vägarna är en kombination av Azures standard vägar, alla användardefinierade vägar och eventuella BGP-vägar som kan finnas för det undernät som nätverks gränssnittet är tilldelat. Mer information om vad som visas finns i [Visa effektiva vägar](#view-effective-routes). Mer information om Azures standard vägar och användardefinierade vägar finns i [Översikt över routning](virtual-networks-udr-overview.md).
-   - **Vanliga Azure Resource Manager inställningar:**  Mer information om vanliga Azure Resource Manager inställningar finns i [aktivitets logg](../azure-monitor/platform/platform-logs-overview.md), [åtkomst kontroll (IAM)](../role-based-access-control/overview.md), [taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)och automation- [skript](../azure-resource-manager/templates/export-template-portal.md).
+Vanliga Azure Resource Manager inställningar: Mer information om vanliga Azure Resource Manager inställningar finns i [aktivitets logg](../azure-monitor/platform/platform-logs-overview.md), [åtkomst kontroll (IAM)](../role-based-access-control/overview.md), [taggar](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json), [Lås](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)och automation- [skript](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Kommandon**
 
@@ -168,7 +168,7 @@ Du kan ändra under nätet, men inte det virtuella nätverket, som ett nätverks
 Du kan bara lägga till ett nätverks gränssnitt i eller ta bort ett nätverks gränssnitt från en program säkerhets grupp med hjälp av portalen om nätverks gränssnittet är kopplat till en virtuell dator. Du kan använda PowerShell eller Azure CLI för att lägga till ett nätverks gränssnitt i eller ta bort ett nätverks gränssnitt från en program säkerhets grupp, oavsett om nätverks gränssnittet är kopplat till en virtuell dator eller inte. Lär dig mer om [program säkerhets grupper](security-overview.md#application-security-groups) och hur du [skapar en program säkerhets grupp](manage-network-security-group.md).
 
 1. I rutan *Sök efter resurser, tjänster och dokument* högst upp i portalen börjar du skriva namnet på en virtuell dator som har ett nätverks gränssnitt som du vill lägga till i eller ta bort från, en program säkerhets grupp. När namnet på den virtuella datorn visas i Sök resultatet väljer du det.
-2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **Konfigurera program säkerhets grupper**, Välj de program säkerhets grupper som du vill lägga till nätverks gränssnittet i eller avmarkera de program säkerhets grupper som du vill ta bort nätverks gränssnittet från och välj sedan **Spara**. Endast nätverks gränssnitt som finns i samma virtuella nätverk kan läggas till i samma program säkerhets grupp. Program säkerhets gruppen måste finnas på samma plats som nätverks gränssnittet.
+2. Under **INSTÄLLNINGAR** väljer du **Nätverk**.  Välj **program säkerhets grupper** och **Konfigurera**sedan program säkerhets grupper som väljer de program säkerhets grupper som du vill lägga till nätverks gränssnittet i eller avmarkera de program säkerhets grupper som du vill ta bort nätverks gränssnittet från och välj sedan **Spara**. Endast nätverks gränssnitt som finns i samma virtuella nätverk kan läggas till i samma program säkerhets grupp. Program säkerhets gruppen måste finnas på samma plats som nätverks gränssnittet.
 
 **Kommandon**
 
@@ -196,8 +196,8 @@ Du kan bara lägga till ett nätverks gränssnitt i eller ta bort ett nätverks 
 Du kan ta bort ett nätverks gränssnitt så länge det inte är kopplat till en virtuell dator. Om ett nätverks gränssnitt är kopplat till en virtuell dator måste du först placera den virtuella datorn i tillståndet Stoppad (Frigjord) och sedan koppla bort nätverks gränssnittet från den virtuella datorn. Om du vill koppla bort ett nätverks gränssnitt från en virtuell dator slutför du stegen i [Koppla bort ett nätverks gränssnitt från en virtuell dator](virtual-network-network-interface-vm.md#remove-a-network-interface-from-a-vm). Du kan dock inte ta bort ett nätverks gränssnitt från en virtuell dator om det är det enda nätverks gränssnitt som är kopplat till den virtuella datorn. En virtuell dator måste alltid ha minst ett nätverks gränssnitt kopplat till sig. Om du tar bort en virtuell dator kopplas alla nätverks gränssnitt som är anslutna till den bort, men nätverks gränssnitten tas inte bort.
 
 1. Skriv *nätverks gränssnitt*i rutan som innehåller text *Sök resurserna* överst i Azure Portal. När **nätverks gränssnitt** visas i Sök resultaten väljer du det.
-2. Välj **...** på höger sida av det nätverks gränssnitt som du vill ta bort från listan över nätverks gränssnitt.
-3. Välj **Ta bort**.
+2. Välj det nätverks gränssnitt i listan som du vill ta bort.
+3. Under **Översikt** väljer du **ta bort**.
 4. Välj **Ja** för att bekräfta borttagning av nätverks gränssnittet.
 
 När du tar bort ett nätverks gränssnitt frigörs alla MAC-eller IP-adresser som tilldelats till det.

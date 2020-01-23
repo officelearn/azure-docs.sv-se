@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 4de8b032bd284ce0a2d6d8fd168b9ea3dd4937d3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6867862c130bf6f0b7cc34098064f6ce6eec282b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289058"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543503"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Få åtkomst till data i Azure Storage-tjänster
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -47,7 +47,7 @@ Du behöver:
 
 ## <a name="supported-data-storage-service-types"></a>Typer av data lagrings tjänster som stöds
 
-Data lager har för närvarande stöd för lagring av anslutnings information till de lagrings tjänster som anges i följande matris.
+Data lager har för närvarande stöd för lagring av anslutnings information till de lagrings tjänster som anges i följande matris. För närvarande stöds inte Azure Data Warehouse. 
 
 | Typ av lagrings&nbsp; | Typ av autentiserings&nbsp; | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) |  [Azure&nbsp;Machine&nbsp;Learning CLI](reference-azure-machine-learning-cli.md) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; REST API](https://docs.microsoft.com/rest/api/azureml/)
 ---|---|---|---|---|---

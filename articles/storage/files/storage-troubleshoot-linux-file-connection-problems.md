@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8b7a743ebcdf74f6ad740e4e4193bbd98da1536d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291132"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544947"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Felsöka Azure Files problem i Linux
 
@@ -131,9 +131,8 @@ Krypteringsfunktionen för SMB 3.0 för Linux introducerades i kernel 4.11. Den 
 Om din Linux SMB-klient inte stöder kryptering monterar du Azure Files med SMB 2.1 från en virtuell Linux-dator på Azure som är i samma datacenter som filresursen. Kontrollera att inställningen [Säker överföring krävs]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) är aktiverad för lagringskontot. 
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>Fel "ingen åtkomst" när du bläddrar till en Azure-filresurs i portalen
-
-När du bläddrar till en Azure-filresurs i portalen kan du få följande fel meddelande:
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Fel "ingen åtkomst" när du försöker komma åt eller ta bort en Azure-filresurs  
+När du försöker komma åt eller ta bort en Azure-filresurs i portalen kan du få följande fel meddelande:
 
 Ingen åtkomst  
 Felkod: 403 

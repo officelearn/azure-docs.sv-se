@@ -1,6 +1,6 @@
 ---
 title: Grov omlokalisering i C++/NDK
-description: Djupgående förklaring av hur du skapar och hittar ankare med hjälp av sensorer för enhets sensorer i C++/NDK.
+description: Djupgående förklaring av hur du skapar och hittar ankare med grov omlokalisering i C++/NDK.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e505e6a8a3c9f28905c1b1fc3d90dbeee959a793
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: db7480b8aa2a78e40cf52d22cbaa7a15422602e8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277250"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545423"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cndk"></a>Skapa och hitta ankare med hjälp av sensorer för enhets sensorer i C++/NDK
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cndk"></a>Skapa och hitta ankare med grov omlokalisering i C++/NDK
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277250"
 
 Molnbaserade ankare kan associeras på enheten, placera sensor data med de ankare som du skapar. Den här informationen kan också användas för att snabbt avgöra om det finns några fäst punkter i närheten av enheten. Mer information finns i [grov omlokalisering](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande för att slutföra den här guiden:
 

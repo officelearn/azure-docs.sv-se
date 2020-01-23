@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: reference
 ms.author: jmartens
 author: j-martens
-ms.date: 01/21/2019
+ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1cd9ca07aab1953d114caf748ca99170fae6b876
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293206"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546358"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
@@ -25,18 +25,39 @@ Se [lista över kända problem](resource-known-issues.md) att lära dig om känd
 
 ## <a name="2020-01-21"></a>2020-01-21
 
-### <a name="azure-machine-learning-designer-generally-available-ga"></a>Azure Machine Learning designer allmänt tillgänglig (GA)
-
-Designern är nu allmänt tillgänglig.
+### <a name="azure-machine-learning-sdk-for-python-v1085"></a>Azure Machine Learning SDK för python v-1.0.85
 
 + **Nya funktioner**
-    + Alternativet `Regenerate Output` modul har lagts till för att tvinga designer att ignorera cachelagrade resultat.
-    + Nya vyer har lagts till i körnings informationen för pipelinen:
-        + Vyn pipeline-lista.
-        + Logg visning i webbläsaren.
-    + Etiketter har lagts till i moduler för indata och utdata.
-    + Alternativet `Set as Default` pipelines har lagts till på [fliken slut punkter](how-to-run-batch-predictions-designer.md#versioning-endpoints).
-    + Kortkommandon och skärm läsarenas [hjälpmedels funktioner](designer-accessibility.md)har lagts till.
+  + **azureml-core**
+    + Hämta den aktuella kärn användningen och kvot begränsningen för AmlCompute-resurser på en specifik arbets yta och prenumeration
+  
+  + **azureml-contrib-pipeline – steg**
+    + Tillåt användare att skicka tabell data uppsättning som mellanliggande resultat från föregående steg till parallelrunstep
+
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-runtime**
+    + Kravet på y_query kolumn i begäran till den distribuerade prognos tjänsten har tagits bort. 
+    + Y_query har tagits bort från Dominick för tjänsten orange juice Notebook.
+    + Åtgärdade fel som förhindrar prognoser i distribuerade modeller, körs på data uppsättningar med datum tid kolumner.
+    + Matthews korrelations faktor har lagts till som klassificerings mått för både binära och multiklass-klassificering.
+  + **azureml-contrib-tolka**
+    + Borttagna text förklaringar från azureml-contrib-tolka som text förklaring har flyttats till tolknings texten lagrings platsen som kommer att lanseras snart.
+  + **azureml-core**
+    + Data uppsättning: användningen av fil data uppsättningen är inte längre beroende av att numpy och Pandas har installerats i python-miljö.
+    + Ändrade LocalWebservice. wait_for_deployment () för att kontrol lera status för den lokala Docker-behållaren innan du försöker pinga dess hälso slut punkt, vilket minskar den tid det tar att rapportera en misslyckad distribution.
+    + Initieringen av en intern egenskap som används i LocalWebservice har åtgärd ATS. Läs in igen () när serviceobjektet skapas från en befintlig distribution med hjälp av LocalWebservice ()-konstruktorn.
+    + Redigerat fel meddelande för klargörande.
+    + En ny metod som kallas get_access_token () har lagts till i AksWebservice som kommer att returnera AksServiceAccessToken-objekt, som innehåller åtkomsttoken, uppdateras efter tidsstämpel, förfallo datum för timestamp och tokentyp. 
+    + Föråldrad befintlig get_token ()-metod i AksWebservice som den nya metoden returnerar all information som den här metoden returnerar.
+    + Ändrade utdata från AZ ml-kommandot Get-Access-token. Token har bytt namn till accessToken och refreshBy till refreshAfter. Har lagt till egenskaperna expiryOn och tokenType.
+    + Fast get_active_runs
+  + **azureml-explain-model**
+    + uppdaterade Shap till 0.33.0 och tolkning – community till 0,4. *
+  + **azureml – tolka**
+    + uppdaterade Shap till 0.33.0 och tolkning – community till 0,4. *
+  + **azureml-träna-automl-runtime**
+    + Matthews korrelations faktor har lagts till som klassificerings mått för både binära och multiklass-klassificering.
+    + Förbearbeta flagga från kod och ersatt med funktionalisering-funktionalisering är aktiverat som standard
 
 ## <a name="2020-01-06"></a>2020-01-06
 
@@ -44,6 +65,7 @@ Designern är nu allmänt tillgänglig.
 
 + **Nya funktioner**
   + Data uppsättning: Lägg till två alternativ `on_error` och `out_of_range_datetime` för att `to_pandas_dataframe` ska fungera när data innehåller fel värden i stället för att fylla dem med `None`.
+  + Arbets yta: Lägg till flaggan `hbi_workspace` för arbets ytor med känsliga data som möjliggör ytterligare kryptering och inaktiverar avancerad diagnostik på arbets ytor. Vi har också lagt till stöd för att ta med dina egna nycklar för den associerade Cosmos DB-instansen genom att ange parametrarna `cmk_keyvault` och `resource_cmk_uri` när du skapar en arbets yta, vilket skapar en Cosmos DB instans i prenumerationen när du har skapat din arbets yta. [Läs mer här.](https://docs.microsoft.com/azure/machine-learning/concept-enterprise-security#azure-cosmos-db)
 
 + **Fel korrigeringar och förbättringar**
   + **azureml-automl-runtime**
@@ -64,7 +86,6 @@ Designern är nu allmänt tillgänglig.
   + **azureml-träna-automl-client**
     + Korrigerad justering av konsol utdata för automl-körningar
     + En bugg har åtgärd ATS där felaktig version av Pandas kan installeras på fjärran sluten amlcompute.
-
 
 ## <a name="2019-12-23"></a>2019-12-23
 

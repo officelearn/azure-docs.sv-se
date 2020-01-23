@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892744"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545899"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>Bädda in Video Indexer widgetar i dina program
 
@@ -54,7 +54,7 @@ Du kan använda Editor-widgeten för att skapa nya projekt och hantera video ins
 
 |Namn|Definition|Beskrivning|
 |---|---|---|
-|`accessToken`<sup>*</sup>|Sträng|Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver parametern `accessToken`.|
+|`accessToken`<sup>*</sup>|String|Ger åtkomst till videor som bara finns i det konto som används för att bädda in widgeten.<br> Widgeten Editor kräver parametern `accessToken`.|
 |`language`|En språkkod|Kontrollerar Player-språket. Standardvärdet är `en-US`.<br/>Exempel: `language=de-DE`.|
 |`locale`|En kort språkkod|Styr insikter-språket. Standardvärdet är `en`.<br/>Exempel: `language=de`.|
 
@@ -159,7 +159,8 @@ I det här avsnittet visas hur du uppnår interaktionen mellan en kognitiv Insig
             this.videobreakdown({
             videoId: "c4c1ad4c9a",
             syncTranscript: true,
-            syncLanguage: true
+            syncLanguage: true,
+            location: "trial" /* location option for paid accounts (default is trial) */
             });
 
             // Set the source dynamically.
@@ -186,7 +187,7 @@ Om du använder en annan Videos pelare än Azure Media Player måste du manuellt
         </video>    
 
 2. Bädda in insiktswidgeten.
-3. Implementera kommunikation för spelaren genom att lyssna på ”message”-händelsen. Exempel:
+3. Implementera kommunikation för spelaren genom att lyssna på ”message”-händelsen. Ett exempel:
 
         <script>
     
@@ -247,7 +248,7 @@ Observera att det här alternativet endast är relevant i fall när du behöver 
 
 Om du bäddar in Video Indexer-spelaren kan du välja storlek för spelaren genom att ange storlek på iframe-fönstret.
 
-Exempel:
+Ett exempel:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

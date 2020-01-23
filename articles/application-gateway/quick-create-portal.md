@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5e66632fab0306da7766f079733cd1d8cb3edc8d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442345"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544131"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>Snabbstart: Dirigera webbtrafik med Azure Application Gateway – Azure Portal
 
@@ -31,7 +31,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 ## <a name="create-an-application-gateway"></a>Skapa en Application Gateway
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Fönstret **Nytt** visas.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Fönstret **Nytt** visas.
 
 2. Välj **Nätverk** och välj sedan **Programgateway** i listan **Aktuella**.
 
@@ -66,7 +66,7 @@ Logga in på [Azure Portal](https://portal.azure.com) med ditt Azure-konto.
 
 1. På fliken **klient** delar kontrollerar du att **IP-adress typen för klient delen** är **offentlig**. <br>Du kan konfigurera klient delens IP-adress så att den är offentlig eller privat per användnings fall. I det här exemplet väljer du en offentlig IP-adress för klient delen.
    > [!NOTE]
-   > För Application Gateway v2 SKU: n kan du bara välja **offentlig** IP-konfiguration för klient delen. Endast privat klient delens IP-konfiguration (endast ILB läge) är inte aktive rad för den här v2-SKU: n. Du kan ha både offentlig och privat IP-konfiguration för klient delen.
+   > För Application Gateway v2 SKU måste det finnas en **offentlig** IP-konfiguration för klient delen. Du kan fortfarande ha både en offentlig och en privat klient dels-IP-konfiguration, men endast privat IP-konfiguration för klient delen (endast ILB läge) är inte aktive rad för v2-SKU: n. 
 
 2. Välj **Skapa ny** för den **offentliga IP-adressen** och ange *myAGPublicIPAddress* för den offentliga IP-adressen och välj sedan **OK**. 
 
@@ -136,7 +136,7 @@ Det gör du genom att:
 
 ### <a name="create-a-virtual-machine"></a>Skapa en virtuell dator
 
-1. Välj **Skapa en resurs** på menyn i Microsoft Azure-portalen eller från **startsidan**. Fönstret **Nytt** visas.
+1. I menyn i Azure-portalen eller på sidan **Start** väljer du **Skapa en resurs**. Fönstret **Nytt** visas.
 2. Välj **Compute** och välj sedan **Windows Server 2016 Data Center** i listan **populär** . Sidan **Skapa en virtuell dator** visas.<br>Application Gateway kan dirigera trafik till vilken typ av virtuell dator som helst som används i dess backend-pool. I det här exemplet använder du ett Windows Server 2016 Data Center.
 3. Ange dessa värden på fliken **Grundläggande inställningar** för följande inställningar för virtuella datorer:
 
@@ -215,4 +215,4 @@ Så här tar du bort resursgruppen:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Hantera webbtrafik med en programgateway som använder Azure CLI](./tutorial-manage-web-traffic-cli.md)
+> [Hantera webbtrafik med en programgateway med hjälp av Azure CLI](./tutorial-manage-web-traffic-cli.md)

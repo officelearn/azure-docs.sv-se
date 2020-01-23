@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: 50517db6a5bb1fc458ab2f563e905fca34f70cf4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c0c1a28dc399d3f176f92e656621fec1bc92dbfc
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442072"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513517"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Använd Azure Cosmos DB-ändringsflödet att visualisera analyser av realtidsdata
 
@@ -93,7 +93,7 @@ Skapa Azure-resurser – Azure Cosmos DB, Storage-kontot Event Hub, Stream Analy
 
 Nu ska du skapa en samling för att lagra e-handel site-händelser. När en användare visar ett objekt, lägger till ett objekt i deras kundvagn eller Köp ett objekt, samlingen får en post som innehåller åtgärden (”Visa”, ”har lagts till” eller ”köpt”), namnet på objektet som ingår, priset för objektet som är inblandade och användaren kundvagn i ID-numret nvolved.
 
-1. Gå till [Azure-portalen](https://portal.azure.com/) och hitta den **Azure Cosmos DB-konto** som skapas av malldistributionen.  
+1. Gå till [Azure Portal](https://portal.azure.com/) och hitta det **Azure Cosmos DBS konto** som har skapats av mall distributionen.  
 
 2. Från den **Datautforskaren** väljer **ny samling** och Fyll i formuläret med följande uppgifter:  
 
@@ -117,7 +117,7 @@ Nu ska du skapa en samling för att lagra e-handel site-händelser. När en anv�
 
 ### <a name="get-the-azure-cosmos-db-connection-string"></a>Hämta Azure Cosmos DB-anslutningssträng
 
-1. Gå till [Azure-portalen](https://portal.azure.com/) och hitta den **Azure Cosmos DB-konto** som skapas av malldistributionen.  
+1. Gå till [Azure Portal](https://portal.azure.com/) och hitta det **Azure Cosmos DBS konto** som har skapats av mall distributionen.  
 
 2. Navigera till den **nycklar** fönstret Kopiera primär ANSLUTNINGSSTRÄNG och kopiera den till anteckningar eller ett annat dokument att du har åtkomst till i labbet. Du bör märker den **Cosmos DB-anslutningssträng**. Du måste kopiera strängen i din kod senare, så Observera och Kom ihåg var du lagrar den.
 
@@ -177,7 +177,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
  
 6. Vänta tills programmet som ska köras. Stjärnorna betyder att data kommer! Kör du programmet – det är viktigt att stora mängder data som samlas in.  
 
-7. Om du navigerar till [Azure-portalen](https://portal.azure.com/) , sedan till Cosmos DB-konto i resursgruppen, sedan till **Datautforskaren**, visas slumpmässig importerade data i din  **changefeedlabcollection** .
+7. Om du går till [Azure Portal](https://portal.azure.com/) och sedan till Cosmos DBS kontot i resurs gruppen, kommer du till **datautforskaren**att se de slumpmässiga data som importer ATS i din **changefeedlabcollection** .
  
    ![Data som genereras i portalen](./media/changefeed-ecommerce-solution/data-generated-in-portal.png)
 
@@ -185,7 +185,7 @@ Se hur ändringsfeed bearbetar nya åtgärder på en e-handelswebbplats, har du 
 
 Azure Stream Analytics är en fullständigt hanterad molntjänst för bearbetning i realtid för strömmande data. I den här övningen kommer du använder stream analytics för att bearbeta nya händelser från Event Hub (d.v.s. när ett objekt visas, lagts till i en kundvagn eller köpt), införliva dessa händelser i dataanalys i realtid och skicka dem till Power BI för visualisering.
 
-1. Från den [Azure-portalen](https://portal.azure.com/), navigera till resursgruppen, sedan till **streamjob1** (stream analytics-jobbet som du skapade i prelab).  
+1. Från [Azure Portal](https://portal.azure.com/)navigerar du till din resurs grupp och sedan till **streamjob1** (Stream Analytics-jobbet som du skapade i prelab).  
 
 2. Välj **indata** som visas nedan.  
 
@@ -320,7 +320,7 @@ Powerbi är en uppsättning verktyg för Företagsanalys att analysera data och 
 
 Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta till en plats för verkliga e-handel. För att bygga e-Handelswebbplatsen använder du en Azure Cosmos-databas för att lagra listan över produkt kategorier (kvinno, män, unisex), produkt katalogen och en lista över de populäraste objekten.
 
-1. Gå tillbaka till den [Azure-portalen](https://portal.azure.com/), sedan till din **Cosmos DB-konto**, sedan till **Datautforskaren**.  
+1. Gå tillbaka till [Azure Portal](https://portal.azure.com/)och sedan till ditt **Cosmos DB-konto**och **datautforskaren**.  
 
    Lägg till två samlingar under **changefeedlabdatabase** - **produkter** och **kategorier** med fast lagringskapacitet.
 
@@ -390,9 +390,8 @@ Du kommer nu att se hur du kan använda din nya Analysverktyget för att ansluta
 
 ## <a name="delete-the-resources"></a>Ta bort resurser
 
-Om du vill ta bort alla resurser som du skapade under den här övningen, navigera till resursgruppen på [Azure-portalen](https://portal.azure.com/)och välj sedan **ta bort resursgrupp** på menyn längst upp på sidan och följa anvisningarna tillhandahålla.
+Om du vill ta bort de resurser som du skapade under det här labbet går du till resurs gruppen på [Azure Portal](https://portal.azure.com/)och väljer sedan **ta bort resurs grupp** på menyn längst upp på sidan och följer instruktionerna som visas.
 
 ## <a name="next-steps"></a>Nästa steg 
   
 * Läs mer om ändringsfeed i [arbeta med ändringen feed support i Azure Cosmos DB](change-feed.md) 
-* [Meddelande-lösningen för ändringsfeed](change-feed-hl7-fhir-logic-apps.md) för inom organisationen med hjälp av Azure Cosmos DB.

@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 254517cc1d9cc042387b63147b2a3fd9bdeece5e
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.lastreviewed: 12/04/2019
+ms.openlocfilehash: b1162e6070deba7f645298b59ffeb1898eb030a8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263786"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545780"
 ---
 # <a name="routing-and-tag-expressions"></a>Uttryck för Routning och tagg
 
@@ -31,7 +31,7 @@ Med tagg uttryck kan du rikta in specifika uppsättningar av enheter eller mer s
 
 ## <a name="targeting-specific-registrations"></a>Rikta in sig på specifika registreringar
 
-Det enda sättet att rikta in sig på specifika meddelande registreringar är att associera Taggar med dem och sedan rikta dessa taggar. Som beskrivs i [registrerings hantering](notification-hubs-push-notification-registration-management.md), för att kunna ta emot push-meddelanden, måste en app registrera en enhets referens i en Notification Hub. När en registrering har skapats på en Notification Hub kan program Server delen skicka push-meddelanden till den. Programmets Server del kan välja vilka registreringar som ska riktas mot ett särskilt meddelande på följande sätt:
+Det enda sättet att rikta in sig på specifika meddelande registreringar är att associera Taggar med dem och sedan rikta dessa taggar. Som beskrivs i [registrerings hantering](notification-hubs-push-notification-registration-management.md), för att ta emot push-meddelanden, måste en app registrera en enhets referens i en Notification Hub. När appen skapar en registrering på en Notification Hub kan program Server delen skicka push-meddelanden till den. Programmets Server del kan välja vilka registreringar som ska riktas mot ett särskilt meddelande på följande sätt:
 
 1. **Sändning**: alla registreringar i Notification Hub får meddelandet.
 2. **Tagg**: alla registreringar som innehåller den angivna taggen får meddelandet.
@@ -39,11 +39,11 @@ Det enda sättet att rikta in sig på specifika meddelande registreringar är at
 
 ## <a name="tags"></a>Taggar
 
-En tagg kan vara valfri sträng, upp till 120 tecken, med alfanumeriska tecken och följande icke-alfanumeriska tecken: ' _ ', ' @ ', ' # ', ': ', '-'. I följande exempel visas ett program som du kan ta emot popup-meddelanden från om specifika musik grupper. I det här scenariot är ett enkelt sätt att dirigera meddelanden till etiketter för registreringar med taggar som representerar de olika banden, som i följande bild:
+En tagg kan vara valfri sträng, upp till 120 tecken, med alfanumeriska tecken och följande icke-alfanumeriska tecken: "`_`", "`@`", "`#`", "`.`", "`:`", "`-`". I följande exempel visas ett program som du kan ta emot popup-meddelanden från om specifika musik grupper. I det här scenariot är ett enkelt sätt att skicka meddelanden till etikett registreringar med taggar som representerar de olika banden, som i följande figur:
 
 ![Översikt över Taggar](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
-I den här bilden når det taggade **Beatles** endast den surfplatta som har registrerats med taggen **Beatles**.
+I bilden når meddelandet som taggats med **Beatles** bara den surfplatta som har registrerats med taggen **Beatles**.
 
 Mer information om hur du skapar registreringar för taggar finns i [registrerings hantering](notification-hubs-push-notification-registration-management.md).
 
@@ -63,13 +63,13 @@ toast = @"<toast><visual><binding template=""ToastGeneric""><text id=""1"">" +
 outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(toast, "Wailers");
 ```
 
-Taggarna behöver inte vara företablerade och kan referera till flera app-/regionsspecifika begrepp. Till exempel kan användare av det här exempel programmet kommentera band och vill ta emot popup-fönster, inte bara för kommentarer på deras favorit band, utan även för alla kommentarer från sina vänner, oavsett vilket band de kommenterar. Följande bild visar ett exempel på det här scenariot:
+Taggar får inte vara företablerade och kan referera till flera app-/regionsspecifika begrepp. Till exempel kan användare av det här exempel programmet kommentera band och vill ta emot popup-fönster, inte bara för kommentarer på deras favorit band, utan även för alla kommentarer från sina vänner, oavsett vilket band de kommenterar. Följande bild visar ett exempel på det här scenariot:
 
 ![Taggar för vänner](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
-I den här bilden är Alice intresse rad av uppdateringar för Beatles och Bob är intresse rad av uppdateringar för Wailers. Bob är också intresse rad av Kalles kommentarer, och Kalle är intresserade av Wailers. När ett meddelande skickas för Kalle-kommentaren på Beatles, får både Alice och Robert det.
+I det här exemplet är Alice intresse rad av uppdateringar för Beatles och Bob är intresse rad av uppdateringar för Wailers. Bob är också intresse rad av Kalles kommentarer, och Kalle är intresse rad av Wailers. När ett meddelande skickas för Kalle-kommentaren på Beatles skickar Notification Hubs den till både Alice och Bob.
 
-Även om du kan koda flera frågor i taggar (till exempel "band_Beatles" eller "follows_Charlie"), är Taggar enkla strängar och inte egenskaper med värden. En registrering matchar bara förekomsten eller frånvaron av en speciell tagg.
+Även om du kan koda flera frågor i taggar (till exempel `band_Beatles` eller `follows_Charlie`), är Taggar enkla strängar och inte egenskaper med värden. En registrering matchar endast förekomsten eller frånvaron av en speciell tagg.
 
 En fullständig steg-för-steg-guide om hur du använder taggar för att skicka till intresse grupper finns i avsnittet om att [dela nyheter](notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md).
 
@@ -78,15 +78,15 @@ En fullständig steg-för-steg-guide om hur du använder taggar för att skicka 
 
 ## <a name="using-tags-to-target-users"></a>Använda taggar för mål användare
 
-Ett annat sätt att använda taggar är att identifiera alla enheter för en viss användare. Registreringar kan taggas med en tagg som innehåller ett användar-ID, som i följande bild:
+Ett annat sätt att använda taggar är att identifiera alla enheter som är associerade med en viss användare. Du kan tagga en registrering med en tagg som innehåller användar-ID: t, som i följande figur:
 
 ![Tagga användare](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-I den här bilden är meddelandet taggat UID: Alice når alla registreringar Taggade "UID: Alice"; Därför är alla Alices enheter.
+I bilden är det taggade meddelandet `user_Alice` når alla enheter som taggats med `user_Alice`.
 
 ## <a name="tag-expressions"></a>Tagg uttryck
 
-Det finns fall där ett meddelande måste riktas mot en uppsättning registreringar som identifieras inte av en enskild tagg, utan av ett booleskt uttryck för taggar.
+Det finns fall där meddelanden måste riktas mot en uppsättning registreringar som identifieras inte av en enskild tagg, utan av ett booleskt uttryck med hjälp av taggar.
 
 Överväg ett idrotts program som skickar en påminnelse till alla i Boston om ett spel mellan den röda Sox och kardinalerna. Om klient programmet registrerar taggar för intresse i team och plats, ska meddelandet vara riktat till alla i Boston som är intresserade av antingen den röda Sox eller kardinalerna. Det här tillståndet kan uttryckas med följande booleska uttryck:
 
@@ -96,9 +96,9 @@ Det finns fall där ett meddelande måste riktas mot en uppsättning registrerin
 
 ![Tagg uttryck](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
-Tag-uttryck kan innehålla alla booleska operatorer, till exempel och (& &) eller (| |) och inte (!). De kan också innehålla parenteser. Tag-uttryck är begränsade till 20 Taggar om de bara innehåller ORs; annars är de begränsade till 6 taggar.
+Etikett uttryck stöder vanliga booleska operatorer som `AND` (`&&`), `OR` (`||`) och `NOT` (`!`). de kan också innehålla parenteser. Tagg uttryck som använder endast `OR` operatorer kan referera till 20 taggar. Taggar i andra uttryck är begränsade till 6 taggar.
 
-Här är ett exempel på hur du skickar meddelanden med tagg uttryck med hjälp av SDK.
+Här är ett exempel på hur du skickar meddelanden med tagg uttryck med hjälp av SDK:
 
 ```csharp
 Microsoft.Azure.NotificationHubs.NotificationOutcome outcome = null;

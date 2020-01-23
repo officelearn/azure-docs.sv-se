@@ -14,12 +14,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3a4e847bc0d297f3aa41551fbf56242ae1a566f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c75162cc66e9277d111def92842f5a67a132f59
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424318"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548160"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-msaljs"></a>Kända problem i Internet Explorer och Microsoft Edge-webbläsare (MSAL. js)
 
@@ -38,10 +38,6 @@ Orsaken till de flesta av de här problemen är som följer. Session Storage och
     `Error :login_required; Error description:AADSTS50058: A silent sign-in request was sent but no user is signed in. The cookies used to represent the user's session were not sent in the request to Azure AD. This can happen if the user is using Internet Explorer or Edge, and the web app sending the silent sign-in request is in different IE security zone than the Azure AD endpoint (login.microsoftonline.com)`
 
 - **Popup-fönstret stängs eller fastnar inte när du använder inloggning via popup för att autentisera**. När du autentiserar via popup-fönstret i Microsoft Edge eller IE (InPrivate) efter att ha angett autentiseringsuppgifter och loggat in, om flera domäner i säkerhets zoner är involverade i navigeringen, stängs inte popup-fönstret eftersom MSAL. js förlorar referensen till popup-fönstret.  
-
-    Här följer länkar till de här problemen i Microsoft Edge Issue-Spårare:  
-    - [Bugg 13861050](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861050/)
-    - [Bugg 13861663](https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/13861663/)
 
 ### <a name="update-fix-available-in-msaljs-023"></a>Uppdatering: korrigering tillgänglig i MSAL. js 0.2.3
 Korrigeringar för problem med att omdirigera loopar för autentisering har släppts i [MSAL. js 0.2.3](https://github.com/AzureAD/microsoft-authentication-library-for-js/releases). Aktivera flaggan `storeAuthStateInCookie` i MSAL. js-konfigurationen för att dra nytta av den här korrigeringen. Som standard är den här flaggan inställd på falskt.

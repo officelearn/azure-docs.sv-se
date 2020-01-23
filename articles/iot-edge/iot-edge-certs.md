@@ -8,22 +8,22 @@ ms.date: 10/29/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9e4fd0203d68ef1f39d6efbb9d17d3e517969bff
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a222f72e705184c5a7ba6701cfda41073c7eba57
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457269"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548755"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Förstå hur Azure IoT Edge använder certifikat
 
-IoT Edge certifikat används för moduler och underordnade IoT-enheter för att verifiera identiteten och giltighet för den [IoT Edge Hub](iot-edge-runtime.md#iot-edge-hub) -modul för körning som de ansluter till. Dessa kontroller kan en TLS (transport layer security) säker anslutning mellan körningen, moduler och IoT-enheter. Precis som IoT Hub själva, IoT Edge kräver en säker och krypterad anslutning från IoT nedströms (eller blad) enheter och IoT Edge-moduler. För att upprätta en säker TLS-anslutning visar IoT Edge Hub-modulen en server certifikat kedja för att ansluta klienter för att verifiera identiteten.
+IoT Edge certifikat används av modulerna och underordnade IoT-enheter för att verifiera identiteten och giltighet för modulen för [IoT Edge Hub](iot-edge-runtime.md#iot-edge-hub) -körning. Dessa kontroller kan en TLS (transport layer security) säker anslutning mellan körningen, moduler och IoT-enheter. Precis som IoT Hub själva, IoT Edge kräver en säker och krypterad anslutning från IoT nedströms (eller blad) enheter och IoT Edge-moduler. För att upprätta en säker TLS-anslutning visar IoT Edge Hub-modulen en server certifikat kedja för att ansluta klienter för att verifiera identiteten.
 
 I den här artikeln förklaras hur IoT Edge certifikat kan fungera i produktions-, utvecklings-och test scenarier. Skripten är olika (Powershell jämfört med bash), är begreppen likadana mellan Linux och Windows.
 
 ## <a name="iot-edge-certificates"></a>IoT Edge-certifikat
 
-Tillverkare är vanligt vis inte slutanvändare av en IoT Edge enhet. Ibland är den enda relationen mellan två när slutanvändaren eller operatören köper en generisk enhet som tillverkas av tillverkaren. Vid andra tillfällen fungerar tillverkaren enligt avtal för att bygga en anpassad enhet för operatörens räkning. Design för IoT Edge-certifikatet försöker att ta hänsyn till båda scenarierna.
+Tillverkare är vanligt vis inte slutanvändare av en IoT Edge enhet. Ibland är den enda relationen mellan två när slutanvändaren eller operatören köper en generisk enhet som tillverkas av tillverkaren. Vid andra tillfällen fungerar tillverkaren enligt avtal för att bygga en anpassad enhet för operatören. Design för IoT Edge-certifikatet försöker att ta hänsyn till båda scenarierna.
 
 Följande bild visar IoT Edge-användningen av certifikat. Det kan finnas noll, ett eller flera mellanliggande signerings certifikat mellan rot certifikat utfärdarens certifikat och enhetens CA-certifikat, beroende på antalet enheter som berörs. Här visar vi ett ärende.
 
@@ -51,7 +51,7 @@ Tillverkaren använder dock en mellanliggande certifikatutfärdare i slutet av k
 
 ### <a name="device-ca-certificate"></a>Enhets-CA-certifikat
 
-Enheten CA-certifikatet genereras från och signerade av det slutliga mellanliggande CA-certifikatet i processen. Det här certifikatet installeras på den IoT Edge själva enheten, helst i säkert lagrings utrymme som en HSM-modul (Hardware Security Module). Certifikat från en enhet identifierar dessutom en IoT Edge-enhet. Enhetens CA-certifikat kan signera andra certifikat. 
+Enheten CA-certifikatet genereras från och signerade av det slutliga mellanliggande CA-certifikatet i processen. Det här certifikatet installeras på den IoT Edge själva enheten, helst i säkert lagrings utrymme som en HSM-modul (Hardware Security Module). Certifikat från en enhet identifierar dessutom en IoT Edge-enhet. Enhetens CA-certifikat kan signera andra certifikat.
 
 ### <a name="iot-edge-workload-ca"></a>IoT Edge-arbetsbelastning CA
 
@@ -59,7 +59,7 @@ Enheten CA-certifikatet genereras från och signerade av det slutliga mellanligg
 
 ### <a name="iot-edge-hub-server-certificate"></a>IoT Edge Hub-servercertifikat
 
-IoT Edge Hub-servercertifikat är det faktiska certifikatet som presenteras för löv enheter och moduler för identitets verifiering vid upprättandet av den TLS-anslutning som krävs av IoT Edge. Det här certifikatet anger fullständig kedja för att signera certifikat som används för att generera upp till rotcertifikatutfärdarens certifikat, som måste ha förtroende för löv IoT-enheter. När det genereras av IoT Edge Security Manager anges det egna namnet (CN) för det här IoT Edge Hub-certifikatet till egenskapen hostname i filen config. yaml efter konvertering till gemener. Det här är en gemensam källa för förväxling med IoT Edge.
+IoT Edge Hub-servercertifikat är det faktiska certifikatet som presenteras för löv enheter och moduler för identitets verifiering vid upprättandet av den TLS-anslutning som krävs av IoT Edge. Det här certifikatet anger fullständig kedja för att signera certifikat som används för att generera upp till rotcertifikatutfärdarens certifikat, som måste ha förtroende för löv IoT-enheter. När det genereras av IoT Edge Security Manager anges det egna namnet (CN) för det här IoT Edge Hub-certifikatet till egenskapen hostname i filen config. yaml efter konvertering till gemener. Den här konfigurationen är en gemensam källa för förvirring med IoT Edge.
 
 ## <a name="production-implications"></a>Konsekvenser för produktion
 
@@ -94,9 +94,9 @@ Du kan se hierarkin för certifikatet djup visas i skärmbilden:
 | Rotcertifikatutfärdarcertifikat         | Azure IoT Hub CA-certifikat Test                                                                           |
 |-----------------------------|-----------------------------------------------------------------------------------------------------------|
 | Mellanliggande CA-certifikat | Azure IoT Hub mellanliggande certifikat Test                                                                 |
-| Enhets-CA-certifikat       | iotgateway.ca (”iotgateway” som skickades var i < gateway värdnamn > bekvämlighet skript)      |
+| Enhets-CA-certifikat       | iotgateway.ca (”iotgateway” som skickades var i < gateway värdnamn > bekvämlighet skript)   |
 | Arbetsbelastningen CA-certifikat     | iotedge arbetsbelastning ca                                                                                       |
-| IoT Edge Hub-servercertifikat | iotedgegw.Local (överensstämmer med värdnamnet från config.yaml)                                                |
+| IoT Edge Hub-servercertifikat | iotedgegw.Local (överensstämmer med värdnamnet från config.yaml)                                            |
 
 ## <a name="next-steps"></a>Nästa steg
 

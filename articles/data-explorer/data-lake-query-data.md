@@ -7,14 +7,14 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: d572e7f3fceaf2df8ad0ec684eaa421922389e71
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1e5af0b45b8d2e2eceac1b653a5219a236c25467
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922159"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512920"
 ---
-# <a name="query-data-in-azure-data-lake-using-azure-data-explorer-preview"></a>Fråga efter data i Azure Data Lake med Azure Datautforskaren (förhands granskning)
+# <a name="query-data-in-azure-data-lake-using-azure-data-explorer"></a>Fråga efter data i Azure Data Lake med Azure Datautforskaren
 
 Azure Data Lake Storage är en mycket skalbar och kostnads effektiv data Lake-lösning för stor data analys. Här kombineras kraften hos ett högpresterande filsystem med storskalighet och ekonomi som hjälper dig att korta insiktstiden. Med Data Lake Storage Gen2 utökas kapaciteten i Azure Blob Storage och optimeras för analysarbetsbelastningar.
  

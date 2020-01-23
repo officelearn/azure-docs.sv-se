@@ -9,45 +9,47 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: gregman
-ms.openlocfilehash: b32bbfa5e849c1a0490bba5d09d1838268033b26
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 99474246bf1ff5cbcc39861d56f05aa38f177f31
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964664"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510047"
 ---
 # <a name="run-azure-iot-edge-on-windows-server-virtual-machines"></a>Köra Azure IoT Edge på Windows Server Virtual Machines
 
-Azure IoT Edge runtime är vad som förvandlar en enhet till en IoT Edge enhet. Körningen kan distribueras på enheter så små som Raspberry Pi eller lika stora som en industriell Server. När en enhet har kon figurer ATS med IoT Edge runtime kan du börja distribuera affärs logiken till den från molnet.
+Azure IoT Edge-körningen är vad omvandlar en enhet till en IoT Edge-enhet. Körningen kan distribueras på enheter som är så litet som en Raspberry Pi eller stora som industriella-server. När en enhet konfigureras med IoT Edge-körningen, kan du börja distribuera affärslogik till den från molnet.
 
-Mer information om hur IoT Edge runtime fungerar och vilka komponenter som ingår finns i [förstå Azure IoT Edge Runtime och dess arkitektur](iot-edge-runtime.md).
+Läs mer om hur IoT Edge-körningen fungerar och vilka komponenter som ingår i [förstå Azure IoT Edge-körningen och dess arkitektur](iot-edge-runtime.md).
 
 Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime på en virtuell Windows Server 2019-dator med hjälp av [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet. Följ anvisningarna i [installera Azure IoT Edge runtime](how-to-install-iot-edge-windows.md) i Windows för användning med andra versioner.
 
 ## <a name="deploy-from-the-azure-marketplace"></a>Distribuera från Azure Marketplace
 
-1.  Navigera till [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet eller genom att söka i Windows Server på [Azure Marketplace](https://azuremarketplace.microsoft.com/)
-2.  Välj **Hämta nu** 
-3.  I **Software plan**letar du upp "Windows Server 2019 Data Center Server Core with Containers" och väljer sedan **Fortsätt** i nästa dialog ruta.
+1. Navigera till [Windows Server](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview) Azure Marketplace-erbjudandet eller genom att söka i Windows Server på [Azure Marketplace](https://azuremarketplace.microsoft.com/)
+2. Välj **Hämta nu**
+3. I **Software plan**letar du upp "Windows Server 2019 Data Center Server Core with Containers" och väljer sedan **Fortsätt** i nästa dialog ruta.
     * Du kan också använda dessa instruktioner för andra versioner av Windows Server med behållare
-4.  När du är i Azure Portal väljer du **skapa** och följer guiden för att distribuera den virtuella datorn. 
-    *   Om det är första gången du försöker ta bort en virtuell dator är det enklast att använda ett lösen ord och att aktivera RDP och SSH på menyn för offentlig inkommande port. 
-    *   Om du har en resurs intensiv arbets belastning bör du uppgradera storleken på den virtuella datorn genom att lägga till fler processorer och/eller minne.
-5.  När den virtuella datorn har distribuerats konfigurerar du den så att den ansluter till din IoT Hub:
-    1.  Kopiera enhets anslutnings strängen från IoT Edge enhet som skapats i IoT Hub. Se proceduren [Hämta anslutnings strängen i Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
-    1.  Välj den virtuella dator resurs som du skapade nyligen från Azure Portal och öppna **kommando alternativet Kör**
-    1.  Välj alternativet **RunPowerShellScript**
-    1.  Kopiera det här skriptet till kommando fönstret med enhets anslutnings strängen: 
+4. När du är i Azure Portal väljer du **skapa** och följer guiden för att distribuera den virtuella datorn.
+    * Om det är första gången du försöker ta bort en virtuell dator är det enklast att använda ett lösen ord och att aktivera RDP och SSH på menyn för offentlig inkommande port.
+    * Om du har en resurs intensiv arbets belastning bör du uppgradera storleken på den virtuella datorn genom att lägga till fler processorer och/eller minne.
+5. När den virtuella datorn har distribuerats konfigurerar du den så att den ansluter till din IoT Hub:
+    1. Kopiera enhets anslutnings strängen från IoT Edge enhet som skapats i IoT Hub. Se proceduren [Hämta anslutnings strängen i Azure Portal](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal).
+    1. Välj den virtuella dator resurs som du skapade nyligen från Azure Portal och öppna **kommando alternativet Kör**
+    1. Välj alternativet **RunPowerShellScript**
+    1. Kopiera det här skriptet till kommando fönstret med enhets anslutnings strängen:
+
         ```powershell
         . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
         Install-IoTEdge -Manual -DeviceConnectionString '<connection-string>'
         ```
-    1.  Kör skriptet för att installera IoT Edge Runtime och ange anslutnings strängen genom att välja **Kör**
-    1.  Efter en minut eller två bör du se ett meddelande om att Edge Runtime har installerats och kon figurer ATS korrekt.
+
+    1. Kör skriptet för att installera IoT Edge Runtime och ange anslutnings strängen genom att välja **Kör**
+    1. Efter en minut eller två bör du se ett meddelande om att Edge Runtime har installerats och kon figurer ATS korrekt.
 
 ## <a name="deploy-from-the-azure-portal"></a>Distribuera från Azure Portal
 
-1. Från Azure Portal söker du efter "Windows Server" och väljer **Windows server 2019 Data Center** för att starta arbets flödet för skapande av virtuell dator. 
+1. Från Azure Portal söker du efter "Windows Server" och väljer **Windows server 2019 Data Center** för att starta arbets flödet för skapande av virtuell dator.
 2. Välj **en program plan** Välj "Windows Server 2019 Data Center Server Core with Containers" och välj sedan **skapa**
 3. Slutför steg 5 i anvisningarna för att distribuera från Azure Marketplace ovan.
 
@@ -69,7 +71,7 @@ Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime 
    1. Kopiera SubscriptionID-fältet för den prenumeration du vill använda
    1. Kör det här kommandot med det ID som du kopierade:
 
-      ```azurecli-interactive 
+      ```azurecli-interactive
       az account set -s {SubscriptionId}
       ```
 
@@ -96,7 +98,7 @@ Den här artikeln innehåller anvisningar för att köra Azure IoT Edge runtime 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
+Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
 
 Om du har problem med att Edge runtime installeras på rätt sätt kan du läsa [fel söknings](troubleshoot.md) sidan.
 

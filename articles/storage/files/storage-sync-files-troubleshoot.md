@@ -4,15 +4,15 @@ description: Felsök vanliga problem med Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514637"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545049"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -48,6 +48,19 @@ DriveLetter: \ är inte tillgänglig.
 Parametern är felaktig.
 
 Lös problemet genom att installera de senaste uppdateringarna för Windows Server 2012 R2 och starta om servern.
+
+<a id="server-registration-missing-subscriptions"></a>**Server registreringen visar inte alla Azure-prenumerationer**  
+När du registrerar en server med hjälp av ServerRegistration. exe, saknas prenumerationer när du klickar på list rutan för Azure-prenumeration.
+
+Det här problemet beror på att ServerRegistration. exe inte stöder miljöer för flera klienter. Det här problemet åtgärdas i en framtida Azure File Sync agent uppdatering.
+
+Du kan lösa problemet genom att använda följande PowerShell-kommandon för att registrera servern:
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
 
 <a id="server-registration-prerequisites"></a>**Följande meddelande visas i Server registreringen: "krav saknas"**  
 Det här meddelandet visas om AZ eller AzureRM PowerShell-modulen inte är installerad på PowerShell 5,1. 
@@ -311,6 +324,7 @@ Om du vill se de här felen kör du PowerShell-skriptet **FileSyncErrorsReport. 
 | 0x8000ffff | – 2147418113 | E_UNEXPECTED | Det går inte att synkronisera filen på grund av ett oväntat fel. | Om felet kvarstår i flera dagar öppnar du ett support ärende. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | Filen kan inte synkroniseras eftersom den används. Filen synkroniseras när den inte längre används. | Ingen åtgärd krävs. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Filen ändrades under synkroniseringen, så den måste synkroniseras igen. | Ingen åtgärd krävs. |
+| 0x80070017 | – 2147024873 | ERROR_CRC | Det går inte att synkronisera filen på grund av CRC-fel. Det här felet kan inträffa om en fil med skikt inte återkallades innan en server slut punkt togs bort eller om filen är skadad. | Information om hur du löser det här problemet finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) för att ta bort filer som är överblivna. Om felet fortsätter att inträffa när du har tagit bort oprhaned filer, kör du [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) på volymen. |
 | 0x80c80200 | – 2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Det går inte att synkronisera filen eftersom det maximala antalet konfliktskapande filer har nåtts. Azure File Sync stöder 100-konfliktskapande filer per fil. Mer information om fil konflikter finns i Azure File Sync [vanliga frågor och svar](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution). | Lös problemet genom att minska antalet konfliktskapande filer. Filen kommer att synkroniseras när antalet konfliktskapande filer är mindre än 100. |
 
 #### <a name="handling-unsupported-characters"></a>Hantera tecken som inte stöds
@@ -442,6 +456,17 @@ Felet beror på att Azure File Sync agent inte har behörighet att komma åt Azu
 
 1. [Kontrol lera att lagrings kontot finns.](#troubleshoot-storage-account)
 2. [Kontrollera att lagringskontots brandvägg och virtuella nätverk har rätt inställningar (om de är aktiverade)](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364014"></a>**Synkroniseringen misslyckades på grund av att lagrings kontot är låst.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83092 |
+| **HRESULT (decimal)** | – 2134364014 |
+| **Fel sträng** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **Reparation krävs** | Ja |
+
+Felet beror på att lagrings kontot har ett skrivskyddat [resurs lås](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources). Lös problemet genom att ta bort det skrivskyddade resurs låset på lagrings kontot. 
 
 <a id="-1906441138"></a>**Synkroniseringen misslyckades på grund av ett problem med Sync-databasen.**  
 

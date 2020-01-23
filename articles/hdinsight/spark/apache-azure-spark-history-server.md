@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/25/2019
-ms.openlocfilehash: 8e0fcdc97475053dcf285b562b28784deffff28c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 5cf1986711479f7330b0cd477744d9f4e2ac6459
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552737"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548942"
 ---
 # <a name="use-the-extended-features-of-the-apache-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Använd de utökade funktionerna i Apache Spark historik servern för att felsöka och diagnostisera Spark-program
 
@@ -163,7 +163,7 @@ Välj fliken **data skevning** . Motsvarande skevade uppgifter visas baserat på
 
 #### <a name="specify-parameters"></a>Ange parametrar
 
-I avsnittet **Ange parametrar** visas parametrarna, som används för att identifiera data skevning. Standard regeln är: den lästa aktivitets informationen är större än tre gånger i Genomsnittligt aktivitets data och aktivitets data är större än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar. Avsnitten **skeva** och **skeva tecken** uppdateras enligt detta.
+I avsnittet **Ange parametrar** visas parametrarna, som används för att identifiera data skevning. Standard regeln är: den lästa aktivitets informationen är större än tre gånger i Genomsnittligt aktivitets data och aktivitets data är större än 10 MB. Om du vill definiera en egen regel för skevade uppgifter kan du välja parametrar. Den **skevade fasen** och **skeva diagram** avsnitten uppdateras enligt detta.
 
 #### <a name="skewed-stage"></a>Skevad fas
 

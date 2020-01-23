@@ -1,5 +1,5 @@
 ---
-title: Strömma videofiler med Azure Media Services och Azure CLI | Microsoft Docs
+title: Strömma videofiler med Azure Media Services och Azure CLI
 description: Följ stegen i den här självstudien för att skapa ett nytt Azure Media Services konto, koda en fil och strömma den till Azure Media Player.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 58193a94d09dee5df611acf5d98c8661dd18abbb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639971"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514382"
 ---
-# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Självstudier: Koda en fjärrfil utifrån URL och strömma video-CLI
+# <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>Självstudie: koda en fjärrfil baserat på URL och strömma video-CLI
 
 Den här självstudien visar hur du enkelt kodar och direktuppspelar videor på en rad olika webbläsare och enheter genom att använda Azure Media Services och Azure CLI. Du kan ange indata-innehåll med hjälp av HTTPS-eller SAS-URL: er eller sökvägar till filer i Azure Blob Storage.
 
@@ -32,7 +32,7 @@ I slutet av den här självstudien kommer du att kunna strömma en video.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-media-services-account"></a>Skapa ett Media Services-konto
+## <a name="create-a-media-services-account"></a>Skapa ett medietjänstkonto
 
 Innan du kan kryptera, koda, analysera, hantera och strömma medie innehåll i Azure måste du skapa ett Media Services-konto. Kontot måste vara kopplat till ett eller flera lagrings konton.
 
@@ -48,7 +48,7 @@ az group create -n amsResourceGroup -l westus2
 
 I det här exemplet skapar vi ett allmänt standard LRS-konto.
 
-Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för produktion kan du överväga att `--sku Standard_RAGRS`använda, som tillhandahåller geografisk replikering för affärs kontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
+Om du vill experimentera med lagringskonton använder du `--sku Standard_LRS`. När du väljer en SKU för produktion bör du överväga att använda `--sku Standard_RAGRS`, som tillhandahåller geografisk replikering för affärs kontinuitet. Mer information finns i [lagringskonton](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest).
  
 ```azurecli
 az storage account create -n amsstorageaccount --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup
@@ -193,7 +193,7 @@ När du kör `az ams job start` kan du applicera en etikett på jobbets utdata. 
 - Om du tilldelar ett värde till etiketten anger du "-output-assets" till "assetname = Label".
 - Om du inte tilldelar ett värde till etiketten anger du "--output-assets" till "assetname =".
 
-  Observera att vi lägger till "=" i `output-assets`.
+  Observera att vi lägger till "=" till `output-assets`.
 
 ```azurecli
 az ams job start --name testJob001 --transform-name testEncodingTransform --base-uri 'https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/' --files 'Ignite-short.mp4' --output-assets testOutputAssetName= -a amsaccount -g amsResourceGroup 
@@ -309,7 +309,7 @@ Du får ett svar så här:
 }
 ```
 
-Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`det.
+Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är det `/e01b2be1-5ea4-42ca-ae5d-7fe704a5962f/ignite.ism/manifest(format=m3u8-aapl)`.
 
 ## <a name="build-the-url"></a>Bygg URL: en 
 
@@ -318,7 +318,7 @@ Kopiera HLS-sökvägen (HTTP Live streaming). I det här fallet är `/e01b2be1-5
 ```azurecli
 az ams streaming-endpoint list -a amsaccount -g amsResourceGroup -n default
 ```
-Kopiera värdet `hostName`. I det här fallet är `amsaccount-usw22.streaming.media.azure.net`det.
+Kopiera värdet `hostName`. I det här fallet är det `amsaccount-usw22.streaming.media.azure.net`.
 
 ### <a name="assemble-the-url"></a>Montera URL: en
 

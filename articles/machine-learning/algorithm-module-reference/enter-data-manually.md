@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 509b82596ce4819152fcd8d0bc202df186a20095
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 8db1d782b6f92637ad929ba863a8d24c81280577
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314852"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548432"
 ---
 # <a name="enter-data-manually-module"></a>Ange modulen data manuellt
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en liten data uppsättning genom att ange värden. Data uppsättningen kan ha flera kolumner.
   

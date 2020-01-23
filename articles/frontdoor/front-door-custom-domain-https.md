@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907846"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512886"
 ---
-# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Front Door-domän
+# <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Självstudiekurs: Konfigurera HTTPS på en anpassad Front Door-domän
 
 Den här självstudien visar hur du aktiverar HTTPS-protokollet för en anpassad domän som är associerad med din Front Door i avsnittet om klientdelsvärdar. Med HTTPS-protokollet på din anpassade domän (till exempel https:\//www.contoso.com) ser du till att dina känsliga data levereras på ett säkert sätt via TLS-/SSL-kryptering när de skickas över Internet. När webbläsaren är ansluten till en webbplats via HTTPS valideras webbplatsens säkerhetscertifikat och verifierar att det är utfärdat av en giltig certifikatutfärdare. Den här processen ger trygghet och skyddar dina webbprogram mot attacker.
 
@@ -27,13 +27,13 @@ Azure Front Door Service stöder HTTPS på ett Front Door-standardvärdnamn, som
 
 Några viktiga attribut i den anpassade HTTPS-funktionen är:
 
-- Utan extra kostnad: Det kostar ingenting att förvärva eller förnya certifikat, och det tillkommer ingen extra kostnad för HTTPS-trafik. 
+- Ingen extra kostnad: det kostar ingenting att förvärva eller förnya certifikat och det tillkommer ingen extra kostnad för HTTPS-trafik. 
 
-- Enkel aktivering: Enklicksetablering är tillgänglig från [Azure-portalen](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
+- Enkel aktivering: enklicksetablering är tillgänglig från [Azure Portal](https://portal.azure.com). Du kan också aktivera funktionen med REST API eller andra utvecklingsverktyg.
 
-- Fullständig certifikathantering är tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
+- Komplett certifikathantering finns tillgänglig: All anskaffning och hantering av certifikat hanteras åt dig. Certifikaten etableras automatiskt och förnyas innan de upphör att gälla, vilket tar bort risken för avbrott i tjänsten på grund av ett certifikat upphör att gälla.
 
-I den här guiden får du lära dig att:
+I den här självstudiekursen får du lära du dig att:
 > [!div class="checklist"]
 > - Aktivera HTTPS-protokollet på din anpassade domän.
 > - Använda ett AFD-hanterat certifikat 
@@ -44,9 +44,9 @@ I den här guiden får du lära dig att:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudie: Lägg till en anpassad domän i din Front Door](front-door-custom-domain.md).
+Innan du kan slutföra stegen i den här kursen måste du först skapa en Front Door och med minst en anpassad domän publicerad. Mer information finns i [Självstudiekurs: Lägga till en anpassad domän i din Front Door](front-door-custom-domain.md).
 
 ## <a name="ssl-certificates"></a>SSL-certifikat
 
@@ -81,7 +81,7 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 > [!WARNING]
 > Azures frontend-tjänst har för närvarande endast stöd för Key Vault konton i samma prenumeration som konfigurationen av den främre dörren. Om du väljer ett Key Vault under en annan prenumeration än din Front Door inträffar ett fel.
 
-2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan även skapa ett nytt certifikat direkt via Azure Key Vault från en av de partnercertifikatutfärdare som Azure Key Vault integreras med. Ladda upp certifikatet som ett **certifikat** objekt, i stället för en **hemlighet**.
+2. Azure Key Vault-certifikat: Om du redan har ett certifikat kan du ladda upp det direkt till ditt Azure Key Vault-konto. Du kan också skapa ett nytt certifikat direkt via Azure Key Vault från en av partnercertifikatutfärdarna som Azure Key Vault integreras med. Ladda upp certifikatet som ett **certifikat** objekt, i stället för en **hemlighet**.
 
 > [!IMPORTANT]
 > Du måste överföra certifikatet i PFX-format **utan** lösen ords skydd.
@@ -91,7 +91,7 @@ Du kan använda ditt eget certifikat för att aktivera HTTPS. Detta görs via en
 Registrera tjänstens huvudnamn för Azure Front Door Service som en app i din Azure Active Directory via PowerShell.
 
 > [!NOTE]
-> Den här åtgärden behöver bara utföras **en gång** per klient.
+> Den här åtgärden kräver globala administratörs behörigheter och behöver bara utföras **en gång** per klient.
 
 1. Om det behövs installerar du [Azure PowerShell](/powershell/azure/install-az-ps) i PowerShell på den lokala datorn.
 
@@ -147,7 +147,7 @@ Domänverifiering krävs inte om du använder ett eget certifikat.
 
 CNAME-posten ska ha följande format, där *Namn* är namnet på ditt anpassade domännamn och *Värde* är din Front Doors .azurefd.net-standardvärdnamn:
 
-| Name            | Typ  | Value                 |
+| Namn            | Typ  | Värde                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -176,7 +176,7 @@ webmaster@&lt;dittdomännamn.com&gt;
 hostmaster@&lt;dittdomännamn.com&gt;  
 postmaster@&lt;dittdomännamn.com&gt;  
 
-Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräp post filter, Lägg admin@digicert.com till i listan över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
+Inom ett par minuter får du ett e-postmeddelande som ser ut ungefär som i följande exempel och som ber dig godkänna begäran. Om du använder ett skräp post filter lägger du till admin@digicert.com i listan över tillåtna. Kontakta Microsoft-supporten om du inte får ett e-postmeddelande inom 24 timmar.
 
 När du klickar på godkännandelänken dirigeras du till ett formulär för godkännande online. Följ instruktionerna i formuläret. Du har två verifieringsalternativ:
 
@@ -244,7 +244,7 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 | 2 Avetablering av certifikat | Tar bort certifikat |
 | 3 Slutfört | Certifikatet har tagits bort |
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 1. *Vem är certifikatleverantör och vilken typ av certifikat används?*
 
@@ -269,5 +269,5 @@ I följande tabell visas åtgärdsförloppet när du inaktiverar HTTPS. När du 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs hur du [skapar en Front Door](quickstart-create-front-door.md).
+- Lär dig att [skapa en Front Door](quickstart-create-front-door.md).
 - Läs [hur Front Door fungerar](front-door-routing-architecture.md).

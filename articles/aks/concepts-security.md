@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 3ba4ac665df45ab6d53d2195ab59ec577f8bab05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422290"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547939"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Säkerhets begrepp för program och kluster i Azure Kubernetes service (AKS)
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver de viktigaste begreppen som skyddar dina program i A
 
 I AKS är Kubernetes Master-komponenterna en del av den hanterade tjänst som tillhandahålls av Microsoft. Varje AKS-kluster har sin egen, dedikerad Kubernetes-huvudhanterare för att tillhandahålla API-servern, Scheduler osv. Den här huvud servern hanteras och underhålls av Microsoft.
 
-Som standard använder Kubernetes-API-servern en offentlig IP-adress och med fullständigt kvalificerat domän namn (FQDN). Du kan kontrol lera åtkomsten till API-servern med hjälp av Kubernetes-rollbaserade åtkomst kontroller och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
+Som standard använder Kubernetes-API-servern en offentlig IP-adress och ett fullständigt kvalificerat domän namn (FQDN). Du kan kontrol lera åtkomsten till API-servern med hjälp av Kubernetes-rollbaserade åtkomst kontroller och Azure Active Directory. Mer information finns i [Azure AD-integrering med AKS][aks-aad].
 
 ## <a name="node-security"></a>Nods säkerhet
 

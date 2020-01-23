@@ -1,5 +1,5 @@
 ---
-title: Koda en fjärrfil baserat på URL och strömma med Azure Media Services – REST | Microsoft Docs
+title: Koda en fjärrfil och strömma med Azure Media Services v3
 description: Följ stegen i den här självstudien för att koda en fil baserat på en URL och strömma ditt innehåll med Azure Media Services med hjälp av REST.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685105"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514348"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Självstudie: koda en fjärrfil baserat på URL och strömma videon REST
 
@@ -30,7 +30,7 @@ I den här självstudien får du lära dig att koda en fil baserat på en URL oc
 I den här självstudiekursen lär du dig att:    
 
 > [!div class="checklist"]
-> * Skapa ett Media Services-konto
+> * Skapa ett medietjänstkonto
 > * Åtkomst till Media Services-API:n
 > * Hämta Postman-filer
 > * Konfigurera Postman
@@ -40,7 +40,7 @@ I den här självstudiekursen lär du dig att:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - [Skapa ett Media Services-konto](create-account-cli-how-to.md).
 
@@ -191,7 +191,7 @@ Du kan använda en inbyggd EncoderNamedPreset eller anpassade förinställningar
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName?api-version={{api-version}}
         ```
-    * Åtgärden har följande innehåll:
+    * Åtgärden har följande text:
 
         ```json
         {
@@ -226,7 +226,7 @@ I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbus
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/transforms/:transformName/jobs/:jobName?api-version={{api-version}}
         ```
-    * Åtgärden har följande innehåll:
+    * Åtgärden har följande text:
 
         ```json
         {
@@ -248,7 +248,7 @@ I det här exemplet baseras jobbets Indatatyp på en HTTPS-URL ("https:\//nimbus
         }
         ```
 
-Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
+Jobbet tar en stund att slutföra och du meddelas när detta sker. Om du vill se förloppet för jobbet rekommenderar vi att du använder Event Grid. Det är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt anpassade källor. Enkel, HTTP-baserad reaktiv händelsehantering gör det enklare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser.  Se [Dirigera händelser till en anpassad webbslutpunkt](job-state-events-cli-how-to.md).
 
 **Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har påträffat ett fel visas tillståndet **Fel**. Om jobbet avbryts visas **Avbryter** och **Avbruten** när det är klart.
 
@@ -262,7 +262,7 @@ När kodningsjobbet är klart, är nästa steg att göra videon i **utdatatillg�
 
 Processen för att skapa en strömmande positionerare kallas publicering. Som standard är streaming Locator giltig omedelbart efter att du har gjort API-anrop och varar tills den tas bort, om du inte konfigurerar de valfria start-och slut tiderna. 
 
-När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma i det-rensade (eller icke-krypterade) innehållet, så den fördefinierade rensnings principen "Predefined_ClearStreamingOnly" används.
+När du skapar en [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) behöver du ange önskat **StreamingPolicyName**. I det här exemplet kommer du att strömma in-Clear (eller icke-krypterad) innehåll, så den fördefinierade principen för att rensa strömmande Predefined_ClearStreamingOnly används.
 
 > [!IMPORTANT]
 > Om du använder en anpassad [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) bör du skapa en begränsad uppsättning av sådana principer för ditt Media Service-konto, och återanvända dem för dina StreamingLocators när samma krypterings- och protokollalternativ krävs. 
@@ -278,7 +278,7 @@ Media Service-kontot har en kvot för antalet **strömningsprincipposter**. Du b
         ```
         https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/streamingLocators/:streamingLocatorName?api-version={{api-version}}
         ```
-    * Åtgärden har följande innehåll:
+    * Åtgärden har följande text:
 
         ```json
         {
@@ -368,7 +368,7 @@ https://amsaccount-usw22.streaming.media.azure.net/cdb80234-1d94-42a9-b056-0eefa
 > [!NOTE]
 > Kontrollera att **slutpunkten för direktuppspelning** som du vill spela upp innehåll från körs.
 
-I den här artikeln används Azure Media Player för att testa dataströmmen. 
+I den här artikeln används Azure Media Player till att testa strömningen. 
 
 1. Öppna en webbläsare och navigera till [https://aka.ms/azuremediaplayer/](https://aka.ms/azuremediaplayer/).
 2. I **URL:** -rutan klistrar du in den URL som du skapat. 

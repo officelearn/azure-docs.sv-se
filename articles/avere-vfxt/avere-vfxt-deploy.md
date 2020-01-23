@@ -6,16 +6,16 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: rohogue
-ms.openlocfilehash: d1058125d5bb3912b9561027bbe0a977637d3379
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e70d1dfebcf25ee8f4e90a062cee6dd72a663e02
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153613"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547531"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
-Den här proceduren vägleder dig genom att använda distributions guiden som finns på Azure Marketplace. Guiden distribuerar automatiskt klustret med hjälp av en Azure Resource Manager mall. När du har angett parametrarna i formuläret och klickar på **skapa**, slutför Azure automatiskt de här stegen:
+Den här proceduren vägleder dig genom att använda distributions guiden som finns på Azure Marketplace. Guiden distribuerar automatiskt klustret med hjälp av en Azure Resource Manager mall. När du har angett parametrarna i formuläret och klickar på **skapa**slutförs automatiskt följande uppgifter i Azure:
 
 * Skapar kluster styrenheten, som är en grundläggande virtuell dator som innehåller den program vara som krävs för att distribuera och hantera klustret.
 * Konfigurerar resurs grupp och virtuell nätverks infrastruktur, inklusive att skapa nya element.
@@ -28,10 +28,10 @@ När du har gått igenom anvisningarna i det här dokumentet har du ett virtuell
 
 Innan du använder mallen för att skapa måste du kontrol lera att du har åtgärdat följande krav:  
 
-1. [Ny prenumeration](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Ägar behörigheter för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Kvot för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Storage Service-slutpunkt (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distributioner som använder ett befintligt virtuellt nätverk och skapar Blob Storage
+* [Ny prenumeration](avere-vfxt-prereqs.md#create-a-new-subscription)
+* [Ägar behörigheter för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+* [Kvot för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+* [Storage Service-slutpunkt (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distributioner som använder ett befintligt virtuellt nätverk och skapar Blob Storage
 
 Mer information om steg och planering för kluster distribution finns [i planera ditt AVERT vFXT-system](avere-vfxt-deploy-plan.md) och [distributions översikt](avere-vfxt-deploy-overview.md).
 

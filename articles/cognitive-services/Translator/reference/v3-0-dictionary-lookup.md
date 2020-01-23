@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: bd725d41f75bdfb1048b5bee7e8224679dbece4c
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: bd27827441082698bb4e0b43e7dd22d5b7e66539
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837254"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548959"
 ---
 # <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text API 3,0: Sök efter ord lista
 
@@ -33,45 +33,21 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-<table width="100%">
-  <th width="20%">Frågeparameter</th>
-  <th>Beskrivning</th>
-  <tr>
-    <td>API-version</td>
-    <td>*Obligatorisk parameter*.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
-  </tr>
-  <tr>
-    <td>som</td>
-    <td>*Obligatorisk parameter*.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary`s omfånget.</td>
-  </tr>
-  <tr>
-    <td>till</td>
-    <td>*Obligatorisk parameter*.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary`s omfånget.</td>
-  </tr>
-</table>
+| Frågeparameter  | Beskrivning |
+| ------ | ----------- |
+| api-version <img width=200/>   | **Obligatorisk parameter**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0` |
+| från | **Obligatorisk parameter**.<br/>Anger språket för inmatad text. Käll språket måste vara ett av de [språk som stöds](./v3-0-languages.md) som ingår i `dictionary`s omfånget. |
+| till   | **Obligatorisk parameter**.<br/>Anger språket för utmatnings texten. Mål språket måste vara ett av de [språk som stöds](v3-0-languages.md) som ingår i `dictionary`s omfånget. |
+
 
 Begärandehuvuden innehåller:
 
-<table width="100%">
-  <th width="20%">Rubriker</th>
-  <th>Beskrivning</th>
-  <tr>
-    <td>Authentication-huvud (er)</td>
-    <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*Begär ande huvud för begäran*.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Innehålls längd</td>
-    <td>*Begär ande huvud för begäran*.<br/>Längden på begär ande texten.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Valfritt*.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`.</td>
-  </tr>
-</table> 
+| Rubriker  | Beskrivning |
+| ------ | ----------- |
+| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
+| Innehålls längd   | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten. |
+| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Du kan utelämna det här huvudet om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`. |
 
 ## <a name="request-body"></a>Begärandetext
 
@@ -88,7 +64,7 @@ Följande begränsningar gäller:
 * Matrisen får innehålla högst 10 element.
 * Text värden för ett mat ris element får inte överstiga 100 tecken inklusive blank steg.
 
-## <a name="response-body"></a>Svars text
+## <a name="response-body"></a>Själva svaret
 
 Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
 
@@ -104,7 +80,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
     * `posTag`: en sträng som associerar den här termen med en del av tal-taggen.
 
-        | Taggnamn | Beskrivning  |
+        | taggnamn | Beskrivning  |
         |----------|--------------|
         | JUST      | Adjektiv   |
         | ADV      | Adverb      |
@@ -115,7 +91,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
         | BEREDD     | Prepositioner |
         | PRON     | Pronomen     |
         | VERB     | Verb        |
-        | ANDRA    | Övrigt        |
+        | ANNAN    | Övrigt        |
 
         Som en implementerings anteckning fastställdes dessa taggar av en del-av-tal-taggning av den engelska sidan och sedan den mest frekventa taggen för varje käll-/mål par. Så om människor ofta översätter ett spanskt ord till en annan del av tal-taggen på engelska kan taggarna bli fel (med avseende på det spanska ordet).
 

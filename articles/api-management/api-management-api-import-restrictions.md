@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/02/2020
 ms.author: apimpm
-ms.openlocfilehash: a1c514368960d39834125bd497d05b3d9ebeae7c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 61d43addfdf9008cb7aa8a073dcf3bb702cb55f1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75640711"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513379"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API import-begränsningar och kända problem
 
@@ -52,7 +52,6 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 
 -   Om många `servers` har angetts försöker API Management välja den första HTTPs-URL: en. Om det inte finns några HTTPs-URL: er – den första HTTP-URL: en. Om det inte finns några HTTP-URL: er måste serverns URL vara tom.
 -   `Examples` stöds inte, men `example` är.
--   `Multipart/form-data` stöds inte.
 
 ## <a name="openapi-import-update-and-export-mechanisms"></a>OpenAPI-funktioner för import, uppdatering och export
 

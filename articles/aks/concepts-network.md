@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 429205d1df91b5a63679d1189903e5340ab837f8
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913887"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547973"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -45,7 +45,7 @@ För att förenkla nätverks konfigurationen för program arbets belastningar an
 
     ![Diagram som visar NodePort trafikflöde i ett AKS-kluster][aks-nodeport]
 
-- **Loadbalancer** -skapar en Azure Load Balancer-resurs, konfigurerar en extern IP-adress och ansluter de begärda poddar till backend-poolen för belastningsutjämnare. För att tillåta kund trafik att komma åt programmet skapas belastnings Utjämnings regler på önskade portar. 
+- **Loadbalancer** -skapar en Azure Load Balancer-resurs, konfigurerar en extern IP-adress och ansluter de begärda poddar till backend-poolen för belastningsutjämnare. Om du vill tillåta att kunders trafik når programmet skapas belastnings Utjämnings regler på önskade portar. 
 
     ![Diagram som visar Load Balancer trafikflöde i ett AKS-kluster][aks-loadbalancer]
 
@@ -115,7 +115,7 @@ Oavsett vilken nätverks modell du använder kan både Kubernetes och Azure CNI 
 * Azure-plattformen kan automatiskt skapa och konfigurera virtuella nätverks resurser när du skapar ett AKS-kluster.
 * Du kan manuellt skapa och konfigurera virtuella nätverks resurser och koppla dem till resurserna när du skapar ditt AKS-kluster.
 
-Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Exempel:
+Även om funktioner som tjänst slut punkter eller UDR stöds med både Kubernetes och Azure CNI, definierar [support principerna för AKS][support-policies] vilka ändringar du kan göra. Ett exempel:
 
 * Om du skapar virtuella nätverks resurser manuellt för ett AKS-kluster, så kan du använda dem när du konfigurerar dina egna UDR-eller tjänst slut punkter.
 * Om Azure-plattformen automatiskt skapar de virtuella nätverks resurserna för ditt AKS-kluster, stöds det inte för att manuellt ändra de AKS-hanterade resurserna för att konfigurera dina egna UDR-eller tjänst slut punkter.

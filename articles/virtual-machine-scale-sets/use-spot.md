@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 4f434afdd02d15f98e005b44f5563847f4c5847d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278211"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544794"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>För hands version: virtuella Azure-datorer för skalnings uppsättningar för virtuella datorer 
 
@@ -53,7 +53,7 @@ Om du vill distribuera virtuella datorer på skalnings uppsättningar kan du st�
 - [Azure PowerShell](#powershell)
 - [Azure Resource Manager mallar](#resource-manager-templates)
 
-## <a name="portal"></a>Portal
+## <a name="portal"></a>Portalen
 
 Processen för att skapa en skalnings uppsättning som använder virtuella datorer är samma som i [artikeln komma igång](quick-create-portal.md). När du distribuerar en skalnings uppsättning kan du välja att ange flaggan för punkt och avpolicyn: ![skapa en skalnings uppsättning med virtuella datorer](media/virtual-machine-scale-sets-use-spot/vmss-spot-portal-max-price.png)
 
@@ -91,50 +91,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Mallar för Resurshanteraren
 
-Den process som används för att skapa en skalnings uppsättning som använder virtuella datorer är samma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). Lägg till egenskapen "prioritet" till resurs typen *Microsoft. Compute/virtualMachineScaleSets/virtualMachineProfile* i mallen och ange *dekor* som värde. Se till att du använder API-versionen för *2019-03-01* eller högre. 
+Den process som används för att skapa en skalnings uppsättning som använder virtuella datorer är samma som beskrivs i komma igång-artikeln för [Linux](quick-create-template-linux.md) eller [Windows](quick-create-template-windows.md). 
 
-Lägg till parametern "evictionPolicy" och ange den för att *ta bort*om du vill ange att principen ska tas bort.
-
-I följande exempel skapas en Linux-dekor skalnings uppsättning med namnet *myScaleSet* i *USA, västra centrala*, som *tar bort* de virtuella datorerna i skalnings uppsättningen vid avlägsnandet:
+Använd`"apiVersion": "2019-03-01"` eller senare för distribution av dekor mallar. Lägg till egenskaperna `priority`, `evictionPolicy` och `billingProfile` i avsnittet `"virtualMachineProfile":` i mallen: 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+Om du vill ta bort instansen när den har avlägsnats ändrar du `evictionPolicy` parametern till `Delete`.
+
 ## <a name="faq"></a>FAQ
 
 **F:** När det har skapats är en punkt instans samma som standard instans?

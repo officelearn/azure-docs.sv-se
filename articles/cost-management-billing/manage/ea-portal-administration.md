@@ -1,21 +1,21 @@
 ---
-title: Administration i Azure EA-portalen
+title: Azure EA-portaladministration
 description: I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen.
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992314"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547582"
 ---
-# <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
+# <a name="azure-ea-portal-administration"></a>Azure EA-portaladministration
 
 I den här artikeln förklaras några vanliga uppgifter som administratörer utför i Azure EA-portalen (https://ea.azure.com). Azure EA-portalen är en onlinehanteringsportal där kunder kan hantera kostnaden för sina Azure EA-tjänster. Grundläggande information om Azure EA-portalen finns i artikeln [Kom igång med Azure EA-portalen](ea-portal-get-started.md).
 
@@ -117,82 +117,74 @@ Dev/Test-erbjudandet gäller för närvarande inte för Azure Gov-kunder.
 
 ## <a name="transfer-an-enterprise-account-to-a-new-enrollment"></a>Överföra ett företagskonto till en ny registrering
 
-En konto överföring flyttar en konto ägare från en registrering till en annan. Alla relaterade prenumerationer under konto ägaren flyttas till mål registreringen. Detta utförs när du har flera aktiva registreringar och bara vill flytta valda konto ägare.
+Vid en kontoöverföring flyttas en kontoägare från en registrering till en annan. Alla relaterade prenumerationer under kontoägaren flyttas till målregistreringen. Detta sker om det finns flera aktiva registreringar och du bara vill flytta specifika kontoägare.
 
 Tänk på följande när du ska överföra ett företagskonto till en ny registrering:
 
 - Det är bara de konton som anges i förfrågan som överförs. Om du väljer alla konton så överförs samtliga.
 - Källregistreringen behåller statusen aktiv eller utvidgad. Du kan fortsätta att använda registreringen tills den upphör att gälla.
 
-### <a name="effective-transfer-date"></a>Effektivt överföringsdatum
-
-Du kan uppdatera en konto överföring så långt tillbaka som start datumet för mål registreringen eller kontots start datum, beroende på vilket som har ett senare start datum. När kontot har överförts behålls all användningsinformation för kontot från tiden innan det effektiva överföringsdatumet i registreringen du överför från. Användnings informationen efter överförings datumet kommer att flyttas till mål registreringen.
-
 ### <a name="prerequisites"></a>Krav
 
 När du begär en kontoöverföring ska du ange följande information:
 
-- Numret på mål registreringen, konto namnet och e-postadressen för kontot som ska överföras
+- Numret på målregistreringen, kontonamnet och e-postadressen för kontoägaren för kontot som ska överföras
 - För källregistreringen, registreringsnumret och kontot som ska överföras
-- För konto överföringens giltighets datum kan det återställas så långt tillbaka som start datumet för mål registreringen eller kontots start datum, beroende på vilket som har ett senare start datum
 
 Här är några andra saker du bör tänka på innan en kontoöverföring:
 
 - Du behöver godkännande från en EA-administratör för mål- och källregistreringen
 - Om en kontoöverföring inte uppfyller dina behov kan du överväga en registreringsöverföring.
 - Kontoöverföringen överför alla tjänster och prenumerationer som tillhör aktuella konton.
-- När överföringen är klar visas det överförda kontot inaktivt under käll registreringen och visas som aktivt under mål registreringen.
+- När överföringen är klar visas det överförda kontot som inaktivt under källregistreringen och som aktivt under målregistreringen.
 - Kontot visar ett slutdatum som motsvarar aktuellt överföringsdatum för källregistreringen och startdatum för målregistreringen.
 - All användning som utförts på kontot innan det aktuella överföringsdatumet finns kvar under källregistreringen.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Överföra en företagsregistrering till en ny registrering
 
-En registrerings överföring beaktas när:
+En registreringsöverföring är lämpligt när:
 
-- En aktuell registrerings åtagande period har kommit till ett slut.
-- En registrering har statusen utgånget/utökat och ett nytt avtal förhandlas.
-- Om du har flera registreringar och vill konsolidera alla konton och fakturering under en enda registrering.
+- Åtagandeperioden för en aktuell registrering har gått ut.
+- En registrering har status som förfallen/förlängd och ett nytt avtal förhandlas.
+- Om du har flera registreringar och vill konsolidera alla konton och faktureringen under en enda registrering.
 
 När du begär att en hel företagsregistrering ska överföras till en ny registrering utförs följande åtgärder:
 
-- Alla Azure-tjänster, prenumerationer, konton, avdelningar och hela registrerings strukturen, inklusive alla administratörer för EA-avdelning, överförs till en ny mål registrering.
+- Alla tjänster, prenumerationer, konton, avdelningar och hela registreringsstrukturen, inklusive alla EA-avdelningsadministratörer, överförs till en ny målregistrering.
 - Registreringsstatus ställs in som _Överförd_. Den överförda registreringen är bara tillgänglig för rapporter om historisk användning.
 - Du kan inte lägga till roller eller prenumerationer i en överförd registrering. Statusen Överförd förhindrar ytterligare användning mot registreringen.
 - Eventuella saldon för ekonomiska åtaganden i registreringen går förlorade, inklusive framtida avtal.
 -   Om registreringen du överför från innehåller RI-köp blir inköpspriset för RI kvar källregistreringen, men alla RI-förmåner överförs för användning i den nya registreringen.
 -   Engångsavgiften för köp på Marketplace och alla månatliga fasta avgifter som redan påförts på den gamla registreringen överförs inte till den nya registreringen. Förbrukningsbaserade Marketplace-debiteringar överförs.
--   Efter en retroaktiv registreringsöverföring blir alla engångsavgifter från köp kvar i källregistreringen.
 
 ### <a name="effective-transfer-date"></a>Effektivt överföringsdatum
 
-Den effektiva överförings dagen kan vara på eller efter start datumet för mål registreringen.
+Den effektiva överföringsdagen kan vara på eller efter startdatumet för målregistreringen.
 
 Användning i källregistreringen debiteras mot det ekonomiska åtagandet eller som en överförbrukning. Användning efter det effektiva överföringsdatumet överförs till den nya registreringen och debiteras där.
-
-En uppdaterad överföring stöds så långt tillbaka som start datumet för mål registreringen. Att ange det valda överförings datumet påverkar inte användningen av en överförbruknings faktura som redan har utfärdats.
 
 ### <a name="prerequisites"></a>Krav
 
 När du begär överföring av en registrering ska du ange följande information:
 
-- Registrerings nummer för registrering av källa.
+- För källregistreringen, registreringsnumret.
 - För målregistreringen, registreringsnumret som överföringen ska göras till.
 - Det effektiva datumet för överföringen av registreringen kan vara målregistreringens startdatum eller något senare datum. Det valda datumet påverkar inte användningen i eventuella fakturor för överförbrukning som redan har utfärdats.
 
 Här är några andra saker du bör tänka på innan du överför en registrering:
 
-- Det krävs godkännande från både mål-och käll registrering EA-administratörer.
+- Det krävs godkännande från EA-administratörer för både mål- och källregistrering.
 - Om överföring av en registrering inte uppfyller dina behov kan du överväga en kontoöverföring.
-- Status för käll registrering kommer att uppdateras till överförd och kommer bara att vara tillgänglig för historiska användnings rapporter.
+- Källregistreringens status uppdateras till Överförd och är bara tillgänglig för rapportering av tidigare användning.
 
 ### <a name="monetary-commitment"></a>Ekonomiskt åtagande
 
 Ekonomiska åtaganden kan inte överföras mellan registreringar. Saldon för ekonomiska åtaganden är avtalsmässigt bundna till den registrering där åtagandet beställdes. Ekonomiska åtaganden överförs inte när konton eller registreringar överförs.
 
-### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Inga tjänster påverkas för konto-och registrerings överföringar
+### <a name="no-services-affected-for-account-and-enrollment-transfers"></a>Inga tjänster påverkas av konto- och registreringsöverföringar
 
-Det finns inget avbrott under ett konto eller en registrerings överföring. De kan genomföras samma dag som förfrågan inkommer om du anger all nödvändig information.
+Det förekommer inga avbrott under en konto- eller registreringsöverföring. De kan genomföras samma dag som förfrågan inkommer om du anger all nödvändig information.
 
 ## <a name="change-account-owner"></a>Ändra kontoägare
 
@@ -216,7 +208,7 @@ Om prenumerationen överförs till ett konto i en annan klientorganisation i Azu
 
 Om mottagaren behöver begränsa åtkomsten till sina Azure-resurser bör denne överväga att uppdatera eventuella hemligheter som är associerade med tjänsten. De flesta resurser kan uppdateras med hjälp av följande steg:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Välj **Alla resurser** i hubbmenyn.
 3. Välj resursen.
 4. Klicka på **Inställningar** på resurssidan för att visa och uppdatera befintliga hemligheter.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18da289f9d364fa79023809324d59b89b8ac898c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b2c1a088e4c200dcc4a2ff35db942e3eb8480674
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768120"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512099"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>Kontrollerad verifiering av Azure AD-anslutningshybrid
 
@@ -88,7 +88,7 @@ Om du använder AD FS måste du först konfigurera klient sidans SCP med hjälp 
 
 För att registrera Windows-enheter på låg nivå måste organisationerna installera [Microsoft Workplace Join för icke-Windows 10-datorer som](https://www.microsoft.com/download/details.aspx?id=53554) är tillgängliga på Microsoft Download Center.
 
-Du kan distribuera paketet med hjälp av ett program distributions system som [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager). Paketet stöder vanliga obevakade installations alternativ med parametern quiet. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
+Du kan distribuera paketet med hjälp av ett program distributions system som [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/). Paketet stöder vanliga obevakade installations alternativ med parametern quiet. Den aktuella grenen av Configuration Manager erbjuder förmåner jämfört med tidigare versioner, t. ex. möjligheten att spåra slutförda registreringar.
 
 Installations programmet skapar en schemalagd aktivitet på det system som körs i användar kontexten. Aktiviteten utlöses när användaren loggar in i Windows. Uppgiften ansluter tyst till enheten med Azure AD med användarautentiseringsuppgifterna efter autentisering med Azure AD.
 

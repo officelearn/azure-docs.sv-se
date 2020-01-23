@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 01/21/2020
 ms.author: swmachan
-ms.openlocfilehash: c8ef1d4dacf500c459ae1ab9a534ed118ca9e05a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c314148b8e1495a8b5a12c42d4989d13cdd6a08
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446686"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548126"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3,0: BreakSentence
 
@@ -33,45 +33,20 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 Parametrarna för begäran som skickades till frågesträngen är:
 
-<table width="100%">
-  <th width="20%">Frågeparameter</th>
-  <th>Beskrivning</th>
-  <tr>
-    <td>api-version</td>
-    <td>*Parameter för obligatorisk fråga*.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`.</td>
-  </tr>
-  <tr>
-    <td>language</td>
-    <td>*Valfri frågeparameter*.<br/>Språk tag gen som identifierar språk för inmatad text. Om ingen kod anges används automatisk språk identifiering.</td>
-  </tr>
-  <tr>
-    <td>-skriptet</td>
-    <td>*Valfri frågeparameter*.<br/>Skript tag gen som identifierar skriptet som används av inmatad text. Om ett skript inte anges kommer standard språket för språket att antas.</td>
-  </tr>
-</table> 
+| Frågeparameter | Beskrivning |
+| -------| ----------- |
+| api-version <img width=200/>   | **Parameter för obligatorisk fråga**.<br/>Den version av API: t som klienten begär. Värdet måste vara `3.0`. |
+| language | **Valfri frågeparameter**.<br/>Språk tag gen som identifierar språk för inmatad text. Om ingen kod anges används automatisk språk identifiering. |
+| -skriptet    | **Valfri frågeparameter**.<br/>Skript tag gen som identifierar skriptet som används av inmatad text. Om ett skript inte anges kommer standard språket för språket att antas.  | 
 
 Begärandehuvuden innehåller:
 
-<table width="100%">
-  <th width="20%">Rubriker</th>
-  <th>Beskrivning</th>
-  <tr>
-    <td>Authentication-huvud (er)</td>
-    <td><em>Begär ande huvud för begäran</em>.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>.</td>
-  </tr>
-  <tr>
-    <td>Content-Type</td>
-    <td>*Begär ande huvud för begäran*.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`.</td>
-  </tr>
-  <tr>
-    <td>Innehålls längd</td>
-    <td>*Begär ande huvud för begäran*.<br/>Längden på begär ande texten.</td>
-  </tr>
-  <tr>
-    <td>X-ClientTraceId</td>
-    <td>*Valfritt*.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Observera att du kan utelämna detta sidhuvud om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`.</td>
-  </tr>
-</table> 
+| Rubriker | Beskrivning |
+| ------- | ----------- |
+| Authentication-huvud (er) <img width=200/>  | **Begär ande huvud för begäran**.<br/>Se <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">tillgängliga alternativ för autentisering</a>. |
+| Content-Type | **Begär ande huvud för begäran**.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: `application/json`. |
+| Innehålls längd    | **Begär ande huvud för begäran**.<br/>Längden på begär ande texten.  | 
+| X-ClientTraceId   | **Valfritt**.<br/>Ett GUID som skapats av klienten för att unikt identifiera begäran. Observera att du kan utelämna detta sidhuvud om du inkluderar spårnings-ID: t i frågesträngen med hjälp av en frågeparameter med namnet `ClientTraceId`.  | 
 
 ## <a name="request-body"></a>Begärandetext
 
@@ -90,7 +65,7 @@ Följande begränsningar gäller:
 * Hela texten som ingår i begäran får inte överstiga 50 000 tecken inklusive blank steg.
 * Om parametern `language` Query anges måste alla mat ris element vara på samma språk. Annars används automatisk identifiering av språk för varje mat ris element oberoende av varandra.
 
-## <a name="response-body"></a>Svars text
+## <a name="response-body"></a>Själva svaret
 
 Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den angivna matrisen. Ett resultat objekt innehåller följande egenskaper:
 
@@ -142,7 +117,7 @@ Följande är de möjliga HTTP-statuskod som en begäran returnerar.
   </tr>
   <tr>
     <td>400</td>
-    <td>En av frågeparametrar saknas eller är ogiltig. Korrigera parametrarna för begäran innan du försöker igen.</td>
+    <td>En av frågeparametrarna saknas eller är ogiltig. Korrigera parametrarna för begäran innan du försöker igen.</td>
   </tr>
   <tr>
     <td>401</td>

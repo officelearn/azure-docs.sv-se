@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 70254e42b5964c7c7a3bf15c396f4c118f68a5ed
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: ea213921c736bc3b6bf88c0bdd81a96656ecbe5b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121241"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547293"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue Storage-bindningar för Azure Functions
 
@@ -40,17 +40,7 @@ Functions förväntar sig en *base64* -kodad sträng. Eventuella justeringar av 
 
 Använd kön utlösare för att starta en funktion när ett nytt objekt tas emot i en kö. Kömeddelandet anges som indata till funktionen.
 
-## <a name="trigger---example"></a>Utlösare - exempel
-
-Se exempel språkspecifika:
-
-* [C#](#trigger---c-example)
-* [C#-skript (.csx)](#trigger---c-script-example)
-* [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---java-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>Utlösare – C#-exempel
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som söker i `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
 
@@ -67,7 +57,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
 
 I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och [ C# skript kod (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
 
@@ -122,7 +112,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 I [användnings](#trigger---usage) avsnittet förklaras `myQueueItem`, som namnges av egenskapen `name` i function. JSON.  I [avsnittet meddelande metadata](#trigger---message-metadata) beskrivs alla andra variabler som visas.
 
-### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
 
@@ -167,23 +157,7 @@ module.exports = async function (context, message) {
 
 I [användnings](#trigger---usage) avsnittet förklaras `myQueueItem`, som namnges av egenskapen `name` i function. JSON.  I [avsnittet meddelande metadata](#trigger---message-metadata) beskrivs alla andra variabler som visas.
 
-### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
-
-I följande Java-exempel visas en utlösnings funktion i Storage Queue som loggar det Utlös ande meddelandet som placeras i kö `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
-
-### <a name="trigger---python-example"></a>Utlös – python-exempel
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Följande exempel visar hur du läser ett Queue-meddelande som skickas till en funktion via en utlösare.
 
@@ -204,7 +178,7 @@ En utlösare för lagrings kön definieras i *Function. JSON* där *typ* har ang
 }
 ```
 
-Koden  *_\_init_\_. py* deklarerar en parameter som `func.ServiceBusMessage` så att du kan läsa meddelandet i kön i din funktion.
+Koden  *_\_init_\_. py* deklarerar en parameter som `func.ServiceBusMessage`, vilket gör att du kan läsa meddelandet i kön i din funktion.
 
 ```python
 import logging
@@ -231,7 +205,27 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-## <a name="trigger---attributes"></a>Utlösare - attribut
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+I följande Java-exempel visas en utlösnings funktion i Storage Queue som loggar det Utlös ande meddelandet som placeras i kö `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>Utlös-attribut och anteckningar
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande attribut för att konfigurera en Queue-utlösare:
 
@@ -261,7 +255,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
   }
   ```
 
-  Ett komplett exempel finns i [utlösare – C#-exempel](#trigger---c-example).
+  Ett komplett exempel finns i [utlösare – C#-exempel](#trigger).
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -287,6 +281,47 @@ Lagrings kontot som ska användas fastställs i följande ordning:
 * Den `StorageAccount` attribut som tillämpas på klassen.
 * App-inställningen "AzureWebJobsStorage".
 
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+Attribut stöds inte av C# skript.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Attribut stöds inte av Java-skript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Attribut stöds inte av python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`QueueTrigger` kommentaren ger dig åtkomst till kön som utlöser funktionen. I följande exempel blir Queue-meddelandet tillgängligt för funktionen via `message`-parametern.
+
+```java
+package com.function;
+import com.microsoft.azure.functions.annotation.*;
+import java.util.Queue;
+import com.microsoft.azure.functions.*;
+
+public class QueueTriggerDemo {
+    @FunctionName("QueueTriggerDemo")
+    public void run(
+        @QueueTrigger(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") String message,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Queue message: " + message);
+    }
+}
+```
+
+| Egenskap    | Beskrivning |
+|-------------|-----------------------------|
+|`name`       | Deklarerar parameter namnet i funktions under skriften. När funktionen utlöses har den här parameterns värde innehållet i Queue-meddelandet. |
+|`queueName`  | Deklarerar könamnet i lagrings kontot. |
+|`connection` | Pekar på anslutnings strängen för lagrings kontot. |
+
+---
+
 ## <a name="trigger---configuration"></a>Utlösare - konfiguration
 
 I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `QueueTrigger` attribut.
@@ -303,7 +338,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-I C# och C# skript kan du komma åt meddelande data med hjälp av en metod parameter som `string paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Du kan binda till någon av följande typer:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Få åtkomst till meddelande data med hjälp av en metod parameter som `string paramName`. Du kan binda till någon av följande typer:
 
 * Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
 * `string`
@@ -312,7 +349,30 @@ I C# och C# skript kan du komma åt meddelande data med hjälp av en metod param
 
 Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-Använd `context.bindings.<name>` för att komma åt nytto lasten för köobjekt i Java Script. Om nytto lasten är JSON deserialiseras den till ett objekt. Den här nytto lasten skickas också som den andra parametern till funktionen.
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+Få åtkomst till meddelande data med hjälp av en metod parameter som `string paramName`. `paramName` är det värde som anges i egenskapen `name` för *Function. JSON*. Du kan binda till någon av följande typer:
+
+* Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
+* `string`
+* `byte[]`
+* [CloudQueueMessage]
+
+Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Objektet för köobjekt är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar namnet som definierats i *Function. JSON*. Om nytto lasten är JSON deserialiseras värdet i ett objekt.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Få åtkomst till Queue-meddelandet via parametern som anges som [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) -anteckningen ger dig åtkomst till det Queue meddelande som utlöste funktionen.
+
+---
 
 ## <a name="trigger---message-metadata"></a>Utlösare - meddelande metadata
 
@@ -365,22 +425,12 @@ Queue-utlösaren förhindrar automatiskt en funktion från att bearbeta ett köo
 
 Använd bindningen för lagring av utdata i Azure Queue för att skriva meddelanden till en kö.
 
-## <a name="output---example"></a>Utdata - exempel
-
-Se exempel språkspecifika:
-
-* [C#](#output---c-example)
-* [C#-skript (.csx)](#output---c-script-example)
-* [JavaScript](#output---javascript-example)
-* [Java](#output---java-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>Resultat – C#-exempel
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skapar ett Queue-meddelande för varje http-begäran som tas emot.
 
 ```csharp
-[StorageAccount("AzureWebJobsStorage")]
+[StorageAccount("MyStorageConnectionAppSetting")]
 public static class QueueFunctions
 {
     [FunctionName("QueueOutput")]
@@ -393,7 +443,7 @@ public static class QueueFunctions
 }
 ```
 
-### <a name="output---c-script-example"></a>Resultat – exempel på C#-skript
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
 
 I följande exempel visas en http trigger-bindning i en *Function. JSON* -fil och [ C# skript kod (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen skapar ett köobjekt med en **CustomQueueMessage** objekt nytto last för varje http-begäran som tas emot.
 
@@ -454,7 +504,7 @@ public static void Run(
 }
 ```
 
-### <a name="output---javascript-example"></a>Resultat – JavaScript-exempel
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en HTTP trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skapar ett köobjekt för varje HTTP-begäran som tas emot.
 
@@ -504,25 +554,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---java-example"></a>Resultat – Java-exemplet
-
- I följande exempel visas en Java-funktion som skapar ett Queue-meddelande när det utlöses av en HTTP-begäran.
-
-```java
-@FunctionName("httpToQueue")
-@QueueOutput(name = "item", queueName = "myqueue-items", connection = "AzureWebJobsStorage")
- public String pushToQueue(
-     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
-     final String message,
-     @HttpOutput(name = "response") final OutputBinding<String> result) {
-       result.setValue(message + " has been added.");
-       return message;
- }
-```
-
-I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@QueueOutput` kommentar för parametrar vars värde ska skrivas till Queue Storage.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
-
-### <a name="output---python-example"></a>Utdata – python-exempel
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 I följande exempel visas hur du matar utdata av enstaka och flera värden till lagrings köer. Konfigurationen som krävs för *Function. JSON* är på samma sätt.
 
@@ -585,7 +617,29 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-## <a name="output---attributes"></a>Utdata - attribut
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+ I följande exempel visas en Java-funktion som skapar ett Queue-meddelande för när det utlöses av en HTTP-begäran.
+
+```java
+@FunctionName("httpToQueue")
+@QueueOutput(name = "item", queueName = "myqueue-items", connection = "MyStorageConnectionAppSetting")
+ public String pushToQueue(
+     @HttpTrigger(name = "request", methods = {HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+     final String message,
+     @HttpOutput(name = "response") final OutputBinding<String> result) {
+       result.setValue(message + " has been added.");
+       return message;
+ }
+```
+
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@QueueOutput` kommentar för parametrar vars värde ska skrivas till Queue Storage.  Parameter typen ska vara `OutputBinding<T>`, där `T` är valfri ursprunglig Java-typ för en POJO.
+
+---
+
+## <a name="output---attributes-and-annotations"></a>Utdata-attribut och anteckningar
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Använd [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
@@ -611,9 +665,54 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
+Ett komplett exempel finns i [resultat – C#-exempel](#output).
 
 Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i avsnittet om Utlösar-attribut.
+
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+Attribut stöds inte av C# skript.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Attribut stöds inte av Java-skript.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Attribut stöds inte av python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+`QueueOutput` kommentaren ger dig åtkomst till att skriva ett meddelande till en funktion. I följande exempel visas en HTTP-utlöst funktion som skapar ett Queue-meddelande.
+
+```java
+package com.function;
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerQueueOutput {
+    @FunctionName("HttpTriggerQueueOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @QueueOutput(name = "message", queueName = "messages", connection = "MyStorageConnectionAppSetting") OutputBinding<String> message,
+            final ExecutionContext context) {
+
+        message.setValue(request.getQueryParameters().get("name"));
+        return request.createResponseBuilder(HttpStatus.OK).body("Done").build();
+    }
+}
+```
+
+| Egenskap    | Beskrivning |
+|-------------|-----------------------------|
+|`name`       | Deklarerar parameter namnet i funktions under skriften. När funktionen utlöses har den här parameterns värde innehållet i Queue-meddelandet. |
+|`queueName`  | Deklarerar könamnet i lagrings kontot. |
+|`connection` | Pekar på anslutnings strängen för lagrings kontot. |
+
+Den parameter som är associerad med `QueueOutput`-anteckningen skrivs som en [OutputBinding\<t\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) -instans.
+
+---
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
@@ -631,7 +730,9 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C# och C# skript skriver du ett enskilt Queue-meddelande med hjälp av en metod parameter som `out T paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Du kan använda metoden Return-typ i stället för en `out` parameter och `T` kan vara någon av följande typer:
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+Skriv ett enskilt Queue-meddelande med hjälp av en metod parameter som `out T paramName`. Du kan använda metoden Return-typ i stället för en `out` parameter och `T` kan vara någon av följande typer:
 
 * Ett objekt som är serialiserbar som JSON
 * `string`
@@ -645,8 +746,43 @@ I C# och C# skript skriver du flera meddelanden i kön genom att använda någon
 * `ICollector<T>` eller `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-Använd `context.bindings.<name>` för att få åtkomst till meddelandet utgående kö i JavaScript-funktioner. Du kan använda en sträng eller ett JSON-serialiserbar objekt för nytto lasten i objektet.
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
 
+Skriv ett enskilt Queue-meddelande med hjälp av en metod parameter som `out T paramName`. `paramName` är det värde som anges i egenskapen `name` för *Function. JSON*. Du kan använda metoden Return-typ i stället för en `out` parameter och `T` kan vara någon av följande typer:
+
+* Ett objekt som är serialiserbar som JSON
+* `string`
+* `byte[]`
+* [CloudQueueMessage] 
+
+Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+
+I C# och C# skript skriver du flera meddelanden i kön genom att använda någon av följande typer: 
+
+* `ICollector<T>` eller `IAsyncCollector<T>`
+* [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Objektet utgående kö är tillgängligt via `context.bindings.<NAME>` där `<NAME>` matchar namnet som definierats i *Function. JSON*. Du kan använda en sträng eller ett JSON-serialiserbar objekt för nytto lasten i objektet.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Det finns två alternativ för att placera ett Event Hub-meddelande från en funktion:
+
+- **RETUR värde**: Ange `name`-egenskapen i *Function. json* för att `$return`. Med den här konfigurationen sparas funktionens retur värde som ett kö lagrings meddelande.
+
+- **Tvingande**: Skicka ett värde till [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) -metoden för den parameter som deklarerats som [Utdatatyp.](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) Värdet som skickas till `set` sparas som ett kö lagrings meddelande.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Det finns två alternativ för att mata ut ett Event Hub-meddelande från en funktion med hjälp av [QueueOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queueoutput) -anteckningen:
+
+- **RETUR värde**: genom att använda anteckningen i själva funktionen sparas returvärdet för funktionen som ett Event Hub-meddelande.
+
+- **Tvingande**: om du uttryckligen vill ange ett meddelande värde ska du använda anteckningen på en specifik parameter av typen [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), där `T` är en POJO eller en ursprunglig Java-typ. Med den här konfigurationen behåller ett värde i `setValue`-metoden värdet som ett Event Hub-meddelande.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
 
@@ -679,7 +815,6 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
     }
 }
 ```
-
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------|

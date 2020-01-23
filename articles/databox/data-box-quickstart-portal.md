@@ -9,24 +9,14 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 26578e277a9f6747063ee377e72845b599a0301b
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04343f684539307957cd635822ba1ba5a1ce24c9
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772753"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313781"
 ---
-::: zone target="docs"
-
-# <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Snabbstart: Distribuera Azure Data Box med Azure-portalen
-
-::: zone-end
-
-::: zone target="chromeless"
-
 # <a name="get-started-with-azure-data-box"></a>Kom igång med Azure Data Box 
-
-::: zone-end
 
 ::: zone target="docs"
 
@@ -44,7 +34,7 @@ Den här guiden beskriver hur du distribuerar Azure Data Box med hjälp av Azure
 
 ::: zone target="docs"
  
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
@@ -68,7 +58,7 @@ Innan du börjar:
 
 ::: zone target="chromeless"
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Kontrollera följande innan du börjar:
 

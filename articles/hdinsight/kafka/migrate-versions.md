@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/18/2019
-ms.openlocfilehash: d9ad5da27b4b5f8e4e447036c46613bad0f1f5c7
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 66ea8a93723c117a364a188ec05b050e1ef60564
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563793"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548092"
 ---
 # <a name="migrate-apache-kafka-workloads-to-azure-hdinsight-40"></a>Migrera Apache Kafka-arbetsbelastningar till Azure HDInsight 4,0
 
@@ -68,7 +68,7 @@ Följande vägledning för migrering förutsätter att ett Apache Kafka 1.0.0-el
 
 Gör så här för att slutföra migreringen:
 
-1. **Distribuera ett nytt HDInsight 4,0-kluster och-klienter för testning.** Distribuera ett nytt HDInsight 4,0 Kafka-kluster. Om flera Kafka-kluster versioner kan väljas rekommenderar vi att du väljer den senaste versionen. Efter distributionen ställer du in några parametrar efter behov och skapar ett ämne med samma som din befintliga miljö. Ange också SSL-och BYOK-kryptering vid behov. Kontrol lera sedan att det fungerar korrekt med det nya klustret.
+1. **Distribuera ett nytt HDInsight 4,0-kluster och-klienter för testning.** Distribuera ett nytt HDInsight 4,0 Kafka-kluster. Om flera Kafka-kluster versioner kan väljas rekommenderar vi att du väljer den senaste versionen. Efter distributionen ställer du in några parametrar efter behov och skapar ett ämne med samma namn som din befintliga miljö. Ange också SSL-och BYOK-kryptering vid behov. Kontrol lera sedan att det fungerar korrekt med det nya klustret.
 
     ![Distribuera nya HDInsight 4,0-kluster](./media/upgrade-threesix-to-four/deploy-new-hdinsight-clusters.png)
 

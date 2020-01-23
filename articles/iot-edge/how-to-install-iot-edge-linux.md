@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
-ms.openlocfilehash: 7cd0935177ad4070750a9b2a0ff129af2e13959f
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
-ms.translationtype: MT
+ms.openlocfilehash: 4a8725e3ba7be2dc572798d1397e098046a4b352
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772422"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510234"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installera Azure IoT Edge runtime på Debian-baserade Linux-system
 
@@ -30,7 +30,7 @@ Den här artikeln beskriver stegen för att installera Azure IoT Edge runtime p�
 
 ## <a name="install-the-latest-runtime-version"></a>Installera den senaste körnings versionen
 
-Använd följande avsnitt för att installera den senaste versionen av Azure IoT Edge runtime på din enhet. 
+Använd följande avsnitt för att installera den senaste versionen av Azure IoT Edge runtime på din enhet.
 
 ### <a name="register-microsoft-key-and-software-repository-feed"></a>Registrera Microsoft nyckeln och program lagringsplats feed
 
@@ -39,16 +39,19 @@ Förbered enheten för IoT Edge runtime-installationen.
 Installera konfiguration av lagrings plats. Välj det **16,04** -eller **18,04** -kommando som matchar enhetens operativ system:
 
 * **Ubuntu Server 16,04**:
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Ubuntu Server 18,04**:
+
    ```bash
    curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
    ```
 
 * **Raspbian-storlek**:
+
    ```bash
    curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
    ```
@@ -88,7 +91,7 @@ Installera Moby kommandoradsgränssnittet (CLI). CLI är användbart för utveck
    sudo apt-get install moby-cli
    ```
 
-Om du stöter på fel när du installerar Moby container runtime följer du stegen för att [kontrol lera din Linux-kernel för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som beskrivs längre fram i den här artikeln. 
+Om du stöter på fel när du installerar Moby container runtime följer du stegen för att [kontrol lera din Linux-kernel för Moby-kompatibilitet](#verify-your-linux-kernel-for-moby-compatibility), som beskrivs längre fram i den här artikeln.
 
 ### <a name="install-the-azure-iot-edge-security-daemon"></a>Installera Daemon för Azure IoT Edge-säkerhet
 
@@ -108,7 +111,7 @@ Installera daemonen säkerhet. Paketet har installerats på `/etc/iotedge/`.
    sudo apt-get install iotedge
    ```
 
-När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets demon](#configure-the-security-daemon) för att slutföra etableringen av enheten. 
+När IoT Edge har installerats uppmanas du att uppdatera konfigurations filen. Följ stegen i avsnittet [Konfigurera säkerhets demon](#configure-the-security-daemon) för att slutföra etableringen av enheten.
 
 ## <a name="install-a-specific-runtime-version"></a>Installera en viss körnings version
 
@@ -145,7 +148,7 @@ Om du vill installera en viss version av Moby och Azure IoT Edge runtime i stäl
       ```bash
       curl -L <libiothsm-std link> -o libiothsm-std.deb && sudo dpkg -i ./libiothsm-std.deb
       ```
-   
+
    3. Hitta den **iotedge** -fil som matchar din IoT Edge enhets arkitektur. Högerklicka på fil länken och Kopiera länk adressen. 
 
    4. Använd den kopierade länken i följande kommando för att installera den versionen av IoT Edge Security daemon. 
@@ -174,7 +177,7 @@ Om du vill etablera en enhet manuellt, måste du ange den med en [enhetsanslutni
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det **manuella etablerings konfigurations** avsnittet. Uppdatera värdet för **device_connection_string** med anslutningssträngen från din IoT Edge-enhet. Se till att alla andra etablerings avsnitt är kommenterade.
+Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det **manuella etablerings konfigurations** avsnittet. Uppdatera värdet för **device_connection_string** med anslutningssträngen från din IoT Edge-enhet. Se till att alla andra etablerings avsnitt är kommenterade. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
 
    ```yaml
    # Manual provisioning configuration
@@ -190,7 +193,8 @@ Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det 
    #   attestation:
    #     method: "tpm"
    #     registration_id: "{registration_id}"
-```
+   ```
+
 Om du vill klistra in innehållet i Urklipp i nano `Shift+Right Click` eller trycker du på `Shift+Insert`.
 
 Spara och stäng filen.
@@ -213,7 +217,7 @@ Att automatiskt etablera en enhet [konfigurera Device Provisioning-tjänsten och
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det avsnitt som är lämpligt för din mekanism för attestering. När du använder TPM-attestering kan du till exempel uppdatera värdena för **scope_id** och **registration_id** med värdena från din IoT Hub Device Provisioning-tjänst och din IoT Edge enhet med TPM.
+Hitta etablerings konfigurationerna för filen och ta bort kommentaren till det avsnitt som är lämpligt för din mekanism för attestering. När du använder TPM-attestering kan du till exempel uppdatera värdena för **scope_id** och **registration_id** med värdena från din IoT Hub Device Provisioning-tjänst och din IoT Edge enhet med TPM. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
 
    ```yaml
    # Manual provisioning configuration
@@ -265,7 +269,7 @@ Kör en automatisk kontroll av de vanligaste konfigurations-och nätverks felen:
 sudo iotedge check
 ```
 
-Innan du distribuerar din första modul till IoT Edge på enheten, distribueras inte **$edgeHub** system-modulen till enheten. Det innebär att den automatiska kontrollen returnerar ett fel för kontrollen `Edge Hub can bind to ports on host` anslutning. Det här felet kan vara ingored om det inte inträffar när du har distribuerat en modul till enheten.
+Innan du distribuerar din första modul till IoT Edge på enheten, distribueras inte **$edgeHub** system-modulen till enheten. Det innebär att den automatiska kontrollen returnerar ett fel för kontrollen `Edge Hub can bind to ports on host` anslutning. Felet kan ignoreras om det inte inträffar när du har distribuerat en modul till enheten.
 
 Slutligen visar du en lista med moduler som körs:
 

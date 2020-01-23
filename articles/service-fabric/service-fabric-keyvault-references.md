@@ -3,12 +3,12 @@ title: Azure Service Fabric – använda referenser för Service Fabric-program 
 description: Den här artikeln förklarar hur du använder Service Fabric KeyVaultReference-stöd för program hemligheter.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167130"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545491"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>KeyVaultReference-stöd för Service Fabric program (för hands version)
 
@@ -22,7 +22,7 @@ En vanlig utmaning när du bygger moln program är hur du säkert lagrar hemligh
 
 - Centrala hemligheter lagras (CSS).
 
-    Den centrala hemligheter Store (CSS) är service Fabrics krypterade lokala hemligheter, KeyVaultReference en gång som hämtats cachelagrade i CSS.
+    Den centrala hemligheter Store (CSS) är Service Fabrics krypterade lokala hemligheter. CSS är en lokal hemlighet som lagrar känsliga data, till exempel lösen ord, tokens och nycklar, krypterade i minnet. KeyVaultReference, som har hämtats, cachelagras i CSS.
 
     Lägg till nedanstående i kluster konfigurationen under `fabricSettings` för att aktivera alla nödvändiga funktioner för KeyVaultReference-stöd.
 

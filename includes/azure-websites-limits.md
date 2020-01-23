@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: a05229f22e1682d73b627e3b4644ba64e653335f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 17d6947efcbaf8a01aeca70bf7a88dcc7b65cd0a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414596"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548242"
 ---
 | Resurs | Kostnadsfri | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -19,12 +19,12 @@ ms.locfileid: "74414596"
 | [Skala ut](../articles/app-service/manage-scale-up.md) (maximalt antal instanser) |1 delad |1 delad |3 dedikerad<sup>3</sup> |10 dedikerat<sup>3</sup> |30 dedikerat<sup>3</sup>|100 dedikerat<sup>4</sup>|
 | Lagring<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup></p> |1 TB<sup>5</sup>|
 | PROCESSOR tid (5 minuter)<sup>6</sup> |3 minuter |3 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a>|
-| CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |
-| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Saknas |Saknas |Saknas |Saknas |
+| CPU-tid (dag)<sup>6</sup> |60 minuter |240 minuter |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |Obegränsad, betala enligt standard [taxa](https://azure.microsoft.com/pricing/details/app-service/)</a> |
+| Minne (1 timme) |1 024 MB per App Service plan |1 024 MB per app |Gäller inte |Gäller inte |Gäller inte |Gäller inte |
 | Bandbredd |165 MB |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |Obegränsad, [data överförings taxa](https://azure.microsoft.com/pricing/details/data-transfers/) gäller |
 | Programarkitektur |32-bitars |32-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |32-bitars/64-bitars |
 | Web Sockets per instans<sup>7</sup> |5 |35 |350 |Unlimited |Unlimited |Unlimited |
-| IP-anslutningar | 600 | 600 | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | 64,000 |
+| IP-anslutningar | 600 | 600 | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | Är beroende av instans storlek<sup>8</sup> | 16,000 |
 | Samtidiga [fel söknings anslutningar](../articles/app-service/troubleshoot-dotnet-visual-studio.md) per program |1 |1 |1 |5 |5 |5 |
 | App Service certifikat per prenumeration<sup>9</sup>| Stöds inte | Stöds inte |10 |10 |10 |10 |
 | Anpassade domäner per app</a> |0 (endast azurewebsites.net-underdomän)|500 |500 |500 |500 |500 |

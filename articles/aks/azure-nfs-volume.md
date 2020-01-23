@@ -1,38 +1,38 @@
 ---
-title: Skapa en Ubuntu-Server för NFS (Network File System) för användning av poddar i Azure Kubernetes Service (AKS)
-description: Lär dig hur du skapar en Ubuntu Linux-Server för NFS-volym för användning med poddar i Azure Kubernetes Service (AKS)
+title: Skapa en NFS-Ubuntu (Network File System) för användning av poddar i Azure Kubernetes service (AKS)
+description: Lär dig hur du manuellt skapar en NFS-Ubuntu Linux Server volym för användning med poddar i Azure Kubernetes service (AKS)
 services: container-service
 author: ozboms
 ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 55eb5b0b98a4097d2f300bacabbfef3b0a32b27b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65468506"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549265"
 ---
-# <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Manuellt skapa och använda en Linux-Server för NFS (Network File System)-volym med Azure Kubernetes Service (AKS)
-Dela data mellan behållare är ofta en nödvändig komponent för behållarbaserade tjänster och program. Du har vanligtvis olika poddar som behöver åtkomst till samma information på en extern permanent volym.    
-Azure files är ett alternativ, är skapa en NFS-Server i en Azure-dator en annan typ av beständig delad lagring. 
+# <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>Skapa och använda en NFS-volym (Network File System) manuellt med Azure Kubernetes service (AKS)
+Att dela data mellan behållare är ofta en nödvändig komponent i behållar tjänster och program. Du har vanligt vis olika poddar som behöver åtkomst till samma information på en extern permanent volym.    
+Även om Azure Files är ett alternativ kan du skapa en NFS-server på en virtuell Azure-dator med en annan typ av beständiga delade lagrings enheter. 
 
-Den här artikeln visar hur du skapar en NFS-Server på en Ubuntu-dator. Och även ge din AKS behållare åtkomst till den här delade filsystem.
+I den här artikeln visas hur du skapar en NFS-server på en virtuell Ubuntu-dator. Du kan också ge dina AKS-behållare åtkomst till det här delade fil systemet.
 
 ## <a name="before-you-begin"></a>Innan du börjar
-Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster finns i snabbstarten om AKS [med Azure CLI] [ aks-quickstart-cli] eller [med Azure portal][aks-quickstart-portal].
+Den här artikeln förutsätter att du har ett befintligt AKS-kluster. Om du behöver ett AKS-kluster kan du läsa snabb starten för AKS [med hjälp av Azure CLI][aks-quickstart-cli] eller [Azure Portal][aks-quickstart-portal].
 
-AKS-klustret måste finnas i samma eller en peer-kopplade virtuella nätverk som NFS-servern. Klustret måste skapas i ett befintligt VNET som kan vara i samma virtuella nätverk som den virtuella datorn.
+Ditt AKS-kluster måste vara Live i samma eller peer-kopplat virtuella nätverk som NFS-servern. Klustret måste skapas i ett befintligt virtuellt nätverk, vilket kan vara samma VNET som den virtuella datorn.
 
-Stegen för att konfigurera med ett befintligt VNET beskrivs i dokumentationen: [skapar AKS-kluster i befintliga VNET] [ aks-virtual-network] och [ansluter virtuella nätverk med VNET-peering][peer-virtual-networks]
+Stegen för att konfigurera med ett befintligt VNET beskrivs i dokumentationen: [skapa AKS-kluster i befintligt VNet][aks-virtual-network] och [ansluta virtuella nätverk med VNet-peering][peer-virtual-networks]
 
-Det förutsätts även att du har skapat en Ubuntu Linux-dator (till exempel 18.04 LTS). Inställningar och storlek kan vara enligt dina önskemål och kan distribueras via Azure. Linux Snabbstart Se [linux VM management][linux-create].
+Det förutsätter också att du har skapat en Ubuntu Linux virtuell dator (till exempel 18,04 LTS). Inställningar och storlek kan vara till dina önskemål och kan distribueras via Azure. För Linux-snabb start, se [hantering av virtuella Linux-datorer][linux-create].
 
-Om du distribuerar AKS-klustret först Azure automatiskt fylls fältet virtuellt nätverk när du distribuerar din Ubuntu-dator, vilket gör dem live inom samma virtuella nätverk. Men om du vill arbeta med peer-kopplade nätverk i stället läser du dokumentationen som ovan.
+Om du distribuerar ditt AKS-kluster först fyller Azure automatiskt i fältet virtuellt nätverk när du distribuerar din Ubuntu-dator, vilket gör dem aktiva inom samma VNET. Men om du vill arbeta med peer-kopplade nätverk kan du läsa mer i dokumentationen ovan.
 
 ## <a name="deploying-the-nfs-server-onto-a-virtual-machine"></a>Distribuera NFS-servern på en virtuell dator
-Här är skript för att ställa in en NFS-Server inom virtuell Ubuntu-dator:
+Här är skriptet för att konfigurera en NFS-server i din virtuella Ubuntu-dator:
 ```bash
 #!/bin/bash
 
@@ -74,31 +74,31 @@ echo "/export        localhost(rw,async,insecure,fsid=0,crossmnt,no_subtree_chec
 
 nohup service nfs-kernel-server restart
 ```
-Servern startas om (på grund av skript) och du kan montera NFS-servern till AKS
+Servern kommer att startas om (på grund av skriptet) och du kan montera NFS-servern till AKS
 
 >[!IMPORTANT]  
->Ersätt den **AKS_SUBNET** med rätta från ditt kluster eller ”*” öppnas NFS-Server för alla portar och anslutningar.
+>Se till att ersätta **AKS_SUBNET** med rätt namn från klustret, annars kommer "*" att öppna din NFS-server för alla portar och anslutningar.
 
-När du har skapat den virtuella datorn kan du kopiera skriptet ovan till en fil. Sedan kan du flytta den från din lokala dator eller när skriptet är i virtuell dator med: 
+När du har skapat den virtuella datorn kopierar du skriptet ovan till en fil. Sedan kan du flytta den från den lokala datorn eller vart och ett av skriptet till den virtuella datorn med hjälp av: 
 ```console
 scp /path/to/script_file username@vm-ip-address:/home/{username}
 ```
-När skriptet är i den virtuella datorn, att ssh till den virtuella datorn och kör det via kommandot:
+När skriptet finns i den virtuella datorn kan du använda SSH i den virtuella datorn och köra det via kommandot:
 ```console
 sudo ./nfs-server-setup.sh
 ```
-Om körningen misslyckas på grund av ett behörighet nekad-fel kan du ange körning behörighet via kommandot:
+Om körningen Miss lyckas på grund av ett fel vid nekad åtkomst anger du kör behörighet via kommandot:
 ```console
 chmod +x ~/nfs-server-setup.sh
 ```
 
-## <a name="connecting-aks-cluster-to-nfs-server"></a>Anslutande AKS-kluster till NFS-Server
-Vi kan ansluta NFS-servern till klustret genom att etablera en permanent volym och permanent volym anspråk som anger hur du kommer åt volymen.  
-Det är nödvändigt att ansluta de två tjänsterna i samma eller en peer-kopplade virtuella nätverk. Anvisningar för att skapa kluster i samma virtuella nätverk finns här: [skapar AKS-kluster i ett befintligt virtuellt nätverk][aks-virtual-network]
+## <a name="connecting-aks-cluster-to-nfs-server"></a>Ansluta AKS-kluster till NFS-server
+Vi kan ansluta NFS-servern till vårt kluster genom att tillhandahålla en beständig volym och ett beständigt volym anspråk som anger hur du ska få åtkomst till volymen.  
+Det krävs att du ansluter de två tjänsterna i samma eller peer-kopplade virtuella nätverk. Anvisningar för att konfigurera klustret i samma VNET finns här: [skapa AKS-kluster i befintligt VNet][aks-virtual-network]
 
-När de är i samma virtuella nätverk (eller peer-kopplade) måste du etablera en permanent volym och en permanent volym anspråk i AKS-klustret. Behållarna kan sedan montera NFS-enheten till sina lokala katalog.
+När de finns i samma virtuella nätverk (eller peer-peer) måste du etablera en permanent volym och ett beständigt volym anspråk i ditt AKS-kluster. Behållarna kan sedan montera NFS-enheten i sin lokala katalog.
 
-Här är ett exempel kubernetes-definition för permanent volym (den här definitionen förutsätter ditt kluster och virtuella datorer finns i samma virtuella nätverk):
+Här är ett exempel på en Kubernetes-definition för den permanenta volymen (den här definitionen förutsätter att ditt kluster och den virtuella datorn finns i samma VNET):
 
 ```yaml
 apiVersion: v1
@@ -116,12 +116,12 @@ spec:
     server: <NFS_INTERNAL_IP>
     path: <NFS_EXPORT_FILE_PATH>
 ```
-Ersätt **NFS_INTERNAL_IP**, **NFS_NAME** och **NFS_EXPORT_FILE_PATH** med information om NFS-servern.
+Ersätt **NFS_INTERNAL_IP**, **NFS_NAME** och **NFS_EXPORT_FILE_PATH** med information om NFS-server.
 
-Du måste också en permanent volym anspråk-fil. Här är ett exempel på vad som ska ingå:
+Du behöver också en permanent volym anspråks fil. Här är ett exempel på vad du kan ta med:
 
 >[!IMPORTANT]  
->**”storageClassName”** måste vara en tom sträng eller anspråket fungerar inte.
+>**"storageClassName"** måste vara en tom sträng eller så fungerar inte anspråket.
 
 ```yaml
 apiVersion: v1
@@ -140,23 +140,23 @@ spec:
       type: nfs
 ```
 
-## <a name="troubleshooting"></a>Felsökning
-Om du inte kan ansluta till servern från ett kluster, ett problem kan vara den exporterade katalogen eller dess överordnade objekt, har inte tillräcklig behörighet för att få åtkomst till servern.
+## <a name="troubleshooting"></a>Felsöka
+Om du inte kan ansluta till servern från ett kluster kan ett problem vara den exporterade katalogen eller dess överordnade objekt har inte tillräcklig behörighet för att komma åt servern.
 
-Kontrollera att både export katalogen och dess överordnade katalogen har 777 behörigheter.
+Kontrol lera att både export katalogen och dess överordnade katalog har 777 behörigheter.
 
-Du kan kontrollera behörigheter genom att köra kommandot nedan och katalogerna ska ha *'drwxrwxrwx'* behörigheter:
+Du kan kontrol lera behörigheter genom att köra kommandot nedan och katalogerna ska ha behörigheten *"drwxrwxrwx"* :
 ```console
 ls -l
 ```
 
 ## <a name="more-information"></a>Mer information
-Att hämta en fullständig genomgång eller för att felsöka din konfiguration för NFS-Server, är här detaljerade Självstudier:
-  - [NFS-självstudien][nfs-tutorial]
+För att få en fullständig genom gång eller för att hjälpa dig att felsöka konfigurationen av NFS-servern, här är en djupgående självstudie:
+  - [Själv studie kurs om NFS][nfs-tutorial]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Associerade metodtips finns [bästa praxis för lagring och säkerhetskopiering i AKS][operator-best-practices-storage].
+För associerade metod tips, se [metod tips för lagring och säkerhets kopiering i AKS][operator-best-practices-storage].
 
 <!-- LINKS - external -->
 [kubernetes-volumes]: https://kubernetes.io/docs/concepts/storage/volumes/

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eb8398decd1a447d0676195d6369cdc7e791e40
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848501"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512580"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>Slutför en distribution av lösenordsskyddad autentisering
 
@@ -108,7 +108,7 @@ Aktivering av Windows 10-inloggning med FIDO2-säkerhetsnycklar kräver aktiveri
    - Intune-distributionen är det rekommenderade alternativet.
 - [Aktivera autentiseringsprovider med ett konfigurations paket](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Om Intune-distributionen inte är möjlig måste administratörerna distribuera ett paket på varje dator för att aktivera funktionen för Credential-Provider. Paket installationen kan utföras med ett av följande alternativ:
-      - Grupprincip eller System Center Configuration Manager (SCCM)
+      - grupprincip eller Configuration Manager
       - Lokal installation på en Windows 10-dator
 
 ### <a name="register-security-keys"></a>Registrera säkerhets nycklar

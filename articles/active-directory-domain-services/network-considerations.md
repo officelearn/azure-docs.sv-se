@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 1a6fb12311fe4474f03c22c91d9b478220adf5d1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425539"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512784"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure AD Domain Services
 
-Som Azure Active Directory Domain Services (AD DS) tillhandahåller autentiserings-och hanterings tjänster för andra program och arbets belastningar är nätverks anslutningen en viktig komponent. Utan rätt konfigurerade virtuella nätverks resurser kan program och arbets belastningar inte kommunicera med och använda de funktioner som tillhandahålls av Azure AD DS. Om du planerar att det virtuella nätverket ska fungera korrekt ser du till att Azure AD DS kan hantera dina program och arbets belastningar efter behov.
+Som Azure Active Directory Domain Services (AD DS) tillhandahåller autentiserings-och hanterings tjänster för andra program och arbets belastningar är nätverks anslutningen en viktig komponent. Utan korrekt konfigurerade virtuella nätverks resurser kan program och arbets belastningar inte kommunicera med och använda de funktioner som tillhandahålls av Azure AD DS. Planera dina krav för virtuella nätverk för att kontrol lera att Azure AD DS kan hantera dina program och arbets belastningar efter behov.
 
-Den här artikeln beskriver design överväganden och krav för ett virtuellt Azure-nätverk som stöder Azure AD DS.
+Den här artikeln beskriver design överväganden och krav för ett virtuellt Azure-nätverk som stöd för Azure AD DS.
 
 ## <a name="azure-virtual-network-design"></a>Design av virtuellt nätverk i Azure
 
@@ -33,7 +33,7 @@ När du utformar det virtuella nätverket för Azure AD DS gäller följande asp
 * Azure AD DS måste distribueras till samma Azure-region som det virtuella nätverket.
     * För tillfället kan du bara distribuera en Azure AD DS-hanterad domän per Azure AD-klient. Den hanterade Azure AD DS-domänen distribueras till en enda region. Se till att du skapar eller väljer ett virtuellt nätverk i en [region som stöder Azure AD DS](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all).
 * Överväg att använda andra Azure-regioner och de virtuella nätverk som är värdar för dina program arbets belastningar.
-    * För att minimera fördröjningen bör du hålla dina kärn program nära eller i samma region som det virtuella nätverkets undernät för din Azure AD DS-hanterade domän. Du kan använda peering för virtuella nätverk eller anslutningar för virtuella privata nätverk (VPN) mellan virtuella Azure-nätverk.
+    * För att minimera fördröjningen bör du hålla dina kärn program nära eller i samma region som det virtuella nätverkets undernät för din Azure AD DS-hanterade domän. Du kan använda peering för virtuella nätverk eller anslutningar för virtuella privata nätverk (VPN) mellan virtuella Azure-nätverk. De här anslutnings alternativen beskrivs i följande avsnitt.
 * Det virtuella nätverket kan inte förlita sig på andra DNS-tjänster än de som tillhandahålls av Azure AD DS.
     * Azure AD DS tillhandahåller sin egen DNS-tjänst. Det virtuella nätverket måste konfigureras för att använda dessa DNS-tjänst adresser. Namn matchning för ytterligare namn områden kan utföras med hjälp av villkorliga vidarebefordrare.
     * Du kan inte använda anpassade DNS-serverinställningar för att dirigera frågor från andra DNS-servrar, inklusive virtuella datorer. Resurser i det virtuella nätverket måste använda den DNS-tjänst som tillhandahålls av Azure AD DS.
@@ -62,7 +62,7 @@ Du kan ansluta program arbets belastningar som finns i andra virtuella Azure-nä
 * VNET-peering
 * Virtuellt privat nätverk (VPN)
 
-### <a name="virtual-network-peering"></a>Virtual Network-peering
+### <a name="virtual-network-peering"></a>VNET-peering
 
 Peering för virtuella nätverk är en mekanism som ansluter två virtuella nätverk i samma region via Azures stamnät nätverk. Global peering för virtuella nätverk kan ansluta till virtuella nätverk i Azure-regioner. När de två virtuella nätverken har peer-kopplats kan resurser, till exempel virtuella datorer, kommunicera med varandra direkt med hjälp av privata IP-adresser. Med hjälp av peering för virtuella nätverk kan du distribuera en Azure AD DS-hanterad domän med dina program arbets belastningar som distribueras i andra virtuella nätverk.
 
@@ -70,7 +70,7 @@ Peering för virtuella nätverk är en mekanism som ansluter två virtuella nät
 
 Mer information finns i [Översikt över Azure Virtual Network-peering](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="virtual-private-networking"></a>Virtuellt privat nätverk
+### <a name="virtual-private-networking-vpn"></a>Virtuellt privat nätverk (VPN)
 
 Du kan ansluta ett virtuellt nätverk till ett annat virtuellt nätverk (VNet-till-VNet) på samma sätt som du kan konfigurera ett virtuellt nätverk till en lokal plats. Båda anslutningarna använder en VPN-gateway för att skapa en säker tunnel med IPsec/IKE. Med den här anslutnings modellen kan du Distribuera Azure AD DS i ett virtuellt Azure-nätverk och sedan ansluta lokala platser eller andra moln.
 
@@ -91,8 +91,8 @@ En Azure AD DS-hanterad domän skapar vissa nätverks resurser under distributio
 | Azure-resurs                          | Beskrivning |
 |:----------------------------------------|:---|
 | Nätverks gränssnitts kort                  | Azure AD DS är värd för den hanterade domänen på två domänkontrollanter (DCs) som körs på Windows Server som virtuella Azure-datorer. Varje virtuell dator har ett virtuellt nätverks gränssnitt som ansluter till det virtuella nätverkets undernät. |
-| Offentlig IP-adress för dynamisk standard         | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Azure standard Load Balancer               | Azure AD DS använder en standard-SKU-belastningsutjämnare för Network Address Translation (NAT) och belastnings utjämning (vid användning med säker LDAP). Mer information om Azure load Balances finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
+| Offentlig IP-adress för dynamisk standard      | Azure AD DS kommunicerar med tjänsten synkronisering och hantering med hjälp av en offentlig IP-adress för standard-SKU. Mer information om offentliga IP-adresser finns i [IP-diagramtyper och autentiseringsmetoder i Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
+| Azure standard Load Balancer            | Azure AD DS använder en standard-SKU-belastningsutjämnare för Network Address Translation (NAT) och belastnings utjämning (vid användning med säker LDAP). Mer information om Azure load Balances finns i [Vad är Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Regler för NAT (Network Address Translation) | Azure AD DS skapar och använder tre NAT-regler på belastningsutjämnaren – en regel för säker HTTP-trafik och två regler för säker PowerShell-fjärrkommunikation. |
 | Regler för lastbalanserare                     | När en Azure AD DS-hanterad domän har kon figurer ATS för säker LDAP på TCP-port 636 skapas tre regler och används på en belastningsutjämnare för att distribuera trafiken. |
 
@@ -160,7 +160,3 @@ Mer information om vissa nätverks resurser och anslutnings alternativ som anvä
 * [Peering för Azure Virtual Network](../virtual-network/virtual-network-peering-overview.md)
 * [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md)
 * [Nätverks säkerhets grupper i Azure](../virtual-network/security-overview.md)
-
-<!-- INTERNAL LINKS -->
-
-<!-- EXTERNAL LINKS -->

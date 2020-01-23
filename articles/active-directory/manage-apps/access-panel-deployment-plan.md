@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176059"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512859"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planera en Azure Active Directory åtkomst panels distribution
 
@@ -37,7 +37,7 @@ Med hjälp av Azure AD-åtkomst panelen kan du:
 Administratörer kan också hantera:
 
 * Villkor för tjänsten
-* Företag
+* Organisationer
 * Åtkomstgranskningar
 
 
@@ -59,7 +59,7 @@ Azure AD Access-panelen fördelar företag på följande sätt:
 
 Åtkomst panelen är kostnads fri och kräver inga licenser för användning på en grundläggande nivå. Antalet objekt i din katalog och de ytterligare funktioner som du vill distribuera kan dock kräva ytterligare licenser. Några vanliga Azure AD-scenarier som har licensierings krav omfattar följande säkerhetsfunktioner:
 
-* [Azure-Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
+* [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
 * [Grupp-baserat medlemskap](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
@@ -83,16 +83,16 @@ I följande tabell beskrivs de viktigaste användnings fallen för en åtkomst p
 
 | Område| Beskrivning |
 | - | - |
-| Access| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
-|Access | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
+| Åtkomst| Åtkomst panels portalen är tillgänglig från företags-och personliga enheter inom företags nätverket. |
+|Åtkomst | Åtkomst panels portalen är tillgänglig från företags enheter utanför företags nätverket. |
 | Granskning| Användnings data hämtas till företags system minst var 29: e dag. |
 | Styrning| Livs cykeln för användar tilldelningarna till Azure AD-anslutna program och grupper definieras och övervakas. |
 | Säkerhet| Åtkomst till resurser styrs via användar-och grupp tilldelningar. Endast auktoriserade användare kan hantera resurs åtkomst. |
 | Prestanda| Tids linjer för distribution av åtkomst tilldelningar dokumenteras och övervakas. |
-| Användar upplevelse| Användarna är medvetna om funktionerna i åtkomst panelen och hur de används.|
-| Användar upplevelse| Användare kan hantera sina åtkomst till program och grupper.|
-| Användar upplevelse| Användare kan hantera sina konton. |
-| Användar upplevelse| Användarna är medvetna om webbläsarkompatibilitet. |
+| Användarens upplevelse| Användarna är medvetna om funktionerna i åtkomst panelen och hur de används.|
+| Användarens upplevelse| Användare kan hantera sina åtkomst till program och grupper.|
+| Användarens upplevelse| Användare kan hantera sina konton. |
+| Användarens upplevelse| Användarna är medvetna om webbläsarkompatibilitet. |
 | Support| Användare kan hitta support för problem med åtkomst panelen. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Metod tips för att distribuera Azure AD-åtkomst panel
@@ -197,7 +197,7 @@ Om du måste integrera lösenordsbaserade SSO-program bör du definiera en mekan
 
 * [grupprincip för Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
-* [System Center Configuration Manager (SCCM) för Internet Explorer](https://docs.microsoft.com/sccm/core/clients/deploy/deploy-clients-to-windows-computers)
+* [Configuration Manager för Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
 
 * [Användar driven nedladdning och konfiguration för Chrome, Firefox, Microsoft Edge eller IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
@@ -263,7 +263,7 @@ Azure AD tillhandahåller [rapporter som ger teknisk och affärs insikter](https
 
 |   | Hantera risk| Öka produktiviteten| Styrning och efterlevnad |
 |  - |- | - | - |
-| Rapport typer|  Program behörigheter och användning| Konto etablerings aktivitet| Granska vem som har åtkomst till programmen |
+| Rapporttyper|  Program behörigheter och användning| Konto etablerings aktivitet| Granska vem som har åtkomst till programmen |
 | Möjliga åtgärder| Granska åtkomst; återkalla behörigheter| Åtgärda eventuella etablerings fel| Återkalla åtkomst |
 
 Azure AD behåller de flesta gransknings data i 30 dagar. Data är tillgängliga via Azure Admin Portal eller API som du kan ladda ned till analys systemen.
@@ -340,7 +340,7 @@ Du bör använda den minst privilegierade rollen för att utföra en obligatoris
 | - | -| -|
 | Supportavdelningen-administratör| Nivå 1-stöd| Inget |
 | Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Program administratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
+| Programadministratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 | Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
 | Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
 

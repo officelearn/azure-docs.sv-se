@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/24/2019
+ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd57523dd41eadcf64ceb1e4a1c8d8ba083c17f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608745"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548908"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Lägga till en ansluten organisation i hantering av Azure AD-rättigheter
 
@@ -31,9 +31,12 @@ Hantering av Azure AD-berättigande ger dig möjlighet att samar beta med person
 
 En ansluten organisation är en extern Azure AD-katalog eller domän som du har en relation med.
 
-Anta till exempel att du arbetar på Sparbanken och vill samar beta med två externa organisationer: Graphic Design Institute och contoso. Du har fått anvisningar från din kontakt i Graphic Design Institute att de använder Azure AD, och att grafik Design Institute-användare har ett User Principal Name som slutar med `graphicdesigninstitute.com`. Och du har fått din kontakt på Contoso att de inte använder Azure AD än, men att Contosos användare har ett User Principal Name som slutar med `contoso.com`.
+Anta till exempel att du arbetar på Sparbanken och vill samar beta med två externa organisationer. Dessa två organisationer har olika konfigurationer:
 
-Du kan konfigurera två anslutna organisationer – en för Graphic Design Institute med domän `graphicdesigninstitute.com`och en för Contoso med domän `contoso.com`. Om du sedan lägger till dessa två anslutna organisationer i en princip kan användare från varje organisation som har en User Principal Name som matchar principen begära åtkomst paket. Dessutom, eftersom Graphic Design Institute har identifierats som att använda Azure AD, och om Graphic Design Institute sedan har under domäner, till exempel `graphicdesigninstitute.example`, kommer användare med den User Principal Name också att kunna begära åtkomst paket med samma princip.
+- Graphic Design Institute använder Azure AD och deras användare har ett User Principal Name som slutar med `graphicdesigninstitute.com`
+- Contoso använder inte Azure AD än. Contoso-användare har ett User Principal Name som slutar med `contoso.com`.
+
+I det här fallet kan du konfigurera två anslutna organisationer. Du skulle skapa en ansluten organisation för Graphic Design Institute och en för contoso. Om du sedan lägger till dessa två anslutna organisationer i en princip kan användare från varje organisation med en User Principal Name som matchar principen begära åtkomst paket. Användare med User Principal Name en graphicdesigninstitute.com som har en domän med skulle matcha den anslutna organisationen för Graphic Design Institute och tillåtas att skicka förfrågningar, medan användare med en User Principal Name som har en domän med contoso.com matchar Contosos anslutna organisation och kan också tillåtas att begära paket. Dessutom, eftersom Graphic Design Institute använder Azure AD, kommer alla användare med ett huvud namn som matchar en [verifierad domän](../fundamentals/add-custom-domain.md#verify-your-custom-domain-name) som lagts till i klienten, till exempel graphicdesigninstitute. exempel kan också begära åtkomst paket med samma princip.
 
 ![Exempel på ansluten organisation](./media/entitlement-management-organization/connected-organization-example.png)
 

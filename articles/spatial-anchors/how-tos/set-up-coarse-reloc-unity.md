@@ -1,6 +1,6 @@
 ---
 title: Grov omlokalisering i Unity
-description: Djupgående förklaring av hur du skapar och lokaliserar ankare med hjälp av sensorer för enhets sensorer C#i.
+description: Djupgående förklaring av hur du skapar och hittar fäst punkter med grov omlokalisering i C#.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 8b960ee168a1af66cafc52082138097cda240c9a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5c976bd020d37672c44c89113bf7786e1ccf141b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277170"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548262"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-c"></a>Skapa och hitta ankare med hjälp av sensorer för enhets sensorer iC#
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-c"></a>Skapa och hitta ankare med grov omlokalisering iC#
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277170"
 
 Molnbaserade ankare kan associeras på enheten, placera sensor data med de ankare som du skapar. Den här informationen kan också användas för att snabbt avgöra om det finns några fäst punkter i närheten av enheten. Mer information finns i [grov omlokalisering](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande för att slutföra den här guiden:
 

@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 38b37a386e4e9829b5d90e31067ec9f6aaf75502
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 7ff4303a923e50a36ca36bd625581f11f7a9b491
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314920"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548500"
 ---
 # <a name="neural-network-regression-module"></a>Neurala Network regression-modul
 
@@ -24,7 +24,7 @@ ms.locfileid: "76314920"
   
 ## <a name="module-overview"></a>Översikt över modul  
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd den här modulen för att skapa en Regressions modell med en anpassningsbar neurala-nätverks algoritm.
   

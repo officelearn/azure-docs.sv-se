@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052493"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513464"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Data insamling, kvarhållning och lagring i Application Insights
 
@@ -59,7 +59,7 @@ Huvud kategorierna är:
 * [Undantag](../../azure-monitor/app/asp-net-exceptions.md) och krascher – **stack dum par**, `build id`, CPU-typ. 
 * [Beroenden](../../azure-monitor/app/asp-net-dependencies.md) – anrop till externa tjänster som rest, SQL, Ajax. URI eller anslutnings sträng, varaktighet, lyckades, kommando.
 * [Tillgänglighets test](../../azure-monitor/app/monitor-web-app-availability.md) – varaktighet för test och steg, svar.
-* [Spårnings loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md)  - **allt du kodar till dina loggar eller telemetri**.
+* [Spårnings loggar](../../azure-monitor/app/asp-net-trace-logs.md) och [anpassad telemetri](../../azure-monitor/app/api-custom-events-metrics.md) - **allt du kodar till dina loggar eller telemetri**.
 
 [Mer information](#data-sent-by-application-insights).
 
@@ -84,7 +84,7 @@ Data som hålls längre än 90 dagar debiteras tilläggs avgifterna. Läs mer om
 
 Sammanställda data (det vill säga antal, medelvärden och andra statistiska data som visas i Metric Explorer) behålls till en kornigt 1 minut i 90 dagar.
 
-[Fel söknings ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarande principen anges per tillämpning. Om du behöver öka det här värdet kan du begära en ökning genom att öppna ett support ärende i Azure Portal.
+[Fel söknings ögonblicks bilder](../../azure-monitor/app/snapshot-debugger.md) lagras i 15 dagar. Den här bevarandeprincipen är inställd på basis av per program. Om du vill öka det här värdet kan du begära en ökning genom att öppna ett supportärende i Azure-portalen.
 
 ## <a name="who-can-access-the-data"></a>Vem kan komma åt dessa data?
 Informationen är synlig för dig och, om du har ett organisations konto, ditt team medlemmar. 
@@ -118,7 +118,7 @@ Kom ihåg att ta bort Instrumentation-nyckeln om du delar kod med andra projekt.
 Alla data krypteras i vila och flyttas mellan data Center.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>Är data krypterade från mitt program till Application Insights servrar?
-Ja, vi använder HTTPS för att skicka data till portalen från nästan alla SDK: er, inklusive webb servrar, enheter och HTTPS-webbsidor. Det enda undantaget är data som skickas från vanliga HTTP-webbsidor.
+Ja, vi använder HTTPS för att skicka data till portalen från nästan alla SDK: er, inklusive webb servrar, enheter och HTTPS-webbsidor. 
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>Skapar SDK temporär lokal lagring?
 
@@ -179,7 +179,7 @@ Prefixet `appInsights-node` kan åsidosättas genom att ändra körnings värdet
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>Hur gör jag för att skicka data till Application Insights med TLS 1,2?
 
-För att säkerställa säkerheten för data som överförs till Application Insights slut punkter rekommenderar vi att kunderna konfigurerar sina program att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har befunnits vara sårbara och även om de fortfarande arbetar för att tillåta bakåtkompatibilitet, rekommenderas de **inte**och branschen flyttas snabbt till överge support för dessa äldre protokoll. 
+För att säkerställa säkerheten för data som överförs till Application Insights slut punkter rekommenderar vi att kunderna konfigurerar sina program att använda minst Transport Layer Security (TLS) 1,2. Äldre versioner av TLS/Secure Sockets Layer (SSL) har påträffats sårbara och de fungerar fortfarande för närvarande för att tillåta bakåtkompatibilitet kompatibilitet, de arbetar **rekommenderas inte**, och branschen snabbt flytta att lämna support äldre protokoll. 
 
 [PCI Security Standards-rådet](https://www.pcisecuritystandards.org/) har angett en [tids gräns på 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) för att inaktivera äldre versioner av TLS/SSL och uppgradera till säkrare protokoll. När Azure har tagit över äldre support, om ditt program/klienter inte kan kommunicera via minst TLS 1,2 skulle du inte kunna skicka data till Application Insights. Den metod du behöver för att testa och verifiera att ditt programs TLS-stöd varierar beroende på operativ system/plattform och språk/ramverk som används i programmet.
 
@@ -190,16 +190,16 @@ Vi rekommenderar inte att du uttryckligen anger att ditt program ska använda TL
 |Plattform/språk | Support | Mer information |
 | --- | --- | --- |
 | Azure App Services  | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/).  |
-| Azure Function-appar | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
+| Azure-funktionsappar | Konfiguration kan krävas. | Support annonserades i april 2018. Läs [informationen om konfigurationen](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/). |
 |.NET | Konfigurationen varierar beroende på version. | Detaljerad konfigurations information för .NET 4,7 och tidigare versioner finns i [de här anvisningarna](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).  |
-|Statusövervakare | Stöds, konfiguration krävs | Statusövervakare är beroende av [OS-konfigurationen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)  + [.net-konfigurationen](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1,2.
+|Statusövervakare | Stöds, konfiguration krävs | Statusövervakare är beroende av [OS-konfigurationen](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.net-konfigurationen](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12) för att stödja TLS 1,2.
 |Node.js |  Konfigurationen kan krävas i v-10.5.0. | Använd den [officiella Node. js TLS/SSL-dokumentationen](https://nodejs.org/api/tls.html) för valfri programspecifik konfiguration. |
 |Java | Stöd för JDK-stöd för TLS 1,2 har lagts till i [JDK 6 update 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) och [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html). | JDK 8 använder [TLS 1,2 som standard](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default).  |
-|Linux | Linux-distributioner tenderar att förlita sig på [openssl](https://www.openssl.org) för TLS 1,2-stöd.  | Kontrol lera [openssl-ändringsloggen](https://www.openssl.org/news/changelog.html) för att bekräfta att din version av OpenSSL stöds.|
-| Windows 8,0-10 | Stöds och är aktiverat som standard. | För att bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
-| Windows Server 2012-2016 | Stöds och är aktiverat som standard. | Bekräfta att du fortfarande använder [standardinställningarna](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
-| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men är inte aktiverat som standard. | På sidan [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) finns mer information om hur du aktiverar.  |
-| Windows Server 2008 SP2 | Stöd för TLS 1,2 kräver en uppdatering. | Se [Uppdatera för att lägga till stöd för TLS 1,2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
+|Linux | Linux-distributioner tenderar att förlita dig på [OpenSSL](https://www.openssl.org) för stöd för TSL 1.2.  | Kontrollera den [OpenSSL Changelog](https://www.openssl.org/news/changelog.html) att bekräfta din version av OpenSSL stöds.|
+| Windows 8.0-10 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings).  |
+| Windows Server 2012-2016 | Stöds och aktiverat som standard. | Bekräfta att du fortfarande använder den [standardinställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) |
+| Windows 7 SP1 och Windows Server 2008 R2 SP1 | Stöds, men inte är aktiverad som standard. | Se den [registerinställningar för Transport Layer Security (TLS)](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) för information om hur du aktiverar.  |
+| Windows Server 2008 SP2 | Stöd för TLS 1.2 kräver en uppdatering. | Se [Update för att lägga till stöd för TLS 1.2](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s) i Windows Server 2008 SP2. |
 |Windows Vista | Stöds inte. | Gäller inte
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Kontrol lera vilken version av OpenSSL som din Linux-distribution körs på
@@ -239,10 +239,10 @@ SDK: erna varierar mellan olika plattformar och det finns flera komponenter som 
 | [Lägga till Application Insights SDK i en Java-webbapp][java] |ServerContext<br/>Härleda<br/>Förfrågan<br/>Session<br/>användare |
 | [Lägg till Java Script SDK på webb sidan][client] |ClientContext <br/>Härleda<br/>Sidan<br/>ClientPerf<br/>Ajax |
 | [Definiera standard egenskaper][apiproperties] |**Egenskaper** för alla standard-och anpassade händelser |
-| [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaperna** |
-| [Samtals spår *][api] |Händelse namn<br/>**Egenskaperna** |
-| [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaperna** |
-| SDK kan inte samla in data. Exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
+| [Anropa TrackMetric][api] |Numeriska värden<br/>**Egenskaper** |
+| [Samtals spår *][api] |Händelsenamn<br/>**Egenskaper** |
+| [Anropa TrackException][api] |**Undantag**<br/>Stackdump<br/>**Egenskaper** |
+| SDK kan inte samla in data. Ett exempel: <br/> -Det går inte att komma åt perf-räknare<br/> – undantag i telemetri initierare |SDK-diagnostik |
 
 För [SDK: er för andra plattformar][platforms], se deras dokument.
 
@@ -250,7 +250,7 @@ För [SDK: er för andra plattformar][platforms], se deras dokument.
 
 | Insamlad data klass | Inkluderar (inte en fullständig lista) |
 | --- | --- |
-| **Egenskaperna** |**Alla data som bestäms av din kod** |
+| **Egenskaper** |**Alla data som bestäms av din kod** |
 | DeviceContext |`Id`, IP, locale, enhets modell, nätverk, nätverks typ, OEM-namn, skärmupplösning, roll instans, rollnamn, enhets typ |
 | ClientContext |OS, språk, språk, nätverk, fönster upplösning |
 | Session |`session id` |

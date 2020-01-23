@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991434"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543893"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Distribuera en säkerhetsmodul på din IoT Edge-enhet
 
@@ -66,15 +66,15 @@ Använd följande steg för att distribuera en Azure Security Center för IoT-s�
     >[!Note] 
     >Om du har valt **distribuera i skala**lägger du till enhets namnet och informationen innan du fortsätter till fliken **Lägg till moduler** i följande instruktioner.     
 
-Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security Center för IoT. Följande avsnitt beskriver var och en. 
+Slutför varje steg för att slutföra din IoT Edge-distribution för Azure Security Center för IoT. 
 
-#### <a name="step-1-add-modules"></a>Steg 1: Lägg till moduler
+#### <a name="step-1-modules"></a>Steg 1: moduler
 
-1. På fliken **Lägg till moduler** , modulen **distributions moduler** , klickar du på alternativet **Konfigurera** för **AzureSecurityCenterforIoT**. 
-   
-1. Ändra **namnet** till **azureiotsecurity**.
-1. Ändra **avbildnings-URI** till **MCR.Microsoft.com/ascforiot/azureiotsecurity:1.0.0**.
-1. Kontrol lera att värdet för alternativet **container Create** är inställt på:      
+1. Välj modulen **AzureSecurityCenterforIoT** .
+1. På fliken **Modulnamn** ändrar du **namnet** till **azureiotsecurity**.
+1. På fliken **miljön variabler** lägger du till en variabel vid behov (till exempel fel söknings nivå).
+1. På fliken **behållare skapa alternativ** lägger du till följande konfiguration:
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
         }
     }    
     ```
-1. Kontrol lera att **Ange önskade egenskaper för modul** är markerat och ändra konfigurationsobjektet till:
+    
+1. På fliken **dubbla inställningar för modul** lägger du till följande konfiguration:
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. Klicka på **Save** (Spara).
-1. Rulla till slutet av fliken och välj **Konfigurera avancerade Edge runtime-inställningar**. 
-   
-1. Ändra **bilden** under **Edge Hub** till **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**.
+1. Välj **Uppdatera**.
 
-1. Kontrol lera att **alternativet Skapa** är inställt på: 
+#### <a name="step-2-runtime-settings"></a>Steg 2: körnings inställningar
+
+1. Välj **körnings inställningar**.
+1. Ändra **bilden** till **MCR.Microsoft.com/azureiotedge-Hub:1.0.8.3**under **Edge Hub**.
+1. Kontrol lera att **skapa-alternativ** har angetts till följande konfiguration: 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ Det finns tre steg för att skapa en IoT Edge-distribution för Azure Security C
        }
     }
     ```
-1. Klicka på **Save** (Spara).
+    
+1. Välj **Spara**.
    
-1. Klicka på **Next**.
+1. Välj **Nästa**.
 
-#### <a name="step-2-specify-routes"></a>Steg 2: Ange vägar 
+#### <a name="step-3-specify-routes"></a>Steg 3: Ange vägar 
 
-1. På fliken **Ange vägar** kontrollerar du att du har en väg (explicit eller implicit) som vidarebefordrar meddelanden från **azureiotsecurity** -modulen till **$upstream** enligt följande exempel. Klicka sedan på **Nästa**. 
+1. På fliken **Ange vägar** kontrollerar du att du har en väg (explicit eller implicit) som vidarebefordrar meddelanden från **azureiotsecurity** -modulen till **$upstream** enligt följande exempel. Välj **Nästa**när vägen är på plats.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   Exempel vägar:
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>Steg 3: granska distributionen
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- På fliken **Granska distribution** granskar du distributions informationen och väljer sedan **Skicka** för att slutföra distributionen.
+1. Välj **Nästa**.
+
+#### <a name="step-4-review-deployment"></a>Steg 4: granska distribution
+
+- På fliken **Granska distribution** granskar du distributions informationen och väljer sedan **skapa** för att slutföra distributionen.
 
 ## <a name="diagnostic-steps"></a>Diagnostiska steg
 

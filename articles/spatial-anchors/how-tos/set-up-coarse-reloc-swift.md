@@ -1,6 +1,6 @@
 ---
 title: Grov omlokalisering i Swift
-description: Djupgående förklaring av hur du skapar och hittar ankare med hjälp av sensorer för enhets sensorer i Swift.
+description: Djupgående förklaring av hur du skapar och hittar fäst punkter med grov omlokalisering i Swift.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1381f6340d1b85376ad5be9e00c596aa921d957f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7b568c43f8420b5a2f994b4cba145bf4d70b9010
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277180"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546171"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-swift"></a>Skapa och hitta ankare med hjälp av sensorer på enheten i Swift
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-swift"></a>Skapa och hitta ankare med hjälp av grov omlokalisering i Swift
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277180"
 
 Molnbaserade ankare kan associeras på enheten, placera sensor data med de ankare som du skapar. Den här informationen kan också användas för att snabbt avgöra om det finns några fäst punkter i närheten av enheten. Mer information finns i [grov omlokalisering](../concepts/coarse-reloc.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Se till att du har följande för att slutföra den här guiden:
 

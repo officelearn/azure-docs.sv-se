@@ -8,16 +8,16 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f3627a79cad6833b5fb20f3c829c1e3bcbd9c3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: d11d23cf7d96482028a9d3738196fc5a787fec91
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457341"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510217"
 ---
 # <a name="how-to-install-iot-edge-on-kubernetes-preview"></a>Så här installerar du IoT Edge på Kubernetes (för hands version)
 
-IoT Edge kan integreras med Kubernetes med hjälp av den som ett elastiskt infrastruktur lager med hög tillgänglighet. Den registrerar en IoT Edge *anpassad resurs definition* (CRD) med Kubernetes API-servern. Dessutom tillhandahåller den en *operatör* (IoT Edge agent) som stämmer överens med det lokala klustrets tillstånd. 
+IoT Edge kan integreras med Kubernetes med hjälp av den som ett elastiskt infrastruktur lager med hög tillgänglighet. Den registrerar en IoT Edge *anpassad resurs definition* (CRD) med Kubernetes API-servern. Dessutom tillhandahåller den en *operatör* (IoT Edge agent) som stämmer överens med det lokala klustrets tillstånd.
 
 Livs längden för modulen hanteras av Kubernetes Scheduler, som underhåller modulens tillgänglighet och väljer deras placering. IoT Edge hanterar Edge-programplattformen som körs överst och som kontinuerligt avstämr det önskade läget som anges i IoT Hub med tillstånd i gräns klustret. Edge-programmodellen är fortfarande den bekanta modellen baserat på IoT Edge moduler och vägar. Operatorn IoT Edge agent utför *Automatisk* översättning till Kubernetes-inbyggda konstruktioner som poddar, distributioner, tjänster osv.
 
@@ -32,15 +32,15 @@ Varje komponent i Edge-distributionen är begränsad till ett Kubernetes-namnomr
 
 ## <a name="install-locally-for-a-quick-test-environment"></a>Installera lokalt för en snabb test miljö
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
-* Kubernetes 1,10 eller senare. Om du inte har en befintlig kluster konfiguration kan du använda [Minikube](https://kubernetes.io/docs/setup/minikube/) för en lokal kluster miljö. 
+* Kubernetes 1,10 eller senare. Om du inte har en befintlig kluster konfiguration kan du använda [Minikube](https://kubernetes.io/docs/setup/minikube/) för en lokal kluster miljö.
 
 * [Helm](https://helm.sh/docs/using_helm/#quickstart-guide), Kubernetes Package Manager.
 
 * [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) för att visa och interagera med klustret.
 
-### <a name="setup-steps"></a>Installations steg
+### <a name="setup-steps"></a>Konfigurationssteg
 
 1. Starta **Minikube**
 
@@ -71,6 +71,7 @@ Varje komponent i Edge-distributionen är begränsad till ett Kubernetes-namnomr
     --set "deviceConnectionString=replace-with-device-connection-string" \
     edgek8s/edge-kubernetes
     ```
+
 1. Öppna Kubernetes-instrumentpanelen i webbläsaren
 
     ```shell
@@ -93,6 +94,6 @@ helm delete --purge k8s-edge1
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="deploy-as-a-highly-available-edge-gateway"></a>Distribuera som en Edge-Gateway med hög tillgänglighet 
+### <a name="deploy-as-a-highly-available-edge-gateway"></a>Distribuera som en Edge-Gateway med hög tillgänglighet
 
 Gräns enheten i ett Kubernetes-kluster kan användas som IoT-Gateway för underordnade enheter. Det kan konfigureras så att det blir flexibelt för nodfel, vilket ger hög tillgänglighet till Edge-distributioner. I den här [detaljerade genom gången](https://github.com/Azure-Samples/iotedge-gateway-on-kubernetes) ska du använda IoT Edge i det här scenariot.

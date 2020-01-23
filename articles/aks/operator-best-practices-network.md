@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: mlearned
-ms.openlocfilehash: d1bc865b38b52c8a7c3ac6ec4dab6408a1d0430c
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 5b138849538cb9bbd6af6cbcf3e7a11b0cf66395
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67614755"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549129"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Metod tips för nätverks anslutning och säkerhet i Azure Kubernetes service (AKS)
 
@@ -23,7 +23,7 @@ I den här artikeln fokuserar vi på nätverks anslutning och säkerhet för klu
 > [!div class="checklist"]
 > * Jämför nätverks lägena Kubernetes och Azure CNI i AKS
 > * Planera för nödvändig IP-adressering och anslutning
-> * Distribuera trafik med belastningsutjämnare, ingångs styrenheter eller brand väggar för webbaserade program (WAF)
+> * Distribuera trafik med belastningsutjämnare, ingångs styrenheter eller en brand vägg för webbaserade program (WAF)
 > * Anslut säkert till klusternoder
 
 ## <a name="choose-the-appropriate-network-model"></a>Välj lämplig nätverks modell
@@ -47,7 +47,7 @@ När du använder Azure CNI-nätverk finns den virtuella nätverks resursen i en
 
 Mer information om delegering av AKS tjänst objekt finns i [Delegera åtkomst till andra Azure-resurser][sp-delegation].
 
-När varje nod och Pod tar emot sin egen IP-adress ska du planera ut adress intervallen för AKS-undernätet. Under nätet måste vara tillräckligt stort för att tillhandahålla IP-adresser för varje nod, poddar och nätverks resurser som du distribuerar. Varje AKS-kluster måste placeras i sitt eget undernät. Använd inte IP-adressintervall som överlappar befintliga nätverks resurser för att tillåta anslutning till lokala eller peer-anslutna nätverk i Azure. Det finns standard gränser för antalet poddar som varje nod kör med både Kubernetes och Azure CNI-nätverk. Om du vill hantera storskaliga händelser eller kluster uppgraderingar behöver du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade under nätet. Det här ytterligare adress utrymmet är särskilt viktigt om du använder Windows Server-behållare (för närvarande i för hands version i AKS), eftersom de noderna kräver en uppgradering för att tillämpa de senaste säkerhets korrigeringarna. Mer information om Windows Server-noder finns [i uppgradera en Node-pool i AKS][nodepool-upgrade].
+När varje nod och Pod tar emot sin egen IP-adress ska du planera ut adress intervallen för AKS-undernätet. Under nätet måste vara tillräckligt stort för att tillhandahålla IP-adresser för varje nod, poddar och nätverks resurser som du distribuerar. Varje AKS-kluster måste placeras i sitt eget undernät. Använd inte IP-adressintervall som överlappar befintliga nätverks resurser för att tillåta anslutning till lokala eller peer-anslutna nätverk i Azure. Det finns standard gränser för antalet poddar som varje nod kör med både Kubernetes och Azure CNI-nätverk. Om du vill hantera utskalning av händelser eller kluster uppgraderingar behöver du också ytterligare IP-adresser som är tillgängliga för användning i det tilldelade under nätet. Det här ytterligare adress utrymmet är särskilt viktigt om du använder Windows Server-behållare (för närvarande i för hands version i AKS), eftersom de noderna kräver en uppgradering för att tillämpa de senaste säkerhets korrigeringarna. Mer information om Windows Server-noder finns [i uppgradera en Node-pool i AKS][nodepool-upgrade].
 
 Information om vilka IP-adresser som krävs finns i [Konfigurera Azure cni Networking i AKS][advanced-networking].
 
@@ -73,7 +73,7 @@ En Azure Load Balancer kan distribuera kund trafik till program i ditt AKS-klust
  * En ingress- *resurs*och
  * En ingångs *kontroll*
 
-Ingångs resursen är ett yaml manifest `kind: Ingress` som definierar värden, certifikat och regler för att dirigera trafik till tjänster som körs i ditt AKS-kluster. Följande exempel på YAML-manifest distribuerar trafik för *MyApp.com* till en av två tjänster, *blogservice* eller *storeservice*. Kunden dirigeras till en tjänst eller till en annan utifrån den URL som de har åtkomst till.
+Ingress-resursen är ett YAML manifest med `kind: Ingress` som definierar värden, certifikat och regler för att dirigera trafik till tjänster som körs i ditt AKS-kluster. Följande exempel på YAML-manifest distribuerar trafik för *MyApp.com* till en av två tjänster, *blogservice* eller *storeservice*. Kunden dirigeras till en tjänst eller till en annan utifrån den URL som de har åtkomst till.
 
 ```yaml
 kind: Ingress

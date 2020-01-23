@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory hybrid identity design överväganden - nästa steg | Microsoft Docs
-description: En sammanfattning och nästa steg när du har läst Designguide för Hybrididentitet
+title: Design överväganden för Azure Active Directory hybrid identitet – nästa steg | Microsoft Docs
+description: En sammanfattning och nästa steg när du har läst vägledning för Hybrid identitets utformning
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -16,39 +16,31 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41741249e9b1a142d75392025236a4d333b67666
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 378aa35ff4b43f5a268ac3dcd9530783ada6921e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60295134"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512971"
 ---
-# <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Azure Active Directory hybrid identity design överväganden nästa steg
-Nu när du har slutfört definiera dina krav och undersökt alla alternativ för din lösning för hantering av mobila enheter, är du redo att ta nästa steg för att distribuera stöd för den infrastruktur som är rätt för dig och din organisation.
-
-## <a name="hybrid-identity-solutions"></a>Hybrididentitetslösningar
-– Att använda specifika lösningsscenarier som passar dina behov är ett bra sätt att granska och planera information för att distribuera en infrastruktur för hantering av mobila enheter. Följande lösningar beskriver flera av de vanligaste scenarierna vid mobil enhetshantering:
-
-* Den [hantera mobila enheter och datorer i miljöer företagslösning](https://technet.microsoft.com/library/dn582037.aspx) hjälper dig att hantera mobila enheter genom att utöka den lokala System Center 2012 Configuration Manager-infrastrukturen i molnet med Microsoft Intune. Den här hybridinfrastrukturen hjälper IT-proffs i medelstora och stora miljöer aktivera BYOD och fjärråtkomst och samtidigt minska administrativa komplexiteten.
-* Den [hantering av mobila enheter för Configuration Manager 2007-lösningen](https://technet.microsoft.com/library/dn508400.aspx) hjälper dig att hantera mobila enheter när din infrastruktur vilar på System Center Configuration Manager 2007. Den här lösningen visar hur du konfigurerar en server med System Center 2012 Configuration Manager så att du kan köra Microsoft Intune och dra nytta av dess MDM förmåga.
-* Den [hantering av mobila enheter i små miljöer lösning](https://technet.microsoft.com/library/dn715906.aspx) är avsedd för småföretag som behöver stöd för MDM. Den förklarar hur du använder Microsoft Intune för att utöka den befintliga infrastrukturen för att stödja hantering av mobila enheter och BYOD. Den här lösningen beskriver det enklaste scenariot som stöd för användning av Microsoft Intune i en fristående, molnbaserad konfiguration utan några lokala servrar.
+# <a name="azure-active-directory-hybrid-identity-design-considerations--next-steps"></a>Design överväganden för Azure Active Directory hybrid identitet – nästa steg
+Nu när du har fyllt i definieringen av dina krav och undersökt alla alternativ för din mobila enhetshanteringslösning, är du redo att ta nästa steg för att distribuera stöd för den infrastruktur som är rätt för dig och din organisation.
 
 ## <a name="hybrid-identity-documentation"></a>Dokumentation om hybrididentitet
-Konceptuell och procedurmässig planering, distribution och administration av innehåll är användbara när du implementerar din lösning för hantering av mobila enheter:
+Konceptuell och procedurmässig planering, distribution och administration av innehåll är användbart när du implementerar din mobila enhetshanteringslösning:
 
-* [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) lösningar kan hjälpa dig att avbilda och sammanställa information om din infrastruktur, principer, processer och metodtips så att din IT-personal kan skapa användarvänliga system och automatisera åtgärder.
-* [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) är en molnbaserad enhetshanteringstjänst som hjälper dig att hantera dina datorer och mobila enheter och skyddar företagets information.
-* [MDM för Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) kan du hantera och skydda mobila enheter när de är anslutna till din Office 365-organisation. Du kan använda MDM för Office 365 att ställa in enhetssäkerhetsprinciper och åtkomstregler, samt Rensa mobila enheter om de tappas bort eller blir stulen.
+* [Microsoft System Center](https://technet.microsoft.com/library/cc507089.aspx) -lösningar kan hjälpa dig att samla in och samla in information om din infrastruktur, principer, processer och metod tips så att IT-personalen kan skapa hanterbara system och automatisera åtgärder.
+* [Microsoft Intune](https://technet.microsoft.com/library/jj676587.aspx) är en molnbaserad enhetshanteringstjänst som hjälper dig att hantera dina datorer och mobila enheter och skyddar ditt företags information.
+* Med [MDM för Office 365](https://technet.microsoft.com/library/ms.o365.cc.devicepolicy.aspx) kan du hantera och skydda mobila enheter när de är anslutna till din Office 365-organisation. Du kan använda MDM för Office 365 för att ange enhets säkerhets principer och åtkomst regler och Rensa mobila enheter om de tappas bort eller blir stulna.
 
-## <a name="hybrid-identity-resources"></a>Hybrid identity-resurser
-Ofta övervakning av följande resurser ger de senaste nyheterna och uppdateras på lösningar för hantering av mobila enheter:
+## <a name="hybrid-identity-resources"></a>Hybrid identitets resurser
+Övervakning av följande resurser innehåller ofta de senaste nyheterna och uppdateringarna om mobila enhets hanterings lösningar:
 
 * [Microsoft Enterprise Mobility-bloggen](https://cloudblogs.microsoft.com/ENTERPRISEMOBILITY/)
-* [Microsoft In The Cloud-bloggen](https://blogs.technet.com/b/in_the_cloud/)
-* [Microsoft Intune-bloggen](https://blogs.technet.com/b/microsoftintune/)
-* [Microsoft System Center Configuration Manager-blogg](https://blogs.technet.com/b/configurationmgr/)
-* [Microsoft System Center Configuration Manager Team-bloggen](https://blogs.technet.com/b/configmgrteam/)
+* [Microsoft i moln bloggen](https://blogs.technet.com/b/in_the_cloud/)
+* [Microsoft Intune blogg](https://blogs.technet.com/b/microsoftintune/)
+* [Microsoft Endpoint Configuration Manager-blogg](https://techcommunity.microsoft.com/t5/Configuration-Manager-Blog/bg-p/ConfigurationManagerBlog)
 
 ## <a name="see-also"></a>Se också
-[Översikt över design-överväganden](plan-hybrid-identity-design-considerations-overview.md)
+[Översikt över design överväganden](plan-hybrid-identity-design-considerations-overview.md)
 

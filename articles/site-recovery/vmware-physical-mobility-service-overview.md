@@ -7,20 +7,20 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: aeb00b84ac254232e0d68fd9631fb539a928e67d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931895"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513566"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Om mobilitets tjänsten för virtuella VMware-datorer och fysiska servrar
 
 När du konfigurerar haveri beredskap för virtuella VMware-datorer och fysiska servrar med hjälp av [Azure Site Recovery](site-recovery-overview.md)installerar du Site Recovery mobilitets tjänsten på varje lokal virtuell VMware-dator och fysisk server.  Mobilitets tjänsten samlar in data skrivningar på datorn och vidarebefordrar dem till Site Recovery processerver. Du kan distribuera mobilitets tjänsten på följande sätt:
 
-- [Push-installation](#push-installation): Site Recovery installerar mobilitets agenten på servern när skyddet är aktiverat via Azure Portal.
-- Installera manuellt: Du kan installera mobilitets tjänsten manuellt på varje dator via [UI](#install-mobility-agent-through-ui) eller [kommando tolken](#install-mobility-agent-through-command-prompt).
-- [Automatiserad distribution](vmware-azure-mobility-install-configuration-mgr.md): Du kan automatisera installationen med verktyg för program varu distribution, till exempel System Center Configuration Manager.
+- [Push-installation](#push-installation): Site Recovery installerar mobilitets agenten på servern när skyddet aktive ras via Azure Portal.
+- Installera manuellt: du kan installera mobilitets tjänsten manuellt på varje dator via [UI](#install-mobility-agent-through-ui) eller [kommando tolken](#install-mobility-agent-through-command-prompt).
+- [Automatiserad distribution](vmware-azure-mobility-install-configuration-mgr.md): du kan automatisera installationen med verktyg för program varu distribution, till exempel Configuration Manager.
 
 ## <a name="anti-virus-on-replicated-machines"></a>Virus skydd på replikerade datorer
 
@@ -115,12 +115,12 @@ Följande steg utförs under en push-installation av mobilitets agenten
 #### <a name="installation-settings"></a>Installations inställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | UnifiedAgent. exe/Role \<MS/MT >/InstallLocation \<installation location >/Platform "VMware"/Silent
-Installations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
+Användning | UnifiedAgent. exe/Role \<MS/MT >/InstallLocation \<installations plats >/Platform "VmWare"/Silent
+Installationsloggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
 /InstallLocation| Valfri parameter. Anger mobilitets tjänstens installations plats (valfri mapp).
 /Platform | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.<br/><br/> Om du hanterar virtuella Azure-datorer som fysiska datorer anger du **VMware**.
-/Silent| Valfritt. Anger om installations programmet ska köras i tyst läge.
+/Silent| Valfri. Anger om installations programmet ska köras i tyst läge.
 
 #### <a name="registration-settings"></a>Registrerings inställningar
 **Inställning** | **Detaljer**
@@ -154,11 +154,11 @@ Agent konfigurations loggar | Under%ProgramData%\ASRSetupLogs\ASRUnifiedAgentCon
 #### <a name="installation-settings"></a>Installations inställningar
 **Inställning** | **Detaljer**
 --- | ---
-Användning | ./install-d \<installations plats >-r \<MS/MT >-v VMware-q
+Användning | ./install-d \<installations plats >-r \<MS/MT >-v VmWare-q
 -r | Obligatorisk installations parameter. Anger om mobilitets tjänsten (MS) eller huvud målet (MT) ska installeras.
 d, DDD | Valfri parameter. Anger mobilitets tjänstens installations plats:/usr/local/ASR.
 -v | Obligatorisk. Anger den plattform där mobilitets tjänsten är installerad. **VMware** för virtuella VMware-datorer/fysiska servrar; Virtuella **Azure** -datorer i Azure.
--q | Valfritt. Anger om installations programmet ska köras i tyst läge.
+-q | Valfri. Anger om installations programmet ska köras i tyst läge.
 
 #### <a name="registration-settings"></a>Registrerings inställningar
 **Inställning** | **Detaljer**
@@ -169,7 +169,7 @@ Användning | cd-/usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh-i \
 
 ## <a name="azure-virtual-machine-agent"></a>Agent för virtuell Azure-dator
 
-- **Virtuella Windows-datorer**: Från version 9.7.0.0 av mobilitets tjänsten installeras [Azure VM](../virtual-machines/extensions/features-windows.md#azure-vm-agent) -agenten av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
+- **Virtuella Windows-datorer**: från 9.7.0.0 av mobilitets tjänsten installeras [Azure VM-agenten](../virtual-machines/extensions/features-windows.md#azure-vm-agent) av mobilitets tjänstens installations program. Detta säkerställer att den virtuella Azure-datorn uppfyller kraven för agent installation för att använda alla VM-tillägg när datorn växlar över till Azure.
 - **Virtuella Linux-datorer**: [WALinuxAgent](https://docs.microsoft.com/azure/virtual-machines/extensions/update-linux-agent) måste installeras manuellt på den virtuella Azure-datorn efter redundansväxlingen.
 
 ## <a name="locate-installer-files"></a>Hitta installationsfiler
@@ -181,11 +181,11 @@ Gå till mappen%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository på ko
 Microsoft-ASR\_UA\*Windows\*release.exe | Windows Server 2016; Windows Server 2012 R2; Windows Server 2012; Windows Server 2008 R2 SP1
 Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 6. * </br> CentOS 6.*
 Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz | Red Hat Enterprise Linux (RHEL) 7. * </br> CentOS 7.*
-Microsoft-ASR\_UA\*SLES12-64\*version. tar. gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3
+Microsoft-ASR\_UA\*SLES12-64\*release. tar. gz | SUSE Linux Enterprise Server 12 SP1, SP2, SP3
 Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP3
 Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz| SUSE Linux Enterprise Server 11 SP4
 Microsoft-ASR\_UA\*OL6-64\*release.tar.gz | Oracle Enterprise Linux 6,4, 6,5
-Microsoft-ASR\_UA\*Ubuntu-14.04-64\*version. tar. gz | Ubuntu Linux 14,04
+Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release. tar. gz | Ubuntu Linux 14,04
 Microsoft-ASR\_UA\*UBUNTU-16.04-64\*release.tar.gz | Ubuntu Linux 16,04 LTS-Server
 Microsoft-ASR_UA\*DEBIAN7-64\*release.tar.gz | Debian 7
 Microsoft-ASR_UA\*DEBIAN8-64\*release.tar.gz | Debian 8

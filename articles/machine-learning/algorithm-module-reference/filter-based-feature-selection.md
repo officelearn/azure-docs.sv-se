@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 43565a72ce795c4ee0142ec48c13842a8c43e604
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bd1a6d4009181056ff0f91fc115d59851539bbe8
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428528"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548483"
 ---
 # <a name="filter-based-feature-selection"></a>Filterbaserat funktionsval
 
@@ -97,9 +97,9 @@ Du väljer ett standard statistik mått. Modulen beräknar korrelationen mellan 
 
 När bearbetningen är klar:
 
-+ Om du vill se en fullständig lista över funktions kolumnerna som analyserades och deras resultat högerklickar du på modulen. Välj **funktioner**och välj sedan **visualisera**.  
++ Om du vill se en fullständig lista över de analyserade funktions kolumnerna och deras resultat högerklickar du på modulen och väljer **visualisera**.  
 
-+ Om du vill visa den data uppsättning som genereras baserat på ditt val av funktions villkor högerklickar du på modulen. Välj **data uppsättning**och välj sedan **visualisera**. 
++ Om du vill visa data uppsättningen baserat på ditt val av funktions villkor högerklickar du på modulen och väljer **visualisera**. 
 
 Om data uppsättningen innehåller färre kolumner än förväntat, kontrollerar du inställningarna för modulen. Kontrol lera också data typerna för de kolumner som angetts som indata. Om du till exempel anger **antalet önskade funktioner** till 1 innehåller den utgående data uppsättningen bara två kolumner: kolumnen etikett och den mest rankade funktions kolumnen.
 

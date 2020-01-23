@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cd3a0341d9cf041155b09d41d8ff84d0b0cc3dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bb0764b9c2c43faf88db165a11ae963c4f170f01
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424821"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512597"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>Gör så här: Kräv hanterade enheter för Cloud app-åtkomst med villkorlig åtkomst
 
@@ -69,7 +69,7 @@ Den här inställningen gäller endast för Windows 10-enheter eller äldre enhe
 
 ![Enhets baserade villkor](./media/require-managed-devices/45.png)
 
-Vad gör en hybrid Azure AD-ansluten enhet till en hanterad enhet?  För enheter som är anslutna till en lokal AD antas det att kontrollen över dessa enheter upprätthålls med hjälp av hanterings lösningar som **System Center Configuration Manager (SCCM)** eller **grup princip (GP)** för att hantera dem. Eftersom det inte finns någon metod för Azure AD för att avgöra om någon av dessa metoder har tillämpats på en enhet, är en hybrid Azure AD-ansluten enhet en relativt svag mekanism för att kräva en hanterad enhet. Det är upp till dig som administratör att bedöma om de metoder som tillämpas på dina lokala domänanslutna enheter är tillräckligt starka för att utgöra en hanterad enhet om en sådan enhet också är en hybrid Azure AD-ansluten enhet.
+Vad gör en hybrid Azure AD-ansluten enhet till en hanterad enhet?  För enheter som är anslutna till en lokal AD antas det att kontrollen över dessa enheter upprätthålls med hjälp av hanterings lösningar som **Configuration Manager** eller **grup princip (GP)** för att hantera dem. Eftersom det inte finns någon metod för Azure AD för att avgöra om någon av dessa metoder har tillämpats på en enhet, är en hybrid Azure AD-ansluten enhet en relativt svag mekanism för att kräva en hanterad enhet. Det är upp till dig som administratör att bedöma om de metoder som tillämpas på dina lokala domänanslutna enheter är tillräckligt starka för att utgöra en hanterad enhet om en sådan enhet också är en hybrid Azure AD-ansluten enhet.
 
 ## <a name="require-device-to-be-marked-as-compliant"></a>Kräv att enheten ska markeras som kompatibel
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 98c76b2be6a5cc801f9e7b31357cbeb158a966fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771299"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548007"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Användbara resurser för att arbeta med Azure Sentinel
 
@@ -46,13 +46,13 @@ Följande åtgärder som stöds kan granskas.
 |Ta bort Sparad sökning    |Microsoft. OperationalInsights/arbets ytor/savedSearches|
 |Uppdatera aviserings regler |Microsoft. SecurityInsights/alertRules|
 |Ta bort aviserings regler |Microsoft. SecurityInsights/alertRules|
-|Uppdatera svars åtgärder för aviserings regeln |Microsoft. SecurityInsights/alertRules|
-|Ta bort svars åtgärder för aviserings regel |Microsoft. SecurityInsights/alertRules|
+|Uppdatera svars åtgärder för aviserings regeln |Microsoft. SecurityInsights/alertRules/Actions|
+|Ta bort svars åtgärder för aviserings regel |Microsoft. SecurityInsights/alertRules/Actions|
 |Uppdatera bok märken   |Microsoft. SecurityInsights/bok märken|
 |Ta bort bok märken   |Microsoft. SecurityInsights/bok märken|
 |Uppdatera ärenden   |Microsoft. SecurityInsights/fall|
-|Uppdatera ärende undersökning  |Microsoft. SecurityInsights/fall|
-|Skapa ärende kommentarer   |Microsoft. SecurityInsights/fall|
+|Uppdatera ärende undersökning  |Microsoft. SecurityInsights/fall/undersökningar|
+|Skapa ärende kommentarer   |Microsoft. SecurityInsights/Cases/comments|
 |Uppdatera data anslutningar |Microsoft. SecurityInsights/dataConnectors|
 |Ta bort data anslutningar |Microsoft. SecurityInsights/dataConnectors|
 |Uppdatera inställningarna    |Microsoft. SecurityInsights/inställningar|

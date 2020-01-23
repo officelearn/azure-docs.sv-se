@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012514"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530901"
 ---
 Den här artikeln beskriver hur du planerar för säkerhets kopiering och haveri beredskap (DR) för virtuella IaaS-datorer (VM) och diskar i Azure. Det här dokumentet omfattar både hanterade och ohanterade diskar.
 
@@ -33,7 +33,7 @@ Innan vi tittar på säkerhets kopierings-och DR-alternativ kan vi Sammanfattnin
 
 ### <a name="azure-iaas-resiliency"></a>Azure IaaS-återhämtning
 
-*Återhämtning* syftar på toleransen för normala fel som inträffar i maskin varu komponenter. Återhämtning är möjligheten att återställa från fel och fortsätta att fungera. Det är inte att undvika att undvika problem, utan att svara på problem på ett sätt som förhindrar avbrott eller data förlust. Målet med elasticiteten är att återställa programmet till ett fullt fungerande tillstånd efter fel. Azure Virtual Machines och disks har utformats för att vara elastiska för vanliga maskin varu fel. Nu ska vi titta på hur Azure IaaS-plattformen ger den här återhämtnings förmågan.
+*Återhämtning* syftar på toleransen för normala fel som inträffar i maskin varu komponenter. Återhämtning är möjligheten att återställa från fel och fortsätta att fungera. Det handlar inte om att undvika fel, utan om att reagera på fel på ett sätt som förhindrar avbrott eller dataförluster. Målet med elasticiteten är att återställa programmet till ett fullt fungerande tillstånd efter fel. Azure Virtual Machines och disks har utformats för att vara elastiska för vanliga maskin varu fel. Nu ska vi titta på hur Azure IaaS-plattformen ger den här återhämtnings förmågan.
 
 En virtuell dator består huvudsakligen av två delar: en beräknings Server och de beständiga diskarna. Båda påverkar fel toleransen för en virtuell dator.
 
@@ -109,8 +109,8 @@ För ohanterade diskar kan du använda den lokalt redundanta lagrings typen för
 
 | Scenario | Automatisk replikering | DR-lösning |
 | --- | --- | --- |
-| Premium SSD diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| Hanterade diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Premium SSD-diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Managed Disks | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Ohanterade lokalt redundanta lagrings diskar | Lokalt ([Lokalt Redundant lagring](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | Ohanterade geo-redundanta lagrings diskar | Mellan region ([Geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
 | Ohanterade geo-redundanta lagrings diskar med Läs behörighet | Mellan region ([Read-Access Geo-redundant lagring](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[Konsekventa ögonblicks bilder](#alternative-solution-consistent-snapshots) |
@@ -151,8 +151,6 @@ Använd följande steg för att aktivera säkerhets kopiering av virtuella dator
 1.  Konfigurera säkerhets kopierings principen och välj den virtuella datorn från samma användar gränssnitt.
 
 1.  Kontrol lera att säkerhets kopierings agenten är installerad på den virtuella datorn. Om den virtuella datorn har skapats med hjälp av en Azure Gallery-avbildning är säkerhets kopierings agenten redan installerad. Annars (det vill säga om du använder en anpassad avbildning) kan du använda anvisningarna för att [installera VM-agenten på en virtuell dator](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent).
-
-1.  Se till att den virtuella datorn tillåter att en nätverks anslutning för säkerhets kopierings tjänsten fungerar. Följ anvisningarna för [nätverks anslutningen](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 1.  När föregående steg har slutförts körs säkerhets kopieringen med jämna mellanrum som anges i säkerhets kopierings principen. Vid behov kan du utlösa den första säkerhets kopieringen manuellt från valv instrument panelen på Azure Portal.
 

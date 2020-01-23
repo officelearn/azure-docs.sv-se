@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 10/08/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b08c3854ef330081b4c55331cb410c5925f00dec
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704531"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512767"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösen ords-och konto utelåsning på hanterade domäner
 
@@ -65,7 +65,7 @@ Med dessa standardinställningar är användar konton utelåsta i 30 minuter om 
 
 Konto utelåsning sker bara i den hanterade domänen. Användar konton är bara utelåsta i Azure AD DS och endast på grund av misslyckade inloggnings försök mot den hanterade domänen. Användar konton som synkroniserats i från Azure AD eller lokalt är inte utelåsta i sina käll kataloger, bara i Azure AD DS.
 
-Om du har en lösen ords princip för Azure AD som anger en högsta ålder för lösen ord som är större än 90 dagar tillämpas lösen ordets ålder på standard principen i Azure AD DS. Du kan konfigurera en anpassad lösen ords princip för att definiera en annan högsta ålder för lösen ord i Azure AD DS. Var försiktig om du har en kortare högsta ålder för lösen ord som kon figurer ATS i en Azure AD DS-lösenord än i Azure AD eller i en lokal AD DS-miljö. I det scenariot kan en användares lösen ord gå ut i Azure AD DS innan de uppmanas att ändra i Azure AD på en lokal AD DS-miljö.
+Om du har en lösen ords princip för Azure AD som anger en högsta ålder för lösen ord som är större än 90 dagar tillämpas lösen ordets ålder på standard principen i Azure AD DS. Du kan konfigurera en anpassad lösen ords princip för att definiera en annan högsta ålder för lösen ord i Azure AD DS. Var försiktig om du har en kortare högsta ålder för lösen ord som kon figurer ATS i en Azure AD DS-lösenord än i Azure AD eller i en lokal AD DS-miljö. I det scenariot kan en användares lösen ord gå ut i Azure AD DS innan de uppmanas att ändra i Azure AD eller en lokal AD DS-miljö.
 
 För användar konton som skapats manuellt i en Azure AD DS-hanterad domän, tillämpas följande ytterligare lösen ords inställningar också från standard principen. Dessa inställningar gäller inte för användar konton som synkroniserats i från Azure AD, eftersom en användare inte kan uppdatera sitt lösen ord direkt i Azure AD DS.
 
@@ -103,12 +103,12 @@ Om du vill skapa en anpassad lösen ords princip använder du Active Directory a
 1. Redigera andra inställningar för lösen ords principer som du vill. Kom ihåg följande viktiga punkter:
 
     * Inställningar som lösen ords komplexitet, ålder eller förfallo tid endast för användare som skapats manuellt i en Azure AD DS-hanterad domän.
-    * Inställningarna för konto utelåsning gäller alla användare, men börjar bara gälla i den hanterade domänen.
+    * Inställningarna för konto utelåsning gäller för alla användare, men börjar bara gälla i den hanterade domänen och inte i själva Azure AD.
 
     ![Skapa en egen detaljerad lösen ords princip](./media/how-to/custom-fgpp.png)
 
 1. Avmarkera **skydda från oavsiktlig borttagning**. Om det här alternativet är markerat kan du inte spara FGPP.
-1. I avsnittet **tillämpas direkt på** väljer du knappen **Lägg till** . I dialog rutan **Välj användare eller grupper** klickar du på knappen **platser** .
+1. I avsnittet **tillämpas direkt på** väljer du knappen **Lägg till** . Välj knappen **platser** i dialog rutan **Välj användare eller grupper** .
 
     ![Välj de användare och grupper som lösen ords principen ska tillämpas på](./media/how-to/fgpp-applies-to.png)
 

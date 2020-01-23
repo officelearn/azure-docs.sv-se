@@ -8,42 +8,46 @@ ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 37f55165d1fea8a69d10003baeb0006199326cba
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 96bd6b461a5374b5f5bc578c5f58dbcd09cd7087
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456614"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548636"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>Utveckla dina egna IoT Edge-moduler
 
-Azure IoT Edge moduler kan ansluta till andra Azure-tjänster och bidra till din större data pipeline i molnet. I den här artikeln beskrivs hur du kan utveckla moduler för att kommunicera med IoT Edge Runtime och IoT Hub, och därmed resten av Azure-molnet. 
+Azure IoT Edge moduler kan ansluta till andra Azure-tjänster och bidra till din större data pipeline i molnet. I den här artikeln beskrivs hur du kan utveckla moduler för att kommunicera med IoT Edge Runtime och IoT Hub, och därmed resten av Azure-molnet.
 
 ## <a name="iot-edge-runtime-environment"></a>IoT Edge-körningsmiljö
-IoT Edge-runtime tillhandahåller infrastrukturen som att integrera funktionerna i flera IoT Edge-moduler och distribuera dem till IoT Edge-enheterna. På hög nivå, kan alla program vara paketerad som en IoT Edge-modul. Om du vill dra full nytta av IoT Edge kommunikations- och hanteringsfunktioner, men anslutas ett program som körs i en modul till lokala IoT Edge hub, integrerade i IoT Edge-körningen.
+
+IoT Edge-runtime tillhandahåller infrastrukturen som att integrera funktionerna i flera IoT Edge-moduler och distribuera dem till IoT Edge-enheterna. Alla program kan paketeras som en IoT Edge modul. För att dra full nytta av IoT Edge kommunikations-och hanterings funktioner kan ett program som körs i en modul använda Azure IoT-enhetens SDK för att ansluta till den lokala IoT Edge Hub.
 
 ## <a name="using-the-iot-edge-hub"></a>Med hjälp av IoT Edge hub
+
 IoT Edge hub ger två huvudsakliga funktioner: proxy till IoT Hub och lokala kommunikation.
 
 ### <a name="iot-hub-primitives"></a>IoT Hub primitiver
+
 IoT-hubben ser en modulinstans på samma sätt som en enhet i meningen som:
 
-* den har en modul med dubbla som är distinkt och isolerad från [enheten](../iot-hub/iot-hub-devguide-device-twins.md) , och den andra modulen är sammanflätad med enheten.
-* den kan skicka [meddelanden från enheten till molnet](../iot-hub/iot-hub-devguide-messaging.md).
-* den kan ta emot [direkta metoder](../iot-hub/iot-hub-devguide-direct-methods.md) som riktar sig specifikt till identiteten.
+* den har en modultvilling som är unik och isolerade från de [enhetstvillingen](../iot-hub/iot-hub-devguide-device-twins.md) och andra modultvillingar för en enhet;
+* den kan skicka [meddelanden från enheten till molnet](../iot-hub/iot-hub-devguide-messaging.md);
+* Det kan ta emot [direkta metoder](../iot-hub/iot-hub-devguide-direct-methods.md) specifikt mot sin identitet.
 
-För närvarande kan inte en modul ta emot meddelanden från moln till enhet eller använda filuppladdningsfunktionen.
+För närvarande kan inte moduler ta emot meddelanden från molnet till enheten eller använda fil uppladdnings funktionen.
 
-När du skriver en modul kan du använda [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md) för att ansluta till IoT Edge Hub och använda ovanstående funktioner som du skulle göra när du använde IoT Hub med ett enhets program, den enda skillnaden är att du måste referera till modulens identitet i stället för enhetens identitet.
+När du skriver en modul kan du använda [Azure IoT-enhetens SDK](../iot-hub/iot-hub-devguide-sdks.md) för att ansluta till IoT Edge Hub och använda funktionen ovan på samma sätt som när du använde IoT Hub med ett enhets program. Den enda skillnaden mellan IoT Edge moduler och IoT-enhets program är att du måste referera till modulens identitet i stället för enhetens identitet.
 
 ### <a name="device-to-cloud-messages"></a>Meddelanden från enheten till molnet
+
 För att möjliggöra komplex bearbetning av meddelanden från enheten till molnet tillhandahåller IoT Edge Hub deklarativ routning av meddelanden mellan moduler, och mellan moduler och IoT Hub. Deklarativ routning låter moduler att fånga upp och bearbeta meddelanden som skickas av andra moduler och sprida dem till komplexa pipelines. Mer information finns i [distribuera moduler och upprätta vägar i IoT Edge](module-composition.md).
 
-En IoT Edge-modul, till skillnad från en normal IoT Hub device program, kan ta emot meddelanden från enheten till molnet som körs via en proxy av sin lokala IoT Edge hub för att bearbeta dem på.
+En IoT Edge modul, i stället för ett normalt IoT Hub enhets program, kan ta emot meddelanden från enheten till molnet som anropas via proxy med den lokala IoT Edge hubben för att bearbeta dem.
 
 IoT Edge Hub sprider meddelandena till modulen baserat på deklarativ vägar som beskrivs i [distributions manifestet](module-composition.md). När du utvecklar en IoT Edge-modul, kan du ta emot dessa meddelanden genom att ange meddelandehanterare.
 
-För att förenkla skapandet av vägar IoT Edge lägger till konceptet *indata* och *utdata* -slutpunkter för moduler. En modul kan ta emot alla meddelanden från enheten till molnet dirigeras till den utan att ange några indata och kan skicka meddelanden från enheten till molnet utan att ange några utdata. Med hjälp av explicita indata och utdata, men gör routningsregler enklare att förstå. 
+För att förenkla skapandet av vägar IoT Edge lägger till konceptet *indata* och *utdata* -slutpunkter för moduler. En modul kan ta emot alla meddelanden från enheten till molnet dirigeras till den utan att ange några indata och kan skicka meddelanden från enheten till molnet utan att ange några utdata. Med hjälp av explicita indata och utdata, men gör routningsregler enklare att förstå.
 
 Slutligen är enhet-till-moln-meddelanden som hanteras av Edge hub stämplad med följande Systemegenskaper för:
 
@@ -55,7 +59,9 @@ Slutligen är enhet-till-moln-meddelanden som hanteras av Edge hub stämplad med
 | $outputName | De utdata som används för att skicka meddelandet. Kan vara tom. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Ansluter till IoT Edge hub från en modul
-Ansluter till lokala IoT Edge hub från en modul omfattar två steg: 
+
+Ansluter till lokala IoT Edge hub från en modul omfattar två steg:
+
 1. Skapa en ModuleClient-instans i ditt program.
 2. Kontrollera att ditt program godkänner certifikatet som presenteras av IoT Edge-hubben på den enheten.
 
@@ -67,15 +73,15 @@ IoT Edge stöder flera operativ system, enhets arkitekturer och utvecklings spr�
 
 ### <a name="linux"></a>Linux
 
-För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och ARM32 Linux-enheter. 
+För alla språk i följande tabell IoT Edge stöder utveckling för AMD64-och ARM32 Linux-enheter.
 
 | Utvecklingsspråk | Utvecklingsverktyg |
 | -------------------- | ----------------- |
-| C | Visual Studio-koden<br>Visual Studio 2017/2019 |
-| C# | Visual Studio-koden<br>Visual Studio 2017/2019 |
-| Java | Visual Studio-koden |
-| Node.js | Visual Studio-koden |
-| Python | Visual Studio-koden |
+| C | Visual Studio-kod<br>Visual Studio 2017/2019 |
+| C# | Visual Studio-kod<br>Visual Studio 2017/2019 |
+| Java | Visual Studio-kod |
+| Node.js | Visual Studio-kod |
+| Python | Visual Studio-kod |
 
 >[!NOTE]
 >Att utveckla och felsöka stöd för ARM64 Linux-enheter finns i [offentlig för hands version](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Mer information finns i [utveckla och FELSÖKA ARM64 IoT Edge moduler i Visual Studio Code (för hands version)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).

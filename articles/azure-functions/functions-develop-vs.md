@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av 
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 571519b996948a9fc4ac98e18e510fcee1dbef9b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 7aceae256c4fc4d18615e181bbcb7425e659955d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769785"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547378"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Utveckla Azure Functions med Visual Studio  
 
@@ -136,7 +136,7 @@ I C# klass biblioteks funktioner definieras de bindningar som används av funkti
     }
     ```
 
-    Ett bindande attribut används för varje bindnings parameter som anges till Start punkt metoden. Attributet använder bindnings informationen som parametrar. I det föregående exemplet har den första parametern ett **QueueTrigger** -attribut tillämpat, vilket indikerar att funktionen utlöses av kön. Könamnet och anslutnings strängens inställnings namn skickas som parametrar till attributet **QueueTrigger** . Mer information finns i [Azure Queue Storage-bindningar för Azure Functions](functions-bindings-storage-queue.md#trigger---c-example).
+    Ett bindande attribut används för varje bindnings parameter som anges till Start punkt metoden. Attributet använder bindnings informationen som parametrar. I det föregående exemplet har den första parametern ett **QueueTrigger** -attribut tillämpat, vilket indikerar att funktionen utlöses av kön. Könamnet och anslutnings strängens inställnings namn skickas som parametrar till attributet **QueueTrigger** . Mer information finns i [Azure Queue Storage-bindningar för Azure Functions](functions-bindings-storage-queue.md#trigger).
 
 Du kan använda proceduren ovan för att lägga till fler funktioner till ditt Function app-projekt. Varje funktion i projektet kan ha en annan utlösare, men en funktion måste ha exakt en utlösare. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
 

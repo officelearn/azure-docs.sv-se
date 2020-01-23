@@ -1,5 +1,5 @@
 ---
-title: Använda leveranstjänst för dynamisk DRM-krypteringstjänst
+title: Azure Media Services DRM-kryptering och licens leverans tjänst
 titleSuffix: Azure Media Services
 description: Lär dig hur du använder DRM Dynamic Encryption och licens leverans tjänsten för att leverera strömmar som är krypterade med Microsoft PlayReady-, Google Widevine-eller Apple FairPlay-licenser.
 services: media-services
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3d2dc7793c25fb20e267332beaa683f11ddcbfbb
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: bd5c026da27c68e249532b70629ba01afea655fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974078"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513073"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Självstudie: använda DRM dynamisk kryptering och licens leverans tjänst
 
@@ -70,7 +70,7 @@ Du hittar exemplet om att kryptera med DRM i mappen [EncryptWithDRM](https://git
 > [!NOTE]
 > Exemplet skapar unika resurser varje gång du kör appen. Normalt återanvänder du befintliga resurser som transformeringar och principer (om den befintliga resursen har obligatoriska konfigurationer).
 
-## <a name="start-using-media-services-apis-with-net-sdk"></a>Börja med att använda Media Services-API:er med .NET SDK
+## <a name="start-using-media-services-apis-with-net-sdk"></a>Börja använda API:er för Media Services med .NET SDK
 
 Du börjar använda Media Services API: er med .NET genom att skapa ett **AzureMediaServicesClient** -objekt. När du skapar objektet måste du ange de autentiseringsuppgifter som krävs för att klienten ska kunna ansluta till Azure med hjälp av Azure AD. I den kod som du har klonat i början av artikeln skapade funktionen **GetCredentialsAsync** objektet ServiceClientCredentials baserat på de autentiseringsuppgifter som anges i den lokala konfigurationsfilen.
 
@@ -150,7 +150,7 @@ ContentKeyIdentifierClaim används i ContentKeyPolicy, vilket innebär att den t
 
 ## <a name="build-a-streaming-url"></a>Bygg en strömmande URL
 
-Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna. Om du vill bygga en URL måste du sammanfoga [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) -värdnamnet och sökvägen för **strömmande lokalisering** . I det här exemplet används *standardvärdet* **Slutpunkt för direktuppspelning**. När du skapar ett Media Service-konto första gången kommer detta *standardvärde* för **StreamingEndpoint** vara i ett stoppat tillstånd, så du måste anropa **Starta**.
+Nu när [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) har skapats kan du hämta direktuppspelningswebbadresserna. Om du vill bygga en URL måste du sammanfoga [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) -värdnamnet och sökvägen för **strömmande lokalisering** . I det här exemplet används *standard* **slut punkten för direkt uppspelning** . När du först skapar ett media service-konto kommer den här *standard* **slut punkten för direkt uppspelning** vara i ett stoppat tillstånd, så du måste anropa **Start**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 

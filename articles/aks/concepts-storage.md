@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6c14f78fd3cefa5ec41a686ca385639eb3fcb67
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74913721"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549282"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Lagrings alternativ för program i Azure Kubernetes service (AKS)
 
@@ -40,7 +40,7 @@ Traditionella volymer för lagring och hämtning av data skapas som Kubernetes-r
 
 I Kubernetes kan volymer representera mer än bara en traditionell disk där information kan lagras och hämtas. Kubernetes-volymer kan också användas som ett sätt att mata in data i en POD för användning av behållarna. Vanliga ytterligare volym typer i Kubernetes är:
 
-- *emptyDir* – den här volymen används ofta som tillfälligt utrymme för en pod. Alla behållare i en POD kan komma åt data på volymen. Data som skrivs till den här volym typen behålls bara för livs längd för Pod – när Pod tas bort tas volymen bort. Den här volymen använder vanligt vis den underliggande disk lagringen för den lokala noden, men kan även finnas i nodens minne.
+- *emptyDir* – den här volymen används ofta som tillfälligt utrymme för en pod. Alla behållare i en POD kan komma åt data på volymen. Data som skrivs till den här volym typen behålls bara för livs längd för Pod – när Pod tas bort tas volymen bort. Den här volymen använder vanligt vis den underliggande disk lagringen för den lokala noden, men den kan också bara finnas i nodens minne.
 - *Secret* – den här volymen används för att mata in känsliga data i poddar, till exempel lösen ord. Du skapar först en hemlighet med Kubernetes-API: et. När du definierar din POD eller distribution kan du begära en speciell hemlighet. Hemligheter anges bara för noder som har en schemalagd Pod som kräver det, och hemligheten lagras i *tmpfs*, som inte skrivs till disk. När den sista Pod på en nod som kräver en hemlighet tas bort, tas hemligheten bort från nodens tmpfs. Hemligheter lagras inom ett angivet namn område och kan endast nås av poddar inom samma namnrymd.
 - *configMap* – den här volym typen används för att mata in egenskaper för nyckel värdes par i poddar, till exempel program konfigurations information. I stället för att definiera program konfigurations information i en behållar avbildning kan du definiera den som en Kubernetes-resurs som enkelt kan uppdateras och tillämpas på nya instanser av poddar när de distribueras. Precis som med en hemlighet skapar du först en ConfigMap med hjälp av Kubernetes-API: et. Den här ConfigMap kan sedan begäras när du definierar en POD eller distribution. ConfigMaps lagras inom ett angivet namn område och kan bara användas av poddar inom samma namnrymd.
 

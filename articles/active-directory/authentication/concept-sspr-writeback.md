@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 151e7b2ab091959c8b6c08d366318a49987aefd9
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6ddd7160a56a4529ee31c111f0e202ca235c71af
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848535"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544029"
 ---
 # <a name="what-is-password-writeback"></a>Vad är tillbakaskrivning av lösen ord?
 
@@ -164,7 +164,7 @@ Lösen ord skrivs *inte* tillbaka i någon av följande situationer:
    * En administratör som initierat återställning av lösen ord för slutanvändare från [Microsoft 365 administrations Center](https://admin.microsoft.com)
 
 > [!WARNING]
-> Om du använder kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala Active Directory administrations verktyg som Active Directory användare och datorer eller Active Directory Administrationscenter stöds som en förhands gransknings funktion i Azure AD Connect. Mer information finns i artikeln [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
+> Om du använder kryss rutan "användaren måste byta lösen ord vid nästa inloggning" i lokala Active Directory administrations verktyg som Active Directory användare och datorer eller Active Directory Administrationscenter stöds som en förhands gransknings funktion i Azure AD Connect. Mer information finns i artikeln [implementera hash-synkronisering av lösen ord med Azure AD Connect Sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon).
 
 ## <a name="next-steps"></a>Nästa steg
 

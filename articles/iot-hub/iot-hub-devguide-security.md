@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429313"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546953"
 ---
 # <a name="control-access-to-iot-hub"></a>Kontrollera åtkomst till IoT Hub
 
@@ -347,7 +347,7 @@ Resultatet, som skulle ge åtkomst för att läsa alla enhets identiteter, blir:
 
 ## <a name="supported-x509-certificates"></a>X. 509-certifikat som stöds
 
-Du kan använda valfritt X. 509-certifikat för att autentisera en enhet med IoT Hub genom att ladda upp antingen ett tumavtryck för certifikatet eller en certifikat utfärdare (CA) till Azure IoT Hub. Autentisering med certifikat tumavtrycken verifierar bara att det presenterade tumavtrycket matchar det konfigurerade tumavtrycket. Autentisering med certifikat utfärdare verifierar certifikat kedjan. 
+Du kan använda valfritt X. 509-certifikat för att autentisera en enhet med IoT Hub genom att ladda upp antingen ett tumavtryck för certifikatet eller en certifikat utfärdare (CA) till Azure IoT Hub. Autentisering med Certificate tumavtrycken verifierar att det presenterade tumavtrycket matchar det konfigurerade tumavtrycket. Autentisering med certifikat utfärdare verifierar certifikat kedjan. Oavsett hur kräver TLS-handskakning att enheten har ett giltigt certifikat och en privat nyckel. Se TLS-specifikationen för mer information, till exempel: [RFC 5246 – Transport Layer Security (TLS)-protokoll Version 1,2](https://tools.ietf.org/html/rfc5246/).
 
 Certifikat som stöds är:
 
@@ -461,6 +461,8 @@ Andra referens ämnen i IoT Hub Developer Guide är:
 * [IoT Hub frågespråk](iot-hub-devguide-query-language.md) beskriver frågespråket som du kan använda för att hämta information från IoT Hub om din enhets dubblare och jobb.
 
 * [IoT Hub MQTT-support](iot-hub-mqtt-support.md) innehåller mer information om IoT Hub-stöd för MQTT-protokollet.
+
+* [RFC 5246 – Transport Layer Security (TLS)-protokoll Version 1,2](https://tools.ietf.org/html/rfc5246/) innehåller mer information om TLS-autentisering.
 
 ## <a name="next-steps"></a>Nästa steg
 

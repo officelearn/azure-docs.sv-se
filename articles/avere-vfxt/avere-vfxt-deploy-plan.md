@@ -4,14 +4,14 @@ description: Förklarar hur du planerar att göra innan du distribuerar AVERT vF
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 5ffa28a0f6080b94bd47519df578fd15309dbab5
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: cd0c74c8aa40b3e96716ef37aa27b08b5f6aece1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153655"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547548"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planera för ditt Avere vFXT-system
 
@@ -175,6 +175,6 @@ Två inbyggda Azure-roller används för de AVERT vFXT virtuella datorerna:
 
 Om du behöver anpassa åtkomst roller för AVERT vFXT-komponenter måste du definiera en egen roll och sedan tilldela den till de virtuella datorerna när de skapas. Du kan inte använda distributions mal len i Azure Marketplace. Kontakta Microsofts kund tjänst och support genom att öppna ett ärende i Azure Portal enligt beskrivningen i [få hjälp med systemet](avere-vfxt-open-ticket.md).
 
-## <a name="next-step-understand-the-deployment-process"></a>Nästa steg: förstå distributions processen
+## <a name="next-steps"></a>Nästa steg
 
 [Distributions översikten](avere-vfxt-deploy-overview.md) ger en överblick över de steg som krävs för att skapa ett AVERT VFXT för Azure-systemet och bli redo att hantera data.

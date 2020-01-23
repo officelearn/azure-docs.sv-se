@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893067"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544165"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>För hands version – migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager
 
-Azure Active Directory Domain Services (AD DS) stöder en engångs flytt för kunder som för närvarande använder den klassiska virtuella nätverks modellen till den virtuella nätverks modellen i Resource Manager.
+Azure Active Directory Domain Services (AD DS) stöder en engångs flytt för kunder som för närvarande använder den klassiska virtuella nätverks modellen till den virtuella nätverks modellen i Resource Manager. Azure AD DS-hanterade domäner som använder distributions modellen för Resource Manager ger ytterligare funktioner, till exempel detaljerade lösen ords principer, gransknings loggar och konto utelåsnings skydd.
 
-Den här artikeln beskriver fördelarna och överväganden för migrering, och de steg som krävs för att migrera en befintlig Azure AD DS-instans. Den här funktionen är för närvarande en förhandsversion.
+Den här artikeln beskriver fördelarna och överväganden för migrering, och de steg som krävs för att migrera en befintlig Azure AD DS-instans. Den här funktionen för migrering är för närvarande en för hands version.
 
 ## <a name="overview-of-the-migration-process"></a>Översikt över migreringsprocessen
 
@@ -106,7 +106,7 @@ När du förbereder och sedan migrerar en Azure AD DS-hanterad domän finns det 
 
 ### <a name="ip-addresses"></a>IP-adresser
 
-Domänkontrollantens IP-adresser för en Azure AD DS-hanterad domän ändras efter migreringen. Detta omfattar den offentliga IP-adressen för den säkra LDAP-slutpunkten. De nya IP-adresserna ligger inom adress intervallet för det nya under nätet i det virtuella Resource Manager-nätverket.
+Domänkontrollantens IP-adresser för en Azure AD DS-hanterad domän ändras efter migreringen. Den här ändringen omfattar den offentliga IP-adressen för den säkra LDAP-slutpunkten. De nya IP-adresserna ligger inom adress intervallet för det nya under nätet i det virtuella Resource Manager-nätverket.
 
 Om återställningen skulle återställas kan IP-adresserna ändras efter att de återställts.
 
@@ -122,13 +122,13 @@ Azure AD DS-hanterade domäner som körs på klassiska virtuella nätverk har in
 
 Som standard är 5 dåliga lösen ords försök på 2 minuter att låsa ett konto i 30 minuter.
 
-Det går inte att logga in på ett utelåst konto, vilket kan störa möjligheten att hantera Azure AD DS-hanterad domän eller program som hanteras av kontot. När en Azure AD DS-hanterad domän har migrerats kan konton uppleva vad som verkar som en permanent utelåsning på grund av upprepade misslyckade försök att logga in. Två vanliga scenarier efter migreringen är följande:
+Det går inte att använda ett utelåst konto för att logga in, vilket kan störa möjligheten att hantera Azure AD DS-hanterad domän eller program som hanteras av kontot. När en Azure AD DS-hanterad domän har migrerats kan konton uppleva vad som verkar som en permanent utelåsning på grund av upprepade misslyckade försök att logga in. Två vanliga scenarier efter migreringen är följande:
 
 * Ett tjänst konto som använder ett lösen ord som har upphört att gälla.
     * Tjänst kontot försöker upprepade gånger logga in med ett lösen ord som har upphört att gälla, vilket låser ut kontot. Åtgärda detta genom att leta upp programmet eller den virtuella datorn med inaktuella autentiseringsuppgifter och uppdatera lösen ordet.
 * En skadlig entitet använder brute-force-försök för att logga in på konton.
     * När virtuella datorer exponeras för Internet försöker angripare ofta använda vanliga användar namn och lösen ord när de försöker signera. Dessa upprepade misslyckade inloggnings försök kan låsa kontona. Du bör inte använda administratörs konton med generiska namn som *administratör* eller *administratör*, till exempel för att minimera administrativa konton från att låsas upp.
-    * Minimera antalet virtuella datorer som exponeras för Internet. Du kan använda [Azure-skydds (för närvarande i för hands version)][azure-bastion] för att på ett säkert sätt ansluta till virtuella datorer med hjälp av Azure Portal.
+    * Minimera antalet virtuella datorer som exponeras för Internet. Du kan använda [Azure-skydds][azure-bastion] för att på ett säkert sätt ansluta till virtuella datorer med hjälp av Azure Portal.
 
 Om du misstänker att vissa konton kan vara utelåsta efter migreringen beskriver du de slutliga stegen för att aktivera granskning eller ändra detaljerade lösen ords princip inställningar.
 
@@ -164,11 +164,11 @@ Migreringen till distributions modellen för Resource Manager och det virtuella 
 
 ## <a name="update-and-verify-virtual-network-settings"></a>Uppdatera och verifiera inställningarna för virtuella nätverk
 
-Innan du påbörjar migreringen slutför du följande inledande kontroller och uppdateringar. De här stegen kan inträffa när som helst innan migreringen och påverkar inte hanteringen av den hanterade domänen i Azure AD DS.
+Innan du påbörjar migreringsprocessen slutför du följande inledande kontroller och uppdateringar. De här stegen kan inträffa när som helst innan migreringen och påverkar inte hanteringen av den hanterade domänen i Azure AD DS.
 
 1. Uppdatera din lokala Azure PowerShell-miljö till den senaste versionen. Du måste ha minst version *2.3.2*för att slutföra migreringen.
 
-    Information om hur du kontrollerar och uppdaterar finns i [Azure PowerShell översikt][azure-powershell].
+    Information om hur du kontrollerar och uppdaterar din PowerShell-version finns i [Azure PowerShell översikt][azure-powershell].
 
 1. Skapa eller Välj ett befintligt virtuellt Resource Manager-nätverk.
 
@@ -210,7 +210,8 @@ Slutför följande steg för att förbereda den Azure AD DS-hanterade domänen f
 
     ```powershell
     Migrate-Aadds `
-        -Prepare -ManagedDomainFqdn contoso.com `
+        -Prepare `
+        -ManagedDomainFqdn contoso.com `
         -Credentials $creds
     ```
 
@@ -273,27 +274,27 @@ Den andra domänkontrollanten bör vara tillgänglig 1-2 timmar efter att migrer
 
 När migreringen har slutförts, inkluderar vissa valfria konfigurations steg aktivering av gransknings loggar eller e-postmeddelanden eller uppdatering av detaljerade lösen ords principer.
 
-#### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Prenumerera på gransknings loggar med Azure Monitor
+### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Prenumerera på gransknings loggar med Azure Monitor
 
 Azure AD DS exponerar gransknings loggar för att hjälpa till att felsöka och Visa händelser på domän kontrol Lanterna. Mer information finns i [Aktivera och använda gransknings loggar][security-audits].
 
 Du kan använda mallar för att övervaka viktig information som visas i loggarna. Till exempel kan mallen för gransknings logg boken övervaka möjliga konto utelåsning på den hanterade domänen i Azure AD DS.
 
-#### <a name="configure-azure-ad-domain-services-email-notifications"></a>Konfigurera Azure AD Domain Services e-postaviseringar
+### <a name="configure-azure-ad-domain-services-email-notifications"></a>Konfigurera Azure AD Domain Services e-postaviseringar
 
 Om du vill få ett meddelande när ett problem upptäcks i den hanterade domänen i Azure AD DS uppdaterar du inställningarna för e-postaviseringar i Azure Portal. Mer information finns i [Konfigurera meddelande inställningar][notifications].
 
-#### <a name="update-fine-grained-password-policy"></a>Uppdatera principen för detaljerad lösen ords princip
+### <a name="update-fine-grained-password-policy"></a>Uppdatera principen för detaljerad lösen ords princip
 
 Vid behov kan du uppdatera den detaljerade lösen ords principen så att den är mindre restriktiv än standard konfigurationen. Du kan använda gransknings loggarna för att avgöra om en mindre begränsande inställning är meningsfull och sedan konfigurera principen efter behov. Använd följande övergripande steg för att granska och uppdatera princip inställningarna för konton som är upprepade gånger utlåst efter migreringen:
 
 1. [Konfigurera lösen ords principen][password-policy] för färre begränsningar på den hanterade domänen i Azure AD DS och titta på händelserna i gransknings loggarna.
 1. Om några tjänst konton använder utgångna lösen ord som identifieras i gransknings loggarna uppdaterar du dessa konton med rätt lösen ord.
-1. Om den virtuella datorn exponeras för Internet kan du läsa om allmänna konto namn som *administratör*, *användare*eller *gäst* med höga inloggnings försök. Uppdatera om möjligt de virtuella datorerna så att de använder mindre generiska, namngivna konton.
-1. Använd ett nätverks spår på den virtuella datorn för att hitta källan till angrepp och blockera dessa IP-adresser för att kunna försöka logga in.
+1. Om en virtuell dator exponeras för Internet kan du läsa om allmänna konto namn som *administratör*, *användare*eller *gäst* med höga inloggnings försök. Uppdatera om möjligt de virtuella datorerna så att de använder mindre generiska, namngivna konton.
+1. Använd ett nätverks spår på den virtuella datorn för att hitta källan till angreppen och blockera de här IP-adresserna från att kunna försöka logga in.
 1. Om det uppstår minimala problem med utelåsning bör du uppdatera den detaljerade lösen ords principen så restriktivt som det behövs.
 
-#### <a name="creating-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
+### <a name="creating-a-network-security-group"></a>Skapa en nätverkssäkerhetsgrupp
 
 Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som behövs för den hanterade domänen och blockera all annan inkommande trafik. Den här nätverks säkerhets gruppen fungerar som ett extra skydds lager för att låsa åtkomsten till den hanterade domänen och skapas inte automatiskt. Granska följande steg för att skapa nätverks säkerhets gruppen och öppna de portar som krävs:
 
@@ -301,6 +302,8 @@ Azure AD DS behöver en nätverks säkerhets grupp för att skydda de portar som
 1. Om du använder säker LDAP lägger du till en regel i nätverks säkerhets gruppen för att tillåta inkommande trafik för *TCP* -port *636*. Mer information finns i [Konfigurera säker LDAP][secure-ldap].
 
 ## <a name="roll-back-and-restore-from-migration"></a>Återställa och återställa från migrering
+
+Upp till en viss tidpunkt i migreringsprocessen kan du välja att återställa eller återställa den hanterade domänen i Azure AD DS.
 
 ### <a name="roll-back"></a>Återställ
 

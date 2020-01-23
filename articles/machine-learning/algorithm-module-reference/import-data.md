@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: f3a1bf518b8ef122e2df64f2815c8885929b127d
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 161c6816bbef31142c576f52fd122d9dd8af7883
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166775"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546664"
 ---
 # <a name="import-data-module"></a>Importera datamodul
 
@@ -78,7 +78,7 @@ Om dina källdata ändras kan du uppdatera data uppsättningen och lägga till n
 
 När importen är klar klickar du på data uppsättningen för utdata och väljer **visualisera** för att se om data har importer ATS korrekt.
 
-Om du vill spara data för åter användning i stället för att importera en ny data uppsättning varje gång pipelinen körs, högerklickar du på utdata och väljer **Spara som data uppsättning**. Välj ett namn för data uppsättningen. Den sparade data uppsättningen bevarar data vid tidpunkten för Spara och data uppdateras inte när pipelinen körs igen, även om data uppsättningen i pipelinen ändras. Detta kan vara praktiskt när du vill ta ögonblicks bilder av data.
+Om du vill spara data för åter användning i stället för att importera en ny data uppsättning varje gång pipelinen körs väljer du ikonen **registrera data uppsättning** under fliken **utdata** i den högra panelen i modulen. Välj ett namn för data uppsättningen. Den sparade data uppsättningen bevarar data vid tidpunkten för att spara. data uppsättningen uppdateras inte när pipelinen körs igen, även om data uppsättningen i pipelinen ändras. Detta kan vara användbart för att ta ögonblicks bilder av data.
 
 När du har importerat data kan det behövas ytterligare förberedelser för modellering och analys:
 

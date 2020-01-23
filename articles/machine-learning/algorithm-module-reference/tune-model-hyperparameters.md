@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: 4dd2cd89e8edb4e636bf46d2a8125a0f1d00f2f3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d15da0c0cb00f640d2ffc647475f66b76119f609
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312251"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548381"
 ---
 # <a name="tune-model-hyperparameters"></a>Finjustera hyperparametrar för modell
 
-I den här artikeln beskrivs hur du använder modulen för att finjustera modells parametrar i Azure Machine Learning designer. Målet är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
+I den här artikeln beskrivs hur du använder modulen finjustera modells för hands parametrar i Azure Machine Learning designer (för hands version). Målet är att fastställa de optimala egenskaperna för en maskin inlärnings modell. Modulen bygger och testar flera modeller genom att använda olika kombinationer av inställningar. Den jämför mått över alla modeller för att hämta kombinationer av inställningar. 
 
 Villkors *parametern* och den andra *parametern* kan vara förvirrande. Modellens *parametrar* är det du anger i rutan Egenskaper. I princip utför den här modulen en *parameter rensning* över de angivna parameter inställningarna. Den lär sig en optimal uppsättning av _grundparametrar_, som kan vara olika för varje särskilt besluts träd, data uppsättning eller Regressions metod. Processen för att hitta den optimala konfigurationen kallas ibland *justering*. 
 

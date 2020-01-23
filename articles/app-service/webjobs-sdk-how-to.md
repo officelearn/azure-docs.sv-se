@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2d9de5e7294fdca7514989ba009e9dee8985a084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421965"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549095"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Använda Azure WebJobs SDK för händelse driven bakgrunds bearbetning
 
@@ -681,8 +681,8 @@ Mer information finns i [bindning vid körning](../azure-functions/functions-dot
 Azure Functions-dokumentationen innehåller referensinformation om varje bindnings typ. Du hittar följande information i varje bindnings referens artikel. (Det här exemplet baseras på lagrings kön.)
 
 * [Paket](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). Paketet du måste installera för att inkludera stöd för bindningen i ett WebJobs SDK-projekt.
-* [Exempel](../azure-functions/functions-bindings-storage-queue.md#trigger---example). Kod exempel. Exempel C# på klass bibliotek gäller för WebJobs SDK. Uteslut bara attributet `FunctionName`.
-* [Attribut](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes). De attribut som ska användas för bindnings typen.
+* [Exempel](../azure-functions/functions-bindings-storage-queue.md#trigger). Kod exempel. Exempel C# på klass bibliotek gäller för WebJobs SDK. Uteslut bara attributet `FunctionName`.
+* [Attribut](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). De attribut som ska användas för bindnings typen.
 * [Konfiguration](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). Förklaringar av attributets egenskaper och parametrar för konstruktorn.
 * [Användning](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). Typerna som du kan binda till och information om hur bindningen fungerar. Exempel: avsöknings algoritm, bearbetning av Poison-köer.
   

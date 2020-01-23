@@ -4,30 +4,27 @@ description: Lär dig hur du integrerar med Azure-brandväggen för att skydda u
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 08/31/2019
+ms.date: 01/14/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687220"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513360"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Låsa en App Service-miljön
 
 App Service-miljön (ASE) har ett antal externa beroenden som krävs för åtkomst till för att fungera korrekt. ASE finns i kundens Azure-Virtual Network (VNet). Kunderna måste tillåta ASE-beroende trafik, vilket är ett problem för kunder som vill låsa upp alla utgående data från sitt VNet.
 
-Det finns ett antal inkommande beroenden som en ASE har. Inkommande hanterings trafik kan inte skickas via en brand Väggs enhet. Käll adresserna för den här trafiken är kända och publiceras i dokumentet för [App Service-miljön hanterings adresser](https://docs.microsoft.com/azure/app-service/environment/management-addresses) . Du kan skapa regler för nätverks säkerhets grupper med den informationen för att skydda inkommande trafik.
+Det finns ett antal inkommande slut punkter som används för att hantera en ASE. Inkommande hanterings trafik kan inte skickas via en brand Väggs enhet. Käll adresserna för den här trafiken är kända och publiceras i dokumentet för [App Service-miljön hanterings adresser](https://docs.microsoft.com/azure/app-service/environment/management-addresses) . Det finns också en service-tagg med namnet AppServiceManagement som kan användas med nätverks säkerhets grupper (NSG: er) för att skydda inkommande trafik.
 
-ASE utgående beroenden är nästan helt definierade med FQDN, som inte har statiska adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper (NSG: er) inte kan användas för att låsa utgående trafik från en ASE. Adresserna ändras ofta nog för att det inte går att skapa regler baserat på den aktuella upplösningen och använda den för att skapa NSG: er. 
+ASE utgående beroenden är nästan helt definierade med FQDN, som inte har statiska adresser bakom dem. Bristen på statiska adresser innebär att nätverks säkerhets grupper inte kan användas för att låsa utgående trafik från en ASE. Adresserna ändras ofta nog för att det inte går att skapa regler baserat på den aktuella upplösningen och använda den för att skapa NSG: er. 
 
 Lösningen för att skydda utgående adresser är att använda en brand Väggs enhet som kan styra utgående trafik baserat på domän namn. Azure-brandväggen kan begränsa utgående HTTP-och HTTPS-trafik baserat på målets FQDN.  
 
-> [!NOTE]
-> För närvarande går det inte att helt kunna låsning av utgående anslutningar.
-
-## <a name="system-architecture"></a>System arkitektur
+## <a name="system-architecture"></a>Systemarkitektur
 
 Distribution av en ASE med utgående trafik som går via en brand Väggs enhet kräver ändring av vägar i ASE-undernätet. Vägar använder en IP-nivå. Om du inte är försiktig med att definiera dina vägar kan du tvinga TCP-svars trafik till källa från en annan adress. När din svars adress skiljer sig från den adress trafik som skickades till, kallas problemet för asymmetrisk Routning och den kommer att avbryta TCP.
 
@@ -42,6 +39,12 @@ Trafiken till och från en ASE måste följa följande konventioner
 
 ![ASE med anslutnings flöde för Azure-brandväggen][5]
 
+## <a name="locking-down-inbound-management-traffic"></a>Låsa inkommande hanterings trafik
+
+Om ASE-undernätet inte redan har en tilldelad NSG, skapar du ett. I NSG anger du den första regeln för att tillåta trafik från tjänst tag gen med namnet AppServiceManagement på portarna 454, 455. Detta är allt som krävs från offentliga IP-adresser för att hantera din ASE. De adresser som ligger bakom den service tag gen används bara för att administrera Azure App Service. Den hanterings trafik som flödar genom dessa anslutningar krypteras och skyddas med certifikat för autentisering. Vanlig trafik i den här kanalen innehåller sådant som kunders initierade kommandon och hälso avsökningar. 
+
+ASE som görs via portalen med ett nytt undernät görs med en NSG som innehåller regeln Allow för AppServiceManagement-taggen.  
+
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Konfigurera Azure-brandväggen med din ASE 
 
 De steg som krävs för att låsa utgående från din befintliga ASE med Azure Firewall är:
@@ -51,14 +54,19 @@ De steg som krävs för att låsa utgående från din befintliga ASE med Azure F
    ![Välj tjänst slut punkter][2]
   
 1. Skapa ett undernät med namnet AzureFirewallSubnet i det virtuella nätverk där din ASE finns. Följ anvisningarna i dokumentationen för [Azure-brandväggen](https://docs.microsoft.com/azure/firewall/) för att skapa din Azure-brandvägg.
+
 1. Välj Lägg till program regel samling i Azure Firewall UI > regler > program regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet FQDN-Taggar anger du ett namn, anger käll adresserna till * och väljer App Service-miljön FQDN-tagg och Windows Update. 
    
    ![Lägg till program regel][1]
    
-1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler anger du ett namn, väljer **valfri**, anger * till käll-och mål adresser och anger portarna till 123. Med den här regeln kan systemet utföra klock synkronisering med NTP. Skapa en annan regel på samma sätt som port 12000 för att hjälpa prioritering eventuella system problem.
+1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler under IP-adresser anger du ett namn, väljer en ptocol av **valfri**, anger * till käll-och mål adresser och anger portarna till 123. Med den här regeln kan systemet utföra klock synkronisering med NTP. Skapa en annan regel på samma sätt som port 12000 för att hjälpa prioritering eventuella system problem. 
 
    ![Lägg till NTP-nätverksanslutning][3]
+   
+1. I användar gränssnittet för Azure-brandväggen > regler > nätverks regel samling väljer du Lägg till nätverks regel samling. Ange ett namn, prioritet och ange Tillåt. I avsnittet regler under tjänst Taggar anger du ett namn, väljer ett protokoll för **alla**, anger * till käll adresser, väljer en service tag-AzureMonitor och anger portarna till 80 443. Med den här regeln kan systemet tillhandahålla Azure Monitor med hälso-och mät information.
 
+   ![Lägg till en NTP-tjänstinstans för service tag-regler][6]
+   
 1. Skapa en routningstabell med hanterings adresserna från [App Service-miljön hanterings adresser]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) med nästa hopp på Internet. Posterna i routningstabellen krävs för att undvika problem med asymmetrisk routning. Lägg till vägar för IP-adresserna som anges nedan i IP-adress beroenden med nästa hopp på Internet. Lägg till en virtuell installations väg i routningstabellen för 0.0.0.0/0 med nästa hopp som din Azure Firewall-privata IP-adress. 
 
    ![Skapa en routningstabell][4]
@@ -112,7 +120,7 @@ Följande information krävs bara om du vill konfigurera en annan brand vägg ä
 
 | Slutpunkt | Information |
 |----------| ----- |
-| \*: 123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
+| \*:123 | Kontroll av NTP-klocka. Trafiken kontrol leras på flera slut punkter på port 123 |
 | \*: 12000 | Den här porten används för viss system övervakning. Om den blockeras kommer vissa problem att vara svårare att prioritering, men ASE kommer att fortsätta att arbeta |
 | 40.77.24.27:80 | Krävs för att övervaka och varna för ASE-problem |
 | 40.77.24.27:443 | Krävs för att övervaka och varna för ASE-problem |
@@ -210,10 +218,10 @@ Med en Azure-brandvägg får du automatiskt allt nedan konfigurerat med FQDN-tag
 
 | Slutpunkt |
 |----------|
-|gr-Prod-\*. cloudapp.net:443 |
-| \*. management.azure.com:443 |
-| \*. update.microsoft.com:443 |
-| \*. windowsupdate.microsoft.com:443 |
+|gr-Prod-\*.cloudapp.net:443 |
+| \*.management.azure.com:443 |
+| \*.update.microsoft.com:443 |
+| \*.windowsupdate.microsoft.com:443 |
 | \*. identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux-beroenden 
@@ -248,7 +256,25 @@ Med en Azure-brandvägg får du automatiskt allt nedan konfigurerat med FQDN-tag
 
 ## <a name="us-gov-dependencies"></a>US Gov beroenden
 
-För US Gov behöver du fortfarande ange tjänstens slut punkter för lagring, SQL och Event Hub.  Du kan också använda Azure-brandväggen med instruktionerna tidigare i det här dokumentet. Om du behöver använda din egen utgående brand Väggs enhet visas slut punkterna nedan.
+För ASE i US Gov regioner följer du anvisningarna i avsnittet [Konfigurera Azure-brandväggen med ditt ASE](https://docs.microsoft.com/azure/app-service/environment/firewall-integration#configuring-azure-firewall-with-your-ase) i det här dokumentet för att konfigurera en Azure-brandvägg med din ASE.
+
+Om du vill använda en annan enhet än Azure-brandväggen i US Gov 
+
+* Tjänst slut punkts tjänster som stöder tjänster måste konfigureras med tjänst slut punkter.
+* FQDN HTTP/HTTPS-slutpunkter kan placeras i brand Väggs enheten.
+* HTTP/HTTPS-slutpunkter med jokertecken är beroenden som kan variera med din ASE baserat på ett antal kvalificerare.
+
+Linux är inte tillgängligt i US Gov regioner och anges därför inte som en valfri konfiguration.
+
+#### <a name="service-endpoint-capable-dependencies"></a>Tjänst slut punkt kompatibla beroenden ####
+
+| Slutpunkt |
+|----------|
+| Azure SQL |
+| Azure Storage |
+| Azure Event Hub |
+
+#### <a name="dependencies"></a>Beroenden ####
 
 | Slutpunkt |
 |----------|
@@ -312,7 +338,7 @@ För US Gov behöver du fortfarande ange tjänstens slut punkter för lagring, S
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
 |\*. management.usgovcloudapi.net:443 |
-|\*. update.microsoft.com:443 |
+|\*.update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -375,3 +401,4 @@ För US Gov behöver du fortfarande ange tjänstens slut punkter för lagring, S
 [3]: ./media/firewall-integration/firewall-ntprule.png
 [4]: ./media/firewall-integration/firewall-routetable.png
 [5]: ./media/firewall-integration/firewall-topology.png
+[6]: ./media/firewall-integration/firewall-ntprule-monitor.png

@@ -1,18 +1,18 @@
 ---
 title: Händelse domäner i Azure Event Grid
-description: Beskriver hur händelse domäner används för att hantera ämnen i Azure Event Grid.
+description: Den här artikeln beskriver hur du använder händelse domäner för att hantera flödet av anpassade händelser till olika affärs organisationer, kunder eller program.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: ef0a9213d095d0b7ae4343e2af145236a7e005a1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.date: 01/21/2020
+ms.openlocfilehash: df560df21740d5396bc177e20de5d0eb4bf47713
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68305413"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511390"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Förstå händelse domäner för att hantera Event Grid ämnen
 
@@ -39,7 +39,7 @@ Du får också en enda slut punkt, som du kan publicera alla kund händelser til
 
 ![Exempel på Contoso-konstruktion](./media/event-domains/contoso-construction-example.png)
 
-## <a name="access-management"></a>Åtkomst hantering
+## <a name="access-management"></a>Åtkomsthantering
 
 Med en domän får du detaljerad auktorisering och verifierings kontroll över varje ämne via Azures rollbaserad åtkomst kontroll (RBAC). Du kan använda dessa roller för att begränsa varje klient i ditt program till endast de ämnen som du vill ge dem åtkomst till.
 
@@ -65,7 +65,7 @@ När du skapar en händelse domän får du en publicerings slut punkt som liknar
 
 Om du vill publicera händelser till ett ämne i en händelse domän, pusha händelserna till domänens slut punkt på [samma sätt som du skulle göra för ett anpassat ämne](./post-to-custom-topic.md). Den enda skillnaden är att du måste ange det ämne som du vill att händelsen ska leverera till.
 
-Exempel: om du publicerar följande händelse mat ris `"id": "1111"` skickas händelse med till ämne `foo` medan händelsen med `"id": "2222"` skulle skickas till ämnet `bar`:
+Exempel: om du publicerar följande händelse mat ris skickas händelsen med `"id": "1111"` till ämnet `foo` medan händelsen med `"id": "2222"` skulle skickas till ämnet `bar`:
 
 ```json
 [{
@@ -105,10 +105,10 @@ Här följer de gränser och kvoter som rör händelse domäner:
 - 50 domän omfångs prenumerationer 
 - antal 5 000 händelser per sekund (till en domän)
 
-Om dessa begränsningar inte passar dig kan du kontakta produkt teamet genom att öppna ett support ärende eller genom att skicka ett e [askgrid@microsoft.com](mailto:askgrid@microsoft.com)-postmeddelande till. 
+Om dessa begränsningar inte passar dig kan du kontakta produkt teamet genom att öppna ett support ärende eller genom att skicka ett e-postmeddelande till [askgrid@microsoft.com](mailto:askgrid@microsoft.com). 
 
 ## <a name="pricing"></a>Prissättning
-Händelse domäner använder samma Operations- [prissättning](https://azure.microsoft.com/pricing/details/event-grid/) som alla andra funktioner i Event Grid använda.
+Händelse domäner använder samma [Operations-prissättning](https://azure.microsoft.com/pricing/details/event-grid/) som alla andra funktioner i Event Grid använda.
 
 Åtgärder fungerar på samma sätt i händelse domäner som i anpassade ämnen. Varje ingress av en händelse till en händelse domän är en åtgärd, och varje leverans försök för en händelse är en åtgärd.
 

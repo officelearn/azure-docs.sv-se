@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 9978bd567b1b07e8dd0e22e1f02834626281a5dd
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 83c57b27c1cd1d524805a92381a1ba9eb2e1fbd6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920668"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549044"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions på Kubernetes med KEDA
 
@@ -26,15 +26,9 @@ Kubernetes-baserade funktioner tillhandahåller Functions-körning i en [Docker-
 
 Om du vill köra funktioner i ditt Kubernetes-kluster måste du installera KEDA-komponenten. Du kan installera den här komponenten med hjälp av [Azure Functions Core tools](functions-run-local.md).
 
-### <a name="installing-with-the-azure-functions-core-tools"></a>Installera med Azure Functions Core Tools
+### <a name="installing-with-helm"></a>Installera med Helm
 
-Som standard installerar kärn verktyg både KEDA-och Osiris-komponenter, som stöder händelse driven respektive HTTP-skalning.  Installationen använder `kubectl` som körs i den aktuella kontexten.
-
-Installera KEDA i klustret genom att köra följande installations kommando:
-
-```cli
-func kubernetes install --namespace keda
-```
+Det finns olika sätt att installera KEDA i ett Kubernetes-kluster inklusive Helm.  Distributions alternativen finns dokumenterade på [KEDA-webbplatsen](https://keda.sh/deploy/).
 
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Distribuera en Function-app till Kubernetes
 
@@ -73,11 +67,7 @@ kubectl delete secret <name-of-function-deployment>
 
 ## <a name="uninstalling-keda-from-kubernetes"></a>Avinstallerar KEDA från Kubernetes
 
-Du kan köra följande Core tools-kommando för att ta bort KEDA från ett Kubernetes-kluster:
-
-```cli
-func kubernetes remove --namespace keda
-```
+Steg för att avinstallera KEDA dokumenteras [på KEDA-webbplatsen](https://keda.sh/deploy/).
 
 ## <a name="supported-triggers-in-keda"></a>Utlösare som stöds i KEDA
 
@@ -91,7 +81,7 @@ KEDA har stöd för följande Azure Function-utlösare:
 
 ### <a name="http-trigger-support"></a>Stöd för HTTP-utlösare
 
-Du kan använda Azure Functions som exponerar HTTP-utlösare, men KEDA inte direkt hanterar dem.  Azure Functions Core Tools installerar ett relaterat projekt, Osiris, som möjliggör skalning av HTTP-slutpunkter från 0 till 1.  Skalning från 1 till *n* förlitar sig på traditionella skalnings principer för Kubernetes.
+Du kan använda Azure Functions som exponerar HTTP-utlösare, men KEDA inte direkt hanterar dem.  Du kan utnyttja KEDA Prometheus-utlösaren för att [skala HTTP-Azure Functions från 1 till *n* instanser](https://dev.to/anirudhgarg_99/scale-up-and-down-a-http-triggered-function-app-in-kubernetes-using-keda-4m42).
 
 ## <a name="next-steps"></a>Efterföljande moment
 Mer information finns i följande resurser:

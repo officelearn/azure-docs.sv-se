@@ -8,12 +8,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12c5bf66de966faf8dc31c7265fdfb0180a95323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bea00f429f31f2be62ee6a9c00f88873c595d94c
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970832"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509826"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Lagra data på gränsen med Azure Blob Storage på IoT Edge
 
@@ -85,7 +85,6 @@ Namnet på den här inställningen är `deviceToCloudUploadProperties`. Om du an
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Gör att du kan ange de behållar namn som du vill överföra till Azure. Med den här modulen kan du ange namn på både käll-och mål behållare. Om du inte anger namnet på mål behållaren tilldelas behållar namnet automatiskt som `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. Du kan skapa mall strängar för mål behållar namn, se kolumnen möjliga värden. <br>*% h – > IoT Hub namn (3-50 tecken). <br>*% d-> IoT Edge enhets-ID (1 till 129 tecken). <br>*% m – > modulens namn (1 till 64 tecken). <br>*% c – > käll behållar namn (3 till 63 tecken). <br><br>Den maximala storleken på behållar namnet är 63 tecken och tilldelar mål behållar namnet automatiskt om storleken på containern överskrider 63 tecken så trimmas varje avsnitt (IoTHubName, IotEdgeDeviceID, Modulnamn, SourceContainerName) till 15 tabbtecken. <br><br> Miljö variabel: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | SANT, FALSKT | Ange till `false` som standard. När den är inställd på `true`tas data bort automatiskt när överföringen till moln lagringen är färdig. <br><br> **Varning**! om du använder tillägg för att lägga till blobar, kommer den här inställningen att ta bort tillägg till blobar från lokal lagring efter en lyckad uppladdning, och eventuella framtida tillägg till block-åtgärder till dessa blobbar kommer att Miss lyckas. Använd den här inställningen med försiktighet, aktivera inte detta om ditt program inte har några frekventa tillägg eller inte stöder kontinuerliga tillägg-åtgärder<br><br> Miljö variabel: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
 
-
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
 Namnet på den här inställningen är `deviceAutoDeleteProperties`. Om du använder IoT Edge simulatorn ställer du in värdena på de relaterade miljövariablerna för dessa egenskaper, som du hittar i förklarings avsnittet.
@@ -97,6 +96,7 @@ Namnet på den här inställningen är `deviceAutoDeleteProperties`. Om du anvä
 | retainWhileUploading | SANT, FALSKT | Som standard är den inställd på `true`, och den behåller blobben medan den laddas upp till moln lagring om deleteAfterMinutes upphör att gälla. Du kan ange att den ska `false` och att den tar bort data så snart som deleteAfterMinutes går ut. Obs: för att den här egenskapen ska fungera måste uploadOn anges till sant.  <br><br> **Varning!** om du använder tillägg för att lägga till blobar kommer den här inställningen att ta bort tillägg till blobar från lokal lagring när värdet upphör att gälla, och eventuella framtida tilläggs block åtgärder till dessa blobar Miss kommer. Du kanske vill kontrol lera att värdet för förfallo datum är tillräckligt stort för den förväntade frekvensen för att lägga till åtgärder som utförs av ditt program.<br><br> Miljö variabel: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>Använda SMB-resurs som lokal lagring
+
 Du kan ange SMB-resurs som din lokala lagrings Sök väg när du distribuerar Windows-behållare för den här modulen på Windows-värden.
 
 Kontrol lera att SMB-resursen och IoT-enheten finns i ömsesidigt betrodda domäner.
@@ -104,48 +104,58 @@ Kontrol lera att SMB-resursen och IoT-enheten finns i ömsesidigt betrodda domä
 Du kan köra `New-SmbGlobalMapping` PowerShell-kommandot för att mappa SMB-resursen lokalt på IoT-enheten som kör Windows.
 
 Nedan visas konfigurations stegen:
+
 ```PowerShell
 $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
-Exempel: <br>
-`$creds = Get-Credential` <br>
-`New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:`
 
-Det här kommandot använder autentiseringsuppgifterna för att autentisera med fjärr-SMB-servern. Mappa sedan sökvägen till fjär resursen till G: enhets beteckningen (kan vara en annan tillgänglig enhets beteckning). IoT-enheten har nu data volymen mappad till en sökväg på enheten G:. 
+Ett exempel:
+
+```powershell
+$creds = Get-Credential
+New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G:
+```
+
+Det här kommandot använder autentiseringsuppgifterna för att autentisera med fjärr-SMB-servern. Mappa sedan sökvägen till fjär resursen till G: enhets beteckningen (kan vara en annan tillgänglig enhets beteckning). IoT-enheten har nu data volymen mappad till en sökväg på enheten G:.
 
 Se till att användaren i IoT-enheten kan läsa och skriva till fjärr-SMB-resursen.
 
-För distributionen kan värdet för `<storage mount>` vara **G:/ContainerData: C:/BlobRoot**. 
+För distributionen kan värdet för `<storage mount>` vara **G:/ContainerData: C:/BlobRoot**.
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Bevilja katalog åtkomst till behållar användare i Linux
+
 Om du har använt [volym montering](https://docs.docker.com/storage/volumes/) för lagring i dina alternativ för att skapa en Linux-behållare behöver du inte göra några ytterligare steg, men om du använde [BIND Mount](https://docs.docker.com/storage/bind-mounts/) krävs dessa steg för att köra tjänsten på rätt sätt.
 
-Enligt principen om minsta behörighet för att begränsa åtkomst behörigheterna för användare till minimalt minimal behörighet som de behöver för att utföra sitt arbete, innehåller den här modulen en användare (namn: absie, ID: 11000) och en användar grupp (namn: absie, ID: 11000). Om behållaren har startats som **rot** (standard användare är **rot**), startas tjänsten som **absie** användare med låg behörighet. 
+Enligt principen om minsta behörighet för att begränsa åtkomst behörigheterna för användare till minimalt minimal behörighet som de behöver för att utföra sitt arbete, innehåller den här modulen en användare (namn: absie, ID: 11000) och en användar grupp (namn: absie, ID: 11000). Om behållaren har startats som **rot** (standard användare är **rot**), startas tjänsten som **absie** användare med låg behörighet.
 
 Det här beteendet gör att konfigurationen av behörigheterna för värdsökväg binder är avgörande för att tjänsten ska fungera korrekt, annars kraschar tjänsten med åtkomst nekade fel. Den sökväg som används i katalog bindningen måste vara tillgänglig för behållar användaren (exempel: absie 11000). Du kan bevilja behållar användaren åtkomst till katalogen genom att köra kommandona nedan på värden:
 
 ```terminal
-sudo chown -R 11000:11000 <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R 11000:11000 <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
-Exempel:<br>
-`sudo chown -R 11000:11000 /srv/containerdata` <br>
-`sudo chmod -R 700 /srv/containerdata`
+Ett exempel:
 
+```terminal
+sudo chown -R 11000:11000 /srv/containerdata
+sudo chmod -R 700 /srv/containerdata
+```
 
 Om du behöver köra tjänsten som en annan användare än **absie**kan du ange ditt anpassade användar-ID i createOptions under egenskapen User i distributions manifestet. I så fall måste du använda standard-eller rot grupp-ID `0`.
 
 ```json
-"createOptions": { 
-  "User": "<custom user ID>:0" 
-} 
+"createOptions": {
+  "User": "<custom user ID>:0"
+}
 ```
+
 Bevilja nu behållar användaren åtkomst till katalogen
+
 ```terminal
-sudo chown -R <user ID>:<group ID> <blob-dir> 
-sudo chmod -R 700 <blob-dir> 
+sudo chown -R <user ID>:<group ID> <blob-dir>
+sudo chmod -R 700 <blob-dir>
 ```
 
 ## <a name="configure-log-files"></a>Konfigurera loggfiler
@@ -158,11 +168,11 @@ Du kan använda kontonamnet och nyckeln för att du har konfigurerat att få åt
 
 Ange din IoT Edge-enhet som blob-slutpunkt för lagring av alla begäranden som du gör. Du kan [skapa en anslutningssträng för en slutpunkt för lagring av explicita](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) med hjälp av informationen i IoT Edge och kontonamnet som du har konfigurerat.
 
-- För moduler som distribueras på samma enhet som Azure-Blob Storage på IoT Edge modul körs, är BLOB-slutpunkten: `http://<module name>:11002/<account name>`.
-- För moduler eller program som körs på en annan enhet måste du välja rätt slut punkt för nätverket. Beroende på din nätverks konfiguration väljer du ett slut punkts format så att data trafiken från den externa modulen eller programmet kan komma åt enheten som kör Azure-Blob Storage i IoT Edge-modulen. BLOB-slutpunkten för det här scenariot är en av:
-  - `http://<device IP >:11002/<account name>`
-  - `http://<IoT Edge device hostname>:11002/<account name>`
-  - `http://<fully qualified domain name>:11002/<account name>`
+* För moduler som distribueras på samma enhet som Azure-Blob Storage på IoT Edge modul körs, är BLOB-slutpunkten: `http://<module name>:11002/<account name>`.
+* För moduler eller program som körs på en annan enhet måste du välja rätt slut punkt för nätverket. Beroende på din nätverks konfiguration väljer du ett slut punkts format så att data trafiken från den externa modulen eller programmet kan komma åt enheten som kör Azure-Blob Storage i IoT Edge-modulen. BLOB-slutpunkten för det här scenariot är en av:
+  * `http://<device IP >:11002/<account name>`
+  * `http://<IoT Edge device hostname>:11002/<account name>`
+  * `http://<fully qualified domain name>:11002/<account name>`
 
 ## <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob Storage snabb starts exempel
 
@@ -202,7 +212,7 @@ Du kan använda [Azure Storage Explorer](https://azure.microsoft.com/features/st
 
 ## <a name="supported-storage-operations"></a>Stöds lagringsåtgärder
 
-Blob Storage-moduler på IoT Edge använda Azure Storage SDK: er och är konsekvent med 2017-04-17-versionen av Azure Storage API för Block-Blob-slutpunkter. 
+Blob Storage-moduler på IoT Edge använda Azure Storage SDK: er och är konsekvent med 2017-04-17-versionen av Azure Storage API för Block-Blob-slutpunkter.
 
 Eftersom inte alla Azure Blob Storage-åtgärder stöds av Azure Blob Storage på IoT Edge, visar det här avsnittet status för var och en.
 
@@ -271,6 +281,7 @@ Stöds inte:
 * Lägg till block från URL
 
 ## <a name="event-grid-on-iot-edge-integration"></a>Event Grid på IoT Edge-integrering
+
 > [!CAUTION]
 > Integrationen med Event Grid på IoT Edge är i för hands version
 

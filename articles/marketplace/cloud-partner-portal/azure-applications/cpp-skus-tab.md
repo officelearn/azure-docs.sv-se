@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 29b69499b708726b10947bd3202d3a52893f5c90
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2430d7e6fa74438c148d3cb849510be06243faa0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826181"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543162"
 ---
 # <a name="azure-application-skus-tab"></a>Fliken för Azure program-SKU: er
 
@@ -44,7 +44,7 @@ I nästa skärm bild visas formuläret SKU-information för en lösnings mall.
 
 Ange följande SKU-värden.  Fälten som läggs till med en asterisk måste anges.
 
-|    Fält         |       Beskrivning                                                            |
+|    Field         |       Beskrivning                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Rubrik\***     | En rubrik för SKU: n. Den här rubriken visas i galleriet för det här objektet.   |
 | **Sammanfattning\***    | En kort beskrivning av SKU: n. (Den maximala längden är 100 tecken.)  |
@@ -66,7 +66,7 @@ I nästa skärm bild visas formuläret SKU-information för ett hanterat program
 
 Konfigurera följande SKU-inställningar. Fälten som läggs till med en asterisk måste anges.
 
-|    Fält         |       Beskrivning                                                            |
+|    Field         |       Beskrivning                                                            |
 |  ---------       |     ---------------                                                          |
 |  **Rubrik\***     | En rubrik för SKU: n. Den här rubriken visas i galleriet för det här objektet.   |
 | **Sammanfattning\***    | En kort beskrivning av SKU: n. (Den maximala längden är 100 tecken.)  |
@@ -82,17 +82,19 @@ Konfigurera följande SKU-inställningar. Fälten som läggs till med en asteris
 
 ### <a name="package-details-for-solution-template"></a>Paket information för lösnings mal len
 
-   ![Paket information för lösnings mal len](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
+![Paket information för lösnings mal len](./media/azureapp-sku-pkgdetails-solutiontemplate.png)
 
 Ange följande **paket information** värden.  Fälten som läggs till med en asterisk måste anges.
 
 - **Version\*** – versionen av paketet som du ska ladda upp. Versions Taggar måste vara av formatet X. Y. Z, där X, Y och Z är heltal.
 - **Paket fil (. zip)\*** – det här paketet innehåller följande filer, sparade i en. zip-fil.
-  - MainTemplate. JSON – distributions mal Lav bildfilen som används för att distribuera lösningen/programmet och skapa de resurser som definierats för lösningen. Mer information finns i [så här skapar du mallar för distribuering av filer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
-  - createUIDefinition. JSON – den här filen används av Azure Portal för att generera användar gränssnittet för etablering av den här lösningen/programmet. Mer information finns i [skapa Azure Portal användar gränssnitt för ditt hanterade program](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - **mainTemplate. json\*** – distributions mal Lav bildfilen som används för att distribuera lösningen/programmet och skapa de resurser som definierats för lösningen. Mer information finns i [så här skapar du mallar för distribuering av filer](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template).
+  - **createUIDefinition. json\*** – den här filen används av Azure Portal för att generera användar gränssnittet för etablering av den här lösningen/programmet. Mer information finns i [skapa Azure Portal användar gränssnitt för ditt hanterade program](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview).
+  - Skript (om det behövs) – eventuella ytterligare skript som kan krävas när du kör mallen, till exempel `Microsoft.Compute/virtualMachines/extensions`.
+  - Kapslade mallar (om det behövs) – eventuella ytterligare kapslade mallar.
 
-  >[!IMPORTANT] 
-  >Det här paketet bör innehålla eventuella kapslade mallar eller skript som krävs för att etablera det här programmet. MainTemplate. JSON-filen och createUIDefinition. JSON-filen måste finnas i rotmappen.
+  > [!IMPORTANT] 
+  > Det här paketet bör innehålla eventuella kapslade mallar eller skript som krävs för att etablera det här programmet. MainTemplate. JSON-filen och createUIDefinition. JSON-filen måste finnas i rotmappen. Mer information om distributions artefakter finns i [Azure Resource Manager templates-Best Practices guide](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#deployment-artifacts-nested-templates-scripts).
 
 
 ### <a name="package-details-for-managed-application"></a>Paket information för hanterat program
@@ -123,12 +125,12 @@ Observera följande nyckel egenskaper för resursen:
 För ett hanterat program måste du konfigurera inställningar för auktorisering och principer.
 
 
-#### <a name="authorization"></a>Auktorisering
+#### <a name="authorization"></a>Autentisering
 
 Lägg till Azure Active Directory identifierare för användaren, gruppen eller programmet som du vill ge behörighet till den hanterade resurs gruppen. Behörigheten som beviljas anges av roll Definitions-ID: t. Det kan vara ägare, deltagare eller en anpassad roll.
 
 
-#### <a name="policy-settings"></a>Princip inställningar
+#### <a name="policy-settings"></a>Principinställningar
 
 Lägg till de principer som den hanterade appen följer. Läs mer om Azure Resource policies, se [Vad är Azure policy?](../../../governance/policy/overview.md)
 

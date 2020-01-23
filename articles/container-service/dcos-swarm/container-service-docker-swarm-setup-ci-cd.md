@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277896"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549061"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>FÖRÅLDRAD Full CI/CD-pipeline för att distribuera ett program med flera behållare på Azure Container Service med Docker Swarm med hjälp av Azure DevOps Services
 
@@ -50,7 +50,7 @@ Innan du påbörjar den här självstudien måste du utföra följande uppgifter
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
-Du behöver också en Ubuntu-dator (14,04 eller 16,04) med Docker installerat. Den här datorn används av Azure DevOps Services under processerna för Azures pipeliner. Ett sätt att skapa den här datorn är att använda avbildningen som är tillgänglig på [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
+Du behöver också en Ubuntu-dator (14,04 eller 16,04) med Docker installerat. Den här datorn används av Azure DevOps Services under processerna för Azures pipeliner. Ett sätt att skapa den här datorn är att använda avbildningen som är tillgänglig på Azure Marketplace. 
 
 ## <a name="step-1-configure-your-azure-devops-services-organization"></a>Steg 1: Konfigurera din Azure DevOps Services-organisation 
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: fbf1e11d7a283ca6c93356f055198c35350e0332
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: efb0a9229d6061d4df8d67ba8455801d9d2a2964
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445358"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548891"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Skapa flera Azure Functions utlösare för Cosmos DB
 
@@ -38,7 +38,7 @@ Syftet med den här artikeln är att hjälpa dig att utföra det andra alternati
 
 ## <a name="configuring-a-shared-leases-container"></a>Konfigurera en behållare för delade lån
 
-Om du vill konfigurera behållaren för delade lån måste du lägga till `LeaseCollectionPrefix` [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---c-attributes) om du använder C# eller `leaseCollectionPrefix`- [attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---javascript-example) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
+Om du vill konfigurera behållaren för delade lån måste du lägga till `LeaseCollectionPrefix` [attributet](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---attributes-and-annotations) om du använder C# eller `leaseCollectionPrefix`- [attribut](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) om du använder Java Script. Värdet för attributet ska vara en logisk Beskrivning av vad som är en viss utlösare.
 
 Om du till exempel har tre utlösare: en som skickar e-post, en agg regering för att skapa en materialiserad vy och en som skickar ändringarna till en annan lagrings plats, kan du tilldela `LeaseCollectionPrefix` "e-post" till den första, "materialiserade" till den andra, och "analys" till den tredje.
 
@@ -109,5 +109,5 @@ Och för Java Script kan du tillämpa konfigurationen på `function.json`-filen 
 ## <a name="next-steps"></a>Nästa steg
 
 * Se den fullständiga konfigurationen för [Azure Functions utlösare för Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)
-* Kontrol lera den utökade [listan över exempel](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---example) för alla språk.
+* Kontrol lera den utökade [listan över exempel](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) för alla språk.
 * Besök de serverbaserade recepten med Azure Cosmos DB och Azure Functions [GitHub-lagringsplatsen](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios) för fler exempel.

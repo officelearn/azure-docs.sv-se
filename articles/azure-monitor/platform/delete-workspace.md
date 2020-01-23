@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 739f97e912a33402aa7482e59dd78f5aeb005772
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75944429"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547259"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -57,6 +57,29 @@ Du kan ta bort en arbets yta med [PowerShell](https://docs.microsoft.com/powersh
 ```PowerShell
 PS C:\>Remove-AzOperationalInsightsWorkspace -ResourceGroupName "resource-group-name" -Name "workspace-name"
 ```
+
+## <a name="permanent-workspace-delete"></a>Permanent borttagning av arbets yta
+Metoden mjuk borttagning får inte plats i vissa scenarier som utveckling och testning, där du måste upprepa en distribution med samma inställningar och arbets ytans namn. I sådana fall kan du ta bort arbets ytan permanent och "åsidosätta" den mjuka borttagnings perioden. Borttagnings åtgärden för permanent arbets yta frigör arbets ytans namn och du kan skapa en ny arbets yta med samma namn.
+
+
+> [!IMPORTANT]
+> Var försiktig när du tar bort din arbets yta permanent eftersom åtgärden inte kan återställas och att din arbets yta och dess data inte går att återställa.
+
+Borttagning av permanent arbets yta kan för närvarande utföras via REST API.
+
+> [!NOTE]
+> Alla API-förfrågningar måste innehålla en token Authorization-token i begär ande huvudet.
+>
+> Du kan hämta token med:
+> - [Appregistreringar](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens)
+> - Navigera till Azure Portal med hjälp av Developer-konsolen (F12) i webbläsaren. Titta i en av **batchen?** instanser för Authentication-strängen under **begärandehuvuden**. Detta kommer att finnas i mönstret *Authorization: bearer <token>* . Kopiera och Lägg till detta i API-anropet som visas i exemplen.
+> - Gå till webbplatsen för Azure REST-dokumentation. Tryck på **prova** på valfritt API, kopiera Bearer-token och Lägg till den i ditt API-anrop.
+Om du vill ta bort arbets ytan permanent använder du [arbets ytorna – ta bort REST API-]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete) anrop med en tvingande tagg:
+>
+> ```rst
+> DELETE https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.OperationalInsights/workspaces/<workspace-name>?api-version=2015-11-01-preview&force=true
+> Authorization: Bearer eyJ0eXAiOiJKV1Qi….
+> ```
 
 ## <a name="recover-workspace"></a>Återställ arbets yta
 

@@ -1,6 +1,6 @@
 ---
-title: Vanliga felkoder för virtuell dator i Azure | Microsoft Docs
-description: Förstå några av de vanliga felkoder som påträffades när du etablerar och hanterar virtuella datorer i Azure
+title: Vanliga fel koder för virtuella datorer i Azure | Microsoft Docs
+description: Förstå några av de vanliga fel koderna som påträffades när du etablerar och hanterar virtuella datorer i Azure
 services: virtual-machines
 documentationcenter: ''
 author: xujing-ms
@@ -12,22 +12,22 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 3b8c9c80c93430d8dc5a888742e4e4e96ba99400
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67695333"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543026"
 ---
-# <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Förstå vanliga felmeddelanden när du hanterar virtuella datorer i Azure
+# <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Förstå vanliga fel meddelanden när du hanterar virtuella datorer i Azure
 
-Den här artikeln beskriver några av de mest vanliga felkoder och meddelanden som du kan stöta på när du skapar eller hanterar virtuella datorer (VM) i Azure.
+I den här artikeln beskrivs några av de vanligaste fel koderna och meddelanden som du kan stöta på när du skapar eller hanterar virtuella datorer i Azure.
 
 >[!NOTE]
-> Du kan lämna kommentarer på den här sidan för feedback eller via [feedback om Azure](https://feedback.azure.com/forums/216843-virtual-machines) med #azerrormessage tagg.
+> Du kan lämna kommentarer på den här sidan för feedback eller via [Azure feedback](https://feedback.azure.com/forums/216843-virtual-machines) med #azerrormessage-tagg.
 
-## <a name="error-response-format"></a>Fel svarsformat 
-Virtuella Azure-datorer kan du använda följande JSON-format för felsvar:
+## <a name="error-response-format"></a>Format för fel svar 
+Virtuella Azure-datorer använder följande JSON-format för fel svar:
 
 ```json
 {
@@ -37,7 +37,7 @@ Virtuella Azure-datorer kan du använda följande JSON-format för felsvar:
     "message":"Top level error message",
     "details":[
      {
-      "code":"Inner evel error code",
+      "code":"Inner level error code",
       "message":"Inner level error message"
      }
     ]
@@ -45,175 +45,175 @@ Virtuella Azure-datorer kan du använda följande JSON-format för felsvar:
 }
 ```
 
-Ett felsvar omfattar alltid statuskoden och ett fel uppstod när objektet. Varje felobjekt innehåller alltid en felkod och ett meddelande. Om den virtuella datorn skapas med en mall, innehåller felobjektet också ett avsnitt för information som innehåller en inre nivå av felkoder och meddelanden. Normalt är mest inre andelen felmeddelande rot-fel.
+Ett fel svar innehåller alltid en status kod och ett fel objekt. Varje fel objekt innehåller alltid en felkod och ett meddelande. Om den virtuella datorn skapas med en mall innehåller felobjektet även ett informations avsnitt som innehåller en inre nivå av felkoder och meddelande. Normalt är den mest inre nivån av fel meddelande rotens fel.
 
 
-## <a name="common-virtual-machine-management-errors"></a>Vanliga fel för hantering av virtuell dator
+## <a name="common-virtual-machine-management-errors"></a>Vanliga fel vid hantering av virtuella datorer
 
-Det här avsnittet innehåller vanliga felmeddelanden som kan uppstå när du hanterar virtuella datorer:
+Det här avsnittet innehåller vanliga fel meddelanden som du kan stöta på när du hanterar virtuella datorer:
 
 |  Felkod  |  Felmeddelande  |  
 |  :------| :-------------|  
-|  AcquireDiskLeaseFailed  |  Det gick inte att låna medan skapar disken ”{0}' med blobben med URI {1}. Blobben används redan.  |  
-|  AllocationFailed  |  Tilldelningen misslyckades. Försök att minska den Virtuella datorstorleken eller antalet virtuella datorer, försök igen senare eller försök att distribuera till en annan Tillgänglighetsuppsättning eller olika Azure-plats.  |  
-|  AllocationFailed  |  Tilldelningen av virtuella datorer misslyckades pga ett internt fel. Försök igen senare eller försök att distribuera till en annan plats.  |
-|  ArtifactNotFound  |  Det Virtuella datortillägget med utgivaren '{0}”och typen”{1}'kunde inte hittas på platsen'{2}'.  |
-|  ArtifactNotFound  |  Tillägg med utgivare ”{0}', typ”{1}”, och typhanteringsversion '{2}' hittades inte i tilläggscentrallagret.  |
-|  ArtifactVersionNotFound  |  Ingen version hittades i artefaktcentrallagret som motsvarar den efterfrågade versionen ”{0}”.  |
-|  ArtifactVersionNotFound  |  Ingen version hittades i artefaktcentrallagret som motsvarar den efterfrågade versionen ”{0}” för det Virtuella datortillägget med utgivaren'{1}”och typen”{2}”.  |
-|  AttachDiskWhileBeingDetached  |  Det går inte att bifoga datadisk '{0}”till VM-{1}' eftersom disken håller på att frånkopplas. Vänta tills disken har frånkopplats helt och försök sedan igen.  |
-|  BadRequest  |  Justerad ”Tillgänglighetsuppsättningar ännu inte stöds i den här regionen.  |
-|  BadRequest  |  Lägga till en virtuell dator med hanterade diskar till icke-hanterad Tillgänglighetsuppsättning eller lägga till en virtuell dator med blobbaserade diskar till hanterad Tillgänglighetsuppsättning stöds inte. Skapa en Tillgänglighetsuppsättning med ”hanterad”-egenskapen som angetts för att lägga till en virtuell dator med hanterade diskar.  |
-|  BadRequest  |  Hanterade diskar stöds inte i den här regionen.  |
-|  BadRequest  |  Flera VMExtensions per hanterare som inte stöds för OS-typ '{0}'. VMExtension-{1}'med hanteraren'{2}' redan lagts till eller angetts i indata.  |
-|  BadRequest  |  Åtgärden '{0}'stöds inte på resursen'{1}' med hanterade diskar.  |
-|  CertificateImproperlyFormatted  |  Hemlighetens JSON-representation som hämtades från {0} har ett datafält som inte är en korrekt formaterad PFX-fil, eller det angivna lösenordet inte avkoda PFX-filen korrekt.  |
-|  CertificateImproperlyFormatted  |  Data som hämtats från {0} går inte att deserialisera till JSON.  |
-|  Konflikt  |  Ändra storlek på disken tillåts endast när du skapar en virtuell dator eller när Virtuellt datorn frigörs.  |
-|  ConflictingUserInput  |  Disk ”{0}'kan inte kopplas eftersom disken redan ägs av den virtuella datorn'{1}'.  |
-|  ConflictingUserInput  |  Käll-och målresursgrupperna är desamma.  |
-|  ConflictingUserInput  |  Käll- och storage-konton för disken {0} är olika.  |
-|  ContainerAlreadyOnLease  |  Det finns redan ett lån på den lagringsbehållare som innehåller blobben med URI {0}.  |
-|  CrossSubscriptionMoveWithKeyVaultResources  |  Begäran om att flytta resurser innehåller KeyVault-resurser som refereras av en eller flera {0}s i begäran. Detta stöds inte för närvarande mellan prenumerationer flytten. Kontrollera felinformationen för KeyVault-resurs-ID.  |
-|  DiagnosticsOperationInternalError  |  Ett internt fel uppstod under bearbetning av diagnostikprofilen för den virtuella datorn {0}.  |
-|  DiskBlobAlreadyInUseByAnotherDisk  |  BLOB {0} används redan av en annan disk som hör till VM-{1}”. Du kan granska blob-metadata för referensinformation för disken.  |
-|  DiskBlobNotFound  |  Det går inte att hitta VHD-blobben med URI {0} för disken '{1}'.  |
-|  DiskBlobNotFound  |  Det går inte att hitta VHD-blobben med URI {0}.  |
-|  DiskEncryptionKeySecretMissingTags  |  {0} hemligheten har inte den {1} taggar. Uppdatera den hemliga versionen, Lägg till taggarna som krävs och försök igen.  |
-|  DiskEncryptionKeySecretUnwrapFailed  |  Packa upp av hemlighet {0} värde med hjälp av nyckeln {1} misslyckades.  |
-|  DiskImageNotReady  |  Diskavbildning {0} i {1} tillstånd. Försök igen när avbildningen är klar.  |
-|  DiskPreparationError  |  Ett eller flera fel inträffade under förberedelserna av VM-diskar. Se disk Instansvy för mer information.  |
-|  DiskProcessingError  |  Diskbearbetningen eftersom den virtuella datorn har andra diskar i misslyckade diskar.  |
-|  ImageBlobNotFound  |  Det går inte att hitta VHD-blobben med URI {0} för disken '{1}'.  |
-|  ImageBlobNotFound  |  Det går inte att hitta VHD-blobben med URI {0}.  |
-|  IncorrectDiskBlobType  |  Diskblobar får bara vara av typen sidblob. BLOB {0} för disken '{1}' är av typen blockblob.  |
-|  IncorrectDiskBlobType  |  Diskblobar får bara vara av typen sidblob. BLOB {0} är av typen '{1}'.  |
-|  IncorrectImageBlobType  |  Diskblobar får bara vara av typen sidblob. BLOB {0} för disken '{1}' är av typen blockblob.  |
-|  IncorrectImageBlobType  |  Diskblobar får bara vara av typen sidblob. BLOB {0} är av typen '{1}'.  |
-|  InternalOperationError  |  Det gick inte att lösa lagringskontot {0}. Kontrollera att det skapades med Lagringsresursprovidern på samma plats som beräkningsresursen.  |
-|  InternalOperationError  |  {0} målsökningsuppgifter misslyckades.  |
-|  InternalOperationError  |  Fel uppstod vid verifieringen av nätverksprofilen för virtuell dator ”{0}”.  |
-|  InvalidAccountType  |  AccountType {0} är ogiltig.  |
-|  InvalidParameter  |  Värdet för parametern {0} är ogiltig.  |
-|  InvalidParameter  |  Det specificerade administratörslösenordet är inte tillåtet.  |
-|  InvalidParameter  |  ”Det angivna lösenordet måste vara mellan {0}-{1} tecken och uppfylla minst {2} av kraven på lösenordskomplexitet från följande: <ol><li> Innehåller en versal</li><li>Innehåller en gemen bokstav</li><li>Innehåller en numerisk siffra</li><li>Innehåller ett specialtecken.</li></ol>  |
-|  InvalidParameter  |  Det specificerade administratörsanvändarnamnet är inte tillåtet.  |
-|  InvalidParameter  |  Det går inte att koppla en befintlig OS-disk om den virtuella datorn har skapats från en plattform eller användaravbildning.  |
-|  InvalidParameter  |  Behållarnamn {0} är ogiltig. Behållarnamn måste vara mellan 3-63 tecken långt och får bara innehålla gemena alfanumeriska tecken och bindestreck. Bindestreck måste föregås och följas av alfanumeriska tecken.  |
-|  InvalidParameter  |  Behållarnamn {0} i URL: en {1} är ogiltig. Behållarnamn måste vara mellan 3-63 tecken långt och får bara innehålla gemena alfanumeriska tecken och bindestreck. Bindestreck måste föregås och följas av alfanumeriska tecken.  |
-|  InvalidParameter  |  Blobnamnet i URL: en {0} innehåller ett snedstreck. Det finns för närvarande inte stöd för diskar.  |
-|  InvalidParameter  |  URI: N {0} ser inte ut för att vara korrekt blob-URI.  |
-|  InvalidParameter  |  En disk med namnet ”{0}' redan i LUN: {1}.  |
-|  InvalidParameter  |  En disk med namnet '{0}' finns redan.  |
-|  InvalidParameter  |  Det går inte att ange användarens avbildningsåsidosättanden för en disk som redan har definierats i den angivna avbildningsreferensen.  |
-|  InvalidParameter  |  En disk med namnet ”{0}' redan använder samma VHD URL {1}.  |
-|  InvalidParameter  |  Den angivna feldomänsantal {0} måste ligga i intervallet {1} till {2}.  |
-|  InvalidParameter  |  Licenstypen {0} är ogiltig. Giltiga licenstyper är: Windows_Client eller Windows_Server, skiftlägeskänsligt.  |
-|  InvalidParameter  |  Linux-värdnamnet får inte överskrida {0} tecken långt eller innehålla följande tecken: {1}.  |
-|  InvalidParameter  |  Målsökvägen för offentliga Ssh-nycklar är för närvarande begränsat till dess standardvärde {0} på grund av ett känt problem i Linux-etableringsagenten.  |
-|  InvalidParameter  |  En disk på LUN {0} finns redan.  |
-|  InvalidParameter  |  Prenumeration {0} för begäran måste överensstämma med prenumerationen {1} i hanterade diskens id.  |
-|  InvalidParameter  |  Anpassade data i OSProfile måste vara Base64-kodade och med en maximal längd på {0} tecken.  |
-|  InvalidParameter  |  Blobnamnet i URL: en {0} måste sluta med ”{1}-tillägget.  |
-|  InvalidParameter  |  {0}' är inte en giltig hämtade VHD prefix för blobbnamn. Ett giltigt prefix matchar regex '{1}'.  |
-|  InvalidParameter  |  Certifikat kan inte läggas till den virtuella datorn om den Virtuella datoragenten inte har etablerats.  |
-|  InvalidParameter  |  En disk på LUN {0} finns redan.  |
-|  InvalidParameter  |  Det går inte att skapa den virtuella datorn eftersom den begärda storleken {0} är inte tillgänglig i det kluster där tillgänglighetsuppsättningen för närvarande allokeras. Tillgängliga storlekar är: {1}. Läs mer om virtuella datorer ändra storlek på https://aka.ms/azure-resizevm.  |
-|  InvalidParameter  |  Den begärda storleken {0} är inte tillgänglig i den aktuella regionen. Storlekarna som är tillgängliga i den aktuella regionen är: {1}. Ta reda på mer om de tillgängliga storlekarna i varje region på https://aka.ms/azure-regions.  |
-|  InvalidParameter  |  Den begärda storleken {0} är inte tillgänglig i den aktuella regionen. Ta reda på mer om de tillgängliga storlekarna i varje region på https://aka.ms/azure-regions.  |
-|  InvalidParameter  |  Windows-användarnamn för administratör får inte vara mer än {0} tecken långt, sluta med en period(.) eller innehålla följande tecken: {1}.  |
-|  InvalidParameter  |  Windows-datornamnet får inte vara mer än {0} tecken långt, vara helt numeriskt eller innehålla följande tecken: {1}.  |
-|  MissingMoveDependentResources  |  Begäran om att flytta resurser innehåller inte alla beroende resurser. Kontrollera saknade resurs-ID: n.  |
-|  MoveResourcesHaveInvalidState  |  Begäran om att flytta resurser innehåller virtuella datorer som är kopplade till ogiltiga lagringskonton. Läs informationen om dessa resurs-ID: n och refererade lagringskontonamn.  |
-|  MoveResourcesHavePendingOperations  |  Begäran om att flytta resurser innehåller resurser som en åtgärd väntar. Läs informationen om dessa resurs-ID: n. Försök igen när de väntande åtgärderna har slutförts.  |
-|  MoveResourcesNotFound  |  Begäran om att flytta resurser innehåller resurser som inte kan hittas. Läs informationen om dessa resurs-ID: n.  |
-|  NetworkingInternalOperationError  |  Okänt nätverkstilldelningsfel.  |
-|  NetworkingInternalOperationError  |  Okänt nätverkstilldelningsfel  |
-|  NetworkingInternalOperationError  |  Ett internt fel inträffade under bearbetningen av nätverksprofilen för den virtuella datorn.  |
-|  NotFound  |  Tillgänglighetsuppsättningen {0} går inte att hitta.  |
-|  NotFound  |  Käll-VM ”{0}” anges i begäran finns inte i den här Azure-plats.  |
-|  NotFound  |  Innehavaren med id {0} hittades inte.  |
-|  NotFound  |  Avbildningen {0} går inte att hitta.  |
-|  NotSupported  |  Licenstypen är {0}, men avbildningsbloben {1} är inte från en lokal plats.  |
-|  OperationNotAllowed  |  Tillgänglighetsuppsättning {0} kan inte tas bort. Innan du tar bort en Tillgänglighetsuppsättning se till att den inte innehåller alla virtuella datorer.  |
-|  OperationNotAllowed  |  Ändra tillgänglighetsuppsättning är SKU från ”justerad” till ”klassisk” inte tillåtet.  |
-|  OperationNotAllowed  |  Det går inte att ändra tillägg i den virtuella datorn när den virtuella datorn inte körs.  |
-|  OperationNotAllowed  |  Åtgärden för att avbilda stöds bara på en virtuell dator med blobbaserade diskar. Använd ”Image” resursen API: er för att skapa en avbildning från en hanterad virtuell dator.  |
-|  OperationNotAllowed  |  Resursen {0} går inte att skapa från avbildning {1} tills avbildningen har skapats.  |
-|  OperationNotAllowed  |  Uppdateringar av encryptionSettings tillåts inte när VM har allokerats, försök igen när virtuella dator har frigjorts  |
-|  OperationNotAllowed  |  Lägga till en hanterad disk till en virtuell dator med blobbaserade diskar stöds inte.  |
-|  OperationNotAllowed  |  Det maximala antalet datadiskar som kopplas till en virtuell dator av den här storleken är {0}.  |
-|  OperationNotAllowed  |  Lägga till en blobbaserad disk till virtuell dator med hanterade diskar stöds inte.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'är inte tillåten på bild'{1}' eftersom avbildningen har markerats för borttagning. Du kan bara försöka göra om borttagningen (eller vänta tills den pågående att slutföra).  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}' eftersom den virtuella datorn är generaliserad.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte eftersom återställningspunktsamlingen'{1}' har markerats för borttagning.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på VM-tillägget'{1}' eftersom den har markerats för borttagning. Du kan bara försöka göra om borttagningen (eller vänta tills den pågående att slutföra).  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte eftersom de virtuella datorerna'{1}'har etablerats med avbildningen ”{2}”.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte eftersom den virtuella datorns ScaleSet'{1}'för närvarande använder avbildningen ”{2}”.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}' eftersom den virtuella datorn har markerats för borttagning. Du kan bara försöka göra om borttagningen (eller vänta tills den pågående att slutföra).  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}' eftersom den virtuella datorn antingen har frigjorts eller markerats för att frigöras.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}' eftersom Virtuellt datorn körs. Du måste ange power ut om du stänger av den virtuella datorn från inuti gästoperativsystemet.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}' eftersom den virtuella datorn inte har frigjorts.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}'Eftersom den Virtuella datorns tillägg ”{2}” i ett felaktigt tillstånd.  |
-|  OperationNotAllowed  |  Åtgärden '{0}'tillåts inte på den virtuella datorn'{1}' eftersom en annan åtgärd pågår.  |
-|  OperationNotAllowed  |  Åtgärden '{0}”måste den virtuella datorn'{1}' generaliserats.  |
-|  OperationNotAllowed  |  Åtgärden kräver att den virtuella datorn ska köras (eller inställd på att köras).  |
-|  OperationNotAllowed  |  Disken med storleken {0}GB, vilket är mindre än storleken {1}GB för motsvarande disk i avbildningen, tillåts inte.  |
-|  OperationNotAllowed  |  VM Scale Set-tillägg för hanteraren '{0}' kan bara läggas till VM Scale Set skapas.  |
-|  OperationNotAllowed  |  VM Scale Set-tillägg för hanteraren '{0}' kan tas bort bara vid tidpunkten för VM Scale Set tas bort.  |
-|  OperationNotAllowed  |  VM-{0}' redan använder hanterade diskar.  |
-|  OperationNotAllowed  |  VM-{0}'tillhör tillgänglighetsuppsättningen ”klassisk”'{1}'. Uppdatera tillgänglighetsuppsättningen för att använda SKU ”justerad” och försök sedan utföra konverteringen.  |
-|  OperationNotAllowed  |  Virtuell dator som skapats från avbildningen får inte ha blobbaserade diskar. Alla diskar måste vara hanterade diskar.  |
-|  OperationNotAllowed  |  Avbilda åtgärden kan inte slutföras eftersom den virtuella datorn inte har generaliserats.  |
-|  OperationNotAllowed  |  Hanteringsåtgärder på den virtuella datorn '{0}' tillåts inte eftersom VM-diskarna konverteras till hanterade diskar.  |
-|  OperationNotAllowed  |  En pågående åtgärd ändrar energinivån för den virtuella datorn {0} till {1}. Utför åtgärden {2} efter en stund.  |
-|  OperationNotAllowed  |  Det går inte att lägga till eller uppdatera den virtuella datorn. Den begärda storleken {0} kanske inte tillgänglig i den befintliga allokeringsenheten. Läs mer om virtuella datorer ändra storlek på https://aka.ms/azure-resizevm.  |
-|  OperationNotAllowed  |  Det går inte att ändra storlek på den virtuella datorn eftersom den begärda storleken {0} är inte tillgänglig i det kluster där tillgänglighetsuppsättningen för närvarande allokeras. Tillgängliga storlekar är: {1}. Läs mer om virtuella datorer ändra storlek på https://aka.ms/azure-resizevm.  |
-|  OperationNotAllowed  |  Det går inte att ändra storlek på den virtuella datorn eftersom den begärda storleken {0} är inte tillgänglig i det kluster där den virtuella datorn för närvarande allokeras. Ändra storlek på den virtuella datorn ska {1} Frigör (detta är Stop-åtgärd i Azure portal) och försök sedan ändra storlek på igen. Läs mer om virtuella datorer ändra storlek på https://aka.ms/azure-resizevm.  |
-|  OSProvisioningClientError  |  Operativsystemsetableringen misslyckades för den virtuella datorn '{0}' eftersom gästoperativsystemet håller på att etableras.  |
-|  OSProvisioningClientError  |  För den virtuella datorn '{0}' misslyckades. Felinformation: {1} Kontrollera att avbildningen har förberetts ordentligt (generaliserats). <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
-|  OSProvisioningClientError  |  Det gick inte att skapa SSH-värd-nyckel. Felinformation: {0}. För att lösa det här problemet kontrollerar du om Linux-agenten är korrekt konfigurerad. <ul><li>Du kan läsa anvisningarna på: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
-|  OSProvisioningClientError  |  Användarnamnet som angetts för den virtuella datorn är ogiltigt för den här Linux-distribution. Felinformation: {0}.  |
-|  OSProvisioningInternalError  |  Operativsystemsetableringen misslyckades för den virtuella datorn '{0}' på grund av ett internt fel.  |
-|  OSProvisioningTimedOut  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Den virtuella datorn kan fortfarande slutföras. Kontrollera installationstillståndet senare.  |
-|  OSProvisioningTimedOut  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Den virtuella datorn kan fortfarande slutföras. Kontrollera installationstillståndet senare. Kontrollera också att avbildningen har förberetts ordentligt (generaliserats).   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Anvisningar för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  OSProvisioningTimedOut  |  För den virtuella datorn '{0}' slutfördes inte inom avsedd tid. Men upptäcktes virtuella datorns gästagent, som körs. Det tyder på gästoperativsystemet inte har korrekt förberedd som ska användas som en VM-avbildning (med CreateOption = FromImage). För att lösa problemet, använda den virtuella Hårddisken skick med CreateOption = Attach eller förbereda den korrekt för användning som en bild:   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Anvisningar för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
-|  OverConstrainedAllocationRequest  |  Den efterfrågade Virtuella datorstorleken är inte tillgänglig för tillfället på den valda platsen.  |
-|  ResourceUpdateBlockedOnPlatformUpdate  |  Resursen kan inte uppdateras på grund av en pågående plattformsuppdatering. Försök igen senare.  |
-|  StorageAccountLimitation  |  Storage-konto '{0}' stöder inte sidblobbar som krävs för att skapa diskar.  |
-|  StorageAccountLimitation  |  Storage-konto '{0}' har överskridit sin tilldelade kvot.  |
-|  StorageAccountLocationMismatch  |  Det gick inte att lösa lagringskontot {0}. Kontrollera att det skapades med Lagringsresursprovidern på samma plats som beräkningsresursen.  |
-|  StorageAccountNotFound  |  Storage-konto {0} hittades inte. Kontrollera att lagringskontot inte tas bort och tillhör samma Azure-plats som den virtuella datorn.  |
-|  StorageAccountNotRecognized  |  Använd ett lagringskonto som hanteras av Storage Resource Provider. Användning av {0} stöds inte.  |
-|  StorageAccountOperationInternalError  |  Internt fel inträffade vid åtkomst till lagringskontot {0}.  |
-|  StorageAccountSubscriptionMismatch  |  Storage-konto {0} tillhör inte prenumerationen {1}.  |
-|  StorageAccountTooBusy  |  Storage-konto '{0}' är för upptagen för närvarande. Överväg att använda ett annat konto.  |
-|  StorageAccountTypeNotSupported  |  Disk {0} använder {1} vilket är ett Blob storage-konto. Försök igen med allmänt lagringskonto.  |
-|  StorageAccountTypeNotSupported  |  Storage-konto {0} är av {1} typen. Starta diagnostik stöder {2} storage-kontotyper.  <ul><li>Det här felet uppstår om du använder premium-lagringskonto för startdiagnostik. Mer information finns i [hur du använder startdiagnostik](boot-diagnostics.md). </li></ul> |
-|  SubscriptionNotAuthorizedForImage  |  Prenumerationen har inte behörighet.  |
-|  TargetDiskBlobAlreadyExists  |  BLOB {0} finns redan. Ange en annan blob-URI för att skapa en ny tom datadisk '{1}'.  |
-|  TargetDiskBlobAlreadyExists  |  Avbilda kan inte fortsätta eftersom målet bild blob {0} finns redan och flagga för att skriva över VHD-blobbar har inte angetts. Ta bort blobben eller Ställ in flaggan att skriva över VHD-blobbar och försök igen.  |
-|  TargetDiskBlobAlreadyExists  |  Avbilda kan inte fortsätta eftersom målet bild blob {0} har ett aktivt lån på den.   |
-|  TargetDiskBlobAlreadyExists  |  BLOB {0} finns redan. Ange en annan blob-URI som mål för disken '{1}'.  |
-|  TooManyVMRedeploymentRequests  |  För många omdistributionsförfrågningar har tagits emot för den virtuella datorn '{0}' eller de virtuella datorerna i samma tillgänglighetsuppsättning med den här virtuella datorn. Försök igen senare.  |
-|  VHDSizeInvalid  |  Den angivna diskstorleksvärdet {0} för disken ”{1}' med blob {2} är ogiltig. Diskstorleken måste vara mellan {3} och {4}.  |
-|  VMAgentStatusCommunicationError  |  VM-{0}' har inte rapporterat status för VM-agenten och tillägg. Kontrollera den virtuella datorn har en virtuell datoragent som körs och kan upprätta utgående anslutningar till Azure storage.  |
-|  VMArtifactRepositoryInternalError  |  Ett fel inträffade under kommunikationen med artefaktcentrallagret att hämta VM-artefaktdata.  |
-|  VMArtifactRepositoryInternalError  |  Ett internt fel uppstod när virtuella datorns artefaktdata hämtades från artefaktlagret.  |
-|  VMExtensionHandlerNonTransientError  |  Hanteraren '{0}'har rapporterat fel för VM-tillägg ”{1}'med terminalfelkoden'{2}' och felmeddelande”:{3}”  |
-|  VMExtensionManagementInternalError  |  Internt fel inträffade vid bearbetning av VM-tillägg ”{0}”.  |
-|  VMExtensionManagementInternalError  |  Flera fel uppstod under förberedelserna av VM-tillägg. Se VM-instansvyn för information.  |
-|  VMExtensionProvisioningError  |  Den virtuella datorn rapporterade ett fel vid bearbetningen av tillägget '{0}'. Felmeddelande ”:{1}”.  |
-|  VMExtensionProvisioningError  |  Flera VM-tillägg kunde inte etableras på den virtuella datorn. VM-instansvyn mer information finns på.  |
-|  VMExtensionProvisioningTimeout  |  Etablering av VM-tillägget '{0}' har nått sin tidsgräns. Installera tillägget tar kanske för lång eller Tilläggsstatus kunde inte hämtas.  |
-|  VMMarketplaceInvalidInput  |  Skapa en virtuell dator från en icke Marketplace-avbildning behöver inte Planinformation, ta bort planinformationen i förfrågan. OS-disknamnet är {0}.  |
-|  VMMarketplaceInvalidInput  |  Köpinformationen stämmer inte överens. Det går inte att distribuera från Marketplace-avbildning. OS-disknamnet är {0}.  |
-|  VMMarketplaceInvalidInput  |  Skapa en virtuell dator från Marketplace-avbildning kräver planinformation i förfrågan. OS-disknamnet är {0}.  |
-|  VMNotFound  |  Den virtuella datorn '{0}' kan inte hittas.  |
-|  VMRedeploymentFailed  |  VM-{0}' omdistribution misslyckades på grund av ett internt fel. Försök igen senare.  |
-|  VMRedeploymentTimedOut  |  Omdistribution av den virtuella datorn '{0}' avslutades inte inom den tilldelade tiden. Den kan slutföras utan problem i en stund. Annars kan kan du försöka begäran.  |
-|  VMStartTimedOut  |  VM-{0}' startade inte inom avsedd tid. Den virtuella datorn kan fortfarande startas. Kontrollera energinivån senare.  |
+|  AcquireDiskLeaseFailed  |  Det gick inte att hämta lånet vid skapande av disk{0}med BLOB med URI {1}. Blobben används redan.  |  
+|  AllocationFailed  |  Tilldelningen misslyckades. Försök att minska storleken på den virtuella datorn eller antalet virtuella datorer, försök igen senare eller försök att distribuera till en annan tillgänglighets uppsättning eller en annan Azure-plats.  |  
+|  AllocationFailed  |  Det gick inte att allokera den virtuella datorn på grund av ett internt fel. Försök igen senare eller försök att distribuera till en annan plats.  |
+|  ArtifactNotFound  |  Det gick inte att hitta det virtuella dator tillägget med utgivaren{0}och typen{1}på platsen{2}.  |
+|  ArtifactNotFound  |  Det gick inte att hitta tillägget med utgivaren{0}, typ{1}och typ av hanterare{2}kunde inte hittas i tilläggs lagrings platsen.  |
+|  ArtifactVersionNotFound  |  Det gick inte att hitta någon version i artefakt lagrings platsen som uppfyller den begärda versionen{0}.  |
+|  ArtifactVersionNotFound  |  Det gick inte att hitta någon version i artefakt lagrings platsen som uppfyller den begärda versionen{0}för VM-tillägget med utgivaren{1}och typen{2}.  |
+|  AttachDiskWhileBeingDetached  |  Det går inte att koppla datadisken{0}till den virtuella datorn{1}eftersom disken för närvarande är frånkopplad. Vänta tills disken är helt frånkopplad och försök sedan igen.  |
+|  BadRequest  |  Justerade tillgänglighets uppsättningar stöds ännu inte i den här regionen.  |
+|  BadRequest  |  Det finns inte stöd för att lägga till en virtuell dator med Managed disks till icke-hanterad tillgänglighets uppsättning eller tillägg av en virtuell dator med BLOB-baserade diskar till hanterad tillgänglighets uppsättning. Skapa en tillgänglighets uppsättning med egenskapen hanterad inställd för att lägga till en virtuell dator med hanterade diskar.  |
+|  BadRequest  |  Managed Disks stöds inte i den här regionen.  |
+|  BadRequest  |  Flera VMExtensions per hanterare stöds inte för OS-typen{0}. VMExtension '{1}' med hanterare '{2}' har redan lagts till eller angetts i indatamängden.  |
+|  BadRequest  |  Åtgärden{0}stöds inte för resursen{1}med hanterade diskar.  |
+|  CertificateImproperlyFormatted  |  Hemlighetens JSON-representation som hämtades från {0} har ett data fält som inte är en korrekt formaterad PFX-fil, eller så är det angivna lösen ordet inte att avkoda PFX-filen på rätt sätt.  |
+|  CertificateImproperlyFormatted  |  Data som hämtats från {0} kan inte deserialiseras till JSON.  |
+|  Konflikt  |  Storleks ändring av disken tillåts bara när du skapar en virtuell dator eller när den virtuella datorn frigörs.  |
+|  ConflictingUserInput  |  Det går inte att ansluta disken{0}eftersom disken redan ägs av den virtuella datorn{1}.  |
+|  ConflictingUserInput  |  Käll-och mål resurs grupper är desamma.  |
+|  ConflictingUserInput  |  Käll-och mål lagrings konton för disk {0} skiljer sig åt.  |
+|  ContainerAlreadyOnLease  |  Det finns redan ett lån på lagrings behållaren som innehåller blobben med URI {0}.  |
+|  CrossSubscriptionMoveWithKeyVaultResources  |  Begäran om att flytta resurser innehåller nyckel Valvs resurser som refereras till av en eller flera {0}s i begäran. Det finns inte stöd för att flytta mellan prenumerationer. Läs fel informationen om ID för nyckel Valvs resurs.  |
+|  DiagnosticsOperationInternalError  |  Ett internt fel uppstod när diagnostik profilen för den virtuella datorns {0}bearbetades.  |
+|  DiskBlobAlreadyInUseByAnotherDisk  |  BLOB {0} används redan av en annan disk som tillhör den virtuella datorn{1}. Du kan kontrol lera BLOB-metadata för diskens referens information.  |
+|  DiskBlobNotFound  |  Det gick inte att hitta en VHD-BLOB med URI-{0} för disken{1}.  |
+|  DiskBlobNotFound  |  Det gick inte att hitta VHD-BLOB med URI-{0}.  |
+|  DiskEncryptionKeySecretMissingTags  |  {0} hemligheten har inte {1} taggar. Uppdatera den hemliga versionen, Lägg till de nödvändiga taggarna och försök igen.  |
+|  DiskEncryptionKeySecretUnwrapFailed  |  Det gick inte att packa upp hemligt {0} värde med nyckel {1}.  |
+|  DiskImageNotReady  |  Disk avbildnings {0} är i {1}s tillstånd. Försök igen när avbildningen är klar.  |
+|  DiskPreparationError  |  Ett eller flera fel uppstod när VM-diskar skulle förberedas. Mer information finns i vyn disk instans.  |
+|  DiskProcessingError  |  Disk bearbetningen har stoppats eftersom den virtuella datorn har andra diskar på felaktiga diskar.  |
+|  ImageBlobNotFound  |  Det gick inte att hitta en VHD-BLOB med URI-{0} för disken{1}.  |
+|  ImageBlobNotFound  |  Det gick inte att hitta VHD-BLOB med URI-{0}.  |
+|  IncorrectDiskBlobType  |  Disk-blobbar kan endast vara av typen Page blob. BLOB-{0} för disken{1}är av typen Block-Blob.  |
+|  IncorrectDiskBlobType  |  Disk-blobbar kan endast vara av typen Page blob. BLOB-{0} är av typen '{1}'.  |
+|  IncorrectImageBlobType  |  Disk-blobbar kan endast vara av typen Page blob. BLOB-{0} för disken{1}är av typen Block-Blob.  |
+|  IncorrectImageBlobType  |  Disk-blobbar kan endast vara av typen Page blob. BLOB-{0} är av typen '{1}'.  |
+|  InternalOperationError  |  Det gick inte att matcha lagrings kontots {0}. Kontrol lera att den har skapats via Storage Resource Provider på samma plats som beräknings resursen.  |
+|  InternalOperationError  |  {0} måls sökning av aktiviteter misslyckades.  |
+|  InternalOperationError  |  Ett fel uppstod när nätverks profilen för den virtuella datorn{0}verifierades.  |
+|  InvalidAccountType  |  Den Start{0} är ogiltig.  |
+|  InvalidParameter  |  Värdet för parametern {0} är ogiltigt.  |
+|  InvalidParameter  |  Det angivna administratörs lösen ordet är inte tillåtet.  |
+|  InvalidParameter  |  "Det angivna lösen ordet måste vara mellan {0}-{1} tecken och måste uppfylla minst {2} av lösen ords komplexitets kraven från följande: <ol><li> Innehåller ett versal steg</li><li>Innehåller ett gemener</li><li>Innehåller en numerisk siffra</li><li>Innehåller ett specialtecken.</li></ol>  |
+|  InvalidParameter  |  Det angivna administratörs användar namnet är inte tillåtet.  |
+|  InvalidParameter  |  Det går inte att koppla en befintlig OS-disk om den virtuella datorn skapas från en plattform eller användar avbildning.  |
+|  InvalidParameter  |  Container namnet {0} är ogiltigt. Behållar namn måste vara 3-63 tecken långt och får bara innehålla gemena alfanumeriska tecken och bindestreck. Bindestreck måste föregås och följas av ett alfanumeriskt tecken.  |
+|  InvalidParameter  |  Behållar namnet {0} i URL {1} är ogiltigt. Behållar namn måste vara 3-63 tecken långt och får bara innehålla gemena alfanumeriska tecken och bindestreck. Bindestreck måste föregås och följas av ett alfanumeriskt tecken.  |
+|  InvalidParameter  |  BLOB-namnet i URL {0} innehåller ett snedstreck. Det finns för närvarande inte stöd för diskar.  |
+|  InvalidParameter  |  URI-{0} ser inte ut att vara rätt BLOB-URI.  |
+|  InvalidParameter  |  En disk med namnet{0}använder redan samma LUN: {1}.  |
+|  InvalidParameter  |  Det finns redan en disk med namnet{0}.  |
+|  InvalidParameter  |  Det går inte att ange åsidosättningar för användar avbildning för en disk som redan har definierats i den angivna bild referensen.  |
+|  InvalidParameter  |  En disk med namnet "{0}" använder redan samma VHD-URL {1}.  |
+|  InvalidParameter  |  Det angivna antalet fel domäner {0} måste ligga inom intervallet {1} för att {2}.  |
+|  InvalidParameter  |  Licens typen {0} är ogiltig. Giltiga licens typer är: Windows_Client eller Windows_Server, SKIFT läges känsligt.  |
+|  InvalidParameter  |  Linux-värdnamnet får inte vara längre än {0} tecken eller innehålla följande tecken: {1}.  |
+|  InvalidParameter  |  Mål Sök vägen för offentliga SSH-nycklar är för närvarande begränsad till standardvärdet {0} på grund av ett känt problem i Linux-etablerings agenten.  |
+|  InvalidParameter  |  Det finns redan en disk på LUN-{0}.  |
+|  InvalidParameter  |  Prenumerations {0} för begäran måste matcha prenumerations {1} som finns i det hanterade disk-ID: t.  |
+|  InvalidParameter  |  Anpassade data i OSProfile måste vara i base64-kodning och får bestå av högst {0} tecken.  |
+|  InvalidParameter  |  BLOB-namnet i URL {0} måste sluta med "{1}"-tillägget.  |
+|  InvalidParameter  |  {0}är inte ett giltigt BLOB Name-prefix för avbildning. Ett giltigt prefix matchar regex '{1}'.  |
+|  InvalidParameter  |  Det går inte att lägga till certifikat i den virtuella datorn om VM-agenten inte har tillhandahållits.  |
+|  InvalidParameter  |  Det finns redan en disk på LUN-{0}.  |
+|  InvalidParameter  |  Det gick inte att skapa den virtuella datorn eftersom den begärda storleken {0} inte är tillgänglig i klustret där tillgänglighets uppsättningen för närvarande är allokerad. De tillgängliga storlekarna är: {1}. Läs mer om strategi för storleks ändring av virtuella datorer på https://aka.ms/azure-resizevm.  |
+|  InvalidParameter  |  Den begärda storleken {0} för virtuell dator är inte tillgänglig i den aktuella regionen. De storlekar som är tillgängliga i den aktuella regionen är: {1}. Ta reda på mer om tillgängliga VM-storlekar i varje region på https://aka.ms/azure-regions.  |
+|  InvalidParameter  |  Den begärda storleken {0} för virtuell dator är inte tillgänglig i den aktuella regionen. Ta reda på mer om tillgängliga VM-storlekar i varje region på https://aka.ms/azure-regions.  |
+|  InvalidParameter  |  Användar namnet för Windows-administratören får inte vara mer än {0} tecken långt, sluta med en punkt (.) eller innehålla följande tecken: {1}.  |
+|  InvalidParameter  |  Namnet på Windows-datorn får inte vara längre än {0} tecken, måste vara helt numeriskt eller innehålla följande tecken: {1}.  |
+|  MissingMoveDependentResources  |  Begäran om att flytta resurser innehåller inte alla beroende resurser. Läs fel informationen om saknade resurs-ID: n.  |
+|  MoveResourcesHaveInvalidState  |  Begäran om att flytta resurser innehåller virtuella datorer som är associerade med ogiltiga lagrings konton. Kontrol lera informationen för dessa resurs-ID: n och refererade lagrings konto namn.  |
+|  MoveResourcesHavePendingOperations  |  Begäran om att flytta resurser innehåller resurser för vilka en åtgärd väntar. Kontrol lera informationen för dessa resurs-ID: n. Försök igen när de väntande åtgärderna har slutförts.  |
+|  MoveResourcesNotFound  |  Begäran om att flytta resurser innehåller resurser som inte går att hitta. Kontrol lera informationen för dessa resurs-ID: n.  |
+|  NetworkingInternalOperationError  |  Okänt nätverks tilldelnings fel.  |
+|  NetworkingInternalOperationError  |  Okänt nätverks tilldelnings fel  |
+|  NetworkingInternalOperationError  |  Ett internt fel uppstod vid bearbetning av nätverks profilen för den virtuella datorn.  |
+|  NotFound  |  Det går inte att hitta tillgänglighets uppsättningen {0}.  |
+|  NotFound  |  Den virtuella käll datorn{0}som anges i begäran finns inte på den här Azure-platsen.  |
+|  NotFound  |  Det gick inte att hitta innehavaren med ID {0}.  |
+|  NotFound  |  Det går inte att hitta avbildningen {0}.  |
+|  NotSupported  |  Licens typen är {0}, men avbildnings-bloben {1} inte från den lokala platsen.  |
+|  OperationNotAllowed  |  Det går inte att ta bort tillgänglighets uppsättningen {0}. Innan du tar bort en tillgänglighets uppsättning ser du till att den inte innehåller någon virtuell dator.  |
+|  OperationNotAllowed  |  Det är inte tillåtet att ändra SKU för tillgänglighets uppsättning från "justerad" till "klassisk".  |
+|  OperationNotAllowed  |  Det går inte att ändra tillägg på den virtuella datorn när den virtuella datorn inte körs.  |
+|  OperationNotAllowed  |  Avbildnings åtgärden stöds endast på en virtuell dator med BLOB-baserade diskar. Använd "image"-resurs-API: er för att skapa en avbildning från en hanterad virtuell dator.  |
+|  OperationNotAllowed  |  Det går inte att skapa en resurs {0} från avbildningen {1} förrän avbildningen har skapats.  |
+|  OperationNotAllowed  |  Uppdateringar av encryptionSettings tillåts inte när en virtuell dator allokeras, försök igen när den virtuella datorn har frigjorts  |
+|  OperationNotAllowed  |  Det finns inte stöd för att lägga till en hanterad disk till en virtuell dator med BLOB-baserade diskar.  |
+|  OperationNotAllowed  |  Det maximala antalet data diskar som får anslutas till en virtuell dator av den här storleken är {0}.  |
+|  OperationNotAllowed  |  Det finns inte stöd för att lägga till en BLOB-baserad disk till en virtuell dator med hanterade diskar.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte för avbildningen{1}eftersom bilden har marker ATS för borttagning. Du kan endast försöka ta bort igen (eller vänta tills en pågående åtgärd slutförts).  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte på den virtuella datorn{1}eftersom den virtuella datorn är generaliserad.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte eftersom återställnings punkts samlingen{1}har marker ATS för borttagning.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte för det virtuella dator tillägget{1}eftersom det har marker ATS för borttagning. Du kan endast försöka ta bort igen (eller vänta tills en pågående åtgärd slutförts).  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte eftersom Virtual Machines{1}allokeras med hjälp av avbildningen{2}.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte eftersom den virtuella datorn ScaleSet{1}för närvarande använder avbildningen{2}.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte på den virtuella datorn{1}eftersom den virtuella datorn har marker ATS för borttagning. Du kan endast försöka ta bort igen (eller vänta tills en pågående åtgärd slutförts).  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte för den virtuella datorn{1}eftersom den virtuella datorn antingen har frigjorts eller marker ATS för att bli fribelagd.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte på den virtuella datorn{1}eftersom den virtuella datorn körs. Stäng av explicit om du stänger av den virtuella datorn inifrån gäst operativ systemet.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte för den virtuella datorn{1}eftersom den virtuella datorn inte har frigjorts.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte på den virtuella datorn{1}eftersom den virtuella datorn har tillägget "{2}" i felaktigt tillstånd.  |
+|  OperationNotAllowed  |  Åtgärden{0}tillåts inte för den virtuella datorn{1}eftersom en annan åtgärd pågår.  |
+|  OperationNotAllowed  |  Åtgärden{0}kräver att den virtuella datorn{1}generaliseras.  |
+|  OperationNotAllowed  |  Åtgärden kräver att den virtuella datorn körs (eller har angetts för körning).  |
+|  OperationNotAllowed  |  Disk med storlek {0}GB, vilket är mindre än storleken {1}GB för motsvarande disk i avbildningen är inte tillåten.  |
+|  OperationNotAllowed  |  Det går bara att lägga till tillägg för skalnings uppsättning för virtuella datorer i hanteraren{0}när VM Scale set skapas.  |
+|  OperationNotAllowed  |  Tillägg för skalnings uppsättning för virtuella datorer i hanteraren{0}kan bara tas bort när VM Scale set tas bort.  |
+|  OperationNotAllowed  |  Den virtuella datorn{0}använder redan hanterade diskar.  |
+|  OperationNotAllowed  |  Den virtuella datorn{0}tillhör den klassiska tillgänglighets uppsättningen{1}. Uppdatera tillgänglighets uppsättningen så att den använder "justerad" SKU och försök sedan att konvertera igen.  |
+|  OperationNotAllowed  |  Den virtuella datorn som skapas från avbildningen kan inte ha BLOB-baserade diskar. Alla diskar måste vara hanterade diskar.  |
+|  OperationNotAllowed  |  Det går inte att slutföra avbildnings åtgärden eftersom den virtuella datorn inte är generaliserad.  |
+|  OperationNotAllowed  |  Hanterings åtgärder på den virtuella datorn{0}tillåts inte eftersom virtuella dator diskar konverteras till hanterade diskar.  |
+|  OperationNotAllowed  |  En pågående åtgärd ändrar energi statusen för den virtuella datorn {0} till {1}. Kör åtgärden {2} efter en stund.  |
+|  OperationNotAllowed  |  Det går inte att lägga till eller uppdatera den virtuella datorn. Den begärda storleken {0} för virtuell dator är kanske inte tillgänglig i den befintliga allokeringsenheten. Läs mer om strategi för storleks ändring av virtuella datorer på https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Det går inte att ändra storlek på den virtuella datorn eftersom den begärda storleken {0} inte är tillgänglig i klustret där tillgänglighets uppsättningen för närvarande är allokerad. De tillgängliga storlekarna är: {1}. Läs mer om strategi för storleks ändring av virtuella datorer på https://aka.ms/azure-resizevm.  |
+|  OperationNotAllowed  |  Det går inte att ändra storlek på den virtuella datorn eftersom den begärda storleken {0} inte är tillgänglig i klustret där den virtuella datorn för närvarande är allokerad. Om du vill ändra storlek på den virtuella datorn så att den {1} frigöra (det här är en åtgärd i Azure Portal) och försök sedan att ändra storlek igen. Läs mer om strategi för storleks ändring av virtuella datorer på https://aka.ms/azure-resizevm.  |
+|  OSProvisioningClientError  |  OS-etableringen misslyckades för den virtuella datorn{0}eftersom gäst operativ systemet håller på att tillhandahållas.  |
+|  OSProvisioningClientError  |  Det gick inte att etablering av operativ systemet för den virtuella datorn{0}. Fel information: {1} se till att avbildningen har förberetts (generaliseras). <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/  </li></ul> |
+|  OSProvisioningClientError  |  Det gick inte att skapa SSH-nyckeln. Fel information: {0}. Lös problemet genom att kontrol lera om Linux-agenten är korrekt konfigurerad. <ul><li>Du kan kontrol lera anvisningarna på: https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux/ </li></ul> |
+|  OSProvisioningClientError  |  Det angivna användar namnet för den virtuella datorn är ogiltigt för den här Linux-distributionen. Fel information: {0}.  |
+|  OSProvisioningInternalError  |  OS-etableringen misslyckades för den virtuella datorn{0}på grund av ett internt fel.  |
+|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn{0}inte slutföras inom den tilldelade tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare.  |
+|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn{0}inte slutföras inom den tilldelade tiden. Den virtuella datorn kanske fortfarande har slutfört etableringen. Kontrol lera etablerings statusen senare. Kontrol lera också att avbildningen har förberetts (generaliseras).   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruktioner för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  OS-etableringen för den virtuella datorn{0}inte slutföras inom den tilldelade tiden. Den virtuella datorns gästa Gent upptäcktes dock. Detta föreslår att gäst operativ systemet inte har förberetts för att användas som en VM-avbildning (med CreateOption = FromImage). Lös problemet genom att antingen använda den virtuella hård disken som är med CreateOption = Anslut eller förbereda den korrekt för användning som en avbildning:   <ul><li>Instruktioner för Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instruktioner för Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OverConstrainedAllocationRequest  |  Den nödvändiga VM-storleken är för närvarande inte tillgänglig på den valda platsen.  |
+|  ResourceUpdateBlockedOnPlatformUpdate  |  Det går inte att uppdatera resursen just nu på grund av en pågående plattforms uppdatering. Försök igen senare.  |
+|  StorageAccountLimitation  |  Lagrings kontot{0}stöder inte sid-blobbar som krävs för att skapa diskar.  |
+|  StorageAccountLimitation  |  Lagrings kontot{0}har överskridit den tilldelade kvoten.  |
+|  StorageAccountLocationMismatch  |  Det gick inte att matcha lagrings kontots {0}. Kontrol lera att den har skapats via Storage Resource Provider på samma plats som beräknings resursen.  |
+|  StorageAccountNotFound  |  Det {0} inte att hitta lagrings kontot. Se till att lagrings kontot inte har tagits bort och tillhör samma Azure-plats som den virtuella datorn.  |
+|  StorageAccountNotRecognized  |  Använd ett lagrings konto som hanteras av Storage Resource Provider. Det finns inte stöd för användning av {0}.  |
+|  StorageAccountOperationInternalError  |  Ett internt fel uppstod vid åtkomst till lagrings kontot {0}.  |
+|  StorageAccountSubscriptionMismatch  |  Lagrings kontot {0} tillhör inte prenumerations {1}.  |
+|  StorageAccountTooBusy  |  Lagrings kontot{0}är för närvarande för tillfället. Överväg att använda ett annat konto.  |
+|  StorageAccountTypeNotSupported  |  Disk {0} använder {1} som är ett Blob Storage-konto. Försök igen med lagrings kontot för generell användning.  |
+|  StorageAccountTypeNotSupported  |  Lagrings kontots {0} är av {1} typ. Startdiagnostik stöder {2} lagrings konto typer.  <ul><li>Det här felet uppstår om du använder Premium Storage-kontot för startdiagnostik. Mer information finns i [så här använder du startdiagnostik](boot-diagnostics.md). </li></ul> |
+|  SubscriptionNotAuthorizedForImage  |  Prenumerationen är inte auktoriserad.  |
+|  TargetDiskBlobAlreadyExists  |  Det finns redan en BLOB {0}. Ange en annan BLOB-URI för att skapa en ny tom data disk{1}.  |
+|  TargetDiskBlobAlreadyExists  |  Avbildnings åtgärden kan inte fortsätta eftersom mål avbildnings-bloben {0} redan finns och flaggan för att skriva över VHD-blobar inte har angetts. Ta antingen bort blobben eller ange flaggan för att skriva över VHD-blobbar och försök igen.  |
+|  TargetDiskBlobAlreadyExists  |  Avbildnings åtgärden kan inte fortsätta eftersom mål avbildnings-BLOB {0} har ett aktivt lån.   |
+|  TargetDiskBlobAlreadyExists  |  Det finns redan en BLOB {0}. Ange en annan BLOB-URI som mål för disken{1}.  |
+|  TooManyVMRedeploymentRequests  |  För många omdistributions begär Anden har tagits emot för den virtuella datorn{0}eller de virtuella datorerna i samma availabilityset med den här virtuella datorn. Försök igen senare.  |
+|  VHDSizeInvalid  |  Det angivna disk storlek svärdet för {0} för disken "{1}" med BLOB {2} är ogiltigt. Disk storleken måste vara mellan {3} och {4}.  |
+|  VMAgentStatusCommunicationError  |  Den virtuella datorn{0}har inte rapporterat status för VM-agenten eller-tilläggen. Kontrol lera att den virtuella datorn har en virtuell dator agent som körs och kan upprätta utgående anslutningar till Azure Storage.  |
+|  VMArtifactRepositoryInternalError  |  Ett fel uppstod vid kommunikation med artefakt lagrings platsen för att hämta information om virtuell dator artefakt.  |
+|  VMArtifactRepositoryInternalError  |  Ett internt fel inträffade när den virtuella datorns artefakt data hämtades från artefakt lagret.  |
+|  VMExtensionHandlerNonTransientError  |  Hanteraren "{0}" rapporterade felet för det virtuella dator tillägget "{1}" med terminaltypen "{2}" och fel meddelande: "{3}"  |
+|  VMExtensionManagementInternalError  |  Ett internt fel uppstod när det virtuella dator tillägget{0}bearbetades.  |
+|  VMExtensionManagementInternalError  |  Flera fel uppstod när VM-tilläggen skulle förberedas. Mer information finns i instans vyn för VM-tillägg.  |
+|  VMExtensionProvisioningError  |  Den virtuella datorn rapporterade ett problem när tillägget{0}bearbetades. Fel meddelande: "{1}".  |
+|  VMExtensionProvisioningError  |  Det gick inte att tillhandahålla flera VM-tillägg på den virtuella datorn. Mer information finns i instans vyn för VM-tillägg.  |
+|  VMExtensionProvisioningTimeout  |  Tids gränsen nåddes för etablering av VM-tillägget{0}. Det kan ta för lång tid att installera tillägg, eller så gick det inte att hämta tilläggets status.  |
+|  VMMarketplaceInvalidInput  |  Att skapa en virtuell dator från en icke-Marketplace-avbildning behöver inte planera information, ta bort plan informationen i begäran. OS-diskens namn är {0}.  |
+|  VMMarketplaceInvalidInput  |  Inköps informationen stämmer inte överens. Det går inte att distribuera från Marketplace-avbildningen. OS-diskens namn är {0}.  |
+|  VMMarketplaceInvalidInput  |  Om du skapar en virtuell dator från Marketplace-avbildningen måste du planera information i begäran. OS-diskens namn är {0}.  |
+|  VMNotFound  |  Det gick inte att hitta den virtuella datorn{0}.  |
+|  VMRedeploymentFailed  |  Omdistributionen av den virtuella datorn{0}misslyckades på grund av ett internt fel. Försök igen senare.  |
+|  VMRedeploymentTimedOut  |  Omdistributionen av den virtuella datorn{0}kunde inte slutföras inom den angivna tiden. Det kan slutföras i en stund. Annars kan du försöka utföra begäran igen.  |
+|  VMStartTimedOut  |  Det gick inte att starta den virtuella datorn{0}inom den tilldelade tiden. Den virtuella datorn kan fortfarande starta. Kontrol lera energi spar läget senare.  |
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du behöver mer hjälp kan du kontakta Azure-experter på [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och välj **hämta stöder**.
+Om du behöver mer hjälp kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj **få support**.

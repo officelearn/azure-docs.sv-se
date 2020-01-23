@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 580d1316c2bfc6514a148ed6fba78a8e77bd880e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c9e7c23806d4a0a0e2c0b36122d9eb087c986556
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67614906"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549180"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)
 
@@ -23,7 +23,7 @@ Processen att behålla Windows Server-noder (för närvarande i för hands versi
 Den här artikeln visar hur du använder [kured (KUbernetes REboot daemon)][kured] för att se om det finns Linux-noder som kräver en omstart, och som automatiskt hanterar omschemaläggningen av pågående poddar och omstart av en nod.
 
 > [!NOTE]
-> `Kured`är ett projekt med öppen källkod från Weaveworks. Stöd för det här projektet i AKS tillhandahålls på bästa möjliga sätt. Ytterligare support finns i #weave-communityns slack-kanal.
+> `Kured` är ett projekt med öppen källkod från Weaveworks. Stöd för det här projektet i AKS tillhandahålls på bästa möjliga sätt. Ytterligare support finns i #weave-communityns slack-kanal.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -39,7 +39,7 @@ I ett AKS-kluster körs dina Kubernetes-noder som virtuella Azure-datorer (VM). 
 
 Vissa säkerhets uppdateringar, till exempel kernel-uppdateringar, kräver en omstart av en nod för att slutföra processen. En Linux-nod som kräver en omstart skapar en fil med namnet */var/run/reboot-required*. Den här omstarts processen sker inte automatiskt.
 
-Du kan använda dina egna arbets flöden och processer för att hantera omstarter av noder `kured` eller använda för att dirigera processen. Med `kured`distribueras en [DaemonSet][DaemonSet] som kör en POD på varje Linux-nod i klustret. Dessa poddar i DaemonSet tittar efter förekomsten av */var/run/reboot-required* -filen och initierar sedan en process för att starta om noderna.
+Du kan använda dina egna arbets flöden och processer för att hantera omstarter av noder, eller använda `kured` för att dirigera processen. Med `kured`distribueras en [DaemonSet][DaemonSet] som kör en POD på varje Linux-nod i klustret. Dessa poddar i DaemonSet tittar efter förekomsten av */var/run/reboot-required* -filen och startar sedan en process för att starta om noderna.
 
 ### <a name="node-upgrades"></a>Nods uppgraderingar
 
@@ -54,7 +54,7 @@ Du kan inte ha kvar samma Kubernetes-version under en uppgraderings händelse. D
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>Distribuera kured i ett AKS-kluster
 
-Om du vill `kured` distribuera DaemonSet använder du följande exempel yaml manifest från projekt sidan för GitHub. Det här manifestet skapar en roll-och kluster roll, bindningar och ett tjänst konto och distribuerar sedan DaemonSet med `kured` version 1.1.0 som stöder AKS-kluster 1,9 eller senare.
+Om du vill distribuera `kured` DaemonSet ska du använda följande exempel YAML manifest från projekt sidan för GitHub. Detta manifest skapar en roll-och kluster roll, bindningar och ett tjänst konto och distribuerar sedan DaemonSet med hjälp av `kured` version 1.1.0 som stöder AKS-kluster 1,9 eller senare.
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
@@ -64,13 +64,13 @@ Du kan också konfigurera ytterligare parametrar för `kured`, till exempel inte
 
 ## <a name="update-cluster-nodes"></a>Uppdatera klusternoder
 
-Som standard söker Linux-noder i AKS efter uppdateringar varje kväll. Om du inte vill vänta kan du utföra en uppdatering manuellt för att kontrol lera att `kured` den fungerar korrekt. Börja med att följa stegen för [SSH till en av dina AKS-noder][aks-ssh]. När du har en SSH-anslutning till Linux-noden söker du efter uppdateringar och tillämpar dem på följande sätt:
+Som standard söker Linux-noder i AKS efter uppdateringar varje kväll. Om du inte vill vänta kan du utföra en uppdatering manuellt för att kontrol lera att `kured` fungerar korrekt. Börja med att följa stegen för [SSH till en av dina AKS-noder][aks-ssh]. När du har en SSH-anslutning till Linux-noden söker du efter uppdateringar och tillämpar dem på följande sätt:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
 ```
 
-Om uppdateringar tillämpades som kräver en omstart av en nod, skrivs en fil till */var/run/reboot-required*. `Kured`söker efter noder som kräver en omstart var 60 minut som standard.
+Om uppdateringar tillämpades som kräver en omstart av en nod, skrivs en fil till */var/run/reboot-required*. `Kured` söker efter noder som kräver en omstart var 60 minut som standard.
 
 ## <a name="monitor-and-review-reboot-process"></a>Övervaka och granska omstart
 
@@ -83,7 +83,7 @@ NAME                       STATUS                     ROLES     AGE       VERSIO
 aks-nodepool1-28993262-0   Ready,SchedulingDisabled   agent     1h        v1.11.7
 ```
 
-När uppdaterings processen är klar kan du Visa status för noderna med hjälp av kommandot [kubectl get Nodes][kubectl-get-nodes] med `--output wide` parametern. Med den här ytterligare utmatningen kan du se en skillnad i *kernel-versionen* av de underliggande noderna, som visas i följande exempel på utdata. *AKS-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-Azure*. Noden *AKS-nodepool1-28993262-1* som inte har uppdaterats visar kernel *-version 4.15.0-1037-Azure*.
+När uppdaterings processen är klar kan du Visa status för noderna med hjälp av kommandot [kubectl get Nodes][kubectl-get-nodes] med parametern `--output wide`. Med den här ytterligare utmatningen kan du se en skillnad i *kernel-versionen* av de underliggande noderna, som visas i följande exempel på utdata. *AKS-nodepool1-28993262-0* uppdaterades i ett föregående steg och visar kernel-version *4.15.0-1039-Azure*. Noden *AKS-nodepool1-28993262-1* som inte har uppdaterats visar kernel *-version 4.15.0-1037-Azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -93,7 +93,7 @@ aks-nodepool1-28993262-1   Ready     agent     1h        v1.11.7   10.240.0.5   
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln innehåller information om `kured` hur du använder för att starta om Linux-noder automatiskt som en del av säkerhets uppdaterings processen. Om du vill uppgradera till den senaste versionen av Kubernetes kan du [uppgradera ditt AKS-kluster][aks-upgrade].
+I den här artikeln beskrivs hur du använder `kured` för att starta om Linux-noder automatiskt som en del av säkerhets uppdaterings processen. Om du vill uppgradera till den senaste versionen av Kubernetes kan du [uppgradera ditt AKS-kluster][aks-upgrade].
 
 Information om AKS-kluster som använder Windows Server-noder finns i [uppgradera en Node-pool i AKS][nodepool-upgrade].
 

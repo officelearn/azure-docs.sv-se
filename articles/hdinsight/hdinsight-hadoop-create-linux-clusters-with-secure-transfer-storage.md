@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979125"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548823"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Skapa Apache Hadoop kluster med lagrings konton för säker överföring i Azure HDInsight
 
 Funktionen [Säker överföring krävs](../storage/common/storage-require-secure-transfer.md) förbättrar säkerheten för ditt Azure Storage-konto genom att kräva att alla förfrågningar till ditt konto görs via en säker anslutning. Den här funktionen och wasbs-schemat stöds endast av HDInsight-kluster med version 3.6 eller senare.
+
+**Aktivering av säker lagrings överföring efter att ett kluster har skapats kan resultera i fel med ditt lagrings konto och rekommenderas inte. Det är bättre att skapa ett nytt kluster med egenskapen aktive rad.**
 
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln måste du ha:
 
 * Azure-prenumeration: du kan skapa ett kostnads fritt utvärderings konto för en månad genom att bläddra till [Azure.Microsoft.com/free](https://azure.microsoft.com/free).
-* Ett Azure Storage konto med säker överföring aktive rad. Anvisningar finns i [Create a storage account](../storage/common/storage-account-create.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring). Att aktivera säker lagrings överföring när du har skapat ett kluster kräver ytterligare åtgärder som inte beskrivs i den här artikeln.
+* Ett Azure Storage konto med säker överföring aktive rad. Anvisningar finns i [Create a storage account](../storage/common/storage-account-create.md) (Skapa ett lagringskonto) och [Require secure transfer](../storage/common/storage-require-secure-transfer.md) (Kräva säker överföring). 
 * En BLOB-behållare på lagrings kontot.
 
 ## <a name="create-cluster"></a>Skapa kluster

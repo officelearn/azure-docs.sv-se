@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 11/19/2019
-ms.openlocfilehash: 7451758e758d597bfe63d92fe4789c8fa81b3dff
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 000db771f27c7063aee120f06e13eec3575c8ef5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311486"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546647"
 ---
 # <a name="module-k-means-clustering"></a>Modul: K-innebär klustring
 
-Den här artikeln beskriver hur du använder modulen *k-: kluster* modul i Azure Machine Learning designer för att skapa en modell modell med en modell som inte är tränad k-: 
+Den här artikeln beskriver hur du använder modulen *K-: Clustering* i Azure Machine Learning designer (för hands version) för att skapa en modell som inte är tränad k-: 
  
 K-betyder en av de enklaste och bästa kända, ej *övervakade* inlärnings algoritmerna. Du kan använda algoritmen för en mängd olika Machine Learning-uppgifter, till exempel: 
 

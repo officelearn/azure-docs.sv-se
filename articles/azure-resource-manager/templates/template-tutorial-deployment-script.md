@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/09/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e52a859c86ff451293ac6ff795c7fe427a383b9d
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 459d75bec3d4b4d0cf9057e0c6de238e7f165bfb
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835302"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548993"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>Självstudie: använda distributions skript för att skapa ett självsignerat certifikat (förhands granskning)
 
@@ -267,7 +267,7 @@ Distributions skriptet lägger till ett certifikat i nyckel valvet. Konfigurera 
     * **scriptContent**: ange skript innehållet. Om du vill köra ett externt skript använder du **primaryScriptURI** i stället. Mer information finns i [Använd externt skript](./deployment-script-template.md#use-external-scripts).
         Att deklarera **$DeploymentScriptOutputs** krävs bara när du testar skriptet på en lokal dator. Att deklarera variabeln gör att skriptet kan köras på en lokal dator och i en deploymentScript-resurs utan att behöva göra några ändringar. Värdet som tilldelas $DeploymentScriptOutputs är tillgängligt som utdata i distributionerna. Mer information finns i [arbeta med utdata från distributions skript](./deployment-script-template.md#work-with-outputs-from-deployment-scripts).
     * **cleanupPreference**: ange inställningen för när distributions skript resurser ska tas bort.  Standardvärdet är **Always**, vilket innebär att distributions skript resurserna tas bort trots att terminalens tillstånd (lyckades, misslyckades, avbröts). I den här självstudien används **OnSuccess** så att du får chansen att visa skript körnings resultaten.
-    * **retentionInterval**: Ange med vilket intervall som tjänsten ska behålla skript resurserna när den har nått ett Terminal-tillstånd. Resurserna tas bort när denna varaktighet går ut. Varaktigheten baseras på ISO 8601-mönstret. I den här självstudien används P1D, vilket innebär en dag.  Den här egenskapen används när **retentionInterval** är inställt på **OnExpiration**. Den här egenskapen har inte Aktiver ATS för tillfället.
+    * **retentionInterval**: Ange med vilket intervall som tjänsten ska behålla skript resurserna när den har nått ett Terminal-tillstånd. Resurserna tas bort när denna varaktighet går ut. Varaktigheten baseras på ISO 8601-mönstret. I den här självstudien används P1D, vilket innebär en dag.  Den här egenskapen används när **cleanupPreference** är inställt på **OnExpiration**. Den här egenskapen har inte Aktiver ATS för tillfället.
 
     Distributions skriptet tar tre parametrar: Key Vault-namn, certifikat namn och mottagar namn.  Det skapar ett certifikat och lägger sedan till certifikatet i nyckel valvet.
 
@@ -319,7 +319,7 @@ Resultatet av distributions skript körningen lagras i distributions skriptets r
 
 ## <a name="debug-the-failed-script"></a>Felsöka skriptet som misslyckades
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Öppna resurs gruppen. Det är projekt namnet med **RG** tillagt. Du ska se två ytterligare resurser i resurs gruppen. Dessa resurser kallas för *distributions skript resurser*.
 
     ![Distributions skript resurser för Resource Manager-mall](./media/template-tutorial-deployment-script/resource-manager-template-deployment-script-resources.png)

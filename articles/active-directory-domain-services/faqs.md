@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 61c9d887f1b193258161cd96ccfa3618e8371890
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a25337cad39674bc6016f67bdc46a804518d0b03
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081007"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509027"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Vanliga frågor och svar
 
@@ -41,10 +41,10 @@ På den här sidan besvaras vanliga frågor om Azure Active Directory Domain Ser
 Nej. Det går bara att skapa en enskild hanterad domän som hanteras av Azure AD Domain Services för en enda Azure AD-katalog.
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-a-classic-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett klassiskt virtuellt nätverk?
-Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som distribueras i klassiska virtuella nätverk fortsätter att stödjas.
+Klassiska virtuella nätverk stöds inte för nya distributioner. Befintliga hanterade domäner som distribueras i klassiska virtuella nätverk fortsätter att stödjas. Du kan också [migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager (för hands version)](migrate-from-classic-vnet.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-resource-manager-virtual-network"></a>Kan jag aktivera Azure AD Domain Services i ett Azure Resource Manager virtuellt nätverk?
-Ja. Azure AD Domain Services kan aktive ras i ett Azure Resource Manager virtuellt nätverk. Klassiska virtuella Azure-nätverk stöds inte längre när du skapar en ny hanterad domän.
+Ja. Azure AD Domain Services kan aktive ras i ett Azure Resource Manager virtuellt nätverk. Klassiska virtuella Azure-nätverk är inte längre tillgängliga när du skapar en hanterad domän.
 
 ### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Kan jag migrera min befintliga hanterade domän från ett klassiskt virtuellt nätverk till ett virtuellt Resource Manager-nätverk?
 Ja, den här funktionen är i för hands version. Mer information finns i [migrera Azure AD Domain Services från den klassiska virtuella nätverks modellen till Resource Manager (för hands version)](migrate-from-classic-vnet.md).
@@ -62,7 +62,7 @@ Själva tjänsten har inte direkt stöd för det här scenariot. Din hanterade d
 Ja. Mer information finns i [så här aktiverar du Azure AD Domain Services med hjälp av PowerShell](powershell-create-instance.md).
 
 ### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Kan jag aktivera Azure AD Domain Services med hjälp av en Resource Manager-mall?
-Ja, du kan skapa en Azure AD Domain Services hanterad domän med hjälp av en Resource Manager-mall. Ett tjänst huvud namn och en Azure AD-grupp för administration måste skapas med hjälp av Azure Portal eller Azure PowerShell innan mallen distribueras. När du skapar en Azure AD Domain Services hanterad domän i Azure Portal, finns det ett alternativ för att exportera mallen för användning med ytterligare distributioner. Det finns också en [exempel-mall i GitHub mallar exempel lagrings platsen](https://github.com/Azure/azure-quickstart-templates/tree/master/101-AAD-DomainServices).
+Ja, du kan skapa en Azure AD Domain Services hanterad domän med hjälp av en Resource Manager-mall. Ett tjänst huvud namn och en Azure AD-grupp för administration måste skapas med hjälp av Azure Portal eller Azure PowerShell innan mallen distribueras. Mer information finns i [skapa en Azure AD DS-hanterad domän med hjälp av en Azure Resource Manager-mall](template-create-instance.md). När du skapar en Azure AD Domain Services hanterad domän i Azure Portal, finns det också ett alternativ för att exportera mallen för användning med ytterligare distributioner.
 
 ### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Kan jag lägga till domänkontrollanter till en Azure AD Domain Services hanterad domän?
 Nej. Den domän som tillhandahålls av Azure AD Domain Services är en hanterad domän. Du behöver inte etablera, konfigurera eller på annat sätt hantera domänkontrollanter för den här domänen. Dessa hanterings aktiviteter tillhandahålls som en tjänst av Microsoft. Därför kan du inte lägga till ytterligare domänkontrollanter (Läs-och skriv skydd) för den hanterade domänen.
@@ -131,7 +131,7 @@ Azure AD Domain Services ingår i den kostnads fria utvärderings versionen av A
 Nej. När du har aktiverat en Azure AD Domain Services hanterad domän är tjänsten tillgänglig i det valda virtuella nätverket tills du tar bort den hanterade domänen. Det finns inget sätt att pausa tjänsten. Faktureringen fortsätter per timme tills du tar bort den hanterade domänen.
 
 ### <a name="can-i-failover-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Kan jag redundansväxla Azure AD Domain Services till en annan region för en DR-händelse?
-Nej. Azure AD Domain Services tillhandahåller för närvarande ingen Geo-redundant distributions modell. It'is begränsat till ett enda virtuellt nätverk i en Azure-region. Om du vill använda flera Azure-regioner måste du köra dina Active Directory-domän kontrollanter på virtuella Azure IaaS-datorer. Vägledning för arkitektur finns [här](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
+Nej. Azure AD Domain Services tillhandahåller för närvarande ingen Geo-redundant distributions modell. Den är begränsad till ett enda virtuellt nätverk i en Azure-region. Om du vill använda flera Azure-regioner måste du köra dina Active Directory-domän kontrollanter på virtuella Azure IaaS-datorer. Vägledning för arkitektur finns i [Utöka din lokala Active Directory domän till Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Kan jag få Azure AD Domain Services som en del av EMS (Enterprise Mobility Suite)? Behöver jag Azure AD Premium använda Azure AD Domain Services?
 Nej. Azure AD Domain Services är en Azure-tjänst enligt principen betala per användning och ingår inte i EMS. Azure AD Domain Services kan användas med alla utgåvor av Azure AD (kostnads fri och Premium). Du faktureras per timme, beroende på användning.
@@ -139,7 +139,7 @@ Nej. Azure AD Domain Services är en Azure-tjänst enligt principen betala per a
 ### <a name="what-azure-regions-is-the-service-available-in"></a>Vilka Azure-regioner finns tjänsten i?
 På sidan [Azure-tjänster per region](https://azure.microsoft.com/regions/#services/) kan du se en lista över de Azure-regioner där Azure AD Domain Services är tillgängligt.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Läs [fel söknings guiden](troubleshoot.md) för lösningar på vanliga problem med att konfigurera eller administrera Azure AD Domain Services.
 

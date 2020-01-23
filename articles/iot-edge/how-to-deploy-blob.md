@@ -7,12 +7,12 @@ ms.date: 12/13/2019
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
-ms.openlocfilehash: fe09fb47a75ff9d412ffab2daafaf241a43443b4
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 8c2df4854f4cdb93c08e22f7dcdc23b1b69b13d6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75729615"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548789"
 ---
 # <a name="deploy-the-azure-blob-storage-on-iot-edge-module-to-your-device"></a>Distribuera Azure-Blob Storage i IoT Edge-modulen till din enhet
 
@@ -37,7 +37,7 @@ Azure Portal vägleder dig genom att skapa ett distributions manifest och distri
 
 ### <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt. Den har tre steg indelade i flikar: **moduler**, **vägar**och **Granska + skapa**.
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest. Den har tre steg indelade i flikar: **moduler**, **vägar**och **Granska + skapa**.
 
 #### <a name="add-modules"></a>Lägg till moduler
 
@@ -57,11 +57,11 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
    > [!IMPORTANT]
    > Azure IoT Edge är Skift läges känslig när du anropar moduler, och Storage SDK: n är också i gemener. Även om namnet på modulen på [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) är **AzureBlobStorageonIoTEdge**kan du med hjälp av att ändra namnet till gemener se till att dina anslutningar till Azure-Blob Storage i IoT Edge-modulen inte avbryts.
 
-3. På fliken **behållare skapa alternativ** anger du JSON-kod för att tillhandahålla lagrings konto information och en montering för lagringen på enheten.
+3. Öppna fliken **behållare skapa alternativ** .
 
    ![Modul, dubbla inställningar](./media/how-to-deploy-blob/addmodule-tab3.png)
 
-   Kopiera och klistra in följande JSON i rutan som refererar till plats hållarnas beskrivningar i nästa steg.
+   Kopiera och klistra in följande JSON i rutan för att ange information om lagrings konto och en montering för lagringen på enheten.
   
    ```json
    {
@@ -80,13 +80,13 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
    }
    ```
 
-4. Uppdatera JSON som du kopierade för **container skapa alternativ** med följande information:
+4. Uppdatera JSON-filen som du kopierade till **container skapa alternativ** med följande information:
 
    - Ersätt `<your storage account name>` med ett namn som du kan komma ihåg. Konto namn ska vara 3 till 24 tecken långa, med gemener och siffror. Inga blank steg.
 
    - Ersätt `<your storage account key>` med en 64 byte-base64-nyckel. Du kan generera en nyckel med verktyg som [GeneratePlus](https://generate.plus/en/base64). Du använder dessa autentiseringsuppgifter för att få åtkomst till blob-lagringen från andra moduler.
 
-   - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en katalog på din IoT Edge-enhet där du vill att blob-modulen för att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
+   - Ersätt `<storage mount>` enligt behållar operativ systemet. Ange namnet på en [volym](https://docs.docker.com/storage/volumes/) eller den absoluta sökvägen till en befintlig katalog på din IoT Edge enhet där BLOB-modulen kommer att lagra data. Lagrings monteringen mappar en plats på enheten som du anger till en angiven plats i modulen.
 
      - För Linux-behållare är formatet *\<lagrings Sök väg eller volym >:/blobroot*. Exempel
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): **min-volym:/blobroot**
@@ -94,7 +94,7 @@ Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler
      - För Windows-behållare är formatet *\<lagrings Sök väg eller volym >: C:/BlobRoot*. Exempel
          - Använd [volym montering](https://docs.docker.com/storage/volumes/): **min-volym: C:/blobroot**.
          - Använd [BIND-Mount](https://docs.docker.com/storage/bind-mounts/): **C:/ContainerData: c:/BlobRoot**.
-         - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats. mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+         - I stället för att använda din lokala enhet kan du mappa din SMB-nätverks plats, mer information finns i [använda SMB-resurs som lokal lagring](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
      > Ändra inte den andra halvan av lagrings montering svärdet, som pekar på en angiven plats i modulen. Lagrings monteringen ska alltid avslutas med **:/blobroot** för Linux-behållare och **: C:/blobroot** för Windows-behållare.
@@ -261,6 +261,7 @@ Redigera **behållar skapande alternativ** (i Azure Portal) eller fältet **crea
 Ändra slutpunkten så att den pekar på den uppdaterade värdport när du ansluter till ytterligare blob storage-moduler.
 
 ## <a name="next-steps"></a>Nästa steg
+
 Läs mer om [Azure Blob Storage på IoT Edge](how-to-store-data-blob.md)
 
 Mer information om hur distribution manifest fungerar och hur du skapar dem finns i [förstå hur IoT Edge-moduler kan användas, konfigurerats och återanvändas](module-composition.md).

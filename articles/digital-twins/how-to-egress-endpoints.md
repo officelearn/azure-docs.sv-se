@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/21/2020
+ms.openlocfilehash: 3803802a3d81655091d8be543ae9cb17221a98d8
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456927"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511577"
 ---
 # <a name="egress-and-endpoints-in-azure-digital-twins"></a>Utgående och slut punkter i digitala Azure-dubbla
 
@@ -23,7 +23,7 @@ Händelser dirigeras till slut punkter enligt fördefinierade inställningar fö
 
 Mer information om händelser, Routning och händelse typer finns [i routning av händelser och meddelanden i Azure Digitals](./concepts-events-routing.md).
 
-## <a name="events"></a>Händelser
+## <a name="events"></a>Events
 
 Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbetning av Azure-meddelanden och händelse hanterare. Händelser definieras av följande [Azure Event Grid händelse schema referens](../event-grid/event-schema.md).
 
@@ -50,12 +50,12 @@ Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbe
 | Attribut | Typ | Beskrivning |
 | --- | --- | --- |
 | id | sträng | Unikt ID för händelsen. |
-| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| subject | sträng | Utgivardefinierad sökväg till händelseobjektet. |
 | data | objekt | Händelse data som är speciella för resurs leverantören. |
-| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| eventType | sträng | En av de registrerade händelsetyperna för den här händelsekällan. |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| dataVersion | sträng | Data objektets schema version. Utgivaren definierar schema versionen. |
-| metadataVersion | sträng | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | sträng | Dataobjektets schemaversion. Utgivaren definierar schemaversion. |
+| metadataVersion | sträng | Schemaversionen av händelsens metadata. Event Grid definierar schemat för de översta egenskaperna. Event Grid ger det här värdet. |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 
 Mer information om händelse schema för Event Grid:
@@ -248,7 +248,7 @@ Följande exempel visar hur du konfigurerar slut punkter som stöds.
 
 En autentiserad HTTP POST-begäran mot:
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/endpoints
 ```
 

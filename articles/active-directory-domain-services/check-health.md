@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705414"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509146"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Kontrol lera hälso tillståndet för en Azure Active Directory Domain Services hanterad domän
 
-Azure Active Directory Domain Services (Azure AD DS) kör vissa bakgrunds aktiviteter för att hålla den hanterade domänen felfri och uppdaterad. I dessa uppgifter ingår säkerhets kopiering, säkerhets uppdateringar och synkronisering av data från Azure AD. Om det finns problem med den hanterade domänen i Azure AD DS kanske de här aktiviteterna inte kan köras. Om du vill granska och lösa eventuella problem kan du kontrol lera hälso statusen för en hanterad Azure AD DS-domän med hjälp av Azure Portal.
+Azure Active Directory Domain Services (Azure AD DS) kör vissa bakgrunds aktiviteter för att hålla den hanterade domänen felfri och uppdaterad. I dessa uppgifter ingår säkerhets kopiering, säkerhets uppdateringar och synkronisering av data från Azure AD. Om det finns problem med den hanterade domänen i Azure AD DS kan de här uppgifterna inte slutföras. Om du vill granska och lösa eventuella problem kan du kontrol lera hälso statusen för en hanterad Azure AD DS-domän med hjälp av Azure Portal.
 
 Den här artikeln visar hur du visar hälso status för Azure AD DS och förstår den information eller de aviseringar som visas.
 
@@ -38,20 +38,20 @@ Den *senaste utvärderade* tidsstämpeln för hälso sidan visar när den hanter
 
 Statusen längst upp till höger visar den övergripande hälso tillståndet för den hanterade domänen i Azure AD DS. Status faktorerna är alla befintliga aviseringar på din domän. Följande tabell innehåller information om tillgängliga status indikatorer:
 
-| Status | Icon | Förklaring |
+| Status | Ikon | Förklaring |
 | --- | :----: | --- |
 | Körs | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Den hanterade Azure AD DS-domänen körs korrekt och saknar kritiska eller varnings aviseringar. Domänen kan innehålla informations aviseringar. |
 | Kräver åtgärd (varning) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Det finns inga kritiska aviseringar för den hanterade domänen i Azure AD DS, men det finns en eller flera varnings aviseringar som ska åtgärdas. |
 | Behöver åtgärdas (kritisk) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Det finns en eller flera kritiska aviseringar i den hanterade Azure AD DS-domänen som måste åtgärdas. Du kan också ha varnings-och/eller informations aviseringar. |
-| Deploy | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS-domänen distribueras. |
+| Distribuera | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS-domänen distribueras. |
 
 ## <a name="understand-monitors-and-alerts"></a>Förstå övervakare och aviseringar
 
-Hälso tillståndet för en hanterad Azure AD DS-domän visar två typer av information – övervakare och aviseringar. Övervakare visar den tid som grundläggande bakgrunds aktiviteter har slutförts. Aviseringar ger information eller förslag för att förbättra stabiliteten i den hanterade domänen.
+Hälso tillståndet för en hanterad Azure AD DS-domän visar två typer av information – *övervakare*och *aviseringar*. Övervakare visar den tid som grundläggande bakgrunds aktiviteter har slutförts. Aviseringar ger information eller förslag för att förbättra stabiliteten i den hanterade domänen.
 
 ### <a name="monitors"></a>Övervakare
 
-Övervakare är områden i en Azure AD DS-hanterad domän som kontrol leras regelbundet. Om det finns aktiva aviseringar för den hanterade Azure AD DS-domänen kan det leda till att en av övervakarna rapporterar ett problem. Azure AD Domain Services övervakar för närvarande följande områden:
+Övervakare är områden i en Azure AD DS-hanterad domän som kontrol leras regelbundet. Om det finns aktiva aviseringar för den hanterade Azure AD DS-domänen kan det leda till att en av övervakarna rapporterar ett problem. Azure AD Domain Services har för närvarande Övervakare för följande områden:
 
 * Backup
 * Synkronisering med Azure AD
@@ -68,7 +68,7 @@ Säkerhets kopierings övervakaren kontrollerar att automatiserade regelbundna s
 
 #### <a name="synchronization-with-azure-ad-monitor"></a>Synkronisering med Azure AD Monitor
 
-En Azure AD DS-hanterad domän synkroniseras regelbundet med Azure Active Directory. Antalet användare och grupp objekt och antalet ändringar som gjorts i Azure AD-katalogen sedan den senaste synkroniseringen, påverkar hur lång tid det tar att synkronisera. Om den hanterade Azure AD DS-domänen senast synkroniserades över tre dagar sedan, kontrollerar du och löser eventuella aktiva aviseringar. Om övervakaren för synkronisering inte uppdaterar statusen för att visa en ny synkronisering öppnar du [en support förfrågan för Azure][azure-support].
+En Azure AD DS-hanterad domän synkroniseras regelbundet med Azure Active Directory. Antalet användare och grupp objekt och antalet ändringar som gjorts i Azure AD-katalogen sedan den senaste synkroniseringen, påverkar hur lång tid det tar att synkronisera. Om den hanterade Azure AD DS-domänen senast synkroniserades över tre dagar sedan, kontrollerar du och löser eventuella aktiva aviseringar. Om övervakaren för synkronisering inte uppdaterar statusen för att visa en senaste synkronisering när du har besvarat alla aktiva aviseringar [öppnar du en support förfrågan för Azure][azure-support].
 
 ### <a name="alerts"></a>Aviseringar
 

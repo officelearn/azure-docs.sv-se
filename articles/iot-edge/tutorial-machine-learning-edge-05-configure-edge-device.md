@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612878"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514654"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Självstudie: Konfigurera en IoT Edge enhet
 
@@ -262,7 +262,7 @@ Nu ska vi uppdatera certifikaten och värd namnet genom att redigera filen confi
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    Se till att "certifikat:" inte har något föregående blank steg och att vart och ett av certifikaten föregås av två blank steg.
+    Se till att det inte finns några föregående blank steg på raden **certifikat:** rad och att vart och ett av de kapslade certifikaten är indragna med två mellanslag
 
     Om du högerklickar på nano klistras innehållet i Urklipp till den aktuella markör positionen. Om du vill ersätta strängen använder du piltangenterna för att navigera till den sträng som du vill ersätta, tar bort strängen och högerklickar sedan för att klistra in från bufferten.
 

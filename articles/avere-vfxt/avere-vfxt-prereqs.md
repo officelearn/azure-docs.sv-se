@@ -4,14 +4,14 @@ description: Krav för aver vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: 7f89ea553bc7198c1faee5ba3549f88da5ec2b2c
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a183989cc666f00da4be077c719c40d2524fd6e0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152994"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547514"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Förbereda för att skapa Avere vFXT
 
@@ -23,10 +23,10 @@ Börja med att skapa en ny Azure-prenumeration. Använd en separat prenumeration
 
 För att skapa en ny Azure-prenumeration i Azure Portal:
 
-* Gå till [prenumerations bladet](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-* Klicka på knappen **+ Lägg till** överst
-* Logga in om du uppmanas att göra det
-* Välj ett erbjudande och gå igenom stegen för att skapa en ny prenumeration
+1. Gå till [prenumerations bladet](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Klicka på knappen **+ Lägg till** överst
+1. Logga in om du uppmanas att göra det
+1. Välj ett erbjudande och gå igenom stegen för att skapa en ny prenumeration
 
 ## <a name="configure-subscription-owner-permissions"></a>Konfigurera ägar behörigheter för prenumeration
 
@@ -104,6 +104,6 @@ Skapa lagrings tjänstens slut punkt från Azure Portal.
 
    ![Azure Portal skärm bild med anteckningar för stegen för att skapa tjänst slut punkten](media/avere-vfxt-service-endpoint.png)
 
-## <a name="next-step-create-the-vfxt-cluster"></a>Nästa steg: skapa vFXT-klustret
+## <a name="next-steps"></a>Nästa steg
 
 När du har slutfört de här kraven kan du skapa klustret. Läs [distribuera vFXT-klustret](avere-vfxt-deploy.md) för instruktioner.

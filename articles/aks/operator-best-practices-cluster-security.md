@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mlearned
-ms.openlocfilehash: 4629e4e9cfd5c8f9861b692b2aec89057f83587c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2377cc2e0824911217fbc2783fdf8e86fd7b9405
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442926"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549214"
 ---
 # <a name="best-practices-for-cluster-security-and-upgrades-in-azure-kubernetes-service-aks"></a>Metodtips för Klustersäkerhet och uppgraderingar i Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Den här artikeln handlar om hur du skyddar ditt AKS-kluster. Lär dig att:
 > * Använd Azure Active Directory och rollbaserade åtkomstkontroller för att säker åtkomst till API-servern
 > * Säkra behållare åtkomst till nod-resurser
 > * Uppgradera ett AKS-kluster till den senaste versionen av Kubernetes
-> * Behåll noder update hittills och automatiskt tillämpa säkerhetsuppdateringar
+> * Håll noderna aktuella och tillämpa säkerhets korrigeringar automatiskt
 
 Du kan också läsa metod tips för [hantering av behållar avbildningar][best-practices-container-image-management] och [Pod säkerhet][best-practices-pod-security].
 

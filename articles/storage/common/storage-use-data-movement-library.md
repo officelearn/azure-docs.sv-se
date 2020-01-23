@@ -10,16 +10,16 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5fe1e45f2ff80c1a212009291ab880a57f347fdf
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ce7f6320ffa4d3e8c258c9d05542f12079ee355d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978381"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76509010"
 ---
 # <a name="transfer-data-with-the-data-movement-library"></a>Överföra data med dataflyttbiblioteket
 
-Biblioteket för Azure Storage data förflyttning är ett bibliotek med öppen källkod mellan olika plattformar som har utformats för hög prestanda överföring, hämtning och kopiering av blobbar och filer. Det här biblioteket är kärnan i ramverket för data förflyttning som [AzCopy](../storage-use-azcopy.md). Data flyttnings biblioteket innehåller praktiska metoder som inte är tillgängliga i Azure Storage klient biblioteket för .NET. Dessa metoder ger möjlighet att ställa in antalet parallella åtgärder, spåra överförings förlopp, enkelt återuppta en avbruten överföring och mycket mer.
+Biblioteket för Azure Storage data förflyttning är ett bibliotek med öppen källkod mellan olika plattformar som har utformats för hög prestanda överföring, hämtning och kopiering av blobbar och filer. Data flyttnings biblioteket innehåller praktiska metoder som inte är tillgängliga i Azure Storage klient biblioteket för .NET. Dessa metoder ger möjlighet att ställa in antalet parallella åtgärder, spåra överförings förlopp, enkelt återuppta en avbruten överföring och mycket mer.
 
 Det här biblioteket använder också .NET Core, vilket innebär att du kan använda det när du skapar .NET-appar för Windows, Linux och macOS. Mer information om .NET Core finns i [.net Core-dokumentationen](https://dotnet.github.io/). Det här biblioteket fungerar även för traditionella .NET Framework-appar för Windows.
 

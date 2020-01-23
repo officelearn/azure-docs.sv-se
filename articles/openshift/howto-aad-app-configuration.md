@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: 09ae896d26d534d3f9d5651834e181d37581c8f3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6e2437fadb743706d4f4215bbcbab8616817de5f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288972"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545627"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Azure Active Directory-integrering för Azure Red Hat OpenShift
 
@@ -55,6 +55,9 @@ Medlemskap i en Azure AD-säkerhetsgrupp synkroniseras i OpenShift-gruppen "OSA-
 
 9. När gruppen har skapats visas den i listan över alla grupper. Klicka på den nya gruppen.
 10. På sidan som visas kopierar du **objekt-ID: t**. Vi kommer att referera till det här värdet som `GROUPID` i själv studie kursen [skapa en Azure Red Hat OpenShift-kluster](tutorial-create-cluster.md) .
+
+> [!IMPORTANT]
+> Om du vill synkronisera den här gruppen med OpenShift-gruppen OSA-Customer-admins skapar du klustret med hjälp av Azure CLI. Azure Portal för närvarande saknar ett fält för att ange den här gruppen.
 
 ## <a name="create-an-azure-ad-app-registration"></a>Skapa en Azure AD-App-registrering
 

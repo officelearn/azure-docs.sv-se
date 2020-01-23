@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: cc5c7b9f26d74f32c9f6042e3a1deddc57171860
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274240"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543145"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Snabbstart: Skapa en VM-skalningsuppsättning med Azure Portal
 
@@ -31,7 +31,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 Azure [Load Balancer](../load-balancer/load-balancer-overview.md) distribuerar inkommande trafik mellan felfria virtuella dator instanser. 
 
-Först skapar du en Basic-lastbalanserare med hjälp av portalen. Det namn och den offentliga IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
+Börja med att skapa en offentlig Standard Load Balancer med hjälp av portalen. Det namn och den offentliga IP-adress som du skapar konfigureras automatiskt som lastbalanserarens klientdel.
 
 1. I rutan Sök skriver du **Load Balancer**. Välj **belastnings utjämning**under **Marketplace** i Sök resultaten.
 1. På fliken **grundläggande** på sidan **skapa belastnings utjämning** anger eller väljer du följande information:

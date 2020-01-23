@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311350"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543315"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Träna med data uppsättningar i Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,8 +105,11 @@ experiment_run.wait_for_completion(show_output=True)
 Om du vill göra dina datafiler tillgängliga på Compute-målet för träning använder du [FileDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) för att montera eller ladda ned filer som det hänvisas till.
 
 ### <a name="mount-vs-download"></a>Montera v.s. Ladda ned
-När du monterar en data uppsättning bifogar du filerna som data uppsättningen refererar till i en katalog (monterings punkt) och gör den tillgänglig på beräknings målet. Montering stöds för Linux-baserade beräkningar, inklusive Azure Machine Learning Compute, Virtual Machines och HDInsight. Om data storleken överskrider beräknings disk storleken eller om du bara läser in en del av data uppsättningen i skriptet rekommenderas montering. Eftersom nedladdning av en data mängd som är större än disk storleken Miss Miss kan och monteringen bara läser in den del av data som används av skriptet vid tidpunkten för bearbetningen. När du hämtar en data uppsättning laddas alla filer som refereras till av data uppsättningen ned till beräknings målet. Hämtning stöds för alla beräknings typer. Om skriptet bearbetar alla filer som refereras till av data uppsättningen och din beräknings disk får plats i din fullständiga data uppsättning, rekommenderas nedladdning för att undvika att strömma data strömmas från lagrings tjänsterna.
+När du monterar en data uppsättning bifogar du filerna som data uppsättningen refererar till i en katalog (monterings punkt) och gör den tillgänglig på beräknings målet. Montering stöds för Linux-baserade beräkningar, inklusive Azure Machine Learning Compute, Virtual Machines och HDInsight. Om data storleken överskrider beräknings disk storleken eller om du bara läser in en del av data uppsättningen i skriptet rekommenderas montering. Eftersom nedladdning av en data mängd som är större än disk storleken Miss Miss kan och monteringen bara läser in den del av data som används av skriptet vid tidpunkten för bearbetningen. 
 
+När du hämtar en data uppsättning laddas alla filer som refereras till av data uppsättningen ned till beräknings målet. Hämtning stöds för alla beräknings typer. Om skriptet bearbetar alla filer som refereras till av data uppsättningen och din beräknings disk får plats i din fullständiga data uppsättning, rekommenderas nedladdning för att undvika att strömma data strömmas från lagrings tjänsterna.
+
+Det finns stöd för att montera eller hämta filer av alla format för data uppsättningar som skapats från Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database och Azure Database for PostgreSQL. 
 
 ### <a name="create-a-filedataset"></a>Skapa en FileDataset
 

@@ -1,6 +1,6 @@
 ---
 title: Exponera en lokal WCF REST-tjänst för klienter som använder Azure Relay
-description: 'Självstudie: Bygg en klient-och tjänst program med hjälp av WCF Relay.'
+description: I den här självstudien beskrivs hur du exponerar en lokal WCF REST-tjänst för en extern klient med hjälp av Azure WCF Relay.
 services: service-bus-relay
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/05/2019
+ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: ee090ca0d7bbdad70147b85644952143c086d336
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 551c8e662669737d9d074a69cb03d6060ab87ad5
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452299"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76513090"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Självstudie: exponera en lokal WCF REST-tjänst till extern klient med hjälp av Azure WCF Relay
 

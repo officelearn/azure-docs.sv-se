@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 12/16/2019
-ms.openlocfilehash: 3c921bda1b839ee18a91b28f875ba7c84c0dd944
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/18/2020
+ms.openlocfilehash: 95960a0af628526eb11335ea5c2fcec51f3c66b5
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515045"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548551"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -47,8 +47,8 @@ Här följer gränserna för en enda Logic app-körning:
 
 | Namn | Gräns för flera innehavare | Miljö gräns för integrerings tjänst | Anteckningar |
 |------|--------------------|---------------------------------------|-------|
-| Körningens varaktighet | 90 dagar | 366 dagar | Om du vill ändra standard gränsen, se [ändra körnings tid](#change-duration). |
-| Kvarhållning | 90 dagar från körningens start tid | 366 dagar | Om du vill ändra standard gränsen läser du [ändra kvarhållning av lagring](#change-retention). |
+| Körningens varaktighet | 90 dagar | 366 dagar | Körningens varaktighet beräknas med start tiden för körning och den gräns som anges *i Start tiden* av arbets flödes inställningen, körning av [**Historik i dagar**](#change-duration). <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra körnings tid](#change-duration). |
+| Kör kvarhållning i lagring | 90 dagar | 366 dagar | Kör kvarhållning beräknas med hjälp av start tiden för körning och den gräns som har angetts *vid aktuell tidpunkt* av arbets flödes inställningen. [**Kör historik kvarhållning i dagar**](#change-retention). Oavsett om en körning slutförs eller om tids gränsen uppnås, använder bevarande beräkningen alltid körningens start tid. När en körnings tid överskrider den *aktuella* gränsen för kvarhållning tas körningen bort från körnings historiken. <p><p>Om du ändrar den här inställningen används alltid den aktuella gränsen för att beräkna kvarhållning, oavsett föregående gräns. Om du till exempel minskar kvarhållningsintervallet från 90 dagar till 30 dagar tas en körning som är 60 dagar gammal bort från körnings historiken. Om du ökar kvarhållningsperioden från 30 dagar till 60 dagar stannar en körning som är 20 dagar gammal kvar i körnings historiken för ytterligare 40 dagar. <p><p>Om du vill ändra standard gränsen, som är 90 dagar, se [ändra körnings kvarhållning i lagring](#change-retention). |
 | Lägsta upprepnings intervall | 1 sekund | 1 sekund ||
 | Högsta upprepnings intervall | 500 dagar | 500 dagar ||
 |||||
@@ -56,9 +56,13 @@ Här följer gränserna för en enda Logic app-körning:
 <a name="change-duration"></a>
 <a name="change-retention"></a>
 
-### <a name="change-run-duration-and-storage-retention"></a>Ändra körnings tid och lagrings kvarhållning
+### <a name="change-run-duration-and-run-retention-in-storage"></a>Ändra körnings tid och kör kvarhållning i lagring
 
-Följ dessa steg om du vill ändra standard gränsen för körnings tid och lagrings kvarhållning. Om du vill öka Max gränsen [kontaktar du Logic Appss teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav.
+Följ dessa steg om du vill ändra standard gränsen för körnings tid och köra kvarhållning i lagring. Om du vill öka Max gränsen [kontaktar du Logic Appss teamet](mailto://logicappsemail@microsoft.com) för att få hjälp med dina krav.
+
+> [!NOTE]
+> För logi Kap par i Azure med flera innehavare, är standard gränsen på 90 samma som den maximala gränsen. Du kan bara minska det här värdet.
+> För Logic Apps i en integrerings tjänst miljö kan du minska eller öka standard gränsen på 90 dagar.
 
 1. Gå till [Azure-portalen](https://portal.azure.com). I rutan Portal söker du efter **och väljer Logi**Kap par.
 
@@ -68,11 +72,9 @@ Följ dessa steg om du vill ändra standard gränsen för körnings tid och lagr
 
 1. Under **körnings alternativ**, från listan **körnings historik för kvarhållning i dagar** , väljer du **anpassad**.
 
-1. Ange eller dra skjutreglaget för det antal dagar som du vill ha.
+1. Dra skjutreglaget för att ändra antalet dagar som du vill ha.
 
-   > [!NOTE]
-   > För logi Kap par i Azure med flera innehavare, är standard gränsen på 90 samma som den maximala gränsen. Du kan bara minska det här värdet.
-   > För Logic Apps i en integrerings tjänst miljö kan du minska eller öka standard gränsen på 90 dagar.
+1. När du är klar väljer du **Spara**i verktygsfältet **arbets flödes inställningar** .
 
 <a name="looping-debatching-limits"></a>
 
@@ -82,11 +84,11 @@ Här följer gränserna för en enda Logic app-körning:
 
 | Namn | Gräns | Anteckningar |
 | ---- | ----- | ----- |
-| Utlös samtidighet | * Obegränsat när samtidighets kontrollen är inaktive rad <p><p>* 25 är standard gränsen när samtidighets kontrollen är aktive rad, som inte kan återställas när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan köras samtidigt eller parallellt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt för [debatchering av matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra utlösarens samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [Utlös instansen i tur och ordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Maximalt antal väntande körningar | När samtidighets kontrollen är aktive rad är det minsta antalet väntande körningar 10 plus antalet samtidiga körningar (Utlös samtidighet). Du kan ändra det maximala antalet upp till 100. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p><p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Utlös samtidighet | – Obegränsat när samtidighets kontrollen är avstängd <p><p>-25 är standard gränsen när samtidighets kontrollen är aktive rad, som inte kan återställas när du har aktiverat kontrollen. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan köras samtidigt eller parallellt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt för [debatchering av matriser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra utlösarens samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) eller [Utlös instansen i tur och ordning](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Maximalt antal väntande körningar | – Utan samtidighet är det minsta antalet väntande körningar 1, medan det maximala antalet är 50. <p><p>– Med samtidighet är det minsta antalet väntande körningar 10 plus antalet samtidiga körningar (Utlös samtidighet). Du kan ändra det maximala antalet upp till 100. | Den här gränsen beskriver det högsta antalet Logic App-instanser som kan vänta på att köras när din Logic app redan kör maximalt antal samtidiga instanser. <p><p>Om du vill ändra standard gränsen, se [begränsningen för ändrings väntande körningar](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Förgrunds mat ris objekt | 100 000 | Den här gränsen beskriver det högsta antalet mat ris objekt som en "for each"-loop kan bearbeta. <p><p>Du kan använda [åtgärden fråga](logic-apps-perform-data-operations.md#filter-array-action)för att filtrera större matriser. |
 | Samtidighets samtidighet | 20 är standard gränsen när samtidighets kontrollen är inaktive rad. Du kan ändra standardvärdet till ett värde mellan 1 och 50. | Den här gränsen är det högsta antalet upprepningar av slingor som kan köras samtidigt eller parallellt. <p><p>Om du vill ändra standard gränsen till ett värde mellan 1 och 50, se [ändra "för varje" samtidighets gräns](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) eller [Kör "för varje" slingor i följd](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| SplitOn-objekt | * 100 000 utan utlösarens samtidighet <p><p>* 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt. |
+| SplitOn-objekt | – 100 000 utan utlösarens samtidighet <p><p>– 100 med utlösarens samtidighet | För utlösare som returnerar en matris kan du ange ett uttryck som använder en ' SplitOn '-egenskap som [delar upp eller avgruppera mat ris objekt i flera arbets flödes instanser](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) för bearbetning, i stället för att använda en "förgrunds"-slinga. Det här uttrycket refererar till matrisen som används för att skapa och köra en arbets flödes instans för varje mat ris objekt. <p><p>**Obs!** när samtidighet har Aktiver ATS minskas SplitOn-gränsen till 100 objekt. |
 | Until-iterationer | 5 000 | |
 ||||
 

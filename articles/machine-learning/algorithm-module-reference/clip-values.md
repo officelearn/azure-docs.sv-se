@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: ca35af997834a897572555e752597026b5159712
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5f695bf739a6e096083cd6d8271b6936f24c16da
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314461"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546834"
 ---
 # <a name="clip-values"></a>Beskärningsvärden
 
-I den här artikeln beskrivs en modul i Azure Machine Learning designer.
+I den här artikeln beskrivs en modul i Azure Machine Learning designer (för hands version).
 
 Använd modulen Clip Values för att identifiera och ersätta data värden som är över eller under en angiven tröskel med ett medelvärde, en konstant eller något annat värde.  
 

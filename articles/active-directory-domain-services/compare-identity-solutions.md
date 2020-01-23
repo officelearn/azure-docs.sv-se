@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 04a1f19ddf894467a9129e8a16c951298a6af529
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2495605cccf658b15e812fd85fd65671e84d15b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474708"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544284"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>Jämför självhanterade Active Directory Domain Services, Azure Active Directory och hanterade Azure Active Directory Domain Services
 
@@ -28,7 +28,7 @@ För att tillhandahålla program, tjänster eller enheter åtkomst till en centr
 * **Azure Active Directory (Azure AD)** – molnbaserad identitet och hantering av mobila enheter som tillhandahåller användar konto-och autentiseringstjänster för resurser som Office 365, Azure Portal eller SaaS-program.
     * Azure AD kan synkroniseras med en lokal AD DS-miljö för att tillhandahålla en enskild identitet för användare som fungerar internt i molnet.
 * **Azure Active Directory Domain Services (Azure AD DS)** – tillhandahåller hanterade domän tjänster med en del av fullständigt kompatibla, vanliga AD DS-funktioner som domän anslutning, grup princip, LDAP och KERBEROS/NTLM-autentisering.
-    * Azure AD DS integreras med Azure AD, som i sin tur kan synkroniseras med en lokal AD DS-miljö, för att utöka centrala identitets användnings fall till traditionella webb program som körs i Azure som en del av en lyft-och-Shift-strategi.
+    * Azure AD DS integreras med Azure AD, som i sig kan synkroniseras med en lokal AD DS-miljö. Den här möjligheten utökar centrala identitets användnings fall till traditionella webb program som körs i Azure som en del av en lyft-och-Shift-strategi.
 
 I den här översikts artikeln jämförs och kontrasterar vi hur dessa identitets lösningar kan fungera tillsammans eller används oberoende av varandra, beroende på organisationens behov.
 
@@ -47,8 +47,8 @@ När du distribuerar och kör en självhanterad AD DS-miljö måste du upprätth
 
 Vanliga distributions modeller för en självhanterad AD DS-miljö som tillhandahåller identitet för program och tjänster i molnet omfattar följande:
 
-* **Fristående endast MOLNBASERAD AD DS** – virtuella Azure-datorer konfigureras som domänkontrollanter och en separat MOLNBASERAD AD DS-miljö skapas. Den här AD DS-miljön integreras inte med en lokal AD DS-miljö. En annan uppsättning autentiseringsuppgifter används för att logga in på och administrera virtuella datorer i molnet.
-* **Distribution av resurs skog** – virtuella Azure-datorer konfigureras som domänkontrollanter och en AD DS-domän som en del av en befintlig skog skapas. En förtroende relation konfigureras sedan till en lokal AD DS-miljö. Andra virtuella Azure-datorer kan domän anslutning till den här resurs skogen i molnet. Användarautentisering körs via en VPN/ExpressRoute-anslutning till den lokala AD DS-miljön.
+* **Fristående endast MOLNBASERAD AD DS** – virtuella Azure-datorer konfigureras som domänkontrollanter och en separat, endast MOLNBASERAD AD DS-miljö skapas. Den här AD DS-miljön integreras inte med en lokal AD DS-miljö. En annan uppsättning autentiseringsuppgifter används för att logga in och administrera virtuella datorer i molnet.
+* **Distribution av resurs skog** – virtuella Azure-datorer konfigureras som domänkontrollanter och en AD DS-domän som ingår i en befintlig skog skapas. En förtroende relation konfigureras sedan till en lokal AD DS-miljö. Andra virtuella Azure-datorer kan domän anslutning till den här resurs skogen i molnet. Användarautentisering körs via en VPN/ExpressRoute-anslutning till den lokala AD DS-miljön.
 * **Utöka den lokala domänen till Azure** – ett virtuellt Azure-nätverk ansluter till ett lokalt nätverk med en VPN/ExpressRoute-anslutning. Virtuella Azure-datorer ansluter till det här virtuella Azure-nätverket, vilket gör det möjligt för dem att ansluta till den lokala AD DS-miljön.
     * Ett alternativ är att skapa virtuella Azure-datorer och befordra dem som replik domän kontroller från den lokala AD DS-domänen. Dessa domänkontrollanter replikeras via en VPN/ExpressRoute-anslutning till den lokala AD DS-miljön. Den lokala AD DS-domänen utökas effektivt till Azure.
 
@@ -65,8 +65,8 @@ I följande tabell beskrivs några av de funktioner som du kan behöva för din 
 | **Kerberos-begränsad delegering**               | Resurs baserad | Resursbaserade & Account-based|
 | **Anpassad OU-struktur**                           | **&#x2713;** | **&#x2713;** |
 | **grupprincip**                                  | **&#x2713;** | **&#x2713;** |
-| **Schema utökningar**                             | **&#x2715;** | **&#x2713;** |
-| **Förtroenden för AD-domän/skog**                     | **&#x2715;** | **&#x2713;** |
+| **Schemautökningar**                             | **&#x2715;** | **&#x2713;** |
+| **Förtroenden för AD-domän/skog**                     | **&#x2713;** (endast enkelriktade utgående skogs förtroenden) | **&#x2713;** |
 | **Säkert LDAP (LDAPs)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP-läsning**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP-skrivning**                                    | **&#x2713;** (inom den hanterade domänen) | **&#x2713;** |
@@ -74,7 +74,7 @@ I följande tabell beskrivs några av de funktioner som du kan behöva för din 
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS och Azure AD
 
-Med Azure AD kan du hantera identiteten för enheter som används av organisationen och kontrol lera åtkomsten till företags resurser från dessa enheter. Användare kan även registrera sin personliga enhet (en egen eller BYOD modell) med Azure AD, som tillhandahåller enheten med en identitet. Azure AD autentiserar sedan enheten när en användare loggar in på Azure AD och använder enheten för att komma åt skyddade resurser. Enheten kan hanteras med MDM-programvara (Mobile Device Management) som Microsoft Intune. Med den här hanterings möjligheten kan du begränsa åtkomsten till känsliga resurser till hanterade och princip kompatibla enheter.
+Med Azure AD kan du hantera identiteten för enheter som används av organisationen och kontrol lera åtkomsten till företags resurser från dessa enheter. Användare kan även registrera sin personliga enhet (en BYOD) med Azure AD, som tillhandahåller enheten med en identitet. Azure AD autentiserar sedan enheten när en användare loggar in på Azure AD och använder enheten för att komma åt skyddade resurser. Enheten kan hanteras med MDM-programvara (Mobile Device Management) som Microsoft Intune. Med den här hanterings möjligheten kan du begränsa åtkomsten till känsliga resurser till hanterade och princip kompatibla enheter.
 
 Traditionella datorer och bärbara datorer kan även ansluta till Azure AD. Den här mekanismen ger samma fördelar med att registrera en personlig enhet med Azure AD, till exempel för att tillåta att användare loggar in på enheten med sina företags uppgifter.
 
@@ -88,11 +88,11 @@ Azure AD-anslutna enheter ger dig följande fördelar:
 
 Enheter kan anslutas till Azure AD med eller utan en hybrid distribution som innehåller en lokal AD DS-miljö. I följande tabell beskrivs vanliga modeller för enhets ägarskap och hur de normalt skulle vara anslutna till en domän:
 
-| **Typ av enhet**                                        | **Enhets plattformar**             | **Tillhandahållande**          |
+| **Typ av enhet**                                        | **Enhetsplattformar**             | **Tillhandahållande**          |
 |:----------------------------------------------------------| -------------------------------- | ---------------------- |
-| Personliga enheter                                          | Windows 10, iOS, Android, Mac OS | Azure AD har registrerats    |
-| Organisationen ägd enhet är inte ansluten till en lokal AD DS | Windows 10                       | Azure AD-ansluten        |
-| Organisationens ägda enhet är ansluten till en lokal AD DS  | Windows 10                       | Hybrid Azure AD-ansluten |
+| Personliga enheter                                          | Windows 10, iOS, Android, Mac OS | Azure AD-registrerad    |
+| Den företagsägda enheten är inte ansluten till en lokal AD DS | Windows 10                       | Azure AD-ansluten        |
+| Företagsägda enheter som är anslutna till en lokal AD DS  | Windows 10                       | Hybrid Azure AD-ansluten |
 
 På en Azure AD-ansluten eller registrerad enhet sker användarautentisering med moderna OAuth/OpenID Connect-baserade protokoll. Dessa protokoll är utformade för att fungera via Internet, så det är bra för mobila scenarier där användare kommer åt företags resurser från valfri plats.
 
@@ -103,7 +103,7 @@ Med Azure AD DS-anslutna enheter kan program använda Kerberos-och NTLM-protokol
 | Enheten styrs av            | Azure AD                                            | Azure AD DS-hanterad domän                                                |
 | Representation i katalogen | Enhets objekt i Azure AD-katalogen            | Dator objekt i den hanterade Azure AD DS-domänen                        |
 | Autentisering                  | OAuth/OpenID Connect-baserade protokoll              | Kerberos-och NTLM-protokoll                                               |
-| Hantering                      | Hanterings program för mobil enheter (MDM) som Intune | grupprincip                                                              |
+| Förvaltning                      | Hanterings program för mobil enheter (MDM) som Intune | Grupprincip                                                              |
 | Nätverk                      | Fungerar via Internet                             | Måste vara ansluten till, eller peer-with, det virtuella nätverk där den hanterade domänen är distribuerad |
 | Perfekt för...                    | Mobila eller Station ära enheter för slutanvändare                  | Virtuella server-datorer som distribuerats i Azure                                              |
 

@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/10/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 905acd206ba574e092f41707c9a5625bcaed7f8d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 718fd4054d5e21c7f6309b3b1ac65a459c514ea0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932367"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548024"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Visa aktivitet och gransknings historik för Azures resurs roller i Privileged Identity Management
 
@@ -111,6 +111,9 @@ I min granskning kan du Visa din personliga roll aktivitet.
 1. Filtrera historiken med ett fördefinierat datum eller anpassat intervall.
 
     ![Gransknings lista för den aktuella användaren](media/azure-pim-resource-rbac/my-audit-time.png)
+    
+> [!NOTE]
+> Åtkomst till gransknings historik kräver antingen en global administratör eller en privilegie rad roll administratörs roll.
 
 ## <a name="next-steps"></a>Nästa steg
 

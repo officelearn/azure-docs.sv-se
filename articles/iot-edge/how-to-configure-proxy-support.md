@@ -7,12 +7,12 @@ ms.date: 11/19/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6cc37875b84e215066c52ca8daef0fa0d879c54f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 12aa78d0ba7c9300fc012958660e2282e91568aa
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434479"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510829"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver
 
@@ -40,7 +40,7 @@ Den här artikeln vägleder dig genom följande fyra steg för att konfigurera o
 
 4. **För alla framtida modul distributioner ställer du in miljövariabler för alla moduler som kommunicerar via proxyservern.**
 
-   När din IoT Edge-enhet har kon figurer ATS och anslutits till IoT Hub via proxyservern måste du upprätthålla anslutningen i alla framtida distributioner av modulen. Detaljerade anvisningar finns i avsnittet [Konfigurera distributions manifest](#configure-deployment-manifests) i den här artikeln. 
+   När din IoT Edge-enhet har kon figurer ATS och anslutits till IoT Hub via proxyservern måste du upprätthålla anslutningen i alla framtida distributioner av modulen. Detaljerade anvisningar finns i avsnittet [Konfigurera distributions manifest](#configure-deployment-manifests) i den här artikeln.
 
    Det här steget är en fort löp ande process som utförs på distans, så att varje ny modul eller distributions uppdatering upprätthåller enhetens möjlighet att kommunicera via proxyservern.
 
@@ -70,7 +70,7 @@ Om du installerar IoT Edge runtime på en Windows-enhet måste du gå igenom pro
 
 Följande steg visar ett exempel på en Windows-installation med hjälp av argumentet `-proxy`:
 
-1. Kommandot anropa-WebRequest behöver proxyinformation för att komma åt installations skriptet. Sedan behöver kommandot Deploy-IoTEdge information om proxyn för att ladda ned installationsfilerna. 
+1. Kommandot anropa-WebRequest behöver proxyinformation för att komma åt installations skriptet. Sedan behöver kommandot Deploy-IoTEdge information om proxyn för att ladda ned installationsfilerna.
 
    ```powershell
    . {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; Deploy-IoTEdge -proxy <proxy URL>
@@ -164,13 +164,13 @@ Restart-Service iotedge
 
 Den IoT Edge agenten är den första modulen som startar på valfri IoT Edge enhet. Den startas för första gången baserat på informationen i filen config.yaml IoT Edge. IoT Edge agenten ansluter sedan till IoT Hub för att hämta distributions manifest, som deklarerar vilka andra moduler som ska distribueras på enheten.
 
-Det här steget sker en gång på IoT Edge enheten under den första installationen av enheten. 
+Det här steget sker en gång på IoT Edge enheten under den första installationen av enheten.
 
-1. Öppna filen config.yaml på din IoT Edge-enhet. På Linux-system använder den här filen finns på **/etc/iotedge/config.yaml**. På Windows-System, den här filen finns på **C:\ProgramData\iotedge\config.yaml**. Konfigurationsfilen är skyddad, så du behöver administrativ behörighet att komma åt den. På Linux-system använder du kommandot `sudo` innan du öppnar filen i önskad text redigerare. Öppna en text redigerare som till exempel anteckningar som administratör i Windows och öppna sedan filen. 
+1. Öppna filen config.yaml på din IoT Edge-enhet. På Linux-system använder den här filen finns på **/etc/iotedge/config.yaml**. På Windows-System, den här filen finns på **C:\ProgramData\iotedge\config.yaml**. Konfigurationsfilen är skyddad, så du behöver administrativ behörighet att komma åt den. På Linux-system använder du kommandot `sudo` innan du öppnar filen i önskad text redigerare. Öppna en text redigerare som till exempel anteckningar som administratör i Windows och öppna sedan filen.
 
-2. I filen config.yaml hitta den **Edge-agenten modulen spec** avsnittet. Den IoT Edge agent definitionen innehåller en **miljö** -parameter där du kan lägga till miljövariabler. 
+2. I filen config.yaml hitta den **Edge-agenten modulen spec** avsnittet. Den IoT Edge agent definitionen innehåller en **miljö** -parameter där du kan lägga till miljövariabler.
 
-3. Ta bort klammerparenteser som platshållare för parametern env och lägga till nya variabeln på en ny rad. Kom ihåg att indrag i YAML är två blanksteg. 
+3. Ta bort klammerparenteser som platshållare för parametern env och lägga till nya variabeln på en ny rad. Kom ihåg att indrag i YAML är två blanksteg.
 
    ```yaml
    https_proxy: "<proxy URL>"
@@ -184,7 +184,7 @@ Det här steget sker en gång på IoT Edge enheten under den första installatio
 
    ![edgeAgent definition med miljövariabler](./media/how-to-configure-proxy-support/edgeagent-edited.png)
 
-5. Spara ändringarna i config.yaml och Stäng redigeraren. Starta om IoT Edge för att ändringarna ska börja gälla. 
+5. Spara ändringarna i config.yaml och Stäng redigeraren. Starta om IoT Edge för att ändringarna ska börja gälla.
 
    * Linux:
 

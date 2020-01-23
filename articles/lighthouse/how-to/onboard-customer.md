@@ -1,14 +1,14 @@
 ---
 title: Registrera en kund för Azure-delegerad resurshantering
 description: Lär dig att publicera en kund till Azure-delegerad resurs hantering, så att deras resurser kan nås och hanteras via din egen klient.
-ms.date: 01/09/2020
+ms.date: 01/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: ca9e17a9ee4e83492eccf63e4c7d353891071f27
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b3868987fa76d4ce0d4c34e81b46301ea106203d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314631"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543417"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Registrera en kund för Azure-delegerad resurshantering
 
@@ -236,7 +236,7 @@ az deployment create --name <deploymentName> \
                      --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName \
+az deployment create --name <deploymentName> \
                      --location <AzureRegion> \
                      --template-uri <templateUri> \
                      --parameters <parameterFile> \
@@ -302,6 +302,12 @@ Exemplet nedan visar en tilldelning som beviljar **borttagnings rollen för hant
 ```
 
 En användare med den här behörigheten kan ta bort en delegering på något av följande sätt.
+
+### <a name="azure-portal"></a>Azure portal
+
+1. Gå till [sidan mina kunder](view-manage-customers.md).
+2. Välj **delegeringar**.
+3. Hitta den delegering som du vill ta bort och välj sedan pappers korgs ikonen som visas på raden.
 
 ### <a name="powershell"></a>PowerShell
 

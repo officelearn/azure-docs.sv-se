@@ -9,20 +9,20 @@ ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c42d13f4d2e00b67a2ef471a07c80e1ef61e9c07
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3adefbdf248deaec6170037521ab65890356d184
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666332"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76510897"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
-Azure IoT Edge enheter kan konfigureras automatiskt med [enhets etablerings tjänsten](../iot-dps/index.yml) , precis som enheter som inte är Edge-aktiverade. Om du inte är bekant med processen för automatisk etablering granskar du de [automatiska etablerings begreppen](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge-enheter kan vara automatisk etablering med hjälp av den [Device Provisioning-tjänsten](../iot-dps/index.yml) precis som enheter som inte är Microsoft edge-aktiverade. Om du är bekant med processen för automatisk etablering kan du granska den [begrepp inom Automatisk etablering](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
 
 Den här artikeln visar hur du skapar en individuell registrering av enhets etablerings tjänsten med hjälp av symmetrisk nyckel attestering på en IoT Edge enhet med följande steg:
 
-* Skapa en instans av IoT Hub Device Provisioning Service (DPS).
+* Skapa en instans av IoT Hub enheten Provisioning Service (DPS).
 * Skapa en enskild registrering för enheten.
 * Installera IoT Edge Runtime och Anslut till IoT Hub.
 
@@ -33,21 +33,17 @@ Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet m
 * En aktiv IoT Hub
 * En fysisk eller virtuell enhet
 
-## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurera IoT Hub Device Provisioning Service
+## <a name="set-up-the-iot-hub-device-provisioning-service"></a>Konfigurera IoT Hub Device Provisioning-tjänsten
 
-Skapa en ny instans av IoT Hub Device Provisioning Service i Azure och länka den till din IoT-hubb. Du kan följa anvisningarna i [konfigurera IoT Hub DPS](../iot-dps/quick-setup-auto-provision.md).
+Skapa en ny instans av IoT Hub Device Provisioning-tjänsten i Azure och länka det till din IoT hub. Du kan följa anvisningarna i [konfigurera IoT Hub-DPS](../iot-dps/quick-setup-auto-provision.md).
 
-När du har installerat enhets etablerings tjänsten kopierar du värdet för **ID-omfång** från översikts sidan. Du använder det här värdet när du konfigurerar IoT Edge Runtime.
+När du har Device Provisioning-tjänsten körs, kopierar du värdet för **ID-omfång** från översiktssidan. Du kan använda det här värdet när du konfigurerar IoT Edge-körningen.
 
 ## <a name="choose-a-unique-registration-id-for-the-device"></a>Välj ett unikt registrerings-ID för enheten
 
 Ett unikt registrerings-ID måste definieras för att identifiera varje enhet. Du kan använda MAC-adressen, serie numret eller någon unik information från enheten.
 
-I det här exemplet använder vi en kombination av en MAC-adress och ett serie nummer som utgör följande sträng för ett registrerings-ID.
-
-```
-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
-```
+I det här exemplet använder vi en kombination av en MAC-adress och ett serie nummer som utgör följande sträng för ett registrerings-ID: `sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6`.
 
 Skapa ett unikt registrerings-ID för din enhet. Giltiga tecken är alfanumeriska bokstäver och bindestreck (-).
 
@@ -55,16 +51,16 @@ Skapa ett unikt registrerings-ID för din enhet. Giltiga tecken är alfanumerisk
 
 Använd enhetens registrerings-ID för att skapa en enskild registrering i DPS.
 
-När du skapar en registrering i DPS har du möjlighet att deklarera en **första enhets dubbla tillstånd**. I enheten är det enkelt att ange taggar för att gruppera enheter efter eventuella mått som du behöver i din lösning, t. ex. region, miljö, plats eller enhets typ. De här taggarna används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
+När du skapar en registrering i DPS har möjlighet att deklarera en **starttillstånd för Enhetstvilling**. I enhetstvillingen, kan du ställa in etiketter att gruppera enheter efter valfritt mått som du behöver i din lösning som region, miljö, plats eller enhet. Dessa taggar som används för att skapa [automatiska distributioner](how-to-deploy-monitor.md).
 
 > [!TIP]
 > Grupp registreringar är också möjliga när du använder symmetrisk nyckel attestering och inbegriper samma beslut som enskilda registreringar.
 
 1. I [Azure Portal](https://portal.azure.com)navigerar du till din instans av IoT Hub Device Provisioning service.
 
-1. Under **Inställningar**väljer du **Hantera registreringar**.
+1. Under **inställningar**väljer **hantera registreringar**.
 
-1. Välj **Lägg till enskild registrering** och slutför sedan följande steg för att konfigurera registreringen:  
+1. Välj **Lägg till enskild registrering** utför följande steg om du vill konfigurera registreringen:  
 
    1. För **mekanism**väljer du **symmetrisk nyckel**.
 
@@ -72,7 +68,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
    1. Ange det **registrerings-ID** som du har skapat för din enhet.
 
-   1. Ange ett **IoT Hub enhets-ID** för din enhet om du vill. Du kan använda enhets-ID: n för att rikta in en enskild enhet för modul distribution. Om du inte anger något enhets-ID används registrerings-ID: t.
+   1. Ange ett **IoT Hub enhets-ID** för din enhet om du vill. Du kan använda enhets-ID för att rikta en enskild enhet för distribution av principmodul. Om du inte anger något enhets-ID används registrerings-ID: t.
 
    1. Välj **Sant** för att deklarera att registreringen är för en IoT Edge enhet. För en grupp registrering måste alla enheter vara IoT Edge enheter eller så kan ingen av dem vara.
 
@@ -82,7 +78,7 @@ När du skapar en registrering i DPS har du möjlighet att deklarera en **först
 
    1. Välj **hur du vill att enhets data ska hanteras vid ny etablering** när enheter begär etablering efter första gången.
 
-   1. Lägg till ett tagg-värde till den **första enheten** i ett läge om du vill. Du kan använda taggar för att ange mål grupper för enheter för modul distribution. Exempel:
+   1. Lägg till ett visst Taggvärde till den **starttillstånd för Enhetstvilling** om du vill ha. Du kan använda taggar för målgrupper för enheter för distribution av principmodul. Ett exempel:
 
       ```json
       {
@@ -153,9 +149,9 @@ echo "`n$derivedkey`n"
 Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
-## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge runtime
+## <a name="install-the-iot-edge-runtime"></a>Installera IoT Edge-körningen
 
-IoT Edge-körningen distribueras på alla IoT Edge-enheter. Komponenterna körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod i kanten.
+IoT Edge-körningen distribueras på alla IoT Edge-enheter. Dess komponenter körs i behållare och gör att du kan distribuera ytterligare behållare till enheten så att du kan köra kod på gränsen.
 
 Du behöver följande information när du konfigurerar din enhet:
 
@@ -168,7 +164,7 @@ Du behöver följande information när du konfigurerar din enhet:
 
 ### <a name="linux-device"></a>Linux-enhet
 
-Följ anvisningarna för enhetens arkitektur. Se till att konfigurera IoT Edge runtime för automatisk, inte manuell, etablering.
+Följ anvisningarna för enhetens arkitektur. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering.
 
 [Installera Azure IoT Edge runtime på Linux](how-to-install-iot-edge-linux.md)
 
@@ -186,7 +182,7 @@ provisioning:
       symmetric_key: "{symmetric_key}"
 ```
 
-Ersätt plats hållarnas värden för `{scope_id}`, `{registration_id}`och `{symmetric_key}` med de data du samlat in tidigare.
+Ersätt plats hållarnas värden för `{scope_id}`, `{registration_id}`och `{symmetric_key}` med de data du samlat in tidigare. Se till att **etableringen:** raden inte har några föregående blank steg och att kapslade objekt är indragna med två blank steg.
 
 ### <a name="windows-device"></a>Windows-enhet
 
@@ -194,7 +190,7 @@ Installera IoT Edge runtime på enheten som du genererade en härledd enhets nyc
 
 Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive krav och instruktioner för aktiviteter som hantering av behållare och uppdatering av IoT Edge, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
 
-1. Öppna ett PowerShell-fönster i administratörs läge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
+1. Öppna ett PowerShell-fönster i administratörsläge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
 
 1. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen containers och laddar sedan ned Moby runtime och IoT Edge Runtime. Kommandot använder som standard Windows-behållare.
 
@@ -214,9 +210,9 @@ Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive k
    Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
    ```
 
-## <a name="verify-successful-installation"></a>Verifiera lyckad installation
+## <a name="verify-successful-installation"></a>Verifiera installationen
 
-Om körningen har startats kan du gå till IoT Hub och börja distribuera IoT Edge moduler till enheten. Använd följande kommandon på enheten för att kontrol lera att körningen har installerats och startats.
+Om körningen har startats kan du gå till din IoT-hubb och börja distribuera IoT Edge-moduler till din enhet. Använd följande kommandon på din enhet för att kontrollera att körningen installerad och har startats.
 
 ### <a name="linux-device"></a>Linux-enhet
 
@@ -232,7 +228,7 @@ Undersök tjänst loggar.
 journalctl -u iotedge --no-pager --no-full
 ```
 
-Lista med moduler som körs.
+Lista med moduler.
 
 ```cmd/sh
 iotedge list
@@ -252,7 +248,7 @@ Undersök tjänst loggar.
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Lista med moduler som körs.
+Lista med moduler.
 
 ```powershell
 iotedge list
@@ -262,4 +258,4 @@ Du kan kontrol lera att den enskilda registrering som du skapade i enhets etable
 
 ## <a name="next-steps"></a>Nästa steg
 
-Med registrerings processen för enhets etablerings tjänsten kan du ange enhets-ID och enhets dubbla taggar samtidigt som du etablerar den nya enheten. Du kan använda dessa värden för att rikta in enskilda enheter eller grupper av enheter med automatisk enhets hantering. Lär dig hur du [distribuerar och övervakar IoT Edge moduler i skala med hjälp av Azure Portal](how-to-deploy-monitor.md) eller [med hjälp av Azure CLI](how-to-deploy-monitor-cli.md).
+Registreringen Device Provisioning-tjänsten kan du ange enhets-ID och device twin taggar samtidigt som du etablerar den nya enheten. Du kan använda dessa värden för att rikta enskilda enheter eller grupper av enheter med hjälp av automatisk enheter. Lär dig hur du [distribuera och övervaka IoT Edge-moduler i skala med Azure portal](how-to-deploy-monitor.md) eller [med Azure CLI](how-to-deploy-monitor-cli.md).

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 3b27a4788bd144a8d2d423af1fa23ef09c5379f8
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: c96caf7a90f35913bcba04a00553ad1df2689999
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772857"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514433"
 ---
 ::: zone target = "docs"
 
@@ -46,7 +46,7 @@ Den här guiden innehåller anvisningar som beskriver förhandskraven, hur du ko
 
 ::: zone-end
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar ska du kontrollera att:
 

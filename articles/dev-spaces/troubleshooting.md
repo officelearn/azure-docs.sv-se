@@ -2,15 +2,15 @@
 title: Felsöka
 services: azure-dev-spaces
 ms.date: 09/25/2019
-ms.topic: conceptual
+ms.topic: troubleshooting
 description: Lär dig hur du felsöker och löser vanliga problem när du aktiverar och använder Azure dev Spaces
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s '
-ms.openlocfilehash: a52d27733168c55f9e34d15f6675dd7bce0f8aad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a2eb98af2c73b5a920f3e3bcedb7ab18e9f0430
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438114"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548857"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Fel sökning av Azure dev Spaces
 
@@ -252,7 +252,7 @@ Failed to build container image.
 Service cannot be started.
 ```
 
-Det här felet beror på att AKS-noder kör en äldre version av Docker som inte har stöd för flera stegs versioner. Om du vill undvika versioner av flera steg kan du skriva om din Dockerfile.
+Det här felet beror på att Azure dev Spaces för närvarande inte stöder versioner med flera steg. Om du vill undvika versioner av flera steg kan du skriva om din Dockerfile.
 
 ### <a name="network-traffic-is-not-forwarded-to-your-aks-cluster-when-connecting-your-development-machine"></a>Nätverks trafiken vidarebefordras inte till ditt AKS-kluster när du ansluter till utvecklings datorn
 
@@ -475,3 +475,12 @@ Om du vill aktivera Azure dev Spaces i ett AKS-kluster där den utgående trafik
 | gcr.io | HTTP: 443 | Hämta Helm/till-avbildningar|
 | storage.googleapis.com | HTTP: 443 | Hämta Helm/till-avbildningar|
 | azds-<guid>.<location>. azds.io | HTTPS:443 | För att kommunicera med Azure dev Spaces-backend-tjänster för din kontrollant. Du hittar exakt FQDN i "dataplaneFqdn" i% USERPROFILE%\.azds\settings.JSON|
+
+### <a name="error-could-not-find-the-cluster-cluster-in-subscription-subscriptionid"></a>Fel "Det gick inte att hitta kluster \<klustret\> i prenumerationen \<subscriptionId\>"
+
+Du kan se det här felet om din kubeconfig-fil är riktad mot ett annat kluster eller en annan prenumeration än du försöker använda med klients IDE-verktyget för Azure dev Spaces. Verktyget Azure dev Spaces på klient sidan replikerar beteendet för *kubectl*, som använder [en eller flera kubeconfig-filer](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/) för att välja och kommunicera med klustret.
+
+Så här åtgärdar du problemet:
+
+* Använd `az aks use-dev-spaces -g <resource group name> -n <cluster name>` för att uppdatera den aktuella kontexten. Det här kommandot aktiverar även Azure dev Spaces på ditt AKS-kluster om inte redan har Aktiver ATS. Du kan också använda `kubectl config use-context <cluster name>` för att uppdatera den aktuella kontexten.
+* Använd `az account show` för att visa den aktuella Azure-prenumerationen som du är mål för och kontrol lera att detta är korrekt. Du kan ändra den prenumeration som du riktar in med `az account set`.

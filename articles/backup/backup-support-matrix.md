@@ -3,12 +3,12 @@ title: Stödmatris för Azure Backup
 description: Innehåller en sammanfattning av stödinställningar och begränsningar för Azure Backup-tjänsten.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: dc709294b92fd26343e9520e3775b9f079aba94f
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: c424b905f44d6fd3a80a08ef925df4d0a06dd7d8
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708488"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705385"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -33,7 +33,7 @@ I följande tabell beskrivs funktionerna i Recovery Services-valv:
 **Data källor i valv lagring** | Maximalt 54 400 GB. Det finns ingen gräns för säkerhetskopieringar av virtuella Azure-datorer.
 **Säkerhets kopieringar till valv** | **Virtuella Azure-datorer:** En gång om dagen.<br/><br/>**Datorer som skyddas av DPM/Mabs:** Två gånger om dagen.<br/><br/> **Datorer som har säkerhetskopierats direkt med hjälp av mars-agenten:** Tre gånger per dag.
 **Säkerhets kopieringar mellan valv** | Säkerhets kopiering är inom en region.<br/><br/> Du behöver ett valv i varje Azure-region som innehåller de virtuella datorer som du vill säkerhetskopiera. Du kan inte säkerhetskopiera till en annan region.
-**Flytta valv** | Du kan [Flytta valv](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) mellan prenumerationer eller mellan resurs grupper i samma prenumeration.
+**Flytta valv** | Du kan [Flytta valv](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) mellan prenumerationer eller mellan resurs grupper i samma prenumeration. Det finns dock inte stöd för att flytta valv mellan regioner.
 **Flytta data mellan valv** | Det finns inte stöd för att flytta säkerhetskopierade data mellan valv.
 **Ändra lagrings typ för valv** | Du kan ändra typen av lagrings replik (antingen Geo-redundant lagring eller lokalt redundant lagring) för ett valv innan säkerhets kopiorna lagras. När säkerhetskopiering börjar i valvet går det inte att ändra replikeringstypen.
 

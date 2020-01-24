@@ -13,13 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916041"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695746"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Använda MSAL i en nationell moln miljö
 
@@ -56,7 +55,7 @@ Om du inte har en Azure Government prenumeration kan du skapa ett [kostnads frit
 
 Om du vill ha mer information om hur du använder ett nationellt moln med ett visst programmeringsspråk väljer du den flik som matchar ditt språk:
 
-## <a name="nettabdonet"></a>[NET](#tab/donet)
+## <a name="nettabdonet"></a>[.NET](#tab/donet)
 
 Du kan använda MSAL.NET för att logga in användare, Hämta token och anropa Microsoft Graph API i nationella moln.
 
@@ -71,7 +70,7 @@ Så här aktiverar du ditt MSAL. js-program för suveräna moln:
 
 ### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 
-1. Logga in på [Azure-portalen](https://portal.azure.us/).
+1. Logga in på [Azure Portal](https://portal.azure.us/).
     
    Information om hur du hittar Azure Portal slut punkter för andra nationella moln finns i [slut punkter för registrering av appar](authentication-national-cloud.md#app-registration-endpoints).
 

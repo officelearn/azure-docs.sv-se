@@ -16,13 +16,12 @@ ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae798c6108ec78b92b1ee6ac167b01c2f72c26d9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f2ce993b8fbf2a1b04ea4ad9d992ba278dbc964e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679716"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701424"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>Offentliga klient program för enskilda och flera konton
 
@@ -40,9 +39,9 @@ Med klassen `SingleAccountPublicClientApplication` kan du skapa en MSAL-baserad 
 
 - MSAL spårar det för tillfället inloggade kontot.
   - Om din app använder en Service Broker (standardinställningen under Azure Portal app Registration) och installeras på en enhet där en Broker finns, verifierar MSAL att kontot fortfarande är tillgängligt på enheten.
-- `signIn` kan du logga in ett konto explicit och separat från begär ande omfattningar.
+- med `signIn` kan du logga in ett konto explicit och separat från begär ande omfattningar.
 - `acquireTokenSilent` kräver ingen konto parameter.  Om du anger ett konto och det konto som du anger inte matchar det aktuella kontot som spåras av MSAL, genereras en `MsalClientException`.
-- `acquireToken` tillåter inte användaren att byta konto. Om användaren försöker växla till ett annat konto genereras ett undantag.
+- `acquireToken` tillåter inte att användaren växlar konton. Om användaren försöker växla till ett annat konto genereras ett undantag.
 - `getCurrentAccount` returnerar ett resultat objekt som tillhandahåller följande:
   - Ett booleskt värde som anger om kontot har ändrats. Ett konto kan till exempel ändras på grund av att det har tagits bort från enheten.
   - Föregående konto. Detta är användbart om du behöver göra några lokala data rensningar när kontot tas bort från enheten eller när ett nytt konto har loggats in.
@@ -53,7 +52,7 @@ När en Android-autentiseringsprovider som Microsoft Authenticator eller Intune-
 
 ## <a name="single-account-scenario"></a>Scenario med enskilt konto
 
-Följande pseudo-kod visar hur du använder `SingleAccountPublicClientApplication`.
+Följande pseudo-kod illustrerar användningen av `SingleAccountPublicClientApplication`.
 
 ```java
 // Construct Single Account Public Client Application
@@ -112,22 +111,22 @@ if (app.signOut())
 
 ## <a name="multiple-account-public-client-application"></a>Offentligt klient program för flera konton
 
-Klassen `MultipleAccountPublicClientApplication` används för att skapa MSAL-baserade appar som låter flera konton vara inloggade på samma gång. Det gör att du kan hämta, lägga till och ta bort konton på följande sätt:
+Klassen `MultipleAccountPublicClientApplication` används för att skapa MSAL-baserade appar som gör att flera konton kan vara inloggade på samma gång. Det gör att du kan hämta, lägga till och ta bort konton på följande sätt:
 
-### <a name="add-an-account"></a>Lägg till konto
+### <a name="add-an-account"></a>Lägga till ett konto
 
 Använd ett eller flera konton i ditt program genom att anropa `acquireToken` en eller flera gånger.  
 
 ### <a name="get-accounts"></a>Hämta konton
 
-- Anropa `getAccount` om du vill hämta ett speciellt konto.
-- Anropa `getAccounts`to hämta en lista över konton som för närvarande är kända för appen.
+- Anropa `getAccount` för att få ett speciellt konto.
+- Anropa `getAccounts`för att hämta en lista över konton som är kända för appen.
 
 Din app kan inte räkna upp alla Microsoft Identity Platform-konton på enheten som är känd för Service Broker-appen. Det kan bara räkna upp konton som har använts av din app.  Konton som har tagits bort från enheten returneras inte av dessa funktioner.
 
 ### <a name="remove-an-account"></a>Ta bort ett konto
 
-Ta bort ett konto genom att anropa `removeAccount` med en konto identifierare.
+Ta bort ett konto genom att anropa `removeAccount` med ett konto-ID.
 
 Om din app har kon figurer ATS för att använda en Broker och en Broker är installerad på enheten, tas kontot inte bort från Service Broker när du anropar `removeAccount`.  Endast tokens som är kopplade till klienten tas bort.
 

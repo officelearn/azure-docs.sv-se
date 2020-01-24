@@ -13,13 +13,12 @@ ms.date: 04/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89afdbed6870b4ce739ed51131def686c41a3015
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3bd23a1f14d5e3cbf9fc41ade47571c6689f3468
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921759"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695032"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>Användaren får ett medgivande för flera resurser med MSAL.NET
 Med Microsoft Identity Platform-slutpunkten kan du inte hämta en token för flera resurser på en gång. När du använder Microsoft Authentication Library för .NET (MSAL.NET) ska omfattnings parametern i metoden för att hämta token bara innehålla omfång för en enskild resurs. Du kan dock förkonfigurera för flera resurser genom att ange ytterligare omfång med hjälp av metoden `.WithExtraScopeToConsent` Builder.

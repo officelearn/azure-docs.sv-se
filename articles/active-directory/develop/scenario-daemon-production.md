@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 990273e84bfceb9f4a19eae8bf5890e8303a5857
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962601"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702274"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon-app som anropar webb-API: er – flytta till produktion
 
@@ -42,7 +41,7 @@ Du måste förklara vad kunderna har för att utföra dessa åtgärder. Mer info
 
 Här följer några länkar för att lära dig mer:
 
-# <a name="nettabdotnet"></a>[NET](#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 - Om du inte redan har gjort det kan du prova snabb starten [Hämta en token och anropa Microsoft Graph API från en konsol app med appens identitet](./quickstart-v2-netcore-daemon.md).
 - Referens dokumentation för:

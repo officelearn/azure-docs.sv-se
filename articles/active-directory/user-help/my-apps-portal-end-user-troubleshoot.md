@@ -12,13 +12,12 @@ ms.date: 03/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2987183900ad3232d46b2152bd52808ae96c802b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383074"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704841"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Felsök problem med portalen för Mina appar
 
@@ -48,11 +47,11 @@ Om du har problem med att installera säkra inloggnings tillägg för Mina appar
 
 Om du har problem med att logga in på portalen för **Mina appar** kan du prova följande:
 
-- Kontrol lera att du använder rätt URL. Den bör vara https://myapps.microsoft.com eller en anpassad sida för din organisation, https://myapps.microsoft.com/contoso.com till exempel.
+- Kontrol lera att du använder rätt URL. Det bör vara https://myapps.microsoft.com eller en anpassad sida för din organisation, till exempel https://myapps.microsoft.com/contoso.com.
 
 - Kontrol lera att lösen ordet är rätt och att det inte har gått ut. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
 
-- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad innebär Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
+- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad kostar Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
 
 - Lägg till **min app** portal-URL till inställningen **Internet egenskaper > säkerhets > betrodda platser** .
 
@@ -64,7 +63,7 @@ Om du har glömt ditt lösen ord, aldrig har fått ett från din organisation, �
 
 ## <a name="i-want-to-be-able-to-reset-my-own-password"></a>Jag vill kunna återställa mitt eget lösen ord
 
-För att kunna återställa ditt eget lösen ord måste administratören först aktivera funktionen för din organisation, och sedan måste du uppdatera och verifiera dina nödvändiga verifierings metoder. Mer information om hur du uppdaterar dina verifierings metoder finns i [Registrera för lösen ords återställning](active-directory-passwords-reset-register.md)via självbetjäning.
+För att kunna återställa ditt eget lösen ord måste administratören först aktivera funktionen för din organisation, och sedan måste du uppdatera och verifiera dina nödvändiga verifierings metoder. Mer information om hur du uppdaterar dina verifierings metoder finns i [Registrera för lösen ords återställning via självbetjäning](active-directory-passwords-reset-register.md).
 
 ## <a name="im-getting-an-access-denied-message-when-i-start-an-app"></a>Jag får ett meddelande om nekad åtkomst när jag startar en app
 
@@ -76,7 +75,7 @@ Om du får ett meddelande om **nekad åtkomst** efter att du har startat en app 
 
 - Kontrol lera att lösen ordet är rätt och att det inte har gått ut. Mer information finns i [återställa lösen ordet för ditt arbets-eller skol](active-directory-passwords-update-your-own-password.md)konto.
 
-- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad innebär Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
+- Kontrol lera att verifierings informationen är aktuell och korrekt. Mer information finns i [Vad kostar Azure Multi-Factor Authentication för mig?](multi-factor-authentication-end-user.md) eller [ändra dina metoder och information om säkerhets information](security-info-add-update-methods-overview.md).
 
 - Rensa webbläsarens cache och försök att logga in igen.
 

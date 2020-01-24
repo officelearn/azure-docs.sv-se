@@ -11,18 +11,17 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a0cf375902281817ecc002f8fb76be32eed149d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9858fdb7da80fe03498392ea93bf3c83b8a7e4dd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966324"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699877"
 ---
 # <a name="what-happened-to-my-webapi-project-visual-studio-azure-active-directory-connected-service"></a>Vad hände med mitt WebAPI-projekt (Visual Studio Azure Active Directory Connected service)
 
 > [!div class="op_single_selector"]
-> - [Komma igång](vs-active-directory-webapi-getting-started.md)
+> - [Kom igång](vs-active-directory-webapi-getting-started.md)
 > - [Vad hände](vs-active-directory-webapi-what-happened.md)
 
 Den här artikeln beskriver de exakta ändringar som gjorts i ASP.NET WebAPI, ASP.NET och ASP.NET Azure API-projekt när du lägger till den [Azure Active Directory anslutna tjänsten med hjälp av Visual Studio](vs-active-directory-add-connected-service.md). Gäller även för ASP.NET Azure Mobile Service-projekt i Visual Studio 2015.

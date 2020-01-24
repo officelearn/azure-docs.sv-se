@@ -12,13 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966120"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704229"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Snabb start: Konfigurera ett program för att exponera webb-API: er
 
@@ -31,7 +30,7 @@ I den här snabbstarten lär du dig hur du konfigurerar en app att exponera ett 
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 * Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
-* Ha en klientorganisation som har appar som är registrerade till den.
+* Ha en klientorganisation som har program som är registrerade till den.
   * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
@@ -60,7 +59,7 @@ Så här exponerar du ett nytt omfång via användargränssnittet:
 
 1. När sidan **Lägg till omfång** visas anger du omfångets information:
 
-    | Fält | Beskrivning |
+    | Field | Beskrivning |
     |-------|-------------|
     | **Omfångsnamn** | Ange ett beskrivande namn på omfånget.<br><br>Till exempel `Employees.Read.All`. |
     | **Vem kan ge medgivande** | Välj om användare kan ge sitt medgivande för det här omfånget eller om administratörsmedgivande krävs. Välj **Endast administratörer** för behörigheter på högre nivå. |
@@ -69,7 +68,7 @@ Så här exponerar du ett nytt omfång via användargränssnittet:
 
     Om användare kan ge sitt medgivande för omfånget lägger du även till värden för följande fält:
 
-    | Fält | Beskrivning |
+    | Field | Beskrivning |
     |-------|-------------|
     | **Visningsnamn för användarmedgivande** | Ange ett beskrivande namn på omfånget, som användarna kan se.<br><br>Till exempel, `Read-only access to your Employee records` |
     | **Beskrivning av användarmedgivande** | Ge en beskrivning av omfånget, som användarna kan se.<br><br>Till exempel, `Allow the application to have read-only access to your Employee data.` |
@@ -129,7 +128,7 @@ Mer information om applikationsmanifestbegrepp i allmänhet finns i [Förstå Az
 
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
-* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
+* [Registrera ett program på Microsoft Identity Platform](quickstart-register-app.md)
 * [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
 * [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)

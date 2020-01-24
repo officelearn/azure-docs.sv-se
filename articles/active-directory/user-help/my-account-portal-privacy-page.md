@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 232a17a21c7172bbf5056ae990679d87600ee6a0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231825"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705096"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>Se hur din organisation använder dina sekretess-relaterade data
 
@@ -33,7 +32,7 @@ Du kan se hur din organisation använder dina data från sidan **Sekretess** i p
 
 3. Granska informationen, inklusive:
 
-    - **Tjänster.** En lista med onlinetjänster som du är ansluten till med ditt arbets-eller skol konto.
+    - **Terminal.** En lista med onlinetjänster som du är ansluten till med ditt arbets-eller skol konto.
 
     - **Användningsvillkor**. Din organisations användnings villkor.
 

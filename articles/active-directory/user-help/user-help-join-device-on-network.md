@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b122d70179f22c91028c8343b23d74cc616b1f76
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 149c0298ee7883aa130756bfc4d0cbbb9e002065
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028528"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704654"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Anslut din arbets enhet till din organisations nätverk
 Anslut din arbetsägda Windows 10-enhet till din organisations nätverk så att du kan komma åt potentiellt begränsade resurser.
@@ -58,7 +57,7 @@ Om enheten är helt ny och inte har kon figurer ATS ännu kan du gå igenom OOBE
 ## <a name="to-make-sure-youre-joined"></a>För att se till att du är ansluten
 Du kan se till att du är ansluten genom att titta på dina inställningar.
 
-1. Öppna **Inställningar**och välj sedan **konton**.
+1. Öppna **Inställningar** och välj sedan **Konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
@@ -70,7 +69,7 @@ Du kan se till att du är ansluten genom att titta på dina inställningar.
 ## <a name="to-join-an-already-configured-windows-10-device"></a>Så här ansluter du en redan konfigurerad Windows 10-enhet
 Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa dessa steg för att ansluta enheten till nätverket.
 
-1. Öppna **Inställningar**och välj sedan **konton**.
+1. Öppna **Inställningar** och välj sedan **Konton**.
 
 2. Välj **åtkomst till arbete eller skola**och välj sedan **Anslut**.
 
@@ -86,7 +85,7 @@ Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa
 
 5. På skärmen **Ange lösen ord** skriver du ditt lösen ord och väljer sedan **Logga**in.
 
-    ![Ange lösen ord](./media/user-help-join-device-on-network/join-device-setup-password.png)
+    ![Ange lösenord](./media/user-help-join-device-on-network/join-device-setup-password.png)
 
 6. Godkänn enheten på din mobila enhet så att den kan komma åt ditt konto. 
 
@@ -103,7 +102,7 @@ Om du har haft enheten en stund och den redan har kon figurer ATS, kan du följa
 ## <a name="to-make-sure-youre-joined"></a>För att se till att du är ansluten
 Du kan se till att du är ansluten genom att titta på dina inställningar.
 
-1. Öppna **Inställningar**och välj sedan **konton**.
+1. Öppna **Inställningar** och välj sedan **Konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 

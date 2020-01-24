@@ -12,13 +12,12 @@ ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963341"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704297"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Snabb start: Konfigurera ett klient program för åtkomst till webb-API: er
 
@@ -34,7 +33,7 @@ Dessutom, innan en klient kan komma åt ett webb-API som görs tillgängligt av 
 
 I den här snabbstarten visas hur du konfigurerar din app för att:
 
-* [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
+* [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
 * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
 * [Ändra konto typer som stöds](#modify-supported-account-types)
 * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
@@ -45,7 +44,7 @@ I den här snabbstarten visas hur du konfigurerar din app för att:
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 * Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
-* Ha en klientorganisation som har appar som är registrerade till den.
+* Ha en klientorganisation som har program som är registrerade till den.
   * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
@@ -58,7 +57,7 @@ Innan du kan konfigurera appen gör du följande:
 1. I den vänstra rutan väljer du **Appregistreringar**.
 1. Leta reda på och välj den app du vill konfigurera. När du har valt appen ser du dess **översikt** eller huvudregistreringssida.
 1. Följ stegen för att konfigurera appen för åtkomst till webb-API:er:
-    * [Lägga till omdirigerings-URI:er för appen](#add-redirect-uris-to-your-application)
+    * [Lägga till omdirigerings-URI:er för programmet](#add-redirect-uris-to-your-application)
     * [Konfigurera avancerade inställningar för ditt program](#configure-advanced-settings-for-your-application)
     * [Ändra konto typer som stöds](#modify-supported-account-types)
     * [Lägg till autentiseringsuppgifter i ditt webb program](#add-credentials-to-your-web-application)
@@ -207,7 +206,7 @@ Medgivande meddelandet ger möjlighet att **godkänna** eller **avbryta**. Om du
 
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
-* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
+* [Registrera ett program på Microsoft Identity Platform](quickstart-register-app.md)
 * [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)

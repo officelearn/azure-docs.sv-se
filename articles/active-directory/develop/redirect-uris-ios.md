@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a401f019f38d00790b1975f7a0a68d6097c21a70
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b7fe65938b6f96a649a5a2a9ec1d1b921a95dd49
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920369"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703090"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>Använda omdirigerings-URI: er med Microsoft Authentication Library för iOS och macOS
 
@@ -41,7 +40,7 @@ Du kan dock behöva ändra omdirigerings-URI: n för avancerade scenarier, enlig
 
 För att Microsoft Identity Platform ska kunna dela tokens mellan appar måste varje app ha samma klient-ID eller program-ID. Detta är den unika identifieraren som angavs när du registrerade din app i portalen (inte programpaket-ID: t som du registrerar per app med Apple).
 
-Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Exempel:
+Omdirigerings-URI: erna måste vara olika för varje iOS-app. På så sätt kan Microsoft Identity service unikt identifiera olika appar som delar ett program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i Azure Portal. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
 
 Följande program registrering i Azure Portal:
 
@@ -83,7 +82,7 @@ MSAL kontrollerar om din omdirigerings-URI registrerar sig korrekt och returnera
 
 ## <a name="use-a-custom-redirect-uri"></a>Använd en anpassad omdirigerings-URI
 
-Om du vill använda en anpassad omdirigerings-URI skickar du `redirectUri`-parametern till `MSALPublicClientApplicationConfig` och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI: n är ogiltig returnerar initieraren `nil` och anger `redirectURIError`med ytterligare information.  Exempel:
+Om du vill använda en anpassad omdirigerings-URI skickar du `redirectUri`-parametern till `MSALPublicClientApplicationConfig` och skickar objektet till `MSALPublicClientApplication` när du initierar objektet. Om omdirigerings-URI: n är ogiltig returnerar initieraren `nil` och anger `redirectURIError`med ytterligare information.  Ett exempel:
 
 Mål-C:
 

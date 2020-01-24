@@ -17,13 +17,12 @@ ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 29e099e1c53f83d038caa697d11158fd5939ca7b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997011"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700319"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Behörigheter och medgivande i Microsoft Identity Platform-slutpunkten
 
@@ -200,7 +199,7 @@ När du är redo att begära behörigheter från din organisations administratö
 ```
 
 
-| Parameter     | Tillstånd     | Beskrivning                                                                               |
+| Parameter     | Villkor     | Beskrivning                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | Krävs | Den katalog klient som du vill begära behörighet från. Kan anges i GUID eller eget namn format eller allmänt refereras till `common` som visas i exemplet. |
 | `client_id` | Krävs | **Program-ID: t (klienten)** som [Azure Portal – Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) -upplevelsen som har tilldelats din app. |

@@ -11,18 +11,17 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a603f37850cba13328889fcd120851f3c97c8c3
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 23e087205d316c4383b460afa5e6d7f86b6bd8af
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966545"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700030"
 ---
 # <a name="getting-started-with-azure-active-directory-aspnet-mvc-projects"></a>Komma igång med Azure Active Directory (ASP.NET MVC-projekt)
 
 > [!div class="op_single_selector"]
-> - [Komma igång](vs-active-directory-dotnet-getting-started.md)
+> - [Kom igång](vs-active-directory-dotnet-getting-started.md)
 > - [Vad hände](vs-active-directory-dotnet-what-happened.md)
 
 Den här artikeln ger ytterligare vägledning när du har lagt till Active Directory i ett ASP.NET MVC-projekt via kommandot **project > Connected Services** i Visual Studio. Om du inte redan har lagt till tjänsten i projektet kan du göra det när som helst.

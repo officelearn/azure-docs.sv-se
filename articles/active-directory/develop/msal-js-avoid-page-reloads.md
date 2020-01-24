@@ -13,13 +13,12 @@ ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d1ef1f76b1b1a807f48f7c79e41ada68b561fc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e68798861d5799a4314bd9cd9b2eeeadb926a90f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916443"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696154"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>Undvik hämtning av sidor vid hämtning och förnyelse av tokens tyst med MSAL. js
 Microsoft Authentication Library för Java Script (MSAL. js) använder dolda `iframe`-element för att hämta och förnya token tyst i bakgrunden. Azure AD returnerar token tillbaka till den registrerade redirect_uri som anges i Tokenbegäran (som standard är appens rot sida). Eftersom svaret är en 302 resulterar det i HTML-koden som motsvarar `redirect_uri` som läses in i `iframe`. Vanligt vis är appens `redirect_uri` rot sidan och detta gör att den kan läsas in på nytt.
@@ -36,7 +35,7 @@ Ange egenskapen `redirect_uri` i konfig till en enkel sida som inte kräver aute
 
 ## <a name="initialization-in-your-main-app-file"></a>Initiera i huvud program filen
 
-Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses in i en `iframe` eller inte. Exempel:
+Om din app är strukturerad så att det finns en central JavaScript-fil som definierar appens initiering, Routning och andra saker kan du villkorligt läsa in dina app-moduler baserat på om appen läses in i en `iframe` eller inte. Ett exempel:
 
 I AngularJS: app. js
 

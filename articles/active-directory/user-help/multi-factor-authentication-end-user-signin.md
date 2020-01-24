@@ -13,13 +13,12 @@ ms.date: 04/02/2017
 ms.author: lizross
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c7be7f786a4fcecc39ea9af552a0dc03f2fcac
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 648de7903a965d477343b974fdd615df45c3adc3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233232"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705249"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Logga in på ditt arbets-eller skol konto med hjälp av en metod för tvåstegsverifiering
 
@@ -61,7 +60,7 @@ Följande information beskriver hur du använder Microsoft Authenticator-appen f
    ![Microsoft skickar ett meddelande](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. Öppna meddelandet på din telefon och välj **Verifiera** nyckel. Om ditt företag kräver en PIN-kod anger du den här.
-4. Du bör nu vara inloggad.
+4. Nu loggas du in.
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>Logga in med en verifierings kod med Microsoft Authenticator-appen
 

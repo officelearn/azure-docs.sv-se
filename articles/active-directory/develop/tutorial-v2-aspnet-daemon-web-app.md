@@ -16,13 +16,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d884987ed5fb00d4078a38aa37d463a81630ca7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec6664e7c55057c29c5b741203b326ce460c6e91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423381"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701237"
 ---
 # <a name="tutorial-build-a-multitenant-daemon-that-uses-the-microsoft-identity-platform-endpoint"></a>Självstudie: Bygg en daemon för flera innehavare som använder slut punkten för Microsoft Identity Platform
 
@@ -216,7 +215,7 @@ Det här projektet har Web App-och Web API-projekt. För att distribuera dem til
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Skapa och publicera dotNet-Web-daemon-v2 till en Azure-webbplats
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Skapa en resurs** i det övre vänstra hörnet.
 1. Välj **webb** **program**för webb > och ge din webbplats ett namn. Du kan till exempel ge den namnet **dotNet-Web-daemon-v2-contoso.azurewebsites.net**.
 1. Välj information för **prenumeration**, **resurs grupp**och **App Service-plan och plats**. **OS** är **Windows**och **publicera** är **kod**.

@@ -1,13 +1,18 @@
 ---
-ms.openlocfilehash: 52dfbfca5f79a7f92848ea39eddc00aa10f05ff1
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ac9fe1d367dba0ebdf4250b3213f191ced758dd3
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187059"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694256"
 ---
-## <a name="locate-a-cloud-spatial-anchor"></a>Hitta en spatial ankare för molnet
+## <a name="locate-a-cloud-spatial-anchor"></a>Hitta en moln rums ankare
 
-Att kunna hitta en tidigare överförda molnet spatial ankare är en av särskilda skäl till att använda Azure Spatial ankare-biblioteket. För att hitta spatial molnankare måste veta deras identifierare. Ankar-ID: N kan lagras i programmets backend-tjänst och tillgänglig för alla enheter som korrekt kan autentisera till den. Ett exempel på detta finns i [självstudien: Dela Spatial ankare över enheter](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+Att kunna hitta en tidigare sparad moln rums fäst punkt är en av de viktigaste orsakerna till att använda Azures ankare för avstånd. Det finns flera olika sätt att hitta ett moln rums ankare. Du kan använda en strategi på en övervakare i taget.
+- Hitta ankare per identifierare.
+- Placera fäst punkter som är kopplade till ett tidigare placerat ankare. Du kan lära dig om ankar relationer [här](/azure/spatial-anchors/concepts/anchor-relationships-way-finding.md).
+- Hitta ankare med hjälp av [grov omlokalisering](/azure/spatial-anchors/concepts/coarse-reloc.md).
 
-Skapa en instans av en `AnchorLocateCriteria` objekt genom att ange de identifierare som du letar efter och anropa den `CreateWatcher` metod för sessionen genom att tillhandahålla ditt `AnchorLocateCriteria`.
+Om du letar efter ID för moln rums ankare per identifierare, vill du lagra molnets plats för moln rums ankare i programmets backend-tjänst och göra den tillgänglig för alla enheter som kan autentiseras på rätt sätt. Ett exempel på detta finns i [Självstudier: dela spatiala ankare mellan enheter](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+
+Instansiera ett `AnchorLocateCriteria`-objekt, ange de identifierare som du letar efter och anropa metoden `CreateWatcher` på sessionen genom att tillhandahålla din `AnchorLocateCriteria`.

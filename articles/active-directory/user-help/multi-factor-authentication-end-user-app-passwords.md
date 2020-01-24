@@ -13,13 +13,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 74d443cc87a71950a31732db48e94ea3b5ced7ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914926"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705317"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Hantera applösenord för tvåstegsverifiering
 
@@ -43,11 +42,11 @@ Under den initiala verifierings processen med två faktorer kan du ange ett lös
 
 Du kan skapa och ta bort applösenord, baserat på hur du använder tvåstegsverifiering:
 
-- **Din organisation använder tvåstegsverifiering och sidan ytterligare säkerhets verifiering.** Om du använder ditt arbets-eller skol konto (till exempel, alain@contoso.com) med tvåstegsverifiering i din organisation, kan du hantera dina applösenord från [sidan ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/Proofup.aspx). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av sidan ytterligare säkerhets verifiering](#create-and-delete-app-passwords-from-the-additional-security-verification-page) i den här artikeln.
+- **Din organisation använder tvåstegsverifiering och sidan ytterligare säkerhets verifiering.** Om du använder ditt arbets-eller skol konto (till exempel alain@contoso.com) med tvåstegsverifiering i din organisation kan du hantera dina applösenord från [sidan ytterligare säkerhets verifiering](https://account.activedirectory.windowsazure.com/Proofup.aspx). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av sidan ytterligare säkerhets verifiering](#create-and-delete-app-passwords-from-the-additional-security-verification-page) i den här artikeln.
 
-- **Din organisation använder tvåstegsverifiering och Office 365-portalen.** Om du använder ditt arbets-eller skol konto (t. ex alain@contoso.com.,), tvåstegsverifiering och Office 365-appar i din organisation, kan du hantera dina applösenord från [sidan Office 365-portalen](https://www.office.com). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
+- **Din organisation använder tvåstegsverifiering och Office 365-portalen.** Om du använder ditt arbets-eller skol konto (till exempel alain@contoso.com), tvåstegsverifiering och Office 365-appar i din organisation, kan du hantera dina applösenord från [Office 365-portalen](https://www.office.com). Detaljerade anvisningar finns i [skapa och ta bort applösenord med hjälp av Office 365-portalen](#create-and-delete-app-passwords-using-the-office-365-portal) i den här artikeln.
 
-- **Du använder tvåstegsverifiering med en personlig Microsoft-konto.** Om du använder en personlig Microsoft-konto (till exempel, alain@outlook.com) med tvåstegsverifiering kan du hantera dina applösenord från [sidan grundläggande säkerhet](https://account.microsoft.com/security/). Detaljerade anvisningar finns i [använda applösenord med appar som inte stöder tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
+- **Du använder tvåstegsverifiering med en personlig Microsoft-konto.** Om du använder en personlig Microsoft-konto (till exempel alain@outlook.com) med tvåstegsverifiering kan du hantera dina applösenord från [sidan grundläggande säkerhet](https://account.microsoft.com/security/). Detaljerade anvisningar finns i [använda applösenord med appar som inte stöder tvåstegsverifiering](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
 ## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>Skapa och ta bort applösenord från sidan ytterligare säkerhets verifiering
 

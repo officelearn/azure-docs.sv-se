@@ -2,13 +2,13 @@
 title: Flytta åtgärds stöd efter resurs typ
 description: Visar en lista över de Azure-resurs typer som kan flyttas till en ny resurs grupp eller prenumeration.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: da08775ed6c694b95ecec452507f94638091db0c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/22/2020
+ms.openlocfilehash: 3fe404b8b501056f75ac45ccebc5bdbed1acbe43
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261066"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705487"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -160,6 +160,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft. VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
@@ -1363,7 +1364,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | program | Ja | Ja |
 > | gatewayer | Ja | Ja |
 > | nätet | Ja | Ja |
-> | hemligheter | Ja | Ja |
+> | secrets | Ja | Ja |
 > | volumes | Ja | Ja |
 
 ## <a name="microsoftservices"></a>Microsoft. Services
@@ -1521,6 +1522,18 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resursgrupp | Prenumeration |
 > | ------------- | ----------- | ---------- |
 > | Auktoriseringshanteraren | Ja | Ja |
+
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Resursgrupp | Prenumeration |
+> | ------------- | ----------- | ---------- |
+> | konto | Inga | Inga |
+> | konto/tillägg | Inga | Inga |
+> | konto/projekt | Inga | Inga |
+
+> [!IMPORTANT]
+> Information om hur du ändrar prenumerationen för Azure-DevOps finns i [ändra den Azure-prenumeration som används för fakturering](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 

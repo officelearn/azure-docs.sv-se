@@ -11,13 +11,12 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4e0f434831f624dbd8c9c1302aab6816cd3d148
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a2801ccc69f15aa275e58e433984ddb4f7c18b66
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966171"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699044"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fel hantering av metod tips för ADAL-klienter (Azure Active Directory Authentication Library)
 
@@ -49,7 +48,7 @@ Det finns en uppsättning fel som genereras av operativ systemet, vilket kan kr�
 
 Grundläggande finns två fall av AcquireTokenSilent-fel:
 
-| Fall | Beskrivning |
+| Ärende | Beskrivning |
 |------|-------------|
 | **Fall 1**: felet kan matchas med en interaktiv inloggning | För fel som orsakas av brist på giltiga token krävs en interaktiv begäran. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken kräver ett AcquireToken-anrop för att lösa problemet.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan välja att utföra en interaktiv begäran omedelbart efter slut användar interaktion (t. ex. genom att trycka på en knapp) eller senare. Valet beror på programmets önskade beteende.<br><br>Se koden i följande avsnitt för detta specialfall och de fel som diagnostiserar den.|
 | **Fall 2**: det går inte att matcha fel med en interaktiv inloggning | För nätverks-och tillfälliga/tillfälliga fel, eller andra fel, löser inte problemet med en interaktiv AcquireToken-begäran. Onödiga interaktiva inloggnings meddelanden kan också vara frustrerande för slutanvändare. ADAL försöker automatiskt med ett enda försök för de flesta fel på AcquireTokenSilent-fel.<br><br>Klient programmet kan också försöka igen vid ett senare tillfälle, men när och hur är beroende av programmets beteende och önskad slut användar upplevelse. Programmet kan till exempel göra ett AcquireTokenSilent-försök igen efter ett par minuter eller som svar på vissa slut användar åtgärder. Ett omedelbart återförsök leder till att programmet begränsas och inte bör provas.<br><br>Ett senare försök med samma fel innebär inte att klienten bör göra en interaktiv begäran med AcquireToken, eftersom det inte löser felet.<br><br>Se koden i följande avsnitt för detta specialfall och de fel som diagnostiserar den. |

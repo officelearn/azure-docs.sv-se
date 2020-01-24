@@ -14,13 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c042cf22334a0163cd5b89e556210db0cd5c15f4
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: d16ab7acd87fa6cc7907f8fee3400c2e416e6cfe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888764"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697429"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -36,7 +35,7 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Deklarera rollbaserade appar med hjälp av Azure Portal
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält.
 1. I listan **Favoriter** eller **alla kataloger** väljer du den Active Directory klient organisation där du vill registrera programmet.
 1. I Azure Portal söker du efter och väljer **Azure Active Directory**.

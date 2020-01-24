@@ -3,12 +3,12 @@ title: Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 description: Beskriver hur du säkerhetskopierar virtuella Azure-datorer i ett Recovery Services valv med hjälp av Azure Backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: e5ff3a00d8cb3bf0c5fa3cb4929b7c22d92c7834
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513821"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705555"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Säkerhetskopiera virtuella Azure-datorer i ett Recovery Services valv
 
@@ -189,16 +189,11 @@ Azure Backup säkerhetskopierar virtuella Azure-datorer genom att installera ett
 **Linux** | Installera med hjälp av ett RPM-eller DEB-paket från distributionens paket lagrings plats. Detta är den bästa metoden för att installera och uppgradera Azure Linux-agenten. Alla godkända [distributions leverantörer](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integrerar Azure Linux Agent-paketet i sina avbildningar och databaser. Agenten är tillgänglig på [GitHub](https://github.com/Azure/WALinuxAgent), men vi rekommenderar inte att du installerar därifrån.<br/><br/> Om du uppdaterar agenten ska du kontrol lera att inga säkerhets kopierings åtgärder körs och uppdatera binärfilerna.
 
 >[!NOTE]
-> Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
+> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
 >
 >Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
 >
-> Den här lösningen är särskilt användbar i följande scenarier:
->  
->1. Du har viktiga data som ska säkerhets kopie ras på bara en disk och du vill inte säkerhetskopiera resten av diskarna som är anslutna till en virtuell dator. Detta minimerar kostnaderna för lagring av säkerhets kopior.  
->2. Du har andra säkerhets kopierings lösningar för en del av dina VM-data. Du kan till exempel säkerhetskopiera dina databaser eller data med en annan lösning för säkerhets kopiering av arbets belastning och du vill använda säkerhets kopiering av Azure VM-nivå för resten av dina diskar och data för att skapa ett effektivt och robust system som använder bästa möjliga kapacitet.
->
->Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
+>**Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Nästa steg
 

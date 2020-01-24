@@ -17,13 +17,12 @@ ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2591485c6e528eb9f422ce966ec7738af49dbddc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532404"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701050"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Förstå OAuth2-flödet för implicit bidrag i Azure Active Directory (AD)
 
@@ -35,7 +34,7 @@ OAuth2 implicita bidrag är Notorious för tilldelning med den längsta listan m
 
 Quintessential [OAuth2 Authorization Code Granting](https://tools.ietf.org/html/rfc6749#section-1.3.1) är den auktorisering som använder två separata slut punkter. Slut punkten för auktorisering används för användar interaktions fasen, som resulterar i en auktoriseringskod. Token-slutpunkten används sedan av klienten för att utväxla koden för en åtkomsttoken, och ofta även en uppdateringstoken. Webb program krävs för att presentera sina egna programautentiseringsuppgifter för token-slutpunkten, så att auktoriseringsservern kan autentisera klienten.
 
-[OAuth2 implicita bidrag](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriserings bidrag. Det gör det möjligt för en klient att hämta en åtkomsttoken (och id_token, när du använder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från slut punkten för auktorisering, utan att kontakta token-slutpunkten eller autentisera klienten. Den här varianten har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen returneras tokens i ett URI-fragment. Det gör token-bitarna tillgängliga för JavaScript-koden i klienten, men den garanterar att de inte tas med i omdirigeringar mot servern. I OAuth2 implicit beviljande, utfärdar behörighets slut punkten direkt till klienten med hjälp av en omdirigerings-URI som tidigare har angetts. Det har också fördelen att ta bort eventuella krav för cross origin-anrop, vilket är nödvändigt om JavaScript-programmet krävs för att kontakta token-slutpunkten.
+[OAuth2 implicita bidrag](https://tools.ietf.org/html/rfc6749#section-1.3.2) är en variant av andra auktoriserings bidrag. Det gör att en klient kan hämta en åtkomsttoken (och id_token när du använder [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html)) direkt från slut punkten för auktorisering, utan att kontakta token-slutpunkten eller autentisera klienten. Den här varianten har utformats för JavaScript-baserade program som körs i en webbläsare: i den ursprungliga OAuth2-specifikationen returneras tokens i ett URI-fragment. Det gör token-bitarna tillgängliga för JavaScript-koden i klienten, men den garanterar att de inte tas med i omdirigeringar mot servern. I OAuth2 implicit beviljande, utfärdar behörighets slut punkten direkt till klienten med hjälp av en omdirigerings-URI som tidigare har angetts. Det har också fördelen att ta bort eventuella krav för cross origin-anrop, vilket är nödvändigt om JavaScript-programmet krävs för att kontakta token-slutpunkten.
 
 En viktig egenskap för den implicita tilldelningen av OAuth2 är faktum att sådana flöden aldrig returnerar uppdateringstoken till klienten. I nästa avsnitt visas hur detta inte är nödvändigt och skulle faktiskt vara ett säkerhets problem.
 
@@ -62,7 +61,7 @@ Den här modellen ger JavaScript-programmet möjlighet att oberoende förnya åt
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>Är den implicita beviljandet lämplig för min app?
 
-Den implicita tilldelningen ger fler risker än andra bidrag och de områden som du behöver tänka på är väl dokumenterade (till exempel [missbruk av åtkomsttoken för att personifiera resurs ägaren i implicit flöde][OAuth2-Spec-Implicit-Misuse] och [OAuth 2,0 hot modell och säkerhet Överväganden][OAuth2-Threat-Model-And-Security-Implications]). Den högre risk profilen är dock stor på grund av det faktum att den är avsedd att aktivera program som kör aktiv kod och som hanteras av en fjär resurs till en webbläsare. Om du planerar en SPA-arkitektur, inte har några Server dels komponenter eller tänker anropa ett webb-API via Java Script, rekommenderas användningen av det implicita flödet för hämtning av token.
+Den implicita tilldelningen ger fler risker än andra bidrag och de områden som du behöver tänka på är väl dokumenterade (till exempel [missbruk av åtkomsttoken för att personifiera resurs ägaren i implicit flöde][OAuth2-Spec-Implicit-Misuse] och [OAuth 2,0 hot modell och säkerhets aspekter][OAuth2-Threat-Model-And-Security-Implications]). Den högre risk profilen är dock stor på grund av det faktum att den är avsedd att aktivera program som kör aktiv kod och som hanteras av en fjär resurs till en webbläsare. Om du planerar en SPA-arkitektur, inte har några Server dels komponenter eller tänker anropa ett webb-API via Java Script, rekommenderas användningen av det implicita flödet för hämtning av token.
 
 Om ditt program är en intern klient är det implicita flödet inte en bra anpassning. Frånvaron av Azure AD-sessionens cookie i kontexten för en intern klient berövar ditt program från att underhålla en lång livs längd session. Det innebär att ditt program kommer att upprepade gånger uppmana användaren att hämta åtkomsttoken för nya resurser.
 

@@ -12,13 +12,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa8bc27f014b794059f30a62d47f298096df2f1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573807"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705062"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>Redigera eller återkalla program behörigheter i portalen Mina appar (för hands version)
 
@@ -29,7 +28,7 @@ När du använder organisations program på portalen **Mina appar** (för hands 
 >[!Important]
 >Innehållet är avsett för användare. Om du är administratör kan du hitta mer information om hur du konfigurerar och hanterar dina molnbaserade appar i [program hanterings dokumentationen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-workspaces).
 
-## <a name="manage-app-permissions"></a>Hantera program behörigheter
+## <a name="manage-app-permissions"></a>Hantera programbehörigheter
 
 Om du vill visa de behörigheter som du eller administratören har skickat till väljer du **...** när du hovrar över en app i portalen för **Mina appar** väljer du **Hantera ditt program**:
 

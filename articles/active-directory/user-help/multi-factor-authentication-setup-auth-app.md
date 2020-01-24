@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3a09ccdc867cb6d0e84a6e0f85e532839604f5e
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 078379c52c7e7fe5072ecc19c95d6b7e40b5f876
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619441"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705266"
 ---
 # <a name="set-up-an-authenticator-app-as-your-two-factor-verification-method"></a>Konfigurera en Authenticator-app som metod med tvåstegsverifiering
 
@@ -55,11 +54,11 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
 
 6. Välj **Godkänn**på din mobila enhet.
 
-7. Lägg till din mobilen hets telefonnummer **på datorn i steg 3: Om du förlorar åtkomsten till** modulen mobilapp och väljer sedan **Nästa**.
+7. På din dator lägger du till din mobilen hets telefonnummer i **steg 3: om du förlorar åtkomsten till modulen mobilapp** och väljer sedan **Nästa**.
 
     Vi rekommenderar starkt att du lägger till mobilen hets telefonnumret för att fungera som en säkerhets kopia om du inte kan komma åt eller använda mobilappen av någon anledning.
 
-8. **Från steg 4: Fortsätt att använda dina befintliga** program, kopiera det tillhandahållna applösenord och klistra in det på en säker plats.
+8. I **steg 4: Fortsätt att använda dina befintliga program** , kopierar du det angivna applösenord och klistrar in det på en säker plats.
 
     ![Plats för applösenord på sidan ytterligare säkerhets verifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -93,15 +92,15 @@ Du kan ställa in en Authenticator-app för att skicka ett meddelande till din m
 
     Authenticator-appen ber om en verifierings kod som ett test.
 
-6. Från Microsoft Authenticator-appen rullar du ned till ditt arbets-eller skol konto, kopierar och klistrar in den 6-siffriga koden från **appen i steg 2: Ange verifierings koden i** rutan mobilapp på datorn och välj sedan **Verifiera**.
+6. Från Microsoft Authenticator-appen rullar du ned till ditt arbets-eller skol konto, kopierar och klistrar in den 6-siffriga koden från appen i **steg 2: Ange verifierings koden i rutan mobilapp** på datorn och välj sedan **Verifiera**.
 
     ![Sidan ytterligare säkerhets verifiering, med verifierings kod test](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-verification-test.png)
 
-7. Lägg till din mobilen hets telefonnummer **på datorn i steg 3: Om du förlorar åtkomsten till** modulen mobilapp och väljer sedan **Nästa**.
+7. På din dator lägger du till din mobilen hets telefonnummer i **steg 3: om du förlorar åtkomsten till modulen mobilapp** och väljer sedan **Nästa**.
 
     Vi rekommenderar starkt att du lägger till mobilen hets telefonnumret för att fungera som en säkerhets kopia om du inte kan komma åt eller använda mobilappen av någon anledning.
 
-8. **Från steg 4: Fortsätt att använda dina befintliga** program, kopiera det tillhandahållna applösenord och klistra in det på en säker plats.
+8. I **steg 4: Fortsätt att använda dina befintliga program** , kopierar du det angivna applösenord och klistrar in det på en säker plats.
 
     ![Plats för applösenord på sidan ytterligare säkerhets verifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

@@ -16,13 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbbcd854434bcc085f1b63fb864755dd0e928fc9
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852153"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700302"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Översikt över Microsoft Identity Platform (v 2.0)
 
@@ -33,7 +32,7 @@ Microsofts identitetsplattform är en vidareutveckling av utvecklarplattformen f
   - Personliga Microsoft-konton (till exempel Skype, Xbox och Outlook.com)
   - Sociala eller lokala konton (via Azure AD B2C)
 - **Bibliotek med öppen källkod**: Microsoft Authentication libraries (MSAL) och stöd för andra standard bibliotek
-- **Program hanterings Portal**: En registrerings-och konfigurations upplevelse som skapats i Azure Portal, tillsammans med alla andra hanterings funktioner för Azure.
+- **Program hanterings Portal**: en registrerings-och konfigurations upplevelse som skapats i Azure Portal, tillsammans med alla andra hanterings funktioner för Azure.
 - **API för program konfiguration och PowerShell**: som tillåter programmerings konfiguration av dina program via REST API (Microsoft Graph och Azure Active Directory Graph 1,6) och PowerShell, så att du kan automatisera dina DevOps-uppgifter.
 - **Developer-innehåll**: konceptuell och referens dokumentation, snabb starts exempel, kod exempel, självstudier och instruktions guider.
 
@@ -56,7 +55,7 @@ Det behöver inte vara svårt att arbeta med identiteter. Välj ett [scenario](a
 
 Följande diagram visar vanliga scenarier för autentisering av appar – Använd den som referens när du integrerar Microsoft Identity Platform med din app.
 
-[![Program scenarier i Microsoft Identity Platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
+[![program scenarier i Microsoft Identity Platform](./media/v2-overview/application-scenarios-identity-platform.png)](./media/v2-overview/application-scenarios-identity-platform.svg#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -78,6 +77,6 @@ När du är redo att starta din app i en **produktions miljö**kan du läsa föl
 - Aktivera [proxyservrar och anpassa HTTP-klienter](msal-net-provide-httpclient.md).
 - Testa din integrering genom att följa [Check lista för Microsoft Identity Platform-integration](identity-platform-integration-checklist.md).
 
-## <a name="learn-more"></a>Lär dig mer
+## <a name="learn-more"></a>Läs mer
 
 Om du planerar att bygga ett kund program som loggar in på sociala och lokala identiteter kan du läsa mer i [Azure AD B2C översikt](https://docs.microsoft.com/azure/active-directory-b2c/tutorial-add-identity-providers).

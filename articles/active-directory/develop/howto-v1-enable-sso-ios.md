@@ -1,6 +1,6 @@
 ---
-title: Så här aktiverar du enkel inloggning mellan appar på iOS med hjälp av ADAL | Microsoft Docs
-description: Hur du använder funktionerna i ADAL SDK för att aktivera enkel inloggning i ditt program.
+title: Aktivera enkel inloggning mellan appar på iOS med ADAL | Microsoft Docs
+description: Så här använder du funktionerna i ADAL SDK för att aktivera enkel inloggning i dina program.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -15,70 +15,69 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7915c0dae652e113410002128e4ea19ddba68a07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962620"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696919"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Anvisningar: Aktivera enkel inloggning mellan appar på iOS med hjälp av ADAL
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Gör så här: aktivera enkel inloggning mellan appar på iOS med ADAL
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
-Enkel inloggning (SSO) kan användarna bara ange sina autentiseringsuppgifter för en gång och autentiseringsuppgifterna fungera automatiskt mellan program och plattformar som andra program kan använda (till exempel Microsoft Accounts eller ett arbetskonto från Microsoft 365) inga utgivaren är viktiga för dig.
+Enkel inloggning (SSO) gör det möjligt för användare att bara ange sina autentiseringsuppgifter en gång och låta dessa autentiseringsuppgifter automatiskt fungera mellan program och mellan plattformar som andra program kan använda (till exempel Microsoft-konton eller ett arbets konto från Microsoft 365) Nej en fråga om utgivaren.
 
-Microsofts identitetsplattform, tillsammans med SDK: er, gör det enkelt att aktivera enkel inloggning i din egen suite appar eller med broker funktions- och Authenticator-program, över hela enheten.
+Microsofts identitets plattform, tillsammans med SDK: er, gör det enkelt att aktivera SSO i din egen uppsättning appar, eller med funktionerna för Service Broker och autentiserare över hela enheten.
 
-I den här anvisningen lär du dig att konfigurera SDK i ditt program att erbjuda enkel inloggning till dina kunder.
+I den här instruktionen får du lära dig hur du konfigurerar SDK i ditt program för att tillhandahålla enkel inloggning till dina kunder.
 
-Den här anvisningen gäller för:
+Den här instruktionen gäller för:
 
 * Azure Active Directory (Azure Active Directory)
 * Azure Active Directory B2C
 * Azure Active Directory B2B
 * Villkorsstyrd åtkomst med Azure Active Directory
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-Den här anvisningen förutsätter att du vet hur du:
+Den här instruktionen förutsätter att du vet hur du:
 
-* Etablera din app med den äldre portalen för Azure AD. Mer information finns i [registrera en app](quickstart-register-app.md)
-* Integrera programmet med den [Azure AD-iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
+* Etablera din app med hjälp av den äldre portalen för Azure AD. Mer information finns i [Registrera en app](quickstart-register-app.md)
+* Integrera ditt program med [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc).
 
-## <a name="single-sign-on-concepts"></a>Begrepp för enkel inloggning
+## <a name="single-sign-on-concepts"></a>Koncept för enkel inloggning
 
-### <a name="identity-brokers"></a>Identitet asynkrona meddelandeköer
+### <a name="identity-brokers"></a>Identitets hanterare
 
-Microsoft tillhandahåller program för alla mobila plattformar som möjliggör överbryggning av autentiseringsuppgifter i program från olika leverantörer och förbättrade funktioner som kräver en enda säker plats varifrån att verifiera autentiseringsuppgifterna. Dessa kallas **mäklare**.
+Microsoft tillhandahåller program för alla mobila plattformar som gör det möjligt att överbrygga autentiseringsuppgifter mellan program från olika leverantörer och för förbättrade funktioner som kräver en säker plats varifrån autentiseringsuppgifterna ska verifieras. Dessa kallas för- **hanterare**.
 
-På iOS och Android tillhandahålls Broker-programmen genom nedladdningsbara program att kunder installeras fristående eller skickas till enheten av ett företag som hanterar vissa eller alla, av enheterna som för anställda. Stöd för asynkrona Meddelandeköer Hantera säkerhet för vissa program eller hela enheten baserat på konfigurationen för IT-administratören. Den här funktionen tillhandahålls i Windows, en kontoväljare som är inbyggda i operativsystemet, som Webbautentiseringskoordinatorn.
+På iOS och Android tillhandahålls utbetalningar genom nedladdnings bara program som kunder antingen installerar oberoende eller som skickas till enheten av ett företag som hanterar vissa, eller alla, av enheterna för sina anställda. Utjämnare stöder hantering av säkerhet för vissa program eller hela enheten baserat på IT-administratörens konfiguration. I Windows tillhandahålls den här funktionen av en konto väljare som är inbyggd i operativ systemet, vilket är känt tekniskt som Web Authentication Broker.
 
 ### <a name="patterns-for-logging-in-on-mobile-devices"></a>Mönster för att logga in på mobila enheter
 
-Åtkomst till autentiseringsuppgifter på enheter som följer två grundläggande mönster:
+Åtkomst till autentiseringsuppgifter på enheter följer två grundläggande mönster:
 
-* Icke-förhandlad assisterad inloggningar
-* Mäkla assisterad inloggningar
+* Stödda inloggningar utan Service Broker
+* Stöd för Broker-inloggning
 
-#### <a name="non-broker-assisted-logins"></a>Icke-förhandlad assisterad inloggningar
+#### <a name="non-broker-assisted-logins"></a>Stödda inloggningar utan Service Broker
 
-Icke-förhandlad assisterad inloggningar är inloggningen upplevelser som inträffar infogade med programmet och använda den lokala lagringen på enheten för programmet. Den här lagringen kan delas mellan program, men autentiseringsuppgifterna är tätt kopplade till appen eller uppsättning appar med hjälp av denna autentiseringsuppgift. Du har förmodligen stött på detta i många mobila program när du anger ett användarnamn och lösenord själva programmet.
+Icke-Service Broker-inloggningar är inloggnings upplevelser som sker intill programmet och använder den lokala lagringen på enheten för programmet. Den här lagringen kan delas mellan program, men autentiseringsuppgifterna är nära kopplade till appen eller programsviten med den autentiseringsuppgiften. Du har troligen drabbats av detta i många mobilappar när du anger ett användar namn och lösen ord i själva programmet.
 
 Dessa inloggningar har följande fördelar:
 
-* Användarupplevelsen finns helt och hållet i programmet.
-* Autentiseringsuppgifter kan delas mellan program som har signerats med samma certifikat, vilket ger en enkel inloggning till din uppsättning program.
-* Kontrollen runt upplevelsen av att logga in finns i programmet före och efter inloggning.
+* Användar upplevelsen finns helt och hållet i programmet.
+* Autentiseringsuppgifter kan delas mellan program som är signerade av samma certifikat, vilket ger en enkel inloggnings upplevelse till din program serie.
+* Kontroll över upplevelsen av inloggningen tillhandahålls till programmet före och efter inloggning.
 
-Dessa inloggningar har följande nackdelar:
+Dessa inloggningar har följande nack delar:
 
-* Användare kan inte få enkel inloggning på över alla appar som använder en Microsoft-identitet endast i de Microsoft-identiteter som ditt program har konfigurerats.
-* Programmet kan inte användas med mer avancerade funktioner, till exempel villkorlig åtkomst eller Använd Intune-uppsättning med produkter.
-* Programmet stöder inte certifikatbaserad autentisering för företagsanvändare.
+* Användare kan inte uppleva enkel inloggning i alla appar som använder en Microsoft-identitet, bara för de Microsoft-identiteter som programmet har konfigurerat.
+* Programmet kan inte användas med mer avancerade företags funktioner som villkorlig åtkomst eller för att använda produkter i Intune-serien.
+* Ditt program har inte stöd för certifikatbaserad autentisering för företags användare.
 
-Här är en representation av hur de SDK: er fungerar med delad lagring för dina program att aktivera enkel inloggning:
+Här är en representation av hur SDK: er fungerar med den delade lagringen av dina program för att aktivera SSO:
 
 ```
 +------------+ +------------+  +-------------+
@@ -94,39 +93,39 @@ Här är en representation av hur de SDK: er fungerar med delad lagring för din
 +--------------------------------------------+
 ```
 
-#### <a name="broker-assisted-logins"></a>Mäkla assisterad inloggningar
+#### <a name="broker-assisted-logins"></a>Stöd för Broker-inloggning
 
-Broker-assisted inloggningar är inloggningen upplevelser som inträffar inom broker-programmet och Använd storage och säkerheten för den asynkrona meddelandekön för att dela autentiseringsuppgifter för alla program på enheten som gäller identity-plattformen. Det innebär att dina program är beroende av den asynkrona meddelandekön för inloggning av användare. På iOS och Android tillhandahålls Broker-programmen via nedladdningsbara program att kunder installera oberoende av varandra eller till enheten av ett företag som hanterar enheten för sina användare. Ett exempel på den här typen av program är Microsoft Authenticator-program på iOS. Den här funktionen tillhandahålls en kontoväljare som är inbyggda i operativsystemet, som Webbautentiseringskoordinatorn i Windows.
+Service Broker-assisterade inloggningar är inloggnings upplevelser som inträffar i Service Broker-programmet och använder tjänstens lagring och säkerhet för att dela autentiseringsuppgifter i alla program på enheten som använder identitets plattformen. Det innebär att programmen använder koordinatorn för att logga in användare i. På iOS och Android tillhandahålls dessa mäklare genom nedladdnings bara program som kunder antingen installerar separat eller som push-överförts till enheten av ett företag som hanterar enheten för sin användare. Ett exempel på den här typen av program är Microsoft Authenticator-programmet på iOS. I Windows tillhandahålls den här funktionen av en konto väljare som är inbyggd i operativ systemet, vilket är känt tekniskt som Web Authentication Broker.
 
-Upplevelsen varierar efter plattform och kan ibland vara störande för användarna om den inte hanteras korrekt. Du är förmodligen mest bekant med det här mönstret om du har installerat Facebook-program och använder Facebook ansluta från ett annat program. Identity-plattformen använder samma mönster.
+Upplevelsen varierar beroende på plattform och kan ibland vara störande för användare om de inte hanteras korrekt. Du är förmodligen bekant med det här mönstret om du har Facebook-programmet installerat och använder Facebook Connect från ett annat program. Identitets plattformen använder samma mönster.
 
-För iOS som detta leder till en ”övergång” kommer animering där ditt program skickas till bakgrunden medan Microsoft Authenticator-program i förgrunden för användaren att välja vilket konto som de vill logga in med.
+För iOS leder detta till en "över gång"-animering där ditt program skickas till bakgrunden medan Microsoft Authenticator program kommer till förgrunden för användaren att välja vilket konto de vill logga in med.
 
-För Android och Windows konto Väljaren visas ovanpå ditt program, vilket är mindre störande för användaren.
+För Android och Windows visas konto väljaren ovanpå ditt program, vilket är mindre störande för användaren.
 
-#### <a name="how-the-broker-gets-invoked"></a>Hur den asynkrona meddelandekön hämtar anropas
+#### <a name="how-the-broker-gets-invoked"></a>Hur Broker anropas
 
-Om en kompatibel broker är installerad på enheten, t.ex. Microsoft Authenticator-program, SDK: erna automatiskt att göra verk som tillhör anropar den asynkrona meddelandekön åt dig när en användare anger de vill logga in med ett konto från identity-plattformen. Det här kontot kan vara ett personligt Microsoft-Account, ett arbets eller skolkonto, eller ett konto som du anger och värd i Azure med hjälp av vår B2C och B2B-produkter.
+Om en kompatibel Broker är installerad på enheten, t. ex. Microsoft Authenticator programmet, kommer SDK: er automatiskt att utföra Service Broker åt dig när en användare anger att de vill logga in med ett konto från identitets plattformen. Det här kontot kan vara ett personligt Microsoft-konto, ett arbets-eller skol konto eller ett konto som du tillhandahåller och är värd för i Azure med våra B2C-och B2B-produkter.
 
-#### <a name="how-we-ensure-the-application-is-valid"></a>Hur ser vi till att programmet är giltigt
+#### <a name="how-we-ensure-the-application-is-valid"></a>Så här ser vi till att programmet är giltigt
 
-Det är nödvändigt att säkerställa identiteten för ett program-anrop som den asynkrona meddelandekön är avgörande för säkerheten som vi tillhandahåller i broker assisted inloggningar. Framtvingar unika identifierare som är bara giltiga för ett visst program så att skadliga program kan ”förfalska” legitima program-ID och ta emot de token som är avsedd för legitima programmet varken iOS eller Android. För att säkerställa att vi alltid kommunicerar med rätt program under körning, ber vi utvecklare att tillhandahålla en anpassad redirectURI när de registrerar sina program med Microsoft. Hur utvecklare ska använda för att skapa den här omdirigerings-URI beskrivs i detalj nedan. Den här anpassade redirectURI innehåller paket-ID för programmet och säkerställs för att vara unikt för programmet med Apple App Store. När ett program anropar den asynkrona meddelandekön, frågar den asynkrona meddelandekön iOS-operativsystem för att ge det paket-ID som kallas den asynkrona meddelandekön. Den asynkrona meddelandekön tillhandahåller detta paket-ID för Microsoft i anropet till vår identitetssystem. Om paket-ID för programmet inte matchar Appsamlings-ID som tillhandahålls till oss av utvecklaren under registreringen, kommer vi att neka åtkomst till token för resursen programmet begär. Den här kontrollen säkerställer att endast program som registrerats av utvecklaren får token.
+Behovet av att se till att identiteten för ett program anropar Service Broker är avgörande för säkerheten som vi tillhandahåller i Service Broker-inloggningar. Varken iOS eller Android framtvingar unika identifierare som endast är giltiga för ett angivet program, så att skadliga program kan "falska" ett legitimt programs ID och ta emot de token som är avsedda för det legitima programmet. För att säkerställa att vi alltid kommunicerar med rätt program vid körning ber vi utvecklaren att tillhandahålla en anpassad redirectURI när han registrerar sitt program hos Microsoft. Hur utvecklare bör utforma denna omdirigerings-URI beskrivs i detalj nedan. Den här anpassade redirectURI innehåller paket-ID: t för programmet och är säkerställt att vara unikt för programmet av Apple App Store. När ett program anropar koordinatorn ber Service Broker operativ systemet för iOS att tillhandahålla det paket-ID som anropade Service Broker. Service Broker innehåller det här paket-ID: t för Microsoft i anropet till vårt identitets system. Om paket-ID: t för programmet inte matchar det paket-ID som tillhandahölls av utvecklaren under registreringen, kommer vi att neka åtkomst till de token för resursen som programmet begär. Den här kontrollen säkerställer att endast det program som har registrerats av utvecklaren tar emot tokens.
 
-**Utvecklaren kan välja om SDK anropar den asynkrona meddelandekön eller använder icke-förhandlad assisterad flödet.** Men om utvecklaren väljer att inte använda broker-assisted-flödet de förlora fördelen med att använda SSO autentiseringsuppgifter att användaren har redan lagt på enheten och förhindrar att deras program med Microsoft tillhandahåller funktioner som används för dess kunder som villkorlig åtkomst, funktioner för hantering av Intune och certifikatbaserad autentisering.
+**Utvecklaren har möjlighet att välja om SDK: n anropar Broker eller använder det stödda flödet som inte har stöd för Service Broker.** Om utvecklaren väljer att inte använda det stödda Broker-flödet förlorar du dock fördelarna med att använda SSO-autentiseringsuppgifter som användaren redan har lagt till på enheten och förhindrar att deras program används med företags funktioner som Microsoft tillhandahåller Kunder som villkorlig åtkomst, Intune-hanterings funktioner och certifikatbaserad autentisering.
 
 Dessa inloggningar har följande fördelar:
 
-* SSO användarupplevelser i alla sina program oavsett leverantören.
-* Ditt program kan använda mer avancerade funktioner, till exempel villkorlig åtkomst eller Använd Intune-uppsättning med produkter.
-* Ditt program har stöd för certifikatbaserad autentisering för företagsanvändare.
-* Mycket säkrare inloggning som identitet för programmet och användaren kan verifieras genom broker-program med algoritmer för ytterligare säkerhet och kryptering.
+* Användare upplever enkel inloggning för alla sina program oavsett leverantör.
+* Ditt program kan använda mer avancerade företags funktioner, till exempel villkorlig åtkomst eller produkter i Intune-serien.
+* Programmet har stöd för certifikatbaserad autentisering för företags användare.
+* Mycket säkrare inloggnings upplevelse som identitet för programmet och användaren verifieras av Service Broker-programmet med ytterligare säkerhetsalgoritmer och kryptering.
 
-Dessa inloggningar har följande nackdelar:
+Dessa inloggningar har följande nack delar:
 
-* I iOS supportprocessen användaren utanför ditt programs upplevelse när autentiseringsuppgifter är valt.
-* Förlust av möjligheten att hantera inloggning för dina kunder i ditt program.
+* I iOS övergår användaren från din program upplevelse medan autentiseringsuppgifter väljs.
+* Förlust av möjligheten att hantera inloggnings upplevelsen för dina kunder i ditt program.
 
-Här är en representation av hur de SDK: er fungerar med broker-program för att aktivera enkel inloggning:
+Här är en representation av hur SDK: er fungerar med Broker-programmen för att aktivera SSO:
 
 ```
 +------------+ +------------+   +-------------+
@@ -152,39 +151,39 @@ Här är en representation av hur de SDK: er fungerar med broker-program för at
               +-------------+
 ```
 
-## <a name="enabling-cross-app-sso-using-adal"></a>Aktivera enkel inloggning mellan appar med hjälp av ADAL
+## <a name="enabling-cross-app-sso-using-adal"></a>Aktivera enkel inloggning mellan appar med ADAL
 
-Här använder vi ADAL iOS SDK till:
+Här använder vi ADAL iOS SDK för att:
 
-* Aktivera icke-förhandlad assisterad SSO för din utbud av appar
-* Aktivera stöd för broker-assisted SSO
+* Aktivera non-Broker Assisted SSO för din serie appar
+* Aktivera stöd för Service Broker-assisterad SSO
 
-### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Aktivera enkel inloggning för icke-förhandlad assisted SSO
+### <a name="turning-on-sso-for-non-broker-assisted-sso"></a>Aktivera SSO för icke-Broker assisterad SSO
 
-För icke-förhandlad assisterad enkel inloggning i program hantera SDK: erna mycket av komplexiteten med enkel inloggning för dig. Detta inkluderar att hitta rätt användaren i cachen och underhålla en lista över inloggade användare som du kan fråga.
+För icke-Broker Assisted SSO över flera program, kan SDK: er hantera en mycket stor komplexitet av enkel inloggning. Detta omfattar att hitta rätt användare i cacheminnet och underhålla en lista över inloggade användare som du kan fråga.
 
-Att aktivera enkel inloggning för program som du äger du behöver göra följande:
+Om du vill aktivera SSO mellan program som du äger måste du göra följande:
 
-1. Kontrollera att alla dina program använder samma klient-ID eller program-ID.
-2. Kontrollera att alla dina program delar samma signeringscertifikat från Apple så att du kan dela nyckelringar.
-3. Begär samma nyckelring rättighet för var och en av dina program.
-4. Berätta SDK: erna om delade nyckelringen du vill att vi ska använda.
+1. Se till att alla program använder samma klient-ID eller program-ID.
+2. Se till att alla dina program delar samma signerings certifikat från Apple så att du kan dela nyckel ringar.
+3. Begär samma nyckel rings rättigheter för var och en av dina program.
+4. Berätta för SDK: er om den delade nyckel ring som vi vill använda.
 
-#### <a name="using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Med hjälp av samma klient-ID / program-ID: T för alla program i din utbud av appar
+#### <a name="using-the-same-client-id--application-id-for-all-the-applications-in-your-suite-of-apps"></a>Använda samma klient-ID/program-ID för alla program i din serie appar
 
-För identitetsplattformen för att se att den tillåter för att dela token i dina program, måste var och en av dina program dela samma klient-ID eller program-ID. Det här är den unika identifieraren som angavs för dig när du registrerade ditt första program i portalen.
+För att identitets plattformen ska kunna dela tokens i dina program, måste var och en av dina program dela samma klient-ID eller program-ID. Detta är den unika identifierare som du fick när du registrerade ditt första program i portalen.
 
-Omdirigerings-URI: er hjälpa dig att identifiera olika appar till Microsoft identity service om den använder samma programmets ID. Varje program kan ha flera omdirigerings-URI: er registrerad i onboarding-portalen. Varje app i din suite har en annan omdirigerings-URI. Ett exempel på hur detta ser ut som understiger:
+Med omdirigerings-URI: er kan du identifiera olika appar för Microsoft Identity service om den använder samma program-ID. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel på hur det ser ut är nedan:
 
-App1 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
+APP1 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp`
 
-App2 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
+APP2 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp2`
 
 App3 omdirigerings-URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 
 ....
 
-Dessa kapslas under samma klient-ID / program-ID och söktes baserat på omdirigeringen-URI som du kommer tillbaka till oss i SDK-konfiguration.
+Dessa är kapslade under samma klient-ID/program-ID och slås upp baserat på omdirigerings-URI: n som du kommer tillbaka till oss i din SDK-konfiguration.
 
 ```
 +-------------------+
@@ -209,13 +208,13 @@ Dessa kapslas under samma klient-ID / program-ID och söktes baserat på omdirig
 
 ```
 
-Formatet för de här omdirigerings-URI: er är beskrivs nedan. Du kan använda valfri omdirigerings-URI om du vill stödja den asynkrona meddelandekön i vilket fall de måste se ut ungefär som ovanstående *
+Formatet för dessa omdirigerings-URI: er förklaras nedan. Du kan använda en omdirigerings-URI om du inte vill stödja Service Broker, i så fall måste de se ut ungefär så här *
 
-#### <a name="create-keychain-sharing-between-applications"></a>Skapa nyckelringar mellan program
+#### <a name="create-keychain-sharing-between-applications"></a>Skapa nyckel rings delning mellan program
 
-Aktivering av nyckelringsdelning är utanför omfattningen för det här dokumentet och omfattas av Apple i dokumentet [lägga till funktioner](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). Det viktiga är att du bestämmer vad du vill att din nyckelring anropas och Lägg till den här funktionen åt alla dina program.
+Att aktivera delning av nyckel ringar ligger utanför det här dokumentets omfattning och omfattas av Apple i dokument som [lägger till funktioner](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/AppDistributionGuide/AddingCapabilities/AddingCapabilities.html). Det är viktigt att du bestämmer vad du vill att nyckel ringen ska anropas och lägger till den funktionen i alla dina program.
 
-När du har konfigurerat korrekt rättigheter bör se en fil i projektkatalogen berättigade `entitlements.plist` som innehåller något som liknar följande:
+När rättigheter har ställts in korrekt bör du se en fil i din projekt katalog som har rätt `entitlements.plist` som innehåller något som ser ut ungefär så här:
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -231,46 +230,46 @@ När du har konfigurerat korrekt rättigheter bör se en fil i projektkatalogen 
 </plist>
 ```
 
-När du har berättigandet nyckelring aktiverat i var och en av dina program och du är redo att använda enkel inloggning kan berätta för identiteten SDK om nyckelringen med hjälp av följande i din `ADAuthenticationSettings` med följande inställning:
+När nyckel ringen har Aktiver ATS i varje program och du är redo att använda SSO kan du be identitets-SDK: n om nyckel ringen genom att använda följande inställning i `ADAuthenticationSettings` med följande inställning:
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
 ```
 
 > [!WARNING]
-> När du delar en nyckelring åt dina program kan alla program ta bort användare eller sämre resultat ta bort alla token för ditt program. Detta är särskilt och med katastrofal om du har program som förlitar sig på tokens för att background arbete. Dela en nyckelring innebär att du måste vara mycket försiktig i alla ta bort åtgärder via identity SDK: er.
+> När du delar en nyckel Ring i dina program kan alla program ta bort användare eller förvärra alla tokens i programmet. Detta är särskilt katastrofal om du har program som är beroende av att token ska fungera i bakgrunden. Delning av en nyckel Ring innebär att du måste vara mycket försiktig i alla och alla borttagnings åtgärder via identitets-SDK: er.
 
-Klart! SDK: N kommer nu att dela autentiseringsuppgifter åt alla dina program. Användarlistan också delas mellan instanser av programmet.
+Klart! SDK kommer nu att dela autentiseringsuppgifter för alla dina program. Användar listan kommer också att delas mellan program instanser.
 
-### <a name="turning-on-sso-for-broker-assisted-sso"></a>Aktivera enkel inloggning för broker assisted SSO
+### <a name="turning-on-sso-for-broker-assisted-sso"></a>Aktivera SSO för Service Broker via enkel inloggning
 
-Möjligheten för ett program att använda alla broker som är installerad på enheten är **inaktiverat som standard**. För att kunna använda ditt program med den asynkrona meddelandekön måste du göra ytterligare konfigurering och lägga till kod i ditt program.
+Möjligheten för ett program att använda en Service Broker som är installerad på enheten är **inaktive rad som standard**. För att kunna använda programmet med Service Broker måste du göra ytterligare konfiguration och lägga till kod i programmet.
 
-Steg att följa är:
+De steg du följer är:
 
-1. Aktivera broker läge i din programkod anrop till MS-SDK.
-2. Upprätta en ny omdirigerings-URI och ger som för både appen och appen registreringen.
-3. Registrera ett URL-schema.
-4. Lägg till en behörighet i filen info.plist.
+1. Aktivera Broker-läge i program kodens anrop till MS SDK.
+2. Upprätta en ny omdirigerings-URI och ange både appen och appens registrering.
+3. Registrerar ett URL-schema.
+4. Lägg till en behörighet i filen info. plist.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>Steg 1: Aktivera broker läge i ditt program
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>Steg 1: Aktivera Broker-läge i ditt program
 
-Funktioner som gör att programmet ska använda den asynkrona meddelandekön aktiveras när du skapar ”kontexten” eller installationen av de autentisering. Du kan göra detta genom att ange din typ av autentiseringsuppgifter i din kod:
+Möjligheten för ditt program att använda Service Broker aktive ras när du skapar kontexten "context" eller den första konfigurationen av ditt autentiseringscertifikat. Du gör detta genom att ange dina inloggnings uppgifter i koden:
 
 ```
 /*! See the ADCredentialsType enumeration definition for details */
 @propertyADCredentialsType credentialsType;
 ```
-Den `AD_CREDENTIALS_AUTO` inställningen tillåter att SDK: N att anropa till den asynkrona meddelandekön `AD_CREDENTIALS_EMBEDDED` förhindrar detta SDK anropar till den asynkrona meddelandekön.
+Inställningen `AD_CREDENTIALS_AUTO` gör att SDK kan försöka anropa Service Broker. `AD_CREDENTIALS_EMBEDDED` förhindrar att SDK: n anropar SDK: n.
 
-#### <a name="step-2-registering-a-url-scheme"></a>Steg 2: Registrera ett URL-schema
+#### <a name="step-2-registering-a-url-scheme"></a>Steg 2: registrera ett URL-schema
 
-Identity-plattformen använder URL: er för att anropa den asynkrona meddelandekön och sedan komma tillbaka till ditt program. Du behöver ett URL-schema som har registrerats för ditt program som identity-plattformen vet om för att slutföra den tur och RETUR. Detta kan vara utöver eventuella andra app-system du kanske redan har registrerat med ditt program.
+Identitets plattformen använder URL: er för att anropa Service Broker och sedan återgår kontrollen tillbaka till ditt program. Om du vill slutföra den här omresan behöver du ett URL-schema som är registrerat för ditt program som identitets plattformen känner till. Detta kan förutom andra app-scheman som du tidigare har registrerat i ditt program.
 
 > [!WARNING]
-> Rekommenderar vi att URL-schema ganska unika att minimera risken för en annan app som använder samma URL-schema. Apple påtvingar inte unik URL-scheman som är registrerade i app store.
+> Vi rekommenderar att du gör URL-schemat relativt unikt för att minimera sannolikheten för en annan app med samma URL-schema. Apple upprätthåller inte det unika URL-scheman som är registrerade i App Store.
 
-Nedan visas ett exempel på hur det visas i din projektkonfiguration. Du kan också göra detta i XCode samt:
+Nedan visas ett exempel på hur detta visas i projekt konfigurationen. Du kan också göra detta i XCode:
 
 ```
 <key>CFBundleURLTypes</key>
@@ -288,29 +287,29 @@ Nedan visas ett exempel på hur det visas i din projektkonfiguration. Du kan ock
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 3: Upprätta en ny omdirigerings-URI med URL-schema
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>Steg 3: upprätta en ny omdirigerings-URI med URL-schemat
 
-Vi måste se till att vi kallar tillbaka till ditt program på ett sätt som iOS-operativsystemet kan kontrollera för att säkerställa att vi alltid returnerar token som autentiseringsuppgifter till rätt program kan. IOS-operativsystem som rapporterar till Microsoft broker program paket-ID för programmet anropas. Detta kan inte vara falsk genom en otillåtna program. Därför kan utnyttja vi detta tillsammans med URI: N för vårt broker-program så att token som returneras till rätt program. Vi måste du fastställa den här unika omdirigerings-URI både i ditt program och Ställ in som en omdirigerings-URI i vår developer-portalen.
+För att säkerställa att vi alltid returnerar token för autentiseringsuppgifter till rätt program, måste vi se till att vi går tillbaka till ditt program på ett sätt som operativ systemet iOS kan verifiera. Operativ systemet iOS rapporteras till Microsoft Broker-programmen paket-ID: t för programmet som anropar det. Detta kan inte manipuleras av otillåtna program. Därför utnyttjar vi detta tillsammans med URI: n för vårt Service Broker-program för att se till att tokens returneras till rätt program. Vi kräver att du upprättar denna unika omdirigerings-URI både i ditt program och anger som en omdirigerings-URI i vår Developer-Portal
 
-Omdirigerings-URI måste vara i rätt format för:
+Din omdirigerings-URI måste ha rätt format:
 
 `<app-scheme>://<your.bundle.id>`
 
-ex: *x-msauth-mytestiosapp://com.myapp.mytestapp*
+t. ex. *x-msauth-mytestiosapp://com.myapp.mytestapp*
 
-Omdirigeringen URI måste anges i din app registrering med den [Azure-portalen](https://portal.azure.com/). Mer information om Azure AD app-registrering finns i [integrera med Azure Active Directory](active-directory-how-to-integrate.md).
+Den här omdirigerings-URI: n måste anges i appens registrering med hjälp av [Azure Portal](https://portal.azure.com/). Mer information om registrering av Azure AD-appar finns i [integrera med Azure Active Directory](active-directory-how-to-integrate.md).
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Steg 3a: Lägg till en omdirigerings-URI i din app och dev portal stöd för certifikatbaserad autentisering
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>Steg 3a: Lägg till en omdirigerings-URI i appen och dev-portalen för att stödja certifikatbaserad autentisering
 
-Till stöd för certifikatbaserad autentisering en andra ”msauth” måste vara registrerad i ditt program och [Azure-portalen](https://portal.azure.com/) att hantera autentisering om du vill lägga till som har stöd för i ditt program.
+För att ge stöd för certifikatbaserad autentisering måste en andra "msauth" registreras i ditt program och [Azure Portal](https://portal.azure.com/) för att hantera certifikatautentisering om du vill lägga till det stödet i ditt program.
 
 `msauth://code/<broker-redirect-uri-in-url-encoded-form>`
 
-Exempel: *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
+till exempel: *msauth://Code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Steg 4: Lägga till en konfigurationsparameter i din app
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Steg 4: Lägg till en konfigurations parameter till din app
 
-ADAL använder – canOpenURL: att kontrollera om den asynkrona meddelandekön är installerat på enheten. I iOS 9 på låsta Apple scheman ett program kan fråga efter. Du måste lägga till ”msauth” i avsnittet LSApplicationQueriesSchemes i din `info.plist file`.
+ADAL använder – canOpenURL: för att kontrol lera om Service Broker är installerat på enheten. I iOS 9 på är Apple låst nedåt vilka scheman ett program kan fråga efter. Du måste lägga till "msauth" i LSApplicationQueriesSchemes-avsnittet i `info.plist file`.
 
 ```
     <key>LSApplicationQueriesSchemes</key>
@@ -322,8 +321,8 @@ ADAL använder – canOpenURL: att kontrollera om den asynkrona meddelandekön �
 
 ### <a name="youve-configured-sso"></a>Du har konfigurerat SSO!
 
-Nu identiteten SDK: N automatiskt både dela autentiseringsuppgifter i dina program och anropar den asynkrona meddelandekön om den finns på enheten.
+Nu kommer Identity SDK automatiskt att både dela autentiseringsuppgifter i dina program och anropa Service Broker om den finns på deras enhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [enkel inloggning SAML-protokoll](single-sign-on-saml-protocol.md)
+* Läs mer om [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md)

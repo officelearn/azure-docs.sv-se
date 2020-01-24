@@ -3,22 +3,34 @@ title: Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar
 description: Lär dig hur du använder säkerhetsfunktioner i Azure Backup för att göra säkerhets kopieringar säkrare.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: e4519a342e1be3244b5d4598880e9ad490f50030
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028202"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705504"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Säkerhetsfunktioner som hjälper dig att skydda moln arbets belastningar som använder Azure Backup
 
-Oron över säkerhetsproblem, som skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan var kostsamma, både vad gäller pengar och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning. En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en skadlig aktör tar bort säkerhets kopian av en virtuell dator (eller säkerhets kopierings data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket innebär att det inte går att återställa säkerhets kopierings objekt utan data förlust. Dessa ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden. Azure krypterar också alla säkerhetskopierade data i vila med hjälp av [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) för att skydda dina data ytterligare.
+Oron över säkerhetsproblem, som skadlig kod, utpressningstrojaner och intrång, ökar. Dessa säkerhetsproblem kan var kostsamma, både vad gäller pengar och data. För att skydda mot sådana angrepp tillhandahåller Azure Backup nu säkerhetsfunktioner som hjälper dig att skydda säkerhets kopierings data även efter borttagning.
+
+En sådan funktion är mjuk borttagning. Med mjuk borttagning, även om en skadlig aktör tar bort säkerhets kopian av en virtuell dator (eller säkerhets kopierings data tas bort av misstag), bevaras säkerhets kopierings data i ytterligare 14 dagar, vilket innebär att det inte går att återställa säkerhets kopierings objekt utan data förlust. De ytterligare 14 dagars kvarhållning av säkerhets kopierings data i läget "mjuk borttagning" kostar ingen kostnad för kunden. Azure krypterar också alla säkerhetskopierade data i vila med hjälp av [kryptering för lagringstjänst](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) för att skydda dina data ytterligare.
+
+Mjuk borttagnings skydd för virtuella Azure-datorer är allmänt tillgängligt.
+
+>[!NOTE]
+>Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar finns nu i för hands version.<br>
+>Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
+
+## <a name="soft-delete"></a>Mjuk borttagning
+
+### <a name="soft-delete-for-vms"></a>Mjuk borttagning för virtuella datorer
+
+Mjuk borttagning för virtuella datorer skyddar de virtuella datorerna från oavsiktlig borttagning. Även efter att säkerhets kopiorna har tagits bort bevaras de i läget för mjuk borttagning under ytterligare 14 dagar.
 
 > [!NOTE]
 > Mjuk borttagning skyddar bara borttagna säkerhets kopierings data. Om en virtuell dator tas bort utan säkerhets kopiering bevaras inte data av funktionen för mjuk borttagning. Alla resurser bör skyddas med Azure Backup för att garantera fullständig återhämtning.
 >
-
-## <a name="soft-delete"></a>Mjuk borttagning
 
 ### <a name="supported-regions"></a>Regioner som stöds
 

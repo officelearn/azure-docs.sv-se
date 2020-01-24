@@ -17,13 +17,12 @@ ms.date: 02/08/2017
 ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac618b28fae7410a773012e390dcd6b3a63b966
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 85ed6fc1535daf64394380ded44f74d5f9f939b6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834780"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701118"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Tjänst-till-tjänst-anrop med klientautentiseringsuppgifterna (delad hemlighet eller certifikat)
 
@@ -54,18 +53,18 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ## <a name="service-to-service-access-token-request"></a>Begäran om tjänst-till-tjänst-åtkomsttoken
 Det finns två fall beroende på om klient programmet väljer att skyddas av en delad hemlighet eller ett certifikat.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: Åtkomstbegäran med en delad hemlighet
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: begäran om åtkomsttoken med en delad hemlighet
 När du använder en delad hemlighet innehåller en begäran om tjänst-till-tjänst-åtkomsttoken följande parametrar:
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |obligatorisk |Anger den begärda anslags typen. I en tilldelning av klientautentiseringsuppgifter måste värdet vara **client_credentials**. |
+| grant_type |obligatorisk |Anger den begärda anslags typen. I ett flöde för autentiseringsuppgifter för klientautentiseringsuppgifter måste värdet vara **client_credentials**. |
 | client_id |obligatorisk |Anger Azure AD-klient-ID: t för den anropande webb tjänsten. Du hittar det anropande programmets klient-ID genom att klicka på **Azure Active Directory**i [Azure Portal](https://portal.azure.com), klicka på **Appregistreringar**, klicka på programmet. Client_id är *program-ID: t* |
 | client_secret |obligatorisk |Ange en nyckel som registrerats för den anropande webb tjänsten eller daemon-appen i Azure AD. Skapa en nyckel genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **Appregistreringar**, klicka på programmet, klicka på **Inställningar**, klicka på **nycklar**och lägga till en nyckel.  URL – koda denna hemlighet när den tillhandahålls. |
 | resource |obligatorisk |Ange app-ID-URI för den mottagande webb tjänsten. Du hittar app-ID-URI: n genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **Appregistreringar**, klicka på tjänst programmet och sedan klicka på **Inställningar** och **Egenskaper**. |
 
 #### <a name="example"></a>Exempel
-Följande http post begär en åtkomsttoken [](access-tokens.md) för https://service.contoso.com/ webb tjänsten. `client_id` Identifierar webb tjänsten som begär åtkomsttoken.
+Följande HTTP POST [begär en åtkomsttoken](access-tokens.md) för https://service.contoso.com/ -webbtjänsten. `client_id` identifierar webb tjänsten som begär åtkomsttoken.
 
 ```
 POST /contoso.com/oauth2/token HTTP/1.1
@@ -75,21 +74,21 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fallet: Begäran om åtkomsttoken med ett certifikat
+### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
 En Tokenbegäran för tjänst-till-tjänst-begäran med ett certifikat innehåller följande parametrar:
 
 | Parameter |  | Beskrivning |
 | --- | --- | --- |
-| grant_type |obligatorisk |Anger den begärda svars typen. I en tilldelning av klientautentiseringsuppgifter måste värdet vara **client_credentials**. |
+| grant_type |obligatorisk |Anger den begärda svars typen. I ett flöde för autentiseringsuppgifter för klientautentiseringsuppgifter måste värdet vara **client_credentials**. |
 | client_id |obligatorisk |Anger Azure AD-klient-ID: t för den anropande webb tjänsten. Du hittar det anropande programmets klient-ID genom att klicka på **Azure Active Directory**i [Azure Portal](https://portal.azure.com), klicka på **Appregistreringar**, klicka på programmet. Client_id är *program-ID: t* |
-| client_assertion_type |obligatorisk |Värdet måste vara`urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
+| client_assertion_type |obligatorisk |Värdet måste vara `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |obligatorisk | En försäkran (en JSON Web Token) som du måste skapa och signera med det certifikat som du har registrerat som autentiseringsuppgifter för ditt program. Läs om [autentiseringsuppgifter för certifikat](active-directory-certificate-credentials.md) för att lära dig hur du registrerar ditt certifikat och formatet på intyget.|
 | resource | obligatorisk |Ange app-ID-URI för den mottagande webb tjänsten. Du hittar app-ID-URI: n genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **Appregistreringar**, klicka på tjänst programmet och sedan klicka på **Inställningar** och **Egenskaper**. |
 
-Observera att parametrarna är nästan desamma som i fallet med delad hemlighet, förutom att parametern client_secret har ersatts av två parametrar: en client_assertion_type och client_assertion.
+Observera att parametrarna är nästan desamma som i fallet med delad hemlighet, förutom att parametern client_secret ersätts av två parametrar: en client_assertion_type och client_assertion.
 
 #### <a name="example"></a>Exempel
-Följande http post begär en åtkomsttoken för https://service.contoso.com/ webb tjänsten med ett certifikat. `client_id` Identifierar webb tjänsten som begär åtkomsttoken.
+Följande HTTP POST begär en åtkomsttoken för https://service.contoso.com/ -webbtjänsten med ett certifikat. `client_id` identifierar webb tjänsten som begär åtkomsttoken.
 
 ```
 POST /<tenant_id>/oauth2/token HTTP/1.1
@@ -106,7 +105,7 @@ Ett lyckat svar innehåller ett JSON OAuth 2,0-svar med följande parametrar:
 | Parameter | Beskrivning |
 | --- | --- |
 | access_token |Den begärda åtkomsttoken. Den anropande webb tjänsten kan använda denna token för att autentisera till den mottagande webb tjänsten. |
-| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Användning av Bearer-token (](https://www.rfc-editor.org/rfc/rfc6750.txt)RFC 6750). |
+| token_type |Anger värdet för token-typ. Den enda typ som Azure AD stöder är **Bearer**. Mer information om Bearer-token finns i [OAuth 2,0 Authorization Framework: Bearer token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | expires_in |Hur länge åtkomsttoken är giltig (i sekunder). |
 | expires_on |Tiden då åtkomsttoken upphör att gälla. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC fram till förfallo tiden. Det här värdet används för att fastställa livs längden för cachelagrade token. |
 | not_before |Tiden som åtkomsttoken blir användbar. Datumet visas som antalet sekunder från 1970-01-01T0:0: 0Z UTC tills giltighets tiden för token.|

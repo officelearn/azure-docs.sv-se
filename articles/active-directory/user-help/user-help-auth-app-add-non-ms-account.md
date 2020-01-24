@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da5e2f60334148be1206ce61a9c6397a3acf85e3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278884"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704773"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Lägg till konton som inte kommer från Microsoft i Microsoft Authenticator-appen
 
@@ -45,7 +44,7 @@ Lägg till ditt Google-konto genom att aktivera tvåstegsverifiering och sedan l
 
 ### <a name="turn-on-two-factor-verification"></a>Aktivera tvåstegsverifiering
 
-1. Gå till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcomepå din dator, Välj **Kom igång**och verifiera din identitet.
+1. Gå till https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome på din dator, Välj **Kom igång**och verifiera din identitet.
 
 2. Följ stegen på sidan för att aktivera tvåstegsverifiering för ditt personliga Google-konto.
 
@@ -139,7 +138,7 @@ Lägg till GitHub-kontot genom att aktivera tvåstegsverifiering och sedan lägg
 
     Sidan ändras och visar dig en QR-kod. Stäng inte den här sidan.
 
-4. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger, Välj **annat konto (Google, Facebook osv.)** och välj sedan **Ange den här text koden** från texten överst i Sidan.
+4. Öppna appen Microsoft Authenticator, Välj **Lägg till konto** från ikonen **Anpassa och kontrol lera** längst upp till höger, Välj **annat konto (Google, Facebook osv.)** och välj sedan **Ange den här text koden** från texten överst på sidan.
 
     Microsoft Authenticator-appen kan inte skanna QR-koden, så du måste ange koden manuellt.
 

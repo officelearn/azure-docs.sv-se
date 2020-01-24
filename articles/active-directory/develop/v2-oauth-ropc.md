@@ -17,13 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919332"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700693"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Autentiseringsuppgifter för Microsoft Identity Platform och OAuth 2,0-resurs ägar lösen ord
 
@@ -69,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| Parameter | Tillstånd | Beskrivning |
+| Parameter | Villkor | Beskrivning |
 | --- | --- | --- |
 | `tenant` | Krävs | Den katalog klient som du vill logga in användaren i. Detta kan vara i ett GUID eller eget namn format. Den här parametern kan inte anges till `common` eller `consumers`, men kan vara inställd på `organizations`. |
 | `client_id` | Krävs | Det program (klient)-ID som den [Azure Portal-Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) sidan har tilldelats till din app. | 
@@ -97,7 +96,7 @@ I följande exempel visas ett lyckat svar på token:
 
 | Parameter | Format | Beskrivning |
 | --------- | ------ | ----------- |
-| `token_type` | Sträng | Ange alltid till `Bearer`. |
+| `token_type` | String | Ange alltid till `Bearer`. |
 | `scope` | Separerade blankstegsavgränsad strängar | Om en åtkomsttoken returnerades listar den här parametern de omfattningar som åtkomsttoken är giltig för. |
 | `expires_in`| int | Antal sekunder som den inkluderade åtkomsttoken är giltig för. |
 | `access_token`| Ogenomskinlig sträng | Utfärdat för de [omfattningar](v2-permissions-and-consent.md) som begärdes. |

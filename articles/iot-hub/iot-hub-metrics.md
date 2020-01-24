@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 20a1ec4b8eb88f5914ce6b27acc8a472e58f5d29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457090"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705742"
 ---
 # <a name="understand-iot-hub-metrics"></a>Förstå IoT Hub mått
 
@@ -115,7 +115,7 @@ IoT Hub tillhandahåller flera mått för att ge dig en översikt över hälsan 
 
 Nu när du har sett en översikt över IoT Hub måtten följer du den här länken för att lära dig mer om hur du hanterar Azure IoT Hub:
 
-* [Övervakning av åtgärder](iot-hub-operations-monitoring.md)
+* [Konfigurera diagnostikloggar](iot-hub-monitor-resource-health.md)
 
 För att ytterligare utforska funktionerna i IoT Hub, se:
 

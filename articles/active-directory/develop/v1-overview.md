@@ -16,13 +16,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ad58f9b135056ef273f612abc80262a55a7a1f5e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373914"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700999"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Översikt över Azure Active Directory för utvecklare (v 1.0)
 
@@ -41,7 +40,7 @@ Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvec
 
 V 1.0 snabb starter och självstudier vägleder dig genom att skapa en app på önskad plattform med hjälp av Azure AD Authentication Library (ADAL) SDK. Se **snabb starter** och **v 1.0-självstudierna** för v 1.0 i [Microsoft Identity Platform (Azure Active Directory för utvecklare)](index.yml) för att komma igång.
 
-## <a name="how-to-guides"></a>Instruktionsguider
+## <a name="how-to-guides"></a>Anvisningar
 
 Mer information och genom gångar för de vanligaste uppgifterna i Azure AD finns i **v 1.0 instruktions guider** .
 

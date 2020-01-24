@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545049"
+ms.locfileid: "76704552"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -298,6 +298,15 @@ Observera att om du har gjort ändringar direkt i Azure-filresursen kommer Azure
 Om din PerItemErrorCount på servern eller filerna som inte synkroniserar antalet i portalen är större än 0 för en viss Sync-session, innebär det att vissa objekt inte kan synkroniseras. Filer och mappar kan ha egenskaper som hindrar dem från att synkronisera. Dessa egenskaper kan vara beständiga och kräver en uttrycklig åtgärd för att återuppta synkroniseringen, till exempel ta bort tecken som inte stöds från fil-eller mappnamnet. De kan också vara tillfälliga, vilket innebär att filen eller mappen automatiskt återupptar synkroniseringen. till exempel kommer filer med öppna referenser automatiskt att återuppta synkronisering när filen stängs. När Azure File Sync-motorn identifierar ett sådant problem skapas en fellogg som kan parsas för att lista de objekt som inte synkroniseras korrekt.
 
 Om du vill se de här felen kör du PowerShell-skriptet **FileSyncErrorsReport. ps1** (finns i katalogen agent installation i Azure File Sync agent) för att identifiera filer som inte synkroniserades på grund av öppna referenser, tecken som inte stöds eller andra problem. I fältet ItemPath visas platsen för filen i förhållande till rot katalogen för synkronisering. Se listan över vanliga synkroniseringsfel nedan för reparations steg.
+
+> [!Note]  
+> Om skriptet FileSyncErrorsReport. ps1 returnerar "det inte gick att hitta några fil fel" eller visar fel meddelanden per objekt för synkroniseringsresursen, är orsaken antingen:
+>
+>- Orsak 1: den senaste slutförda synkroniseringen saknade fel per objekt. Portalen bör uppdateras snart för att visa 0 filer som inte synkroniseras. 
+>   - Kontrol lera [händelse-ID 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) i händelse loggen för telemetri för att bekräfta att PerItemErrorCount är 0. 
+>
+>- Orsak 2: händelse loggen för ItemResults på servern omsluts på grund av för många fel per objekt och händelse loggen innehåller inte längre fel för den här synkroniseringsresursen.
+>   - För att förhindra det här problemet ökar du storleken på händelse loggen för ItemResults. Händelse loggen ItemResults finns under "program och tjänster Logs\Microsoft\FileSync\Agent" i Loggboken. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Fel sökning per fil/katalog synkroniseringsfel
 **ItemResults logg per objekt, synkroniseringsfel**  

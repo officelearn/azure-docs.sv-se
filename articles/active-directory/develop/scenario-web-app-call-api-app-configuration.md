@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e551159ad2d41af37b1f400e91680c49117498d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7bf5256390961f4d469aa70be4b0b0c1069db4cf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423635"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701696"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Webbapp som anropar webb-API: er – kod konfiguration
 

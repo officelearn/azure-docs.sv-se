@@ -95,6 +95,10 @@
           href: concepts-data-access-security-private-link.md
         - name: Datakryptering
           href: concepts-data-encryption-mysql.md
+        - name: Datakryptering
+          href: concepts-data-encryption-mysql.md
+        - name: Azure AD-autentisering
+          href: concepts-azure-ad-authentication.md
     - name: Verksamhetskontinuitet
       items:
         - name: Introduktion till affärskontinuitet
@@ -238,6 +242,10 @@
       items:
         - name: Azure Portal
           href: howto-data-encryption-portal.md
+    - name: Azure AD-integrering
+      items:
+        - name: Konfigurera Azure AD-integrering
+          href: howto-configure-sign-in-azure-ad-authentication.md
     - name: Starta om servern
       items:
         - name: Azure Portal

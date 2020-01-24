@@ -1,5 +1,5 @@
 ---
-title: Översikt över Azure Media Services med Widevine-licens mal len | Microsoft Docs
+title: Översikt över Azure Media Services v3 med Widevine-licens mal len
 description: Det här avsnittet ger en översikt över en Widevine-licens mal len som används för att konfigurera Widevine-licenser.
 author: juliako
 manager: femila
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: dcfe9c1c3e12aa726f57db29db59732cceb87a69
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 94ce5e45a9a43e81020096ddc0a67429b286d9b1
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967464"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705640"
 ---
-# <a name="widevine-license-template-overview"></a>Översikt över Widevine-licens mal len 
+# <a name="media-services-v3-with-widevine-license-template-overview"></a>Översikt över Media Services v3 med Widevine-licens mal len
 
 Med Azure Media Services kan du kryptera ditt innehåll med **Google Widevine**. Media Services tillhandahåller också en tjänst för att leverera Widevine-licenser. Du kan konfigurera Widevine-licenser med hjälp av API: er för Azure Media Services. När en spelare försöker spela upp ditt Widevinet innehåll skickas en begäran till licens leverans tjänsten för att erhålla licensen. Om Licenstjänsten godkänner begäran, skickar tjänsten licensen. Den skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
 
@@ -62,7 +62,7 @@ En begäran om Widevine-licens formateras som ett JSON-meddelande.
 
 | Namn | Värde | Beskrivning |
 | --- | --- | --- |
-| Innehållet |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
+| innehållet |Base64-kodad sträng |Den licens förfrågan som skickas av en klient. |
 | content_id |Base64-kodad sträng |Identifierare som används för att härleda nyckel-ID och innehålls nyckel för varje content_key_specs. track_type. |
 | provider |sträng |Används för att söka efter innehålls nycklar och principer. Om Microsoft Key Delivery används för Widevine License Delivery ignoreras den här parametern. |
 | policy_name |sträng |Namnet på en tidigare registrerad princip. Valfri. |

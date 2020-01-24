@@ -3,12 +3,12 @@ title: Stödmatris för SAP HANA-säkerhetskopiering
 description: I den här artikeln lär du dig om de scenarier och begränsningar som stöds när du använder Azure Backup för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: a0a7c25ec718dcd6a903d2149a8b3930fb25941e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 2063da4c5210cace41454d8bdc5b12e636ba76cd
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514309"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705657"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
@@ -33,17 +33,17 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Scenario**               | **Konfigurationer som stöds**                                | **Konfigurationer som inte stöds**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologi**               | Endast SAP HANA som körs i virtuella Azure Linux-datorer                    | HANA stora instanser (HLI)                                   |
-| **Geografiska områden**                   | Sydöstra Australien, östra Australien, östra Australien, centrala Kanada, Östra Kanada Asien, sydöstra, Asien, östra östra USA, östra USA 2, västra centrala USA, västra USA, västra USA 2, norra centrala USA, centrala USA, södra centrala USA, västra Indien, södra Japan, Östra Japan, Japan Norra Korea, centrala, Nord Korea, Nord Europa, Västeuropa, Västeuropa Storbritannien, södra, Storbritannien, västra | Australien, centrala Australien 2 Kina, östra, Kina, norra, Kina östra, Kina, norra 2 västra Indien, Frankrike, södra Tyskland, norra, Tyskland, västra centrala Schweiz, norra, Nord Sydafrika, sydöstra Sydafrika, västra Förenade Arabemiraten, norra, Förenade Arabemiraten Central l Azure Government regioner |
-| **OS-versioner**            | SLES 12 med SP2, SP3 eller SP4           | SLES 15, RHEL                                                |
-| **HANA-versioner**          | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 44           | -                                                            |
+| **Geografiska områden**                   | **GA**<br />**Europa** – Västeuropa, Nord Europa, Frankrike, centrala, Frankrike, södra, Storbritannien, södra, Storbritannien, västra, Tyskland, norra, Tyskland, västra centrala, Schweiz, norra, Schweiz, västra<br />**Asien och Stillahavsområdet** – Australien, centrala Australien 2, östra Australien, sydöstra Australien, Östra Japan, västra Japan, centrala Korea, södra Korea<br /><br>**Förhandsgranskningsvyn**<br />**Amerika** – centrala USA, östra USA 2, östra USA, norra centrala USA, södra centrala USA, västra USA 2, västra centrala USA, västra USA, centrala Kanada, Östra Kanada, södra Brasilien<br />**Asien och Stillahavsområdet** – Asien, östra, Sydostasien, Central Indien, södra Indien | Kina, östra, Kina, norra, Kina östra, Kina, norra 2, västra Indien, Central Schweiz, norra, Sydafrika, norra, södra Afrika, västra Förenade Arabemiraten, norra Förenade Arabemiraten Central, Azure Government regioner |
+| **OS-versioner**            | SLES 12 med SP2, SP3 eller SP4                                | SLES 15, RHEL                                                |
+| **HANA-versioner**          | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 44            | -                                                            |
 | **HANA-distributioner**       | SAP HANA på en enda virtuell Azure-dator – skala upp               | Skalbarhet                                                    |
 | **HANA-instanser**         | En enda SAP HANA instans på en enda virtuell Azure-dator – skala upp | Flera SAP HANA-instanser på en enskild virtuell dator                  |
 | **HANA-databas typer**    | Enkel databas container (SDC) på 1. x, MDC (Multi-Database container) på 2. x | MDC i HANA 1. x                                              |
-| **HANA-databasens storlek**     | 2 – TB fullständig säkerhets kopierings storlek enligt vad som rapporteras av HANA) |                                                              |
-| **Säkerhets kopierings typer**           | Fullständiga, differentiella och logg säkerhets kopior                           | Stegvisa ögonblicks bilder                                       |
+| **HANA-databasens storlek**     | 2 – TB fullständig säkerhets kopierings storlek enligt vad som rapporteras av HANA)                   |                                                              |
+| **Säkerhets kopierings typer**           | Fullständiga, differentiella och logg säkerhets kopior                          | Stegvisa ögonblicks bilder                                       |
 | **Återställnings typer**          | Läs SAP HANA anmärkning [1642148](https://launchpad.support.sap.com/#/notes/1642148) om du vill veta mer om vilka återställnings typer som stöds |                                                              |
-| **Säkerhets kopierings gränser**          | Upp till 2 TB fullständig säkerhets kopierings storlek per SAP HANA instans  |                                                              |
-| **Särskilda konfigurationer** |                                                              | SAP HANA + dynamisk nivå <br>  Kloning via LaMa            |
+| **Säkerhets kopierings gränser**          | Upp till 2 TB fullständig säkerhets kopierings storlek per SAP HANA instans         |                                                              |
+| **Särskilda konfigurationer** |                                                              | SAP HANA + dynamisk nivå <br>  Kloning via LaMa        |
 
 ------
 

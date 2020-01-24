@@ -13,13 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921933"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695712"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -79,7 +78,7 @@ med:
 
 - `policy` är en av de tidigare strängarna (till exempel `PolicySignUpSignIn`).
 - `ParentActivityOrWindow` krävs för Android (aktiviteten) och valfritt för andra plattformar som har stöd för det överordnade användar gränssnittet, t. ex. Windows i Windows och UIViewController i iOS. Mer information finns [här i dialog rutan UI](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow).
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Exempel:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)` är en metod som söker efter ett konto för en specifik princip. Ett exempel:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)

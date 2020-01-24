@@ -4,17 +4,17 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 02/21/2019
 ms.author: rgarcia
-ms.openlocfilehash: 72616d5d79b4dbdb8e14463c706c1626eeb50e97
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9bd213b63b69a25fb2530cd8f6659abf5357616a
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187040"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694636"
 ---
 ## <a name="set-up-authentication"></a>Konfigurera autentisering
 
-Om du vill få åtkomst till tjänsten, måste du ange en nyckel, åtkomst-token eller Azure Active Directory-autentiseringstoken.
+För att få åtkomst till tjänsten måste du ange en konto nyckel, åtkomsttoken eller Azure Active Directory auth-token. Du kan också läsa mer om det här på [sidan Authentication Concept](/azure/spatial-anchors/concepts/authentication).
 
-### <a name="account-keys"></a>Kontonycklar
+### <a name="account-keys"></a>Konto nycklar
 
-Nycklar är en autentiseringsuppgift som tillåter programmet att autentisera med tjänsten Azure Spatial fästpunkter. Syftet med nycklar är att hjälpa dig att komma igång snabbt. Särskilt under ditt programs integrering med Azure Spatial ankare utvecklingsfas. Därför kan du använda nycklar genom att bädda in dem i ditt klientprogram under utvecklingen. När du går utöver rekommenderar vi starkt för att flytta till en autentiseringsmekanism som är produktionsnivån, stöds av åtkomsttoken eller användarautentisering för Azure Active Directory. Besök Spatial fästpunkter för Azure-konto för att få en Kontonyckel för utveckling och gå till fliken ”nycklar”.
+Konto nycklar är en autentiseringsuppgift som gör att ditt program kan autentisera med tjänsten Azure spatiala ankare. Det avsedda syftet med konto nycklar är att hjälpa dig att komma igång snabbt. Särskilt under utvecklings fasen av ditt programs integrering med de spatiala Ankarena i Azure. Därför kan du använda konto nycklar genom att bädda in dem i dina klient program under utveckling. När du går vidare med utvecklingen rekommenderar vi starkt att du flyttar till en autentiseringsmekanism som är produktions nivå, stöds av åtkomsttoken eller Azure Active Directory användarautentisering. Om du vill ha en konto nyckel för utveckling kan du gå till kontot för ditt Azure-spatialdata och gå till fliken "nycklar".

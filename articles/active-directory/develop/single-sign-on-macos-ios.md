@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd944af95f80cf456260beb072c703aab0d15ceb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ecc55c0d41f552d2c29fe5c964a7c40ab9e382ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175273"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701390"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>Gör så här: Konfigurera SSO på macOS och iOS
 
@@ -70,7 +69,7 @@ Om du vill aktivera enkel inloggning för dina program måste du utföra följan
 
 För att Microsoft Identity Platform ska kunna ta reda på vilka program som kan dela tokens, måste programmen dela samma klient-ID eller program-ID. Detta är den unika identifierare som du fick när du registrerade ditt första program i portalen.
 
-På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Exempel:
+På samma sätt som Microsoft Identity Platform säger att appar som använder samma program-ID skiljer sig från **omdirigerings-URI: er**. Varje program kan ha flera omdirigerings-URI: er registrerade i onboarding-portalen. Varje app i din svit har en annan omdirigerings-URI. Ett exempel:
 
 APP1 omdirigering av URI: `msauth.com.contoso.mytestapp1://auth` APP2 omdirigerings-URI: `msauth.com.contoso.mytestapp2://auth` App3 omdirigerings-URI: `msauth.com.contoso.mytestapp3://auth`
 
@@ -138,7 +137,7 @@ MSAL tillhandahåller stöd för Brokered Authentication med Microsoft Authentic
 
 Följande steg är hur du aktiverar SSO med en autentiseringsprovider för din app:
 
-1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. Service Broker-kompatibelt omdirigerings-URI-format är `msauth.<app.bundle.id>://auth`. Ersätt "< app. bundle. ID >" med programmets paket-ID. Exempel:
+1. Registrera en Service Broker-kompatibel omdirigerings-URI-format för programmet i appens info. plist. Service Broker-kompatibelt omdirigerings-URI-format är `msauth.<app.bundle.id>://auth`. Ersätt "< app. bundle. ID >" med programmets paket-ID. Ett exempel:
 
     ```xml
     <key>CFBundleURLSchemes</key>

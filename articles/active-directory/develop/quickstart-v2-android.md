@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: twhitney
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84603dfa865afe1c7661f49d7dac7374fa62a2a0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e0616ae2c3b58c694e300abca28a9e34f8442fcb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920794"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703719"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph API från en Android-app
 
@@ -31,7 +30,7 @@ Program måste representeras av ett app-objekt i Azure Active Directory så att 
 ![Skärm bild av exempel appen](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
-> **Förutsättningar**
+> **Krav**
 > * Android Studio 
 > * Android 16 +
 
@@ -537,7 +536,7 @@ Till skillnad från konfigurations filen [auth_config_single_account. JSON](#aut
 
 ## <a name="next-steps"></a>Nästa steg
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig hur du skapar appen som används i den här snabbstarten
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Lär dig stegen för hur du skapar det program som används i den här snabbstarten
 
 Testa [inloggnings användarna och anropa Microsoft Graph från en](tutorial-v2-android.md) själv studie kurs om Android-appar för en steg-för-steg-guide om hur du skapar en Android-app som hämtar en åtkomsttoken och använder den för att anropa Microsoft Graph API.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 8d75dbe5d4ab819e5bbe64e20ad84eb1c26a87a3
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 12759deb3e1775b5170d40cc609fe8c6226bf0d6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777826"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704586"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -28,30 +28,30 @@ Följande mått är relaterade till tiden för begäran och svar är tillgängli
 >
 > Om det finns fler än en lyssnare i Application Gateway ska du alltid filtrera efter *Listener* -dimension samtidigt som du jämför olika svars tids mått för att få en meningsfull härledning.
 
+- **Server dels anslutnings tid**
+
+  Åtgången tid för att upprätta en anslutning till ett Server dels program. Detta omfattar nätverks svars tiden och den tid det tar för backend-serverns TCP-stack att upprätta nya anslutningar. I händelse av SSL innehåller det även den tid det tar för hand skakningen. 
+
+- **Svars tid för första byte för Server del**
+
+  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet. Detta uppskattar summan av Server *dels anslutnings tiden* och svars tiden för backend-programmet (den tid det tog att generera innehåll, potentiellt hämtade databas frågor och börja överföra svaret till Application Gateway)
+
+- **Svars tid för senaste byte för Server delen**
+
+  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten. Detta uppskattar summan av *svars tid för första byte* och data överföring (detta tal kan variera beroende på storleken på objekt som begärs och Server nätverkets svars tid)
+
+- **Total tid för Application Gateway**
+
+  Genomsnittlig tid det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som genomsnitt av intervallet från den tid då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs, vilket motsvarar summan av bearbetnings tiden för Application Gateway och *svars tiden för sista byte i Server delen*
+
 - **Klient-/klient**
 
   Genomsnittlig fördröjning mellan klienter och Application Gateway. Det här måttet anger hur lång tid det tar att upprätta anslutningar och returnera bekräftelser. 
 
-- **Total tid för Application Gateway**
+Dessa mått kan användas för att avgöra om den observerade minskningen beror på Application Gateway, nätverks-och backend-serverns TCP-stack-mättnad, prestanda för backend-program eller stor fil storlek.
+Om det till exempel finns en topp i svars tiden för första byte, men Server dels anslutnings tiden är konstant, kan det härledas att programgatewayen till Server dels latens och tiden det tar att upprätta anslutningen är stabil och insamling orsakas av en n ökning i svars tiden för backend-programmet. Om insamlingen i svars tiden för första byte-bytet är associerad med motsvarande insamling i Server dels anslutnings tiden kan det härledas att antingen nätverket eller serverns TCP-stack har mätt. Om du ser att det finns en ökning i Server delens sista byte-svars tid, men svars tiden för den första byte-tiden är konstant, beror det förmodligen på att mängden av en större fil begärs. På samma sätt, om den totala tiden för programgatewayen är mycket mer än svars tiden för den sista byten, kan det vara ett tecken på prestanda Flask hals på Application Gateway.
 
-  Genomsnittlig tid det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som genomsnitt av intervallet från den tid då Application Gateway tar emot den första byten av en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att detta vanligt vis omfattar Application Gateway bearbetnings tid, tid då paket för begäran och svar överförs över nätverket och hur lång tid det tog att svara på backend-servern.
-  
-Efter att ha filtrerat efter lyssnare, om *klientens* efter svars tid är mycket mer än den *totala tiden för programgatewayen*, kan det härledas att den fördröjning som klienten har observerat beror på nätverks anslutningen mellan klienten och Application Gateway. Om båda svars tiderna är jämförbara kan den långa latensen bero på något av följande: Application Gateway, nätverket mellan Application Gateway och Server dels programmet eller Server delens prestanda.
 
-- **Svars tid för första byte för Server del**
-
-  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet, ungefär bearbetnings tiden för backend-servern
-
-- **Svars tid för senaste byte för Server delen**
-
-  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten
-  
-Om den *totala tiden för programgatewayen* är mycket mer än den *senaste byte svars tiden* för en specifik lyssnare, kan det härledas att den långa svars tiden kan bero på Application Gateway. Å andra sidan, om de två måtten är jämförbara, kan problemet antingen bero på nätverket mellan Application Gateway och Server dels programmet eller prestanda för Server dels programmet.
-
-- **Server dels anslutnings tid**
-
-  Åtgången tid för att upprätta en anslutning till ett Server dels program. I händelse av SSL, innehåller det den tid som ägnats åt hand skakningen. Observera att måttet skiljer sig från de andra svars tiderna eftersom detta bara mäter anslutnings tiden och därför inte ska jämföras direkt i storlek med de andra fördröjningarna. Att jämföra mönstret för *Server dels anslutnings tiden* med mönstret för de andra fördröjningarna kan dock indikera om en ökning av andra fördröjningar kan härledas på grund av en variation i nätverket mellan programmet Gatway och Server dels programmet. 
-  
 
 ### <a name="application-gateway-metrics"></a>Application Gateway mått
 

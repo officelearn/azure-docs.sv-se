@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: f017b19ef8bd8e4c44d9e2885da6fbaf172808a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485980"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705623"
 ---
 # <a name="troubleshoot"></a>Felsökning
 
@@ -44,6 +44,38 @@ Så här hämtar du filen **Deployer. log** :
    - Kontakta farmbeatssupport@microsoft.comom det finns *inkommande meddelanden*. Koppla dina Datahub-och Accelerator-loggar och fånga in telemetri.
 
 Information om hur du hämtar loggar finns i avsnittet ["samla in loggar manuellt"](#collect-logs-manually) .  
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Det går inte att Visa telemetridata efter att du har matat in historiska/strömmande data från sensorer
+
+**Symptom**: enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller Visa telemetridata på FarmBeats.
+
+**Korrigerande åtgärd**:
+
+1. Se till att du har utfört partner registreringen korrekt – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner-API, göra en get-och kontrol lera om partnern är registrerad. Om inte följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+2. Kontrol lera att du har använt rätt format för telemetri-meddelande:
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Du har inte Azure Event Hubs-anslutningssträng
 
@@ -193,7 +225,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 [Installera och distribuera Azure Storage Explorer]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows).
 
 ### <a name="collect-azure-data-factory-job-logs-in-datahub"></a>Samla in Azure Data Factory jobb loggar i Datahub
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
 
     > [!NOTE]
@@ -211,7 +243,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Samla in Azure Data Factory jobb loggar i Accelerator
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Accelerator i **sökrutan.**
 
     > [!NOTE]
@@ -228,7 +260,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="collect-datahub-app-service-logs"></a>Samla in Datahub App Service-loggar
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Datahub i **sökrutan.**
 
     > [!NOTE]
@@ -244,7 +276,7 @@ Det här problemet kan inträffa om några underhålls aktiviteter utförs på S
 
 ### <a name="collect-accelerator-app-service-logs"></a>Samla in Accelerator service-loggar
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Sök efter resurs gruppen FarmBeats Accelerator i **sökrutan.**
 
     > [!NOTE]

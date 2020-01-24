@@ -17,13 +17,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22abde182437bfeb4a42e5c9a0d8e41a4643f8f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9c02611ea6f083a6ce8f95844e52429fc1152f90
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964454"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701016"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Tjänst-till-tjänst-anrop som använder delegerad användar identitet i flödets räkning
 
@@ -55,7 +54,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 
 ### <a name="register-the-middle-tier-service"></a>Registrera mellanskikts tjänsten
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar under **katalog** listan för att välja en Active Directory klient för ditt program.
 1. Välj **fler tjänster** i den vänstra rutan och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** och sedan **ny registrering**.
@@ -73,7 +72,7 @@ Registrera både mellan nivå tjänsten och klient programmet i Azure AD.
 
 ### <a name="register-the-client-application"></a>Registrera klient programmet
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. I det översta fältet väljer du ditt konto och tittar under **katalog** listan för att välja en Active Directory klient för ditt program.
 1. Välj **fler tjänster** i den vänstra rutan och välj **Azure Active Directory**.
 1. Välj **Appregistreringar** och sedan **ny registrering**.

@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f03e92c1bfd86d15bf582487e3e92a3713b63e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c01a7a9c5adb050d98840938260c8486ecdeb199
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619357"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705198"
 ---
 # <a name="set-up-a-mobile-device-as-your-two-factor-verification-method"></a>Konfigurera en mobil enhet som en metod för verifiering av två faktorer
 
@@ -27,17 +26,17 @@ Du kan konfigurera din mobila enhet så att den fungerar som en metod för verif
 
 ## <a name="set-up-your-mobile-device-to-use-a-text-message-as-your-verification-method"></a>Konfigurera din mobila enhet så att ett SMS används som verifieringsmetod
 
-1. På sidan **ytterligare säkerhets verifiering** väljer du **telefon för autentisering** från **steg 1: Hur ska vi kontakta dig** , välja land eller region i den nedrullningsbara listan och sedan ange telefonnumret till din mobila enhet.
+1. På sidan **ytterligare säkerhets verifiering** väljer du **telefon för autentisering** från **steg 1: Hur ska vi kontakta dig** , välja land eller region i list rutan och sedan ange telefonnumret till din mobila enhet.
 
 2. Välj **skicka mig en kod per SMS** från **metod** -arean och välj sedan **Nästa**.
 
     ![Sidan ytterligare säkerhets verifiering med en telefon för autentisering och SMS](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
-3. Skriv verifierings koden från textmeddelandet som skickas från Microsoft till **steg 2: Vi har skickat ett SMS till ditt telefon** utrymme och väljer sedan **Verifiera**.
+3. Skriv verifierings koden från textmeddelandet som skickas från Microsoft till **steg 2: vi har skickat ett SMS till ditt telefon** områden och väljer sedan **Verifiera**.
 
     ![Sidan ytterligare säkerhets verifiering med en telefon för autentisering och SMS](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message-test.png)
 
-4. **Från steg 3: Fortsätt att använda dina befintliga** program, kopiera det tillhandahållna applösenord och klistra in det på en säker plats.
+4. I **steg 3: Fortsätt att använda dina befintliga program** , kopierar du det angivna applösenord och klistrar in det på en säker plats.
 
     ![Plats för applösenord på sidan ytterligare säkerhets verifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
@@ -48,7 +47,7 @@ Du kan konfigurera din mobila enhet så att den fungerar som en metod för verif
 
 ## <a name="set-up-your-mobile-device-to-receive-a-phone-call"></a>Konfigurera din mobila enhet för att ta emot ett telefonsamtal
 
-1. På sidan **ytterligare säkerhets verifiering** väljer du **telefon för autentisering** från **steg 1: Hur ska vi kontakta dig** , välja land eller region i den nedrullningsbara listan och sedan ange telefonnumret till din mobila enhet.
+1. På sidan **ytterligare säkerhets verifiering** väljer du **telefon för autentisering** från **steg 1: Hur ska vi kontakta dig** , välja land eller region i list rutan och sedan ange telefonnumret till din mobila enhet.
 
 2. Välj **anropa mig** från **metod** -ytan och välj sedan **Nästa**.
 
@@ -58,7 +57,7 @@ Du kan konfigurera din mobila enhet så att den fungerar som en metod för verif
 
     ![Testar det angivna telefonnumret](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call-test.png)
 
-4. **Från steg 3: Fortsätt att använda dina befintliga** program, kopiera det tillhandahållna applösenord och klistra in det på en säker plats.
+4. I **steg 3: Fortsätt att använda dina befintliga program** , kopierar du det angivna applösenord och klistrar in det på en säker plats.
 
     ![Plats för applösenord på sidan ytterligare säkerhets verifiering](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 

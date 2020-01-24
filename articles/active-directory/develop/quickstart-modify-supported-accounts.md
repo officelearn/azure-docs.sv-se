@@ -12,13 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 439d2c06f05aa8824afa4a4aec3990ecba1aa8da
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 59c1b7dbb4c47b6963cd4bbcfdeb1b2b9a2d3bb6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921350"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704127"
 ---
 # <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Snabb start: ändra de konton som stöds av ett program
 
@@ -31,7 +30,7 @@ I den här snabbstarten lär du hur du ändrar appens konfiguration för att än
 Innan du börjar kontrollerar du att följande krav är uppfyllda:
 
 * Lär dig mer om [behörigheter och medgivande](v2-permissions-and-consent.md) som stöds, vilket är viktigt att förstå när du skapar appar som måste användas av andra användare eller appar.
-* Ha en klientorganisation som har appar som är registrerade till den.
+* Ha en klientorganisation som har program som är registrerade till den.
   * Om du inte har några registrerade appar kan du [få information om hur du registrerar appar på Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Logga in på Azure-portalen och välj appen
@@ -79,7 +78,7 @@ Som standard är implicit OAuth 2.0-beviljande inaktiverat för program. Du kan 
 
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
-* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
+* [Registrera ett program på Microsoft Identity Platform](quickstart-register-app.md)
 * [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
 * [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ta bort en app registrerad på Microsoft Identity Platform](quickstart-remove-app.md)

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9bf5608a44aa19650a507ada3a0a437d34c13277
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513751"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705674"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -37,9 +37,7 @@ När du har startat strömningen av sensor data kan du påbörja processen med a
  - Klienthemlighet
  - EventHub-anslutningssträng
 
-Den tidigare informationen tillhandahålls av system integreraren. Om du har problem som du kan stöta på när du aktiverar enhets integreringarna kan du kontakta system integreraren.
-
-Du kan också generera autentiseringsuppgifterna genom att köra skriptet från Azure Cloud Shell. Följ de här stegen.
+Du kan generera ovanstående information genom att följa dessa steg: (Observera att de här stegen måste göras på Azure så att du behöver åtkomst till Azure-prenumerationen där FarmBeats har distribuerats)
 
 1. Hämta [zip-filen](https://aka.ms/farmbeatspartnerscriptv2)och extrahera den till den lokala enheten. Det kommer att finnas en fil i zip-filen.
 2. Logga in på https://portal.azure.com/ och gå till Azure Active Directory-> App-registreringar

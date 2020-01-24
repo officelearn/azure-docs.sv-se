@@ -12,17 +12,16 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233166"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704875"
 ---
 # <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>Uppdatera din profil-och arbets-eller skol konto information på portalen Mina appar
 
-Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och utföra  **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
+Du kan använda ditt arbets-eller skol konto med den webbaserade **min Apps** -portalen för att visa och starta många av organisationens molnbaserade appar för att uppdatera viss profil-och konto information, för att se din **grupp** information och för att utföra **åtkomst granskningar** för dina appar och grupper. Om du inte har åtkomst till portalen för **Mina appar** måste du kontakta supportavdelningen för att få behörighet.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
@@ -108,7 +107,7 @@ Tvåstegsverifiering kräver att du använder två olika verifierings uppgifter,
 
     - **Konfigurera Microsoft Authenticator-appen.** Du kan välja att konfigurera Microsoft Authenticator-appen så att den fungerar som din verifierings metod. Mer information om Microsoft Authenticator-appen finns i [Vad är Microsoft Authenticator-appen?](user-help-auth-app-overview.md)
 
-3. Spara ändringarna genom att välja **Spara** .
+3. Välj **spara** att spara dina ändringar.
 
 ## <a name="review-your-organizations-terms-of-use-statement"></a>Granska din organisations användnings villkors uttryck
 

@@ -13,13 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d156ccd4b3f81081433962dcd939a91ab1bc7143
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963241"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696426"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Skillnader mellan MSAL JS och ADAL JS
 
@@ -74,7 +73,7 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
 
 * Dynamiska omfattningar för stegvist godkännande.
 
-    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Exempel:
+    När du skapar program med v 1.0 behövde du registrera en fullständig uppsättning behörigheter (statiska omfattningar) som krävs av programmet för att användaren ska kunna godkänna inloggnings tiden. I v 2.0 kan du använda omfattnings parametern för att begära behörigheten vid den tidpunkt du vill. Dessa kallas dynamiska omfattningar. Detta gör det möjligt för användaren att tillhandahålla ett stegvist tillstånd för omfattningar. Så om du i början vill att användaren ska logga in på ditt program och du inte behöver någon typ av åtkomst kan du göra det. Om du senare behöver kunna läsa kalendern för användaren kan du begära att kalender omfånget används i acquireToken-metoderna och få användarens medgivande. Ett exempel:
 
     ```javascript
     var request = {
@@ -86,7 +85,7 @@ I v 2.0 kan användare med hjälp av `https://login.microsoftonline.com/common` 
 
 * Omfattningar för V 1.0 API: er
 
-    När du hämtar token för V 1.0-API: er med MSAL. js kan du begära alla statiska omfattningar som registrerats i API: et genom att lägga till `.default` till app-ID-URI: n för API: et som omfång. Exempel:
+    När du hämtar token för V 1.0-API: er med MSAL. js kan du begära alla statiska omfattningar som registrerats i API: et genom att lägga till `.default` till app-ID-URI: n för API: et som omfång. Ett exempel:
 
     ```javascript
     var request = {

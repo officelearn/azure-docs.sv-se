@@ -13,13 +13,12 @@ ms.date: 01/04/2019
 ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 879fa55df422e6039c6830e25e43637fc31b8037
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2e3bd9ffa968038ae3f03eaf8de9c5271d6248f4
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028490"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704620"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registrera din personliga enhet i din organisations nätverk
 Registrera din personliga enhet (vanligt vis en telefon eller surfplatta) i din organisations nätverk. När enheten har registrerats kommer den att kunna komma åt din organisations begränsade resurser.
@@ -42,7 +41,7 @@ När du registrerar din enhet i din organisations nätverk sker följande åtgä
 
 Följ de här stegen för att registrera din personliga enhet i nätverket.
 
-1. Öppna **Inställningar**och välj sedan **konton**.
+1. Öppna **Inställningar** och välj sedan **Konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 
@@ -59,7 +58,7 @@ Följ de här stegen för att registrera din personliga enhet i nätverket.
 ## <a name="to-verify-that-youre-registered"></a>För att kontrol lera att du är registrerad
 Du kan se till att du har registrerat dig genom att titta på dina inställningar.
 
-1. Öppna **Inställningar**och välj sedan **konton**.
+1. Öppna **Inställningar** och välj sedan **Konton**.
 
     ![Konton på skärmen Inställningar](./media/user-help-register-device-on-network/register-device-settings-accounts.png)
 

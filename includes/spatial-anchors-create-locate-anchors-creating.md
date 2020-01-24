@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: bcf03c7d342c6d9ad39fa6327f566f191133fd40
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9758cdf07d1ad56e6300e89eed2aa0b1da29e081
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187051"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694550"
 ---
-## <a name="create-a-cloud-spatial-anchor"></a>Skapa en spatial ankare för molnet
+## <a name="create-a-cloud-spatial-anchor"></a>Skapa ett moln rums ankare
 
-Om du vill skapa en cloud-ankare först skapa en fästpunkt i din plattform AR system och sedan skapa en cloud-motsvarighet. Du använder den `CreateAnchorAsync()` metoden.
+Om du vill skapa ett moln rums ankare skapar du först ett ankare i plattformens P.A. system och skapar sedan en molnbaserad motsvarighet. Du använder metoden `CreateAnchorAsync()`.

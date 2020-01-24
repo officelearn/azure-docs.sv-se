@@ -14,13 +14,12 @@ ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa82985fcde59c4cfd8d4bec75ae77643f7da448
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1bc8c05a2f5b85dbd1b24dbf3a259b75cfdc2f77
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424100"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704076"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>Snabbstart: Skapa en enkelsidig AngularJS-webbapp för inloggning och utloggning med Azure Active Directory
 
@@ -59,7 +58,7 @@ Kom igång genom att slutföra följande krav:
 
 Om du vill göra så att appen kan autentisera användare och hämta token behöver du först registrera den i din Azure AD-klientorganisation:
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Om du är inloggad i flera kataloger kan du behöva se till att du är i rätt katalog. Gör det genom att klicka på ditt konto i fältet längst upp. Under **kataloglistan** väljer du den Azure AD-klientorganisation där du vill registrera programmet.
 1. Klicka på **Alla tjänster** i den vänstra fönsterrutan och välj sedan **Azure Active Directory**.
 1. Klicka på **Appregistreringar**och välj sedan **ny registrering**.

@@ -12,13 +12,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fff6d07bd0e353541dec23fd8c3edf7407ef6d68
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 3cc9e4458f14a63bad7f484bc16683248895ede9
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963298"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704093"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Snabb start: ta bort ett program som är registrerat med Microsoft Identity Platform
 
@@ -58,7 +57,7 @@ För att kunna ta bort åtkomsten för ett program till din katalog (efter att m
 
 Läs mer om dessa andra relaterade snabbstarter för apphantering:
 
-* [Registrera en app på Microsoft Identity Platform](quickstart-register-app.md)
+* [Registrera ett program på Microsoft Identity Platform](quickstart-register-app.md)
 * [Konfigurera ett klientprogram för åtkomst till webb-API:er](quickstart-configure-app-access-web-apis.md)
 * [Konfigurera ett program att exponera webb-API:er](quickstart-configure-app-expose-web-apis.md)
 * [Ändra konton som stöds av en app](quickstart-modify-supported-accounts.md)

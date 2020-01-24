@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389231"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694473"
 ---
 ## <a name="lifecycle"></a>Livscykel
 
@@ -33,7 +33,7 @@ På fliken **livs cykel** anger du när en användares tilldelning till åtkomst
 
 1. Om du vill tillåta att användare utökar sina tilldelningar ställer du in **Tillåt att användare utökar åtkomsten** till **Ja**.
 
-    Om tillägg är tillåtna i principen får användaren ett e-postmeddelande 14 dagar och även en dag innan tilldelningen av åtkomst paket är inställd på att förfalla och uppmanas att förlänga tilldelningen.
+    Om tillägg är tillåtna i principen får användaren ett e-postmeddelande 14 dagar och även en dag innan tilldelningen av åtkomst paket är inställd på att förfalla och uppmanas att förlänga tilldelningen. Om användaren skickar en begäran om att utöka åtkomsten måste förlängnings datumet vara i eller innan tilldelningarna upphör att gälla enligt principen som användes för att ge användaren åtkomst till åtkomst paketet. Om principen till exempel anger att tilldelningar är inställda på att upphöra att gälla den 30 juni, är det maximala tillägg som en användare kan begära den 30 juni.
 
     Om en användares åtkomst är utökad kommer de inte att kunna begära åtkomst paketet efter angivet tilläggs datum (datum angivet i tids zonen för den användare som skapade principen).
 

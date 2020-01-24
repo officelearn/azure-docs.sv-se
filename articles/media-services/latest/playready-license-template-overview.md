@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services med PlayReady-licensmall
-description: Det här avsnittet ger en översikt över en PlayReady-licensmall som används för att konfigurera PlayReady-licenser.
+title: Azure Media Services v3 med Microsoft PlayReady-licens mal len
+description: Det här avsnittet ger en översikt över en PlayReady-licens mal len som används för att konfigurera PlayReady-licenser.
 author: juliako
 manager: femila
 editor: ''
@@ -13,37 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 0ce0d40bfd9d41838573f6355ceffc17761111c2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6b12dcee2303632c4ec2ccc3602348a4e17fcd05
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61472659"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705895"
 ---
-# <a name="media-services-playready-license-template-overview"></a>Översikt över Media Services PlayReady-licensmallen 
+# <a name="media-services-v3-with-playready-license-template"></a>Media Services v3 med PlayReady-licens mal len 
 
-Azure Media Services kan du kryptera ditt innehåll med **Microsoft PlayReady**. Media Services tillhandahåller också en tjänst för att leverera PlayReady-licenser. Du kan använda API: er för Media Services för att konfigurera PlayReady-licenser. När en spelare försöker att spela upp ditt innehåll med PlayReady-skyddad, skickas en begäran till licensleveranstjänst du erhåller en licens. Om Licenstjänsten godkänner begäran, utfärdar den licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
+Med Azure Media Services kan du kryptera ditt innehåll med **Microsoft PlayReady**. Media Services tillhandahåller också en tjänst för att leverera PlayReady-licenser. Du kan använda Media Services API: er för att konfigurera PlayReady-licenser. När en spelare försöker spela upp ditt PlayReady-skyddade innehåll skickas en begäran till licens leverans tjänsten för att få en licens. Om Licenstjänsten godkänner begäran, utfärdar den licens som skickas till klienten och används för att dekryptera och spela upp det angivna innehållet.
 
-PlayReady-licenser innehålla rättigheter och begränsningar som du vill PlayReady digital rights management (DRM) runtime för att tvinga när en användare försöker att spela upp skyddat innehåll. Här följer några exempel på PlayReady licensbegränsningar som du kan ange:
+PlayReady-licenser innehåller de rättigheter och begränsningar som du vill att den PlayReady Digital Rights Management (DRM) kör för att genomdriva när en användare försöker spela upp skyddat innehåll. Här följer några exempel på PlayReady License-begränsningar som du kan ange:
 
-* Datum och tid som licensen är giltig.
-* DateTime-värde när licensen upphör att gälla. 
-* För information om licens för att sparas i permanent lagring på klienten. Beständiga licenser används vanligtvis för att tillåta offline uppspelning av innehållet.
-* Den lägsta nivån som en spelare måste ha för att spela upp ditt innehåll. 
-* Utdata skyddsnivån för utdata-kontroller för audio\video innehåll. 
-* Mer information finns i avsnittet ”utdata kontroller” (3.5) i den [PlayReady Kompatibilitetsregler](https://www.microsoft.com/playready/licensing/compliance/) dokumentet.
+* Datum och tid då licensen är giltig.
+* DateTime-värdet när licensen upphör att gälla. 
+* För att licensen ska sparas i beständig lagring på klienten. Beständiga licenser används vanligt vis för att tillåta uppspelning av innehåll offline.
+* Den minsta säkerhets nivå som en spelare måste ha för att kunna spela upp ditt innehåll. 
+* Utmatnings skydds nivån för utdata-kontrollerna för audio\video-innehåll. 
+* Mer information finns i avsnittet "utdata Controls" (3,5) i dokumentet med [reglerna för efterlevnadsprinciper](https://www.microsoft.com/playready/licensing/compliance/) .
 
 > [!NOTE]
-> Du kan för närvarande kan bara konfigurera PlayRight för PlayReady-licens. Den här behörigheten krävs. PlayRight ger klienten möjligheten att spela upp innehållet. Du kan också använda PlayRight konfigurera begränsningar som är specifika för uppspelning. 
+> För närvarande kan du bara konfigurera PlayRight för PlayReady-licensen. Den här behörigheten krävs. PlayRight ger klienten möjlighet att spela upp innehållet. Du kan också använda PlayRight för att konfigurera begränsningar som är begränsade till uppspelning. 
 > 
 
-Det här avsnittet beskriver hur du konfigurerar PlayReady-licenser med Media Services.
+I det här avsnittet beskrivs hur du konfigurerar PlayReady-licenser med Media Services.
 
-## <a name="basic-streaming-license-example"></a>Grundläggande direktuppspelningsexemplet licens
+## <a name="basic-streaming-license-example"></a>Exempel på Basic streaming-licens
 
-I följande exempel visas den enklaste (och de vanligaste)-mall som konfigurerar en grundläggande strömmande licens. Med denna licens, kan dina klienter spela upp din PlayReady-skyddat innehåll. 
+I följande exempel visas den enklaste (och vanligaste) mallen som konfigurerar en Basic streaming-licens. Med den här licensen kan dina klienter spela upp ditt PlayReady-skyddade innehåll. 
 
-XML-Egenskapslistan som överensstämmer med PlayReady licens mall XML-schema definieras i den [PlayReady licens mall XML-schema](#schema) avsnittet.
+XML-koden överensstämmer med den PlayReady-licensserver som definierats i XML [-schemat för PlayReady-licensservern](#schema) .
 
 
     <?xml version="1.0" encoding="utf-8"?>
@@ -58,16 +58,16 @@ XML-Egenskapslistan som överensstämmer med PlayReady licens mall XML-schema de
     </PlayReadyLicenseResponseTemplate>
 
 
-## <a id="classes"></a>Använd API: er för Media Services för att konfigurera licens mallar
+## <a id="classes"></a>Använd Media Services-API: er för att konfigurera licensfiler
 
-Media Services innehåller typer som du kan använda för att konfigurera en PlayReady-licensmall. 
+Media Services tillhandahåller typer som du kan använda för att konfigurera en PlayReady-licens mal len. 
 
-Kodfragmentet nedan använder Media Services .NET-klasser för att konfigurera PlayReady-licensmall. Klasserna som definieras i den [Microsoft.Azure.Management.Media.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) namnområde. Kodfragmentet konfigurerar PlayRight för PlayReady-licens. PlayRight ger användaren möjlighet att spela upp innehållet omfattas av begränsningarna som konfigurerats i licensen och på själva PlayRight (för uppspelning-specifik princip). Mycket av principen på en PlayRight gäller utdata-begränsningen som styr vilka typer av utdata som innehållet kan spelas över. Det finns några begränsningar som måste placeras på plats när en viss utdata används. Till exempel om DigitalVideoOnlyContentRestriction aktiveras tillåter DRM-runtime endast att videon som ska visas över digitala utdata. (Analog video utdata inte tillåts att överföra innehållet.)
+Kodfragmentet som följer använder Media Services .NET-klasser för att konfigurera PlayReady-licens mal len. Klasserna definieras i namn området [Microsoft. Azure. Management. Media. Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models?view=azure-dotnet) . Kodfragmentet konfigurerar PlayRight för PlayReady-licensen. PlayRight ger användaren möjlighet att spela upp innehåll som omfattas av begränsningar som kon figurer ATS i licensen och på själva PlayRight (för uppspelnings princip). En stor del av principen på en PlayRight avser utmatnings begränsning som styr vilka typer av utdata som innehållet kan spelas upp över. Den innehåller också alla begränsningar som måste placeras på plats när en specifik utmatning används. Om DigitalVideoOnlyContentRestriction till exempel är aktive rad tillåter DRM-körningen bara att videon visas över digitala utdata. (Analoga video utmatningar är inte tillåtna för att skicka innehållet.)
 
 > [!IMPORTANT]
-> PlayReady-licens har begränsningar som är kraftfulla. Om utdata-skydd är alltför begränsade kanske innehållet är på vissa klienter. Mer information finns i den [PlayReady Kompatibilitetsregler](https://www.microsoft.com/playready/licensing/compliance/).
+> PlayReady-licensen har kraftfulla begränsningar. Om utdatafilerna är för begränsade kan det hända att innehållet inte kan spelas upp på vissa klienter. Mer information finns i reglerna för [PlayReady-efterlevnad](https://www.microsoft.com/playready/licensing/compliance/).
 
-### <a name="configure-playready-license-template-with-net"></a>Konfigurera PlayReady-licensmall med .NET
+### <a name="configure-playready-license-template-with-net"></a>Konfigurera PlayReady-licens mal len med .NET
 
 ```csharp
 ContentKeyPolicyPlayReadyLicense objContentKeyPolicyPlayReadyLicense;
@@ -88,7 +88,7 @@ objContentKeyPolicyPlayReadyLicense = new ContentKeyPolicyPlayReadyLicense
 };
 ```
 
-## <a id="schema"></a>PlayReady licens mall XML-schema
+## <a id="schema"></a>Versions schema för PlayReady-licensserver
     <?xml version="1.0" encoding="utf-8"?>
     <xs:schema xmlns:tns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1" xmlns:xs="https://www.w3.org/2001/XMLSchema">
       <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />

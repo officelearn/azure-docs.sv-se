@@ -14,13 +14,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f16278304b4d536b1ef2cf46291b481bf319b6c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 82d64895f4bf2ef6eb1fdb248f470f981d1cb426
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918159"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698177"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Förstå medgivande i Azure AD-program
 
@@ -46,7 +45,7 @@ Följande diagram och tabell innehåller information om bygg blocken i medgivand
 | # | Komponent | Syfte |
 | ----- | ----- | ----- |
 | 1 | Användar identifierare | Den här identifieraren representerar användaren som klient programmet begär för att få åtkomst till skyddade resurser åt. |
-| 2 | Rubrik | Rubriken ändras baserat på om användarna ska gå igenom flödet för användare eller administrativt godkännande. I användarens godkännande flöde blir rubriken "behörighet begärs", medan rubriken i det administrativa godkännande flödet har en rad "acceptera för din organisation". |
+| 2 | Titel | Rubriken ändras baserat på om användarna ska gå igenom flödet för användare eller administrativt godkännande. I användarens godkännande flöde blir rubriken "behörighet begärs", medan rubriken i det administrativa godkännande flödet har en rad "acceptera för din organisation". |
 | 3 | App-logotyp | Den här bilden bör hjälpa användarna att ha en visuell ikon för om den här appen är den app som de är avsedd att komma åt. Den här avbildningen tillhandahålls av programutvecklare och ägarskapet för den här avbildningen är inte verifierad. |
 | 4 | Appnamn | Det här värdet bör informera användarna om vilka program som begär åtkomst till sina data. Obs! det här namnet tillhandahålls av utvecklarna och ägarskapet för det här namnet på appen är inte verifierat. |
 | 5 | Utgivardomän | Det här värdet bör ge användare en domän som de kan utvärdera för pålitlighet. Den här domänen tillhandahålls av utvecklare och ägarskapet för den här utgivarens domän är verifierad. |

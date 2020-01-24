@@ -13,13 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2a61176f43960d14cecf4db881b94b24ae580bc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a0f0f3be1647c820591923a094ef7fce86ab9672
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963893"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699452"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Konton och klientorganisationsprofiler (Android)
 
@@ -106,7 +105,7 @@ Som tidigare nämnts kan varje klient där ett konto finns lagra annan informati
 
 Även om ett konto kan vara medlem eller gäst i flera organisationer, frågar MSAL inte efter en tjänst för att hämta en lista över de klienter som kontot är medlem i. I stället skapar MSAL en lista över klienter som kontot finns i, till följd av token-begäranden som har gjorts.
 
-De anspråk som exponeras för kontot är alltid anspråk från/{Authority} "hem klient" för ett konto. Om kontot inte har använts för att begära en token för sin hem klient kan MSAL inte tillhandahålla anspråk via objektet konto.  Exempel:
+De anspråk som exponeras för kontot är alltid anspråk från/{Authority} "hem klient" för ett konto. Om kontot inte har använts för att begära en token för sin hem klient kan MSAL inte tillhandahålla anspråk via objektet konto.  Ett exempel:
 
 ```java
 // Psuedo Code
@@ -126,7 +125,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>Åtkomst till klient profil anspråk
 
-Om du vill få åtkomst till anspråk om ett konto som de visas i andra klienter måste du först omvandla ditt konto objekt till `IMultiTenantAccount`. Alla konton kan vara flera klienter, men antalet klient profiler som är tillgängliga via MSAL baseras på vilka innehavare du har begärt token från att använda det aktuella kontot.  Exempel:
+Om du vill få åtkomst till anspråk om ett konto som de visas i andra klienter måste du först omvandla ditt konto objekt till `IMultiTenantAccount`. Alla konton kan vara flera klienter, men antalet klient profiler som är tillgängliga via MSAL baseras på vilka innehavare du har begärt token från att använda det aktuella kontot.  Ett exempel:
 
 ```java
 // Psuedo Code
@@ -141,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 Uppdaterade token för ett konto delas inte mellan B2C-principer. Det går därför inte att använda enkel inloggning med token. Detta innebär inte att enkel inloggning inte är möjlig. Det innebär att enkel inloggning måste använda en interaktiv upplevelse där en cookie är tillgänglig för att aktivera enkel inloggning.
 
-Det innebär också att om du hämtar token med olika B2C-principer, innebär det också att de behandlas som separata konton, var och en med sin egen identifierare. Om du vill använda ett konto för att begära en token med hjälp av `acquireTokenSilent`måste du välja kontot i listan över konton som matchar den princip som du använder med Tokenbegäran. Exempel:
+Det innebär också att om du hämtar token med olika B2C-principer, innebär det också att de behandlas som separata konton, var och en med sin egen identifierare. Om du vill använda ett konto för att begära en token med hjälp av `acquireTokenSilent`måste du välja kontot i listan över konton som matchar den princip som du använder med Tokenbegäran. Ett exempel:
 
 ```java
 // Get Account For Policy

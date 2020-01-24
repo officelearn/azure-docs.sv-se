@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dd38eee8ebc12ed01874611ec5e532a4d78ede2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616100"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704807"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>Lägg till ett konto i appen manuellt
 
@@ -94,7 +93,7 @@ Du kan lägga till ditt Amazon-konto genom att aktivera tvåstegsverifiering och
 
 5. På sidan **Lägg till en verifierings metod för säkerhets kopiering** på datorn anger du den sexsiffriga verifierings koden som du fick från verifierings metoden för ditt Amazon-konto och väljer sedan **verifiera kod och fortsätt**.
 
-6. På sidan nästan klar bestämmer du om du vill göra datorn till en betrodd enhet och välj **sedan skaffa den. Aktivera tvåstegsverifiering**.
+6. På sidan nästan klar bestämmer du om du vill göra datorn till en betrodd enhet och välj sedan **Skaffa den. Aktivera tvåstegsverifiering**.
 
     Sidan **avancerade säkerhets inställningar** visas och visar din uppdaterade information om tvåstegsverifiering.
 

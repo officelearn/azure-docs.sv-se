@@ -2,25 +2,27 @@
 title: Om återställnings planer i Azure Site Recovery
 description: Lär dig mer om återställnings planer i Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/23/2020
+ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497888"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705861"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
 Den här artikeln innehåller en översikt över återställnings planer i [Azure Site Recovery](site-recovery-overview.md).
 
-En återställnings plan samlar in datorer i återställnings grupper. Med en återställnings plan kan du definiera en systematisk återställnings process genom att skapa små oberoende enheter som du kan redundansväxla. En enhet representerar vanligt vis en app i din miljö.
+En återställnings plan samlar in datorer i återställnings grupper i syfte att redundansväxla. Med en återställnings plan kan du definiera en systematisk återställnings process genom att skapa små oberoende enheter som du kan redundansväxla. En enhet representerar vanligt vis en app i din miljö.
 
 - En återställnings plan definierar hur datorer växlar över och i vilken ordning de startar efter redundansväxlingen.
+- Återställnings planer används för redundans till Azure, men kan inte användas för återställning efter fel från Azure.
 - Upp till 100 skyddade instanser kan läggas till i en återställnings plan.
 - Du kan anpassa en plan genom att lägga till order, instruktioner och uppgifter till den.
 - När en plan har definierats kan du köra en redundansväxling på den.
 - Datorer kan refereras till i flera återställnings planer, där efterföljande planer hoppar över distribution/start av en dator om den tidigare har distribuerats med en annan återställnings plan.
+
 
 
 ### <a name="why-use-a-recovery-plan"></a>Varför ska jag använda en återställnings plan?

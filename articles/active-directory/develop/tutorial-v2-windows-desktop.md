@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c29a06496bb1303849250f049e4e7444a5a5ddf3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1864b4867b8e1367a2397c5ed2ed9a77001dadb4
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423349"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701203"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Anropa API: et för Microsoft Graph från en Windows Desktop-app
 
@@ -97,7 +96,7 @@ Du kan snabbt registrera ditt program genom att göra följande:
 ### <a name="option-2-advanced-mode"></a>Alternativ 2: Avancerat läge
 
 Du registrerar programmet och lägger till programregistreringsinformationen i din lösning genom att göra följande:
-1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller en personligt Microsoft-konto.
 1. Om ditt konto ger dig tillgång till fler än en klientorganisation väljer du ditt konto i det övre högra hörnet och ställer in din portalsession på önskad Azure AD-klientorganisation.
 1. Gå till sidan Microsoft Identity Platform för utvecklare [Appregistreringar](https://go.microsoft.com/fwlink/?linkid=2083908) .
 1. Välj **ny registrering**.

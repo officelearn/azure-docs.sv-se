@@ -1,18 +1,18 @@
 ---
 title: Förbered för Azure Monitor klassisk migrering av aviseringar genom att uppdatera dina Logic Apps och Runbooks
+author: yanivlavi
 description: Lär dig hur du ändrar dina Webhooks, Logi Kap par och Runbooks för att förbereda för frivillig migrering.
-author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827385"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705572"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Förbered dina Logi Kap par och Runbooks för migrering av klassiska varnings regler
 
@@ -31,7 +31,7 @@ Följande tabell är en referens till programmerings gränssnitten för både de
 
 |         |Klassiska aviseringar  |Nya mått varningar |
 |---------|---------|---------|
-|REST-API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [avisering om AZ-övervakaren](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [avisering om AZ Monitor-mått](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [Referens](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager-mall | [För klassiska aviseringar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[För nya mått varningar](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
@@ -57,7 +57,7 @@ Använd följande tabell för att Mappa fälten för webhook-nyttolasten från d
 | Operator (hur det aggregerade Metric-värdet jämförs mot tröskelvärdet) | **context.condition.operator** | **data.context.condition.operator** |
 | Tröskelvärde | **Context. condition. Threshold** | **data. context. condition. allOf [0]. tröskel** |
 | Mått värde | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| Prenumerations-ID:t | **context.subscriptionId** | **data.context.subscriptionId** |
+| Prenumerations-ID | **context.subscriptionId** | **data.context.subscriptionId** |
 | Resurs grupp för den berörda resursen | **context.resourceGroup** | **data.context.resourceGroup** |
 | Namnet på den berörda resursen | **context.resourceName** | **data.context.resourceName** |
 | Typ av resurs som påverkas | **context.resourceType** | **data.context.resourceType** |

@@ -12,13 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842822"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697344"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Gör så här: konfigurera villkor för service och sekretess policy för en app
 
@@ -59,7 +58,7 @@ När tjänst villkoren och sekretess policyn är klara kan du lägga till länka
 ### <a name="azure-portal"></a>Använda Azure Portal
 Följ de här stegen i Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till avsnittet **app Registration** och välj din app.
 3. Öppna fönstret **varumärkes anpassning** .
 4. Fyll i URL **-fälten för användnings villkoren** och **URL: en för sekretess policy** .

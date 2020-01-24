@@ -10,45 +10,29 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 04/26/2019
-ms.openlocfilehash: 86da4ecab387da80954c2267ddeabe32a723474c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/22/2020
+ms.openlocfilehash: 733901d38703e02ab7dbe811b0f80a1dfedf03d5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802725"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705793"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database ord lista med villkor
 
 |Kontext|Period|Mer information|
 |:---|:---|:---|
-|Namn på Azure-tjänst|Azure SQL Database eller SQL Database|[Tjänsten Azure SQL Database](sql-database-technical-overview.md)|
-|Beräknings nivå|Utan server |[Server lös beräknings nivå](sql-database-serverless.md)
-||Etablerat|[Server lös beräknings nivå](sql-database-serverless.md)
-|Distributionsalternativ |Enskild databas|[Enkla databaser](sql-database-single-database.md)|
+|Azure-tjänst|Azure SQL Database eller SQL Database|[Tjänsten Azure SQL Database](sql-database-technical-overview.md)|
+|Inköps modell|DTU-baserad inköps modell|[DTU-baserad inköps modell](sql-database-service-tiers-dtu.md)|
+||Köpmodell baserad på virtuell kärna|[vCore-baserad inköps modell](sql-database-service-tiers-vcore.md)|
+|Distributionsalternativ |Enkel databas|[Enkla databaser](sql-database-single-database.md)|
 ||Elastisk pool|[Elastisk pool](sql-database-elastic-pool.md)|
 ||Hanterad instans|[Hanterad instans](sql-database-managed-instance.md)|
-|Server objekt|SQL Database Server eller databas server|[Databas server](sql-database-servers.md)|
+|Tjänstnivå|Basic, standard, Premium, Generell användning, storskalig Affärskritisk|För tjänst nivåer i vCore-modellen, se [enkel databas och elastisk pool](sql-database-service-tiers-vcore.md#service-tiers) och [hanterad instans](sql-database-managed-instance.md#managed-instance-service-tiers). För tjänst nivåer i DTU-modellen, se [DTU-modellen](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers).|
+|Beräknings nivå|Serverlös databearbetning|[Data behandling utan Server](sql-database-service-tiers-vcore.md#compute-tiers)
+||Etablerad beräkning|[Allokerad beräkning](sql-database-service-tiers-vcore.md#compute-tiers)
+|Beräknings generation|Gen5, M-serien, Fsv2-serien|[Maskin varu generationer](sql-database-service-tiers-vcore.md#hardware-generations)
+|Server entitet|SQL Database Server eller databas server|[Databas server](sql-database-servers.md)|
 ||SQL Database Hanterad instans Server, hanterad instans Server eller instans Server|[Hanterad instans](sql-database-managed-instance.md)|
-Databas objekt|Azure SQL-databas|Alla databaser i Azure SQL Database|
-||Enskild databas|En databas som skapats med distributions alternativet för enskild databas|
-||Databas i pooler|En databas som skapats i eller flyttats till en elastisk pool|
-||Instans databas|En databas som skapats inom en hanterad instans|
-||Basic-databas|En databas som skapats i eller flyttats till den grundläggande tjänst nivån i den DTU-baserade inköps modellen|
-||Standard databas|En databas som skapats i eller flyttats till standard tjänst nivån för den DTU-baserade inköps modellen|
-||Premium-databas|En databas som skapats i eller flyttats till Premium service nivån för den DTU-baserade inköps modellen|
-||Generell användnings databas|En databas som skapats i eller flyttats till tjänst nivån generell användning i den vCore-baserade inköps modellen|
-||Storskalig databas|En databas som skapats i eller flyttats till den storskaliga Service nivån för den vCore-baserade inköps modellen|
-||Affärs kritisk databas|En databas som skapats i eller flyttats till nivån affärs kritisk tjänst för den vCore-baserade inköps modellen|
-||Etablerad databas|En databas som kon figurer ATS i den allokerade beräknings nivån|
-|[Köp modeller och resurser](sql-database-purchase-models.md)|DTU-baserad inköps modell|[DTU-baserad inköps modell](sql-database-service-tiers-dtu.md)|
-||Köpmodell baserad på virtuell kärna|[vCore-baserad inköps modell](sql-database-service-tiers-vcore.md)|
-||vCore|En kärna som erbjuds av gäst operativ systemet via hypervisorn.|
-||Tjänstenivå|En service nivå inom en inköps modell|
-||Beräknings storlek|Mängden data bearbetnings resurser för en enskild databas, elastisk pool eller hanterad instans inom en tjänst nivå|
-||Lagrings belopp|Mängden lagrings utrymme som är tillgänglig för en enskild databas, elastisk pool eller hanterad instans|
-||Beräknings generation|Generering av processor inom en tjänst nivå|
-|IP-brandväggsregler för databasserver|Regler för IP-brandvägg|[Regler för IP-brandvägg](sql-database-firewall-configure.md)|
-||IP-brandväggsregler på servernivå|[Regler för IP-brandvägg på server nivå](sql-database-firewall-configure.md)|
-|| Regler för IP-brandvägg på databas nivå|[Regler för IP-brandvägg på databas nivå](sql-database-firewall-configure.md)|
-||Slut punkter och regler för virtuella nätverk|[Slutpunkter och regler för virtuellt nätverk](sql-database-vnet-service-endpoint-rule-overview.md)|
+|Resurstyp|virtuell kärna|En processor kärna som tillhandahålls för beräknings resursen för en enskild databas, elastisk pool eller hanterad instans.|
+||Beräknings storlek och lagrings belopp|Compute-storlek är den maximala mängden processor, minne och andra icke-lagrings resurser som är tillgängliga för en enskild databas, elastisk pool eller hanterad instans.  Lagrings storleken är den maximala lagrings mängden som är tillgänglig för en enskild databas, en elastisk pool eller en hanterad instans.  För storleks alternativ i vCore-modellen, se [vCore-databaser](sql-database-vcore-resource-limits-single-databases.md), [vCore elastiska pooler](sql-database-vcore-resource-limits-elastic-pools.md) och [hanterade instanser](sql-database-managed-instance-resource-limits.md).  Storleks alternativ i DTU-modellen finns i både [DTU-databaser](sql-database-dtu-resource-limits-single-databases.md) och [elastiska DTU-pooler](sql-database-dtu-resource-limits-elastic-pools.md).

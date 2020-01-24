@@ -3,12 +3,12 @@ title: Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 description: I den här artikeln lär du dig hur du säkerhetskopierar en valfri virtuell Azure-dator eller flera virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bd75bdfb3fe9939c576fe289f6be38ebe875e020
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 72d6e5657add3e815bb0d77fadbdbc716712bee5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294073"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705453"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Säkerhetskopiera en virtuell Azure-dator från VM-inställningarna
 
@@ -79,16 +79,11 @@ För att kunna säkerhetskopiera virtuella Azure-datorer installerar Azure Backu
 Följ anvisningarna i den här artikeln för att aktivera säkerhets kopiering för virtuella Azure-datorer genom att konfigurera ett Azure Backup Recovery Services-valv och aktivera säkerhets kopiering i valvet.
 
 >[!NOTE]
-> Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.
+> **Azure Backup har nu stöd för säkerhets kopiering och återställning av selektiva diskar med den virtuella Azure-datorn säkerhets kopierings lösning.**
 >
 >Idag har Azure Backup stöd för säkerhets kopiering av alla diskar (operativ system och data) i en virtuell dator tillsammans med säkerhets kopierings lösningen för virtuella datorer. Med funktionen exkludera disk får du ett alternativ för att säkerhetskopiera ett eller flera av de många data diskarna i en virtuell dator. Detta ger en effektiv och kostnads effektiv lösning för dina säkerhets kopierings-och återställnings behov. Varje återställnings punkt innehåller data för de diskar som ingår i säkerhets kopieringen, vilket gör att du kan få en del av diskarna återställd från den aktuella återställnings punkten under återställnings åtgärden. Detta gäller för återställning av båda från ögonblicks bilden och valvet.
 >
-> Den här lösningen är särskilt användbar i följande scenarier:
->  
->1. Du har viktiga data som ska säkerhets kopie ras på bara en disk och du vill inte säkerhetskopiera resten av diskarna som är anslutna till en virtuell dator. Detta minimerar kostnaderna för lagring av säkerhets kopior.  
->2. Du har andra säkerhets kopierings lösningar för en del av dina VM-data. Du kan till exempel säkerhetskopiera dina databaser eller data med en annan lösning för säkerhets kopiering av arbets belastning och du vill använda säkerhets kopiering av Azure VM-nivå för resten av dina diskar och data för att skapa ett effektivt och robust system som använder bästa möjliga kapacitet.
->
->Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
+>**Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com**
 
 ## <a name="next-steps"></a>Nästa steg
 

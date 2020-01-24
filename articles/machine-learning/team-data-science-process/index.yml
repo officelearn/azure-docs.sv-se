@@ -5,12 +5,12 @@ metadata:
   title: Dokumentation om Team Data Science Process
   description: 'Lär dig hur du använder Team Data Science Process – en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.'
   services: machine-learning
-  author: cjgronlund
+  author: marktab
   ms.service: machine-learning
   ms.subservice: team-data-science-process
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: cgronlun
+  ms.date: 01/10/2020
+  ms.author: marktab
 abstract:
   description: 'Team Data Science Process är en flexibel, iterativ datavetenskapsmetod för att leverera prediktiva analyslösningar och intelligenta program effektivt. TDSP hjälper till att förbättra samarbete mellan grupper och inlärning. Du får de bästa metodtipsen och strukturerna från Microsoft och andra i branschen, vilket underlättar implementeringen av datavetenskapsinitiativ. Målet är att hjälpa företag att dra nytta av sina analysprogram fullt ut.'
 sections:

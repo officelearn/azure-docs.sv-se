@@ -86,12 +86,6 @@
               href: sql-database-ssms-mfa-authentication.md
             - name: Konfigurera multifaktorautentisering
               href: sql-database-ssms-mfa-authentication-configure.md
-            - name: Konfigurera TDE med BYOK
-              href: transparent-data-encryption-byok-azure-sql-configure.md
-            - name: Rotera TDE BYOK-nycklar
-              href: transparent-data-encryption-byok-azure-sql-key-rotation.md
-            - name: Ta bort TDE-skydd
-              href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
         - name: Dataskydd
           items:
             - name: Transparent datakryptering (TDE)
@@ -100,6 +94,12 @@
                   href: transparent-data-encryption-azure-sql.md
                 - name: TDE med Bring Your Own Key
                   href: transparent-data-encryption-byok-azure-sql.md
+                - name: Konfigurera TDE med BYOK
+                  href: transparent-data-encryption-byok-azure-sql-configure.md
+                - name: Rotera TDE BYOK-nycklar
+                  href: transparent-data-encryption-byok-azure-sql-key-rotation.md
+                - name: Ta bort TDE-skydd
+                  href: transparent-data-encryption-byok-azure-sql-remove-tde-protector.md
             - name: Dynamisk datamaskning
               href: sql-database-dynamic-data-masking-get-started.md
             - name: Alltid krypterad

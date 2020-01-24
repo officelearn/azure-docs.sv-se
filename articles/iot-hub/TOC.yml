@@ -84,9 +84,9 @@
 - name: Begrepp
   items:
     - name: TLS-support
-      href: iot-hub-tls.md
+      href: iot-hub-tls-support.md
     - name: Föråldrad användning av TLS 1.0 och 1.1
-      href: tls-1.2-everywhere.md
+      href: iot-hub-tls-deprecating-1-0-and-1-1.md
     - name: Översikt över meddelandeberikanden
       href: iot-hub-message-enrichments-overview.md
     - name: Översikt över enhetshantering

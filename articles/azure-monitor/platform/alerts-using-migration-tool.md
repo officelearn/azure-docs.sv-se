@@ -1,103 +1,103 @@
 ---
-title: Migrera din klassiska aviseringar i Azure Monitor med hjälp av verktyget frivillig migrering
-description: Lär dig hur du använder verktyget frivillig migrering för att migrera din klassiska Varningsregler.
-author: snehithm
+title: Migrera dina klassiska aviseringar i Azure Monitor med hjälp av verktyget för frivillig migrering
+description: Lär dig hur du använder verktyget för frivillig migrering för att migrera dina klassiska aviserings regler.
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 0c8aa00d069ae54584d8e828dab35c22048f1876
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295548"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705589"
 ---
-# <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget frivillig migrering för att migrera din klassiska Varningsregler
+# <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Använd verktyget för frivillig migrering för att migrera dina klassiska aviserings regler
 
-Som [tidigare meddelats](monitoring-classic-retirement.md), klassiska aviseringar i Azure Monitor är att tas ur drift i September 2019 (var ursprungligen juli 2019). Migreringsverktyg finns i Azure portal för att kunder som använder klassiska Varningsregler och som vill aktivera migrering själva. Den här artikeln förklarar hur du använder Migreringsverktyget för att migrera din klassiska Varningsregler frivilligt innan automatisk migrering börjar i September 2019.
+Som [tidigare](monitoring-classic-retirement.md)meddelats kommer de klassiska aviseringarna i Azure monitor att tas ur drift i september 2019 (ursprungligen juli 2019). Ett Migreringsverktyg är tillgängligt i Azure Portal till kunder som använder klassiska aviserings regler och som vill utlösa migrering själva. Den här artikeln förklarar hur du använder Migreringsverktyget för att frivilligt migrera dina klassiska varnings regler innan den automatiska migreringen börjar i september 2019.
 
 > [!NOTE]
-> Fördröjning i lansering av migreringsverktyget slutdatum för klassiska aviseringar migrering har [utökats till den 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) ursprungligen presenterade efter den 30 juni 2019.
+> På grund av fördröjning i uppsamlingen av migreringen har den senaste indragnings tiden för migrering av klassisk avisering [utökats till 31 augusti 2019](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) från det ursprungligen presenterade datumet den 30 juni 2019.
 
-## <a name="benefits-of-new-alerts"></a>Fördelarna med nya aviseringar
+## <a name="benefits-of-new-alerts"></a>Fördelar med nya aviseringar
 
-Klassiska aviseringar ersätts med ny, enhetlig aviseringar i Azure Monitor. Den nya varningsplattformen har följande fördelar:
+Klassiska aviseringar ersätts med nya, enhetliga aviseringar i Azure Monitor. Den nya varnings plattformen har följande fördelar:
 
-- Du kan meddela på olika flerdimensionella mått för [många fler Azure-tjänster](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- Den nya måtten aviseringar support [flera resource Varningsregler](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) som avsevärt minska arbetet med att hantera många regler.
-- Den mekanism för enhetlig meddelande som har stöd för:
-  - [Åtgärdsgrupper](action-groups.md), ett modulära sätt som fungerar med alla nya aviseringstyper (mått, logg och aktivitetsloggen).
-  - Nytt meddelande mekanismer som SMS, röst och ITSM-anslutningsprogram.
-- Den [unified aviseringar](alerts-overview.md) tar alla aviseringar på olika signaler (mått, logg och aktivitetsloggen) till ett och samma ställe.
+- Du kan få aviseringar på en mängd olika flerdimensionella mått för [många fler Azure-tjänster](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+- De nya måtten Alerts stöder [varnings regler för flera resurser](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) som avsevärt minskar behovet av att hantera många regler.
+- Den enhetliga meddelande mekanismen, som stöder:
+  - [Åtgärds grupper](action-groups.md), en modulär meddelande funktion som fungerar med alla nya aviserings typer (statistik, logg och aktivitets logg).
+  - Nya aviserings metoder som SMS, röst och ITSM-anslutningsprogram.
+- Den [enhetliga aviserings upplevelsen](alerts-overview.md) ger alla aviseringar om olika signaler (mått, logg och aktivitets logg) till en enda plats.
 
 ## <a name="before-you-migrate"></a>Innan du migrerar
 
-Migreringsprocessen konverterar klassiska Varningsregler till nya, motsvarande Varningsregler och skapar åtgärdsgrupper. Som förberedelse måste du vara medveten om följande punkter:
+Migreringsprocessen konverterar de klassiska varnings reglerna till nya, motsvarande varnings regler och skapar åtgärds grupper. Vid förberedelse bör du vara medveten om följande punkter:
 
-- Både nyttolast meddelandeformat och API: er för att skapa och hantera nya Varningsregler skiljer sig från de klassiska Varningsregler eftersom de stöder fler funktioner. [Lär dig hur du förbereder för migreringen](alerts-prepare-migration.md).
+- Både meddelandets nytto Last format och API: er för att skapa och hantera nya varnings regler skiljer sig från de klassiska varnings reglerna eftersom de har stöd för fler funktioner. [Lär dig hur du förbereder migreringen](alerts-prepare-migration.md).
 
-- Vissa klassiska Varningsregler kan inte migreras med hjälp av verktyget. [Lär dig vilka regler kan inte migreras och vad du gör med dem](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
-
-    > [!NOTE]
-    > Migreringen påverkar inte utvärderingen av klassiska notifieringsregler. De fortsätter att köra och skicka aviseringar tills de är migrerade och nya Varningsregler träder i kraft.
-
-## <a name="how-to-use-the-migration-tool"></a>Så här använder du Migreringsverktyget
-
-Följ dessa steg om du vill starta migreringen av dina klassiska aviseringsregler i Azure portal:
-
-1. I [Azure-portalen](https://portal.azure.com)väljer **övervakaren**.
-
-1. Välj **aviseringar**, och välj sedan **hantera aviseringsregler** eller **Visa klassiska aviseringar**.
-
-1. Välj **migrera till nya regler** att gå till startsidan för migrering. Den här sidan visar en lista över alla dina prenumerationer och deras Migreringsstatus:
-
-    ![migrering startsida](media/alerts-migration/migration-landing.png "migrera regler")
-
-    Alla prenumerationer som kan migreras med hjälp av verktyget är märkta **redo att migrera**.
+- Vissa klassiska varnings regler kan inte migreras med verktyget. [Lär dig vilka regler som inte kan migreras och vad du kan göra med dem](alerts-understand-migration.md#classic-alert-rules-that-will-not-be-migrated).
 
     > [!NOTE]
-    > Migreringsverktyget är lanseras i faser till alla prenumerationer som använder klassiska Varningsregler. Du kan se några prenumerationer som markerats som inte klar för migrering i de tidiga faserna av distributionen.
+    > Migreringsprocessen påverkar inte utvärderingen av dina klassiska aviserings regler. De fortsätter att köra och skicka aviseringar tills de har migrerats och de nya varnings reglerna börjar gälla.
+
+## <a name="how-to-use-the-migration-tool"></a>Använda Migreringsverktyg
+
+Följ dessa steg om du vill utlösa migreringen av dina klassiska varnings regler i Azure Portal:
+
+1. I [Azure Portal](https://portal.azure.com)väljer du **övervaka**.
+
+1. Välj **aviseringar**och välj sedan **Hantera aviserings regler** eller **Visa klassiska aviseringar**.
+
+1. Välj **migrera till nya regler** för att gå till landnings sidan för migrering. Den här sidan visar en lista över alla dina prenumerationer och deras migrerings status:
+
+    ![migration-vilplan](media/alerts-migration/migration-landing.png "Migrera regler")
+
+    Alla prenumerationer som kan migreras med hjälp av verktyget markeras som **redo för migrering**.
+
+    > [!NOTE]
+    > Migrations verktyget distribueras i faser till alla prenumerationer som använder klassiska aviserings regler. I de tidiga faserna av distributionen kan du se vissa prenumerationer som marker ATS som ej redo för migrering.
 
 1. Välj en eller flera prenumerationer och välj sedan **Förhandsgranska migrering**.
 
-    Den resulterande visar information om klassiska Varningsregler som ska migreras för en prenumeration i taget. Du kan också välja **hämta information om migrering för den här prenumerationen** att hämta information i ett CSV-format.
+    Den resulterande sidan visar information om klassiska aviserings regler som kommer att migreras för en prenumeration i taget. Du kan också välja **Hämta migrerings information för den här prenumerationen** om du vill ha mer information i CSV-format.
 
-    ![Förhandsgranskning av videomigrering](media/alerts-migration/migration-preview.png "Förhandsgranska migrering")
+    ![migrering – för hands version](media/alerts-migration/migration-preview.png "Förhandsgranska migrering")
 
-1. Ange en eller flera e-postadresser för att aviseras om Migreringsstatus för. Du får e-postmeddelande när migreringen är klar eller om någon åtgärd krävs från dig.
+1. Ange en eller flera e-postadresser som ska meddelas om migreringens status. Du får ett e-postmeddelande när migreringen är klar eller om någon åtgärd krävs från dig.
 
-1. Välj **starta migrering**. Läs informationen som visas i den bekräftande dialogrutan och bekräfta att du är redo att börja migreringsprocessen.
+1. Välj **Starta migrering**. Läs informationen som visas i bekräftelse dialog rutan och bekräfta att du är redo att starta migreringsprocessen.
 
     > [!IMPORTANT]
-    > När du har initierat migrering för en prenumeration kan du inte redigera eller skapa klassiska Varningsregler för den aktuella prenumerationen. Den här begränsningen säkerställer att inga ändringar i din klassiska Varningsregler går förlorade vid migrering till de nya reglerna. Även om du inte kan ändra din klassiska Varningsregler, kommer de fortfarande fortsätta att köra och för att ge aviseringar tills de har migrerats. När migreringen är klar för din prenumeration kan använda du inte klassiska Varningsregler längre.
+    > När du har initierat migreringen för en prenumeration kan du inte redigera eller skapa klassiska aviserings regler för den prenumerationen. Den här begränsningen garanterar att inga ändringar i de klassiska varnings reglerna går förlorade under migreringen till de nya reglerna. Även om du inte kan ändra de klassiska varnings reglerna fortsätter de fortfarande att köras och för att tillhandahålla aviseringar tills de har migrerats. När migreringen har slutförts för din prenumeration kan du inte längre använda de klassiska varnings reglerna.
 
-    ![Bekräfta migreringen](media/alerts-migration/migration-confirm.png "bekräfta starta migrering")
+    ![migrering – bekräfta](media/alerts-migration/migration-confirm.png "Bekräfta start migrering")
 
-1. När migreringen är klar, eller om åtgärd krävs från dig, får du ett e-postmeddelande på de adresser som du angav tidigare. Du kan också regelbundet kontrollera status på landningssidan för migrering i portalen.
+1. När migreringen är klar, eller om en åtgärd krävs från dig, får du ett e-postmeddelande till de adresser som du angav tidigare. Du kan också kontrol lera statusen regelbundet på sidan migration vilplan i portalen.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
-### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Varför är min prenumeration visas inte redo för migrering?
+### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>Varför är min prenumeration listad som ej redo för migrering?
 
-Migreringsverktyget inför för kunder i faser. I de tidiga faserna, de flesta eller alla dina prenumerationer kan markeras som **inte klar för migrering**. 
+Migrations verktyget distribueras till kunder i faser. I de tidiga faserna kan de flesta eller alla prenumerationer markeras som **ej redo för migrering**. 
 
-När en prenumeration blir klar för migrering, får Prenumerationens ägare ett e-postmeddelande om att verktyget är tillgängligt. Håll utkik för det här meddelandet.
+När en prenumeration blir klar för migrering får prenumerations ägaren ett e-postmeddelande som talar om att verktyget är tillgängligt. Behåll ett öga för det här meddelandet.
 
-### <a name="who-can-trigger-the-migration"></a>Vem som kan utlösa migreringen?
+### <a name="who-can-trigger-the-migration"></a>Vem kan utlösa migreringen?
 
-Användare som har rollen deltagare för övervakning som tilldelats på prenumerationsnivå kan utlösa migreringen. [Mer information om rollbaserad åtkomstkontroll för migreringsprocessen](alerts-understand-migration.md#who-can-trigger-the-migration).
+Användare som har rollen övervaknings deltagare tilldelad till dem på prenumerations nivå kan utlösa migreringen. [Läs mer om rollbaserad Access Control för migreringsprocessen](alerts-understand-migration.md#who-can-trigger-the-migration).
 
 ### <a name="how-long-will-the-migration-take"></a>Hur lång tid tar migreringen?
 
-Migreringen har slutförts för de flesta prenumerationer i mindre än en timme. Du kan hålla reda på migreringens förlopp på landningssidan för migrering. Under migreringen kan vara säker på att dina aviseringar fortfarande körs antingen i klassiska aviseringar systemet eller i den nya.
+Migreringen har slutförts för de flesta prenumerationer på under en timme. Du kan hålla koll på migreringens förlopp på sidan migration vilplan. Under migreringen bör du vara säker på att aviseringarna fortfarande körs i det klassiska varnings systemet eller i det nya.
 
-### <a name="what-can-i-do-if-i-run-into-a-problem-during-migration"></a>Vad kan jag göra om jag kör ett problem uppstod under migreringen?
+### <a name="what-can-i-do-if-i-run-into-a-problem-during-migration"></a>Vad kan jag göra om jag stöter på ett problem under migreringen?
 
-Se den [felsökningsguide](alerts-understand-migration.md#common-problems-and-remedies) för hjälp med problem som kan uppstår under migreringen. Om någon åtgärd krävs från dig för att slutföra migreringen, kommer du att meddelas i e-postadresser du angav när du konfigurerar verktyget.
+I [fel söknings guiden](alerts-understand-migration.md#common-problems-and-remedies) finns information om eventuella problem som kan uppstå under migreringen. Om någon åtgärd krävs från dig för att slutföra migreringen får du ett meddelande till e-postadresserna du angav när du konfigurerade verktyget.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förbereda för migrering](alerts-prepare-migration.md)
-- [Förstå hur Migreringsverktyget fungerar](alerts-understand-migration.md)
+- [Förbered för migrering](alerts-prepare-migration.md)
+- [Förstå hur migreringsverktyget fungerar](alerts-understand-migration.md)

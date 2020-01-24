@@ -1,7 +1,7 @@
 ---
-title: Träna om modeller med Azure Machine Learning designer (för hands version)
+title: Träna modeller med Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
-description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer (för hands version).
+description: Lär dig hur du tränar om modeller med publicerade pipelines i Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.author: peterlu
 author: peterclu
 ms.date: 12/15/2019
-ms.openlocfilehash: 734acd712eb954e66a9c0b037d10b7b1fd626c6a
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732169"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76311877"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Träna om modeller med Azure Machine Learning designer (för hands version)
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Träna modeller med Azure Machine Learning designer
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 I den här instruktionen får du lära dig hur du använder Azure Machine Learning designer för att omträna en maskin inlärnings modell. Lär dig hur du använder publicerade pipelines för att automatisera Machine Learning-arbetsflöden för omskolning.

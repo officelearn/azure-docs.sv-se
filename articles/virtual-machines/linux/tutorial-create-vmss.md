@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: skapa en skalnings uppsättning för virtuella Windows-datorer'
+title: 'Självstudie: skapa en skalnings uppsättning för virtuella Linux-datorer'
 description: Lär dig hur du använder Azure CLI för att skapa och distribuera ett program med hög tillgänglighet på virtuella Linux-datorer med en skalnings uppsättning för virtuella datorer
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/01/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 94e7bac3cbf3842375278a23bc39245425cda4b6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7a256fc5268c10dd05a2cf58747107cb26c3ced9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458668"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716551"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Självstudie: Skapa en VM-skalningsuppsättning och distribuera en app med hög tillgänglighet i Linux med Azure CLI
 

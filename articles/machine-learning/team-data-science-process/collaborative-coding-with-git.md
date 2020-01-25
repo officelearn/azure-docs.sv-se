@@ -2,24 +2,24 @@
 title: Samarbetsbaserad kodning med Git - Team Data Science Process
 description: Hur du gör samarbetsfunktioner kodutveckling för data science-projekt med hjälp av Git med flexibel planering.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195411"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721905"
 ---
 # <a name="collaborative-coding-with-git"></a>Samarbetsbaserad kodning med Git
 
-Den här artikeln beskriver hur du använder git som utvecklings ramverk för samarbets koder för data vetenskaps projekt. Artikeln beskriver hur du länkar kod i Azure databaser för att göra det smidigare att [utveckla](agile-development.md) arbets objekt i Azure-kort, hur du gör kod granskningar och hur du skapar och sammanfogar pull-begäranden för ändringar.
+Den här artikeln beskriver hur du använder git som utvecklings ramverk för samarbets koder för data vetenskaps projekt. Artikeln beskriver hur du länkar kod i Azure databaser för att göra det [smidigare att utveckla](agile-development.md) arbets objekt i Azure-kort, hur du gör kod granskningar och hur du skapar och sammanfogar pull-begäranden för ändringar.
 
 ## <a name='Linkaworkitemwithagitbranch-1'></a>Länka ett arbets objekt till en Azure databaser-gren 
 
@@ -39,7 +39,7 @@ Du kan också skapa en ny gren med följande git bash-kommando i Windows eller L
 git checkout -b <new branch name> <base branch name>
 
 ```
-Om du inte anger ett \<bas Grens namn >, baseras den nya grenen `master`på. 
+Om du inte anger ett \<Base Branch-namn >, baseras den nya grenen på `master`. 
 
 Kör följande kommando för att växla till din arbets gren: 
 
@@ -47,7 +47,7 @@ Kör följande kommando för att växla till din arbets gren:
 git checkout <working branch name>
 ```
 
-När du har växlat till arbets grenen kan du börja utveckla kod-eller dokumentations artefakter för att slutföra arbets uppgiften. Kör `git checkout master` växlar som du tillbaka `master` till grenen.
+När du har växlat till arbets grenen kan du börja utveckla kod-eller dokumentations artefakter för att slutföra arbets uppgiften. Om du kör `git checkout master` växlar du tillbaka till `master` grenen.
 
 Det är en bra idé att skapa en git-gren för varje arbets objekt i användar artikeln. För varje aktivitets arbets objekt kan du sedan skapa en gren som baseras på grenen för användar artikeln. Organisera grenarna i en hierarki som motsvarar användar artikeln – uppgifts relation när du har flera personer som arbetar med olika användar berättelser för samma projekt, eller på olika uppgifter i samma användar berättelse. Du kan minimera konflikter genom att låta varje grupp medlem arbeta på en annan gren eller på en annan kod eller andra artefakter när du delar en gren. 
 
@@ -61,7 +61,7 @@ Du kan också länka ett arbetsobjekt i en befintlig gren. Välj **Lägg till l�
 
 ## <a name='WorkonaBranchandCommittheChanges-2'></a>Arbeta på grenen och genomför ändringar 
 
-När du har gjort en ändring för arbets uppgiften, till exempel att lägga till en R-skriptfil till den lokala `script` datorns gren, kan du spara ändringen från din lokala gren till den överordnade arbets grenen med hjälp av följande git bash-kommandon:
+När du har gjort en ändring för arbets uppgiften, till exempel lägger till en R-skriptfil i den lokala datorns `script` gren, kan du spara ändringen från din lokala gren till den överordnade arbets grenen med hjälp av följande git bash-kommandon:
 
 ```bash
 git status
@@ -80,7 +80,7 @@ Från huvud sidan i ditt Azure DevOps-projekt pekar du på **databaser** > **pul
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-På sidan **ny pull-begäran** , om det behövs, navigerar du till den git-lagringsplats och gren som du vill sammanfoga ändringarna i. Lägg till eller ändra övrig information som du vill ha. Under **granskare**lägger du till namnen på de som du behöver för att granska ändringarna och väljer sedan **skapa**. 
+På sidan **ny pull-begäran** , om det behövs, navigerar du till den git-lagringsplats och gren som du vill sammanfoga ändringarna i. Lägg till eller ändra övrig information som du vill ha. Lägg till namnen på granskarna under **granskare**och välj sedan **skapa**. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -102,7 +102,7 @@ När du går tillbaka till **databaser** i det vänstra navigerings fönstret ka
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 
-Du kan också använda följande git bash-kommandon för att slå `script` samman arbets grenen till dess bas gren och ta bort arbets grenen efter sammanslagning:
+Du kan också använda följande git bash-kommandon för att slå samman `script` arbets gren till dess bas gren och ta bort arbets grenen efter sammanslagning:
 
 ```bash
 git checkout master

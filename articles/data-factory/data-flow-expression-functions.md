@@ -9,16 +9,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294277"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716732"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning 
 
-## <a name="expression-functions"></a>Uttrycksfunktioner
+## <a name="expression-functions"></a>Uttrycks funktioner
 
 I Data Factory använder du uttrycks språket i funktionen mappa data flöde för att konfigurera data transformationer.
 ___
@@ -716,7 +716,7 @@ Konverterar en primitiv datatyp till en sträng. För tal och datum kan ett form
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-Konverterar en sträng till en tidstämpel som har fått ett valfritt tidsstämpel-format. Se Java-SimpleDateFormat för alla möjliga format. Om tidsstämpeln utelämnas används standard mönstret. åååå-[M] M-[d] d hh: mm: SS [. f...]. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Tidsstämpeln har stöd för upp till millisekunder med värdet 999Refer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
+Konverterar en sträng till en tidstämpel som har fått ett valfritt tidsstämpel-format. Se Java-SimpleDateFormat för alla möjliga format. Om tidsstämpeln utelämnas används standard mönstret. åååå-[M] M-[d] d hh: mm: SS [. f...]. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Timestamp har stöd för upp till millisekunder-precision med värdet 999Refer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
 * ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``

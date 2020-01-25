@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/23/2019
 ms.author: dech
-ms.openlocfilehash: d79ac0e368ad824f6ceaea7bbcba151ecec72336
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ac3d74cb76a936cc88261a2fedf16764e8ae52f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220155"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718301"
 ---
 # <a name="nodejs-examples-to-manage-data-in-azure-cosmos-db"></a>Node. js-exempel för att hantera data i Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Du behöver även [JavaScript SDK](sql-api-sdk-node.md).
 
 ## <a name="item-examples"></a>Objektexempel
 
-[ItemManagement](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ItemManagement) -filen visar hur du utför CRUD-åtgärder på objektet. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel. 
+[ItemManagement](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ItemManagement.ts) -filen visar hur du utför CRUD-åtgärder på objektet. Information om Azure Cosmos-dokumenten innan du kör följande exempel finns i avsnittet [arbeta med databaser, behållare och objekt](databases-containers-items.md) konceptuell artikel. 
 
 | Aktivitet | API-referens |
 | --- | --- |
@@ -98,7 +98,7 @@ Du behöver även [JavaScript SDK](sql-api-sdk-node.md).
 
 ## <a name="server-side-programming-examples"></a>Programmeringsexempel på serversidan
 
-Filen [app.js](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/app.js) i projektet [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) visar hur du utför följande uppgifter. Mer information om programmering på Server sidan i Azure Cosmos DB innan du kör följande exempel finns i avsnittet [lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md) konceptuell artikel. 
+[Index. TS](https://github.com/Azure/azure-cosmos-js/blob/master/samples/ServerSideScripts/index.ts) -filen för [ServerSideScripts](https://github.com/Azure/azure-cosmos-js/tree/master/samples/ServerSideScripts) -projektet visar hur du utför följande uppgifter. Mer information om programmering på Server sidan i Azure Cosmos DB innan du kör följande exempel finns i avsnittet [lagrade procedurer, utlösare och användardefinierade funktioner](stored-procedures-triggers-udfs.md) konceptuell artikel. 
 
 | Aktivitet | API-referens |
 | --- | --- |

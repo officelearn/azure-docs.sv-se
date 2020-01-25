@@ -4,21 +4,21 @@ description: Lär dig mer om klient konfigurations alternativ för att förbätt
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "71261312"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721004"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Prestanda tips för Azure Cosmos DB och .NET
 
 > [!div class="op_single_selector"]
 > * [Async Java](performance-tips-async-java.md)
 > * [Java](performance-tips-java.md)
-> * [NET](performance-tips.md)
+> * [.NET](performance-tips.md)
 > 
 
 Azure Cosmos DB är en snabb och flexibel distribuerad databas som skalar sömlöst med garanterad svars tid och data flöde. Du behöver inte göra större ändringar i arkitekturen eller skriva komplex kod för att skala databasen med Azure Cosmos DB. Att skala upp och ned är lika enkelt som att göra ett enda API-anrop. Mer information finns i [så här etablerar du behållar data flöde](how-to-provision-container-throughput.md) eller [hur du etablerar databas data flöde](how-to-provision-database-throughput.md). Men eftersom Azure Cosmos DB nås via nätverks anrop finns det optimeringar på klient sidan som du kan göra för att uppnå högsta prestanda när du använder [SQL .NET SDK](sql-api-sdk-dotnet-standard.md).
@@ -30,7 +30,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
 1. **Anslutnings princip: Använd direkt anslutnings läge**
 
-    Hur en klient ansluter till Azure Cosmos DB har viktiga konsekvenser för prestanda, särskilt i förhållande till den observerade svars tiden på klient sidan. Det finns två nyckel konfigurations inställningar som är tillgängliga för konfigurering av klient anslutnings principer – anslutnings *läge* och anslutnings *protokoll*.  De två tillgängliga lägena är:
+    Hur en klient ansluter till Azure Cosmos DB har stor inverkan på prestandan, särskilt de svarstider som uppstår på klientsidan. Det finns två nyckel konfigurations inställningar som är tillgängliga för konfigurering av klient anslutnings principer – anslutnings *läge* och anslutnings *protokoll*.  De två tillgängliga lägena är:
 
    * Gateway-läge
       
@@ -40,18 +40,18 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
    * Direkt läge
 
-     Direct-läget stöder anslutningar via TCP-och HTTPS-protokoll och är standard anslutnings läget om du använder [Microsoft. Azure. Cosmos/.net v3 SDK](sql-api-sdk-dotnet-standard.md).
+     Direct-läget stöder anslutningar via TCP-protokollet och är standard anslutnings läget om du använder [Microsoft. Azure. Cosmos/.net v3 SDK](sql-api-sdk-dotnet-standard.md).
 
      När du använder Gateway-läge, Cosmos DB använder port 443 och portarna 10250, 10255 och 10256 när du använder Azure Cosmos DBs API för MongoDB. 10250-porten mappas till en standard-MongoDB-instans utan geo-replikering och 10255/10256-portar mappar till MongoDB-instansen med geo-replikering. När du använder TCP i direkt läge måste du förutom Gateway-portarna se till att port intervallet är mellan 10000 och 20000 är öppen eftersom Azure Cosmos DB använder dynamiska TCP-portar. Om de här portarna inte är öppna och du försöker använda TCP, får du ett fel av typen 503-tjänst ej tillgänglig. I följande tabell visas anslutnings lägen som är tillgängliga för olika API: er och användare av tjänst portar för varje API:
 
      |Anslutnings läge  |Protokoll som stöds  |SDK: er som stöds  |API/tjänst-port  |
      |---------|---------|---------|---------|
-     |Gateway  |   HTTPS    |  Alla SDK: er    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
+     |Gateway  |   HTTPS    |  All SDKS    |   SQL (443), Mongo (10250, 10255, 10256), tabell (443), Cassandra (10350), Graf (443)    |
      |Direct    |     TCP    |  .NET SDK    | Portar inom 10 000 – 20000-intervall |
 
-     Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. Både direkt TCP och HTTPS använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
+     Azure Cosmos DB erbjuder en enkel och öppen RESTful programmerings modell över HTTPS. Dessutom erbjuder den ett effektivt TCP-protokoll, som också RESTful i sin kommunikations modell och är tillgängligt via .NET-klient-SDK: n. TCP-protokollet använder SSL för inledande autentisering och kryptering av trafik. Använd TCP-protokollet när det är möjligt för bästa prestanda.
 
-     För SDK v3 konfigureras anslutnings läget när CosmosClient-instansen skapas, som en del av CosmosClientOptions.
+     För SDK v3 konfigureras anslutnings läget när CosmosClient-instansen skapas, som en del av CosmosClientOptions, kom ihåg att Direct-läget är standardvärdet.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -59,7 +59,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct
+        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
      });
      ```
 
@@ -71,7 +71,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-        ConnectionMode = ConnectionMode.Direct,
+        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
         ConnectionProtocol = Protocol.Tcp
      });
      ```
@@ -165,7 +165,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
    > [!NOTE] 
    > Egenskapen maxItemCount bör inte användas bara för sid brytnings ändamål. Det är den viktigaste användningen för att förbättra prestanda för frågor genom att minska det maximala antalet objekt som returneras på en enda sida.  
 
-   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Exempel:
+   Du kan också ange sid storlek med hjälp av tillgängliga Azure Cosmos DB SDK: er. Med egenskapen [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) i FeedOptions kan du ange det maximala antalet objekt som ska returneras i uppräknings åtgärden. När `maxItemCount` är inställt på-1 hittar SDK: n automatiskt det optimala värdet beroende på dokument storleken. Ett exempel:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -185,7 +185,7 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
     - För VSTest-baserade test projekt kan du göra detta genom att välja test **Inställningar** för **test**->->**standard processor arkitektur som x64**, från meny alternativet **test på Visual Studio** .
 
-    - För lokalt distribuerade ASP.NET-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar**-> **Webb projekt**.
+    - För lokalt distribuerade ASP.NET-webbappar kan du göra detta genom att kontrol lera att **använda 64-bitars versionen av IIS Express för webbplatser och projekt**, under **verktyg**->**alternativ**->**projekt och lösningar**->**webb projekt**.
 
     - För ASP.NET webb program som distribueras i Azure kan du göra detta genom att välja **plattformen som 64-bit** i **program inställningarna** på Azure Portal.
 
@@ -209,13 +209,13 @@ Så om du frågar "Hur kan jag förbättra min databas prestanda?" Överväg fö
 
 1. **Mått och justering för lägre enheter för programbegäran/andra användning**
 
-    Azure Cosmos DB erbjuder en omfattande uppsättning databas åtgärder, inklusive relationella och hierarkiska frågor med UDF: er, lagrade procedurer och utlösare – allt som körs på dokumenten i en databas samling. Kostnaden som är kopplad till var och en av dessa åtgärder varierar beroende på processor, IO och minne som krävs för att slutföra åtgärden. I stället för att tänka på och hantera maskin varu resurser kan du tänka på en enhet för begäran (RU) som ett enda mått för de resurser som krävs för att utföra olika databas åtgärder och betjäna en programbegäran.
+    Azure Cosmos DB erbjuder en omfattande uppsättning databas åtgärder, inklusive relationella och hierarkiska frågor med UDF: er, lagrade procedurer och utlösare – allt som körs på dokumenten i en databas samling. Den kostnad som hör till var och en av dessa operationer varierar baserat på vilken CPU, vilka IO-resurser och hur mycket minne som krävs för att slutföra operationen. I stället för att tänka på och hantera maskin varu resurser kan du tänka på en enhet för begäran (RU) som ett enda mått för de resurser som krävs för att utföra olika databas åtgärder och betjäna en programbegäran.
 
     Data flödet har allokerats baserat på antalet enheter för [programbegäran](request-units.md) som angetts för varje behållare. Den begärda enhets förbrukningen utvärderas som en taxa per sekund. Program som överskrider den allokerade enhets hastigheten för deras behållare är begränsade tills hastigheten sjunker under den allokerade nivån för behållaren. Om ditt program kräver en högre data flödes nivå kan du öka data flödet genom att tillhandahålla ytterligare enheter för programbegäran. 
 
     Komplexiteten i en fråga påverkar hur många enheter för programbegäran som används för en åtgärd. Antalet predikat, typen av predikat, antalet UDF: er och storleken på käll data uppsättningen påverkar kostnaden för frågor.
 
-    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-avgift](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (eller motsvarande RequestCharge-egenskap i ResourceResponse\<t > eller FeedResponse\<t > i .NET SDK) för att mäta antal enheter för programbegäran som använts av dessa åtgärder.
+    Om du vill mäta omkostnaderna för en åtgärd (skapa, uppdatera eller ta bort) kan du kontrol lera huvudet [x-MS-Request-Charge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) (eller motsvarande RequestCharge-egenskap i ResourceResponse\<t > eller FeedResponse\<t > i .NET SDK) för att mäta antalet enheter för programbegäran som används av dessa åtgärder.
 
     ```csharp
     // Measure the performance (request units) of writes

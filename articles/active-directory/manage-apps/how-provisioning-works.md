@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5238f8ca9258e4f7907d9d9755b7252e60f40de8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719978"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711577"
 ---
 # <a name="how-provisioning-works"></a>Så här fungerar etablering
 
@@ -29,13 +29,13 @@ Automatisk etablering syftar på att skapa användar identiteter och roller i de
 **Azure AD Provisioning-tjänsten** tillhandahåller användare till SaaS-appar och andra system genom att ansluta till ett system för scim (Cross-Domain Identity Management) 2,0 användar hanterings-API: n som tillhandahålls av program leverantören. Den här SCIM-slutpunkten låter Azure AD program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller. Den kanal som används för etablering mellan Azure AD och programmet krypteras med HTTPS SSL-kryptering.
 
 
-![Azure AD Provisioning-tjänsten](./media/user-provisioning/provisioning0.PNG)
+![Azure AD Provisioning-tjänsten](media/how-provisioning-works/provisioning0.PNG)
 *figur 1: Azure AD Provisioning-tjänsten*
 
-![arbets flöde för utgående användar etablering](./media/user-provisioning/provisioning1.PNG)
+![arbets flöde för utgående användar etablering](media/how-provisioning-works/provisioning1.PNG)
 *bild 2: "utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program*
 
-![arbets flöde för inkommande användar etablering](./media/user-provisioning/provisioning2.PNG)
+![arbets flöde för inkommande användar etablering](media/how-provisioning-works/provisioning2.PNG)
 *bild 3: "inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>Etablering med SCIM 2,0
@@ -73,11 +73,11 @@ För utgående etablering från Azure AD till ett SaaS-program är det vanligast
 
   * Dynamiska grupper kan påverka prestanda för etablering från slut punkt till slut punkt från Azure AD till SaaS-program.
 
-  * Hur snabbt en användare i en dynamisk grupp etableras eller avetableras i ett SaaS-program beror på hur snabbt den dynamiska gruppen kan utvärdera medlemskaps ändringar. Information om hur du kontrollerar bearbetnings statusen för en dynamisk grupp finns i [kontrol lera bearbetnings status för en medlemskaps regel](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule).
+  * Hur snabbt en användare i en dynamisk grupp etableras eller avetableras i ett SaaS-program beror på hur snabbt den dynamiska gruppen kan utvärdera medlemskaps ändringar. Information om hur du kontrollerar bearbetnings statusen för en dynamisk grupp finns i [kontrol lera bearbetnings status för en medlemskaps regel](../users-groups-roles/groups-create-rule.md).
 
   * När en användare förlorar medlemskap i den dynamiska gruppen betraktas den som en avetablerings händelse. Tänk på det här scenariot när du skapar regler för dynamiska grupper.
 
-* **Kapslade grupper.** Azure AD-tjänsten för användar etablering kan inte läsa eller etablera användare i kapslade grupper. Tjänsten kan bara läsa och etablera användare som är omedelbara medlemmar i en uttryckligen tilldelad grupp. Den här begränsningen av "gruppbaserade tilldelningar till program" påverkar också enkel inloggning (se [använda en grupp för att hantera åtkomst till SaaS-program](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)). I stället kan du direkt tilldela eller ändra [omfång i](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) grupper som innehåller de användare som ska vara etablerade.
+* **Kapslade grupper.** Azure AD-tjänsten för användar etablering kan inte läsa eller etablera användare i kapslade grupper. Tjänsten kan bara läsa och etablera användare som är omedelbara medlemmar i en uttryckligen tilldelad grupp. Den här begränsningen av "gruppbaserade tilldelningar till program" påverkar också enkel inloggning (se [använda en grupp för att hantera åtkomst till SaaS-program](../users-groups-roles/groups-saasapps.md)). I stället kan du direkt tilldela eller ändra [omfång i](define-conditional-rules-for-provisioning-user-accounts.md) grupper som innehåller de användare som ska vara etablerade.
 
 ### <a name="attribute-based-scoping"></a>Attribut-baserat omfång 
 
@@ -85,7 +85,7 @@ Du kan använda definitions områdes filter för att definiera attributbaserade 
 
 ### <a name="b2b-guest-users"></a>B2B-användare (gäst)
 
-Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+Det går att använda Azure AD-tjänsten för användar etablering för att etablera B2B (eller gäst) användare i Azure AD till SaaS-program. För att B2B-användare ska kunna logga in på SaaS-programmet med hjälp av Azure AD, måste dock SaaS-programmet ha sin SAML-baserade enkel inloggnings funktion som kon figurer ATS på ett visst sätt. Mer information om hur du konfigurerar SaaS-program för att stödja inloggningar från B2B-användare finns i [Konfigurera SaaS-appar för B2B-samarbete](../b2b/configure-saas-apps.md).
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>Etablerings cykler: initial och stegvis
 
@@ -154,13 +154,13 @@ Om ett fel i mål systemet förhindrar att en enskild användare läggs till, up
 
 Lös de här felen genom att justera attributvärdena för den berörda användaren i käll systemet, eller genom att justera mappningarna för attribut så att de inte orsakar konflikter.
 
-### <a name="quarantine"></a>Karantän
+### <a name="quarantine"></a>Vistelse
 
 Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekvent på grund av ett fel (till exempel ogiltiga administratörsautentiseringsuppgifter), försätts etablerings jobbet i "karantän". Det här läget anges i [sammanfattnings rapporten för etablering](check-status-user-account-provisioning.md) och via e-post om e-postaviseringar har kon figurer ats i Azure Portal.
 
 När den är i karantän minskas frekvensen för stegvisa cykler till en gång per dag.
 
-Etablerings jobbet avslutar karantän när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet. Läs mer här om karantän status [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+Etablerings jobbet avslutar karantän när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet. Läs mer här om karantän status [här](application-provisioning-quarantine-status.md).
 
 ### <a name="how-long-provisioning-takes"></a>Hur lång tid tar etableringen?
 
@@ -184,7 +184,7 @@ Azure AD Provisioning-tjänsten kommer att ta bort en användare i ett program n
 
 Om någon av ovanstående fyra händelser inträffar och mål programmet inte stöder mjuka borttagningar, skickar etablerings tjänsten en BORTTAGNINGs förfrågan för att permanent ta bort användaren från appen. 
 
-30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore), som skickar en begäran om borttagning till programmet.
+30 dagar efter att en användare har tagits bort i Azure AD kommer de att tas bort permanent från klienten. I det här läget skickar etablerings tjänsten en begäran om borttagning för att permanent ta bort användaren i programmet. Du kan när som helst under perioden på 30 dagar [manuellt ta bort en användare permanent](../fundamentals/active-directory-users-restore.md), som skickar en begäran om borttagning till programmet.
 
 Om du ser ett attribut IsSoftDeleted i dina attributmappning, används det för att fastställa användarens tillstånd och om du vill skicka en uppdateringsbegäran med aktiv = falskt för att ta bort användaren. 
 

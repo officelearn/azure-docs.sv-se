@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/30/2019
-ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/23/2020
+ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290350"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715931"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor
 
@@ -95,6 +95,18 @@ Alla loggdata som samlas in av Azure Monitor lagras i en Log Analytics arbets yt
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>Kan du flytta en befintlig Log Analytics arbets yta till en annan Azure-prenumeration?
 Du kan flytta en arbets yta mellan resurs grupper eller prenumerationer, men inte till en annan region. Se [flytta en Log Analytics arbets yta till en annan prenumeration eller resurs grupp](platform/move-workspace.md).
+
+### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Varför kan jag inte se Query Explorer och spara knappar i Log Analytics?
+
+Knapparna i **query Explorer**, **Spara** och **ny varnings regel** är inte tillgängliga när [fråge omfånget](log-query/scope.md) är inställt på en enskild resurs. Om du vill skapa aviseringar, Spara eller läsa in en fråga måste Log Analytics begränsas till en arbets yta. Öppna Log Analytics i kontexten för arbets ytan genom att välja **loggar** på **Azure Monitor** menyn. Senaste använda arbetsytan har valts, men du kan välja en annan arbetsyta. Se [omfång och tidsintervall för logg frågor i Azure Monitor Log Analytics](log-query/scope.md)
+
+### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Varför visas följande fel meddelande: "Registrera Resource providern Microsoft. Insights för den här prenumerationen om du vill aktivera den här frågan" när du öppnar Log Analytics från en virtuell dator? 
+Många resurs leverantörer registreras automatiskt, men du kan behöva registrera vissa resurs leverantörer manuellt. Omfattningen för registrering är alltid prenumerationen. Mer information finns i [Resursproviders och resurstyper](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+
+### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Varför får jag inget åtkomst fel meddelande när jag öppnar Log Analytics från en virtuell dator? 
+Om du vill visa VM-loggar måste du beviljas med Läs behörighet till de arbets ytor som lagrar de virtuella dator loggarna. I dessa fall kan måste administratören bevilja dig behörigheter i Azure.
+
+
 
 
 ## <a name="alerts"></a>Aviseringar
@@ -180,6 +192,12 @@ Ange en befintlig eller ny [Åtgärds grupp](platform/action-groups.md) så att 
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Vilka är brand Väggs kraven för Azure Monitors agenter?
 Se [krav för nätverks brand väggen](platform/log-analytics-agent.md#network-firewall-requirements)för information om brand Väggs krav.
 
+
+## <a name="visualizations"></a>Visualiseringar
+
+### <a name="why-cant-i-cant-see-view-designer"></a>Varför kan jag inte se View Designer?
+
+View Designer är bara tillgängligt för användare som har tilldelats deltagar behörigheter eller högre i Log Analytics-arbetsytan.
 
 
 ## <a name="application-insights"></a>Application Insights

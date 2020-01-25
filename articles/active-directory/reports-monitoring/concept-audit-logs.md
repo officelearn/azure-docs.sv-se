@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008530"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714486"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Granska aktivitetsrapporter i Azure Active Directory-portalen 
 
@@ -56,7 +56,7 @@ En granskningslogg har en standardlistvy som visar:
 - aktivitetens kategori och namn (*vad*) 
 - aktivitetens status (lyckades eller misslyckades)
 - målet
-- Initieraren/aktören (som) för en aktivitet
+- initieraren/aktören (som) för en aktivitet
 
 ![Granskningsloggar](./media/concept-audit-logs/listview.png "Granskningsloggar")
 
@@ -81,7 +81,7 @@ Du kan filtrera gransknings data i följande fält:
 - Kategori
 - Aktivitet
 - Status
-- Mål
+- Målinrikta
 - Initierad av (aktör)
 - Datumintervall
 
@@ -111,14 +111,14 @@ Med filtret **kategori** kan du välja något av följande filter:
 - AdministrativeUnit
 - ApplicationManagement
 - Autentisering
-- Auktorisering
+- Autentisering
 - Kontakt
 - Enhet
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- Annat
+- Övrigt
 - Princip
 - ResourceManagement
 - RoleManagement

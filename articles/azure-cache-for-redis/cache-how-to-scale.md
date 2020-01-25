@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433506"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714445"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Så här skalar du Azure cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner. När en cache har skapats kan du skala storlek och pris nivå för cachen om kraven för ditt program ändras. Den här artikeln visar hur du skalar cacheminnet med hjälp av Azure Portal och verktyg som Azure PowerShell och Azure CLI.
@@ -166,7 +166,7 @@ Om en skalnings åtgärd Miss lyckas försöker tjänsten återställa åtgärde
 
 
 ### <a name="how-long-does-scaling-take"></a>Hur lång tid tar det att skala?
-Skalning tar cirka 20 minuter, beroende på hur mycket data som finns i cacheminnet.
+Skalnings tiden beror på hur mycket data som finns i cacheminnet, med större mängder data som tar längre tid att slutföra. Skalning tar cirka 20 minuter. För klustrade cacheminnen tar skalning cirka 20 minuter per Shard.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>Hur kan jag se när skalningen är klar?
 I Azure Portal kan du se att skalnings åtgärden pågår. När skalningen är klar ändras statusen för cachen till **körs**.
@@ -176,6 +176,3 @@ I Azure Portal kan du se att skalnings åtgärden pågår. När skalningen är k
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

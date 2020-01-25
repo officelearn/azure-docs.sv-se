@@ -1,21 +1,21 @@
 ---
 title: Azure Resource Manager-mallexempel – Event Grid | Microsoft Docs
-description: Azure Resource Manager-mallexempel för Event Grid
+description: Den här artikeln innehåller en lista över Azure Resource Manager mal sampel för Azure Event Grid på GitHub.
 services: event-grid
-author: tfitzmac
+author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 01/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 788d23c7bddd90c1e12a118742c651eb9759529c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 38d8db0bcc504760595fe51b63072f63e785577a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60822711"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720630"
 ---
 # <a name="azure-resource-manager-templates-for-event-grid"></a>Azure Resource Manager-mallar för Event Grid
 

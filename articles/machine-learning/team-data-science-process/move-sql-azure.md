@@ -1,26 +1,26 @@
 ---
 title: Flytta data till en Azure SQL Database - Team Data Science Process
-description: Flytta data från flata filer (CSV- eller TSV-format) eller data som lagras i en lokal SQL Server till en Azure SQL-databas.
+description: Flytta data från flata filer (CSV-eller TSV-format) eller från data som lagras i en lokal SQL Server till en Azure SQL Database.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/04/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6b0f8294899c1ff00c27c2fa82b1228f0e9067af
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f9a1424f2afe6c5153e208601b21dff9651880a8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982407"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722466"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Flytta data till en Azure SQL Database för Azure Machine Learning
 
-Den här artikeln beskriver alternativ för att flytta data från flata filer (CSV- eller TSV format) eller från data som lagras i en lokal SQL Server till en Azure SQL-databas. Dessa uppgifter för att flytta data till molnet är en del av Team Data Science Process.
+Den här artikeln beskriver alternativen för att flytta data antingen från flata filer (CSV-eller TSV-format) eller från data som lagras i en lokal SQL Server till en Azure SQL Database. Dessa uppgifter för att flytta data till molnet är en del av Team Data Science Process.
 
 Ett avsnitt som visar alternativ för att flytta data till en lokal SQL Server för Machine Learning, se [flytta data till SQL Server på virtuella Azure-datorer](move-sql-server-virtual-machine.md).
 
@@ -43,32 +43,32 @@ Procedurerna som beskrivs här kräver att du har:
 
 Du kan anpassa de förfaranden som beskrivs här till en uppsättning med dina egna data eller följer du stegen som beskrivs med hjälp av NYC Taxi-datauppsättningen. Om du vill överföra NYC Taxi-datauppsättning till din lokala SQL Server-databas, följer du proceduren som beskrivs i [Bulk importera Data till SQL Server-databas](sql-walkthrough.md#dbload). Dessa instruktioner är för en SQL Server på en Azure-dator, men proceduren för att ladda upp till en lokal SQL Server är samma.
 
-## <a name="file-to-azure-sql-database"></a> Flytta data från en källa för platt fil till en Azure SQL database
-Data i flat-filer (CSV- eller TSV formaterad) kan flyttas till en Azure SQL-databas via en Bulk Insert SQL-fråga.
+## <a name="file-to-azure-sql-database"></a>Flytta data från en platt fil källa till en Azure SQL Database
+Data i flata filer (CSV eller TSV formaterade) kan flyttas till en Azure SQL Database med hjälp av en SQL-fråga för Mass inmatning.
 
 ### <a name="bulk-insert-sql-query"></a> Bulk Insert SQL-fråga
-Stegen för att proceduren med hjälp av Bulk Insert SQL-frågan är samma som beskrivs i avsnitten för att flytta data från en flat fil-källa till SQL Server på en Azure VM. Mer information finns i [Bulk Insert SQL-fråga](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
+Stegen för proceduren med hjälp av Mass infogning av SQL-fråga liknar riktningarna för att flytta data från en platt fil källa till SQL Server på en virtuell Azure-dator. Mer information finns i [Bulk Insert SQL-fråga](move-sql-server-virtual-machine.md#insert-tables-bulkquery).
 
-## <a name="sql-on-prem-to-sazure-sql-database"></a> Flytta Data från en lokal SQL Server till en Azure SQL database
-Om datakällan lagras i en lokal SQL Server, finns det olika möjligheter för att flytta data till en Azure SQL database:
+## <a name="sql-on-prem-to-sazure-sql-database"></a>Flytta data från lokala SQL Server till en Azure SQL Database
+Om käll informationen lagras i en lokal SQL Server finns det flera möjligheter att flytta data till en Azure SQL Database:
 
 1. [Exportera till Flat fil](#export-flat-file)
 2. [Migreringsguide för SQL-databas](#insert-tables-bcp)
 3. [Databasen tillbaka upp och återställa](#db-migration)
 4. [Azure Data Factory](#adf)
 
-Stegen för de första tre är mycket lik dessa avsnitt i [flytta data till SQL Server på virtuella Azure-datorer](move-sql-server-virtual-machine.md) som omfattar samma sätt. Länkar till relevanta avsnitt i avsnittet finns i följande anvisningar.
+Stegen för de första tre liknar dessa avsnitt i [Flytta data till SQL Server på en virtuell Azure-dator](move-sql-server-virtual-machine.md) som behandlar samma procedurer. Länkar till relevanta avsnitt i avsnittet finns i följande anvisningar.
 
 ### <a name="export-flat-file"></a>Exportera till Flat fil
-Stegen för den här exporterar du en platt fil är samma som beskrivs i [exportera till Flat fil](move-sql-server-virtual-machine.md#export-flat-file).
+Stegen för att exportera till en platt fil liknar de instruktioner som beskrivs i [Exportera till Flate-fil](move-sql-server-virtual-machine.md#export-flat-file).
 
 ### <a name="insert-tables-bcp"></a>Migreringsguide för SQL-databas
-Steg för att använda guiden SQL-databas är samma som beskrivs i [SQL Database Migration Wizard](move-sql-server-virtual-machine.md#sql-migration).
+Stegen för att använda guiden SQL Database migrering liknar de riktningar som beskrivs i [guiden SQL Database migrering](move-sql-server-virtual-machine.md#sql-migration).
 
 ### <a name="db-migration"></a>Databasen tillbaka upp och återställa
-Steg för att använda databasen säkerhetskopiera och Återställ liknar de som beskrivs i [databasen tillbaka upp och återställa](move-sql-server-virtual-machine.md#sql-backup).
+Stegen för att använda säkerhets kopiering och återställning av databasen liknar de riktningar som anges i [säkerhets kopiering och återställning av databasen](move-sql-server-virtual-machine.md#sql-backup).
 
 ### <a name="adf"></a>Azure Data Factory
-Proceduren för att flytta data till en Azure SQL database med Azure Data Factory (ADF) finns i avsnittet [flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory](move-sql-azure-adf.md). Det här avsnittet visar hur du flyttar data från en lokal SQL Server-databas till en Azure SQL database via Azure Blob Storage med hjälp av ADF.
+Lär dig hur du flyttar data till en Azure SQL Database med Azure Data Factory (ADF) i det här avsnittet, [Flytta data från en lokal SQL Server till SQL Azure med Azure Data Factory](move-sql-azure-adf.md). Det här avsnittet visar hur du använder ADF för att flytta data från en lokal SQL Server databas till en Azure SQL Database via Azure Blob Storage.
 
-Överväg att använda ADF när data ska migreras kontinuerligt i ett hybridscenario som har åtkomst till både lokalt och i molnresurser och när data är överförda eller behöver ändras eller ha affärslogik som läggs till det när du håller på att migreras. ADF tillåter schemaläggning och övervakning av jobb med hjälp av enkla JSON-skript som hanterar överföringen av data på regelbunden basis. ADF har även andra funktioner, till exempel stöd för komplexa åtgärder.
+Överväg att använda ADF när data måste migreras kontinuerligt med hybrid lokala och molnbaserade källor.  ADF hjälper också till när data behöver transformeras eller behöver en ny affärs logik under migreringen. ADF tillåter schemaläggning och övervakning av jobb med hjälp av enkla JSON-skript som hanterar överföringen av data på regelbunden basis. ADF har även andra funktioner, till exempel stöd för komplexa åtgärder.

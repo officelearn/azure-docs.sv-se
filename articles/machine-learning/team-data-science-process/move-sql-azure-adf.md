@@ -3,24 +3,24 @@ title: SQL Server-data till SQL Azure med Azure Data Factory - Team Data Science
 description: Ställ in en ADF-pipeline som composes två data migreringsaktiviteter som tillsammans flyttar data dagligen mellan lokala-databaser och i molnet.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b64aa6c0e6e0e3bf449d44996df3223b12a69923
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8f696f1c6c414cd9db082e79e0f34c56156e1ee0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982421"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722500"
 ---
 # <a name="move-data-from-an-on-premises-sql-server-to-sql-azure-with-azure-data-factory"></a>Flytta data från en lokal SQLServer till SQL Azure med Azure Data Factory
 
-Den här artikeln visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF): den här metoden är en äldre metod som stöds och som har fördelarna med en replikerad mellanlagrings kopia, men [vi föreslår att titta på vår data migration-sida för de senaste alternativen](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
+Den här artikeln visar hur du flyttar data från en lokal SQL Server-databas till en SQL Azure-databas via Azure Blob Storage med hjälp av Azure Data Factory (ADF): den här metoden är en äldre metod som stöds och som har fördelarna med en replikerad mellanlagrings kopia, men [vi föreslår att titta på vår datamigrerings sida för de senaste alternativen](https://datamigration.microsoft.com/scenario/sql-to-azuresqldb?step=1).
 
 En tabell som sammanfattar olika alternativ för att flytta data till en Azure SQL Database finns i [flytta data till en Azure SQL Database för Azure Machine Learning](move-sql-azure.md).
 
@@ -32,12 +32,12 @@ Med ADF, kan befintliga tjänster för databearbetning sammanställas i datapipe
 Överväg att använda ADF:
 
 * När data ska migreras kontinuerligt i ett scenario med hybridanvändning som har åtkomst till både lokalt och i molnresurser
-* När data är överförda eller behöver ändras eller ha affärslogik som läggs till det när du håller på att migreras.
+* När data behöver transformationer eller om affärs logik ska läggas till i den när den migreras.
 
 ADF tillåter schemaläggning och övervakning av jobb med hjälp av enkla JSON-skript som hanterar överföringen av data på regelbunden basis. ADF har även andra funktioner, till exempel stöd för komplexa åtgärder. Mer information om ADF finns i dokumentationen på [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/).
 
 ## <a name="scenario"></a>Scenariot
-Vi konfigurerar en ADF-pipeline som composes två aktiviteter för migrering av data. Tillsammans flytta data dagligen mellan en lokal SQL-databas och en Azure SQL Database i molnet. Det finns två aktiviteter:
+Vi konfigurerar en ADF-pipeline som composes två aktiviteter för migrering av data. Tillsammans flyttar de data dagligen mellan en lokal SQL Database och en Azure SQL Database i molnet. Det finns två aktiviteter:
 
 * Kopiera data från en lokal SQL Server-databas till en Azure Blob Storage-konto
 * Kopiera data från Azure Blob Storage-kontot till en Azure SQL Database.
@@ -69,7 +69,7 @@ Du kan anpassa det förfarande som anges här till en uppsättning med dina egna
 Instruktionerna för att skapa en ny Azure-Datafabrik och en resursgrupp i den [Azure-portalen](https://portal.azure.com/) tillhandahålls [skapa en Azure Data Factory](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Namnge den nya instansen av ADF *adfdsp* och namnet på den resursgrupp som skapade *adfdsprg*.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installera och konfigurera Azure Data Factory Integration Runtime
-Integration Runtime är en kund infrastruktur för dataintegrering används av Azure Data Factory för att tillhandahålla funktioner för dataintegrering i olika nätverksmiljöer. Den här körningen kallades ”Data Management Gateway”.
+Integration Runtime är en kundhanterad infrastruktur för data integrering som används av Azure Data Factory för att tillhandahålla funktioner för data integrering i olika nätverks miljöer. Den här körningen kallades ”Data Management Gateway”.
 
 Konfigurera genom att [följa anvisningarna för att skapa en pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
 
@@ -78,7 +78,7 @@ En länkad tjänst definierar den information som behövs för Azure Data Factor
 
 1. En lokal SQLServer
 2. Azure Blob Storage
-3. Azure SQL-databas
+3. Azure SQL Database
 
 Stegvisa anvisningar för att skapa länkade tjänster finns i [Skapa länkade tjänster](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline).
 
@@ -136,7 +136,7 @@ Tabelldefinitionen för en lokal SQL Server har angetts i följande JSON-filen:
 }
 ```
 
-Kolumnnamnen ingick inte. Du kan välja på kolumnnamnen icke genom att inkludera dem här (information finns i [ADF dokumentation](../../data-factory/copy-activity-overview.md) avsnittet.
+Kolumnnamnen ingick inte. Du kan välja att markera kolumn namnen genom att inkludera dem här (mer information finns i artikeln om [dokumentation om ADF](../../data-factory/copy-activity-overview.md) .
 
 Kopiera JSON-definition för tabellen till en fil med namnet *onpremtabledef.json* och spara den på en känd plats (här antas vara *C:\temp\onpremtabledef.json*). Skapa tabellen i ADF med följande Azure PowerShell-cmdlet:
 
@@ -302,4 +302,4 @@ Den *startdate* och *enddate* parametervärden måste de ersättas med de faktis
 
 När pipelinen körs, bör du kunna se data som visas i behållaren som valts för blob-, en fil per dag.
 
-Observera att vi inte utnyttjade funktionerna i ADF till pipe data inkrementellt. Mer information om hur du gör detta och andra funktioner som tillhandahålls av ADF finns i den [ADF dokumentation](https://azure.microsoft.com/services/data-factory/).
+Vi har inte utnyttjat funktionerna från ADF för att skicka data stegvis. Mer information om hur du gör detta och andra funktioner som tillhandahålls av ADF finns i den [ADF dokumentation](https://azure.microsoft.com/services/data-factory/).

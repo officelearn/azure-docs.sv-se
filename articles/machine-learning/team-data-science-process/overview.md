@@ -8,15 +8,15 @@ editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 1/04/2020
+ms.date: 1/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 124fe4f69396286dbe383f8823a36b4ba52d346c
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: e9d98f03b2c97245517e3fbb6d7dc7624cfb724d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665076"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721395"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Vad är TDSP (Team Data Science Process)?
 
@@ -36,11 +36,11 @@ TDSP består av följande huvudkomponenter:
 
 ## <a name="data-science-lifecycle"></a>Livscykeln för datavetenskap
 
-Team Data Science Process (TDSP) innehåller en livscykel för att strukturera utvecklingen av dina data science-projekt. Livscykeln beskrivs stegen, från början till slut att projekt vanligtvis följer när de utförs.
+Team Data Science Process (TDSP) innehåller en livscykel för att strukturera utvecklingen av dina data science-projekt. Livs cykeln beskriver alla steg som slutfört projekt.
 
-Om du använder en annan data science-livscykeln, till exempel [SKARPA-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) eller din organisations egna anpassade process, du kan fortfarande använda TDSP uppgiftsbaserade i samband med dessa livscykler. På en hög nivå har dessa olika metoder mycket gemensamt. 
+Om du använder en annan data vetenskaps livs cykel, till exempel [skarpt DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process) eller din organisations egen anpassade process, kan du fortfarande använda uppgiftsbaserade TDSP i samband med dessa utvecklings livscykler. På en hög nivå har dessa olika metoder mycket gemensamt. 
 
-Den här livscykeln har utformats för dataforskningsprojekt som levereras som en del av intelligenta program. Dessa program distribuera machine learning eller artificiell intelligens modeller för förutsägelseanalys. Undersökande dataforskningsprojekt eller ad hoc-analysprojekt kan också dra nytta av den här processen. Men i så fall vissa av stegen som beskrivs kan inte behövs.    
+Den här livscykeln har utformats för dataforskningsprojekt som levereras som en del av intelligenta program. Dessa program distribuera machine learning eller artificiell intelligens modeller för förutsägelseanalys. Undersökande data vetenskaps projekt eller Improvised analys projekt kan också dra nytta av den här processen. Men i så fall vissa av stegen som beskrivs kan inte behövs.    
 
 Livscykeln beskrivs de viktigaste stegen som projekt vanligtvis köra, ofta upprepade gånger:
 
@@ -69,7 +69,7 @@ Följande diagram ger en rutnätsvy för aktiviteter (i blått) och artefakter (
 
 Med alla projekt dela en katalogstruktur och använda mallar för project-dokument gör det enkelt för gruppmedlemmar att hitta information om deras projekt. Alla kod och dokument lagras i ett versionskontrollsystem (paket) som Git, TFS eller Subversion för att aktivera samarbete. Spåra uppgifter och funktioner i en flexibel spårningssystem som Jira, Rally och Azure DevOps-projektet kan närmare spårning av koden för enskilda funktioner. Sådana spårning kan också team att få bättre kostnadsuppskattningar. TDSP rekommenderar att du skapar en separat lagringsplats för varje projekt på paket för versionshantering, informationssäkerhet och samarbete. Standardiserad strukturen för alla projekt hjälper till att bygga upp institutionella kunskaper i organisationen.
 
-Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i standardplatserna. Den här mappstrukturen organiserar de filer som innehåller kod för datagranskning och extrahering av funktionen och som registrera modellen iterationer. Dessa mallar gör det enklare för gruppmedlemmar att förstå arbete som görs av andra och lägga till nya medlemmar i teams. Det är enkelt att visa och uppdatera mallar i markdown-format. Använd mallar för att ge checklistor viktiga frågor för varje projekt för att se till att problemet är väl definierade och att slutprodukter uppfyller den kvalitet som förväntat. Till exempel:
+Vi tillhandahåller mallar för mappstrukturen och nödvändiga dokument i standardplatserna. Den här mappstrukturen organiserar de filer som innehåller kod för datagranskning och extrahering av funktionen och som registrera modellen iterationer. Dessa mallar gör det enklare för gruppmedlemmar att förstå arbete som görs av andra och lägga till nya medlemmar i teams. Det är enkelt att visa och uppdatera mallar i markdown-format. Använd mallar för att tillhandahålla check listor med viktiga frågor för varje projekt för att se till att problemet är väl definierat och att slut produkten uppfyller den förväntade kvaliteten. Till exempel:
 
 - projektet auktoriserad att dokumentera affärsproblem och projektets omfång
 - data som rapporterar till dokumentet strukturen och statistik för rådata
@@ -90,7 +90,7 @@ TDSP innehåller rekommendationer för hantering av delade analyser och lagrings
 - Big data-kluster (Hadoop- eller Spark) 
 - Machine learning-tjänsten 
 
-Infrastruktur för analys och lagring kan finnas i molnet eller lokalt. Det här är där rådata och bearbetade datauppsättningar lagras. Den här infrastrukturen kan reproducerbar analys. Det förhindrar också duplicering, vilket kan leda till inkonsekvenser och onödiga infrastrukturkostnader. Verktyg som etablerar de delade resurserna, spåra dem och att varje medlem i gruppen att ansluta till dessa resurser på ett säkert sätt. Det är också en bra idé att ha projektmedlemmar skapa en konsekvent beräkningsmiljö. Olika teammedlemmar kan replikera och validera experiment.
+Analys-och lagrings infrastrukturen, där obehandlade och bearbetade data uppsättningar lagras, kan finnas i molnet eller lokalt. Den här infrastrukturen kan reproducerbar analys. Det förhindrar också duplicering, vilket kan leda till inkonsekvenser och onödiga infrastrukturkostnader. Verktyg som etablerar de delade resurserna, spåra dem och att varje medlem i gruppen att ansluta till dessa resurser på ett säkert sätt. Det är också en bra idé att ha projektmedlemmar skapa en konsekvent beräkningsmiljö. Olika teammedlemmar kan replikera och validera experiment.
 
 Här är ett exempel på ett team som arbetar med flera projekt och dela olika moln analytics-infrastrukturkomponenter.
 

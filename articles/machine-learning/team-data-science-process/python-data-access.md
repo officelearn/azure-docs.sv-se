@@ -3,20 +3,20 @@ title: Öppna datauppsättningar med Python-klientbiblioteket - Team Data Scienc
 description: Installera och använda Python-klientbiblioteket för att komma åt och hantera Azure Machine Learning-data på ett säkert sätt från en lokal Python-miljö.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 241f804b0519fd744e8b980b2d311a72680aafad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93ec5e740ac6acf9420a9d980092ed772ac1618e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427391"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720987"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Åtkomst till datauppsättningar med Python med hjälp av Python-klientbiblioteket i Azure Machine Learning
 Förhandsversionen av Microsoft Azure Machine Learning Python-klientbiblioteket aktivera säker åtkomst till dina Azure Machine Learning-datauppsättningar från en lokal Python-miljö och möjliggör skapandet och hanteringen av datauppsättningar i en arbetsyta.
@@ -26,7 +26,7 @@ Det här avsnittet innehåller instruktioner om hur du:
 * installera Machine Learning Python-klientbiblioteket
 * få åtkomst till och ladda upp datauppsättningar, inklusive instruktioner för hur du hämtar åtkomstbehörighet till Azure Machine Learning datauppsättningar från den lokala miljön i Python
 * åtkomst till mellanliggande datauppsättningar från experiment
-* använda Python-klientbiblioteket för att räkna upp datauppsättningar, få åtkomst till metadata, läsa innehållet i en datauppsättning, skapa nya datauppsättningar och uppdatera befintliga datauppsättningar
+* Använd python-klient biblioteket för att räkna upp data uppsättningar, få åtkomst till metadata, läsa innehållet i en data uppsättning, skapa nya data uppsättningar och uppdatera befintliga data uppsättningar
 
 ## <a name="prerequisites"></a>Förhandskrav
 Python-klientbiblioteket har testats under följande miljöer:
@@ -43,7 +43,7 @@ Den har ett beroende på följande paket:
 Vi rekommenderar att du använder en Python-distribution som [Anaconda](http://continuum.io/downloads#all) eller [trädtak](https://store.enthought.com/downloads/), som kommer med Python, IPython och tre paketen som listas ovan installerad. IPython inte är nödvändigt, är det en perfekt miljö för hantering och visualisera data interaktivt.
 
 ### <a name="installation"></a>Så här installerar du Azure Machine Learning Python-klientbiblioteket
-Azure Machine Learning Python-klientbiblioteket måste också installeras för att slutföra de uppgifter som beskrivs i det här avsnittet. Den är tillgänglig från den [Python Package Index](https://pypi.python.org/pypi/azureml). Om du vill installera appen i Python-miljön, kör du följande kommando från den lokala Python-miljön:
+Installera Azure Machine Learning python-klient biblioteket för att slutföra de aktiviteter som beskrivs i det här avsnittet. Det här biblioteket är tillgängligt från [python-paketets index](https://pypi.python.org/pypi/azureml). Om du vill installera appen i Python-miljön, kör du följande kommando från den lokala Python-miljön:
 
     pip install azureml
 
@@ -70,13 +70,13 @@ Av säkerhetsskäl kod kodfragment funktioner är endast tillgänglig för anvä
 
 Om din roll inte har angetts som **ägare**, kan du antingen begäran om att bjudas in som ägare eller be ägaren av arbetsytan för att förse dig med kodfragmentet.
 
-För att skaffa autentiseringstoken kan göra du något av följande:
+Du kan välja något av följande alternativ för att hämta autentiseringstoken:
 
 * Be om en token från en ägare. Ägare kan komma åt sina autentiseringstoken från inställnings sidan för deras arbets yta i Azure Machine Learning Studio (klassisk). Välj **inställningar** från den vänstra rutan och klicka på **AUKTORISERINGSTOKEN** att se de primära och sekundära token. Även om primärt eller sekundära auktoriseringstoken kan användas i kodfragmentet, rekommenderar vi att ägare bara dela de sekundära auktoriseringstoken.
 
    ![Auktoriseringstoken](./media/python-data-access/ml-python-access-settings-tokens.png)
 
-* Be att höjas upp till rollen ägare. Då måste en aktuell ägare för arbetsytan där du först ta bort dig från arbetsytan sedan nytt bjuda in dig till den som ägare.
+* Be att bli befordrad till ägarens roll: en aktuell ägare av arbets ytan måste först ta bort dig från arbets ytan och sedan bjuda in dig till den som ägare.
 
 När utvecklare har fått arbets ytans ID och autentiseringstoken kan de komma åt arbets ytan med hjälp av kodfragmentet oavsett deras roll.
 
@@ -100,7 +100,7 @@ När ett experiment körs i Machine Learning Studio (klassisk) är det möjligt 
 
 Mellanliggande datauppsättningar kan nås så länge dataformatet är kompatibel med Python-klientbiblioteket.
 
-Följande format som stöds (konstanter för dessa finns i den `azureml.DataTypeIds` klass):
+Följande format stöds (konstanter för dessa format finns i klassen `azureml.DataTypeIds`):
 
 * Oformaterad text
 * GenericCSV
@@ -124,7 +124,7 @@ Följande steg visar ett exempel som skapar ett experiment, kör den och har åt
 2. Infoga en **vuxet insamlade inkomst binär klassificering datauppsättning** modulen.
 3. Infoga en [delad][split] modul och Anslut dess indata till utdata för datauppsättnings modulen.
 4. Infoga en [Convert to CSV][convert-to-csv] -modul och Anslut dess indata till någon av utdata för [delade][split] moduler.
-5. Spara experimentet, köra den och vänta på att den ska slutföras.
+5. Spara experimentet, kör det och vänta tills jobbet har slutförts.
 6. Klicka på noden utdata i modulen [konvertera till CSV][convert-to-csv] .
 7. När snabbmenyn visas väljer du **generera Dataåtkomstkoden**.
    

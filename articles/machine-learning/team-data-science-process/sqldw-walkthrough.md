@@ -1,30 +1,30 @@
 ---
-title: Skapa och distribuera en modell med SQL Data Warehouse - Team Data Science Process
-description: Skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse med en datauppsättning som är allmänt tillgängliga.
+title: Utveckla och distribuera en modell med Azure Synapse Analytics – team data science process
+description: Bygg och distribuera en maskin inlärnings modell med Azure Synapse Analytics med en offentligt tillgänglig data uppsättning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: b32e2abcffda24fa82d3911575fe48acfc294ccc
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e64b951a8bb96b25a6ef917b4cebe077d6dd6657
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973177"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718454"
 ---
-# <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>Team Data Science Process i praktiken: använda SQL Data Warehouse
-I de här självstudierna vi vägleder genom att skapa och distribuera en maskininlärningsmodell med SQL Data Warehouse (SQL DW) för en datauppsättning som allmänt tillgängliga – den [NYC Taxi kommunikation](https://www.andresmh.com/nyctaxitrips/) datauppsättning. Binära klassificeringsmodellen konstrueras förutsäger huruvida ett tips är betalas för en resa och modeller för multiklass-baserad klassificering och regression beskrivs som förutsäga fördelningen för tips belopp som har betalats.
+# <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Team data science-processen i praktiken: använda Azure Synapse Analytics
+I den här självstudien vägleder vi dig genom att skapa och distribuera en maskin inlärnings modell med Azure Synapse Analytics för en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/) -datauppsättningen. Den binära klassificerings modellen är konstruerad för att förutsäga om ett tips är betalt för en resa.  I modeller ingår klassificering av multiklass (oavsett om det finns ett tips) och regression (fördelningen för de belopp som betalas).
 
-Förfarandet som följer den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) arbetsflöde. Vi visar hur du ställer in en datavetenskapsmiljö in data i SQL DW och använda hur SQL DW eller en IPython Notebook för att utforska data och -tekniker funktioner i modellen. Sedan visar vi hur du skapar och distribuerar en modell med Azure Machine Learning.
+Förfarandet som följer den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) arbetsflöde. Vi visar hur du konfigurerar en data vetenskaps miljö, hur du läser in data i Azure Synapse Analytics och hur du använder Azure Synapse Analytics eller en IPython-anteckningsbok för att utforska data-och ingenjörs funktionerna för att modellera. Sedan visar vi hur du skapar och distribuerar en modell med Azure Machine Learning.
 
 ## <a name="dataset"></a>NYC Taxi och RETUR-datauppsättning
-NYC Taxi resedata består av cirka 20GB komprimerat CSV-filer (~ 48GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Posterna resa innehåller hämtning och dropoff platser och gånger licensnummer maskerade hack (drivrutin) och antalet medallion (taxi's unikt ID). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
+NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Posterna resa innehåller hämtning och dropoff platser och gånger licensnummer maskerade hack (drivrutin) och antalet medallion (taxi's unikt ID). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
 
 1. Den **trip_data.csv** filen innehåller resans information, till exempel antalet passagerare, hämtning och dropoff, resans varaktighet och resans längd. Här följer några Exempelposter:
 
@@ -52,7 +52,7 @@ Den **Unik nyckel** används för att ansluta till resans\_data och resans\_avgi
 ## <a name="mltasks"></a>Åtgärda tre typer av uppgifter för förutsägelse
 Vi formulera tre förutsägelse problem baserat på den *tips\_belopp* att illustrera tre typer av modellering uppgifter:
 
-1. **Binär klassificering**: för att förutsäga om ett tips har betalat för en resa t.ex. en *tips\_belopp* som är större än $0 är ett positivt exempel, medan en *tips\_belopp* $0 är ett exempel på negativt.
+1. **Binära klassificering**: för att förutsäga om ett tips har betalats för en resa, det vill säga ett *tips\_mängd* som är större än $0 är ett positivt exempel, medan ett *tips\_mängden* $0 är ett negativt exempel.
 2. **Multiklass-baserad klassificering**: att förutsäga vilka tips som har betalat för resan. Vi dela upp den *tips\_belopp* i fem lagerplatser eller klasser:
 
         Class 0 : tip_amount = $0
@@ -68,26 +68,26 @@ Följ dessa steg om du vill konfigurera din Azure Data Science-miljö.
 **Skapa din egen Azure blob storage-konto**
 
 * När du etablerar ditt eget Azure blob storage, Välj geoplatsbaserad för Azure blob storage i eller så nära som möjligt till **södra centrala USA**, vilket är NYC Taxi-data ska lagras. Data kommer att kopieras med hjälp av AzCopy från den offentliga blob storage-behållaren till en behållare i ditt eget lagringskonto. Ju närmare ditt Azure blob storage är att södra centrala USA, desto snabbare kommer att slutföra uppgiften (steg 4).
-* För att skapa din egen Azure storage-konto, följer du stegen som beskrivs i [om Azure storage-konton](../../storage/common/storage-create-storage-account.md). Glöm inte att göra anteckningar på värden för följande autentiseringsuppgifterna för lagringskontot eftersom de behövs längre fram i den här genomgången.
+* Om du vill skapa ett eget Azure Storage konto följer du stegen som beskrivs i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md). Glöm inte att göra anteckningar på värden för följande autentiseringsuppgifterna för lagringskontot eftersom de behövs längre fram i den här genomgången.
 
   * **Lagringskontonamn**
   * **Lagringskontonyckel**
   * **Behållarnamn** (som du vill att data ska lagras i Azure blob storage)
 
-**Etablera din Azure SQL DW-instans.**
-Dokumentationen på [skapa ett SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) att etablera en instans av SQL Data Warehouse. Kontrollera att du har ändrat beteckningar på följande SQL Data Warehouse-autentiseringsuppgifter som ska användas i senare steg.
+**Etablera Azure Synapse Analytics-instansen.**
+Följ dokumentationen i [create och fråga en Azure SQL Data Warehouse i Azure Portal](../../sql-data-warehouse/create-data-warehouse-portal.md) för att etablera en Azure Synapse Analytics-instans. Se till att du gör ett format på följande autentiseringsuppgifter för Azure Synapse Analytics som ska användas i senare steg.
 
 * **Server namn**: \<Server namn >. Database. Windows. net
 * **Namn på SQLDW (databas)**
 * **Användarnamn**
 * **Lösenord**
 
-**Installera Visual Studio och SQL Server Data Tools.** Anvisningar finns i [installera Visual Studio 2015 och/eller SSDT (SQL Server Data Tools) för SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installera Visual Studio och SQL Server Data Tools.** Instruktioner finns i [komma igång med Visual Studio 2019 för SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
-**Anslut till din Azure SQL DW med Visual Studio.** Instruktioner finns i steg 1 och 2 i [Anslut till Azure SQL Data Warehouse med Visual Studio](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
+**Anslut till din Azure Synapse Analytics med Visual Studio.** Anvisningar finns i steg 1 & 2 i [Anslut till Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-connect-overview.md).
 
 > [!NOTE]
-> Kör följande SQL-fråga på den databas du skapade i SQL Data Warehouse (i stället för den angivna i steg 3 i avsnittet connect frågan) till **skapa en huvudnyckel**.
+> Kör följande SQL-fråga på databasen som du skapade i din Azure Synapse Analytics (i stället för den fråga som anges i steg 3 i avsnittet Anslut) för att **skapa en huvud nyckel**.
 >
 >
 
@@ -101,7 +101,7 @@ Dokumentationen på [skapa ett SQL Data Warehouse](../../sql-data-warehouse/sql-
 
 **Skapa en Azure Machine Learning-arbetsyta för din Azure-prenumeration.** Anvisningar finns i [skapar en Azure Machine Learning-arbetsyta](../studio/create-workspace.md).
 
-## <a name="getdata"></a>Läsa in data till SQL Data Warehouse
+## <a name="getdata"></a>Läs in data i Azure Synapse Analytics
 Öppna en Windows PowerShell kommando-konsol. Kör följande PowerShell-kommandon för att ladda ned exempel SQL skriptfiler som vi delar med dig på GitHub till en lokal katalog som du anger med parametern *- DestDir*. Du kan ändra värdet för parametern *- DestDir* till en lokal katalog. Om *- DestDir* finns inte, kommer att skapas av PowerShell-skriptet.
 
 > [!NOTE]
@@ -123,10 +123,10 @@ I din *- DestDir*, kör följande PowerShell-skript i administratörsläge:
 
     ./SQLDW_Data_Import.ps1
 
-När PowerShell-skriptet körs för första gången blir du ombedd att ange informationen från din Azure SQL DW och Azure blob storage-kontot. När det här PowerShell-skriptet har slutförts ska körs för första gången autentiseringsuppgifterna du indata ha skrivits till en konfigurationsfil SQLDW.conf i den aktuella arbetskatalogen. Den framtida körningen av den här PowerShell-skriptfil har möjlighet att läsa alla nödvändiga parametrar från konfigurationsfilen. Om du vill ändra vissa parametrar kan du välja att ange parametrarna på skärmen vid Kommandotolken genom att radera den här konfigurationsfilen och mata in värden för parametrar som efterfrågas eller ändra parametrarnas värden genom att redigera filen SQLDW.conf i din *- DestDir* directory.
+När PowerShell-skriptet körs för första gången uppmanas du att ange informationen från din Azure Synapse-analys och ditt Azure Blob Storage-konto. När det här PowerShell-skriptet har slutförts ska körs för första gången autentiseringsuppgifterna du indata ha skrivits till en konfigurationsfil SQLDW.conf i den aktuella arbetskatalogen. Den framtida körningen av den här PowerShell-skriptfil har möjlighet att läsa alla nödvändiga parametrar från konfigurationsfilen. Om du vill ändra vissa parametrar kan du välja att ange parametrarna på skärmen vid Kommandotolken genom att radera den här konfigurationsfilen och mata in värden för parametrar som efterfrågas eller ändra parametrarnas värden genom att redigera filen SQLDW.conf i din *- DestDir* directory.
 
 > [!NOTE]
-> För att undvika schemat namnet står i konflikt med de som redan finns i din Azure SQL DW vid läsning av parametrar direkt från filen SQLDW.conf har ett 3-siffriga slumptal lagts till schemanamnet från filen SQLDW.conf som standard schemanamn för varje körning. PowerShell-skriptet kan efterfrågas ett schemanamn: namnet kan anges efter användaren gottfinnande.
+> För att undvika schema namns konflikter med de som redan finns i din Azure Azure Synapse-analys, när du läser parametrar direkt från filen SQLDW. conf, läggs ett 3-siffrigt slumptal till i schema namnet från filen SQLDW. conf som standard schema namn för varje körning. PowerShell-skriptet kan efterfrågas ett schemanamn: namnet kan anges efter användaren gottfinnande.
 >
 >
 
@@ -163,7 +163,7 @@ Detta **PowerShell-skript** filen utför följande aktiviteter:
         $total_seconds = [math]::Round($time_span.TotalSeconds,2)
         Write-Host "AzCopy finished copying data. Please check your storage account to verify." -ForegroundColor "Yellow"
         Write-Host "This step (copying data from public blob to your storage account) takes $total_seconds seconds." -ForegroundColor "Green"
-* **Läser in data med Polybase (genom att köra LoadDataToSQLDW.sql) till din Azure SQL DW** från ditt privata blob storage-konto med följande kommandon.
+* **Läser in data med PolyBase (genom att köra LoadDataToSQLDW. SQL) i Azure Synapse Analytics** från ditt privata Blob Storage-konto med följande kommandon.
 
   * Skapa ett schema
 
@@ -173,7 +173,7 @@ Detta **PowerShell-skript** filen utför följande aktiviteter:
           CREATE DATABASE SCOPED CREDENTIAL {KeyAlias}
           WITH IDENTITY = ''asbkey'' ,
           Secret = ''{StorageAccountKey}''
-  * Skapa en extern datakälla för en Azure storage blob
+  * Skapa en extern data källa för en Azure Storage-BLOB
 
           CREATE EXTERNAL DATA SOURCE {nyctaxi_trip_storage}
           WITH
@@ -254,7 +254,7 @@ Detta **PowerShell-skript** filen utför följande aktiviteter:
                 REJECT_VALUE = 12
             )
 
-    - Läsa in data från externa tabeller i Azure blob storage till SQL Data Warehouse
+    - Läs in data från externa tabeller i Azure Blob Storage till Azure Synapse Analytics
 
             CREATE TABLE {schemaname}.{nyctaxi_fare}
             WITH
@@ -278,7 +278,7 @@ Detta **PowerShell-skript** filen utför följande aktiviteter:
             FROM   {external_nyctaxi_trip}
             ;
 
-    - Skapa en data exempeltabell (NYCTaxi_Sample) och infoga data till den från att välja SQL-frågor på tabellerna resa och avgiften. (Vissa steg i den här genomgången behöver använda den här exempeltabell.)
+    - Skapa en data exempeltabell (NYCTaxi_Sample) och infoga data till den från att välja SQL-frågor på tabellerna resa och avgiften. (Vissa steg i den här genom gången måste använda den här exempel tabellen.)
 
             CREATE TABLE {schemaname}.{nyctaxi_sample}
             WITH
@@ -310,7 +310,7 @@ Detta **PowerShell-skript** filen utför följande aktiviteter:
 Den geografiska platsen i dina lagringskonton påverkar snabbare.
 
 > [!NOTE]
-> Beroende på den geografiska platsen för ditt privata blob storage-konto, hur du kopierar data från en offentlig blob till ditt privata lagringskonto kan ta cirka 15 minuter eller ännu längre tid, och hur du läser in data från ditt lagringskonto till din Azure SQL DW kan ta 20 minuter eller längre.
+> Beroende på den geografiska platsen för ditt privata Blob Storage-konto kan processen att kopiera data från en offentlig blob till ditt privata lagrings konto ta ungefär 15 minuter, eller till och med längre, och processen att läsa in data från ditt lagrings konto till Azure Azure Synapse Analytics kan ta 20 minuter eller längre.
 >
 >
 
@@ -326,27 +326,27 @@ Du måste bestämma vilka gör om du har dubblettfiler för källa och mål.
 Du kan använda dina egna data. Om dina data är i den lokala datorn i ditt program i verkligheten kan använda du fortfarande AzCopy för att ladda upp data på plats till ditt privata Azure blob storage. Du behöver bara ändra den **källa** plats, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, i AzCopy-kommandot i PowerShell-skriptfil till den lokala katalogen som innehåller dina data.
 
 > [!TIP]
-> Om dina data finns redan i ditt privata Azure blob storage i ditt program i verkligheten, kan du hoppa över AzCopy-steget i PowerShell-skript och direkt överföra data till Azure SQL DW. Detta kräver ytterligare redigeringar av skript för att skräddarsy den efter formatet för dina data.
+> Om dina data redan finns i din privata Azure Blob-lagring i ditt riktiga liv program, kan du hoppa över AzCopy-steget i PowerShell-skriptet och överföra data direkt till Azure Azure Synapse Analytics. Detta kräver ytterligare redigeringar av skript för att skräddarsy den efter formatet för dina data.
 >
 >
 
-Den här PowerShell.skript också ansluts i Azure SQL DW-information till datafiler utforskning exempel SQLDW_Explorations.sql och SQLDW_Explorations.ipynb SQLDW_Explorations_Scripts.py så att dessa tre filer är redo att prova omedelbart efter PowerShell-skriptet har körts.
+Detta PowerShell-skript ansluts också i Azure Synapse Analytics-informationen till exempel filen för data utforskningar SQLDW_Explorations. SQL, SQLDW_Explorations. ipynb och SQLDW_Explorations_Scripts. py så att dessa tre filer är klara att provas direkt efter att PowerShell-skriptet har slutförts.
 
 Efter en lyckad körning visas skärmen som den här:
 
 ![Utdata för en lyckad skriptkörningen][20]
 
-## <a name="dbexplore"></a>Datagranskning och de funktioner i Azure SQL Data Warehouse
-I det här avsnittet ska vi utföra genereringen av data utforskning och funktionen genom att köra SQL-frågor mot Azure SQL DW direkt med hjälp av **Dataverktyg för Visual Studio**. Alla SQL-frågor som används i det här avsnittet finns i exempelskriptet med namnet *SQLDW_Explorations.sql*. Den här filen har redan hämtats till din lokala katalog med PowerShell-skriptet. Du kan också hämta den från [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Men filen i GitHub har inte Azure SQL DW informationen inkopplad.
+## <a name="dbexplore"></a>Data utforskning och funktions teknik i Azure Synapse Analytics
+I det här avsnittet utför vi data utforsknings-och funktions skapande genom att köra SQL-frågor mot Azure Synapse Analytics direkt med **Visual Studio data tools**. Alla SQL-frågor som används i det här avsnittet finns i exempelskriptet med namnet *SQLDW_Explorations.sql*. Den här filen har redan hämtats till din lokala katalog med PowerShell-skriptet. Du kan också hämta den från [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/SQLDW/SQLDW_Explorations.sql). Men filen i GitHub har inte anslutet till Azure Synapse Analytics-information.
 
-Ansluta till din Azure SQL DW med Visual Studio med SQL DW-inloggningsnamn och lösenord och öppna den **SQL Object Explorer** att bekräfta den databasen och tabeller har importerats. Hämta den *SQLDW_Explorations.sql* fil.
+Anslut till din Azure Synapse Analytics med hjälp av Visual Studio med inloggnings namnet och lösen ordet för Azure Synapse Analytics och öppna **SQL-Object Explorer** för att bekräfta att databasen och tabellerna har importer ATS. Hämta den *SQLDW_Explorations.sql* fil.
 
 > [!NOTE]
 > Öppna en Parallel Data Warehouse (PDW) frågeredigeraren genom att använda den **ny fråga** kommandot medan din PDW väljs i den **SQL Object Explorer**. Standard SQL-frågeredigeraren stöds inte av PDW.
 >
 >
 
-Här är typ av data utforskning och funktionen generation uppgifter utförs i det här avsnittet:
+Här är de typer av data utforsknings-och funktions skapande uppgifter som utförs i det här avsnittet:
 
 * Utforska data distributioner av ett fåtal fält i olika tidsfönster.
 * Undersök datakvaliteten fält för longitud och latitud.
@@ -374,7 +374,7 @@ Den här exempelfråga identifierar medallions (taxi-nummer) som slutförts fler
     GROUP BY medallion
     HAVING COUNT(*) > 100
 
-**Utdata:** frågan ska returnera en tabell med rader som anger 13,369 medallions (taxibilar) och antalet resans slutförts av dem i 2013. Den sista kolumnen innehåller antal kommunikation har slutförts.
+**Utdata:** Frågan ska returnera en tabell med rader som anger 13 369-medallions (taxi) och antalet resor som slutförts i 2013. Den sista kolumnen innehåller antal kommunikation har slutförts.
 
 ### <a name="exploration-trip-distribution-by-medallion-and-hack_license"></a>Utforskning: Resa distribution enligt medallion och hack_license
 Det här exemplet identifierar medallions (taxi-nummer) och hack_license siffror (drivrutiner) som har slutfört mer än 100 kommunikation inom en angiven tidsperiod.
@@ -413,7 +413,7 @@ Det här exemplet hittar antalet turer som har lutad jämfört med antalet som i
 **Utdata:** frågan ska returnera följande tips frekvenser för år 2013: 90,447,622 lutad och 82,264,709 inte spets.
 
 ### <a name="exploration-tip-classrange-distribution"></a>Utforskning: Tips klass/intervall distribution
-Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod (eller i hela datauppsättningen om som täcker hela året). Det här är distributionen av klasserna etiketten som ska användas senare för multiklass-baserad klassificering modellering.
+Det här exemplet beräknar fördelningen av tip-intervall i en viss tidsperiod (eller i hela datauppsättningen om som täcker hela året). Den här fördelningen av etikett klasser kommer att användas senare för klassificerings modellering i multiklass.
 
     SELECT tip_class, COUNT(*) AS tip_freq FROM (
         SELECT CASE
@@ -531,7 +531,7 @@ Här är ett exempel för att anropa den här funktionen för att generera funkt
     AND CAST(dropoff_latitude AS float) BETWEEN -90 AND 90
     AND pickup_longitude != '0' AND dropoff_longitude != '0'
 
-**Utdata:** den här frågan skapar en tabell (med 2,803,538 rader) med hämtning och dropoff Latitude och longitudes och motsvarande direkt avstånd i miles. Här följer resultaten i först 3 rader:
+**Utdata:** den här frågan skapar en tabell (med 2,803,538 rader) med hämtning och dropoff Latitude och longitudes och motsvarande direkt avstånd i miles. Här följer resultaten för de första tre raderna:
 
 |  | pickup_latitude | pickup_longitude | dropoff_latitude | dropoff_longitude | DirectDistance |
 | --- | --- | --- | --- | --- | --- |
@@ -540,7 +540,7 @@ Här är ett exempel för att anropa den här funktionen för att generera funkt
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Förbereda data för att skapa modellen
-Följande fråga kopplingar i **nyctaxi\_resans** och **nyctaxi\_avgiften** tabeller, genererar en binär klassificeringsetikett **lutad**, ett flera Klassificeringsetiketten **tips\_klass**, och extraherar ett exempel från fullständig domänansluten datauppsättningen. Är samplingen görs genom att hämta en delmängd av kommunikation baserat på upphämtning tid.  Den här frågan kan kopieras och klistras in direkt i modulen [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [Importera data][import-data] för direkt data inmatning från SQL Database-instansen i Azure. Frågan utesluter poster med fel (0, 0) koordinater.
+Följande fråga kopplingar i **nyctaxi\_resans** och **nyctaxi\_avgiften** tabeller, genererar en binär klassificeringsetikett **lutad**, ett flera Klassificeringsetiketten **tips\_klass**, och extraherar ett exempel från fullständig domänansluten datauppsättningen. Är samplingen görs genom att hämta en delmängd av kommunikation baserat på upphämtning tid.  Den här frågan kan kopieras och klistras in direkt i [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net) [Importera data][-] datamodul för direkt data inmatning från SQL Database-instansen i Azure. Frågan utesluter poster med fel (0, 0) koordinater.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -559,13 +559,13 @@ Följande fråga kopplingar i **nyctaxi\_resans** och **nyctaxi\_avgiften** tabe
 
 När du är redo att gå vidare till Azure Machine Learning kan du antingen:
 
-1. Spara den sista SQL-frågan för att extrahera och sampla data och kopiera – klistra in frågan direkt i en modul för att [Importera data][import-data] i Azure Machine Learning, eller
-2. Behåll de insamlade data som du planerar att använda för modell utveckling i en ny SQL DW-tabell och Använd den nya tabellen i modulen [Importera data][import-data] i Azure Machine Learning. PowerShell-skriptet i tidigare steg har gjort det åt dig. Du kan läsa direkt från den här tabellen i modulen importera Data.
+1. Spara den sista SQL-frågan för att extrahera och sampla data och kopiera – klistra in frågan direkt i en import data[-] modul i Azure Machine Learning, eller
+2. Behåll de insamlade data som du planerar att använda för modell utveckling i en ny Azure Synapse Analytics-tabell och Använd den nya tabellen i modulen [Importera data][-] i Azure Machine Learning. PowerShell-skriptet i föregående steg har utfört den här åtgärden åt dig. Du kan läsa direkt från den här tabellen i modulen importera Data.
 
 ## <a name="ipnb"></a>Datagranskning och de funktioner i IPython notebook
-I det här avsnittet ska vi köra datagranskning och funktionen generation med hjälp av både Python och SQL-frågor mot SQL DW skapade tidigare. Ett exempel IPython notebook med namnet **SQLDW_Explorations.ipynb** och en Python-skriptfil **SQLDW_Explorations_Scripts.py** har hämtats till din lokala katalog. De är också tillgängliga på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Dessa två filer är identiska i Python-skript. Python-skriptfil får du om du inte har en IPython Notebook-server. Dessa två exempel på Python-filerna är avsedda under **Python 2.7**.
+I det här avsnittet ska vi utföra data utforskning och skapa funktioner med hjälp av både python-och SQL-frågor mot Azure Synapse Analytics som skapades tidigare. Ett exempel IPython notebook med namnet **SQLDW_Explorations.ipynb** och en Python-skriptfil **SQLDW_Explorations_Scripts.py** har hämtats till din lokala katalog. De är också tillgängliga på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/SQLDW). Dessa två filer är identiska i Python-skript. Python-skriptfil får du om du inte har en IPython Notebook-server. Dessa två exempel på Python-filerna är avsedda under **Python 2.7**.
 
-Den Azure SQL DW information som krävs i det här exemplet IPython Notebook och Python-skriptfilen laddas ned till den lokala datorn har anslutits av PowerShell-skriptet tidigare. De är körbara utan några ändringar.
+Den Azure Synapse Analytics-information som krävs i den exempel IPython Notebook och den python-skriptfil som hämtats till den lokala datorn har redan kopplats av PowerShell-skriptet. De är körbara utan några ändringar.
 
 Om du redan har konfigurerat en Azure Machine Learning arbets yta kan du ladda upp den IPython-anteckningsboken direkt till AzureML IPython Notebook service och börja köra den. Här följer stegen för att ladda upp till AzureML IPython Notebook service:
 
@@ -590,12 +590,12 @@ För att köra exemplet IPython Notebook- eller Python-skriptfil, följande pake
 - pyodbc
 - PyTables
 
-Den rekommenderade sekvensen när du bygger avancerade analys lösningar på Azure Machine Learning med stora data är följande:
+Här är den rekommenderade ordningen när du bygger avancerade analys lösningar på Azure Machine Learning med stora data:
 
 * Läs i ett litet antal data till en ram för data i minnet.
 * Utför vissa visualiseringar och explorations med exempeldata.
 * Experimentera med funktionsframställning med exempeldata.
-* För större datagranskning, datamanipulering av och funktioner du Använd Python för att skicka SQL-frågor direkt mot SQL DW.
+* För större data utforskning, data manipulation och funktions teknik använder du python för att utfärda SQL-frågor direkt mot Azure Synapse Analytics.
 * Bestäm urvalsstorlek vara lämplig för att skapa Azure Machine Learning-modell.
 
 I följande avsnitt finns några datagranskning, visualisering av data och funktionen tekniska exempel. Mer data explorations finns i exemplet IPython Notebook och Python-skriptet exempelfilen.
@@ -651,7 +651,7 @@ Här är den anslutningssträng som skapas en anslutning till databasen.
 * Totalt antal rader = 173179759
 * Totalt antal kolumner = 11
 
-### <a name="read-in-a-small-data-sample-from-the-sql-data-warehouse-database"></a>Läs i ett litet datasampel från SQL Data Warehouse-databas
+### <a name="read-in-a-small-data-sample-from-the-azure-synapse-analytics-database"></a>Läs ett litet data exempel från Azure Synapse Analytics-databasen
     t0 = time.time()
 
     query = '''
@@ -731,7 +731,7 @@ På samma sätt kan vi Kontrollera relationen mellan **rate\_kod** och **resans\
 ![Spridningsdiagrammet utdata från relationen mellan kod och avståndet][8]
 
 ### <a name="data-exploration-on-sampled-data-using-sql-queries-in-ipython-notebook"></a>Datagranskning på samplade data med SQL-frågor i IPython notebook
-I det här avsnittet ska utforska vi data-distributioner som använder exempeldata som bevaras i den nya tabellen som vi skapade ovan. Observera att liknande explorations kan utföras med hjälp av de ursprungliga tabellerna.
+I det här avsnittet ska vi utforska data distributioner med hjälp av de exempel data som finns kvar i den nya tabellen som vi skapade ovan. Liknande utforskningar kan utföras med hjälp av de ursprungliga tabellerna.
 
 #### <a name="exploration-report-number-of-rows-and-columns-in-the-sampled-table"></a>Utforskning: Rapporterar antalet rader och kolumner i tabellen provade
     nrows = pd.read_sql('''SELECT SUM(rows) FROM sys.partitions WHERE object_id = OBJECT_ID('<schemaname>.<nyctaxi_sample>')''', conn)
@@ -813,33 +813,33 @@ Om du vill påbörja modelleringen av modellering loggar du in på arbets ytan *
 
 1. För att komma igång med Azure Machine Learning, se [Vad är Azure Machine Learning Studio (klassisk)?](../studio/what-is-ml-studio.md)
 2. Logga in på [Azure Machine Learning Studio (klassisk)](https://studio.azureml.net).
-3. På Start sidan för Machine Learning Studio (klassisk) finns en mängd information, videor, självstudier, länkar till modulerna referens och andra resurser. Mer information om Azure Machine Learning finns det [Azure Machine Learning Documentation Center](https://azure.microsoft.com/documentation/services/machine-learning/).
+3. På Start sidan för Machine Learning Studio (klassisk) finns en mängd information, videor, självstudier, länkar till modulerna referens och andra resurser. Mer information om Azure Machine Learning finns i [Azure Machine Learning dokumentations Center](https://azure.microsoft.com/documentation/services/machine-learning/).
 
 En typisk träningsexperiment består av följande steg:
 
 1. Skapa en **+ ny** experimentera.
 2. Hämta data till Azure Machine Learning Studio (klassisk).
-3. Förbearbeta, transformera och manipulera data efter behov.
+3. I förväg bearbeta, transformera och manipulera data efter behov.
 4. Generera funktioner efter behov.
 5. Dela upp data i utbildning / / valideringstestning datauppsättningar (eller har separata datauppsättningar för var och en).
-6. Välj en eller flera maskininlärningsalgoritmer beroende på träningsproblemet att lösa. T.ex. binär klassificering, multiklass-baserad klassificering, regression.
+6. Välj en eller flera maskininlärningsalgoritmer beroende på träningsproblemet att lösa. Till exempel binära klassificering, klassificering av multiklass, regression.
 7. Skapa en eller flera modeller med hjälp av datauppsättning för träning.
 8. Bedöma verifiering datauppsättningen med hjälp av den tränade modeller.
 9. Utvärdera modeller för att beräkna relevanta mått för träningsproblemet.
-10. Bra finjustera modell(er) och välja modellen med bäst att distribuera.
+10. Justera modell (er) och välj den bästa modellen som ska distribueras.
 
-I den här övningen har vi redan utforskat och bearbetat data i SQL Data Warehouse och beslut om urvals storlek att mata in i Azure Machine Learning Studio (klassisk). Här följer stegen för att skapa en eller flera av förutsägelsemodeller:
+I den här övningen har vi redan utforskat och utformat data i Azure Synapse Analytics, och beslut om hur stor provtagnings storlek som skulle matas in i Azure Machine Learning Studio (klassisk). Här följer stegen för att skapa en eller flera av förutsägelsemodeller:
 
-1. Hämta data till Azure Machine Learning Studio (klassisk) med modulen [Importera data][import-data] som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data][import-data] modul.
+1. Hämta data till Azure Machine Learning Studio (klassisk) med hjälp av modulen [Importera data][-] som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data][-] module.
 
     ![Azure ML-importera Data][17]
 2. Välj **Azure SQL Database** som den **datakälla** i den **egenskaper** panelen.
 3. Ange namnet på databasen DNS i den **Databasservernamnet** fält. Format: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Ange den **databasnamn** i motsvarande fält.
 5. Ange den *SQL-användarnamnet* i den **Server användarkontonamn**, och *lösenord* i den **Server lösenord**.
-7. I den **databasfråga** redigera textområde, klistrar in frågan som extraherar de nödvändiga databasfält (inklusive eventuella beräknade fält, till exempel etiketter) och ned samplar data till önskad urvalsstorlek.
+7. I redigerings text områden för **databas fråga** klistrar du in frågan som extraherar de nödvändiga databas fälten (inklusive alla beräknade fält som etiketterna) och nedåt exempel data till önskad exempel storlek.
 
-Ett exempel på en binär klassificering experiment som läser data direkt från SQL Data Warehouse-databasen är i bilden nedan (Kom ihåg att ersätta tabell namnen nyctaxi_trip och nyctaxi_fare med schemanamnet och tabellnamn som du använde i din genomgången). Liknande experiment kan konstrueras för multiklass-baserad klassificering och regressionsproblem.
+Ett exempel på ett binära klassificerings experiment som läser data direkt från Azure Synapse Analytics-databasen visas i bilden nedan (kom ihåg att ersätta tabell namnen nyctaxi_trip och nyctaxi_fare av schema namnet och de tabell namn som du använde i genom gång). Liknande experiment kan konstrueras för multiklass-baserad klassificering och regressionsproblem.
 
 ![Azure ML Train][10]
 
@@ -868,7 +868,7 @@ Azure Machine Learning försöker skapa en arbetsflödesbaserad experiment som b
 2. Identifiera en logisk **indataporten** som motsvarar det förväntade indataschema.
 3. Identifiera en logisk **utgående port** som motsvarar det förväntade web service utdata-schemat.
 
-När bedömnings experimentet har skapats kan du granska den och göra justera efter behov. En typisk justering är att ersätta datauppsättningen för indata och/eller fråga med en vilket utesluter Etikettfälten som dessa inte är tillgänglig när tjänsten anropas. Det är också en bra idé att minska storleken på datauppsättningen för indata och/eller fråga till några poster, bara tillräckligt för att indikera inmatningsschemat. För utdataporten är det vanligt att undanta alla indatafält och bara ta med de **resultat etiketter** och **resultat** som visas i resultatet med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
+När Poäng experimentet har skapats granskar du resultaten och gör anpassningen efter behov. En typisk justering är att ersätta indata-datauppsättningen eller frågan med en som utesluter etikett fält, eftersom dessa etikett fält inte kommer att mappas till schemat vid anrop till tjänsten. Det är också en bra idé att minska storleken på data uppsättningen och/eller frågan till några få poster, tillräckligt för att ange schemat för indata. För utdataporten är det vanligt att undanta alla indatafält och bara ta med de **resultat etiketter** och **resultat** som visas i resultatet med hjälp av modulen [Välj kolumner i data uppsättning][select-columns] .
 
 Ett exempel bedömning experiment finns i bilden nedan. När du är klar att distribuera klickar du på den **publicera WEBBTJÄNSTEN** knappen i lägre Åtgärdsfältet.
 
@@ -878,7 +878,7 @@ Ett exempel bedömning experiment finns i bilden nedan. När du är klar att dis
 Om du vill tar och sammanfattar vad vi har gjort i den här genomgången självstudien, du har skapat en Azure data science-miljö har samarbetat med en stor offentlig datauppsättning, tar det via Team Data Science Process, allt från datainsamling till modellen och sedan till den distribution av en Azure Machine Learning-webbtjänst.
 
 ### <a name="license-information"></a>Licensinformation
-Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s) som delas av Microsoft under MIT-licensen. Kontrollera filen LICENSE.txt i katalogen på exempelkoden på GitHub för mer information.
+Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s) som delas av Microsoft under MIT-licensen. Se filen LICENSe. txt i katalogen i exempel koden på GitHub för mer information.
 
 ## <a name="references"></a>Referenser
 - [Hämtnings sida för Andrés Monroy NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/)
@@ -916,4 +916,4 @@ Det här exemplet genomgång och dess tillhörande skript och IPython notebook(s
 <!-- Module References -->
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[-]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/

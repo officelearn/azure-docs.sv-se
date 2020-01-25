@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 01/16/2020
-ms.openlocfilehash: 32a1ac971edb55c6e162f02b60042056cd0fee0f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: db2e80ebb6cbe5f31f2d99a1403a15daf38fd877
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315056"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722415"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuera en modell till ett Azure Kubernetes service-kluster
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ När du distribuerar till Azure Kubernetes-tjänsten distribuerar du till ett AK
 * Koppla ett befintligt AKS-kluster till din Azure Machine Learning-arbetsyta. Ett kluster kan kopplas med hjälp av Azure Machine Learning SDK, Machine Learning CLI eller Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När detatched eller tagits bort kommer du inte längre att kunna distribuera till klustret.
+> Processen för att skapa eller bifogad fil är en engångs uppgift. När ett AKS-kluster är anslutet till arbets ytan kan du använda det för distributioner. Du kan koppla bort eller ta bort AKS-klustret om du inte längre behöver det. När du har kopplats bort eller tagits bort kommer du inte längre att kunna distribuera till klustret.
 
 ## <a name="prerequisites"></a>Krav
 

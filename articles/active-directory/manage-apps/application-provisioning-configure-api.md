@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a891f87c3d03cf95c8051ee684916bb55441cb0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275720"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712241"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Konfigurera etablering med hjälp av Microsoft Graph API: er
 
-Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph-API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso).
+Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda appar en i taget. Men om du skapar flera – eller till och med hundratals instanser av ett program, kan det vara lättare att automatisera skapandet och konfigurationen av appar med Microsoft Graph-API: er. Den här artikeln beskriver hur du automatiserar etablering av konfigurationen via API: er. Den här metoden används ofta för program som [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso).
 
 **Översikt över steg för att använda Microsoft Graph API: er för att automatisera etablerings konfigurationen**
 
@@ -48,7 +48,7 @@ Azure Portal är ett bekvämt sätt att konfigurera etablering för enskilda app
 1. Starta [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)
 1. Välj knappen "logga in med Microsoft" och logga in med Azure AD global Administrator eller app admin-autentiseringsuppgifter.
 
-    ![Graph-inloggning](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Graph-inloggning](media/application-provisioning-configure-api/wd_export_02.png)
 
 1. Vid lyckad inloggning visas användar konto informationen i den vänstra rutan.
 

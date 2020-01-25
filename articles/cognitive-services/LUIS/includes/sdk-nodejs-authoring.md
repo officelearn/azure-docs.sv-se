@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/22/2020
 ms.author: diberry
-ms.openlocfilehash: 65611dfb171008deab9d1d6cb15f0470fcbc2753
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 808fdfb04cbe3b2b9e5f2de0c653bb978196269c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170556"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748975"
 ---
 Använd det Language Understanding (LUIS) som redigerar klient biblioteket för Node. js för att:
 
@@ -25,7 +25,7 @@ Använd det Language Understanding (LUIS) som redigerar klient biblioteket för 
 * Träna och publicera en app.
 * Ta bort app
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [redigerings paket (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [redigerings paket (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [runtime Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [exempel](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -100,7 +100,7 @@ När klienten har skapats använder du den här klienten för att få åtkomst t
 * [Versioner](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/versions?view=azure-node-latest) – hantera med klona, exportera och ta bort
 
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 Dessa kodfragment visar hur du gör följande med klient biblioteket Language Understanding (LUIS) Authoring för Node. js:
 
@@ -125,7 +125,7 @@ Skapa variabler för resursens Azure-slutpunkt och nyckel. Om du har skapat milj
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Skapa ett [CognitiveServicesCredentials]() -objekt med din nyckel och Använd den med slut punkten för att skapa ett [LUISAuthoringClient]() -objekt.
+Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) -objekt.
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 

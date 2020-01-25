@@ -3,12 +3,12 @@ title: Resurs typer som stöds genom Azure Resource Health | Microsoft Docs
 description: Resurs typer som stöds via Azure Resource Health
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f25dc32774cb040a2b9873c6811ff184373c5104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465263"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717067"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Resurs typer och hälso kontroller i Azure Resource Health
 Nedan visas en fullständig lista över alla kontroller som utförs via resurs hälsa efter resurs typer.
@@ -139,7 +139,7 @@ Nedan visas en fullständig lista över alla kontroller som utförs via resurs h
 |---|
 |<ul><li>Är VPN-tunneln ansluten?</li><li>Finns det några konfigurations konflikter i anslutningen?</li><li>Är de i förväg delade nycklarna korrekt konfigurerade?</li><li>Går det att komma åt den lokala VPN-enheten?</li><li>Finns det fel i IPSec/IKE-säkerhetsprincipen?</li><li>Är S2S VPN-anslutningen korrekt etablerad eller i felaktigt tillstånd?</li><li>Är VNET-till-VNET-anslutningen korrekt etablerad eller i ett felaktigt tillstånd?</li></ul>|
 
-## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.network/expressroutecircuits
 |Utförda kontroller|
 |---|
 |<ul><li>Är ExpressRoute-kretsen felfritt?</li></ul>|

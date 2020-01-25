@@ -1,7 +1,7 @@
 ---
 title: Metoder för modell utbildning
 titleSuffix: Azure Machine Learning
-description: Lär dig olika metoder som du kan använda för att träna modeller med Azure Machine Learning. Uppskattningar är ett enkelt sätt att arbeta med populära ramverk som Scikit – lära, TensorFlow, keras, PyTorch och kedjor. Machine Learning pipelines gör det enkelt att schemalägga obevakade körningar, använda beräknings miljöer i heterogena och återanvänd delar av arbets flödet. Och kör konfigurationer ger detaljerad kontroll över de beräknings mål som inlärnings processen körs på.
+description: Lär dig olika metoder som du kan använda för att träna modeller med Azure Machine Learning. Uppskattningar är ett enkelt sätt att arbeta med populära ramverk som Scikit – lära, TensorFlow, keras, PyTorch och kedjor. Machine Learning pipelines gör det enkelt att schemalägga obevakade körningar, använda heterogena beräknings miljöer och återanvänd delar av arbets flödet. Och kör konfigurationer ger detaljerad kontroll över de beräknings mål som inlärnings processen körs på.
 services: machine-learning
 ms.service: machine-learning
 author: Blackmist
@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 4902c679fa9b8b0140f7da8f32b3382983a635ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311333"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721123"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Träna modeller med Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning tillhandahåller flera olika sätt att träna modeller, f
     | [Kostnadsberäknare](#estimators) | Uppskattnings klasser **gör det enkelt att träna modeller baserat på populära ramverk för maskin inlärning**. Det finns uppskattnings klasser för **Scikit-lära**, **PyTorch**, **TensorFlow**och **kedjor**. Det finns också en generisk uppskattning som kan användas med ramverk som inte redan har en dedikerad uppskattnings klass. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar. |
     | [Maskin inlärnings pipeline](#machine-learning-pipeline) | Pipelines är inte en annan utbildnings metod, men ett **sätt att definiera ett arbets flöde med modulära, återanvändbara steg**som kan innefatta utbildning som en del av arbets flödet. Maskin inlärnings pipeliner har stöd för automatisk maskin inlärning, uppskattningar och körning av konfiguration för att träna modeller. Eftersom pipelines inte fokuserar på utbildning, är orsakerna till att använda en pipeline mer varierade än andra utbildnings metoder. I allmänhet kan du använda en pipeline när:<br>* Du vill **Schemalägga obevakade processer** , t. ex. tids krävande utbildnings jobb eller förberedelse av data.<br>* Använd **flera steg** som är koordinerade över heterogena beräknings resurser och lagrings platser.<br>* Använd pipelinen som en **återanvändbar mall** för vissa scenarier, till exempel omskolning eller batch-poäng.<br>* **spårnings-och versions data källor, indata och utdata** för arbets flödet.<br>* Ditt arbets flöde **implementeras av olika team som arbetar på vissa steg oberoende av varandra**. Steg kan sedan kopplas ihop i en pipeline för att implementera arbets flödet. |
 
-+ **Designer**: Azure Machine Learning designer är en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
++ **Designer**: Azure Machine Learning designer (för hands version) ger dig en lätt ingångs punkt i maskin inlärning för att skapa bevis på begrepp eller för användare med lite kodnings upplevelse. Det gör att du kan träna modeller med ett webbaserat användar gränssnitt med dra och släpp. Du kan använda python-kod som en del av designen eller träna modeller utan att skriva någon kod.
 
 + **CLI**: Machine Learning CLI innehåller kommandon för vanliga aktiviteter med Azure Machine Learning och används ofta för **skript och automatiserade uppgifter**. När du till exempel har skapat ett utbildnings skript eller en pipeline kan du använda CLI för att starta en utbildning i ett schema eller när datafilerna som används för träningen uppdateras. För utbildnings modeller tillhandahåller den kommandon som skickar utbildnings jobb. Den kan skicka jobb med kör konfigurationer eller pipeliner.
 
@@ -59,7 +59,7 @@ Du kan börja med en körnings konfiguration för den lokala datorn och sedan v�
 Definiera iterationer, inställningar för funktionalisering och andra inställningar. Under utbildningen försöker Azure Machine Learning olika algoritmer och parametrar parallellt. Träningen stoppas när det träffar de avslutnings villkor som du har definierat. Du behöver inte bekymra dig om att definiera en körnings konfiguration när du använder uppskattningar.
 
 > [!TIP]
-> I utöver till python SDK kan du också använda automatisk ML via [Azure Machine Learning Studio](https://ml.azure.com).
+> Förutom python SDK kan du också använda automatisk ML via [Azure Machine Learning Studio](https://ml.azure.com).
 
 * [Vad är automatisk maskin inlärning?](concept-automated-ml.md)
 * [Självstudie: skapa din första klassificerings modell med automatiserad maskin inlärning](tutorial-first-experiment-automated-ml.md)

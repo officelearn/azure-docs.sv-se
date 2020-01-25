@@ -7,25 +7,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 ms.author: pafarley
-ms.openlocfilehash: 95b15924db7e5b1b788656d7592bb4ad87e07ce2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 530665168cc1ed21f1664e3012bbf37e52d96fbf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166752"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716161"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Snabb start: Visuellt innehåll klient bibliotek för Node. js
 
-Kom igång med Visuellt innehåll klient biblioteket för Node. js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. 
+Kom igång med Visuellt innehåll klient biblioteket för Node. js. Följ de här stegen för att installera paketet och prova exempel koden för grundläggande uppgifter.
 
 Använd Visuellt innehåll klient bibliotek för Node. js för att:
 
 * [Analysera en bild](#analyze-an-image)
 * [Skriv ut och handskriven text](#read-printed-and-handwritten-text)
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Library Source Code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (NPM) | -](https://www.npmjs.com/package/azure-cognitiveservices-computervision) [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [Library Source Code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [Package (NPM) | -](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -38,20 +38,20 @@ Använd Visuellt innehåll klient bibliotek för Node. js för att:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Visuellt innehåll med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
-* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * Visa din resurs på [Azure Portal](https://portal.azure.com/).
 
 När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
- 
+
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-Kör kommandot `npm init` för att skapa ett Node-program med en `package.json`-fil. 
+Kör kommandot `npm init` för att skapa ett Node-program med en `package.json`-fil.
 
 ```console
 npm init
@@ -59,7 +59,7 @@ npm init
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-Installera `ms-rest-azure` och `azure-cognitiveservices-computervision` NPM-paket:
+Installera `ms-rest-azure` och `@azure/cognitiveservices-computervision` NPM-paket:
 
 ```console
 npm install @azure/cognitiveservices-computervision
@@ -88,7 +88,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 | [ComputerVisionClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/computervisionclient?view=azure-node-latest) | Den här klassen krävs för alla Visuellt innehåll-funktioner. Du instansierar det med din prenumerations information och använder den för att utföra de flesta avbildnings åtgärder.|
 |[VisualFeatureTypes](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/visualfeaturetypes?view=azure-node-latest)| Den här uppräkningen definierar de olika typerna av bild analys som kan göras i en standard analys åtgärd. Du anger en uppsättning **VisualFeatureTypes** -värden beroende på dina behov. |
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 De här kodfragmenten visar hur du gör följande uppgifter med Visuellt innehåll-klient biblioteket för Node. js:
 
@@ -177,11 +177,11 @@ Följande kod skriver ut den identifierade förekomsten av olämpligt innehåll 
 
 Definiera URL: en för den bild som ska användas:
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)]
 
 Lägg sedan till följande kod för att identifiera innehåll som är vuxna och skriv ut resultatet till-konsolen.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)]
 
 ### <a name="get-image-color-scheme"></a>Hämta färg schema för bild
 
@@ -195,7 +195,7 @@ Definiera hjälp funktionen `printColorScheme` att skriva ut information om fär
 
 ### <a name="get-domain-specific-content"></a>Hämta domänbaserat innehåll
 
-Visuellt innehåll kan använda specialiserad modell för att utföra ytterligare analyser av avbildningar. Se [domänbaserat innehåll](../concept-detecting-domain-content.md) för mer information. 
+Visuellt innehåll kan använda specialiserad modell för att utföra ytterligare analyser av avbildningar. Se [domänbaserat innehåll](../concept-detecting-domain-content.md) för mer information.
 
 Definiera först URL: en för en bild som ska analyseras:
 

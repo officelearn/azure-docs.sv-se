@@ -12,19 +12,19 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dcc2d6fc252f288f15e2583012798b4d0e9cee6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c99c38c9a1972bc434c7fa61d6745dac0d79d7b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169443"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711936"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>Konfigurera SAML-baserad enkel inloggning till program som inte är gallerier
 
 När du [lägger till en Galleri-app](add-gallery-app.md) eller en [icke-Galleri-](add-non-gallery-app.md) WEBBAPP till dina Azure AD Enterprise-program, är ett av de alternativ för enkel inloggning som är tillgängligt för dig [SAML-baserad enkel inloggning](what-is-single-sign-on.md#saml-sso). Välj SAML när det är möjligt för program som autentiseras med ett av SAML-protokollen. Med enkel inloggning i SAML autentiserar Azure AD programmet med hjälp av användarens Azure AD-konto. Azure AD kommunicerar information inloggning till programmet via en anslutningsprotokoll. Du kan mappa användare till specifika program roller baserat på regler som du definierar i dina SAML-anspråk. I den här artikeln beskrivs hur du konfigurerar SAML-baserad enkel inloggning för en app som inte är en Galleri. 
 
 > [!NOTE]
-> Lägger du till en Galleri app? Hitta steg-för-steg-instruktioner i [listan med självstudier för SaaS-appar](../saas-apps/tutorial-list.md)
+> Lägger du till en galleriapp? Hitta steg-för-steg-instruktioner i [listan med självstudier för SaaS-appar](../saas-apps/tutorial-list.md)
 
 Om du vill konfigurera SAML enkel inloggning för ett program som inte är ett galleri program utan att skriva kod, måste du ha en prenumeration eller Azure AD Premium och programmet måste ha stöd för SAML 2,0. Mer information om Azure AD-versioner finns i [priser för Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -55,8 +55,8 @@ Om programmet inte har lagts till i din Azure AD-klient kan du läsa [Lägg till
     | **Identifierare (enhets-ID)** | Krävs för vissa appar | Krävs för vissa appar | Identifierar programmet unikt. Azure AD skickar identifieraren till programmet som målgruppsparametern för SAML-token. Programmet förväntas verifiera den. Detta värde visas även som entitets-ID i alla SAML-metadata som anges av programmet. Ange en URL som använder följande mönster: "https://<subdomain>. contoso.com" *du hittar det här värdet som **Issuer** -element i **AuthnRequest** (SAML-begäran) som skickas av programmet.* |
     | **Svarswebbadress** | Krävs | Krävs | Anger var programmet förväntas ta emot SAML-token. Svars-URL:en kallas även för URL för konsumenttjänst för försäkran (ACS-URL). Du kan använda ytterligare svars-URL-fält för att ange flera svars-URL: er. Du kan till exempel behöva ytterligare svars-URL: er för flera under domäner. I test syfte kan du ange flera svars-URL: er (lokala värden och offentliga URL: er) i taget. |
     | **Inloggnings-URL** | Krävs | Ange inte | När en användare öppnar den här URL:en omdirigerar tjänstleverantören till Azure AD för att autentisera och logga in användaren. Azure AD använder URL:en för att starta programmet från Office 365 eller Azure AD-åtkomstpanelen. Om det är tomt utför Azure AD IdP inloggning när en användare startar programmet från Office 365, Azure AD-åtkomst panelen eller URL: en för Azure AD SSO.|
-    | **Relä status** | Valfri | Valfri | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
-    | **Utloggnings-URL** | Valfri | Valfri | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
+    | **Relä status** | Valfritt | Valfritt | Anger för programmet var användaren ska omdirigeras när autentiseringen har slutförts. Vanligt vis är värdet en giltig URL för programmet. Vissa program använder dock det här fältet på olika sätt. Kontakta programleverantören om du vill ha mer information.
+    | **Utloggnings-URL** | Valfritt | Valfritt | Används för att skicka SAML-utloggnings Svaren tillbaka till programmet.
 
 Mer information finns i [SAML-protokoll för enkel inloggning](../develop/single-sign-on-saml-protocol.md).
 
@@ -70,11 +70,11 @@ När en användare autentiserar sig till programmet utfärdar Azure AD programme
 
 2. Verifiera **namn identifierarens värde**. Standardvärdet är *User. PrincipalName*. Användaridentifieraren identifierar unikt varje användare i programmet. Exempel: om e-postadressen är både användarnamnet och den unika identifieraren anger du värdet *user.mail*.
 
-3. Om du vill ändra **namnet på namn identifieraren**väljer du **redigerings** ikonen (en penna) för fältet namn på **Identifier-värde** . Gör lämpliga ändringar i identifierare och källa, om det behövs. Mer information finns i [Redigera NameId](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#editing-nameid). Spara ändringarna när du är klar. 
+3. Om du vill ändra **namnet på namn identifieraren**väljer du **redigerings** ikonen (en penna) för fältet namn på **Identifier-värde** . Gör lämpliga ändringar i identifierare och källa, om det behövs. Mer information finns i [Redigera NameId](../develop/active-directory-saml-claims-customization.md#editing-nameid). Spara ändringarna när du är klar. 
  
 4. Om du vill konfigurera grupp anspråk väljer du **redigerings** ikonen för de **grupper som returneras i anspråks** fältet. Mer information finns i [Konfigurera grupp anspråk](../hybrid/how-to-connect-fed-group-claims.md).
 
-5. Om du vill lägga till ett anspråk väljer du **Lägg till nytt anspråk** överst på sidan. Ange **namnet** och välj lämplig källa. Om du väljer käll- **attributet** måste du välja det **källattribut** som du vill använda. Om du väljer **översättnings** källan måste du välja den **omvandling** och **parameter 1** som du vill använda. Mer information finns i [lägga till programspecifika anspråk](https://docs.microsoft.com/azure/active-directory//develop/active-directory-saml-claims-customization#adding-application-specific-claims). Spara ändringarna när du är klar. 
+5. Om du vill lägga till ett anspråk väljer du **Lägg till nytt anspråk** överst på sidan. Ange **namnet** och välj lämplig källa. Om du väljer käll- **attributet** måste du välja det **källattribut** som du vill använda. Om du väljer **översättnings** källan måste du välja den **omvandling** och **parameter 1** som du vill använda. Mer information finns i [lägga till programspecifika anspråk](../develop/active-directory-saml-claims-customization.md#adding-application-specific-claims). Spara ändringarna när du är klar. 
 
 6. Välj **Spara**. Det nya anspråket visas i tabellen.
 
@@ -150,7 +150,7 @@ Om ett fel meddelande visas utför du följande steg:
 
 1. Kopiera och klistra in informationen i rutan **Hur ser felet ut?** .
 
-    ![Få råd om lösning](media/configure-single-sign-on-portal/error-guidance.png)
+    ![Få råd om lösning](media/configure-single-sign-on-non-gallery-applications/error-guidance.png)
 
 2. Välj **Hämta lösnings vägledning**. Rotorsaken och råd om lösning visas.  I det här exemplet hade användaren inte tilldelats till programmet.
 

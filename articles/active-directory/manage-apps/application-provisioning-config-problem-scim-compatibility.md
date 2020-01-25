@@ -16,12 +16,12 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee480d4a52f77e054bf8f0780707444b6db28b0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275801"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712360"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Kända problem och lösningar med SCIM 2,0 protokoll kompatibilitet för Azure AD-tjänsten för användar etablering
 
@@ -66,7 +66,7 @@ Ja. Om du redan använder den här program instansen för enkel inloggning och b
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs` 
 
-   ![Hämta jobb](./media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Hämta jobb") 
+   ![Hämta jobb](media/application-provisioning-config-problem-scim-compatibility/get-jobs.PNG "Hämta jobb") 
 
 
 6. I resultatet kopierar du den fullständiga "ID"-strängen som börjar med antingen "customappsso" eller "scim".
@@ -74,7 +74,7 @@ Ja. Om du redan använder den här program instansen för enkel inloggning och b
  
    `GET https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[job-id]/schema`
  
-   ![Hämta schema](./media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Hämta schema") 
+   ![Hämta schema](media/application-provisioning-config-problem-scim-compatibility/get-schema.PNG "Hämta schema") 
 
 8. Kopiera JSON-utdata från det sista steget och spara den i en textfil. Detta innehåller anpassade attribut-mappningar som du har lagt till i din gamla app och bör vara cirka några tusen rader med JSON.
 9. Kör kommandot nedan för att ta bort etablerings jobbet:

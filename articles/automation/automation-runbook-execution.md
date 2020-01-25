@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c97e10d2785b7dc1a438c95dca9be94fcef82f94
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658125"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714838"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Runbook-körning i Azure Automation
 
@@ -71,7 +71,7 @@ else
     }
 ```
 
-### <a name="time-dependant-scripts"></a>Tids beroende skript
+### <a name="time-dependent-scripts"></a>Tids beroende skript
 
 Noga överväganden bör göras vid redigering av Runbooks. Som tidigare nämnts måste Runbooks skapas på ett sätt som är robust och kan hantera tillfälliga fel som kan orsaka att runbooken startas om eller Miss lyckas. Om en Runbook Miss lyckas görs ett nytt försök. Om en Runbook normalt körs inom en tids gräns, ska logiken för att kontrol lera körnings tiden implementeras i runbooken för att säkerställa att åtgärder som starta, Stäng ned eller skala ut körs bara under vissa tider.
 
@@ -210,7 +210,7 @@ Följande tabell beskriver de olika statuslägen som är möjliga för ett jobb.
 | Stoppad |Jobbet stoppades av användaren innan det slutfördes. |
 | Stoppas |Jobbet stoppas av systemet. |
 | Uppehåll |Jobbet pausades av användaren, av systemet, eller av ett kommando i runbook. Om en Runbook inte har en kontroll punkt börjar den från början av runbooken. Om den har en kontroll punkt kan den startas igen och återupptas från den senaste kontroll punkten. Runbooken pausas bara av systemet när ett undantag inträffar. Som standard är Erroractionpreference satt inställd på att **fortsätta**, vilket innebär att jobbet fortsätter att köras vid ett fel. Om den här preferens variabeln är inställd på **Avbryt**pausas jobbet vid ett fel. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
-| Pausar |Systemet försöker pausa jobbet på användarens begäran. Runbooken måste nå nästa kontrollpunkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
+| Pausar |Systemet försöker pausa jobbet på användarens begäran. Runbooken måste komma fram till nästa kontroll punkt innan den kan pausas. Om den redan har passerat den senaste kontroll punkten slutförs den innan den kan pausas. Gäller endast för [grafiska och PowerShell Workflow-Runbooks](automation-runbook-types.md) . |
 
 ## <a name="viewing-job-status-from-the-azure-portal"></a>Visa jobb status från Azure Portal
 
@@ -238,7 +238,7 @@ Du kan också Visa jobb sammanfattnings information för en angiven Runbook geno
 
 ### <a name="job-summary"></a>Jobbsammanfattning
 
-Du kan visa en lista över alla jobb som har skapats för en viss Runbook och deras senaste status. Du kan filtrera listan efter jobbstatus och tidpunkt för senaste ändring i jobbet. Om du vill visa detaljerad information och utdata klickar du på namnet på ett jobb. Jobbets detaljvy inkluderar värden för runbookparametrar som gavs av det jobbet.
+Du kan visa en lista över alla jobb som har skapats för en viss Runbook och deras senaste status. Du kan filtrera listan efter jobb status och datum intervallet för den senaste ändringen i jobbet. Om du vill visa detaljerad information och utdata klickar du på namnet på ett jobb. Jobbets detaljvy inkluderar värden för runbookparametrar som gavs av det jobbet.
 
 Du kan använda följande steg för att se jobb för en runbook.
 

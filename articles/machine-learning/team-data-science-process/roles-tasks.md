@@ -2,27 +2,27 @@
 title: Roller för team Data Science Process och uppgifter
 description: En översikt över viktiga komponenter, personal roller och associerade uppgifter för en data vetenskaps grupp.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbc066f4b01a01a589849ad524b58a9b5d9dfae1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260642"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720018"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Roller för team Data Science Process och uppgifter
 
 TDSP (Team data science process) är ett ramverk som utvecklats av Microsoft och som ger en strukturerad metod för att effektivt bygga förutsägelse analys lösningar och intelligenta program. Den här artikeln beskriver viktiga personal roller och associerade uppgifter för ett data vetenskaps team som är standardiserat för den här processen.
 
-Den här introduktions artikeln länkar till självstudier om hur du konfigurerar TDSP-miljön för en hel data vetenskaps grupp, data vetenskaps team och TDSP-projekt. Självstudierna innehåller detaljerad information om hur du använder Azure DevOps Projects, Azure databaser-lagringsplatser och Azure-kort med flexibla planerings verktyg för att kontrol lera åtkomst, värd-och resurs kod samt hantera team uppgifter.
+Den här inledande artikeln länkar till självstudier om hur du konfigurerar TDSP-miljön. Självstudierna innehåller detaljerad information om hur du använder Azure DevOps Projects, Azure databaser-databaser och Azure-kort.  Det motivbaserade målet flyttas från konceptet genom modellering och till distribution.
 
 Självstudierna använder Azure-DevOps eftersom det är så här implementerar du TDSP på Microsoft. Azure-DevOps fören klar samarbetet genom att integrera rollbaserad säkerhet, hantering av arbets objekt, spårning och kod värdskap, delning och käll kontroll. Självstudierna använder också en Azure [data science Virtual Machine](https://aka.ms/dsvm) (DSVM) som Analytics Desktop, som har flera populära data vetenskaps verktyg förkonfigurerade och integrerade med Microsoft-programvara och Azure-tjänster. 
 
@@ -40,13 +40,13 @@ I en sådan struktur finns grupp ledare och grupp ledare. Ett data vetenskaps pr
 ## <a name="definition-and-tasks-for-the-four-tdsp-roles"></a>Definition och uppgifter för de fyra TDSP-rollerna
 Med antagandet att data vetenskaps enheten består av team i en grupp finns det fyra olika roller för TDSP-personal:
 
-1. **Grupp hanterare**: Hanterar hela data vetenskaps enheten i ett företag. En data science-enhet kan ha flera team som arbetar med flera dataforskningsprojekt i olika företag branscher. Gruppchef kan delegera sina uppgifter till en surrogate, men ändra inte de uppgifter som är associerade med rollen.
+1. **Grupp hanterare**: hanterar hela data vetenskaps enheten i ett företag. En data science-enhet kan ha flera team som arbetar med flera dataforskningsprojekt i olika företag branscher. Gruppchef kan delegera sina uppgifter till en surrogate, men ändra inte de uppgifter som är associerade med rollen.
    
-2. **Grupp ledare**: Hanterar ett team i en företags data vetenskaps enhet. Ett team består av flera dataexperter. För en liten data vetenskaps enhet kan grupp chefen och teamets lead vara samma person.
+2. **Grupp ledare**: hanterar ett team i en företags data vetenskaps enhet. Ett team består av flera dataexperter. För en liten data vetenskaps enhet kan grupp chefen och teamets lead vara samma person.
    
-3. **Projektets lead**: Hanterar dagliga aktiviteter för enskilda data forskare i ett visst data vetenskaps projekt.
+3. **Projekt ledare**: hanterar dagliga aktiviteter för enskilda data forskare i ett visst data vetenskaps projekt.
    
-4. **Projektets enskilda bidrags givare**: Data forskare, affärsanalytiker, data tekniker, arkitekter och andra som kör ett data vetenskaps projekt.
+4. **Projicera enskilda bidrags givare**: data experter, affärsanalytiker, data tekniker, arkitekter och andra som kör ett data vetenskaps projekt.
 
 > [!NOTE]
 > Beroende på företagets struktur och storlek kan en enskild person spela mer än en roll, eller så kan mer än en person fylla i en roll.

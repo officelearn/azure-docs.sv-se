@@ -1,31 +1,30 @@
 ---
-title: Fråga Azure Event Grid-prenumerationer
-description: Beskriver hur du listar Azure Event Grid-prenumerationer.
+title: Fråga Azure Event Grid prenumerationer
+description: Den här artikeln beskriver hur du visar Event Grid prenumerationer i din Azure-prenumeration. Du anger olika parametrar utifrån typ av prenumeration.
 services: event-grid
 author: spelluru
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/04/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 08fa9ada97c652ca609a499da1c8e87f7e4487db
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: 2da4ba5946f16092c1d0918aec8dc3109b5fd4a8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67786632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721553"
 ---
-# <a name="query-event-grid-subscriptions"></a>Fråga Event Grid-prenumerationer 
+# <a name="query-event-grid-subscriptions"></a>Fråga Event Grid prenumerationer 
 
-Den här artikeln beskriver hur du listar Event Grid-prenumerationer i Azure-prenumerationen. När du hämtar din befintliga Event Grid-prenumerationer, är det viktigt att förstå de olika typerna av prenumerationer. Du kan ange olika parametrar utifrån vilken typ av prenumeration som du vill hämta.
+Den här artikeln beskriver hur du visar Event Grid prenumerationer i din Azure-prenumeration. När du frågar befintliga Event Grid prenumerationer är det viktigt att förstå de olika typerna av prenumerationer. Du anger olika parametrar beroende på vilken typ av prenumeration du vill hämta.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="resource-groups-and-azure-subscriptions"></a>Resursgrupper och Azure-prenumerationer
+## <a name="resource-groups-and-azure-subscriptions"></a>Resurs grupper och Azure-prenumerationer
 
-Azure-prenumerationer och resursgrupper är du inte Azure-resurser. Därför har event grid-prenumerationer till resursgrupper eller Azure-prenumerationer inte samma egenskaper som event grid-prenumerationer till Azure-resurser. Event grid-prenumerationer till resursgrupper eller Azure-prenumerationer betraktas som global.
+Azure-prenumerationer och resurs grupper är inte Azure-resurser. Därför har Event Grid-prenumerationer till resurs grupper eller Azure-prenumerationer inte samma egenskaper som Event Grid-prenumerationer på Azure-resurser. Event Grid-prenumerationer till resurs grupper eller Azure-prenumerationer betraktas som globala.
 
-För att få event grid-prenumerationer för en Azure-prenumeration och dess resursgrupper, behöver du inte ange några parametrar. Kontrollera att du har valt Azure-prenumeration du vill fråga. I följande exempel få inte event grid-prenumerationer för anpassade ämnen eller Azure-resurser.
+Om du vill hämta Event Grid-prenumerationer för en Azure-prenumeration och dess resurs grupper behöver du inte ange några parametrar. Kontrol lera att du har valt den Azure-prenumeration som du vill fråga. I följande exempel får du inga event Grid-prenumerationer för anpassade ämnen eller Azure-resurser.
 
 Om du använder Azure CLI använder du:
 
@@ -41,7 +40,7 @@ Set-AzContext -Subscription "My Azure Subscription"
 Get-AzEventGridSubscription
 ```
 
-För att få event grid-prenumerationer för en Azure-prenumeration kan du ange ämnestypen **Microsoft.Resources.Subscriptions**.
+Om du vill hämta Event Grid-prenumerationer för en Azure-prenumeration anger du ämnes typen **Microsoft. Resources. Subscriptions**.
 
 Om du använder Azure CLI använder du:
 
@@ -55,7 +54,7 @@ Om du använder PowerShell använder du:
 Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.Subscriptions"
 ```
 
-För att få event grid-prenumerationer för alla resursgrupper i en Azure-prenumeration kan du ange ämnestypen **Microsoft.Resources.ResourceGroups**.
+Om du vill hämta Event Grid-prenumerationer för alla resurs grupper i en Azure-prenumeration anger du ämnes typen **Microsoft. Resources. ResourceGroups**.
 
 Om du använder Azure CLI använder du:
 
@@ -69,7 +68,7 @@ Om du använder PowerShell använder du:
 Get-AzEventGridSubscription -TopicTypeName "Microsoft.Resources.ResourceGroups"
 ```
 
-Ange namnet på resursgruppen som en parameter för att få event grid-prenumerationer för en angiven resursgrupp.
+Om du vill hämta Event Grid-prenumerationer för en angiven resurs grupp anger du namnet på resurs gruppen som en parameter.
 
 Om du använder Azure CLI använder du:
 
@@ -85,9 +84,9 @@ Get-AzEventGridSubscription -ResourceGroupName myResourceGroup
 
 ## <a name="custom-topics-and-azure-resources"></a>Anpassade ämnen och Azure-resurser
 
-Anpassat Event grid-ämnen är Azure-resurser. Därför kan fråga du event grid-prenumerationer för anpassade ämnen och andra resurser, t.ex. Blob storage-konto på samma sätt. För att få event grid-prenumerationer för anpassade ämnen kan ange du parametrar som identifierar resursen eller identifiera platsen för resursen. Det går inte att brett query event grid-prenumerationer för resurser i din Azure-prenumeration.
+Anpassade Event Grid-ämnen är Azure-resurser. Därför kan du fråga Event Grid-prenumerationer efter anpassade ämnen och andra resurser, t. ex. Blob Storage-konto, på samma sätt. Om du vill hämta Event Grid-prenumerationer för anpassade ämnen måste du ange parametrar som identifierar resursen eller identifierar platsen för resursen. Det går inte att utföra stora frågor om Event Grid-prenumerationer för resurser i din Azure-prenumeration.
 
-För att få event grid-prenumerationer för anpassade ämnen och andra resurser på en plats kan du ange namnet på platsen.
+Om du vill hämta Event Grid-prenumerationer för anpassade ämnen och andra resurser på en plats anger du namnet på platsen.
 
 Om du använder Azure CLI använder du:
 
@@ -101,7 +100,7 @@ Om du använder PowerShell använder du:
 Get-AzEventGridSubscription -Location westus2
 ```
 
-Om du vill hämta prenumerationer på anpassade ämnen för en plats, ange platsen och ämnestypen **Microsoft.EventGrid.Topics**.
+Om du vill få prenumerationer på anpassade ämnen för en plats anger du platsen och ämnes typen **Microsoft. EventGrid. ämnen**.
 
 Om du använder Azure CLI använder du:
 
@@ -115,7 +114,7 @@ Om du använder PowerShell använder du:
 Get-AzEventGridSubscription -TopicTypeName "Microsoft.EventGrid.Topics" -Location westus2
 ```
 
-Om du vill hämta prenumerationer till storage-konton för en plats, ange platsen och ämnestypen **Microsoft.Storage.StorageAccounts**.
+Om du vill hämta prenumerationer på lagrings konton för en plats anger du platsen och ämnes typen **Microsoft. Storage. StorageAccounts**.
 
 Om du använder Azure CLI använder du:
 
@@ -129,7 +128,7 @@ Om du använder PowerShell använder du:
 Get-AzEventGridSubscription -TopicTypeName "Microsoft.Storage.StorageAccounts" -Location westus2
 ```
 
-Ange namnet på det anpassade ämnet och namnet på en resursgrupp för att få event grid-prenumerationer för ett anpassat ämne.
+Om du vill hämta Event Grid-prenumerationer för ett anpassat ämne anger du namnet på det anpassade ämnet och namnet på dess resurs grupp.
 
 Om du använder Azure CLI använder du:
 
@@ -143,7 +142,7 @@ Om du använder PowerShell använder du:
 Get-AzEventGridSubscription -TopicName myCustomTopic -ResourceGroupName myResourceGroup
 ```
 
-För att få event grid-prenumerationer för en viss resurs kan du ange resurs-ID.
+Ange resurs-ID för att hämta Event Grid-prenumerationer för en viss resurs.
 
 Om du använder Azure CLI använder du:
 

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939918"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721038"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>SQL Data Warehouse isolering av arbets belastnings grupper (för hands version)
 
@@ -32,7 +32,7 @@ I följande avsnitt ser du hur arbets belastnings grupper ger möjlighet att def
 
 Arbets belastnings isolering innebär att resurser är reserverade, exklusivt, för en arbets belastnings grupp.  Arbets belastnings isolering uppnås genom att konfigurera parametern MIN_PERCENTAGE_RESOURCE till större än noll i syntaxen [skapa arbets belastnings grupp](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) .  För kontinuerliga körnings arbets belastningar som behöver följa tätt service avtal säkerställer isolering att resurser alltid är tillgängliga för arbets belastnings gruppen. 
 
-Konfiguration av arbets belastnings isolering definierar implicit en garanterad nivå av samtidighet. Med en MIN_PERCENTAGE_RESOURCE inställd på 30% och REQUEST_MIN_RESOURCE_GRANT_PERCENT inställd på 2% garanteras en 15-samtidighets nivå för arbets belastnings gruppen.  Överväg nedanstående metod för att fastställa garanterad samtidighet:
+Konfiguration av arbets belastnings isolering definierar implicit en garanterad nivå av samtidighet. Till exempel är en arbets belastnings grupp med en `MIN_PERCENTAGE_RESOURCE` inställd på 30% och `REQUEST_MIN_RESOURCE_GRANT_PERCENT` inställd på 2% garanterad 15 samtidighet.  Nivån av samtidighet garanteras eftersom 15-2% fack vara reserveras i arbets belastnings gruppen hela tiden (oavsett hur `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` har kon figurer ATS).  Om `REQUEST_MAX_RESOURCE_GRANT_PERCENT` är större än `REQUEST_MIN_RESOURCE_GRANT_PERCENT` och `CAP_PERCENTAGE_RESOURCE` är större än `MIN_PERCENTAGE_RESOURCE` ytterligare resurser läggs till per begäran.  Om `REQUEST_MAX_RESOURCE_GRANT_PERCENT` och `REQUEST_MIN_RESOURCE_GRANT_PERCENT` är lika och `CAP_PERCENTAGE_RESOURCE` är större än `MIN_PERCENTAGE_RESOURCE`är det möjligt med ytterligare samtidighet.  Överväg nedanstående metod för att fastställa garanterad samtidighet:
 
 [Garanterad samtidighet] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 

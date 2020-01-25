@@ -8,26 +8,26 @@ ms.custom: ''
 titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: ''
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7161c5554fe2d4993f3bd30ad82d675a71927f23
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dda65c94671044f3c5a569a3f9753951de9eee3a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279188"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717677"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>& Klassificering för Azure SQL Database och SQL Data Warehouse data identifiering
 
 Data identifiering & klassificering innehåller avancerade funktioner som är inbyggda i Azure SQL Database för att **upptäcka**, **klassificera**och **märka** & **rapportering** av känsliga data i dina databaser.
 
-Att identifiera och klassificera dina mest känsliga data (företags-, finans-, sjukvårds-och person uppgifter) och så vidare kan du spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Tjänsten kan fungera som infrastruktur inom följande områden:
+Att identifiera och klassificera dina mest känsliga data (företags-, finans-, sjukvårds-och person uppgifter) och så vidare kan du spela en pivot-roll i din organisations informations skydds datasekretesstandarder. Den kan fungera som infrastruktur för:
 
-- Hjälp med att uppfylla standarder för datasekretess och efterlevnadsregler.
+- Hjälpa till att uppfylla data sekretess standarder och regler för efterlevnad av efterlevnad.
 - Olika säkerhets scenarier, till exempel övervakning (granskning) och aviseringar om avvikande åtkomst till känsliga data.
-- Åtkomstkontroll och stärkt säkerhet för databaser som innehåller mycket känsliga data.
+- Kontrol lera åtkomst till och härdning av säkerheten för databaser som innehåller mycket känsliga data.
 
 Data identifierings & klassificering är en del av erbjudandet för [Avancerad data säkerhet](sql-database-advanced-data-security.md) (Ads), som är ett enhetligt paket för avancerade SQL-säkerhetsfunktioner. data identifiering & klassificering kan nås och hanteras via den centrala SQL ADS-portalen.
 
@@ -40,11 +40,11 @@ Data identifierings & klassificeringen introducerar en uppsättning avancerade t
 
 - **Rekommendationer för identifierings &**
 
-  Klassificerings motorn genomsöker din databas och identifierar kolumner som innehåller potentiellt känsliga data. Du får ett enkelt sätt att granska och tillämpa lämpliga klassificeringsrekommendationer via Azure-portalen.
+  Klassificerings motorn genomsöker din databas och identifierar kolumner som innehåller potentiellt känsliga data. Det ger dig ett enkelt sätt att granska och tillämpa lämpliga klassificerings rekommendationer via Azure Portal.
 
 - **Märkning**
 
-  Etiketter för känslighets klassificering kan märkas permanent på kolumner med nya attribut för klassificering av metadata som introduceras i SQL-motorn. Sedan kan du använda dessa metadata till avancerad, känslighetsbaserad granskning och skydd.
+  Etiketter för känslighets klassificering kan märkas permanent på kolumner med nya attribut för klassificering av metadata som introduceras i SQL-motorn. Dessa metadata kan sedan användas för avancerade känslighets-baserade gransknings-och skydds scenarier.
 
 - **Resultat uppsättnings känslighet för fråga**
 
@@ -52,7 +52,7 @@ Data identifierings & klassificeringen introducerar en uppsättning avancerade t
 
 - **Synlighet**
 
-  Databas klassificerings tillstånd kan visas på en detaljerad instrument panel i portalen. Dessutom kan du ladda ned en rapport (i Excel-format) och använda den till bland annat regelefterlevnad och revision.
+  Databas klassificerings tillstånd kan visas på en detaljerad instrument panel i portalen. Dessutom kan du ladda ned en rapport (i Excel-format) som ska användas för efterlevnad & gransknings ändamål, samt andra behov.
 
 ## <a id="subheading-2"></a>Identifiera, klassificera & etiketter känsliga kolumner
 
@@ -69,7 +69,7 @@ SQL data Discovery & klassificeringen innehåller en inbyggd uppsättning känsl
 
 Definition och anpassning av klassificerings taxonomin görs på en central plats för hela din Azure-klient. Den platsen finns [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), som en del av din säkerhets princip. Endast användare med administratörs behörighet för klient organisationens rot hanterings grupp kan utföra den här uppgiften.
 
-Som en del av Information Protection princip hantering kan du definiera anpassade etiketter, ranka dem och koppla dem till en viss uppsättning informations typer. Du kan också lägga till egna anpassade informationstyper och konfigurera dem med strängmönster, som sedan läggs till i identifieringslogiken för att identifiera den här typen av data i dina databaser.
+Som en del av Information Protection princip hantering kan du definiera anpassade etiketter, ranka dem och koppla dem till en viss uppsättning informations typer. Du kan också lägga till egna anpassade informations typer och konfigurera dem med sträng mönster, som läggs till i identifierings logiken för att identifiera den här typen av data i dina databaser.
 Läs mer om hur du anpassar och hanterar principer i [guiden för information Protection policy instruktion](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
 
 När du har definierat principen för hela klienten kan du fortsätta med klassificeringen av enskilda databaser med hjälp av den anpassade principen.
@@ -148,7 +148,7 @@ Du kan använda T-SQL för att lägga till/ta bort kolumn klassificeringar, samt
 - Ta bort klassificeringen från en eller flera kolumner: [släpp känslighets klassificering](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - Visa alla klassificeringar för databasen: [sys. sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-# <a name="rest-apistabazure-rest-api"></a>[Rest-API:er](#tab/azure-rest-api)
+# <a name="rest-apistabazure-rest-api"></a>[REST-API: er](#tab/azure-rest-api)
 Du kan använda REST-API: er för att hantera klassificeringar och rekommendationer program mässigt. De publicerade REST API: erna har stöd för följande åtgärder:
 
 - [Skapa eller uppdatera](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) – skapar eller uppdaterar känslighets etiketten för en specifik kolumn

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: f9d00cff5d910d6bbbb4c436249283cca87b91e1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6ea1bce6c14d7266b5ce49b94e39d661bfc57717
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549112"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713307"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Skapa och hantera flera Node-pooler för ett kluster i Azure Kubernetes service (AKS)
 
@@ -394,10 +394,10 @@ Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilk
 
 Mer information om hur du använder avancerade Kubernetes schemalagda funktioner finns i [metod tips för avancerade funktioner i Schemaläggaren i AKS][taints-tolerations]
 
-I det här exemplet ska du använda en-utsmak på den GPU-baserade noden med kommandot [kubectl--noden][kubectl-taint] . Ange namnet på den GPU-baserade noden från utdata från föregående `kubectl get nodes` kommando. Bismaken används som en *nyckel: värde* och sedan ett schemaläggnings alternativ. I följande exempel används *SKU = GPU* -paret och definierar poddar i övrigt har *noschema* -funktionen:
+I det här exemplet ska du använda en-utsmak på den GPU-baserade noden med kommandot--Node-superdrives. Ange namnet på den GPU-baserade noden från utdata från föregående `kubectl get nodes` kommando. Bismaken används som en *nyckel: värde* och sedan ett schemaläggnings alternativ. I följande exempel används *SKU = GPU* -paret och definierar poddar i övrigt har *noschema* -funktionen:
 
 ```console
-kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
+az aks nodepool --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
 Följande grundläggande exempel på YAML-manifest använder en tolererare för att tillåta att Schemaläggaren för Kubernetes kör en NGINX-Pod på den GPU-baserade noden. För ett mer lämpligt, men tids krävande exempel för att köra ett Tensorflow-jobb mot MNIST-datauppsättningen, se [Använd GPU: er för beräknings intensiva arbets belastningar på AKS][gpu-cluster].

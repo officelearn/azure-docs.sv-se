@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 40cd3467c7a4377427bb8db437e1047382933b1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412833"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714870"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du data persistence för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden som ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar persistence i en Premium Azure-cache för Redis-instansen.
@@ -26,7 +26,13 @@ Azure cache för Redis erbjuder Redis beständighet med hjälp av följande mode
 * **RDB beständighet** – när RDB (Redis Database) har kon figurer ATS, sparar Azure cache för Redis en ögonblicks bild av Azure cache för Redis i ett Redis binärformat till disk baserat på en konfigurerbar säkerhets kopierings frekvens. Om en oåterkallelig händelse inträffar som inaktiverar både den primära cachen och replik cachen, rekonstrueras cachen med den senaste ögonblicks bilden. Läs mer om [fördelarna](https://redis.io/topics/persistence#rdb-advantages) och [nack delarna](https://redis.io/topics/persistence#rdb-disadvantages) med RDB persistence.
 * **AOF beständighet** – när AOF (append Only File) har kon figurer ATS, sparar Azure cache för Redis varje Skriv åtgärd till en logg som sparas minst en gång i taget till ett Azure Storage-konto. Om en oåterkallelig händelse inträffar som inaktiverar både den primära cachen och replik cachen, rekonstrueras cachen med hjälp av lagrade Skriv åtgärder. Läs mer om [fördelarna](https://redis.io/topics/persistence#aof-advantages) och [nack delarna](https://redis.io/topics/persistence#aof-disadvantages) med AOF persistence.
 
-Persistence konfigureras från det **nya Azure-cacheminnet för Redis** -bladet under skapandet av cacheminnet och på **resurs menyn** för befintliga Premium-cacheminnen.
+Persistence skriver Redis-data till ett Azure Storage-konto som du äger och hanterar. Du kan konfigurera från bladet **ny Azure-cache för Redis** under skapandet av cacheminnet och på **resurs menyn** för befintliga Premium-cacheminnen.
+
+> [!NOTE]
+> 
+> Azure Storage krypterar data automatiskt när de sparas. Du kan använda dina egna nycklar för krypteringen. Mer information finns i [kund hanterade nycklar med Azure Key Vault](/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault).
+> 
+> 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -38,7 +44,7 @@ Stegen i nästa avsnitt beskriver hur du konfigurerar Redis persistence i din ny
 
 ## <a name="enable-redis-persistence"></a>Aktivera Redis persistence
 
-Redis persistence har Aktiver ATS på bladet **Redis data persisten** genom att välja antingen **RDB** eller **AOF** persistence. För nya cacheminnen nås det här bladet under skapandet av cacheminnet, enligt beskrivningen i föregående avsnitt. För befintliga cacheminnen öppnas bladet **Redis data persisted** från **resurs menyn** för cacheminnet.
+Redis persistence har Aktiver ATS på bladet **data persisten** genom att välja antingen **RDB** eller **AOF** persistence. För nya cacheminnen nås det här bladet under skapandet av cacheminnet, enligt beskrivningen i föregående avsnitt. För befintliga cacheminnen öppnas bladet **data persistes** från **resurs menyn** för cacheminnet.
 
 ![Redis-inställningar][redis-cache-settings]
 
@@ -125,7 +131,7 @@ För både RDB och AOF persistence:
 * Om du har skalat till en mindre storlek och det inte finns tillräckligt med utrymme i den mindre storleken för att lagra alla data från den senaste säkerhets kopieringen, tas nycklar bort under återställnings processen, vanligt vis med hjälp av [allkeys-LRU](https://redis.io/topics/lru-cache) .
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>Kan jag ändra frekvensen för RDB säkerhets kopiering när jag har skapat cacheminnet?
-Ja, du kan ändra säkerhets kopierings frekvensen för RDB persistence på bladet **Redis data persist** . Instruktioner finns i Konfigurera Redis persistence.
+Ja, du kan ändra säkerhets kopierings frekvensen för RDB persistence på bladet **data persistes** . Instruktioner finns i Konfigurera Redis persistence.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>Varför om jag har en RDB säkerhets kopierings frekvens på 60 minuter finns det över 60 minuter mellan säkerhets kopieringar?
 Intervallet för säkerhets kopiering av RDB som inte startar förrän den tidigare säkerhets kopieringen har slutförts. Om säkerhets kopierings frekvensen är 60 minuter och den tar en säkerhets kopiering 15 minuter att slutföra, kommer nästa säkerhets kopiering inte att starta förrän 75 minuter efter start tiden för den tidigare säkerhets kopieringen.

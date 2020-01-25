@@ -3,24 +3,24 @@ title: Skapa en CI/CD-pipeline med Azure-pipeline – team data science process
 description: Skapa en kontinuerlig integrering och kontinuerlig leverans av en pipeline för artificiell intelligens (AI)-program med Docker och Kubernetes.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260671"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721837"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Skapa CI/CD-pipelines för AI-appar med hjälp av Azure-pipeline, Docker och Kubernetes
 
-Ett AI-program (artificiell intelligens) är program kod inbäddad med en modell med förtränad Machine Learning (ML). Det finns alltid två strömmar av arbete för ett AI-program: Data experter bygger ML-modellen och appar utvecklar appen och visar den för slutanvändarna. Den här artikeln beskriver hur du implementerar en pipeline för kontinuerlig integrering och kontinuerlig leverans (CI/CD) för ett AI-program som bäddar in ML-modellen i käll koden för appen. Exempel koden och självstudien använder ett enkelt webb program för python-flaskan och hämtar en förtränad modell från ett privat Azure Blob Storage-konto. Du kan också använda ett AWS S3-lagrings konto.
+Ett AI-program (artificiell intelligens) är program kod inbäddad med en modell med förtränad Machine Learning (ML). Det finns alltid två strömmar av arbete för ett AI-program: data experter skapar ML-modellen och apparna utvecklar appen och visar den för slutanvändare att använda. Den här artikeln beskriver hur du implementerar en pipeline för kontinuerlig integrering och kontinuerlig leverans (CI/CD) för ett AI-program som bäddar in ML-modellen i käll koden för appen. Exempel koden och självstudien använder en webb program för python-flaskan och hämtar en förtränad modell från ett privat Azure Blob Storage-konto. Du kan också använda ett AWS S3-lagrings konto.
 
 > [!NOTE]
 > Följande process är en av flera olika sätt att göra CI/CD. Det finns alternativ för det här verktyget och kraven.

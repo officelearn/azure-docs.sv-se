@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921019"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719831"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -21,11 +21,9 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>Nytt tjänst namn för Azure Search
+## <a name="new-service-name"></a>Nytt tjänst namn
 
-Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. Även om kognitiva färdigheter lägger till nya funktioner, är det strikt alternativ att använda AI. Du kan fortsätta att använda Azure Kognitiv sökning utan AI för att skapa omfattande, full texts öknings lösningar över privat, heterogena, textbaserat innehåll i ett index som du skapar och hanterar i molnet. 
-
-API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Dina befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
+Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade (ännu valfria) användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Nya och befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
 

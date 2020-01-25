@@ -8,12 +8,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 12/23/2019
 ms.reviewer: ''
-ms.openlocfilehash: f93ab61fcba53ebf39adf8ad56137f4a1df7d5fd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615031"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715175"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>Spelbok Security Best Practices Azure SQL Database
 
@@ -258,9 +258,9 @@ Följande metod tips är valfria men ger bättre hanterbarhet och support för d
 - Skapa och Använd anpassade roller när inbyggda roller ger för många eller otillräckliga behörigheter. Vanliga roller som används i praktiken: 
   - Säkerhets distribution 
   - Administratör 
-  - Developer 
+  - Utvecklare 
   - Support personal 
-  - Revisor 
+  - Kontrollant 
   - Automatiserade processer 
   - Slutanvändare 
 
@@ -462,7 +462,7 @@ När du använder CLE:
 - Skydda symmetriska nycklar med asymmetriska nycklar/certifikat (inte lösen ord) för att undvika att använda 3DES. 
 
 - Var försiktig när du migrerar en databas med hjälp av kryptering på cell nivå via export/import (BACPAC-filer). 
-  - Se artikeln [rekommendationer för att använda kryptering på cell nivå i Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) om hur du förhindrar återfick-nycklar när du migrerar data och för andra rekommendationer om bästa praxis.
+  - Se artikeln [rekommendationer för att använda kryptering på cell nivå i Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) om hur du förhindrar att nycklar går förlorade vid migrering av data, och för andra rekommendationer om bästa praxis.
 
 När du använder Always Encrypted bör du tänka på att Always Encrypted främst har utformats för att skydda känsliga data som används av användare med hög behörighet för Azure SQL Database (moln operatörer, databas administratörer) – se [skydda känsliga data som används från privilegierade användare med hög](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)behörighet. Tänk på följande utmaningar när du använder Always Encrypted för att skydda data från program användare:
 

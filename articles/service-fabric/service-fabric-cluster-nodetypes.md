@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4175dfe4ed5b7aa1064e8ba25c5b44243e4c79b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028503"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722347"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 
@@ -74,12 +74,12 @@ Följande är egenskaps beskrivningarna:
 | --- | --- | --- | --- |
 | namn | sträng | unikt namn för tillägg |
 | typ | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | Identifierar OS-Service Fabric som startas |
-| autoUpgradeMinorVersion | sant eller falskt | Aktivera automatisk uppgradering av SF runtime minor-versioner |
-| publisher | Microsoft.Azure.ServiceFabric | namnet på Service Fabric omfattnings utgivaren |
+| autoUpgradeMinorVersion | Sant eller falskt | Aktivera automatisk uppgradering av SF runtime minor-versioner |
+| publisher | Microsoft.Azure.ServiceFabric | Namnet på Service Fabric anknytnings utgivaren |
 | clusterEndpont | sträng | URI: PORT till hanterings slut punkt |
 | NodeTypeRef | sträng | namn på nodeType |
 | durabilityLevel | bronze, silver, gold, platinum | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
-| enableParallelJobs | sant eller falskt | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
+| enableParallelJobs | Sant eller falskt | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | Vanliga namn på installerade kluster certifikat |
 | x509StoreName | sträng | Namn på arkivet där det installerade kluster certifikatet finns |

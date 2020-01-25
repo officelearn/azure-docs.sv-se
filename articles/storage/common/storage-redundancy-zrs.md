@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0e6b87ff34d6555fda50518198f9ae3839aa56e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895186"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719100"
 ---
 # <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>Bygga program med hög tillgänglighet med Zone-redundant lagring (ZRS)
 
@@ -34,6 +34,7 @@ För General-Purpose v2-konton är ZRS allmänt tillgängligt i följande region
 - Västeuropa
 - Frankrike, centrala
 - Japan, östra
+- Sydafrika, norra
 - Storbritannien, södra
 - USA, centrala
 - USA, östra
@@ -88,7 +89,7 @@ Under direktmigrering kan du använda ditt lagringskonto medan dina data migrera
 Tänk på följande begränsningar för direktmigrering:
 
 - Microsoft hanterar din begäran om direktmigrering utan dröjsmål, men det finns inte någon garanti om när den slutförs. Om dina data måste migreras till ZRS före ett visst datum rekommenderar Microsoft att du utför en manuell migrering i stället. Ju mer data du har på ditt konto, desto längre tid tar det vanligtvis att migrera dina data. 
-- Direktmigrering stöds endast för lagrings konton som använder LRS eller GRS-replikering. Om ditt konto använder RA-GRS måste du först ändra ditt kontos replikeringstyp till antingen LRS eller GRS innan du fortsätter. Detta mellanliggande steg tar bort den sekundära skrivskyddade slut punkten som tillhandahålls av RA-GRS innan migreringen.
+- Direktmigrering stöds endast för lagrings konton som använder LRS-replikering. Om ditt konto använder GRS eller RA-GRS måste du först ändra ditt kontos replikeringstyp till LRS innan du fortsätter. Detta mellanliggande steg tar bort den sekundära slut punkten som tillhandahålls av GRS/RA-GRS.
 - Ditt konto måste innehålla data.
 - Du kan bara migrera data inom samma region. Om du vill migrera dina data till ett ZRS-konto som finns i en annan region än käll kontot, måste du utföra en manuell migrering.
 - Endast standard lagrings konto typer stöder Direktmigrering. Premium Storage-konton måste migreras manuellt.
@@ -130,9 +131,9 @@ När migreringen har slutförts ändras replikeringstillståndet för kontona ti
 
 ZRS har endast stöd för General-Purpose v2-konton, så innan du skickar en begäran om en Direktmigrering till ZRS måste du uppgradera dina konton till General-Purpose v2. Mer information finns i [Översikt över Azure Storage-kontot](https://docs.microsoft.com/azure/storage/common/storage-account-overview) och [Uppgradera till ett allmänt lagrings konto för allmän användning v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) .
 
-**Kan jag begära en direktmigrering av mitt Läs åtkomst till Geo-redundant lagrings konto (RA-GRS) till ZRS?**
+**Kan jag begära en direktmigrering av mitt Geo-redundant eller Geo-redundant lagrings konto (GRS/RA-GRS) för Geo-redundant lagring (s) till ZRS?**
 
-Innan du skickar en begäran om Direktmigrering till ZRS bör du se till att dina program eller arbets belastningar inte längre behöver åtkomst till den sekundära skrivskyddade slut punkten och ändra replikeringstillståndet för dina lagrings konton till Geo-redundant lagring (GRS). Mer information finns i [ändra replikeringsprincip](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) .
+Direktmigrering stöds endast för lagrings konton som använder LRS-replikering. Om ditt konto använder GRS eller RA-GRS måste du först ändra ditt kontos replikeringstyp till LRS innan du fortsätter. Detta mellanliggande steg tar bort den sekundära slut punkten som tillhandahålls av GRS/RA-GRS. Innan du skickar en begäran om en Direktmigrering till ZRS måste du också se till att dina program eller arbets belastningar inte längre behöver åtkomst till den sekundära skrivskyddade slut punkten och ändra replikeringstillståndet för dina lagrings konton till lokalt redundant lagring (LRS). Mer information finns i [ändra replikeringsprincip](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) .
 
 **Kan jag begära direktmigrering av mitt lagrings konto till ZRS till en annan region?**
 

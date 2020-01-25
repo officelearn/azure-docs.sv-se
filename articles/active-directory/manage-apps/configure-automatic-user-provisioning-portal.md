@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e776ce8a455f2a5b453e23ebb996de9ddb5175a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430184"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711975"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
@@ -38,7 +38,7 @@ Använd Azure Active Directory Portal för att visa och hantera alla program som
 1. Välj en app för att läsa in resurs fönstret där du kan visa rapporter och hantera inställningar för appar.
 1. Välj **etablering** för att hantera inställningar för etablering av användar konto för den valda appen.
 
-   ![Etablerings skärmen för att hantera inställningar för användar konto etablering](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Etablerings skärmen för att hantera inställningar för användar konto etablering](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>Etablerings lägen
 
@@ -68,7 +68,7 @@ Expandera **mappningar** för att visa och redigera användarattribut som flöda
 
 Det finns en förkonfigurerad uppsättning mappningar mellan användar objekt i Azure AD och varje SaaS-Apps användar objekt. Vissa appar hanterar andra typer av objekt, t. ex. grupper eller kontakter. Välj en mappning i tabellen för att öppna mappnings redigeraren till höger, där du kan visa och anpassa dem.
 
-![Visar skärmen för mappning av attribut](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Visar skärmen för mappning av attribut](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Anpassningar som stöds är:
 
@@ -88,4 +88,4 @@ Om etableringen aktive ras för första gången för ett program aktiverar du tj
 
 Ändra **etablerings statusen** till **av** för att pausa etablerings tjänsten. I det här läget skapar inte Azure, uppdaterar eller tar bort användar-eller grupp objekt i appen. Ändra statusen tillbaka till **på** och tjänsten hämtar var den slutade.
 
-**Rensa nuvarande tillstånd och starta om synkronisering** utlöser en första cykel. Tjänsten utvärderar sedan alla användare i käll systemet igen och fastställer om de är inom omfånget för etablering. Detta kan vara användbart när ditt program är i karantän eller om du behöver göra en ändring i mappningarna för attribut. Observera att den första cykeln tar längre tid än den normala stegvisa cykeln på grund av antalet objekt som måste utvärderas. Du kan lära dig mer om prestanda för inledande och stegvisa cykler [här.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).. 
+**Rensa nuvarande tillstånd och starta om synkronisering** utlöser en första cykel. Tjänsten utvärderar sedan alla användare i käll systemet igen och fastställer om de är inom omfånget för etablering. Detta kan vara användbart när ditt program är i karantän eller om du behöver göra en ändring i mappningarna för attribut. Observera att den första cykeln tar längre tid än den normala stegvisa cykeln på grund av antalet objekt som måste utvärderas. Du kan lära dig mer om prestanda för inledande och stegvisa cykler [här](application-provisioning-when-will-provisioning-finish-specific-user.md). 

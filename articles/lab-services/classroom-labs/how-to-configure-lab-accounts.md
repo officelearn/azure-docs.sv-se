@@ -1,6 +1,6 @@
 ---
 title: Konfigurera labb konton i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du konfigurerar ett labb konto när det har skapats.
+description: Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 1a1b1e662a2e9adedfc68f1818f868c0a5318652
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 597bbfdc35c556b5c75968084c01ac222fc468f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428968"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718081"
 ---
 # <a name="configure-lab-accounts-in-azure-lab-services"></a>Konfigurera labb konton i Azure Lab Services 
 I Azure Lab Services är ett labb konto en behållare för hanterade labb typer, till exempel klass rums labb. En administratör konfigurerar ett labb konto med Azure Lab Services och ger till gång till labb ägare som kan skapa labb i kontot. Den här artikeln beskriver hur du skapar ett labb konto, visar alla labb konton eller tar bort ett labb konto.

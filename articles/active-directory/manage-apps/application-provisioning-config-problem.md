@@ -16,18 +16,18 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55b9b8dae6ff47099935f42f75286b1b4ddd3708
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4da7c874cc5f883d63f8613242c7a7e8b1e83cbd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275749"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712272"
 ---
 # <a name="problem-configuring-user-provisioning-to-an-azure-ad-gallery-application"></a>Problem med att konfigurera användar etablering i ett Azure AD Gallery-program
 
-Konfigurera [Automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning) för en app (där stöds) kräver att specifika instruktioner följs för att förbereda programmet för automatisk etablering. Sedan kan du använda Azure Portal för att konfigurera etablerings tjänsten för att synkronisera användar konton till programmet.
+Konfigurera [Automatisk användar etablering](user-provisioning.md) för en app (där stöds) kräver att specifika instruktioner följs för att förbereda programmet för automatisk etablering. Sedan kan du använda Azure Portal för att konfigurera etablerings tjänsten för att synkronisera användar konton till programmet.
 
-Du bör alltid starta genom att söka efter installations självstudien som är specifik för att konfigurera etablering för ditt program. Följ sedan dessa steg för att konfigurera både appen och Azure AD för att skapa en etablerings anslutning. En lista med själv studie kurser finns i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+Du bör alltid starta genom att söka efter installations självstudien som är specifik för att konfigurera etablering för ditt program. Följ sedan dessa steg för att konfigurera både appen och Azure AD för att skapa en etablerings anslutning. En lista med själv studie kurser finns i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md).
 
 ## <a name="how-to-see-if-provisioning-is-working"></a>Så här ser du om etableringen fungerar 
 
@@ -62,11 +62,11 @@ För att etableringen ska fungera kräver Azure AD giltiga autentiseringsuppgift
 
 När en användare visas som "överhoppad" i etablerings loggarna är det mycket viktigt att läsa den utökade informationen i logg meddelandet för att fastställa orsaken. Nedan visas vanliga orsaker och lösningar:
 
-- **Ett omfångs filter har kon figurer ATS** **som filtrerar användaren utifrån ett attributvärde**. Mer information om omfångs filter finns <https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters>.
+- **Ett omfångs filter har kon figurer ATS** **som filtrerar användaren utifrån ett attributvärde**. Mer information finns i [attribut-baserad program etablering med omfångs filter](define-conditional-rules-for-provisioning-user-accounts.md).
 
-- **Användaren är "inte korrekt berättigad".** Om du ser det här fel meddelandet beror det på att det finns ett problem med användar tilldelnings posten som är lagrad i Azure AD. Du kan åtgärda det här problemet genom att ta bort användaren (eller gruppen) från appen och sedan tilldela den igen. Mer information om tilldelning finns i <https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal>.
+- **Användaren är "inte korrekt berättigad".** Om du ser det här fel meddelandet beror det på att det finns ett problem med användar tilldelnings posten som är lagrad i Azure AD. Du kan åtgärda det här problemet genom att ta bort användaren (eller gruppen) från appen och sedan tilldela den igen. Mer information finns i [tilldela en användare eller grupp till en Enterprise-App](assign-user-or-group-access-portal.md).
 
-- **Ett nödvändigt attribut saknas eller har inte fyllts i för en användare.** Ett viktigt saker att tänka på när du konfigurerar etableringen är att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Detta innefattar att ange "matchande egenskap" som används för att unikt identifiera och matcha användare/grupper mellan de två systemen. Mer information om den här viktiga processen finns <https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings>.
+- **Ett nödvändigt attribut saknas eller har inte fyllts i för en användare.** Ett viktigt saker att tänka på när du konfigurerar etableringen är att granska och konfigurera de mappningar och arbets flöden som definierar vilka användar egenskaper (eller grupp) som flödar från Azure AD till programmet. Detta innefattar att ange "matchande egenskap" som används för att unikt identifiera och matcha användare/grupper mellan de två systemen. Mer information om den här viktiga processen finns i [Anpassa användar etablering attribut-mappningar](customize-application-attributes.md).
 
   * **Attribut mappningar för grupper:** Etablering av grupp namn och grupp information, förutom medlemmarna, om de stöds för vissa program. Du kan aktivera eller inaktivera den här funktionen genom att aktivera eller inaktivera **mappningen** för grupp objekt som visas på fliken **etablering** . Om etablerings grupper har Aktiver ATS, se till att granska mappningar för attribut för att säkerställa att ett lämpligt fält används för "matchande ID". Detta kan vara visnings namnet eller e-postaliaset, eftersom gruppen och dess medlemmar inte tillhandahålls om matchande egenskap är tom eller inte har fyllts i för en grupp i Azure AD.
 

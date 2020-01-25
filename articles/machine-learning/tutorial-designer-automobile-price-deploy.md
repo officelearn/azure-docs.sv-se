@@ -1,7 +1,7 @@
 ---
 title: 'Självstudie: Distribuera en maskin inlärnings modell med designern'
 titleSuffix: Azure Machine Learning
-description: Den här självstudien visar hur du skapar en förutsägelse analys lösning i Azure Machine Learning designer. Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
+description: Den här självstudien visar hur du skapar en förutsägelse analys lösning i Azure Machine Learning designer (för hands version). Träna, score och distribuera en maskin inlärnings modell med hjälp av dra-och-släpp-moduler.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 89fdac5e59b59c60d7e20b94799d78b029d236d6
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 470e633b2c64283db9b6a5b1cd777a6a054dad16
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315005"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719797"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Självstudie: Distribuera en maskin inlärnings modell med designern
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Självstudie: Distribuera en maskin inlärnings modell med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 Du kan distribuera den förutsägande modellen som utvecklats i [del ett av självstudien](tutorial-designer-automobile-price-train-score.md) för att ge andra möjlighet att använda den. I del ett tränar du din modell. Nu är det dags att generera nya förutsägelser baserat på användarindata. I den här delen av självstudien får du göra följande:
@@ -55,10 +55,6 @@ Om du vill distribuera din pipeline måste du först konvertera inlärnings pipe
     >
 
 1. Välj **Kör**och Använd samma beräknings mål och experiment som du använde i del ett.
-
-1. Välj modulen **Poäng modell** .
-
-1. I fönstret Egenskaper väljer du **utdata** > **visualisera** för att kontrol lera att modellen fortfarande fungerar. Du kan se att ursprungliga data visas tillsammans med det förväntade priset ("Poäng etiketter").
 
 1. Välj **Distribuera**.
 

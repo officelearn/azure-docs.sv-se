@@ -8,16 +8,16 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d6b8cdf43fea63fa4709dd5fc5319bb92ddefc63
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806981"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721310"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Key Vault tillägg för virtuell dator för Linux
 
-Key Vault VM-tillägget ger automatisk uppdatering av certifikat som lagras i ett Azure Key Vault. Mer specifikt övervakar tillägget en lista över observerade certifikat som lagras i nyckel valv.  Vid identifiering av en ändring hämtas och installeras motsvarande certifikat i omfattningen. Key Vault VM-tillägget publiceras och stöds av Microsoft, för närvarande på virtuella Linux-datorer. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Key Vault VM-tillägget för Linux. 
+Key Vault VM-tillägget ger automatisk uppdatering av certifikat som lagras i ett Azure Key Vault. Mer specifikt övervakar tillägget en lista över observerade certifikat som lagras i nyckel valv.  Vid identifiering av en ändring, hämtar tillägget och installerar motsvarande certifikat. Key Vault VM-tillägget publiceras och stöds av Microsoft, för närvarande på virtuella Linux-datorer. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Key Vault VM-tillägget för Linux. 
 
 ### <a name="operating-system"></a>Operativsystem
 
@@ -69,15 +69,15 @@ Följande JSON visar schemat för Key Vault VM-tillägget. Tillägget kräver in
 
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
-| apiVersion | 2019-07-01 | datum |
+| apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | sträng |
 | typ | KeyVaultForLinux | sträng |
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | sträng |
 | Certifikat Arkiv | MY | sträng |
-| linkOnRenewal | false | boolesk |
+| linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | sträng |
-| requiredInitialSync | sant | boolesk |
+| requiredInitialSync | sant | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | sträng mat ris
 
 

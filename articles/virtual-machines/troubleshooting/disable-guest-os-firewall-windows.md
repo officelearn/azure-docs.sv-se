@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 292b53fac6c970fb961e8ad4ce7774c080e52422
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705554"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718879"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
 
@@ -58,7 +58,7 @@ Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](.
 
 1.  Anslut till en virtuell dator som finns i samma virtuella nätverk som den virtuella datorn som du inte kan komma åt med hjälp av RDP-anslutning.
 
-2.  Öppna ett fönster i PowerShell-konsolen.
+2.  Öppna ett PowerShell-konsolfönster.
 
 3.  Kör följande kommandon:
 
@@ -118,9 +118,9 @@ Följ dessa steg om du vill använda [fjär registret](https://support.microsoft
 
 Om du har en situation där du inte kan komma åt den virtuella datorn med någon annan metod kommer det inte att gå att använda det anpassade skript tillägget och du måste arbeta i OFFLINELÄGE genom att gå direkt genom system disken. Det gör du genom att följa dessa steg:
 
-1.  [Anslut system disken till en virtuell återställnings dator](troubleshoot-recovery-disks-portal-windows.md).
+1.  [Koppla systemdisken till virtuell återställningsdator](troubleshoot-recovery-disks-portal-windows.md).
 
-2.  Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn.
+2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 
 3.  Kontrol lera att disken är flaggad som online i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna system disken.
 
@@ -148,7 +148,7 @@ Om du har en situation där du inte kan komma åt den virtuella datorn med någo
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'BROKENSYSTEM\ControlSet00'+$ControlSet+'\services\SharedAccess\Parameters\FirewallPolicy\StandardProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
-    # To ensure the firewall is not set thru AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
+    # To ensure the firewall is not set through AD policy, check if the following registry entries exist and if they do, then check if the following entries exist:
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile'
     Set-ItemProperty -Path $key -name 'EnableFirewall' -Value 0 -Type Dword -force
     $key = 'HKLM:\BROKENSOFTWARE\Policies\Microsoft\WindowsFirewall\PublicProfile'
@@ -160,6 +160,6 @@ Om du har en situation där du inte kan komma åt den virtuella datorn med någo
     reg unload HKLM\BROKENSOFTWARE
     ```
 
-10. [Koppla från system disken och skapa den virtuella datorn på nytt](troubleshoot-recovery-disks-portal-windows.md).
+10. [Koppla från systemdisken och återskapa den virtuella datorn](troubleshoot-recovery-disks-portal-windows.md).
 
-11. Kontrol lera om problemet är löst.
+11. Kontrollera om problemet är löst.

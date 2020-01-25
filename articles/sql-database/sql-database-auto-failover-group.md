@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 73314cb2d3ac77347e0de720a6a3ab0084181218
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732424"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722551"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -71,6 +71,13 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 - **Lägga till databaser i elastisk pool i redundans gruppen**
 
   Du kan publicera alla eller flera databaser i en elastisk pool i samma grupp för redundans. Om den primära databasen finns i en elastisk pool skapas den sekundära automatiskt i den elastiska poolen med samma namn (sekundär pool). Du måste se till att den sekundära servern innehåller en elastisk pool med samma exakta namn och tillräckligt med ledigt utrymme som värd för de sekundära databaserna som ska skapas av gruppen för växling vid fel. Om du lägger till en databas i poolen som redan har en sekundär databas i den sekundära poolen ärvs den geo-replikeringslänken av gruppen. När du lägger till en databas som redan har en sekundär databas i en server som inte är en del av gruppen redundans, skapas en ny sekundär i den sekundära poolen.
+  
+- **Inledande seeding** 
+
+  När du lägger till databaser, elastiska pooler eller hanterade instanser till en failover-grupp, finns det en första initierings fas innan datareplikeringen startar. Den första initierings fasen är den längsta och dyraste åtgärden. När den första dirigeringen har slutförts, synkroniseras data och endast efterföljande data ändringar replikeras. Hur lång tid det tar att slutföra det första startvärdet beror på storleken på dina data, antalet replikerade databaser och länkens hastighet mellan entiteterna i gruppen redundans. I normala fall är vanlig seeding-hastighet 50-500 GB per timme för en enskild databas eller elastisk pool och 18-35 GB per timme för en hanterad instans. Dirigering utförs för alla databaser parallellt. Du kan använda den angivna Dirigerings hastigheten, tillsammans med antalet databaser och den totala storleken på data för att uppskatta hur lång tid det första initierings fasen tar innan datareplikeringen startar.
+
+  För hanterade instanser måste du också ta hänsyn till hastigheten för Express Route-länken mellan de två instanserna när du uppskattar tiden för den inledande initierings fasen. Om hastigheten för länken mellan de två instanserna är långsammare än vad som är nödvändigt, kommer tiden till Seed förmodligen att påverkas i synnerhet. Du kan använda den angivna Dirigerings hastigheten, antalet databaser, den totala storleken på data och länk hastigheten för att uppskatta hur lång tid det första initierings steget tar innan datareplikeringen startar. För till exempel en enskild 100 GB-databas tar den inledande fasen start-fasen var som helst från 2,8-5,5 timmar om länken kan sända 35 GB per timme. Om länken bara kan överföra 10 GB per timme tar det cirka 10 timmar att initiera en 100 GB-databas. Om det finns flera databaser att replikera, körs dirigeringen parallellt och, i kombination med en långsam länk hastighet, kan den första initierings fasen ta betydligt längre tid, särskilt om den parallella initieringen av data från alla databaser överskrider den tillgängliga länk bandbredd. Om nätverks bandbredden mellan två instanser är begränsad och du lägger till flera hanterade instanser i en failover-grupp, bör du överväga att lägga till flera hanterade instanser i gruppen redundans i turordning, en i taget.
+
   
 - **DNS-zon**
 
@@ -453,7 +460,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 | [Ta bort redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/delete) | Tar bort en redundans-grupp från instansen |
 | [Redundansväxling (planerad)](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/failover) | Utlöser redundans från den aktuella primära instansen till den här instansen med fullständig datasynkronisering. |
 | [Framtvinga redundans Tillåt data förlust](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/forcefailoverallowdataloss) | Utlöser redundans från den aktuella primära instansen till den sekundära instansen utan att synkronisera data. Den här åtgärden kan leda till data förlust. |
-| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | hämtar en failover-grupps konfiguration. |
+| [Hämta redundans grupp](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/get) | Hämtar en failover-grupps konfiguration. |
 | [Visa lista över redundanskluster – lista efter plats](https://docs.microsoft.com/rest/api/sql/instancefailovergroups/listbylocation) | Visar en lista över failover-grupper på en plats. |
 
 ## <a name="next-steps"></a>Nästa steg

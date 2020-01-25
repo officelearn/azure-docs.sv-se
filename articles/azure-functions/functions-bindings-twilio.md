@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c24e8b6098ba33a2e738a7f5f310ae7e65ee516
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 1426d6e770cca566c4b77ca4742e2f8a0fbb5465
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925282"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715060"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Twilio-bindning för Azure Functions
 
@@ -31,181 +31,11 @@ Twilio-bindningarna finns i [Microsoft. Azure. WebJobs. Extensions. Twilio](http
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example---functions-1x"></a>Exempel – Functions 1. x
-
-Se exempel språkspecifika:
-
-* [C#](#c-example)
-* [C#-skript (.csx)](#c-script-example)
-* [JavaScript](#javascript-example)
-
-### <a name="c-example"></a>C#exempel
-
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skickar ett SMS när det utlöses av ett Queue-meddelande.
-
-```cs
-[FunctionName("QueueTwilio")]
-[return: TwilioSms(AccountSidSetting = "TwilioAccountSid", AuthTokenSetting = "TwilioAuthToken", From = "+1425XXXXXXX" )]
-public static SMSMessage Run(
-    [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] JObject order,
-    TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {order}");
-
-    var message = new SMSMessage()
-    {
-        Body = $"Hello {order["name"]}, thanks for your order!",
-        To = order["mobileNumber"].ToString()
-    };
-
-    return message;
-}
-```
-
-I det här exemplet används attributet `TwilioSms` med metodens retur värde. Ett alternativ är att använda attributet med en `out SMSMessage` parameter eller en `ICollector<SMSMessage>`-eller `IAsyncCollector<SMSMessage>`-parameter.
-
-### <a name="c-script-example"></a>C#skript exempel
-
-I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en `out` parameter för att skicka ett textmeddelande.
-
-Här är bindnings data i *Function. JSON* -filen:
-
-Exempel funktion. JSON:
-
-```json
-{
-  "type": "twilioSms",
-  "name": "message",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "+1704XXXXXXX",
-  "from": "+1425XXXXXXX",
-  "direction": "out",
-  "body": "Azure Functions Testing"
-}
-```
-
-Här är C# skript koden:
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using Newtonsoft.Json;
-using Twilio;
-
-public static void Run(string myQueueItem, out SMSMessage message,  TraceWriter log)
-{
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a 
-    // customer and a mobile number to send text updates to.
-    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
-    string msg = "Hello " + order.name + ", thank you for your order.";
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    message = new SMSMessage();
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use 
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
-    message.Body = msg;
-    message.To = order.mobileNumber;
-}
-```
-
-Du kan inte använda out-parametrar i asynkron kod. Här är ett exempel C# på en asynkron skript kod:
-
-```cs
-#r "Newtonsoft.Json"
-#r "Twilio.Api"
-
-using System;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
-using Twilio;
-
-public static async Task Run(string myQueueItem, IAsyncCollector<SMSMessage> message,  ILogger log)
-{
-    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a 
-    // customer and a mobile number to send text updates to.
-    dynamic order = JsonConvert.DeserializeObject(myQueueItem);
-    string msg = "Hello " + order.name + ", thank you for your order.";
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the SMSMessage variable.
-    SMSMessage smsText = new SMSMessage();
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use 
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
-    smsText.Body = msg;
-    smsText.To = order.mobileNumber;
-
-    await message.AddAsync(smsText);
-}
-```
-
-### <a name="javascript-example"></a>JavaScript-exempel
-
-I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
-
-Här är bindnings data i *Function. JSON* -filen:
-
-Exempel funktion. JSON:
-
-```json
-{
-  "type": "twilioSms",
-  "name": "message",
-  "accountSid": "TwilioAccountSid",
-  "authToken": "TwilioAuthToken",
-  "to": "+1704XXXXXXX",
-  "from": "+1425XXXXXXX",
-  "direction": "out",
-  "body": "Azure Functions Testing"
-}
-```
-
-Här är JavaScript-kod:
-
-```javascript
-module.exports = function (context, myQueueItem) {
-    context.log('Node.js queue trigger function processed work item', myQueueItem);
-
-    // In this example the queue item is a JSON string representing an order that contains the name of a 
-    // customer and a mobile number to send text updates to.
-    var msg = "Hello " + myQueueItem.name + ", thank you for your order.";
-
-    // Even if you want to use a hard coded message and number in the binding, you must at least 
-    // initialize the message binding.
-    context.bindings.message = {};
-
-    // A dynamic message can be set instead of the body in the output binding. In this example, we use 
-    // the order information to personalize a text message to the mobile number provided for
-    // order status updates.
-    context.bindings.message = {
-        body : msg,
-        to : myQueueItem.mobileNumber
-    };
-
-    context.done();
-};
-```
+<a id="example"></a>
 
 ## <a name="example---functions-2x-and-higher"></a>Exempel: Functions 2. x och högre
 
-Se exempel språkspecifika:
-
-* [2. x +C#](#2x-c-example)
-* [2. x + C# skript (. CSX)](#2x-c-script-example)
-* [2. x + Java Script](#2x-javascript-example)
-
-### <a name="2x-c-example"></a>2. x + C# -exempel
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som skickar ett SMS när det utlöses av ett Queue-meddelande.
 
@@ -240,7 +70,7 @@ namespace TwilioQueueOutput
 
 I det här exemplet används attributet `TwilioSms` med metodens retur värde. Ett alternativ är att använda attributet med en `out CreateMessageOptions` parameter eller en `ICollector<CreateMessageOptions>`-eller `IAsyncCollector<CreateMessageOptions>`-parameter.
 
-### <a name="2x-c-script-example"></a>2. x + C# -skript exempel
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
 
 I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen använder en `out` parameter för att skicka ett textmeddelande.
 
@@ -326,7 +156,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### <a name="2x-javascript-example"></a>2. x + JavaScript-exempel
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 I följande exempel visas en Twilio utgående bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen.
 
@@ -371,7 +201,93 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="attributes"></a>Attribut
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+I följande exempel visas hur du skickar ett SMS-meddelande med hjälp av utgående bindning som definieras i följande *funktion. js*.
+
+```json
+    {
+      "type": "twilioSms",
+      "name": "twilioMessage",
+      "accountSidSetting": "TwilioAccountSID",
+      "authTokenSetting": "TwilioAuthToken",
+      "from": "+1XXXXXXXXXX",
+      "direction": "out",
+      "body": "Azure Functions Testing"
+    }
+```
+
+Du kan skicka ett serialiserat JSON-objekt till `func.Out`-parametern för att skicka SMS-meddelandet.
+
+```python
+import logging
+import json
+import azure.functions as func
+
+def main(req: func.HttpRequest, twilioMessage: func.Out[str]) -> func.HttpResponse:
+
+    message = req.params.get('message')
+    to = req.params.get('to')
+
+    value = {
+      "body": message,
+      "to": to
+    }
+
+    twilioMessage.set(json.dumps(value))
+
+    return func.HttpResponse(f"Message sent")
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+I följande exempel visas hur du använder [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) -anteckningen för att skicka ett SMS-meddelande. Värdena för `to`, `from`och `body` krävs i definitionen av attributet även om du åsidosätter dem program mässigt.
+
+```java
+package com.function;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class TwilioOutput {
+
+    @FunctionName("TwilioOutput")
+    public HttpResponseMessage run(
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST },
+                authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
+            @TwilioSmsOutput(
+                name = "twilioMessage",
+                accountSid = "AzureWebJobsTwilioAccountSID",
+                authToken = "AzureWebJobsTwilioAuthToken",
+                to = "+1XXXXXXXXXX",
+                body = "From Azure Functions",
+                from = "+1XXXXXXXXXX") OutputBinding<String> twilioMessage,
+            final ExecutionContext context) {
+
+        String message = request.getQueryParameters().get("message");
+        String to = request.getQueryParameters().get("to");
+
+        StringBuilder builder = new StringBuilder()
+            .append("{")
+            .append("\"body\": \"%s\",")
+            .append("\"to\": \"%s\"")
+            .append("}");
+
+        final String body = String.format(builder.toString(), message, to);
+
+        twilioMessage.setValue(body);
+
+        return request.createResponseBuilder(HttpStatus.OK).body("Message sent").build();
+    }
+}
+```
+
+---
+
+## <a name="attributes-and-annotations"></a>Attribut och anteckningar
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 Använd attributet [TwilioSms](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/TwilioSMSAttribute.cs) i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
@@ -387,7 +303,25 @@ public static CreateMessageOptions Run(
 }
  ```
 
-Ett fullständigt exempel finns i [ C# exemplet](#c-example).
+Ett fullständigt exempel finns i [ C# exemplet](#example).
+
+# <a name="c-scripttabcsharp-script"></a>[C#Över](#tab/csharp-script)
+
+Attribut stöds inte av C# skript.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+Attribut stöds inte av Java Script.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Attribut stöds inte av python.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Placera [TwilioSmsOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.twiliosmsoutput) -anteckning på en [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.outputbinding) parameter där `T` kan vara valfri ursprunglig Java-typ, till exempel `int`, `String`, `byte[]`eller en POJO-typ.
+
+---
 
 ## <a name="configuration"></a>Konfiguration
 
@@ -396,10 +330,10 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 | v1 function. JSON-egenskap | v2 function. JSON-egenskap | Attributegenskapen |Beskrivning|
 |---------|---------|---------|----------------------|
 |**typ**|**typ**| måste anges till `twilioSms`.|
-|**riktning**|**riktning**| Måste anges till `out`.|
+|**riktning**|**riktning**| måste anges till `out`.|
 |**Namn**|**Namn**| Variabel namn som används i funktions kod för SMS-textmeddelandet för Twilio. |
-|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Värdet måste anges till namnet på en app-inställning som innehåller ditt Twilio-konto-sid, t. ex. TwilioAccountSid. Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAccountSid". |
-|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Värdet måste anges till namnet på en app-inställning som innehåller din Twilio-autentiseringstoken, t. ex. TwilioAccountAuthToken. Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAuthToken". |
+|**accountSid**|**accountSidSetting**| **AccountSidSetting**| Värdet måste anges till namnet på en app-inställning som innehåller ditt Twilio-konto-sid (`TwilioAccountSid`). Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAccountSid". |
+|**authToken**|**authTokenSetting**|**AuthTokenSetting**| Värdet måste anges till namnet på en app-inställning som innehåller din Twilio-autentiseringstoken (`TwilioAccountAuthToken`). Om den inte anges är standardinställnings namnet för appen "AzureWebJobsTwilioAuthToken". |
 |**to**| Ej tillämpligt – ange i kod | **Till**| Det här värdet anges till det telefonnummer som SMS-texten skickas till.|
 |**from**|**from** | **From**| Det här värdet anges till det telefonnummer som SMS-texten skickas från.|
 |**body**|**body** | **Brödtext**| Det här värdet kan användas för att hårdkoda SMS-textmeddelandet om du inte behöver ange det dynamiskt i koden för din funktion. |  

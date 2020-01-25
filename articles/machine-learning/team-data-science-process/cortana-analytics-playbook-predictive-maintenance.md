@@ -3,20 +3,20 @@ title: Azure AI-guide för lösningar för förebyggande underhåll - Team Data 
 description: En heltäckande beskrivning av datavetenskap som används av lösningar för förebyggande underhåll i flera branscher.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: d5201cd2e7c117e1229fcd04d77e8c429c1fc8ba
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 5cd16280ba942404ffb23fd1c9d0e1a20af8c7c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977139"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721820"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Azure AI-guide för lösningar för förebyggande underhåll
 
@@ -43,7 +43,7 @@ Innehållet BDM förväntar sig inte läsaren ha kännedom tidigare data science
 
 Företag kräver att kritisk utrustning ska kunna köras med högsta effektivitet och utnyttjande för att realisera avkastningen på kapitalinvesteringar. Dessa tillgångar kan vara allt från flygplansmotorer, turbiner eller industriella kylaggregat – som kostar flera miljoner – till vardagsapparater som kopiatorer, kaffebryggare eller vattenkylare.
 - Som standard är de flesta företag förlitar sig på _korrigerande Underhåll_, där delar ersätts som och när de misslyckas. Korrigerande underhåll ser till att delar används helt (och därför inte slösar med komponenters livslängd) men kostar företaget i stilleståndstid, arbete och krav på oplanerat underhåll (utanför arbetstid eller obekväma platser).
-- På nästa nivå, företag Övning _förebyggande underhåll_, där de fastställa användbara livslängden för en del och underhålla och Ersätt det innan ett fel. Förebyggande underhåll undviker oplanerade och katastrofala fel. Men de höga kostnaderna för schemalagd stilleståndstid under användning av komponenten innan dess fullständiga livslängd för användning och arbete som fortfarande är kvar.
+- På nästa nivå, företag Övning _förebyggande underhåll_, där de fastställa användbara livslängden för en del och underhålla och Ersätt det innan ett fel. Förebyggande underhåll undviker oplanerade och katastrofala fel. Men höga kostnader för schemalagd stillestånds tid, underutnyttjande av komponenten under dess livs längd och arbete fortfarande kvarstår.
 - Målet med _förebyggande underhåll_ är att optimera balans mellan korrigerande och förebyggande underhåll genom att aktivera _just-in-time_ ersättning av komponenter. Med den här metoden ersätts bara de komponenterna när felet är nära att uppstå. Genom att förlänga komponenters livslängd (jämfört med förebyggande underhåll) och minska oplanerat underhåll och arbetskostnader (överkorrigerande underhåll) kan företag spara pengar och få konkurrensfördelar.
 
 ## <a name="business-problems-in-pdm"></a>Affärsproblem i kontaktar
@@ -92,7 +92,7 @@ Det här avsnittet fokuserar på en uppsättning kontaktar användningsfall frå
 |**Finans** |                         |
 |_ATM-fel_ är ett vanligt problem inom bank-branschen. Problemet här är att rapportera sannolikheten att en ATM kontanter återkallar transaktion hämtar avbryts på grund av papper har fastnat eller en del pengar utgivaren. Utifrån förutsägelser för transaktionsfel kan Network betjänas proaktivt för att förhindra att fel inträffar.| I stället för att tillåta att datorn misslyckas halvvägs en transaktion, är önskvärt alternativet att programmet datorn för att neka tjänsten baserat på förutsägelser.|
 |**Energi** |                          |
-|_Lindnings turbin-problem_: vind turbiner är den huvudsakliga energi källan i miljö ansvariga länder/regioner och innefattar höga kapital kostnader. En viktig del i vind syfte är att generator-motorn. det inte gick återger turbinen ineffektiv. Det är också mycket billigare att åtgärda.|Förutse KPI: er, till exempel MTTF (tiden för felet) kan energibolag förhindra turbinen fel och se till att minimal avbrottstid. Fel sannolikhet informera tekniker för att övervaka syfte som sannolikt kommer att misslyckas snart och schemalägga en tidsbaserad Underhåll systemen. Förutsägande modeller ger insikter om olika faktorer som bidrar till fel, vilket hjälper till att tekniker bättre förstå rotorsaken till problem.|
+|_Lindnings turbin-problem_: vind turbiner är den huvudsakliga energi källan i miljö ansvariga länder/regioner och innefattar höga kapital kostnader. En viktig komponent i lindnings turbiner är Generator-motorn, vars haveri återger den ineffektiva turbinen. Det är också mycket billigare att åtgärda.|Förutse KPI: er, till exempel MTTF (tiden för felet) kan energibolag förhindra turbinen fel och se till att minimal avbrottstid. Fel sannolikhet informera tekniker för att övervaka syfte som sannolikt kommer att misslyckas snart och schemalägga en tidsbaserad Underhåll systemen. Förutsägande modeller ger insikter om olika faktorer som bidrar till fel, vilket hjälper till att tekniker bättre förstå rotorsaken till problem.|
 |_Kretsbrytare fel_: Distribution av el till hem och företag kräver power rader ska fungera när som helst att garantera energi leverans. Utlösts hjälper att begränsa eller undvika skada power rader under överbelastning eller negativ väderförhållanden. Affärsproblem här är att förutsäga kretsbrytare fel.| Kontaktar lösningar att minska kostnaderna för reparation och öka livslängden för nätverksutrustning som utlösts. De hjälper att förbättra kvaliteten på power-nätverk genom att minska oväntade fel och avbrott i tjänsten.|
 |**Transport och logistik** |    |
 |_Hiss dörren fel_: stora hiss företag tillhandahålla en fullständig stack-tjänst för miljontals funktionella hissar runt om i världen. Hiss säkerhet, tillförlitlighet och drifttid är de viktigaste aspekterna för sina kunder. Dessa företag spåra dessa och andra attribut via sensorer, för att hjälpa dem med korrigerande och förebyggande underhåll. I en hiss viktigaste kunden problemet fungerar inte hiss dörrar. Problem i verksamheten är i det här fallet att tillhandahålla en kunskapsbas förutsägande program som beräknar potentialen orsakar dörren fel.| Hissar är investeringar för potentiellt en livslängd på 20 – 30 år. Så att varje potentiell försäljning kan vara konkurrenskraftiga; Därför är förväntningar för service och support hög. Förutsägande Underhåll kan ge dessa företag flera fördelar jämfört med sina konkurrenter i sin produkt och Tjänsterbjudanden.|
@@ -271,7 +271,7 @@ Den här frågan är ”: Vad är sannolikheten att tillgången inte fungerar i 
 Figur 3. Etiketter för binär klassificering
 
 Exempel på märkning strategi för några av användningsfallen listas nedan.
-- _Flight fördröjningar_: X kan väljas som 1 dag att förutsäga fördröjningar i 24 timmar. Sedan alla flygningar som ligger inom ett dygn innan fel är märkta som 1.
+- _Fördröjningar i flygning_: X kan väljas som en dag för att förutsäga fördröjningar under de närmaste 24 timmarna. Sedan alla flygningar som ligger inom ett dygn innan fel är märkta som 1.
 - _ATM kontanter befria fel_: ett mål kan vara att avgöra sannolikheten för fel för en transaktion i nästa en timme. I så fall kan är alla transaktioner som inom den senaste timmen av fel märkta som 1. För att förutse sannolikheten för fel under nästa N valuta är information vara, alla anteckningar vara inom de senaste N-anteckningarna av ett fel märkta som 1.
 - _Kretsbrytare fel_: Målet kan vara att förutsäga nästa kretsbrytare-Kommandofel. I så fall väljs X ska vara ett framtida kommando.
 - _Träna dörren fel_: X kan väljas som två dagar.
@@ -423,9 +423,9 @@ Däremot kontaktar omfattar _batchbedömning_. För att uppfylla modellen signat
 
 Den sista delen av den här guiden innehåller en lista över kontaktar lösningsmallar, självstudier och experiment som implementeras i Azure. Dessa PdM-program kan distribueras till en Azure-prenumeration inom några minuter i vissa fall. De kan användas som proof of concept demonstrationer, sandbox-miljöer att experimentera med alternativ eller acceleratorer för implementeringar av faktiska produktionen. Dessa mallar finns i den [Azure AI-galleriet](https://gallery.azure.ai) eller [Azure GitHub](https://github.com/Azure). Dessa olika exempel kommer att finnas i den här lösningsmallen över tid.
 
-| # | Rubrik | Beskrivning |
+| # | Titel | Beskrivning |
 |--:|:------|-------------|
-| 2 | [Lösningsmallen för azures förutsägande Underhåll](https://github.com/Azure/AI-PredictiveMaintenance) | En lösnings mall med öppen källkod som visar Azure ML-modellering och en fullständig Azure-infrastruktur som kan stödja förebyggande underhålls scenarier i samband med IoT-fjärrövervakning. |
+| 2 | [Lösningsmallen för azures förutsägande Underhåll](https://github.com/Azure/AI-PredictiveMaintenance) | En lösnings mall med öppen källkod som demonstrerar Azure ML-modellering och en fullständig Azure-infrastruktur som kan stödja förebyggande underhålls scenarier i samband med IoT-fjärrövervakning. |
 | 3 | [Djupinlärning för förutsägande Underhåll](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure-anteckningsbok med en demo-lösning för att använda LSTM (lång kortvariga minne) nätverk (en klass på återkommande Neurala nätverk) för förutsägande underhåll, med en [blogginlägget på det här exemplet](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Guide för Hotmodellering i förebyggande underhåll i R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | Guide för hotmodellering i PdM med skript i R.|
 | 5 | [Azure Förutsägelseunderhåll för flygindustrin](https://gallery.azure.ai/Solution/Predictive-Maintenance-for-Aerospace-1) | En av de första PdM-lösningsmallar baserat på Azure ML v1.0 för flygplan underhåll. Den här guiden kommer från det här projektet. |
@@ -440,14 +440,14 @@ Microsoft Azure erbjuder utbildningsvägar för grundläggande koncepten bakom P
 
 | Utbildning resurs  | Tillgänglighet |
 |:-------------------|--------------|
-| [Utbildningsväg för PdM med träd och slumpmässiga skog](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Offentligt | 
-| [Utbildningsväg för PdM med Djupinlärning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Offentligt |
-| [AI Developer för Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentligt |
-| [Microsofts AI-skola](https://aischool.microsoft.com/learning-paths) | Offentligt |
-| [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentligt |
-| [LinkedIn Learning](https://www.linkedin.com/learning) | Offentligt |
-| [Microsoft AI YouTube-webb seminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentligt |
-| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Offentligt |
+| [Utbildningsväg för PdM med träd och slumpmässiga skog](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Offentlig | 
+| [Utbildningsväg för PdM med Djupinlärning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Offentlig |
+| [AI Developer för Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Offentlig |
+| [Microsofts AI-skola](https://aischool.microsoft.com/learning-paths) | Offentlig |
+| [Azure AI-utbildning från GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Offentlig |
+| [LinkedIn Learning](https://www.linkedin.com/learning) | Offentlig |
+| [Microsoft AI YouTube-webb seminarier](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Offentlig |
+| [Microsoft AI Show](https://channel9.msdn.com/Shows/AI-Show) | Offentlig |
 | [LearnAI@MS](https://learnanalytics.microsoft.com) | Partner |
 | [Microsoft Partner Network](https://learningportal.microsoft.com) | Partner |
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848314"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712534"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -221,7 +221,7 @@ När du aktiverar MFA för en RADIUS-klient med hjälp av NPS-tillägget, krävs
 
 Om du har användare som inte är registrerade för MFA kan du bestämma vad som händer när de försöker autentisera sig. Använd register inställningen *REQUIRE_USER_MATCH* i register Sök vägen *HKLM\Software\Microsoft\AzureMFA* för att styra funktions sättet. Den här inställningen har ett enda konfigurations alternativ:
 
-| Nyckel | Värde | Standard |
+| Nyckel | Värde | Default |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | Inte angivet (motsvarar sant) |
 
@@ -273,7 +273,7 @@ Giltig – från och giltig – tills tidsstämplar, som är i läslig form, kan
 
 ---
 
-### <a name="why-cant-i-sign-in"></a>Varför ska jag logga in?
+### <a name="why-cannot-i-sign-in"></a>Varför kan jag inte logga in?
 
 Kontrol lera att ditt lösen ord inte har gått ut. NPS-tillägget har inte stöd för att ändra lösen ord som en del av inloggnings arbets flödet. Kontakta din organisations IT-personal om du behöver ytterligare hjälp.
 

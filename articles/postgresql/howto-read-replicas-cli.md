@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: fb0803987428ced688e83a37fae36c61b63a28a8
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/23/2020
+ms.openlocfilehash: bb2c83757bd86d02a93c52bacdd03ce89186614e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770126"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719780"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Skapa och hantera Läs repliker från Azure CLI REST API
 
@@ -37,20 +37,25 @@ Parametern `azure.replication_support` måste anges till **replik** på huvud se
    az postgres server configuration set --resource-group myresourcegroup --server-name mydemoserver --name azure.replication_support --value REPLICA
    ```
 
+> [!NOTE]
+> Om du får felet "ogiltigt värde angav" vid försök att ställa in Azure. replication_support från Azure CLI, är det sannolikt att servern redan har replik uppsättning som standard. En bugg förhindrar att den här inställningen visas korrekt på nyare servrar där REPLIKen är den interna standarden.
+> Du kan hoppa över förbereda huvud stegen och gå till skapa repliken.
+> Om du vill kontrol lera att servern finns i den här kategorin går du till sidan för serverns replikering i Azure Portal. "Inaktivera replikering" kommer att tonas ut och "Lägg till replik" kommer att aktive ras i verktygsfältet.
+
 2. Starta om servern för att tillämpa ändringen.
 
    ```azurecli-interactive
    az postgres server restart --name mydemoserver --resource-group myresourcegroup
    ```
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 
 Kommandot [AZ postgres Server Replica Create](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-create) kräver följande parametrar:
 
 | Inställning | Exempelvärde | Beskrivning  |
 | --- | --- | --- |
 | resource-group | myresourcegroup |  Resurs gruppen där replik servern kommer att skapas.  |
-| namn | mydemoserver-replik | Namnet på den nya replik servern som skapas. |
+| namn | mydemoserver-replica | Namnet på den nya replikservern som skapas. |
 | source-server | mydemoserver | Namnet eller resurs-ID: t för den befintliga huvud server som ska replikeras från. |
 
 I CLI-exemplet nedan skapas repliken i samma region som huvud servern.
@@ -82,7 +87,7 @@ Du kan visa listan över repliker av en huvud server genom att använda kommando
 az postgres server replica list --server-name mydemoserver --resource-group myresourcegroup 
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
+### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
 Du kan stoppa replikeringen mellan en huvud server och en Läs replik med hjälp av kommandot [AZ postgres Server Replica Stop](/cli/azure/postgres/server/replica?view=azure-cli-latest#az-postgres-server-replica-stop) .
 
 När du har stoppat replikering till en huvud server och en Läs replik kan du inte göra det. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.
@@ -100,7 +105,7 @@ När du tar bort en huvud server stoppas replikeringen till alla Läs repliker. 
 az postgres server delete --name myserver --resource-group myresourcegroup
 ```
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 Du kan skapa och hantera Läs repliker med hjälp av [Azure REST API](/rest/api/azure/).
 
 ### <a name="prepare-the-master-server"></a>Förbered huvud servern
@@ -128,7 +133,7 @@ Parametern `azure.replication_support` måste anges till **replik** på huvud se
    POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/restart?api-version=2017-12-01
    ```
 
-### <a name="create-a-read-replica"></a>Skapa en Läs replik
+### <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 Du kan skapa en Läs replik med hjälp av [create API](/rest/api/postgresql/servers/create):
 
 ```http
@@ -163,7 +168,7 @@ Du kan visa listan över repliker av en huvud server med hjälp av [replik lista
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{masterServerName}/Replicas?api-version=2017-12-01
 ```
 
-### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replik Server
+### <a name="stop-replication-to-a-replica-server"></a>Stoppa replikering till en replikserver
 Du kan stoppa replikeringen mellan en huvud server och en Läs replik med hjälp av [uppdaterings-API: et](/rest/api/postgresql/servers/update).
 
 När du har stoppat replikering till en huvud server och en Läs replik kan du inte göra det. Läs repliken blir en fristående server som stöder både läsning och skrivning. Den fristående servern kan inte göras till en replik igen.

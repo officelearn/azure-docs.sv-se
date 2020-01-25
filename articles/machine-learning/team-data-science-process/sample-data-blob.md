@@ -3,32 +3,32 @@ title: Exempeldata i Azure blob storage - Team Data Science Process
 description: Sampling data som lagras i Azure blob storage genom att hämta den via programmering och sampling den med hjälp av procedurerna som skrivits i Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1c455106e5faa4aa20ec56f37788e0b8c324fee1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4832762a88073f4d819925659bf9078e18f60c2d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042926"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720290"
 ---
 # <a name="heading"></a>Exempeldata i Azure blob-lagring
 
 Den här artikeln beskriver sampling av data lagras i Azure blob storage genom att hämta den via programmering och sampling den med hjälp av procedurerna som skrivits i Python.
 
 **Varför prov på dina data?**
-Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Detta underlättar förståelse av data, utforskning och funktioner. Dess roll i Cortana Analytics-processen är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
+Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Sampling underlättar data förståelse, utforskning och funktions teknik. Dess roll i Cortana Analytics-processen är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
 
 Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="download-and-down-sample-data"></a>Ladda ned och nedåtsampla data
-1. Hämta data från Azure blob storage med hjälp av blobtjänsten från Python-exempelkoden följande: 
+1. Hämta data från Azure Blob Storage med hjälp av Blob Service från följande exempel på python-kod: 
    
         from azure.storage.blob import BlobService
         import tables
@@ -61,7 +61,7 @@ Den här aktiviteten för sampling är ett steg i den [Team Data Science Process
         sample_rows = np.random.choice(dataframe_blobdata.index.values, sample_size)
         dataframe_blobdata_sample = dataframe_blobdata.ix[sample_rows]
 
-Nu kan du arbeta med ovanstående dataram med exemplet för ytterligare utforskning och funktionen generation 1 procent.
+Nu kan du arbeta med ovanstående data ram med ett procent prov för ytterligare utforskning och funktion.
 
 ## <a name="heading"></a>Överföra data och läsa in den i Azure Machine Learning
 Du kan använda följande exempelkod för att nedåtsampla data och använda den direkt i Azure Machine Learning:

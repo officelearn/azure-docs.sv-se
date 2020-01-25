@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 3579aee46c610e5bb3efc0942944bbfc3fcb801d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 7c77527b7300c1149e96c94a4dbe122da226ac6d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790509"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720443"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Protokoll stöd för HTTP-huvuden i Azures frontend-tjänst
 Den här artikeln beskriver protokollet som frontend-tjänsten stöder med delar av anrops Sök vägen (se avbildning). I följande avsnitt finns mer information om HTTP-huvuden som stöds av frontend-tjänsten.
@@ -35,15 +35,15 @@ Frontend-tjänsten innehåller sidhuvuden från en inkommande begäran om den in
 
 | Huvud  | Exempel och beskrivning |
 | ------------- | ------------- |
-| Rapportör |  Via: 1,1 Azure </br> Front dörren lägger till klientens HTTP-version följt av *Azure* som värde för via-huvudet. Detta anger klientens HTTP-version och den främre dörren var en mellanliggande mottagare för begäran mellan klienten och Server delen.  |
+| Via |  Via: 1,1 Azure </br> Front dörren lägger till klientens HTTP-version följt av *Azure* som värde för via-huvudet. Detta anger klientens HTTP-version och den främre dörren var en mellanliggande mottagare för begäran mellan klienten och Server delen.  |
 | X-Azure-ClientIP | X-Azure-ClientIP: 127.0.0.1 </br> Representerar den klient-IP-adress som är kopplad till den begäran som bearbetas. En begäran som kommer från en proxyserver kan till exempel lägga till den X-vidarebefordrade-för-rubriken för att ange IP-adressen för den ursprungliga anroparen. |
 | X-Azure-SocketIP |  X-Azure-SocketIP: 127.0.0.1 </br> Representerar den IP-adress för socket som är kopplad till den TCP-anslutning som den aktuella begäran kommer från. En begär ande klients IP-adress kanske inte är lika med dess IP-adress för socket eftersom den kan skrivas över av en användare.|
 | X-Azure-Ref |  X-Azure-Ref: 0zxV + XAAAAABKMMOjBv2NT4TY6SQVjC0zV1NURURHRTA2MTkANDM3YzgyY2QtMzYwYS00YTU0LTk0YzMtNWZmNzA3NjQ3Nzgz </br> En unik referens sträng som identifierar en begäran som betjänas av front dörren. Den används för att söka efter åtkomst loggar och viktiga för fel sökning.|
 | X-Azure-RequestChain |  X-Azure-RequestChain: hopp = 1 </br> En rubrik som används av front dörren för att identifiera begär ande slingor och användare bör inte ta ett beroende på den. |
-| X-vidarebefordrad – för | X-vidarebefordrad – för: 127.0.0.1 </br> HTTP-huvudfältet X-forwarded – for (XFF)-HTTP-huvud identifierar ofta den ursprungliga IP-adressen för en klient som ansluter till en webb server via en HTTP-proxy eller belastningsutjämnare. Om det finns ett befintligt XFF-huvud lägger front dörren till klient-socket-IP: en eller lägger till XFF-huvudet med klientens IP-adress för socket. |
-| X-vidarebefordrad-värd | X-vidarebefordrad-värd: contoso.azurefd.net </br> Fältet X-forwarded-Host-HTTP-huvud är en gemensam metod som används för att identifiera den ursprungliga värddatorn som begärs av klienten i rubriken HTTP-begäran för värd. Detta beror på att värd namnet från Front dörren kan skilja sig för Server dels servern som hanterar begäran. |
-| X-vidarebefordrad – proto | X-vidarebefordrad-proto: http </br> Fältet X-forwarded-proto HTTP-huvud används ofta för att identifiera ursprungs protokollet för en HTTP-begäran, eftersom front dörren, baserat på konfiguration, kan kommunicera med Server delen med hjälp av HTTPS. Detta gäller även om begäran till den omvända proxyn är HTTP. |
-| X-FD-HealthProbe | Fältet X-FD-HealthProbe HTTP-huvud används för att identifiera hälso avsökningen från Front dörren. Om den här rubriken har angetts till 1 är begäran hälso avsökning. Du kan använda när du vill begränsa åtkomst från paticular front dörr med X-vidarebefordrad-värd huvud fält. |
+| X-Forwarded-For | X-vidarebefordrad – för: 127.0.0.1 </br> HTTP-huvudfältet X-forwarded – for (XFF)-HTTP-huvud identifierar ofta den ursprungliga IP-adressen för en klient som ansluter till en webb server via en HTTP-proxy eller belastningsutjämnare. Om det finns ett befintligt XFF-huvud lägger front dörren till klient-socket-IP: en eller lägger till XFF-huvudet med klientens IP-adress för socket. |
+| X-Forwarded-Host | X-vidarebefordrad-värd: contoso.azurefd.net </br> Fältet X-forwarded-Host-HTTP-huvud är en gemensam metod som används för att identifiera den ursprungliga värddatorn som begärs av klienten i rubriken HTTP-begäran för värd. Detta beror på att värd namnet från Front dörren kan skilja sig för Server dels servern som hanterar begäran. |
+| X-Forwarded-Proto | X-Forwarded-Proto: http </br> Fältet X-forwarded-proto HTTP-huvud används ofta för att identifiera ursprungs protokollet för en HTTP-begäran, eftersom front dörren, baserat på konfiguration, kan kommunicera med Server delen med hjälp av HTTPS. Detta gäller även om begäran till den omvända proxyn är HTTP. |
+| X-FD-HealthProbe | Fältet X-FD-HealthProbe HTTP-huvud används för att identifiera hälso avsökningen från Front dörren. Om den här rubriken har angetts till 1 är begäran hälso avsökning. Du kan använda när du vill begränsa åtkomsten från en viss front dörr med X-vidarebefordrade-värd huvud fält. |
 
 ## <a name="front-door-service-to-client"></a>Frontend-tjänst till klient
 

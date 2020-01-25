@@ -3,20 +3,20 @@ title: Förståelse för verksamheten i Team Data Science Process
 description: Mål, uppgifter och slutprodukter för företag förstå steg i dina data science-projekt i Team Data Science Process.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303561"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710328"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Företag förstå steg i livscykeln för Team Data Science Process
 
@@ -40,8 +40,8 @@ Här är en visuell representation av TDSP-livscykeln:
 ## <a name="how-to-do-it"></a>Gör så
 Det finns två huvudsakliga uppgifter som beskrivs i det här steget: 
 
-   * **Definiera mål**: Arbeta med dina kunder och andra berörda parter för att förstå och identifiera problem för företag. Formulera frågor som definierar de affärsmål som data science-tekniker kan riktas mot.
-   * **Identifiera datakällor**: Hitta de relevanta data som hjälper dig att besvara frågor som definierar målen för projektet.
+   * **Definiera mål**: arbeta med dina kunder och andra berörda parter för att förstå och identifiera problem för företag. Formulera frågor som definierar de affärsmål som data science-tekniker kan riktas mot.
+   * **Identifiera datakällor**: hitta relevanta data som hjälper dig att besvara frågor som definierar målen för projektet.
 
 ### <a name="define-objectives"></a>Definiera mål
 1. En central syftet med det här steget är att identifiera viktiga variablerna som analysen ska förutsäga. Vi refererar till dessa variabler som den *modellera mål*, och vi använder de mått som är kopplade till dem för att avgöra projektet. Två exempel på sådana mål är försäljningsprognoser eller sannolikheten för en order som falska.
@@ -74,12 +74,12 @@ Identifiera de datakällor som innehåller kända exempel på svar på dina shar
 
 Till exempel kanske du upptäcker att de befintliga system måste samla in och logga fler typer av data för att lösa problemet och uppnå projektmål. I så fall kanske du vill leta efter externa datakällor eller uppdatera dina system för att samla in nya data.
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 Här följer slutprodukterna i det här steget:
 
-   * [Auktoriserad dokumentet](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): En standardmall tillhandahålls i strukturdefinition för TDSP-projekt. Auktoriserad dokumentet är en levande. Du kan uppdatera mallen under hela projektet som du gör nya identifieringar och som företagets behov förändras. Nyckeln är att iterera på det här dokumentet, att lägga till mer information, slutföra identifieringsprocessen. Låt kunden och andra berörda parter som ingår i att göra ändringarna och tydligt kommunicera skäl för att ändringarna ska dem.  
-   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): Den **rådata källor** delen av den **datadefinitioner** rapporten som finns i TDSP-projekt **Data rapporten** mappen innehåller datakällorna. Det här avsnittet anger de ursprungliga och de nya platserna efter rådata. I senare steg kan du fylla i ytterligare information som skripten för att flytta data till din analytiska miljö.  
-   * [Data ordlistor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): Det här dokumentet innehåller beskrivningar av de data som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (datatyper och information om valideringsregler eventuellt) och entiteten-relation diagrammen, om det är tillgängligt.
+   * [Auktoriserad dokumentet](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): en standardmall har angetts i strukturdefinition för TDSP-projekt. Auktoriserad dokumentet är en levande. Du kan uppdatera mallen under hela projektet som du gör nya identifieringar och som företagets behov förändras. Nyckeln är att iterera på det här dokumentet, att lägga till mer information, slutföra identifieringsprocessen. Låt kunden och andra berörda parter som ingår i att göra ändringarna och tydligt kommunicera skäl för att ändringarna ska dem.  
+   * [Datakällor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md#raw-data-sources): den **rådata källor** delen av den **datadefinitioner** rapporten som finns i TDSP-projekt **Data rapporten** mappen innehåller data källor. Det här avsnittet anger de ursprungliga och de nya platserna efter rådata. I senare steg kan du fylla i ytterligare information som skripten för att flytta data till din analytiska miljö.  
+   * [Data ordlistor](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Data_Dictionaries): det här dokumentet innehåller beskrivningar av vilken information som tillhandahålls av klienten. Dessa beskrivningar innehåller information om schemat (datatyper och information om valideringsregler eventuellt) och entiteten-relation diagrammen, om det är tillgängligt.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -91,4 +91,4 @@ Här finns länkar till varje steg i livscykeln för TDSP:
    4. [Distribution](lifecycle-deployment.md)
    5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Vi tillhandahåller fullständig från slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
+Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för olika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 

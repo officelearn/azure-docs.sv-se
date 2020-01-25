@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 01/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e41c3409ac5b81fe9e099ab34abd7256ef39d330
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd81942832e598319261829e67fd0b8f1704fc99
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930578"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716199"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Node.js
 
@@ -26,8 +26,8 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="prerequisites"></a>Krav
 
-* [Cognitive Services Image Search SDK för Node.js](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
-    * Installera med `npm install azure-cognitiveservices-imagesearch`
+* [Cognitive Services Image Search SDK för Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+    * Installera med `npm install @azure/cognitiveservices-imagesearch`
 * [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure)-modulen
     * Installera med `npm install ms-rest-azure`
 
@@ -39,7 +39,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
     ```javascript
     'use strict';
-    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
@@ -52,7 +52,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     //the search term for the request
     let searchTerm = "canadian rockies";
 
-    //instantiate the image search client 
+    //instantiate the image search client
     let credentials = new CognitiveServicesCredentials(serviceKey);
     let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
@@ -60,7 +60,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="create-an-asynchronous-helper-function"></a>Skapa en asynkron hjälpfunktion
 
-1. Skapa en funktion som anropar klienten asynkront och returnerar svaret från tjänsten Bildsökning i Bing.  
+1. Skapa en funktion som anropar klienten asynkront och returnerar svaret från tjänsten Bildsökning i Bing.
     ```javascript
     //a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
@@ -71,7 +71,7 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 1. Anropa hjälpfunktionen och hantera dess `promise` så att det returnerade bildresultatet parsas.
 
-    Om svaret innehåller sökresultat ska du lagra och skriva ut information om det första resultatet, som en webbadress till miniatyrbilden, en webbadress till originalet och det totala antalet returnerade bilder.  
+    Om svaret innehåller sökresultat ska du lagra och skriva ut information om det första resultatet, som en webbadress till miniatyrbilden, en webbadress till originalet och det totala antalet returnerade bilder.
     ```javascript
     sendQuery().then(imageResults => {
         if (imageResults == null) {
@@ -98,9 +98,9 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 
 ## <a name="see-also"></a>Se också
 
-* [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Vad är bildsökning i Bing?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
+* [Prova en interaktiv demo online](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Node.js-exempel för Azure Cognitive Services SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

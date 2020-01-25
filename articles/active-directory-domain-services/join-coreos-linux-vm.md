@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/14/2019
+ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 4cdc2fff05270a296d9c4c9151f73cadeb2a1cfc
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ddf6c9238cabedfbdeeb8056864072edc543c342
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754378"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712608"
 ---
 # <a name="join-a-coreos-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Anslut till en virtuell dator med en kärna till en Azure AD Domain Services hanterad domän
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 I *hosts* -filen uppdaterar du adressen till *localhost* . I följande exempel:
 
-* *contoso.com* är DNS-domännamnet för din Azure AD DS-hanterade domän.
+* *aadds.contoso.com* är DNS-domännamnet för din Azure AD DS-hanterade domän.
 * *Core* är värd namnet för den virtuella dator i kärnan som du ansluter till den hanterade domänen.
 
 Uppdatera namnen med dina egna värden:
 
 ```console
-127.0.0.1 coreos coreos.contoso.com
+127.0.0.1 coreos coreos.aadds.contoso.com
 ```
 
 När du är färdig sparar du och avslutar *hosts* -filen med hjälp av `:wq`-kommandot för redigeraren.
@@ -85,7 +85,7 @@ sudo vi /etc/sssd/sssd.conf
 Ange ditt eget Azure AD DS-hanterade domän namn för följande parametrar:
 
 * *domäner* i alla versaler
-* *[domän/contoso]* där contoso är i alla versaler
+* *[domän/AADDS]* där AADDS är i alla versaler
 * *ldap_uri*
 * *ldap_search_base*
 * *krb5_server*
@@ -95,15 +95,15 @@ Ange ditt eget Azure AD DS-hanterade domän namn för följande parametrar:
 [sssd]
 config_file_version = 2
 services = nss, pam
-domains = CONTOSO.COM
+domains = AADDS.CONTOSO.COM
 
-[domain/CONTOSO.COM]
+[domain/AADDS.CONTOSO.COM]
 id_provider = ad
 auth_provider = ad
 chpass_provider = ad
 
-ldap_uri = ldap://contoso.com
-ldap_search_base = dc=contoso,dc=com
+ldap_uri = ldap://aadds.contoso.com
+ldap_search_base = dc=aadds.contoso,dc=com
 ldap_schema = rfc2307bis
 ldap_sasl_mech = GSSAPI
 ldap_user_object_class = user
@@ -114,32 +114,32 @@ ldap_account_expire_policy = ad
 ldap_force_upper_case_realm = true
 fallback_homedir = /home/%d/%u
 
-krb5_server = contoso.com
-krb5_realm = CONTOSO.COM
+krb5_server = aadds.contoso.com
+krb5_realm = AADDS.CONTOSO.COM
 ```
 
 ## <a name="join-the-vm-to-the-managed-domain"></a>Anslut den virtuella datorn till den hanterade domänen
 
 När konfigurations filen för SSSD har uppdaterats, så anslut nu den virtuella datorn till den hanterade domänen.
 
-1. Använd först kommandot `adcli info` för att kontrol lera att du kan se information om den hanterade domänen i Azure AD DS. I följande exempel hämtas information för domänen *contoso.com*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
+1. Använd först kommandot `adcli info` för att kontrol lera att du kan se information om den hanterade domänen i Azure AD DS. I följande exempel hämtas information för domänen *AADDS. CONTOSO.COM*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
 
     ```console
-    sudo adcli info CONTOSO.COM
+    sudo adcli info AADDS.CONTOSO.COM
     ```
 
    Om kommandot `adcli info` inte hittar din Azure AD DS-hanterade domän kan du läsa följande fel söknings steg:
 
-    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping contoso.com` för att se om ett positivt svar returneras.
+    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping aadds.contoso.com` för att se om ett positivt svar returneras.
     * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuella nätverk där Azure AD DS-hanterad domän är tillgänglig.
     * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna för den hanterade domänen i Azure AD DS.
 
 1. Nu ansluter du den virtuella datorn till den Azure AD DS-hanterade domänen med hjälp av kommandot `adcli join`. Ange en användare som tillhör gruppen *AAD DC-administratörer* . Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@contoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i gruppen *AAD DC-administratörer* .
+    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@aadds.contoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i gruppen *AAD DC-administratörer* .
 
     ```console
-    sudo adcli join -D CONTOSO.COM -U contosoadmin@CONTOSO.COM -K /etc/krb5.keytab -H coreos.contoso.com -N coreos
+    sudo adcli join -D AADDS.CONTOSO.COM -U contosoadmin@AADDS.CONTOSO.COM -K /etc/krb5.keytab -H coreos.aadds.contoso.com -N coreos
     ```
 
     Kommandot `adcli join` returnerar ingen information när den virtuella datorn har anslutits till den hanterade domänen i Azure AD DS.
@@ -154,10 +154,10 @@ När konfigurations filen för SSSD har uppdaterats, så anslut nu den virtuella
 
 Verifiera att den virtuella datorn har anslutits till den hanterade Azure AD DS-domänen genom att starta en ny SSH-anslutning med ett domän användar konto. Bekräfta att en arbets katalog har skapats och att grupp medlemskapet från domänen används.
 
-1. Skapa en ny SSH-anslutning från-konsolen. Använd ett domän konto som tillhör den hanterade domänen med kommandot `ssh -l`, till exempel `contosoadmin@contoso.com` och ange adressen till den virtuella datorn, till exempel *CoreOS.contoso.com*. Om du använder Azure Cloud Shell använder du den offentliga IP-adressen för den virtuella datorn i stället för det interna DNS-namnet.
+1. Skapa en ny SSH-anslutning från-konsolen. Använd ett domän konto som tillhör den hanterade domänen med kommandot `ssh -l`, till exempel `contosoadmin@aadds.contoso.com` och ange adressen till den virtuella datorn, till exempel *CoreOS.aadds.contoso.com*. Om du använder Azure Cloud Shell använder du den offentliga IP-adressen för den virtuella datorn i stället för det interna DNS-namnet.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com coreos.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com coreos.aadds.contoso.com
     ```
 
 1. Kontrol lera nu att grupp medlemskapen har lösts korrekt:

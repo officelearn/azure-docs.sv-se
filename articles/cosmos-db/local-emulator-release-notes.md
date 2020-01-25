@@ -3,15 +3,15 @@ title: Hämtnings-och viktig information för Azure Cosmos-emulatorn
 description: Hämta versions anteckningar för Azure Cosmos-emulatorn för olika versioner och information om hämtning.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445293"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719695"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos-emulator – viktig information och information om hämtning
 
@@ -22,9 +22,13 @@ Den här artikeln visar viktig information om Azure Cosmos-emulatorn med en list
 | | |
 |---------|---------|
 |**Ladda ned MSI**|[Microsoft Download Center](https://aka.ms/cosmosdb-emulator)|
-|**Kom igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
+|**Komma igång**|[Utveckla lokalt med Azure Cosmos-emulatorn](local-emulator.md)|
 
 ## <a name="release-notes"></a>Viktig information
+
+### <a name="290"></a>2.9.0
+
+- Den här versionen lägger till alternativet för att ställa in konsekvens till konsekvent prefix och öka Max gränsen för användare och behörigheter.
 
 ### <a name="272"></a>2.7.2
 

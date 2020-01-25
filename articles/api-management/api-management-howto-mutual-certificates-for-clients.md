@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 60cd9a1454704fae17ccdcf39b9de2745ae4fd2c
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8c1d126f01580574a83850e63945aa7e513eaeda
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121020"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713143"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Skydda API: er med autentisering av klient certifikat i API Management
 
@@ -34,7 +34,7 @@ Information om hur du skyddar åtkomst till backend-tjänsten för ett API med h
 > [!IMPORTANT]
 > För att ta emot och verifiera klient certifikat i förbruknings nivån måste du aktivera inställningen "begära klient certifikat" på bladet "anpassade domäner" enligt nedan.
 
-![Begära ett klientcertifikat](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
+![Begär klient certifikat](./media/api-management-howto-mutual-certificates-for-clients/request-client-certificate.png)
 
 ## <a name="checking-the-issuer-and-subject"></a>Kontrollerar utfärdaren och ämnet
 

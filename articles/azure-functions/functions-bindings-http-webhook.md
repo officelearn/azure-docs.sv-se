@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: e97a6e1adff02001e36a43d9fb4a917b7e133257
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 11f5c07305fa9192097dbcb1386c13707c0d46f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922441"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711132"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP-utlösare och bindningar
 
@@ -825,7 +825,7 @@ Nyckeln kan ingå i en frågesträng med namnet `code`, som ovan. Den kan också
 Du kan tillåta anonyma begär Anden som inte kräver nycklar. Du kan också kräva att huvud nyckeln ska användas. Du ändrar standard nivån för autentisering med hjälp av egenskapen `authLevel` i bindnings-JSON. Mer information finns i avsnittet om [Utlösar-konfiguration](#trigger---configuration).
 
 > [!NOTE]
-> När funktioner körs lokalt är auktorisering inaktiverat oavsett den angivna inställningen för autentiseringsnivå. När du har publicerat till Azure tillämpas `authLevel`s inställningen i utlösaren. Nycklar krävs fortfarande när de körs [lokalt i en behållare](functions-create-function-linux-custom-image.md#run-the-image-locally).
+> När funktioner körs lokalt är auktorisering inaktiverat oavsett den angivna inställningen för autentiseringsnivå. När du har publicerat till Azure tillämpas `authLevel`s inställningen i utlösaren. Nycklar krävs fortfarande när de körs [lokalt i en behållare](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>Skydda en HTTP-slutpunkt i produktion
@@ -872,7 +872,7 @@ Om en funktion som använder HTTP-utlösaren inte slutförs inom 230 sekunder, t
 
 ## <a name="output"></a>Resultat
 
-Använd bindningen för HTTP-utdata för att svara på avsändaren av HTTP-begäran. Den här bindningen kräver en HTTP-utlösare och du kan anpassa svaret som associeras med utlösarens begäran. Om ingen HTTP-databindning har angetts returnerar en HTTP-utlösare HTTP 200 OK med en tom brödtext i funktionerna 1. x eller HTTP 204 inget innehåll med en tom brödtext i funktionerna 2. x och högre.
+Använd bindningen för HTTP-utdata för att svara på avsändaren av HTTP-begäran. Den här bindningen kräver en HTTP-utlösare och gör att du kan anpassa svaret som är kopplat till utlösarens begäran. Om ingen HTTP-databindning har angetts returnerar en HTTP-utlösare HTTP 200 OK med en tom brödtext i funktionerna 1. x eller HTTP 204 inget innehåll med en tom brödtext i funktionerna 2. x och högre.
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
@@ -921,7 +921,7 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 |---------|---------|---------| 
 | customHeaders|ingen|Gör att du kan ange anpassade rubriker i HTTP-svaret. I föregående exempel läggs `X-Content-Type-Options`-rubriken till i svaret för att undvika innehålls typs avlyssning. |
 |dynamicThrottlesEnabled|Sant<sup>\*</sup>|När den här inställningen är aktive rad kommer pipelinen för bearbetning av begär Anden att regelbundet kontrol lera system prestanda räknare som anslutningar/trådar/processer/minne/processor/osv. om någon av dessa räknare är över en inbyggd hög tröskel (80%), avvisas begär Anden med en 429 "upptagen"-svar tills räknarna återgår till normala nivåer.<br/><sup>\*</sup> Standardvärdet i en förbruknings plan är `true`. Standardvärdet i en dedikerad plan är `false`.|
-|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`tillämpas [HSTS-beteendet (http Strict Transport Security) för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [`HstsOptions`-klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Exemplet ovan ställer också in [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) -egenskapen på 10 dagar. Följande egenskaper stöds för `hsts`: <table><tr><th>Egenskap</th><th>Beskrivning</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>preload</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
+|HSTS|inte aktiverat|När `isEnabled` är inställt på `true`tillämpas [HSTS-beteendet (http Strict Transport Security) för .net Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) enligt definitionen i [`HstsOptions`-klassen](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). Exemplet ovan ställer också in [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) -egenskapen på 10 dagar. Följande egenskaper stöds för `hsts`: <table><tr><th>Egenskap</th><th>Beskrivning</th></tr><tr><td>excludedHosts</td><td>En sträng mat ris med värd namn som HSTS-huvudet inte har lagts till för.</td></tr><tr><td>includeSubDomains</td><td>Booleskt värde som anger om parametern includeSubDomain för rubriken Strict-Transport-Security är aktive rad.</td></tr><tr><td>maxAge</td><td>Sträng som definierar Max-ålders parametern för huvudet Strict-Transport-Security.</td></tr><tr><td>Läs</td><td>Booleskt värde som anger om preload-parametern för ett strikt-Transport-Security-huvud är aktive rad.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|Maximalt antal HTTP-funktioner som körs parallellt. På så sätt kan du kontrol lera samtidighet, vilket kan hjälpa dig att hantera resursutnyttjande. Du kan till exempel ha en HTTP-funktion som använder många system resurser (minne/processor/Sockets) så att den orsakar problem när samtidigheten är för hög. Eller så kanske du har en funktion som gör utgående begär anden till en tjänst från tredje part, och dessa anrop måste vara begränsade. I dessa fall kan det hjälpa att tillämpa en begränsning. <br/><sup>*</sup> Standardvärdet för en förbruknings plan är 100. Standardvärdet för en dedikerad plan är obundet (`-1`).|
 |maxOutstandingRequests|200<sup>\*</sup>|Det maximala antalet väntande begär Anden som innehas vid en specifik tidpunkt. Den här gränsen omfattar begär Anden som har placerats i kö, men som inte har börjat köras, samt alla pågående körningar. Inkommande begär anden över den här gränsen avvisas med ett svar på 429 "för upptagen". Det gör det möjligt för anropare att använda tidsbaserade återförsöks strategier och hjälper dig också att kontrol lera maximal fördröjning för begäran. Detta styr endast köer som inträffar inom skript värdens körnings Sök väg. Andra köer, t. ex. ASP.NET, kommer fortfarande att gälla och påverkas inte av den här inställningen. <br/><sup>\*</sup> Standardvärdet för en förbruknings plan är 200. Standardvärdet för en dedikerad plan är obundet (`-1`).|
 |routePrefix|api|Det väg-prefix som gäller för alla vägar. Använd en tom sträng för att ta bort standardprefixet. |

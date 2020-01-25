@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045182"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715856"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
@@ -149,7 +149,7 @@ Om du vill ange kvarhållning av en viss datatyp (i det här exemplet SecurityEv
 
 Det går inte att ange data typerna `Usage` och `AzureActivity` med anpassad kvarhållning. De kommer att ta på max värdet för kvarhållning av standard arbets yta eller 90 dagar. 
 
-Ett bra verktyg för att ansluta direkt till Azure Resource Manager för att ställa in kvarhållning enligt datatyp är OSS-verktyget [ARMclient](https://github.com/projectkudu/ARMClient).  Lär dig mer om ARMclient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Här är en exemplet som använder ARMClient och ställer in SecurityEvent data till en 730-dagars kvarhållning:
+Ett bra verktyg för att ansluta direkt till Azure Resource Manager för att ställa in kvarhållning enligt datatyp är OSS-verktyget [ARMclient](https://github.com/projectkudu/ARMClient).  Lär dig mer om ARMclient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/).  Här är ett exempel på hur du använder ARMClient, ställer in SecurityEvent-data till en 730-dagars kvarhållning:
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"

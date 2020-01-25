@@ -1,23 +1,23 @@
 ---
-title: Team data science process Group Manager-uppgifter
+title: Team Data Science Process manager gruppaktiviteter
 description: Följ den här detaljerade genom gången av de uppgifter som en grupp hanterare har slutfört på ett data vetenskaps team projekt.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 4ec7f4242e5046e90fdf0eb8c6c0579f402e4f55
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053310"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721361"
 ---
-# <a name="team-data-science-process-group-manager-tasks"></a>Team data science process Group Manager-uppgifter
+# <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process manager gruppaktiviteter
 
 I den här artikeln beskrivs de uppgifter som en *grupp hanterare* har slutfört för en data vetenskaps organisation. Grupp hanteraren hanterar hela data vetenskaps enheten i ett företag. En data vetenskaps enhet kan ha flera team, som var och en arbetar med många data vetenskaps projekt i olika affärs lodräta. Grupp hanterarens mål är att upprätta en samarbets grupp miljö som är standardiserad på [team data science-processen](overview.md) (TDSP). En översikt över alla personal roller och tillhör ande uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
@@ -166,7 +166,7 @@ Så här anpassar du lagrings innehållet:
 Om du vill göra ändringar med hjälp av din lokala dator eller DSVM och skicka ändringarna till grupp databaserna, kontrollerar du att du har förutsättningarna för att arbeta med git och Dsvm:
 
 - En Azure-prenumeration, om du vill skapa en DSVM.
-- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. I annat fall, se [bilagan plattform och verktyg](platforms-and-tools.md#appendix).
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
 - Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
 - För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
 - För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
@@ -258,6 +258,6 @@ Konfigurera behörigheter för medlemmar:
 
 Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna i team data science-processen:
 
-- [Grupp ledar uppgifter för ett data vetenskaps team](team-lead-tasks.md)
-- [Projekt ledar uppgifter för ett data vetenskaps team](project-lead-tasks.md)
+- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
+- [Lead projektaktiviteter för team data science](project-lead-tasks.md)
 - [Projicera enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 12/11/2019
+ms.date: 01/22/2020
 ms.author: aahi
-ms.openlocfilehash: 9fdb1e68a413adcbf5d27ec3a90cd79fdeb29f21
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ece3d7979dc80a2c6c576b3ce279d4fb9bc9472
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384390"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716389"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>Snabb start: skicka en sökbegäran med Entitetssökning i Bing SDK för Node. js
 
@@ -25,23 +25,23 @@ Använd den här snabbstarten om du vill börja söka efter entiteter med SDK f�
 
 * Den senaste versionen av [Node.js](https://nodejs.org/en/download/).
 
-* [SDK för entitetssökning i Bing för Node.js](https://www.npmjs.com/package/azure-cognitiveservices-entitysearch)
+* [SDK för entitetssökning i Bing för Node.js](https://www.npmjs.com/package/@azure/cognitiveservices-entitysearch)
 
 Så här installerar du SDK för entitetssökning i Bing:
 
 1. Kör `npm install ms-rest-azure` i utvecklingsmiljön.
-2. Kör `npm install azure-cognitiveservices-entitysearch` i utvecklingsmiljön.
+2. Kör `npm install @azure/cognitiveservices-entitysearch` i utvecklingsmiljön.
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 
 ## <a name="create-and-initialize-the-application"></a>Skapa och initiera appen
 
-1. Skapa en ny JavaScript-fil i valfri IDE eller redigeringsprogram och lägg till följande krav. 
-    
+1. Skapa en ny JavaScript-fil i valfri IDE eller redigeringsprogram och lägg till följande krav.
+
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
-    const EntitySearchAPIClient = require('azure-cognitiveservices-entitysearch');
+    const EntitySearchAPIClient = require('@azure/cognitiveservices-entitysearch');
     ```
 
 2. Skapa en instans av `CognitiveServicesCredentials` med hjälp av din prenumerationsnyckel. Skapa sedan en instans av sökklienten med den.
@@ -54,7 +54,7 @@ Så här installerar du SDK för entitetssökning i Bing:
 ## <a name="send-a-request-and-receive-a-response"></a>Skicka en begäran och ta emot ett svar
 
 1. Skicka en begäran för entitetssökning med `entitiesOperations.search()`. När du har fått ett svar skriver du ut `queryContext`, antalet returnerade resultat och en beskrivning av det första resultatet.
-      
+
     ```javascript
     entitySearchApiClient.entitiesOperations.search('seahawks').then((result) => {
         console.log(result.queryContext);

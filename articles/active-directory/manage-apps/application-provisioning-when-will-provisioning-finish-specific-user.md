@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8238d2b417dbe03ad0623e472f1a239940c1bc8
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: e7296c63a467b2f53550b3e609cf1146244cf933
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681386"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712119"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>Kontrol lera status för användar etablering
 
@@ -35,7 +35,7 @@ När du först konfigurerar automatisk etablering visas statusen för den inleda
 - Typ av etablerings cykel (initial eller stegvis) som körs för tillfället eller som senast slutfördes.
 - En **förlopps indikator** som visar procent andelen av etablerings cykeln som har slutförts. Procent andelen visar antalet sidor som har allokerats. Observera att varje sida kan innehålla flera användare eller grupper, så att procent andelen inte direkt korreleras med antalet användare, grupper eller roller som tillhandahålls.
 - En **uppdaterings** knapp som du kan använda för att hålla vyn uppdaterad.
-- Antalet **användare** och **grupper** i data lagret för anslutningen. Antalet ökar när som helst ett objekt läggs till i omfånget för etableringen. Antalet går inte nedåt om en användare är mjuk raderad eller hårt borttagen eftersom detta inte tar bort objektet från anslutnings data lagret. Antalet beräknade första synkroniseringen efter att CD-skivorna har [återställts](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
+- Antalet **användare** och **grupper** i data lagret för anslutningen. Antalet ökar när som helst ett objekt läggs till i omfånget för etableringen. Antalet går inte nedåt om en användare är mjuk raderad eller hårt borttagen eftersom detta inte tar bort objektet från anslutnings data lagret. Antalet kommer att recaculated den första synkroniseringen när CD-skivorna har [återställts](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http) 
 - En länk för **gransknings loggar** som öppnar Azure AD-etablerings loggar för information om alla åtgärder som körs av användar etablerings tjänsten, inklusive etablerings status för enskilda användare (se avsnittet [använda etablerings loggar](#use-provisioning-logs-to-check-a-users-provisioning-status) nedan).
 
 När en etablerings cykel är klar visar **statistik till datum** avsnittet det ackumulerade antalet användare och grupper som har etablerats till datum, tillsammans med slutdatum och varaktighet för den senaste cykeln. **Aktivitets-ID: t** identifierar unikt den senaste etablerings cykeln. **Jobb-ID: t** är en unik identifierare för etablerings jobbet och är särskilt för appen i din klient organisation.
@@ -60,7 +60,7 @@ Etablerings loggarna registrerar alla åtgärder som utförs av etablerings tjä
 Mer information om hur du läser etablerings loggar i Azure Portal finns i [rapport guiden för etablering](check-status-user-account-provisioning.md).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Hur lång tid tar det att etablera användare?
-När du använder automatisk användar etablering med ett program, etablerar Azure AD automatiskt och uppdaterar användar konton i en app baserat på saker som [användar-och grupp tilldelning](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) enligt ett regelbundet schemalagt tidsintervall, vanligt vis var 40: e minut.
+När du använder automatisk användar etablering med ett program, etablerar Azure AD automatiskt och uppdaterar användar konton i en app baserat på saker som [användar-och grupp tilldelning](assign-user-or-group-access-portal.md) enligt ett regelbundet schemalagt tidsintervall, vanligt vis var 40: e minut.
 
 Hur lång tid det tar för en specifik användare att tillhandahållas beror huvudsakligen på om ditt etablerings jobb kör en inledande cykel eller en stegvis cykel.
 
@@ -102,7 +102,7 @@ Sammanfattning av faktorer som påverkar hur lång tid det tar att slutföra en 
 
 - Antalet och storlekarna för tilldelade grupper. Synkronisering av tilldelade grupper tar längre tid än att synkronisera användare. Både antalet och storlekarna i de tilldelade grupperna påverkar prestanda. Om ett program har [mappningar aktiverade för synkronisering av grupp objekt](customize-application-attributes.md#editing-group-attribute-mappings)synkroniseras grupp egenskaper, till exempel grupp namn och medlemskap, förutom användare. Dessa ytterligare synkroniseringar tar längre tid än att synkronisera användar objekt.
 
-- Om prestanda blir ett problem och du försöker etablera de flesta användare och grupper i din klient organisation använder du områdes filter. Med omfångs filter kan du finjustera de data som etablerings tjänsten extraherar från Azure AD genom att filtrera ut användare baserat på särskilda attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
+- Om prestanda blir ett problem och du försöker etablera de flesta användare och grupper i din klient organisation använder du områdes filter. Med omfångs filter kan du finjustera de data som etablerings tjänsten extraherar från Azure AD genom att filtrera ut användare baserat på särskilda attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Nästa steg
-[Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-app-provisioning)
+[Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

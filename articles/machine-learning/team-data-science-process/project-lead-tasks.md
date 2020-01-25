@@ -2,20 +2,20 @@
 title: Uppgifter för projektet leda i Team Data Science Process
 description: En detaljerad genom gång av aktiviteterna för ett projekts ledare i en team data vetenskap process-grupp
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244402"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714411"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Projekt ledar uppgifter i team data science process
 
@@ -45,7 +45,7 @@ I den här självstudien förutsätter vi att [grupp chefen](group-manager-tasks
 - Team mallar och hjälpmedels **databaser**
 - **Behörigheter** för ditt organisations konto som du kan använda för att skapa och redigera databaser för ditt projekt
 
-Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator eller Data Science Virtual Machine (DSVM), eller konfigurera Azure File Storage och montera den på din DSVM, behöver du också följande:
+Om du vill klona lagrings utrymmen och ändra innehåll på din lokala dator eller Data Science Virtual Machine (DSVM), eller konfigurera Azure File Storage och montera det på din DSVM, måste du också tänka på den här check listan:
 
 - En Azure-prenumeration.
 - Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).

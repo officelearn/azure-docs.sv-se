@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 6a107936d290609fec73d46a93a277c3bdcce354
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832923"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720069"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Om nycklar, hemligheter och certifikat
 
@@ -76,7 +76,7 @@ Var:
 |`keyvault-name`|Namnet på ett nyckel valv i Microsoft Azure Key Vault-tjänsten.<br /><br /> Key Vault namn väljs av användaren och är globalt unika.<br /><br /> Key Vault namn måste vara en 3-24-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
 |`object-type`|Objektets typ, antingen "nycklar" eller "hemligheter".|  
 |`object-name`|Ett `object-name` är ett namn som användaren anger och måste vara unikt inom en Key Vault. Namnet måste vara en 1-127-tecken sträng som bara innehåller 0-9, a-z, A-Z och-.|  
-|`object-version`|Ett `object-version` är ett systemgenererat, 32 tecken Strängs-ID som kan användas för att använda * o-adress en unik version av ett objekt.|  
+|`object-version`|En `object-version` är en systemgenererad 32 tecken Strängs identifierare som används för att adressera en unik version av ett objekt.|  
 
 ## <a name="key-vault-keys"></a>Key Vault nycklar
 
@@ -166,7 +166,7 @@ Mer information om JWK-objekt finns i [JSON-webbnyckel (JWK)](https://tools.ietf
 
 ###  <a name="key-attributes"></a>Nyckelattribut
 
-Utöver nyckelmaterialet kan följande attribut anges. I en JSON-begäran krävs attributen nyckelord och klammerparenteser, {}, även om det inte finns några angivna attribut.  
+Förutom nyckel materialet kan följande attribut anges. I en JSON-begäran krävs attributen nyckelord och klammerparenteser, {}, även om det inte finns några angivna attribut.  
 
 - *aktive rad*: boolesk, valfritt, standardvärdet är **True**. Anger om nyckeln är aktive rad och användbar för kryptografiska åtgärder. Det *aktiverade* attributet används tillsammans med *NBF* och *exp*. När en åtgärd sker mellan *NBF* och *exp*, tillåts den endast om *aktive rad* är inställd på **True**. Åtgärder utanför *nbf* / *exp* -fönstret tillåts inte automatiskt, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations).
 - *NBF*: IntDate, valfritt, standard är nu. Attributet *NBF* (inte före) anger tiden före vilken nyckeln inte får användas för kryptografiska åtgärder, förutom vissa åtgärds typer under [särskilda villkor](#date-time-controlled-operations). Bearbetningen av *NBF* -attributet kräver att aktuellt datum/tid måste vara efter eller lika med det icke-före-datum/-tid som anges i *NBF* -attributet. Key Vault kan ge vissa små Leeway, vanligt vis inte fler än några minuter, för att kontona ska kunna användas för klock skevning. Värdet måste vara ett tal som innehåller ett IntDate-värde.  
@@ -230,7 +230,7 @@ Mer information om hur du arbetar med nycklar finns [i nyckel åtgärder i Key V
 
 I ett utvecklings perspektiv kan Key Vault API: er acceptera och returnera hemliga värden som strängar. Internt Key Vault lagrar och hanterar hemligheter som sekvenser av oktetter (8-bitars byte), med en maximal storlek på 25k byte. Tjänsten Key Vault tillhandahåller inte semantik för hemligheter. Den accepterar bara data, krypterar den, lagrar den och returnerar en hemlig identifierare ("ID"). Identifieraren kan användas för att hämta hemligheten vid ett senare tillfälle.  
 
-För data som är mycket känsliga bör klienter överväga ytterligare skyddslager för data. Ett exempel är kryptering av data med hjälp av en separat skyddsnyckel före lagring i Key Vault.  
+För mycket känsliga data bör klienterna överväga ytterligare skydds nivåer för data. Ett exempel är att kryptera data med hjälp av en separat skydds nyckel före lagring i Key Vault.  
 
 Key Vault stöder också ett contentType-fält för hemligheter. Klienter kan ange innehålls typen för en hemlighet för att under lätta tolkningen av hemliga data när den hämtas. Den maximala längden för det här fältet är 255 tecken. Det finns inga fördefinierade värden. Den föreslagna användningen är som ett tips för att tolka hemliga data. Till exempel kan en implementering lagra både lösen ord och certifikat som hemligheter, och sedan använda det här fältet för att skilja. Det finns inga fördefinierade värden.  
 
@@ -372,7 +372,7 @@ Följande tabell visar mappningen av principen för x509-nyckel användning till
 |Oavvislig het|signera, verifiera| Gäller inte |
 |cRLSign|signera, verifiera| Gäller inte |
 
-### <a name="certificate-issuer"></a>Certifikatutfärdare
+### <a name="certificate-issuer"></a>Certifikat utfärdare
 
 Ett Key Vault certifikat objekt innehåller en konfiguration som används för att kommunicera med en vald certifikat utfärdare-Provider för att beställa x509-certifikat.  
 

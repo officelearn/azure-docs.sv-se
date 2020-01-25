@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 9bf5608a44aa19650a507ada3a0a437d34c13277
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705674"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715572"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Hämta sensor data från sensor partner
 
@@ -72,13 +72,16 @@ Du kan generera ovanstående information genom att följa dessa steg: (Observera
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integrera enhets data med hjälp av de genererade autentiseringsuppgifterna
 
-Gå till enhets partner portalen för att länka FarmBeats med hjälp av den uppsättning autentiseringsuppgifter som du skapade i föregående avsnitt:
-
+Nu har du följande information som genereras från föregående avsnitt.
  - API-slutpunkt
  - EventHub-anslutningssträng
  - Klientorganisations-ID
  - Klienthemlighet
  - Klient-ID:t
+ 
+Du måste ange detta till din enhets partner för att kunna länka FarmBeats. Gå till enhets partner portalen för att göra samma sak. Om du t. ex. använder enheter från Davis instrument, går du till sidan nedan:
+
+[Davis instrument](https://weatherlink.github.io/azure-farmbeats/setup)
 
  Enhets leverantören bekräftar en lyckad integrering. Vid bekräftelse kan du Visa alla enheter och sensorer på Azure FarmBeats.
 

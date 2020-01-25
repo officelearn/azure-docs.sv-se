@@ -1,51 +1,51 @@
 ---
-title: Azure Container Instance recept
+title: Recept för Azure Container instance
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du distribuerar Cognitive Services-behållare i Azure Container Instance
+description: Lär dig hur du distribuerar Cognitive Services behållare på Azure Container instance
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 288894705e1108d6dd511b60cd2bc3bcee4c6d41
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 78f35042678aa7c30cebf73796df3e5d564b4502
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704355"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716994"
 ---
-# <a name="deploy-and-run-container-on-azure-container-instance"></a>Distribuera och köra behållare på Azure-Behållarinstans
+# <a name="deploy-and-run-container-on-azure-container-instance"></a>Distribuera och köra container på Azure Container-instans
 
-Med följande steg, skala Azure Cognitive Services-program i molnet enkelt med Azure [Behållarinstans](https://docs.microsoft.com/azure/container-instances/). Det här kan du fokusera på att bygga dina program i stället för att hantera infrastrukturen.
+Med följande steg kan du enkelt skala Azure Cognitive Services-program i molnet med Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Skapa behållare hjälper dig att fokusera på att skapa dina program i stället för att hantera infrastrukturen. Mer information om hur du använder behållare finns i [funktioner och förmåner](../cognitive-services-container-support.md#features-and-benefits).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Den här lösningen fungerar med alla Cognitive Services-behållare. Cognitive Service-resursen måste skapas i Azure-portalen innan du använder den här recept. Alla kognitiva tjänster som stöder behållare har ett ”hur du installerar” dokument specifikt för att installera och konfigurera tjänsten för en behållare. Eftersom vissa tjänster kräver en fil eller en uppsättning filer som indata för behållaren, är det viktigt att du förstår och har använt behållaren har innan du använder den här lösningen.
+Receptet fungerar med alla Cognitive Services behållare. Kognitiva tjänst resursen måste skapas i Azure Portal innan du kan använda receptet. Varje kognitiv tjänst som stöder behållare har ett "hur man installerar"-dokumentet för att installera och konfigurera tjänsten för en behållare. Vissa tjänster kräver en fil eller en uppsättning filer som indata för behållaren, det är viktigt att du förstår och har använt behållaren innan du använder den här lösningen.
 
-* Resurs en Cognitive Service som skapas i Azure-portalen.
-* Cognitive Service **slutpunkts-URL** -granska din specifik tjänst ”hur du installerar” för behållaren, för att hitta där slutpunkts-URL är från Azure-portalen och vad en rätt exempel på URL: en kan se ut. Vilket format du kan ändra från tjänst till tjänst.
-* Cognitive Service **nyckel** -nycklarna finns på den **nycklar** för Azure-resursen. Du behöver bara en av två nycklar. Nyckeln är en sträng med 32 alfanumeriska tecken.
-* En enda Cognitive Services-behållare på din lokala värd (din dator). Kontrollera att du kan:
-  * Hämta avbildningen med en `docker pull` kommando.
-  * Körts lokal behållare med alla nödvändiga konfigurationsinställningar med en `docker run` kommando.
-  * Anropa behållarslutpunkten, få svar 2xx och ett JSON-svar tillbaka.
+* En kognitiv tjänst resurs som skapats i Azure Portal.
+* **Webbplats slut punkts-URL** – granska din tjänsts "hur du installerar" för behållaren för att ta reda på var slut punkts-URL: en är inifrån Azure Portal och hur ett korrekt exempel på URL: en ser ut. Det exakta formatet kan ändras från tjänst till tjänst.
+* **Nyckel** för kognitiva tjänster – nycklarna finns på sidan **nycklar** för Azure-resursen. Du behöver bara en av två nycklar. Nyckeln är en sträng med 32 alfanumeriska tecken.
+* En enda Cognitive Services-behållare på din lokala värd (datorn). Kontrol lera att du kan:
+  * Dra ned avbildningen med kommandot `docker pull`.
+  * Kör den lokala behållaren korrekt med alla konfigurations inställningar som krävs med kommandot `docker run`.
+  * Anropa behållarens slut punkt, få svar på HTTP-2xx och ett JSON-svar tillbaka.
 
-Alla variabler i vinkelparenteser, `<>`, måste de ersättas med dina egna värden. Den här ersättning innehåller hakparenteser.
+Alla variabler inom vinkelparenteser, `<>`, måste ersättas med dina egna värden. Den här ersättningen innehåller vinkelparenteser.
 
 [!INCLUDE [Create a Text Analytics Containers on Azure Container Instances](includes/create-container-instances-resource.md)]
 
-## <a name="use-the-container-instance"></a>Använd Container-instans
+## <a name="use-the-container-instance"></a>Använda behållar instansen
 
-1. Välj den **översikt** och kopiera den IP-adressen. Det ska vara en numerisk IP-adress som `55.55.55.55`.
-1. Öppna en ny webbläsarflik och använda IP-adressen, till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000`). Du kan se startsidan för behållarens att behållaren körs.
+1. Välj **Översikt** och kopiera IP-adressen. Det kommer att vara en numerisk IP-adress, till exempel `55.55.55.55`.
+1. Öppna en ny flik i webbläsaren och Använd IP-adressen, till exempel `http://<IP-address>:5000 (http://55.55.55.55:5000`). Behållarens start sida visas, så att du vet att behållaren körs.
 
-1. Välj **API tjänstbeskrivning** att visa sidan swagger för behållaren.
+1. Välj **Service API-Beskrivning** för att Visa Swagger-sidan för behållaren.
 
-1. Välj någon av de **POST** API: er och välj **prova**.  Parametrarna visas inklusive indata. Fyll i parametrar.
+1. Välj någon av **post** -API: erna och välj **prova**.  Parametrarna visas inklusive indatamängden. Fyll i parametrarna.
 
-1. Välj **kör** att skicka din begäran till din Container Instance.
+1. Välj **Kör** för att skicka begäran till behållar instansen.
 
-    Du har skapat och används Cognitive Services-behållare i Azure Container-instans.
+    Du har skapat och använt Cognitive Services behållare i Azure Container instance.

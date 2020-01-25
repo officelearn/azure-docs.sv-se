@@ -3,12 +3,12 @@ title: Hur du stoppa övervakning Your Azure Kubernetes Service-kluster | Micros
 description: Den här artikeln beskrivs hur du kan sluta övervakning av din Azure-AKS-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.openlocfilehash: 7415f0ef2a06c3f9c8cc7f517c0b5d456671738d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fb75379ba6c8109316f78288222039627bcb5902
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979793"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715963"
 ---
 # <a name="how-to-stop-monitoring-your-azure-kubernetes-service-aks-with-azure-monitor-for-containers"></a>Hur du stoppar övervakningen Azure Kubernetes Service (AKS) med Azure Monitor för behållare
 
@@ -59,20 +59,20 @@ Om du väljer att använda Azure CLI, måste du först installera och använda C
         "metadata": {
            "description": "Location of the AKS resource e.g. \"East US\""
          }
-       }
        },
     "aksResourceTagValues": {
       "type": "object",
       "metadata": {
         "description": "Existing all tags on AKS Cluster Resource"
+        }
       }
-    },
+     },
     "resources": [
       {
         "name": "[split(parameters('aksResourceId'),'/')[8]]",
         "type": "Microsoft.ContainerService/managedClusters",
         "location": "[parameters('aksResourceLocation')]",
-        "tags": "[parameters('aksResourceTagValues')]"
+        "tags": "[parameters('aksResourceTagValues')]",
         "apiVersion": "2018-03-31",
         "properties": {
           "mode": "Incremental",

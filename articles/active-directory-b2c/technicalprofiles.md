@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3275e31744faba5b029e5a4619a51420400b9d0a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 162597bf3d02cdfe53d321185b326bfbb1f6bd0d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425598"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712768"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -99,6 +99,7 @@ Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler
 | OutputClaimsTransformations | 0:1 | En lista med tidigare definierade referenser till anspråks omvandlingar som ska utföras när anspråken tas emot från anspråks leverantören. |
 | ValidationTechnicalProfiles | 0: n | En lista med referenser till andra tekniska profiler som den tekniska profilen använder i validerings syfte. Mer information finns i [verifiering teknisk profil](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Styr produktionen av ämnes namnet i tokens där ämnes namnet anges separat från anspråk. Till exempel OAuth eller SAML.  |
+| IncludeInSso | 0:1 |  Om användningen av den här tekniska profilen ska använda enkel inloggning (SSO) för sessionen eller i stället kräva explicit interaktion. Möjliga värden: `true` (standard) eller `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | En identifierare för en teknisk profil från vilken du vill att alla indata-och utgående anspråk ska läggas till i den här tekniska profilen. Den tekniska profilen som refereras till måste definieras i samma princip fil. |
 | IncludeTechnicalProfile |0:1 | En identifierare för en teknisk profil från vilken du vill att alla data ska läggas till i den här tekniska profilen. Den tekniska profilen som refereras måste finnas i samma princip fil. |
 | UseTechnicalProfileForSessionManagement | 0:1 | En annan teknisk profil som ska användas för hantering av sessioner. |
@@ -111,7 +112,7 @@ Ett **TechnicalProfiles** -element innehåller en uppsättning tekniska profiler
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C som används som en del av den tekniska profilen. Möjliga värden: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted`eller `None`. |
-| Hanterare | Inga | När protokoll namnet är inställt på `Proprietary`anger du det fullständigt kvalificerade namnet på den sammansättning som används av Azure AD B2C för att fastställa protokoll hanteraren. |
+| Protokollhanteraren | Inga | När protokoll namnet är inställt på `Proprietary`anger du det fullständigt kvalificerade namnet på den sammansättning som används av Azure AD B2C för att fastställa protokoll hanteraren. |
 
 ## <a name="metadata"></a>Metadata
 

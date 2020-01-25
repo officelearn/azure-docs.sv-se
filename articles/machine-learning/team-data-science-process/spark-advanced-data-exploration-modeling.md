@@ -3,20 +3,20 @@ title: Avancerad datagranskning och modellering med Spark - Team Data Science Pr
 description: Använd HDInsight Spark för att göra datagranskning och träna binär klassificering och regression modeller med korsvalidering och finjustering optimering.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 02/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5f6145e581393d874871d214515a660f987d1d7f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 15d9d186ef36ee9181a6ce0386aa9cc5de7838e3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253440"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718659"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Avancerad datagranskning och modellering med Spark
 
@@ -31,32 +31,34 @@ Modellering stegen också innehålla kod som visar hur du tränar, utvärdera oc
 
 **Finjustering optimering** är problemet för att välja en uppsättning av hyperparametrar för en inlärningsalgoritm vanligtvis med målet att optimera ett mått på den algoritmen prestanda på en oberoende datauppsättning. **Hyperparametrar** är värden som måste anges utanför modellen utbildning proceduren. Antaganden om dessa värden kan påverka flexibilitet och korrektheten i modeller. Beslutsträd har till exempel hyperparametrar, till exempel önskad djup och många blad i trädet. Support Vector datorer (SVMs) kräver en felklassificering särskilda avgifter term. 
 
-Ett vanligt sätt att utföra finjustering optimering används här är en grid-sökning eller en **parameterrensning**. Det här består av utför en uttömmande sökning efter genom värdena en angiven delmängd finjustering utrymme för en inlärningsalgoritm. Mellan verifiering kan ange ett prestandamått för att lösa de optimala resultat som skapas av algoritmen grid sökning. KA användas med finjustering omfattande hjälper till att gränsen problem angående overfitting en modell på träningsdata så att modellen behåller kapacitet att gäller för allmän uppsättning data från vilken träningsdata har extraherats.
+Ett vanligt sätt att utföra finjustering optimering används här är en grid-sökning eller en **parameterrensning**. Den här sökningen går igenom en delmängd av områdets parameter utrymme för en Learning-algoritm. Mellan verifiering kan ange ett prestandamått för att lösa de optimala resultat som skapas av algoritmen grid sökning. KA användas med finjustering omfattande hjälper till att gränsen problem angående overfitting en modell på träningsdata så att modellen behåller kapacitet att gäller för allmän uppsättning data från vilken träningsdata har extraherats.
 
 Modeller som vi använder är logistic och linjär regression, slumpmässigt skogar och gradient bättre träd:
 
 * [Linjär regression med Descent](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) är en linjär regressionsmodell som använder en Stokastisk brantaste Lutningsmetoden (Descent)-metod och skalning för att förutsäga tips belopp betalas för optimering och funktion. 
 * [Logistic regression med LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) eller ”logit” regression är en regressionsmodell som kan användas när den beroende variabeln är kategoriska göra dataklassificering. LBFGS är en kvasi Karlsson optimering algoritm som tillhandahåller algoritmen Broyden – Fletcher – Goldfarb – Shanno (BFGS) med hjälp av en begränsad del av minnet och som ofta används i machine learning.
 * [Slumpmässig skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för beslutsträd.  De kombinera många beslutsträd för att minska risken för overfitting. Slumpmässig skogar för regression och klassificering och kan hantera kategoriska funktioner och kan utökas till inställningen multiklass-baserad klassificering. De kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. Slumpmässig skogar är en av de mest framgångsrika machine learning-modeller för klassificering och regression.
-* [Toning förstärkta träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. GBTs för regression och klassificering och kan hantera kategoriska funktioner, kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. De kan också användas i en inställning för multiclass-klassificering.
+* [Tonings utökat träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) är ensembler i besluts träd. GBTS träna besluts träd iterativt för att minimera en förlust funktion. GBTS används för regression och klassificering och kan hantera kategoriska-funktioner, kräver inte funktions skalning och kan fånga icke-linjära och funktions interaktioner. De kan också användas i en inställning för multiclass-klassificering.
 
 Modellering exempel med KA och finjustering Svep visas för den binära klassificeringsproblem. Enklare exempel visas (utan parametern rensar) i avsnittet för regression uppgifter. Men i tillägget, validering med hjälp av elastisk net för linjär regression och KA parametern rensning av för slumpmässiga skog regression visas också. Den **elastiska net** är en metod som reglerats regression för Passning linjär regressionsmodeller som linjärt kombinerar L1 och L2 mått som påföljder för den [lasso](https://en.wikipedia.org/wiki/Lasso%20%28statistics%29) och [upphöjning](https://en.wikipedia.org/wiki/Tikhonov_regularization)metoder.   
 
+<!-- -->
+
 > [!NOTE]
 > Även om Spark MLlib toolkit är utformat för att arbeta med stora datauppsättningar, används ett relativt litet antal (cirka 30 Mb med 170K rader, ca 0,1% av den ursprungliga datauppsättningen NYC) här för att underlätta. Den här övningen körs effektivt (i cirka 10 minuter) på ett HDInsight-kluster med 2 arbetarnoder. Samma kod, med mindre ändringar kan användas för att bearbeta större-datauppsättningar, med lämpliga ändringar för att cachelagra data i minnet och ändrar storlek på klustret.
-> 
-> 
 
-## <a name="setup-spark-clusters-and-notebooks"></a>Konfigurera: Spark-kluster och bärbara datorer
+<!-- -->
+
+## <a name="setup-spark-clusters-and-notebooks"></a>Installationsprogrammet: Spark-kluster och anteckningsböcker
 Steg för konfiguration och kod finns i den här genomgången för att använda ett HDInsight Spark 1.6. Men tillhandahålls Jupyter notebooks för HDInsight Spark 1.6- och Spark 2.0. En beskrivning av anteckningsböcker och länkar till dem finns i den [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-lagringsplatsen som innehåller dessa. Dessutom koden här och i länkade anteckningsböcker är generisk och bör fungera i ett Spark-kluster. Om du inte använder HDInsight Spark, konfiguration och hantering av steg kanske skiljer sig från vad som anges här. För enkelhetens skull följer du länkarna till Jupyter-anteckningsböcker för Spark 1.6 och 2.0 som ska köras i pyspark-kerneln för Jupyter Notebook-server:
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 anteckningsböcker
 
-[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Innehåller avsnitt i anteckningsboken #1 och modellen utveckling med hjälp av finjustering av hyperparametrar och korsvalidering.
+[pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/pySpark-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): innehåller avsnitt i anteckningsboken #1 och modellen utveckling med hjälp av finjustering av hyperparametrar och korsvalidering.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0-anteckningsböcker
 
-[Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Den här filen innehåller information om hur du utför datagranskning, modellering och bedömning i Spark 2.0-kluster.
+[Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning, modellering och bedömning i Spark 2.0-kluster.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -114,7 +116,7 @@ PySpark-kärnor som tillhandahålls med Jupyter-anteckningsböcker har en förin
 PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med %%. Det finns två kommandon som används i följande kodexempel.
 
 * **%% lokala** anger att koden i efterföljande rader är att köras lokalt. Koden måste vara giltig Python-kod.
-* **%% sql -o \<variabelnamn >** kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokal Python-kontext som en Pandas-DataFrame.
+* **%% SQL-o \<variabel namn >** Kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokal Python-kontext som en Pandas-DataFrame.
 
 För mer information om kärnor för Jupyter notebooks och den fördefinierade ”magics” som ger, se [Kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
@@ -209,10 +211,12 @@ Den här frågan hämtar kommunikation efter passagerartrafik antal.
 
 Den här koden skapar en lokal dataram från frågeresultatet visas och visar data. Den `%%local` magic skapar en lokal dataram, `sqlResults`, som kan användas för med matplotlib. 
 
+<!-- -->
+
 > [!NOTE]
 > Den här PySpark-magic används flera gånger i den här genomgången. Om mängden data som är stor, bör du ta prov för att skapa en dataram som ryms i lokalt minne.
-> 
-> 
+
+<!-- -->
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -304,7 +308,7 @@ Det här avsnittet beskriver och innehåller koden för procedurer som används 
 * Skapa en ny funktion genom att partitionera timmar till trafik tid lagerplatser
 * Indexera och på hot koda kategoriska funktioner
 * Skapa taggade point-objekt för mata in ML-funktioner
-* Skapa en slumpmässig underordnade sampling av data och dela upp den i utbildning och testningsuppsättningar
+* Skapa en slumpmässig under sampling av data och dela upp den i utbildning och testnings uppsättningar
 * Funktionen skalning
 * Cacheobjekt i minnet
 
@@ -386,7 +390,7 @@ Här är koden för att indexera och koda kategoriska funktioner:
 Åtgången tid att köra ovanför cellen: 3,14 sekunder
 
 ### <a name="create-labeled-point-objects-for-input-into-ml-functions"></a>Skapa taggade point-objekt för mata in ML-funktioner
-Det här avsnittet innehåller kod som visar hur du indexerar kategoriska textdata som datatypen taggade punkt och koda den. Detta förbereder den för att träna och testa MLlib logistic regression och andra klassificering modeller. Taggade point-objekt är flexibel distribuerade datauppsättningar (RDD) formaterad på ett sätt som krävs som indata av de flesta ML-algoritmer i MLlib. En [märkta punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) är en lokal vector kompakta eller null-optimerade, som är associerad med en etikett/svar.
+Det här avsnittet innehåller kod som visar hur du indexerar kategoriska textdata som datatypen taggade punkt och koda den. Den här omvandlingen förbereder text data som ska användas för att träna och testa MLlib Logistisk regression och andra klassificerings modeller. Taggade point-objekt är flexibel distribuerade datauppsättningar (RDD) formaterad på ett sätt som krävs som indata av de flesta ML-algoritmer i MLlib. En [märkta punkt](https://spark.apache.org/docs/latest/mllib-data-types.html#labeled-point) är en lokal vector kompakta eller null-optimerade, som är associerad med en etikett/svar.
 
 Här är koden för att indexera och koda textfunktioner för binär klassificering.
 
@@ -434,8 +438,8 @@ Här är koden för att koda och indexera kategoriska textfunktioner för linjä
         return  labPt
 
 
-### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Skapa en slumpmässig underordnade sampling av data och dela upp den i utbildning och testningsuppsättningar
-Den här koden skapar ett slumpmässigt urval av data (25% används här). Även om det inte krävs för det här exemplet på grund av storleken på datauppsättningen, visar vi hur du kan ta prov data här. Sedan vet du hur man använder det för dina egna problem om det behövs. När exempel är stor, kan detta spara betydande tid modeller för utbildning. Sedan dela vi exemplet i en utbildning (här 75%) och en testning delen (här 25%) ska användas i klassificering och regression modellering.
+### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Skapa en slumpmässig under sampling av data och dela upp den i utbildning och testnings uppsättningar
+Den här koden skapar ett slumpmässigt urval av data (25% används här). Även om det inte krävs för det här exemplet på grund av storleken på datauppsättningen, visar vi hur du kan ta prov data här. Sedan vet du hur man använder det för dina egna problem om det behövs. När exempel är stora kan samplingen Spara avsevärd tid och utbildnings modeller. Sedan dela vi exemplet i en utbildning (här 75%) och en testning delen (här 25%) ska användas i klassificering och regression modellering.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -476,7 +480,7 @@ Den här koden skapar ett slumpmässigt urval av data (25% används här). Även
 
 **UTDATA**
 
-Åtgången tid att köra ovanför cellen: 0.31 sekunder
+Tids åtgång för att köra ovanför cell: 0,31 sekund
 
 ### <a name="feature-scaling"></a>Funktionen skalning
 Funktionen skalning, även kallat databasnormalisering försäkrar att funktioner med brett erläggas värden har inte gett överdriven väga i funktionen servicenivåmål. Koden för funktionen skalning använder den [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) skala funktioner till enhet avvikelse. Den tillhandahålls av MLlib för användning i linjär regression med Stokastisk brantaste Lutningsmetoden (Descent). Descent är en populär algoritm för att träna en mängd andra maskininlärningsmodeller som reglerats upprepningar eller support vector datorer (SVM).   
@@ -548,7 +552,7 @@ Den tid det tar för träning och testning av ML-algoritmer kan minskas genom ca
 
 **UTDATA** 
 
-Åtgången tid att köra ovanför cellen: 0,13 sekunder
+Tids åtgång för att köra ovanför cell: 0,13 sekund
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Förutsäga om ett tips är betald med binär klassificering modeller
 Det här avsnittet visas hur användning tre modeller för binär klassificering uppgiften att förutsäga om huruvida ett tips betalas för en taxi-resa. Modeller som visas är:
@@ -565,20 +569,22 @@ Varje modell att skapa avsnitt med exempelkod delas upp i steg:
 
 Vi visar hur man gör korsvalidering (KA) med parametern oinskränkt på två sätt:
 
-1. Med hjälp av **allmän** anpassad kod som kan tillämpas på alla algoritmer i MLlib och valfri parameter som anger i en algoritm. 
-2. Med hjälp av den **pySpark CrossValidator pipeline funktionen**. Observera att CrossValidator har några begränsningar för Spark 1.5.0: 
+1. Använda **generisk** anpassad kod som kan tillämpas på alla algoritmer i MLlib och till alla parameter uppsättningar i en algoritm. 
+2. Med hjälp av den **pySpark CrossValidator pipeline funktionen**. CrossValidator har några begränsningar för Spark-1.5.0: 
    
-   * Pipeline-modeller får inte vara sparade/sparas för framtida användning.
+   * Det går inte att spara eller spara pipeline-modeller för framtida konsumtion.
    * Kan inte användas för varje parameter i en modell.
    * Kan inte användas för varje MLlib-algoritmen.
 
 ### <a name="generic-cross-validation-and-hyperparameter-sweeping-used-with-the-logistic-regression-algorithm-for-binary-classification"></a>Allmän verifiering och finjustering oinskränkt används med logistic regression-algoritmen för binär klassificering
 Koden i det här avsnittet visar hur du tränar, utvärdera och spara en logistic regression-modellen med [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) som förutsäger om huruvida ett tips betalas för en resa i NYC taxi resa och avgiften datauppsättningen. Modellen tränas med verifiering (KA) och finjustering oinskränkt har implementerats med anpassad kod som kan tillämpas på någon av learning-algoritmer i MLlib.   
 
+<!-- -->
+
 > [!NOTE]
 > Körningen av den här anpassade KA-koden kan ta flera minuter.
-> 
-> 
+
+<!-- -->
 
 **Träna logistic regression-modellen med hjälp av KA och finjustering oinskränkt**
 
@@ -801,10 +807,12 @@ Koden i det här avsnittet visar hur du sparar logistic regression-modellen för
 ### <a name="use-mllibs-crossvalidator-pipeline-function-with-logistic-regression-elastic-regression-model"></a>Använda Mllib's CrossValidator pipeline-funktion med logistiska regressionsmodell (elastisk regression)
 Koden i det här avsnittet visar hur du tränar, utvärdera och spara en logistic regression-modellen med [LBFGS](https://en.wikipedia.org/wiki/Broyden%E2%80%93Fletcher%E2%80%93Goldfarb%E2%80%93Shanno_algorithm) som förutsäger om huruvida ett tips betalas för en resa i NYC taxi resa och avgiften datauppsättningen. Modellen tränas med verifiering (KA) och finjustering oinskränkt implementerats med funktionen MLlib CrossValidator pipeline för KA med parameterrensning.   
 
+<!-- -->
+
 > [!NOTE]
 > Körningen av den här MLlib KA-koden kan ta flera minuter.
-> 
-> 
+
+<!-- -->
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -998,11 +1006,19 @@ Dessa modeller beskrivs i inledningen. Varje modell att skapa avsnitt med exempe
 2. **Modellera utvärdering** på en datauppsättning för testning med mått
 3. **Sparar modell** i blob för framtida användning   
 
-> AZURE OBS: Korsvalidering används inte med tre regressionsmodeller i det här avsnittet, eftersom detta visades i detalj för logistic regressionsmodeller. Ett exempel som visar hur du använder KA med elastisk Net för linjär regression tillhandahålls i tillägget i det här avsnittet.
-> 
-> AZURE OBS: Enligt vår erfarenhet medför det kan finnas problem med möte för LinearRegressionWithSGD modeller och parametrar måste vara ändrats/optimerade noggrant för att hämta en giltig modell. Skalning av variabler avsevärt hjälper med konvergens. Elastisk net regression som visas i tillägg till det här avsnittet kan också användas i stället för LinearRegressionWithSGD.
-> 
-> 
+<!-- -->
+
+> [!NOTE] 
+> Kors validering används inte med de tre Regressions modellerna i det här avsnittet eftersom detta visades i detalj för logistik Regressions modellerna. Ett exempel som visar hur du använder KA med elastisk Net för linjär regression tillhandahålls i tillägget i det här avsnittet.
+
+<!-- -->
+
+<!-- -->
+
+> [!NOTE] 
+> I vår miljö kan det finnas problem med konvergens av LinearRegressionWithSGD-modeller, och parametrarna måste ändras/optimeras noggrant för att få en giltig modell. Skalning av variabler avsevärt hjälper med konvergens. Elastisk net regression som visas i tillägg till det här avsnittet kan också användas i stället för LinearRegressionWithSGD.
+
+<!-- -->
 
 ### <a name="linear-regression-with-sgd"></a>Linjär regression med Descent
 Koden i det här avsnittet visar hur du använder skalade funktioner för att träna en linjär regression som använder stokastisk brantaste lutningsmetoden (Descent) för optimering och hur du poäng, utvärdera och spara modellen i Azure Blob Storage (WASB).
@@ -1065,10 +1081,12 @@ R-sqr = 0.597963951127
 ### <a name="random-forest-regression"></a>Slumpmässig skog regression
 Koden i det här avsnittet visar hur du tränar, utvärdera och spara en slumpmässig Skogsmodell som beräknar tips beloppet för NYC taxi resedata.   
 
+<!-- -->
+
 > [!NOTE]
 > Korsvalidering med parametern oinskränkt med anpassad kod ges i bilagan.
-> 
-> 
+
+<!-- -->
 
     #PREDICT TIP AMOUNTS USING RANDOM FOREST
 
@@ -1198,7 +1216,7 @@ Här är koden för att rita data med Jupyter-server.
 
 ![Aktuella-vs-förutse-tips-belopp](./media/spark-advanced-data-exploration-modeling/actual-vs-predicted-tips.png)
 
-## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Tillägg: Ytterligare regression uppgifter med parametersvep mellan verifiering
+## <a name="appendix-additional-regression-tasks-using-cross-validation-with-parameter-sweeps"></a>Bilaga: Förhållandet uppgifter med parametersvep mellan verifiering
 Den här bilagan innehåller kod som visar hur du gör KA med elastisk net för linjär regression och hur du gör KA med parameterrensning med anpassad kod för slumpmässiga skog regression.
 
 ### <a name="cross-validation-using-elastic-net-for-linear-regression"></a>Korsvalidering med elastisk net för linjär regression
@@ -1410,7 +1428,7 @@ Använd `unpersist()` att ta bort objekt som cachelagrats i minnet.
 
 PythonRDD [122] vid RDD på PythonRDD.scala: 43
 
-** Utskrift sökvägen till modellfiler som ska användas i anteckningsboken förbrukning. ** Om du vill använda och bedöma en oberoende datauppsättning, måste du kopiera och klistra in dessa filnamn i ”dagbok förbrukning”.
+\* * Sökväg för utdata till modell filer som ska användas i konsumtions antecknings boken. ** Om du vill använda och bedöma en oberoende datauppsättning, måste du kopiera och klistra in dessa filnamn i ”dagbok förbrukning”.
 
     # PRINT MODEL FILE LOCATIONS FOR CONSUMPTION
     print "logisticRegFileLoc = modelDir + \"" + logisticregressionfilename + "\"";
@@ -1435,8 +1453,8 @@ BoostedTreeClassificationFileLoc = modelDir + ”GradientBoostingTreeClassificat
 
 BoostedTreeRegressionFileLoc = modelDir + ”GradientBoostingTreeRegression_2016-05-0316_52_18.827237”
 
-## <a name="whats-next"></a>Nästa steg
+## <a name="whats-next"></a>Vad står på tur?
 Nu när du har skapat regression och klassificering modeller med Spark MlLib kan är du redo att lära dig hur du bedöma och utvärdera dessa modeller.
 
-**Modell-användning:** Läs hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet i [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
+**Modellera förbrukning:** information om hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet finns [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
 

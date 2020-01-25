@@ -1,34 +1,34 @@
 ---
-title: Läs in data i Azure Storage-miljöer – team data science process
+title: Läs in data i Azure Storage miljöer – team data science process
 description: Lär dig mer om hur du matar in data i olika mål miljöer där data lagras och bearbetas.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 515decfafe46ad0c1b5b90743688abc26a975903
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f8eab59d810fb825dbebf80d01d8efd2dd0a9841
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053266"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720545"
 ---
 # <a name="load-data-into-storage-environments-for-analytics"></a>Läs in data i lagringsmiljöer för analys
 
-Team data science-processen kräver att data matas in eller läses in i en mängd olika lagrings miljöer som ska bearbetas eller analyseras på det sätt som är lämpligast i varje steg i processen. Data destinationer som används ofta för bearbetning inkluderar Azure Blob Storage, SQL Azure-databaser, SQL Server på virtuell Azure-dator, HDInsight (Hadoop) och Azure Machine Learning. 
+Team data science-processen kräver att data matas in eller läses in på det lämpligaste sättet i varje steg. Data destinationer kan omfatta Azure Blob Storage, SQL Azure-databaser, SQL Server på Azure VM, HDInsight (Hadoop), Synapse Analytics och Azure Machine Learning. 
 
-I följande artiklar beskrivs hur du matar in data i olika mål miljöer där data lagras och bearbetas.
+I följande artiklar beskrivs hur du mata in data i olika målmiljöer där data lagras och bearbetas.
 
-* Till/från [Azure Blob Storage](move-azure-blob.md)
-* För att [SQL Server på virtuell Azure-dator](move-sql-server-virtual-machine.md)
-* Till [Azure SQL Database](move-sql-azure.md)
-* Till [Hive-tabeller](move-hive-tables.md)
-* Till [partitionerade SQL-tabeller](parallel-load-sql-partitioned-tables.md)
-* Från [lokala SQL Server](move-sql-azure-adf.md)
+* Till och från [Azure Blob Storage](move-azure-blob.md)
+* Att [SQLServer på Azure VM](move-sql-server-virtual-machine.md)
+* För att [Azure SQL Database](move-sql-azure.md)
+* Att [Hive-tabeller](move-hive-tables.md)
+* Att [SQL partitionerade tabeller](parallel-load-sql-partitioned-tables.md)
+* Från [lokal SQLServer](move-sql-azure-adf.md)
 
-De tekniska och affärs behoven, samt den ursprungliga platsen, formatet och storleken på dina data avgör vilka mål miljöer som data måste matas in för att uppnå målen för din analys. Det är inte ovanligt att ett scenario kräver att data flyttas mellan flera miljöer för att uppnå den mängd uppgifter som krävs för att skapa en förutsägelse modell. Den här aktivitetssekvensen kan omfatta exempelvis data utforskning, för bearbetning, rensning, nedsampling och modell träning.
+De tekniska och affärs behoven, samt den ursprungliga platsen, formatet och storleken på dina data avgör den bästa data inmatnings planen. Det är inte ovanligt att det finns flera steg i en bra plan. Den här aktivitetssekvensen kan exempelvis innehålla datagranskning, bearbeta data i förväg, rensning, ned sampling och modellen.  Azure Data Factory är en rekommenderad Azure-resurs för att dirigera data förflyttning och omvandling.

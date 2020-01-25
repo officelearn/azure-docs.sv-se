@@ -3,26 +3,26 @@ title: Testa data science kod med Azure-tjänster för DevOps - Team Data Scienc
 description: Data science kod testning på Azure med UCI vuxet inkomst förutsägelse datauppsättningen med Team Data Science Process och Azure DevOps-tjänsterna
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336702"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722067"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Data science kod testning på Azure med Team Data Science Process och Azure DevOps-tjänsterna
 Den här artikeln ger preliminär riktlinjer för att testa koden i ett arbetsflöde för datavetenskap. Sådant test ger datatekniker ett systematiskt och effektivt sätt att kontrollera kvaliteten och förväntade resultatet av sin kod. Vi använder ett Team Data Science Process (TDSP) [projekt som använder UCI vuxet inkomst datauppsättningen](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) som vi har publicerat tidigare för att visa hur kod testning kan göras. 
 
 ## <a name="introduction-on-code-testing"></a>Introduktion till code testning
-”Enhetstestning” är värnar om praxis för programutveckling. Men för datavetenskap, det är ofta oklart hur det innebär och hur du ska testa kod för olika faser av en livscykeln för datavetenskap, till exempel:
+”Enhetstestning” är värnar om praxis för programutveckling. Men för data vetenskap är det ofta inte uppenbart vad "enhets testning" innebär och hur du bör testa kod för olika faser i en data vetenskaps livs cykel, till exempel:
 
 * Förberedelse av data
 * Data quality undersökning
@@ -114,35 +114,35 @@ Använd följande steg för att konfigurera och köra kod testning och en automa
 
     a. I lagringsplatsen för projektet, väljer **Build and Release**, och välj sedan **+ ny** att skapa en ny build-process.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![Val för att starta en ny versions process](./media/code-test/create_new_build.PNG)
 
     b. Följ anvisningarna för att välja din kod för källplats, projektnamn, lagringsplatsen och grenen information.
     
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![Käll-, namn-, lagrings-och förgrenings information](./media/code-test/fill_in_build_info.PNG)
 
     c. Välj en mall. Eftersom det finns inga Python-projektmallen, starta genom att välja **tom process**. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![Lista över mallar och knappen "tom process"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Namnge versionen och välj agenten. Du kan välja standard här om du vill använda en DSVM för att slutföra skapandeprocessen. Mer information om inställningen agenter finns i [skapa och släpp agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
+    d. Namnge versionen och välj agenten. Du kan välja standardvärdet här om du vill använda en DSVM för att slutföra Bygg processen. Mer information om inställningen agenter finns i [skapa och släpp agenter](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![Build-och agent-val](./media/code-test/select_agent.PNG)
 
-    e. Välj **+** i den vänstra rutan, att lägga till en uppgift för den här build-fasen. Eftersom vi ska köra Python-skriptet **test1.py** för att slutföra alla kontroller, den här uppgiften använder ett PowerShell-kommando för att köra Python-kod.
+    e. Välj **+** i den vänstra rutan, att lägga till en uppgift för den här build-fasen. Eftersom vi ska köra python-skriptet **test1.py** för att slutföra alla kontroller, använder den här uppgiften ett PowerShell-kommando för att köra python-kod.
     
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    ![Fönstret Lägg till aktiviteter med PowerShell valt](./media/code-test/add_task_powershell.PNG)
 
     f. Fyll i nödvändig information, till exempel namn och version av PowerShell i PowerShell-information. Välj **infogat skript** som typ av. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    I rutan under **infogat skript**kan du skriva python- **test1.py**. Kontrol lera att miljövariabeln är korrekt konfigurerad för python. Om du behöver en annan version eller kernel av python kan du uttryckligen ange sökvägen så som visas i bilden: 
     
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![PowerShell-information](./media/code-test/powershell_scripts.PNG)
 
-    g. Välj **spara och köa** Slutför pipeline skapandeprocessen.
+    g. Klicka på **spara & kö** för att slutföra processen för att bygga pipelinen.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    ![Knappen Spara & kö](./media/code-test/save_and_queue_build_definition.PNG)
 
-Varje gång en ny allokering skickas till kodlagringsplatsen, startas nu skapandeprocessen automatiskt. (Använder här vi master som lagringsplats, men du kan definiera valfri gren.) Processen körs den **test1.py** fil på agentdatorn att se till att allt definieras i koden körs korrekt. 
+Varje gång en ny allokering skickas till kodlagringsplatsen, startas nu skapandeprocessen automatiskt. (Här använder vi Master som lagrings plats, men du kan definiera vilken gren som helst.) Processen kör **test1.py** -filen på agent datorn för att kontrol lera att allting som definieras i koden körs på rätt sätt. 
 
 Om aviseringar har ställts in korrekt, kommer du att meddelas via e-post när bygget har slutförts. Du kan också kontrollera status för build i Azure DevOps. Om det misslyckas kan du kontrollera informationen för versionen och ta reda på vilka delar är bruten.
 

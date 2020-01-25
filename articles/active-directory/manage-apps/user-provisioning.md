@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d515731b8da186ef7e44a397d5abf87dfa65e83a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433798"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711469"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för program med Azure Active Directory
 
-I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)och mycket annat.
+I Azure Active Directory (Azure AD), avser termen **app-etablering** att automatiskt skapa användar identiteter och roller i molnet ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) som användarna behöver åtkomst till. Förutom att skapa användar identiteter omfattar automatisk etablering underhåll och borttagning av användar identiteter som status eller roller ändras. Vanliga scenarier innefattar etablering av en Azure AD-användare i program som [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)och mycket annat.
 
 ![Översikts diagram för etablering](media/user-provisioning/provisioning-overview.png)
 
@@ -63,7 +63,7 @@ Azure AD innehåller Förintegrerad support för många populära SaaS-appar och
 
    ![Salesforce-logotyp](media/user-provisioning/gallery-app-logos.png)
 
-   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
+   Om du vill begära ett nytt program för etablering kan du [begära att ditt program är integrerat med vårt app-Galleri](../develop/howto-app-gallery-listing.md). För en användar etablerings förfrågan kräver vi att programmet har en SCIM-kompatibel slut punkt. Be program leverantören att följa SCIM-standarden så att vi kan publicera appen på vår plattform snabbt.
 
 * **Program som stöder SCIM 2,0**. Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [bygga en scim-slutpunkt och konfigurera användar etablering](use-scim-to-provision-users-and-groups.md).
 
@@ -81,7 +81,7 @@ Program i Azure AD-galleriet stöder ett av två etablerings lägen:
 
 * **Manuell** etablering innebär att det inte finns någon automatisk Azure AD-etablerings anslutning för appen än. Användar konton måste skapas manuellt, till exempel genom att lägga till användare direkt i appens administrativa portal eller ladda upp ett kalkyl blad med information om användar kontot. Läs dokumentationen från appen eller kontakta appens utvecklare för att ta reda på vilka mekanismer som är tillgängliga.
 
-* **Automatisk** innebär att en Azure AD-etablerings anslutning har utvecklats för det här programmet. Du bör följa installations självstudien som är specifik för att konfigurera etablering för programmet. Själv studie kurser för appar finns i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list).
+* **Automatisk** innebär att en Azure AD-etablerings anslutning har utvecklats för det här programmet. Du bör följa installations självstudien som är specifik för att konfigurera etablering för programmet. Själv studie kurser för appar finns i [listan med självstudier om hur du integrerar SaaS-appar med Azure Active Directory](../saas-apps/tutorial-list.md).
 
 I Azure AD-galleriet anges program som stöder automatisk etablering av en **etablerings** ikon. Växla till den nya Galleri förhands granskningen för att se dessa ikoner (i banderollen högst upp på **sidan Lägg till ett program**) väljer du den länk som visas **Klicka här för att prova det nya och förbättrade app-galleriet**.
 
@@ -91,7 +91,7 @@ Det etablerings läge som stöds av ett program visas också på fliken **etable
 
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>Hur gör jag för att konfigurera automatisk etablering till ett program?
 
-För förintegrerade program som listas i galleriet finns steg-för-steg-anvisningar om hur du konfigurerar automatisk etablering. Se [listan med självstudier för integrerade Gallery-appar](https://docs.microsoft.com/azure/active-directory/saas-apps/). Följande videoklipp visar hur du konfigurerar automatisk användar etablering för SalesForce.
+För förintegrerade program som listas i galleriet finns steg-för-steg-anvisningar om hur du konfigurerar automatisk etablering. Se [listan med självstudier för integrerade Gallery-appar](../saas-apps/tutorial-list.md). Följande videoklipp visar hur du konfigurerar automatisk användar etablering för SalesForce.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

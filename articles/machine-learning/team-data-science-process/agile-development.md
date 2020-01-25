@@ -2,20 +2,20 @@
 title: Smidig utveckling av dataforskningsprojekt - Team Data Science Process
 description: Kör ett data vetenskaps projekt i en systematisk, version som styrs och samar beta i ett projekt team med hjälp av processen för team data vetenskap.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260689"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722109"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Smidig utveckling av dataforskningsprojekt
 
@@ -35,13 +35,13 @@ Följande bild illustrerar ett typiskt arbets flöde för Sprint planering, kodn
 
 ##  <a name='Terminology-1'></a>Arbets objekts typer
 
-I TDSP Sprint planerings ramverk finns fyra typer av *arbets objekt* som används ofta: *Funktioner*, *användar berättelser*, *uppgifter*och *buggar*. Efter släpning för alla arbets uppgifter finns på projekt nivå, inte på git-lagringsplatsen. 
+I TDSP Sprint planerings ramverk finns fyra typer av *arbets objekt* som används ofta: *funktioner*, *användar berättelser*, *uppgifter*och *buggar*. Efter släpning för alla arbets uppgifter finns på projekt nivå, inte på git-lagringsplatsen. 
 
 Här är definitionerna för arbets objekts typerna:
 
-- **Funktion**: En funktion motsvarar ett projekt engagemang. Olika engagemang med en klient är olika funktioner, och det är bäst att överväga olika faser i ett projekt som olika funktioner. Om du väljer ett schema som  *\<ClientName >-\<EngagementName >* för att namnge dina funktioner kan du enkelt identifiera projektets kontext och engagemang från själva namnen.
+- **Funktion**: en funktion motsvarar ett projekt engagemang. Olika engagemang med en klient är olika funktioner, och det är bäst att överväga olika faser i ett projekt som olika funktioner. Om du väljer ett schema som *\<ClientName >-\<EngagementName >* för att namnge dina funktioner kan du enkelt identifiera projektets kontext och Samverkarens namn.
   
-- **Användar berättelse**: Användar berättelser är arbets objekt som behövs för att slutföra en funktion från slut punkt till slut punkt. Exempel på användar berättelser är:
+- **Användar berättelse**: användar berättelser är arbets objekt som behövs för att slutföra en funktion från slut punkt till slut punkt. Exempel på användar berättelser är:
   - Hämta data 
   - Utforska data 
   - Generera funktioner
@@ -49,11 +49,11 @@ Här är definitionerna för arbets objekts typerna:
   - Operationalisera modeller 
   - Omtrimningsmodeller
   
-- **Uppgift**: Uppgifter är tilldelnings bara arbets objekt som måste utföras för att slutföra en speciell användar berättelse. Till exempel kan uppgifter i användar artikeln *Hämta data* :
+- **Uppgift**: uppgifter är tilldelnings bara arbets objekt som måste utföras för att slutföra en speciell användar berättelse. Till exempel kan uppgifter i användar artikeln *Hämta data* :
   - Hämta SQL Server autentiseringsuppgifter
   - Ladda upp data till SQL Data Warehouse
   
-- **Fel**: Buggar är problem i befintliga kod eller dokument som måste åtgärdas för att slutföra en uppgift. Om buggar orsakas av saknade arbets objekt kan de eskalera för att vara användar berättelser eller uppgifter. 
+- **Fel**: fel är problem i befintlig kod eller dokument som måste åtgärdas för att slutföra en uppgift. Om buggar orsakas av saknade arbets objekt kan de eskalera för att vara användar berättelser eller uppgifter. 
 
 Data experter kan känna sig smidigare med en flexibel mall som ersätter funktioner, användar berättelser och uppgifter med TDSP livs cykel steg och under faser. Om du vill skapa en Agile-härledd mall som är specifikt justerad med TDSP livs cykel stadier, se [Använd en smidig TDSP arbets mal len](#set-up-agile-dsp-6).
 
@@ -72,7 +72,7 @@ Mer information om Sprint planering i Azure-kort finns i [tilldela efter släpni
 
 När projektet och projekt kod lagrings platsen har skapats kan du lägga till en funktion i efter släpandet för att representera arbetet för projektet.
 
-1. Från projekt sidan väljer du **bakkorts** > **loggar** i det vänstra navigerings fältet. 
+1. Från projekt sidan väljer du **tavlor** > - **loggfiler** i det vänstra navigerings fältet. 
    
 1. På fliken efter **släpning** , om arbets objekts typen i det översta fältet är **artiklar**, list rutor och välj **funktioner**. Välj sedan **nytt arbets objekt.**
    
@@ -96,7 +96,7 @@ Under funktionen kan du lägga till användar berättelser som beskriver de vikt
 
 Så här lägger du till en ny användar berättelse i en funktion:
 
-1. På fliken efter **släpning** väljer **+** du till vänster om funktionen. 
+1. På fliken efter **släpning** väljer du **+** till vänster om funktionen. 
    
    ![Lägg till en ny användar berättelse under funktionen](./media/agile-development/4-sprint-add-story.png)
    
@@ -112,7 +112,7 @@ Så här lägger du till en ny användar berättelse i en funktion:
 
 Uppgifter är särskilda detaljerade steg som behövs för att slutföra varje användar berättelse. När alla uppgifter i en användar berättelse har slutförts bör användar berättelsen vara slutförd. 
 
-Om du vill lägga till en uppgift i en användar berättelse **+** väljer du nästa artikel och väljer **uppgift**. Fyll i rubriken och annan information i uppgiften.
+Om du vill lägga till en uppgift i en användar berättelse väljer du **+** bredvid objektet användare och väljer **uppgift**. Fyll i rubriken och annan information i uppgiften.
 
 ![Lägg till en uppgift i en användar berättelse](./media/agile-development/7-sprint-add-task.png)
 
@@ -183,7 +183,7 @@ Du kan använda mallen för data vetenskaps process för att skapa TDSP-projekt 
    
    ![Skapa ett TDSP-projekt](./media/agile-development/15-newproject.png)
    
-1. I det nyskapade projektet väljer du **kort** > -**loggfiler** i det vänstra navigerings fältet.
+1. I det nyskapade projektet väljer du **tavlor** > - **loggfiler** i det vänstra navigerings fältet.
    
 1. Om du vill göra TDSP-projekt synliga väljer du ikonen **Konfigurera team inställningar** . I fönstret **Inställningar** markerar du kryss rutan **TDSP-projekt** och väljer sedan **Spara och Stäng**.
    
@@ -195,7 +195,7 @@ Du kan använda mallen för data vetenskaps process för att skapa TDSP-projekt 
    
    ![Skapa arbets objekt för data vetenskaps projekt](./media/agile-development/17-dsworkitems0.png)
    
-1. Om du vill lägga till ett arbets objekt i TDSP-projektet **+** väljer du intill projektet och väljer sedan den typ av arbets objekt som ska skapas. 
+1. Om du vill lägga till ett arbets objekt i TDSP-projektet väljer du **+** bredvid projektet och väljer sedan den typ av arbets objekt som ska skapas. 
    
    ![Välj typ av arbets objekt för data vetenskap](./media/agile-development/17-dsworkitems1.png)
    

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/15/2019
+ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 9472abd7a16c887a796e36b8190e8530c84dafa9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 93cb200751c1c107ae844ffd274d83dd997293de
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755712"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712599"
 ---
 # <a name="join-a-red-hat-enterprise-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>Ansluta en virtuell Linux-dator med Red Hat Enterprise till en Azure AD Domain Services-hanterad domän
 
@@ -63,28 +63,28 @@ sudo vi /etc/hosts
 
 I *hosts* -filen uppdaterar du adressen till *localhost* . I följande exempel:
 
-* *contoso.com* är DNS-domännamnet för din Azure AD DS-hanterade domän.
+* *aadds.contoso.com* är DNS-domännamnet för din Azure AD DS-hanterade domän.
 * *RHEL* är värd namnet för din RHEL-VM som du ansluter till den hanterade domänen.
 
 Uppdatera namnen med dina egna värden:
 
 ```console
-127.0.0.1 rhel rhel.contoso.com
+127.0.0.1 rhel rhel.aadds.contoso.com
 ```
 
 När du är färdig sparar du och avslutar *hosts* -filen med hjälp av `:wq`-kommandot för redigeraren.
 
 ## <a name="install-required-packages"></a>Installera de paket som krävs
 
-Den virtuella datorn behöver vissa ytterligare paket för att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen. Om du vill installera och konfigurera de här paketen uppdaterar du och installerar de verktyg för domän anslutning som använder `yum`:
+Den virtuella datorn behöver vissa ytterligare paket för att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen. Om du vill installera och konfigurera de här paketen uppdaterar du och installerar de verktyg för domän anslutning som använder `yum`. Det finns vissa skillnader mellan RHEL 7. x och RHEL 6. x, så Använd lämpliga kommandon för distribution-versionen i de återstående avsnitten i den här artikeln.
 
- **RHEL 7** 
+**RHEL 7**
 
 ```console
 sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir samba-common-tools
 ```
 
- **RHEL 6** 
+**RHEL 6**
 
 ```console
 sudo yum install adcli sssd authconfig krb5-workstation
@@ -92,34 +92,34 @@ sudo yum install adcli sssd authconfig krb5-workstation
 
 ## <a name="join-vm-to-the-managed-domain"></a>Anslut den virtuella datorn till den hanterade domänen
 
-Nu när de nödvändiga paketen har installerats på den virtuella datorn ansluter du den till den hanterade Azure AD DS-domänen.
- 
-  **RHEL 7**
-     
-1. Använd kommandot `realm discover` för att identifiera den hanterade domänen i Azure AD DS. I följande exempel identifieras sfär- *contoso.com*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
+Nu när de nödvändiga paketen har installerats på den virtuella datorn ansluter du den till den hanterade Azure AD DS-domänen. Använd sedan lämpliga steg för din RHEL distribution-version.
+
+### <a name="rhel-7"></a>RHEL 7
+
+1. Använd kommandot `realm discover` för att identifiera den hanterade domänen i Azure AD DS. I följande exempel identifieras sfär- *AADDS. CONTOSO.COM*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
 
     ```console
-    sudo realm discover CONTOSO.COM
+    sudo realm discover AADDS.CONTOSO.COM
     ```
 
    Om kommandot `realm discover` inte hittar din Azure AD DS-hanterade domän kan du läsa följande fel söknings steg:
-   
-    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping contoso.com` för att se om ett positivt svar returneras.
+
+    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping aadds.contoso.com` för att se om ett positivt svar returneras.
     * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuella nätverk där Azure AD DS-hanterad domän är tillgänglig.
     * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna för den hanterade domänen i Azure AD DS.
 
 1. Initiera nu Kerberos med kommandot `kinit`. Ange en användare som tillhör gruppen *AAD DC-administratörer* . Om det behövs [lägger du till ett användar konto i en grupp i Azure AD](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md).
 
-    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@contoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i *Administratörs* gruppen för AAD-domänkontrollant:
-    
-    ```console
-    kinit contosoadmin@CONTOSO.COM
-    ``` 
-
-1. Slutligen ansluter du datorn till den hanterade Azure AD DS-domänen med hjälp av kommandot `realm join`. Använd samma användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* som du angav i föregående `kinit` kommando, till exempel `contosoadmin@CONTOSO.COM`:
+    Azure AD DS-hanterade domän namnet måste anges i alla VERSALer. I följande exempel används kontot som heter `contosoadmin@aadds.contoso.com` för att initiera Kerberos. Ange ditt eget användar konto som är medlem i *Administratörs* gruppen för AAD-domänkontrollant:
 
     ```console
-    sudo realm join --verbose CONTOSO.COM -U 'contosoadmin@CONTOSO.COM'
+    kinit contosoadmin@AADDS.CONTOSO.COM
+    ```
+
+1. Slutligen ansluter du datorn till den hanterade Azure AD DS-domänen med hjälp av kommandot `realm join`. Använd samma användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* som du angav i föregående `kinit` kommando, till exempel `contosoadmin@AADDS.CONTOSO.COM`:
+
+    ```console
+    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM'
     ```
 
 Det tar en stund att ansluta den virtuella datorn till den hanterade Azure AD DS-domänen. Följande exempel på utdata visar att den virtuella datorn har anslutit till den hanterade Azure AD DS-domänen:
@@ -128,28 +128,28 @@ Det tar en stund att ansluta den virtuella datorn till den hanterade Azure AD DS
 Successfully enrolled machine in realm
 ```
 
-  **RHEL 6** 
+### <a name="rhel-6"></a>RHEL 6
 
-1. Använd kommandot `adcli info` för att identifiera den hanterade domänen i Azure AD DS. I följande exempel identifieras sfär- *contoso.com*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
+1. Använd kommandot `adcli info` för att identifiera den hanterade domänen i Azure AD DS. I följande exempel identifieras sfär- *ADDDS. CONTOSO.COM*. Ange ditt eget Azure AD DS-hanterade domän namn med VERSALer:
 
     ```console
-    sudo adcli info contoso.com
+    sudo adcli info aadds.contoso.com
     ```
-    
+
    Om kommandot `adcli info` inte hittar din Azure AD DS-hanterade domän kan du läsa följande fel söknings steg:
-   
-    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping contoso.com` för att se om ett positivt svar returneras.
+
+    * Kontrol lera att domänen kan kommas åt från den virtuella datorn. Försök `ping aadds.contoso.com` för att se om ett positivt svar returneras.
     * Kontrol lera att den virtuella datorn har distribuerats till samma eller ett peer-kopplat virtuella nätverk där Azure AD DS-hanterad domän är tillgänglig.
     * Bekräfta att DNS-serverinställningarna för det virtuella nätverket har uppdaterats så att de pekar på domän kontrol Lanterna för den hanterade domänen i Azure AD DS.
 
-1. Först ansluter du domänen med hjälp av kommandot `adcli join`. det här kommandot skapar även keytab för att autentisera datorn. Använd ett användar konto som är medlem i gruppen *AAD DC-administratörer* . 
+1. Först ansluter du domänen med hjälp av kommandot `adcli join`. det här kommandot skapar även keytab för att autentisera datorn. Använd ett användar konto som är medlem i gruppen *AAD DC-administratörer* .
 
     ```console
-    sudo adcli join contoso.com -U contosoadmin
+    sudo adcli join aadds.contoso.com -U contosoadmin
     ```
 
-1. Nu ska du konfigurera `/ect/krb5.conf` och skapa `/etc/sssd/sssd.conf`-filerna för att använda `contoso.com` Active Directory domän. 
-   Kontrol lera att `CONTOSO.COM` har ersatts av ditt eget domän namn:
+1. Nu ska du konfigurera `/ect/krb5.conf` och skapa `/etc/sssd/sssd.conf`-filerna för att använda `aadds.contoso.com` Active Directory domän.
+   Kontrol lera att `AADDS.CONTOSO.COM` har ersatts av ditt eget domän namn:
 
     Öppna `/ect/krb5.conf`-filen med en redigerare:
 
@@ -166,7 +166,7 @@ Successfully enrolled machine in realm
      admin_server = FILE:/var/log/kadmind.log
     
     [libdefaults]
-     default_realm = CONTOSO.COM
+     default_realm = AADDS.CONTOSO.COM
      dns_lookup_realm = true
      dns_lookup_kdc = true
      ticket_lifetime = 24h
@@ -174,14 +174,14 @@ Successfully enrolled machine in realm
      forwardable = true
     
     [realms]
-     CONTOSO.COM = {
-     kdc = CONTOSO.COM
-     admin_server = CONTOSO.COM
+     AADDS.CONTOSO.COM = {
+     kdc = AADDS.CONTOSO.COM
+     admin_server = AADDS.CONTOSO.COM
      }
     
     [domain_realm]
-     .CONTOSO.COM = CONTOSO.COM
-     CONTOSO.COM = CONTOSO.COM
+     .CONTOSO.COM = AADDS.CONTOSO.COM
+     CONTOSO.COM = AADDS.CONTOSO.COM
     ```
     
    Skapa `/etc/sssd/sssd.conf`-filen:
@@ -196,9 +196,9 @@ Successfully enrolled machine in realm
     [sssd]
      services = nss, pam, ssh, autofs
      config_file_version = 2
-     domains = CONTOSO.COM
+     domains = AADDS.CONTOSO.COM
     
-    [domain/CONTOSO.COM]
+    [domain/AADDS.CONTOSO.COM]
     
      id_provider = ad
     ```
@@ -215,7 +215,7 @@ Successfully enrolled machine in realm
     ```console
     sudo authconfig --enablesssd --enablesssdauth --update
     ```
-    
+
 1. Starta och aktivera SSSD-tjänsten:
 
     ```console
@@ -247,18 +247,18 @@ Som standard kan användare bara logga in på en virtuell dator med hjälp av of
     PasswordAuthentication yes
     ```
 
-    När du är färdig sparar och avslutar du *sshd_conf* -filen med hjälp av kommandot `:wq` för redigeraren.
+    När du är färdig sparar du och avslutar *sshd_conf* -filen med hjälp av `:wq`-kommandot i redigeraren.
 
-1. Om du vill tillämpa ändringarna och låta användarna logga in med ett lösen ord, startar du om SSH-tjänsten:
+1. Om du vill tillämpa ändringarna och låta användarna logga in med ett lösen ord, startar du om SSH-tjänsten för din RHEL distribution-version:
 
-   **RHEL 7** 
-    
+   **RHEL 7**
+
     ```console
     sudo systemctl restart sshd
     ```
 
-   **RHEL 6** 
-    
+   **RHEL 6**
+
     ```console
     sudo service sshd restart
     ```
@@ -273,11 +273,11 @@ Om du vill bevilja medlemmar i administratörs gruppen *AAD DC-administratörer*
     sudo visudo
     ```
 
-1. Lägg till följande post i slutet av */etc/sudoers* -filen. *Administratörs gruppen för AAD-domänkontrollanten* innehåller blank steg i namnet, så inkludera det omvända snedstreckets escape-tecken i grupp namnet. Lägg till ditt eget domän namn, till exempel *contoso.com*:
+1. Lägg till följande post i slutet av */etc/sudoers* -filen. *Administratörs gruppen för AAD-domänkontrollanten* innehåller blank steg i namnet, så inkludera det omvända snedstreckets escape-tecken i grupp namnet. Lägg till ditt eget domän namn, till exempel *aadds.contoso.com*:
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
-    %AAD\ DC\ Administrators@contoso.com ALL=(ALL) NOPASSWD:ALL
+    %AAD\ DC\ Administrators@aadds.contoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
     När du är färdig sparar du och stänger redigeraren med hjälp av `:wq`-kommandot för redigeraren.
@@ -286,10 +286,10 @@ Om du vill bevilja medlemmar i administratörs gruppen *AAD DC-administratörer*
 
 Verifiera att den virtuella datorn har anslutits till den hanterade Azure AD DS-domänen genom att starta en ny SSH-anslutning med ett domän användar konto. Bekräfta att en arbets katalog har skapats och att grupp medlemskapet från domänen används.
 
-1. Skapa en ny SSH-anslutning från-konsolen. Använd ett domän konto som tillhör den hanterade domänen med kommandot `ssh -l`, till exempel `contosoadmin@contoso.com` och ange adressen till den virtuella datorn, till exempel *RHEL.contoso.com*. Om du använder Azure Cloud Shell använder du den offentliga IP-adressen för den virtuella datorn i stället för det interna DNS-namnet.
+1. Skapa en ny SSH-anslutning från-konsolen. Använd ett domän konto som tillhör den hanterade domänen med kommandot `ssh -l`, till exempel `contosoadmin@aadds.contoso.com` och ange adressen till den virtuella datorn, till exempel *RHEL.aadds.contoso.com*. Om du använder Azure Cloud Shell använder du den offentliga IP-adressen för den virtuella datorn i stället för det interna DNS-namnet.
 
     ```console
-    ssh -l contosoadmin@CONTOSO.com rhel.contoso.com
+    ssh -l contosoadmin@AADDS.CONTOSO.com rhel.contoso.com
     ```
 
 1. När du har anslutit till den virtuella datorn kontrollerar du att arbets katalogen har initierats korrekt:

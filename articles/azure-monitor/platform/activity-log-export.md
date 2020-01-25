@@ -5,20 +5,21 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969662"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715892"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
 
-> [!WARNING]
-> Du kan nu samla in aktivitets loggen på en Log Analytics arbets yta med en diagnostisk inställning som liknar hur du samlar in resurs loggar. Se [samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor](diagnostic-settings-legacy.md).
+> [!IMPORTANT]
+> Metoden för att skicka Azure-aktivitets loggen till Azure Storage och Azure-Event Hubs har ändrats till [diagnostikinställningar](diagnostic-settings.md). Den här artikeln beskriver den äldre metoden som håller på att föråldras. Se uppdatering av [Azure aktivitets logg samling och export](diagnostic-settings-legacy.md) för jämförelse.
+
 
 [Azure aktivitets loggen](platform-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Förutom att Visa aktivitets loggen i Azure Portal eller kopiera den till en Log Analytics arbets yta där den kan analyseras med andra data som samlas in av Azure Monitor, kan du skapa en logg profil för att arkivera aktivitets loggen till ett Azure Storage-konto eller strömma den till en  Event Hub.
 
@@ -72,9 +73,14 @@ Om bevarande principer har ställts in, men lagrings loggar i ett lagrings konto
 
 Skapa eller redigera en logg profil med alternativet **Exportera till Event Hub** i Azure Portal.
 
-1. I menyn **övervakare** i Azure Portal väljer du **Exportera till Event Hub**.
+1. Välj **aktivitets logg**på **Azure Monitor** -menyn i Azure Portal.
+3. Klicka på **Diagnostikinställningar**.
 
-    ![Knappen Exportera i portalen](media/activity-log-export/portal-export.png)
+   ![Diagnostikinställningar](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. Klicka på den lila banderollen för den äldre upplevelsen.
+
+    ![Äldre miljö](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. I bladet som visas anger du följande:
    * Regioner med händelser att exportera. Du bör välja alla regioner för att se till att du inte är missa viktiga händelser eftersom aktivitets loggen är en global (icke-regional) logg och att de flesta händelser inte har någon region kopplad till sig.

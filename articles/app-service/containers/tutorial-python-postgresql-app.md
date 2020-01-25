@@ -3,17 +3,17 @@ title: 'Självstudie: Linux python-app med Postgre'
 description: Lär dig hur du skaffar en Linux python-app som fungerar i Azure App Service, med anslutning till en PostgreSQL-databas i Azure. Django används i den här självstudien.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/14/2019
+ms.date: 01/23/2020
 ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: e0880cd1c16a8a0080551bbeaefe04f2f8dd705b
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 3aa5b5085a6120ca513f0aeba344e7f541f0fd72
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681072"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713408"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Självstudie: köra en python-webbapp (django) med PostgreSQL i Azure App Service
 
@@ -21,7 +21,7 @@ Med [Azure App Service](app-service-linux-intro.md) får du en automatiskt uppda
 
 ![Python django-webbapp i Azure App Service](./media/tutorial-python-postgresql-app/run-python-django-app-in-azure.png)
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Skapa en Azure Database for PostgreSQL-databas och Anslut en webbapp till den
@@ -47,6 +47,11 @@ Anslut först till din lokala PostgreSQL-Server och skapa en databas:
 I ett lokalt terminalfönster kör `psql` för att ansluta till din lokala PostgreSQL-server som den inbyggda `postgres` användaren.
 
 ```bash
+sudo su - postgres
+psql
+```
+eller
+```PowerShell
 psql -U postgres
 ```
 
@@ -166,7 +171,7 @@ I följande kommando ersätter du *\<postgresql-name >* med ett unikt server nam
 Ersätt *\<resourcegroup-name >* och *\<region >* med namnet och regionen för den resurs grupp som du vill använda. För *\<admin-username >* och *\<admin-Password >* skapar du användarautentiseringsuppgifter för databas administratörs kontot. Kom ihåg *\<admin-username >* och *\<admin-Password >* att använda senare för att logga in på postgresql-servern och databaser.
 
 ```azurecli-interactive
-az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
+az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 När Azure Database for PostgreSQL-servern skapas returnerar Azure CLI JSON-kod som i följande exempel:
@@ -174,15 +179,19 @@ När Azure Database for PostgreSQL-servern skapas returnerar Azure CLI JSON-kod 
 ```json
 {
   "administratorLogin": "myusername",
+  "earliestRestoreDate": "2020-01-22T19:02:15.727000+00:00",
   "fullyQualifiedDomainName": "myservername.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myservername",
-  "location": "westus",
+  "location": "westeurope",
+  "masterServerId": "",
   "name": "myservername",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 1,
-    "family": "Gen4",
-    "name": "B_Gen4_1",
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "Basic"
   },
@@ -276,6 +285,8 @@ Gå till *http:\//localhost: 8000/admin*, logga in med administratörs användar
 
 Gå till *http:\//localhost: 8000* igen och se den avsöknings fråga som visas. Din app skriver nu data till Azure Database for PostgreSQL databasen.
 
+Om du vill stoppa django-servern skriver du Ctrl + C i terminalen.
+
 ## <a name="deploy-the-web-app-to-azure-app-service"></a>Distribuera webbappen till Azure App Service
 
 I det här steget distribuerar du den Azure Database for PostgreSQL Database-anslutna python-appen till Azure App Service.
@@ -353,25 +364,29 @@ Information om hur koden kommer åt dessa appdata finns i [Access Environment-va
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 7, done.
+Counting objects: 60, done.
 Delta compression using up to 8 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
-Total 7 (delta 4), reused 0 (delta 0)
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (60/60), 15.37 KiB | 749.00 KiB/s, done.
+Total 60 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '6520eeafcc'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Python deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Preparing deployment for commit id '06f3f7c0cb'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
 . 
 . 
 . 
+remote: Done in 100 sec(s).
+remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
+remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/06f3f7c0cb52ce3b4aff85c2b5099fbacb65ab94/log'
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
-   06b6df4..6520eea  master -> master
+ * [new branch]      master -> master
 ```  
 
 App Service-distributionsservern ser *requirements.txt* i lagringsplatsens rot och kör Python-pakethantering automatiskt efter `git push`.

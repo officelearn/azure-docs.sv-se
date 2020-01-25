@@ -3,12 +3,12 @@ title: Uppdatera Azure Monitor för behållare för mått | Microsoft Docs
 description: I den här artikeln beskrivs hur du uppdaterar Azure Monitor för behållare för att aktivera funktionen anpassade mått som stöder utforska och aviserar på sammansatta mått.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7f40cb0523c2366c47da228e49311c2f9579212
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403229"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715919"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Så här uppdaterar du Azure Monitor för behållare för att aktivera mått
 
@@ -20,7 +20,7 @@ Azure Monitor for containers introducerar stöd för att samla in mått från Az
 
 Följande mått är aktiverade som en del av den här funktionen:
 
-| Namnområde för mått | Mått | Beskrivning |
+| Mått namn område | Mått | Beskrivning |
 |------------------|--------|-------------|
 | Insights. container/Nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Detta är *nod* -mått och inkluderar *värd* som en dimension, och de innehåller också<br> nodens namn som värde för *värd* dimensionen. |
 | Insights. container/poddar | podCount | Dessa är *Pod* mått och inkluderar följande som dimensioner – ControllerName, Kubernetes-namnrymd, namn, fas. |
@@ -529,7 +529,7 @@ Utför följande steg för att uppdatera ett enskilt kluster med hjälp av Azure
     }
 
     #
-    #   Check AKS cluster existance and access check
+    #   Check AKS cluster existence and access check
     #
     Write-Host("Checking aks cluster exists...")
     $cluster = Get-AzAks -ResourceGroupName $resourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue

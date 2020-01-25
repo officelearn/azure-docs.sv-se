@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 214797f187c1812932c00bdf2a39c5ed79e15d4b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425472"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712672"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>Självstudie: registrera ett program i Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Program** och därefter **Lägg till**.
@@ -59,7 +59,7 @@ Om du vill registrera ett program i din Azure AD B2C klient kan du använda den 
 
 #### <a name="app-registrations-previewtabapp-reg-preview"></a>[Appregistreringar (för hands version)](#tab/app-reg-preview/)
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj ikonen **katalog + prenumeration** i portalens verktygsfält och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
 1. Välj **Appregistreringar (för hands version)** och välj sedan **ny registrering**.
@@ -88,7 +88,7 @@ När program registreringen är klar aktiverar du det implicita tilldelnings fl�
 
 ## <a name="create-a-client-secret"></a>Skapa en klient hemlighet
 
-Om programmet utbyter en kod för en token måste du skapa en program hemlighet.
+Om programmet utbyter en auktoriseringskod för en åtkomsttoken måste du skapa en program hemlighet.
 
 #### <a name="applicationstabapplications"></a>[Program](#tab/applications/)
 

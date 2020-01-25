@@ -1,21 +1,21 @@
 ---
-title: Genom gång av peering service partner
+title: Genomgång av Peering Service för partner
 titleSuffix: Azure
-description: Genom gång av peering service partner
+description: Genomgång av Peering Service för partner
 services: internet-peering
 author: prmitiki
 ms.service: internet-peering
 ms.topic: article
 ms.date: 11/27/2019
 ms.author: prmitiki
-ms.openlocfilehash: 28aa9f921de64fcc838935cf65b64a63280ddf16
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: d626d98613bd5d988b599d0980c885d7f73bb958
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75774632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720256"
 ---
-# <a name="peering-service-partner-walkthrough"></a>Genom gång av peering service partner
+# <a name="peering-service-partner-walkthrough"></a>Genomgång av Peering Service för partner
 
 I det här avsnittet beskrivs de steg som en provider måste följa för att aktivera en direkt peering för peering-tjänsten.
 
@@ -25,7 +25,7 @@ Tjänste leverantörer kan utöka sin geografiska räckvidd genom att skapa en n
 1. Följ instruktionerna för att [skapa eller ändra en direkt peering med hjälp av portalen](howto-direct-portal.md). Se till att det uppfyller kraven för hög tillgänglighet.
 1. Följ sedan stegen för att [Aktivera peering-tjänsten på en direkt peering med hjälp av portalen](howto-peering-service-portal.md).
 
-## <a name="use-legacy-direct-peering-conection-for-peering-service"></a>Använd äldre anslutnings för direkt peering för peering-tjänsten
+## <a name="use-legacy-direct-peering-connection-for-peering-service"></a>Använd äldre direkt peering-anslutning för peering-tjänsten
 Om du har äldre direkt peering som du vill använda för att stödja peering-tjänsten
 1. Bli en peering service-partner om du inte redan gjort det.
 1. Följ instruktionerna för att [konvertera en äldre direkt peering till Azure-resursen med hjälp av portalen](howto-legacy-direct-portal.md). Om det behövs beställer du ytterligare kretsar för att uppfylla kraven på hög tillgänglighet.

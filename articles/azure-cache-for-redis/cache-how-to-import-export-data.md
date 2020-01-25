@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: df8b65fcb4dd2b9622716052be2df59cbfa5424a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971817"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714517"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Importera och exportera data i Azure cache för Redis
 Import/export är en Azure-cache för Redis data hanterings åtgärd, som gör att du kan importera data till Azure cache för Redis eller exportera data från Azure cache för Redis genom att importera och exportera en Azure cache för Redis Database (RDB) ögonblicks bild från en Premium-cache till en BLOB i ett Azure Storage-konto.
@@ -24,7 +24,7 @@ Genom att importera/exportera kan du migrera mellan olika Azure cache för Redis
 Den här artikeln innehåller en guide för att importera och exportera data med Azure cache för Redis och ger svar på vanliga frågor.
 
 > [!IMPORTANT]
-> Import/export är i för hands version och är endast tillgängligt för cacheminnen på [Premium-nivån](cache-premium-tier-intro.md) .
+> Import/export är endast tillgängligt för cacheminnen på [Premium-nivån](cache-premium-tier-intro.md) .
 >
 >
 
@@ -41,7 +41,7 @@ Import kan användas för att hämta Redis-kompatibla RDB-filer från en Redis-s
     ![Importera data](./media/cache-how-to-import-export-data/cache-import-data.png)
 2. Klicka på **Välj BLOB (er)** och välj det lagrings konto som innehåller de data som ska importeras.
 
-    ![Välj lagringskonto](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
+    ![Välj lagrings konto](./media/cache-how-to-import-export-data/cache-import-choose-storage-account.png)
 3. Klicka på den behållare som innehåller de data som ska importeras.
 
     ![Välj behållare](./media/cache-how-to-import-export-data/cache-import-choose-container.png)

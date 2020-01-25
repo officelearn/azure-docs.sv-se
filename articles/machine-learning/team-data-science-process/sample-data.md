@@ -1,22 +1,22 @@
 ---
-title: Exempeldata i olika Azure lagringsplatser - Team Data Science Process
+title: Exempel data på olika Azure Storage platser – team data science process
 description: Exempeldata i Azure blob-behållare, SQL Server och Hive-tabeller för att minska det till en mindre men representativa och mer hanterbara storlek.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: fc91aec80f74488125649cfe807757ba5ae49c9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253103"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718611"
 ---
 # <a name="heading"></a>Exempeldata i Azure blob-behållare, SQL Server och Hive-tabeller
 
@@ -30,5 +30,5 @@ Den här aktiviteten för sampling är ett steg i den [Team Data Science Process
 
 **Varför sampla data?**
 
-Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Detta underlättar förståelse av data, utforskning och funktioner. Dess roll i Cortana Analytics-processen är att snabbt skapa prototyper för bearbetning av funktions- och machine learning-modeller.
+Om datauppsättningen som du planerar att analysera är stor, men det är oftast en bra idé att nedåtsampla data för att minska det till en mindre men representativa och mer hanterbara storlek. Downsizing kan under lätta data förståelse, utforskning och funktions teknik. Den här samplings rollen i Cortana Analytics-processen är att möjliggöra snabb prototyper av data bearbetnings funktioner och maskin inlärnings modeller.
 

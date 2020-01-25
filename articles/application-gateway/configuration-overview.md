@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658346"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714856"
 ---
 # <a name="application-gateway-configuration-overview"></a>Översikt över Application Gateway konfiguration
 
@@ -53,7 +53,7 @@ Nätverks säkerhets grupper (NSG: er) stöds på Application Gateway. Men det f
 - Det går inte att blockera utgående Internet anslutning. Standard regler för utgående trafik i NSG tillåter Internet anslutning. Vi rekommenderar att du gör följande:
 
   - Ta inte bort standard reglerna för utgående trafik.
-  - Skapa inte andra utgående regler som nekar utgående Internet anslutning.
+  - Skapa inte andra utgående regler som nekar utgående anslutningar.
 
 - Trafik från **AzureLoadBalancer** -taggen måste vara tillåten.
 

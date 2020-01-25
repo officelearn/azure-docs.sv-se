@@ -4,12 +4,12 @@ description: Lär dig hur du utvecklar funktioner med hjälp av Java Script.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: a34efe20e796570358771ec53fbfb797daa15b93
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922003"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714791"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript-guide för utvecklare
 
@@ -232,7 +232,7 @@ Du kan välja att definiera utgående bindnings data med hjälp av metoden `cont
 context.bindingData
 ```
 
-Returnerar ett namngivet objekt som innehåller utlösare av metadata och funktions anrops data (`invocationId`, `sys.methodName`, `sys.utcNow``sys.randGuid`). Ett exempel på att utlösa metadata finns i exemplet på den här [händelse hubben](functions-bindings-event-hubs.md#trigger---javascript-example).
+Returnerar ett namngivet objekt som innehåller utlösare av metadata och funktions anrops data (`invocationId`, `sys.methodName`, `sys.utcNow``sys.randGuid`). Ett exempel på att utlösa metadata finns i exemplet på den här [händelse hubben](functions-bindings-event-hubs.md#trigger).
 
 ### <a name="contextdone-method"></a>metoden context. Done
 

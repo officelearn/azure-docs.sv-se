@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973365"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719083"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -32,6 +32,7 @@ GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i 
 - Sydostasien
 - Nordeuropa
 - Västeuropa
+- Japan, östra
 - Storbritannien, södra
 - USA, östra
 - USA, östra 2
@@ -129,6 +130,7 @@ När migreringen är klar uppdateras lagrings kontots replikeringsstatus till **
 Tänk på följande begränsningar för direktmigrering:
 
 - Microsoft hanterar din begäran om direktmigrering utan dröjsmål, men det finns inte någon garanti om när den slutförs. Om dina data behöver migreras till GZRS eller RA-GZRS vid ett visst datum, rekommenderar Microsoft att du utför en manuell migrering i stället. Ju mer data du har på ditt konto, desto längre tid tar det vanligtvis att migrera dina data.
+- Direktmigrering stöds endast för lagrings konton som använder GRS eller RA-GRS-replikering. Om ditt konto använder LRS måste du först ändra ditt kontos replikeringstyp till GRS eller RA-GRS innan du fortsätter. Detta mellanliggande steg lägger till den sekundära slut punkten som tillhandahålls av GRS/RA-GRS.
 - Ditt konto måste innehålla data.
 - Du kan bara migrera data inom samma region.
 - Endast standard lagrings konto typer stöder Direktmigrering. Premium Storage-konton måste migreras manuellt.

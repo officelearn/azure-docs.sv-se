@@ -1,7 +1,7 @@
 ---
-title: Arbeta med R och SQL-datatyper och objekt
+title: Arbeta med R-och SQL-datatyper och-objekt
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Lär dig hur du arbetar med datatyper och dataobjekt i R med Azure SQL Database med Machine Learning (förhandsversion), inklusive vanliga problem som kan uppstå.
+description: Lär dig hur du arbetar med data typer och data objekt i R med Azure SQL Database att använda Machine Learning Services (för hands version), inklusive vanliga problem som kan uppstå.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,41 +13,41 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dfd12729c5697d1935d098cbd4ed863a4551acd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232607"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719882"
 ---
-# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Arbeta med R och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Arbeta med R-och SQL-data i Azure SQL Database Machine Learning Services (för hands version)
 
-Den här artikeln beskrivs några vanliga problem du kan stöta på när du flyttar data mellan R- och SQL-databas i [Machine Learning Services (med R) i Azure SQL Database](sql-database-machine-learning-services-overview.md). Den guiden får du via den här övningen innehåller viktiga bakgrunden när du arbetar med data i ditt eget skript.
+I den här artikeln beskrivs några vanliga problem som kan uppstå när du flyttar data mellan R och SQL Database i [Machine Learning Services (med R) i Azure SQL Database](sql-database-machine-learning-services-overview.md). Den upplevelse du får i den här övningen ger en viktig bakgrund när du arbetar med data i ditt eget skript.
 
 Vanliga problem som kan uppstå är:
 
-- Datatyper ibland stämmer inte överens
+- Data typerna matchar ibland inte
 - Implicita konverteringar kan äga rum
-- CAST och convert är ibland krävs
-- R- och SQL använder olika dataobjekt
+- Cast-och Convert-åtgärder krävs ibland
+- R och SQL använder olika data objekt
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 - Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
 
-- Du måste ha en Azure SQL database med Machine Learning Services (med R) aktiverad för att köra exempelkoden i den här övningen. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+- Om du vill köra exempel koden i de här övningarna måste du först ha en Azure SQL-databas med Machine Learning Services (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
-- Kontrollera att du har installerat senast [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Du kan köra R-skript med hjälp av andra databashantering eller Frågeverktyg, men i den här snabbstarten ska du använda SSMS.
+- Kontrol lera att du har installerat den senaste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Du kan köra R-skript med hjälp av andra databas hanterings-eller specialverktyg, men i den här snabb starten ska du använda SSMS.
 
-## <a name="working-with-a-data-frame"></a>Arbeta med en dataram
+## <a name="working-with-a-data-frame"></a>Arbeta med en data ram
 
-När skriptet returnerar resultat från R till SQL, måste den returnera data som en **data.frame**. Alla andra typer av objekt som du genererar i ditt skript - om de vill ha en lista, faktor, vektor eller binära data - måste konverteras till en dataram om du vill spara den som en del av de lagrade procedurresultaten. Som tur är kan finns det flera R-funktioner till stöd för att ändra andra objekt till en dataram. Du kan även serialisera en binär modell och returnera det i en dataram som senare i den här artikeln.
+När skriptet returnerar resultat från R till SQL måste det returnera data som **data. Frame**. En annan typ av objekt som du skapar i skriptet – oavsett om det är en lista, en faktor, en Vector eller binära data – måste konverteras till en data ram om du vill att den ska visas som en del av de lagrade procedur resultaten. Lyckligt vis finns det flera R-funktioner som stöder ändring av andra objekt till en data ram. Du kan till och med serialisera en binär modell och returnera den i en data ram, vilket du gör senare i den här artikeln.
 
-Först ska vi experimentera med vissa grundläggande R-objekt – vektorer, matriser och -listor - och se hur konvertering till en dataram ändras utdata skickas till SQL.
+Först ska vi experimentera med några grundläggande R-objekt – vektorer, matriser och listor – och se hur konverteringen till en data ram ändrar utdata som skickas till SQL.
 
-Jämföra dessa två ”Hello World”-skript i R. Skripten titta nästan identiska, men först returnerar en kolumn av tre värden, medan andra returnerar tre kolumner med ett enda värde var och en.
+Jämför dessa två "Hello World"-skript i R. Skripten ser nästan identiska ut, men det första returnerar en enda kolumn med tre värden, medan den andra returnerar tre kolumner med ett enda värde.
 
 **Exempel 1**
 
@@ -67,13 +67,13 @@ EXECUTE sp_execute_external_script @language = N'R'
     , @input_data_1 = N'';
 ```
 
-Varför är resultatet innebär?
+Varför är resultatet annorlunda?
 
-Svaret kan vanligtvis hittas med hjälp av R `str()` kommando. Lägg till funktion `str(object_name)` var som helst i ditt R-skript för att informationen schemat för det angivna R-objektet returneras som ett informationsmeddelande. Du kan visa meddelanden i den **meddelanden** fliken i SSMS.
+Du kan vanligt vis hitta svaret med kommandot R `str()`. Lägg till funktionen `str(object_name)` var som helst i R-skriptet om du vill att data schemat för det angivna R-objektet ska returneras som ett informations meddelande. Du kan visa meddelandena på fliken **meddelanden** i SSMS.
 
-Om du vill ta reda på varför exempel 1 och exempel 2 har sådana olika resultat, Infoga rad `str(OutputDataSet)` i slutet av den `@script` variabeldefinitionen i varje policy så här:
+För att ta reda på varför exempel 1 och exempel 2 har sådana olika resultat, infogar du raden `str(OutputDataSet)` i slutet av `@script` variabel definitionen i varje instruktion, så här:
 
-**Exempel 1 med str funktion har lagts till**
+**Exempel 1 med funktionen Str tillagd**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -85,7 +85,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-**Exempel 2 med str funktion har lagts till**
+**Exempel 2 med funktionen Str tillagd**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -96,7 +96,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-Nu läser du igenom texten i **meddelanden** att se varför utdata är olika.
+Granska nu texten i **meddelanden** för att se varför utdata är olika.
 
 **Resultat – exempel 1**
 
@@ -116,20 +116,20 @@ $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1
 ```
 
-Som du ser hade en liten ändring i R-syntaxen en stor inverkan på schemat för resultaten. All information om skillnaderna i R-datatyper beskrivs i informationen i den *datastrukturer* i avsnittet [”avancerade R” av Hadley Wickham](http://adv-r.had.co.nz).
+Som du kan se har en liten ändring i R-syntaxen en stor inverkan på schemat för resultaten. För all information beskrivs skillnaderna i R-datatyper i detalj i avsnittet *data strukturer* i ["Advanced R" av Hadley Wickham](http://adv-r.had.co.nz).
 
-För tillfället bara Tänk på att du måste kontrollera de förväntade resultaten när coercing R-objekt till dataramar.
+För närvarande är det bara viktigt att du behöver kontrol lera de förväntade resultaten när du tvingar R-objekt till data ramar.
 
 > [!TIP]
-> Du kan också använda R identity-funktioner, till exempel `is.matrix`, `is.vector`, för att returnera information om den interna datastrukturen.
+> Du kan också använda R Identity-funktioner, till exempel `is.matrix``is.vector`, för att returnera information om den interna data strukturen.
 
-## <a name="implicit-conversion-of-data-objects"></a>Implicit konvertering av dataobjekt
+## <a name="implicit-conversion-of-data-objects"></a>Implicit konvertering av data objekt
 
-Varje data R-objekt har sina egna regler för hur värden ska hanteras när de kombineras med andra dataobjekt om de två objekten har samma antal dimensioner, eller om alla dataobjekt innehåller heterogena datatyper.
+Varje R-dataobjekt har egna regler för hur värden hanteras när de kombineras med andra data objekt om de två data objekten har samma antal dimensioner, eller om ett data objekt innehåller heterogena data typer.
 
-Anta exempelvis att du vill utföra matris multiplikation med R. Du vill multiplicera en kolumn-matris med de tre värdena med en matris med fyra värden och därmed förvänta dig en 4 x 3-matris.
+Anta till exempel att du vill utföra mat ris multiplikation med R. Du vill multiplicera en matris med en kolumn med de tre värdena genom en matris med fyra värden och förväntar sig en 4x3-matris som ett resultat.
 
-Skapa först en liten tabell med testdata.
+Skapa först en liten tabell med test data.
 
 ```sql
 CREATE TABLE RTestData (col1 INT NOT NULL)
@@ -145,7 +145,7 @@ VALUES (100);
 GO
 ```
 
-Nu ska du köra följande skript.
+Kör nu följande skript.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -163,17 +163,17 @@ WITH RESULT SETS((
             ));
 ```
 
-Under försättsbladen konverteras kolumnen av tre värden till en kolumn-matris. Eftersom en matris är bara ett specialfall i en matris i R, matrisen `y` implicit tvingas till en kolumn matris att göra de två argumenten som följer.
+Under försättsblad konverteras kolumnen med tre värden till en matris med en kolumn. Eftersom en matris bara är ett specialfall av en matris i R tvingas matrisen `y` implicit till en matris med en kolumn som gör att de två argumenten stämmer överens.
 
 **Results**
 
-|Kol1|Col2|Col3|Col4|
+|Col1|Col2|Col3|Col4|
 |---|---|---|---|
 |12|13|14|15|
 |120|130|140|150|
 |1200|1300|1400|1500|
 
-Tänk på vad som händer när du ändrar storleken på matrisen `y`.
+Observera dock vad som händer när du ändrar storlek på matrisen `y`.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -186,21 +186,21 @@ OutputDataSet <- as.data.frame(y %*% x);
 WITH RESULT SETS(([Col1] INT));
 ```
 
-R returnerar nu ett enda värde som ett resultat.
+Nu returnerar R ett enda värde som resultatet.
 
 **Results**
     
-|Kol1|
+|Col1|
 |---|
 |1542|
 
-Varför? I det här fallet eftersom två argument kan hanteras som vektorer till samma längd returnerar R inre produkten som en matris.  Detta är förväntat beteende enligt reglerna för linjär algebra. Dock kan det orsaka problem om din nedströms program förväntar sig utdataschema aldrig ändra!
+Varför det? I det här fallet, eftersom de två argumenten kan hanteras som vektorer av samma längd, returnerar R den inre produkten som en matris.  Detta är det förväntade beteendet enligt reglerna för linjära algebra. Det kan dock orsaka problem om det underordnade programmet förväntar sig att schemat inte ändras!
 
 ## <a name="merge-or-multiply-columns-of-different-length"></a>Sammanfoga eller multiplicera kolumner med olika längd
 
-R ger stor flexibilitet för att arbeta med vektorer av olika storlekar och för att kombinera dessa strukturer för kolumn-liknande till dataramar. En lista över vektorer kan se ut som en tabell, men de följer inte de regler som styr databastabeller.
+R ger stor flexibilitet för att arbeta med vektorer med olika storlekar och för att kombinera dessa kolumnbaserade strukturer i data ramar. Listor över vektorer kan se ut som en tabell, men de följer inte alla regler som styr databas tabeller.
 
-Till exempel följande skript definierar en matris med längden 6 och lagrar den i variabeln R `df1`. Numeriska matrisen sedan kombineras med heltal tabellens RTestData (skapade ovan) som innehåller tre (3) värden, för att göra en ny dataram `df2`.
+Följande skript definierar till exempel en numerisk matris med längden 6 och lagrar den i `df1`R-variabeln. Den numeriska matrisen kombineras sedan med heltalen i tabellen RTestData (som skapats ovan) som innehåller tre (3) värden, för att skapa en ny data ram, `df2`.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -216,7 +216,7 @@ WITH RESULT SETS((
             ));
 ```
 
-Om du vill fylla i fältet data, R upprepas elementen som hämtats från RTestData så många gånger som behövs för att matcha antalet element i matrisen `df1`.
+Om du vill fylla i data ramen upprepar R de element som hämtats från RTestData så många gånger som behövs för att matcha antalet element i matrisen `df1`.
 
 **Results**
     
@@ -229,18 +229,18 @@ Om du vill fylla i fältet data, R upprepas elementen som hämtats från RTestDa
 |10|5|
 |100|6|
 
-Kom ihåg att en dataram endast ser ut som en tabell, men är faktiskt en lista över vektorer.
+Kom ihåg att en data ram bara ser ut som en tabell, men är i själva verket en lista över vektorer.
 
-## <a name="cast-or-convert-sql-data"></a>CAST eller convert SQL-data
+## <a name="cast-or-convert-sql-data"></a>Omvandla eller konvertera SQL-data
 
-R- och SQL använda inte samma datatyper av, så när du kör en fråga i SQL för att hämta data och skicka det till körningsmiljön för r. några typ av implicit konvertering sker vanligtvis. En annan uppsättning konverteringar sker när du returnera data från R till SQL.
+R och SQL använder inte samma data typer, så när du kör en fråga i SQL för att hämta data och sedan skickar den till R-körningsmiljön sker en viss typ av implicit konvertering vanligt vis. En annan uppsättning konverteringar äger rum när du returnerar data från R till SQL.
 
-- SQL skickar data från frågan till R-processen och konverterar den till en intern representation för större effektivitet.
-- Körningsmiljön för r. läser in data i en variabel för data.frame och utför en egen åtgärder på data.
-- Databasmotorn returnerar data till SQL med hjälp av en skyddad interna anslutning och visar data i SQL-datatyper.
-- Du hämtar data genom att ansluta till SQL med hjälp av ett bibliotek för klient- eller nätverk som kan utfärda SQL-frågor och hantera tabular datauppsättningar. Det här klientprogrammet kan potentiellt påverka data på andra sätt.
+- SQL push-överför data från frågan till R-processen och konverterar dem till en intern representation för bättre effektivitet.
+- R-körningen läser in data i en data. Frame-variabel och utför egna åtgärder för data.
+- Databas motorn returnerar data till SQL med en skyddad intern anslutning och visar data i termer av SQL-datatyper.
+- Du får data genom att ansluta till SQL med en klient eller ett nätverks bibliotek som kan utfärda SQL-frågor och hantera tabell data uppsättningar. Det här klient programmet kan potentiellt påverka data på andra sätt.
 
-Om du vill se hur det fungerar, kör du en fråga som följande på den [AdventureWorksDW](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) datalagret. Den här vyn returnerar försäljningsdata som används för att skapa prognoser.
+Du kan se hur det fungerar genom att köra en fråga som den här i informations lagret för [AdventureWorksDW](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) . Den här vyn returnerar försäljnings data som används för att skapa prognoser.
 
 ```sql
 USE AdventureWorksDW
@@ -255,9 +255,9 @@ ORDER BY ReportingDate ASC
 ```
 
 > [!NOTE]
-> Du kan använda valfri version av AdventureWorks eller skapa en annan fråga med hjälp av en egen databas. Punkten är att försöka att hantera vissa data som innehåller text, datum/tid och numeriska värden.
+> Du kan använda vilken version som helst av AdventureWorks eller skapa en annan fråga med en egen databas. Punkten är att försöka hantera vissa data som innehåller text-, DateTime-och numeriska värden.
 
-Prova med hjälp av den här frågan som indata till den lagrade proceduren.
+Prova nu att använda den här frågan som indatamängd för den lagrade proceduren.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -275,9 +275,9 @@ OutputDataSet <- InputDataSet;
 WITH RESULT SETS undefined;
 ```
 
-Om du får ett felmeddelande, behöver du förmodligen göra vissa ändringar i frågetexten. Till exempel måste sträng-predikat i WHERE-satsen omges av två uppsättningar med enkla citattecken.
+Om du får ett fel meddelande måste du förmodligen göra vissa ändringar i frågetexten. Till exempel måste String-predikatet i WHERE-satsen omges av två uppsättningar enkla citat tecken.
 
-När du får frågan fungerar kan du granska resultatet av den `str` funktionen för att se hur R behandlar indata.
+När du har bearbetat frågan kan du granska resultatet av funktionen `str` för att se hur R behandlar indata.
 
 **Results**
 
@@ -288,16 +288,16 @@ STDOUT message(s) from external script: $ ProductSeries: Factor w/ 1 levels "M20
 STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 16950 16950
 ```
 
-- Datetime-kolumn har bearbetats med datatypen R **POSIXct**.
-- Textkolumnen ”ProductSeries” har identifierats som en **faktor**, vilket innebär att en kategoriska variabel. Strängvärden hanteras som faktorer som standard. Om du skickar en sträng till R, den konverteras till ett heltal för intern användning, och sedan mappas till sträng i utdata.
+- Datetime-kolumnen har bearbetats med data typen R, **POSIXct**.
+- Text kolumnen "ProductSeries" har identifierats som en **faktor**, vilket innebär en kategoriska-variabel. Sträng värden hanteras som standard faktorer. Om du skickar en sträng till R konverteras den till ett heltal för intern användning och mappas sedan tillbaka till strängen vid utdata.
 
 ## <a name="summary"></a>Sammanfattning
 
-Från och med de här korta exempel ser du att behöva kontrollera effekterna av datakonvertering när skicka SQL-frågor som indata. Eftersom vissa SQL-datatyper inte stöds av R, Överväg metoder för att undvika fel:
+Från och med de här korta exemplen kan du se att du behöver kontrol lera effekterna av data konverteringen när du skickar SQL-frågor som indata. Eftersom vissa SQL-datatyper inte stöds av R kan du tänka på följande sätt för att undvika fel:
 
-- Testa dina data i förväg och kontrollera kolumner eller värden i ditt schema som kan vara ett problem när skickades till R-kod.
-- Ange kolumner i datakällan inkommande separat, i stället för `SELECT *`, och veta hur varje kolumn hanteras.
-- Utför explicit sändningar efter behov när du förbereder dina indata för att undvika överraskningar.
-- Undvik att skicka kolumner med data (till exempel GUID eller rowguids) som orsakar fel och inte är användbart för modellering.
+- Testa dina data i förväg och kontrol lera att kolumner eller värden i schemat kan vara ett problem när de skickas till R-koden.
+- Ange kolumner i din indata-datakälla individuellt, i stället för att använda `SELECT *`och veta hur varje kolumn ska hanteras.
+- Utför explicita sändningar vid behov när du förbereder indata för att undvika överraskningar.
+- Undvik att skicka data kolumner (t. ex. GUID eller ROWGUIDS) som orsakar fel och inte är användbara för modellering.
 
-Mer information om datatyper som stöds respektive R finns [R-bibliotek och datatyper](/sql/advanced-analytics/r/r-libraries-and-data-types).
+Mer information om vilka typer av R-data som stöds och som inte stöds finns i [r-bibliotek och data typer](/sql/advanced-analytics/r/r-libraries-and-data-types).

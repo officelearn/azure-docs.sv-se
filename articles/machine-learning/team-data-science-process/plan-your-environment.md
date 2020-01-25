@@ -3,20 +3,20 @@ title: Identifiera scenarier och planera analys processen – team data science-
 description: Identifiera scenarier och planerar för avancerade analyser vid databearbetning genom att fundera över ett antal viktiga frågor.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ba87461c6c195a6b483538fd94d8be76239b8dc5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b0b811a2b7ed432b7fc5015886b28337ca33424e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647313"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710320"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Så här identifierar du scenarier och planerar för avancerade analyser vid databearbetning
 
@@ -47,8 +47,8 @@ Du kan behöva flytta data flera gånger under analys processen. Ett vanligt sce
 
 * en offentligt tillgänglig HTTP-adress
 * en lokal plats eller nätverks fil plats
-* en SQL Server-databas
-* en Azure Storage-behållare
+* en SQL Server databas
+* en Azure Storage behållare
 
 ### <a name="what-is-the-azure-destination"></a>Vad är Azure-målet?
 
@@ -79,7 +79,7 @@ Mer information finns i [Flytta data från en lokal SQL Server till SQL Azure me
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>Hur mycket data ska flyttas till Azure?
 
-Extremt stora data uppsättningar kan överstiga lagrings kapaciteten för vissa miljöer. Ett exempel finns i diskussionen om storleks gränser för Machine Learning Studio (klassisk) i nästa avsnitt. I sådana fall kan du använda ett exempel på data under analysen. Mer information om hur du nedåtsampla en datauppsättning i olika Azure-miljöer finns i [exempeldata i Team Data Science Process](sample-data.md).
+Stora data uppsättningar kan överstiga lagrings kapaciteten för vissa miljöer. Ett exempel finns i diskussionen om storleks gränser för Machine Learning Studio (klassisk) i nästa avsnitt. I sådana fall kan du använda ett exempel på data under analysen. Mer information om hur du nedåtsampla en datauppsättning i olika Azure-miljöer finns i [exempeldata i Team Data Science Process](sample-data.md).
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>Egenskaper för datafrågor: typ, format och storlek
 
@@ -151,7 +151,7 @@ Det finns många alternativ för språk, utvecklings miljöer och verktyg. Tänk
 * [RStudio](https://www.rstudio.com)
 * [Python Tools för Visual Studio](https://aka.ms/ptvsdocs)
 * [Anaconda](https://www.continuum.io/why-anaconda)
-* [Jupyter-anteckningsböcker](https://jupyter.org/)
+* [Jupyter Notebook](https://jupyter.org/)
 * [Microsoft Power BI](https://powerbi.microsoft.com)
 
 ## <a name="identify-your-advanced-analytics-scenario"></a>Identifiera ditt scenario för avancerad analys

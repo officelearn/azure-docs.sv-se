@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Lär dig hur du kör Azure dev Spaces i ett befintligt kluster med Windows-behållare
 keywords: Azure dev Spaces, dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes-tjänsten, behållare, Windows-behållare
-ms.openlocfilehash: 886f71dcaaca6a636b385ef6b101f0a893ff7035
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 882cdaa8a7b01578b2f04cf939aa14fe4aee7e2e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157006"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720375"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Interagera med Windows-behållare med hjälp av Azure dev Spaces
 
@@ -61,7 +61,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-Exempel programmet använder [Helm][helm-installed] för att köra Windows-tjänsten på klustret. Navigera till `charts` Directory och Använd Helm kör Windows-tjänsten:
+Exempel programmet använder [Helm 3][helm-installed] för att köra Windows-tjänsten på klustret. Navigera till `charts` Directory och Använd Helm kör Windows-tjänsten:
 
 ```console
 cd charts/

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 1c08b42d8217bf16dfcd8af17fa3c4627b95ffc3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8032a9b206be4a5eb70a1f40fd33667a1dbdfaa7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028218"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714724"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>Självstudie: Använd dynamisk konfiguration i en ASP.NET Core app
 
@@ -34,7 +34,7 @@ Den här självstudien visar hur du kan implementera dynamiska konfigurationsupp
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > * Konfigurera ditt program för att uppdatera konfigurationen som svar på ändringar i ett konfigurations lager för appar.
@@ -53,7 +53,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 1. Lägg till en referens till `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
 
     ```CLI
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-010560002-1165
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
     ```
 
 1. Öppna *program.cs*och uppdatera metoden `CreateWebHostBuilder` för att lägga till `config.AddAzureAppConfiguration()`-metoden.
@@ -308,7 +308,7 @@ Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigu
 
     ![Snabbstart av lokal app](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. Logga in på [Azure-portalen](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
+4. Logga in på [Azure Portal](https://portal.azure.com). Välj **alla resurser**och välj den instans av app Configuration Store som du skapade i snabb starten.
 
 5. Välj **Configuration Explorer**och uppdatera värdena för följande nycklar:
 

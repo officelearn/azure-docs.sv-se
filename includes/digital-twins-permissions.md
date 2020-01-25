@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/06/2020
+ms.date: 01/23/2020
 ms.custom: include file
-ms.openlocfilehash: a6adbe095b3ed486be8eb2e2611db5a40162d5dd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a1576e4a97af5de0b936c662de636aae542a19b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895503"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748990"
 ---
 >[!NOTE]
 >Det här avsnittet innehåller anvisningar för [registrering av Azure AD-appar](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
@@ -33,9 +33,18 @@ ms.locfileid: "75895503"
 
 1. För att se till att [appen är registrerad som en **offentlig klient**](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)öppnar du fönstret **autentisering** för din app-registrering och bläddrar nedåt i fönstret. I avsnittet **standard klient typ** väljer du **Ja** för att **behandla program som en offentlig klient**och trycker på **Spara**.
 
-    Kontrol **lera åtkomsttoken för** att aktivera **oauth2AllowImplicitFlow** -inställningen i manifestet. JSON.
+    1. **Omdirigerings-URI: er** måste matcha adressen som anges av autentiseringsbegäran:
 
-    [konfigurations inställning för ![offentlig klient](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+        * För appar som finns i en lokal utvecklings miljö väljer du **offentlig klient (mobil & Desktop)** . Se till att ange **standard klient typ** till Ja.
+        * För appar på en sida som finns på Azure App Service väljer du **webb**.
+
+        Välj **offentlig klient (mobilt & skriv bord)** och ange `http://localhost:8080/`.
+
+        [![konfigurera omdirigerings-URI: er](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+
+    1. Kontrol **lera åtkomsttoken för** att konfigurera **oauth2AllowImplicitFlow** -inställningen till `true` i resursens **manifest** -JSON.
+
+        [konfigurations inställning för ![offentlig klient](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  Öppna **översikts** fönstret för din registrerade app och Kopiera värdena för följande entiteter till en temporär fil. Du använder dessa värden för att konfigurera exempel programmet i följande avsnitt.
 

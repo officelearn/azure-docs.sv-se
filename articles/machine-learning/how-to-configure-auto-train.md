@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277994"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722160"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -187,11 +187,11 @@ Det primära måttet avgör vilket mått som ska användas vid modell träning f
 
 Lär dig mer om de olika definitionerna av dessa mått i [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md).
 
-### <a name="data-preprocessing--featurization"></a>Data förbehandling & funktionalisering
+### <a name="data-featurization"></a>Data funktionalisering
 
-I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare för bearbetning/funktionalisering, till exempel saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
+I varje automatiserad maskin inlärnings experiment [skalas dina data automatiskt och normaliseras](concept-automated-ml.md#preprocess) för att hjälpa *vissa* algoritmer som är känsliga för funktioner som är i olika skalor.  Du kan dock också aktivera ytterligare funktionalisering, t. ex. saknade värden Imputation, encoding och transformationer. [Läs mer om vad funktionalisering ingår](how-to-create-portal-experiments.md#preprocess).
 
-Ange `"preprocess": True` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)om du vill aktivera den här funktionalisering.
+Ange `"featurization": 'auto'` för [`AutoMLConfig`-klassen](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)om du vill aktivera den här funktionalisering.
 
 > [!NOTE]
 > Automatiserad bearbetning av Machine Learning för bearbetning (funktions normalisering, hantering av saknade data, konvertering av text till tal osv.) blir en del av den underliggande modellen. När du använder modellen för förutsägelser tillämpas samma för bearbetnings steg som tillämpas på dina indata-data automatiskt.
@@ -240,7 +240,7 @@ Ensemble-modeller är aktiverade som standard och visas som de slutliga körning
 
 Det finns flera standard argument som kan anges som `kwargs` i ett `AutoMLConfig`-objekt för att ändra standardvärdet för egenskapen ensemble.
 
-* `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena-modellerna. Standard-metadata är `LogisticRegression` för klassificerings aktiviteter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för Regressions-/prognos uppgifter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`eller `LinearRegression`.
+* `stack_meta_learner_type`: meta-eleven är en modell som är utbildad i resultatet av de enskilda heterogena modellerna. Standard-metadata är `LogisticRegression` för klassificerings aktiviteter (eller `LogisticRegressionCV` om kors validering är aktiverat) och `ElasticNet` för Regressions-/prognos uppgifter (eller `ElasticNetCV` om kors validering är aktive rad). Den här parametern kan vara en av följande strängar: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`eller `LinearRegression`.
 * `stack_meta_learner_train_percentage`: anger andelen av inlärnings uppsättningen (när du väljer träna och validerings typ av utbildning) som ska reserveras för att träna meta-eleven. Standardvärdet är `0.2`.
 * `stack_meta_learner_kwargs`: valfria parametrar som ska skickas till initieraren för meta-eleven. Dessa parametrar och parameter typer speglar parametrar och parameter typer från motsvarande modell-konstruktor och vidarebefordras till modell-konstruktorn.
 
@@ -324,7 +324,7 @@ Du kan visa dina utbildnings resultat i en widget eller infogad om du befinner d
 ## <a name="understand-automated-ml-models"></a>Förstå automatiserade ML-modeller
 
 Alla modeller som skapas med automatiserad ML innehåller följande steg:
-+ Automatiserad funktions teknik (om preprocess = sant)
++ Automatiserad funktions teknik (om `"featurization": 'auto'`)
 + Skalning/normalisering och algoritm med värden för en parameter
 
 Vi gör det transparent för att hämta den här informationen från fitted_model utdata från automatisk ML.
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>Automatiserad funktions teknik
 
-Se listan över förbehandling och [automatiserad funktions teknik](concept-automated-ml.md#preprocess) som inträffar när feauturization = Auto.
+Se listan över förbehandling och [automatiserad funktions teknik](concept-automated-ml.md#preprocess) som inträffar när `"featurization": 'auto'`.
 
 Tänk på det här exemplet:
 + Det finns fyra ingångs funktioner: A (numeriskt), B (numeriskt), C (numeriskt), D (DateTime)

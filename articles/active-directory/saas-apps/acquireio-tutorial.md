@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17cc6df651a82b416e670ee5ca5683c428eac6b5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 01bcc3678485119afae1d567d97eff9dcebe6b95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596275"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714615"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>Självstudie: Azure Active Directory integration med enkel inloggning (SSO) med AcquireIO
 
@@ -141,7 +141,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
      ![AcquireIO-konfiguration](./media/acquireio-tutorial/config01.png)
 
-1. Rulla ned till **Active Directory** och klicka på **Installera**.
+1. Rulla nedåt till **Active Directory** och klicka på **Installera**.
 
     ![AcquireIO-konfiguration](./media/acquireio-tutorial/config02.png)
 
@@ -175,7 +175,7 @@ Om du vill att Azure AD-användare ska kunna logga in på AcquireIO måste de ti
 
     a. I text rutan **namn** anger du namnet på användaren som **B. Simon**.
 
-    b. I textrutan **E-post** anger du användarens e-postadress, som **B.simon@contoso.com** .
+    b. I textrutan **E-post** anger du användarens e-postadress som **B.simon@contoso.com** .
 
     c. Klicka på **Skicka**.
 
@@ -183,7 +183,7 @@ Om du vill att Azure AD-användare ska kunna logga in på AcquireIO måste de ti
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen AcquireIO på åtkomst panelen, bör du loggas in automatiskt på den AcquireIO som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på panelen AcquireIO på åtkomst panelen, bör du loggas in automatiskt på den AcquireIO som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

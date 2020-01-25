@@ -10,15 +10,15 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: b71d3b4824d8c1c73f40c8c6d87db315aabd423b
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 14c4bb843a93fe6d235354f24475b9974142db79
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555479"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721157"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Övervaka din arbetsbelastning med DMV:er
-Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning. Detta inkluderar undersökning av frågekörningen i Azure SQL Data Warehouse.
+Den här artikeln beskriver hur du använder DMV: er (Dynamic Management views) för att övervaka din arbets belastning. Inkluderad undersöker körningen av en fråga i Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Behörigheter
 Om du vill fråga DMV: er i den här artikeln måste du antingen visa databas tillstånd eller kontroll behörighet. Det är vanligt vis att Granting VIEW DATABASE STATE är den bästa behörigheten eftersom det är mycket mer restriktivt.
@@ -28,7 +28,7 @@ GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Övervaka anslutningar
-Alla inloggningar till SQL Data Warehouse loggas till [sys. dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Denna DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och tilldelas sekventiellt för varje ny inloggning.
+Alla inloggningar till SQL Data Warehouse loggas till [sys. dm_pdw_exec_sessions](https://msdn.microsoft.com/library/mt203883.aspx).  Denna DMV innehåller de senaste 10 000 inloggningarna.  Session_id är den primära nyckeln och tilldelas sekventiellt för varje ny inloggning.
 
 ```sql
 -- Other Active Connections
@@ -36,7 +36,7 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>Övervaka frågekörningen
-Alla frågor som körs på SQL Data Warehouse loggas till [sys. dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Denna DMV innehåller de senaste 10 000 frågorna som kördes.  Request_id identifierar unikt varje fråga och är den primära nyckeln för denna DMV.  Request_id tilldelas sekventiellt för varje ny fråga och föregås av QID, som står för fråge-ID.  Om du frågar denna DMV för en specifik session_id visas alla frågor för en specifik inloggning.
+Alla frågor som körs på SQL Data Warehouse loggas till [sys. dm_pdw_exec_requests](https://msdn.microsoft.com/library/mt203887.aspx).  Denna DMV innehåller de senaste 10 000 frågorna som kördes.  Request_id identifierar unikt varje fråga och är den primära nyckeln för denna DMV.  Request_id tilldelas sekventiellt för varje ny fråga och föregås av QID, som står för fråge-ID.  Om du frågar denna DMV för en specifik session_id visas alla frågor för en specifik inloggning.
 
 > [!NOTE]
 > Lagrade procedurer använder flera ID: n för begäran.  ID för begäran tilldelas i sekventiell ordning. 
@@ -63,9 +63,9 @@ ORDER BY total_elapsed_time DESC;
 
 I föregående frågeresultat **noterar du fråge-ID** för frågan som du vill undersöka.
 
-Frågor i tillståndet **Suspended** kan placeras i kö på grund av ett stort antal aktiva körnings frågor. Dessa frågor visas också i [sys. dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar på fråga med en typ av UserConcurrencyResourceType. Information om samtidiga gränser finns i [minnes-och samtidiga gränser för Azure SQL Data Warehouse](memory-concurrency-limits.md) -eller [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md). Frågor kan också vänta på andra orsaker till exempel för objekt lås.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser][Investigating queries waiting for resources] ytterligare i den här artikeln.
+Frågor i tillståndet **Suspended** kan placeras i kö på grund av ett stort antal aktiva körnings frågor. Dessa frågor visas också i [sys. dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) väntar på fråga med en typ av UserConcurrencyResourceType. Information om samtidiga gränser finns i [minnes-och samtidiga gränser för Azure SQL Data Warehouse](memory-concurrency-limits.md) -eller [resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md). Frågor kan också vänta på andra orsaker till exempel för objekt lås.  Om din fråga väntar på en resurs, se [undersöka frågor som väntar på resurser](#monitor-waiting-queries) ytterligare i den här artikeln.
 
-För att förenkla sökningen av en fråga i [sys. dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) -tabellen använder du [etikett][LABEL] för att tilldela en kommentar till din fråga som kan visas i vyn sys. dm_pdw_exec_requests.
+För att förenkla sökningen av en fråga i [sys. dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) -tabellen använder du [etikett](https://msdn.microsoft.com/library/ms190322.aspx) för att tilldela en kommentar till frågan, som kan visas i vyn sys. dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -82,7 +82,7 @@ WHERE   [label] = 'My Query';
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>STEG 2: Undersök frågeplan
-Använd förfrågnings-ID: t för att hämta frågans distribuerade SQL-plan (DSQL) från [sys. dm_pdw_request_steps][sys.dm_pdw_request_steps].
+Använd förfrågnings-ID: t för att hämta frågans distribuerade SQL-plan (DSQL) från [sys. dm_pdw_request_steps](https://msdn.microsoft.com/library/mt203913.aspx).
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -93,7 +93,7 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-När en DSQL-plan tar längre tid än förväntat, kan orsaken vara en komplex plan med många DSQL-steg eller bara ett steg tar lång tid.  Om planen är många steg med flera flyttnings åtgärder bör du överväga att optimera tabell distributionerna för att minska data flytten. [Tabellen distributions][Table distribution] artikel förklarar varför data måste flyttas för att lösa en fråga och förklarar vissa distributions strategier för att minimera data flytten.
+När en DSQL-plan tar längre tid än förväntat, kan orsaken vara en komplex plan med många DSQL-steg eller bara ett steg tar lång tid.  Om planen är många steg med flera flyttnings åtgärder bör du överväga att optimera tabell distributionerna för att minska data flytten. [Tabellen distributions](sql-data-warehouse-tables-distribute.md) artikel förklarar varför data måste flyttas för att lösa en fråga. Artikeln beskriver också några distributions strategier för att minimera data flytten.
 
 Om du vill undersöka ytterligare information om ett enda steg, *operation_type* kolumnen i steget för långvarig fråga och notera **steg indexet**:
 
@@ -101,7 +101,7 @@ Om du vill undersöka ytterligare information om ett enda steg, *operation_type*
 * Fortsätt med steg 3b för **data förflyttnings åtgärder**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
 ### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>Steg 3a: Undersök SQL på de distribuerade databaserna
-Använd förfrågnings-ID och steg index för att hämta information från [sys. dm_pdw_sql_requests][sys.dm_pdw_sql_requests], som innehåller körnings information för steget fråga på alla distribuerade databaser.
+Använd förfrågnings-ID och steg index för att hämta information från [sys. dm_pdw_sql_requests](https://msdn.microsoft.com/library/mt203889.aspx), som innehåller körnings information för steget fråga på alla distribuerade databaser.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -111,7 +111,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-När steget körs kan [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] användas för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det steg som körs på en viss distribution.
+När steget körs kan [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) användas för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det steg som körs på en viss distribution.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -121,7 +121,7 @@ DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
 ### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STEG 3B: Undersök data förflyttning på distribuerade databaser
-Använd förfrågnings-ID och steg index för att hämta information om ett steg för data förflyttning som körs på varje distribution från [sys. dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+Använd förfrågnings-ID och steg index för att hämta information om ett steg för data förflyttning som körs på varje distribution från [sys. dm_pdw_dms_workers](https://msdn.microsoft.com/library/mt203878.aspx).
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -134,7 +134,7 @@ WHERE request_id = 'QID####' AND step_index = 2;
 * Markera kolumnen *total_elapsed_time* om du vill se om en viss distribution tar betydligt längre tid än andra för data förflyttning.
 * För den tids krävande distributionen kontrollerar du kolumnen *rows_processed* för att se om antalet rader som flyttas från den distributionen är betydligt större än andra. I så fall kan det hända att den här sökningen visar skevning av underliggande data.
 
-Om frågan körs kan [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN] användas för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det SQL-steg som körs för närvarande i en viss distribution.
+Om frågan körs kan du använda [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx) för att hämta den SQL Server beräknade planen från SQL Server plan-cachen för det SQL-steg som körs för närvarande i en viss distribution.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -265,7 +265,7 @@ GROUP BY t.pdw_node_id, nod.[type]
 ```
 
 ## <a name="monitor-polybase-load"></a>Övervaka PolyBase-belastning
-Följande fråga ger en ungefärligt uppskattning av förloppet för din belastning. Frågan visar bara filer som bearbetas just nu. 
+Följande fråga ger en ungefärlig uppskattning av förloppet för inläsningen. Frågan visar bara filer som bearbetas just nu. 
 
 ```sql
 
@@ -290,23 +290,4 @@ ORDER BY
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om DMV: er finns i [systemvyer][System views].
-
-
-<!--Image references-->
-
-<!--Article references-->
-[SQL Data Warehouse best practices]: ./sql-data-warehouse-best-practices.md
-[System views]: ./sql-data-warehouse-reference-tsql-system-views.md
-[Table distribution]: ./sql-data-warehouse-tables-distribute.md
-[Investigating queries waiting for resources]: ./sql-data-warehouse-manage-monitor.md#waiting
-
-<!--MSDN references-->
-[sys.dm_pdw_dms_workers]: https://msdn.microsoft.com/library/mt203878.aspx
-[sys.dm_pdw_exec_requests]: https://msdn.microsoft.com/library/mt203887.aspx
-[sys.dm_pdw_exec_sessions]: https://msdn.microsoft.com/library/mt203883.aspx
-[sys.dm_pdw_request_steps]: https://msdn.microsoft.com/library/mt203913.aspx
-[sys.dm_pdw_sql_requests]: https://msdn.microsoft.com/library/mt203889.aspx
-[DBCC PDW_SHOWEXECUTIONPLAN]: https://msdn.microsoft.com/library/mt204017.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[LABEL]: https://msdn.microsoft.com/library/ms190322.aspx
+Mer information om DMV: er finns i [systemvyer](./sql-data-warehouse-reference-tsql-system-views.md).

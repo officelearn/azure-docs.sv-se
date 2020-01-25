@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 06b54c3038e8b4f5879a93b696920534c2199008
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414475"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748900"
 ---
 Den här artikeln ger en översikt över tillgänglighets funktionerna i Azure Virtual Machines (VM).
 
@@ -54,7 +54,7 @@ Med skalnings uppsättningar för virtuella datorer kan du ange Orchestration-l�
 
 |   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |----|----|----|
-| Konfigurations modell för virtuell dator| Ingen. VirtualMachineProfile är odefinierat i skalnings uppsättnings modellen. | Obligatoriskt. VirtualMachineProfile är ifyllt i skalnings uppsättnings modellen. |
+| Konfigurations modell för virtuell dator| Inget. VirtualMachineProfile är odefinierat i skalnings uppsättnings modellen. | Krävs. VirtualMachineProfile är ifyllt i skalnings uppsättnings modellen. |
 | Lägger till ny virtuell dator i skalnings uppsättningen| Virtuella datorer läggs explicit till i skalnings uppsättningen när den virtuella datorn skapas. | Virtuella datorer skapas implicit och läggs till i skalnings uppsättningen baserat på den virtuella datorns konfigurations modell, instans antal och regler för automatisk skalning. |
 | Tillgänglighetszoner| Stöder regional distribution eller virtuella datorer i en tillgänglighets zon| Stöder regional distribution eller flera Tillgänglighetszoner; Kan definiera strategi för zon utjämning |
 | Feldomäner| Kan definiera antalet fel domäner. 2 eller 3 baserat på regional support och 5 för tillgänglighets zon. Den tilldelade VM-feldomänen behålls med VM-livscykeln, inklusive frigör och starta om. | Kan definiera 1, 2 eller 3 fel domäner för icke-zonindelade distributioner och 5 för distributioner av tillgänglighets zoner. Den tilldelade virtuella dator fel domänen är inte beständig med VM-livscykeln, virtuella datorer tilldelas en feldomän vid tidpunkten för tilldelningen. |
@@ -62,7 +62,7 @@ Med skalnings uppsättningar för virtuella datorer kan du ange Orchestration-l�
 
 **Fel domäner och uppdaterings domäner**
 
-Skalnings uppsättningar för virtuella datorer fören klar designen för hög tillgänglighet genom att justera fel domäner och uppdatera domäner. Du behöver bara definiera antalet fel domäner för skalnings uppsättningen. Antalet fel domäner som är tillgängliga för skalnings uppsättningarna kan variera beroende på region. Se [antalet fel domäner per region](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region).
+Skalnings uppsättningar för virtuella datorer fören klar designen för hög tillgänglighet genom att justera fel domäner och uppdatera domäner. Du behöver bara definiera antalet fel domäner för skalnings uppsättningen. Antalet fel domäner som är tillgängliga för skalnings uppsättningarna kan variera beroende på region. Se [Hantera tillgängligheten för virtuella datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability).
 
 
 ## <a name="availability-sets"></a>Tillgänglighetsuppsättningar

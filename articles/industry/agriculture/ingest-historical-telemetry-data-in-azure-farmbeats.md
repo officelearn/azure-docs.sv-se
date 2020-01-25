@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 32eb8e71cfb978fac5b4d6d05af4da4fdc9f67b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513940"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715518"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Mata in historiska telemetridata
 
@@ -72,7 +72,7 @@ Följ de här stegen.
 
  Nu när du har de autentiseringsuppgifter som krävs kan du definiera enheten och sensorer. Du gör detta genom att skapa metadata genom att anropa FarmBeats-API: er. Observera att du måste anropa API: erna som den klient app som du skapade i ovanstående avsnitt
 
- FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata.
+ FarmBeats Datahub har följande API: er som möjliggör skapande och hantering av enhets-eller sensor-metadata. Observera att du som partner har åtkomst till att läsa, skapa och uppdatera metadata. **Delete tillåts inte av en partner.**
 
 - /**DeviceModel**: DeviceModel motsvarar enhetens metadata, till exempel tillverkaren och typen av enhet, som är antingen en gateway eller en nod.
 - /**enhet**: enheten motsvarar en fysisk enhet som finns i Server gruppen.
@@ -89,7 +89,7 @@ Följ de här stegen.
 |     Namn                 |  Namn för att identifiera resursen. Till exempel modell namnet eller produkt namnet.
       Beskrivning     | Ange en meningsfull beskrivning av modellen.
 |    Egenskaper          |    Ytterligare egenskaper från tillverkaren.   |
-|    **Enhet**             |                      |
+|    **Anordningar**             |                      |
 |   DeviceModelId     |     ID för associerad enhets modell.  |
 |  HardwareId          | Unikt ID för enheten, till exempel MAC-adressen.
 |  ReportingInterval        |   Rapport intervall i sekunder.
@@ -381,6 +381,41 @@ Här är ett exempel på ett telemetri-meddelande:
       ]
     }
   ]
+}
+```
+
+## <a name="troubleshooting"></a>Felsöka
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>Det går inte att Visa telemetridata efter att du har matat in historiska/strömmande data från sensorer
+
+**Symptom**: enheter eller sensorer distribueras och du har skapat enheter/sensorer på FarmBeats och inmatad telemetri till EventHub, men du kan inte hämta eller Visa telemetridata på FarmBeats.
+
+**Korrigerande åtgärd**:
+
+1. Se till att du har utfört partner registreringen korrekt – du kan kontrol lera detta genom att gå till Datahub-Swagger, navigera till/partner-API, göra en get-och kontrol lera om partnern är registrerad. Om inte följer du [stegen här](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) för att lägga till partner.
+2. Se till att du har skapat metadata (DeviceModel, enhet, SensorModel, sensor) med hjälp av partner klientens autentiseringsuppgifter.
+3. Kontrol lera att du har använt rätt format för telemetri (som anges nedan):
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 

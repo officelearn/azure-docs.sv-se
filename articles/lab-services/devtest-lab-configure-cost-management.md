@@ -1,6 +1,6 @@
 ---
 title: Visa månads vis uppskattad labb kostnads trend i Azure DevTest Labs
-description: Lär dig mer om diagrammets beräknade kostnads trend för Azure DevTest Labs.
+description: Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb (månatligt uppskattat kostnads trend) i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 15ddaa6c73cedb32d920ef943627831c1e9b378b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 2e4fe55fac5edf73e16df05bd38cc2712a94377d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721735"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Spåra kostnader som är associerade med ett labb i Azure DevTest Labs
 Den här artikeln innehåller information om hur du spårar kostnaden för ditt labb. Det visar dig hur du visar den uppskattade kostnads Trent för den aktuella kalender månaden för labbet. Artikeln visar också hur du visar månads-till-datum-kostnader per resurs i labbet.

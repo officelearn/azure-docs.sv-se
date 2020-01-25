@@ -3,25 +3,25 @@ title: Identifiera scenarier för Azure Machine Learning - Team Data Science Pro
 description: Välj de lämpliga scenarierna för att göra avancerade förutsägande analyser med Team Data Science Process.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e7d747901fb73afa78b6162316709d7d2e78927
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 48b51c40e5de8f10d9d1d16b02e2c70b045816b3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981122"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710488"
 ---
 # <a name="scenarios-for-advanced-analytics-in-azure-machine-learning"></a>Scenarier för avancerade analyser i Azure Machine Learning
 Den här artikeln beskrivs olika exempel datakällor och målscenarier som kan hanteras av den [Team Data Science Process (TDSP)](overview.md). TDSP erbjuder en systematisk metod för team att samarbeta med att skapa intelligenta program. De scenarier som presenteras här visar alternativ som är tillgängliga i bearbetning av arbetsflödet som beror på den dataegenskaper, datakällor och mål-databaser i Azure.
 
-Den **beslutsträd** för att välja exempelscenarier som passar för dina data och målet visas i det sista avsnittet.
+**Besluts trädet** för att välja de exempel scenarier som passar dina data och målet visas i det sista avsnittet.
 
 Var och en av de följande avsnitten presenterar ett exempelscenario. För varje scenario, en möjlig datavetenskap eller avancerad analys flödet och stöd för Azure-resurser visas.
 
@@ -35,7 +35,7 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 > 
 > 
 
-## <a name="smalllocal"></a>Scenariot \#1: små till medelstora datauppsättning i tabellformat i lokala filer
+## <a name="smalllocal"></a>Scenario \#1: liten till medels Tor tabell data uppsättning i lokala filer
 ![Små till medelstora lokala filer][1]
 
 #### <a name="additional-azure-resources-none"></a>Ytterligare Azure-resurser: ingen
@@ -48,9 +48,9 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure-dator (IPython Notebook-server)
 1. Skapa en Azure virtuell dator som kör IPython Notebook.
-1. Ladda upp data till en Azure storage-behållare.
-1. Förbearbeta och rensa data i IPython Notebook, komma åt data från Azure storage-behållare.
-1. Omvandla data till rensad, tabellformat.
+1. Ladda upp data till en Azure Storage-behållare.
+1. Förbearbeta och rensa data i IPython-anteckningsboken för att komma åt data från Azure Storage behållare.
+1. Transformera data till ett rensat tabell format.
 1. Spara transformerade data i Azure-blobar.
 1. Logga in på den [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Läs data från Azure-blobbar med modulen [Importera data][import-data] .
@@ -61,9 +61,9 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 
 #### <a name="additional-azure-resources-azure-virtual-machine-ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure-dator (IPython Notebook-server)
 1. Skapa en Azure virtuell dator som kör IPython Notebook.
-1. Ladda upp data till en Azure storage-behållare.
+1. Ladda upp data till en Azure Storage-behållare.
 1. Förbearbeta och rensa data i IPython Notebook, komma åt data från Azure-blobar.
-1. Omvandla data till rensad, tabellform, om det behövs.
+1. Transformera data till ett rensat tabell format vid behov.
 1. Utforska data och skapa funktioner efter behov.
 1. Extrahera ett datasampel för små till medelstora.
 1. Spara exempeldata i Azure-blobar.
@@ -76,15 +76,15 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure-dator (SQL Server / IPython Notebook-server)
 1. Skapa en Azure virtuell dator som kör SQL Server + IPython Notebook.
-1. Ladda upp data till en Azure storage-behållare.
-1. Förbearbeta och rensa data i Azure storage-behållare med hjälp av IPython Notebook.
-1. Omvandla data till rensad, tabellform, om det behövs.
+1. Ladda upp data till en Azure Storage-behållare.
+1. I förväg bearbeta och rensa data i Azure Storage container med hjälp av IPython Notebook.
+1. Transformera data till ett rensat tabell format vid behov.
 1. Sparar data till VM-lokala filer (IPython Notebook körs på den virtuella datorn finns i lokala enheter för VM-enheter).
 1. Läsa in data till SQL Server-databas som körs på en virtuell Azure-dator.
    
    Alternativet \#1: med SQL Server Management Studio.
    
-   * Logga in på SQLServer-dator
+   * Logga in på SQL Server VM
    * Kör SQL Server Management Studio.
    * Skapa tabeller i databasen och mål.
    * Använd en av stora importera metoder för att läsa in data från VM-lokala filer.
@@ -95,48 +95,44 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
    * Använd ODBC-anslutningssträng för att ansluta till SQL Server på den virtuella datorn.
    * Skapa tabeller i databasen och mål.
    * Använd en av stora importera metoder för att läsa in data från VM-lokala filer.
-1. Utforska data, skapa funktioner som behövs. Observera att funktionerna inte behöver materialiseras i databastabeller. Observera endast nödvändiga frågan för att skapa dem.
+1. Utforska data, skapa funktioner som behövs. Funktionerna behöver inte materialiseras i databas tabellerna. Observera endast nödvändiga frågan för att skapa dem.
 1. Besluta om en exempelstorlek för data om det behövs och/eller önskas.
 1. Logga in på den [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Läs data direkt från SQL Server med modulen [Importera data][import-data] . Klistra in nödvändig fråga som extraherar fält, skapar funktioner och exempel data om det behövs direkt i frågan [Importera data][import-data] .
 1. Skapa Azure Machine Learning experiment flöde från och med infogade datauppsättningar.
 
-## <a name="largelocaltodb"></a>Scenariot \#5: stor datauppsättning i lokala filer, rikta SQL Server i Azure VM
+## <a name="largelocaltodb"></a>Scenario \#5: stor data uppsättning i lokala filer, mål SQL Server i virtuell Azure-dator
 ![Stora lokala filer till SQL DB i Azure][5]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure-dator (SQL Server / IPython Notebook-server)
 1. Skapa en Azure virtuell dator som kör SQL Server och IPython Notebook-server.
-1. Ladda upp data till en Azure storage-behållare.
+1. Ladda upp data till en Azure Storage-behållare.
 1. (Valfritt) Förbearbeta och rensa data.
    
-   a.  Förbearbeta och rensa data i IPython Notebook, komma åt data från Azure
+    a.  Förbearbeta och rensa data i IPython Notebook, komma åt data från Azure-blobar.
    
-       blobs.
+    b.  Transformera data till ett rensat tabell format vid behov.
    
-   b.  Omvandla data till rensad, tabellform, om det behövs.
-   
-   c.  Sparar data till VM-lokala filer (IPython Notebook körs på den virtuella datorn finns i lokala enheter för VM-enheter).
+    c.  Sparar data till VM-lokala filer (IPython Notebook körs på den virtuella datorn finns i lokala enheter för VM-enheter).
 1. Läsa in data till SQL Server-databas som körs på en virtuell Azure-dator.
    
-   a.  Logga in på SQLServer-dator.
+    a.  Logga in på SQL Server VM.
    
-   b.  Om data inte sparats redan hämta filer från Azure
+    b.  Om data inte redan sparats laddar du ned datafiler från Azure Storage-behållaren till en lokal VM-mapp.
    
-       storage container to local-VM folder.
+    c.  Kör SQL Server Management Studio.
    
-   c.  Kör SQL Server Management Studio.
+    d.  Skapa tabeller i databasen och mål.
    
-   d.  Skapa tabeller i databasen och mål.
+    e.  Använd en av stora importera metoder för att läsa in data.
    
-   e.  Använd en av stora importera metoder för att läsa in data.
-   
-   f.  Om tabellkopplingar måste, skapa index för att bearbeta kopplingar.
+    f.  Om tabellkopplingar måste, skapa index för att bearbeta kopplingar.
    
    > [!NOTE]
    > Det rekommenderas för snabbare inläsning av stora datamängder som du skapar partitionerade tabeller och bulk dataimport parallellt. Mer information finns i [parallella importera Data till SQL-partitionerade tabeller](parallel-load-sql-partitioned-tables.md).
    > 
    > 
-1. Utforska data, skapa funktioner som behövs. Observera att funktionerna inte behöver materialiseras i databastabeller. Observera endast nödvändiga frågan för att skapa dem.
+1. Utforska data, skapa funktioner som behövs. Funktionerna behöver inte materialiseras i databas tabellerna. Observera endast nödvändiga frågan för att skapa dem.
 1. Besluta om en exempelstorlek för data om det behövs och/eller önskas.
 1. Logga in på den [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Läs data direkt från SQL Server med modulen [Importera data][import-data] . Klistra in nödvändig fråga som extraherar fält, skapar funktioner och exempel data om det behövs direkt i frågan [Importera data][import-data] .
@@ -153,12 +149,12 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
    > Om du vill flytta alla data från den lokala databasen kan du flytta den fullständiga databasen till SQL Server-instansen i Azure med en alternativ metod (snabbare). Hoppa över stegen för att exportera data, skapa databas, och Läs in/importera data till måldatabasen och följa den alternativa metoden.
    > 
    > 
-1. Ladda upp filer med felsökningsdumpar till Azure storage-behållare.
+1. Ladda upp dumpfiler till Azure Storage container.
 1. Läsa in data till en SQL Server-databas som körs på en Azure-dator.
    
-   a.  Logga in på SQLServer-dator.
+   a.  Logga in på SQL Server VM.
    
-   b.  Hämta filer från en Azure storage-behållare till den lokala VM-mappen.
+   b.  Hämta datafiler från en Azure Storage-behållare till mappen Local-VM.
    
    c.  Kör SQL Server Management Studio.
    
@@ -172,7 +168,7 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
    > För snabbare inläsning av stora datamängder, skapa partitionerade tabeller och vill importera data parallellt. Mer information finns i [parallella importera Data till SQL-partitionerade tabeller](parallel-load-sql-partitioned-tables.md).
    > 
    > 
-1. Utforska data, skapa funktioner som behövs. Observera att funktionerna inte behöver materialiseras i databastabeller. Observera endast nödvändiga frågan för att skapa dem.
+1. Utforska data, skapa funktioner som behövs. Funktionerna behöver inte materialiseras i databas tabellerna. Observera endast nödvändiga frågan för att skapa dem.
 1. Besluta om en exempelstorlek för data om det behövs och/eller önskas.
 1. Logga in på den [Azure Machine Learning Studio](https://studio.azureml.net/).
 1. Läs data direkt från SQL Server med modulen [Importera data][import-data] . Klistra in nödvändig fråga som extraherar fält, skapar funktioner och exempel data om det behövs direkt i frågan [Importera data][import-data] .
@@ -182,7 +178,7 @@ Var och en av de följande avsnitten presenterar ett exempelscenario. För varje
 ![Koppla från lokala DB och Anslut till SQL DB i Azure][7]
 
 #### <a name="additional-azure-resources-azure-virtual-machine-sql-server--ipython-notebook-server"></a>Ytterligare Azure-resurser: Azure-dator (SQL Server / IPython Notebook-server)
-Om du vill replikera hela SQL Server-databasen i SQL Server-dator, bör du kopiera en databas från en plats/server till en annan, förutsatt att databasen kan tas offline. Du kan göra detta i SQL Server Management Studio Object Explorer eller med hjälp av motsvarande Transact-SQL-kommandon.
+Om du vill replikera hela SQL Server-databasen i SQL Server-dator, bör du kopiera en databas från en plats/server till en annan, förutsatt att databasen kan tas offline. Du kan använda SQL Server Management Studio Object Explorer eller med motsvarande Transact-SQL-kommandon.
 
 1. Koppla från databasen på källplatsen. Mer information finns i [koppla från en databas](https://technet.microsoft.com/library/ms191491\(v=sql.110\).aspx).
 1. Kopiera frånkopplad databasfilen eller filerna och loggfilen eller filer till målplatsen på SQL Server-dator i Azure i Windows Explorer eller Windows kommandotolk-fönster.
@@ -202,7 +198,7 @@ Om du vill replikera hela SQL Server-databasen i SQL Server-dator, bör du kopie
    
        blobs.
    
-   b.  Omvandla data till rensad, tabellform, om det behövs.
+   b.  Transformera data till ett rensat tabell format vid behov.
    
    c.  Sparar data till VM-lokala filer (IPython Notebook körs på den virtuella datorn finns i lokala enheter för VM-enheter).
 1. Ladda upp data till standardbehållaren för Hadoop-kluster som valts i steg 2.
@@ -220,7 +216,7 @@ Om du vill replikera hela SQL Server-databasen i SQL Server-dator, bör du kopie
    > Om data är stor, kan användare skapa Hive-tabell med partitioner. Användare kan sedan använda en `for` loop i Hadoop kommandoraden på huvudnoden att läsa in data till Hive-tabell som har partitionerats med partitionen.
    > 
    > 
-1. Utforska data och skapa funktioner som behövs i Hadoop-kommandoraden. Observera att funktionerna inte behöver materialiseras i databastabeller. Observera endast nödvändiga frågan för att skapa dem.
+1. Utforska data och skapa funktioner som behövs i Hadoop-kommandoraden. Funktionerna behöver inte materialiseras i databas tabellerna. Observera endast nödvändiga frågan för att skapa dem.
    
    a.  Logga in på huvudnoden för Hadoop-kluster
    
@@ -236,7 +232,7 @@ Om du vill replikera hela SQL Server-databasen i SQL Server-dator, bör du kopie
 
 ## <a name="decisiontree"></a>Beslutsträd för val av scenario
 ---
-Följande diagram sammanfattar de scenarier som beskrivs ovan och Advanced Analytics Process and Teknikval görs som tar dig till var och en av de specificerade scenarierna. Observera att databearbetning, utforskning, funktionsframställning och sampling kan ta i en eller flera metoden/miljö – vid källan, mellanliggande, och/eller målmiljöer – och kan fortsätta upprepade gånger efter behov. Diagrammet endast fungerar som en illustration av några av möjliga flöden och ger inte en uttömmande förteckning.
+Följande diagram sammanfattar de scenarier som beskrivs ovan och Advanced Analytics Process and Teknikval görs som tar dig till var och en av de specificerade scenarierna. Data bearbetning, utforskning, funktions teknik och sampling kan äga rum i en eller flera metoder/miljöer – i käll-, mellanliggande och/eller mål miljöer – och kan fortsätta iterativt efter behov. Diagrammet endast fungerar som en illustration av några av möjliga flöden och ger inte en uttömmande förteckning.
 
 ![Genomgång exempelscenarier DS process][8]
 

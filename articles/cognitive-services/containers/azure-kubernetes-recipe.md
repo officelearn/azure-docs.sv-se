@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: e33aa98939eeb5b5394f1f5cc05e28ae8f6ae4f2
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5c8b3ed329c03bd08b2a0b3e26ada7a4e36ceb49
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515246"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716890"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuera Textanalys språk identifierings behållare till Azure Kubernetes-tjänsten
 
@@ -36,7 +36,7 @@ Den här proceduren kräver flera verktyg som måste installeras och köras loka
 
 ## <a name="running-the-sample"></a>Köra exemplet
 
-Den här proceduren läser in och kör Cognitive Services container-exemplet för språk identifiering. Exemplet har två behållare, en för klient programmet och en för Cognitive Services container. Du måste skicka båda avbildningarna till dina egna Azure Container Registry. När de finns i ditt eget register skapar du en Azure Kubernetes-tjänst för att få åtkomst till de här avbildningarna och kör behållarna. När behållarna körs använder du **kubectl** CLI för att se behållarens prestanda. Få åtkomst till klient programmet med en HTTP-begäran och se resultatet.
+Den här proceduren läser in och kör Cognitive Services container-exemplet för språk identifiering. Exemplet har två behållare, en för klient programmet och en för Cognitive Services container. Vi ska skicka båda avbildningarna till Azure Container Registry. När de finns i ditt eget register skapar du en Azure Kubernetes-tjänst för att få åtkomst till de här avbildningarna och kör behållarna. När behållarna körs använder du **kubectl** CLI för att se behållarens prestanda. Få åtkomst till klient programmet med en HTTP-begäran och se resultatet.
 
 ![Koncept idé för att köra exempel behållare](../text-analytics/media/how-tos/container-instance-sample/containers.png)
 
@@ -78,7 +78,7 @@ För att distribuera behållaren till Azure Kubernetes-tjänsten måste behålla
     az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
     ```
 
-    Spara resultaten för att hämta egenskapen **namnet** . Detta kommer att ingå i den värd behållares adress, som används senare i `language.yml`-filen.
+    Spara resultaten för att hämta egenskapen **namnet** . Detta kommer att ingå i den värdbaserade behållarens adress, som används senare i `language.yml`-filen.
 
     ```console
     > az acr create --resource-group cogserv-container-rg --name pattyregistry --sku Basic
@@ -124,7 +124,7 @@ För att distribuera behållaren till Azure Kubernetes-tjänsten måste behålla
     docker build -t language-frontend -t pattiyregistry.azurecr.io/language-frontend:v1 .
     ```
 
-    Om du vill spåra versionen i behållar registret lägger du till taggen med ett versions format, till exempel `v1`.
+    Om du vill spåra versionen i behållar registret lägger du till taggen med versions format, till exempel `v1`.
 
 1. Push-överför avbildningen till behållar registret. Det kan ta några minuter.
 
@@ -132,7 +132,7 @@ För att distribuera behållaren till Azure Kubernetes-tjänsten måste behålla
     docker push pattyregistry.azurecr.io/language-frontend:v1
     ```
 
-    Om du får ett `unauthorized: authentication required`-fel loggar du in med kommandot `az acr login --name <your-container-registry-name>`. 
+    Om du får ett `unauthorized: authentication required` fel kan du logga in med kommandot `az acr login --name <your-container-registry-name>`. 
 
     När processen är färdig bör resultatet likna följande:
 
@@ -178,7 +178,7 @@ Följande steg krävs för att hämta den information som krävs för att anslut
     az ad sp create-for-rbac --skip-assignment
     ```
 
-    Spara resultatet `appId` för tilldelnings parametern i steg 3, `<appId>`. Spara `password` för nästa avsnitts klient hemlighets parameter `<client-secret>`.
+    Spara resultatet `appId` värde för den tilldelas parametern i steg 3, `<appId>`. Spara `password` för nästa avsnitts klient-hemliga parameter `<client-secret>`.
 
     ```console
     > az ad sp create-for-rbac --skip-assignment
@@ -197,7 +197,7 @@ Följande steg krävs för att hämta den information som krävs för att anslut
     az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
     ```
 
-    Spara utdata för parameter värde för omfattning, `<acrId>`, i nästa steg. Det ser ut så här:
+    Spara utdata för värdet för parametern scope `<acrId>`i nästa steg. Det ser ut så här:
 
     ```console
     > az acr show --resource-group cogserv-container-rg --name pattyregistry --query "id" --o table
@@ -206,7 +206,7 @@ Följande steg krävs för att hämta den information som krävs för att anslut
 
     Spara det fullständiga värdet för steg 3 i det här avsnittet.
 
-1. Skapa en roll tilldelning för att ge rätt åtkomst för AKS-klustret till att använda avbildningar som lagras i behållar registret. Ersätt `<appId>` och `<acrId>` med värdena som samlats in i föregående två steg.
+1. Skapa en roll tilldelning för att ge rätt åtkomst för AKS-klustret till att använda avbildningar som lagras i behållar registret. Ersätt `<appId>` och `<acrId>` med de värden som samlats in i föregående två steg.
 
     ```azurecli-interactive
     az role assignment create --assignee <appId> --scope <acrId> --role Reader
@@ -316,18 +316,18 @@ I det här avsnittet används **kubectl** CLI för att kommunicera med Azure Kub
     Distributions inställningar för språk klient del|Syfte|
     |--|--|
     |Rad 32<br> `image` egenskap|Avbildnings plats för klient dels avbildningen i Container Registry<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
-    |Rad 44<br> `name` egenskap|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett tidigare avsnitt.|
+    |Rad 44<br> `name` egenskap|Container Registry hemlighet för avbildningen, som `<client-secret>` i föregående avsnitt.|
 
 1. Ändra språk distributions raderna för `language.yml` baserat på följande tabell för att lägga till dina egna avbildnings namn, klient hemlighet och text analys inställningar.
 
     |Språk distributions inställningar|Syfte|
     |--|--|
     |Rad 78<br> `image` egenskap|Avbildnings plats för språk avbildningen i din Container Registry<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
-    |Rad 95<br> `name` egenskap|Container Registry hemlighet för avbildningen, som kallas `<client-secret>` i ett tidigare avsnitt.|
+    |Rad 95<br> `name` egenskap|Container Registry hemlighet för avbildningen, som `<client-secret>` i föregående avsnitt.|
     |Rad 91<br> `apiKey` egenskap|Din nyckel för text analys resurs|
     |Rad 92<br> `billing` egenskap|Fakturerings slut punkten för din text Analytics-resurs.<br>`https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
-    Eftersom **apiKey** och **fakturerings slut punkten** anges som en del av Kubernetes Orchestration-definitionen behöver inte webbplats behållaren känna till dessa eller skicka dem som en del av begäran. Webbplats behållaren refererar till språk identifierings behållaren efter dess Orchestrator-namn `language`.
+    Eftersom **apiKey** och **fakturerings slut punkten** anges som en del av Kubernetes Orchestration-definitionen behöver inte webbplats behållaren känna till dessa eller skicka dem som en del av begäran. Webbplats containern refererar till språk identifierings behållaren efter dess Orchestrator-namn `language`.
 
 1. Läs in Orchestration-definitions filen för det här exemplet från den mapp där du skapade och sparade `language.yml`.
 
@@ -347,7 +347,7 @@ I det här avsnittet används **kubectl** CLI för att kommunicera med Azure Kub
 
 ## <a name="get-external-ips-of-containers"></a>Hämta externa IP-adresser för behållare
 
-För de två behållarna kontrollerar du att `language-frontend`-och `language`-tjänsterna körs och hämtar den externa IP-adressen.
+För de två behållarna kontrollerar du `language-frontend` och `language` tjänsterna körs och hämtar den externa IP-adressen.
 
 ```console
 kubectl get all
@@ -385,13 +385,13 @@ Om `EXTERNAL-IP` för tjänsten visas som väntande kör du kommandot igen tills
 
 ## <a name="test-the-language-detection-container"></a>Testa språk identifierings behållaren
 
-Öppna en webbläsare och gå till den externa IP-adressen för behållaren `language` från föregående avsnitt: `http://<external-ip>:5000/swagger/index.html`. Du kan använda funktionen `Try it` i API: et för att testa slut punkten för språk identifiering.
+Öppna en webbläsare och gå till den externa IP-adressen för `language` containern från föregående avsnitt: `http://<external-ip>:5000/swagger/index.html`. Du kan använda funktionen `Try it` i API: et för att testa slut punkten för språk identifiering.
 
 ![Visa behållarens dokumentation om Swagger](../text-analytics/media/how-tos/container-instance-sample/language-detection-container-swagger-documentation.png)
 
 ## <a name="test-the-client-application-container"></a>Testa klient program behållaren
 
-Ändra URL: en i webbläsaren till den externa IP-adressen för behållaren `language-frontend` med följande format: `http://<external-ip>/helloworld`. Den engelska kultur texten i `helloworld` förutsägs som `English`.
+Ändra URL: en i webbläsaren till den externa IP-adressen för `language-frontend` container i följande format: `http://<external-ip>/helloworld`. Den engelska kultur texten i `helloworld` förutsägs som `English`.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

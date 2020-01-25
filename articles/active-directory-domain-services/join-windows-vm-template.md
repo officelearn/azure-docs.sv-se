@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bf01eea71134d932305cce7665c68d4dcc655cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975213"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712564"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>Ansluta en virtuell Windows Server-dator till en Azure Active Directory Domain Services hanterad domän med hjälp av en Resource Manager-mall
 
@@ -40,7 +40,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 
 Med Resource Manager-mallar kan du definiera Azure-infrastruktur i kod. De resurser, nätverks anslutningar eller konfigurationer som krävs för virtuella datorer kan alla definieras i en mall. Dessa mallar skapar konsekventa, reproducerbara distributioner varje tillfälle och kan installeras när du gör ändringar. Mer information finns i [Översikt över Azure Resource Manager mallar][template-overview].
 
-Varje resurs definieras i en mall med hjälp av JSON. Följande JSON-exempel använder resurs typen *Microsoft. Compute/virtualMachines/Extensions* för att installera Active Directory domän anslutnings tillägget. Parametrar används som du anger vid distributions tiden. När tillägget distribueras är den virtuella datorn ansluten till den angivna Azure AD DS-hanterade domänen.
+Varje resurs definieras i en mall med hjälp av JavaScript Object Notation (JSON). Följande JSON-exempel använder resurs typen *Microsoft. Compute/virtualMachines/Extensions* för att installera Active Directory domän anslutnings tillägget. Parametrar används som du anger vid distributions tiden. När tillägget distribueras är den virtuella datorn ansluten till den angivna Azure AD DS-hanterade domänen.
 
 ```json
  {
@@ -94,7 +94,7 @@ Om du vill skapa en virtuell Windows Server-dator ansluter du den till en hanter
     | DNS-etikett-prefix          | Ange ett DNS-namn som ska användas för den virtuella datorn, till exempel *myvm*. |
     | VM-storlek                   | Ange en storlek på virtuell dator, t. ex. *Standard_DS2_v2*. |
     | Domän att ansluta till            | DNS-namnet för den hanterade domänen i Azure AD DS, till exempel *aadds.contoso.com*. |
-    | Domän användar namn           | Användar kontot i den Azure AD DS-hanterade domän som ska användas för att ansluta den virtuella datorn till den hanterade domänen. Det här kontot måste vara medlem i gruppen *Azure AD DC-administratörer* . |
+    | Domän användar namn           | Användar kontot i den Azure AD DS-hanterade domän som ska användas för att ansluta den virtuella datorn till den hanterade domänen, t. ex. `contosoadmin@aadds.contoso.com`. Det här kontot måste vara medlem i gruppen *Azure AD DC-administratörer* . |
     | Domänlösenord           | Lösen ordet för det användar konto som anges i föregående inställning. |
     | Valfri OU-sökväg          | Den anpassade ORGANISATIONSENHETen där den virtuella datorn ska läggas till. Om du inte anger ett värde för den här parametern läggs den virtuella datorn till i ou för *AAD DC-datorer* . |
     | Användar namn för administratör för virtuell dator         | Ange ett lokalt administratörs konto som ska skapas på den virtuella datorn. |
@@ -123,7 +123,7 @@ Slutför följande steg för att ansluta en befintlig virtuell Windows Server-da
     | Resursgrupp            | Välj resurs gruppen med din befintliga virtuella dator. |
     | Location                  | Välj plats för den befintliga virtuella datorn. |
     | VM-lista                   | Ange den kommaavgränsade listan över de befintliga virtuella datorerna för att ansluta till den hanterade Azure AD DS-domänen, till exempel *myVM1, myVM2*. |
-    | Användar namn för domän anslutning     | Användar kontot i den Azure AD DS-hanterade domän som ska användas för att ansluta den virtuella datorn till den hanterade domänen. Det här kontot måste vara medlem i gruppen *Azure AD DC-administratörer* . |
+    | Användar namn för domän anslutning     | Användar kontot i den Azure AD DS-hanterade domän som ska användas för att ansluta den virtuella datorn till den hanterade domänen, t. ex. `contosoadmin@aadds.contoso.com`. Det här kontot måste vara medlem i gruppen *Azure AD DC-administratörer* . |
     | Användar lösen ord för domän anslutning | Lösen ordet för det användar konto som anges i föregående inställning. |
     | Valfri OU-sökväg          | Den anpassade ORGANISATIONSENHETen där den virtuella datorn ska läggas till. Om du inte anger ett värde för den här parametern läggs den virtuella datorn till i ou för *AAD DC-datorer* . |
 

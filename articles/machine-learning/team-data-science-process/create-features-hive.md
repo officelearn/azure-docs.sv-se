@@ -1,22 +1,22 @@
 ---
-title: Skapa funktioner för data i ett Hadoop-kluster - Team Data Science Process
+title: Skapa funktioner för data i ett Azure HDInsight Hadoop kluster – team data science process
 description: Exempel på Hive-frågor som genererar funktioner i data som lagras i ett Azure HDInsight Hadoop-kluster.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982048"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721786"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Skapa funktioner för data i ett Hadoop-kluster med hjälp av Hive-frågor
 Det här dokumentet visar hur du skapar funktioner för data som lagras i ett Azure HDInsight Hadoop-kluster med hjälp av Hive-frågor. De här Hive-frågor använder inbäddade Hive User-Defined funktioner (UDF), skript som tillhandahålls.
@@ -144,14 +144,14 @@ Standardinställning för Hive-kluster är kanske inte lämpligt för Hive-fråg
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    Den här parametern allokerar 4GB minne till Java heap utrymme så att det blir sortering effektivare genom att allokera mer minne för den. Det är en bra idé att experimentera med dessa allokeringar om det finns jobb felen som rör heap utrymme.
+    Med den här parametern allokeras 4 GB minne till ett Java-heap-utrymme och du kan också sortera mer effektivt genom att allokera mer minne för den. Det är en bra idé att experimentera med dessa allokeringar om det finns jobb felen som rör heap utrymme.
 
 1. **DFS-blockstorlek**: den här parametern anger den minsta enheten av data som lagras i filsystemet. Till exempel om DFS-blockstorlek är 128 MB, sedan valfria data med storlek mindre än och upp till lagras 128 MB i ett enda block. Data som är större än 128 MB tilldelas extra block. 
 2. Välja en liten blockstorlek gör stora kostnaderna i Hadoop eftersom noden namn har att bearbeta många fler begäranden för att hitta relevant block som hör till filen. En rekommenderad inställning när gäller gigabyte (eller större) data är:
 
         set dfs.block.size=128m;
 
-2. **Optimera join-åtgärd i Hive**: medan kopplingsåtgärder inom ramen för map/reduce vanligtvis ägde rum i minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen karta (kallas även ”mapjoins”). För att dirigera Hive för att göra det möjligt att ange:
+2. **Optimera join-åtgärd i Hive**: medan kopplingsåtgärder inom ramen för map/reduce vanligtvis ägde rum i minska fas, ibland enorma vinster kan uppnås genom att schemalägga kopplingar i fasen karta (kallas även ”mapjoins”). Ange det här alternativet:
    
        set hive.auto.convert.join=true;
 
@@ -167,7 +167,7 @@ Standardinställning för Hive-kluster är kanske inte lämpligt för Hive-fråg
 
      Som vi kan se, beroende på datastorleken, justera parametrarna genom att ”inställningen” dem kan vi justera antalet Mappningskomponenter används.
 
-4. Här följer några fler **avancerade alternativ** för att optimera prestanda för Hive. Dessa kan du ange det minne som allokerats för att mappa och minska uppgifter och kan vara användbart i justera prestanda. Tänk på att den *mapreduce.reduce.memory.mb* får inte vara större än den fysiska minnesstorleken på varje arbetsnod i Hadoop-kluster.
+4. Här följer några fler **avancerade alternativ** för att optimera prestanda för Hive. Med de här alternativen kan du ange hur mycket minne som allokeras för att mappa och minska aktiviteter, och det kan vara användbart när du vill ändra prestanda. Tänk på att den *mapreduce.reduce.memory.mb* får inte vara större än den fysiska minnesstorleken på varje arbetsnod i Hadoop-kluster.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

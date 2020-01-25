@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894025"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720409"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Skapa, utforska och distribuera automatiserade maskin inlärnings experiment med Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
         Fil format| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
         Encoding| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
-        Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
+        Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.
     
         Välj **Nästa**.
@@ -94,7 +94,7 @@ Annars visas en lista över dina senaste automatiserade maskin inlärnings exper
     Field|Beskrivning
     ---|---
     Compute-namn| Ange ett unikt namn som identifierar din beräknings kontext.
-    Storlek för virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
+    Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
     Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
     
     Välj **Skapa**. Det kan ta några minuter att skapa en ny beräkning.
@@ -153,9 +153,15 @@ Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data 
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>Avancerade alternativ för för bearbetning
+## <a name="advanced-featurization-options"></a>Avancerade alternativ för funktionalisering
 
-När du konfigurerar experimenten kan du aktivera den avancerade inställningen `Preprocess`. Detta innebär att det som en del av förbehandlingen av följande data guardrails och funktionalisering-steg utförs automatiskt.
+När du konfigurerar experimenten kan du aktivera den avancerade inställningen `feauturization`. 
+
+|Funktionalisering-konfiguration | Beskrivning |
+| ------------- | ------------- |
+|"feauturization" = ' FeaturizationConfig '| Anger att det anpassade funktionalisering-steget ska användas. [Lär dig hur du anpassar funktionalisering](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" = "av"| Anger att funktionalisering-steget inte ska göras automatiskt.|
+|"feauturization" = ' auto '| Anger att som en del av förbehandling av följande data guardrails och funktionalisering-steg utförs automatiskt.|
 
 |Förbearbeta&nbsp;steg| Beskrivning |
 | ------------- | ------------- |
@@ -177,11 +183,11 @@ I följande tabell beskrivs de data guardrails som stöds för tillfället och a
 
 Guardrail|Status|Villkors&nbsp;för&nbsp;-utlösare
 ---|---|---
-&nbsp;värden som saknas&nbsp;Imputation |**Parametrarna** <br> <br> **Fixat**|    Inget saknat värde i någon av de inmatade&nbsp;kolumnerna <br> <br> Vissa kolumner saknar värden
+&nbsp;värden som saknas&nbsp;Imputation |**Parametrarna** <br> <br> **Fastsatt**|    Inget saknat värde i någon av de inmatade&nbsp;kolumnerna <br> <br> Vissa kolumner saknar värden
 Korsvalidering|**Möjligt**|Om ingen explicit verifierings uppsättning anges
 Hög&nbsp;kardinalitet&nbsp;funktion&nbsp;identifiering|  **Parametrarna** <br> <br>**Möjligt**|   Inga funktioner för hög kardinalitet upptäcktes <br><br> Inmatade kolumner med hög kardinalitet upptäcktes
 Identifiering av klass balans |**Parametrarna** <br><br><br>**Aviserad** |Klasser är balanserade i tränings data; En data mängd betraktas som balanserade om varje klass har god representation i data uppsättningen, mätt enligt antal och samplings förhållandet <br> <br> Klasser i tränings data är obalanserade
-Data konsekvens för Time-serien|**Parametrarna** <br><br><br><br> **Fixat** |<br> Det valda {horisont-, fördröjnings-, rullande Window}-värdet har analyser ATS och inga potentiella minnes problem har identifierats. <br> <br>De valda värdena för {Horisont, fördröjning, rullande fönster} analyserades och kan orsaka att experimentet får slut på minne. Fördröjningen eller rullnings fönstret har inaktiverats.
+Data konsekvens för Time-serien|**Parametrarna** <br><br><br><br> **Fastsatt** |<br> Det valda {horisont-, fördröjnings-, rullande Window}-värdet har analyser ATS och inga potentiella minnes problem har identifierats. <br> <br>De valda värdena för {Horisont, fördröjning, rullande fönster} analyserades och kan orsaka att experimentet får slut på minne. Fördröjningen eller rullnings fönstret har inaktiverats.
 
 ## <a name="run-experiment-and-view-results"></a>Kör experimentet och visa resultaten
 
@@ -222,7 +228,7 @@ Med automatisk ML får du hjälp med att distribuera modellen utan att skriva ko
     ----|----
     Namn| Ange ett unikt namn för din distribution.
     Beskrivning| Ange en beskrivning för att bättre identifiera vad den här distributionen är för.
-    Beräkningstyp| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)* .
+    Compute-typ| Välj den typ av slut punkt som du vill distribuera: *Azure Kubernetes service (AKS)* eller *Azure Container Instance (ACI)* .
     Namn| *Gäller endast för AKS:* Välj namnet på det AKS-kluster som du vill distribuera till.
     Aktivera autentisering | Välj för att tillåta tokenbaserad eller nyckelbaserad autentisering.
     Använda anpassade distributions till gångar| Aktivera den här funktionen om du vill överföra ditt eget bedömnings skript och miljö fil. [Lär dig mer om bedömnings skript](how-to-deploy-and-where.md#script).

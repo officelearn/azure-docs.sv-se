@@ -15,17 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ROBOTS: NOINDEX
-ms.openlocfilehash: 99c5e4d99f45e2a642a46f7dc070fb7512ff4d73
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422550"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711887"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>Problem med att konfigurera federerad enkel inloggning för ett program som inte är ett galleri program
 
-Om det uppstår ett problem när du konfigurerar ett program. Kontrol lera att du har följt alla steg i artikeln [Konfigurera enkel inloggning till program som inte finns i Azure Active Directory program galleriet.](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery)
+Om det uppstår ett problem när du konfigurerar ett program. Kontrol lera att du har följt alla steg i artikeln [Konfigurera enkel inloggning till program som inte finns i Azure Active Directory program galleriet.](configure-federated-single-sign-on-non-gallery-applications.md)
 
 ## <a name="cant-add-another-instance-of-the-application"></a>Det går inte att lägga till en annan instans av programmet
 
@@ -41,13 +40,13 @@ Om programmet inte har stöd för någon av föregående kan du inte konfigurera
 
 Du kan inte välja det EntityID-format (User Identifier) som Azure AD skickar till programmet i svaret efter användarautentisering.
 
-Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-on SAML Protocol](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) i avsnittet NameIDPolicy.
+Azure AD väljer formatet för attributet NameID (användar identifierare) baserat på det värde som valts eller det format som begärdes av programmet i SAML-AuthRequest. Mer information finns i artikeln [Single Sign-on SAML Protocol](../develop/single-sign-on-saml-protocol.md#authnrequest) i avsnittet NameIDPolicy.
 
 ## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Var hämtar jag programmets metadata eller certifikat från Azure AD
 
 Följ dessa steg om du vill ladda ned metadata för programmet eller certifikatet från Azure AD:
 
-1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller medadministratör **.**
+1. Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller **medadministratör.**
 
 2. Öppna **tillägget Azure Active Directory** genom att klicka på **alla tjänster** överst i den vänstra navigerings menyn.
 
@@ -69,7 +68,7 @@ Azure AD tillhandahåller inte en URL för att hämta metadata. Det går bara at
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>Vet inte hur man anpassar SAML-anspråk som skickas till ett program
 
-Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i anspråks [mappning i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping) för mer information.
+Information om hur du anpassar SAML-attributets anspråk som skickas till ditt program finns i [anspråks mappning i Azure Active Directory](../develop/active-directory-claims-mapping.md) för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 [Hantera program med Azure Active Directory](what-is-application-management.md)

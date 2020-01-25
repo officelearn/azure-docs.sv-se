@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 0ab81d3c1d4c68827cf1569bf4a22c3311fe355d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9c5b7b4301eb9cf019399795fc45b69fe152061d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555817"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722330"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid händelse schema för Blob Storage
 
@@ -24,26 +24,26 @@ En lista över exempel skript och självstudier finns i [lagrings händelse käl
 
 Dessa händelser utlöses när en klient skapar, ersätter eller tar bort en BLOB genom att anropa BLOB REST-API: er.
 
- |Händelse namn |Beskrivning|
+ |Händelsenamn |Beskrivning|
  |----------|-----------|
- |**Microsoft. Storage. BlobCreated** |Utlöses när en BLOB skapas eller ersätts. <br>Mer specifikt utlöses den här händelsen när klienter använder `PutBlob`, `PutBlockList` eller `CopyBlob` åtgärder som är tillgängliga i BLOB-REST API.   |
- |**Microsoft. Storage. BlobDeleted** |Utlöses när en BLOB tas bort. <br>Mer specifikt utlöses den här händelsen när klienterna anropar den `DeleteBlob`-åtgärd som är tillgänglig i BLOB-REST API. |
+ |**Microsoft.Storage.BlobCreated** |Utlöses när en BLOB skapas eller ersätts. <br>Mer specifikt utlöses den här händelsen när klienter använder `PutBlob`, `PutBlockList`eller `CopyBlob` åtgärder som är tillgängliga i BLOB-REST API.   |
+ |**Microsoft.Storage.BlobDeleted** |Utlöses när en BLOB tas bort. <br>Mer specifikt utlöses den här händelsen när klienterna anropar den `DeleteBlob`-åtgärd som är tillgänglig i BLOB-REST API. |
 
 > [!NOTE]
-> Om du vill se till att händelsen **Microsoft. Storage. BlobCreated** endast utlöses när en block-BLOB är fullständigt allokerad filtrerar du händelsen för `CopyBlob`, `PutBlob` och `PutBlockList` REST API anrop. Dessa API-anrop utlöser händelsen **Microsoft. Storage. BlobCreated** endast efter att data har allokerats till en Block-Blob fullständigt. Information om hur du skapar ett filter finns i [Filtrera händelser för Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+> Om du vill se till att händelsen **Microsoft. Storage. BlobCreated** endast utlöses när en block-BLOB är fullständigt allokerad filtrerar du händelsen för `CopyBlob`, `PutBlob`och `PutBlockList` REST API anrop. Dessa API-anrop utlöser händelsen **Microsoft. Storage. BlobCreated** endast efter att data har allokerats till en Block-Blob fullständigt. Information om hur du skapar ett filter finns i [Filtrera händelser för Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
 
 ## <a name="list-of-the-events-for-azure-data-lake-storage-gen-2-rest-apis"></a>Lista över händelser för Azure Data Lake Storage gen 2 REST-API: er
 
 Dessa händelser utlöses om du aktiverar ett hierarkiskt namn område på lagrings kontot och klienterna anropar Azure Data Lake Storage Gen2 REST-API: er.
 
-|Händelse namn|Beskrivning|
+|Händelsenamn|Beskrivning|
 |----------|-----------|
-|**Microsoft. Storage. BlobCreated** | Utlöses när en BLOB skapas eller ersätts. <br>Mer specifikt utlöses den här händelsen när klienter använder `CreateFile` och `FlushWithClose` åtgärder som är tillgängliga i Azure Data Lake Storage Gen2 REST API. |
-|**Microsoft. Storage. BlobDeleted** |Utlöses när en BLOB tas bort. <br>Mer specifikt utlöses den här händelsen när klienter anropar den `DeleteFile`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API. |
-|**Microsoft. Storage. BlobRenamed**|Utlöses när en BLOB får ett nytt namn. <br>Mer specifikt utlöses den här händelsen när klienter använder den `RenameFile`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
-|**Microsoft. Storage. DirectoryCreated**|Utlöses när en katalog skapas. <br>Mer specifikt utlöses den här händelsen när klienter använder den `CreateDirectory`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
-|**Microsoft. Storage. DirectoryRenamed**|Utlöses när en katalog får ett nytt namn. <br>Mer specifikt utlöses den här händelsen när klienter använder den `RenameDirectory`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
-|**Microsoft. Storage. DirectoryDeleted**|Utlöses när en katalog tas bort. <br>Mer specifikt utlöses den här händelsen när klienter använder den `DeleteDirectory`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.BlobCreated** | Utlöses när en BLOB skapas eller ersätts. <br>Mer specifikt utlöses den här händelsen när klienter använder `CreateFile` och `FlushWithClose` åtgärder som är tillgängliga i Azure Data Lake Storage Gen2 REST API. |
+|**Microsoft.Storage.BlobDeleted** |Utlöses när en BLOB tas bort. <br>Mer specifikt utlöses den här händelsen när klienter anropar den `DeleteFile`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API. |
+|**Microsoft.Storage.BlobRenamed**|Utlöses när en BLOB får ett nytt namn. <br>Mer specifikt utlöses den här händelsen när klienter använder den `RenameFile`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.DirectoryCreated**|Utlöses när en katalog skapas. <br>Mer specifikt utlöses den här händelsen när klienter använder den `CreateDirectory`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.DirectoryRenamed**|Utlöses när en katalog får ett nytt namn. <br>Mer specifikt utlöses den här händelsen när klienter använder den `RenameDirectory`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
+|**Microsoft.Storage.DirectoryDeleted**|Utlöses när en katalog tas bort. <br>Mer specifikt utlöses den här händelsen när klienter använder den `DeleteDirectory`-åtgärd som är tillgänglig i Azure Data Lake Storage Gen2 REST API.|
 
 > [!NOTE]
 > Om du vill se till att händelsen **Microsoft. Storage. BlobCreated** endast utlöses när en block-BLOB är fullständigt allokerad filtrerar du händelsen för `FlushWithClose` REST API anrop. Detta API-anrop utlöser händelsen **Microsoft. Storage. BlobCreated** endast efter att data har allokerats till en Block-Blob fullständigt. Information om hur du skapar ett filter finns i [Filtrera händelser för Event Grid](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
@@ -69,7 +69,7 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje Blo
     "api": "PutBlockList",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 524288,
     "blobType": "BlockBlob",
@@ -88,11 +88,11 @@ Det här avsnittet innehåller ett exempel på hur data ska se ut för varje Blo
 
 Om Blob Storage-kontot har ett hierarkiskt namn område, ser data ut ungefär som i föregående exempel med undantag för de här ändringarna:
 
-* @No__t_0 nyckeln har angetts till värdet `2`.
+* `dataVersion` nyckeln har angetts till värdet `2`.
 
-* @No__t_0 nyckeln anges till strängen `CreateFile` eller `FlushWithClose`.
+* `data.api` nyckeln anges till strängen `CreateFile` eller `FlushWithClose`.
 
-* @No__t_0 nyckeln ingår i data uppsättningen.
+* `contentOffset` nyckeln ingår i data uppsättningen.
 
 > [!NOTE]
 > Om program använder `PutBlockList`-åtgärden för att överföra en ny blob till kontot, innehåller data inte dessa ändringar.
@@ -108,7 +108,7 @@ Om Blob Storage-kontot har ett hierarkiskt namn område, ser data ut ungefär so
     "api": "CreateFile",
     "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
     "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-    "eTag": "0x8D4BCC2E4835CD0",
+    "eTag": "\"0x8D4BCC2E4835CD0\"",
     "contentType": "text/plain",
     "contentLength": 0,
     "contentOffset": 0,
@@ -153,11 +153,11 @@ Om Blob Storage-kontot har ett hierarkiskt namn område, ser data ut ungefär so
 
 Om Blob Storage-kontot har ett hierarkiskt namn område, ser data ut ungefär som i föregående exempel med undantag för de här ändringarna:
 
-* @No__t_0 nyckeln har angetts till värdet `2`.
+* `dataVersion` nyckeln har angetts till värdet `2`.
 
-* @No__t_0 nyckeln anges till strängen `DeleteFile`.
+* `data.api` nyckeln anges till strängen `DeleteFile`.
 
-* @No__t_0 nyckeln innehåller sökvägen `dfs.core.windows.net`.
+* `url` nyckeln innehåller sökvägen `dfs.core.windows.net`.
 
 > [!NOTE]
 > Om program använder `DeleteBlob`-åtgärden för att ta bort en BLOB från kontot kommer data inte att innehålla dessa ändringar.
@@ -292,8 +292,8 @@ En händelse har följande data på översta nivån:
 | Egenskap | Typ | Beskrivning |
 | -------- | ---- | ----------- |
 | ämne | sträng | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
-| Motiv | sträng | Publisher-definierad sökväg till händelsens ämne. |
-| Typ | sträng | En av de registrerade händelse typerna för den här händelse källan. |
+| subject | sträng | Publisher-definierad sökväg till händelsens ämne. |
+| eventType | sträng | En av de registrerade händelse typerna för den här händelse källan. |
 | eventTime | sträng | Tiden då händelsen genereras baserat på providerns UTC-tid. |
 | id | sträng | Unikt ID för händelsen. |
 | data | objekt | Händelse data för Blob Storage. |
@@ -310,13 +310,13 @@ Data-objektet har följande egenskaper:
 | eTag | sträng | Det värde som du kan använda för att utföra åtgärder villkorligt. |
 | Innehålls | sträng | Den innehålls typ som angetts för blobben. |
 | contentLength | heltal | Storleken på blobben i byte. |
-| BlobType | sträng | Typ av BLOB. Giltiga värden är antingen "BlockBlob" eller "PageBlob". |
+| blobType | sträng | Typ av BLOB. Giltiga värden är antingen "BlockBlob" eller "PageBlob". |
 | contentOffset | nummer | Offset i byte för en Skriv åtgärd som tas vid den tidpunkt då programmet för händelse aktivering slutförde skrivning till filen. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område.|
 | destinationUrl |sträng | URL till den fil som ska finnas när åtgärden har slutförts. Om en fil till exempel får ett nytt namn, innehåller egenskapen `destinationUrl` URL: en för det nya fil namnet. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område.|
 | sourceUrl |sträng | URL till den fil som finns före åtgärden. Om till exempel en fil får ett nytt namn, innehåller `sourceUrl` URL: en för det ursprungliga fil namnet innan namnbytes åtgärden. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område. |
-| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: *\<storage-Account-name \>. blob.core.windows.net/\<container-name \>* / \<file \>. <br>Om klienten använder en Data Lake Storage REST API, har URL: en följande struktur: *\<storage-Account-name \>. dfs.core.windows.net/\<file-system name \> / \<file*\>. |
-| rekursiva | sträng | `True` att utföra åtgärden på alla underordnade kataloger. annars `False`. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område. |
-| sekvenseraren | sträng | Ett ogenomskinligt sträng värde som representerar den logiska sekvensen av händelser för ett visst BLOB-namn.  Användare kan använda standard sträng jämförelse för att förstå den relativa sekvensen av två händelser på samma BLOB-namn. |
+| url | sträng | Sökvägen till blobben. <br>Om klienten använder en BLOB-REST API, har URL: en följande struktur: *\<Storage-Account-name\>. blob.core.windows.net/\<container-name\>/\<fil namn\>* . <br>Om klienten använder en Data Lake Storage REST API, har URL: en följande struktur: *\<Storage-Account-name\>. dfs.core.windows.net/\<fil system namn\>/\<fil namn\>* . |
+| recursive | sträng | `True` att utföra åtgärden på alla underordnade kataloger. annars `False`. <br>Visas endast för händelser som utlöses på Blob Storage-konton som har ett hierarkiskt namn område. |
+| sequencer | sträng | Ett ogenomskinligt sträng värde som representerar den logiska sekvensen av händelser för ett visst BLOB-namn.  Användare kan använda standard sträng jämförelse för att förstå den relativa sekvensen av två händelser på samma BLOB-namn. |
 | storageDiagnostics | objekt | Diagnostikdata ingår ibland i Azure Storages tjänsten. I förekommande fall ska ignoreras av händelse konsumenter. |
 
 ## <a name="next-steps"></a>Nästa steg

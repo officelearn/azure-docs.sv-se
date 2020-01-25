@@ -1,46 +1,46 @@
 ---
-title: Skapa en avbildning av virtuell dator och använda en hanterad Användartilldelad identitet för att komma åt filer i Azure Storage (förhandsversion)
-description: Skapa avbildning av virtuell dator med hjälp av Azure Image Builder, som har åtkomst till filer som lagras i Azure Storage med användartilldelade hanterad identitet.
+title: Skapa en avbildning av en virtuell dator och Använd en användardefinierad hanterad identitet för att få åtkomst till filer i Azure Storage (för hands version)
+description: Skapa en avbildning av en virtuell dator med hjälp av Azure Image Builder, som har åtkomst till filer som lagras i Azure Storage med hjälp av användardefinierad hanterad identitet.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: b6347765f8d2e21c352834dc8d28b65c28f99758
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 36016e462e3f4906c4dfe8c58501c82fd554f3bd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671456"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720596"
 ---
-# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Skapa en avbildning och använda en hanterad Användartilldelad identitet för att komma åt filer i Azure Storage 
+# <a name="create-an-image-and-use-a-user-assigned-managed-identity-to-access-files-in-azure-storage"></a>Skapa en avbildning och Använd en användardefinierad hanterad identitet för att komma åt filer i Azure Storage 
 
-Azure Image Builder stöder med hjälp av skript eller kopiera filer från flera platser, t.ex GitHub och Azure storage osv. Om du vill använda dessa de blivit externt tillgänglig för Azure Image Builder, men du kan skydda Azure Storage-blobar med hjälp av SAS-token.
+Azure Image Builder stöder användning av skript eller att kopiera filer från flera platser, till exempel GitHub och Azure Storage osv. För att kunna använda dessa måste de ha extern åtkomst till Azure Image Builder, men du kan skydda Azure Storage blobbar med SAS-token.
 
-Den här artikeln visar hur du skapar en anpassad avbildning med hjälp av Azure VM Image Builder, där tjänsten ska använda en [användartilldelade hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) komma åt filer i Azure storage för bild-anpassning utan du behöver göra filer offentligt tillgänglig, eller ställa in SAS-token.
+Den här artikeln visar hur du skapar en anpassad avbildning med hjälp av Azure VM Image Builder där tjänsten använder en [användardefinierad hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) för att komma åt filer i Azure Storage för avbildnings anpassningen, utan att du behöver göra filerna offentligt tillgängliga eller ställa in SAS-token.
 
-I exemplet nedan skapar du två resursgrupper som ska användas för den anpassade avbildningen och den andra ska vara värd för ett Azure Storage-konto, som innehåller en skriptfil. Det här simulerar ett verkligheten scenario, där du kan ha byggartefakter eller bildfiler i olika lagringskonton utanför Image Builder. Du skapar en Användartilldelad identitet och sedan bevilja som läsbehörighet på skriptfilen, men du anger inte någon offentlig åtkomst till filen. Du använder sedan Shell systemanpassare att hämta och köra skriptet från storage-kontot.
+I exemplet nedan skapas två resurs grupper, en används för den anpassade avbildningen och den andra kommer att vara värd för ett Azure Storage-konto som innehåller en skript fil. Detta simulerar ett verkligt livs scenario där du kan bygga artefakter eller bildfiler i olika lagrings konton utanför Image Builder. Du skapar en tilldelad identitet och beviljar sedan Läs behörighet till skript filen, men du kommer inte att ange någon offentlig åtkomst till filen. Sedan använder du Shell-anpassningen för att ladda ned och köra skriptet från lagrings kontot.
 
 
 > [!IMPORTANT]
-> Azure Image Builder är för närvarande i offentlig förhandsversion.
+> Azure Image Builder är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="register-the-features"></a>Registrera funktionerna
-Du måste registrera den nya funktionen för att använda Azure Image Builder i förhandsversionen.
+Om du vill använda Azure Image Builder i för hands versionen måste du registrera den nya funktionen.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-Kontrollera status för funktionen registreringen.
+Kontrol lera status för funktions registreringen.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-Kontrollera din registrering.
+Kontrol lera registreringen.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -48,7 +48,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-Om de inte svarar registrerade, kör du följande:
+Om de inte säger att de är registrerade kör du följande:
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -59,7 +59,7 @@ az provider register -n Microsoft.Storage
 
 ## <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
-Vi kommer att använda vissa typer av information flera gånger, så att vi ska skapa några variabler för att lagra informationen.
+Vi kommer att använda vissa delar av informationen flera gånger, så vi skapar några variabler för att lagra informationen.
 
 
 ```azurecli-interactive
@@ -75,13 +75,13 @@ imageName=aibCustLinuxImgMsi01
 runOutputName=u1804ManImgMsiro
 ```
 
-Skapa en variabel för ditt prenumerations-ID. Du kan hämta den här med `az account show | grep id`.
+Skapa en variabel för ditt prenumerations-ID. Du kan få detta med `az account show | grep id`.
 
 ```azurecli-interactive
 subscriptionID=<Your subscription ID>
 ```
 
-Skapa resursgrupper för både avbildningen och skript-lagring.
+Skapa resurs grupper för både avbildningen och skript lagringen.
 
 ```azurecli-interactive
 # create resource group for image template
@@ -91,7 +91,7 @@ az group create -n $strResourceGroup -l $location
 ```
 
 
-Skapa lagring och kopiera exempelskriptet till den från GitHub.
+Skapa lagringen och kopiera exempel skriptet till det från GitHub.
 
 ```azurecli-interactive
 # script storage account
@@ -118,7 +118,7 @@ az storage blob copy start \
 
 
 
-Ge Image Builder behörighet att skapa resurser i resursgruppen bild. Den `--assignee` värdet är app registrerings-ID för Image Builder-tjänsten. 
+Ge Image Builder behörighet att skapa resurser i resurs gruppen avbildning. `--assignee`-värdet är appens registrerings-ID för tjänsten Image Builder. 
 
 ```azurecli-interactive
 az role assignment create \
@@ -128,9 +128,9 @@ az role assignment create \
 ```
 
 
-## <a name="create-user-assigned-managed-identity"></a>Skapa användartilldelade hanterad identitet
+## <a name="create-user-assigned-managed-identity"></a>Skapa användardefinierad hanterad identitet
 
-Skapa identitet och tilldela behörigheter för skriptet storage-konto. Mer information finns i [User-Assigned hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
+Skapa identiteten och tilldela behörigheter för skript lagrings kontot. Mer information finns i [användardefinierad hanterad identitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm#user-assigned-managed-identity).
 
 ```azurecli-interactive
 # Create the user assigned identity 
@@ -147,9 +147,9 @@ imgBuilderId=/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/p
 ```
 
 
-## <a name="modify-the-example"></a>I exemplet
+## <a name="modify-the-example"></a>Ändra exemplet
 
-Ladda ned exempel-JSON-fil och konfigurera den med de variabler som du skapade.
+Ladda ned exempel. JSON-filen och konfigurera den med de variabler som du har skapat.
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage/helloImageTemplateMsi.json -o helloImageTemplateMsi.json
@@ -164,7 +164,7 @@ sed -i -e "s%<runOutputName>%$runOutputName%g" helloImageTemplateMsi.json
 
 ## <a name="create-the-image"></a>Skapa avbildningen
 
-Skicka bildkonfiguration till tjänsten Azure Image Builder.
+Skicka avbildnings konfigurationen till Azure Image Builder-tjänsten.
 
 ```azurecli-interactive
 az resource create \
@@ -175,7 +175,7 @@ az resource create \
     -n helloImageTemplateMsi01
 ```
 
-Starta avbildningen-version.
+Starta avbildnings versionen.
 
 ```azurecli-interactive
 az resource invoke-action \
@@ -185,7 +185,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-Vänta tills versionen att slutföra. Det kan ta cirka 15 minuter.
+Vänta tills skapandet har slutförts. Detta kan ta ungefär 15 minuter.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -201,13 +201,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-När du har skapat den virtuella datorn kan du starta en SSH-session med den virtuella datorn.
+När den virtuella datorn har skapats startar du en SSH-session med den virtuella datorn.
 
 ```azurecli-interactive
 ssh aibuser@<publicIp>
 ```
 
-Du bör se bilden har anpassats med ett meddelande om dagen när din SSH-anslutning upprättas!
+Du bör se att avbildningen har anpassats till ett meddelande om dygnet så snart din SSH-anslutning har upprättats!
 
 ```console
 
@@ -220,7 +220,7 @@ Du bör se bilden har anpassats med ett meddelande om dagen när din SSH-anslutn
 
 ## <a name="clean-up"></a>Rensa
 
-När du är klar kan du ta bort resurserna som om de inte längre behövs.
+När du är färdig kan du ta bort resurserna om de inte längre behövs.
 
 ```azurecli-interactive
 az identity delete --ids $imgBuilderId
@@ -234,4 +234,4 @@ az group delete -n $strResourceGroup
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du har problem med att arbeta med Azure Image Builder, se [felsökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).
+Om du har problem med att arbeta med Azure Image Builder, se [fel sökning](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md?toc=%2fazure%2fvirtual-machines%context%2ftoc.json).

@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 6324fd0e2957aea46fb5876aa8c91f0906205ccc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694337"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748890"
 ---
 ## <a name="trigger"></a>Utlösare
 
@@ -394,7 +394,7 @@ Se [kodexempel](#trigger) som använder de här egenskaperna tidigare i den här
 
 ## <a name="output"></a>Resultat
 
-Använd Event Hubs utgående bindning för att skriva händelser till en händelse ström. Du måste ha behörighet att skicka till en händelsehubb för att kunna skicka händelser till den.
+Använd Event Hubs utgående bindning för att skriva händelser till en händelse ström. Du måste ha Send-behörighet till en Event Hub för att skriva händelser till den.
 
 Se till att de nödvändiga paket referenserna är på plats innan du försöker implementera en utgående bindning.
 
@@ -699,6 +699,6 @@ I det här avsnittet beskrivs de globala konfigurations inställningarna som är
 
 |Egenskap  |Default | Beskrivning |
 |---------|---------|---------|
-|`maxBatchSize`|64|Maximalt antal händelser som tas emot per Receive-slinga.|
-|`prefetchCount`|Ej tillämpligt|Standard antalet för hämtningar som används av underliggande `EventProcessorHost`.|
+|`maxBatchSize`|10|Maximalt antal händelser som tas emot per Receive-slinga.|
+|`prefetchCount`|300|Standard antalet för hämtningar som används av underliggande `EventProcessorHost`.|
 |`batchCheckpointFrequency`|1|Antalet händelse grupper som ska bearbetas innan en kontroll punkt för EventHub-markören skapas.|

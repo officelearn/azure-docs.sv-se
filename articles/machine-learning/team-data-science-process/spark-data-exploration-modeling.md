@@ -3,20 +3,20 @@ title: Datagranskning och modellering med Spark - Team Data Science Process
 description: Visar data funktionerna för utforskning och modellering i Spark MLlib toolkit på Azure.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: acc701431afa458efd0768fb3d6898fd1920e333
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 208f176ca942fb382ff2ed81d872602f7229b0a4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811187"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718641"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Datagranskning och modellering med Spark
 
@@ -30,7 +30,7 @@ Modeller som vi använder är logistic och linjär regression, slumpmässigt sko
 * [Linjär regression med Descent](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) är en linjär regressionsmodell som använder en Stokastisk brantaste Lutningsmetoden (Descent)-metod och skalning för att förutsäga tips belopp betalas för optimering och funktion. 
 * [Logistic regression med LBFGS](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) eller ”logit” regression är en regressionsmodell som kan användas när den beroende variabeln är kategoriska göra dataklassificering. LBFGS är en kvasi Karlsson optimering algoritm som tillhandahåller algoritmen Broyden – Fletcher – Goldfarb – Shanno (BFGS) med hjälp av en begränsad del av minnet och som ofta används i machine learning.
 * [Slumpmässig skogar](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) är ensembler för beslutsträd.  De kombinera många beslutsträd för att minska risken för overfitting. Slumpmässig skogar för regression och klassificering och kan hantera kategoriska funktioner och kan utökas till inställningen multiklass-baserad klassificering. De kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. Slumpmässig skogar är en av de mest framgångsrika machine learning-modeller för klassificering och regression.
-* [Toning förstärkta träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. GBTs för regression och klassificering och kan hantera kategoriska funktioner, kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. De kan också användas i en inställning för multiclass-klassificering.
+* [Tonings utökat träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTS) är ensembler i besluts träd. GBTS träna besluts träd iterativt för att minimera en förlust funktion. GBTS används för regression och klassificering och kan hantera kategoriska-funktioner, kräver inte funktions skalning och kan fånga icke-linjära och funktions interaktioner. De kan också användas i en inställning för multiclass-klassificering.
 
 Modellering stegen också innehålla kod som visar hur du tränar, utvärdera och spara varje typ av modellen. Python har använts för att skriva kod till lösningen och för att visa relevanta områden.   
 
@@ -39,7 +39,7 @@ Modellering stegen också innehålla kod som visar hur du tränar, utvärdera oc
 > 
 > 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Du behöver ett Azure-konto och en Spark 1.6 (eller Spark 2.0) HDInsight-kluster för att slutföra den här genomgången. Se den [översikt över datavetenskap med Spark på Azure HDInsight](spark-overview.md) för instruktioner om hur du uppfyller dessa krav. Avsnittet innehåller också en beskrivning av NYC 2013 Taxi-data som används här och instruktioner om hur du kör kod från en Jupyter notebook i Spark-klustret. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Spark-kluster och bärbara datorer
@@ -47,14 +47,14 @@ Steg för konfiguration och kod finns i den här genomgången för att använda 
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 anteckningsböcker
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): Innehåller information om hur du utför datagranskning, modellering och bedömning med flera olika algoritmer.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): innehåller information om hur du utför datagranskning, modellering och bedömning med flera olika algoritmer.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0-anteckningsböcker
 Regression och klassificering uppgifter som implementeras med hjälp av ett Spark 2.0-kluster finns i separata anteckningsböcker och klassificering anteckningsboken använder en annan datauppsättning:
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): Den här filen innehåller information om hur du utför datagranskning, modellering, och bedömning i Spark 2.0-kluster med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har lagt till för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi-data, visas i nästa anteckningsboken i den här listan. Se information efter den här listan som jämför dessa anteckningsböcker. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): Den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): Den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av välkända flygbolag i tid avgång datauppsättningen från 2011 och 2012. Vi integrerat flygbolag datauppsättning med en flygplats weather-data (t.ex. vindhastigheten, temperaturen, höjd osv) före modellering, så dessa väder-funktioner kan tas med i modellen.
+- [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): den här filen innehåller information om hur du utför datagranskning, modellering, och bedömning i Spark 2.0-kluster med NYC Taxi-resa och avgiften-datauppsättning beskrivs [här](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Den här anteckningsboken kan vara en bra utgångspunkt för att snabbt utforska koden som vi har lagt till för Spark 2.0. För en mer detaljerad anteckningsbok analyserar NYC Taxi-data, visas i nästa anteckningsboken i den här listan. Se anteckningarna som följer den här listan och som jämför dessa antecknings böcker. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av NYC Taxi resa och avgiften datauppsättning beskrivs [här ](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0 pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): den här filen visar hur du utför data experimenteringsfunktioner (Spark SQL och dataframe åtgärder), undersökning, modellering och bedömning med hjälp av välkända flygbolag i tid avgår datauppsättningen från 2011 och 2012. Vi integrerade flyg data uppsättningen med flyg platsens väder data (till exempel windspeed, temperatur, höjd osv.) före modellering, så att dessa väder funktioner kan ingå i modellen.
 
 <!-- -->
 
@@ -70,7 +70,7 @@ Regression och klassificering uppgifter som implementeras med hjälp av ett Spar
 <!-- -->
 
 > [!NOTE]
-> Spark 2.0-anteckningsböcker på NYC taxi och flygbolag flygning fördröjning-datauppsättningar kan ta 10 minuter eller mer att köra (beroende på storleken på HDI-kluster). Första anteckningsboken i listan ovan visar många aspekter av datagranskning, visualisering och ML modellträning på en bärbar dator som tar mindre tid att köra med ned samplas NYC datamängd, där filerna taxi och avgiften har redan domänansluten: [Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) anteckningsboken tar mycket kortare tid att slutföra (2-3 minuter) och kan vara en bra startpunkt för att snabbt utforska koden har vi lagt till för Spark 2.0. 
+> Spark 2.0-anteckningsböcker på NYC taxi och flygbolag flygning fördröjning-datauppsättningar kan ta 10 minuter eller mer att köra (beroende på storleken på HDI-kluster). Första anteckningsboken i listan ovan visar många aspekter av datagranskning, visualisering och ML modellera utbildning på en bärbar dator som tar mindre tid att köra med ned samplas NYC datamängd, där filerna taxi och avgiften har redan domänansluten: [ Spark2.0-pySpark3-Machine-Learning-data-Science-Spark-Advanced-data-exploration-Modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) anteckningsboken tar mycket kortare tid att slutföra (2-3 minuter) och kan vara en bra startpunkt för att snabbt utforska koden har vi lagt till för Spark 2.0. 
 
 <!-- -->
 
@@ -129,9 +129,9 @@ PySpark-kärnor som tillhandahålls med Jupyter-anteckningsböcker har en förin
 PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med %%. Det finns två kommandon som används i följande kodexempel.
 
 * **%% lokala** anger att koden i efterföljande rader är att köras lokalt. Koden måste vara giltig Python-kod.
-* **%% sql -o \<variabelnamn >** kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokal Python-kontext som en Pandas-DataFrame.
+* **%% SQL-o \<variabel namn >** Kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokal Python-kontext som en Pandas-DataFrame.
 
-För mer information om kärnor för Jupyter notebooks och den fördefinierade ”magics” som ger, se [Kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
+Mer information om Jupyter Notebook-kärnor och de fördefinierade "MAGICS" finns i [kernels som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Datainmatning från offentlig blob
 Det första steget i data science process är att mata in data analyseras från källor där är finns i miljön data utforskning och modellering. Miljön är Spark i den här genomgången. Det här avsnittet innehåller koden för att genomföra ett antal uppgifter:
@@ -212,7 +212,7 @@ När data har trätt i Spark, är nästa steg i data science process att få bä
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Rita ett histogram för passagerar antal frekvenser i taxi och RETUR-exemplet
 Den här koden och efterföljande kodfragment kan du använda SQL magic för att fråga exemplet och lokala magic data ska ritas.
 
-* **SQL magic (`%%sql`)** The HDInsight PySpark-kernel har stöd för enkel infogade HiveQL frågor mot sqlContext. Den (-o VARIABLE_NAME) argumentet kvarstår utdata från SQL-frågan som en Pandas-DataFrame på Jupyter-servern. Det innebär att den är tillgänglig i lokalt läge.
+* **SQL magic (`%%sql`)** The HDInsight PySpark-kernel har stöd för enkel infogade HiveQL frågor mot sqlContext. Den (-o VARIABLE_NAME) argumentet kvarstår utdata från SQL-frågan som en Pandas-DataFrame på Jupyter-servern. Den här inställningen gör utdata tillgängligt i lokalt läge.
 * Den  **`%%local` magic** används för att köra kod lokalt på servern och Jupyter, som är huvudnoden på HDInsight-klustret. Normalt använder du `%%local` magic tillsammans med den `%%sql` magic med parametern -o. Parametern -o skulle spara utdata av SQL-frågan lokalt och sedan %% lokala magic ska utlösa nästa uppsättning kodfragmentet att köra lokalt mot utdata från SQL-frågor som sparas lokalt
 
 Utdata visualiseras automatiskt när du kör koden.
@@ -321,13 +321,13 @@ Den här kodcell använder SQL-fråga för att skapa tre områden data.
 
 ![Tips belopp med avgiften belopp](./media/spark-data-exploration-modeling/tip-amount-by-fare-amount.png)
 
-## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Funktionen engineering, omvandling och data förberedelse för modellering
+## <a name="feature-engineering-transformation-and-data-preparation-for-modeling"></a>Funktionen förberedelse av data, omvandling och tekniker för modellering
 Det här avsnittet beskriver och innehåller koden för procedurer som används för att förbereda data för användning i ML-modeller. Den visar hur du utföra följande uppgifter:
 
 * Skapa en ny funktion med datagrupperingen timmar till trafik tid buckets
 * Indexera och koda kategoriska funktioner
 * Skapa taggade point-objekt för mata in ML-funktioner
-* Skapa en slumpmässig underordnade sampling av data och dela upp den i utbildning och testningsuppsättningar
+* Skapa en slumpmässig under sampling av data och dela upp den i utbildning och testnings uppsättningar
 * Funktionen skalning
 * Cacheobjekt i minnet
 
@@ -360,7 +360,7 @@ Den här koden visar hur du skapar en ny funktion med datagrupperingen timmar ti
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>Indexera och koda kategoriska funktioner för mata in modellering funktioner
 Det här avsnittet visar hur du indexera eller koda kategoriska funktioner för mata in modelleringsfunktioner. Modellering och förutsäga funktioner för MLlib kräver funktioner med kategoriska indata till indexerade eller kodade före användning. Beroende på modellen måste du indexera eller koda dem på olika sätt:  
 
-* **Trädet-baserade modellering** kräver kategorier som ska kodas som numeriska värden (till exempel en funktion med tre kategorier kan kodas med 0, 1, 2). Detta tillhandahålls av Mllib's [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) funktion. Den här funktionen kodar en strängkolumn för etiketter till en kolumn med etiketten index som sorteras efter frekvenser som etikett. Även om indexeras med numeriska värden för indata och datahantering kan i trädet-baserade algoritmer anges för att hantera dem på lämpligt sätt som kategorier. 
+* **Trädet-baserade modellering** kräver kategorier som ska kodas som numeriska värden (till exempel en funktion med tre kategorier kan kodas med 0, 1, 2). Den här algoritmen tillhandahålls av MLlib [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) -funktionen. Den här funktionen kodar en strängkolumn för etiketter till en kolumn med etiketten index som sorteras efter frekvenser som etikett. Även om indexeras med numeriska värden för indata och datahantering kan i trädet-baserade algoritmer anges för att hantera dem på lämpligt sätt som kategorier. 
 * **Logistic och linjära Regressionsmodeller** kräver en frekvent kodning, var, till exempel en funktion med tre kategorier kan expanderas till tre kolumner i funktionen, med varje som innehåller 0 eller 1 beroende på kategorin för en uppmaning i. MLlib ger [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) som utför en frekvent kodning. Den här encoder mappar en kolumn med etiketten index till en kolumn med binära vektorer, med högst ett ett-värde. Den här kodningen kan algoritmer som förväntar sig numeriska värden funktioner, till exempel logistic regression som ska tillämpas på kategoriska funktioner.
 
 Här är koden för att indexera och koda kategoriska funktioner:
@@ -464,8 +464,8 @@ Här är koden för att koda och indexera kategoriska textfunktioner för linjä
         return  labPt
 
 
-### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Skapa en slumpmässig underordnade sampling av data och dela upp den i utbildning och testningsuppsättningar
-Den här koden skapar ett slumpmässigt urval av data (25% används här). Även om det inte krävs för det här exemplet på grund av storleken på datauppsättningen, visar vi hur du kan ta prov här så att du vet hur du använder det för dina egna problem när det behövs. När exempel är stor, kan detta spara betydande tid modeller för utbildning. Sedan dela vi exemplet i en utbildning (här 75%) och en testning delen (här 25%) ska användas i klassificering och regression modellering.
+### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>Skapa en slumpmässig under sampling av data och dela upp den i utbildning och testnings uppsättningar
+Den här koden skapar ett slumpmässigt urval av data (25% används här). Även om det inte krävs för det här exemplet på grund av storleken på datauppsättningen, visar vi hur du kan ta prov här så att du vet hur du använder det för dina egna problem när det behövs. När exempel är stora kan samplingen Spara avsevärd tid och utbildnings modeller. Sedan dela vi exemplet i en utbildning (här 75%) och en testning delen (här 25%) ska användas i klassificering och regression modellering.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -503,7 +503,7 @@ Den här koden skapar ett slumpmässigt urval av data (25% används här). Även
 
 **UTDATA:**
 
-Åtgången tid att köra ovanför cellen: 0,24 sekunder
+Tids åtgång för att köra ovanför cell: 0,24 sekund
 
 ### <a name="feature-scaling"></a>Funktionen skalning
 Funktionen skalning, även kallat databasnormalisering försäkrar att funktioner med brett erläggas värden har inte gett överdriven väga i funktionen servicenivåmål. Koden för funktionen skalning använder den [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) skala funktioner till enhet avvikelse. Den tillhandahålls av MLlib för användning i linjär regression med Stokastisk brantaste Lutningsmetoden (Descent), en populär algoritm för att träna en mängd andra maskininlärningsmodeller som reglerats upprepningar eller support vector datorer (SVM).
@@ -577,7 +577,7 @@ Den tid det tar för träning och testning av ML-algoritmer kan minskas genom ca
 
 **UTDATA:** 
 
-Åtgången tid att köra ovanför cellen: 0,15 sekunder
+Tids åtgång för att köra ovanför cell: 0,15 sekund
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>Förutsäga om ett tips är betald med binär klassificering modeller
 Det här avsnittet visas hur användning tre modeller för binär klassificering uppgiften att förutsäga om huruvida ett tips betalas för en taxi-resa. Modeller som visas är:
@@ -1094,10 +1094,10 @@ BoostedTreeClassificationFileLoc = modelDir + ”GradientBoostingTreeClassificat
 
 BoostedTreeRegressionFileLoc = modelDir + ”GradientBoostingTreeRegression_2016-05-0317_06_51.737282”
 
-## <a name="whats-next"></a>Nästa steg
+## <a name="whats-next"></a>Vad står på tur?
 Nu när du har skapat regression och klassificering modeller med Spark MlLib kan är du redo att lära dig hur du bedöma och utvärdera dessa modeller. Avancerad datagranskning och modellering notebook aktivitetsgruppsrapport djupare i inklusive korsvalidering, hyper-parametern oinskränkt, och modellera utvärdering. 
 
-**Modell-användning:** Läs hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet i [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
+**Modellera förbrukning:** information om hur du bedöma och utvärdera klassificerings- och regressionsmodeller modeller som skapats i det här avsnittet finns [poäng och utvärdera Spark-byggda machine learning-modeller](spark-model-consumption.md).
 
-**Korsvalidering och finjustering oinskränkt**: Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parameter
+**Korsvalidering och finjustering oinskränkt**: se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parameter
 

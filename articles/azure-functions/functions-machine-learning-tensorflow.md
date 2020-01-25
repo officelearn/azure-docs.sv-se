@@ -1,286 +1,317 @@
 ---
 title: Använd python och TensorFlow för Machine Learning i Azure
-description: Den här självstudien visar hur du använder TensorFlow Machine Learning-modeller i Azure Functions
+description: Använd python, TensorFlow och Azure Functions med en maskin inlärnings modell för att klassificera en bild baserat på dess innehåll.
 author: anthonychu
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 01/15/2020
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: f8122a828f19c3daf6c23a866a99a214ee2c4427
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e98655dca7d682e5c42f3b0ae7f26c892bd12377
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409776"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710727"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>Självstudie: använda Machine Learning-modeller i Azure Functions med python och TensorFlow
 
-Den här artikeln visar hur Azure Functions gör att du kan använda python och TensorFlow med en maskin inlärnings modell för att klassificera en avbildning baserat på dess innehåll.
-
-I de här självstudierna får du lära dig att: 
+I den här artikeln får du lära dig hur du använder python, TensorFlow och Azure Functions med en maskin inlärnings modell för att klassificera en bild baserat på dess innehåll. Eftersom du utför allt arbete lokalt och skapar inga Azure-resurser i molnet, finns det ingen kostnad för att slutföra den här kursen.
 
 > [!div class="checklist"]
-> * Initiera en lokal miljö för att utveckla Azure Functions i python
-> * Importera en anpassad TensorFlow Machine Learning-modell till en Function-app
-> * Bygg en server lös HTTP API för förutsägelse av om ett foto innehåller en hund eller en katt
-> * Använda API: et från ett webb program
-
-![Skärm bild av färdig projekt](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> * Initiera en lokal miljö för att utveckla Azure Functions i python.
+> * Importera en anpassad TensorFlow Machine Learning-modell till en Function-app.
+> * Bygg en server lös HTTP API för att klassificera en avbildning som innehåller en hund eller en katt.
+> * Använda API: et från en webbapp.
 
 ## <a name="prerequisites"></a>Krav 
 
-Om du vill skapa Azure Functions i python måste du installera några verktyg.
-
-- [Python 3,6](https://www.python.org/downloads/release/python-360/)
-- [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Python-3.7.4](https://www.python.org/downloads/release/python-374/). (Python 3.7.4 och python 3.6. x verifieras med Azure Functions. Python 3,8 och senare versioner stöds inte ännu.)
+- [Azure Functions Core tools](functions-run-local.md#install-the-azure-functions-core-tools)
 - En kodredigerare som t.ex. [Visual Studio Code](https://code.visualstudio.com/)
+
+### <a name="prerequisite-check"></a>Krav kontroll
+
+1. I ett terminalfönster eller kommando fönster kör `func --version` för att kontrol lera att Azure Functions Core Tools är version 2.7.1846 eller senare.
+1. Kör `python --version` (Linux/MacOS) eller `py --version` (Windows) för att kontrol lera dina python-versions rapporter 3.7. x.
 
 ## <a name="clone-the-tutorial-repository"></a>Klona självstudiernas databas
 
-Starta genom att öppna en Terminal och klona följande lagrings plats med git:
+1. I ett terminalfönster eller kommando fönster klonar du följande lagrings plats med git:
 
-```console
-git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
-cd functions-python-tensorflow-tutorial
-```
+    ```
+    git clone https://github.com/Azure-Samples/functions-python-tensorflow-tutorial.git
+    ```
 
-Databasen innehåller några få mappar.
+1. Navigera till mappen och granska dess innehåll.
 
-- *Starta*: det här är din arbetsmapp för självstudien
-- *slut*: det här är det slutliga resultatet och fullständig implementering för din referens
-- *resurser*: innehåller Machine Learning-modellen och hjälp program bibliotek
-- *klient*del: en webbplats som anropar Function-appen
+    ```
+    cd functions-python-tensorflow-tutorial
+    ```
 
+    - *Start* är din arbetsmapp för självstudien.
+    - *End* är slut resultatet och fullständig implementering för din referens.
+    - *resurser* innehåller Machine Learning-modellen och hjälp program bibliotek.
+    - *frontend* är en webbplats som anropar Function-appen.
+    
 ## <a name="create-and-activate-a-python-virtual-environment"></a>Skapa och aktivera en virtuell python-miljö
 
-Azure Functions kräver python 3.6. x. Du skapar en virtuell miljö för att se till att du använder den nödvändiga python-versionen.
+Navigera till mappen *Start* och kör följande kommandon för att skapa och aktivera en virtuell miljö med namnet `.venv`. Se till att använda python 3,7, som stöds av Azure Functions.
 
-Ändra den aktuella arbets katalogen till mappen *Start* . Skapa och aktivera sedan en virtuell miljö med namnet *. venv*. Beroende på din python-installation kan kommandona för att skapa en virtuell python 3,6-miljö skilja sig från följande instruktioner.
 
-#### <a name="linux-and-macos"></a>Linux och macOS:
+# <a name="bashtabbash"></a>[bash](#tab/bash)
 
 ```bash
 cd start
-python3.6 -m venv .venv
+```
+
+```bash
+python -m venv .venv
+```
+
+```bash
 source .venv/bin/activate
 ```
 
-#### <a name="windows"></a>Windows:
+Om python inte installerade venv-paketet på din Linux-distribution kör du följande kommando:
+
+```bash
+sudo apt-get install python3-venv
+```
+
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 cd start
-py -3.6 -m venv .venv
+```
+
+```powershell
+py -m venv .venv
+```
+
+```powershell
 .venv\scripts\activate
 ```
 
-Terminal-prompten föregås nu av `(.venv)` som anger att du har aktiverat den virtuella miljön. Bekräfta att `python` i den virtuella miljön verkligen är python 3.6. x.
+# <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
 
-```console
-python --version
+```cmd
+cd start
 ```
+
+```cmd
+py -m venv .venv
+```
+
+```cmd
+.venv\scripts\activate
+```
+
+---
+
+Du kör alla efterföljande kommandon i den här aktiverade virtuella miljön. (Du avslutar den virtuella miljön genom att köra `deactivate`.)
+
+
+## <a name="create-a-local-functions-project"></a>Skapa ett lokalt Functions-projekt
+
+I Azure Functions är ett funktions projekt en behållare för en eller flera enskilda funktioner som varje svarar på en viss utlösare. Alla funktioner i ett projekt delar samma lokala och värdbaserade konfigurationer. I det här avsnittet ska du skapa ett funktions projekt som innehåller en enda formaterad funktion med namnet `classify` som tillhandahåller en HTTP-slutpunkt. Du lägger till mer detaljerad kod i ett senare avsnitt.
+
+1. I mappen *Start* använder du Azure Functions Core Tools för att initiera en python Function-app:
+
+    ```
+    func init --worker-runtime python
+    ```
+
+    Efter initieringen innehåller *startmappen olika* filer för projektet, inklusive konfigurationsfiler som heter [Local. Settings. JSON](functions-run-local.md#local-settings-file) och [Host. JSON](functions-host-json.md). Eftersom *Local. Settings. JSON* kan innehålla hemligheter som hämtats från Azure, undantas filen från käll kontroll som standard i *. gitignore* -filen.
+
+    > [!TIP]
+    > Eftersom ett funktions projekt är knutet till en viss körnings miljö måste alla funktioner i projektet skrivas med samma språk.
+
+1. Lägg till en funktion i projektet med hjälp av följande kommando, där argumentet `--name` är det unika namnet på din funktion och argumentet `--template` anger funktionens utlösare. `func new` skapa en undermapp som matchar funktions namnet som innehåller en kod fil som är lämplig för projektets valda språk och en konfigurations fil med namnet *Function. JSON*.
+
+    ```
+    func new --name classify --template "HTTP trigger"
+    ```
+
+    Det här kommandot skapar en mapp som matchar namnet på funktionen, *klassificera*. I den mappen finns två filer: *\_\_init\_\_. py*, som innehåller funktions koden och *Function. JSON*, som beskriver funktionens utlösare och dess indata och utdata-bindningar. Mer information om innehållet i de här filerna finns i [skapa en http-utlöst python-funktion i Azure – granska fil innehållet](functions-create-first-function-python.md#optional-examine-the-file-contents).
+
+
+## <a name="run-the-function-locally"></a>Kör funktionen lokalt
+
+1. Starta funktionen genom att starta den lokala Azure Functions körnings värden i *startmappen:*
+
+    ```
+    func start
+    ```
+    
+1. När du ser `classify`-slutpunkten visas i utdata går du till URL: en ```http://localhost:7071/api/classify?name=Azure```. Meddelandet "Hej Azure!" ska visas i utdata.
+
+1. Använd **Ctrl**-**C** för att stoppa värden.
+
+
+## <a name="import-the-tensorflow-model-and-add-helper-code"></a>Importera TensorFlow-modellen och Lägg till hjälp kod
+
+Om du vill ändra `classify`-funktionen för att klassificera en bild baserat på dess innehåll använder du en fördefinierad TensorFlow-modell som har tränats med och exporter ATS från Azure Custom Vision Service. Modellen, som finns i mappen *resurser* i exemplet som du klonade tidigare, klassificerar en avbildning baserat på om den innehåller en hund eller en katt. Du lägger sedan till viss hjälp kod och beroenden till ditt projekt.
+
+> [!TIP]
+> Om du vill bygga en egen modell med den kostnads fria nivån av Custom Vision Service följer du anvisningarna i [exempel projektets lagrings plats](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+
+1. I mappen *Start* kör du följande kommando för att kopiera modell filen till mappen *klassificera* . Se till att inkludera `\*` i kommandot. 
+
+    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    
+    ```bash
+    cp ../resources/model/* classify
+    ```
+    
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    
+    ```powershell
+    copy ..\resources\model\* classify
+    ```
+    
+    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    
+    ```cmd
+    copy ..\resources\model\* classify
+    ```
+    
+    ---
+    
+1. Kontrol lera att mappen *klassificera* innehåller filer med namnet *Model. PB* och *Labels. txt*. Om inte, kontrol lera att du körde kommandot i mappen *Start* .
+
+1. I mappen *Start* kör du följande kommando för att kopiera en fil med hjälp kod till mappen *klassificera* :
+
+    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    
+    ```bash
+    cp ../resources/predict.py classify
+    ```
+    
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    
+    ```powershell
+    copy ..\resources\predict.py classify
+    ```
+    
+    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+    
+    ```cmd
+    copy ..\resources\predict.py classify
+    ```
+    
+    ---
+
+1. Kontrol lera att mappen *klassificera* nu innehåller en fil med namnet *predict.py*.
+
+1. Öppna *Start/Requirements. txt* i en text redigerare och Lägg till följande beroenden som krävs av hjälp koden:
+
+    ```txt
+    tensorflow==1.14
+    Pillow
+    requests
+    ```
+    
+1. Spara *krav. txt*.
+
+1. Installera beroendena genom att köra följande kommando i mappen *Start* . Installationen kan ta några minuter, då du kan fortsätta med att ändra funktionen i nästa avsnitt.
+
+    ```
+    pip install --no-cache-dir -r requirements.txt
+    ```
+    
+    I Windows kan du stöta på felet "Det gick inte att installera paket på grund av en EnvironmentError: [errno 2] det finns ingen sådan fil eller katalog:" följt av en lång sökväg till en fil som *sharded_mutable_dense_hashtable. cpython-37. pyc*. Detta fel uppstår vanligt vis på grund av att mappsökvägen är för lång. I det här fallet ställer du in register nyckeln `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\FileSystem@LongPathsEnabled` till `1` för att aktivera långa sökvägar. Alternativt kan du kontrol lera var python-tolken är installerad. Om den platsen har en lång sökväg kan du försöka att installera om i en mapp med en kortare sökväg.
+
+> [!TIP]
+> När du anropar på *predict.py* för att göra den första förutsägelsen, kommer en funktion som heter `_initialize` att läsa in TensorFlow-modellen från disken och cachelagra den i globala variabler. Denna cachelagring påskyndar efterföljande förutsägelser. Mer information om hur du använder globala variabler finns i [Azure Functions python Developer Guide](functions-reference-python.md#global-variables).
+
+## <a name="update-the-function-to-run-predictions"></a>Uppdatera funktionen för att köra förutsägelser
+
+1. Öppna *klassificera/\_\_init\_\_. py* i en text redigerare och Lägg till följande rader efter de befintliga `import`-satserna för att importera standard-JSON-biblioteket och *förutsägelse* hjälp:
+
+    :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="1-6" highlight="5-6":::
+
+1. Ersätt hela innehållet i `main`-funktionen med följande kod:
+
+    :::code language="python" source="~/functions-python-tensorflow-tutorial/end/classify/__init__.py" range="8-19":::
+
+    Den här funktionen tar emot en bild-URL i en frågesträngparametern med namnet `img`. Sedan anropas `predict_image_from_url` från hjälp biblioteks biblioteket för att ladda ned och klassificera avbildningen med hjälp av TensorFlow-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet. 
+
+    > [!IMPORTANT]
+    > Eftersom den här HTTP-slutpunkten anropas av en webb sida som finns på en annan domän, innehåller svaret ett `Access-Control-Allow-Origin`-huvud för att uppfylla webbläsarens krav på resurs delning mellan ursprung (CORS).
+    >
+    > I ett produktions program ändrar du `*` till webb sidans specifika ursprung för ytterligare säkerhet.
+
+1. Spara dina ändringar och antar att beroenden har installerats, starta den lokala funktions värden igen med `func start`. Se till att köra värden i mappen *Start* med den virtuella miljön aktive rad. Annars startar värden, men du får fel meddelanden när du anropar funktionen.
+
+    ```
+    func start
+    ```
+
+1. I en webbläsare öppnar du följande URL för att anropa funktionen med URL: en för en Cat-bild och bekräftar att den returnerade JSON klassificerar avbildningen som en katt.
+
+    ```
+    http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png
+    ```
+    
+1. Låt värden vara igång eftersom du använder den i nästa steg. 
+
+### <a name="run-the-local-web-app-front-end-to-test-the-function"></a>Kör den lokala Web App-klient delen för att testa funktionen
+
+Om du vill testa att anropa funktions slut punkten från en annan webbapp finns det en enkel app i platsens *frontend* -mapp.
+
+1. Öppna en ny terminal eller kommando tolk och aktivera den virtuella miljön (enligt beskrivningen tidigare under [skapa och aktivera en virtuell python-miljö](#create-and-activate-a-python-virtual-environment)).
+
+1. Gå till lagrings platsens mapp för *klient delen* .
+
+1. Starta en HTTP-server med python:
+
+    # <a name="bashtabbash"></a>[bash](#tab/bash)
+
+    ```bash 
+    python -m http.server
+    ```
+    
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+    ```powershell
+    py -m http.server
+    ```
+
+    # <a name="cmdtabcmd"></a>[Kommandot](#tab/cmd)
+
+    ```cmd
+    py -m http.server
+    ```
+
+1. I en webbläsare navigerar du till `localhost:8000`och anger sedan en av följande bild-URL: er i text rutan eller använder URL: en för en offentligt tillgänglig bild.
+
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
+    - `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
+    
+1. Välj **Skicka** för att anropa funktions slut punkten för att klassificera avbildningen.
+
+    ![Skärm bild av färdig projekt](media/functions-machine-learning-tensorflow/functions-machine-learning-tensorflow-screenshot.png)
+
+    Om webbläsaren rapporterar ett fel när du skickar bild-URL: en, kontrollerar du den terminal där du kör Function-appen. Om du ser ett fel som "Det gick inte att hitta PIL" i modulen kan du ha startat funktionen app i *startmappen utan* att först aktivera den virtuella miljö som du skapade tidigare. Om det fortfarande visas fel kan du köra `pip install -r requirements.txt` igen med den virtuella miljön aktive rad och leta efter fel.
 
 > [!NOTE]
-> I resten av självstudien kör du kommandon i den virtuella miljön. Om du behöver återaktivera den virtuella miljön i en Terminal kör du lämpligt aktiverings kommando för ditt operativ system.
-
-## <a name="create-an-azure-functions-project"></a>Skapa ett Azure Functions-projekt
-
-I mappen *Start* använder du Azure Functions Core Tools för att initiera en python Function-app.
-
-```console
-func init --worker-runtime python
-```
-
-En Function-app kan innehålla en eller flera Azure Functions. Öppna mappen *Start* i en redigerare och granska innehållet.
-
-- [*Local. Settings. JSON*](functions-run-local.md#local-settings-file): innehåller program inställningar som används för lokal utveckling
-- [*Host. JSON*](functions-host-json.md): innehåller inställningar för Azure Functions värd och tillägg
-- [*Requirements. txt*](functions-reference-python.md#package-management): innehåller python-paket som krävs av det här programmet
-
-## <a name="create-an-http-function"></a>Skapa en HTTP-funktion
-
-Programmet kräver en enda HTTP API-slutpunkt som tar en bild-URL som indata och returnerar en förutsägelse av om avbildningen innehåller en hund eller en katt.
-
-Använd Azure Functions Core Tools för att Autogenerera en ny HTTP-funktion med namnet *klassificera*i terminalen.
-
-```console
-func new --language python --template HttpTrigger --name classify
-```
-
-En ny mapp med namnet *klassificera* skapas, som innehåller två filer.
-
-- *\_\_init\_\_. py*: en fil för huvud funktionen
-- *Function. JSON*: en fil som beskriver funktionens utlösare och dess indata och utdata-bindningar
-
-### <a name="run-the-function"></a>Kör funktionen
-
-Starta Function-appen i terminalen med den virtuella python-miljön aktive rad.
-
-```console
-func start
-```
-
-Öppna en webbläsare och gå till följande URL. Funktionen ska köra och returnera *Hej Azure!*
-
-```
-http://localhost:7071/api/classify?name=Azure
-```
-
-Använd `Ctrl-C` för att stoppa Function-appen.
-
-## <a name="import-the-tensorflow-model"></a>Importera TensorFlow-modellen
-
-Du använder en fördefinierad TensorFlow-modell som har tränats med och exporter ATS från Azure Custom Vision Service.
-
-> [!NOTE]
-> Om du vill bygga dina egna med Custom Vision Service kostnads fri nivå kan du följa [anvisningarna i exempel projektets lagrings plats](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
-
-Modellen består av två filer i mappen *< REPOSITORY_ROOT >/Resources/Model* : *Model. PB* och *Labels. txt*. Kopiera dem till mappen *klassificera* funktion '.
-
-#### <a name="linux-and-macos"></a>Linux och macOS:
-
-```bash
-cp ../resources/model/* classify
-```
-
-#### <a name="windows"></a>Windows:
-
-```powershell
-copy ..\resources\model\* classify
-```
-
-Se till att ta med \* i kommandot ovan. Bekräfta att *klassificerar* nu innehåller filer med namnet *Model. PB* och *Labels. txt*.
-
-## <a name="add-the-helper-functions-and-dependencies"></a>Lägga till hjälp funktioner och beroenden
-
-Vissa hjälp funktioner för att förbereda indatabilden och göra en förutsägelse med TensorFlow finns i en fil med namnet *predict.py* i mappen *resurser* . Kopiera den här filen till mappen *klassificera* funktion.
-
-#### <a name="linux-and-macos"></a>Linux och macOS:
-
-```bash
-cp ../resources/predict.py classify
-```
-
-#### <a name="windows"></a>Windows:
-
-```powershell
-copy ..\resources\predict.py classify
-```
-
-Bekräfta att *klassificerar* nu innehåller en fil med namnet *predict.py*.
-
-### <a name="install-dependencies"></a>Installera beroenden
-
-Hjälp biblioteket har vissa beroenden som måste installeras. Öppna *Start/Requirements. txt* i redigeraren och Lägg till följande beroenden i filen.
-
-```txt
-tensorflow==1.14
-Pillow
-requests
-```
-
-Spara filen.
-
-I terminalen med den virtuella miljön aktive rad kör du följande kommando i *startmappen för* att installera beroendena. Det kan ta några minuter att slutföra vissa installations steg.
-
-```console
-pip install --no-cache-dir -r requirements.txt
-```
-
-### <a name="caching-the-model-in-global-variables"></a>Cachelagra modellen i globala variabler
-
-Öppna *predict.py* i redigeraren och titta på den `_initialize`-funktionen nästan överst i filen. Observera att TensorFlow-modellen läses in från disk första gången funktionen körs och sparas i globala variabler. Inläsningen från disken hoppas över vid efterföljande körningar av funktionen `_initialize`. Cachelagring av modellen i minnet med den här tekniken påskyndar senare förutsägelser.
-
-Mer information om globala variabler finns i [Azure Functions python Developer Guide](functions-reference-python.md#global-variables).
-
-## <a name="update-function-to-run-predictions"></a>Uppdaterings funktion för att köra förutsägelser
-
-Öppna *klassificera/\_\_init\_\_. py* i redigeraren. Importera det *förutsägelse* bibliotek som du har lagt till i samma mapp tidigare. Lägg till följande `import`-instruktioner under de andra importerna som redan finns i filen.
-
-```python
-import json
-from .predict import predict_image_from_url
-```
-
-Ersätt funktions mal len kod med följande.
-
-```python
-def main(req: func.HttpRequest) -> func.HttpResponse:
-    image_url = req.params.get('img')
-    results = predict_image_from_url(image_url)
-
-    headers = {
-        "Content-type": "application/json",
-        "Access-Control-Allow-Origin": "*"
-    }
-    return func.HttpResponse(json.dumps(results), headers = headers)
-```
-
-Se till att spara dina ändringar.
-
-Den här funktionen tar emot en bild-URL i en frågesträngparametern med namnet `img`. Den anropar `predict_image_from_url` från hjälp biblioteket som laddar ned avbildningen och returnerar en förutsägelse med TensorFlow-modellen. Funktionen returnerar sedan ett HTTP-svar med resultatet.
-
-Eftersom HTTP-slutpunkten anropas av en webb sida som finns på en annan domän, innehåller HTTP-svaret ett `Access-Control-Allow-Origin`-huvud för att uppfylla webbläsarens krav på resurs delning mellan ursprung (CORS).
-
-> [!NOTE]
-> I ett produktions program ändrar du `*` till webb sidans specifika ursprung för ytterligare säkerhet.
-
-### <a name="run-the-function-app"></a>Kör Function-appen
-
-Se till att den virtuella python-miljön fortfarande är aktive rad och starta appen funktion med hjälp av följande kommando.
-
-```console
-func start
-```
-
-Öppna den här URL: en i en webbläsare som anropar din funktion med URL: en till ett katt-foto. Bekräfta att ett giltigt förutsägelse resultat returneras.
-
-```
-http://localhost:7071/api/classify?img=https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png
-```
-
-Se till att Function-appen körs.
-
-### <a name="run-the-web-app"></a>Kör webbappen
-
-Det finns en enkel webbapp i mappen *frontend* som använder http API i Function-appen.
-
-Öppna en *separat* Terminal och ändra till mappen *frontend* . Starta en HTTP-server med python 3,6.
-
-#### <a name="linux-and-macos"></a>Linux och macOS:
-
-```bash
-cd <FRONT_END_FOLDER>
-python3.6 -m http.server
-```
-
-#### <a name="windows"></a>Windows:
-
-```powershell
-cd <FRONT_END_FOLDER>
-py -3.6  -m http.server
-```
-
-I en webbläsare navigerar du till HTTP-serverns URL som visas i terminalen. En webbapp bör visas. Ange en av följande Foto-URL: er i text rutan. Du kan också använda en URL för ett offentligt tillgängligt Cat-eller hund-foto.
-
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat1.png`
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/cat2.png`
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog1.png`
-- `https://raw.githubusercontent.com/Azure-Samples/functions-python-tensorflow-tutorial/master/resources/assets/samples/dog2.png`
-
-När du klickar på Skicka, anropas Function-appen och resultatet visas på sidan.
+> Modellen klassificerar alltid innehållet i bilden som en katt eller en hund, oavsett om avbildningen innehåller antingen, som standard. Bilder av Tigers och Panthers, till exempel vanligt vis klassificeras som katt, men bilder av elefanter, Carrots eller luftplaner klassificeras som hund.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
-Hela den här självstudien körs lokalt på din dator, så det finns inga Azure-resurser eller-tjänster att rensa.
+
+Eftersom hela den här självstudien körs lokalt på datorn finns det inga Azure-resurser eller-tjänster att rensa.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du skapar och anpassar ett HTTP-API med Azure Functions för att göra förutsägelser med en TensorFlow modell. Du har också lärt dig hur du anropar API: et från ett webb program.
-
-Du kan använda metoderna i den här självstudien för att bygga ut API: er för all komplexitet, samtidigt som du kör på den serverbaserade beräknings modellen som tillhandahålls av Azure Functions.
-
-Använd [Azure Functions Core tools](./functions-run-local.md#publish) eller [Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions)för att distribuera Function-appen till Azure.
+I den här självstudien har du lärt dig hur du skapar och anpassar en HTTP API-slutpunkt med Azure Functions för att klassificera bilder med hjälp av en TensorFlow modell. Du har också lärt dig hur du anropar API: et från en webbapp. Du kan använda metoderna i den här självstudien för att bygga ut API: er för all komplexitet, samtidigt som du kör på den serverbaserade beräknings modellen som tillhandahålls av Azure Functions.
 
 > [!div class="nextstepaction"]
-> [Guide för Azure Functions python-utvecklare](./functions-reference-python.md)
+> [Distribuera funktionen till Azure Functions med hjälp av Azure CLI-guiden](./functions-run-local.md#publish)
+
+Se även:
+
+- [Distribuera funktionen till Azure med Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
+- [Guide för Azure Functions python-utvecklare](./functions-reference-python.md)

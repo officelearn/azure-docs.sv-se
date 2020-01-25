@@ -3,20 +3,20 @@ title: Datainsamling och förståelse för Team Data Science Process
 description: Mål, uppgifter och slutprodukter för datainsamling och förstå steget i dina data science-projekt
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e29f36897dd52fcb09456768a799209a385d74fe
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3c299e9ec42d63812804b5ff7e50324a2de94200
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303524"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720511"
 ---
 # <a name="data-acquisition-and-understanding-stage-of-the-team-data-science-process"></a>Datainsamling och förstå steget i Team Data Science Process
 
@@ -52,23 +52,23 @@ Innan du träna modeller, måste du utveckla en god förståelse av data. Verkli
 
 TDSP ger ett automatiserade verktyg som kallas [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils), för att visualisera data och förbereda data sammanfattningsrapporter. Vi rekommenderar att du börjar med IDEAR först för att utforska data för att utveckla ursprungliga data förstå interaktivt med ingen kodning. Du kan sedan skriva anpassad kod för datautforskning och visualisering. Anvisningar för rensning av data finns i [uppgifter för att förbereda data för förbättrad machine learning](prepare-data.md).  
 
-När du är nöjd med kvaliteten på rensade data, är nästa steg att bättre förstå mönster som ingår i data. På så sätt kan du välja och utveckla en lämplig förutsägelsemodell för målet. Sök efter bevis för hur väl anslutna data är till målet. Sedan avgör om det finns tillräckligt med data för att gå vidare med nästa steg för modellering. Den här processen är igen, ofta iterativ. Du kan behöva hitta nya datakällor med mer exakta eller mer relevant data att utöka den datauppsättning som ursprungligen identifierades i det föregående steget. 
+När du är nöjd med kvaliteten på rensade data, är nästa steg att bättre förstå mönster som ingår i data. Med den här data analysen kan du välja och utveckla en lämplig förutsägelse modell för målet. Sök efter bevis för hur väl anslutna data är till målet. Sedan avgör om det finns tillräckligt med data för att gå vidare med nästa steg för modellering. Den här processen är igen, ofta iterativ. Du kan behöva hitta nya datakällor med mer exakta eller mer relevant data att utöka den datauppsättning som ursprungligen identifierades i det föregående steget. 
 
 ### <a name="set-up-a-data-pipeline"></a>Konfigurera en datapipeline
-Förutom den första inmatningen och rensning av data, vanligtvis måste du ställa in en process för att rangordna nya data eller uppdatera data regelbundet som en del av en pågående learning. Du kan göra detta genom att ställa in en datapipeline eller ett arbetsflöde. Den [flytta data från en lokal SQL Server-instans till Azure SQL Database med Azure Data Factory](move-sql-azure-adf.md) artikeln innehåller ett exempel på hur du ställer in en pipeline med [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
+Förutom den första inmatningen och rensning av data, vanligtvis måste du ställa in en process för att rangordna nya data eller uppdatera data regelbundet som en del av en pågående learning. Poängen kan vara slutförd med en datapipeline eller ett arbets flöde. Den [flytta data från en lokal SQL Server-instans till Azure SQL Database med Azure Data Factory](move-sql-azure-adf.md) artikeln innehåller ett exempel på hur du ställer in en pipeline med [Azure Data Factory](https://azure.microsoft.com/services/data-factory/). 
 
-I det här steget kan du utveckla en lösningsarkitektur av din datapipeline för. Du kan utveckla pipelinen parallellt med nästa steg i datavetenskapsprojekt. Beroende på dina affärsbehov och begränsningarna för dina befintliga system där den här lösningen integreras kan pipelinen vara något av följande: 
+I det här steget kan du utveckla en lösningsarkitektur av din datapipeline för. Du kan utveckla pipelinen parallellt med nästa steg i datavetenskapsprojekt. Beroende på dina affärs behov och begränsningarna för dina befintliga system där den här lösningen integreras, kan pipelinen vara något av följande alternativ: 
 
    * Batch-baserade
    * Streaming eller realtid 
    * En hybrid 
 
-## <a name="artifacts"></a>Artefakter
+## <a name="artifacts"></a>Artifacts
 Följande är slutprodukter i det här steget:
 
-   * [Data quality rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): Den här rapporten omfattar sammanfattningar av data, relationerna mellan varje attribut och mål, variabel rangordning och mycket mer. Den [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyg som tillhandahålls som en del av TDSP kan snabbt skapa den här rapporten på valfri tabular datamängd, till exempel en CSV-fil eller en relationsdatabastabell. 
-   * **Lösningsarkitektur**: Lösningsarkitekturen kan vara ett diagram eller beskrivning av din pipeline för data som används för att köra bedömning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipeline för att träna din modell som baseras på nya data. Store dokument i den [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory när du använder TDSP directory struktur mall.
-   * **Kontrollpunkt beslut**: Innan du börjar fullständig funktionsframställning och modellskapandet omvärdera du projektet för att avgöra om det förväntade värdet är tillräckliga för att fortsätta att försöka den. Du kan till exempel vara redo att fortsätta, måste du samla in mer data eller Avbryt projektet eftersom data inte finns för att besvara frågan.
+   * [Data quality rapporten](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): den här rapporten omfattar sammanfattningar av data, relationerna mellan varje attribut och mål, variabel rangordning och mycket mer. Den [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) verktyg som tillhandahålls som en del av TDSP kan snabbt skapa den här rapporten på valfri tabular datamängd, till exempel en CSV-fil eller en relationsdatabastabell. 
+   * **Lösningsarkitektur**: lösningsarkitekturen kan vara ett diagram eller beskrivning av dina data i pipeline som du använder för att köra bedömning eller förutsägelser på nya data när du har skapat en modell. Den innehåller också pipeline för att träna din modell som baseras på nya data. Store dokument i den [projekt](https://github.com/Azure/Azure-TDSP-ProjectTemplate/tree/master/Docs/Project) directory när du använder TDSP directory struktur mall.
+   * **Kontroll punkts beslut**: innan du påbörjar fullständig teknik och modell utveckling kan du utvärdera om projektet för att avgöra om det förväntade värdet är tillräckligt för att fortsätta med det. Du kan till exempel vara redo att fortsätta, måste du samla in mer data eller Avbryt projektet eftersom data inte finns för att besvara frågan.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -80,6 +80,6 @@ Här finns länkar till varje steg i livscykeln för TDSP:
    4. [Distribution](lifecycle-deployment.md)
    5. [Kundgodkännande](lifecycle-acceptance.md)
 
-Vi tillhandahåller fullständig från slutpunkt till slutpunkt genomgång som visar alla steg i processen för specifika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
+Vi tillhandahåller fullständiga genom gångar som demonstrerar alla steg i processen för olika scenarier. Den [exempel genomgångar](walkthroughs.md) artikeln innehåller en lista över scenarier med länkar och miniatyr beskrivningar. Genomgångar visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
 
 Exempel på hur du utför stegen i TDSPs som använder Azure Machine Learning Studio finns [använder TDSP med Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle-data).

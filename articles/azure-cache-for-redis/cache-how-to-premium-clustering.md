@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433439"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714463"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Redis-klustring för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Den här artikeln beskriver hur du konfigurerar kluster i en Premium Azure-cache för Redis-instansen.
@@ -58,12 +58,7 @@ Exempel kod för att arbeta med kluster med StackExchange. Redis-klienten finns 
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>Ändra kluster storleken på en Premium-cache som körs
-Om du vill ändra kluster storleken på en Premium-cache med aktive rad klustring aktive rad klickar du på **Redis kluster storlek** på **resurs menyn**.
-
-> [!NOTE]
-> Även om Azure-cachen för Redis Premium-nivån har släppts till allmän tillgänglighet är funktionen Redis kluster storlek för närvarande en för hands version.
-> 
-> 
+Om du vill ändra kluster storleken på en Premium-cache som körs med klustrad aktive rad klickar du på **kluster storlek** på **resurs menyn**.
 
 ![Redis kluster storlek][redis-cache-redis-cluster-size]
 

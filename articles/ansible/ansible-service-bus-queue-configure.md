@@ -4,12 +4,12 @@ description: Lär dig hur du använder Ansible för att skapa en Azure Service B
 keywords: Ansible, Azure, DevOps, bash, Spelbok, Service Bus, Queue
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 9903419a52be61cd7ec74214858bce81df7e727e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155821"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713232"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>Självstudie: konfigurera köer i Azure Service Bus med Ansible
 
@@ -90,7 +90,7 @@ Spara följande spelbok som `servicebus_queue_policy.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -193,7 +193,7 @@ Spara följande spelbok som `servicebus_queue_policy_delete.yml`:
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"

@@ -3,23 +3,23 @@ title: Exempeldata i Azure HDInsight Hive-tabeller - Team Data Science Process
 description: Nedåtsampla data som lagras i Azure HDInsight Hive-tabeller som använder Hive-frågor för att minska data till en storlek som är mer hanterbara för analys.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c417950e07ae3c6922aa260a3ef40d862870aa1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df85edc3de00e2b0342bc3102fe9e85564a9835b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61042891"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720001"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Exempeldata i Azure HDInsight Hive-tabeller
-Den här artikeln beskriver hur du nedåtsampla data som lagras i Azure HDInsight Hive-tabeller som använder Hive-frågor för att minska det till en storlek som är mer hanterbara för analys. Det omfattar tre metoder för vilket populärt används sampling:
+Den här artikeln beskriver hur du nedåtsampla data som lagras i Azure HDInsight Hive-tabeller som använder Hive-frågor för att minska det till en storlek som är mer hanterbara för analys. Den täcker tre populära provtagnings metoder:
 
 * Enhetligt slumpmässigt urval
 * Slumpmässigt urval av grupper
@@ -31,7 +31,7 @@ Om datauppsättningen som du planerar att analysera är stor, men det är oftast
 Den här aktiviteten för sampling är ett steg i den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
 
 ## <a name="how-to-submit-hive-queries"></a>Hur du skickar in Hive-frågor
-Du kan skicka hive-frågor från Hadoop kommandoradskonsol på huvudnoden för Hadoop-kluster. Gör detta genom att logga in huvudnoden för Hadoop-kluster, öppna Hadoop kommandoradskonsol och skicka Hive-frågor därifrån. Anvisningar för att skicka Hive-frågor i Hadoop kommandoradskonsol finns i [så skicka Hive-frågor](move-hive-tables.md#submit).
+Du kan skicka hive-frågor från Hadoop kommandoradskonsol på huvudnoden för Hadoop-kluster.  Logga in på noden Head i Hadoop-klustret, öppna kommando rads konsolen för Hadoop och skicka Hive-frågor därifrån. Anvisningar för att skicka Hive-frågor i Hadoop kommandoradskonsol finns i [så skicka Hive-frågor](move-hive-tables.md#submit).
 
 ## <a name="uniform"></a> Enhetligt slumpmässigt urval
 Enhetligt slumpmässigt urval innebär att varje rad i datauppsättningen har samma chans urvalet. Det kan implementeras genom att lägga till ett extra fält SLUMP() datauppsättningen i den inre ”Välj” frågan och i yttre ”Välj” frågan villkoret slumpmässiga fältet.

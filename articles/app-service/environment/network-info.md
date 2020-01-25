@@ -4,15 +4,15 @@ description: Lär dig om nätverks trafiken i ASE och hur du ställer in nätver
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75375023"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713188"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Nätverks överväganden för en App Service-miljön #
 
@@ -88,7 +88,7 @@ ASE kommunicerar ut till Internet-tillgängliga adresser på följande portar:
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, Windows-uppdateringar, Linux-beroenden, Azure-tjänster | 80/443 |
+| CRL, Windows-uppdateringar, Linux-beroenden, Azure-tjänster | 80/443 |
 | Azure SQL | 1433 | 
 | Övervakning | 12000 |
 
@@ -108,9 +108,9 @@ Om du ändrar DNS-inställningen för det virtuella nätverk som din ASE finns i
 
 Förutom de ASE funktionella beroendena finns det några extra objekt relaterade till Portal upplevelsen. Några av funktionerna i Azure Portal är beroende av direkt åtkomst till _SCM-webbplatsen_. Det finns två URL: er för varje app i Azure App Service. Den första URL: en är för att komma åt din app. Den andra URL: en är åtkomst till SCM-webbplatsen, som även kallas _kudu-konsolen_. Funktioner som använder SCM-platsen är:
 
--   Webbjobb
+-   Webb jobb
 -   Funktioner
--   Loggströmning
+-   Logg strömning
 -   Kudu
 -   Tillägg
 -   Processutforskaren
@@ -152,7 +152,7 @@ NSG: er kan konfigureras via Azure Portal eller via PowerShell. Informationen h�
 
 De obligatoriska posterna i en NSG, för att en ASE ska fungera, är att tillåta trafik:
 
-**Inkommande**
+**Åtgående**
 * från IP-AppServiceManagement på portarna 454 455
 * från belastningsutjämnaren på port 16001
 * från ASE-undernätet till ASE-undernätet på alla portar
@@ -183,7 +183,7 @@ Om du har tilldelat en IP-adress till din app, se till att du behåller portarna
 
 Alla objekt som visas i följande utgående regler behövs, förutom det sista objektet. De ger nätverks åtkomst till ASE-beroenden som nämnts tidigare i den här artikeln. Om du blockerar någon av dem slutar ASE att fungera. Det sista objektet i listan gör att ASE kan kommunicera med andra resurser i ditt VNet.
 
-![Utgående säkerhetsregler][5]
+![Utgående säkerhets regler][5]
 
 När dina NSG: er har definierats tilldelar du dem till det undernät som din ASE är på. Om du inte kommer ihåg ASE VNet eller under nätet kan du se det från ASE Portal-sidan. Om du vill tilldela NSG till ditt undernät går du till under nätets användar gränssnitt och väljer NSG.
 

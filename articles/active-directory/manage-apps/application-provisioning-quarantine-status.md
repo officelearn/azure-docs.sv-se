@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 933217b2ad86535d45f6674165ee162f263a8cd7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882883"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712168"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>Program etablering i karantän status
 
@@ -33,7 +33,7 @@ I karantän sänks frekvensen för stegvisa cykler gradvis till en gång per dag
 
 Det finns tre sätt att kontrol lera om ett program finns i karantän:
   
-- I Azure Portal navigerar du till **Azure Active Directory** > **företags program** > &lt;*program namn*&gt;- **etablering** och bläddra till förlopps indikatorn längst ned. >   
+- I Azure Portal navigerar du till **Azure Active Directory** > **företags program** > &lt;*program namn*&gt;- **etablering** och bläddra till förlopps indikatorn längst ned.  
 
   ![Status fältet för etablering visar karantän status](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -63,7 +63,7 @@ Först löser du problemet som gjorde att programmet placerades i karantän.
 
 - Kontrol lera programmets etablerings inställningar för att kontrol lera att du har [angett giltiga autentiseringsuppgifter för admin](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning). Azure AD måste kunna upprätta ett förtroende med mål programmet. Kontrol lera att du har angett giltiga autentiseringsuppgifter och att ditt konto har de behörigheter som krävs.
 
-- Granska [etablerings loggarna](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) för att ytterligare undersöka vilka fel som orsakar karantän och åtgärda felet. Få åtkomst till etablerings loggarna i Azure Portal genom att gå till **Azure Active Directory** &gt; **Enterprise-appar** &gt; **etablerings loggar (för hands version)** i avsnittet **aktivitet** .
+- Granska [etablerings loggarna](../reports-monitoring/concept-provisioning-logs.md) för att ytterligare undersöka vilka fel som orsakar karantän och åtgärda felet. Få åtkomst till etablerings loggarna i Azure Portal genom att gå till **Azure Active Directory** &gt; **Enterprise-appar** &gt; **etablerings loggar (för hands version)** i avsnittet **aktivitet** .
 
 När du har löst problemet startar du om etablerings jobbet. Vissa ändringar av programmets etablerings inställningar, till exempel attribut mappningar eller omfångs filter, startar automatiskt om etablering. Förlopps indikatorn på programmets **etablerings** sida anger när etableringen senast startades. Om du behöver starta om etablerings jobbet manuellt kan du använda någon av följande metoder:  
 

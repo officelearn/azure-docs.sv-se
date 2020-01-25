@@ -3,12 +3,12 @@ title: Använd PowerShell för att säkerhetskopiera Windows Server till Azure
 description: I den här artikeln lär du dig hur du använder PowerShell för att konfigurera Azure Backup på Windows Server eller en Windows-klient och hur du hanterar säkerhets kopiering och återställning.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: 54cfbb4a550ff14705d8d02b0589ee023cf9c225
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: ef5571e6a059eedeba169765785bb0f840c8f256
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689197"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710859"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Distribuera och hantera säkerhetskopiering till Azure för Windows Server/Windows-klient med hjälp av PowerShell
 
@@ -111,7 +111,7 @@ MARSAgentInstaller.exe /?
 
 De tillgängliga alternativen är:
 
-| Alternativ | Information | Standard |
+| Alternativ | Information | Default |
 | --- | --- | --- |
 | /q |Tyst installation |- |
 | /p: "plats" |Sökväg till installationsmappen för Azure Backup agenten. |C:\Program\Microsoft Azure Recovery Services agent |

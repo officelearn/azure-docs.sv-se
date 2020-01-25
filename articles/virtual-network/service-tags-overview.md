@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: dc64570ccf69c321f33b9689362def8c9caf975e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543043"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715405"
 ---
 # <a name="virtual-network-service-tags"></a>Tjänst taggar för virtuellt nätverk 
 <a name="network-service-tags"></a>
@@ -64,7 +64,7 @@ Som standard återspeglar service märken intervallen för hela molnet. Vissa se
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Obs:* Den här taggen har ett beroende för **AzureActiveDirectory** -och **AzureFrontDoor. frontend** -taggarna. Du kan också vitlista följande IP-adresser (detta beroende kommer snart): 13.107.6.181 & 13.107.9.181. | Utgående | Inga | Inga |
 | **AzureIoTHub** | Azure-IoT Hub. | Utgående | Inga | Inga |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Obs:* Den här taggen har ett beroende av **AzureActiveDirectory** -taggen. | Utgående | Ja | Ja |
-| **AzureLoadBalancer** | Azure Infrastructure belastningsutjämnare. Taggen översätts till den [virtuella IP-adressen för värden](security-overview.md#azure-platform-considerations) (168.63.129.16) där Azures hälso avsökningen kommer. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. | Båda | Inga | Inga |
+| **AzureLoadBalancer** | Azure Infrastructure belastningsutjämnare. Taggen översätts till den [virtuella IP-adressen för värden](security-overview.md#azure-platform-considerations) (168.63.129.16) där Azures hälso avsökningen kommer. Detta omfattar inte trafik till din Azure Load Balancer-resurs. Om du inte använder Azure Load Balancer kan du åsidosätta den här regeln. | Båda | Inga | Inga |
 | **AzureMachineLearning** | Azure Machine Learning. | Båda | Inga | Ja |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon och anpassade mått (GB-slutpunkter).<br/><br/>*Obs:* För Log Analytics har den här taggen ett beroende på **lagrings** tag gen. | Utgående | Inga | Ja |
 | **AzurePlatformDNS** | Standard-DNS-tjänsten (Basic Infrastructure).<br/><br>Du kan använda den här taggen för att inaktivera standard-DNS. Var försiktig när du använder den här taggen. Vi rekommenderar att du läser [överväganden för Azure-plattformen](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations). Vi rekommenderar också att du utför testningen innan du använder den här taggen. | Utgående | Inga | Inga |
@@ -83,7 +83,7 @@ Som standard återspeglar service märken intervallen för hela molnet. Vissa se
 | **HDInsight** | Azure HDInsight. | Inkommande | Ja | Inga |
 | **E** | IP-adressutrymmet som ligger utanför det virtuella nätverket och som kan användas av det offentliga Internet.<br/><br/>Adress intervallet omfattar det [offentliga IP-adressutrymmet som ägs av Azure](https://www.microsoft.com/download/details.aspx?id=41653). | Båda | Inga | Inga |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | Utgående | Inga | Inga |
-| **MicrosoftContainerRegistry** | Azure Container Registry. | Utgående | Ja | Ja |
+| **MicrosoftContainerRegistry** | Container Registry för Microsoft container-avbildningar. <br/><br/>*Obs:* Vitlista följande IP-adress (det här beroendet kommer snart att tas bort): 204.79.197.219. | Utgående | Ja | Ja |
 | **ServiceBus** | Azure Service Bus trafik som använder Premium-tjänstens nivå. | Utgående | Ja | Ja |
 | **ServiceFabric** | Azure-Service Fabric. | Utgående | Inga | Inga |
 | **SQL** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL och Azure SQL Data Warehouse.<br/><br/>*Obs:* Den här taggen representerar tjänsten, men inte vissa instanser av tjänsten. Taggen kan till exempel representera tjänsten Azure SQL Database, men inte en specifik SQL-databas eller -server. | Utgående | Ja | Ja |

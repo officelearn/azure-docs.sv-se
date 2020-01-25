@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 2a596ea1f6f6405078d0e031de00212995342a19
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 4f8a08697443ec6920b3fa73de19a950e54e7f40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516819"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716258"
 ---
 # <a name="deploy-the-face-container-to-azure-container-instances"></a>Distribuera ansikts behållaren till Azure Container Instances
 
@@ -23,7 +23,7 @@ Lär dig hur du distribuerar behållaren Cognitive Services [ansikte](../face-ho
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
 
 [!INCLUDE [Request access to private container registry](../../../../includes/cognitive-services-containers-request-access.md)]
 

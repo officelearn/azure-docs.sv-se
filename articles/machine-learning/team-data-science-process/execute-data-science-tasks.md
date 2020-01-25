@@ -2,24 +2,24 @@
 title: Köra datavetenskapsaktiviteter - Team Data Science Process
 description: Hur datavetare kan köra ett datavetenskapsprojekt i en spårningsbar version kontrolleras och samarbetsfunktioner sätt.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 16fb47879daae6bfbf0929e842a3a6227d1524a9
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 984b03288b8dae644fc04a2cd78fb03a2e027f62
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772286"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722211"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Köra datavetenskapsaktiviteter: utforskning, modellering och distribution
 
-Vanliga datavetenskapsuppgifter inkludera datautforskning, modellering och distribution. Den här artikeln visar hur du använder den **interaktiv Datagranskning, analys och rapportering (IDEAR)** och **automatiserad modellering och rapportering (AMAR)** verktyg för att slutföra flera vanliga datavetenskapsuppgifter till exempel interaktiv datagranskning, dataanalys, rapportering och skapa en modell. Här beskrivs också alternativ för att distribuera en modell till en produktionsmiljö med hjälp av en rad olika verktyg och data plattformar, till exempel följande:
+Vanliga datavetenskapsuppgifter inkludera datautforskning, modellering och distribution. Den här artikeln visar hur du använder den **interaktiv Datagranskning, analys och rapportering (IDEAR)** och **automatiserad modellering och rapportering (AMAR)** verktyg för att slutföra flera vanliga datavetenskapsuppgifter till exempel interaktiv datagranskning, dataanalys, rapportering och skapa en modell. Alternativ för att distribuera en modell i en produktions miljö kan vara:
 
 - [Azure Machine Learning](../index.yml)
 - [SQL-Server med ML-tjänster](https://docs.microsoft.com/sql/advanced-analytics/r/r-services)

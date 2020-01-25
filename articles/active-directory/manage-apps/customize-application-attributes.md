@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d21ebabb34b828624c196922f88380f02234dc05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940908"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711860"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Anpassa attribut för användar etablering för SaaS-program i Azure Active Directory
 
@@ -39,17 +39,17 @@ Följ de här stegen för att få åtkomst till **mappnings** funktionen för an
 1. Välj **etablering** för att hantera inställningar för etablering av användar konto för den valda appen.
 1. Expandera **mappningar** för att visa och redigera användarattribut som flödar mellan Azure AD och mål programmet. Om mål programmet stöder det kan du med hjälp av det här avsnittet Konfigurera etablering av grupper och användar konton.
 
-   ![Använd mappningar för att visa och redigera användarattribut](./media/customize-application-attributes/21.png)
+   ![Använd mappningar för att visa och redigera användarattribut](media/customize-application-attributes/21.png)
 
 1. Välj en **mappnings** konfiguration för att öppna skärmen relaterad **Mappning av attribut** . Vissa attribut-mappningar krävs av ett SaaS-program för att fungera korrekt. **Borttagnings** funktionen är inte tillgänglig för obligatoriska attribut.
 
-   ![Använd attributmappning för att konfigurera attribut mappningar för appar](./media/customize-application-attributes/22.png)
+   ![Använd attributmappning för att konfigurera attribut mappningar för appar](media/customize-application-attributes/22.png)
 
    I den här skärm bilden kan du se att attributet **username** för ett hanterat objekt i Salesforce fylls med värdet **userPrincipalName** för det länkade Azure Active Directory-objektet.
 
 1. Välj en befintlig **attributmappning** för att öppna skärmen **Redigera attribut** . Här kan du redigera användarattribut som flödar mellan Azure AD och mål programmet.
 
-   ![Använd Edit-attribut för att redigera användarattribut](./media/customize-application-attributes/23.png)
+   ![Använd Edit-attribut för att redigera användarattribut](media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>Förstå attribut-mappnings typer
 
@@ -71,7 +71,7 @@ Tillsammans med den här egenskapen stöder attribut-mappningar även följande 
 
 - **Källattribut** – attributet användare från käll systemet (exempel: Azure Active Directory).
 - **Target** -attribut – användarattribut i mål systemet (exempel: ServiceNow).
-- **Standardvärde om null (valfritt)** – det värde som skickas till mål systemet om källattributet är null. Det här värdet kommer endast att tillhandahållas när en användare skapas. "Standardvärdet när null" kommer inte att tillhandahållas när en befintlig användare uppdateras. Om du till exempel vill etablera alla befintliga användare i mål systemet med en viss befattning (när det är null i käll systemet) kan du använda följande [uttryck](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data): switch (IsPresent ([befattning]), "DefaultValue", "true", [befattning]). Se till att ersätta "standardvärde" med det du vill etablera när null i käll systemet. 
+- **Standardvärde om null (valfritt)** – det värde som skickas till mål systemet om källattributet är null. Det här värdet kommer endast att tillhandahållas när en användare skapas. "Standardvärdet när null" kommer inte att tillhandahållas när en befintlig användare uppdateras. Om du till exempel vill etablera alla befintliga användare i mål systemet med en viss befattning (när det är null i käll systemet) kan du använda följande [uttryck](functions-for-customizing-application-data.md): switch (IsPresent ([befattning]), "DefaultValue", "true", [befattning]). Se till att ersätta "standardvärde" med det du vill etablera när null i käll systemet. 
 - **Matcha objekt med det här attributet** – om mappningen ska användas för att unikt identifiera användare mellan käll-och mål systemen. Den anges vanligt vis på userPrincipalName-eller e-postattributet i Azure AD, som vanligt vis mappas till ett användar namns fält i ett mål program.
 - **Matchnings prioritet** – flera matchande attribut kan anges. När det finns flera, utvärderas de i den ordning som definieras av det här fältet. Så fort en matchning hittas utvärderas inga ytterligare matchande attribut.
 - **Använd den här mappningen**
@@ -92,7 +92,7 @@ Azure AD Provisioning-tjänsten kan distribueras i båda scenarierna med "Bygg" 
 
 Ett valt antal program, till exempel ServiceNow, Box och G Suite, stöder möjligheten att etablera grupp objekt och användar objekt. Grupp objekt kan innehålla grupp egenskaper, till exempel visnings namn och e-postalias, tillsammans med grupp medlemmar.
 
-![Exempel visar ServiceNow med etablerade grupp-och användar objekt](./media/customize-application-attributes/24.png)
+![Exempel visar ServiceNow med etablerade grupp-och användar objekt](media/customize-application-attributes/24.png)
 
 Grupp etablering kan aktive ras eller inaktive ras genom att du väljer grupp mappningen under **mappningar**och inställningen **aktive rad** till det alternativ som du vill använda på skärmen för **Mappning av attribut** .
 
@@ -193,13 +193,13 @@ Anpassade attribut kan inte vara referens attribut eller flervärdesattribut. An
 ## <a name="provisioning-a-role-to-a-scim-app"></a>Etablering av en roll för en SCIM-app
 Använd stegen nedan för att etablera roller för en användare till ditt program. Observera att beskrivningen nedan är speciell för anpassade SCIM-program. För Galleri program som Salesforce och ServiceNow använder du fördefinierade roll mappningar. Punkterna nedan beskriver hur du transformerar attributet AppRoleAssignments till formatet som programmet förväntar sig.
 
-- Att mappa en appRoleAssignment i Azure AD till en roll i programmet kräver att du transformerar attributet med ett [uttryck](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data). Attributet appRoleAssignment **ska inte mappas direkt** till ett roll-attribut utan att använda ett uttryck för att parsa roll informationen. 
+- Att mappa en appRoleAssignment i Azure AD till en roll i programmet kräver att du transformerar attributet med ett [uttryck](functions-for-customizing-application-data.md). Attributet appRoleAssignment **ska inte mappas direkt** till ett roll-attribut utan att använda ett uttryck för att parsa roll informationen. 
 
 - **SingleAppRoleAssignment** 
   - **När du ska använda:** Använd SingleAppRoleAssignment-uttrycket för att etablera en enskild roll för en användare och för att ange den primära rollen. 
   - **Så här konfigurerar du:** Använd stegen som beskrivs ovan för att navigera till sidan mappningar för attribut och Använd SingleAppRoleAssignment-uttrycket för att mappa till roles-attributet. Det finns tre roll-attribut att välja mellan: (roller [Primary EQ "true"]. display, roles [Primary EQ "true]. type och Roles [Primary EQ" true "]. Value). Du kan välja att inkludera alla eller alla roll-attribut i dina mappningar. Om du vill inkludera mer än en lägger du bara till en ny mappning och inkluderar den som målattribut.  
   
-  ![Lägg till SingleAppRoleAssignment](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![Lägg till SingleAppRoleAssignment](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **Saker att tänka på**
     - Se till att flera roller inte är tilldelade till en användare. Vi kan inte garantera vilken roll som ska tillhandahållas.
     
@@ -231,11 +231,11 @@ Använd stegen nedan för att etablera roller för en användare till ditt progr
   - **När du ska använda:** Använd AppRoleAssignmentsComplex-uttrycket för att etablera flera roller för en användare. 
   - **Så här konfigurerar du:** Redigera listan över attribut som stöds enligt beskrivningen ovan för att inkludera ett nytt attribut för roller: 
   
-    ![Lägga till roller](./media/customize-application-attributes/add-roles.png)<br>
+    ![Lägg till roller](media/customize-application-attributes/add-roles.png)<br>
 
     Använd sedan AppRoleAssignmentsComplex-uttrycket för att mappa till attributet anpassad roll som visas på bilden nedan:
 
-    ![Lägg till AppRoleAssignmentsComplex](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![Lägg till AppRoleAssignmentsComplex](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **Saker att tänka på**
     - Alla roller kommer att tillhandahållas som primär = falskt.
     - INLÄGGET innehåller roll typen. PATCH-begäran innehåller ingen typ. Vi arbetar med att skicka in typen i både POST-och PATCH-begäranden.

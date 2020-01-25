@@ -3,20 +3,20 @@ title: Skapa funktioner i SQL Server med SQL och Python - Team Data Science Proc
 description: Skapa funktioner för data som lagras i en SQL Server-VM på Azure med SQL och Python – en del av Team Data Science Process.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982058"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721752"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Skapa funktioner för data i SQL Server med SQL och Python
 Det här dokumentet visar hur du skapar funktioner för data som lagras i en SQL Server-VM på Azure som hjälper algoritmer som Lär dig mer effektivt från data. Du kan använda SQL-databaser eller ett programmeringsspråk som Python för att åstadkomma detta. Båda metoderna är visas här.
@@ -37,9 +37,9 @@ Den här artikeln förutsätter att du har:
 ## <a name="sql-featuregen"></a>Funktionen generation med SQL
 I det här avsnittet beskrivs olika sätt att generera funktioner med hjälp av SQL:  
 
-1. [Antal baserat funktionen Generation](#sql-countfeature)
-2. [Datagruppering funktionen Generation](#sql-binningfeature)
-3. [Lansera funktionerna från en enda kolumn](#sql-featurerollout)
+* [Antal baserat funktionen Generation](#sql-countfeature)
+* [Datagruppering funktionen Generation](#sql-binningfeature)
+* [Lansera funktionerna från en enda kolumn](#sql-featurerollout)
 
 > [!NOTE]
 > När du har genererat ytterligare funktioner kan du lägga till dem som kolumner i den befintliga tabellen eller skapa en ny tabell med ytterligare funktioner och primär nyckel, som kan kopplas till den ursprungliga tabellen.
@@ -47,7 +47,7 @@ I det här avsnittet beskrivs olika sätt att generera funktioner med hjälp av 
 > 
 
 ### <a name="sql-countfeature"></a>Baserat på antal funktionen generation
-Det här dokumentet visar två sätt att generera antal funktioner. Den första metoden använder villkorlig summan och den andra metoden använder ”where”-satsen. Dessa kan sedan kopplas till den ursprungliga tabellen (med primärnyckelskolumnerna) om du vill att antal funktioner tillsammans med den ursprungliga informationen.
+Det här dokumentet visar två sätt att generera antal funktioner. Den första metoden använder villkorlig summan och den andra metoden använder ”where”-satsen. De här nya funktionerna kan sedan anslutas till den ursprungliga tabellen (med primär nyckel kolumner) för att räkna funktioner tillsammans med ursprungliga data.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ Det här dokumentet visar två sätt att generera antal funktioner. Den första 
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>Datagruppering funktionen Generation
-I följande exempel visas hur du skapar binned funktioner av diskretisering (med 5 lagerplatser) en numerisk kolumn som kan användas som en funktion i stället:
+I följande exempel visas hur du skapar binned funktioner av diskretisering (med fem lagerplatser) en numerisk kolumn som kan användas som en funktion i stället:
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ Här är en kort introduktion på latitud/longitud platsdata (resurstilldelas fr
 * Den tredje decimalen är värt att upp till 110 m: kan identifiera ett stort agricultural fält eller institutionella campus.
 * Fjärde decimal är värt att upp till 11 m: mark kan identifiera. Det är jämförbar vanliga riktighet en okorrigerad GPS-enhet utan störningar.
 * Den femte decimalen är värt att upp till 1.1 m: den särskiljer träd från varandra. Precision på den här nivån med kommersiella GPS-enheter kan bara ske med differentiell korrigering.
-* Den sjätte decimalen är värt att upp till 0.11 m: du kan använda detta strållayoutmotor strukturer i detalj, för att utforma landskap, för att skapa vägar. Det bör vara mer än tillräckligt bra för att spåra förflyttningar av glaciers och vattendrag. Detta kan uppnås genom att utföra painstaking åtgärder med GPS, till exempel differentially korrigerad GPS.
+* Den sjätte decimalen är värd för upp till 0,11 m: du kan använda den här nivån för att utforma strukturer i detalj, för att utforma landskap, bygga vägar. Det bör vara mer än tillräckligt bra för att spåra förflyttningar av glaciers och vattendrag. Det här målet kan uppnås genom att vidta painstaking-åtgärder med GPS, till exempel Differentiellt korrigerat GPS.
 
-Platsinformationen kan vara trädmodell genom att ange region, plats och information om ort. Observera att en gång kan också anropa en REST-slutpunkt, till exempel Bing Maps-API som är tillgängliga på `https://msdn.microsoft.com/library/ff701710.aspx` att hämta information om region/distrikt.
+Platsinformationen kan vara trädmodell genom att ange region, plats och information om ort. En gång kan också anropa en REST-slutpunkt, till exempel Bing Maps API (se `https://msdn.microsoft.com/library/ff701710.aspx` för att hämta region/distrikts information).
 
     select
         <location_columnname>
@@ -89,7 +89,7 @@ Platsinformationen kan vara trädmodell genom att ange region, plats och informa
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Dessa funktioner i platsbaserade kan ytterligare används för att generera ytterligare antal funktioner enligt beskrivningen ovan.
+Dessa funktioner för plats-baserade kan ytterligare används för att generera ytterligare antal funktioner enligt beskrivningen ovan.
 
 > [!TIP]
 > Du kan via programmering Infoga posterna språk du föredrar. Du kan behöva infogar data i segment för att förbättra effektiviteten för skrivning. [Här är ett exempel på hur du gör detta med hjälp av pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).

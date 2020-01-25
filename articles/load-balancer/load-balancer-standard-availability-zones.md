@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903339"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715268"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Standard Load Balancer och tillgänglighetszoner
 
@@ -37,7 +37,7 @@ I samband med tillgänglighets zoner beskrivs beteende och egenskaper för en Lo
 
 Både offentliga och interna Load Balancer stödja zoner – redundanta och zonindelade scenarier och båda kan dirigera trafik mellan zoner vid behov (*belastnings utjämning mellan*zoner). 
 
-### <a name="frontend"></a>Klientdel
+### <a name="frontend"></a>Delen
 
 En Load Balancer-frontend är en IP-konfiguration för klient delen som hänvisar till antingen en offentlig IP-adressresurs eller en privat IP-adress inom under nätet för en virtuell nätverks resurs.  Den utgör den belastningsutjämnade slut punkten där tjänsten exponeras.
 
@@ -143,7 +143,7 @@ Följande utdrag är en illustration för hur du definierar en intern Standard L
                 ],
 ```
 
-De föregående utdragen är inte fullständiga mallar, men tänk på att visa egenskaper för att uttrycka tillgänglighets zoner.  Du måste lägga till dessa instruktioner i dina mallar.
+Föregående utdrag är inte fullständiga mallar, men tänk på att visa egenskaper för att uttrycka tillgänglighets zoner.  Du måste lägga till dessa instruktioner i dina mallar.
 
 ### <a name="cross-zone-load-balancing"></a>Belastnings utjämning mellan zoner
 
@@ -151,7 +151,7 @@ Belastnings utjämning mellan zoner är möjligheten för Load Balancer att komm
 
 Du måste vara noga med att skapa scenariot på ett sätt som uttrycks av en tillgänglighets zon. Du behöver exempelvis garantera distributionen av virtuella datorer i en enskild zon eller flera zoner och justera zonindelade-frontend-och zonindelade-backend-resurser till samma zon.  Om du korsar tillgänglighets zoner med endast zonindelade-resurser, kommer scenariot att fungera, men det kanske inte har ett rensat felläge med avseende på tillgänglighets zoner. 
 
-### <a name="backend"></a>Serverdel
+### <a name="backend"></a>Backend
 
 Load Balancer fungerar med Virtual Machines-instanser.  Dessa kan vara fristående, tillgänglighets uppsättningar eller skalnings uppsättningar för virtuella datorer.  Alla instanser av virtuella datorer i ett enda virtuellt nätverk kan vara en del av backend-poolen oavsett om den har garanterats till en zon eller om den var garanterad för en zon.
 

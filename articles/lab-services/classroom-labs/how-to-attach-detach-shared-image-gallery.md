@@ -1,6 +1,6 @@
 ---
 title: Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services | Microsoft Docs
-description: Lär dig hur du ansluter ett delat avbildnings galleri till ett labb i Azure Lab Services.
+description: I den här artikeln beskrivs hur du ansluter ett delat avbildnings galleri till ett klass rums labb i Azure Lab Services.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 4f3f435110f0cba5ea2370f2900d4e7031904067
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 98a21e9fa846d5a91ed1242701484afaa641cddc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890319"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718041"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Koppla eller koppla från ett delat avbildnings galleri i Azure Lab Services
 Lärare/labb administratören kan spara en mall för en virtuell dator i ett galleri för Azure- [delade avbildningar](../../virtual-machines/windows/shared-image-galleries.md) så att de kan återanvändas av andra. Som ett första steg kopplar labb administratören ett befintligt delat avbildnings galleri till labb kontot. När du har bifogat det delade bild galleriet kan labb som skapats i labb kontot Spara bilder i det delade avbildnings galleriet. Andra lärare kan välja den här avbildningen från galleriet för delade avbildningar för att skapa en mall för deras klasser. 

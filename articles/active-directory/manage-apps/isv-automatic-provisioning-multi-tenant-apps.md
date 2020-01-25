@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e7f60335b3e75d93f408dec3386ca0bdcd6a0388
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232320"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711451"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
 
@@ -56,7 +56,7 @@ Program som kräver att en användar post finns i programmet innan en användare
 
 Azure AD tillhandahåller flera integrerings vägar för att aktivera automatisk användar etablering för programmet.
 
-* [Azure AD Provisioning-tjänsten](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) hanterar etableringen och avetableringen av användare från Azure AD till ditt program (utgående etablering) och från ditt program till Azure AD (inkommande etablering). Tjänsten ansluter till systemet med API-slutpunkter för användar hantering i SCIM (Cross-Domain Identity Management) som tillhandahålls av ditt program.
+* [Azure AD Provisioning-tjänsten](user-provisioning.md) hanterar etableringen och avetableringen av användare från Azure AD till ditt program (utgående etablering) och från ditt program till Azure AD (inkommande etablering). Tjänsten ansluter till systemet med API-slutpunkter för användar hantering i SCIM (Cross-Domain Identity Management) som tillhandahålls av ditt program.
 
 * När du använder [Microsoft Graph](https://docs.microsoft.com/graph/)hanterar ditt program inkommande och utgående etablering av användare och grupper från Azure AD till ditt program genom att fråga Microsoft Graph-API: et.
 
@@ -87,9 +87,9 @@ Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i:
 
 * [Läs mer om SCIM-standarden](https://aka.ms/SCIMOverview)
 
-* [Använda systemet för SCIM (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Använda systemet för SCIM (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](use-scim-to-provision-users-and-groups.md)
 
-* [Förstå Azure AD SCIM-implementeringen](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Förstå Azure AD SCIM-implementeringen](use-scim-to-provision-users-and-groups.md)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph för etablering
 
@@ -113,9 +113,9 @@ Om du bara vill etablera användare vid första inloggningen till ditt program o
 
 SAML JIT använder anspråks informationen i SAML-token för att skapa och uppdatera användar information i programmet. Kunder kan konfigurera dessa nödvändiga anspråk i Azure AD-programmet efter behov. Ibland måste JIT-etableringen aktive ras från program sidan så att kunden kan använda den här funktionen. SAML JIT är användbart för att skapa och uppdatera användare, men det går inte att ta bort eller inaktivera användare i programmet.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
-* [Aktivera enkel inloggning för ditt program](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Aktivera enkel inloggning för ditt program](isv-sso-content.md)
 
 * [Skicka in din program lista](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) och partner med Microsoft för att skapa dokumentation på Microsofts webbplats.
 

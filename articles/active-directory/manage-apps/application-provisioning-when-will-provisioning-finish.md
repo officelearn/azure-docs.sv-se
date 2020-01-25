@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7425731a8d4adde11cd3f15df2cd27cd8541f615
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d0c2586b129935043ae7b2eccd11cc3d65a385c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275702"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712087"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer
 
@@ -33,7 +33,7 @@ Efterföljande synkroniseringar efter den första cykeln går snabbare, eftersom
 
 Om den första cykeln tar längre tid än några timmar kan du förbättra prestandan genom att göra något av följande:
 
--   **Användar omfångs filter.** Med omfångs filter kan du finjustera de data som etablerings tjänsten extraherar från Azure AD genom att filtrera ut användare baserat på särskilda attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters).
+-   **Användar omfångs filter.** Med omfångs filter kan du finjustera de data som etablerings tjänsten extraherar från Azure AD genom att filtrera ut användare baserat på särskilda attributvärden. Mer information om omfångs filter finns i [attribut-baserad program etablering med omfångs filter](define-conditional-rules-for-provisioning-user-accounts.md).
 
 ## <a name="next-steps"></a>Nästa steg
 [Automatisera användaretablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md)

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
-ms.openlocfilehash: ad9437b135e48dcfaff9efa5f6daf345d78e79ef
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 094d9fe7425a6192ce2af94c3ea18cac20ff9ded
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895327"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720341"
 ---
 # <a name="archived-release-notes"></a>Arkiverad viktig information
 
@@ -41,7 +41,7 @@ Med HDInsight kan du nu använda din egen SQL-databas för Apache Ambari. Du kan
 ### <a name="deprecation"></a>Utfasning
 Inga utfasningar för den här versionen. För att komma igång med kommande inaktuella ändringar, se [kommande ändringar](#upcoming-changes).
 
-### <a name="behavior-changes"></a>Funktionalitetsförändringar
+### <a name="behavior-changes"></a>Beteende ändringar
 Inga beteende ändringar för den här versionen. Om du vill komma igång med kommande funktions ändringar, se [kommande ändringar](#upcoming-changes).
 
 ### <a name="upcoming-changes"></a>Kommande ändringar
@@ -52,10 +52,10 @@ Transport Layer Security (TLS) och Secure Sockets Layer (SSL) är krypterings pr
 
 Från och med nästa version kommer du att kunna välja och konfigurera dina nya HDInsight-kluster så att endast TLS 1,2-anslutningar accepteras. 
 
-Senare under året, med början den 6/30/2020, kommer Azure HDInsight att verkställa TLS 1,2 eller senare versioner för alla HTTPS-anslutningar. Vi rekommenderar att du ser till att alla klienter är redo att hantera TLS 1,2 eller senare versioner.
+Senare under året, med början den 6/30/2020, kommer Azure HDInsight att verkställa TLS 1,2 eller senare versioner för alla HTTPS-anslutningar. Kontrollera att alla dina klienter kan hantera TLS 1.2 eller senare versioner.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Flytta till skalnings uppsättningar för virtuella Azure-datorer
-HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med Feburary 2020 (det exakta datumet kommer att meddelas senare) kommer HDInsight att använda skalnings uppsättningar för virtuella Azure-datorer i stället. Läs mer om [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
+HDInsight använder nu virtuella Azure-datorer för att etablera klustret. Från och med februari 2020 (ett exakt datum kommer att meddelas senare) kommer HDInsight att använda skalnings uppsättningar för virtuella Azure-datorer i stället. Läs mer om [skalnings uppsättningar för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview).
 
 #### <a name="esp-spark-cluster-node-size-change"></a>Ändra storlek på ESP Spark-klusternod 
 I den kommande versionen:
@@ -125,7 +125,7 @@ I den här versionen erbjuds virtuella datorer i G-serien inte längre i HDInsig
 #### <a name="dv1-virtual-machine-deprecation"></a>DV1 för virtuell dator
 I den här versionen är användningen av virtuella DV1-datorer med HDInsight inaktuell. Alla kund förfrågningar för DV1 kommer att behandlas automatiskt med Dv2. Det finns ingen pris skillnad mellan DV1-och Dv2-VM: ar.
 
-### <a name="behavior-changes"></a>Funktionalitetsförändringar
+### <a name="behavior-changes"></a>Beteende ändringar
 
 #### <a name="cluster-managed-disk-size-change"></a>Storleks ändring för kluster hanterad disk
 HDInsight tillhandahåller hanterat disk utrymme med klustret. I den här versionen ändras den hanterade disk storleken för varje nod i det nya skapade klustret till 128 GB.
@@ -878,7 +878,7 @@ Den här versionen innehåller Ranger 0.7.0 och följande Apache-korrigeringsfil
 
 -   [Ranger-2008](https://issues.apache.org/jira/browse/RANGER-2008): princip utvärderingen fungerar inte för princip villkor för flera rader.
 
-#### <a name="slider"></a>Skjutreglage
+#### <a name="slider"></a>Slider
 
 Den här versionen innehåller skjutreglage 0.92.0 utan ytterligare Apache-korrigeringsfiler.
 
@@ -1673,7 +1673,7 @@ Fasta problem representerar valda problem som tidigare har loggats via Hortonwor
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-### <a name="upgrading"></a>Uppgradera
+### <a name="upgrading"></a>Fortsätter
 
 Alla dessa funktioner är tillgängliga i HDInsight 3,6. Du kan hämta den senaste versionen av Spark, Kafka och R Server (Machine Learning Services) genom att välja Spark, Kafka, ML Services-versionen när du [skapar ett HDInsight 3,6-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). Om du vill ha stöd för ADLS kan du välja lagrings typen ADLS som ett alternativ. Befintliga kluster uppgraderas inte automatiskt till dessa versioner.
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354284"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720307"
 ---
 # <a name="troubleshoot-input-connections"></a>Felsöka indataanslutningar
 
@@ -24,11 +24,13 @@ Den här sidan beskriver vanliga problem med inkommande anslutningar och hur du 
 
 2.  Granska dina indata.
 
-    Använd för att kontrollera att data flödar till Event Hub, [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) att ansluta till Azure Event Hub (om Händelsehubben indata används).
+    1. Använd för att kontrollera att data flödar till Event Hub, [Service Bus Explorer](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a) att ansluta till Azure Event Hub (om Händelsehubben indata används).
         
-    Använd den [ **exempeldata** ](stream-analytics-sample-data-input.md) för varje indata och ladda ned exempeldata för ingången.
+    1. Använd [**exempel data**](stream-analytics-sample-data-input.md) knappen för varje inmatning. Hämta exempel data för indata.
         
-    Gå igenom dina exempeldata för att förstå formen: schemat och [datatyper](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+    1. Granska exempel data för att förstå formen på data – det vill säga schema-och [data typerna](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics).
+
+3.  Se till att du har valt ett tidsintervall i förhands granskningen. Välj **Välj tidsintervall**och ange sedan en tids längd innan du testar frågan.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>Felaktiga indatahändelser resulterar i deserialiseringsfel 
 Deserialisering problem orsakas när Indataströmmen för Stream Analytics-jobbet innehåller felaktig meddelanden. Ett felaktigt meddelande kan exempelvis ha orsakats av en parentes saknas eller en klammerparentes i JSON-objektet, eller en felaktig tidstämpelformatet i fältet. 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514494"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719848"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -130,7 +130,7 @@ Se exempel:
 
 ### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure Monitor stöd för Media Services diagnostikloggar och mått
 
-Du kan nu använda Azure Monitor för att Visa telemetri-data emmited genom att Media Services.
+Du kan nu använda Azure Monitor för att Visa telemetri-data som har avsänts av Media Services.
 
 * Använd Azure Monitor diagnostikloggar för att övervaka begär Anden som skickas av Media Services Key Delivery-slutpunkten. 
 * Övervaka Mät värden som genereras av Media Services [slut punkter för direkt uppspelning](streaming-endpoint-concept.md).   

@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934481"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720746"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lista roll tilldelningar med hjälp av Azure RBAC och Azure Portal
 
@@ -125,6 +125,16 @@ Om du vill visa en lista över åtkomsten för en användare, grupp, tjänstens 
     ![Roll tilldelningar för en systemtilldelad hanterad identitet](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. Klicka på listan **prenumerationer** om du vill ändra prenumerationen.
+
+## <a name="list-number-of-role-assignments"></a>Lista antal roll tilldelningar
+
+Du kan ha upp till **2000** roll tilldelningar i varje prenumeration. För att hjälpa dig att hålla koll på dessa begränsningar innehåller fliken **roll tilldelningar** ett diagram som visar det aktuella antalet roll tilldelningar.
+
+![Åtkomst kontroll-antal roll tilldelnings diagram](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+Om du får nära det högsta antalet och du försöker lägga till fler roll tilldelningar visas en varning i fönstret **Lägg till roll tilldelning** . Du kan minska antalet roll tilldelningar genom att ta bort roll tilldelningar som inte längre behövs eller genom att tilldela roller till grupper i stället för enskilda användare.
+
+![Åtkomst kontroll – Lägg till Roll tilldelnings varning](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

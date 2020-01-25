@@ -2,13 +2,13 @@
 title: Resurser utan gräns för 800
 description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: c4f452a13c2059c02bf675ca4fe80243257183d5
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 01/23/2020
+ms.openlocfilehash: 42e8ddeebcd1dda4fc67e4e7be137c5e01decdf4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659329"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715620"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
@@ -26,6 +26,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * registreringar
 * registreringar/customerSubscriptions
 * registreringar/produkter
+* verificationKeys
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -82,9 +83,10 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* autoManagedVmConfigurationProfiles
 * configurationProfileAssignments
 * guestConfigurationAssignments
-* programvara
+* IntelliPoint
 * softwareUpdateProfile
 * softwareUpdates
 
@@ -176,8 +178,12 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 * apiManagementAccounts/apis
-* webbplatser
+* stationer
+
+## <a name="microsoftinsights"></a>microsoft.insights
+
+* metricalerts
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig lista över kvoter och begränsningar finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
+En fullständig lista över kvoter och begränsningar finns i [Azure-prenumerationer, tjänst gränser, kvoter och begränsningar](azure-subscription-service-limits.md).

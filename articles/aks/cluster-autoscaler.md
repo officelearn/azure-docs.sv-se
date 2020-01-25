@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885797"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713395"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Skala automatiskt ett kluster så att det uppfyller program kraven i Azure Kubernetes service (AKS)
 
@@ -41,7 +41,7 @@ För att justera för att ändra program krav, till exempel mellan arbets dagar 
 
 Både den automatiska skalnings tjänsten för Pod och klustret kan också minska antalet poddar och noder efter behov. Klustrets autoskalning minskar antalet noder när det finns outnyttjad kapacitet under en tids period. Poddar på en nod som ska tas bort av klustrets autoskalning är säkert schemalagt i klustret. Klustrets autoskalning kan inte skalas ned om poddar inte kan flyttas, till exempel i följande situationer:
 
-* En pod har skapats direkt och backas inte upp av ett kontrollant-objekt, t. ex. en distribution eller replik uppsättning.
+* En POD skapas direkt och backas inte upp av ett kontroll enhets objekt, till exempel en distribution eller replik uppsättning.
 * En POD störnings budget (PDB) är för begränsad och tillåter inte att antalet poddar kan falla under ett visst tröskelvärde.
 * En POD använder Node-väljare eller anti-tillhörighet som inte kan användas om de är schemalagda på en annan nod.
 
@@ -61,7 +61,7 @@ Om du behöver skapa ett AKS-kluster använder du kommandot [AZ AKS Create][az-a
 > [!IMPORTANT]
 > Klustrets autoskalning är en Kubernetes-komponent. Även om AKS-klustret använder en skalnings uppsättning för virtuella datorer för noderna, ska du inte manuellt aktivera eller redigera inställningarna för skalnings uppsättning autoskalning i Azure Portal eller med hjälp av Azure CLI. Låt Kubernetes-klustret hantera de nödvändiga skalnings inställningarna. Mer information finns i [kan jag ändra AKS-resurserna i noden resurs grupp?](faq.md#can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group)
 
-I följande exempel skapas ett AKS-kluster med en pool med flera noder som backas upp av en skalnings uppsättning för virtuella datorer. Det aktiverar också klustrets autoskalning på nodens nod för klustret och anger minst *1* och högst *3* noder:
+I följande exempel skapas ett AKS-kluster med en pool med en enda nod som backas upp av en skalnings uppsättning för virtuella datorer. Det aktiverar också klustrets autoskalning på nodens nod för klustret och anger minst *1* och högst *3* noder:
 
 ```azurecli-interactive
 # First create a resource group

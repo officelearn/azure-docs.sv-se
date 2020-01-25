@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7da3c3de5074df80c676238e4d43dbd677b0a3b4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091818"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720239"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>Message-sessioner: först in, först ut (FIFO) 
 
@@ -54,7 +54,7 @@ Sessioner ger samtidiga indata strömmar av överlagrade meddelande strömmar sa
 
 En [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) -mottagare skapas av klienten som accepterar en session. Klienten anropar [QueueClient. AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) eller [QueueClient. AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) i C#. I den återaktiverade återanrops modellen registreras en sessions hanterare.
 
-När [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) -objektet godkänns och när det innehas av en klient, har klienten ett exklusivt lås på alla meddelanden med sessionens [SessionID](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) som finns i kön eller prenumerationen och även på alla meddelanden med detta **SessionID** som fortfarande anländer när sessionen hålls.
+När [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession) -objektet godkänns och när det innehas av en klient, har klienten ett exklusivt lås på alla meddelanden med sessionens [SessionID](/dotnet/api/microsoft.servicebus.messaging.messagesession.sessionid#Microsoft_ServiceBus_Messaging_MessageSession_SessionId) som finns i kön eller prenumerationen, och även på alla meddelanden med det **SessionID** som fortfarande anländer när sessionen hålls.
 
 Låset släpps när **Close** eller **CloseAsync** anropas, eller när låset upphör att gälla i fall där programmet inte kan utföra stängnings åtgärden. Sessions låset bör behandlas som ett exklusivt lås på en fil, vilket innebär att programmet ska stänga sessionen så fort den inte längre behöver den och/eller inte förväntar sig några ytterligare meddelanden.
 
@@ -82,12 +82,12 @@ Sessionstillståndet lagras i en kö eller i en prenumeration mot entitetens lag
 
 ## <a name="impact-of-delivery-count"></a>Påverkan av leverans antal
 
-Definitionen av leverans antal per meddelande i samband med sessioner skiljer sig något från definitionen i avsaknad av sessioner. Här är en tabell som sammanfattas när leverans antalet ökar.
+Definitionen av leverans antal per meddelande i samband med sessioner skiljer sig något från definitionen om det inte finns några sessioner. Här är en tabell som sammanfattas när leverans antalet ökar.
 
 | Scenario | Är meddelandets leverans antal ökas |
 |----------|---------------------------------------------|
 | Sessionen godkänns, men sessions låset upphör att gälla (på grund av tids gräns) | Ja |
-| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | Nej |
+| Sessionen godkänns, meddelandena i sessionen slutförs inte (även om de är låsta) och sessionen stängs | Inga |
 | Sessionen godkänns, meddelanden slutförs och sedan stängs sessionen explicit | Ej tillämpligt (detta är standard flödet. Meddelanden tas bort från sessionen) |
 
 ## <a name="next-steps"></a>Nästa steg

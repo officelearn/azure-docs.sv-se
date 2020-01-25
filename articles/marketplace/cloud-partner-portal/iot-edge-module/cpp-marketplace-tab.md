@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8021b6fe40e006a95b3eeff1031606c38cc47b87
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814606"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721633"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Fliken Marketplace för IoT Edge modulen
 
@@ -33,8 +33,8 @@ I följande tabell beskrivs syftet med och innehållet i dessa fält. Obligatori
 | **Rubrik\***                 | Rubriken på erbjudandet. Den visas på ett framträdande sätt i Marketplace.  Maximal längd på 50 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Sammanfattning\***               | Kort sammanfattning av erbjudandet. Maximal längd på 100 tecken. <!--ADD PICTURE IN ACTION-->|
 | **Lång Sammanfattning\***          | Längre sammanfattning av erbjudandet (även om det kan vara samma som i **sammanfattningen**).  Maximal längd på 256 tecken. <!--ADD PICTURE IN ACTION-->|
-| **Beskrivning\***           | Beskrivning av erbjudandet.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering.<br/> Det måste innehålla ett stycke med *minsta maskin varu krav* längst ned. exempel: <br/> <p><u>Minsta maskin varu krav:</u> Linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme</p>
-| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Till exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **Beskrivning\***           | Beskrivning av erbjudandet.  Den maximala längden på 3000 tecken, stöder enkel HTML-formatering.<br/> Det måste innehålla ett stycke med *minsta maskin varu krav* längst ned. Exempel: <br/> <p><u>Minsta maskin varu krav:</u> Linux x64 och ARM32 OS, 1 GB RAM, 500 MB lagrings utrymme</p>
+| **Marknadsförings-ID\***  | En unik URL som associeras med det här erbjudandet, och innehåller vanligt vis organisations-och lösnings namn, högst 50 tecken.  Ett exempel: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **Förhandsgranska prenumerations-ID: n** | Lägg till en till 100 prenumerations-ID för för hands visare. Dessa vita prenumerationer kommer att ha åtkomst till erbjudandet när det har publicerats, innan det går live. |
 | **Användbara länkar**          | Flera val av affärs-och teknik kategorier som erbjuder passar bäst för.  Högst 10 tillåts. Se till att lägga till minst en länk till din dokumentation och en länk till de kompatibla IoT Edge enheterna från [Azure IoT-katalogen](https://catalog.azureiotsolutions.com/). |
 | **Föreslagna kategorier\*** | Hämta upp till fem kategorier. De visas på produkt informations sidan. På sidan bläddra visas alla IoT Edge moduler under kategorin *Sakernas Internet \> IoT Edge modul* .|
@@ -129,7 +129,7 @@ Använd följande rikt linjer för en hjälte logo typ:
 *  Undvik att använda den mesta texten när du utformar logo typen. Utgivar namnet, plan rubriken, erbjudandet lång Sammanfattning och en knappen Skapa bäddas in program mässigt inuti logo typen när erbjudandet visas. 
 * Ta med ett oanvänt rektangulärt utrymme på den högra sidan av din hjälte logo typ. Det tomma utrymmet är 415x100 pixlar och förskjuts från vänster med 370 bild punkter.  
 
-<!-- P2: woudl be nice to also have an picture int he context of iot edge of the hero image
+<!-- P2: would be nice to also have an picture int he context of iot edge of the hero image
 As an example, the following hero icon is for the Azure Container Service.
 
 ![Example hero icon for Azure Container Service](./media/publishvm_010.png)

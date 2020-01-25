@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: b33366b65fed0042eb3024c2264bce1c4a1c4c1d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651636"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715683"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Azure-hanterade program med meddelanden
 
@@ -33,7 +33,7 @@ Information om hur du kommer igång finns i [publicera ett tjänst katalog progr
 
 ![Aviseringar för program definition i tjänst katalogen i Azure Portal](./media/publish-notifications/service-catalog-notifications.png)
 
-#### <a name="rest-api"></a>REST-API
+#### <a name="rest-api"></a>REST API
 
 > [!NOTE]
 > För närvarande kan du bara ange en slut punkt i `notificationEndpoints` i egenskaperna för program definitionen.
@@ -69,10 +69,10 @@ I följande tabell beskrivs alla möjliga kombinationer av EventType och Provisi
 
 Typ | ProvisioningState | Utlösare för avisering
 ---|---|---
-PLACERA | Godkänd | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
+PLACERA | Accept | En hanterad resurs grupp har skapats och projicerats efter att program har lagts till (innan distributionen i den hanterade resurs gruppen har startats).
 PLACERA | Lyckades | Fullständig etablering av det hanterade programmet lyckades efter en placering.
 PLACERA | Misslyckad | Det gick inte att ställa in program instansens etablerings plats.
-PATCH | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
+9\.0a | Lyckades | Efter en lyckad korrigering på den hanterade program instansen för att uppdatera taggar, JIT-åtkomstkontroll eller hanterad identitet.
 DELETE | Tas bort | Så snart användaren initierar en borttagning av en hanterad App-instans.
 DELETE | Borttagen | Efter en fullständig och lyckad borttagning av det hanterade programmet.
 DELETE | Misslyckad | Efter ett fel under avetablerings processen som blockerar borttagningen.
@@ -181,15 +181,15 @@ Parameter | Beskrivning
 eventType | Typ av händelse som utlöste meddelandet. (Till exempel, skicka, korrigera, ta bort.)
 applicationId | Det fullständigt kvalificerade resurs-ID: t för det hanterade program som meddelandet utlöstes för.
 eventTime | Tidsstämpeln för händelsen som utlöste meddelandet. (Datum och tid i formatet UTC-ISO 8601.)
-provisioningState | Etablerings statusen för den hanterade program instansen. (Till exempel lyckad, misslyckad, borttagning, borttagen.)
+ProvisioningState | Etablerings statusen för den hanterade program instansen. (Till exempel lyckad, misslyckad, borttagning, borttagen.)
 fel | *Anges bara när ProvisioningState misslyckades*. Innehåller felkod, meddelande och information om problemet som orsakade felet.
 applicationDefinitionId | *Anges endast för hanterade program i tjänst katalog*. Representerar det fullständigt kvalificerade resurs-ID: t för den program definition som den hanterade program instansen etablerades för.
-planera | *Anges endast för hanterade program i Azure Marketplace*. Representerar utgivare, erbjudande, SKU och version för den hanterade program instansen.
+projektplan | *Anges endast för hanterade program i Azure Marketplace*. Representerar utgivare, erbjudande, SKU och version för den hanterade program instansen.
 billingDetails | *Anges endast för hanterade program i Azure Marketplace.* Fakturerings information för den hanterade program instansen. Innehåller resourceUsageId som du kan använda för att söka efter användnings information i Azure Marketplace.
 
 ## <a name="endpoint-authentication"></a>Endpoint Authentication
 För att skydda webhook-slutpunkten och se till att aviseringen är äkta:
-1. Ange en frågeparameter ovanpå webhook-URI: n, så här: https://your-endpoint.com?sig=Guid. I varje meddelande kontrollerar du att Frågeparametern `sig` har det förväntade värdet `Guid`.
+1. Ange en frågeparameter ovanpå webhook-URI: n, så här: https\://Your-Endpoint.com? sig = GUID. I varje meddelande kontrollerar du att Frågeparametern `sig` har det förväntade värdet `Guid`.
 2. Utfärda en GET på den hanterade program instansen med hjälp av applicationId. Kontrol lera att provisioningState matchar provisioningState för meddelandet för att säkerställa konsekvens.
 
 ## <a name="notification-retries"></a>Aviserings försök

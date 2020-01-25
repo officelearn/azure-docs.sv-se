@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 856c249b72e9e0ff8667d10821ad14b3432b0775
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509197"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720279"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Vanliga frågor och svar om Azure Network Watcher
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) -tjänsten innehåller en uppsättning verktyg för att övervaka, diagnostisera, Visa mått och aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. I den här artikeln besvaras vanliga frågor om tjänsten.
@@ -71,9 +71,9 @@ Endast paket fångst, anslutnings fel sökning och anslutnings övervakare behö
 ### <a name="what-does-nsg-flow-logs-do"></a>Vad gör NSG Flow-loggarna?
 Azure nätverks resurser kan kombineras och hanteras via [nätverks säkerhets grupper (NSG: er)](https://docs.microsoft.com/azure/virtual-network/security-overview). Med NSG Flow-loggar kan du logga 5 tuple-flödes information om all trafik via din NSG: er. Obehandlade flödes loggar skrivs till ett Azure Storage-konto där de kan bearbetas, analyseras, efter frågas eller exporteras efter behov.
 
-### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall"></a>Hur gör jag för att använda flödes loggar för NSG på ett lagrings konto med en brand vägg?
+### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en brand vägg?
 
-Om du vill använda ett lagrings konto med en brand vägg måste du ange ett undantag för betrodda Microsoft-tjänster för åtkomst till ditt lagrings konto:
+Om du vill använda ett lagrings konto bakom en brand vägg måste du ange ett undantag för betrodda Microsoft-tjänster för åtkomst till ditt lagrings konto:
 
 * Navigera till lagrings kontot genom att skriva lagrings kontots namn i den globala sökningen på portalen eller från [sidan lagrings konton](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
 * Under avsnittet **INSTÄLLNINGAR** väljer du **Brandväggar och virtuella nätverk**
@@ -83,9 +83,9 @@ Om du vill använda ett lagrings konto med en brand vägg måste du ange ett und
 
 Du kan kontrollera lagringsloggarna efter några minuter och bör se en uppdaterad tidsstämpel eller en ny JSON-fil som skapats.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints-for-storage"></a>Hur gör jag för att använda flödes loggar för NSG med tjänst slut punkter för lagring?
+### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>Hur gör jag för att använda flödes loggar för NSG med ett lagrings konto bakom en tjänst slut punkt?
 
-Se [självstudien om hur du aktiverar tjänstens slut punkter](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint). 
+NSG Flow-loggar är compantible med tjänst slut punkter utan att kräva någon extra konfiguration. Se [självstudien om hur du aktiverar tjänstens slut punkter](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) i det virtuella nätverket.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>Vad är skillnaden mellan flödes loggar version 1 & 2?

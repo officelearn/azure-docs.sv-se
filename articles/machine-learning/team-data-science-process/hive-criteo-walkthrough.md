@@ -1,31 +1,31 @@
 ---
-title: Använd Azure HDInsight Hadoop-kluster på 1 TB datauppsättning - Team Data Science Process
+title: Använd Azure HDInsight Hadoop kluster på 1 – TB data uppsättning – team data science process
 description: Med Team Data Science Process för ett scenario för slutpunkt till slutpunkt med ett HDInsight Hadoop-kluster för att skapa och distribuera en modell med hjälp av en stor (1 TB) offentligt tillgängliga datauppsättning
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8d47f6f5b983c0f785c76d1b2cede815dda699a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 04bc29fb8a89f6e863f7c009e5299d1c702bf976
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968722"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721412"
 ---
-# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team Data Science Process fungerar – med hjälp av ett Azure HDInsight Hadoop-kluster på en datauppsättning som 1 TB
+# <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Team data science-processen i praktiken – använda ett Azure HDInsight Hadoop-kluster på en data uppsättning på 1 TB
 
 Den här genomgången visar hur du använder Team Data Science Process i ett scenario för slutpunkt till slutpunkt med ett [Azure HDInsight Hadoop-kluster](https://azure.microsoft.com/services/hdinsight/) för att lagra, utforska, funktionen tekniker och ned exempeldata från en offentligt tillgänglig [ Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättningar. Azure Machine Learning används för att skapa en binär klassificeringsmodell för dessa data. Den visar också hur du publicerar en av dessa modeller som en webbtjänst.
 
 Det är också möjligt att använda en IPython notebook för att utföra uppgifter som visas i den här genomgången. Användare som vill testa den här metoden bör kontakta de [Criteo genomgång med en Hive ODBC-anslutning](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) avsnittet.
 
 ## <a name="dataset"></a>Criteo datauppsättning beskrivning
-Criteo data är en Klicka förutsägelse datauppsättning som är cirka 370GB gzip-komprimerade TSV-filer (~1.3TB okomprimerade), som består av mer än 4.3 miljarder poster. Det hämtas från 24 dagars klickar du på data som har gjorts tillgängliga av [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). För att underlätta för datatekniker har data som är tillgängliga för oss att experimentera med uppzippade.
+Criteo-data är en förutsägelse data uppsättning som är 370 GB gzip-komprimerade TSV filer (~ 1,3 TB okomprimerad), som består av mer än 4 300 000 000 poster. Det hämtas från 24 dagars klickar du på data som har gjorts tillgängliga av [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). För att underlätta för datatekniker har data som är tillgängliga för oss att experimentera med uppzippade.
 
 Varje post i den här datauppsättningen innehåller 40 kolumner:
 
@@ -44,7 +44,7 @@ Här är ett utdrag ur de första 20 kolumnerna i två observationer (rader) fr�
 
 Det finns värden som saknas i både den numeriska och kategoriska kolumnerna i den här datauppsättningen. En enkel metod för att hantera dessa värden beskrivs. Ytterligare information om data prestandahantering när du sparar dem till Hive-tabeller.
 
-**Definition:** *klickningar (CTR):* detta är procentandelen av klick i data. I den här Criteo datauppsättningen är CTR cirka 3.3% eller 0.033.
+**Definition:** *klicknings frekvens (/maskin):* det här måttet är procent andelen klickningar i data. I den här Criteo datauppsättningen är CTR cirka 3.3% eller 0.033.
 
 ## <a name="mltasks"></a>Exempel på uppgifter för förutsägelse
 Två exempel förutsägelse problem åtgärdas i den här genomgången:
@@ -56,39 +56,39 @@ Två exempel förutsägelse problem åtgärdas i den här genomgången:
 2. **Regression**: förutsäger sannolikheten för en ad klickar du på från funktioner.
 
 ## <a name="setup"></a>Ange ett HDInsight Hadoop-kluster för datavetenskap
-**Obs:** detta är vanligtvis en **Admin** uppgift.
+**Obs:** Det här steget är vanligt vis en **Administratörs** uppgift.
 
 Konfigurera din Azure Data Science-miljö för att skapa lösningar för förutsägelseanalys med HDInsight-kluster i tre steg:
 
 1. [Skapa ett lagringskonto](../../storage/common/storage-account-create.md): det här lagringskontot används för att lagra data i Azure Blob Storage. Här lagras data som används i HDInsight-kluster.
 2. [Anpassa Azure HDInsight Hadoop-kluster för Data Science](customize-hadoop-cluster.md): det här steget skapar ett Azure HDInsight Hadoop-kluster med 64-bitars Anaconda Python 2.7 installerat på alla noder. Det finns två viktiga steg (som beskrivs i det här avsnittet) för att slutföra när du anpassar HDInsight-klustret.
 
-   * Du måste koppla storage-konto som skapades i steg 1 med ditt HDInsight-kluster när den skapas. Det här lagringskontot används för att komma åt data som kan bearbetas i klustret.
-   * Du måste aktivera fjärråtkomst till huvudnoden i klustret när den har skapats. Kom ihåg fjärråtkomst-autentiseringsuppgifter som du anger här (skiljer sig från de som angetts för klustret när skapades): du behöver dem för att slutföra följande procedurer.
+   * Länka lagrings kontot som skapades i steg 1 med ditt HDInsight-kluster när det skapas. Det här lagringskontot används för att komma åt data som kan bearbetas i klustret.
+   * Aktivera fjärråtkomst till Head-noden i klustret när den har skapats. Kom ihåg de autentiseringsuppgifter för fjärråtkomst som du anger här (skiljer sig från de autentiseringsuppgifter som angavs när klustret skapas): utför följande procedurer.
 3. [Skapa en Azure Machine Learning Studio-arbetsyta (klassisk)](../studio/create-workspace.md): den här Azure Machine Learning arbets ytan används för att skapa maskin inlärnings modeller efter en inledande data utforskning och inaktive insampling i HDInsight-klustret.
 
 ## <a name="getdata"></a>Hämta och använda data från en offentlig källa
-Den [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättning kan nås genom att klicka på länken, godkänna användningsvillkoren och att ange ett namn. En ögonblicksbild av det här ser det ut visas här:
+Den [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) datauppsättning kan nås genom att klicka på länken, godkänna användningsvillkoren och att ange ett namn. Här visas en ögonblicks bild:
 
 ![Acceptera villkoren för Criteo](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
 Klicka på **Fortsätt om du vill ladda ned** läsa mer om datauppsättningen och dess tillgänglighet.
 
-Data som finns i en offentlig [Azure blobblagring](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. ”Wasb” refererar till Azure Blob Storage-plats.
+Data finns på en [Azure Blob Storage](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) -plats: wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/. ”Wasb” refererar till Azure Blob Storage-plats.
 
-1. Data i den här offentliga blob-storage består av tre undermappar uppzippade data.
+1. Data i Azure Blob Storage består av tre undermappar med zippade data.
 
    1. Undermappen *raw-beräkning / /* innehåller de första 21 dagarna data – från dag\_00 dag\_20
    2. Undermappen *raw-tåg/* består av en dag och dag\_21
    3. Undermappen *raw/test/* består av två dagars data, dag\_22 och dag\_23
-2. För kunder som vill börja med råa gzip-data, dessa är också tillgängliga i mappen huvudsakliga *raw /* som day_NN.gz, där NN går från 00 och 23.
+2. Rå gzip-data är också tillgängliga i huvudmappen *RAW/* som day_NN. gz, där NN går från 00 till 23.
 
 En annan metod för att komma åt, utforska och modellen som dessa data som inte kräver någon lokal nedladdningar beskrivs senare i den här genomgången när vi skapar Hive-tabeller.
 
 ## <a name="login"></a>Logga in till klustrets huvudnod
-Logga in till huvudnod i klustret genom att använda den [Azure-portalen](https://ms.portal.azure.com) att hitta klustret. Klicka på ikonen HDInsight Elefant till vänster och sedan dubbelklicka på namnet på klustret. Navigera till den **Configuration** fliken, dubbelklicka på anslutningsikonen längst ned på sidan och ange dina autentiseringsuppgifter för fjärråtkomst när du tillfrågas. Då kommer du till huvudnod i klustret.
+Logga in till huvudnod i klustret genom att använda den [Azure-portalen](https://ms.portal.azure.com) att hitta klustret. Klicka på ikonen HDInsight Elefant till vänster och sedan dubbelklicka på namnet på klustret. Gå till fliken **konfiguration** , dubbelklicka på ikonen Anslut längst ned på sidan och ange autentiseringsuppgifter för fjärråtkomst när du uppmanas att ta dig till huvudnoden i klustret.
 
-Här är en typisk första inloggningen till klustrets huvudnod ser det ut:
+Så här ser en typisk första inloggning till klustrets huvudnoden ut:
 
 ![Logga in i klustret](./media/hive-criteo-walkthrough/Yys9Vvm.png)
 
@@ -114,7 +114,7 @@ För att skapa Hive-tabeller för vår Criteo datauppsättningen, öppna den ***
 
 När registreringsdatafilen REPL visas med en ”hive >” Logga, bara klipp och klistra in frågan för att köra den.
 
-Följande kod skapar en databas ”criteo” och sedan genererar 4 tabeller:
+Följande kod skapar en databas "Criteo" och genererar sedan fyra tabeller:
 
 * en *tabell för generering av antalet* bygger på dagar dag\_00 dag\_20,
 * en *tabell som ska användas som träna datamängd* bygger på dag\_21, och
@@ -153,17 +153,17 @@ Skriptet [exempel&#95;hive&#95;skapa&#95;criteo&#95;databasen&#95;och&#95;tables
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_23';
 
-Dessa tabeller är externa så att du bara kan peka till deras platser i Azure Blob Storage (wasb).
+Alla dessa tabeller är externa så att du kan peka på deras Azure Blob Storage-platser (wasb).
 
 **Det finns två sätt att köra alla Hive-fråga:**
 
-1. **Med hjälp av kommandoradsverktyget registreringsdatafilen REPL**: först är att utfärda ett kommando ”hive” och kopiera och klistra in en fråga på registreringsdatafilen REPL kommandoraden. Om du vill göra detta, gör du:
+* **Med hjälp av kommando raden för Hive-repl**: det första är att utfärda ett Hive-kommando och kopiera och klistra in en fråga på HIVE-repl kommando rad:
 
         cd %hive_home%\bin
         hive
 
-     Nu i REPL kommandoradsverktyget kör klippa och klistra in frågan den.
-2. **Spara frågor till en fil och kommandot**: andra är att spara frågorna till en .hql-fil ([exempel&#95;hive&#95;skapa&#95;criteo&#95;databasen&#95;och&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och sedan kör du följande kommando för att köra frågan:
+     Nu körs den här frågan på kommando raden för REPL och inklistringen klistras in.
+* **Spara frågor till en fil och köra kommandot**: det andra är att spara frågorna till en. HQL-fil ([exempel&#95;registrerings&#95;data fil för att skapa&#95;Criteo&#95;Database&#95;och&#95;tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)) och sedan utfärda följande kommando för att köra frågan:
 
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
@@ -225,7 +225,7 @@ Som vanligt, som du kan även anropa skriptet från Hive bin / directory fråga 
 
 Slutligen kan du kontrollera att antalet test exemplen i testdata baserat på dag\_23.
 
-Kommandot för att göra detta liknar den som bara visas (se [exempel&#95;hive&#95;antal&#95;criteo&#95;testa&#95;dag&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
+Kommandot för att göra detta liknar det som visas (se [&#95;exempel på Hive&#95;-antal&#95;Criteo&#95;test&#95;dag&#95;23&#95;exempel. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_23;
 
@@ -245,7 +245,7 @@ Detta ger distribution av etiketter:
         0       185922280
         Time taken: 459.435 seconds, Fetched: 2 row(s)
 
-Observera att procentandelen positivt etiketter är cirka 3.3% (konsekvent med den ursprungliga datauppsättningen).
+Procent andelen positiva etiketter är cirka 3,3% (konsekvent med den ursprungliga data uppsättningen).
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Histogram distributioner av vissa numeriska variablerna i datauppsättningen train
 Du kan använda Hives intern ”histogram\_numeriska” funktionen för att ta reda på hur distributionen av numeriska variabler som ser ut. Här följer innehållet i [exempel&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
@@ -282,7 +282,7 @@ Detta ger följande:
         65510   3446
         Time taken: 317.851 seconds, Fetched: 20 row(s)
 
-LATERALA visa - explode kombination i Hive används för att en SQL-liknande resultat i stället för vanliga listan. Observera att i den här tabellen, den första kolumnen motsvarar bin-center och andra till bin-frekvens.
+LATERALA visa - explode kombination i Hive används för att en SQL-liknande resultat i stället för vanliga listan. Den första kolumnen i den här tabellen motsvarar lager plats Center och den andra till lager plats frekvensen.
 
 ### <a name="approximate-percentiles-of-some-numeric-variables-in-the-train-dataset"></a>Ungefärlig percentilerna för vissa numeriska variablerna i datauppsättningen train
 Är också beräkning av ungefärlig percentiler med numeriska variabler. Hive är interna ”: e percentilen\_ungefärlig” gör detta för oss. Innehållet i [exempel&#95;hive&#95;criteo&#95;ungefärliga&#95;percentiles.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_approximate_percentiles.hql) är:
@@ -306,7 +306,7 @@ Detta ger:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Observera att Col15 har unika värden för 19M! Med hjälp av teknik för naïve som ”en-hot kodning” är för att koda sådan hög-dimensionell kategoriska variabler inte är möjligt. Framför allt, en kraftfull, robust teknik kallas [Learning med räknar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för stöter på problemet effektivt är beskrivs och visas.
+Col15 har 19M unika värden! Med hjälp av teknik för naïve som ”en-hot kodning” är för att koda sådan hög-dimensionell kategoriska variabler inte är möjligt. Framför allt, en kraftfull, robust teknik kallas [Learning med räknar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för stöter på problemet effektivt är beskrivs och visas.
 
 Slutligen ska du titta på antalet unika värden för vissa andra kategoriska kolumner samt. Innehållet i [exempel&#95;hive&#95;criteo&#95;unika&#95;värden&#95;flera&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) är:
 
@@ -323,7 +323,7 @@ Observera återigen att alla andra kolumner utom Col20, har många unika värden
 
 ### <a name="co-occurrence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Delad förekomsten räknar över par av kategoriska variablerna i datauppsättningen train
 
-Delad förekomsten antalet par av kategoriska variabler är också av intresse. Detta kan fastställas med hjälp av koden i [exempel&#95;hive&#95;criteo&#95;parad&#95;kategoriska&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
+Count-fördelningen för par av kategoriska-variabler är också av intresse. Detta kan fastställas med hjälp av koden i [exempel&#95;hive&#95;criteo&#95;parad&#95;kategoriska&#95;counts.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_paired_categorical_counts.hql):
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
@@ -402,12 +402,12 @@ Detta ger:
 
 Det här gör är du redo att använda vår på provade träna och testa datauppsättningar för att skapa modeller i Azure Machine Learning.
 
-Det finns en sista viktig komponent innan du fortsätter till Azure Machine Learning, som gäller tabellen count. I nästa underavsnitt beskrivs antal tabellen i detalj.
+Det finns en sista viktig komponent innan du fortsätter till Azure Machine Learning, som gäller tabellen count. I nästa avsnitt beskrivs tabellen Count i viss detalj.
 
 ## <a name="count"></a> En kort beskrivning i tabellen count
-Som du såg kan ha flera kategoriska variabler en mycket hög dimensionalitet. I den här genomgången, en kraftfull teknik som heter [Learning med räknar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler i en effektiv, robust sätt visas. Mer information om den här tekniken är i länken.
+Som du såg har flera kategoriska-variabler en hög dimensionalitet. I den här genomgången, en kraftfull teknik som heter [Learning med räknar](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) för att koda dessa variabler i en effektiv, robust sätt visas. Mer information om den här tekniken är i länken.
 
-[!NOTE]
+>[!NOTE]
 >I den här genomgången ligger fokus på att använda antal tabeller för att producera compact framställningar av hög-dimensionell kategoriska funktioner. Detta är inte det enda sättet att koda kategoriska funktioner Mer information om andra metoder berörda användare kan ta en titt [en-hot encoding](https://en.wikipedia.org/wiki/One-hot) och [funktions-hashning](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
@@ -439,8 +439,8 @@ För den **importdata** modulen, värdena för parametrarna som anges i bilden �
 4. **Hadoop-användarkontonamnet**: användarnamn som valts vid tidpunkten för idriftsättning klustret. (Inte fjärråtkomst användarnamnet!)
 5. **Hadoop lösenord**: lösenordet för användarnamnet som valts vid tidpunkten för idriftsättning klustret. (Inte fjärråtkomst lösenordet!)
 6. **Platsen för utdata**: Välj ”Azure”
-7. **Azure storage-kontonamn**: lagringskontot som associerats med klustret
-8. **Azure storage-kontonyckel**: nyckeln för lagringskontot som är associerade med klustret.
+7. **Azure Storage konto namn**: det lagrings konto som är kopplat till klustret
+8. **Azure Storage konto nyckel**: nyckeln för det lagrings konto som är kopplat till klustret.
 9. **Azure behållarnamn**: Om klusternamnet är ”abc”, så det är helt enkelt ”abc”, vanligtvis.
 
 När den **importdata** har slutförts hämtar data (du se grön skalstreck i modulen), spara dessa data som en datauppsättning (med ett valfritt namn). Hur detta ser ut:
@@ -458,22 +458,22 @@ Välj sparade datauppsättningen för användning i en machine learning-experime
 >
 >
 
-### <a name="step2"></a> Steg 2: Skapa ett enkelt experiment i Azure Machine Learning för att förutsäga klick / inga klick
+### <a name="step2"></a>Steg 2: skapa ett experiment i Azure Machine Learning för att förutse klickningar/inga klick
 Vårt Azure Machine Learning Studio (klassiska) experiment ser ut så här:
 
 ![Machine Learning-experiment](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
-Nu ska du granska de viktigaste komponenterna i det här experimentet. Dra vår sparade träna och testa datauppsättningar in på vår experimentets arbetsyta först.
+Nu ska du granska de viktigaste komponenterna i det här experimentet. Dra våra sparade tåg-och test data uppsättningar till arbets ytan för experimentet först.
 
 #### <a name="clean-missing-data"></a>Rensa data som saknas
 Den **Rensa Data som saknas** modulen har namnet antyder: saknade data på ett sätt som kan vara användardefinierade rensas. Titta på den här modulen kan se den här:
 
 ![Rensa data som saknas](./media/hive-criteo-walkthrough/0ycXod6.png)
 
-Här kan valde att ersätta alla saknade värden med 0. Det finns andra alternativ, vilket kan ses genom att titta på de nedrullningsbara listorna i modulen.
+Här väljer du om du vill ersätta alla saknade värden med 0. Det finns andra alternativ, vilket kan ses genom att titta på de nedrullningsbara listorna i modulen.
 
 #### <a name="feature-engineering-on-the-data"></a>Funktionstekniker på data
-Det kan finnas flera miljoner unika värden för vissa kategoriska funktioner för stora datauppsättningar. Det är helt och hållet inte lämpligt att använda naïve metoder, till exempel en frekvent kodning för att representera hög-dimensionell kategoriska funktioner. Den här genomgången visar hur du använder antal funktioner med inbyggda Azure Machine Learning-moduler för att generera compact framställningar av dessa hög-dimensionell kategoriska variabler. Såklart resultatet är en mindre Modellstorlek på, snabbare till utbildning och prestandamått som är helt jämförbar med hjälp av andra tekniker.
+Det kan finnas flera miljoner unika värden för vissa kategoriska funktioner för stora datauppsättningar. Det är helt och hållet inte lämpligt att använda naïve metoder, till exempel en frekvent kodning för att representera hög-dimensionell kategoriska funktioner. Den här genomgången visar hur du använder antal funktioner med inbyggda Azure Machine Learning-moduler för att generera compact framställningar av dessa hög-dimensionell kategoriska variabler. Slut resultatet är en mindre modell storlek, snabbare inlärnings tider och prestanda mått som är jämförbara med andra tekniker.
 
 ##### <a name="building-counting-transforms"></a>Att skapa räkna omvandlar
 Om du vill skapa antal funktioner, använda den **skapa räkna transformera** modul som är tillgängliga i Azure Machine Learning. Modulen ser ut så här:
@@ -505,7 +505,7 @@ När ett antal transformeringen är klart, kan användaren välja vilka funktion
 I det här fallet log-oddsen är att användas som kan ses och backoff-kolumnen ignoreras. Du kan också ange parametrar som till exempel skräpinsamling bin tröskelvärdet, hur många pseudo tidigare exempel att lägga till för Utjämning och om du vill använda alla Laplacian brus eller inte. Alla dessa avancerade funktioner och det är att märka att standardvärdena är en bra utgångspunkt för användare som inte har använt den här typen av funktionen generation.
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>Transformering av data innan du genererar antal funktioner
-Nu fokus ligger på ett viktigt peka om att transformera vår träna och testa data innan du genererar faktiskt antal funktioner. Observera att det finns två **kör R-skript** moduler som används innan antal transformationen tillämpas på våra data.
+Nu fokus ligger på ett viktigt peka om att transformera vår träna och testa data innan du genererar faktiskt antal funktioner. Det finns två **köra R-skript** moduler som används innan Count-transformeringen tillämpas på våra data.
 
 ![Köra R-skript-moduler](./media/hive-criteo-walkthrough/aF59wbc.png)
 
@@ -542,7 +542,7 @@ Först måste du välja en learner. Använd ett tvåklassförhöjt beslutsträd 
 
 ![Tvåklassförhöjt beslutsträd parametrar](./media/hive-criteo-walkthrough/bH3ST2z.png)
 
-Välj standardvärden i experimentet. Observera att standardvärdena är vanligtvis meningsfulla och ett bra sätt att få snabb baslinjer för prestanda. Du kan förbättra prestandan av oinskränkt parametrar om du väljer att när du har en baslinje.
+Välj standardvärden i experimentet. Standardvärdena är meningsfulla och ett bra sätt att få snabba bas linjer om prestanda. Du kan förbättra prestandan av oinskränkt parametrar om du väljer att när du har en baslinje.
 
 #### <a name="train-the-model"></a>Träna modellen
 För utbildning, bara anropa en **Träningsmodell** modulen. De två indatavärdena till den är Tvåklassförhöjt beslutsträd learner och vår train-datauppsättning. Detta visas här:
@@ -555,18 +555,18 @@ När du har en tränad modell, är du redo att bedöma mot testdatauppsättninge
 ![Modulen Poängsätta modell](./media/hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="step4"></a> Steg 4: Utvärdera modellen
-Slutligen bör du analysera modellprestanda. Vanligtvis är ett bra mått för två klass (binära) klassificering problem i AUC. Om du vill visualisera detta kopplar in den **Poängmodell** modul till en **utvärdera modell** -modulen för detta. Klicka på **visualisera** på den **utvärdera modell** modulen ger en bild som det nedanstående:
+Slutligen bör du analysera modellprestanda. Vanligtvis är ett bra mått för två klass (binära) klassificering problem i AUC. Om du vill visualisera den här kurvan ansluter du **Poäng modellens** modul till en **modell för utvärderings modell** . Klicka på **visualisera** på den **utvärdera modell** modulen ger en bild som det nedanstående:
 
 ![Utvärdera modulen BDT modell](./media/hive-criteo-walkthrough/0Tl0cdg.png)
 
-I binary (eller två klass) klassificering, problem, ett bra mått på förutsägelsefunktionen är det området Under kurvan (AUC). I följande avsnitt beskrivs våra resultat med hjälp av den här modellen på vår test-datauppsättning. Om du vill ha detta högerklickar du på utdataporten för den **utvärdera modell** modulen och sedan **visualisera**.
+I binary (eller två klass) klassificering, problem, ett bra mått på förutsägelsefunktionen är det området Under kurvan (AUC). I följande avsnitt beskrivs våra resultat med hjälp av den här modellen på vår test-datauppsättning. Högerklicka på utdataporten för modulen **utvärdera modell** och **visualisera**sedan.
 
 ![Visualisera utvärdera modell](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step5"></a> Steg 5: Publicera modellen som en webbtjänst
 Möjligheten att publicera en Azure Machine Learning-modell som webbtjänster med minsta möjliga ansträngning är en viktig funktion för att göra den allmänt tillgängliga. När det är klart kan vem som helst göra anrop till webbtjänsten med indata att de behöver förutsägelser för och webbtjänsten använder modellen för att returnera dessa förutsägelser.
 
-Om du vill göra detta måste du först spara vår tränade modellen som en Trained Model-objektet. Det gör du genom att högerklicka på den **Träningsmodell** modulen och använder den **Spara som Trained Model** alternativet.
+Spara först vår utbildade modell som ett tränat modell objekt genom att högerklicka på modulen **träna modell** och använda alternativet **Spara som tränad modell** .
 
 Därefter skapa indata och utdata portar för vår webbtjänst:
 
@@ -582,7 +582,7 @@ Det är lämpligt att använda en **gäller SQL omvandling** modul du ska välja
 Nu är du redo att köra ett litet experiment som kan användas för att publicera vår webbtjänst.
 
 #### <a name="generate-input-data-for-webservice"></a>Generera indata för webbtjänsten
-Steg zeroth eftersom tabellen count är stor, vidta några rader testdata och generera utdata från den med antal funktioner. Detta kan fungera som indata för vår webbtjänsten. Detta visas här:
+Steg zeroth eftersom tabellen count är stor, vidta några rader testdata och generera utdata från den med antal funktioner. Dessa utdata kan fungera som indata-format för vår WebService, som du ser här:
 
 ![Skapa BDT indata](./media/hive-criteo-walkthrough/OEJMmst.png)
 
@@ -592,7 +592,7 @@ Steg zeroth eftersom tabellen count är stor, vidta några rader testdata och ge
 >
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Bedömning experiment för publicera webbtjänsten
-Först visas det hur detta ser ut. Den grundläggande strukturen är en **Poängmodell** modul som accepterar vår trained model-objektet och några rader av indata som har genererats i föregående steg med den **antal Featurizer** modulen. Använd ”Välj kolumner i datauppsättning” till projektet ut Scored etiketter och troliga poäng.
+Först är den viktigaste strukturen en **modell för Poäng modell** som accepterar vårt utbildade modell objekt och några rader med indata som genererades i föregående steg med upplärda-modulen **Count** . Använd ”Välj kolumner i datauppsättning” till projektet ut Scored etiketter och troliga poäng.
 
 ![Välja kolumner i datauppsättning](./media/hive-criteo-walkthrough/kRHrIbe.png)
 
@@ -613,7 +613,7 @@ Lägg märke till de två länkarna för webservices på vänster sida:
 * Den **begäran/svar** Service (eller Resursposter) är avsedd för enkel förutsägelser och är vad som har använts i den här workshop.
 * Den **BATCHKÖRNING** (BES-Service) används för batch förutsägelser och kräver att indata används för att göra förutsägelser som finns i Azure Blob Storage.
 
-Klicka på länken **begäran/svar** tar vi en sida som ger oss före burk koden i C#, python och R. Den här koden kan enkelt användas för att göra anrop till webbtjänsten. Observera att API-nyckeln på den här sidan som ska användas för autentisering.
+Klicka på länken **begäran/svar** tar vi en sida som ger oss före burk koden i C#, python och R. Den här koden kan enkelt användas för att göra anrop till webbtjänsten. API-nyckeln på den här sidan måste användas för autentisering.
 
 Det är praktiskt att kopiera den här python-koden över till en ny cell i IPython notebook.
 
@@ -621,11 +621,11 @@ Här är en del av python-kod med rätt API-nyckel.
 
 ![Python-kod](./media/hive-criteo-walkthrough/f8N4L4g.png)
 
-Observera att standard-API-nyckel har ersatts med vår webservices API-nyckel. Klicka på **kör** för den här cellen i en IPython notebook ger följande svar:
+Standard-API-nyckeln har ersatts med vår API-nyckel för WebService. Klicka på **kör** för den här cellen i en IPython notebook ger följande svar:
 
 ![IPython-svar](./media/hive-criteo-walkthrough/KSxmia2.png)
 
-Testa för de två exemplen och svar om (i JSON-ramverket för python-skriptet) så kan du tillbaka svar i formatet ”Scored etiketter, Scored sannolikhet”. I det här fallet har standardvärdena valts att i förväg kapslade kod ger (0 för alla numeriska kolumner och strängen ”value” för alla kategoriska kolumner).
+De två test exemplen som meddelas om i python-skriptet JSON Framework får du tillbaka svar i formatet "Poäng etiketter, betygs ätt". I det här fallet har standardvärdena valts att i förväg kapslade kod ger (0 för alla numeriska kolumner och strängen ”value” för alla kategoriska kolumner).
 
-Detta avslutar vår genomgång som visar hur du hanterar storskaliga datauppsättning med hjälp av Azure Machine Learning. Du igång med en terabyte data, skapas en förutsägelsemodell och distribuerat det som en webbtjänst i molnet.
+I slutet visar vår genom gång hur du hanterar storskalig data uppsättning med Azure Machine Learning. Du igång med en terabyte data, skapas en förutsägelsemodell och distribuerat det som en webbtjänst i molnet.
 

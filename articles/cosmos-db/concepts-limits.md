@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB tjänst kvoter
 description: Azure Cosmos DB tjänst kvoter och standard gränser för olika resurs typer.
-author: arramac
-ms.author: arramac
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d6b66c4a4924f8455b58b930621d6a7b93901a2a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b954b56d3c4f9d3ae0ad3142b11a8660e341b74a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887622"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711313"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
-Den här artikeln innehåller en översikt över standard kvoterna som erbjuds till olika resurser i Azure Cosmos DB.
+Den här artikeln innehåller en översikt över standardkvoterna som erbjuds till olika resurser i Azure Cosmos DB.
 
 ## <a name="storage-and-throughput"></a>Lagring och data flöde
 

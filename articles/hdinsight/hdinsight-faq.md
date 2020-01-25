@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830385"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720358"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: vanliga frågor och svar
 
@@ -233,11 +233,11 @@ Mer information om hur du konfigurerar och kör ett cron-jobb finns i [Hur gör 
 ### <a name="why-is-llap-available-on-spark-esp-clusters"></a>Varför är LLAP tillgängligt i Spark ESP-kluster?
 På ESP Spark-kluster är LLAP aktiverat av säkerhets skäl (t. ex. apache Ranger), inte prestanda. Du bör använda större virtuella noder för virtuella datorer för resursanvändning för LLAP (t. ex. minsta D13V2). 
 
-### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>Hur lägger jag till ytterligare AAD-grupper efter att du har skapat ett ESP-kluster?
+### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>Hur kan jag lägga till ytterligare AAD-grupper efter att ha skapat ett ESP-kluster?
 Det finns två sätt att åstadkomma detta: 1 – du kan återskapa klustret och lägga till ytterligare grupper när klustret skapas. Om du använder omfångs synkronisering i AAD-DS, se till att grupp B ingår i den omfångs synkroniseringen.
 2 – Lägg till gruppen som en kapslad under grupp för den tidigare gruppen som användes för att skapa ESP-klustret. Om du till exempel har skapat ett ESP-kluster med grupp `A`kan du senare använda Lägg till grupp `B` som en kapslad under grupp av `A` och efter cirka en timme synkroniseras det automatiskt och tillgängligt i klustret. 
 
-## <a name="storage"></a>Lagring
+## <a name="storage"></a>Storage
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>Kan jag lägga till en Azure Data Lake Storage Gen2 till ett befintligt HDInsight-kluster som ett ytterligare lagrings konto?
 
@@ -302,7 +302,7 @@ När du har skapat en Edge-nod kan du ansluta till den med hjälp av SSH på por
 
 Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i klustret genom skalnings åtgärder. Bestående skript gäller inte för Edge-noder.
 
-## <a name="rest-api"></a>REST-API
+## <a name="rest-api"></a>REST API
 
 ### <a name="what-are-the-rest-api-calls-to-pull-a-tez-query-view-from-the-cluster"></a>Vad är REST API anrop för att hämta en Tez från klustret?
 

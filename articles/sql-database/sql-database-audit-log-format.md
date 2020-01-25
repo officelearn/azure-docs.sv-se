@@ -5,16 +5,16 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 13746b86eed75055ceb5203afafb2d27a78ce1d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928625"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722092"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database Gransknings logg format
 
@@ -43,7 +43,7 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 
 ## <a id="subheading-1"></a>Gransknings logg fält
 
-| Namn (BLOB) | Namn (Event Hubs/Log Analytics) | Beskrivning | Blobtyp | Event Hubs/Log Analytics typ |
+| Namn (BLOB) | Namn (Event Hubs/Log Analytics) | Beskrivning | Blob-typ | Event Hubs/Log Analytics typ |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | ID för åtgärden | varchar (4) | sträng |
 | action_name | action_name_s | Åtgärdens namn | Gäller inte | sträng |
@@ -78,8 +78,8 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 | server_principal_sid | server_principal_sid_s | Aktuellt inloggnings-SID | varbinary | sträng |
 | session_id | session_id_d | ID för den session där händelsen inträffade | smallint | int |
 | session_server_principal_name | session_server_principal_name_s | Server huvud namn för session | sysname | sträng |
-| instruktion | statement_s | T-SQL-instruktion som kördes (om det finns) | nvarchar (4000) | sträng |
-| lyckades | succeeded_s | Anger om den åtgärd som utlöste händelsen lyckades. För andra händelser än inloggning och batch rapporteras endast om behörighets kontrollen lyckades eller misslyckades, inte åtgärden. 1 = lyckades, 0 = misslyckades | bit | sträng |
+| Sekretesspolicy | statement_s | T-SQL-instruktion som kördes (om det finns) | nvarchar (4000) | sträng |
+| brutit | succeeded_s | Anger om den åtgärd som utlöste händelsen lyckades. För andra händelser än inloggning och batch rapporteras endast om behörighets kontrollen lyckades eller misslyckades, inte åtgärden. 1 = lyckades, 0 = misslyckades | bit | sträng |
 | target_database_principal_id | target_database_principal_id_d | Databasens huvud konto som åtgärden bevilja/neka/återkalla utförs på. 0 om inte tillämpligt | int | int |
 | target_database_principal_name | target_database_principal_name_s | Mål användare av åtgärd. NULL om ej tillämpligt | sträng | sträng |
 | target_server_principal_id | target_server_principal_id_d | Server huvud konto som åtgärden bevilja/neka/återkalla utförs på. Returnerar 0 om det inte är tillämpligt | int | int |
@@ -89,6 +89,6 @@ Gransknings händelser skrivs till Log Analytics arbets yta som definierats unde
 | user_defined_event_id | user_defined_event_id_d | Ett användardefinierat händelse-ID skickades som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | smallint | int |
 | user_defined_information | user_defined_information_s | Användardefinierad information som skickas som ett argument till sp_audit_write. NULL för system händelser (standard) och icke-noll för användardefinierad händelse. Mer information finns i [sp_audit_write (Transact-SQL)](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-audit-write-transact-sql) | nvarchar (4000) | sträng |
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Läs mer om [Azure SQL Database granskning](sql-database-auditing.md).

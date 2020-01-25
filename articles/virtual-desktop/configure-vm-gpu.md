@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953955"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719763"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop
 
@@ -37,9 +37,9 @@ Du måste också konfigurera en app-grupp eller använda standard gruppen för S
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>Installera grafik driv rutiner som stöds på den virtuella datorn
 
-Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien i Windows Virtual Desktop måste du installera NVIDIA Graphics-drivrutiner. Följ anvisningarna på [Installera nVidia GPU-drivrutiner på virtuella datorer i N-serien som kör Windows](/azure/virtual-machines/windows/n-series-driver-setup) för att installera driv rutiner, antingen manuellt eller med hjälp av [nVidia GPU-drivrutinen](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
+Om du vill dra nytta av GPU-funktionerna i virtuella datorer i Azure N-serien i Windows Virtual Desktop måste du installera lämpliga grafik driv rutiner. Följ instruktionerna i [operativ system och driv rutiner som stöds](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) för att installera driv rutiner från rätt grafik leverantör, antingen manuellt eller med ett tillägg för Azure VM.
 
-Observera att endast [driv rutiner för NVIDIA-rutnät](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) som distribueras med Azure stöds för virtuella Windows-datorer.
+Endast driv rutiner som distribueras med Azure stöds för Windows Virtual Desktop. För virtuella Azure-datorer med NVIDIA GPU: er finns det bara stöd för [NVIDIA Grid-drivrutiner](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) för virtuella Windows-datorer.
 
 Efter installationen av driv rutinen krävs en omstart av datorn. Använd verifierings stegen i ovanstående instruktioner för att bekräfta att grafik driv rutinerna har installerats.
 
@@ -74,7 +74,7 @@ Fjärr skrivbord kodar alla bilder som återges av appar och skriv bord (oavsett
 
 Om du vill kontrol lera att appar använder GPU: n för rendering kan du prova något av följande:
 
-* Använd `nvidia-smi` verktyget enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera om GPU-belastningen körs när dina appar körs.
+* För virtuella Azure-datorer med en NVIDIA-GPU använder du verktyget `nvidia-smi` enligt beskrivningen i [Verifiera driv rutins installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) för att kontrol lera om GPU-belastningen körs när du kör dina appar.
 * I operativ system versioner som stöds kan du använda aktivitets hanteraren för att kontrol lera GPU-användningen. Välj GPU på fliken "prestanda" för att se om appar använder GPU: n.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>Kontrol lera att GPU-accelererad ram kodning
@@ -90,5 +90,5 @@ Verifiera att fjärr skrivbord använder GPU-accelererad kodning:
 
 De här instruktionerna bör vara igång med GPU-acceleration på en virtuell dator för en enda session. Ytterligare överväganden för att aktivera GPU-acceleration i en större värddator:
 
-* Överväg att använda [nVidia GPU-drivrutinens tillägg](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för att förenkla installationen och uppdateringar av driv rutiner över flera virtuella datorer.
+* Överväg att använda ett [VM-tillägg](/azure/virtual-machines/extensions/overview) för att förenkla installation och uppdateringar av driv rutiner på flera virtuella datorer. Använd [nVidia GPU-drivrutinens tillägg](/azure/virtual-machines/extensions/hpccompute-gpu-windows) för virtuella datorer med nVidia GPU: er och Använd tillägget för AMD GPU-drivrutinen (kommer snart) för virtuella datorer med AMD GPU: er.
 * Överväg att använda Active Directory grupprincip för att förenkla konfigureringen av grup principer på flera virtuella datorer. Information om hur du distribuerar grupprincip i Active Directory-domänen finns i [arbeta med Grupprincip objekt](https://go.microsoft.com/fwlink/p/?LinkId=620889).

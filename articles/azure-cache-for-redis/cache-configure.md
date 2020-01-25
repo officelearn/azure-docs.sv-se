@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972132"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714630"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Så här konfigurerar du Azure cache för Redis
 I det här avsnittet beskrivs de konfigurationer som är tillgängliga för Azure-cachen för Redis-instanser. Det här avsnittet beskriver också standard konfigurationen för Redis-servern för Azure cache för Redis-instanser.
@@ -40,13 +40,13 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
     * [Avancerade inställningar](#advanced-settings)
     * [Azure cache för Redis Advisor](#azure-cache-for-redis-advisor)
     * [Skalning](#scale)
-    * [Redis kluster storlek](#cluster-size)
-    * [Redis-datapersistens](#redis-data-persistence)
+    * [Kluster storlek](#cluster-size)
+    * [Data persistens](#redis-data-persistence)
     * [Schemauppdateringar](#schedule-updates)
     * [Geo-replikering](#geo-replication)
     * [Virtual Network](#virtual-network)
     * [Brandvägg](#firewall)
-    * [Egenskaper](#properties)
+    * [Egenskaperna](#properties)
     * [Hålls](#locks)
     * [Automation-skript](#automation-script)
 * Administration
@@ -70,7 +70,7 @@ Du kan visa och konfigurera följande inställningar med **resurs-menyn**.
 
 Klicka på **aktivitets logg** för att Visa åtgärder som utförts i cacheminnet. Du kan också använda filtrering för att expandera den här vyn för att inkludera andra resurser. Mer information om hur du arbetar med gransknings loggar finns i [gransknings åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md). Mer information om övervakning av Azure cache för Redis-händelser finns i [åtgärder och aviseringar](cache-how-to-monitor.md#operations-and-alerts).
 
-### <a name="access-control-iam"></a>Åtkomstkontroll (IAM)
+### <a name="access-control-iam"></a>Åtkomst kontroll (IAM)
 
 Avsnittet **åtkomst kontroll (IAM)** ger stöd för rollbaserad åtkomst kontroll (RBAC) i Azure Portal. Den här konfigurationen hjälper organisationer att uppfylla sina åtkomst hanterings krav enkelt och exakt. Mer information finns i [rollbaserad åtkomst kontroll i Azure Portal](../role-based-access-control/role-assignments-portal.md).
 
@@ -92,13 +92,13 @@ I avsnittet **Inställningar** kan du komma åt och konfigurera följande instä
 * [Avancerade inställningar](#advanced-settings)
 * [Azure cache för Redis Advisor](#azure-cache-for-redis-advisor)
 * [Skalning](#scale)
-* [Redis kluster storlek](#cluster-size)
-* [Redis-datapersistens](#redis-data-persistence)
+* [Kluster storlek](#cluster-size)
+* [Data persistens](#redis-data-persistence)
 * [Schemauppdateringar](#schedule-updates)
 * [Geo-replikering](#geo-replication)
 * [Virtual Network](#virtual-network)
 * [Brandvägg](#firewall)
-* [Egenskaper](#properties)
+* [Egenskaperna](#properties)
 * [Hålls](#locks)
 * [Automation-skript](#automation-script)
 
@@ -185,7 +185,7 @@ Varje pris nivå har olika gränser för klient anslutningar, minne och bandbred
 
 | Azure cache för Redis-mått | Mer information |
 | --- | --- |
-| Användning av nätverksbandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-faq.md#cache-performance) |
+| Användning av nätverks bandbredd |[Cache-prestanda – tillgänglig bandbredd](cache-faq.md#cache-performance) |
 | Anslutna klienter |[Standard konfiguration av Redis-maxclients](#maxclients) |
 | Server belastning |[Användnings diagram – redis server load](cache-how-to-monitor.md#usage-charts) |
 | Minnes användning |[Cache-prestanda-storlek](cache-faq.md#cache-performance) |
@@ -201,14 +201,9 @@ Klicka på **skala** för att visa eller ändra pris nivån för din cache. Mer 
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Redis kluster storlek
-Klicka på **(för hands version) Redis kluster storlek** om du vill ändra kluster storleken för en Premium-cache som körs med klustrad aktive rad.
+Klicka på **kluster storlek** om du vill ändra kluster storleken för att köra Premium-cache med kluster aktiverat.
 
-> [!NOTE]
-> Observera att när Azure-cachen för Redis Premium-nivån har släppts till allmän tillgänglighet, är funktionen för Redis kluster storlek för närvarande en för hands version.
->
->
-
-![Redis kluster storlek](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![Kluster storlek](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 Om du vill ändra kluster storleken använder du skjutreglaget eller skriver ett tal mellan 1 och 10 i text rutan **Shard Count** och klickar på **OK** för att spara.
 
@@ -219,7 +214,7 @@ Om du vill ändra kluster storleken använder du skjutreglaget eller skriver ett
 
 
 ### <a name="redis-data-persistence"></a>Redis-datapersistens
-Klicka på **Redis data persiste** för att aktivera, inaktivera eller konfigurera data beständighet för din Premium-cache. Azure cache för Redis erbjuder Redis beständighet med antingen [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) eller [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Klicka på **data persistence** om du vill aktivera, inaktivera eller konfigurera data beständighet för din Premium-cache. Azure cache för Redis erbjuder Redis beständighet med antingen [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) eller [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
 
 Mer information finns i [så här konfigurerar du persistence för en Premium Azure-cache för Redis](cache-how-to-premium-persistence.md).
 
@@ -286,7 +281,7 @@ Klicka på **Egenskaper** för att visa information om din cache, inklusive cach
 ### <a name="locks"></a>Lås
 I avsnittet **Lås** kan du låsa en prenumeration, resurs grupp eller resurs för att förhindra att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 
-### <a name="automation-script"></a>Automatiseringsskript
+### <a name="automation-script"></a>Automation-skript
 
 Klicka på **Automation-skript** för att bygga och exportera en mall för dina distribuerade resurser för framtida distributioner. Mer information om hur du arbetar med mallar finns i [distribuera resurser med Azure Resource Manager mallar](../azure-resource-manager/templates/deploy-powershell.md).
 
@@ -359,7 +354,7 @@ Som standard lagras cache-mått i Azure Monitor i [30 dagar](../azure-monitor/pl
 ## <a name="support--troubleshooting-settings"></a>Stöd för & fel söknings inställningar
 Inställningarna i avsnittet **support och fel sökning** innehåller alternativ för att lösa problem med cachen.
 
-![Support och felsökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
+![Support och fel sökning](./media/cache-configure/redis-cache-support-troubleshooting.png)
 
 * [Resurs hälsa](#resource-health)
 * [Ny supportbegäran](#new-support-request)
@@ -459,7 +454,7 @@ Mer information om databaser finns i [Vad är Redis-databaser?](cache-faq.md#wha
 > * CONFIG
 > * DEBUG
 > * FLYTTAR
-> * SPARA
+> * Spara
 > * ANVÄNDARINITIERADE
 > * SLAVEOF
 > * KLUSTER-kluster skrivnings kommandon är inaktiverade, men skrivskyddade kluster kommandon är tillåtna.

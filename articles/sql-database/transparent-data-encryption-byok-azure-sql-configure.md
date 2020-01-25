@@ -11,16 +11,16 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 72825a709ec55bf5879e15287eb8b258dc4c8e94
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 87a9db7d320a7d5b35234899c59884bcf2bf4b60
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965781"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721684"
 ---
 # <a name="powershell-and-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell och CLI: Aktivera transparent datakryptering med kundhanterad nyckel från Azure Key Vault
 
-Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för transparent datakryptering (TDE) på en SQL Database eller ett informations lager. Om du vill veta mer om TDE med stöd för Azure Key Vault integration-Bring Your Own Key (BYOK) går du till [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md).
+Den här artikeln beskriver hur du använder en nyckel från Azure Key Vault för transparent datakryptering (TDE) på en SQL Database eller ett informations lager. Om du vill veta mer om TDE med stöd för Azure Key Vault integration-Bring Your Own Key (BYOK) går du till [TDE med Kundhanterade nycklar i Azure Key Vault](transparent-data-encryption-byok-azure-sql.md). 
 
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 

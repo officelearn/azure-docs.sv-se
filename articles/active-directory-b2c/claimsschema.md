@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1a26d6228fd2d0383f22d4f286cc84e263facfe6
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e72e100bcb3d06403af1514dea13de59c623310
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999106"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713067"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -42,21 +42,21 @@ ms.locfileid: "70999106"
 
 Elementet **claimType** innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| ID | Ja | En identifierare som används för anspråks typen. Andra element kan använda den här identifieraren i principen. |
+| Id | Ja | En identifierare som används för anspråks typen. Andra element kan använda den här identifieraren i principen. |
 
 Elementet **claimType** innehåller följande element:
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| DisplayName | 0:1 | Rubriken som visas för användare på olika skärmar. Värdet kan lokaliseras [](localization.md). |
+| DisplayName | 0:1 | Rubriken som visas för användare på olika skärmar. Värdet kan [lokaliseras](localization.md). |
 | Datatyp | 0:1 | Anspråkets typ. Data typerna för Boolean, date, dateTime, int, Long, String, stringCollection, alternativeSecurityIdCollection kan användas. |
 | DefaultPartnerClaimTypes | 0:1 | Partnerns standard anspråks typer som används för ett angivet protokoll. Värdet kan skrivas över i **PartnerClaimType** som anges i **InputClaim** -eller **OutputClaim** -elementen. Använd det här elementet för att ange standard namnet för ett protokoll.  |
-| Mask | 0:1 | En valfri sträng med maskering av tecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
-| UserHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för användarna att förstå syftet. Värdet kan lokaliseras [](localization.md). |
+| Streckkodsmasker | 0:1 | En valfri sträng med maskering av tecken som kan användas när anspråket visas. Telefonnumret 324-232-4343 kan till exempel maskeras som XXX-XXX-4343. |
+| UserHelpText | 0:1 | En beskrivning av anspråks typen som kan vara till hjälp för användarna att förstå syftet. Värdet kan [lokaliseras](localization.md). |
 | UserInputType | 0:1 | Den typ av inmatnings kontroll som ska vara tillgänglig för användaren när anspråks data anges manuellt för anspråks typen. Se de indatatyps typer som definierats senare på den här sidan. |
-| Begränsning | 0:1 | Värde begränsningarna för detta anspråk, till exempel ett reguljärt uttryck (regex) eller en lista med acceptabla värden. Värdet kan lokaliseras [](localization.md). |
+| Begränsning | 0:1 | Värde begränsningarna för detta anspråk, till exempel ett reguljärt uttryck (regex) eller en lista med acceptabla värden. Värdet kan [lokaliseras](localization.md). |
 PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsInput** -element. Med **PredicateValidationReference** -elementen kan du utföra en verifierings process för att säkerställa att endast korrekt utformade data anges. Mer information finns i [predikat](predicates.md). |
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
@@ -65,16 +65,16 @@ PredicateValidationReference| 0:1 | En referens till ett **PredicateValidationsI
 
 | Element | Förekomster | Beskrivning |
 | ------- | ----------- | ----------- |
-| Protocol | 0: n | Lista med protokoll med sitt standard namn för partner anspråks typ. |
+| Protokoll | 0: n | Lista med protokoll med sitt standard namn för partner anspråks typ. |
 
 **Protokoll** elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| Name | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är:  OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| Namn | Ja | Namnet på ett giltigt protokoll som stöds av Azure AD B2C. Möjliga värden är: OAuth1, OAuth2, SAML2, OpenIdConnect. |
 | PartnerClaimType | Ja | Namnet på anspråks typen som ska användas. |
 
-I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML2-identitetsprovider eller ett förlitande parts program, mappas kravet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` **till** , med OpenIdConnect och OAuth2, anspråket mappas till `family_name` .
+I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML2-identitetsprovider eller ett förlitande parts program, mappas kravet till `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`, med OpenIdConnect och OAuth2, så mappas **anspråket** till `family_name`.
 
 ```XML
 <ClaimType Id="surname">
@@ -88,7 +88,7 @@ I följande exempel, när ett identitets Miljös ramverk interagerar med en SAML
 </ClaimType>
 ```
 
-Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar `family_name` i stället för efter namn på claimType **-namn.**
+Det innebär att den JWT-token som utfärdas av Azure AD B2C, genererar `family_name` i stället för ClaimType **-namn efter namn.**
 
 ```JSON
 {
@@ -100,14 +100,14 @@ Det innebär att JWT-token som utfärdas av Azure AD B2C, genererar `family_name
 }
 ```
 
-### <a name="mask"></a>Mask
+### <a name="mask"></a>Streckkodsmasker
 
 **Maskeringslagret** -elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex`. `Simple` Värdet anger att en enkel textmask används för den inledande delen av ett sträng anspråk. `Regex` Värdet anger att ett reguljärt uttryck används för sträng anspråket som helhet.  `Regex` Om värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
-| `Regex` | Nej | Om **`Type`** är inställt på `Regex`anger du det reguljära uttrycket som ska användas.
+| `Type` | Ja | Typ av anspråks mask. Möjliga värden: `Simple` eller `Regex`. Värdet `Simple` anger att en enkel textmask används för den inledande delen av ett sträng anspråk. Värdet `Regex` anger att ett reguljärt uttryck tillämpas på sträng anspråket som helhet.  Om `Regex`-värdet har angetts måste även ett valfritt attribut definieras med det reguljära uttrycket som ska användas. |
+| `Regex` | Inga | Om **`Type`** är inställt på `Regex`anger du det reguljära uttrycket som ska användas.
 
 I följande exempel konfigureras ett **telefonnummer för telefonnummer** till `Simple` masken:
 
@@ -144,9 +144,9 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 **Begränsnings** elementet kan innehålla följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
-| MergeBehavior | Nej | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`, eller `ReplaceAll`. `Append` Värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend` Värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll` Värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
+| MergeBehavior | Inga | Den metod som används för att sammanfoga uppräknings värden med en ClaimType i en överordnad princip med samma identifierare. Använd det här attributet när du skriver över ett anspråk som anges i bas principen. Möjliga värden: `Append`, `Prepend`eller `ReplaceAll`. `Append`-värdet är en samling data som ska läggas till i slutet av den samling som anges i den överordnade principen. `Prepend`-värdet är en samling data som ska läggas till före den samling som anges i den överordnade principen. `ReplaceAll`-värdet är en samling data som anges i den överordnade principen som ska ignoreras. |
 
 **Begränsnings** elementet innehåller följande element:
 
@@ -157,13 +157,13 @@ I ramverket med identitets upplevelsen återges bara den första bokstaven i e-p
 
 ### <a name="enumeration"></a>Uppräkning
 
-Uppräknings elementet innehåller följande attribut:
+**Uppräknings** elementet innehåller följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Text | Ja | Den visnings sträng som visas för användaren i användar gränssnittet för det här alternativet. |
-|Value | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
-| SelectByDefault | Nej | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: SANT eller FALSKT. |
+|Värde | Ja | Anspråks värde som är associerat med att välja det här alternativet. |
+| SelectByDefault | Inga | Anger om det här alternativet ska vara markerat som standard i användar gränssnittet. Möjliga värden: true eller false. |
 
 I följande exempel konfigureras List rutan för en **stad** med ett standardvärde som är inställt på `New York`:
 
@@ -188,10 +188,10 @@ List rutan stad med ett standardvärde som är inställt på New York:
 
 **Pattern** -elementet kan innehålla följande attribut:
 
-| Attribut | Obligatorisk | Beskrivning |
+| Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | Reguljärt uttryck | Ja | Det reguljära uttrycket som anspråk av den här typen måste matcha för att vara giltigt. |
-| HelpText | Nej | Mönstret eller det reguljära uttrycket för det här anspråket. |
+| HelpText | Inga | Mönstret eller det reguljära uttrycket för det här anspråket. |
 
 I följande exempel konfigureras ett **e-** postanspråk med text verifiering och hjälp text i reguljärt uttryck:
 
@@ -233,9 +233,9 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+### <a name="emailbox"></a>E-postmeddelande
 
-**E-** postmeddelandets Indatatyp används för att ange ett grundläggande e-postfält.
+**E-postmeddelandets** Indatatyp används för att ange ett grundläggande e-postfält.
 
 ![E-postmeddelande som visar egenskaper som anges i anspråks typ](./media/claimsschema/emailbox.png)
 
@@ -251,9 +251,9 @@ Indatatypen för **text Rute** användaren används för att ange en text ruta m
 </ClaimType>
 ```
 
-### <a name="password"></a>lösenordsinställning
+### <a name="password"></a>lösenord
 
-Användarens Indatatyp används för att registrera ett lösen ord som anges av användaren.
+**Användarens** Indatatyp används för att registrera ett lösen ord som anges av användaren.
 
 ![Använda anspråks typ med lösen ord](./media/claimsschema/password.png)
 
@@ -268,7 +268,7 @@ Användarens Indatatyp används för att registrera ett lösen ord som anges av 
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-**DateTimeDropdown** -användarens Indatatyp används för att ange en uppsättning List rutor för att välja dag, månad och år. Du kan använda predikat och PredicateValidations-element för att kontrol lera minimi-och Max datum värden. Mer information finns i avsnittet **Konfigurera ett datum intervall** i predikat [och PredicateValidations](predicates.md).
+**DateTimeDropdown** -användarens Indatatyp används för att ange en uppsättning List rutor för att välja dag, månad och år. Du kan använda predikat och PredicateValidations-element för att kontrol lera minimi-och Max datum värden. Mer information finns i avsnittet **Konfigurera ett datum intervall** i [predikat och PredicateValidations](predicates.md).
 
 ![Använda anspråks typ med datetimedropdown](./media/claimsschema/datetimedropdown.png)
 
@@ -354,9 +354,9 @@ Den **skrivskyddade** användarens Indatatyp används för att tillhandahålla e
 ```
 
 
-### <a name="paragraph"></a>Stycke
+### <a name="paragraph"></a>Paragraf
 
-Indatatypen **stycke** användare används för att tillhandahålla ett fält som endast visar text i en stycke-tagg. Till exempel &lt;p&gt;text&lt;/p.&gt;
+Indatatypen **stycke** användare används för att tillhandahålla ett fält som endast visar text i en stycke-tagg. Till exempel &lt;p&gt;text&lt;/p&gt;.
 
 ![Använda anspråks typ med stycke](./media/claimsschema/paragraph.png)
 
@@ -368,11 +368,11 @@ Indatatypen **stycke** användare används för att tillhandahålla ett fält so
   <UserHelpText>A claim responsible for holding response messages to send to the relying party</UserHelpText>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
 </ClaimType>
 ```
 
-Om du vill visa ett av uppräknings värden i ett **responseMsg** - `GetMappedValueFromLocalizedCollection` anspråk `CreateStringClaim` använder eller anspråks omvandling. Mer information finns i [sträng anspråk omvandlingar](string-transformations.md)
+Om du vill visa ett av **uppräknings** värden i ett **responseMsg** -anspråk använder du `GetMappedValueFromLocalizedCollection` eller `CreateStringClaim` anspråks omvandling. Mer information finns i [sträng anspråk omvandlingar](string-transformations.md)

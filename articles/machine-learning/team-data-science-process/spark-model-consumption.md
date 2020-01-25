@@ -3,20 +3,20 @@ title: Operationalisera modeller för Spark-byggda machine learning - Team Data 
 description: Så här att läsa in och bedöma learning-modeller som lagras i Azure Blob Storage (WASB) med Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: dd0467479960df30b1d44aeaef7ed0ed0d6c2a87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f02690d7c54581ed80b521e8222d1bd5964c878
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60253190"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718556"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Operationalisera Spark-byggda machine learning-modeller
 
@@ -32,10 +32,10 @@ Den [pySpark-machine-learning-data-science-spark-model-consumption.ipynb](https:
 Om du vill ändra Jupyter-anteckningsboken för Spark 1.6 ska användas med ett kluster i HDInsight Spark 2.0, Ersätt kodfilen Python med [filen](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py). Den här koden visar hur du använder modeller som skapats i Spark 2.0.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 1. Du behöver ett Azure-konto och en Spark 1.6 (eller Spark 2.0) HDInsight-kluster för att slutföra den här genomgången. Se den [översikt över datavetenskap med Spark på Azure HDInsight](spark-overview.md) för instruktioner om hur du uppfyller dessa krav. Avsnittet innehåller också en beskrivning av NYC 2013 Taxi-data som används här och instruktioner om hur du kör kod från en Jupyter notebook i Spark-klustret. 
-2. Du måste också skapa maskininlärningsmodeller bedömas här genom att utföra den [datagranskning och modellering med Spark](spark-data-exploration-modeling.md) avsnittet för Spark 1.6 klustret eller Spark 2.0-anteckningsböcker. 
+2. Skapa maskin inlärnings modeller som ska poängas här genom att gå igenom [data utforskningen och modelleringen med Spark](spark-data-exploration-modeling.md) -avsnittet för Spark 1,6-klustret eller Spark 2,0-anteckningsboken. 
 3. Spark 2.0 anteckningsböcker använder en annan datamängd för klassificering åtgärd, välkända flygbolag i tid avgång datauppsättningen från 2011 och 2012. En beskrivning av anteckningsböcker och länkar till dem finns i den [Readme.md](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Readme.md) för GitHub-lagringsplatsen som innehåller dessa. Dessutom koden här och i länkade anteckningsböcker är generisk och bör fungera i ett Spark-kluster. Om du inte använder HDInsight Spark, konfiguration och hantering av steg kanske skiljer sig från vad som anges här. 
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
@@ -104,7 +104,7 @@ Ange spark-kontext och importera nödvändiga bibliotek med följande kod
 
 
 ### <a name="preset-spark-context-and-pyspark-magics"></a>Förinställda Spark-kontexten och PySpark användbara funktioner
-PySpark-kärnor som tillhandahålls med Jupyter-anteckningsböcker har en förinställd kontext. Så du behöver inte ange Spark eller Hive-kontexterna explicit innan du börjar arbeta med programmet du utvecklar. Dessa är tillgängliga för dig som standard. Dessa kontexter är:
+PySpark-kärnor som tillhandahålls med Jupyter-anteckningsböcker har en förinställd kontext. Därför behöver du inte ange Spark-eller Hive-kontexterna explicit innan du börjar arbeta med programmet som du utvecklar. Dessa kontexter är tillgängliga som standard:
 
 * SC - för Spark 
 * sqlContext - för Hive
@@ -112,7 +112,7 @@ PySpark-kärnor som tillhandahålls med Jupyter-anteckningsböcker har en förin
 PySpark-kerneln innehåller vissa fördefinierade ”användbara”, vilket är särskilt kommandon som du kan anropa med %%. Det finns två kommandon som används i följande kodexempel.
 
 * **%% lokala** anges att koden i efterföljande rader körs lokalt. Koden måste vara giltig Python-kod.
-* **%% sql -o \<variabelnamn >** 
+* **%% SQL-o \<variabel namn >** 
 * Kör en Hive-fråga mot sqlContext. Om parametern -o skickas resultatet av frågan sparas i den %% lokal Python-kontext som en Pandas-dataframe.
 
 För mer information om kärnor för Jupyter notebooks och den fördefinierade ”magics” som ger, se [Kernlar som är tillgängliga för Jupyter-anteckningsböcker med HDInsight Spark Linux-kluster i HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
@@ -257,7 +257,7 @@ Den [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.pr
 Åtgången tid att köra ovanför cellen: 5.37 sekunder
 
 ### <a name="create-rdd-objects-with-feature-arrays-for-input-into-models"></a>Skapa RDD-objekt med funktionen matriser för mata in modeller
-Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som ett RDD-objekt och en frekvent koda den så att den kan användas för att träna och testa MLlib logistic regression och trädet-baserade modellen. Indexerade data lagras i [Resilient Distributed Dataset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objekt. Det här är den grundläggande abstraktionen i Spark. En RDD-objektet representerar en oföränderlig, partitionerad samling element som kan användas på parallellt med Spark.
+Det här avsnittet innehåller kod som visar hur du indexera kategoriska textdata som ett RDD-objekt och en frekvent koda den så att den kan användas för att träna och testa MLlib logistic regression och trädet-baserade modellen. Indexerade data lagras i [Resilient Distributed Dataset (RDD)](https://spark.apache.org/docs/latest/api/java/org/apache/spark/rdd/RDD.html) objekt. RDD är den grundläggande abstraktionen i Spark. En RDD-objektet representerar en oföränderlig, partitionerad samling element som kan användas på parallellt med Spark.
 
 Den innehåller också kod som visar hur du skalar data med den `StandardScalar` tillhandahålls av MLlib för användning i linjär regression med Stokastisk brantaste Lutningsmetoden (Descent), en populär algoritm för att träna ett stort antal machine learning-modeller. Den [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) används för att skala funktioner till enhet avvikelse. Funktionen skalning, även kallat databasnormalisering försäkrar att funktioner med brett erläggas värden har inte gett överdriven väga i funktionen servicenivåmål. 
 
@@ -443,9 +443,9 @@ Koden i det här avsnittet visar hur du läser in sparade klassificeringen och r
 ## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>Bedöma klassificerings- och regressionsmodeller Gradient Boosting trädet modeller
 Koden i det här avsnittet visar hur du läser in klassificering och regression Gradient Boosting trädet modeller från Azure blob storage, poängsätta sina utföranden med standard klassificerare och regression mått och spara resultaten tillbaka till blob storage. 
 
-**Spark.mllib** stöder GBTs för binär klassificering och regression, med hjälp av både kontinuerlig och kategoriska funktioner. 
+**Spark. mllib** stöder GBTS för binära klassificering och för regression med både kontinuerliga och kategoriska funktioner. 
 
-[Gradient Boosting träd](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (GBTs) är ensembler för beslutsträd. GBTs träna beslutsträd upprepade gånger för att minimera en förlust-funktion. GBTs kan hantera kategoriska funktioner kräver funktionen skalning och kan samla in icke-linjära och funktionen interaktioner. De kan också användas i en inställning för multiclass-klassificering.
+GBTS ( [gradient Boosting trees](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) ) är ensembler i besluts träd. GBTS träna besluts träd iterativt för att minimera en förlust funktion. GBTS kan hantera kategoriska-funktioner, kräver inte funktions skalning och kan fånga icke-linjära och funktions interaktioner. Den här algoritmen kan också användas i en inställning för multiklass-klassificering.
 
     # SCORE GRADIENT BOOSTING TREE MODELS FOR CLASSIFICATION AND REGRESSION
 
@@ -524,7 +524,7 @@ BoostedTreeClassificationFileLoc: GradientBoostingTreeClassification_2016-05-031
 BoostedTreeRegressionFileLoc: GradientBoostingTreeRegression_2016-05-0317_23_56.860740.txt
 
 ## <a name="consume-spark-models-through-a-web-interface"></a>Använd Spark-modeller via ett webbgränssnitt
-Spark tillhandahåller en mekanism för att skicka via en fjärranslutning batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som kallas Livy. Livy är aktiverat som standard på ditt HDInsight Spark-kluster. Mer information om Livy finns: [Skicka Spark-jobb via fjärranslutning med Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
+Spark tillhandahåller en mekanism för att skicka via en fjärranslutning batchjobb eller interaktiva frågor via ett REST-gränssnitt med en komponent som kallas Livy. Livy är aktiverat som standard på ditt HDInsight Spark-kluster. Läs mer på Livy: [skicka Spark-jobb via fjärranslutning med Livy](../../hdinsight/spark/apache-spark-livy-rest-interface.md). 
 
 Du kan använda Livy för att skicka ett jobb som batch resultat via en fjärranslutning en fil som lagras i en Azure-blob och skriver sedan resultaten till en annan blob. Om du vill göra detta måste du ladda upp Python-skriptet från  
 [GitHub](https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/Spark/Python/ConsumeGBNYCReg.py) till bloben i Spark-kluster. Du kan använda ett verktyg som **Microsoft Azure Lagringsutforskaren** eller **AzCopy** att kopiera skriptet till kluster-blob. I vårt fall vi laddade upp skriptet till ***wasb:///example/python/ConsumeGBNYCReg.py***.   
@@ -586,6 +586,6 @@ Om du föredrar en kostnadsfri klientmiljö kod kan använda den [Azure Logic Ap
 
 ![Logikappdesigner](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>Nästa steg
-**Korsvalidering och finjustering oinskränkt**: Se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parametern.
+## <a name="whats-next"></a>Vad står på tur?
+**Korsvalidering och finjustering oinskränkt**: se [avancerad datagranskning och modellering med Spark](spark-advanced-data-exploration-modeling.md) om hur modeller kan tränas med hjälp av oinskränkt korsvalidering och hyper-parametern.
 

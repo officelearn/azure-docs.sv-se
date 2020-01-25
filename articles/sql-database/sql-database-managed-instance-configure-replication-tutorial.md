@@ -9,17 +9,17 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: e1ee616adadcabb2deb3fa08a5f3d4f768fddfd5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045644"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719899"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>Självstudie: Konfigurera Transaktionsreplikering mellan två hanterade instanser och SQL Server
 
 
-I den här guiden får du lära dig hur man:
+I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
 > - Konfigurera en hanterad instans som en replik utgivare. 
@@ -187,7 +187,7 @@ Mer information finns i [Hantera åtkomst nycklar för lagrings konton](../stora
 
 
 ## <a name="7---create-a-database"></a>7 – skapa en databas
-Skapa en ny databas på utgivar MI. Följ de här stegen för att göra det:
+Skapa en ny databas på utgivar MI. Det gör du genom att följa dessa steg:
 
 1. Starta SQL Server Management Studio (SSMS) på din SQL Server. 
 1. Anslut till den `sql-mi-publisher` hanterade instansen. 
@@ -234,7 +234,7 @@ GO
 ```
 
 ## <a name="8---configure-distribution"></a>8 – konfigurera distribution 
-När anslutningen har upprättats och du har en exempel databas kan du konfigurera distribution på din `sql-mi-distributor` hanterade instans. Följ de här stegen för att göra det:
+När anslutningen har upprättats och du har en exempel databas kan du konfigurera distribution på din `sql-mi-distributor` hanterade instans. Det gör du genom att följa dessa steg:
 
 1. Starta SQL Server Management Studio (SSMS) på din SQL Server. 
 1. Anslut till den `sql-mi-distributor` hanterade instansen. 
@@ -265,7 +265,7 @@ EXEC sys.sp_adddistributor @distributor = 'sql-mi-distributor.b6bf57.database.wi
 
 
 ## <a name="9---create-the-publication"></a>9 – skapa publikationen
-När distributionen har kon figurer ATS kan du nu skapa publikationen. Följ de här stegen för att göra det: 
+När distributionen har kon figurer ATS kan du nu skapa publikationen. Det gör du genom att följa dessa steg: 
 
 1. Starta SQL Server Management Studio (SSMS) på din SQL Server. 
 1. Anslut till den `sql-mi-publisher` hanterade instansen. 
@@ -287,7 +287,7 @@ När distributionen har kon figurer ATS kan du nu skapa publikationen. Följ de 
 
 ## <a name="10---create-the-subscription"></a>10 – skapa prenumerationen 
 
-När publikationen har skapats kan du skapa prenumerationen. Följ de här stegen för att göra det: 
+När publikationen har skapats kan du skapa prenumerationen. Det gör du genom att följa dessa steg: 
 
 1. Starta SQL Server Management Studio (SSMS) på din SQL Server. 
 1. Anslut till den `sql-mi-publisher` hanterade instansen. 
@@ -385,7 +385,7 @@ Möjliga lösningar:
 
 När du lägger till en ny prenumeration med hjälp av guiden **ny prenumeration** kan du se att det inte finns några databaser och publikationer som är tillgängliga på sidan **publikation** , och du kan se följande fel meddelande:
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 Även om det är möjligt att det här fel meddelandet är korrekt och det inte finns publikationer som är tillgängliga på utgivaren som du har anslutit till, eller om du saknar tillräckliga behörigheter, kan det här felet också orsakas av en äldre version av SQL Server Management Studio. Försök att uppgradera till SQL Server Management Studio 18,0 eller mer för att utesluta detta som en rotorsak. 
 

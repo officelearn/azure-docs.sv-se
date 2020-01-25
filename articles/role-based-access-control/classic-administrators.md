@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979343"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720664"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administratörer för klassiska Azure-prenumerationer
 
@@ -99,29 +99,11 @@ Information som jämför medlems användare och gäst användare finns i [Vad ä
 
 Endast konto administratören kan ändra tjänst administratör för en prenumeration. När du registrerar dig för en Azure-prenumeration är tjänst administratören som standard samma som konto administratören. Användaren med rollen konto administratör har ingen åtkomst till Azure Portal. Användaren med rollen tjänst administratör har fullständig åtkomst till Azure Portal. Om konto administratören och tjänst administratören är samma användare och du ändrar tjänst administratören till en annan användare förlorar konto administratören åtkomst till Azure Portal. Konto administratören kan dock alltid använda konto Center för att ändra tjänst administratören tillbaka till sig själva.
 
-Det finns två sätt att ändra tjänstadministratör. Du kan ändra i **Azure Portal** eller **konto Center**.
-
-### <a name="azure-portal"></a>Azure portal
-
-1. Kontrol lera att ditt scenario stöds genom att kontrol lera begränsningarna för att ändra tjänst administratörer.
-
-1. Logga in på [Azure-portalen](https://portal.azure.com) som kontoadministratör.
-
-1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
-
-1. Klicka på **Egenskaper**.
-
-    ![Skärm bild som visar konto administratören](./media/classic-administrators/account-admin.png)
-
-1. Klicka på **tjänst administratör** högst upp för att öppna fönstret tjänst administratör.
-
-    Om knappen tjänst administratör är inaktive rad har du inte behörighet. Endast den användare som är konto administratör kan ändra tjänst administratören.
-
-1. Välj en ny tjänst administratör och klicka sedan på **Spara**.
+Följ dessa steg om du vill ändra tjänst administratören i **konto Center**.
 
 ### <a name="account-center"></a>Konto Center
 
-1. Kontrol lera att ditt scenario stöds genom att kontrol lera begränsningarna för att ändra tjänst administratörer.
+1. Kontrol lera att ditt scenario stöds genom att kontrol lera [begränsningarna för att ändra tjänst administratören](#limitations-for-changing-the-service-administrator).
 
 1. Logga in på [konto Center](https://account.windowsazure.com/subscriptions) som konto administratör.
 
@@ -156,7 +138,7 @@ Konto administratören är den användare som ursprungligen registrerade sig fö
 
 Följ dessa steg om du vill visa konto administratören.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Öppna [Prenumerationer](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) och välj en prenumeration.
 

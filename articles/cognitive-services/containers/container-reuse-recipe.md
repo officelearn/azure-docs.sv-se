@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 97342f1dd4f6ce343626ba6c294f09dabe3db5c0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647282"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717201"
 ---
 # <a name="create-containers-for-reuse"></a>Skapa containrar för återanvändning
 
@@ -27,9 +27,9 @@ När du har det här nya lager behållaren (med inställningar) och du har testa
 
 Alla `docker run` exempel i det här dokumentet förutsätter en Windows-konsol med ett fortsättnings streck för `^` raden. Tänk på följande när du använder:
 
-* Ändra inte ordningen på argumenten om du inte är bekant med Docker-behållare.
+* Ändra inte argumentens ordning om du inte är bekant med docker-behållare.
 * Om du använder ett annat operativ system än Windows, eller en annan konsol än Windows-konsol, använder du rätt konsol/Terminal, kommandosyntax för monteringar och linje fortsättnings text för din konsol och ditt system.  Eftersom Cognitive Services container är ett Linux-operativsystem använder mål monteringen en syntax för en mappvy i Linux-typ.
-* `docker run` exempel använder katalogen från `c:`s enheten för att undvika eventuella behörighets konflikter i Windows. Om du behöver använda en speciell katalog som indatalistan kan du behöva ge Docker-tjänstens behörighet.
+* `docker run` exempel använder katalogen från `c:`s enheten för att undvika eventuella behörighets konflikter i Windows. Om du vill använda en viss katalog som den inkommande katalogen kan du behöva ge docker tjänsten behörighet.
 
 ## <a name="store-no-configuration-settings-in-image"></a>Spara inga konfigurations inställningar i avbildningen
 

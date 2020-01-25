@@ -5,24 +5,24 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 3d6f9f7d09664f9a5bd968ca5c0441b0846ceca3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 8f82f0539432418f967d51f00e659ce92d1fa9b6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122703"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719814"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Kom igång med SQL-databasgranskning
 
-Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. Granskning gör även följande:
+Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) spårar databas händelser och skriver dem till en Gransknings logg i ditt Azure storage-konto, Log Analytics arbets yta eller Event Hubs. Granskning:
 
-- Det hjälper dig att upprätthålla regelefterlevnad, förstå databasaktiviteter och få insikter om i avvikelser och fel som kan tyda på affärsproblem eller potentiella säkerhetsöverträdelser.
+- Hjälper dig att upprätthålla regelefterlevnad, förstå databas aktivitet och få insikt i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser.
 
-- Det främjar och underlättar uppfyllandet av efterlevnadsstandarder, även om det inte garanterar efterlevnad. Mer information om Azure-program som stöder standardkompatibilitet finns i [Azure Säkerhetscenter](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
+- Möjliggör och underlättar efterlevnad av normer för efterlevnad, även om det inte garanterar efterlevnad. Mer information om Azure-program som stöder standardkompatibilitet finns i [Azure Säkerhetscenter](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) där du hittar den mest aktuella listan med SQL Database certifierings certifieringar.
 
 
 > [!NOTE] 
@@ -33,10 +33,10 @@ Granskning för Azure [SQL Database](sql-database-technical-overview.md) och [SQ
 
 ## <a id="subheading-1"></a>Översikt över Azure SQL Database-granskning
 
-Du kan använda SQL-databasgranskning för att:
+Du kan använda granskning av SQL Database för att:
 
-- **Behåll** en gransknings historik för markerade händelser. Du kan definiera kategorier med databasåtgärder som ska granskas.
-- **Rapport** om databas aktivitet. Du kan använda förkonfigurerade rapporter och en instrumentpanel för att snabbt komma igång med aktivitets- och händelserapportering.
+- **Behåll** en gransknings historik för markerade händelser. Du kan definiera kategorier av databas åtgärder som ska granskas.
+- **Rapport** om databas aktivitet. Du kan använda förkonfigurerade rapporter och en instrument panel för att komma igång snabbt med aktivitet och händelse rapportering.
 - **Analysera** rapporter. Du kan hitta misstänkta händelser, ovanliga aktiviteter och trender.
 
 > [!IMPORTANT]
@@ -125,7 +125,7 @@ I följande avsnitt beskrivs konfigurationen av granskning med hjälp av Azure P
 
 Om du väljer att skriva gransknings loggar till Azure Monitor loggar:
 
-- Använd [Azure-portalen](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
+- Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
     ![Visa gransknings loggar](./media/sql-database-auditing-get-started/auditing-view-audit-logs.png)
 
@@ -159,7 +159,7 @@ Om du väljer att skriva gransknings loggar till ett Azure Storage-konto finns d
 
 - Gransknings loggar sammanställs i det konto som du valde under installationen. Du kan utforska gransknings loggar med hjälp av ett verktyg som [Azure Storage Explorer](https://storageexplorer.com/). I Azure Storage sparas gransknings loggar som en samling BLOB-filer i en behållare med namnet **sqldbauditlogs**. Mer information om hierarkin för lagrings-mappar, namngivnings konventioner och logg format finns i [SQL Database Gransknings logg format](https://go.microsoft.com/fwlink/?linkid=829599).
 
-- Använd [Azure-portalen](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
+- Använd [Azure Portal](https://portal.azure.com).  Öppna relevant databas. Klicka på **Visa gransknings loggar**överst i databasens **gransknings** sida.
 
     ![Navigeringsfönster][7]
 

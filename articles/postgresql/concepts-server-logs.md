@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768222"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721327"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 Med Azure Database for PostgreSQL kan du konfigurera och få åtkomst till postgres standard loggar. Loggarna kan användas för att identifiera, felsöka och reparera konfigurations fel och underoptimala prestanda. Loggnings information som du kan konfigurera och komma åt innehåller fel, fråga efter information, autovakuum-poster, anslutningar och kontroll punkter. (Åtkomst till transaktions loggar är inte tillgänglig).
@@ -29,7 +29,7 @@ Om du vill veta mer om postgres logg parametrar går du [till inloggnings-och](h
 Information om hur du konfigurerar parametrar i Azure Database for PostgreSQL finns i [Portal dokumentationen](howto-configure-server-parameters-using-portal.md) eller CLI- [dokumentationen](howto-configure-server-parameters-using-cli.md). 
 
 > [!NOTE]
-> Att konfigurera en stor mängd loggar, till exempel loggning av uttryck, kan lägga till betydande prestanda-kostnader. 
+> Att konfigurera en stor mängd loggar, till exempel loggning av uttryck, kan lägga till avsevärd prestanda. 
 
 ## <a name="access-log-files"></a>Åtkomst till. log-filer
 Standard logg formatet i Azure Database for PostgreSQL är. log. En exempel rad från den här loggen ser ut så här:
@@ -96,22 +96,22 @@ I följande tabell beskrivs fälten för **PostgreSQLLogs** -typen. Beroende på
 
 |**Fält** | **Beskrivning** |
 |---|---|
-| tenantId | Ditt klient-ID |
+| TenantId | Ditt klient-ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Tidstämpel när loggen registrerades i UTC |
-| Typ | Loggens typ. `AzureDiagnostics` alltid |
+| Typ | Loggens typ. Alltid `AzureDiagnostics` |
 | SubscriptionId | GUID för den prenumeration som servern tillhör |
 | ResourceGroup | Namnet på den resurs grupp som servern tillhör |
-| ResourceProvider | Namnet på resurs leverantören. `MICROSOFT.DBFORPOSTGRESQL` alltid |
+| ResourceProvider | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORPOSTGRESQL` |
 | ResourceType | `Servers` |
 | ResourceId | Resurs-URI |
 | Resurs | Namnet på servern |
 | Kategori | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
-| Nivå | Loggnings nivå, exempel: logg, fel, meddelande |
+| errorLevel | Loggnings nivå, exempel: logg, fel, meddelande |
 | Meddelande | Primärt logg meddelande | 
 | Domain | Server version, exempel: postgres-10 |
-| noggrant | Sekundärt logg meddelande (om tillämpligt) |
+| Detalj | Sekundärt logg meddelande (om tillämpligt) |
 | Kolumn | Namnet på kolumnen (om tillämpligt) |
 | SchemaName | Schemats namn (om tillämpligt) |
 | DatatypeName | Namnet på data typen (om tillämpligt) |

@@ -3,20 +3,20 @@ title: Parallell massimport av data i SQL-partitionstabeller - Team Data Science
 description: Skapa partitionerade tabeller för snabb parallell massimport av data till en SQL Server-databas.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428313"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721344"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Skapa och optimera tabeller för snabb parallella import av data till en SQL Server på en Azure VM
 
@@ -57,7 +57,7 @@ I följande exempel skapas en ny databas med tre filgrupper än primärt och log
 ## <a name="create-a-partitioned-table"></a>Skapa en partitionerad tabell
 Om du vill skapa partitionerade tabeller enligt dataschemat mappad till databasen-filgrupper som skapades i föregående steg, måste du först skapa en partitionsfunktion och schema. När data samtidigt som importerats till partitionerade tabeller är poster fördelade på filgrupper enligt ett partitionsschema enligt beskrivningen nedan.
 
-### <a name="1-create-a-partition-function"></a>1. Skapa en partitionsfunktion
+### <a name="1-create-a-partition-function"></a>1. skapa en partitions funktion
 [Skapa en partitionsfunktion](https://msdn.microsoft.com/library/ms187802.aspx) den här funktionen definierar en uppsättning värden/gränser som ska ingå i varje enskild partitionstabell, till exempel, för att begränsa partitioner per månad (vissa\_datetime\_fält) i år 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
@@ -66,7 +66,7 @@ Om du vill skapa partitionerade tabeller enligt dataschemat mappad till database
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
 
-### <a name="2-create-a-partition-scheme"></a>2. Skapa ett partitionsschema
+### <a name="2-create-a-partition-scheme"></a>2. skapa ett partitionsschema
 [Skapa ett partitionsschema](https://msdn.microsoft.com/library/ms179854.aspx). Det här schemat mappar varje partition intervallet i partitionsfunktionen till en fysisk filgrupp, till exempel:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
@@ -85,7 +85,7 @@ Om du vill skapa partitionerade tabeller enligt dataschemat mappad till database
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
 
-### <a name="3-create-a-partition-table"></a>3. Skapa en partitionstabell
+### <a name="3-create-a-partition-table"></a>3. skapa en partitionstabell
 [Skapa en partitionerad tabell](https://msdn.microsoft.com/library/ms174979.aspx)(s) enligt ditt dataschema och ange partition schema och begränsning fält som används för att partitionera tabellen, till exempel:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
@@ -99,7 +99,7 @@ Mer information finns i [skapa partitionerade tabeller och index](https://msdn.m
 * [Ändra databasen](https://msdn.microsoft.com/library/bb522682.aspx) att ändra schemat för loggning av transaktionen till bulkloggad att minimera arbetet med att loggning, till exempel:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Starta import massåtgärder parallellt för att bearbeta för inläsning av data. Tips om vilket ger snabbare bulk import av big data till SQL Server-databaser finns [läsa in 1TB på mindre än 1 timme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Starta import massåtgärder parallellt för att bearbeta för inläsning av data. Tips om hur du påskyndar Mass import av Big data i SQL Server-databaser finns [i load 1 TB på mindre än 1 timme](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 Följande PowerShell-skript är ett exempel på parallella datainläsning med BCP.
 

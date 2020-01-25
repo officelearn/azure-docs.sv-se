@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: pepogors
-ms.openlocfilehash: e4050dedeb48b19b6848a95fc904f7f37fb5b04a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5efdbd17db20e69ace33b379ddbb99b2c4a20e69
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349396"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722568"
 ---
 # <a name="multi-container-application-and-service-manifest-examples"></a>Exempel på program med flera container och tjänstmanifest
 Följande är exempel på program-och tjänst manifest för ett Service Fabric program med flera behållare. Syftet med dessa exempel är att visa vilka inställningar som är tillgängliga och hur de används. Dessa program-och tjänst manifest baseras på [Windows Server 2016-exempel](https://github.com/Azure-Samples/service-fabric-containers/tree/master/Windows) manifest för behållare.
@@ -342,7 +342,7 @@ Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tj
  Mer information finns i [ContainerHost-element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>ImageName-element
-Lagrings platsen och avbildningen på https://hub.docker.com eller Azure Container Registry. Mer information finns i [ImageName-element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+Lagrings platsen och avbildningen på [https://hub.docker.com](https://hub.docker.com) eller Azure Container Registry. Mer information finns i [ImageName-element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="environmentvariables-element"></a>EnvironmentVariables-element
 Skicka miljövariabler till din behållare eller exe-miljö.  Mer information finns i [EnvironmentVariables-element](service-fabric-service-model-schema-elements.md#EnvironmentVariablesElementEnvironmentVariablesTypeComplexTypeDefinedInCodePackageTypecomplexType)
@@ -386,7 +386,7 @@ Den körbara filen som anges av EntryPoint är vanligt vis den tids krävande tj
 Mer information finns i [ContainerHost-element](service-fabric-service-model-schema-elements.md#ContainerHostElementContainerHostEntryPointTypeComplexTypeDefinedInEntryPointDescriptionTypecomplexType)
 
 ### <a name="imagename-element"></a>ImageName-element
-Lagrings platsen och avbildningen på https://hub.docker.com eller Azure Container Registry. Mer information finns i [ImageName-element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
+Lagrings platsen och avbildningen på [https://hub.docker.com](https://hub.docker.com) eller Azure Container Registry. Mer information finns i [ImageName-element](service-fabric-service-model-schema-elements.md#ImageNameElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)
 
 ### <a name="commands-element"></a>Kommando element
 Skicka en kommaavgränsad lista med kommandon till behållaren. Mer information finns i [kommandon element](service-fabric-service-model-schema-elements.md#CommandsElementxs:stringComplexTypeDefinedInContainerHostEntryPointTypecomplexType)

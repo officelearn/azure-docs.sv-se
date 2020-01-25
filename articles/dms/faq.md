@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745411"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717786"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Vanliga frågor om att använda Azure Database Migration Service
 
@@ -96,7 +96,7 @@ Under en vanlig, enkel databas-migrering, gör du följande:
 1. Skapa en eller flera mål databaser.
 2. Utvärdera dina käll databaser.
     * För homogena migreringar kan du utvärdera din eller dina befintliga databaser med hjälp av [DMA](https://www.microsoft.com/download/details.aspx?id=53595).
-    * För heterogena-migreringar (från konkurrens kraftiga källor) kan du utvärdera dina befintliga databaser med [SSMA](https://aka.ms/get-ssma). Du kan också använda SSMA för att konvertera databas objekt och migrera schemat till din mål plattform.
+    * För heterogena migreringar (från konkurrens kraftiga källor) kan du utvärdera dina befintliga databaser med [SSMA](https://aka.ms/get-ssma). Du kan också använda SSMA för att konvertera databas objekt och migrera schemat till din mål plattform.
 3. Skapa en instans av Azure Database Migration Service.
 4. Skapa ett migreringsjobb som anger käll databas (er), mål databaser och de tabeller som ska migreras.
 5. Starta den fullständiga belastningen.

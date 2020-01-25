@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 437b87a3d684d7751adc89ba77b20ea86b3455e4
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: bbe1d651a7d2d2cac1b1aa78b815b2797ad185c5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806002"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717324"
 ---
 # <a name="create-a-custom-voice"></a>Skapa en anpassad röst
 
@@ -78,7 +78,7 @@ När din data uppsättning har verifierats kan du använda den för att bygga di
     > Dubbla ljud namn tas bort från utbildningen. Se till att de data uppsättningar du väljer inte innehåller samma ljud namn i flera. zip-filer.
 
     > [!TIP]
-    > Att använda data uppsättningarna från samma talare krävs för kvalitets resultat. När data uppsättningarna som du har skickat för utbildning innehåller ett totalt antal mindre än 6 000 distinkta yttranden, tränar du din röst modell genom den statistiska parameter syntes tekniken. Om dina utbildnings data överstiger ett totalt antal 6 000 distinkta yttranden, kommer du att starta en tränings process med sammanslagnings tekniken. Normalt kan sammanfognings tekniken resultera i mer naturliga och högre röst resultat. [Kontakta det anpassade röst teamet](https://go.microsoft.com/fwlink/?linkid=2108737) om du vill träna en modell med den senaste neurala TTS-tekniken som kan producera en digital röst som motsvarar de offentligt tillgängliga [neurala-rösterna](language-support.md#neural-voices).
+    > Att använda data uppsättningarna från samma talare krävs för kvalitets resultat. När data uppsättningarna som du har skickat för utbildning innehåller ett totalt antal mindre än 6 000 distinkta yttranden, tränar du din röst modell genom den statistiska parameter syntes tekniken. Om dina utbildnings data överstiger ett totalt antal 6 000 distinkta yttranden, kommer du att starta en tränings process med sammanslagnings tekniken. Normalt kan sammanfognings tekniken resultera i mer naturliga och högre röst resultat. [Kontakta det anpassade röst teamet](https://go.microsoft.com/fwlink/?linkid=2108737) om du vill träna en modell med den senaste neurala TTS-tekniken som kan producera en digital röst motsvarighet till de offentligt tillgängliga [neurala-rösterna](language-support.md#neural-voices).
 
 5.  Klicka på **träna** för att börja skapa din röst modell.
 

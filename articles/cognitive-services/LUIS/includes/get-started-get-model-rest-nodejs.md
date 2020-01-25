@@ -8,21 +8,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: cc8f01d5608b36521185695cd5f7be531ba7aeaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73503768"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748879"
 ---
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Start nyckel.
 * Importera [TravelAgent](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json) -appen från kognitiva-tjänsterna – språkförståelseing GitHub-lagringsplatsen.
 * LUIS program-ID för den importerade TravelAgent-appen. Program-ID visas på programmets instrumentpanel.
 * Versions-ID: t i programmet som tar emot yttranden. Standard-id:t är ”0.1”.
 * Programmeringsspråket [Node.js](https://nodejs.org/) 
-* [Visual Studio Code](https://code.visualstudio.com/)
+* [Visual Studio-kod](https://code.visualstudio.com/)
 
 ## <a name="example-utterances-json-file"></a>JSON-fil med exempelyttranden
 
@@ -89,8 +89,8 @@ Använd Go för att lägga till en enhets- [API](https://aka.ms/luis-apim-v3-aut
             body: utterances
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     const train = async (verb) => {
     
@@ -104,8 +104,8 @@ Använd Go för att lägga till en enhets- [API](https://aka.ms/luis-apim-v3-aut
             body: null // The body can be empty for a training request
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     
     // MAIN

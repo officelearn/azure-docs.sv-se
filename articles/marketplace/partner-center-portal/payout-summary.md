@@ -7,12 +7,12 @@ ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979700"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715445"
 ---
 # <a name="payout-reporting"></a>Utbetalnings rapportering
 
@@ -32,12 +32,12 @@ Om du säljer erbjudanden i Azure Marketplace ser du också information om lycka
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>Roller och behörighet för att få åtkomst till utbetalnings rapporten
 
-| Rapporter/sidor    | Kontoägare    | Manager  | Developer | Företags deltagare |  Ekonomi deltagare | Rika marknads föraren |
+| Rapporter/sidor    | Kontoägare    | Manager  | Utvecklare | Företags deltagare |  Ekonomi deltagare | Rika marknads föraren |
 |------------------|------------------|----------|-----------|----|----|-----|
 | Anskaffnings rapport (inklusive nära real tids data) | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
 | Feedback-rapport/svar | Kan visa och skicka feedback | Kan visa och skicka feedback | Kan visa och skicka feedback | Ingen åtkomst | Ingen åtkomst | Kan visa och skicka feedback |
 | Hälso rapport (inklusive nära real tids data) | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
-| Användningsrapport | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
+| Användnings rapport | Kan visa | Kan visa | Kan visa | Kan visa | Ingen åtkomst | Ingen åtkomst |
 | Konto utbetalning | Kan uppdatera | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan uppdatera | Ingen åtkomst |
 | Skatte profil | Kan uppdatera | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan uppdatera | Ingen åtkomst |
 | Utbetalningssammanfattning | Kan visa | Ingen åtkomst | Ingen åtkomst | Ingen åtkomst | Kan visa | Ingen åtkomst |
@@ -46,7 +46,7 @@ Om du säljer erbjudanden i Azure Marketplace ser du också information om lycka
 
 | | Partnerportalen i molnet | Partnercenter |
 |---------|---------|---------|
-| Länkar | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory och https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| Länkar | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) och [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | Navigering | Utbetalnings rapportering som tillhandahålls i insikts utbetalning | Utbetalnings rapportering som tillhandahålls i Partner Center – utbetalnings ikon |
 | Omfång | <ul> <li>Transaktion per rad objekt är synligt för insamling i arbete, samlas in och betalas </li> <li>Rapportering – visar alla rad artiklar när inköps ordern har skapats, inklusive pågående insamling och fakturering, samt insamlings status och rad artiklar som ännu inte är berättigade att betala. </li> </ul> | <ul> <li>Visar rad artiklarna när de bedöms som berättigade intäkter.</li> <li>Kunderna betalar till Microsoft först och sedan kan ISV: erna se utbetalnings rapporten som startar.</li> <li>Utbetalnings rapporten visar inte pågående insamling och fakturering pågår.  </li> </ul>  |
 | Transaktionen är inte klar för utbetalning | Fakturering pågår | Nästa beräknade betalning: status för utbetalning är i tillståndet Unprocessed.  |
@@ -68,23 +68,23 @@ Till exempel om kunden köper med ett kredit kort.
 
 ## <a name="corelation-between-payout-and-usage"></a>Relation mellan utbetalning och användning
 
-|Beskrivning    |    Datum  | Beställningar/användning  | Betalning |
+|Beskrivning    |    Datum  | Beställningar/användning  | Payout |
 |----------|----------|-----------|-------------|
-|Order period   | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Användning** <br> <ul> <li>CustomerId </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> |  |
+|Order period   | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>Kund</li> </ul> <br> **Användning** <br> <ul> <li>Kund </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> |  |
 |Slut period (månad)   | 30 aug 2019 | | |
 |Fakturerings datum | 1 september 2019 | | |
 |Kund betalnings datum | 1 september 2019 | | |
-|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
+|Depositions period (endast kredit kort, 30 dagar) | 1 september 2019 – – 30 september 2019 | | **Ordning för korrelations attribut:** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>Kund</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Obearbetade |
 |Start för samlings period | 1 september 2019 | | |
 |Samlings period slut (maximalt 30 dagar) | 30 september 2019 | | |
-|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
-|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
+|Beräknings datum för utbetalning (månatlig på 15) | 1 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li>Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>Kund</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Planer |
+|Utbetalnings datum | 15 oktober 2019 | | **Korrelations-attribut** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>Kund</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** Betalning skickas |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>Enterprise Agreement (kvartals Visa/månads kunder)
 
-| Beskrivning |    Datum  | Användning | Betalning |
+| Beskrivning |    Datum  | Användning | Payout |
 |----------|----------|---------|-----------|
-|Order period | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **Användnings rapport** <br> <ul> <li>CustomerId </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> | |
+|Order period | Aug, 15, 2019-Aug 30, 2019 | **Ordning för korrelations attribut** <br> <ul> <li>OrderId</li> <li>Kund</li> </ul> <br> **Användnings rapport** <br> <ul> <li>Kund </li> <li>Kund namn</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> Uppskattad utökad avgift <br> Beräknad utbetalning (PC) </li> </ul> | |
 |Slut period (kvartal) | 30 september 2019 | | |
 |Fakturerings datum | 15 oktober 2019 | | |
 |Depositions period (endast kredit kort, 30 dagar) | Ej tillämpligt | | |
@@ -93,13 +93,13 @@ Till exempel om kunden köper med ett kredit kort.
 |Samlings period slut (maximalt 90 dagar) | 15 Jan 2020 | | |
 |Kund betalnings datum | 30 december 2019 | | |
 |Beräkning av utbetalning | 15 Jan 2020 | | |
-|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
+|Utbetalnings datum | Feb 15, 2020 | | **För kvartals beroende kunder** <br> <br> **Rapporten order** <br> <ul><li>AssetId</li> <li>Kund-ID</li> <li> Kund namn</li> </ul> <br> **Användning** <br> <ul> <li>AssetId</li> <li>Kund</li> <li>Kund namn</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>earningAmountInLastPaymentCurrency</li> </ul> <br> **Utbetalnings status:** skickat |
 
 ## <a name="transaction-history-download-export"></a>Hämta export av transaktions historik
 
 Det här alternativet innehåller en nedladdning av varje rad objekt som du ser på sidan transaktions historik, typ, datum, associerat transaktions belopp, kund, produkt och annan transaktionell information som gäller för stimulans programmet.
 
-| Kolumnnamn     | Beskrivning    |
+| kolumn namn     | Beskrivning    |
 |-------------|-------------------------------|
 | earningId                      | Unikt ID för varje tilltjänande                                                                                                       |
 | participantId                  | Den primära identiteten för partnern enligt programmet                                                                            |
@@ -130,7 +130,7 @@ Det här alternativet innehåller en nedladdning av varje rad objekt som du ser 
 | paymentId            | Unikt ID för betalningen. Det här antalet visas i ditt bank utdrag                                            |
 | paymentStatus            | Betalnings status                                            |
 | paymentStatusDescription            | Egen beskrivning av betalnings status                                            |
-| customerId                     | Är alltid tomt                                                                                                                     |
+| Kund                     | Är alltid tomt                                                                                                                     |
 | customerName                   | Är alltid tomt                                                                                                                     |
 | partNumber                     | Är alltid tomt                                                                                                                     |
 | Namn                    | Produkt namn som är kopplat till transaktionen                                                                                                       |
@@ -140,7 +140,7 @@ Det här alternativet innehåller en nedladdning av varje rad objekt som du ser 
 | productType                    | Typ av produkt (till exempel app, tillägg, spel osv.)                                                                                        |
 | invoiceNumber                  | Faktura nummer (gäller endast EA)                                                                                                  |
 | resellerId                     | Åter försäljarens ID                                                                                                                      |
-| resellerName                   | Återförsäljarens namn                                                                                                                            |
+| resellerName                   | Åter försäljarens namn                                                                                                                            |
 | transactionType                | Transaktions typ (till exempel köp, åter betalning, återföring, åter betalning osv.)                                                               |
 | localProviderSeller            | Lokal leverantör/säljare i post                                                                                                          |
 | taxRemitted                    | Moms som remitterats (försäljning, användning eller moms/GST-skatter).                                                                                   |

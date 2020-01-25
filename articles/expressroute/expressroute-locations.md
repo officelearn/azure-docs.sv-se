@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/17/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0eafd090366623919891ff0b03dd85a0d3dbcf88
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: da84bea51271829e7d3e513ada21c69dbd61916c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263582"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719967"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -163,7 +163,7 @@ I följande tabell visas platser efter tjänstleverantör. Om du vill visa tillg
 
 ### <a name="national-cloud-environment"></a>Nationell molnmiljö
 
-Azure National-moln är isolerade från varandra och från globala Commerical Azure. ExpressRoute för ett Azure-moln kan inte ansluta till Azure-regionerna i de andra. 
+De nationella Azure-molnen är isolerade från varandra och från globala affärs Azure. ExpressRoute för ett Azure-moln kan inte ansluta till Azure-regionerna i de andra. 
 
 ### <a name="us-government-cloud"></a>U.S. Government-moln
 

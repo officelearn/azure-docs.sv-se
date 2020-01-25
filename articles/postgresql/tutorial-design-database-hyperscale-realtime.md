@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978108"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716328"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Självstudie: utforma en instrument panel med real tids analys med Azure Database for PostgreSQL – storskalig (citus)
 
@@ -128,7 +128,7 @@ Frågan infogar ungefär åtta rader varje sekund. Raderna lagras på olika arbe
    > Lämna frågan för generering av data som körs och öppna en andra psql-anslutning för de återstående kommandona i den här självstudien.
    >
 
-## <a name="query"></a>Söka i data
+## <a name="query"></a>Fråga
 
 Med alternativet för skalnings värd kan flera noder bearbeta frågor parallellt för hastighet. Databasen beräknar till exempel agg regeringar som SUM och COUNT på arbetsnoder och kombinerar resultaten till ett slutligt svar.
 
@@ -222,7 +222,7 @@ I föregående steg skapade du Azure-resurser i en Server grupp. Om du inte tror
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data. Du har lärt dig att fråga data både i rå data, samla in data, fråga de sammanställda tabellerna och förfalla gamla data.
+I den här självstudien har du lärt dig hur du etablerar en Server grupp för storskaliga (citus). Du är ansluten till den med psql, skapat ett schema och distribuerade data. Du har lärt dig att fråga data i rå data, samla in data, fråga de sammanställda tabellerna och förfalla gamla data.
 
 Nu kan du läsa om begreppen storskalighet.
 > [!div class="nextstepaction"]

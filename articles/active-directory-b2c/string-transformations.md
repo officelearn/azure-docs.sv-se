@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cb3b10ca67ab283b999e4fff8e3bb79ae3b59745
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950824"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712845"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -158,8 +158,8 @@ Avgör om ett sträng anspråk är lika med ett annat. Resultatet är en ny bool
 | InputClaim | inputClaim1 | sträng | Första anspråks typen, som ska jämföras. |
 | InputClaim | inputClaim2 | sträng | Andra anspråks typen, som ska jämföras. |
 | InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
-| InputParameter | ignoreCase | boolesk | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
-| OutputClaim | outputClaim | boolesk | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
+| InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
+| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Använd den här anspråks omvandlingen för att kontrol lera om ett anspråk är lika med ett annat anspråk. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **e-** postanspråket är lika med det **verifierade. e-** postanspråket.
 
@@ -199,8 +199,8 @@ Anger om ett anspråks värde är lika med värdet för indataparametern.
 | InputClaim | inputClaim1 | sträng | Anspråkets typ, som ska jämföras. |
 | InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
 | InputParameter | compareTo | sträng | sträng jämförelse, ett av värdena: ordinal, OrdinalIgnoreCase. |
-| InputParameter | ignoreCase | boolesk | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
-| OutputClaim | outputClaim | boolesk | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
+| InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
+| OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
 
 Du kan använda den här anspråks omvandlingen för att kontrol lera om ett anspråk motsvarar ett värde som du har angett. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **termsOfUseConsentVersion** -anspråket är lika med `v1`.
 
@@ -238,7 +238,7 @@ Skapar en slumpmässig sträng med slump tals generatorn. Om slump tals generato
 | ---- | ----------------------- | --------- | ----- |
 | InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värde som ska genereras, `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
 | InputParameter | stringFormat | sträng | Valfritt Formatera det slumpmässiga värdet. |
-| InputParameter | base64 | boolesk | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
+| InputParameter | Base64 | boolean | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
 | InputParameter | maximumNumber | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange det maximala antalet. |
 | InputParameter | dirigeringsrouter  | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
 | OutputClaim | outputClaim | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Det slumpmässiga värdet. |
@@ -379,7 +379,7 @@ Följande exempel söker efter beskrivningen av fel meddelandet baserat på fel 
   <DataType>string</DataType>
   <UserInputType>Paragraph</UserInputType>
   <Restriction>
-    <Enumeration Text="B2C_V1_90001" Value="You cant sign in because you are a minor" />
+    <Enumeration Text="B2C_V1_90001" Value="You cannot sign in because you are a minor" />
     <Enumeration Text="B2C_V1_90002" Value="This action can only be performed by gold members" />
     <Enumeration Text="B2C_V1_90003" Value="You have not been enabled for this operation" />
   </Restriction>
@@ -403,7 +403,7 @@ Transformationen Claims söker efter texten i objektet och returnerar dess värd
 - Inmatade anspråk:
     - **mapFromClaim**: B2C_V1_90001
 - Utgående anspråk:
-    - **restrictionValueClaim**: du kan inte logga in eftersom du är en mindre.
+    - **restrictionValueClaim**: det går inte att logga in eftersom du är en mindre.
 
 ## <a name="lookupvalue"></a>LookupValue
 
@@ -413,7 +413,7 @@ Leta upp ett anspråks värde från en lista med värden baserat på värdet fö
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputParameterId | sträng | Det anspråk som innehåller uppslags värdet |
 | InputParameter | |sträng | Insamling av indataparametrar. |
-| InputParameter | errorOnFailedLookup | boolesk | Kontrollerar om ett fel returneras när det inte finns någon matchande sökning. |
+| InputParameter | errorOnFailedLookup | boolean | Kontrollerar om ett fel returneras när det inte finns någon matchande sökning. |
 | OutputClaim | inputParameterId | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Värdet för det matchande ID: t. |
 
 I följande exempel söker du efter domän namnet i en av indataparametrar-samlingarna. Omvandlingen av anspråk söker upp domän namnet i identifieraren och returnerar dess värde (ett program-ID).
@@ -477,7 +477,7 @@ Hämtar domän delen av en e-postadress.
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | emailAddress | sträng | Den ClaimType som innehåller e-postadressen. |
-| OutputClaim | domän | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats – domänen. |
+| OutputClaim | domänsuffix | sträng | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats – domänen. |
 
 Använd den här anspråks omvandlingen för att parsa domän namnet efter användarens @-symbol. Detta kan vara till hjälp när du tar bort personligt identifierbar information (PII) från gransknings data. Följande anspråks omvandling visar hur du kan parsa domän namnet från ett **e-** postanspråk.
 
@@ -512,7 +512,7 @@ Kontrollerar att en sträng anspråks-och `matchTo` indataparameter är lika, oc
 | InputParameter | stringMatchMsgCode | sträng | Det andra värdet som ska anges om strängarna är lika. |
 | OutputClaim | outputClaim1 | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `stringMatchMsg` indataparameter. |
 | OutputClaim | outputClaim2 | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `stringMatchMsgCode` indataparameter. |
-| OutputClaim | stringCompareResultClaim | boolesk | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
+| OutputClaim | stringCompareResultClaim | boolean | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
 
 Du kan använda den här anspråks omvandlingen för att kontrol lera om ett anspråk motsvarar det värde som du har angett. Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **termsOfUseConsentVersion** -anspråket är lika med `v1`. Om ja, ändra värdet till `v2`.
 
@@ -559,7 +559,7 @@ Kontrollerar att en sträng anspråks-och `matchTo` indataparameter är lika, oc
 | InputParameter | stringComparison | sträng | Möjliga värden: `Ordinal` eller `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | sträng | Värdet som ska anges om strängarna är lika. |
 | OutputClaim | outputClaim | sträng | Om strängarna är lika med, innehåller det här utgående anspråket värdet för `outputClaimIfMatched` indataparameter. Eller null, om strängarna inte matchar. |
-| OutputClaim | stringCompareResultClaim | boolesk | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
+| OutputClaim | stringCompareResultClaim | boolean | Anspråks typen jämför resultat, som ska anges som `true` eller `false` baserat på jämförelse resultatet. |
 
 Till exempel kontrollerar följande anspråksbaserad omvandling om värdet för **ageGroup** -anspråk är lika med `Minor`. Om ja, returnera värdet till `B2C_V1_90001`.
 

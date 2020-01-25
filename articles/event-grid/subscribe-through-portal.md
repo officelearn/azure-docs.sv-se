@@ -1,68 +1,68 @@
 ---
-title: Azure Event Grid-prenumerationer via portalen
-description: Beskriver hur du skapar en Event Grid-prenumerationer via portalen.
+title: Azure Event Grid prenumerationer via portalen
+description: I den här artikeln beskrivs hur du skapar Event Grid prenumerationer för källor som stöds, till exempel Azure Blob Storage, genom att använda Azure Portal.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b54bc52a2feaf4646d801265ddb273c2c86158ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3172c92ecae094ab5d978803d2ccac7e6404a5e1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60823562"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721514"
 ---
 # <a name="subscribe-to-events-through-portal"></a>Prenumerera på händelser via portalen
 
-Den här artikeln beskriver hur du skapar en Event Grid-prenumerationer via portalen.
+Den här artikeln beskriver hur du skapar Event Grid prenumerationer via portalen.
 
-## <a name="create-event-subscriptions"></a>Skapa prenumerationer på händelser
+## <a name="create-event-subscriptions"></a>Skapa händelse prenumerationer
 
-Skapa en Event Grid-prenumeration för någon av stöds [händelsekällor](event-sources.md), Använd följande steg. Den här artikeln visar hur du skapar en Event Grid-prenumeration för en Azure-prenumeration.
+Följ stegen nedan om du vill skapa en Event Grid-prenumeration för någon av de [händelse källor](event-sources.md)som stöds. Den här artikeln visar hur du skapar en Event Grid-prenumeration för en Azure-prenumeration.
 
 1. Välj **Alla tjänster**.
 
    ![Välj alla tjänster](./media/subscribe-through-portal/select-all-services.png)
 
-1. Sök efter **Event Grid-prenumerationer** och välj bland de tillgängliga alternativen.
+1. Sök efter **Event Grid prenumerationer** och välj den från de tillgängliga alternativen.
 
-   ![Search](./media/subscribe-through-portal/search.png)
+   ![Sök](./media/subscribe-through-portal/search.png)
 
 1. Välj **+ Händelseprenumeration**.
 
    ![Lägg till en prenumeration](./media/subscribe-through-portal/add-subscription.png)
 
-1. Välj vilken typ av prenumeration som du vill skapa. Om du vill prenumerera på händelser för din Azure-prenumeration väljer du exempelvis **Azure-prenumerationer** och målprenumerationen.
+1. Välj den typ av prenumeration som du vill skapa. Om du till exempel vill prenumerera på händelser för din Azure-prenumeration väljer du **Azure-prenumerationer** och mål prenumerationen.
 
    ![Välj Azure-prenumeration](./media/subscribe-through-portal/azure-subscription.png)
 
-1. Om du vill prenumerera på alla händelsetyper för den här händelsekällan hålla den **prenumerera på alla händelsetyper** alternativet är markerat. Annars väljer du händelsetyper för den här prenumerationen.
+1. Om du vill prenumerera på alla händelse typer för den här händelse källan ska du se till att alternativet **Prenumerera på alla händelse typer** är markerat. Annars väljer du händelse typer för den här prenumerationen.
 
-   ![Välj händelsetyper](./media/subscribe-through-portal/select-event-types.png)
+   ![Välj händelse typer](./media/subscribe-through-portal/select-event-types.png)
 
-1. Ge mer information om händelseprenumerationen, till exempel slutpunkten för hantering av händelser och ett prenumerationsnamn.
+1. Ange ytterligare information om händelse prenumerationen, till exempel slut punkten för hantering av händelser och ett prenumerations namn.
 
-   ![Ange information om en prenumeration](./media/subscribe-through-portal/provide-subscription-details.png)
+   ![Ange prenumerations information](./media/subscribe-through-portal/provide-subscription-details.png)
 
-1. Om du vill aktivera obeställbara och anpassa återförsöksprinciper, Välj **extrafunktioner**.
+1. Om du vill aktivera inaktive brevering och anpassa principer för återförsök väljer du **ytterligare funktioner**.
 
    ![Välj ytterligare funktioner](./media/subscribe-through-portal/select-additional-features.png)
 
-1. Välj en behållare som ska användas för att lagra händelser som inte levereras och ange hur återförsök skickas.
+1. Välj en behållare som ska användas för att lagra händelser som inte levereras och ange hur återförsök ska skickas.
 
-   ![Aktivera obeställbara och försök igen](./media/subscribe-through-portal/set-deadletter-retry.png)
+   ![Aktivera obeställbara meddelanden och försök igen](./media/subscribe-through-portal/set-deadletter-retry.png)
 
 1. Välj **Skapa** när du är klar.
 
-## <a name="create-subscription-on-resource"></a>Skapa prenumeration på resursen
+## <a name="create-subscription-on-resource"></a>Skapa prenumeration på resurs
 
-Vissa händelsekällor stöd för att skapa en händelseprenumeration via gränssnittet portalen för den resursen. Välj händelsekällan och leta efter **händelser** i vänstra fönstret.
+Vissa händelse källor har stöd för att skapa en händelse prenumeration via Portal gränssnittet för den resursen. Välj händelse källa och Sök efter **händelser** i det vänstra fönstret.
 
-![Ange information om en prenumeration](./media/subscribe-through-portal/resource-events.png)
+![Ange prenumerations information](./media/subscribe-through-portal/resource-events.png)
 
-Portalen ger alternativ för att skapa en händelseprenumeration som är relevant för den här källan.
+Portalen innehåller alternativ för att skapa en händelse prenumeration som är relevant för den källan.
 
 ## <a name="next-steps"></a>Nästa steg
 

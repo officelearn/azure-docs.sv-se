@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: ea57f8cdf5e1b2460f396445c67cfcab28f07525
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 08cca67455df4b2d28bba0a7410fccc11446fcdc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840653"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748792"
 ---
 Den här artikeln innehåller nästa detalj nivå för att skydda Azure IoT-baserade Sakernas Internet-infrastrukturen (IoT). Den länkar till implementerings nivå information för att konfigurera och distribuera varje komponent. Den innehåller också jämförelser och val mellan olika konkurrerande metoder.
 
@@ -77,7 +77,7 @@ När du etablerar en säker TLS-anslutning med IoT Hub autentiserar IoT-enheten 
 
 ## <a name="securing-the-connection"></a>Skydda anslutningen
 
-Internet anslutning mellan IoT-enheten och IoT Hub skyddas med hjälp av Transport Layer Security (TLS) standard. Azure IoT stöder [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 och TLS 1,0, i den här ordningen. Stöd för TLS 1,0 tillhandahålls endast för bakåtkompatibilitet. Om möjligt [konfigurerar du hubben](../articles/iot-hub/iot-hub-tls.md) att använda TLS 1,2 eftersom det ger störst säkerhet.
+Internet anslutning mellan IoT-enheten och IoT Hub skyddas med hjälp av Transport Layer Security (TLS) standard. Azure IoT stöder [tls 1,2](https://tools.ietf.org/html/rfc5246), TLS 1,1 och TLS 1,0, i den här ordningen. Stöd för TLS 1,0 tillhandahålls endast för bakåtkompatibilitet. Kontrol lera [TLS-stöd i IoT Hub](../articles/iot-hub/iot-hub-tls-support.md) för att se hur du konfigurerar navet att använda TLS 1,2, eftersom det ger störst säkerhet.
 
 ## <a name="securing-the-cloud"></a>Skydda molnet
 

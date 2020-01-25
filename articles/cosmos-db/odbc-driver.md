@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035588"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721089"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Ansluta till Azure Cosmos DB med BI analysverktyg med ODBC-drivrutin
 
@@ -90,7 +90,7 @@ Låt oss börja med ODBC-drivrutinen.
 
 ## <a id="#container-mapping"></a>Steg 3: skapa en schema definition med hjälp av container mappnings metoden
 
-Det finns två typer av samplings metoder som du kan använda: **container mappning** eller **tabell avgränsare**. En samplings session kan använda båda metoderna för att sampla, men varje behållare kan bara använda en speciell samplings metod. Stegen nedan skapar ett schema för data i en eller flera behållare med hjälp av behållar mappnings metoden. Den här samplings metoden hämtar data på sidan i en behållare för att fastställa data strukturen. Den införlivar en behållare i en tabell på ODBC-sidan. Den här samplings metoden är effektiv och snabbt när data i en behållare är homogena. Om en behållare innehåller heterogena typ av data rekommenderar vi att du använder [mappnings metoden för tabell-avgränsare](#table-mapping) eftersom den ger en mer robust samplings metod för att fastställa data strukturerna i behållaren. 
+Det finns två typer av samplings metoder som du kan använda: **container mappning** eller **tabell avgränsare**. En samplings session kan använda båda metoderna för att sampla, men varje behållare kan bara använda en speciell samplings metod. Stegen nedan skapar ett schema för data i en eller flera behållare med hjälp av behållar mappnings metoden. Den här samplings metoden hämtar data på sidan i en behållare för att fastställa data strukturen. Den införlivar en behållare i en tabell på ODBC-sidan. Den här samplings metoden är effektiv och snabbt när data i en behållare är homogena. Om en behållare innehåller heterogen typ av data rekommenderar vi att du använder [mappnings metoden för tabell-avgränsare](#table-mapping) eftersom den ger en mer robust samplings metod för att fastställa data strukturerna i behållaren. 
 
 1. När du har slutfört steg 1-4 i [Anslut till din Azure Cosmos-databas](#connect)klickar du på **schema redigeraren** i **installations fönstret Azure Cosmos db odbc-drivrutinens DSN** .
 
@@ -239,7 +239,7 @@ Du kan använda din nya DSN för att ansluta till Azure Cosmos DB med verktyg fr
 
 1. Nu kan du skapa visualiseringar med Power BI genom att klicka på fliken rapport ![fliken rapport i Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), klicka på **nya Visual**, och sedan anpassa din panel. Mer information om hur du skapar visualiseringar i Power BI Desktop finns i [visualiseringstyper i Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du får följande fel, se till att den **värden** och **åtkomstnyckeln** värdena som du kopierade Azure-portalen i [steg 2](#connect) är korrekta och försök sedan igen. Använd kopieringsknapparna till höger om den **värden** och **åtkomstnyckel** värdena i Azure portal för att kopiera värdena felfritt.
 

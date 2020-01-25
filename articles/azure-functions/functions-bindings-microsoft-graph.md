@@ -2,15 +2,15 @@
 title: Microsoft Graph bindningar för Azure Functions
 description: Förstå hur du använder Microsoft Graph utlösare och bindningar i Azure Functions.
 author: craigshoemaker
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 1923e26ba0ada7dcf5b8b333150b7cd5b775398b
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 770187693e5bac6e059dfd20455099fcc695b74b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121207"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715029"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph bindningar för Azure Functions
 
@@ -69,7 +69,7 @@ Om du använder Azure Portal visas en varning under prompten för att installera
 
 
 <a name="token-input"></a>
-## <a name="auth-token"></a>Säkerhetstoken
+## <a name="auth-token"></a>Auth-token
 
 Indataporten för token för token hämtar en Azure AD-token för en specifik resurs och ger den till din kod som en sträng. Resursen kan vara valfri för vilken programmet har behörigheter. 
 
@@ -993,7 +993,7 @@ Mer information om Webhooks finns [arbeta med webhooks i Microsoft Graph].
 
 ## <a name="webhook-trigger"></a>Webhook-utlösare
 
-Med den Microsoft Graph webhook-utlösaren kan en funktion reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en resurstyp för Microsoft Graph.
+Med den Microsoft Graph webhook-utlösaren kan en funktion reagera på en inkommande webhook från Microsoft Graph. Varje instans av den här utlösaren kan reagera på en Microsoft Graph resurs typ.
 
 Det här avsnittet innehåller följande underavsnitt:
 
@@ -1247,7 +1247,7 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**Namn**| Ej tillämpligt |Obligatoriskt – variabel namnet som används i funktions koden för e-postmeddelandet. Se [använda en databindning i Outlook-meddelanden från kod](#outlook-output-code).|
 |**typ**| Ej tillämpligt |Required-måste anges till `graphWebhookSubscription`.|
 |**riktning**| Ej tillämpligt |Required-måste anges till `in`.|
-|**filter**|**Synkroniseringsfilter**| Om värdet är `userFromRequest`, kommer bindningen bara hämta prenumerationer som ägs av den anropande användaren (endast giltig med [http-utlösare]).| 
+|**Synkroniseringsfilter**|**Synkroniseringsfilter**| Om värdet är `userFromRequest`, kommer bindningen bara hämta prenumerationer som ägs av den anropande användaren (endast giltig med [http-utlösare]).| 
 
 ### <a name="webhook-input---usage"></a>Webhook-ingångs användning
 

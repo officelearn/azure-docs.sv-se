@@ -1,107 +1,117 @@
 ---
-title: Skalbar data vetenskap med Azure Data Lake-team data science process
-description: Använda Azure Data Lake för att utföra data utforsknings-och binära klassificerings aktiviteter på en data uppsättning.
+title: Skalbar datavetenskap med Azure Data Lake - Team Data Science Process
+description: Hur du använder Azure Data Lake för att utföra uppgifter för data-utforskning och binär klassificering på en datauppsättning.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4f1f60ef50b65c13464e7a777e9b8ce66b5fa122
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9409f14b20684afa1a39d45e663ff316f405cc97
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492451"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717924"
 ---
-# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar data vetenskap med Azure Data Lake: en slut punkt till slut punkts genom gång
-Den här genom gången visar hur du använder Azure Data Lake för att utföra data utforsknings-och binära klassificerings uppgifter på ett exempel av NYC taxi-resan och pris data uppsättningen för att förutsäga huruvida ett tips betalas av en avgift. Det vägleder dig genom stegen i [team data science-processen](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), från slut punkt till slut punkt från data förvärv till modell träning, och sedan till distributionen av en webb tjänst som publicerar modellen.
+# <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Skalbar datavetenskap med Azure Data Lake: genomgång för en slutpunkt till slutpunkt
+Den här genomgången visar hur du använder Azure Data Lake att göra datagranskning och binär klassificering uppgifter på ett exempel på NYC taxi resa och färdavgiften datauppsättning för att förutsäga om ett tips betalas av en avgiften. Vi går igenom stegen i den [Team Data Science Process](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), slutpunkt till slutpunkt, från datainsamling modellera utbildning och sedan till distributionen av en webbtjänst som publicerar modellen.
+
+## <a name="technologies"></a>Tekniker
+
+Dessa tekniker används i den här genom gången.
+* Azure Data Lake Analytics
+* U-SQL och Visual Studio
+* Python
+* Azure Machine Learning
+* Skript
+
 
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics
-[Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) har alla funktioner som krävs för att göra det enklare för data experter att lagra data i alla storlekar, form och hastighet, samt för att utföra data bearbetning, avancerad analys och maskin inlärning med hög skalbarhet i en kostnads effektivt sätt.   Du betalar per jobb, endast när data faktiskt bearbetas. Azure Data Lake Analytics innehåller U-SQL, ett språk som blandar deklarativ natur för SQL med lättfattliga programspecifika-kraften hos C# för att tillhandahålla skalbar distribuerad fråge funktion. Det gör att du kan bearbeta ostrukturerade data genom att använda schema vid läsning, infoga anpassad logik och användardefinierade funktioner (UDF: er) och inkluderar utöknings barhet för att möjliggöra detaljerad kontroll över hur du kör i skala. Mer information om design filosofin bakom U-SQL finns i [Visual Studio blogg inlägg](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+Den [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) har alla funktioner som gör det enklare för datatekniker att lagra data av valfri storlek, form och hastighet och genomföra databearbetning, avancerad analys och maskininlärning modellering med hög skalbarhet på ett kostnadseffektivt sätt.   Du betalar per jobb regelbundet, bara när data bearbetas faktiskt. Azure Data Lake Analytics innehåller U-SQL, ett språk som för samman den deklarativa karaktären i SQL med kraften i C# för att tillhandahålla skalbara distribuerad fråga funktionen. Den gör det möjligt att bearbeta Ostrukturerade data genom att använda schema vid läsning, infoga anpassad logik och användardefinierade funktioner (UDF) och innehåller utökningsbarhet för att aktivera de detaljerade kontroll över hur du kör i skala. Läs mer om designfilosofin bakom U-SQL i [Visual Studio-blogginlägget](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Datasjöanalys är också en viktig del av Cortana Analytics Suite och fungerar med Azure SQL Data Warehouse, Power BI och Data Factory. Det ger dig en fullständig moln stor data-och avancerad analys plattform.
+Datasjöanalys är också en viktig del av Cortana Analytics Suite och fungerar med Azure SQL Data Warehouse, Power BI och Data Factory. Den här kombinationen ger dig en komplett moln stor data-och avancerad analys plattform.
 
-Den här genom gången börjar med att beskriva hur du installerar de nödvändiga förutsättningarna och resurserna som krävs för att utföra uppgifter för data vetenskaps processen. Sedan beskriver den data bearbetnings stegen med hjälp av U-SQL och avslutas genom att visa hur du använder python och Hive med Azure Machine Learning Studio (klassisk) för att bygga och distribuera förutsägande modeller.
+Den här genomgången börjar genom att beskriva hur du installerar nödvändiga komponenter och resurser som behövs för att slutföra processen för datavetenskapsuppgifter. Sedan beskriver den data bearbetnings stegen med hjälp av U-SQL och avslutas genom att visa hur du använder python och Hive med Azure Machine Learning Studio (klassisk) för att bygga och distribuera förutsägande modeller.
 
 ### <a name="u-sql-and-visual-studio"></a>U-SQL och Visual Studio
-Den här genom gången rekommenderar att du använder Visual Studio för att redigera U-SQL-skript för att bearbeta data uppsättningen. U-SQL-skripten beskrivs här och tillhandahålls i en separat fil. Processen omfattar inmatning, utforska och sampling av data. Det visar också hur du kör ett U-SQL-skript jobb från Azure Portal. Hive-tabeller skapas för data i ett associerat HDInsight-kluster för att under lätta skapandet och distributionen av en binär klassificerings modell i Azure Machine Learning Studio.
+Den här genomgången rekommenderar att du använder Visual Studio för att redigera U-SQL-skript för att bearbeta datauppsättningen. U-SQL-skript som beskrivs här och tillhandahålls i en separat fil. Processen omfattar mata in, utforska och samlar data. Den visar också hur du kör en U-SQL-skriptbaserade jobb från Azure-portalen. Hive-tabeller har skapats för data i ett tillhörande HDInsight-kluster för att underlätta att bygga och distribuera en binär klassificeringsmodell i Azure Machine Learning Studio.
 
 ### <a name="python"></a>Python
-Den här genom gången innehåller också ett avsnitt som visar hur du skapar och distribuerar en förutsägelse modell med hjälp av python med Azure Machine Learning Studio. Det ger en Jupyter Notebook med python-skript för stegen i den här processen. Antecknings boken innehåller kod för vissa ytterligare funktions tekniks steg och modeller, till exempel multiklass-klassificering och Regressions modellering utöver den binära klassificerings modellen som beskrivs här. Regressions uppgiften är att förutsäga hur mycket av tipset som baseras på andra Tip-funktioner.
+Den här genomgången innehåller också ett avsnitt som visar hur du skapar och distribuerar en förutsägande modell med hjälp av Python med Azure Machine Learning Studio. Den innehåller en Jupyter-anteckningsbok med Python-skript för stegen i den här processen. Anteckningsboken innehåller kod för vissa ytterligare funktionen engineering steg och modeller konstruktion som multiklass-baserad klassificering och regression modellering förutom binära klassificeringsmodellen som beskrivs här. Regression-uppgift är att förutsäga mängden tips baserat på andra funktioner som tips.
 
-### <a name="azure-machine-learning"></a>Azure Machine Learning
-Azure Machine Learning Studio (klassisk) används för att bygga och distribuera förutsägande modeller. Detta görs med hjälp av två metoder: först med python-skript och sedan med Hive-tabeller i ett HDInsight-kluster (Hadoop).
+### <a name="azure-machine-learning"></a>Azure Machine Learning 
+Azure Machine Learning Studio (klassisk) används för att bygga och distribuera förutsägande modeller med två metoder: först med python-skript och sedan med Hive-tabeller i ett HDInsight-kluster (Hadoop).
 
 ### <a name="scripts"></a>Skript
-Endast huvud stegen beskrivs i den här genom gången. Du kan ladda ned det fullständiga **U-SQL-skriptet** och **Jupyter Notebook** från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+Bara de viktigaste stegen beskrivs i den här genomgången. Du kan hämta fullständiga **U-SQL-skript** och **Jupyter Notebook** från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-## <a name="prerequisites"></a>Förutsättningar
-Innan du påbörjar de här ämnena måste du ha följande:
+## <a name="prerequisites"></a>Krav
+Innan du påbörjar de här avsnitten måste du ha följande:
 
-* En Azure-prenumeration. Om du inte redan har ett kan du läsa [få en kostnads fri utvärderings version av Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Rekommenderas Visual Studio 2013 eller senare. Om du inte redan har en av dessa versioner installerade kan du hämta en kostnads fri community-version från [Visual Studio Community](https://www.visualstudio.com/vs/community/).
+* En Azure-prenumeration. Om du inte redan har en, se [skaffa Azure kostnadsfria utvärderingsversionen](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* (Rekommenderas) Visual Studio 2013 eller senare. Om du inte redan har en av dessa versioner installerade, du kan hämta en kostnadsfri Community-version från [Visual Studio Community](https://www.visualstudio.com/vs/community/).
 
 > [!NOTE]
-> I stället för Visual Studio kan du också använda Azure Portal för att skicka Azure Data Lake frågor. Instruktioner finns i så här gör du både med Visual Studio och på portalen i avsnittet **process data med U-SQL**.
+> Du kan också använda Azure-portalen för att skicka Azure Data Lake frågor i stället för Visual Studio. Anvisningar finns på hur du gör det både med Visual Studio och på portalen i avsnittet **bearbeta data med U-SQL**.
 >
 >
 
 
-## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Förbered data vetenskaps miljö för Azure Data Lake
-Skapa följande resurser för att förbereda data vetenskaps miljön för den här genom gången:
+## <a name="prepare-data-science-environment-for-azure-data-lake"></a>Förbereda datavetenskapsmiljö för Azure Data Lake
+För att förbereda datavetenskapsmiljö i den här genomgången, skapar du följande resurser:
 
-* Azure Data Lake Store (ADLS)
+* Azure Data Lake Storage (ADLS)
 * Azure Data Lake Analytics (ADLA)
-* Azure Blob Storage-konto
+* Azure Blob storage-konto
 * Azure Machine Learning Studio (klassiskt) konto
-* Azure Data Lake verktyg för Visual Studio (rekommenderas)
+* Azure Data Lake Tools för Visual Studio (rekommenderas)
 
-Det här avsnittet innehåller anvisningar om hur du skapar var och en av dessa resurser. Om du väljer att använda Hive-tabeller med Azure Machine Learning, i stället för python, för att bygga en modell, måste du också etablera ett HDInsight-kluster (Hadoop). Den här alternativa proceduren beskrivs i avsnittet Alternativ 2.
+Det här avsnittet innehåller anvisningar om hur du skapar dessa resurser. Om du väljer att använda Hive-tabeller med Azure Machine Learning, i stället för Python, om du vill skapa en modell behöva du också etablera ett kluster i HDInsight (Hadoop). Den här alternativa proceduren i beskrivs i avsnittet Alternativ 2.
 
 
 > [!NOTE]
-> **Azure Data Lake Store** kan skapas separat eller när du skapar **Azure Data Lake Analytics** som standard lagring. Instruktioner för att skapa var och en av dessa resurser separat, men Data Lake lagrings kontot behöver inte skapas separat.
+> Den **Azure Data Lake Store** kan skapas separat eller när du skapar den **Azure Data Lake Analytics** som standardlagring. Refererar till instruktioner för att skapa var och en av de här resurserna separat, men det Data Lake storage-kontot behöver inte skapas separat.
 >
 >
 
-### <a name="create-an-azure-data-lake-store"></a>Skapa en Azure Data Lake Store
+### <a name="create-an-azure-data-lake-storage"></a>Skapa en Azure Data Lake Storage
 
 
-Skapa en ADLS från [Azure Portal](https://portal.azure.com). Mer information finns i [skapa ett HDInsight-kluster med data Lake Store som använder Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Se till att konfigurera AAD-identiteten för klustret på bladet **DataSource** på bladet för **valfri konfiguration** som beskrivs där.
+Skapa ett ADLS från den [Azure-portalen](https://portal.azure.com). Mer information finns i [skapa ett HDInsight-kluster med Data Lake Store med hjälp av Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md). Se till att ställa in kluster AAD-identitet i den **DataSource** bladet för den **valfri konfiguration** bladet beskrivs det.
 
  ![3](./media/data-lake-walkthrough/3-create-ADLS.PNG)
 
-### <a name="create-an-azure-data-lake-analytics-account"></a>Skapa ett Azure Data Lake Analytics konto
-Skapa ett ADLA-konto från [Azure Portal](https://portal.azure.com). Mer information finns i [Självstudier: komma igång med Azure Data Lake Analytics att använda Azure Portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
+### <a name="create-an-azure-data-lake-analytics-account"></a>Skapa ett Azure Data Lake Analytics-konto
+Skapa ett ADLA-konto från den [Azure-portalen](https://portal.azure.com). Mer information finns i [Självstudier: Kom igång med Azure Data Lake Analytics med hjälp av Azure portal](../../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
  ![4](./media/data-lake-walkthrough/4-create-ADLA-new.PNG)
 
-### <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob Storage-konto
-Skapa ett Azure Blob Storage-konto från [Azure Portal](https://portal.azure.com). Mer information finns i avsnittet Skapa ett lagrings konto i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
+### <a name="create-an-azure-blob-storage-account"></a>Skapa ett Azure Blob storage-konto
+Skapa ett Azure Blob storage-konto från den [Azure-portalen](https://portal.azure.com). Mer information finns i avsnittet Skapa ett lagrings konto i [om Azure Storage-konton](../../storage/common/storage-create-storage-account.md).
 
  ![5](./media/data-lake-walkthrough/5-Create-Azure-Blob.PNG)
 
 ### <a name="set-up-an-azure-machine-learning-studio-classic-account"></a>Konfigurera ett Azure Machine Learning Studio (klassiskt) konto
-Registrera dig eller i Azure Machine Learning Studio (klassisk) från sidan för [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/) . Klicka på knappen **Kom igång nu** och välj sedan en "kostnads fri arbets yta" eller "standard arbets yta". Nu är det dags att skapa experiment i Azure Machine Learning Studio.
+Registrera dig eller i Azure Machine Learning Studio (klassisk) från sidan för [Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning/) . Klicka på den **Kom igång nu** knappen och välj sedan en ”kostnadsfri arbetsyta” eller ”standardarbetsytan”. Nu är det dags att skapa experiment i Azure Machine Learning Studio.
 
-### <a name="install-azure-data-lake-tools-recommended"></a>Installera Azure Data Lake verktyg [Recommended]
-Installera Azure Data Lake verktyg för din version av Visual Studio från [Azure Data Lake verktyg för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
+### <a name="install-azure-data-lake-tools-recommended"></a>Installera Azure Data Lake-verktyg (rekommenderas)
+Installera Azure Data Lake Tools för din version av Visual Studio från [Azure Data Lake Tools för Visual Studio](https://www.microsoft.com/download/details.aspx?id=49504).
 
  ![6](./media/data-lake-walkthrough/6-install-ADL-tools-VS.PNG)
 
-När installationen har slutförts öppnar du Visual Studio. Du bör se fliken Data Lake överst i menyn. Dina Azure-resurser bör visas i den vänstra panelen när du loggar in på ditt Azure-konto.
+När installationen är klar öppnar du Visual Studio. Du bör se Data-Lake fliken på överst menyn. Dina Azure-resurser bör visas i den vänstra panelen när du loggar in på ditt Azure-konto.
 
  ![7](./media/data-lake-walkthrough/7-install-ADL-tools-VS-done.PNG)
 
-## <a name="the-nyc-taxi-trips-dataset"></a>NYC taxi TRIPs-datauppsättning
-Data uppsättningen som används här är en offentligt tillgänglig data uppsättning – [NYC taxi TRIPs](https://www.andresmh.com/nyctaxitrips/)-datauppsättningen. NYC taxi-resan består av cirka 20 GB komprimerade CSV-filer (~ 48 GB okomprimerat), och registrerar mer än 173 000 000 enskilda resor och de priser som betalas för varje resa. Varje rese post omfattar hämtnings-och DropOff platser och tidpunkter, anonymiserats Hack (driv rutins licens nummer) och numret på Medallion (Taxins unika ID). Data omfattar alla resor under året 2013 och tillhandahålls i följande två data uppsättningar för varje månad:
+## <a name="the-nyc-taxi-trips-dataset"></a>NYC Taxi och RETUR-datauppsättning
+De uppgifter som används här är en offentligt tillgänglig datauppsättning – den [NYC Taxi kommunikation datauppsättning](https://www.andresmh.com/nyctaxitrips/). NYC Taxi resedata består av cirka 20 GB komprimerat CSV-filer (~ 48 GB okomprimerad), registrera mer än 173 miljoner enskilda kommunikation och priser betalda för varje resa. Posterna resa innehåller hämtning och dropoff platser och gånger licensnummer maskerade hack (drivrutin) och antalet medallion (taxi's unikt ID). Informationen som täcker alla kommunikation i år 2013 och anges i följande två datauppsättningar för varje månad:
 
-CSV-trip_data innehåller information om resan, till exempel antal passagerare, upphämtnings-och dropoffs punkter, varaktighet för resan och rese längd. Här följer några exempel poster:
+Trip_data CSV innehåller resans information, till exempel antalet passagerare, hämtning och dropoff punkter, resans varaktighet och resans längd. Här följer några Exempelposter:
 
        medallion,hack_license,vendor_id,rate_code,store_and_fwd_flag,pickup_datetime,dropoff_datetime,passenger_count,trip_time_in_secs,trip_distance,pickup_longitude,pickup_latitude,dropoff_longitude,dropoff_latitude
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,1,N,2013-01-01 15:11:48,2013-01-01 15:18:10,4,382,1.00,-73.978165,40.757977,-73.989838,40.751171
@@ -112,7 +122,7 @@ CSV-trip_data innehåller information om resan, till exempel antal passagerare, 
 
 
 
-CSV-filen "trip_fare" innehåller information om den avgift som betalas för varje resa, till exempel betalnings typ, avgifts belopp, tillägg och skatter, tips och avgifter och totalt betalat belopp. Här följer några exempel poster:
+Trip_fare CSV innehåller information om avgiften betalat för varje förflyttning, till exempel betalningstypen, avgiften belopp, tillägg och skatter, tips och vägtullar, och det totala beloppet som betalas. Här följer några Exempelposter:
 
        medallion, hack_license, vendor_id, pickup_datetime, payment_type, fare_amount, surcharge, mta_tax, tip_amount, tolls_amount, total_amount
        89D227B655E5C82AECF13C3F540D4CF4,BA96DE419E711691B9445D6A6307C170,CMT,2013-01-01 15:11:48,CSH,6.5,0,0.5,0,0,7
@@ -121,32 +131,32 @@ CSV-filen "trip_fare" innehåller information om den avgift som betalas för var
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
        DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-Den unika nyckeln för att ansluta rese\_data och resan\_avgiften består av följande tre fält: Medallion, hacka\_licens och hämtning\_DateTime. RAW CSV-filer kan nås från en offentlig Azure Storage-blob. U-SQL-skriptet för den här kopplingen finns i avsnittet [koppla rese-och avgifts tabeller](#join) .
+Den unika nyckeln för att ansluta till resans\_data och resans\_avgiften består av följande tre fält: medallion, hacka\_licens och upphämtning\_datetime. RAW CSV-filer kan nås från en Azure Storage-blob. U-SQL-skriptet för den här kopplingen finns på den [ansluter till resa och avgiften tabeller](#join) avsnittet.
 
 ## <a name="process-data-with-u-sql"></a>Bearbeta data med U-SQL
-Data bearbetnings aktiviteterna som illustreras i det här avsnittet omfattar inmatning, kontroll av kvalitet, utforska och sampling av data. Hur du ansluter till rese-och avgifts tabeller visas också. I det sista avsnittet visas hur du kör ett U-SQL-skript jobb från Azure Portal. Här följer länkar till varje underavsnitt:
+Databearbetningsaktiviteter som illustreras i det här avsnittet innehåller mata in, kontrollerar kvalitet, utforska och samlar data. Hur du ansluter till resa och avgiften tabeller visas också. Den sista delen visar kör ett U-SQL-skriptbaserade jobb från Azure-portalen. Här finns länkar till varje avsnitt:
 
-* [Data inmatning: läsa in data från offentlig BLOB](#ingest)
-* [Data kvalitets kontroller](#quality)
-* [Data utforskning](#explore)
-* [Gå med i rese-och avgifts tabeller](#join)
-* [Data sampling](#sample)
+* [Datainmatning: läsa data från offentliga blob](#ingest)
+* [Data kvalitetskontroller](#quality)
+* [Datautforskning](#explore)
+* [Ansluter till resa och avgiften tabeller](#join)
+* [Datasampling](#sample)
 * [Kör U-SQL-jobb](#run)
 
-U-SQL-skripten beskrivs här och tillhandahålls i en separat fil. Du kan ladda ned fullständiga **U-SQL-skript** från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
+U-SQL-skript som beskrivs här och tillhandahålls i en separat fil. Du kan hämta fullständiga **U-SQL-skript** från [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough).
 
-Om du vill köra U-SQL öppnar du Visual Studio, klickar på **Arkiv--> nytt – > projekt**, väljer **U-SQL-projekt**, namn och sparar det i en mapp.
+För att köra U-SQL, öppna Visual Studio klickar du på **Arkiv--> Ny--> projekt**, Välj **U-SQL-projekt**, namnge och spara den till en mapp.
 
 ![8](./media/data-lake-walkthrough/8-create-USQL-project.PNG)
 
 > [!NOTE]
-> Det går att använda Azure-portalen för att köra U-SQL i stället för Visual Studio. Du kan navigera till Azure Data Lake Analytics resursen på portalen och skicka frågor direkt som illustreras i följande figur:
+> Det går att använda Azure Portal för att köra U-SQL i stället för Visual Studio. Du kan gå till Azure Data Lake Analytics-resursen på portalen och skicka frågor direkt som Illustrerat i följande bild:
 >
 >
 
 ![9](./media/data-lake-walkthrough/9-portal-submit-job.PNG)
 
-### <a name="ingest"></a>Data inmatning: läsa in data från offentlig BLOB
+### <a name="ingest"></a>Datainmatning: Läsa data från offentliga blob
 
 Platsen för data i Azure-blobben refereras till som **wasb://container\_namn\@blob\_lagring\_konto\_Name.blob.Core.Windows.net/blob_name** och kan extraheras med hjälp av **Extracts. csv ()** . Ersätt namnet på din behållare och lagrings kontot i följande skript för container\_namn\@BLOB\_lagring\_konto\_namn i wasb-adressen. Eftersom fil namnen är i samma format är det möjligt att använda **rese\_data\_\{\*\}. csv** för att läsa i alla 12-testfiler.
 
@@ -171,7 +181,7 @@ Platsen för data i Azure-blobben refereras till som **wasb://container\_namn\@b
     FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyctaxitrip/trip_data_{*}.csv"
     USING Extractors.Csv();
 
-Eftersom det finns rubriker på den första raden måste du ta bort rubrikerna och ändra kolumn typerna till lämpliga. Du kan antingen spara bearbetade data till Azure Data Lake Storage med **swebhdfs://data_lake_storage_name.azuredatalakestorage.net/folder_name/file_name**_ eller Azure Blob Storage-konto med hjälp av **wasb://container_name\@blob_storage_account_name. blob. Core. Windows. net/blob_name**.
+Eftersom det finns rubriker på den första raden, måste du ta bort rubrikerna och ändra kolumntyper till lämpliga värden. Du kan antingen spara bearbetade data till Azure Data Lake Storage med hjälp av **swebhdfs://data_lake_storage_name. azuredatalakestorage. net/folder_name/file_name**_ eller till Azure Blob Storage-konto med hjälp av **wasb://container_name\@blob_storage_account_name. blob. Core. Windows. net/blob_name**.
 
     // change data types
     @trip =
@@ -203,16 +213,16 @@ Eftersom det finns rubriker på den första raden måste du ta bort rubrikerna o
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_trip.csv"
     USING Outputters.Csv();
 
-På samma sätt kan du läsa i pris data uppsättningarna. Högerklicka på Azure Data Lake Store, du kan välja att titta på dina data i **Azure Portal-> datautforskaren** eller **Utforskaren** i Visual Studio.
+På samma sätt kan du läsa i avgiften datauppsättningar. Högerklicka på Azure Data Lake Storage, du kan välja att titta på dina data i **Azure Portal-> datautforskaren** eller **Utforskaren** i Visual Studio.
 
  ![10](./media/data-lake-walkthrough/10-data-in-ADL-VS.PNG)
 
  ![11](./media/data-lake-walkthrough/11-data-in-ADL.PNG)
 
-### <a name="quality"></a>Data kvalitets kontroller
-Efter att rese-och färd pris tabellerna har lästs in kan data kvalitets kontroller göras på följande sätt. De resulterande CSV-filerna kan vara utdata till Azure Blob Storage eller Azure Data Lake Store.
+### <a name="quality"></a>Data kvalitetskontroller
+Efter att resa och avgiften tabeller har lästs i kan data kvalitetskontroller göras på följande sätt. De resulterande CSV-filerna kan vara utdata till Azure Blob Storage eller Azure Data Lake Storage.
 
-Hitta antalet Medallions och det unika antalet Medallions:
+Hitta antalet medallions och unikt antal medallions:
 
     ///check the number of medallions and unique number of medallions
     @trip2 =
@@ -233,7 +243,7 @@ Hitta antalet Medallions och det unika antalet Medallions:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_1.csv"
     USING Outputters.Csv();
 
-Hitta de Medallions som har fler än 100 resor:
+Hitta de medallions som hade fler än 100 och RETUR:
 
     ///find those medallions that had more than 100 trips
     @ex_2 =
@@ -247,7 +257,7 @@ Hitta de Medallions som har fler än 100 resor:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_2.csv"
     USING Outputters.Csv();
 
-Hitta de ogiltiga posterna i pickup_longitude:
+Hitta de ogiltiga posterna när det gäller pickup_longitude:
 
     ///find those invalid records in terms of pickup_longitude
     @ex_3 =
@@ -281,10 +291,10 @@ Hitta saknade värden för vissa variabler:
 
 
 
-### <a name="explore"></a>Data utforskning
-Gör vissa data utforskningar med följande skript för att få en bättre förståelse för data.
+### <a name="explore"></a>Datautforskning
+Göra vissa datagranskning med följande skript för att få en bättre förståelse av data.
 
-Hitta fördelningen av lutade och icke-lutade resor:
+Hitta distributionen av lutad och icke spets och RETUR:
 
     ///tipped vs. not tipped distribution
     @tip_or_not =
@@ -301,7 +311,7 @@ Hitta fördelningen av lutade och icke-lutade resor:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_4.csv"
     USING Outputters.Csv();
 
-Hitta fördelningen av Tip-mängd med skärnings värden: 0, 5, 10 och 20 dollar.
+Hitta distributionen av tips storlek med avklippt värden: 0, 5, 10 och 20 dollar.
 
     //tip class/range distribution
     @tip_class =
@@ -317,7 +327,7 @@ Hitta fördelningen av Tip-mängd med skärnings värden: 0, 5, 10 och 20 dollar
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_5.csv"
     USING Outputters.Csv();
 
-Hitta grundläggande statistik för rese avståndet:
+Hitta grundläggande statistik över resans avståndet:
 
     // find basic statistics for trip_distance
     @trip_summary4 =
@@ -333,7 +343,7 @@ Hitta grundläggande statistik för rese avståndet:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_14.csv"
     USING Outputters.Csv();
 
-Hitta percentiler av rese avstånd:
+Hitta percentilerna för resans avståndet:
 
     // find percentiles of trip_distance
     @trip_summary3 =
@@ -348,8 +358,8 @@ Hitta percentiler av rese avstånd:
     USING Outputters.Csv();
 
 
-### <a name="join"></a>Gå med i rese-och avgifts tabeller
-Rese-och avgifts tabeller kan anslutas av Medallion, hack_license och pickup_time.
+### <a name="join"></a>Ansluter till resa och avgiften tabeller
+Resa och avgiften tabeller kan kopplas med medallion och hack_license pickup_time.
 
     //join trip and fare table
 
@@ -373,7 +383,7 @@ Rese-och avgifts tabeller kan anslutas av Medallion, hack_license och pickup_tim
     USING Outputters.Csv();
 
 
-För varje nivå av antal passagerare beräknar du antalet poster, Genomsnittligt Tip-belopp, varians för Tip-mängd, procent av lutade resor.
+Beräkna antalet poster, genomsnittlig tips belopp, varians för datamängden som tips, procentandelen lutad kommunikation för varje nivå av passagerare antal.
 
     // contingency table
     @trip_summary8 =
@@ -390,8 +400,8 @@ För varje nivå av antal passagerare beräknar du antalet poster, Genomsnittlig
     USING Outputters.Csv();
 
 
-### <a name="sample"></a>Data sampling
-Först väljer du 0,1% av data från den kopplade tabellen:
+### <a name="sample"></a>Datasampling
+Först slumpmässigt Välj 0,1% av data från den kopplade tabellen:
 
     //random select 1/1000 data for modeling purpose
     @addrownumberres_randomsample =
@@ -408,7 +418,7 @@ Först väljer du 0,1% av data från den kopplade tabellen:
     TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_ex_7_random_1_1000.csv"
     USING Outputters.Csv();
 
-Gör sedan Stratified-sampling av binär variabel tip_class:
+Gör sedan stratified sampling av binära variabeln tip_class:
 
     //stratified random select 1/1000 data for modeling purpose
     @addrownumberres_stratifiedsample =
@@ -431,33 +441,33 @@ Gör sedan Stratified-sampling av binär variabel tip_class:
 
 
 ### <a name="run"></a>Kör U-SQL-jobb
-När du har redigerat U-SQL-skripten kan du skicka dem till servern med hjälp av ditt Azure Data Lake Analytics-konto. Klicka på **data Lake**, **Skicka jobb**, Välj ditt **analys konto**, Välj **parallellitet**och klicka på **Skicka** .
+När du har redigerat U-SQL-skript kan du skicka dem till servern med hjälp av ditt Azure Data Lake Analytics-konto. Klicka på **Data Lake**, **skicka jobb**väljer din **Analytics-konto**, Välj **parallellitet**, och klicka på **skicka**  knappen.
 
  ![12](./media/data-lake-walkthrough/12-submit-USQL.PNG)
 
-När jobbet har slutförts visas jobbets status i Visual Studio för övervakning. När jobbet har körts, kan du till och med spela upp jobb körnings processen och ta reda på Flask hals stegen för att förbättra jobb effektiviteten. Du kan också gå till Azure Portal för att kontrol lera status för dina U-SQL-jobb.
+När jobbet är kompilerad har, visas status för jobbet i Visual Studio för att övervaka. När jobbet har slutförts kan du till och med upprepa jobb körnings processen och ta reda på Flask hals stegen för att förbättra jobb effektiviteten. Du kan även gå till Azure portal för att kontrollera status för dina U-SQL-jobb.
 
  ![13](./media/data-lake-walkthrough/13-USQL-running-v2.PNG)
 
  ![14](./media/data-lake-walkthrough/14-USQL-jobs-portal.PNG)
 
-Nu kan du kontrol lera utdatafilerna antingen i Azure Blob Storage eller Azure Portal. Använd Stratified exempel data för vår modell i nästa steg.
+Nu kan du kontrollera utdatafilerna i Azure Blob storage eller Azure-portalen. Använd stratified exempeldata för vår modellering i nästa steg.
 
  ![15](./media/data-lake-walkthrough/15-U-SQL-output-csv.PNG)
 
  ![16](./media/data-lake-walkthrough/16-U-SQL-output-csv-portal.PNG)
 
-## <a name="build-and-deploy-models-in-azure-machine-learning"></a>Bygga och distribuera modeller i Azure Machine Learning
-Det finns två alternativ för att hämta data till Azure Machine Learning för att bygga och
+## <a name="build-and-deploy-models-in-azure-machine-learning"></a>Skapa och distribuera modeller i Azure Machine Learning
+Det finns två alternativ att hämta data till Azure Machine Learning för att skapa och
 
-* I det första alternativet använder du de exempel data som har skrivits till en Azure-Blob (i stegen för **data sampling** ovan) och använder python för att bygga och distribuera modeller från Azure Machine Learning.
-* I det andra alternativet frågar du efter data i Azure Data Lake direkt med en Hive-fråga. Det här alternativet kräver att du skapar ett nytt HDInsight-kluster eller använder ett befintligt HDInsight-kluster där Hive-tabellerna pekar på nya taxi-data i Azure Data Lake Storage.  Båda alternativen beskrivs i följande avsnitt.
+* I det första alternativet, använder du de samplade data som har skrivits till en Azure Blob (i den **datasampling** stegen ovan) och använder Python för att skapa och distribuera modeller från Azure Machine Learning.
+* I det andra alternativet fråga du data i Azure Data Lake direkt med hjälp av en Hive-fråga. Det här alternativet kräver att du skapar ett nytt HDInsight-kluster eller Använd ett befintligt HDInsight-kluster där Hive-tabeller pekar på NY Taxi-data i Azure Data Lake Storage.  Båda dessa alternativ beskrivs i följande avsnitt.
 
-## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Alternativ 1: Använd python för att bygga och distribuera Machine Learning-modeller
-Skapa och distribuera Machine Learning-modeller med python genom att skapa en Jupyter Notebook på den lokala datorn eller i Azure Machine Learning Studio. Jupyter Notebook som tillhandahålls på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) innehåller den fullständiga koden för att utforska, visualisera data, funktions teknik, modellering och distribution. I den här artikeln omfattas bara modellering och distribution.
+## <a name="option-1-use-python-to-build-and-deploy-machine-learning-models"></a>Alternativ 1: Använda Python för att skapa och distribuera machine learning-modeller
+Skapa en Jupyter-anteckningsbok för att skapa och distribuera machine learning-modeller med hjälp av Python, på den lokala datorn eller i Azure Machine Learning Studio. Jupyter Notebook som finns på [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/AzureDataLakeWalkthrough) innehåller den fullständiga koden för att utforska, visualisera data, funktioner, modellering och distribution. I den här artikeln beskrivs bara modellering och distribution.
 
-### <a name="import-python-libraries"></a>Importera python-bibliotek
-Följande python-paket krävs för att köra exempel Jupyter Notebook eller python-skriptfilen. Om du använder tjänsten Azure Machine Learning Notebook har dessa paket förinstallerats.
+### <a name="import-python-libraries"></a>Importera Python-biblioteken
+För att köra exemplet Jupyter Notebook eller Python-skriptfil, följande paket krävs för Python. Om du använder tjänsten Azure Machine Learning Notebook har dessa paket förinstallerats.
 
     import pandas as pd
     from pandas import Series, DataFrame
@@ -480,15 +490,15 @@ Följande python-paket krävs för att köra exempel Jupyter Notebook eller pyth
     from azureml import services
 
 
-### <a name="read-in-the-data-from-blob"></a>Läs i data från BLOB
-* anslutnings sträng
+### <a name="read-in-the-data-from-blob"></a>Lästa data från blob
+* Anslutningssträng
 
         CONTAINERNAME = 'test1'
         STORAGEACCOUNTNAME = 'XXXXXXXXX'
         STORAGEACCOUNTKEY = 'YYYYYYYYYYYYYYYYYYYYYYYYYYYY'
         BLOBNAME = 'demo_ex_9_stratified_1_1000_copy.csv'
         blob_service = BlobService(account_name=STORAGEACCOUNTNAME,account_key=STORAGEACCOUNTKEY)
-* Läs in som text
+* Läs i som text
 
         t1 = time.time()
         data = blob_service.get_blob_to_text(CONTAINERNAME,BLOBNAME).split("\n")
@@ -496,7 +506,7 @@ Följande python-paket krävs för att köra exempel Jupyter Notebook eller pyth
         print(("It takes %s seconds to read in "+BLOBNAME) % (t2 - t1))
 
   ![17](./media/data-lake-walkthrough/17-python_readin_csv.PNG)
-* Lägg till kolumn namn och separata kolumner
+* Lägg till kolumnnamn och avgränsa kolumner
 
         colnames = ['medallion','hack_license','vendor_id','rate_code','store_and_fwd_flag','pickup_datetime','dropoff_datetime',
         'passenger_count','trip_time_in_secs','trip_distance','pickup_longitude','pickup_latitude','dropoff_longitude','dropoff_latitude',
@@ -510,24 +520,24 @@ Följande python-paket krävs för att köra exempel Jupyter Notebook eller pyth
         for col in cols_2_float:
             df1[col] = df1[col].astype(float)
 
-### <a name="build-machine-learning-models"></a>Bygg maskin inlärnings modeller
-Här skapar du en binär klassificerings modell för att förutsäga om en resa är lutad eller inte. I Jupyter Notebook kan du hitta andra två modeller: klassificering av flera klasser och Regressions modeller.
+### <a name="build-machine-learning-models"></a>Skapa machine learning-modeller
+Här kan du skapa en binär klassificeringsmodell för att förutsäga om en resa lutad eller inte. I Jupyter-anteckningsboken hittar du andra två modeller: multiklass-baserad klassificering och regressionsmodeller.
 
-* Först måste du skapa dummy-variabler som kan användas i scikit – lära modeller
+* Först måste du skapa dummy variabler som kan användas i scikit-Läs modeller
 
         df1_payment_type_dummy = pd.get_dummies(df1['payment_type'], prefix='payment_type_dummy')
         df1_vendor_id_dummy = pd.get_dummies(df1['vendor_id'], prefix='vendor_id_dummy')
-* Skapa data ram för modellering
+* Skapa dataram för modellering
 
         cols_to_keep = ['tipped', 'trip_distance', 'passenger_count']
         data = df1[cols_to_keep].join([df1_payment_type_dummy,df1_vendor_id_dummy])
 
         X = data.iloc[:,1:]
         Y = data.tipped
-* Utbildning och testning 60-40 Split
+* Träning och testning 60 – 40 dela
 
         X_train, X_test, Y_train, Y_test = train_test_split(X, Y, test_size=0.4, random_state=0)
-* Logistisk regression i tränings uppsättning
+* Logistic Regression i träningsmängden
 
         model = LogisticRegression()
         logit_fit = model.fit(X_train, Y_train)
@@ -535,10 +545,10 @@ Här skapar du en binär klassificerings modell för att förutsäga om en resa 
         Y_train_pred = logit_fit.predict(X_train)
 
        ![c1](./media/data-lake-walkthrough/c1-py-logit-coefficient.PNG)
-* Data uppsättning för Poäng test
+* Bedöma testmängden till data
 
         Y_test_pred = logit_fit.predict(X_test)
-* Beräkna utvärderings mått
+* Beräkna utvärderingsmått
 
         fpr_train, tpr_train, thresholds_train = metrics.roc_curve(Y_train, Y_train_pred)
         print fpr_train, tpr_train, thresholds_train
@@ -556,17 +566,17 @@ Här skapar du en binär klassificerings modell för att förutsäga om en resa 
 
        ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
-### <a name="build-web-service-api-and-consume-it-in-python"></a>Bygg webb tjänst-API och Använd det i python
-Du vill operationalisera Machine Learning-modellen när den har skapats. Den binära logistik modellen används här som exempel. Kontrol lera att scikit-versionen på den lokala datorn är 0.15.1. Du behöver inte bekymra dig om detta om du använder Azure Machine Learning Studio.
+### <a name="build-web-service-api-and-consume-it-in-python"></a>Skapa webbtjänst-API och använda den i Python
+Du vill utföra åtgärder för machine learning-modell när den har skapats. Binär logistic modellen används här som ett exempel. Kontrol lera att scikit-versionen på den lokala datorn är 0.15.1 (Azure Machine Learning Studio redan har minst den här versionen).
 
-* Hitta dina autentiseringsuppgifter för arbets ytan från Azure Machine Learning Studio (klassiska) inställningar. I Azure Machine Learning Studio klickar du på **inställningar** --> **namn** --> **autentiseringstoken**.
+* Hitta dina autentiseringsuppgifter för arbets ytan från Azure Machine Learning Studio (klassiska) inställningar. I Azure Machine Learning Studio, klickar du på **inställningar** --> **namn** --> **Auktoriseringstoken**.
 
-    ![C3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
+    ![c3](./media/data-lake-walkthrough/c3-workspace-id.PNG)
 
         workspaceid = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
         auth_token = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx'
 
-* Skapa webb tjänst
+* Skapa webbtjänst
 
         @services.publish(workspaceid, auth_token)
         @services.types(trip_distance = float, passenger_count = float, payment_type_dummy_CRD = float, payment_type_dummy_CSH=float, payment_type_dummy_DIS = float, payment_type_dummy_NOC = float, payment_type_dummy_UNK = float, vendor_id_dummy_CMT = float, vendor_id_dummy_VTS = float)
@@ -574,7 +584,7 @@ Du vill operationalisera Machine Learning-modellen när den har skapats. Den bin
         def predictNYCTAXI(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             inputArray = [trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH, payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS]
             return logit_fit.predict(inputArray)
-* Hämta autentiseringsuppgifter för webb tjänst
+* Hämta autentiseringsuppgifter för web service
 
         url = predictNYCTAXI.service.url
         api_key =  predictNYCTAXI.service.api_key
@@ -587,32 +597,32 @@ Du vill operationalisera Machine Learning-modellen när den har skapats. Den bin
         @services.returns(float)
         def NYCTAXIPredictor(trip_distance, passenger_count, payment_type_dummy_CRD, payment_type_dummy_CSH,payment_type_dummy_DIS, payment_type_dummy_NOC, payment_type_dummy_UNK, vendor_id_dummy_CMT, vendor_id_dummy_VTS ):
             pass
-* Anropa webb tjänst-API. Du måste vänta 5-10 sekunder efter föregående steg.
+* Anropa webbtjänst-API. Vänta vanligt vis 5-10 sekunder efter föregående steg.
 
         NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
 
        ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
-## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Alternativ 2: skapa och distribuera modeller direkt i Azure Machine Learning
-Azure Machine Learning Studio (klassisk) kan läsa data direkt från Azure Data Lake Store och sedan användas för att skapa och distribuera modeller. Den här metoden använder en Hive-tabell som pekar på Azure Data Lake Store. Detta kräver att ett separat Azure HDInsight-kluster tillhandahålls, där Hive-tabellen skapas. I följande avsnitt visas hur du gör detta.
+## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Alternativ 2: Skapa och distribuera modeller direkt i Azure Machine Learning
+Azure Machine Learning Studio (klassisk) kan läsa data direkt från Azure Data Lake Storage och sedan användas för att skapa och distribuera modeller. Den här metoden använder en Hive-tabell som pekar på Azure Data Lake Storage. Ett separat Azure HDInsight-kluster måste tillhandahållas för Hive-tabellen. 
 
-### <a name="create-an-hdinsight-linux-cluster"></a>Skapa ett HDInsight Linux-kluster
-Skapa ett HDInsight-kluster (Linux) från [Azure Portal](https://portal.azure.com). Mer information finns i avsnittet **skapa ett HDInsight-kluster med åtkomst till Azure Data Lake Store** i [skapa ett HDInsight-kluster med data Lake Store med hjälp av Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+### <a name="create-an-hdinsight-linux-cluster"></a>Skapa ett HDInsight-kluster för Linux
+Skapa ett HDInsight-kluster (Linux) från den [Azure-portalen](https://portal.azure.com). Mer information finns i avsnittet **skapa ett HDInsight-kluster med åtkomst till Azure Data Lake Storage** i [skapa ett HDInsight-kluster med data Lake Store med hjälp av Azure Portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
  ![18](./media/data-lake-walkthrough/18-create_HDI_cluster.PNG)
 
 ### <a name="create-hive-table-in-hdinsight"></a>Skapa Hive-tabell i HDInsight
-Nu skapar du Hive-tabeller som ska användas i Azure Machine Learning Studio (klassisk) i HDInsight-klustret med hjälp av de data som lagras i Azure Data Lake Store i föregående steg. Gå till HDInsight-klustret har skapats. Klicka på **inställningar** --> **Egenskaper** --> **kluster AAD-identitet** --> **ADLS åtkomst**, kontrol lera att ditt Azure Data Lake Store-konto har lagts till i listan med Läs-, skriv-och körnings rättigheter.
+Nu skapar du Hive-tabeller som ska användas i Azure Machine Learning Studio (klassisk) i HDInsight-klustret med hjälp av de data som lagras i Azure Data Lake Storage i föregående steg. Gå till HDInsight-kluster skapades. Klicka på **inställningar** --> **Egenskaper** --> **klustrets AAD-identitet** --> **ADLS åtkomst**, kontrol lera att Azure Data Lake Storage-kontot har lagts till i listan med Läs-, skriv-och körnings rättigheter.
 
  ![19](./media/data-lake-walkthrough/19-HDI-cluster-add-ADLS.PNG)
 
-Klicka sedan på **instrument panel** bredvid knappen **Inställningar** så öppnas ett fönster. Klicka på **Hive-vy** i det övre högra hörnet på sidan och se **Frågeredigeraren**.
+Klicka sedan på **instrumentpanelen** bredvid den **inställningar** knappen och ett fönster öppnas. Klicka på **Hive-vy** i det övre högra hörnet av sidan och du bör se den **frågeredigeraren**.
 
  ![20](./media/data-lake-walkthrough/20-HDI-dashboard.PNG)
 
  ![21](./media/data-lake-walkthrough/21-Hive-Query-Editor-v2.PNG)
 
-Klistra in följande Hive-skript för att skapa en tabell. Platsen för data källan finns Azure Data Lake Store referens på det här sättet: **ADL://data_lake_store_name.azuredatalakestore.net: 443/mappnamn/fil namn**.
+Klistra in följande Hive-skript för att skapa en tabell. Platsen för data källan finns Azure Data Lake Storage referens på det här sättet: **ADL://data_lake_store_name. azuredatalakestore. net: 443/folder_name/file_name**.
 
     CREATE EXTERNAL TABLE nyc_stratified_sample
     (
@@ -645,45 +655,45 @@ Klistra in följande Hive-skript för att skapa en tabell. Platsen för data kä
     LOCATION 'adl://data_lake_storage_name.azuredatalakestore.net:443/nyctaxi_folder/demo_ex_9_stratified_1_1000_copy.csv';
 
 
-När frågan har körts klart bör du se resultatet så här:
+När frågan har slutförts bör du se resultatet så här:
 
  ![22](./media/data-lake-walkthrough/22-Hive-Query-results.PNG)
 
-### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Bygga och distribuera modeller i Azure Machine Learning Studio
-Nu är du redo att bygga och distribuera en modell som förutsäger om ett tips betalas med Azure Machine Learning. Stratified exempel data är redo att användas i den här binära klassificeringen (Tip eller not). Förutsägelse modeller som använder multiklass-klassificering (tip_class) och regression (tip_amount) kan också skapas och distribueras med Azure Machine Learning Studio, men här visas bara hur du hanterar fallet med den binära klassificerings modellen.
+### <a name="build-and-deploy-models-in-azure-machine-learning-studio"></a>Skapa och distribuera modeller i Azure Machine Learning Studio
+Du är nu redo att skapa och distribuera en modell som beräknar huruvida ett tips är betald med Azure Machine Learning. Stratified exempeldata är redo att användas i den här binär klassificering (tips eller inte) problem. Förutsägande modeller med hjälp av multiklass-baserad klassificering (tip_class) och regression (tip_amount) kan också inbyggda och distribueras med Azure Machine Learning Studio, men här endast visas hur du hanterar fallet med hjälp av binär klassificering-modellen.
 
-1. Hämta data till Azure Machine Learning Studio (klassisk) med modulen **Importera data** som finns i avsnittet **data indata och utdata** . Mer information finns på referens sidan [Importera data modul](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) .
-2. Välj **Hive-fråga** som **data källa** i panelen **Egenskaper** .
-3. Klistra in följande Hive-skript i Registereditorns **Hive-databas Frågeredigeraren**
+1. Hämta data till Azure Machine Learning Studio (klassisk) med modulen **Importera data** som finns i avsnittet **data indata och utdata** . Mer information finns i den [importdata modulen](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) referenssida.
+2. Välj **Hive-fråga** som den **datakälla** i den **egenskaper** panelen.
+3. Klistra in följande Hive-skriptet i den **Hive databasfråga** redigeraren
 
         select * from nyc_stratified_sample;
-4. Ange URI för HDInsight-kluster (detta finns i Azure Portal), Hadoop-autentiseringsuppgifter, platsen för utdata och namn på Azure Storage-konto/nyckel/behållare.
+4. Ange URI för HDInsight-kluster (denna URI finns i Azure Portal), Hadoop-autentiseringsuppgifter, plats för utdata och Azure Storage konto namn/nyckel/behållar namn.
 
    ![23](./media/data-lake-walkthrough/23-reader-module-v3.PNG)
 
-Ett exempel på ett binära klassificerings experiment som läser data från Hive-tabellen visas i följande figur:
+Ett exempel på en binär klassificering experiment läser data från Hive-tabell visas i följande bild:
 
  ![24](./media/data-lake-walkthrough/24-AML-exp.PNG)
 
-När experimentet har skapats klickar du på **Konfigurera webb tjänsten** --> **förutsägbar webb tjänst**
+När experimentet har skapats klickar du på **konfigurera Web Service** --> **förutsägande webbtjänst**
 
  ![25](./media/data-lake-walkthrough/25-AML-exp-deploy.PNG)
 
-Kör det automatiskt skapade bedömnings experimentet när det är klart och klicka på **distribuera webb tjänst**
+Kör den automatiskt skapade bedömning experiment, när den är klar, klickar du på **distribuera webbtjänst**
 
  ![26](./media/data-lake-walkthrough/26-AML-exp-deploy-web.PNG)
 
-Instrument panelen för webb tjänster visas kort:
+Instrumentpanelen för webbtjänsten visas inom kort:
 
  ![27](./media/data-lake-walkthrough/27-AML-web-api.PNG)
 
 ## <a name="summary"></a>Sammanfattning
-Genom att slutföra den här genom gången har du skapat en data vetenskaps miljö för att skapa skalbara lösningar från slut punkt till slut punkt i Azure Data Lake. Den här miljön användes för att analysera en stor offentlig data uppsättning, som tar den genom de kanoniska stegen i data vetenskaps processen, från data förvärv via modell träning och sedan till distributionen av modellen som en webb tjänst. U-SQL användes för att bearbeta, utforska och sampla data. Python och Hive användes med Azure Machine Learning Studio (klassisk) för att bygga och distribuera förutsägande modeller.
+Genom att slutföra den här genom gången har du skapat en data vetenskaps miljö för att skapa skalbara lösningar från slut punkt till slut punkt i Azure Data Lake. Den här miljön har använts för att analysera en stor offentlig datauppsättning, tar det kanoniska stegen för Data Science Process från datainsamling genom modellträning och sedan till distributionen av modellen som en webbtjänst. U-SQL användes för att bearbeta, utforska och sampla data. Python och Hive användes med Azure Machine Learning Studio (klassisk) för att bygga och distribuera förutsägande modeller.
 
 ## <a name="whats-next"></a>Vad står på tur?
-Utbildnings vägen för [team data science-processen (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) innehåller länkar till avsnitt som beskriver varje steg i avancerad analys process. Det finns en serie med genom gångar som är indelade på sidan [genom gång av team data vetenskaps process](walkthroughs.md) som visar hur du använder resurser och tjänster i olika förutsägelse analys scenarier:
+Utbildningsväg för den [Team Data Science Process (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) innehåller länkar till avsnitt som beskriver varje steg i processen för avancerad analys. Det finns ett antal genomgångar uppdelat på den [Team Data Science Process genomgångar](walkthroughs.md) sida som visar hur du använder resurser och tjänster i olika scenarier för förutsägande analys:
 
-* [Team data vetenskaps processen i praktiken: använda SQL Data Warehouse](sqldw-walkthrough.md)
-* [Team data vetenskaps processen i praktiken: använda HDInsight Hadoop-kluster](hive-walkthrough.md)
-* [Team data science-processen: använda SQL Server](sql-walkthrough.md)
-* [Översikt över data vetenskaps processen med Spark på Azure HDInsight](spark-overview.md)
+* [Team Data Science Process i praktiken: använda SQL Data Warehouse](sqldw-walkthrough.md)
+* [Team Data Science Process i praktiken: med hjälp av HDInsight Hadoop-kluster](hive-walkthrough.md)
+* [Team Data Science Process: använder SQL Server för](sql-walkthrough.md)
+* [Översikt över Data Science Process som använder Spark på Azure HDInsight](spark-overview.md)

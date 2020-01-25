@@ -1,22 +1,15 @@
 ---
 title: Data extrahering – LUIS
-titleSuffix: Azure Cognitive Services
 description: Extrahera data från uttryck text med avsikter och entiteter. Lär dig vilken typ av data som kan extraheras från Language Understanding (LUIS).
-services: cognitive-services
 author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/23/2020
+ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703140"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716288"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extrahera data från uttryck text med avsikter och entiteter
 LUIS ger dig möjlighet att få information från en användares naturligt språk yttranden. Informationen hämtas i ett sätt att den kan användas av ett program, programmet eller chattrobot vidta åtgärder. Läs om vilka data returneras från avsikter och entiteter med exempel på JSON i avsnitten nedan.
@@ -36,9 +29,9 @@ LUIS innehåller data från den publicerade [endpoint](luis-glossary.md#endpoint
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
-@No__t-0 finns på sidan **Inställningar** i Luis-appen samt en del av URL: en (efter `/apps/`) när du redigerar Luis-appen. Den `subscription-key` är slutpunktsnyckeln som används för att fråga din app. Även om du kan använda din kostnads fria redigerings-/start nyckel när du lär dig LUIS, är det viktigt att ändra slut punkts nyckeln till en nyckel som stöder din [förväntade Luis-användning](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
+`appID` finns på **inställnings** sidan för din Luis-app samt en del av URL: en (efter `/apps/`) när du redigerar den Luis-appen. Den `subscription-key` är slutpunktsnyckeln som används för att fråga din app. Även om du kan använda din kostnads fria redigerings-/start nyckel när du lär dig LUIS, är det viktigt att ändra slut punkts nyckeln till en nyckel som stöder din [förväntade Luis-användning](luis-boundaries.md#key-limits). Den `timezoneOffset` enhet är minuter.
 
 Den **HTTPS-svar** innehåller alla avsikt och entiteten informationen LUIS kan fastställa baserat på den aktuella publicerade modellen antingen slutpunkten mellanlagring eller produktion. Den slutpunkt som URL-Adressen finns på den [LUIS](luis-reference-regions.md) webbplats, i den **hantera** avsnittet på den **nycklar och slutpunkter** sidan.
 
@@ -78,11 +71,11 @@ Primära data är högsta bedömning **avsikt namn**. Slutpunkt-svaret är:
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 |Dataobjekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|
-|Avsikt|Sträng|topScoringIntent.intent|”GetStoreInfo”|
+|Avsikt|String|topScoringIntent.intent|”GetStoreInfo”|
 
 Om din chattrobot-eller LUIS-anropande app fattar ett beslut baserat på fler än ett avsikts poäng, returnerar du alla Intents-resultat.
 
@@ -138,14 +131,14 @@ Ange parametern QueryString `show-all-intents=true`. Slutpunkt-svaret är:
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 Avsikter sorteras från högsta till lägsta poängen.
 
 |Dataobjekt|Datatyp|Dataplats|Värde|Poäng|
 |--|--|--|--|:--|
-|Avsikt|Sträng|avsikter [0] .intent|”GetStoreInfo”|0.984749258|
-|Avsikt|Sträng|.intent avsikter [1]|”None”|0.0168218873|
+|Avsikt|String|avsikter [0] .intent|”GetStoreInfo”|0.984749258|
+|Avsikt|String|.intent avsikter [1]|”None”|0.0168218873|
 
 Om du lägger till fördefinierade domäner avsikt namnet anger domänen, till exempel `Utilties` eller `Communication` samt avsikten:
 
@@ -201,13 +194,13 @@ Om du lägger till fördefinierade domäner avsikt namnet anger domänen, till e
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 |Domain|Dataobjekt|Datatyp|Dataplats|Värde|
 |--|--|--|--|--|
-|Samhällsservice|Avsikt|Sträng|avsikter [0] .intent|”<b>Verktyg</b>. ShowNext ”|
-|Kommunikation|Avsikt|Sträng|.intent avsikter [1]|<b>Kommunikation</b>. StartOver ”|
-||Avsikt|Sträng|.intent avsikter [2]|”None”|
+|Samhällsservice|Avsikt|String|avsikter [0] .intent|”<b>Verktyg</b>. ShowNext ”|
+|Kommunikation|Avsikt|String|.intent avsikter [1]|<b>Kommunikation</b>. StartOver ”|
+||Avsikt|String|.intent avsikter [2]|”None”|
 
 
 ## <a name="data-from-entities"></a>Data från enheter
@@ -250,12 +243,11 @@ Alla entiteter returneras i de **entiteter** matris för svaret från slutpunkte
 ```
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-* * * 
+* * *
 
 ## <a name="tokenized-entity-returned"></a>principfilerna entitet returnerades
-Flera [kulturer](luis-language-support.md#tokenization) returnera entitetsobjekt med den `entity` värdet [tokeniserad](luis-glossary.md#token). StartIndex och endIndex som returnerades av LUIS i entitetsobjektet mappas inte till det nya, principfilerna värdet utan istället på den ursprungliga frågan i ordning att extrahera raw entiteten programmässigt. 
 
-Till exempel på tyska, ordet `das Bauernbrot` tokeniserad till `das bauern brot`. Värdet principfilerna `das bauern brot`, returneras och det ursprungliga värdet programmässigt kan fastställas från startIndex och endIndex av den ursprungliga frågan, vilket ger dig `das Bauernbrot`.
+Granska [token-stödet](luis-language-support.md#tokenization) i Luis.
 
 ## <a name="simple-entity-data"></a>Enkel entitetsdata
 
@@ -263,11 +255,11 @@ En [enkel enhet](reference-entity-simple.md) är ett värde för datorn lärt di
 
 ## <a name="composite-entity-data"></a>Sammansatta entitetsdata
 
-En [sammansatt entitet](reference-entity-composite.md) består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en helhet. 
+En [sammansatt entitet](reference-entity-composite.md) består av andra entiteter, till exempel färdiga entiteter, enkla, reguljära uttryck och list enheter. Separata entiteter utgör en helhet.
 
 ## <a name="list-entity-data"></a>Lista entitetsdata
 
-[Lista entiteter](reference-entity-list.md) representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan. Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt. 
+[Lista entiteter](reference-entity-list.md) representerar en fast, avslutad uppsättning relaterade ord tillsammans med deras synonymer. LUIS identifierar inte ytterligare värden för listan över entiteter. Använd den **rekommenderar** funktionen för att se förslag för nya ord baserat på den aktuella listan. Om det finns mer än en entitet i listan med samma värde, returneras varje entitet i frågan slutpunkt.
 
 ## <a name="prebuilt-entity-data"></a>Fördefinierade entitetsdata
 [Fördefinierade](luis-concept-entity-types.md) entiteter identifieras baserat på en vanlig uttrycksmatchning med öppen källkod [identifierare fulltext](https://github.com/Microsoft/Recognizers-Text) projekt. Fördefinierade entiteter returneras i matrisen entiteter och använda namnet på prefixet `builtin::`. Följande text är ett exempel uttryck med returnerade förskapade entiteter:
@@ -534,7 +526,7 @@ Med parametern QueryString `verbose=true`:
 
 Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
-* * * 
+* * *
 ## <a name="regular-expression-entity-data"></a>Reguljärt uttryck entitetsdata
 
 En [entitet för reguljära uttryck](reference-entity-regular-expression.md) extraherar en entitet baserat på ett mönster för reguljära uttryck som du anger.
@@ -544,11 +536,11 @@ Det är svårt att hämta namn från ett uttryck eftersom ett namn kan vara näs
 
 ### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>Lägg till färdiga PersonName-och GeographyV2-entiteter
 
-[PersonName](luis-reference-prebuilt-person.md) -och [GeographyV2](luis-reference-prebuilt-geographyV2.md) -entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md). 
+[PersonName](luis-reference-prebuilt-person.md) -och [GeographyV2](luis-reference-prebuilt-geographyV2.md) -entiteter är tillgängliga i vissa [språk kulturer](luis-reference-prebuilt-entities.md).
 
 ### <a name="names-of-people"></a>Namnen på personer
 
-Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd antingen en fördefinierad **[personName](luis-reference-prebuilt-person.md)** -entitet eller en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) för för-och efter namn. 
+Folkrepubliken namnet får inte innehålla något mindre format beroende på språket och kultur. Använd antingen en fördefinierad **[personName](luis-reference-prebuilt-person.md)** -entitet eller en **[enkel entitet](luis-concept-entity-types.md#simple-entity)** med [roller](luis-concept-roles.md) för för-och efter namn.
 
 Om du använder den enkla entiteten ska du se till att ge exempel som använder det första och sista namnet i olika delar av uttryck, i yttranden med olika längd och yttranden i alla avsikter, inklusive ingen avsikt. [Granska](luis-how-to-review-endoint-utt.md) endpoint yttranden regelbundet att märka de namn som inte har förväntad korrekt.
 
@@ -566,7 +558,7 @@ Roller är sammanhangsberoende skillnader med entiteter.
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
-Entitetsnamnet är `Location`, med två roller `Origin` och `Destination`.
+Entitetsnamnet är `Location`, med två roller, `Origin` och `Destination`.
 
 ```JSON
 "entities": [
@@ -599,9 +591,9 @@ Entitetsnamnet är `Location`, med två roller `Origin` och `Destination`.
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-I v3 är **roll namnet** det primära namnet på objektet. 
+I v3 är **roll namnet** det primära namnet på objektet.
 
-Entitetsnamnet är `Location`, med två roller `Origin` och `Destination`.
+Entitetsnamnet är `Location`, med två roller, `Origin` och `Destination`.
 
 Utan parametern QueryString `verbose=true`:
 
@@ -687,9 +679,9 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 ## <a name="patternany-entity-data"></a>Pattern.any entitetsdata
 
-[Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.  
+[Mönster.](reference-entity-pattern-any.md) det finns en plats hållare med variabel längd som bara används i ett mönsters mall uttryck för att markera var entiteten börjar och slutar.
 
-## <a name="sentiment-analysis"></a>Sentimentanalys
+## <a name="sentiment-analysis"></a>Känsloanalys
 Om attitydanalys är konfigurerad, innehåller json-svar LUIS attitydanalys. Mer information om sentimentanalys i den [textanalys](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) dokumentation.
 
 ### <a name="sentiment-data"></a>Åsiktsdata
@@ -1141,7 +1133,7 @@ Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 Om ett ord eller fraser matchar mer än en entitet i listan, returnerar endpoint-frågan varje entitet i listan.
 
-För frågan `when is the best time to go to red rock?`, och appen har ordet `red` i mer än en LUIS identifierar alla entiteter och returnerar en matris med entiteter som en del av svaret för JSON-slutpunkten: 
+För frågan `when is the best time to go to red rock?`, och appen har ordet `red` i mer än en LUIS identifierar alla entiteter och returnerar en matris med entiteter som en del av svaret för JSON-slutpunkten:
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 

@@ -1,5 +1,5 @@
 ---
-title: Använd Docker Compose för att distribuera flera behållare
+title: Använda Docker Compose för att distribuera flera containrar
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du distribuerar flera Cognitive Services behållare. Den här artikeln visar hur du dirigerar flera Docker-behållar avbildningar med hjälp av Docker Compose.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311559"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716906"
 ---
-# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Använd Docker Compose för att distribuera flera behållare
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Använda Docker Compose för att distribuera flera containrar
 
 Den här artikeln visar hur du distribuerar flera Azure Cognitive Services-behållare. Mer specifikt lär du dig hur du använder Docker Compose för att dirigera flera Docker-behållar avbildningar.
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du distribuerar flera Azure Cognitive Services-behå
 
 Det kan vara användbart att dirigera flera behållar avbildningar på en dator med en enda värddator. I den här artikeln ska vi samla ihop Identifiera text-och formulär igenkännings behållarna.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här proceduren kräver flera verktyg som måste installeras och köras lokalt:
 
@@ -46,7 +46,7 @@ Slutför och skicka [formuläret Cognitive Services tal behållare för begäran
 
 ## <a name="docker-compose-file"></a>Docker Compose-fil
 
-YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen `DockerFile` en eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml*. Ange lämpliga **apiKey**-, **fakturerings**-och **EndpointUri** -värden i filen.
+YAML-filen definierar alla tjänster som ska distribueras. Dessa tjänster är beroende av antingen en `DockerFile` eller en befintlig behållar avbildning. I det här fallet ska vi använda två förhands gransknings bilder. Kopiera och klistra in följande YAML-fil och spara den som *Docker-Compose. yaml*. Ange lämpliga **apiKey**-, **fakturerings**-och **EndpointUri** -värden i filen.
 
 ```yaml
 version: '3.7'

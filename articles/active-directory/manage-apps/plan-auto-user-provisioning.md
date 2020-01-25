@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 44ed85ac8171484cccf39c0b048a5c7a026a657d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732458"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711594"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planera en distribution med automatisk användaretablering
 
@@ -25,7 +25,7 @@ Många organisationer förlitar sig på SaaS-program (program vara som en tjäns
 
 Azure Active Directory (Azure AD) automatisk användar etablering fören klar processen genom att på ett säkert sätt automatisera skapandet, underhåll och borttagning av användar identiteter i SaaS program baserat på affärs regler. Med den här automationen kan du effektivt skala dina identitets hanterings system både i molnet och i hybrid miljöer när du utökar deras beroende av molnbaserade lösningar.
 
-Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) för att bättre förstå funktionerna.
+Se [Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory](user-provisioning.md) för att bättre förstå funktionerna.
 
 ## <a name="learn"></a>Inlärning
 
@@ -59,7 +59,7 @@ I den här artikeln används följande villkor:
 
 * Enkel inloggning (SSO) – möjligheten för en användare att logga in en gång och få åtkomst till alla SSO-aktiverade program. I kontexten för användar etablering är SSO ett resultat av användare som har ett enda konto för åtkomst till alla system som använder automatisk användar etablering.
 
-* Käll system – databasen med användare som Azure AD tillhandahåller från. Azure AD är käll systemet för de flesta pre-integrerade etablerings anslutningar. Det finns dock vissa undantag för moln program som SAP, Workday och AWS. Se till exempel [användar etablering från Workday till AD](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial).
+* Käll system – databasen med användare som Azure AD tillhandahåller från. Azure AD är käll systemet för de flesta pre-integrerade etablerings anslutningar. Det finns dock vissa undantag för moln program som SAP, Workday och AWS. Se till exempel [användar etablering från Workday till AD](../saas-apps/workday-inbound-tutorial.md).
 
 * Mål system – databasen med användare som Azure AD tillhandahåller. Mål systemet är vanligt vis ett SaaS-program, till exempel ServiceNow, Zscaler och slack. Mål systemet kan också vara ett lokalt system, till exempel AD.
 
@@ -73,8 +73,8 @@ I den här artikeln används följande villkor:
 | Videor| [Vad är användar etablering i Active Azure-katalogen?](https://youtu.be/_ZjARPpI6NI) <br> [Hur distribuerar jag användar etablering i Active Azure-katalogen?](https://youtu.be/pKzyts6kfrw) <br> [Integrera Salesforce med Azure AD: så här automatiserar du användar etablering](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | Nätbaserade kurser| SkillUp online: [hantera identiteter](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Lär dig hur du integrerar Azure AD med många SaaS-program och skyddar användarnas åtkomst till dessa program. |
 | Böcker| [Modern autentisering med Azure Active Directory för webb program (referens för utvecklare) 1: a utgåvan](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0).  <br> Det här är en auktoritativ och djupgående guide för att skapa Active Directory-autentiseringsbegäranden för de här nya miljöerna. |
-| Självstudiekurser| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list). |
-| FAQ| [Vanliga frågor](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) om automatisk användar etablering |
+| Självstudiekurser| Se [listan med självstudier om hur du integrerar SaaS-appar med Azure AD](../saas-apps/tutorial-list.md). |
+| FAQ| [Vanliga frågor](user-provisioning.md) om automatisk användar etablering |
 
 ### <a name="solution-architectures"></a>Lösningsarkitekturer
 
@@ -92,9 +92,9 @@ I det här exemplet skapas användare och grupper i en HR-databas som är anslut
 
 1. **Azure AD Connect agent** kör schemalagda synkroniseringar av identiteter (användare och grupper) från den lokala AD till Azure AD.
 
-1. **Azure AD Provisioning-tjänsten** startar en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) mot käll systemet och mål systemet. 
+1. **Azure AD Provisioning-tjänsten** startar en [första cykel](user-provisioning.md) mot käll systemet och mål systemet. 
 
-1. **Azure AD Provisioning-tjänsten** skickar frågor till käll systemet för alla användare och grupper som har ändrats sedan den första cykeln, och skickar ändringar i [stegvisa cykler](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD Provisioning-tjänsten** skickar frågor till käll systemet för alla användare och grupper som har ändrats sedan den första cykeln, och skickar ändringar i [stegvisa cykler](user-provisioning.md).
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>Automatisk användar etablering för enbart moln bolag
 
@@ -106,9 +106,9 @@ I det här exemplet sker skapande av användare i Azure AD och Azure AD Provisio
 
 1. Användare/grupper skapas i Azure AD.
 
-1. **Azure AD Provisioning-tjänsten** startar en [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) mot käll systemet och mål systemet. 
+1. **Azure AD Provisioning-tjänsten** startar en [första cykel](user-provisioning.md) mot käll systemet och mål systemet. 
 
-1. **Azure AD Provisioning-tjänsten** skickar frågor till käll systemet för användare och grupper som har uppdaterats sedan den första cykeln och utför eventuella [stegvisa cykler](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+1. **Azure AD Provisioning-tjänsten** skickar frågor till käll systemet för användare och grupper som har uppdaterats sedan den första cykeln och utför eventuella [stegvisa cykler](user-provisioning.md).
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>Automatisk användar etablering för moln HR-program 
 
@@ -138,7 +138,7 @@ Kommunikationen är nödvändig för att en ny tjänst ska lyckas. Kommunicera p
 
 ### <a name="plan-a-pilot"></a>Planera en pilot
 
-Vi rekommenderar att den inledande konfigurationen av automatisk användar etablering är i en test miljö med en liten del av användarna innan de skalas till alla användare i produktionen. Se [metod tips](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) för att köra en pilot.
+Vi rekommenderar att den inledande konfigurationen av automatisk användar etablering är i en test miljö med en liten del av användarna innan de skalas till alla användare i produktionen. Se [metod tips](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) för att köra en pilot.
 
 #### <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot  
 
@@ -146,29 +146,29 @@ Med en pilot kan du testa med en liten grupp innan du distribuerar en funktion f
 
 I din första Wave, rikta in dig på den, användbarhet och andra lämpliga användare som kan testa och ge feedback. Använd den här feedbacken för att ytterligare utveckla kommunikation och anvisningar som du skickar till användarna och ger insikter om vilka typer av problem som support Personalen kan se.
 
-Utöka distributionen till större grupper av användare genom att öka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)eller genom att manuellt lägga till användare till mål grupperna.
+Utöka distributionen till större grupper av användare genom att öka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](../users-groups-roles/groups-dynamic-membership.md)eller genom att manuellt lägga till användare till mål grupperna.
 
 ## <a name="plan-application-connections-and-administration"></a>Planera program anslutningar och administration
 
-Använd Azure AD-portalen för att visa och hantera alla program som har stöd för etablering. Se [hitta dina appar i portalen](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal).
+Använd Azure AD-portalen för att visa och hantera alla program som har stöd för etablering. Se [hitta dina appar i portalen](configure-automatic-user-provisioning-portal.md).
 
 ### <a name="determine-the-type-of-connector-to-use"></a>Bestäm vilken typ av anslutning som ska användas
 
-De faktiska stegen som krävs för att aktivera och konfigurera automatisk etablering varierar beroende på programmet. Om det program som du vill etablera automatiskt är listat i [Azure AD SaaS app-galleriet](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), bör du välja den [app-specifika integrerings guiden](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) för att konfigurera den förintegrerade anslutningen för användar etablering.
+De faktiska stegen som krävs för att aktivera och konfigurera automatisk etablering varierar beroende på programmet. Om det program som du vill etablera automatiskt är listat i [Azure AD SaaS app-galleriet](../saas-apps/tutorial-list.md), bör du välja den [app-specifika integrerings guiden](../saas-apps/tutorial-list.md) för att konfigurera den förintegrerade anslutningen för användar etablering.
 
 Annars följer du stegen nedan:
 
-1. [Skapa en begäran](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) för en för hands integrerad användar etablerings anslutning. Vårt team kommer att samar beta med dig och programutvecklaren för att publicera ditt program på vår plattform om det stöder SCIM.
+1. [Skapa en begäran](../develop/howto-app-gallery-listing.md) för en för hands integrerad användar etablerings anslutning. Vårt team kommer att samar beta med dig och programutvecklaren för att publicera ditt program på vår plattform om det stöder SCIM.
 
-1. Använd [BYOA scim](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) Generic User Provisioning-stöd för appen. Detta är ett krav för att Azure AD ska kunna etablera användare till appen utan en förintegrerad etablerings anslutning.
+1. Använd [BYOA scim](use-scim-to-provision-users-and-groups.md) Generic User Provisioning-stöd för appen. Detta är ett krav för att Azure AD ska kunna etablera användare till appen utan en förintegrerad etablerings anslutning.
 
-1. Om programmet kan använda BYOA SCIM-anslutningen kan du läsa [själv studie kursen BYOA scim integration](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) för att konfigurera BYOA scim-anslutaren för programmet.
+1. Om programmet kan använda BYOA SCIM-anslutningen kan du läsa [själv studie kursen BYOA scim integration](use-scim-to-provision-users-and-groups.md) för att konfigurera BYOA scim-anslutaren för programmet.
 
-Mer information finns i [vilka program och system kan jag använda med automatisk användar etablering i Azure AD?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+Mer information finns i [vilka program och system kan jag använda med automatisk användar etablering i Azure AD?](user-provisioning.md)
 
 ### <a name="collect-information-to-authorize-application-access"></a>Samla in information för att auktorisera program åtkomst
 
-Att konfigurera automatisk användar etablering är en process per program. För varje program måste [du ange administratörsautentiseringsuppgifter för att ansluta](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) till mål datorns slut punkt för användar hantering.
+Att konfigurera automatisk användar etablering är en process per program. För varje program måste [du ange administratörsautentiseringsuppgifter för att ansluta](configure-automatic-user-provisioning-portal.md) till mål datorns slut punkt för användar hantering.
 
 Bilden nedan visar en version av de autentiseringsuppgifter som krävs för administratören:
 
@@ -198,17 +198,17 @@ Dokumentera följande information för varje program:
 
 Innan du implementerar automatisk användar etablering måste du bestämma vilka användare och grupper som ska vara etablerade i programmet.
 
-* Använd [omfångs filter](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters) för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
+* Använd [omfångs filter](define-conditional-rules-for-provisioning-user-accounts.md) för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
 
-* Använd sedan [användar-och grupp tilldelningar](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) efter behov för ytterligare filtrering.
+* Använd sedan [användar-och grupp tilldelningar](assign-user-or-group-access-portal.md) efter behov för ytterligare filtrering.
 
 ### <a name="define-user-and-group-attribute-mapping"></a>Definiera mappning av användar-och Gruppattribut
 
-Om du vill implementera automatisk användar etablering måste du definiera de användar-och Gruppattribut som behövs för programmet. Det finns en förkonfigurerad uppsättning attribut och [attribut mappningar](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) mellan Azure AD-användarkonton och varje SaaS-programs användar objekt. Alla SaaS-appar kan inte aktivera Gruppattribut.
+Om du vill implementera automatisk användar etablering måste du definiera de användar-och Gruppattribut som behövs för programmet. Det finns en förkonfigurerad uppsättning attribut och [attribut mappningar](configure-automatic-user-provisioning-portal.md) mellan Azure AD-användarkonton och varje SaaS-programs användar objekt. Alla SaaS-appar kan inte aktivera Gruppattribut.
 
-Azure AD stöder direkt mappning mellan attribut och attribut, vilket ger konstanta värden eller [skriver uttryck för mappningar av attribut](https://docs.microsoft.com/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings). Den här flexibiliteten ger dig noggrann kontroll över vad som kommer att vara ifyllt i mål systemets attribut. Du kan använda [Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration) och Graph Explorer för att exportera mappningar och schemat för användar etablerings attribut till en JSON-fil och importera tillbaka dem till Azure AD.
+Azure AD stöder direkt mappning mellan attribut och attribut, vilket ger konstanta värden eller [skriver uttryck för mappningar av attribut](functions-for-customizing-application-data.md). Den här flexibiliteten ger dig noggrann kontroll över vad som kommer att vara ifyllt i mål systemets attribut. Du kan använda [Microsoft Graph API](export-import-provisioning-configuration.md) och Graph Explorer för att exportera mappningar och schemat för användar etablerings attribut till en JSON-fil och importera tillbaka dem till Azure AD.
 
-Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).
+Mer information finns i [Anpassa användar etablering attribut-mappningar för SaaS-program i Azure Active Directory](customize-application-attributes.md).
 
 ### <a name="special-considerations-for-user-provisioning"></a>Särskilda överväganden för användar etablering
 
@@ -216,9 +216,9 @@ Tänk på följande för att minska problem efter distributionen:
 
 * Se till att attributen som används för att mappa användare/grupp-objekt mellan käll-och mål program är elastiska. De bör inte göra det möjligt för användare/grupper att tillhandahållas felaktigt om attributen ändras (till exempel när en användare flyttas till en annan del av företaget).
 
-* Program kan ha särskilda begränsningar och/eller krav som måste uppfyllas för att användar etableringen ska fungera korrekt. Slack trunkerar till exempel värdena för vissa attribut. Information om [automatiska användar etablerings guider](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) som är specifika för varje program.
+* Program kan ha särskilda begränsningar och/eller krav som måste uppfyllas för att användar etableringen ska fungera korrekt. Slack trunkerar till exempel värdena för vissa attribut. Information om [automatiska användar etablerings guider](../saas-apps/tutorial-list.md) som är specifika för varje program.
 
-* Bekräfta schema konsekvens mellan käll-och mål systemen. Vanliga problem inkluderar attribut som UPN eller e-post som inte matchar. Till exempel, UPN i Azure AD anges som *john_smith@contoso.com* och i appen, är det *jsmith@contoso.com* . Mer information finns i [schema referens för användare och grupper](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups).
+* Bekräfta schema konsekvens mellan käll-och mål systemen. Vanliga problem inkluderar attribut som UPN eller e-post som inte matchar. Till exempel, UPN i Azure AD anges som *john_smith@contoso.com* och i appen, är det *jsmith@contoso.com* . Mer information finns i [schema referens för användare och grupper](use-scim-to-provision-users-and-groups.md).
 
 ## <a name="plan-testing-and-security"></a>Planera testning och säkerhet
 
@@ -233,7 +233,7 @@ När du har konfigurerat automatisk användar etablering för programmet kan du 
 | Användaren läggs till i en grupp som tilldelats mål systemet | Användarobjektet är etablerad i mål systemet. <br>Användaren kan logga in på mål systemet och utföra önskade åtgärder. |
 | Användaren har tagits bort från en grupp som är tilldelad till mål systemet | Användar objekt har avetablerats i mål systemet.<br>Användaren kan inte logga in på mål systemet. |
 | Användar information uppdateras i Azure AD med valfri metod | Uppdaterade användarattribut visas i mål systemet efter en stegvis cykel |
-| Användaren är utanför omfånget | Användar objekt har inaktiverats eller tagits bort. <br>Obs! det här beteendet åsidosätts för [etablering av arbets dagar](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions). |
+| Användaren är utanför omfånget | Användar objekt har inaktiverats eller tagits bort. <br>Obs! det här beteendet åsidosätts för [etablering av arbets dagar](skip-out-of-scope-deletions.md). |
 
 ### <a name="plan-security"></a>Säkerhetsplanering
 
@@ -243,7 +243,7 @@ Det är vanligt att en säkerhets granskning krävs som en del av en distributio
 
 Om den automatiska etablerings implementeringen av användaren inte fungerar som du vill i produktions miljön kan följande återställnings steg hjälpa dig att återställa till ett tidigare fungerande tillstånd:
 
-1. Granska [sammanfattnings rapporten för etablering](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) och [etablerings loggar](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) för att fastställa vilka fel åtgärder som har inträffat för berörda användare och/eller grupper.
+1. Granska [sammanfattnings rapporten för etablering](check-status-user-account-provisioning.md) och [etablerings loggar](check-status-user-account-provisioning.md#provisioning-logs-preview) för att fastställa vilka fel åtgärder som har inträffat för berörda användare och/eller grupper.
 
 1. Använd etableringen av gransknings loggar för att fastställa senast fungerande tillstånd för de användare och/eller grupper som påverkas. Granska även käll systemen (Azure AD eller AD).
 
@@ -257,13 +257,13 @@ Välj de steg som passar dina lösnings krav.
 
 När Azure AD Provisioning-tjänsten körs för första gången skapar den första cykeln mot käll system-och mål systemen en ögonblicks bild av alla användar objekt för varje mål system.
 
-När du aktiverar automatisk etablering för ett program kan den första cykeln ta var som helst från 20 minuter till flera timmar. Varaktigheten beror på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. Se [hur du kan förbättra etablerings prestanda](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish).
+När du aktiverar automatisk etablering för ett program kan den första cykeln ta var som helst från 20 minuter till flera timmar. Varaktigheten beror på storleken på Azure AD-katalogen och antalet användare i omfånget för etablering. Se [hur du kan förbättra etablerings prestanda](application-provisioning-when-will-provisioning-finish.md).
 
 Etablerings tjänsten lagrar tillstånd för båda systemen efter den första cykeln, vilket förbättrar prestandan för efterföljande stegvisa cykler.
 
 ### <a name="configure-automatic-user-provisioning"></a>Konfigurera automatisk användaretablering
 
-Använd [Azure Portal](https://portal.azure.com/) för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. Följ stegen i [Hur gör jag för att konfigurera automatisk etablering för ett program?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)
+Använd [Azure Portal](https://portal.azure.com/) för att hantera automatisk etablering av användar konton och avetablering för program som stöder det. Följ stegen i [Hur gör jag för att konfigurera automatisk etablering för ett program?](user-provisioning.md)
 
 Azure AD-tjänsten för användar etablering kan också konfigureras och hanteras med hjälp av [Microsoft Graph-API: et](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
 
@@ -273,7 +273,7 @@ Nu när du har distribuerat måste du hantera lösningen.
 
 ### <a name="monitor-user-provisioning-operation-health"></a>Övervaka hälsa för användar etablerings åtgärd
 
-Efter en lyckad [första cykel](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)körs stegvisa uppdateringar i Azure AD Provisioning-tjänsten, med intervall som är specifika för varje program, tills någon av följande händelser inträffar:
+Efter en lyckad [första cykel](user-provisioning.md)körs stegvisa uppdateringar i Azure AD Provisioning-tjänsten, med intervall som är specifika för varje program, tills någon av följande händelser inträffar:
 
 * Tjänsten stoppas manuellt och en ny första cykel utlöses med hjälp av [Azure Portal](https://portal.azure.com/)eller med lämpligt [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) -kommando.
 
@@ -281,15 +281,15 @@ Efter en lyckad [första cykel](https://docs.microsoft.com/azure/active-director
 
 * Etablerings processen försätts i karantän på grund av en hög fel frekvens och hålls kvar i karantän i mer än fyra veckor när den inaktive ras automatiskt.
 
-Information om hur du granskar dessa händelser och alla andra aktiviteter som utförs av etablerings tjänsten finns i Azure AD- [etablerings loggar](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context).
+Information om hur du granskar dessa händelser och alla andra aktiviteter som utförs av etablerings tjänsten finns i Azure AD- [etablerings loggar](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).
 
-För att förstå hur länge etablerings cyklerna tar och övervakar förloppet för etablerings jobbet kan du [kontrol lera status för användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user).
+För att förstå hur länge etablerings cyklerna tar och övervakar förloppet för etablerings jobbet kan du [kontrol lera status för användar etablering](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="gain-insights-from-reports"></a>Få insikter från rapporter
 
-Azure AD kan ge [ytterligare insikter](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) om din organisations användar etablering och drifts hälsa genom gransknings loggar och-rapporter.
+Azure AD kan ge [ytterligare insikter](application-provisioning-when-will-provisioning-finish-specific-user.md) om din organisations användar etablering och drifts hälsa genom gransknings loggar och-rapporter.
 
-Administratörer bör kontrol lera sammanfattnings rapporten för etablering för att övervaka etablerings jobbets operativa tillstånd. Alla aktiviteter som utförs av etablerings tjänsten registreras i gransknings loggarna för Azure AD. Se [självstudie: rapportering om automatisk etablering av användar konto](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
+Administratörer bör kontrol lera sammanfattnings rapporten för etablering för att övervaka etablerings jobbets operativa tillstånd. Alla aktiviteter som utförs av etablerings tjänsten registreras i gransknings loggarna för Azure AD. Se [självstudie: rapportering om automatisk etablering av användar konto](check-status-user-account-provisioning.md).
 
 Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rapporter på en takt som uppfyller organisationens krav. Azure AD behåller de flesta gransknings data i 30 dagar.
 
@@ -297,27 +297,27 @@ Vi rekommenderar att du förbrukar ägande rätt till och använder dessa rappor
 
 Se följande länkar för att felsöka eventuella problem som kan uppstå under etableringen:
 
-* [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+* [Problem med att konfigurera användar etablering i ett Azure AD Gallery-program](application-provisioning-config-problem.md)
 
-* [Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping)
+* [Synkronisera ett attribut från din lokala Active Directory till Azure AD för etablering till ett program](user-provisioning-sync-attributes-for-mapping.md)
 
-* [Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish)
+* [Användar etablering i ett Azure AD Gallery-program tar flera timmar eller mer](application-provisioning-when-will-provisioning-finish.md)
 
-* [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit)
+* [Problem med att spara administratörsautentiseringsuppgifter när du konfigurerar användar etablering till ett Azure Active Directory Galleri program](application-provisioning-config-problem-storage-limit.md)
 
-* [Inga användare tillhandahålls till ett Azure AD Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+* [Inga användare tillhandahålls till ett Azure AD Gallery-program](application-provisioning-config-problem-no-users-provisioned.md)
 
-* [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
+* [Fel uppsättning användare tillhandahålls till ett Azure AD Gallery-program](application-provisioning-config-problem-wrong-users-provisioned.md)
 
 ### <a name="helpful-documentation"></a>Användbar dokumentation
 
-* [Skriver uttryck för mappningar av attribut](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Skriver uttryck för mappningar av attribut](functions-for-customizing-application-data.md)
 
 * [Översikt över Azure AD Synchronization API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 
-* [Hoppa över borttagning av användar konton som ingår i omfånget](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions)
+* [Hoppa över borttagning av användar konton som ingår i omfånget](skip-out-of-scope-deletions.md)
 
-* [Azure AD Connect etablerings agent: versions historik](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
+* [Azure AD Connect etablerings agent: versions historik](provisioning-agent-release-version-history.md)
 
 #### <a name="resources"></a>Resurser
 
@@ -328,8 +328,8 @@ Se följande länkar för att felsöka eventuella problem som kan uppstå under 
 * [Stack Overflow Azure AD-forum](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="next-steps"></a>Nästa steg
-* [Konfigurera automatisk användar etablering](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
+* [Konfigurera automatisk användar etablering](configure-automatic-user-provisioning-portal.md)
 
-* [Exportera eller importera etablerings konfigurationen genom att använda Microsoft Graph API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration)
+* [Exportera eller importera etablerings konfigurationen genom att använda Microsoft Graph API](export-import-provisioning-configuration.md)
 
-* [Skriva uttryck för mappningar av attribut i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Skriva uttryck för mappningar av attribut i Azure Active Directory](functions-for-customizing-application-data.md)

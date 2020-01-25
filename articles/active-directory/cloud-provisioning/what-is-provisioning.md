@@ -11,18 +11,18 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167616"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712549"
 ---
 # <a name="what-is-identity-provisioning"></a>Vad är identitetsetablering?
 
 Företag och organisationer blir i dag allt mer en blandning av lokala och molnbaserade program.  Användare behöver åtkomst till program både lokalt och i molnet. Det måste finnas en enda identitet i dessa olika program (både lokalt och i molnet).
 
-Etablering är en process för att skapa ett objekt baserat på vissa villkor, så att objektet blir inaktuellt och ta bort objektet när villkoren inte längre uppfylls. Till exempel när en ny användare ansluter till din organisation, anges användaren i HR-systemet.  Vid detta tillfälle kan etableringen skapa ett motsvarande användar konto i molnet, i Active Directory och olika program som användaren behöver åtkomst till.  Detta gör att användaren kan starta arbetet och ha åtkomst till de program och system som de behöver på dag ett. 
+Etablering är en process för att skapa ett objekt baserat på vissa villkor, hålla objektet uppdaterat och ta bort objektet när villkoren inte längre uppfylls. Till exempel när en ny användare ansluter till din organisation, anges användaren i HR-systemet.  Vid detta tillfälle kan etableringen skapa ett motsvarande användar konto i molnet, i Active Directory och olika program som användaren behöver åtkomst till.  Detta gör att användaren kan starta arbetet och ha åtkomst till de program och system som de behöver på dag ett. 
 
 ![moln etablering](media/what-is-provisioning/cloud1.png)
 

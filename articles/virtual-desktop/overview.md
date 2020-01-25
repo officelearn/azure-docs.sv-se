@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 83744750a664a3a992d823f0b7e76768e249aaba
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514280"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721429"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -99,13 +99,15 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 |kms.core.windows.net|TCP-port 1688|Aktivering av Windows 10|
 
 >[!IMPORTANT]
->Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure AD.
+>Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure Active Directory.
 
 >[!NOTE]
+>Det finns för närvarande ingen lista över IP-adressintervall som du kan vitlista för att tillåta nätverks trafik i det virtuella Windows-skrivbordet. Vi stöder bara vit listning-angivna URL: er just nu.
+>
 >Du måste använda jokertecknet (*) för URL: er som involverar tjänst trafiken. Om du inte vill använda * för agent-relaterad trafik så här hittar du URL: erna utan jokertecken:
 >
 >1. Registrera dina virtuella datorer på Windows-poolen för virtuella skriv bord.
->2. Öppna **logg boken** och navigera till **Windows** > **program loggar** och leta efter händelse-ID 3702.
+>2. Öppna **logg boken** och navigera till **Windows-loggar** > **program** > **WVD-Agent** och leta efter händelse-ID 3702.
 >3. Vitlista de URL: er som du hittar under händelse-ID 3702. URL: erna under händelse-ID 3702 är landsspecifika. Du måste upprepa vit listning-processen med relevanta URL: er för varje region som du vill distribuera dina virtuella datorer i.
 
 Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Skriv bord och appar kan distribueras på virtuella datorer i valfri Azure-region och hanterings lösningen och data för dessa virtuella datorer finns i USA. Detta kan leda till att data överförs till USA.

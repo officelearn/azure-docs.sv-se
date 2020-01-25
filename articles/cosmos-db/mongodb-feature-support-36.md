@@ -4,29 +4,29 @@ description: Läs mer om Azure Cosmos DBs API för MongoDB (3,6-version) som st�
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a48fb82402cd4719cb210ec2dab55b3a0f7883ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a32affab45ab99a89113644bb08c4f2b57d69018
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441625"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721021"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB s API för MongoDB (3,6-version): funktioner som stöds och syntax
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DB:s API för MongoDB med någon av MongoDB-klient[drivrutinerna](https://docs.mongodb.org/ecosystem/drivers) med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan kommunicera med Azure Cosmos DBens API för MongoDB med någon av MongoDB-klient [driv rutinerna](https://docs.mongodb.org/ecosystem/drivers)med öppen källkod. Azure Cosmos DB:s API för MongoDB tillåter gör det möjligt att använda befintliga klientdrivrutiner genom att följa MongoDB-[trådprotokollet](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol).
 
 Med hjälp av Azure Cosmos DB:s API för MongoDB kan du dra nytta av fördelarna med den MongoDB som du är van vid och alla de företagsfunktioner som Azure Cosmos DB erbjuder: [global distribution](distribute-data-globally.md), [automatisk horisontell positionering](partition-data.md), garantier avseende tillgänglighet och svarstid, automatisk indexering av varje fält, kryptering i vila, säkerhetskopior och mycket mer.
 
 ## <a name="protocol-support"></a>Protokollstöd
 
-Azure Cosmos DBens API för MongoDB är kompatibelt med MongoDB Server version **3,6** som standard för nya konton. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB.
+Azure Cosmos DBens API för MongoDB är kompatibelt med MongoDB Server version **3,6** som standard för nya konton. De operatorer som stöds och eventuella begränsningar eller undantag anges nedan. Klientdrivrutiner som förstår dessa protokoll bör kunna ansluta till Cosmos DB:s API för MongoDB. Observera att när du använder Azure Cosmos DBs API för MongoDB-konton har 3,6-versionen av konton slut punkten i formatet `*.mongo.cosmos.azure.com` medan 3,2-versionen av kontona har slut punkten i formatet `*.documents.azure.com`.
 
 ## <a name="query-language-support"></a>Stöd för frågespråk
 
-Azure Cosmos DB:s API för MongoDB erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över de åtgärder som för närvarande stöds, operatorer, steg, kommandon och alternativ.
+Azure Cosmos DB:s API för MongoDB erbjuder omfattande stöd för MongoDB-frågespråkskonstruktioner. Nedan hittar du en detaljerad lista över de åtgärder, operatorer, stadier, kommandon och alternativ som stöds för närvarande.
 
 ## <a name="database-commands"></a>Databaskommandon
 
@@ -34,43 +34,77 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 ### <a name="query-and-write-operation-commands"></a>Fråga och skriv-åtgärdskommandon
 
-- delete
-- find
-- findAndModify
-- getLastError
-- getMore
-- insert
-- update
+|Kommando  |Stöds |
+|---------|---------|
+|delete | Ja |
+|find | Ja     |
+|findAndModify | Ja  |
+|getLastError|   Ja |
+|getMore  |  Ja  |
+|getPrevError | Inga  |
+|insert  |   Ja  |
+|parallelCollectionScan  | Ja   |
+|resetError |   Inga  |
+|update  |   Ja  |
+|[Ändra strömmar](mongodb-change-streams.md)  |  Ja  |
+|GridFS |   Ja  |
 
 ### <a name="authentication-commands"></a>Autentiseringskommandon
 
-- logga ut
-- authenticate
-- getnonce
+|Kommando  |Stöds |
+|---------|---------|
+|authenticate    |   Ja      |
+|logga ut    |      Ja   |
+|getnonce   |    Ja     |
+
 
 ### <a name="administration-commands"></a>Administrationskommandon
 
-- dropDatabase
-- listDatabases
-- listCollections
-- drop
-- skapa
-- filemd5
-- createIndexes
-- listIndexes
-- dropIndexes
-- connectionStatus
-- reIndex
-- killCursors
+|Kommando  |Stöds |
+|---------|---------|
+|Tak samlingar   |   Inga      |
+|cloneCollectionAsCapped     |   Inga      |
+|collMod     |   Inga      |
+|collMod: expireAfterSeconds   |   Inga      |
+|convertToCapped   |  Inga       |
+|copydb     |  Inga       |
+|skapa   |    Ja     |
+|createIndexes     |  Ja       |
+|currentOp     |  Ja       |
+|drop     |   Ja      |
+|dropDatabase     |  Ja       |
+|dropIndexes     |   Ja      |
+|filemd5    |   Ja      |
+|killCursors    |  Ja       |
+|killOp     |   Inga      |
+|listCollections     |  Ja       |
+|listDatabases     |  Ja       |
+|listIndexes     |  Ja       |
+|reIndex     |    Ja     |
+|renameCollection     |    Inga     |
+|connectionStatus    |     Inga    |
 
 ### <a name="diagnostics-commands"></a>Diagnostiska kommandon
 
-- buildInfo
-- collStats
-- dbStats
-- hostInfo
-- listDatabases
-- whatsmyuri
+|Kommando  |Stöds |
+|---------|---------|
+|buildInfo       |   Ja      |
+|collStats    |  Ja       |
+|connPoolStats     |  Inga       |
+|connectionStatus     |  Inga       |
+|dataSize     |   Inga      |
+|dbHash    |    Inga     |
+|dbStats     |   Ja      |
+|Vad     | Inga        |
+|förklaring: executionStats     |     Inga    |
+|funktioner     |    Inga     |
+|hostInfo     |   Inga      |
+|listDatabases       |   Ja      |
+|listCommands     |  Inga       |
+|profiler     |  Inga       |
+|serverStatus     |  Inga       |
+|översta     |    Inga     |
+|whatsmyuri     |   Ja      |
 
 <a name="aggregation-pipeline"/>
 
@@ -78,252 +112,433 @@ Azure Cosmos DB:s API för MongoDB stöder följande databaskommandon:
 
 ### <a name="aggregation-commands"></a>Sammansättningskommandon
 
-- aggregate
-- count
-- distinct
+|Kommando  |Stöds |
+|---------|---------|
+|aggregate |   Ja  |
+|count     |   Ja  |
+|distinct  | Ja |
+|mapReduce | Inga |
 
 ### <a name="aggregation-stages"></a>Sammansättningsfaser
 
-- $project
-- $match
-- $limit
-- $skip
-- $unwind
-- $group
-- $sample
-- $sort
-- $lookup
-- $out
-- $count
-- $addFields
-- $redact
-- $replaceRoot
+|Kommando  |Stöds |
+|---------|---------|
+|$collStats |Inga|
+|$project   |Ja|
+|$match |Ja|
+|$redact|   Ja|
+|$limit |Ja|
+|$skip  |Ja|
+|$unwind|   Ja|
+|$group |   Ja|
+|$sample|       Ja|
+|$sort  |Ja|
+|$geoNear|  Inga|
+|$lookup    |   Ja|
+|$out       |Ja|
+|$indexStats|       Inga|
+|$facet |Inga|
+|$bucket|   Inga|
+|$bucketAuto|   Inga|
+|$sortByCount|  Ja|
+|$addFields |Ja|
+|$replaceRoot|  Ja|
+|$count |Ja|
+|$currentOp|    Inga|
+|$listLocalSessions |Inga|
+|$listSessions  |Inga|
+|$graphLookup   |Inga|
 
-### <a name="aggregation-expressions"></a>Sammansättningsuttryck
+### <a name="boolean-expressions"></a>Booleska uttryck
 
-#### <a name="boolean-expressions"></a>Booleska uttryck
+|Kommando  |Stöds |
+|---------|---------|
+|$and| Ja|
+|$or|Ja|
+|$not|Ja|
 
-- $and
-- $or
-- $not
+### <a name="set-expressions"></a>Uttryck för angivelse
 
-#### <a name="set-expressions"></a>Uttryck för angivelse
+|Kommando  |Stöds |
+|---------|---------|
+| $setEquals | Ja|
+|$setIntersection|Ja|
+| $setUnion|Ja|
+| $setDifference|Ja|
+| $setIsSubset|Ja|
+| $anyElementTrue|Ja|
+| $allElementsTrue|Ja|
 
-- $setEquals
-- $setIntersection
-- $setUnion
-- $setDifference
-- $setIsSubset
-- $anyElementTrue
-- $allElementsTrue
+### <a name="comparison-expressions"></a>Jämförelseuttryck
 
-#### <a name="comparison-expressions"></a>Jämförelseuttryck
+|Kommando  |Stöds |
+|---------|---------|
+|$cmp     |  Ja       |
+|$eq|   Ja| 
+|$gt |  Ja| 
+|$gte|  Ja| 
+|$lt    |Ja|
+|$lte|  Ja| 
+|$ne    |   Ja| 
+|$in    |   Ja| 
+|$nin   |   Ja| 
 
-- $cmp
-- $eq
-- $gt
-- $gte
-- $lt
-- $lte
-- $ne
+### <a name="arithmetic-expressions"></a>Aritmetiska uttryck
 
-#### <a name="arithmetic-expressions"></a>Aritmetiska uttryck
+|Kommando  |Stöds |
+|---------|---------|
+|$abs |  Ja       |
+| $add |  Ja       |
+| $ceil |  Ja       |
+| $divide |  Ja       |
+| $exp |  Ja       |
+| $floor |  Ja       |
+| $ln |  Ja       |
+| $log |  Ja       |
+| $log10 |  Ja       |
+| $mod |  Ja       |
+| $multiply |  Ja       |
+| $pow |  Ja       |
+| $sqrt |  Ja       |
+| $subtract |  Ja       |
+| $trunc |  Ja       |
 
-- $abs
-- $add
-- $ceil
-- $divide
-- $exp
-- $floor
-- $ln
-- $log
-- $log10
-- $mod
-- $multiply
-- $pow
-- $sqrt
-- $subtract
-- $trunc
+### <a name="string-expressions"></a>Stränguttryck
 
-#### <a name="string-expressions"></a>Stränguttryck
+|Kommando  |Stöds |
+|---------|---------|
+|$concat |  Ja       |
+| $indexOfBytes|  Ja       |
+| $indexOfCP|  Ja       |
+| $split|  Ja       |
+| $strLenBytes|  Ja       |
+| $strLenCP|  Ja       |
+| $strcasecmp|  Ja       |
+| $substr|  Ja       |
+| $substrBytes|  Ja       |
+| $substrCP|  Ja       |
+| $toLower|  Ja       |
+| $toUpper|  Ja       |
 
-- $concat
-- $indexOfBytes
-- $indexOfCP
-- $split
-- $strLenBytes
-- $strLenCP
-- $strcasecmp
-- $substr
-- $substrBytes
-- $substrCP
-- $toLower
-- $toUpper
+### <a name="text-search-operator"></a>Text Sök operator
 
-#### <a name="array-expressions"></a>Matrisuttryck
+|Kommando  |Stöds |
+|---------|---------|
+| $meta | Inga|
 
-- $arrayElemAt
-- $concatArrays
-- $filter
-- $indexOfArray
-- $isArray
-- $range
-- $reverseArray
-- $size
-- $slice
-- $in
+### <a name="array-expressions"></a>Matrisuttryck
 
-#### <a name="date-expressions"></a>Datumuttryck
+|Kommando  |Stöds |
+|---------|---------|
+|$arrayElemAt   |   Ja|
+|$arrayToObject|    Ja|
+|$concatArrays  |   Ja|
+|$filter    |   Ja|
+|$indexOfArray  |Ja|
+|$isArray   |   Ja|
+|$objectToArray |Ja|
+|$range |Ja|
+|$reverseArray  |   Ja|
+|$reduce|   Ja|
+|$size  |   Ja|
+|$slice |   Ja|
+|$zip   |   Ja|
+|$in    |   Ja|
 
-- $dayOfYear
-- $dayOfMonth
-- $dayOfWeek
-- $year
-- $month
-- $week
-- $hour
-- $minute
-- $second
-- $millisecond
-- $isoDayOfWeek
-- $isoWeek
+### <a name="variable-operators"></a>Variabel operatörer
 
-#### <a name="conditional-expressions"></a>Villkorliga uttryck
+|Kommando  |Stöds |
+|---------|---------|
+|$map   |Inga|
+|$let   |Ja|
 
-- $cond
-- $ifNull
+### <a name="system-variables"></a>Systemvariabler
 
-## <a name="aggregation-accumulators"></a>Sammansättningsackumulatorer
+|Kommando  |Stöds |
+|---------|---------|
+|$ $CURRENT| Ja|
+|$ $DESCEND|     Ja|
+|$ $KEEP     |Ja|
+|$ $PRUNE    |   Ja|
+|$ $REMOVE   |Ja|
+|$ $ROOT     |Ja|
 
-Cosmos DB stöder alla MongoDB v 3.6-ackumulatorer utom:
+### <a name="literal-operator"></a>Litteral operator
 
-- $stdDevPop
-- $stdDevSamp
+|Kommando  |Stöds |
+|---------|---------|
+|$literal   |Ja|
+
+### <a name="date-expressions"></a>Datumuttryck
+
+|Kommando  |Stöds |
+|---------|---------|
+|$dayOfYear |Ja    |
+|$dayOfMonth|   Ja |
+|$dayOfWeek |Ja    |
+|$year  |Ja    |
+|$month |Ja|   
+|$week  |Ja    |
+|$hour  |Ja    |
+|$minute|   Ja|    
+|$second    |Ja    |
+|$millisecond|  Ja|    
+|$dateToString  |Ja    |
+|$isoDayOfWeek  |Ja    |
+|$isoWeek   |Ja    |
+|$dateFromParts|    Inga| 
+|$dateToParts   |Inga |
+|$dateFromString|   Inga|
+|$isoWeekYear   |Ja    |
+
+### <a name="conditional-expressions"></a>Villkorliga uttryck
+
+|Kommando  |Stöds |
+|---------|---------|
+| $cond| Ja|
+| $ifNull| Ja|
+| $switch |Ja|
+
+### <a name="data-type-operator"></a>Data typs operator
+
+|Kommando  |Stöds |
+|---------|---------|
+| $type| Ja|
+
+### <a name="accumulator-expressions"></a>Ackumulator uttryck
+
+|Kommando  |Stöds |
+|---------|---------|
+|$sum   |Ja    |
+|$avg   |Ja    |
+|$first|    Ja|
+|$last  |Ja    |
+|$max   |Ja    |
+|$min   |Ja    |
+|$push| Ja|
+|$addToSet| Ja|
+|$stdDevPop|    Inga  |
+|$stdDevSamp|   Inga|
+
+### <a name="merge-operator"></a>Slå samman operatör
+
+|Kommando  |Stöds |
+|---------|---------|
+| $mergeObjects | Ja|
+
+## <a name="data-types"></a>Datatyper
+
+|Kommando  |Stöds |
+|---------|---------|
+|Double |Ja    |
+|String |Ja    |
+|Objekt |Ja    |
+|Matris  |Ja    |
+|Binary Data    |Ja|   
+|ObjectId   |Ja    |
+|Boolean    |Ja    |
+|Datum   |Ja    |
+|Null   |Ja    |
+|32-bitars heltal (int)   |Ja    |
+|Tidsstämpel  |Ja    |
+|64-bitars heltal (långt)  |Ja    |
+|MinKey |Ja    |
+|MaxKey |Ja    |
+|Decimal128 |Ja|   
+|Reguljärt uttryck |Ja|
+|JavaScript |Ja|
+|Java Script (med omfång)|   Ja |
+|Odefinierat  |Ja    |
+
+## <a name="indexes-and-index-properties"></a>Index och index egenskaper
+
+### <a name="indexes"></a>Index
+
+|Kommando  |Stöds |
+|---------|---------|
+|Index för enskilt fält |Ja    |
+|Sammansatt index |Ja    |
+|MultiKey-index |Ja    |
+|Text index |Inga|
+|2dsphere   |Ja    |
+|2D-index   |Inga |
+|Hashed index   | Ja|
+
+### <a name="index-properties"></a>Index egenskaper
+
+|Kommando  |Stöds |
+|---------|---------|
+|TTL|   Ja |
+|Unik |Ja|
+|Delvis|   Inga|
+|Skift läges okänslig   |Inga|
+|Utspridda |Inga |
+|Bakgrund|    Ja |
 
 ## <a name="operators"></a>Operatorer
 
-Följande operatorer stöds med motsvarande användningsexempel. Överväg det här exempeldokumentet som används i frågorna nedan:
+### <a name="logical-operators"></a>Logiska operatorer
 
-```json
-{
-  "Volcano Name": "Rainier",
-  "Country": "United States",
-  "Region": "US-Washington",
-  "Location": {
-    "type": "Point",
-    "coordinates": [
-      -121.758,
-      46.87
-    ]
-  },
-  "Elevation": 4392,
-  "Type": "Stratovolcano",
-  "Status": "Dendrochronology",
-  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
+|Kommando  |Stöds |
+|---------|---------|
+|$or    |   Ja|
+|$and   |   Ja|
+|$not   |   Ja|
+|$nor   |   Ja| 
 
-Operator | Exempel |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+### <a name="element-operators"></a>Element operatörer
 
-### <a name="notes"></a>Anteckningar
+|Kommando  |Stöds |
+|---------|---------|
+|$exists|   Ja|
+|$type  |   Ja|
 
-I $regex-frågor, tillåter vänsterförankrade uttryck indexsökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
-När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor.
-Med till exempel följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})``` så måste den ändras på följande sätt: ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
-Den första delen använder indexet för att begränsa sökningen till dokument som börjar med ^abc och den andra delen matchar de exakta posterna.
-Fält-operatorn | fungerar som en or-funktion – frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokumenten där fältet x har värden som börjar med abc eller def. Om du vill använda indexet så rekommenderar vi att du delar upp frågan i två olika frågor anslutna med operatorn $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+### <a name="evaluation-query-operators"></a>Operatorer för utvärderings fråga
+
+|Kommando  |Stöds |
+|---------|---------|
+|$expr  |   Inga|
+|$jsonSchema    |   Inga|
+|$mod   |   Ja|
+|$regex |   Ja|
+|$text  | Nej (stöds inte. Använd $regex i stället.)| 
+|$where |Inga| 
+
+I $regex-frågor tillåter vänster-förankrade uttryck indexs ökning. Om du använder modifierarna i (skiftlägesokänsligt) och m (flera rader) så får du dock samlingsskanningen i alla uttryck.
+
+När det finns ett behov att inkludera $ eller | så är det bäst att skapa två (eller flera) regex-frågor. Till exempel, till exempel följande ursprungliga fråga: ```find({x:{$regex: /^abc$/})```, måste ändras på följande sätt:
+
+```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```.
+
+Den första delen använder indexet för att begränsa sökningen till dokument som börjar med ^abc och den andra delen matchar de exakta posterna. Fält-operatorn | fungerar som en or-funktion – frågan ```find({x:{$regex: /^abc|^def/})``` matchar dokumenten där fältet x har värden som börjar med abc eller def. Om du vill använda indexet så rekommenderar vi att du delar upp frågan i två olika frågor anslutna med operatorn $or: ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```.
+
+### <a name="array-operators"></a>Mat ris operatorer
+
+|Kommando  |Stöds | 
+|---------|---------|
+| $all | Ja| 
+| $elemMatch | Ja| 
+| $size | Ja | 
+
+### <a name="comment-operator"></a>Kommentars operator
+
+|Kommando  |Stöds | 
+|---------|---------|
+$comment |Ja| 
+
+### <a name="projection-operators"></a>Projektions operatörer
+
+|Kommando  |Stöds |
+|---------|---------|
+|$elemMatch |Ja|
+|$meta| Inga|
+|$slice | Ja|
 
 ### <a name="update-operators"></a>Uppdateringsoperatorer
 
 #### <a name="field-update-operators"></a>Fältuppdateringsoperatorer
 
-- $inc
-- $mul
-- $rename
-- $setOnInsert
-- $set
-- $unset
-- $min
-- $max
-- $currentDate
+|Kommando  |Stöds |
+|---------|---------|
+|$inc   |   Ja|
+|$mul   |   Ja|
+|$rename    |   Ja|
+|$setOnInsert|  Ja|
+|$set   |Ja|
+|$unset| Ja|
+|$min   |Ja|
+|$max   |Ja|
+|$currentDate   | Ja|
 
 #### <a name="array-update-operators"></a>Matrisuppdateringsoperatorer
 
-- $addToSet
-- $pop
-- $pullAll
-- $pull
-- $pushAll
-- $push
-- $each
-- $slice
-- $sort
-- $position
+|Kommando  |Stöds |
+|---------|---------|
+|$  |Ja|
+|$[]|   Ja|
+|$ [<identifier>]|   Ja|
+|$addToSet  |Ja|
+|$pop   |Ja|
+|$pullAll|  Ja|
+|$pull  |Ja|
+|$push  |Ja|
+|$pushAll| Ja|
+
+
+#### <a name="update-modifiers"></a>Uppdatera modifierare
+
+|Kommando  |Stöds |
+|---------|---------|
+|$each  |   Ja|
+|$slice |Ja|
+|$sort  |Ja|
+|$position  |Ja|
 
 #### <a name="bitwise-update-operator"></a>Binär uppdateringsoperator
 
-- $bit
+|Kommando  |Stöds |
+|---------|---------|
+| $bit  |   Ja|    
+|$bitsAllSet    |   Inga|
+|$bitsAnySet    |   Inga|
+|$bitsAllClear  |Inga|
+|$bitsAnyClear  |Inga|
 
 ### <a name="geospatial-operators"></a>Geospatiala operatorer
 
-Operator | Exempel | |
---- | --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Ja |
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja |
-$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja |
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Ja |
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja |
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | Ja |
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | Ja |
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | Ja |
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | Ja |
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | Ja |
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | Ja |
+Operator | Stöds| 
+--- | --- |
+$geoWithin | Ja |
+$geoIntersects | Ja | 
+$near |  Ja |
+$nearSphere |  Ja |
+$geometry |  Ja |
+$minDistance | Ja |
+$maxDistance | Ja |
+$center | Ja |
+$centerSphere | Ja |
+$box | Ja |
+$polygon |  Ja |
 
-## <a name="sort-operations"></a>Sortera åtgärder
+## <a name="cursor-methods"></a>Markör-metoder
+
+|Kommando  |Stöds |
+|---------|---------|
+|cursor. batchSize () |   Ja|
+|cursor. Close () |Ja|
+|cursor. isClosed ()|     Ja|
+|cursor. COLLATE ()|    Inga|
+|cursor. comment ()   |Ja|
+|cursor. Count () |Ja|
+|cursor. förklaring ()|  Inga|
+|cursor. ()   |Ja|
+|cursor. hasNext ()   |Ja|
+|cursor. ledtråd ()  |Ja|
+|cursor. isExhausted ()|  Ja|
+|cursor. itcount ()   |Ja|
+|cursor. Limit () |Ja|
+|cursor. map ()   |Ja|
+|cursor. maxScan ()   |Ja|
+|cursor. maxTimeMS ()|    Ja|
+|markör. Max ()   |Ja|
+|cursor. min ()   |Ja|
+|markör. Next ()| Ja|
+|cursor. noCursorTimeout ()   |Inga|
+|cursor. objsLeftInBatch ()   |Ja|
+|cursor. Pretty ()|   Ja|
+|cursor. readConcern ()|  Ja|
+|cursor. readPref ()      |Ja|
+|markör. renyckels () |Inga|
+|cursor. showRecordId ()| Inga|
+|cursor. size ()  |Nes|
+|cursor. SKIP ()  |Ja|
+|cursor.sort()  |   Ja|
+|cursor. ensidigt ()| Inga|
+|cursor. toArray ()   |Ja|
+
+## <a name="sort-operations"></a>Sorterings åtgärder
 
 Med åtgärden `findOneAndUpdate` kan du använda sorteringsåtgärder på ett enda fält, men inte på flera fält.
-
-## <a name="additional-operators"></a>Ytterligare operatorer
-
-Operator | Exempel | Anteckningar
---- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` |
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-$text |  | Stöds inte. Använd $regex i stället.
-
-## <a name="unsupported-operators"></a>Operatorer som inte stöds
-
-Operatorerna ```$where``` och ```$eval``` stöds inte av Azure Cosmos DB.
-
-### <a name="methods"></a>Metoder
-
-Följande metoder stöds:
-
-#### <a name="cursor-methods"></a>Markör-metoder
-
-Metod | Exempel | Anteckningar
---- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | Dokument utan sorteringsnyckel returneras inte
 
 ## <a name="unique-indexes"></a>Unika index
 
@@ -335,7 +550,7 @@ Cosmos DB stöder Time to Live (TTL) baserat på dokumentets tidsstämpel. Du ka
 
 ## <a name="user-and-role-management"></a>Användar- och rollhantering
 
-Cosmos DB stöder ännu inte användare och roller. Cosmos DB stöder dock rollbaserad åtkomstkontroll (RBAC) och läs- och skrivbara lösenord/nycklar som kan hämtas via [Azure-portalen](https://portal.azure.com) (sidan Anslutningssträng).
+Cosmos DB stöder ännu inte användare och roller. Cosmos DB stöder dock rollbaserad åtkomst kontroll (RBAC) och skriv-och skriv skydds-och skrivskyddade lösen ord/nycklar som kan hämtas via [Azure Portal](https://portal.azure.com) (anslutnings sträng).
 
 ## <a name="replication"></a>Replikering
 

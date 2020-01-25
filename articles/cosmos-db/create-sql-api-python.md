@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: a794a9ed35cbbdd36c2cf136b8afc208c3ea0692
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1e0016e8ce6bc9178befd1a5ca96aa2554929ac5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549025"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719542"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Snabb start: bygga ett python-program med ett Azure Cosmos DB SQL API-konto
 
@@ -47,15 +47,15 @@ I den här snabb starten används version 4 av [python SDK](https://pypi.org/pro
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-## <a name="add-a-container"></a>Lägga till en container
+## <a name="add-a-container"></a>Lägg till en behållare
 
 Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en databas och behållare. 
 
-1. Välj **Datautforskaren** > **Ny container**. 
+1. Välj **Datautforskaren** > **ny behållare**. 
     
     Avsnittet **Lägg till behållare** visas längst till höger. du kan behöva rulla åt höger för att se det.
 
-    ![Datautforskaren på Azure-portalen, fönstret Lägg till container](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
+    ![Fönstret Azure Portal Datautforskaren, Lägg till behållare](./media/create-sql-api-python/azure-cosmosdb-data-explorer.png)
 
 2. På sidan **Lägg till behållare** anger du inställningarna för den nya behållaren.
 
@@ -63,12 +63,12 @@ Du kan nu använda Datautforskaren-verktyget i Azure Portal för att skapa en da
     |---|---|---|
     |**Databas-ID**|Aktiviteter|Ange *ToDoList* som namn på den nya databasen. Databasnamn måste innehålla 1–255 tecken och får inte innehålla `/, \\, #, ?`, eller avslutande blanksteg. Kontrol lera **data flödes alternativet etablera databas** så att du kan dela det data flöde som har etablerats till databasen över alla behållare i databasen. Det här alternativet hjälper också till med kostnads besparingar. |
     |**Dataflöde**|400|Lämna data flödet på 400 enheter för programbegäran per sekund (RU/s). Du kan skala upp dataflödet senare om du vill minska svarstiden.| 
-    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. För container-ID:n gäller samma teckenkrav som för databasnamn.|
+    |**Container-ID**|Objekt|Ange *objekt* som namn på den nya behållaren. Container-ID: n har samma teckenuppsättnings krav som databas namn.|
     |**Partitionsnyckel**| /category| Exemplet som beskrivs i den här artikeln använder */Category* som partitionsnyckel.|
     
     Förutom de föregående inställningarna kan du också lägga till **unika nycklar** för behållaren. Vi lämnar fältet tomt i det här exemplet. Unika nycklar ger utvecklarna möjlighet att lägga till ett lager med dataintegritet till databasen. Genom att skapa en unik nyckel princip när du skapar en behållare, säkerställer du att ett eller flera värden är unika per partitionsnyckel. Läs mer i artikeln om [unika nycklar i Azure Cosmos DB](unique-keys.md).
     
-    Välj **OK**. Datautforskaren visar den nya databasen och containern.
+    Välj **OK**. Datautforskaren visar den nya databasen och behållaren.
 
 ## <a name="add-sample-data"></a>Lägga till exempeldata
 

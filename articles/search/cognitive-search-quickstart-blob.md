@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 12/20/2019
-ms.openlocfilehash: 35b087cdf190585ae98de35bc3f920c2cb66204a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a994a72ae57b39dba8025e7636e0f822f483bc8c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461255"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720681"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>Snabb start: skapa en färdigheter för Azure Kognitiv sökning kognitivt i Azure Portal
 
@@ -156,7 +156,7 @@ Nu har du skapat din första färdigheter och lärt dig viktiga koncept som är 
 
 Bland de viktigaste lärdomarna som vi hoppas att du tar med dig är beroendet av Azure-datakällor. En färdigheter är kopplad till en indexerare och indexerarna är Azure och projektspecifika. I den här snabbstarten används Azure Blob Storage, men det går att använda andra Azure-datakällor. Mer information finns i [indexerare i Azure kognitiv sökning](search-indexer-overview.md). 
 
-Ett annat viktigt begrepp är att kunskaper fungerar över innehålls typer och när du arbetar med heterogena-innehåll hoppas vissa indata över. Dessutom kan stora filer eller fält överskrida indexerings gränserna för din tjänst nivå. Det är normalt att se varningar när dessa händelser inträffar. 
+Ett annat viktigt begrepp är att kunskaper fungerar över innehålls typer och när du arbetar med heterogent innehåll hoppas vissa indata över. Dessutom kan stora filer eller fält överskrida indexerings gränserna för din tjänst nivå. Det är normalt att se varningar när dessa händelser inträffar. 
 
 Utdata dirigeras till ett sökindex och det finns en mappning mellan namn-värdepar som skapas vid indexering och enskilda fält i indexet. Internt konfigurerar portalen [anteckningar](cognitive-search-concept-annotations-syntax.md) och definierar en [kunskapsuppsättning](cognitive-search-defining-skillset.md), som definierar ordningen på åtgärder och det allmänna flödet. Dessa steg är dolda på portalen, men när du börjar skriva kod blir dessa begrepp viktiga.
 
@@ -164,7 +164,7 @@ Slutligen har du lärt dig att kunna verifiera innehållet genom att fråga inde
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du arbetar i din egen prenumeration kan det dock vara klokt att i slutet av ett projekt kontrollera om du fortfarande behöver de resurser som du skapade. Resurser som fortsätter att köras kan medföra kostnader. Du kan ta bort resurser individuellt eller ta bort resursgruppen om du vill ta bort hela uppsättningen med resurser.
+När du arbetar med din egen prenumeration är det en bra idé i slutet av ett projekt för att identifiera om du fortfarande behöver de resurser som du har skapat. Resurser som har lämnats igång kostar dig pengar. Du kan ta bort resurser individuellt eller ta bort resurs gruppen för att ta bort hela uppsättningen resurser.
 
 Du kan hitta och hantera resurser i portalen med hjälp av länken **alla resurser** eller **resurs grupper** i det vänstra navigerings fönstret.
 

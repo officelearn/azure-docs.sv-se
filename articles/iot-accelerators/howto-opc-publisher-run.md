@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 66e2cb30dcd58b7ad0c6cedbb547f75c8039bc58
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2f99f50ffcccb052526981a712ac5046836a44ae
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824140"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712902"
 ---
 # <a name="run-opc-publisher"></a>Köra OPC Publisher
 
@@ -532,7 +532,7 @@ Minnes-och prestanda är beroende av varandra och båda beror på konfiguratione
 - IoT Hub meddelande storlek (standard `1`): `--ms`
 - Kapacitet för övervakade objekt i kö: `--mq`
 
-Parametern `--mq` styr den övre gränserna för den interna köns kapacitet, vilket buffrar alla meddelanden om ändring av OPC-noder. Om OPC Publisher inte kan skicka meddelanden till IoT Hub tillräckligt snabbt så buffrar den här kön aviseringarna. Parametern anger antalet meddelanden som kan buffras. Om du ser hur många objekt i den här kön som ökar i dina test körningar ska du göra följande för att undvika återfick-meddelanden:
+Parametern `--mq` styr den övre gränserna för den interna köns kapacitet, vilket buffrar alla meddelanden om ändring av OPC-noder. Om OPC Publisher inte kan skicka meddelanden till IoT Hub tillräckligt snabbt så buffrar den här kön aviseringarna. Parametern anger antalet meddelanden som kan buffras. Om du ser hur många objekt i den här kön som ökar i test körningarna, så att du undviker att förlora meddelanden:
 
 - Minska sändnings intervallet för IoT Hub
 - Öka storleken på IoT Hubs meddelandet
@@ -579,7 +579,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-Standard konfigurationen skickar data till IoT Hub var 10: e sekund, eller när 256 kB data är tillgängliga för IoT Hub inmatning. Den här konfigurationen lägger till en måttlig fördröjning på cirka 10 sekunder, men har en minsta sannolikhet för återfick-data på grund av den stora meddelande storleken. Den diagnostiska utdata visar att det inte finns några borttappade OPC för uppdateringar: `monitored item notifications enqueue failure: 0`.
+Standard konfigurationen skickar data till IoT Hub var 10: e sekund, eller när 256 kB data är tillgängliga för IoT Hub inmatning. Den här konfigurationen lägger till en måttlig fördröjning på cirka 10 sekunder, men har lägsta sannolikhet för att förlora data på grund av den stora meddelande storleken. Den diagnostiska utdata visar att det inte finns några borttappade OPC för uppdateringar: `monitored item notifications enqueue failure: 0`.
 
 #### <a name="constant-send-interval---si-1---ms-0"></a>Konstant överförings intervall (--si 1--MS 0)
 
@@ -681,7 +681,7 @@ current working set in MB: 90
 ==========================================================================
 ```
 
-Den här konfigurationen är lika många uppdateringar av OPC Node-värdet som möjligt. Den största IoT Hub meddelande storleken är 256 kB, som konfigureras här. Det finns inget begärt överförings intervall, vilket innebär att mängden data som IoT Hub för inmatning bestämmer svars tiden. Den här konfigurationen är den minsta sannolikheten att återfick alla OPC Node-värden och är lämplig för att publicera ett stort antal noder. När du använder den här konfigurationen bör du se till att scenariot inte har några villkor där hög latens har införts om meddelande storleken på 256 kB inte har uppnåtts.
+Den här konfigurationen är lika många uppdateringar av OPC Node-värdet som möjligt. Den största IoT Hub meddelande storleken är 256 kB, som konfigureras här. Det finns inget begärt överförings intervall, vilket innebär att mängden data som IoT Hub för inmatning bestämmer svars tiden. Den här konfigurationen har minst sannolikheten att förlora eventuella OPC Node-värden och är lämplig för att publicera ett stort antal noder. När du använder den här konfigurationen bör du se till att scenariot inte har några villkor där hög latens har införts om meddelande storleken på 256 kB inte har uppnåtts.
 
 ## <a name="debug-the-application"></a>Felsök programmet
 

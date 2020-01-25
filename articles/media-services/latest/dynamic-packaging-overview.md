@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/17/2019
+ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779611"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719678"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Dynamisk paketering i Media Services v3
 
@@ -29,18 +29,7 @@ I Media Services representerar en [strömmande slut punkt](streaming-endpoint-co
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>att förbereda dina källfiler för leverans
 
-Om du vill dra nytta av dynamisk paketering måste du [koda](encoding-concept.md) din mezzaninfil (källa) till en uppsättning MP4-filer med flera bit hastigheter (ISO Base 14496-12). Du måste ha en [till gång](assets-concept.md) med de KODAde MP4-och streaming-konfigurationsfiler som krävs för Media Services dynamisk paketering. Från den här uppsättningen MP4-filer kan du använda dynamisk paketering för att leverera video via följande protokoll för strömmande media:
-
-|Protokoll|Exempel|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG-STRECK – CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
-
-Om du planerar att skydda ditt innehåll med hjälp av Media Services dynamisk kryptering, se [strömmande protokoll och krypterings typer](content-protection-overview.md#streaming-protocols-and-encryption-types).
+Om du vill dra nytta av dynamisk paketering måste du [koda](encoding-concept.md) din mezzaninfil (källa) till en uppsättning MP4-filer med flera bit hastigheter (ISO Base 14496-12). Du måste ha en [till gång](assets-concept.md) med de KODAde MP4-och streaming-konfigurationsfiler som krävs för Media Services dynamisk paketering. Från den här uppsättningen MP4-filer kan du använda dynamisk paketering för att leverera video via protokollen för strömnings medier som beskrivs nedan.
 
 > [!TIP]
 > Ett sätt att hämta filerna för MP4 och strömmande konfiguration är att [koda din mezzaninfil-fil med Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -48,6 +37,36 @@ Om du planerar att skydda ditt innehåll med hjälp av Media Services dynamisk k
 Om du vill göra videor i kodad till gång tillgängliga för klienter för uppspelning måste du skapa en [strömmande lokaliserare](streaming-locators-concept.md) och bygga direkt uppspelnings-URL: er. Sedan, baserat på det angivna formatet i klient manifestet för strömning (HLS, MPEG-datastreck eller Smooth Streaming), får du data strömmen i det protokoll som du har valt.
 
 Detta innebär att du bara behöver lagra och betala för filerna i ett enda lagringsformat, och Media Services-tjänsten skapar och ger lämplig respons baserat på begäranden från en klient.
+
+Om du planerar att skydda ditt innehåll med hjälp av Media Services dynamisk kryptering, se [strömmande protokoll och krypterings typer](content-protection-overview.md#streaming-protocols-and-encryption-types).
+
+### <a name="hls-protocol"></a>HLS-protokoll
+
+Den strömmande klienten kan ange följande HLS-format:
+
+|Protokoll|Exempel|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+### <a name="mpeg-dash-protocol"></a>MPEG-streck-protokoll
+
+Den strömmande klienten kan ange följande MPEG-streck-format:
+
+|Protokoll|Exempel|
+|---|---|
+|MPEG-STRECK – CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+
+### <a name="smooth-streaming-protocol"></a>Smooth Streaming protokoll
+
+Den strömmande klienten kan ange följande Smooth Streaming Format:
+
+|Protokoll|Anteckningar/exempel| 
+|---|---|
+|Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|Smooth Streaming 2,0 (bakåtkompatibelt manifest)|Som standard innehåller Smooth Streaming manifest formatet REPEAT-taggen (r-tag). Vissa spelare har dock inte stöd för `r-tag`. Klienter med dessa spelare kan använda ett format som inaktiverar r-taggen:<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 ## <a name="on-demand-streaming-workflow"></a>Arbets flöde för strömning på begäran
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2019
 ms.author: allensu
-ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f570e0cd7361b365a4034e318511cf8227c425a2
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263548"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722483"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Load Balancer komponenter och begränsningar
 Azure Load Balancer innehåller flera viktiga komponenter för den här åtgärden.  Dessa komponenter kan konfigureras i din prenumeration via Azure Portal, Azure CLI eller Azure PowerShell.  
@@ -58,7 +58,7 @@ Basic Load Balancer stöder inte utgående regler.
 
 Load Balancer har följande grundläggande funktioner för TCP- och UDP-program:
 
-* **Algoritm för belastnings utjämning**: med Azure Load Balancer kan du skapa en regel för belastnings utjämning för att distribuera trafik som anländer till klient delen till Server dels bassängs instanser. Load Balancer använder en hash-algoritm för distribution av inkommande flöden och skriver om meddelandehuvuden för flöden till instanser i backend-poolen. En server är tillgänglig för att ta emot nya flöden när en hälso avsökning indikerar en felfri slut punkt för backend.
+* **Algoritm för belastnings utjämning**: med Azure Load Balancer kan du skapa en regel för belastnings utjämning för att distribuera trafik som anländer till klient delen till Server dels bassängs instanser. Load Balancer använder en hash-algoritm för distribution av inkommande flöden (inte byte) och skriver om meddelandehuvuden för flöden till instanser av Server dels pooler. En server är tillgänglig för att ta emot nya flöden när en hälso avsökning indikerar en felfri slut punkt för backend.
 Som standard använder Load Balancer en hash med 5 tupler. 
 
    Hashen innehåller: 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/23/2020
 ms.author: raynew
-ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754511"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759814"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Haveriberedskapsarkitektur för Azure till Azure
 
@@ -63,7 +63,7 @@ Du kan hantera mål resurser på följande sätt:
 
 När du aktiverar Azure VM-replikering skapar Site Recovery en ny replikeringsprincip med de standardinställningar som sammanfattas i tabellen.
 
-**Principinställning** | **Detaljer** | **Standard**
+**Princip inställning** | **Detaljer** | **Standard**
 --- | --- | ---
 **Kvarhållning av återställnings punkt** | Anger hur länge Site Recovery behåller återställnings punkter | 24 timmar
 **Frekvens för programkonsekventa ögonblicks bilder** | Hur ofta Site Recovery tar en programkonsekvent ögonblicks bild. | Var fjärde timme
@@ -80,7 +80,7 @@ Om du vill att virtuella datorer ska replikeras tillsammans och har delade krasc
 
 
 
-## <a name="snapshots-and-recovery-points"></a>Ögonblicksbilder och återställningspunkter
+## <a name="snapshots-and-recovery-points"></a>Ögonblicks bilder och återställnings punkter
 
 Återställnings punkter skapas från ögonblicks bilder av virtuella dator diskar som tas vid en viss tidpunkt. När du växlar över en virtuell dator använder du en återställnings punkt för att återställa den virtuella datorn på mål platsen.
 
@@ -146,7 +146,7 @@ Observera att information om nätverks anslutningens krav finns i [nätverks Whi
 **Allmänhet** |  **Detaljer** | **Tjänsttagg**
 --- | --- | --- 
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i käll regionen | Lagrings.\<region – namn >
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Active Directory (Azure AD).<br/><br/> Om Azure AD-adresser läggs till i framtiden måste du skapa nya regler för nätverks säkerhets grupper (NSG).  | AzureActiveDirectory
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Active Directory (Azure AD)  | AzureActiveDirectory
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Event Hub i mål regionen. | EventsHub.\<region – namn >
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Site Recovery  | AzureSiteRecovery
 
@@ -155,7 +155,7 @@ Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Site R
 **Allmänhet** |  **Detaljer** | **Tjänsttagg**
 --- | --- | --- 
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar lagrings konton i mål regionen | Lagrings.\<region – namn >
-Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure AD.<br/><br/> Om Azure AD-adresser läggs till i framtiden måste du skapa nya NSG-regler.  | AzureActiveDirectory
+Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure AD  | AzureActiveDirectory
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Event Hub i käll regionen. | EventsHub.\<region – namn >
 Tillåt HTTPS utgående: port 443 | Tillåt intervall som motsvarar Azure Site Recovery  | AzureSiteRecovery
 

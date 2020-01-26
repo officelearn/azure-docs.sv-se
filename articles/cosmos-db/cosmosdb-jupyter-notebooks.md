@@ -6,14 +6,14 @@ ms.topic: overview
 ms.date: 09/22/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 5c6d7ae458c30d462c599042e254f4243daf474c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5b320485001d6cbc457d39ef193ed8c57f7161df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260879"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760291"
 ---
-# <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB
+# <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB (för hands version)
 
 Jupyter Notebook är ett webb program med öppen källkod som gör att du kan skapa och dela dokument som innehåller Live-kod, ekvationer, visualiseringar och text. Azure Cosmos DB stöder inbyggda Jupyter-anteckningsböcker för alla API: er som Cassandra, MongoDB, SQL, Gremlin och Table. Med det inbyggda Notebook-stödet för alla Azure Cosmos DB-API: er och data modeller kan du interaktivt köra frågor. Jupyter-anteckningsbokarna körs i Azure Cosmos-kontona och de gör det möjligt för utvecklare att utföra data utforskning, data rensning, data transformationer, numeriska simuleringar, statistisk modellering, data visualisering och maskin inlärning.
 

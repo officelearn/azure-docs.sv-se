@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 01/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f0a71da025b8b2bb571dc9b00e23bc691ecdd44c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74272140"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758298"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B-samarbete för inbjudan
 
@@ -76,7 +76,7 @@ I din katalog har gästens **inbjudan godkänt** värde ändrats till **Ja**. Om
 ## <a name="next-steps"></a>Nästa steg
 
 - [Vad är Azure AD B2B-samarbete?](what-is-b2b.md)
-- [Lägg till Azure Active Directory B2B-samarbets användare i Azure Portal](add-users-administrator.md)
+- [Lägg till användare i Azure Active Directory B2B-samarbetet i Azure portal](add-users-administrator.md)
 - [Hur kan informations arbetare lägga till B2B-samarbets användare för att Azure Active Directory?](add-users-information-worker.md)
 - [Lägga till Azure Active Directory B2B-samarbets användare med hjälp av PowerShell](customize-invitation-api.md#powershell)
 - [Lämna en organisation som gäst användare](leave-the-organization.md)

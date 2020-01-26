@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121955"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756168"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolering i det offentliga Azure-molnet
 Med Azure kan du köra program och virtuella datorer (VM) på en delad fysisk infrastruktur. Ett av de viktigaste ekonomiska motivationen att köra program i en moln miljö är möjligheten att distribuera kostnaden för delade resurser mellan flera kunder. Den här övningen av flera innehavare förbättrar effektiviteten genom att Multiplexing-resurser delas mellan olika kunder med låga kostnader. Tyvärr introduceras risken för att dela fysiska servrar och andra infrastruktur resurser för att köra känsliga program och virtuella datorer som tillhör en godtycklig och potentiellt skadlig användare.
@@ -73,7 +73,7 @@ Azure RBAC har tre grundläggande roller som gäller för alla resurs typer:
 
 - **Läsaren** kan visa befintliga Azure-resurser.
 
-![Rollbaserad åtkomstkontroll i Azure](./media/isolation-choices/azure-isolation-fig3.png)
+![Rollbaserad Access Control i Azure](./media/isolation-choices/azure-isolation-fig3.png)
 
 Resten av RBAC-rollerna i Azure möjliggör hantering av vissa Azure-resurser. Rollen virtuell dator deltagare ger till exempel användaren möjlighet att skapa och hantera virtuella datorer. Den ger dem inte åtkomst till Azure-Virtual Network eller det undernät som den virtuella datorn ansluter till.
 
@@ -111,6 +111,9 @@ Microsoft Azure tillhandahåller olika molnbaserade data behandlings tjänster s
 ### <a name="isolated-virtual-machine-sizes"></a>Isolerade storlekar för virtuella datorer
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+
+### <a name="dedicated-hosts"></a>Dedikerade värdar
+Förutom de isolerade värdar som beskrivs i föregående avsnitt, erbjuder Azure även dedikerade värdar. Dedikerade värdar i Azure är en tjänst som tillhandahåller fysiska servrar som kan vara värdar för en eller flera virtuella datorer och som är dedikerade till en enda Azure-prenumeration. Dedikerade värdar tillhandahåller maskin varu isolering på den fysiska server nivån. Inga andra virtuella datorer kommer att placeras på värdarna. Dedikerade värdar distribueras i samma data Center och delar samma nätverk och underliggande lagrings infrastruktur som andra icke-isolerade värdar. Mer information finns i den detaljerade översikten över [Azure-dedikerade värdar](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts).
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>Hyper-V & rot operativ system isolering mellan virtuella rot-VM & virtuella gäst datorer
 Azures beräknings plattform baseras på VM-virtualisering, vilket innebär att all kund kod körs i en virtuell Hyper-V-dator. På varje Azure-nod (eller nätverks slut punkt) finns en hypervisor som körs direkt över maskin varan och delar upp en nod i ett variabel antal gäst Virtual Machines (VM).

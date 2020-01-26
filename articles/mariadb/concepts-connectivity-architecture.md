@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 530cc029f2339c4aeb7aa1744dceec21810db2b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 58f6e49280925b550deff21ecf04528d91d924d7
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432054"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760138"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Anslutnings arkitektur i Azure Database for MariaDB
 Den här artikeln förklarar Azure Database for MariaDB anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for MariaDB-instans från klienter både inom och utanför Azure.
@@ -42,7 +42,7 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 | Kina, norra 2 | 40.73.50.0     |
 | Asien, östra | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     |
 | USA, östra | 40.121.158.30, 191.238.6.43  |
-| USA, östra 2 |40.79.84.180, 191.239.224.107, 52.167.104.0     |
+| USA, östra 2 |40.79.84.180, 191.239.224.107, 52.177.185.181   |
 | Frankrike, centrala | 40.79.137.0, 40.79.129.1  |
 | Tyskland, centrala | 51.4.144.100     |
 | Tyskland, norra öst | 51.5.144.179  |

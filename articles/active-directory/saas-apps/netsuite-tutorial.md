@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9be353e6a030708ea0b9939689d8669506d3b80
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289041"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760068"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>Självstudie: integrera enkel inloggning med Azure AD (SSO) med Netsuite
 
@@ -98,8 +98,12 @@ Gör så här om du vill aktivera Azure AD SSO i Azure Portal:
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > Värdena i föregående URL: er är inte verkliga. Uppdatera dem med den faktiska svars-URL: en. Om du vill hämta värdet kontaktar du [support teamet för Netsuite-klienten](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Du kan också se de format som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
+    * Du får **<`Account ID`>** värdet i avsnittet Netsuite-konfiguration, som beskrivs senare i självstudien vid steg 8 under Netsuite-konfiguration. Du hittar den exakta domänen (till exempel system.na0.netsuite.com i det här fallet).
+
+        ![Konfigurera enkel inloggning](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > Värdena i föregående URL: er är inte verkliga. Uppdatera dem med den faktiska svars-URL: en. Om du vill hämta värdet kontaktar du [support teamet för Netsuite-klienten](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml). Du kan också se de format som visas i avsnittet **grundläggande SAML-konfiguration** i Azure Portal.
 
 1. NetSuite-programmet förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut.
 
@@ -204,7 +208,7 @@ I det här avsnittet aktiverar du användare B. Simon för att använda enkel in
 
     b. I den högra kolumnen i rutan **företags information** kopierar du **konto-ID-** värdet.
 
-    c. Klistra in det **konto-ID** som du kopierade från Netsuite-kontot till rutan **ATTRIBUTVÄRDE** i Azure AD. 
+    c. Klistra in det **konto-ID** som du kopierade från Netsuite-kontot till rutan **ATTRIBUTVÄRDE** i Azure AD.
 
 10. Innan användare kan utföra enkel inloggning till NetSuite så måste de först tilldelas lämpliga behörigheter i NetSuite. Gör så här för att tilldela dessa behörigheter:
 

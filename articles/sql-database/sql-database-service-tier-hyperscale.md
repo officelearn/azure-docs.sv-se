@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 9cce221946a16103e706875e179c677190f32af1
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940810"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759507"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -66,13 +66,13 @@ Den storskaliga tjänst nivån har stöd för ett brett utbud av SQL Server arbe
 
 Storskalig Service Tier är endast tillgängligt i [vCore-modellen](sql-database-service-tiers-vcore.md). För att passa den nya arkitekturen skiljer sig pris modellen något från Generell användning eller Affärskritisk tjänst nivåer:
 
-- **Databehandling**:
+- **Compute**:
 
   Det storskaliga beräknings enhets priset är per replik. [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) priset används automatiskt för att läsa skalnings repliker. Vi skapar en primär replik och en skrivskyddad replik per storskalig databas som standard.  Användare kan justera det totala antalet repliker, inklusive primärt från 1-5.
 
 - **Lagring**:
 
-  Du behöver inte ange den maximala data storleken när du konfigurerar en storskalig databas. På hyperskalningsnivån debiteras du för lagring för databasen baserat på faktisk användning. Storage tilldelas automatiskt mellan 10 GB och 100 TB, i steg som justeras dynamiskt mellan 10 GB och 40 GB.  
+  Du behöver inte ange den maximala data storleken när du konfigurerar en storskalig databas. På hyperskalenivå debiteras du för lagring av databasen baserat på faktisk allokering. Storage tilldelas automatiskt mellan 40 GB och 100 TB, i steg som justeras dynamiskt mellan 10 GB och 40 GB. En storskalig databas skapas med en start storlek på 10 GB och börjar växa med 10 GB var 10: e minut tills den når storleken på 40 GB.
 
 Mer information om priser för storskalig prissättning finns [Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/)
 

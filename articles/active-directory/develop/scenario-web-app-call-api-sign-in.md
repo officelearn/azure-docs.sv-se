@@ -14,28 +14,28 @@ ms.workload: identity
 ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a77bb59afa753fa9d1655e787d4f7a18715ed2ca
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ea18538662dc63876a50f52e9e6a8b3fffb3b35a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701594"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758878"
 ---
-# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>Ta bort konton från cachen vid global utloggning
+# <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>En webbapp som anropar webb-API: ta bort konton från token-cachen vid global utloggning
 
-Du vet redan hur du ska lägga till inloggning till din webbapp. Du lär dig det i [en webbapp som loggar in användare – Lägg till inloggning](scenario-web-app-sign-user-sign-in.md).
+Du har lärt dig hur du lägger till inloggning till din webbapp i [en webbapp som loggar in användare: inloggning och utloggning](scenario-web-app-sign-user-sign-in.md).
 
-Vad är det som är annorlunda, är att när användaren har loggat ut, från det här programmet eller från ett program som du vill ta bort från token cache, de token som är associerade med användaren.
+Utloggning är annorlunda för en webbapp som anropar webb-API: er. När användaren loggar ut från ditt program, eller från ett program, måste du ta bort de token som är associerade med användaren från token-cachen.
 
-## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>Avlyssna återanrop efter utloggning – enkel utloggning
+## <a name="intercept-the-callback-after-single-sign-out"></a>Fånga upp återanropet efter enkel utloggning
 
-Ditt program kan fånga efter `logout` händelse, till exempel rensa posten för det token-cache som är associerat med det konto som loggade ut. Webbapp lagrar åtkomsttoken för användaren i ett cacheminne. Om du fångar upp efter `logout` motringning kan ditt webb program ta bort användaren från token-cachen.
+För att ta bort den token-cachepost som är kopplad till det konto som loggade ut kan ditt program fånga efter `logout` händelse. Web Apps lagrar åtkomsttoken för varje användare i en token-cache. Genom att fånga efter `logout` motringning, kan ditt webb program ta bort användaren från cachen.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Den här mekanismen illustreras i `AddMsal()`-metoden för [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157)
+För ASP.NET Core illustreras avlyssnings mekanismen i `AddMsal()`-metoden för [WebAppServiceCollectionExtensions. cs # L151-L157](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L157).
 
-I den **utloggnings-URL** som du har registrerat för ditt program kan du implementera enkel utloggning. Microsoft Identity Platform `logout`-slutpunkten anropar den **utloggnings-URL** som är registrerad i ditt program. Det här anropet sker om utloggningen initierades från din webbapp, eller från en annan webbapp eller webbläsaren. Mer information finns i [enkel utloggning](v2-protocols-oidc.md#single-sign-out).
+I den utloggnings-URL som du tidigare registrerade för ditt program kan du implementera enkel utloggning. Microsoft Identity Platform `logout`-slutpunkten anropar din utloggnings-URL. Det här anropet sker om utloggningen startar från din webbapp eller från en annan webbapp eller webbläsaren. Mer information finns i [enkel utloggning](v2-protocols-oidc.md#single-sign-out).
 
 ```csharp
 public static class WebAppServiceCollectionExtensions
@@ -48,10 +48,10 @@ public static class WebAppServiceCollectionExtensions
   {
    // Code omitted here
 
-   // Handling the sign-out: removing the account from MSAL.NET cache
+   // Handling the sign-out: Remove the account from MSAL.NET cache.
    options.Events.OnRedirectToIdentityProviderForSignOut = async context =>
    {
-    // Remove the account from MSAL.NET token cache
+    // Remove the account from MSAL.NET token cache.
     var tokenAcquisition = context.HttpContext.RequestServices.GetRequiredService<ITokenAcquisition>();
     await tokenAcquisition.RemoveAccountAsync(context).ConfigureAwait(false);
    };
@@ -61,19 +61,19 @@ public static class WebAppServiceCollectionExtensions
 }
 ```
 
-Koden för RemoveAccountAsync är tillgänglig från [Microsoft. Identity. Web/TokenAcquisition. cs # L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
+Koden för `RemoveAccountAsync` är tillgänglig från [Microsoft. Identity. Web/TokenAcquisition. cs # L264-L288](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/db7f74fd7e65bab9d21092ac1b98a00803e5ceb2/Microsoft.Identity.Web/TokenAcquisition.cs#L264-L288).
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET-exemplet tar inte bort konton från cachen vid global utloggning
+ASP.NET-exemplet tar inte bort konton från cachen vid global utloggning.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java-exemplet tar inte bort konton från cachen vid global utloggning
+Java-exemplet tar inte bort konton från cachen vid global utloggning.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Python-exemplet tar inte bort konton från cachen vid global utloggning
+Python-exemplet tar inte bort konton från cachen vid global utloggning.
 
 ---
 

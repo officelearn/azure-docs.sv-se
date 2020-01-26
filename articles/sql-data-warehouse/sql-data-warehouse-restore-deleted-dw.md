@@ -11,12 +11,12 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: cb09b4808bd6d59d2f70e85d204ab8451d501cee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e508eff3b322b49a6dc50d818c8bcccc3e924ff2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692607"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759684"
 ---
 # <a name="restore-a-deleted-azure-sql-data-warehouse"></a>Återställa en borttagen Azure SQL Data Warehouse
 
@@ -26,22 +26,22 @@ I den här artikeln får du lära dig att återställa en borttagen SQL Data War
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**Verifiera din DTU-kapacitet.** Varje SQL Data Warehouse hanteras av en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot.  Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot][Request a DTU quota change].
+**Verifiera din DTU-kapacitet.** Varje SQL Data Warehouse hanteras av en SQL-Server (till exempel myserver.database.windows.net) som har en standard-DTU-kvot.  Kontrol lera att SQL Server har tillräckligt med den återstående DTU-kvoten för databasen som återställs. Information om hur du beräknar DTU krävs eller begär mer DTU finns i [begär en ändring av DTU-kvot](sql-data-warehouse-get-started-create-support-ticket.md).
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>Återställa ett borttaget informations lager via PowerShell
 
-Om du vill återställa en borttagen SQL Data Warehouse använder du cmdleten [restore-AzSqlDatabase][Restore-AzSqlDatabase] . Om motsvarande logiska server också har tagits bort kan du inte återställa det data lagret.
+Om du vill återställa en borttagen SQL Data Warehouse använder du cmdleten [restore-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) . Om motsvarande logiska server också har tagits bort kan du inte återställa det data lagret.
 
-1. Innan du börjar ska du se till att [installera Azure PowerShell][Install Azure PowerShell].
+1. Innan du börjar ska du se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
 4. Välj den prenumeration som innehåller det borttagna informations lager som ska återställas.
 5. Hämta det angivna borttagna informations lagret.
 6. Återställa det borttagna informations lagret
     1. Om du vill återställa den borttagna SQL Data Warehouse till en annan logisk server, måste du ange namnet på den andra logiska servern.  Den här logiska servern kan också finnas i en annan resurs grupp och region.
-    1. Om du vill återställa till en annan prenumeration använder du knappen [Flytta][Move] för att flytta den logiska servern till en annan prenumeration.
+    1. Om du vill återställa till en annan prenumeration använder du knappen [Flytta](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal) för att flytta den logiska servern till en annan prenumeration.
 1. Kontrol lera att det återställda informations lagret är online.
-1. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter återställningen][Configure your database after recovery].
+1. När återställningen har slutförts kan du konfigurera det återställda data lagret genom att följa [konfiguration av databasen efter återställningen](../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery).
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -71,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Återställa en borttagen databas med hjälp av Azure Portal
 
-1. Logga in på [Azure Portal][Azure portal].
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Gå till den SQL Server som du har tagit bort data lagret på.
 3. Välj ikonen **borttagna databaser** i innehålls förteckningen.
 
@@ -85,30 +85,6 @@ $RestoredDatabase.status
 
     ![Ange databas namn](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
-## <a name="next-steps"></a>Nästa steg
-- [Återställa ett befintligt informations lager][Restore an existing data warehouse]
-- [Återställa från ett informations lager för geo-säkerhetskopiering][Restore from a geo-backup data warehouse]
-
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[support ticket]: https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket
-[Move]:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#use-the-portal
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+## <a name="next-steps"></a>Efterföljande moment
+- [Återställa ett befintligt informations lager](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa från ett informations lager för geo-säkerhetskopiering](sql-data-warehouse-restore-from-geo-backup.md)

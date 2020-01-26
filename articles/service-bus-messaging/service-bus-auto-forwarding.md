@@ -1,6 +1,6 @@
 ---
-title: Automatisk vidarebefordring Azure Service Bus meddelande enheter | Microsoft Docs
-description: Så här kedjar du en Service Bus kö eller en prenumeration till en annan kö eller ett ämne.
+title: Vidarebefordra Azure Service Bus meddelande enheter automatiskt
+description: I den här artikeln beskrivs hur du kedjar en Azure Service Bus kö eller en prenumeration till en annan kö eller ett ämne.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 8b8883b579233962de61e7247e6ac1cbcb2a6d80
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390138"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761057"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>Kedja Service Bus entiteter med vidarebefordran
 

@@ -1,6 +1,6 @@
 ---
-title: Ladda upp VHD-filen till Azure DevTest Labs med hjälp av PowerShell | Microsoft Docs
-description: Överför VHD-filen till övningen storage-konto med hjälp av PowerShell
+title: Ladda upp VHD-filen till Azure DevTest Labs med PowerShell | Microsoft Docs
+description: Den här artikeln innehåller en genom gång som visar hur du laddar upp en VHD-fil till Azure DevTest Labs med hjälp av PowerShell.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,54 +12,54 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 56a66c3eb1dad93fad3ad1572989dc0c0aa14632
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9e5a69cd7840bbaff081a4d47cb60f62a76eda6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60622787"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759763"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Överför VHD-filen till övningen storage-konto med hjälp av PowerShell
+# <a name="upload-vhd-file-to-labs-storage-account-using-powershell"></a>Ladda upp VHD-filen till Labbets lagrings konto med hjälp av PowerShell
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar, som används för att etablera virtuella datorer. Följande steg beskriver hur du kan ladda upp en VHD-fil till ett labb storage-konto med hjälp av PowerShell. När du har överfört din VHD-filen visas de [nästa steg avsnittet](#next-steps) visar vissa artiklar som visar hur du skapar en anpassad avbildning från överförda VHD-filen. Mer information om diskar och virtuella hårddiskar i Azure finns i [introduktion till hanterade diskar](../virtual-machines/linux/managed-disks-overview.md)
+I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar som används för att etablera virtuella datorer. Följande steg beskriver hur du använder PowerShell för att ladda upp en VHD-fil till ett labbs lagrings konto. När du har laddat upp VHD-filen visas några artiklar i [avsnittet Nästa steg](#next-steps) som illustrerar hur du skapar en anpassad avbildning från den uppladdade VHD-filen. Mer information om diskar och virtuella hård diskar i Azure finns i [Introduktion till Managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
-## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
+## <a name="step-by-step-instructions"></a>Steg för steg-anvisningar
 
-I följande steg vägleder dig genom att ladda upp en VHD-fil till Azure DevTest Labs med hjälp av PowerShell. 
+Följande steg beskriver hur du laddar upp en VHD-fil för att Azure DevTest Labs med PowerShell. 
 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
+1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 
-1. Listan över labbar, Välj önskade labbet.  
+1. I listan med labb väljer du önskat labb.  
 
-1. På den labb-bladet och välj **Configuration**. 
+1. På labb bladet väljer du **konfiguration**. 
 
-1. På labbet **Configuration** bladet väljer **anpassade avbildningar (VHD)** .
+1. På bladet labb **konfiguration** väljer du **anpassade avbildningar (VHD)** .
 
-1. På den **anpassade avbildningar** bladet välj **+ Lägg till**. 
+1. På bladet **anpassade bilder** väljer du **+ Lägg till**. 
 
-1. På den **anpassad avbildning** bladet väljer **VHD**.
+1. På bladet **anpassad avbildning** väljer du **VHD**.
 
-1. På den **VHD** bladet väljer **överföra en virtuell Hårddisk med hjälp av PowerShell**.
+1. På **VHD** -bladet väljer du **överför en virtuell hård disk med PowerShell**.
 
-    ![Överför virtuell Hårddisk med PowerShell](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
+    ![Ladda upp VHD med PowerShell](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
 
-1. På den **ladda upp en bild med hjälp av PowerShell** bladet kopiera genererade PowerShell-skript till en textredigerare.
+1. På bladet **Ladda upp en bild med PowerShell** kopierar du det genererade PowerShell-skriptet till en text redigerare.
 
-1. Ändra den **LocalFilePath** -parametern för den **Add-AzureVhd** cmdlet för att peka på platsen för VHD-filen som du vill ladda upp.
+1. Ändra parametern **LocalFilePath** i cmdleten **Add-AzureVhd** för att peka på platsen för den VHD-fil som du vill ladda upp.
 
-1. I en PowerShell-Kommandotolken kör den **Add-AzureVhd** cmdlet (med den ändrade **LocalFilePath** parametern).
+1. Kör cmdleten **Add-AzureVhd** (med parametern Modified **LocalFilePath** ) i PowerShell-prompten.
 
 > [!WARNING] 
 > 
-> Processen att överföra en VHD-fil kan vara långa beroende på storleken på VHD-filen och anslutningshastigheten.
+> Processen för att ladda upp en VHD-fil kan vara lång beroende på storleken på VHD-filen och anslutnings hastigheten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av Azure portal](devtest-lab-create-template.md)
+- [Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av Azure Portal](devtest-lab-create-template.md)
 - [Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

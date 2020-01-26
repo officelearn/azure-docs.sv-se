@@ -14,14 +14,14 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 08d1f69294c4e330db79a1b5fecdb259dffe33cb
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 730ff3c274fd93e6344cec688ba2db212d285baf
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187523"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758960"
 ---
-Vill du göra ditt program bra:
+Gör ditt program Fantastiskt:
 
 - Aktivera [loggning](../articles/active-directory/develop/msal-logging.md).
 - Aktivera telemetri.
@@ -29,4 +29,4 @@ Vill du göra ditt program bra:
 
 Testa din integrering:
 
-- Använd den [Microsoft identity-plattformen integration checklista](../articles/active-directory/develop/identity-platform-integration-checklist.md).
+- Använd [Check lista för integrering för Microsoft Identity Platform](../articles/active-directory/develop/identity-platform-integration-checklist.md).

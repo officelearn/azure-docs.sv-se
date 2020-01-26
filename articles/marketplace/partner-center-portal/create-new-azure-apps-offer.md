@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046037"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760918"
 ---
 # <a name="create-an-azure-application-offer"></a>Skapa ett erbjudande för Azure-program
 
@@ -67,7 +67,7 @@ Läs följande dokumentation om Azure-program, som innehåller snabb starter, sj
     * [Skapa definitionsfiler](https://docs.microsoft.com/azure/managed-applications/publish-service-catalog-app)
     * [Publicera marknadsplatsprogram](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app)
 
-* Prov:
+* Stickprov
 
     * [Azure CLI](https://docs.microsoft.com/azure/managed-applications/cli-samples)
     * [Azure PowerShell](https://docs.microsoft.com/azure/managed-applications/powershell-samples)
@@ -156,19 +156,9 @@ På sidan **Egenskaper** kan du definiera de kategorier och branscher som ska an
 
 Välj minst en och högst tre kategorier som ska användas för att placera ditt erbjudande i lämpliga sökområden för Marketplace. Var noga med att ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
 
-### <a name="standard-marketplace-terms-and-conditions"></a>Standard villkor för Marketplace
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Standard kontrakt för Microsofts kommersiella marknads plats
 
-För att förenkla inköps processen för kunder och minska den juridiska komplexiteten för program varu leverantörer erbjuder Microsoft en standard kontrakts mal len för att hjälpa till att under lätta en transaktion i Marketplace.
-
-I stället för att använda anpassade allmänna villkor kan du välja att erbjuda program varan under standard kontraktet, som kunderna bara behöver Undersök och godkänna en gång.
-
-Du hittar standard kontraktet här: https://go.microsoft.com/fwlink/?linkid=2041178
-
-Om du vill använda standard kontraktet kontrollerar du rutan **Använd standard kontrakt?** .
-
-#### <a name="terms-of-use"></a>Användningsvillkor
-
-Om du inte markerar kryss rutan **Använd standard kontrakt?** måste du ange dina egna juridiska användnings villkor i fältet **användningsvillkor** . Ange upp till 10 000 tecken text, eller ange URL: en där du kan hitta ytterligare licens villkor om dina användnings villkor kräver en längre beskrivning. Kunder måste acceptera dessa villkor innan de kan testa din app.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## <a name="offer-listing"></a>Erbjudande lista
 
@@ -287,7 +277,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 
 På fliken **plan konfiguration** kan du ange en hög nivå konfiguration för typen av plan, om den återanvänder paket från ett annat abonnemang och vilka moln planen ska vara tillgänglig i.  Dina svar på den här fliken kommer att påverka vilka fält som visas på andra flikar för samma plan.
 
-#### <a name="plan-type"></a>Plantyp
+#### <a name="plan-type"></a>Typ av plan
 
 Som beskrivs i [typerna av Azure-programplaner](#types-of-azure-application-plans)väljer du om din plan ska innehålla en lösnings mall eller ett hanterat program.
 
@@ -352,7 +342,7 @@ Du har möjlighet att konfigurera varje plan så att den blir synlig för alla e
 
 Om din lösnings mall är avsedd att distribueras endast indirekt när den refereras till, även om en annan lösning eller ett hanterat program, markerar du den här kryss rutan om du vill publicera din lösnings mall men dölja den från kunder som söker efter den direkt.
 
-## <a name="pricing-and-availability"></a>Pris och tillgänglighet
+## <a name="pricing-and-availability"></a>Priser och tillgänglighet
 
 Fliken **priser och tillgänglighet** är endast synlig för hanterade program planer.  Du kan konfigurera de marknader som den här planen kommer att vara tillgänglig i, priset per månad för hantering av lösningen och om du vill göra planen synlig för alla eller bara för specifika kunder (en privat mål grupp).
 
@@ -461,7 +451,7 @@ För varje huvud konto väljer du en av de inbyggda Azure AD-rollerna i listan (
 
 Använd [Azure-principer](https://docs.microsoft.com/azure/governance/policy/overview) för det hanterade programmet för att ange krav för kompatibilitet för den distribuerade lösningen.  Du kan läsa om principdefinitioner och parametervärdenas format i [Azure Policy-exempel](https://docs.microsoft.com/azure/governance/policy/samples/index).  Du kan konfigurera högst fem principer och bara en instans av varje princip alternativ.  Vissa principer kräver ytterligare parametrar.  Standard-SKU: n krävs för gransknings principer.  Princip namnet är begränsat till 50 tecken.
 
-## <a name="co-sell"></a>Säljsamarbete
+## <a name="co-sell"></a>Co-försäljning
 
 Att tillhandahålla information på fliken förs är helt valfritt för att publicera erbjudandet. Det krävs för att uppnå en färdig status för alla färdiga och IP-adresser för samtidig försäljning. Den information du anger kommer att användas av Microsoft Sales Teams för att lära dig mer om din lösning när du utvärderar den efter kund behov. Den är inte tillgänglig direkt för kunderna.
 

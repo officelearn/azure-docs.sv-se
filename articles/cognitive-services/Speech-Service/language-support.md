@@ -3,20 +3,20 @@ title: Språk stöd – tal tjänsten
 titleSuffix: Azure Cognitive Services
 description: Tal tjänsten har stöd för flera språk för konvertering från tal till text och text till tal, tillsammans med tal översättning. Den här artikeln innehåller en omfattande lista över språk stöd för tjänst funktionen.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/23/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381060"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760631"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 
@@ -24,49 +24,58 @@ Språk stöd varierar beroende på funktioner i tal tjänster. Följande tabelle
 
 ## <a name="speech-to-text"></a>Tal till text
 
-Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: meningar.  Uttal-anpassning är för närvarande bara tillgänglig för `en-US` och `de-DE`. Läs mer om anpassning [här](how-to-custom-speech.md).
+Både Microsoft Speech SDK och REST API stöder följande språk (lokala). För att förbättra noggrannheten erbjuds anpassning för en delmängd av språken genom uppladdning av ljud + mänskligt avskrifter eller relaterad text: meningar. Uttal-anpassning är för närvarande bara tillgänglig för `en-US` och `de-DE`. Läs mer om anpassning [här](how-to-custom-speech.md).
 
- Nationella inställningar | Språk | Stöds | Anpassningsbar
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ Nationella inställningar | Språk | Stöds | Anpassningar
 ------|------------|-----------|-------------
-`ar-EG` | Arabiska (Egypten), moderna standard | Ja | Ja
-`ar-SA` | Arabiska (Saudiarabien) | Ja | Ja
-`ar-AE` | Arabiska (Förenade Arabemiraten) | Ja | Ja
-`ar-KW` | Arabiska (Kuwait) | Ja | Ja
-`ar-QA` | Arabiska (Qatar) | Ja | Ja
-`ca-ES` | Katalanska | Ja | Inga
-`da-DK` | Danska (Danmark) | Ja | Inga
-`de-DE` | Tyska (Tyskland) | Ja | Ja
-`en-AU` | Engelska (Australien) | Ja | Ja
-`en-CA` | Engelska (Kanada) | Ja | Ja
-`en-GB` | Engelska (Storbritannien) | Ja | Ja
-`en-IN` | English (India) | Ja | Ja
-`en-NZ` | Engelska (Nya Zeeland) | Ja | Ja
-`en-US` | Engelska (USA) | Ja | Ja
-`es-ES` | Spanska (Spanien) | Ja | Ja
-`es-MX` | Spanska (Mexiko) | Ja | Ja
-`fi-FI` | Finska (Finland) | Ja | Inga
-`fr-CA` | Franska (Kanada) | Ja | Ja
-`fr-FR` | Franska (Frankrike) | Ja | Ja
-`gu-IN` | Gujarati (indiska) | Ja | Ja
-`hi-IN` | Hindi (Indien) | Ja | Ja
-`it-IT` | Italienska (Italien) | Ja | Ja
-`ja-JP` | Japanska (Japan) | Ja | Ja
-`ko-KR` | Koreanska (Korea) | Ja | Ja
-`mr-IN` | Marathi (Indien) | Ja | Ja
-`nb-NO` | Norska (Bokmål) (Norge) | Ja | Inga
-`nl-NL` | Nederländska (Nederländerna) | Ja | Ja
-`pl-PL` | Polska (Polen) | Ja | Inga
-`pt-BR` | Portugisiska (Brasilien) | Ja | Ja
-`pt-PT` | Portugisiska (Portugal) | Ja | Ja
-`ru-RU` | Ryska (Ryssland) | Ja | Ja
-`sv-SE` | Svenska (Sverige) | Ja | Inga
-`ta-IN` | Tamil (Indien) | Ja | Ja
-`te-IN` | Telugu (Indien) | Ja | Ja
-`zh-CN` | Kinesiska (Mandarin, förenklad) | Ja | Ja
-`zh-HK` | Kinesiska (kantonesiska, traditionell) | Ja | Ja
-`zh-TW` | Kinesiska (Mandarin Taiwanesiska) | Ja | Ja
+`ar-AE` | Arabiska (Förenade Arabemiraten) | Ja | Inga
+`ar-BH` | Arabiska (Bahrain) | Ja | Språk modell
+`ar-EG` | Arabiska (Egypten), moderna standard | Ja | Språk modell
+`ar-KW` | Arabiska (Kuwait) | Ja | Inga
+`ar-QA` | Arabiska (Qatar) | Ja | Inga
+`ar-SA` | Arabiska (Saudiarabien) | Ja | Inga
+`ca-ES` | Katalanska | Ja | Språk modell
+`da-DK` | Danska (Danmark) | Ja | Språk modell
+`de-DE` | Tyska (Tyskland) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
+`en-AU` | Engelska (Australien) | Ja | Akustisk modell<br>Språk modell
+`en-CA` | Engelska (Kanada) | Ja | Akustisk modell<br>Språk modell
+`en-GB` | Engelska (Storbritannien) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
+`en-IN` | English (India) | Ja | Akustisk modell<br>Språk modell
+`en-NZ` | Engelska (Nya Zeeland) | Ja | Akustisk modell<br>Språk modell
+`en-US` | Engelska (USA) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
+`es-ES` | Spanska (Spanien) | Ja | Akustisk modell<br>Språk modell
+`es-MX` | Spanska (Mexiko) | Ja | Akustisk modell<br>Språk modell
+`fi-FI` | Finska (Finland) | Ja | Språk modell
+`fr-CA` | Franska (Kanada) | Ja | Akustisk modell<br>Språk modell
+`fr-FR` | Franska (Frankrike) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
+`gu-IN` | Gujarati (indiska) | Ja | Språk modell
+`hi-IN` | Hindi (Indien) | Ja | Akustisk modell<br>Språk modell
+`it-IT` | Italienska (Italien) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
+`ja-JP` | Japanska (Japan) | Ja | Språk modell
+`ko-KR` | Koreanska (Korea) | Ja | Språk modell
+`mr-IN` | Marathi (Indien) | Ja | Språk modell
+`nb-NO` | Norska (Bokmål) (Norge) | Ja | Språk modell
+`nl-NL` | Nederländska (Nederländerna) | Ja | Språk modell
+`pl-PL` | Polska (Polen) | Ja | Språk modell
+`pt-BR` | Portugisiska (Brasilien) | Ja | Akustisk modell<br>Språk modell<br>Uttal av
+`pt-PT` | Portugisiska (Portugal) | Ja | Språk modell
+`ru-RU` | Ryska (Ryssland) | Ja | Akustisk modell<br>Språk modell
+`sv-SE` | Svenska (Sverige) | Ja | Språk modell
+`ta-IN` | Tamil (Indien) | Ja | Språk modell
+`te-IN` | Telugu (Indien) | Ja | Inga
 `th-TH` | Thailändska (Thailand) | Ja | Inga
-`tr-TR` | Turkiet | Ja | Ja
+`tr-TR` | Turkiet | Ja | Inga
+`zh-CN` | Kinesiska (Mandarin, förenklad) | Ja | Akustisk modell<br>Språk modell
+`zh-HK` | Kinesiska (kantonesiska, traditionell) | Ja | Språk modell
+`zh-TW` | Kinesiska (Mandarin Taiwanesiska) | Ja | Språk modell
 
 ## <a name="text-to-speech"></a>Text till tal
 
@@ -102,7 +111,7 @@ Det finns fler än 75 standard röster i över 45 språk och nationella inställ
 
 Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort namn
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
+<sup>**1**</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
 `ar-SA` | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)” | "ar-SA-Naayf"
 `bg-BG` | Bulgariska | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)” | "BG-BG-Ivan"
 `ca-ES` | Katalanska (Spanien) | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)” | "ca-ES-HerenaRUS"
@@ -184,7 +193,7 @@ Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning 
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | Man | ”Microsoft Server tal Text till tal-röst (zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar T.ex stöder moderna Standard arabiska (MSA).*
+**1** *ar-tex stöder modern standard arabiska (MSA).*
 
 > [!NOTE]
 > Du kan antingen använda den fullständiga tjänst namns mappningen eller det korta röst namnet i ditt tal syntes begär Anden.

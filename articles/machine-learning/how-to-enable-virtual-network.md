@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289620"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760867"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Skydda Azure ML-experimentering och härlednings jobb i en Azure-Virtual Network
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -179,11 +179,14 @@ Använd följande steg om du inte vill använda de utgående standard reglerna o
 
 - Neka utgående Internet anslutning med NSG-reglerna.
 
-- Begränsa utgående trafik till följande objekt:
-   - Azure Storage med hjälp av __tjänst tag gen__ för __Storage. Region_Name__ (till exempel lagring. öster)
-   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry. Region_Name__ (till exempel AzureContainerRegistry. öster)
+- För en __beräknings instans__ eller ett __beräknings kluster__begränsar du utgående trafik till följande objekt:
+   - Azure Storage, genom att använda __tjänst tag gen__ för __lagring__
+   - Azure Container Registry med hjälp av __service tag gen__ för __AzureContainerRegistry__
    - Azure Machine Learning med hjälp av __service tag gen__ för __AzureMachineLearning__
-   - I händelse av beräknings instans, Azure-moln med hjälp av __service tag gen__ för __AzureResourceManager__
+   
+- För en __beräknings instans__lägger du också till följande objekt:
+   - Azure Resource Manager med hjälp av __service tag gen__ för __AzureResourceManager__
+   - Azure Active Directory med hjälp av __service tag gen__ för __AzureActiveDirectory__
 
 Regel konfigurationen för NSG i Azure Portal visas i följande bild:
 
@@ -206,12 +209,12 @@ Regel konfigurationen för NSG i Azure Portal visas i följande bild:
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> Uppskattnings training__
+> __Uppskattnings utbildning__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```

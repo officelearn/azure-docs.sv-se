@@ -1,6 +1,6 @@
 ---
 title: Skala kvoter och begränsningar i din labb Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du skalar ett labb i Azure DevTest Labs
+description: I den här artikeln beskrivs hur du kan skala ditt labb i Azure DevTest Labs. Visa användnings kvoter och-gränser och begär en ökning.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 231a227cbccaa4cbf74f3b13839c0ba42895cf24
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: f3299c24bc751263ccd284a4fddb492fba5dd1e0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644859"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761193"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Skalnings kvoter och begränsningar i DevTest Labs
 När du arbetar i DevTest Labs kanske du märker att det finns vissa standard gränser för vissa Azure-resurser, vilket kan påverka DevTest Labs-tjänsten. Dessa gränser kallas **kvoter**.
@@ -26,7 +26,7 @@ När du arbetar i DevTest Labs kanske du märker att det finns vissa standard gr
 > [!NOTE]
 > DevTest Labs-tjänsten tillämpar inga kvoter. Alla kvoter som du kan stöta på är standard begränsningar för den övergripande Azure-prenumerationen.
 
-Du kan använda varje Azure-resurs tills du når kvoten. Varje prenumeration har separata kvoter och användningen spåras per prenumeration.
+Du kan använda varje Azure-resurs tills du når kvoten. Varje prenumeration har separata kvoter och användning spåras per prenumeration.
 
 Varje prenumeration har till exempel en standard kvot på 20 kärnor. Så om du skapar virtuella datorer i labbet med fyra kärnor var och en, kan du bara skapa fem virtuella datorer.
 

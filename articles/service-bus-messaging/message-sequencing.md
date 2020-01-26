@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-ordningsföljd och tidsstämplar | Microsoft Docs
-description: Bevara sekvensen för Service Bus-meddelande och ordning med tidsstämplar
+title: Azure Service Bus sekvenser och tidsstämpel för meddelanden | Microsoft Docs
+description: Den här artikeln förklarar hur du bevarar sekvenseringen och ordningen (med tidsstämplar) för Azure Service Bus meddelanden.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,44 +11,44 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402727"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756325"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Ordningsföljd och tidsstämplar för meddelanden
 
-Ordningsföljd och tidsstämplar finns två funktioner som alltid är aktiverade på alla Service Bus-entiteter och lyfta fram via den [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) och [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) egenskaperna för mottagna eller visat meddelanden.
+Sekvenseringen och tids stämpling är två funktioner som alltid är aktiverade på alla Service Bus entiteter och-yta via egenskaperna [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber) och [EnqueuedTimeUtc](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc) för mottagna eller bläddrade meddelanden.
 
-För de fall där absolut ordningen för meddelanden är betydande och/eller som behöver en konsument en tillförlitlig Unik identifierare för meddelanden, broker stämplar meddelanden med en lucka är kostnadsfria, öka sekvensnummer i förhållande till kön eller ämnet. Sekvensnumret utfärdas för partitionerade enheter i förhållande till partitionen.
+För de fall där den absoluta ordningen av meddelanden är betydande och/eller där en konsument behöver en tillförlitlig unik identifierare för meddelanden, stämplar Service Broker meddelanden med ett mellanrum utan mellanrum, vilket ökar sekvensnumret i förhållande till kön eller ämnet. För partitionerade enheter utfärdas sekvensnumret i förhållande till partitionen.
 
-Den **SequenceNumber** värdet är ett unikt 64-bitars heltal som tilldelas ett meddelande när den accepteras och lagras av broker och funktioner som dess interna ID: t. För partitionerade enheter visas de översta 16 bitarna partitions-ID. Sekvensnummer som förnyas till noll när 48/64-bitars-intervallet är slut.
+**SequenceNumber** -värdet är ett unikt 64-bitars heltal som tilldelas ett meddelande, eftersom det godkänns och lagras av Broker och fungerar som dess interna identifierare. För partitionerade entiteter återspeglar de översta 16 bitarna partitions-ID. Sekvensnummer slås över till noll när 48/64-bitars intervallet är förbrukat.
 
-Sekvensnumret kan vara betrodda som en unik identifierare eftersom den är tilldelad av en utfärdare av central och neutral, inte av klienter. Det också representerar SANT ordningen på ankomst och är bättre än en tidsstämpel som ett kriterium i ordning, eftersom tidsstämplar inte kanske har tillräckligt hög upplösning extrem Meddelandefrekvens och kan vara föremål för (men minimal) klockan skeva i situationer där den asynkrona meddelandekön ägarskap övergångar mellan noder.
+Sekvensnumret kan vara betrott som en unik identifierare eftersom det tilldelas av en central och neutral auktoritet och inte av klienter. Den representerar även den faktiska ordningen på ankomsten och är mer exakt än en tidsstämpel som ett order kriterium, eftersom tidsstämplar inte har en hög nog hög upplösning vid extrema meddelande frekvenser och kan vara föremål för (dock minimal) klock skevning i situationer där Broker ägarskaps över gångar mellan noder.
 
-Absolut ankomst ordningen är viktig, till exempel i företag scenarier där erbjuds ett begränsat antal varor hanteras på basis av in-först-turordning så länge lagret senast; samklang biljettförsäljningar är ett exempel.
+Den absoluta ingångs ordningen, till exempel i affärs scenarier där ett begränsat antal erbjudna varor betjänas enligt först-först-Betjänad och levererar sist. konsert biljett försäljning är ett exempel.
 
-Funktionen för tidsstämplar som fungerar som en neutral och betrodd utfärdare som korrekt samlar in exempel ankomsten av ett meddelande som visas i UTC-tid i **EnqueuedTimeUtc** egenskapen. Värdet är användbart om ett affärsscenario är beroende av tidsgränser, till exempel om ett arbetsobjekt skickades på ett visst datum innan midnatt, men bearbetningen är för långt bakom eftersläpningen i kön.
+Funktionen för tidsstämpel fungerar som en neutral och betrodd myndighet som korrekt fångar UTC-tiden då ett meddelande anländer, vilket visas i **EnqueuedTimeUtc** -egenskapen. Värdet är användbart om ett affärs scenario är beroende av deadlines, till exempel om en arbets uppgift har skickats ett visst datum före midnatt, men bearbetningen ligger långt bakom kön efter släpning.
 
 ## <a name="scheduled-messages"></a>Schemalagda meddelanden
 
-Du kan skicka meddelanden till en kö eller ämne för fördröjd bearbetning. till exempel för att schemalägga ett jobb ska bli tillgänglig för bearbetning av ett system vid en viss tidpunkt. Den här funktionen inser en tillförlitlig distribuerad tidsbaserade schemaläggare.
+Du kan skicka meddelanden till en kö eller ett ämne för fördröjd bearbetning. Om du till exempel vill schemalägga ett jobb för att bli tillgängligt för bearbetning av ett system vid en viss tidpunkt. Den här funktionen försäkrar en tillförlitlig distribuerad tidsbaserad schemaläggare.
 
-Schemalagda meddelanden Materialisera inte i kön tills definierade sätta. Schemalagda meddelanden kan avbrytas innan detta datum. Annulleringen meddelandet tas bort.
+Schemalagda meddelanden materialiseras inte i kön förrän den definierade tids kön. Före den tiden kan schemalagda meddelanden avbrytas. Annullering tar bort meddelandet.
 
-Du kan schemalägga meddelanden antingen genom att ange den [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) egenskapen när du skickar ett meddelande via den vanliga sändande vägen eller uttryckligen med den [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) API. Det senare returnerar omedelbart schemalagt meddelande **SequenceNumber**, som du senare kan använda för att avbryta schemalagda meddelande om det behövs. Schemalagda meddelanden och deras sekvensnummer kan också identifieras med hjälp av [bläddring bland meddelanden](message-browsing.md).
+Du kan schemalägga meddelanden antingen genom att ange egenskapen [ScheduledEnqueueTimeUtc](/dotnet/api/microsoft.azure.servicebus.message.scheduledenqueuetimeutc) när du skickar ett meddelande via den vanliga sändnings vägen eller uttryckligen med [ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.schedulemessageasync#Microsoft_Azure_ServiceBus_QueueClient_ScheduleMessageAsync_Microsoft_Azure_ServiceBus_Message_System_DateTimeOffset_) -API: et. Den senare returnerar omedelbart det schemalagda meddelandets **SequenceNumber**, som du senare kan använda för att avbryta det schemalagda meddelandet vid behov. Schemalagda meddelanden och deras serie nummer kan också identifieras med hjälp av [meddelande bläddring](message-browsing.md).
 
-Den **SequenceNumber** för ett schemalagt meddelande är endast giltigt när meddelandet är i det här tillståndet. Som meddelandet övergår till aktivt läge, meddelandet läggs till i kön som om hade varit i kö på den aktuella snabbmeddelanden, vilket omfattar att tilldela en ny **SequenceNumber**.
+**SequenceNumber** för ett schemalagt meddelande är endast giltigt när meddelandet är i det här läget. När meddelandet övergår till aktivt tillstånd läggs meddelandet till i kön som om det hade placerats i kö vid den aktuella snabben, vilket innefattar att tilldela en ny **SequenceNumber**.
 
-Eftersom funktionen är fäst på enskilda meddelanden och meddelanden kan bara placeras i kö en gång, stöder inte återkommande scheman för meddelanden i Service Bus.
+Eftersom funktionen är förankrad på enskilda meddelanden och meddelanden bara kan köas en gång, kan Service Bus inte hantera återkommande scheman för meddelanden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
+Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)

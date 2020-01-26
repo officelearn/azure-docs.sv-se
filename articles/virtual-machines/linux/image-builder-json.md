@@ -1,18 +1,18 @@
 ---
 title: Skapa en Azure Image Builder-mall (förhands granskning)
 description: Lär dig hur du skapar en mall som ska användas med Azure Image Builder.
-author: cynthn
-ms.author: cynthn
-ms.date: 07/31/2019
+author: danis
+ms.author: danis
+ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763087"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760019"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -28,11 +28,15 @@ Detta är det grundläggande mallformat:
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             },
+             }
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
         "buildTimeoutInMinutes": <minutes>, 
+        "vmProfile": 
+            {
+            "vmSize": "<vmSize>"
+            },
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -64,6 +68,24 @@ Platsen är den region där den anpassade avbildningen kommer att skapas. För f
 
 ```json
     "location": "<region>",
+```
+## <a name="vmprofile"></a>vmProfile
+Som standard använder Image Builder en "Standard_D1_v2"-version av den virtuella datorn. du kan åsidosätta detta, om du till exempel vill anpassa en avbildning för en GPU-VM behöver du en GPU VM-storlek. Det här är valfritt.
+
+```json
+ {
+    "vmSize": "Standard_D1_v2"
+ },
+```
+
+## <a name="osdisksizegb"></a>osDiskSizeGB
+
+Som standard kommer bild verktyget inte att ändra bildens storlek, den kommer att använda storleken från käll bilden. Du kan justera storleken på OS-disken (Win och Linux), Observera att de inte ska gå för kort än det minsta utrymme som krävs för operativ systemet. Detta är valfritt och värdet 0 innebär att du behåller samma storlek som käll bilden. Det här är valfritt.
+
+```json
+ {
+    "osDiskSizeGB": 100
+ },
 ```
 
 ## <a name="tags"></a>Taggar
@@ -135,13 +157,7 @@ I listan över **installations program och avbildningar för Red Hat Enterprise 
 > Åtkomst-token för länkarna uppdateras med jämna mellanrum, så varje gång du vill skicka en mall måste du kontrol lera om uppdaterings adressen för RH har ändrats.
  
 ### <a name="platformimage-source"></a>PlatformImage-källa 
-Azure Image Builder har stöd för följande Azure Marketplace-avbildningar:
-* Ubuntu 18.04
-* Ubuntu 16.04
-* RHEL 7,6
-* CentOS 7.6
-* Windows 2016
-* Windows 2019
+Azure Image Builder stöder Windows Server och klient, och Linux Azure Marketplace-avbildningar finns [här](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) för den fullständiga listan. 
 
 ```json
         "source": {
@@ -220,7 +236,8 @@ När du använder `customize`:
             {
                 "type": "Shell",
                 "name": "<name>",
-                "scriptUri": "<path to script>"
+                "scriptUri": "<path to script>",
+                "sha256Checksum": "<sha256 checksum>"
             },
             {
                 "type": "Shell",
@@ -246,7 +263,8 @@ Shell-anpassningen stöder körning av gränssnitts skript, de måste vara offen
         { 
             "type": "Shell", 
             "name": "<name>", 
-            "scriptUri": "<link to script>"        
+            "scriptUri": "<link to script>",
+            "sha256Checksum": "<sha256 checksum>"       
         }, 
     ], 
         "customize": [ 
@@ -266,7 +284,12 @@ Anpassa egenskaper:
 - **namn** – namn för att spåra anpassningen 
 - **scriptUri** -URI till filens plats 
 - **infogad** matris av Shell-kommandon, avgränsade med kommatecken.
- 
+- **sha256Checksum** -värdet för filens SHA256-kontrollsumma, du genererar det här lokalt och sedan kontrol leras kontroll summor och Image Builder.
+    * Skapa sha256Checksum med hjälp av en terminal på Mac/Linux-körning: `sha256sum <fileName>`
+
+
+För kommandon som ska köras med superuser-privilegier måste de föregås av `sudo`.
+
 > [!NOTE]
 > När du kör Shell Customization med RHEL ISO-källa måste du se till att ditt första anpassnings gränssnitt hanterar registrering med en Red Hat-rättighets server innan eventuella anpassningar sker. När anpassningen är klar ska skriptet avregistreras med rättighets servern.
 
@@ -275,12 +298,15 @@ Med alternativet starta om anpassning kan du starta om en virtuell Windows-dator
 
 ```json 
      "customize": [ 
-         {
-            "type": "WindowsRestart", 
-            "restartCommand": "shutdown /r /f /t 0 /c", 
-            "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
-            "restartTimeout": "5m"
-         }],
+
+            {
+                "type": "WindowsRestart",
+                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
+                "restartTimeout": "5m"
+            }
+  
+        ],
 ```
 
 OS-support: Windows
@@ -300,13 +326,16 @@ Shell-anpassningen stöder körning av PowerShell-skript och infogat kommando, s
         { 
              "type": "PowerShell",
              "name":   "<name>",  
-             "scriptUri": "<path to script>" 
+             "scriptUri": "<path to script>",
+             "runElevated": "<true false>",
+             "sha256Checksum": "<sha256 checksum>" 
         },  
         { 
              "type": "PowerShell", 
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
-             "valid_exit_codes": "<exit code>" 
+             "valid_exit_codes": "<exit code>",
+             "runElevated": "<true or false>" 
          } 
     ], 
 ```
@@ -319,6 +348,10 @@ Anpassa egenskaper:
 - **scriptUri** -URI till platsen för PowerShell-skriptfilen. 
 - **infogade** – infogade kommandon som ska köras, avgränsade med kommatecken.
 - **valid_exit_codes** – valfria, giltiga koder som kan returneras från skriptet/inline-kommandot, detta undviker att det rapporteras ett skript/inline-kommando.
+- **runElevated** – valfritt, booleskt, stöd för att köra kommandon och skript med förhöjd behörighet.
+- **sha256Checksum** -värdet för filens SHA256-kontrollsumma, du genererar det här lokalt och sedan kontrol leras kontroll summor och Image Builder.
+    * Skapa sha256Checksum med hjälp av PowerShell på Windows [Get-hash](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6)
+
 
 ### <a name="file-customizer"></a>Fil anpassning
 
@@ -330,7 +363,8 @@ Med fil anpassnings verktyget kan Image Builder Ladda ned en fil från en GitHub
             "type": "File", 
              "name": "<name>", 
              "sourceUri": "<source location>",
-             "destination": "<destination>" 
+             "destination": "<destination>",
+             "sha256Checksum": "<sha256 checksum>"
          }
      ]
 ```
@@ -398,8 +432,39 @@ Azure Image Builder stöder tre distributions mål:
 
 Du kan distribuera en avbildning till båda mål typerna i samma konfiguration, se [exempel](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80).
 
-Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName`.  `runOutputName` är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen replikeras till. Detta är en egenskap för varje distributions mål. `runOutputName` måste vara unikt för varje distributions mål.
- 
+Eftersom du kan ha fler än ett mål att distribuera till, har Image Builder ett tillstånd för varje distributions mål som kan nås genom att fråga `runOutputName`.  `runOutputName` är ett objekt som du kan skicka frågor till efter distribution för information om distributionen. Du kan till exempel fråga platsen för den virtuella hård disken eller regioner där avbildnings versionen har repliker ATS till, eller SIG-avbildnings version som skapats. Detta är en egenskap för varje distributions mål. `runOutputName` måste vara unikt för varje distributions mål. Här är ett exempel som frågar en distribution av delade avbildnings Galleri:
+
+```bash
+subscriptionID=<subcriptionID>
+imageResourceGroup=<resourceGroup of image template>
+runOutputName=<runOutputName>
+
+az resource show \
+        --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
+        --api-version=2019-05-01-preview
+```
+
+Resultat:
+```json
+{
+  "id": "/subscriptions/xxxxxx/resourcegroups/rheltest/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/rhel77",
+  "identity": null,
+  "kind": null,
+  "location": null,
+  "managedBy": null,
+  "name": "rhel77",
+  "plan": null,
+  "properties": {
+    "artifactId": "/subscriptions/xxxxxx/resourceGroups/aibDevOpsImg/providers/Microsoft.Compute/galleries/devOpsSIG/images/rhel/versions/0.24105.52755",
+    "provisioningState": "Succeeded"
+  },
+  "resourceGroup": "rheltest",
+  "sku": null,
+  "tags": null,
+  "type": "Microsoft.VirtualMachineImages/imageTemplates/runOutputs"
+}
+```
+
 ### <a name="distribute-managedimage"></a>Distribuera: managedImage
 
 Avbildningens utdata är en hanterad avbildnings resurs.
@@ -503,13 +568,4 @@ az resource show \
 ## <a name="next-steps"></a>Nästa steg
 
 Det finns exempel på JSON-filer för olika scenarier i [Azure Image Builder-GitHub](https://github.com/danielsollondon/azvmimagebuilder).
- 
- 
- 
- 
- 
- 
- 
- 
- 
  

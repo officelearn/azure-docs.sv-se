@@ -1,6 +1,6 @@
 ---
-title: Asynkrona Service Bus-meddelanden | Microsoft Docs
-description: Beskrivning av Azure Service Bus asynkrona meddelanden.
+title: Service Bus asynkrona meddelanden | Microsoft Docs
+description: Lär dig hur Azure Service Bus stöder asynchronism via en metod för lagring och vidarebefordran med köer, ämnen och prenumerationer.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,60 +12,60 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 50778ae742c1ec66857a6c2fa6250dc3d67e5601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 554260f403104d815b9b63c576c7ba0a2f3cf1e1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531119"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761040"
 ---
 # <a name="asynchronous-messaging-patterns-and-high-availability"></a>Asynkrona meddelandemönster och hög tillgänglighet
 
-Asynkrona meddelanden kan implementeras på ett antal olika sätt. Köer, ämnen och prenumerationer stöder Azure Service Bus asynchronism via en store och vidarebefordra mekanism. Under normal drift av (synkron), skicka meddelanden till köer och ämnen och ta emot meddelanden från köer och prenumerationer. Program som du skriver är beroende av dessa entiteter som alltid är tillgängliga. När entitetshälsa ändras på grund av ett antal olika omständigheter, behöver du ett sätt att ge en minskad funktionen entitet som kan uppfylla de flesta behov.
+Asynkrona meddelanden kan implementeras på flera olika sätt. Med köer, ämnen och prenumerationer stöder Azure Service Bus asynchronism via en mekanism för lagring och vidarebefordran. I normal (synkron) åtgärd, skickar du meddelanden till köer och ämnen och tar emot meddelanden från köer och prenumerationer. Program som du skriver är beroende av att dessa entiteter alltid är tillgängliga. När enhetens hälso tillstånd ändras, på grund av en rad olika omständigheter, behöver du ett sätt att tillhandahålla en enhet med begränsad kapacitet som kan uppfylla de flesta behov.
 
-Program använder vanligtvis asynkrona meddelandemönster för att aktivera ett antal kommunikationsscenarier. Du kan skapa program där klienter kan skicka meddelanden till tjänster, även när tjänsten inte körs. För program att du ska få toppar i kommunikation, en kö kan hjälpa att utjämna belastningen genom att tillhandahålla en plats till bufferten kommunikation. Slutligen kan du få en tydlig och effektiv belastningsutjämnare för att distribuera meddelanden över flera datorer.
+Program använder vanligt vis asynkrona meddelande mönster för att möjliggöra ett antal kommunikations scenarier. Du kan bygga program där klienter kan skicka meddelanden till tjänster, även när tjänsten inte körs. För program som upplever burst-kommunikation kan en kö hjälpa till att utjämna belastningen genom att tillhandahålla en plats för att buffra kommunikation. Slutligen kan du få en enkel, men effektiv belastningsutjämnare för att distribuera meddelanden över flera datorer.
 
-Överväg att ett antal olika sätt som de här entiteterna kan visas inte tillgängligt för en hållbar meddelandesystem för att upprätthålla tillgänglighet av någon av dessa enheter. Generellt sett kan vi se entitet som blir otillgänglig för program som vi skriva på följande sätt:
+För att upprätthålla tillgänglighet för någon av dessa entiteter bör du fundera på ett antal olika sätt som dessa entiteter kan visas i för ett hållbart meddelande system. I allmänhet ser vi att entiteten blir otillgänglig för program som vi skriver på följande sätt:
 
-* Det går inte att skicka meddelanden.
-* Det går inte att ta emot meddelanden.
-* Det går inte att hantera entiteter (skapa, hämta, uppdatera eller ta bort entiteter).
-* Det går inte att kontakta tjänsten.
+* Det gick inte att skicka meddelanden.
+* Det gick inte att ta emot meddelanden.
+* Det går inte att hantera entiteter (skapa, Hämta, uppdatera eller ta bort entiteter).
+* Det gick inte att kontakta tjänsten.
 
-För var och en av de här felen finns olika fellägen som gör att ett program att fortsätta att utföra arbetet på vissa nivå av minskad kapacitet. Ett system som kan skicka meddelanden, men inte tar emot dem fortfarande kan ta emot order från kunder men kan inte bearbeta dessa order. Det här avsnittet beskrivs möjliga problem som kan uppstå och hur dessa problem begränsas. Service Bus har infört ett antal åtgärder som du måste välja och det här avsnittet beskrivs också de regler som reglerar användningen av dessa opt-in-åtgärder.
+För var och en av dessa avbrott finns det olika fellägen som gör att ett program kan fortsätta att utföra arbete på viss nivå av begränsad kapacitet. Till exempel kan ett system som kan skicka meddelanden men inte ta emot dem fortfarande ta emot beställningar från kunder, men inte bearbeta dessa order. I det här avsnittet beskrivs möjliga problem som kan uppstå och hur problemen begränsas. Service Bus har infört ett antal åtgärder som du måste välja, och i det här avsnittet beskrivs även de regler som styr användningen av dessa deltagande åtgärder.
 
 ## <a name="reliability-in-service-bus"></a>Tillförlitlighet i Service Bus
-Det finns flera sätt att hantera problem med meddelandet och entiteten och det finns riktlinjer som reglerar lämplig användning av dessa åtgärder. För att förstå riktlinjerna, måste du först förstå vad kan misslyckas i Service Bus. Samtliga av dessa fel brukar vara kortlivade på grund av utformningen av Azure-system. På hög nivå visas de olika orsakerna till otillgängliga på följande sätt:
+Det finns flera sätt att hantera problem med meddelanden och enheter, och det finns rikt linjer för hur du kan använda dessa lösningar på rätt sätt. För att förstå rikt linjerna måste du först förstå vad som kan uppstå i Service Bus. På grund av utformningen av Azure-system tenderar alla dessa problem att vara kort livs längd. På hög nivå visas olika orsaker till otillgängligheten enligt följande:
 
-* Begränsning från ett externt system som Service Bus är beroende av. Begränsning inträffar på samverkan med lagrings- och resurser.
-* Problem för ett system som Service Bus är beroende av. Till exempel kan en viss del av lagring uppleva problem.
-* Fel i Service Bus på enskild undersystem. I så fall kan en beräkningsnod kan hamna i ett inkonsekvent tillstånd och måste startas om, gör att alla entiteter som den används för att belastningsutjämna till andra noder. Detta kan i sin tur medföra en kort period av långsam meddelandebehandling.
-* Fel i Service Bus i ett Azure-datacenter. Det här är en ”katastrof” under vilken systemet kan inte nås för många minuter eller ett par timmar.
+* Begränsning från ett externt system som Service Bus är beroende av. Begränsning sker från interaktioner med lagrings-och beräknings resurser.
+* Problem för ett system där Service Bus är beroende av. Till exempel kan en specifik del av lagringen drabbas av problem.
+* Det gick inte att Service Bus på ett enskilt under system. I den här situationen kan en Compute-nod komma in i ett inkonsekvent tillstånd och måste starta om sig själv, vilket gör att alla entiteter kan belastningsutjämna till andra noder. Detta kan orsaka en kort period av långsam meddelande bearbetning.
+* Det gick inte att Service Bus i ett Azure-datacenter. Detta är ett "oåterkalleligt haveri" som innebär att systemet inte kan kontaktas i flera minuter eller några timmar.
 
 > [!NOTE]
-> Termen **storage** kan innebära både Azure Storage och SQL Azure.
+> Termen **Storage** kan betyda både Azure Storage och SQL Azure.
 > 
 > 
 
-Service Bus innehåller ett antal åtgärder för de här problemen. I följande avsnitt beskrivs olika problemen och deras respektive åtgärder.
+Service Bus innehåller ett antal begränsningar för problemen. I följande avsnitt beskrivs varje problem och deras respektive åtgärder.
 
 ### <a name="throttling"></a>Begränsning
-Med Service Bus kan begränsning samverkande meddelande rate management. Varje enskild nod i Service Bus innehåller många entiteter. Var och en av dessa entiteter blir krav på systemet när det gäller processor, minne, lagring och andra aspekter. När någon av dessa fasetter identifierar användning som överskrider definierade tröskelvärden, Service Bus kan neka en viss begäran. Anroparen får en [ServerBusyException][ServerBusyException] och återförsök efter 10 sekunder.
+Med Service Bus aktiverar begränsningen hantering av kooperativa meddelande frekvens. Varje enskild Service Bus nod hus många entiteter. Var och en av dessa entiteter gör krav på systemet vad gäller CPU, minne, lagring och andra ansikte. Om någon av dessa ansikte upptäcker användning som överskrider definierade tröskelvärden kan Service Bus neka en viss begäran. Anroparen tar emot en [ServerBusyException][ServerBusyException] och försöker igen efter 10 sekunder.
 
-Som en migrering av koden läsa felet och stoppa alla återförsök för meddelandet i minst 10 sekunder. Eftersom felet kan inträffa mellan delar av programmet för kunden, förväntas det att varje del oberoende körs logik för omprövning. Koden kan minska sannolikheten för begränsas genom att aktivera partitionering på en kö eller ämne.
+Som en minskning måste koden läsa felet och stoppa alla återförsök i meddelandet i minst 10 sekunder. Eftersom felet kan inträffa mellan olika delar av kundens program, förväntas det att varje enskild enhet kör logiken igen. Koden kan minska sannolikheten för att begränsas genom att aktivera partitionering i en kö eller ett ämne.
 
-### <a name="issue-for-an-azure-dependency"></a>Problem för beroende av ett Azure
-Andra komponenter i Azure kan ibland ha problem med tjänsten. Till exempel när ett system som använder Service Bus uppgraderas uppleva systemet tillfälligt minskade funktioner. Du kan undvika dessa typer av problem, Service Bus regelbundet undersöker och implementerar åtgärder. Sidoeffekter av dessa åtgärder visas. För att hantera problem med storage implementerar till exempel Service Bus ett system som gör att skicka meddelandeåtgärder till arbetar konsekvent. På grund av minskningen, kan skickade meddelandet ta upp till 15 minuter att visas i den berörda kö eller prenumeration och var redo för en receive-åtgärd. Generellt sett de flesta entiteter inte det här problemet uppstår. Dock krävs givet antalet entiteter i Service Bus i Azure, den här säkerhetsfunktionen ibland för en liten delmängd av Service Bus-kunder.
+### <a name="issue-for-an-azure-dependency"></a>Problem för ett Azure-beroende
+Andra komponenter i Azure kan ibland ha problem med tjänsten. Till exempel när ett system som Service Bus använder uppgraderas, kan systemet tillfälligt uppleva lägre funktioner. För att lösa dessa typer av problem Service Bus regelbundet undersöka och implementerar begränsningar. Sido effekter av de här lösningarna visas. Om du till exempel vill hantera tillfälliga problem med lagringen implementerar Service Bus ett system som gör att meddelande överförings åtgärder fungerar konsekvent. På grund av typen av minskning kan ett skickat meddelande ta upp till 15 minuter visas i den berörda kön eller prenumerationen och vara redo för en mottagnings åtgärd. De flesta entiteter kommer i allmänhet inte att uppleva det här problemet. Men med tanke på antalet entiteter i Service Bus i Azure behövs den här lösningen ibland för en liten del av Service Bus kunderna.
 
-### <a name="service-bus-failure-on-a-single-subsystem"></a>Service Bus-fel på ett enda undersystem
-Med alla program kan omständigheter orsaka en intern komponenten i Service Bus blir inkonsekventa. När Service Bus upptäcker att detta, samlar in data från program som gör det enklare att diagnostisera vad som hände. När data har samlats in startas programmet i ett försök att returnera den till ett konsekvent tillstånd. Den här processen sker ganska snabbt och resultatet i en entitet som ser ut att vara otillgänglig för upp till ett par minuter, även om de typiska stopptider är mycket kortare.
+### <a name="service-bus-failure-on-a-single-subsystem"></a>Service Bus-problem på ett enskilt under system
+I alla program kan omständigheter orsaka att en intern komponent i Service Bus blir inkonsekvent. När Service Bus identifierar detta samlar det in data från programmet för att hjälpa till att diagnostisera vad som hände. När data har samlats in startas programmet om i ett försök att returnera det till ett konsekvent tillstånd. Den här processen sker ganska snabbt, och det visas en entitet som visar sig vara otillgänglig i upp till några minuter, även om vanliga tider är mycket kortare.
 
-I dessa fall kan klientprogrammet genererar en [System.TimeoutException][System.TimeoutException] eller [MessagingException][MessagingException] undantag. Service Bus innehåller en lösning för det här problemet i form av logik för omprövning av automatiserade klienten. När försök under perioden är slut och meddelandet skickas inte, du kan utforska med annan anges i artikeln om [hantera avbrott och katastrofer][handling outages and disasters].
+I dessa fall genererar klient programmet ett [system. TimeoutException][System.TimeoutException] -eller [MessagingException][MessagingException] -undantag. Service Bus innehåller en minskning av det här problemet i form av logik för automatisk omprövning av klienter. När återförsöks perioden är slut och meddelandet inte levereras kan du utforska med andra som nämns i artikeln om [hantering av avbrott och haverier][handling outages and disasters].
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har lärt dig grunderna för asynkrona meddelanden i Service Bus, Läs mer om [hantera avbrott och katastrofer][handling outages and disasters].
+Nu när du har lärt dig grunderna om asynkrona meddelanden i Service Bus kan du läsa mer om hur du [hanterar avbrott och haverier][handling outages and disasters].
 
 [ServerBusyException]: /dotnet/api/microsoft.servicebus.messaging.serverbusyexception
 [System.TimeoutException]: https://msdn.microsoft.com/library/system.timeoutexception.aspx

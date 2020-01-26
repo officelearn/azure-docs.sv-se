@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus slut punkt till slut punkt för spårning och diagnostik | Microsoft Docs
-description: Översikt över Service Bus-klientens diagnostik och spårning från slut punkt till slut punkt
+description: Översikt över Service Bus-klientautentisering och spårning från slut punkt till slut punkt (klient genom alla tjänster som ingår i bearbetningen.)
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: fa71ca7ea976ab4d724a061d0d0809cdb5767f4f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a184e76faa89199d3e13ece3e17f94f73d995a12
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705759"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760274"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Distribuerad spårning och korrelation genom Service Bus meddelanden
 
@@ -153,7 +153,7 @@ Varje "stopp"-händelse har `Status` egenskap med `TaskStatus` asynkron åtgärd
 
 Här är en fullständig lista över instrumenterade åtgärder:
 
-| Åtgärdsnamn | Spårat API | Egenskaper för vissa nytto Last|
+| Åtgärds namn | Spårat API | Egenskaper för vissa nytto Last|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages`-lista över meddelanden som skickas |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` – meddelande som bearbetas<br/>`DateTimeOffset ScheduleEnqueueTimeUtc`-schemalagd meddelande förskjutning<br/>`long SequenceNumber` ordnings nummer för schemalagt meddelande ("stoppa" händelse nytto Last) |

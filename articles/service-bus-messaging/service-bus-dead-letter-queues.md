@@ -1,6 +1,6 @@
 ---
 title: Service Bus köer för obeställbara meddelanden | Microsoft Docs
-description: Översikt över Azure Service Bus köer för obeställbara meddelanden
+description: Beskriver köer för obeställbara meddelanden i Azure Service Bus. Service Bus köer och ämnes prenumerationer tillhandahåller en sekundär underordnad kö som kallas kö för obeställbara meddelanden.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: e1c3798c36b497423ea1d0cb5da6fabbd6a935f7
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516584"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761023"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Översikt över Service Bus köer för obeställbara meddelanden
 
@@ -39,11 +39,11 @@ Observera att det inte finns någon automatisk rensning av DLQ. Meddelanden finn
 
 Det finns flera aktiviteter i Service Bus som gör att meddelanden skickas till DLQ inifrån själva meddelande motorn. Ett program kan också uttryckligen flytta meddelanden till DLQ. 
 
-När meddelandet flyttas av utjämningen läggs två egenskaper till i meddelandet eftersom Broker anropar den interna versionen av [obeställbara meddelanden kön](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) -metoden i meddelandet: `DeadLetterReason` och. `DeadLetterErrorDescription`
+När meddelandet flyttas av utjämningen läggs två egenskaper till i meddelandet eftersom Broker anropar den interna versionen av [obeställbara meddelanden kön](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) -metoden i meddelandet: `DeadLetterReason` och `DeadLetterErrorDescription`.
 
-Program kan definiera egna koder för `DeadLetterReason` egenskapen, men systemet anger följande värden.
+Program kan definiera egna koder för egenskapen `DeadLetterReason`, men systemet anger följande värden.
 
-| Tillstånd | DeadLetterReason | DeadLetterErrorDescription |
+| Villkor | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
 | Alltid |HeaderSizeExceeded |Storlekskvoten för dataströmmen har överskridits. |
 | ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing och SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
@@ -54,19 +54,19 @@ Program kan definiera egna koder för `DeadLetterReason` egenskapen, men systeme
 
 ## <a name="exceeding-maxdeliverycount"></a>Överskrider MaxDeliveryCount
 
-Köer och prenumerationer har var och en har egenskapen [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) respektive [SubscriptionDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) . Standardvärdet är 10. När ett meddelande har levererats under ett lås ([PeekLock ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), men har antingen uttryckligen övergivits eller om låset har upphört att gälla, ökar meddelandet [BrokeredMessage. DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . När [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) överskrider [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount)flyttas meddelandet till DLQ `MaxDeliveryCountExceeded` och anger orsaks koden.
+Köer och prenumerationer har var och en har egenskapen [QueueDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) respektive [SubscriptionDescription. MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) . Standardvärdet är 10. När ett meddelande har levererats under ett lås ([PeekLock ReceiveMode. PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), men har antingen uttryckligen övergivits eller om låset har upphört att gälla, ökar meddelandet [BrokeredMessage. DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) . När [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) överskrider [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount)flyttas meddelandet till DLQ och anger `MaxDeliveryCountExceeded` orsaks kod.
 
 Det går inte att inaktivera det här beteendet, men du kan ange [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) till ett mycket stort tal.
 
 ## <a name="exceeding-timetolive"></a>Överskrider TimeToLive
 
-När egenskapen [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har angetts till **True** (Standardvärdet är **falskt**) är alla meddelanden som upphör att gälla Flyttad till DLQ och ange `TTLExpiredException` orsaks koden.
+När egenskapen [QueueDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) eller [SubscriptionDescription. EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har angetts till **True** (Standardvärdet är **false**), flyttas alla utgående meddelanden till DLQ och anger `TTLExpiredException` orsaks kod.
 
 Observera att förfallna meddelanden bara rensas och flyttas till DLQ när det finns minst en aktiv mottagare från huvud kön eller prenumerationen. Detta beteende är avsiktligt.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Fel vid bearbetning av prenumerations regler
 
-När egenskapen [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har Aktiver ATS för en prenumeration, registreras eventuella fel som inträffar när en prenumerations SQL filter-regel körs i DLQ tillsammans med den felaktiga meddelande.
+När egenskapen [SubscriptionDescription. EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) har Aktiver ATS för en prenumeration, registreras eventuella fel som inträffar när en prenumerations SQL filter-regel körs i DLQ tillsammans med det felaktiga meddelandet.
 
 ## <a name="application-level-dead-lettering"></a>Obeställbara meddelanden på program nivå
 

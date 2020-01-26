@@ -9,12 +9,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: ebedb68f8826642437f53e5c5fa8cd0843e7c20e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665872"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757976"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Hantera IBM Informix Database-resurser med hjälp av Azure Logic Apps
 
@@ -117,7 +117,7 @@ Det här avsnittet visar hur du använder-anslutningen i en Logic app för att b
 
 1. Om du vill visa indata, under **indata-länk**, väljer du URL-länken. Om du vill visa utdata, under länken **utdata** , väljer du URL-länken. Här följer några exempel på utdata:
 
-   * **Hämta tabeller** visar en lista över tabeller:
+   * **Get_tables** visar en lista över tabeller:
 
      ![Utdata från åtgärden Hämta tabeller](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 

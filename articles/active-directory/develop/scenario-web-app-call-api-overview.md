@@ -14,50 +14,48 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 9e123195205bb0eb88f0edd4e2dff2e0da9d84ce
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d121d6c198cb0d92cd098a40096e2f2300f65537
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701662"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758997"
 ---
-# <a name="scenario-web-app-that-calls-web-apis"></a>Scenario: webb program som anropar webb-API: er
+# <a name="scenario-a-web-app-that-calls-web-apis"></a>Scenario: en webbapp som anropar webb-API: er
 
-Lär dig hur du skapar en webbapp som loggar in användare på Microsoft Identity Platform och anropar webb-API: er åt den inloggade användaren.
+Lär dig hur du skapar en webbapp som loggar användare i Microsoft Identity Platform och anropar webb-API: er åt den inloggade användaren.
 
 ## <a name="prerequisites"></a>Krav
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
+[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-Det här scenariot förutsätter att du har gått igenom följande scenario:
+Det här scenariot förutsätter att du redan har gått igenom följande scenario:
 
 > [!div class="nextstepaction"]
 > [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md)
 
 ## <a name="overview"></a>Översikt
 
-Du lägger till autentisering till din webbapp, som därför kan logga in användare och anropa ett webb-API för den inloggade användarens räkning.
+Du lägger till autentisering till din webbapp så att den kan signera användare i och anropa ett webb-API för den inloggade användarens räkning.
 
 ![Webbapp som anropar webb-API:er](./media/scenario-webapp/web-app.svg)
 
-Web Apps som anropar webb-API: er:
-
-- är konfidentiella klient program.
-- Därför har de registrerat en hemlighet (program lösen ord eller certifikat) med Azure AD. Den här hemligheten har överförts under anropet till Azure AD för att hämta en token
+Webb program som anropar webb-API: er är konfidentiella klient program.
+Därför registrerar de en hemlighet (ett program lösen ord eller certifikat) med Azure Active Directory (Azure AD). Den här hemligheten skickas under anropet till Azure AD för att hämta en token.
 
 ## <a name="specifics"></a>Information
 
 > [!NOTE]
-> När du lägger till inloggning i en webbapp används inte MSAL-biblioteken eftersom detta är att skydda webbappen. Att skydda bibliotek uppnås av bibliotek som heter mellanprogram. Detta var objektet i föregående scenario [inloggnings användare till en webbapp](scenario-web-app-sign-user-overview.md)
+> Att lägga till inloggning i en webbapp är att skydda själva webbappen. Skyddet uppnås med hjälp av *mellanprogram* bibliotek, inte Microsoft Authentication Library (MSAL). Föregående scenario, [webbapp som loggar in användare](scenario-web-app-sign-user-overview.md), och som omfattas av ämnet.
 >
-> När du anropar webb-API: er från en webbapp måste du hämta åtkomsttoken för dessa webb-API: er. Du kan använda MSAL-bibliotek för att hämta dessa tokens.
+> Det här scenariot beskriver hur du anropar webb-API: er från en webbapp. Du måste hämta åtkomsttoken för dessa webb-API: er. Du kan hämta dessa token genom att använda MSAL-bibliotek för att hämta dessa tokens.
 
-Slutpunkten för utvecklare i det här scenariot har därför särskilda aspekter som:
+Utvecklingen av det här scenariot omfattar följande uppgifter:
 
-- Under [program registreringen](scenario-web-app-call-api-app-registration.md)måste du ange en eller flera (om du distribuerar din app till flera platser) svars-URI: er, hemligheter eller certifikat måste delas med Azure AD.
-- [Program konfigurationen](scenario-web-app-call-api-app-configuration.md) måste ange klientautentiseringsuppgifter som delad med Azure AD under program registreringen
+- Under [program registrering](scenario-web-app-call-api-app-registration.md)måste du ange en svars-URI, en hemlighet eller ett certifikat som ska delas med Azure AD. Om du distribuerar din app till flera platser ger du den här informationen för varje plats.
+- [Program konfigurationen](scenario-web-app-call-api-app-configuration.md) måste ange de klientautentiseringsuppgifter som delats med Azure AD under program registreringen.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Appregistrering](scenario-web-app-call-api-app-registration.md)
+> [En webbapp som anropar webb-API: app-registrering](scenario-web-app-call-api-app-registration.md)

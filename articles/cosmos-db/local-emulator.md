@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: bcab5f76b95939b0a9a4232eab2bcf8b2a5fd40b
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3e51db98403b507c1c34ee455cfe218ea52c529b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309990"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760580"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Använd Azure Cosmos-emulatorn för lokal utveckling och testning
 
@@ -47,7 +47,7 @@ Azure Cosmos-emulatorn har följande maskinvaru-och program varu krav:
 
 * Programvarukrav
   * Windows Server 2012 R2, Windows Server 2016 eller Windows 10
-  * 64-bitars operativsystem
+  * 64-bitars operativ system
 * Lägsta maskinvarukrav
   * 2 GB RAM-minne
   * 10 GB ledigt hårddiskutrymme
@@ -181,7 +181,7 @@ Starta emulatorn från en administratörs kommando tolk med "/EnableCassandraEnd
 
 Starta emulatorn från en administratörs kommando tolk med "/EnableGremlinEndpoint". Du kan också ställa in miljövariabeln `AZURE_COSMOS_EMULATOR_GREMLIN_ENDPOINT=true`
 
-* [Installera Apache-tinkerpop-Gremlin-Console-3.3.4](https://tinkerpop.apache.org/downloads.html)
+* [Installera Apache-tinkerpop-Gremlin-Console-3.3.4](https://archive.apache.org/dist/tinkerpop/3.3.4).
 
 * I emulatorns Datautforskaren skapar du en databas "DB1" och en samling "coll1". för partitionsnyckel väljer du "/name"
 

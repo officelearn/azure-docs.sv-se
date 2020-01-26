@@ -1,5 +1,5 @@
 ---
-title: Parametriserade mappnings data flöden
+title: Parametrisera mappningsdataflöden
 description: Lär dig hur du Parameterisera ett mappnings data flöde från Data Factory-pipeliner
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746130"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760223"
 ---
-# <a name="parameterizing-mapping-data-flows"></a>Parametriserade mappnings data flöden
+# <a name="parameterizing-mapping-data-flows"></a>Parametrisera mappningsdataflöden
 
 Att mappa data flöden i Azure Data Factory stödja användning av parametrar. Du kan definiera parametrar i data flödes definitionen, som du sedan kan använda i alla uttryck. Parametervärdena kan anges av den anropande pipelinen via aktiviteten kör data flöde. Det finns tre alternativ för att ställa in värden i uttryck för data flödes aktivitet:
 
@@ -23,9 +23,6 @@ Att mappa data flöden i Azure Data Factory stödja användning av parametrar. D
 * Använd antingen uttrycks språk för att ange ett statiskt litteralt värde
 
 Använd den här funktionen för att göra dina data flöden generella, flexibla och återanvändbara. Du kan Parameterisera data flödes inställningar och uttryck med dessa parametrar.
-
-> [!NOTE]
-> För att kunna använda flödes regler för pipeline-kontroll måste data flödes parametern vara av typen sträng.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Skapa parametrar i ett data flöde för mappning
 

@@ -13,32 +13,37 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: a47e7a81ba486056841bdc0fe65cfd10f1b2c412
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 4db4bf7c9d35d9715f24ac0480abfaad7eb7c9e6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123197"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760087"
 ---
-# <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)
+# <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Snabb start: skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)
 
-I den här snabb starten ska du skapa och köra en uppsättning enkla R-skript med hjälp av den offentliga för hands versionen av [Machine Learning Services (med R) i Azure SQL Database](sql-database-machine-learning-services-overview.md). Du får lära dig att figursätta ett välformulerat R-skript i den lagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) och köra skriptet i en SQL-databas.
+I den här snabb starten skapar du och kör en uppsättning R-skript med hjälp av Machine Learning Services (med R) i Azure SQL Database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Om du vill köra exempel koden i de här övningarna måste du först ha en Azure SQL-databas med Machine Learning Services (med R) aktiverat. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+- En [Azure SQL-databas](sql-database-single-database-get-started.md) med en [brand Väggs regel på server nivå](sql-database-server-level-firewall-rule.md)
 
-- Kontrol lera att du har installerat den senaste [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Du kan köra R-skript med hjälp av andra databas hanterings-eller specialverktyg, men i den här snabb starten ska du använda SSMS.
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) med R aktiverat. [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
-- Den här snabb starten kräver att du konfigurerar en brand Väggs regel på server nivå. Information om hur du gör detta finns i [skapa brand Väggs regel på server nivå](sql-database-server-level-firewall-rule.md).
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
+
+> [!NOTE]
+> Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas.
+
+I det här exemplet används den lagrade proceduren [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) för att figursätta ett välformulerat R-skript.
 
 ## <a name="run-a-simple-script"></a>Kör ett enkelt skript
 
-Om du vill köra ett R-skript skickar du det som ett argument till systemets lagrade procedur, [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
+Om du vill köra ett R-skript skickar du det som ett argument till den systemlagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql).
 
 I följande steg ska du köra det här exemplet R-skriptet i SQL-databasen:
 
@@ -52,11 +57,11 @@ print(c(c, d))
 
 1. Öppna **SQL Server Management Studio** och anslut till din SQL-databas.
 
-   Om du behöver hjälp med att ansluta [, se snabb start: Använda SQL Server Management Studio för att ansluta till och köra frågor mot en Azure SQL-databas](sql-database-connect-query-ssms.md).
+   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas](sql-database-connect-query-ssms.md).
 
-1. Skicka det fullständiga R-skriptet till den lagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) .
+1. Skicka det fullständiga R-skriptet till den [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) lagrade proceduren.
 
-   Skriptet skickas genom `@script` argumentet. Allting i `@script` argumentet måste vara en giltig R-kod.
+   Skriptet skickas genom argumentet `@script`. Allt i argumentet `@script` måste vara en giltig R-kod.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -73,7 +78,7 @@ print(c(c, d))
 
    > [!NOTE]
    > Om du är administratör kan du köra extern kod automatiskt. Du kan bevilja behörighet till andra användare med hjälp av kommandot:
-   <br>**bevilja körning av ett externt skript till** *användarnamn\>. \<*
+   <br>**Bevilja körning av ett externt skript till** *\<användar namn\>* .
 
 2. Rätt resultat beräknas och funktionen R `print` returnerar resultatet till fönstret **meddelanden** .
 
@@ -115,9 +120,9 @@ Kommandot matar ut följande text:
 
 ## <a name="use-inputs-and-outputs"></a>Använda indata och utdata
 
-Som standard godkänner [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) en enda data uppsättning som indata, som vanligt vis anges i form av en giltig SQL-fråga. Den returnerar sedan en enskild R data-ram som utdata.
+[Sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) accepterar som standard en enda data uppsättning som indata, som vanligt vis anges i form av en giltig SQL-fråga. Den returnerar sedan en enskild R data-ram som utdata.
 
-Nu ska vi använda standardvariablerna indata och utdata för [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): **InputDataSet** och **OutputDataSet**.
+Nu ska vi använda standardvariablerna för indata och utdata för [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql): **InputDataSet** och **OutputDataSet**.
 
 1. Skapa en liten tabell med test data.
 
@@ -135,7 +140,7 @@ Nu ska vi använda standardvariablerna indata och utdata för [sp_execute_extern
     GO
     ```
 
-1. `SELECT` Använd instruktionen för att fråga tabellen.
+1. Använd instruktionen `SELECT` för att fråga tabellen.
   
     ```sql
     SELECT *
@@ -146,7 +151,7 @@ Nu ska vi använda standardvariablerna indata och utdata för [sp_execute_extern
 
     ![Innehållet i tabellen RTestData](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
-1. Kör följande R-skript. Data hämtas från tabellen med `SELECT` instruktionen, skickas via R-körningen och returnerar data som en data ram. Satsen definierar schemat för den returnerade data tabellen för SQL Database och lägger till kolumn namnet *NewColName.* `WITH RESULT SETS`
+1. Kör följande R-skript. Data hämtas från tabellen med hjälp av `SELECT`-instruktionen, skickas via R-körningsmiljön och returnerar data som en data ram. `WITH RESULT SETS`-satsen definierar schemat för den returnerade data tabellen för SQL Database och lägger till kolumn namnet *NewColName*.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -170,7 +175,7 @@ Nu ska vi använda standardvariablerna indata och utdata för [sp_execute_extern
     WITH RESULT SETS(([NewColName] INT NOT NULL));
     ```
 
-    Observera att R är Skift läges känsligt. Variablerna indata och utdata som används i R-skriptet (**SQL_out**, **SQL_in**) måste matcha värdena som definieras `@input_data_1_name` med `@output_data_1_name`och, inklusive Case.
+    Observera att R är Skift läges känsligt. Variablerna indata och utdata som används i R-skriptet (**SQL_out** **SQL_in**) måste matcha värdena som definierats med `@input_data_1_name` och `@output_data_1_name`, inklusive Skift läge.
 
    > [!TIP]
    > Endast en indatamängd kan skickas som parameter, och du kan returnera endast en datamängd. Dock kan du anropa andra datamängder i R-koden och returnera utdata för andra typer utöver datamängden. Du kan även lägga till nyckelordet OUTPUT till valfri parameter så att den returneras med resultatet.

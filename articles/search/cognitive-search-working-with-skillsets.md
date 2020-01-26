@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790894"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760801"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Färdigheter-koncept och-sammansättning i Azure Kognitiv sökning
 
@@ -37,15 +37,15 @@ Färdighetsuppsättningar har skapats i JSON. Du kan bygga komplexa färdighetsu
 ### <a name="enrichment-tree"></a>Anriknings träd
 
 För att Envision hur en färdigheter progressivt berikar ditt dokument, så börjar vi med vad dokumentet ser ut innan en berikning. Utmatningen av dokument sprickor är beroende av data källan och det angivna tolknings läget har valts. Detta är även läget för det dokument som [fält mappningar](search-indexer-field-mappings.md) kan käll innehåll från när data läggs till i sökindexet.
-![Kunskaps lager i Pipeline-diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Knowledge Store i pipeline-diagrammet ")
+![Kunskaps lager i Pipeline-diagram](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "Kunskaps lager i Pipeline-diagram")
 
 När ett dokument har berikats pipelinen visas det som ett träd med innehåll och tillhör ande berikare. Trädet instansieras som utdata från dokument sprickor. Formatet för anriknings träd möjliggör anriknings pipelinen för att bifoga metadata till till och med primitiva data typer, men det är inte ett giltigt JSON-objekt, men kan projiceras i ett giltigt JSON-format. I följande tabell visas en status för ett dokument som anges i pipelinen:
 
-|Data Source\Parsing läge|Standard|JSON, JSON-linjer & CSV|
+|Data Source\Parsing läge|Default|JSON, JSON-linjer & CSV|
 |---|---|---|
-|Blob-lagring|/document/content<br>/Document/normalized_images/*<br>...|/document/{key1}<br>/document/{key2}<br>...|
-|SQL|/document/{column1}<br>/document/{column2}<br>...|Gäller inte |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>...|Gäller inte|
+|Blob-lagring|/document/content<br>/Document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|Gäller inte |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|Gäller inte|
 
  När färdigheter körs lägger de till nya noder i det berikande trädet. Dessa nya noder kan sedan användas som indata för underordnade kunskaper, projicera till kunskaps lagret eller mappa till index fält. Berikningar är inte föränderligt: när de har skapats går det inte att redigera noder. När din färdighetsuppsättningar får mer komplexa, så kommer ditt anriknings träd, men inte alla noder i anriknings trädet behöver göra det till indexet eller kunskaps lagret. Du kan selektivt bevara endast en delmängd av anrikningerna i indexet eller kunskaps lagret.
 
@@ -56,7 +56,7 @@ För resten av det här dokumentet kommer vi att anta att vi arbetar med [hotell
 Varje färdighet kräver en kontext. En kontext fastställer:
 +   Antalet gånger som kompetensen körs, baserat på de valda noderna. Om du lägger till en ```/*``` i slutet av kontext värden av typen samling leder det till att den färdighet som anropas en gång för varje instans i samlingen skapas. 
 +   Var i anriknings trädet läggs färdighets utmatningarna till. Utdata läggs alltid till i trädet som underordnade noder till kontextnoden. 
-+   Figuren för indata. För samlingar med flera nivåer påverkar inställningen för att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett berikande träd med en lista över länder, var och en med en lista över stater som innehåller en lista över ZipCodes.
++   Figuren för indata. För samlingar med flera nivåer påverkar att ange kontexten till den överordnade samlingen formen på indata för kunskapen. Om du till exempel har ett berikande träd med en lista över länder, var och en med en lista över stater som innehåller en lista över ZipCodes.
 
 |Kontext|Indata|Inmatad form|Kompetens anrop|
 |---|---|---|---|
@@ -65,7 +65,7 @@ Varje färdighet kräver en kontext. En kontext fastställer:
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext` används endast i färdighets inmatning och [projektioner](knowledge-store-projection-overview.md). Den används för att skapa kapslade objekt på flera nivåer. Du kan behöva skapa en ny oject för att antingen skicka den som inmatad till en kunskap eller ett projekt i kunskaps lagret. Eftersom anriknings noder kanske inte är ett giltigt JSON-objekt i ett berikande träd och refrencing en nod i trädet bara returnerar det läget för noden när den skapades, med hjälp av användnings området som kunskaps inmatning eller projektioner, måste du skapa ett välformulerat JSON-objekt. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket skulle kräva flera kunskaper om du bara använde kontexten. Om du använder `sourceContext` visas nästa avsnitt. Titta på de kunskaps utdata som genererade en anrikning för att avgöra om det är ett giltigt JSON-objekt och inte en primitiv typ.
+`sourceContext` används endast i färdighets inmatning och [projektioner](knowledge-store-projection-overview.md). Den används för att skapa kapslade objekt på flera nivåer. Du kan behöva skapa ett nytt objekt för att antingen skicka det som inmatat till en kunskap eller ett projekt i kunskaps lagret. Eftersom anriknings noder kanske inte är ett giltigt JSON-objekt i ett berikande träd och som refererar till en nod i trädet, returnerar bara det läget för noden när den skapades, med hjälp av användnings området som kunskaps inmatning eller projektioner, vilket innebär att du kan skapa ett välformulerat JSON-objekt. Med `sourceContext` kan du skapa ett hierarkiskt, anonymt typ objekt, vilket skulle kräva flera kunskaper om du bara använde kontexten. Om du använder `sourceContext` visas nästa avsnitt. Titta på de kunskaps utdata som genererade en anrikning för att avgöra om det är ett giltigt JSON-objekt och inte en primitiv typ.
 
 ### <a name="projections"></a>Projektioner
 
@@ -100,7 +100,7 @@ Rotnoden för alla berikningar är `"/document"`. När du arbetar med BLOB-index
 
 ### <a name="skill-2-language-detection"></a>Identifiering av kunskaps #2 språk
  Även om språket för språk identifiering är den tredje kunskaps #3s kompetensen som definierats i färdigheter, är det nästa färdighet att köra. Eftersom den inte blockeras genom att kräva några indata körs den parallellt med den tidigare kunskapen. Precis som den delade kunskapen som föregår den, anropas även språk identifierings kunskapen en gång för varje dokument. Ditt anriknings träd har nu en ny nod för språk.
- ![anriknings träd efter färdighets #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Enrikare träd efter det att kunskaps #2 körts ")
+ ![anriknings träd efter färdighets #2](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "Anriknings träd efter att kunskaps #2 körts")
  
  ### <a name="skill-3-key-phrases-skill"></a>Kompetens #3: kompetens för nyckel fraser 
 

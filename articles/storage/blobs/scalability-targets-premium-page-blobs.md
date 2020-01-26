@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 39153b05b16395cf2dfc0511efa601d1cc4da550
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749704"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756257"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>Skalbarhets-och prestanda mål för Premium Page Blob Storage-konton
 
@@ -31,7 +31,7 @@ Premium Page Blob Storage-konton har följande skalbarhets mål:
 
 | Total konto kapacitet                            | Total bandbredd för lokalt redundant lagrings konto                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| Disk kapacitet: 35 TB <br>Ögonblicks bild kapacitet: 10 TB | Upp till 50 gigabit per sekund för inkommande<sup>1</sup> + utgående<sup>2</sup> |
+| Disk kapacitet: 4 TB (enskild disk)/35 TB (totalt antal diskar) <br>Ögonblicks bild kapacitet: 10 TB | Upp till 50 gigabit per sekund för inkommande<sup>1</sup> + utgående<sup>2</sup> |
 
 <sup>1</sup> alla data (begär Anden) som skickas till ett lagrings konto
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 803c82c9926c3b75545b42a9a382fd5c327b7151
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c14bebca775345ab478228f42d9b8416dd223032
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289092"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756202"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: vanliga frågor och svar
 
@@ -39,7 +39,7 @@ I en Azure AD-klient är det användare som tillhör klient inloggningen med en 
 
 I en Azure AD B2C klient vill de flesta appar att användaren loggar in med valfri e-postadress (till exempel joe@comcast.net, bob@gmail.com, sarah@contoso.comeller jim@live.com). Den här typen av konto är ett lokalt konto. Vi stöder också godtyckliga användar namn som lokala konton (till exempel Johan, Robert, Sarah eller Jim). Du kan välja en av dessa två lokala konto typer när du konfigurerar identitets leverantörer för Azure AD B2C i Azure Portal. I Azure AD B2C klient väljer du **identitets leverantörer**, väljer **lokalt konto**och väljer sedan **användar namn**.
 
-Användar konton för program måste alltid skapas via ett registrerings-eller inloggnings användar flöde eller med hjälp av Azure AD-Graph API. Användar konton som skapas i Azure Portal används bara för att administrera klient organisationen.
+Användar konton för program kan skapas via ett registrerings användar flöde, inloggnings-eller inloggnings användar flöde, Microsoft Graph-API eller i Azure Portal.
 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>Vilka leverantörer av sociala identitet stöder du nu? Vilka planerar du att stödja i framtiden?
 
@@ -77,7 +77,7 @@ Du kan använda [funktionen företags anpassning](../active-directory/fundamenta
 E-postsignaturen innehåller Azure AD B2C klientens namn som du angav när du först skapade Azure AD B2C klienten. Du kan ändra namnet med hjälp av följande anvisningar:
 
 1. Logga in på [Azure Portal](https://portal.azure.com/) som global administratör.
-1. Öppna **Azure Active Directory**-bladet.
+1. Öppna bladet **Azure Active Directory** .
 1. Klicka på den **egenskaper** fliken.
 1. Ändra fältet **namn** .
 1. Klicka på **Spara** längst upp på sidan.
@@ -150,7 +150,7 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Under **Hantera**väljer du **användar inställningar**.
 1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
-1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
+1. Under **åtkomst hantering för Azure-resurser**väljer du **Ja**och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.
@@ -170,7 +170,7 @@ Du kan använda den aktuella **program** upplevelsen eller vår nya enhetliga **
 1. Under **Hantera**väljer du **användar inställningar**.
 1. Om det är tillgängligt väljer du **Nej**under **LinkedIn-konto anslutningar**och väljer sedan **Spara**.
 1. Under **Hantera**, väljer du **Egenskaper**
-1. Under **Åtkomsthantering för Azure-resurser** väljer du **Ja** och väljer sedan **Spara**.
+1. Under **åtkomst hantering för Azure-resurser**väljer du **Ja**och väljer sedan **Spara**.
 1. Logga ut från Azure Portal och logga sedan in igen för att uppdatera åtkomsten.
 1. Välj **Azure Active Directory** på menyn till vänster.
 1. På sidan **Översikt** väljer du **ta bort katalog**. Slutför processen genom att följa anvisningarna på skärmen.

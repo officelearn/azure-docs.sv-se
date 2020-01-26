@@ -2,13 +2,13 @@
 title: Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare | Microsoft Docs
 description: I den här artikeln beskrivs hur du kan konfigurera Azure Monitor för behållare för att övervaka Kubernetes-kluster som finns på Azure Stack eller annan miljö.
 ms.topic: conceptual
-ms.date: 12/04/2019
-ms.openlocfilehash: d6218550f4b5a3a59b4addc69b19ff11e282d45a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/24/2020
+ms.openlocfilehash: 7796cc7300f34a7a412495754c083b112ba05041
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977740"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759900"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Konfigurera hybrid Kubernetes-kluster med Azure Monitor för behållare
 
@@ -39,7 +39,7 @@ Innan du börjar bör du kontrollera att du har följande:
     |*.blob.core.windows.net |Port 443 |  
     |*. dc.services.visualstudio.com |Port 443 |
 
-* Agenten för behållare kräver `cAdvisor port: 10255` öppnas på alla noder i klustret för att samla in prestanda mått.
+* Den behållare som har behållar agenten kräver Kubelet `cAdvisor secure port: 10250` eller `unsecure port :10255` för att kunna öppnas på alla noder i klustret för att samla in prestanda mått. Vi rekommenderar att du konfigurerar `secure port: 10250` på Kubelet-cAdvisor om det inte redan har kon figurer ATS.
 
 * För container agenten krävs att följande miljövariabler anges i behållaren för att kunna kommunicera med Kubernetes-API-tjänsten i klustret för att samla in inventerings data `KUBERNETES_SERVICE_HOST` och `KUBERNETES_PORT_443_TCP_PORT`.
 
@@ -290,12 +290,12 @@ Om det uppstår ett fel vid försök att aktivera övervakning för ditt hybrid 
 * OmsAgent-tjänsten för hälso tillstånd körs
 * Log Analytics arbetsyte-ID och nyckel som kon figurer ATS på behållarens agent matchar i arbets ytan som insikten är konfigurerad med.
 * Verifiera att alla Linux Worker-noder har `kubernetes.io/role=agent` etikett för att schemalägga RS-pod. Lägg till den om den inte finns.
-* Verifiera `cAdvisor port: 10255` har öppnats på alla noder i klustret.
+* Verifiera `cAdvisor secure port:10250` eller `unsecure port: 10255` har öppnats på alla noder i klustret.
 
 Om du vill köra med Azure PowerShell använder du följande kommandon i mappen som innehåller skriptet:
 
 ```powershell
-.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile>
+.\TroubleshootError_nonAzureK8s.ps1 - azureLogAnalyticsWorkspaceResourceId </subscriptions/<subscriptionId>/resourceGroups/<resourcegroupName>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName> -kubeConfig <kubeConfigFile> -clusterContextInKubeconfig <clusterContext>
 ```
 
 ## <a name="next-steps"></a>Nästa steg

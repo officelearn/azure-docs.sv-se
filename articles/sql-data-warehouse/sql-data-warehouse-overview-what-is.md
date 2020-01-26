@@ -10,16 +10,16 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 07bf3070e42af8a03ce1fd7ea4445fc76557e8a3
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 40f779fa5545e0e9c8fd1aa2cc2689b29dffdb82
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645519"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760767"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Vad är Azure Synapse Analytics (tidigare SQL DW)?
 
-Azure Synapse är en obegränsad analys tjänst som sammanför företags data lager hantering och stor data analys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen server utan på begäran eller etablerade resurser – i stor skala. Azure Synapse kombinerar de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov
+Azure Synapse är en obegränsad analystjänst som sammanför informationslager i företagsklass och stordataanalys. Det ger dig friheten att fråga efter data på dina villkor, med hjälp av antingen serverlösa resurser på begäran eller etablerade resurser – i stor skala. Azure Synapse kombinerar de här två världar tillsammans med en enhetlig upplevelse för att mata in, förbereda, hantera och hantera data för omedelbara BI-och maskin inlärnings behov
 
 Azure-Synapse har fyra komponenter:
 - SQL Analytics: fullständig T-SQL-baserad analys – allmänt tillgänglig
@@ -54,43 +54,14 @@ Analysresultaten kan skickas till globala rapporteringsdatabaser eller program. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Utforska [Azure Synapse-arkitekturen](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture)
+- Utforska [Azure Synapse-arkitekturen](massively-parallel-processing-mpp-architecture.md)
 - [Skapa snabbt en SQL-pool](create-data-warehouse-portal.md)
-- [Läs in exempel data][load sample data].
-- Utforska [videor](/azure/sql-data-warehouse/sql-data-warehouse-videos)
+- [Läs in exempel data](sql-data-warehouse-load-sample-databases.md).
+- Utforska [videor](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
 
 Eller titta på några av de andra Azure Synapse-resurserna.  
-* Sök efter [Bloggar]
-* Skicka en [Funktionsbegäranden]
-* Sök efter [Customer Advisory Team-bloggar]
-* [Skapa ett supportärende]
-* Sök i [MSDN-forum]
-* Sök [Stack Overflow-forum]
-
-
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
-
-<!--Article references-->
-[Skapa ett supportärende]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a data warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[Azure Synapse Analytics solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Bloggar]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team-bloggar]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Funktionsbegäranden]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN-forum]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow-forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for Azure Synapse Analytics]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/
+* Sök efter [Bloggar](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+* Skicka en [funktions förfrågan](https://feedback.azure.com/forums/307516-sql-data-warehouse)
+* [Skapa ett supportärende](sql-data-warehouse-get-started-create-support-ticket.md)
+* Sök i [MSDN-forumet](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse)
+* Sök [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

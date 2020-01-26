@@ -1,6 +1,6 @@
 ---
-title: Köra en avbildnings fabrik från Azure DevOps i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du skapar en anpassad avbildnings fabrik i Azure DevTest Labs.
+title: Köra en avbildnings fabrik från Azure DevOps i Azure DevTest Labs
+description: Den här artikeln beskriver alla förberedelser som behövs för att köra avbildnings fabriken från Azure DevOps (tidigare Visual Studio Team Services).
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: bb67f765684c77ed5f8527226bef578e450579e0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638960"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758690"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Köra en avbildningsfabrik från Azure DevOps
 Den här artikeln beskriver alla förberedelser som behövs för att köra avbildnings fabriken från Azure DevOps (tidigare Visual Studio Team Services).
@@ -32,7 +32,7 @@ Det första steget i att konfigurera avbildnings fabriken är att skapa ett labb
 Nästa steg i att anta avbildnings fabriken för ditt team är att förstå vad som är tillgängligt. Avbildnings fabriks skripten och mallarna är tillgängliga offentligt i [DevTest Labs GitHub lagrings platsen](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory). Här är en disposition av delarna:
 
 - Avbildnings fabrik. Det är rotmappen.
-    - Konfiguration Indata till avbildnings fabriken
+    - Inställningarna. Indata till avbildnings fabriken
         - GoldenImages. Den här mappen innehåller JSON-filer som representerar definitionerna för anpassade avbildningar.
         - Labb. JSON. Fil där team registrerar sig för att ta emot vissa anpassade avbildningar.
 - Alfabet. Avbildnings fabrikens motor.
@@ -78,7 +78,7 @@ Nu har du källfiler lagrade i en git-lagrings platsen i Azure DevOps. Nu måste
 För att förenkla kommando rads parametrarna kapslar du in de nyckel värden som driver avbildnings fabriken till en uppsättning med build-variabler. Välj fliken **variabler** så visas en lista över flera standardvariabler. Här är listan med variabler som du kan ange i Azure-DevOps:
 
 
-| Variabelnamn | Värde | Anteckningar |
+| Variabel namn | Värde | Anteckningar |
 | ------------- | ----- | ----- |
 | ConfigurationLocation | /Scripts/ImageFactory/Configuration | Detta är den fullständiga sökvägen i lagrings platsen till mappen **konfiguration** . Om du har importerat hela lagrings platsen ovan är värdet till vänster rätt. Uppdatera annars så att den pekar på konfigurations platsen. |
 | DevTestLabName | MyImageFactory | Namnet på labbet i Azure DevTest Labs används som fabrik för att skapa avbildningar. Om du inte har ett kan du skapa en. Se till att labbet finns i samma prenumeration som tjänst slut punkten har åtkomst till. |
@@ -106,7 +106,7 @@ Det snabbaste sättet att konfigurera ett huvud namn för tjänsten är att låt
 2. För **Anslutnings typ för Azure**väljer du **Azure Resource Manager**.
 3. Välj länken **Hantera** för att konfigurera tjänstens huvud namn.
 
-Se det här [blogginlägget](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) för mer information. När du väljer länken **Hantera** hamnar du på rätt plats i DevOps (andra skärm bilden i blogg inlägget) för att konfigurera anslutningen till Azure. Se till att välja **Azure Resource Manager tjänst slut punkt** när du konfigurerar den här inställningen.
+Mer information finns i det här [blogg inlägget](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). När du väljer länken **Hantera** hamnar du på rätt plats i DevOps (andra skärm bilden i blogg inlägget) för att konfigurera anslutningen till Azure. Se till att välja **Azure Resource Manager tjänst slut punkt** när du konfigurerar den här inställningen.
 
 ## <a name="complete-the-build-task"></a>Slutför Bygg aktiviteten
 Om du väljer build-uppgiften visas all information i den högra rutan som ska fyllas i.

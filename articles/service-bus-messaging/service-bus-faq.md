@@ -1,22 +1,22 @@
 ---
 title: Azure Service Bus vanliga frågor och svar (FAQ) | Microsoft Docs
-description: Svar på några vanliga frågor om Azure Service Bus.
+description: Den här artikeln innehåller svar på några vanliga frågor och svar om Azure Service Bus.
 services: service-bus-messaging
 author: axisc
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352877"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760257"
 ---
-# <a name="service-bus-faq"></a>Vanliga frågor och svar om Service Bus
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Service Bus
 
 I den här artikeln beskrivs några vanliga frågor om Microsoft Azure Service Bus. Du kan också besöka [vanliga frågor och svar om Azure-support](https://azure.microsoft.com/support/faq/) för allmän pris information och supportinformation för Azure.
 

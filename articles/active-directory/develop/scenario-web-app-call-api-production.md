@@ -1,6 +1,6 @@
 ---
-title: 'Flytta webb program som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
-description: 'Lär dig hur du flyttar en webbapp som anropar webb-API: er till produktion.'
+title: 'Flytta till produktion a-webbapp som anropar webb-API: er – Microsoft Identity Platform | Azure'
+description: 'Lär dig hur du flyttar till produktion a Web App som anropar webb-API: er.'
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,28 +14,28 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 439b7e07b2e2aa77afd027fa57cc6f7705626d81
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b1307df8f6dfb0457719b13c9e5cd0bf28660caa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701645"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758961"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>Webbapp som anropar webb-API: er – flytta till produktion
+# <a name="a-web-app-that-calls-web-apis-move-to-production"></a>En webbapp som anropar webb-API: er: flytta till produktion
 
 Nu när du vet hur du kan hämta en token för att anropa webb-API: er, lär du dig hur du flyttar till produktion.
 
-[!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
+[!INCLUDE [Common steps to move to production](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer genom att prova den fullständiga självstudien om ASP.NET Core Web Apps, som visar:
+Lär dig mer genom att testa den fullständiga och stegvisa självstudien för ASP.NET Core Web Apps. Självstudien:
 
-- Logga in användare med flera mål grupper, nationella moln eller med sociala identiteter
-- Anrop Microsoft Graph
-- Anropar flera Microsoft API: er
-- Hanterar stegvist tillstånd
-- Anropar ditt eget webb-API
+- Visar hur du loggar in användare i på flera mål grupper eller till nationella moln, eller genom att använda sociala identiteter.
+- Anropar Microsoft Graph.
+- Anropar flera Microsoft API: er.
+- Hanterar stegvist godkännande.
+- Anropar ditt eget webb-API.
 
 > [!div class="nextstepaction"]
 > [Själv studie kurs om ASP.NET Core Web Apps](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)

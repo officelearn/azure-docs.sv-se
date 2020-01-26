@@ -1,6 +1,6 @@
 ---
 title: Starta om en virtuell dator i ett labb i Azure DevTest Labs | Microsoft Docs
-description: Lär dig hur du startar om en virtuell dator i Azure DevTest Labs
+description: Den här artikeln innehåller steg för att snabbt och enkelt starta om virtuella datorer (VM) i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,48 +12,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 34c08a79abf6acb5ae8582ecd0743a890d850fc8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 52d3b92909483a99eb82c86b727261bbeb5f8d46
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60864429"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760002"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Starta om en virtuell dator i ett labb i Azure DevTest Labs
-Du kan snabbt och starta om enkelt en virtuell dator i DevTest Labs genom att följa stegen i den här artikeln. Tänk på följande innan du startar om en virtuell dator:
+Du kan snabbt och enkelt starta om en virtuell dator i DevTest Labs genom att följa anvisningarna i den här artikeln. Tänk på följande innan du startar om en virtuell dator:
 
-- Den virtuella datorn måste köras för funktionen omstart är aktiverat.
-- Om en användare är ansluten till en aktiv virtuell dator när de utför en omstart, måste de återansluta till den virtuella datorn när den börjar säkerhetskopiera.
-- Om en artefakt som används när du startar om den virtuella datorn, får du en varning artefakten inte kanske tillämpas.
+- Den virtuella datorn måste vara igång för att funktionen restart ska vara aktive rad.
+- Om en användare är ansluten till en virtuell dator som körs när de utför en omstart måste de återansluta till den virtuella datorn när den har börjat säkerhetskopiera.
+- Om en artefakt används när du startar om den virtuella datorn visas en varning om att artefakten kanske inte tillämpas.
 
-    ![Varning när du startar om när artefakter](./media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png)
+    ![Varning vid omstart när artefakter tillämpas](./media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png)
 
 
    > [!NOTE]
-   > Om den virtuella datorn har stoppats samtidigt som du använder en artefakt kan använda du funktionen omstart av virtuell dator som ett potentiella sätt att lösa problemet.
+   > Om den virtuella datorn har stoppats när du använder en artefakt kan du använda funktionen starta om virtuell dator som ett möjligt sätt att lösa problemet.
    >
    >
 
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Steg för att starta om en virtuell dator i ett labb i Azure DevTest Labs
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
-1. I listan över labbar Välj labb som innehåller den virtuella datorn som du vill starta om.
-1. I den vänstra panelen, väljer **Mina virtuella datorer**.
-1. Välj en aktiv virtuell dator från listan över virtuella datorer.
-1. Högst upp i fönstret för hantering av virtuell dator, Välj **starta om**.
+1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
+1. I listan med labb väljer du labbet som innehåller den virtuella dator som du vill starta om.
+1. I den vänstra panelen väljer du **mina Virtual Machines**.
+1. I listan över virtuella datorer väljer du en virtuell dator som körs.
+1. Överst i fönstret hantering av virtuell dator väljer du **starta om**.
 
-    ![Starta om VM-knappen](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
+    ![Knappen starta om virtuell dator](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
 
-1. Övervaka status för omstart genom att välja den **meddelanden** längst upp höger i fönstret.
+1. Övervaka statusen för omstarten genom att välja **aviserings** ikonen längst upp till höger i fönstret.
 
     ![Visa status för VM-omstart](./media/devtest-lab-restart-vm/devtest-lab-restart-notification.png)
 
-Du kan också starta om en aktiv virtuell dator genom att välja dess ellips (...) i listan över **Mina virtuella datorer**.
+Du kan också starta om en virtuell dator som körs genom att välja dess ellips (...) i listan med **mina Virtual Machines**.
 
-![Starta om virtuell dator via ellipserna](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
+![Starta om den virtuella datorn via ellipser](./media/devtest-lab-restart-vm/devtest-lab-restart-elipses.png)
 
 ## <a name="next-steps"></a>Nästa steg
-* När den startas om, du kan återansluta till den virtuella datorn genom att välja **Connect** på i hanteringsfönstret av dess.
-* Utforska den [DevTest Labs Azure Resource Manager-mall snabbstartsgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)
+* När den har startats om kan du återansluta till den virtuella datorn genom att välja **Anslut** i fönstret hantering.
+* Utforska [DevTest Labs Azure Resource Manager snabb start Template Gallery](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates)

@@ -11,12 +11,12 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bf092b5b6c6eb88b565a940de56d614426e34d8e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692507"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759609"
 ---
 # <a name="user-defined-restore-points"></a>Användardefinierade återställnings punkter
 
@@ -24,9 +24,9 @@ I den här artikeln får du lära dig att skapa en ny användardefinierad åters
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Skapa användardefinierade återställnings punkter via PowerShell
 
-Om du vill skapa en användardefinierad återställnings punkt använder du PowerShell-cmdleten [New-AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] .
+Om du vill skapa en användardefinierad återställnings punkt använder du PowerShell-cmdleten [New-AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0) .
 
-1. Innan du börjar ska du se till att [installera Azure PowerShell][Install Azure PowerShell].
+1. Innan du börjar ska du se till att [installera Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 2. Öppna PowerShell.
 3. Anslut till ditt Azure-konto och lista alla prenumerationer som är kopplade till ditt konto.
 4. Välj den prenumeration som innehåller den databas som ska återställas.
@@ -60,7 +60,7 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 Användardefinierade återställnings punkter kan också skapas via Azure Portal.
 
-1. Logga in på ditt [Azure Portal][Azure portal] -konto.
+1. Logga in på ditt [Azure Portal](https://portal.azure.com/) -konto.
 
 2. Navigera till SQL Data Warehouse som du vill skapa en återställnings punkt för.
 
@@ -74,28 +74,7 @@ Användardefinierade återställnings punkter kan också skapas via Azure Portal
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Återställa ett befintligt informations lager][Restore an existing data warehouse]
-- [Återställa ett borttaget informations lager][Restore a deleted data warehouse]
-- [Återställa från ett informations lager för geo-säkerhetskopiering][Restore from a geo-backup data warehouse]
+- [Återställa ett befintligt informations lager](sql-data-warehouse-restore-active-paused-dw.md)
+- [Återställa ett borttaget informations lager](sql-data-warehouse-restore-deleted-dw.md)
+- [Återställa från ett informations lager för geo-säkerhetskopiering](sql-data-warehouse-restore-from-geo-backup.md)
 
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[PowerShelldoc]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-<!--MSDN references-->
-[New-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

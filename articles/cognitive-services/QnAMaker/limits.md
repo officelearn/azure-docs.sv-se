@@ -1,22 +1,14 @@
 ---
 title: Begränsningar och gränser – QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker har meta-gränser för delar av knowledge base och tjänsten. Det är viktigt att hålla din kunskapsbas inom de här gränserna för att testa och publicera.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/10/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381128"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760240"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker kunskapsbas begränsningar och gränser
 
@@ -33,6 +25,15 @@ Det maximala antalet kunskaps baser baseras på [gränserna för Azure kognitiv 
  Om din nivå till exempel har 15 tillåtna index, kan du publicera 14 kunskaps banker (1 index per publicerad kunskaps bas). Det femtonde indexet `testkb`används för alla kunskaps banker för redigering och testning.
 
 ## <a name="extraction-limits"></a>Extrahering av gränser
+
+### <a name="file-naming-constraints"></a>Begränsningar för fil namn givning
+
+Fil namn får inte innehålla följande tecken:
+
+|Använd inte Character|
+|--|
+|Enkelt citat `'`|
+|Dubbel citat `"`|
 
 ### <a name="maximum-file-size"></a>Maximal filstorlek
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus förfallo datum för meddelande | Microsoft Docs
-description: Förfallo tid och tid för att leva Azure Service Bus meddelanden
+title: Azure Service Bus-förfallo datum för meddelande
+description: I den här artikeln beskrivs förfallo datum och tid för Azure Service Bus meddelanden. Efter en sådan deadline levereras meddelandet inte längre.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 109ecc671b43365c433a626ff8d9fe55a5a626b5
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: e86c92fa1cfb13929d5617502224f479709efdd3
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310298"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756342"
 ---
 # <a name="message-expiration-time-to-live"></a>Förfallodatum för meddelanden (Time to Live)
 
@@ -26,7 +26,7 @@ Nytto lasten i ett meddelande, eller ett kommando eller en fråga om att ett med
 
 För utvecklings-och test miljöer där köer och ämnen ofta används i samband med delvis körning av program eller program delar, är det också önskvärt att insamlade test meddelanden automatiskt kan samlas in så att nästa test körning kan Starta rensning.
 
-Förfallo datum för enskilda meddelanden kan styras genom att ange system egenskapen [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , som anger en relativ varaktighet. Förfallo datumet blir en absolut omedelbarhet när meddelandet är i kö i entiteten. Vid detta tillfälle tar egenskapen [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) med värdet [(**EnqueuedTimeUtc**](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [**TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). TTL-inställningen (Time-to-Live) på ett Service Broker-meddelande är inte tvingande när det inte finns några klienter aktivt som lyssnar.
+Förfallo datum för enskilda meddelanden kan styras genom att ange system egenskapen [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) , som anger en relativ varaktighet. Förfallo datumet blir en absolut omedelbarhet när meddelandet är i kö i entiteten. Vid detta tillfälle tar egenskapen [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc) med värdet [(**EnqueuedTimeUtc** ](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.enqueuedtimeutc#Microsoft_ServiceBus_Messaging_BrokeredMessage_EnqueuedTimeUtc) + [ **TimeToLive**)](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive). TTL-inställningen (Time-to-Live) på ett Service Broker-meddelande är inte tvingande när det inte finns några klienter aktivt som lyssnar.
 
 Tidigare **ExpiresAtUtc** -meddelanden blir inkompatibla för hämtning. Förfallo tiden påverkar inte meddelanden som för närvarande är låsta för leverans. dessa meddelanden hanteras fortfarande som vanligt. Om låset går ut eller meddelandet överges, börjar giltighets tiden att gälla omedelbart.
 
@@ -45,7 +45,7 @@ Förfallna meddelanden kan alternativt flyttas till en [kö för obeställbara](
 
 I det fall då meddelandet skyddas från förfallo datum under lås och om flaggan har angetts för entiteten, flyttas meddelandet till kön för obeställbara meddelanden när låset överges eller upphör att gälla. Det flyttas dock inte om meddelandet har kvittats, vilket förutsätter att programmet har hanterat det, trots det nominella förfallo datumet.
 
-Kombinationen av [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) och automatisk (och transaktionell) obeställbara meddelanden vid förfallo datum är ett värdefullt verktyg för att fastställa om ett jobb har tilldelats en hanterare eller en grupp med hanterare under en tids gräns hämtas för bearbetning som tids gräns har nåtts.
+Kombinationen av [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) och automatisk (och transaktionell) obeställbara meddelanden vid förfallo datum är ett värdefullt verktyg för att fastställa om ett jobb har tilldelats en hanterare eller en grupp med hanterare under en tids gräns hämtas för bearbetning när tids gränsen nås.
 
 Anta till exempel att du har en webbplats som behöver köra jobb på ett tillförlitligt sätt på en begränsad Server del och som ibland upplever trafik toppar eller vill vara isolerad mot tillgänglighets avsnitt i den server delen. I det vanliga fallet skickar Server sidans hanterare för de inskickade användar data informationen till en kö och därefter får du ett svar som bekräftar lyckad hantering av transaktionen i en svarskö. Om det finns en trafik ökning och Server dels hanteraren inte kan bearbeta sina efter släpning-objekt i tid, returneras de utgångna jobben i kön för obeställbara meddelanden. Den interaktiva användaren kan meddelas att den begärda åtgärden tar lite längre tid än vanligt, och begäran kan sedan placeras i en annan kö för en bearbetnings väg där det slutliga bearbetnings resultatet skickas till användaren via e-post. 
 

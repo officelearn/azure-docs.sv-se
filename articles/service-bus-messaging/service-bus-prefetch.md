@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-meddelanden prefetch | Microsoft Docs
-description: Förbättra prestanda genom förhämtar, Azure Service Bus-meddelanden.
+title: Azure Service Bus för hämtnings meddelanden | Microsoft Docs
+description: Förbättra prestanda genom att för hämtning Azure Service Bus meddelanden. Meddelanden är lätt att komma åt för lokal hämtning innan program begärs.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,52 +11,52 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c63e6bf66e4832a1a5b0b5e6fc3dfbbf02d1e490
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125856"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760665"
 ---
-# <a name="prefetch-azure-service-bus-messages"></a>Förhämtning av Azure Service Bus-meddelanden
+# <a name="prefetch-azure-service-bus-messages"></a>För hämtning Azure Service Bus meddelanden
 
-När *Prefetch* har aktiverats i någon av de officiella Service Bus-klienterna, mottagaren tyst skaffar fler meddelanden, upp till den [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) gränsen, utöver vad programmet först bad om.
+När för *hämtning* har Aktiver ATS i någon av de officiella Service Bus-klienterna, erhåller mottagaren tyst fler meddelanden, upp till [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) -gränsen, utöver det program som ursprungligen begärdes.
 
-En enda initial [Receive](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive) eller [ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) anrop därför får ett meddelande för omedelbar konsumtion som returneras så snart som tillgängliga. Klienten erhåller sedan ytterligare meddelanden i bakgrunden, fylla prefetch bufferten.
+Ett enda första [Receive](/dotnet/api/microsoft.servicebus.messaging.queueclient.receive) -eller [ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) -anrop hämtar därför ett meddelande för omedelbar konsumtion som returneras så snart som möjligt. Klienten hämtar sedan ytterligare meddelanden i bakgrunden för att fylla i för hämtnings bufferten.
 
-## <a name="enable-prefetch"></a>Aktivera prefetch
+## <a name="enable-prefetch"></a>Aktivera för hämtning
 
-Med .NET och aktivera Prefetch funktionen genom att ange den [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) egenskapen för en **MessageReceiver**, **QueueClient**, eller **SubscriptionClient**  till ett tal som är större än noll. Ställer in värdet på noll stänger av prefetch.
+Med .NET aktiverar du för hämtnings funktionen genom att ange egenskapen [PrefetchCount](/dotnet/api/microsoft.azure.servicebus.queueclient.prefetchcount#Microsoft_Azure_ServiceBus_QueueClient_PrefetchCount) för en **MessageReceiver**, **QueueClient**eller **SubscriptionClient** till ett tal som är större än noll. Om du anger värdet noll inaktive ras för hämtning.
 
-Du kan enkelt lägga till den här inställningen i mottagarsidan av den [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) eller [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) exempel inställningar för att se effekten i dessa sammanhang.
+Du kan enkelt lägga till den här inställningen till mottagnings sidan av inställningarna för [QueuesGettingStarted](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/QueuesGettingStarted) eller [ReceiveLoop](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/ReceiveLoop) -exempel för att se effekterna i dessa sammanhang.
 
-Även om det finns meddelanden i prefetch buffert all efterföljande **Receive**/**ReceiveAsync** anrop uppfylls direkt från bufferten och bufferten fylls på i den Background som utrymme. Om det finns inga meddelanden för leverans, tömmer Mottagningsåtgärden den buffert och väntar eller block som förväntat.
+Även om meddelanden är tillgängliga i prefetch-bufferten uppfylls **alla efterföljande/** **ReceiveAsync** -anrop direkt från bufferten och bufferten fylls i i bakgrunden när utrymmet blir tillgängligt. Om det inte finns några meddelanden tillgängliga för leverans tömmer Receive-åtgärden bufferten och väntar sedan eller blockerar dem som förväntat.
 
-Prefetch fungerar på samma sätt som med den [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) och [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync) API: er.
+För hämtning fungerar också på samma sätt med API: erna [motringningen OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage) och [OnMessageAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessageasync) .
 
-## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Om det är snabbare, varför är Prefetch inte standardalternativet?
+## <a name="if-it-is-faster-why-is-prefetch-not-the-default-option"></a>Om det är snabbare, varför förhämtar du inte standard alternativet?
 
-Prefetch påskyndar meddelande flödet genom att ett meddelande som är tillgängliga för hämtning av lokala när och innan programmet begär en. Den här dataflöde vinst är resultatet av en kompromiss programförfattaren måste explicit se:
+För hämtning påskyndar meddelande flödet genom att ha ett meddelande som är lättillgängligt för lokal hämtning när och innan programmet begär ett. Den här data flödes vinsten är resultatet av en kompromiss som program författaren måste göra uttryckligen:
 
-Med den [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) mottagningsläge, alla meddelanden som är upptagna till prefetch-buffert är inte längre tillgängliga i kön och finns bara i InMemory-prefetch bufferten tills de tas emot i programmet via den **får**/**ReceiveAsync** eller **OnMessage**/**OnMessageAsync** API: er. Om programmet avslutas innan meddelanden tas emot i programmet, försvinner oåterkalleligt meddelandena.
+Med [ReceiveAndDelete](/dotnet/api/microsoft.servicebus.messaging.receivemode) Receive-läge är alla meddelanden som förvärvas i för hämtnings bufferten inte längre tillgängliga i kön, och endast finns i den förhämtade bufferten för InMemory-inhämtning tills de tas emot i programmet via API: erna **Receive**/**ReceiveAsync** eller **motringningen OnMessage**/**OnMessageAsync** . Om programmet avslutas innan meddelandena tas emot i programmet, försvinner dessa meddelanden oåterkalleligt.
 
-I den [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) mottagningsläge, meddelanden som hämtas till Prefetch buffert är upptagna till buffert i låst läge och har klockan timeout för lås ska. Om bearbetningen tar så lång tid meddelandet tiden upphör samtidigt som finns i bufferten prefetch eller även om programmet bearbetar meddelandet prefetch bufferten är stor, kan det finnas vissa förvirrande händelser för att programmet ska hantera.
+I [PeekLock](/dotnet/api/microsoft.servicebus.messaging.receivemode#Microsoft_ServiceBus_Messaging_ReceiveMode_PeekLock) Receive-läge, hämtas meddelanden som hämtats till den förhämtade bufferten i bufferten i låst tillstånd och tids gränsen för låset för lås skalning. Om för hämtnings bufferten är stor, och bearbetningen tar så lång att meddelandets lås upphör att gälla när den finns i prefetch-bufferten eller även om programmet bearbetar meddelandet, kan det finnas några förvirrande händelser som programmet kan hantera.
 
-Programmet kan hämta ett meddelande med ett lås som har upphört att gälla eller imminently upphör. I så, fall kan programmet bearbeta meddelandet, men sedan hitta att det går inte att slutföra på grund av ett lås upphör att gälla. Programmet kan kontrollera den [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) egenskapen (som omfattas av klockan skeva mellan broker och klockan för lokal dator). Om meddelandelåset har upphört att gälla, måste programmet ignorera meddelandet. Inga API-anrop eller med meddelandet ska göras. Om meddelandet inte har upphört att gälla men upphör att gälla är nära förestående, låset kan förnyas och utökas med ett annat Lås standardvärdet genom att anropa [meddelande. RenewLock()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
+Programmet kan hämta ett meddelande med ett utgånget eller överhäng ande lås. I så fall kan programmet bearbeta meddelandet, men det går inte att slutföra det på grund av ett låsnings förfallo datum. Programmet kan kontrol lera egenskapen [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) (som är beroende av klock skillnaden mellan Broker och den lokala datorns klocka). Om meddelande låset har upphört att gälla måste programmet Ignorera meddelandet. inget API-anrop på eller med meddelandet bör göras. Om meddelandet inte upphör att gälla men upphör att gälla, kan låset förnyas och utökas av en annan standard lås period genom att anropa [meddelandet. RenewLock ()](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_)
 
-Om låset tyst går ut i bufferten prefetch meddelandet behandlas som avbrutet och igen görs tillgänglig för hämtning från kön. Som kan orsaka det hämtas till prefetch buffert; placeras i slutet. Om prefetch bufferten vanligtvis att lista via under förfallodatum för meddelanden, detta medför att meddelanden ska upprepade gånger prefetched men aldrig effektivt levererade oanvändbar (Åtgärdsparametern låst) och slutligen flyttas till kön för obeställbara meddelanden när de Maximalt antal leveranser har överskridits.
+Om låset förfaller tyst i för hämtnings bufferten behandlas meddelandet som överlappande och görs tillgängligt för hämtning från kön. Det kan leda till att den hämtas till för hämtnings bufferten. placeras i slutet. Om för hämtnings bufferten vanligt vis inte kan bearbetas genom att meddelandet upphör att gälla, så orsakar det att meddelanden hämtas upprepade gånger, men inte faktiskt levererat i ett användbart (giltigt låst) tillstånd, och flyttas till sist till kön för obeställbara meddelanden när maximalt antal leveranser har överskridits.
 
-Om du behöver en hög grad av tillförlitlighet för meddelandehantering och bearbetningen tar betydande arbete och tid, rekommenderas att du använder funktionen prefetch var eller inte alls.
+Om du behöver en hög Tillförlitlighets nivå för meddelande bearbetning, och bearbetningen tar betydande arbete och tid, rekommenderar vi att du använder funktionen för för hämtning försiktigt eller inte alls.
 
-Om du behöver hög genomströmning och meddelandebehandling är ofta billiga, ger prefetch betydande prestandafördelarna.
+Om du behöver hög genom strömning och meddelande bearbetning ofta är billigt ger för hämtning avsevärda data flödes fördelar.
 
-Antalet maximala prefetch och varaktighet för lås som konfigurerats på kö eller prenumeration måste balanseras så att timeout för lås överskrider minst meddelandet ackumulerade förväntade bearbetningstid för den maximala storleken på bufferten prefetch plus ett meddelande. På samma gång, timeout för lås bör inte vara så lång att meddelanden kan överskrida sin högsta [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) när de av misstag ignoreras därför kräver sina lås på att gå ut innan som once.
+Det maximala antalet för hämtningar och den lås varaktighet som kon figurer ATS i kön eller prenumerationen måste bal anse ras så att tids gränsen för låset på minst överskrider den ackumulerade förväntade meddelande bearbetnings tiden för den maximala storleken på för hämtnings bara bufferten, plus ett meddelande. På samma gång bör tids gränsen för låset inte vara så lång att meddelanden får överskrida sina högsta [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) när de råkar släppas av misstag, vilket innebär att deras lås upphör att gälla innan den återlevereras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
+Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)

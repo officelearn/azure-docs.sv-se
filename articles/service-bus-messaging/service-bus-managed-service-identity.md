@@ -1,6 +1,6 @@
 ---
 title: Hanterade identiteter för Azure-resurser med Service Bus
-description: Använda hanterade identiteter för Azure-resurser med Azure Service Bus
+description: Den här artikeln beskriver hur du använder hanterade identiteter för att få åtkomst till Azure Service Bus entiteter (köer, ämnen och prenumerationer).
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/22/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 57c52640262854037420c1679804f611394230ef
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 89de6bf80d14ec77fe6b1f98b6e1d15c6e573fbe
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793152"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756291"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-azure-service-bus-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Azure Service Bus resurser
-[Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en funktion i Azure som gör att du kan skapa en säker identitet som är kopplad till den distribution som program koden körs under. Du kan sedan associera identiteten med åtkomst kontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som ditt program behöver.
+[Hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) är en över flera Azure-funktion som låter dig skapa en säker identitet som är kopplad till distributionen som programkoden körs under. Därefter kan du associera den identiteten med åtkomstkontroll roller som ger anpassade behörigheter för åtkomst till specifika Azure-resurser som programmet behöver.
 
-Med hanterade identiteter hanterar Azure-plattformen den här körnings identiteten. Du behöver inte lagra och skydda åtkomst nycklar i din program kod eller konfiguration, antingen för själva identiteten eller för de resurser som du behöver komma åt. En Service Bus-klient som körs i ett Azure App Service program eller på en virtuell dator med aktiverade hanterade entiteter för Azure-resurser behöver inte hantera SAS-regler och-nycklar eller andra åtkomsttoken. Klient programmet behöver bara slut punkts adressen för Service Bus meddelande namn rymden. När appen ansluter binder Service Bus den hanterade entitetens kontext till klienten i en åtgärd som visas i ett exempel senare i den här artikeln. När den är kopplad till en hanterad identitet kan din Service Bus-klient utföra alla behöriga åtgärder. Auktorisering beviljas genom att associera en hanterad entitet med Service Bus roller. 
+Med hanterade identiteter hanterar den här identiteten för körning i Azure-plattformen. Du behöver inte att lagra och skydda åtkomstnycklar i din programkod eller konfiguration för identiteten själva, eller för de resurser du behöver för att få åtkomst till. En Service Bus-klient som körs i ett Azure App Service program eller på en virtuell dator med aktiverade hanterade entiteter för Azure-resurser behöver inte hantera SAS-regler och-nycklar eller andra åtkomsttoken. Klient programmet behöver bara slut punkts adressen för Service Bus meddelande namn rymden. När appen ansluter binder Service Bus den hanterade entitetens kontext till klienten i en åtgärd som visas i ett exempel senare i den här artikeln. När den är kopplad till en hanterad identitet kan din Service Bus-klient utföra alla behöriga åtgärder. Auktorisering beviljas genom att associera en hanterad entitet med Service Bus roller. 
 
 ## <a name="overview"></a>Översikt
 När ett säkerhets objekt (en användare, grupp eller ett program) försöker få åtkomst till en Service Bus entitet måste begäran vara auktoriserad. Med Azure AD är åtkomst till en resurs en två stegs process. 
@@ -130,9 +130,9 @@ När du har tilldelat rollen får webb programmet åtkomst till Service Bus enti
 
 Sidan default. aspx är din landnings sida. Du hittar koden i Default.aspx.cs-filen. Resultatet är ett minimalt webb program med några fält och med knapparna **Skicka** och **ta emot** som ansluter till Service Bus för att antingen skicka eller ta emot meddelanden.
 
-Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -objektet initieras. I stället för att använda token Provider för delad åtkomst (SAS) skapar koden en token-Provider för den hanterade identiteten med `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` anropet. Det finns därför inga hemligheter att kvarhålla och använda. Flödet av den hanterade identitets kontexten till Service Bus och handskakningen för auktoriseringen hanteras automatiskt av token-providern. Det är en enklare modell än att använda SAS.
+Observera hur [MessagingFactory](/dotnet/api/microsoft.servicebus.messaging.messagingfactory) -objektet initieras. Istället för att använda den för delad åtkomst-Token (SAS)-Tokenleverantören koden skapar en tokenleverantör för den hanterade identitet med den `var msiTokenProvider = TokenProvider.CreateManagedIdentityTokenProvider();` anropa. Det finns därför inga hemligheter att kvarhålla och använda. Flödet av den hanterade identitets kontexten till Service Bus och handskakningen för auktoriseringen hanteras automatiskt av token-providern. Det är en enklare modell än att använda SAS.
 
-När du har gjort dessa ändringar ska du publicera och köra programmet. Du kan enkelt få rätt publicerings data genom att ladda ned och importera en publicerings profil i Visual Studio:
+När du har gjort dessa ändringar, publicera och köra programmet. Du kan enkelt få rätt publicerings data genom att ladda ned och importera en publicerings profil i Visual Studio:
 
 ![Hämta publicerings profil](./media/service-bus-managed-service-identity/msi3.png)
  

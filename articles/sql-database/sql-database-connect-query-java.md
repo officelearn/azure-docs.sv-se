@@ -1,5 +1,5 @@
 ---
-title: Använd Java för att fråga
+title: Använd Java för att fråga en databas
 description: Visar hur du använder Java för att skapa ett program som ansluter till en Azure SQL-databas och köra frågor mot den med hjälp av SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -11,43 +11,48 @@ ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
-ms.openlocfilehash: 6d4d9353e29a29b0cd6db7575e49a00a213355d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e23f7d165a09a3730019cd9e2d279a01d2fa1e49
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827049"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758520"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>Snabb start: Använd Java för att ansluta till och fråga en Azure SQL-databas
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>Snabbstart: Använda Java för att fråga en Azure SQL-databas
 
-Den här artikeln visar hur du använder [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
+I den här snabb starten använder du Java för att ansluta till en Azure SQL-databas och använder T-SQL-uttryck för att fråga efter data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra det här exemplet behöver du följande:
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
-
-  || Enskild databas | Hanterad instans |
-  |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
-  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
-  |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+- En [Azure SQL-databas](sql-database-single-database-get-started.md)
   
-  > [!IMPORTANT]
-  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
+- [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)-relaterad program vara
 
-- Java-relaterad programvara installerad för ditt operativsystem:
+  # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-  - **MacOS**, installera Homebrew och Java och sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+  Installera homebrew och Java och installera maven med steg **1,2** och **1,3** i [skapa Java-appar med hjälp av SQL Server på MacOS](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-  - **Ubuntu**, installera Java Development Kit och sedan Maven. Se [Steg 1.2, 1.3 och 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  - **Windows**, installera Java och sedan Maven. Se [Steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+  Installera Java, Java Development Kit och installera sedan maven med steg **1,2**, **1,3**och **1,4** i [skapa Java-appar med SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+
+  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  Installera Java och installera sedan maven med steg **1,2** och **1,3** i [skapa Java-appar med hjälp av SQL Server i Windows](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+
+  ---
+
+> [!IMPORTANT]
+> Skripten i den här artikeln är skrivna för att använda **Adventure Works** -databasen.
+
+> [!NOTE]
+> Alternativt kan du välja att använda en hanterad Azure SQL-instans.
+>
+> Om du vill skapa och konfigurera använder du [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)eller [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)och sedan installerar du anslutningar [på plats](sql-database-managed-instance-configure-p2s.md) eller [virtuell dator](sql-database-managed-instance-configure-vm.md) .
+>
+> Om du vill läsa in data, se [restore with BACPAC](sql-database-import.md) med [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) -filen, eller se [återställa Wide World imports-databasen](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
@@ -57,7 +62,7 @@ Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-da
 
 2. Välj **SQL-databaser** eller öppna sidan **SQL-hanterade instanser** .
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**. 
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**. 
 
 ## <a name="create-the-project"></a>Skapa projektet
 

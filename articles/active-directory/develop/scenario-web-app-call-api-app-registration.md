@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bcb4fa5eb5889698174b65eb576c9caf0c82f857
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5a57fcef3569734964bf6e8a41faa49800798f9b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701679"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759065"
 ---
-# <a name="web-app-that-calls-web-apis---app-registration"></a>Webbapp som anropar webb-API: er – app-registrering
+# <a name="a-web-app-that-calls-web-apis-app-registration"></a>En webbapp som anropar webb-API: app-registrering
 
-En webbapp som anropar webb-API: er har samma registrering som inloggnings användare för webbappar. Du måste därför följa instruktionerna i [webbappen som loggar in användare – app-registrering](scenario-web-app-sign-user-app-registration.md)
+En webbapp som anropar webb-API: er har samma registrering som en webbapp som loggar användare i. Följ sedan anvisningarna i [en webbapp som loggar in användare: app-registrering](scenario-web-app-sign-user-app-registration.md).
 
-Men eftersom webbappen nu anropar webb-API: er blir det ett konfidentiellt klient program. Det är därför en extra registrering krävs: den måste dela hemligheter (klientautentiseringsuppgifterna) med Microsoft Identity Platform.
+Men även om webbappen nu anropar webb-API: er blir det ett konfidentiellt klient program. Därför krävs en extra registrering. Appen måste dela klientautentiseringsuppgifterna, eller *hemligheter*, med Microsoft Identity Platform.
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>API-behörigheter
 
-Webb program anropar API: er åt den inloggade användaren. De måste begära delegerade behörigheter. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)
+Web Apps anropar API: er för den inloggade användaren. För att göra det måste de begära *delegerade behörigheter*. Mer information finns i [lägga till behörigheter för åtkomst till webb-API: er](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Appens kod konfiguration](scenario-web-app-call-api-app-configuration.md)
+> [En webbapp som anropar webb-API: er kod konfiguration](scenario-web-app-call-api-app-configuration.md)

@@ -1,6 +1,6 @@
 ---
 title: Skapa ett labb med Azure DevTest Labs | Microsoft Docs
-description: I snabbstarten skapar du ett labb med hjälp av Azure DevTest Labs.
+description: I den här självstudien skapar du ett labb i Azure DevTest Labs med hjälp av Azure Portal. En labb administratör konfigurerar ett labb, skapar virtuella datorer i labbet och konfigurerar principer.
 services: devtest-lab, lab-services, virtual-machines
 documentationcenter: na
 author: spelluru
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: aff92e8dd45fecc3fabd005e8921eda7add07fb4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44539c6779afaece6d955a907819ef82d8cd7d5a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61084809"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759541"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudier: Konfigurera ett labb med hjälp av Azure DevTest Labs
+# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Självstudie: Konfigurera ett labb med hjälp av Azure DevTest Labs
 I självstudien skapar du ett labb med hjälp av Azure Portal. En labbadministratör konfigurerar ett labb i en organisation, skapar virtuella datorer i labbet och konfigurerar principer. Labbanvändarna (till exempel utvecklare och testare) gör anspråk på de virtuella datorerna i labbet, ansluter till dem och använder dem. 
 
-I de här självstudierna gör du följande:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Skapa ett labb
@@ -36,7 +36,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="create-a-lab"></a>Skapa ett labb
 Följande steg illustrerar hur du använder Azure-portalen för att skapa ett labb i Azure DevTest Labs. 
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. I huvudmenyn på vänster sida väljer du **Skapa en resurs** (överst i listan), pekar på **Utvecklarverktyg** och klickar på **DevTest Labs**. 
 
     ![Menyn Nytt DevTest Lab](./media/tutorial-create-custom-lab/new-custom-lab-menu.png)
@@ -61,7 +61,7 @@ Följande steg illustrerar hur du använder Azure-portalen för att skapa ett la
 1. På sidan **DevTest Lab** väljer du **+ Lägg till** i verktygsfältet. 
 
     ![Knappen Lägg till](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. På sidan **Välj en bas** söker du med ett nyckelord (till exempel: Windows, Ubuntu) och väljer en av basavbildningarna i listan. 
+1. På sidan för att **välja en bas** kan du söka med ett nyckelord (till exempel Windows eller Ubuntu) och välja en av basavbildningarna i listan. 
 1. På sidan **Virtuell dator** gör du följande: 
     1. Som **Virtuellt datornamn** anger du ett namn på den virtuella datorn. 
     2. Som **Användarnamn** anger du namnet på den användare som har åtkomst till den virtuella datorn. 
@@ -113,5 +113,5 @@ I nästa självstudie visar vi hur en labbanvändare kan göra anspråk på och 
 I den här självstudien skapade du ett labb med en virtuell dator och gav en användare åtkomst till labbet. Mer information om hur du får åtkomst till labbet som en labbanvändare finns i nästa självstudie:
 
 > [!div class="nextstepaction"]
-> [Självstudie: Åtkomst till labbet](tutorial-use-custom-lab.md)
+> [Självstudie: Åtkomst till labb](tutorial-use-custom-lab.md)
 

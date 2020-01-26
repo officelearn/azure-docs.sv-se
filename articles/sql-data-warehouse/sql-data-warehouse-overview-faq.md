@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 9e64d184ef0fd120d1bc64ce274ee882b7938df0
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 1a4fbfa87756914f169bb20387702cac69d8736d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708650"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759490"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (tidigare SQL DW) vanliga frågor och svar
 
@@ -27,7 +27,7 @@ A. Azure Synapse är en obegränsad analys tjänst som samlar ihop data lager oc
 
 F. Vad hände med Azure SQL Data Warehouse?
 
-A. Azure Synapse är Azure SQL Data Warehouse (SQL DW) har utvecklats. Vi har tagit samma bransch ledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion idag med Azure Synapse och automatiskt dra nytta av de nya funktionerna som finns i för hands versionen. Mer information finns i, [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
+A. Azure Synapse är Azure SQL Data Warehouse (SQL DW) har utvecklats. Vi har tagit samma branschledande informations lager till en helt ny nivå av prestanda och kapacitet. Du kan fortsätta att köra dina befintliga arbets belastningar för data lager i produktion med Azure Synapse och automatiskt dra nytta av de nya funktionerna som finns i för hands versionen. Mer information finns i [Vad är Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 F. Vad är SQL Analytics?
 
@@ -39,11 +39,11 @@ A. Du kan komma igång med ett [kostnads fritt Azure-konto](https://azure.micros
 
 F. Vad erbjuder Azure Synapse för data säkerhet?
 
-A. Azure Synapse erbjuder flera lösningar för att skydda data, till exempel TDE och granskning. Mer information finns i [säkerhet].
+A. Azure Synapse erbjuder flera lösningar för att skydda data, till exempel TDE och granskning. Mer information finns i [säkerhet](sql-data-warehouse-overview-manage-security.md).
 
 F. Var kan jag ta reda på vilka juridiska eller affärs standarder som Azure Synapse är kompatibel med?
 
-A. Besök sidan [Microsoft Compliance] ) om du vill ha olika regelefterlevnad efter produkt som SOC och ISO. Börja med att välja efter rubrik för efterlevnad och expandera sedan Azure i avsnittet Microsoft-omfånget moln tjänster till höger på sidan för att se vilka tjänster som är kompatibla med Azure Synapse.
+A. Besök sidan [Microsoft Compliance (efterlevnad](https://www.microsoft.com/trustcenter/compliance/complianceofferings) ) om du vill ha olika regelefterlevnad efter produkt som SOC och ISO. Välj först efter rubrik för efterlevnad. Expandera sedan Azure i avsnittet moln tjänster för Microsoft i området till höger på sidan för att se vilka tjänster som är kompatibla med Azure Synapse.
 
 F. Kan jag ansluta Power BI?
 
@@ -51,48 +51,48 @@ A. Ja! Även om Power BI stöder direkt frågor med Azure Synapse är det inte a
 
 F. Vad är kapacitets gränser för SQL Analytics?
 
-A. Se vår aktuella [kapacitets begränsning] . 
+A. Se vår aktuella [kapacitets begränsning](sql-data-warehouse-service-capacity-limits.md) . 
 
 F. Varför tar min skala/pausa/återupptas så länge?
 
-A. En mängd olika faktorer kan påverka tiden för beräknings hanterings åtgärder. Ett vanligt fall för tids krävande åtgärder är transaktionell återställning. När en skalnings-eller paus åtgärd initieras blockeras alla inkommande sessioner och frågor töms. För att datorn ska vara i ett stabilt tillstånd måste transaktionerna återställas innan en åtgärd kan påbörjas. Ju större siffra och större logg storlek för transaktionerna, desto längre tid kommer åtgärden att stoppas för att återställa systemet till ett stabilt tillstånd.
+A. Flera faktorer kan påverka tiden för beräknings hanterings åtgärder. Ett vanligt fall för tids krävande åtgärder är transaktionell återställning. När en skalnings-eller paus åtgärd initieras blockeras alla inkommande sessioner och frågor töms. För att datorn ska vara i ett stabilt tillstånd måste transaktionerna återställas innan en åtgärd kan påbörjas. Ju större siffra och större logg storlek för transaktionerna, desto längre tid kommer åtgärden att stoppas för att återställa systemet till ett stabilt tillstånd.
 
 ## <a name="user-support"></a>Stöd för användare
 
 F. Jag har en funktions förfrågan, där jag skickar den?
 
-A. Om du har en funktions förfrågan skickar du den på vår [UserVoice] -sida
+A. Om du har en funktions förfrågan skickar du den på vår [UserVoice](https://feedback.azure.com/forums/307516-sql-data-warehouse) -sida
 
 F. Hur kan jag göra x?
 
-A. Om du vill ha hjälp med att utveckla med Azure Synapse kan du ställa frågor på vår [Stack Overflow] sida. 
+A. Om du vill ha hjälp med att utveckla med Azure Synapse kan du ställa frågor på vår [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-sqldw) sida. 
 
 F. Hur gör jag för att skicka ett support ärende?
 
-A. [Support biljetter] kan arkiveras via Azure Portal.
+A. [Support biljetter](sql-data-warehouse-get-started-create-support-ticket.md) kan arkiveras via Azure Portal.
 
 ## <a name="sql-languagefeature-support"></a>Stöd för SQL-språk/-funktioner 
 
 F. Vilka data typer stöds?
 
-A. Se [data typer].
+A. Se [data typer](sql-data-warehouse-tables-data-types.md).
 
 F. Vilka tabell funktioner stöder?
 
-A. Många funktioner stöds, de som inte stöds och dokumenteras i [Tabell funktioner som inte stöds]som inte stöds.
+A. Många funktioner stöds. Funktioner som inte stöds finns i [tabell funktioner som inte stöds](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="tooling-and-administration"></a>Verktyg och administration
 
 F. Stöder SQL Analytics REST-API: er?
 
-A. Ja. De flesta REST-funktioner som kan användas med SQL Database finns också i SQL Analytics. Du kan hitta API-information i REST-dokumentations sidor eller [MSDN].
+A. Ja. De flesta REST-funktioner som kan användas med SQL Database finns också i SQL Analytics. Du kan hitta API-information i REST-dokumentations sidor eller [MSDN](https://msdn.microsoft.com/library/azure/mt163685.aspx).
 
 
 ## <a name="loading"></a>Läser in
 
 F. Vilka klient driv rutiner stöder du?
 
-A. Driv rutins stöd för DW hittar du på sidan [Anslutningssträngar]
+A. Driv rutins stöd för SQL Analytics finns på sidan [anslutnings strängar](sql-data-warehouse-connection-strings.md)
 
 F: vilka fil format stöds av PolyBase?
 
@@ -100,7 +100,7 @@ A: Orc, RC, Parquet och Flat-avgränsad text
 
 F: vilka data källor kan jag ansluta till med PolyBase? 
 
-A: [Azure Data Lake Store] och [Azure Storage blobbar]
+A: [Azure Data Lake Storage](sql-data-warehouse-load-from-azure-data-lake-store.md) och [Azure Storage blobbar](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 
 F: är beräknings mottagnings möjlig vid anslutning till Azure Storage blobbar eller ADLS? 
 
@@ -111,21 +111,4 @@ F: kan jag ansluta till HDI?
 A: HDI kan använda antingen ADLS eller WASB som HDFS-skiktet. Om du har antingen ditt HDFS-lager kan du läsa in dessa data i SQL DW. Du kan dock inte generera mottagnings-beräkning till HDI-instansen. 
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Synapse som helhet finns på vår [Översikt] sida.
-
-
-<!-- Article references -->
-[UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Anslutningssträngar]: ./sql-data-warehouse-connection-strings.md
-[Stack Overflow]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Support biljetter]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Säkerhet]: ./sql-data-warehouse-overview-manage-security.md
-[Microsoft Compliance]: https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings
-[kapacitets begränsning]: ./sql-data-warehouse-service-capacity-limits.md
-[data typer]: ./sql-data-warehouse-tables-data-types.md
-[Tabell funktioner som inte stöds]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
-[Azure Storage blobbar]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
-[MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
-[Översikt]: ./sql-data-warehouse-overview-faq.md
+Mer information om Azure Synapse som helhet finns på vår [översikts](sql-data-warehouse-overview-faq.md) sida.

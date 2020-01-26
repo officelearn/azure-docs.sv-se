@@ -1,5 +1,5 @@
 ---
-title: En experimentell för inställning för innehålls medveten kodning – Azure | Microsoft Docs
+title: En för inställning för innehålls medveten kodning – Azure Media Services |
 description: Den här artikeln beskriver innehålls medveten kodning i Microsoft Azure Media Services v3.
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 34b4386d536a9845c8a48e7e54612548367b52bc
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933485"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759354"
 ---
-# <a name="experimental-preset-for-content-aware-encoding"></a>Experimentell för inställning för innehålls medveten kodning
+# <a name="a-preset-for-content-aware-encoding"></a>En för inställning för innehålls medveten kodning
 
 För att förbereda innehåll för leverans av [direkt uppspelning med anpassningsbar bit hastighet](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)måste video kodas med flera bit hastigheter (hög till låg). För att säkerställa en korrekt försämring av kvalitet, eftersom bit hastigheten sänks så är videons upplösning. Detta resulterar i en så kallad kodnings steg – en tabell över lösningar och bit hastigheter. Se Media Services [inbyggda kodnings för inställningar](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
 

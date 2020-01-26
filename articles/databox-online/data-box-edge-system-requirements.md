@@ -1,6 +1,6 @@
 ---
-title: Systemkrav för Microsoft Azure Data Box Edge | Microsoft Docs
-description: Läs mer om programvara och nätverkskrav för din Azure Data Box Edge
+title: Microsoft Azure Data Box Edge system krav | Microsoft Docs
+description: Läs om program-och nätverks kraven för din Azure Data Box Edge
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,23 +8,23 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756553"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757874"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge-systemkrav
+# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge system krav
 
-Den här artikeln beskriver viktiga systemkraven för din Microsoft Azure Data Box Edge-lösning och för klienter som ansluter till Azure Data Box Edge. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box-Edge. Du kan referera tillbaka till den här informationen som behövs under distributionen och efterföljande driften.
+I den här artikeln beskrivs viktiga system krav för din Microsoft Azure Data Box Edge-lösning och för klienter som ansluter till Azure Data Box Edge. Vi rekommenderar att du läser informationen noggrant innan du distribuerar din Data Box Edge. Du kan referera tillbaka till den här informationen vid behov under distributionen och efterföljande åtgärder.
 
-Systemkraven för Data Box Edge är:
+System kraven för Data Box Edge är:
 
-- **Programvarukrav för värdar** -beskriver plattformarna som stöds, webbläsare för den lokala konfigurationen Användargränssnittet, SMB-klienter och eventuella ytterligare krav för klienter som har åtkomst till enheten.
-- **Nätverkskrav för enheten** – innehåller information om alla nätverkskrav för driften av den fysiska enheten.
+- **Program varu krav för värdar** – beskriver plattformar som stöds, webbläsare för det lokala konfigurations gränssnittet, SMB-klienter och eventuella ytterligare krav för klienter som har åtkomst till enheten.
+- **Nätverks krav för enheten** – ger information om eventuella nätverks krav för den fysiska enhetens drift.
 
-## <a name="supported-os-for-clients-connected-to-device"></a>Operativsystem som stöds för klienter som är anslutna till enhet
+## <a name="supported-os-for-clients-connected-to-device"></a>Operativ system som stöds för klienter som är anslutna till enheten
 
 [!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-supported-client-os.md)]
 
@@ -32,7 +32,7 @@ Systemkraven för Data Box Edge är:
 
 [!INCLUDE [Supported protocols for clients accessing device](../../includes/data-box-edge-gateway-supported-client-protocols.md)]
 
-## <a name="supported-storage-accounts"></a>Stöds storage-konton
+## <a name="supported-storage-accounts"></a>Lagringskonton som stöds
 
 [!INCLUDE [Supported storage accounts](../../includes/data-box-edge-gateway-supported-storage-accounts.md)]
 
@@ -40,51 +40,51 @@ Systemkraven för Data Box Edge är:
 
 [!INCLUDE [Supported storage types](../../includes/data-box-edge-gateway-supported-storage-types.md)]
 
-## <a name="supported-browsers-for-local-web-ui"></a>Webbläsare som stöds för lokala webbgränssnittet
+## <a name="supported-browsers-for-local-web-ui"></a>Webbläsare som stöds för lokalt webb gränssnitt
 
 [!INCLUDE [Supported browsers for local web UI](../../includes/data-box-edge-gateway-supported-browsers.md)]
 
-## <a name="networking-port-requirements"></a>Port nätverkskrav
+## <a name="networking-port-requirements"></a>Krav för nätverks port
 
-### <a name="port-requirements-for-data-box-edge"></a>Krav på nätverksportar för Data Box Edge
+### <a name="port-requirements-for-data-box-edge"></a>Port krav för Data Box Edge
 
-I följande tabell visas de portar som måste öppnas i brandväggen att tillåta SMB, i molnet eller hanteringstrafik. I den här tabellen *i* eller *inkommande* avser riktningen från vilka inkommande begäranden för klientåtkomst till din enhet. *Ut* eller *utgående* refererar till den riktning som din Data Box Edge-enhet skickar data externt, utöver distributionen, till exempel utgående till internet.
+I följande tabell visas de portar som måste öppnas i brand väggen för att tillåta SMB-, moln-eller hanterings trafik. I den här tabellen avser *i* eller *inkommande* den riktning från vilken inkommande klient begär åtkomst till din enhet. *Out* eller *utgående* avser i vilken riktning din data Box Edge enhet skickar data externt, utöver distributionen, till exempel utgående till Internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
-### <a name="port-requirements-for-iot-edge"></a>Krav på nätverksportar för IoT Edge
+### <a name="port-requirements-for-iot-edge"></a>Port krav för IoT Edge
 
-Azure IoT Edge kan utgående kommunikation från en lokal Edge-enhet till Azure-molnet med IoT Hub-protokoll som stöds. Inkommande kommunikation är endast krävs för specifika scenarier där Azure IoT Hub måste push-teknik meddelanden för Azure IoT Edge-enhet (till exempel molnet till Device messaging).
+Azure IoT Edge tillåter utgående kommunikation från en lokal Edge-enhet till Azure-molnet med IoT Hub protokoll som stöds. Inkommande kommunikation krävs endast för vissa scenarier där Azure IoT Hub behöver skicka meddelanden till Azure IoT Edge-enheten (till exempel molnet till enhets meddelanden).
 
-Använd följande tabell för portkonfiguration för de servrar som är värd för Azure IoT Edge-körningen:
+Använd följande tabell för port konfiguration för servrar som är värdar för Azure IoT Edge Runtime:
 
-| Porten Nej. | In eller ut | Port omfång | Obligatoriskt | Riktlinjer |
+| Port nr. | In eller ut | Port omfång | Krävs | Vägledning |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| ut       | WAN        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
+| TCP 443 (HTTPS)| Genomför       | Wide        | Ja      | Utgående öppen för IoT Edge etablering. Den här konfigurationen krävs när du använder manuella skript eller Azure IoT Device Provisioning-tjänsten (DPS).|
 
-Fullständig information går du till [brandvägg och port konfigurationsregler för IoT Edge-distribution](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Fullständig information finns i [brand Väggs-och port konfigurations regler för IoT Edge distribution](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
-## <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brandväggsregler
+## <a name="url-patterns-for-firewall-rules"></a>URL-mönster för brand Väggs regler
 
-Nätverksadministratörer kan ofta konfigurera avancerade brandväggsregler baserat på URL-mönster för att filtrera det inkommande och utgående trafik. Din Data Box Edge-enhet och tjänsten är beroende av andra Microsoft-program, till exempel Azure Service Bus, Azure Active Directory Access Control, lagringskonton och Microsoft Update-servrar. URL-mönster som associeras med dessa program kan användas för att konfigurera brandväggens regler. Det är viktigt att förstå att URL-mönster som associeras med dessa program kan ändra. De här ändringarna kräver nätverksadministratören kan övervaka och uppdatera brandväggsregler för din Data Box Edge som och när det behövs.
+Nätverks administratörer kan ofta konfigurera avancerade brand Väggs regler baserat på URL-mönster för att filtrera inkommande och utgående trafik. Din Data Box Edge enhet och tjänsten är beroende av andra Microsoft-program som Azure Service Bus, Azure Active Directory Access Control, lagrings konton och Microsoft Update-servrar. URL-mönstren som är kopplade till dessa program kan användas för att konfigurera brand Väggs regler. Det är viktigt att förstå att URL-mönstren som är kopplade till dessa program kan ändras. Dessa ändringar kräver att nätverks administratören övervakar och uppdaterar brand Väggs regler för din Data Box Edge som och när det behövs.
 
-Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, baserat på Data Box Edge fasta IP-adresser, liberally i de flesta fall. Du kan dock använda den här informationen för att ställa in avancerade brandväggsregler som behövs för att skapa säkra miljöer.
+Vi rekommenderar att du ställer in brand Väggs regler för utgående trafik, baserat på Data Box Edge fasta IP-adresser, i de flesta fall. Du kan dock använda informationen nedan för att ange avancerade brand Väggs regler som behövs för att skapa säkra miljöer.
 
 > [!NOTE]
-> - Enheten (källa) IP-adresser ska alltid vara inställd till alla moln-aktiverat nätverksgränssnitt.
-> - Målets IP-adresser ska vara inställd på [Azure datacenter IP-adressintervall](https://www.microsoft.com/download/confirmation.aspx?id=41653).
+> - IP-adresserna för enheten (källa) ska alltid anges till alla molnbaserade nätverks gränssnitt.
+> - Mål-IP-adresser ska anges till [IP-intervall för Azure-datacenter](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-### <a name="url-patterns-for-gateway-feature"></a>URL-mönster för gateway-funktionen
+### <a name="url-patterns-for-gateway-feature"></a>URL-mönster för gateway-funktion
 
 [!INCLUDE [URL patterns for firewall](../../includes/data-box-edge-gateway-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-feature"></a>URL-mönster för compute-funktion
+### <a name="url-patterns-for-compute-feature"></a>URL-mönster för beräknings funktion
 
-| URL-mönster                      | Komponenten eller funktioner                     |   
+| URL-mönster                      | Komponent eller funktion                     |   
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft behållarregister (krävs)               |
-| https://\*.azurecr.io                     | Personliga och tredje parts behållarregister (valfritt) | 
-| https://\*.azure-devices.net              | IoT Hub-åtkomst (krävs)                             | 
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Microsoft container Registry (krävs)               |
+| https://\*.azurecr.io                     | Personliga och tredje parts behållar register (valfritt) | 
+| https://\*.azure-devices.net              | IoT Hub åtkomst (krävs)                             | 
 
 ### <a name="url-patterns-for-gateway-for-azure-government"></a>URL-mönster för gateway för Azure Government
 
@@ -92,47 +92,47 @@ Vi rekommenderar att du ställer in brandväggsreglerna för utgående trafik, b
 
 ### <a name="url-patterns-for-compute-for-azure-government"></a>URL-mönster för beräkning för Azure Government
 
-| URL-mönster                      | Komponenten eller funktioner                     |  
+| URL-mönster                      | Komponent eller funktion                     |  
 |----------------------------------|---------------------------------------------|
-| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft behållarregister (krävs)               |
-| https://\*.azure-devices.us              | IoT Hub-åtkomst (krävs)           |
-| https://\*.azurecr.us                    | Personliga och tredje parts behållarregister (valfritt) | 
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Microsoft container Registry (krävs)               |
+| https://\*.azure-devices.us              | IoT Hub åtkomst (krävs)           |
+| https://\*.azurecr.us                    | Personliga och tredje parts behållar register (valfritt) | 
 
-## <a name="internet-bandwidth"></a>Internetbandbredd
+## <a name="internet-bandwidth"></a>Internet bandbredd
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
-## <a name="compute-sizing-considerations"></a>Beräkna storlek överväganden
+## <a name="compute-sizing-considerations"></a>Överväganden vid beräkning av storlek
 
-Använd din upplevelse när du utvecklar och testar din lösning för att se till att det finns tillräckligt med kapacitet på din Data Box Edge-enhet och du får optimala prestanda från din enhet.
+Använd din upplevelse när du utvecklar och testar din lösning för att se till att det finns tillräckligt med kapacitet på din Data Box Edge enhet och du får optimala prestanda från din enhet.
 
-Faktorer som du bör överväga är:
+Faktorer som du bör ta hänsyn till:
 
-- **Behållaren ärendets** -tänka på följande.
+- **Behållar information** – Tänk på följande.
 
-    - Hur många behållare finns i din arbetsbelastning? Du kan ha mycket förenklade behållare jämfört med några resursintensiva format.
-    - Vilka är de resurser som allokerats till de här behållarna jämfört med vilka är de resurser de förbrukar?
-    - Hur många lager delar dina behållare?
-    - Finns det oanvända behållare? En stoppade behållare tar fortfarande upp diskutrymme.
-    - Vilket språk som skrivs dina behållare?
-- **Storleken på data som bearbetas** – hur mycket data kommer dina behållare kan behandla? Förbrukar dessa data diskutrymme eller data bearbetas i RAM-minne?
-- **Förväntade prestanda** -vilka är de önskade prestandaegenskaperna för din lösning? 
+    - Hur många behållare finns i arbets belastningen? Du kan ha många enkla behållare jämfört med några resurs intensiva.
+    - Vilka resurser allokeras till dessa behållare jämfört med vilka resurser de använder?
+    - Hur många lager gör behållarna till delar?
+    - Finns det oanvända behållare? En stoppad behållare tar fortfarande upp disk utrymme.
+    - I vilket språk är dina behållare skrivna?
+- **Storleken på de data som bearbetas** – hur mycket data kommer behållarna att bearbeta? Kommer dessa data att förbruka disk utrymme eller så bearbetas data i minnet?
+- **Förväntade prestanda** – vilka är de önskade prestanda egenskaperna för lösningen? 
 
-Att förstå och förbättra prestandan för din lösning, kan du använda:
+Om du vill förstå och förfina lösningens prestanda kan du använda:
 
-- Den beräkning tillgängliga måtten i Azure-portalen. Gå till din Data Box Edge-resurs och gå sedan till **övervakning > mått**. Titta på den **Edge compute - minnesanvändning** och **Edge compute - procent CPU** att förstå de tillgängliga resurserna och hur resurserna komma förbrukas.
-- Övervakning kommandon som är tillgängliga via PowerShell-gränssnittet på enheten som:
+- Beräknings måtten som är tillgängliga i Azure Portal. Gå till din Data Box Edge-resurs och gå sedan till **övervakning > mått**. Titta på processor **användningen för Edge Compute-Memory** och **Edge Compute-procent** för att förstå de tillgängliga resurserna och hur är resurserna förbrukade.
+- De övervaknings kommandon som är tillgängliga via PowerShell-gränssnittet på enheten, till exempel:
 
-    - `dkr` statistik för att få en direktsänd dataström med behållare användningsstatistik för resursen. Kommandot stöder processor, minnesanvändning, minnesgräns och nätverket i/o-mått.
-    - `dkr system df` att hämta information om hur mycket diskutrymme som används. 
-    - `dkr image [prune]` för att rensa upp bilder som inte används och frigöra utrymme.
-    - `dkr ps --size` du vill visa den ungefärliga storleken på en behållare som körs. 
+    - `dkrdbe stats` för att hämta en Live-ström med användnings statistik för container (er). Kommandot stöder CPU, minnes användning, minnes gräns och nätverkets IO-mått.
+    - `dkrdbe system df` för att hämta information om mängden disk utrymme som används. 
+    - `dkrdbe image prune` att rensa oanvända avbildningar och frigöra utrymme.
+    - `dkrdbe ps --size` för att visa den ungefärliga storleken på en behållare som körs. 
 
-    Mer information om tillgängliga kommandon går du till [övervaka och felsöka beräkning moduler](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+    Mer information om tillgängliga kommandon finns i [övervaka och felsöka Compute-moduler](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
 
-Kontrollera slutligen att du verifiera din lösning på din datauppsättning och kvantifiera prestanda på Data Box Edge innan du distribuerar i produktionen.
+Till sist kontrollerar du att du validerar din lösning på din data uppsättning och kvantifierar prestandan på Data Box Edge innan du distribuerar i produktionen.
 
 
 ## <a name="next-step"></a>Nästa steg
 
-- [Distribuera din Azure Data Box-Edge](data-box-edge-deploy-prep.md)
+- [Distribuera Azure Data Box Edge](data-box-edge-deploy-prep.md)

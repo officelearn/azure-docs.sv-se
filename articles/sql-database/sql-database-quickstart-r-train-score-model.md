@@ -1,7 +1,7 @@
 ---
-title: Skapa och träna en förutsägande modell i R
+title: Skapa och träna en förutsägelse modell i R
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: Skapa en enkel förutsägelsemodell i R med Azure SQL Database Machine Learning Services (förhandsversion) och förutsäga ett resultat med hjälp av nya data.
+description: Skapa en enkel förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning) och Förutsäg sedan ett resultat med nya data.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,52 +13,55 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 04054d206d5e30d2de3da5ccd9d018027653cdcf
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714892"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760036"
 ---
-# <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Skapa och träna en förutsägande modell i R med Azure SQL Database Machine Learning Services (förhandsversion)
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Snabb start: skapa och träna en förutsägelse modell i R med Azure SQL Database Machine Learning Services (förhands granskning)
 
-I den här snabbstarten du ska skapa och tränar en förutsägelsemodell med R, spara modellen till en tabell i SQL-databasen och sedan använda modellen för att förutsäga värden från nya data med hjälp av den offentliga förhandsversionen av [Machine Learning Services (med R) i Azure SQL Database ](sql-database-machine-learning-services-overview.md). 
-
-Modellen som du ska använda i den här snabbstarten är en enkel regressionsmodell som beräknar avståndet stoppas på en bil utifrån hastighet. Du kommer att använda den **bilar** datauppsättning som ingår i R, eftersom den är liten och lätt att förstå.
-
-> [!TIP]
-> Många små och stora datamängder ingår i R-körningen. Om du vill hämta en lista över datauppsättningar som installerats med R, Skriv `library(help="datasets")` från en R-kommandotolk.
+I den här snabb starten skapar du och tränar en förutsägelse modell med R, sparar modellen i en tabell i databasen och använder sedan modellen för att förutsäga värden från nya data med hjälp av Machine Learning Services (med R) i Azure SQL Database.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-- Om du inte har någon Azure-prenumeration [skapar du ett konto](https://azure.microsoft.com/free/) innan du börjar.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- Du måste ha en Azure SQL database med Machine Learning Services (med R) aktiverad för att köra exempelkoden i den här övningen. Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas. Följ stegen i [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
+- En [Azure SQL-databas](sql-database-single-database-get-started.md) med en [brand Väggs regel på server nivå](sql-database-server-level-firewall-rule.md)
 
-- Kontrollera att du har installerat senast [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS). Du kan köra R-skript med hjälp av andra databashantering eller Frågeverktyg, men i den här snabbstarten ska du använda SSMS.
+- [Machine Learning Services](sql-database-machine-learning-services-overview.md) med R aktiverat. [Registrera dig för förhandsversionen](sql-database-machine-learning-services-overview.md#signup).
 
-- Den här snabbstarten måste du konfigurera en brandväggsregel på servernivå. Information om hur du gör detta finns i [skapa brandväggsregeln på servernivå](sql-database-server-level-firewall-rule.md).
+- [SQL Server Management Studio](/sql/ssms/sql-server-management-studio-ssms) (SSMS)
 
-## <a name="create-and-train-a-predictive-model"></a>Skapa och tränar en förutsägelsemodell
+> [!NOTE]
+> Under den offentliga förhandsversionen introducerar Microsoft dig och aktiverar maskininlärning för din befintliga eller nya databas.
 
-Bil hastighet data i den **bilar** datauppsättningen innehåller två kolumner, både numeriska: **dist** och **hastighet**. Innehåller flera stoppar observationer med olika hastigheter. I dessa data ska du skapa en linjär regressionsmodell som beskriver relationen mellan bil hastighet och avståndet som krävs för att stoppa en bil.
+I det här exemplet används en enkel Regressions modell för att förutsäga det stoppade avståndet för en bil baserat på hastigheten med den datauppsättning för **bilar** som ingår i R.
+
+> [!TIP]
+> Många data uppsättningar ingår i R-körningen. om du vill hämta en lista över installerade data uppsättningar skriver du `library(help="datasets")` från R-Kommandotolken.
+
+## <a name="create-and-train-a-predictive-model"></a>Skapa och träna en förutsägelse modell
+
+Bil hastigheten i data uppsättningen **bilar** innehåller två kolumner, både numeriskt: **förd** och **Speed**. Datan innehåller flera stopp observationer vid olika hastigheter. Från dessa data skapar du en linjär Regressions modell som beskriver förhållandet mellan bil hastigheten och det avstånd som krävs för att stoppa en bil.
 
 Kraven i en linjär modell är enkla:
-- Definiera en formel som beskriver relationen mellan den beroende variabeln *hastighet* och oberoende variabeln *avståndet*.
+- Definiera en formel som beskriver förhållandet mellan den beroende variabla *hastigheten* och det oberoende variabla *avståndet*.
 - Ange indata som ska användas för att träna modellen.
 
 > [!TIP]
-> Om du behöver uppdatera dig om linjära modeller kan prova den här självstudien som beskriver processen för att passa en modell med rxLinMod: [Anpassa linjära modeller](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
+> Om du behöver en uppdatering av linjära modeller kan du prova den här självstudien som beskriver processen för att anpassa en modell med rxLinMod: [passa linjära modeller](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model)
 
-Skapa en regressionsmodell i följande steg konfigurerar träningsdata, träna upp tjänsten med hjälp av utbildningsdata och sedan spara modellen till en SQL-tabell.
+I följande steg ska du ställa in tränings data, skapa en Regressions modell, träna den med tränings data och sedan Spara modellen i en SQL-tabell.
 
 1. Öppna **SQL Server Management Studio** och anslut till din SQL-databas.
 
-   Om du behöver hjälp med anslutningen läser [Snabbstart: Använda SQL Server Management Studio för att ansluta till och köra frågor mot en Azure SQL-databas](sql-database-connect-query-ssms.md).
+   Om du behöver hjälp med att ansluta, se [snabb start: använda SQL Server Management Studio för att ansluta och skicka frågor till en Azure SQL-databas](sql-database-connect-query-ssms.md).
 
-1. Skapa den **CarSpeed** tabell för att spara träningsdata.
+1. Skapa **CarSpeed** -tabellen för att spara tränings data.
 
     ```sql
     CREATE TABLE dbo.CarSpeed (
@@ -78,9 +81,9 @@ Skapa en regressionsmodell i följande steg konfigurerar träningsdata, träna u
     GO
     ```
 
-1. Skapa en regression modell med `rxLinMod`. 
+1. Skapa en Regressions modell med `rxLinMod`. 
 
-   För att bygga modellen du definiera formel i R-kod och sedan skicka träningsdata **CarSpeed** som indataparameter.
+   Om du vill skapa modellen definierar du formeln inuti R-koden och skickar sedan **CarSpeed** för träning som en indataparameter.
 
     ```sql
     DROP PROCEDURE IF EXISTS generate_linear_model;
@@ -106,7 +109,7 @@ Skapa en regressionsmodell i följande steg konfigurerar träningsdata, träna u
 
 1. Skapa en tabell där du lagrar modellen så att du kan använda den senare för förutsägelse. 
 
-   Utdata från ett R-paket som skapar en modell är vanligtvis en **binära objekt**, så tabellen måste ha en kolumn med **VARBINARY(max)** typen.
+   Utdata från ett R-paket som skapar en modell är vanligt vis ett **binärt objekt**, så tabellen måste ha en kolumn av typen **varbinary (max)** .
 
     ```sql
     CREATE TABLE dbo.stopping_distance_models (
@@ -115,7 +118,7 @@ Skapa en regressionsmodell i följande steg konfigurerar träningsdata, träna u
         );
     ```
 
-1. Nu anropar den lagrade proceduren, generera modellen och spara den i en tabell.
+1. Anropa nu den lagrade proceduren, generera modellen och spara den i en tabell.
 
    ```sql
    INSERT INTO dbo.stopping_distance_models (model)
@@ -136,11 +139,11 @@ Skapa en regressionsmodell i följande steg konfigurerar träningsdata, träna u
    WHERE model_name = 'default model'
    ```
 
-## <a name="view-the-table-of-coefficients"></a>Visa tabellen över
+## <a name="view-the-table-of-coefficients"></a>Visa tabellen över koefficienter
 
 Generellt är utdata för R från den lagrade proceduren [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) begränsade till en enda dataram. Du kan dock returnera utdata för andra typer, till exempel skalärer, utöver dataramen.
 
-Anta exempelvis att du vill tränar en modell men omedelbart visa tabellen över från modellen. Om du vill göra det, skapa tabellen över som huvudsakliga resultatet ange och mata ut den tränade modellen i en SQL-variabel. Du kan omedelbart återanvända modellen genom att anropa variabeln eller du kan spara modellen till en tabell som visas här.
+Anta till exempel att du vill träna en modell, men direkt Visa tabellen över koefficienter från modellen. För att göra det skapar du en tabell med koefficienter som huvud resultat uppsättning och utvärderar den tränade modellen i en SQL-variabel. Du kan omedelbart återanvända modellen genom att anropa variabeln, eller så kan du Spara modellen i en tabell som visas här.
 
 ```sql
 DECLARE @model VARBINARY(max)
@@ -173,13 +176,13 @@ VALUES (
 
 ![Tränad modell med ytterligare utdata](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
-## <a name="score-new-data-using-the-trained-model"></a>Rangordna nya data med hjälp av den tränade modellen
+## <a name="score-new-data-using-the-trained-model"></a>Räkna nya data med hjälp av den tränade modellen
 
-*Bedömning* är en term som används i datavetenskap för att beskriva genererar förutsägelser, sannolikhet eller andra värden baserat på nya data som matas in en tränad modell. Du använder modellen som du skapade i föregående avsnitt för att bedöma förutsägelser mot nya data.
+*Poängsättning* är en term som används i data vetenskap för att skapa förutsägelser, sannolikheter eller andra värden baserat på nya data som matas in i en utbildad modell. Du använder den modell som du skapade i föregående avsnitt för att skapa Poäng förutsägelser mot nya data.
 
-Lade du märke till att de ursprungliga träningsdata tog slut vid en hastighet på 40 km/h? Det beror på att de ursprungliga data baserades på ett experiment från 1920. Du kanske undrar hur lång tid det tar en bil från 1920s att avbrytas om den kan komma igång så snabbt som 60 mph eller till och med 100 mph? Du kan ange vissa nya hastighetsvärdena i din modell för att besvara den här frågan.
+Lade du märke till att de ursprungliga träningsdata tog slut vid en hastighet på 40 km/h? Det beror på att de ursprungliga data baserades på ett experiment från 1920. Du kanske undrar hur lång tid tar en bil från de 1920 som ska stoppas om den kan bli så snabb som 60 mph eller 100 mph? Om du vill besvara den här frågan kan du ange några nya hastighets värden för din modell.
 
-1. Skapa en tabell med nya hastighet data.
+1. Skapa en tabell med nya hastighets data.
 
    ```sql
     CREATE TABLE dbo.NewCarSpeed (
@@ -198,19 +201,19 @@ Lade du märke till att de ursprungliga träningsdata tog slut vid en hastighet 
         , (100)
    ```
 
-2. Förutsäga stoppar avståndet från dessa nya värden för hastighet.
+2. Förutsäga avståndet från dessa nya hastighets värden.
 
-   Eftersom din modell som baseras på den **rxLinMod** algoritmen som tillhandahålls som en del av den **RevoScaleR** paketet, som du anropar den [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) fungerar i stället för allmän R `predict` funktion.
+   Eftersom modellen är baserad på **rxLinMod** -algoritmen som finns som en del av **RevoScaleR** -paketet anropar du funktionen [rxPredict](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxpredict) i stället för funktionen Generic R `predict`.
 
-   Det här exempelskriptet:
-   - Använder en SELECT-instruktion för att hämta en enda modell från tabellen
-   - Skickar den som indataparameter
-   - Anropar den `unserialize` funktionen på modellen
-   - Gäller den `rxPredict` funktion med rätt argument i modellen
-   - Innehåller nya indata
+   Det här exempel skriptet:
+   - Använder ett SELECT-uttryck för att hämta en enskild modell från tabellen
+   - Skickar den som en indataparameter
+   - Anropar funktionen `unserialize` på modellen
+   - Använder funktionen `rxPredict` med lämpliga argument för modellen
+   - Tillhandahåller nya indata
 
    > [!TIP]
-   > I realtid bedömning finns i [serialisering funktioner](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) tillhandahålls av RevoScaleR.
+   > I real tids poängsättning, se de [serialiserings funktioner](https://docs.microsoft.com/machine-learning-server/r-reference/revoscaler/rxserializemodel) som tillhandahålls av RevoScaleR.
 
    ```sql
     DECLARE @speedmodel VARBINARY(max) = (
@@ -242,15 +245,15 @@ Lade du märke till att de ursprungliga träningsdata tog slut vid en hastighet 
    ![Resultatmängd för att förutsäga bromssträcka](./media/sql-database-quickstart-r-train-score-model/r-predict-stopping-distance-resultset.png)
 
 > [!NOTE]
-> I det här exempelskriptet den `str` funktionen har lagts till under testfasen att kontrollera schemat för data som returneras från R. Du kan ta bort instruktionen igen senare.
+> I det här exempel skriptet läggs funktionen `str` till under test fasen för att kontrol lera schemat för data som returneras från R. Du kan ta bort instruktionen senare.
 >
-> De kolumnnamn som använs i R-skriptet skickas inte nödvändigtvis till utdata för den lagrade proceduren. Här definierar med resultat-satsen vissa nya kolumnnamn.
+> De kolumnnamn som använs i R-skriptet skickas inte nödvändigtvis till utdata för den lagrade proceduren. Här är en WITH RESULTs-sats som definierar några nya kolumn namn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om Azure SQL Database Machine Learning Services med R (förhandsversion) finns i följande artiklar.
+Mer information om Azure SQL Database Machine Learning Services med R (för hands version) finns i följande artiklar.
 
-- [Azure SQL Database Machine Learning Services med R (förhandsversion)](sql-database-machine-learning-services-overview.md)
-- [Skapa och kör enkelt R-skript i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-quickstart-r-create-script.md)
-- [Skriva avancerade R-funktioner i Azure SQL Database med Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-functions.md)
-- [Arbeta med R och SQL-data i Azure SQL Database Machine Learning Services (förhandsversion)](sql-database-machine-learning-services-data-issues.md)
+- [Azure SQL Database Machine Learning Services med R (för hands version)](sql-database-machine-learning-services-overview.md)
+- [Skapa och kör enkla R-skript i Azure SQL Database Machine Learning Services (förhands granskning)](sql-database-quickstart-r-create-script.md)
+- [Skriv avancerade R-funktioner i Azure SQL Database att använda Machine Learning Services (förhands granskning)](sql-database-machine-learning-services-functions.md)
+- [Arbeta med R-och SQL-data i Azure SQL Database Machine Learning Services (för hands version)](sql-database-machine-learning-services-data-issues.md)

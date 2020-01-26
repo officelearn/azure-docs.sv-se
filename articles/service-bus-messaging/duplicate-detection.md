@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus identifiering av duplicerade meddelanden | Microsoft Docs
-description: Identifiera dubbla Service Bus meddelanden
+description: Den här artikeln förklarar hur du kan identifiera dubbletter i Azure Service Bus meddelanden. Det duplicerade meddelandet kan ignoreras och tas bort.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4cd5fc50c35f4c4adb63c9d91af05dcf8b2dda40
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c109b9fd310a09e5eb4c6d18cc3536e4d8069c0b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924640"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760376"
 ---
 # <a name="duplicate-detection"></a>Dubblettidentifiering
 

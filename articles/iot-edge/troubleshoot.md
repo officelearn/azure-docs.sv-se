@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 255ccb5c8e9529ab9b36186ec0eeb5b3f55ed64f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514263"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759235"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Vanliga problem och lösningar för Azure IoT Edge
 
@@ -21,7 +21,7 @@ Om du får problem med att köra Azure IoT Edge i din miljö kan du använda den
 
 ## <a name="run-the-iotedge-check-command"></a>Kör kommandot iotedge ' check '
 
-Ditt första steg när du felsöker IoT Edge bör vara att använda kommandot `check`, som utför en samling konfigurations-och anslutnings test för vanliga problem. Kommandot `check` är tillgängligt i [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) och senare.
+Ditt första steg när du felsöker IoT Edge bör vara att använda kommandot `check`, som kör en samling konfigurations-och anslutnings test för vanliga problem. Kommandot `check` är tillgängligt i [version 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) och senare.
 
 Du kan köra kommandot `check` på följande sätt, eller ta med flaggan `--help` för att se en fullständig lista med alternativ:
 
@@ -265,7 +265,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **Rotor saken**
 
-IoT Edge-körningen stöder bara värdnamn som är kortare än 64 tecken. Fysiska datorer vanligtvis har inte lång värdnamn, men problemet är vanligare på en virtuell dator. Automatiskt genererade värdnamnen för Windows-datorerna i Azure, i synnerhet tenderar att vara långa. 
+IoT Edge-körningen stöder bara värdnamn som är kortare än 64 tecken. Fysiska datorer vanligtvis har inte lång värdnamn, men problemet är vanligare på en virtuell dator. Automatiskt genererade värdnamnen för Windows-datorerna i Azure, i synnerhet tenderar att vara långa.
 
 **Lösning**
 
@@ -302,7 +302,7 @@ IoT Edge Hub, som är en del av IoT Edge runtime, är optimerad för prestanda s
 
 **Lösning**
 
-För IoT Edge Hub ställer du in en miljö variabel **OptimizeForPerformance** på **falskt**. Det finns två sätt att göra detta:
+För IoT Edge Hub ställer du in en miljö variabel **OptimizeForPerformance** på **falskt**. Det finns två sätt att göra för att ställa in miljövariabler:
 
 På Azure Portal:
 
@@ -340,7 +340,7 @@ Den `Get-WinEvent` PowerShell-kommandot är beroende av en registerpost för att
 
 Ange en registerpost för IoT Edge-daemon. Skapa en **iotedge.reg** filen med följande innehåll och importera i Windows-registret genom att dubbelklicka på den eller använda den `reg import iotedge.reg` kommando:
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -351,10 +351,10 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>IoT Edge-modulen misslyckas med att skicka ett meddelande till edgeHub med 404-fel
 
-En anpassad IoT Edge-modulen misslyckas med att skicka ett meddelande till edgeHub med 404 `Module not found` fel. IoT Edge-daemon skriver ut följande meddelande till loggarna: 
+En anpassad IoT Edge-modulen misslyckas med att skicka ett meddelande till edgeHub med 404 `Module not found` fel. IoT Edge-daemon skriver ut följande meddelande till loggarna:
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **Rotor saken**
@@ -391,7 +391,7 @@ Som standard startar IoT Edge moduler i egna isolerade behållar nätverk. Enhet
 
 **Alternativ 1: Ange DNS-server i behållar motor inställningarna**
 
-Ange DNS-servern för din miljö i behållar motor inställningarna som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med namnet `daemon.json` ange vilken DNS-server som ska användas. Ett exempel:
+Ange DNS-servern för din miljö i inställningar för container motor som ska gälla för alla behållar moduler som startas av motorn. Skapa en fil med namnet `daemon.json` ange vilken DNS-server som ska användas. Ett exempel:
 
 ```json
 {
@@ -401,7 +401,7 @@ Ange DNS-servern för din miljö i behållar motor inställningarna som ska gäl
 
 Exemplet ovan anger DNS-servern till en offentligt tillgänglig DNS-tjänst. Om gräns enheten inte kan komma åt den här IP-adressen från dess miljö ersätter du den med den DNS-serveradress som är tillgänglig.
 
-Placera `daemon.json` på rätt plats för din plattform: 
+Placera `daemon.json` på rätt plats för din plattform:
 
 | Plattform | Location |
 | --------- | -------- |
@@ -410,7 +410,7 @@ Placera `daemon.json` på rätt plats för din plattform:
 
 Om platsen redan innehåller `daemon.json`-filen lägger du till **DNS-** nyckeln till den och sparar filen.
 
-*Starta om behållar motorn för att uppdateringarna ska börja gälla*
+Starta om behållar motorn för att uppdateringarna ska börja gälla.
 
 | Plattform | Kommando |
 | --------- | -------- |
@@ -431,7 +431,7 @@ Du kan ställa in DNS-servern för varje moduls *createOptions* i IoT Edge distr
 }
 ```
 
-Se till att ange detta för *edgeAgent* -och *edgeHub* -modulerna också.
+Se till att ange den här konfigurationen för *edgeAgent* -och *edgeHub* -modulerna också.
 
 ## <a name="next-steps"></a>Nästa steg
 

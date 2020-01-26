@@ -1,6 +1,6 @@
 ---
 title: Fel söknings guide för Azure Service Bus | Microsoft Docs
-description: Lista över Service Bus meddelande undantag och föreslagna åtgärder.
+description: Den här artikeln innehåller en lista över Azure Service Bus meddelande undantag och föreslagna åtgärder som vidtas när undantaget inträffar.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/17/2020
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 20d9fc141fa19a5c6d01f33c2a5398ca84497b9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 37f316af68bc0b20f21eb606e2abc8232f29ce32
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309973"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759371"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Fel söknings guide för Azure Service Bus
 Den här artikeln innehåller några av de .NET-undantag som genereras av Service Bus .NET Framework API: er och även andra tips för fel söknings problem. 

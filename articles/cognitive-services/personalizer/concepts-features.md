@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490761"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760835"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>Funktioner är information om åtgärder och kontext
 
@@ -107,6 +107,7 @@ Strängen som du använder för att namnge namn området måste följa vissa beg
 * Det får inte vara Unicode.
 * Du kan använda några av de utskrivbara symbolerna med koder < 256 för namn områdets namn. 
 * Du kan inte använda symboler med koder < 32 (inte utskrivbart), 32 (blank steg), 58 (kolon), 124 (pipe) och 126 – 140.
+* Den får inte börja med ett under streck (_) eller så ignoreras funktionen.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>Så här gör du funktions uppsättningar mer effektiva för personligt anpassade
 
@@ -143,7 +144,7 @@ Artificiell intelligens och klar att köra Cognitive Services kan vara ett mycke
 
 Genom att Förbearbeta dina objekt med hjälp av artificiell intelligens-tjänster kan du automatiskt extrahera information som troligen är relevant för anpassning.
 
-Till exempel:
+Ett exempel:
 
 * Du kan köra en filmfil via [video Indexer](https://azure.microsoft.com/services/media-services/video-indexer/) för att extrahera scen element, text, sentiment och många andra attribut. Dessa attribut kan sedan göras mer kompakta för att avspegla egenskaper som det ursprungliga objektets metadata inte hade. 
 * Avbildningar kan köras genom objekt identifiering, ansikten genom sentiment osv.

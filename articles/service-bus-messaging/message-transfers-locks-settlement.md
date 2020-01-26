@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus meddelande överföring, lås och kvittning | Microsoft Docs
-description: Översikt över Service Bus meddelande överföring och kvittnings åtgärder
+title: Azure Service Bus meddelande överföring, lås och kvittning
+description: Den här artikeln innehåller en översikt över Azure Service Bus meddelande överföring, lås och kvittnings åtgärder.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/24/2019
 ms.author: aschhab
-ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676266"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759286"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Överföringar av meddelanden, lås och uppgörelser
 
@@ -34,7 +34,7 @@ Genom att använda någon av de Service Bus API-klienter som stöds, kommer sän
 
 Om meddelandet avvisas av Service Bus innehåller avvisningen en fel indikator och text med ett "spårnings-ID" inuti. Avvisningen innehåller också information om huruvida åtgärden kan utföras på nytt med väntande resultat. I klienten inaktive ras den här informationen i ett undantag och utlöses till anroparen för sändnings åtgärden. Om meddelandet har accepterats slutförs åtgärden tyst.
 
-När du använder AMQP-protokollet, som är det exklusiva protokollet för .NET standard-klienten och Java-klienten, och [som är ett alternativ för den .NET Framework klienten](service-bus-amqp-dotnet.md), är meddelande överföringar och kvittningar pipeliniska och helt asynkrona. Vi rekommenderar att du använder API-varianter för asynkron programmerings modell.
+När du använder AMQP-protokollet, som är det exklusiva protokollet för .NET standard-klienten och Java-klienten och [som är ett alternativ för den .NET Framework klienten](service-bus-amqp-dotnet.md), pipelines överföring och kvittningar och är helt asynkrona, och vi rekommenderar att du använder API-varianterna för asynkron programmerings modell.
 
 En avsändare kan placera flera meddelanden i kabeln i snabb följd utan att behöva vänta på att varje meddelande ska bekräftas, vilket annars skulle vara fallet med SBMP-protokollet eller med HTTP 1,1. De asynkrona sändnings åtgärderna slutförs eftersom respektive meddelanden godkänns och lagras, på partitionerade entiteter eller när en skicka-åtgärd till olika enheter överlappar varandra. Slutförandet kan också uppstå från den ursprungliga sändnings ordningen.
 
@@ -116,13 +116,13 @@ Den mottagande klienten initierar en kvittning av ett mottaget meddelande med en
 
 När den mottagande klienten Miss lyckas med att bearbeta ett meddelande, men vill att meddelandet ska skickas igen, kan du uttryckligen be om att meddelandet släpps och låses upp direkt genom att anropa [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) eller så kan det göra ingenting och låta låset gå ut.
 
-Om en mottagar klient inte kan bearbeta ett meddelande och vet att det inte går att komma åt meddelandet och försöka utföra åtgärden igen, kan det avvisa meddelandet, som flyttar det till kön för obeställbara meddelanden genom att anropa [obeställbara meddelanden kön](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), vilket även tillåter att du anger en anpassad egenskap inklusive en orsaks kod som kan hämtas med meddelandet från kön för obeställbara meddelanden.
+Om en mottagar klient inte kan bearbeta ett meddelande och vet att det inte går att komma åt meddelandet och försöka utföra åtgärden igen, kan det avvisa meddelandet, som flyttar det till kön för obeställbara meddelanden genom att anropa [obeställbara meddelanden kön](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), vilket innebär att du också kan ange en anpassad egenskap inklusive en orsaks kod som kan hämtas med meddelandet från kön för obeställbara meddelanden.
 
 Ett specialfall av kvittning är uppskjutande, som beskrivs i en separat artikel.
 
 Åtgärderna **Complete** eller **obeställbara meddelanden kön** och **RenewLock** kan Miss lyckas på grund av nätverks problem, om det kvarhållna låset har upphört att gälla eller om det finns andra villkor för service sidan som förhindrar kvittning. I ett av de sistnämnda fallen skickar tjänsten en negativ bekräftelse på att det finns ett undantag i API-klienterna. Om orsaken är en bruten nätverks anslutning, släpps låset eftersom Service Bus inte stöder återställning av befintliga AMQP-länkar på en annan anslutning.
 
-Om **detta Miss lyckas** , vilket vanligt vis sker vid mycket slut på meddelande hantering och i vissa fall efter bearbetningen av antalet minuter, kan det mottagande programmet avgöra om det bevarar status för arbetet och ignorerar samma meddelande när det levereras en andra gång, eller om det tosses ut arbets resultatet och försöker igen när meddelandet har levererats igen.
+Om **detta Miss lyckas** , vilket vanligt vis sker vid mycket slut på meddelande hantering, och i vissa fall efter bearbetningen av bearbetnings tiden, kan mottagar programmet avgöra om det bevarar status för arbetet och ignorerar samma meddelande när det levereras en andra gång, eller om det tosses arbets resultatet och försöker igen när meddelandet har levererats igen.
 
 Den typiska mekanismen för att identifiera dubbla meddelande leveranser är genom att kontrol lera meddelande-ID: t, som kan anges av avsändaren till ett unikt värde, eventuellt justerad med en identifierare från ursprungs processen. Ett jobb schema skulle troligt vis ange meddelande-ID: t till identifieraren för det jobb som det försöker tilldela till en anställd med den angivna arbetaren, och arbetaren skulle ignorera den andra förekomsten av jobb tilldelningen om jobbet redan har slutförts.
 

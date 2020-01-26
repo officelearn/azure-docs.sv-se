@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703005"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758758"
 ---
 # <a name="whats-new-for-authentication"></a>Vad är nytt för autentisering? 
 
@@ -40,7 +40,20 @@ Autentiserings systemet ändrar och lägger till funktioner kontinuerligt för a
 
 ## <a name="upcoming-changes"></a>Kommande ändringar
 
-September 2019: ytterligare tillämpning av POST-semantik enligt URL-tolknings regler – dubbla parametrar utlöser ett fel och en [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) ignoreras.
+Inget schemalagt för tillfället.  Se nedan för de ändringar som finns i eller som kommer till produktion. 
+
+## <a name="february-2020"></a>Februari 2020: 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>Tomma fragment läggs till i varje HTTP-omdirigering från inloggnings slut punkten. 
+
+**Effektivt datum**: 8 februari 2020
+
+**Påverkade slut punkter**: både v 1.0 och v 2.0
+
+**Protokoll som påverkas**: OAuth-och OIDC-flöden som använder response_type = fråga – detta täcker [kod flödet för auktorisering](v2-oauth2-auth-code-flow.md) i vissa fall och det [implicita flödet](v2-oauth2-implicit-grant-flow.md). 
+
+När ett svar på autentisering skickas från login.microsoftonline.com till ett program via HTTP-omdirigering, läggs ett tomt fragment till i svars-URL: en.  Detta förhindrar en klass av omdirigerings attacker genom att se till att webbläsaren rensar alla befintliga fragment i autentiseringsbegäran.  Inga appar bör ha ett beroende på detta beteende. 
+
 
 ## <a name="august-2019"></a>Augusti 2019
 

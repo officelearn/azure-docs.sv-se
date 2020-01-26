@@ -1,6 +1,6 @@
 ---
 title: Bibliotek för Azure Service Bus hantering | Microsoft Docs
-description: Hantera Service Bus namnrymder och meddelande enheter från .NET.
+description: Den här artikeln förklarar hur du använder Azure Service Bus hanterings bibliotek för att dynamiskt etablera Service Bus namn områden och entiteter.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816078"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756274"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus-hanteringsbibliotek
 
@@ -32,7 +32,7 @@ Azure Service Bus hanterings bibliotek kan etablera Service Bus namn områden oc
 * Att skapa, uppdatera och ta bort ämnen
 * Skapa prenumeration, uppdatera, ta bort
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång med Service Bus hanterings bibliotek måste du autentisera med tjänsten Azure Active Directory (Azure AD). Azure AD kräver att du autentiseras som tjänstens huvud namn, vilket ger åtkomst till dina Azure-resurser. Information om hur du skapar ett tjänstens huvudnamn finns i någon av följande artiklar:  
 
@@ -52,7 +52,7 @@ Mönstret för att manipulera eventuella Service Bus resurser följer ett gemens
 
    var result = await context.AcquireTokenAsync("https://management.azure.com/", new ClientCredential(clientId, clientSecret));
    ```
-2. `ServiceBusManagementClient` Skapa objektet:
+2. Skapa `ServiceBusManagementClient`-objektet:
 
    ```csharp
    var creds = new TokenCredentials(token);
@@ -61,7 +61,7 @@ Mönstret för att manipulera eventuella Service Bus resurser följer ett gemens
        SubscriptionId = SettingsCache["SubscriptionId"]
    };
    ```
-3. Ange de `CreateOrUpdate` angivna värdena som parametrar:
+3. Ange de angivna värdena för `CreateOrUpdate` parametrar:
 
    ```csharp
    var queueParams = new QueueCreateOrUpdateParameters()

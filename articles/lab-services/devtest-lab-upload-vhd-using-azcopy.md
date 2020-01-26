@@ -1,6 +1,6 @@
 ---
-title: Ladda upp VHD-filen till Azure DevTest Labs med hjälp av AzCopy | Microsoft Docs
-description: Överför VHD-filen till övningen storage-konto med hjälp av AzCopy
+title: Ladda upp VHD-filen till Azure DevTest Labs med AzCopy | Microsoft Docs
+description: Den här artikeln innehåller en genom gång för att använda kommando rads verktyget AzCopy för att ladda upp en VHD-fil till ett labbs lagrings konto i Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,68 +12,68 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 8cd778762bebf4a9dda3688292ac0a3674e446e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634986"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757430"
 ---
-# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Överför VHD-filen till övningen storage-konto med hjälp av AzCopy
+# <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Ladda upp VHD-filen till Labbets lagrings konto med AzCopy
 
 [!INCLUDE [devtest-lab-upload-vhd-selector](../../includes/devtest-lab-upload-vhd-selector.md)]
 
-I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar, som används för att etablera virtuella datorer. Följande steg beskriver hur du kan ladda upp en VHD-fil till ett labb storage-konto med hjälp av kommandoradsverktyget azcopy. När du har överfört din VHD-filen visas de [nästa steg avsnittet](#next-steps) visar vissa artiklar som visar hur du skapar en anpassad avbildning från överförda VHD-filen. Mer information om diskar och virtuella hårddiskar i Azure finns i [introduktion till hanterade diskar](../virtual-machines/linux/managed-disks-overview.md)
+I Azure DevTest Labs kan VHD-filer användas för att skapa anpassade avbildningar som används för att etablera virtuella datorer. Följande steg vägleder dig genom att använda kommando rads verktyget AzCopy för att ladda upp en VHD-fil till ett labbs lagrings konto. När du har laddat upp VHD-filen visas några artiklar i [avsnittet Nästa steg](#next-steps) som illustrerar hur du skapar en anpassad avbildning från den uppladdade VHD-filen. Mer information om diskar och virtuella hård diskar i Azure finns i [Introduktion till Managed disks](../virtual-machines/linux/managed-disks-overview.md)
 
 > [!NOTE] 
 >  
-> AzCopy är ett kommandoradsverktyg som bara Windows.
+> AzCopy är ett kommando rads verktyg med endast Windows.
 
-## <a name="step-by-step-instructions"></a>Stegvisa instruktioner
+## <a name="step-by-step-instructions"></a>Steg för steg-anvisningar
 
-I följande steg vägleder dig genom att ladda upp en VHD-fil till Azure DevTest Labs med hjälp av [AzCopy](https://aka.ms/downloadazcopy). 
+Följande steg beskriver hur du laddar upp en VHD-fil för att Azure DevTest Labs med [AzCopy](https://aka.ms/downloadazcopy). 
 
-1. Hämta namnet på den testmiljön storage-konto med Azure portal:
+1. Hämta namnet på Labbets lagrings konto med hjälp av Azure Portal:
 
 1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Välj **alla tjänster**, och välj sedan **DevTest Labs** i listan.
+1. Välj **alla tjänster**och välj sedan **DevTest Labs** i listan.
 
-1. Listan över labbar, Välj önskade labbet.  
+1. I listan med labb väljer du önskat labb.  
 
-1. På den labb-bladet och välj **Configuration**. 
+1. På labb bladet väljer du **konfiguration**. 
 
-1. På labbet **Configuration** bladet väljer **anpassade avbildningar (VHD)** .
+1. På bladet labb **konfiguration** väljer du **anpassade avbildningar (VHD)** .
 
-1. På den **anpassade avbildningar** bladet välj **+ Lägg till**. 
+1. På bladet **anpassade bilder** väljer du **+ Lägg till**. 
 
-1. På den **anpassad avbildning** bladet väljer **VHD**.
+1. På bladet **anpassad avbildning** väljer du **VHD**.
 
-1. På den **VHD** bladet väljer **överföra en virtuell Hårddisk med hjälp av PowerShell**.
+1. På **VHD** -bladet väljer du **överför en virtuell hård disk med PowerShell**.
 
-    ![Överför virtuell Hårddisk med PowerShell](./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png)
+    ![Ladda upp VHD med PowerShell](./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png)
 
-1. Den **ladda upp en bild med hjälp av PowerShell** bladet visar ett anrop till den **Add-AzureVhd** cmdlet. Den första parametern (*mål*) innehåller URI för en blob-behållare (*överför*) i följande format:
+1. I bladet **Ladda upp en bild med PowerShell** visas ett anrop till cmdleten **Add-AzureVhd** . Den första parametern (*målet*) innehåller URI: n för en BLOB-behållare (*uppladdningar*) i följande format:
 
     ```
     https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...
     ``` 
 
-1. Anteckna den fullständiga URI eftersom den används i senare steg.
+1. Anteckna hela URI-filen som den används i senare steg.
 
-1. Ladda upp VHD-filen med hjälp av AzCopy:
+1. Överför VHD-filen med AzCopy:
  
-1. [Ladda ned och installera den senaste versionen av AzCopy](https://aka.ms/downloadazcopy).
+1. [Hämta och installera den senaste versionen av AzCopy](https://aka.ms/downloadazcopy).
 
-1. Öppna ett kommandofönster och navigera till installationskatalogen för AzCopy. Du kan också kan du lägga till installationsplatsen AzCopy systemsökvägen. Som standard installeras AzCopy till följande katalog:
+1. Öppna ett kommando fönster och navigera till installations katalogen för AzCopy. Alternativt kan du lägga till installations platsen för AzCopy till din system Sök väg. Som standard installeras AzCopy i följande katalog:
 
     ```command-line
     %ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
     ```
 
-1. Med hjälp av den nyckel- och blob lagringskontobehållare URI, kör följande kommando i Kommandotolken. Den *vhdFileName* värdet måste vara inom citattecken. Processen att överföra en VHD-fil kan vara långa beroende på storleken på VHD-filen och anslutningshastigheten.   
+1. Kör följande kommando i kommando tolken med hjälp av lagrings konto nyckeln och URI för BLOB container. *VhdFileName* -värdet måste vara inom citat tecken. Processen för att ladda upp en VHD-fil kan vara lång beroende på storleken på VHD-filen och anslutnings hastigheten.   
 
     ```command-line
     AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>" /BlobType:page
@@ -81,5 +81,5 @@ I följande steg vägleder dig genom att ladda upp en VHD-fil till Azure DevTest
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av Azure portal](devtest-lab-create-template.md)
+- [Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av Azure Portal](devtest-lab-create-template.md)
 - [Skapa en anpassad avbildning i Azure DevTest Labs från en VHD-fil med hjälp av PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)

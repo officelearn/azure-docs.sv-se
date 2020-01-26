@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 11/12/2019
+ms.date: 01/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431d2eac6b612bee629df184ed80c5c8a15513db
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 2f3d96926221a69e1cf216be81368a2eb87c938a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273375"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758349"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Snabbstart: Lägga till gästanvändare till din katalog i Azure-portalen
 
@@ -29,14 +29,14 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Krav
 
-För att slutföra scenariot i den här självstudien behöver du:
+För att kunna slutföra scenariot i den här självstudien behöver du:
 
  - En roll som gör att du kan skapa användare i din klientkatalog, som rollen Global administratör eller någon av de begränsade katalogadministratörsrollerna.
  - Ett giltigt e-postkonto som du kan lägga till i din klientkatalog och som du kan använda för att ta emot e-postmeddelandet med testinbjudan.
 
 ## <a name="add-a-new-guest-user-in-azure-ad"></a>Lägga till en ny gästanvändare i Azure AD
 
-1. Logga in till [Azure-portalen](https://portal.azure.com/) som Azure AD-administratör.
+1. Logga in på [Azure Portal](https://portal.azure.com/) som Azure AD-administratör.
 2. Välj **Azure Active Directory** i den vänstra rutan.
 3.  Under **Hantera** väljer du **Användare**.
 

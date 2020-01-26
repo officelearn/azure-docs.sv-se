@@ -1,5 +1,5 @@
 ---
-title: 'Snabb start: Använd Node. js för att fråga efter data från en Azure SQL-databas'
+title: Använd Node. js för att fråga en databas
 description: Så använder du Node.js för att skapa ett program som ansluter till en Azure SQL-databas och kör frågor mot den med hjälp av SQL-instruktioner.
 services: sql-database
 ms.service: sql-database
@@ -11,45 +11,48 @@ ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 064baf0215a2eaf7b90b78716b87606990b8fd21
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d22d95a6c4f417f803793d0c87ee251f7f0e9ed5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279264"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758435"
 ---
 # <a name="quickstart-use-nodejs-to-query-an-azure-sql-database"></a>Snabbstart: Använda Node.js för att köra frågor mot en Azure SQL-databas
 
-Den här snabb starten visar hur du använder [Node. js](https://nodejs.org) för att ansluta till en Azure SQL-databas. Du kan sedan använda T-SQL-instruktioner för att köra frågor mot data.
+I den här snabb starten använder du Node. js för att ansluta till en Azure SQL-databas och använda T-SQL-uttryck för att fråga efter data.
 
 ## <a name="prerequisites"></a>Krav
 
-För att kunna slutföra det här exemplet behöver du följande:
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-- En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
-
-  || Enskild databas | Hanterad instans |
-  |:--- |:--- |:---|
-  | Skapa| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
-  |||[Anslutning från en lokal plats](sql-database-managed-instance-configure-p2s.md)
-  |Läsa in data|AdventureWorks som lästs in per snabbstart|[Återställa Wide World Importers](sql-database-managed-instance-get-started-restore.md)
-  |||Återställa eller importera Adventure Works från [BACPAC](sql-database-import.md) -filen från [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
-  |||
-
-  > [!IMPORTANT]
-  > Skripten i den här artikeln skrivs för att använda Adventure Works-databasen. Med en hanterad instans måste du antingen importera Adventure Works-databasen till en instansdatabas eller ändra skripten i den här artikeln om du vill använda Wide World Importers-databasen.
-
-
-- Node.js-relaterad programvara för ditt operativsystem:
-
-  - **MacOS**, installera Homebrew och Node.js och installera därefter ODBC-drivrutinen och SQLCMD. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+- En [Azure SQL-databas](sql-database-single-database-get-started.md)
   
-  - **Ubuntu**, installera Node.js och installera därefter ODBC-drivrutinen och SQLCMD. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
-  
-  - **Windows**, installera Chocolatey och Node.js och installera därefter ODBC-drivrutinen och SQLCMD. Se [steg 1.2 och 1.3](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+- [Node. js](https://nodejs.org)-relaterad program vara
+
+  # <a name="macostabmacos"></a>[macOS](#tab/macos)
+
+  Installera homebrew och Node. js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node. js-appar med hjälp av SQL Server på MacOS](https://www.microsoft.com/sql-server/developer-get-started/node/mac/).
+
+  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
+
+  Installera Node. js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node. js-appar med hjälp av SQL Server på Ubuntu](https://www.microsoft.com/sql-server/developer-get-started/node/ubuntu/).
+
+  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+  Installera choklad och Node. js och installera sedan ODBC-drivrutinen och SQLCMD med steg **1,2** och **1,3** i [skapa Node. js-appar med hjälp av SQL Server i Windows](https://www.microsoft.com/sql-server/developer-get-started/node/windows/).
+
+  ---
+
+> [!IMPORTANT]
+> Skripten i den här artikeln är skrivna för att använda **Adventure Works** -databasen.
+
+> [!NOTE]
+> Alternativt kan du välja att använda en hanterad Azure SQL-instans.
+>
+> Om du vill skapa och konfigurera använder du [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md)eller [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)och sedan installerar du anslutningar [på plats](sql-database-managed-instance-configure-p2s.md) eller [virtuell dator](sql-database-managed-instance-configure-vm.md) .
+>
+> Om du vill läsa in data, se [restore with BACPAC](sql-database-import.md) med [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) -filen, eller se [återställa Wide World imports-databasen](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 

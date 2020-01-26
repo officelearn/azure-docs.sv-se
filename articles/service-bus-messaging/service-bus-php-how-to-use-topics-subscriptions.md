@@ -1,6 +1,6 @@
 ---
-title: 'Snabb start: använda Service Bus ämnen med PHP'
-description: 'Snabb start: Lär dig hur du använder Service Bus ämnen med PHP i Azure.'
+title: Använda Azure Service Bus ämnen med PHP
+description: I den här självstudien får du lära dig hur du använder Azure Service Bus ämnen och prenumerationer från ett PHP-program.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721649"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760682"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>Snabb start: använda Service Bus ämnen och prenumerationer med PHP
 
@@ -33,8 +33,8 @@ Den här artikeln visar hur du använder Service Bus ämnen och prenumerationer.
 - Ta emot meddelanden från en prenumeration
 - Ta bort ämnen och prenumerationer
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att genomföra kursen. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Krav
+1. En Azure-prenumeration. För den här kursen behöver du ett Azure-konto. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer på avsnittet](service-bus-quickstart-topics-subscriptions-portal.md) för att skapa ett Service Bus- **namnområde** och hämta **anslutnings strängen**.
 
     > [!NOTE]

@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: acd122668a5aa70becbf284bd064535e859ad01b
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: e2cb4f81e3de5e22bae3029e42ec2f67dae55424
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772879"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761394"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -42,15 +42,15 @@ Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Obser
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder nyckeln och platsen för din LUIS förutsägelse resurs. 
+Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder nyckeln och platsen för din LUIS förutsägelse resurs.
 
 > [!IMPORTANT]
-> Start nyckeln och redigerings nycklarna fungerar inte. Du måste använda din förutsägelse nyckel och plats som du skapade tidigare. Mer information finns i [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition). 
+> Start nyckeln och redigerings nycklarna fungerar inte. Du måste använda din förutsägelse nyckel och plats som du skapade tidigare. Mer information finns i [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
-Infoga den här koden i metoden `RecognizeIntentAsync()`. Se till att du uppdaterar dessa värden: 
+Infoga den här koden i metoden `RecognizeIntentAsync()`. Se till att du uppdaterar dessa värden:
 
-* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel. 
-* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats. 
+* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel.
+* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta dessa värden kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
@@ -65,16 +65,16 @@ Tal-SDK: n kommer att känna igen med en-US för språket, se [Ange käll språk
 
 Nu ska vi skapa en `IntentRecognizer`. Det här objektet skapas i en using-instruktion för att säkerställa en korrekt version av ohanterade resurser. Infoga den här koden i metoden `RecognizeIntentAsync()`, direkt under din tal konfiguration.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=28-30,76)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=29-30,76)]
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Lägg till ett LanguageUnderstandingModel och avsikter
 
-Du måste associera ett `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering. Infoga den här koden i using-instruktionen från föregående avsnitt. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID. 
+Du måste associera ett `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering. Infoga den här koden i using-instruktionen från föregående avsnitt. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta det här värdet kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=31-35)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=33-35)]
 
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
@@ -88,7 +88,7 @@ När igenkännings resultatet returneras av tal tjänsten vill du göra något m
 
 Lägg till den här koden i using-instruktionen nedan `RecognizeOnceAsync()`:
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=48-75)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=49-75)]
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
@@ -97,7 +97,7 @@ Nu bör din kod se ut så här:
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.
 
-[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=5-86)]
+[!code-csharp[](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/intent-recognition/helloworld/Program.cs?range=7-86)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

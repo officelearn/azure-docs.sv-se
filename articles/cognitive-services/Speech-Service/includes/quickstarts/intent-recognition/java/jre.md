@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 7654d952469e35c3b45af252e910cb0e36693029
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75773039"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761467"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -37,7 +37,7 @@ Innan du börjar:
 
 Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,69-76)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-20,68-75)]
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
@@ -45,8 +45,8 @@ Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfigura
 
 Infoga den här koden i try/catch-blocket i `main()`. Se till att du uppdaterar dessa värden:
 
-* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel. 
-* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats. 
+* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel.
+* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta dessa värden kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
@@ -65,14 +65,14 @@ Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din ta
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Lägg till ett LanguageUnderstandingModel och avsikter
 
-Du måste associera ett `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering. 
+Du måste associera ett `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering.
 
-Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID. 
+Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta det här värdet kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-36)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
 
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
@@ -80,19 +80,19 @@ Från `IntentRecognizer`-objektet kommer du att anropa metoden `recognizeOnceAsy
 
 Infoga den här koden under din modell:
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=41)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=40)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
 
 När igenkännings resultatet returneras av tal tjänsten vill du göra något med det. Vi ska hålla det enkelt och skriva ut resultatet till-konsolen.
 
-Infoga den här koden under anropet till `recognizeOnceAsync()`: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=44-65)]
+Infoga den här koden under anropet till `recognizeOnceAsync()`: [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=43-64)]
 
 ## <a name="release-resources"></a>Versions resurser
 
 Det är viktigt att publicera tal resurserna när du är klar med dem. Infoga den här koden i slutet av try/catch-blocket:
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=67-68)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=66-67)]
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
@@ -101,7 +101,7 @@ Nu bör din kod se ut så här:
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.
 
-[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-76)]
+[!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=6-75)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

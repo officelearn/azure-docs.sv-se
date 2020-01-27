@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d421de69f856790b89c866a6c8b7221e9214aef4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b141fcdb2aacc8654999d023c4174c7eb9bc177f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75773024"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761393"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -39,19 +39,19 @@ Innan du börjar:
 
 Nu ska vi lägga till kod som fungerar som en Skeleton för vårt projekt. Observera att du har skapat en asynkron metod som heter `recognizeIntent()`.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,72-80)]
 
 ## <a name="create-a-speech-configuration"></a>Skapa en tal konfiguration
 
-Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder nyckeln och platsen för din LUIS förutsägelse resurs. 
+Innan du kan initiera ett `IntentRecognizer`-objekt måste du skapa en konfiguration som använder nyckeln och platsen för din LUIS förutsägelse resurs.
 
 > [!IMPORTANT]
-> Start nyckeln och redigerings nycklarna fungerar inte. Du måste använda din förutsägelse nyckel och plats som du skapade tidigare. Mer information finns i [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition). 
+> Start nyckeln och redigerings nycklarna fungerar inte. Du måste använda din förutsägelse nyckel och plats som du skapade tidigare. Mer information finns i [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
 Infoga den här koden i metoden `recognizeIntent()`. Se till att du uppdaterar dessa värden:
 
-* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel. 
-* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats. 
+* Ersätt `"YourLanguageUnderstandingSubscriptionKey"` med din LUIS-förutsägelse nyckel.
+* Ersätt `"YourLanguageUnderstandingServiceRegion"` med din LUIS-plats.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta dessa värden kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
@@ -70,14 +70,14 @@ Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden i metoden `recogniz
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Lägg till ett LanguageUnderstandingModel och avsikter
 
-Du måste associera ett `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering. 
+Du måste associera ett `LanguageUnderstandingModel` med avsikts igenkänningen och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering.
 
-Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID. 
+Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID.
 
 >[!TIP]
 > Om du behöver hjälp med att hitta det här värdet kan du läsa [skapa en Luis-app för avsikts igenkänning](#create-a-luis-app-for-intent-recognition).
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
 
 ## <a name="recognize-an-intent"></a>Identifiera en avsikt
 
@@ -85,7 +85,7 @@ Från `IntentRecognizer`-objektet kommer du att anropa metoden `RecognizeOnceAsy
 
 Infoga den här koden under din modell:
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=43)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>Visa tolknings resultat (eller fel)
 
@@ -93,7 +93,7 @@ När igenkännings resultatet returneras av tal tjänsten vill du göra något m
 
 Infoga den här koden nedan `auto result = recognizer->RecognizeOnceAsync().get();`:
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=46-71)]
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
@@ -102,7 +102,7 @@ Nu bör din kod se ut så här:
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-79)]
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 

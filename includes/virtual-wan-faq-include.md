@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 0101573675d96694ee94c45288342dad8183e7fe
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 09fe8396b6f0033a2c01d1ef056060a855b23d0a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772974"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761444"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Vad är skillnaden mellan en virtuell Azure-nätverksgateway (VPN Gateway) och en virtuell WAN-gateway i Azure?
 
@@ -42,9 +42,6 @@ Nej. Du kan använda valfri VPN-kompatibel enhet som följer Azure-kraven för I
 
 Programvarudefinierade anslutningslösningar hanterar vanligtvis gren-enheter med hjälp av en kontrollant eller ett enhetsetableringscenter. Kontrollanten kan automatisera anslutningar till Azure Virtual WAN med hjälp av Azure API:er. Automation inkluderar överföring av gren information, hämtning av Azure-konfiguration, konfiguration av IPSec-tunnlar i virtuella Azure-nav och automatisk inställning av anslutning från gren enheten till Azure Virtual WAN. När du har hundratals grenar är det enkelt att ansluta med hjälp av virtuella WAN-partners för att skapa, konfigurera och hantera storskalig IPsec-anslutning. Läs mer i informationen om [automatisering för virtuell WAN-partner](../articles/virtual-wan/virtual-wan-configure-automation-providers.md).
 
-### <a name="am-i-required-to-use-a-preferred-partner-device"></a>Måste jag använda en önskad partnerenhet?
-
-Nej. Du kan använda valfri VPN-kompatibel enhet som följer Azure-kraven för IKEv2/IKEv1 IPsec-stöd.
 
 ### <a name="how-is-virtual-wan-supporting-sd-wan-devices"></a>Hur fungerar virtuella WAN-enheter som stöder SD-WAN-enheter?
 

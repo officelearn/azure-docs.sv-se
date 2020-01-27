@@ -62,7 +62,7 @@ Azure-FarmBeats stöds för närvarande i offentliga moln miljöer i följande r
 * USA, västra 2
 * Europa, norra
 * Europa, västra
-* Asien, sydöstra
+* Sydostasien
 
 ### <a name="time-taken"></a>Åtgången tid
 

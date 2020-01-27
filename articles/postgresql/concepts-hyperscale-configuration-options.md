@@ -40,7 +40,7 @@ Citus-Server grupper är tillgängliga i följande Azure-regioner:
     * USA, västra 2
 * Asien och stillahavsområdet:
     * Östra Australien *
-    * Asien, sydöstra
+    * Sydostasien
 * Östeuropa
     * Europa, norra
     * Storbritannien, södra

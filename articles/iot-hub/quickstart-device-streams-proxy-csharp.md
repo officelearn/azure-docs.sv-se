@@ -53,7 +53,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
   * USA, centrala
   * Centrala USA-EUAP
-  * Asien, sydöstra
+  * Sydostasien
   * Europa, norra
 
 * De två exempel programmen som du kör i den här snabb starten är C#skrivna. Du behöver .NET Core SDK 2.1.0 eller senare på din utvecklings dator.

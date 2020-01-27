@@ -38,7 +38,7 @@ Data Catalog-tjänster är för närvarande tillgängliga i följande data Cente
 * Europa, västra
 * Europa, norra
 * Australien, östra
-* Asien, sydöstra
+* Sydostasien
 
 ## <a name="what-are-its-limits-on-the-number-of-data-assets"></a>Vilka är gränserna för antalet data till gångar?
 Den kostnads fria versionen av Data Catalog är begränsad till 5 000 registrerade data till gångar.

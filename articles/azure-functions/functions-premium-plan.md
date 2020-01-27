@@ -119,7 +119,7 @@ Nedan finns de regioner som stöds för varje operativ system.
 |Europa, norra| ✔ | ✔<sup>1</sup> |
 |USA, södra centrala| ✔ | ✔<sup>1</sup> |
 |Indien, södra | ✔ | |
-|Asien, sydöstra| ✔ | ✔<sup>1</sup> |
+|Sydostasien| ✔ | ✔<sup>1</sup> |
 |Storbritannien, södra| ✔ | |
 |Storbritannien, västra| ✔ |  |
 |Europa, västra| ✔ | ✔<sup>1</sup> |

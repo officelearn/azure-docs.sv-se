@@ -40,7 +40,7 @@ När du aktiverar en princip för IP-åtkomstkontroll program mässigt måste du
 |------|----------|
 |Tyskland|51.4.229.218|
 |Kina|139.217.8.252|
-|USA-förvaltad region|52.244.48.71|
+|US Gov|52.244.48.71|
 |Alla andra regioner|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 Du kan aktivera åtkomst till Azure Portal genom att välja alternativet **Tillåt åtkomst från Azure Portal** , som du ser i följande skärm bild:

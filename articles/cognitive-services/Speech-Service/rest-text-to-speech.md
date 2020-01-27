@@ -57,7 +57,7 @@ Med `voices/list` slut punkten kan du få en fullständig lista över röster f�
 | USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa, norra | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, södra centrala | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Asien, sydöstra | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Sydostasien | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Storbritannien, södra | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Europa, västra | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, västra | `https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list` |

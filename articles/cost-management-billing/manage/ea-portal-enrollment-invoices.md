@@ -10,7 +10,7 @@ ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 7cb2966c94485d0a05febf3085ab367fcba97434
 ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/22/2020
 ms.locfileid: "76514365"
@@ -414,7 +414,7 @@ För de tjänster där zon och region påverkar prissättningen visar följande 
 | Geografi | Dataöverföringsregioner | CDN-regioner |
 | --- | --- | --- |
 | Zon 1 | Nordeuropa <br> Västeuropa <br> USA, västra <br> USA, östra <br> USA, norra centrala <br> USA, södra centrala <br> USA, östra 2 <br> USA, centrala | Nordamerika <br> Europa |
-| Zon 2 | Östra Asien/Stillahavsområdet <br> Sydöstra stillahavsområdet i Asien <br> Japan, östra <br> Japan, västra <br> Australien, östra <br> Australien, sydöstra | Asien och stillahavsområdet <br> Japan <br> Latinamerika <br> Mellanöstern/Afrika <br> Australien, östra <br> Australien, sydöstra |
+| Zon 2 | Östra Asien och stillahavsområdet <br> Sydöstra Asien och stillahavsområdet <br> Japan, östra <br> Japan, västra <br> Australien, östra <br> Australien, sydöstra | Asien och stillahavsområdet <br> Japan <br> Latinamerika <br> Mellanöstern/Afrika <br> Australien, östra <br> Australien, sydöstra |
 | Zon 3 | Brasilien, södra |   |
 
 **Tabell** **4** **– dataöverföringsregioner**

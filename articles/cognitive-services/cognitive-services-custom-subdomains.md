@@ -92,7 +92,7 @@ Ja. Det här är en lista över regionala slut punkter som du kan använda med A
 | | Västra Europa | `https://westeurope.api.cognitive.microsoft.com` |
 | | Västra USA | `https://westus.api.cognitive.microsoft.com` |
 | | Västra USA 2 | `https://westus2.api.cognitive.microsoft.com` |
-| USA-förvaltad region | Virginia (USA-förvaltad region) | `https://virginia.api.cognitive.microsoft.us` |
+| US Gov | Virginia (USA-förvaltad region) | `https://virginia.api.cognitive.microsoft.us` |
 | Kina | Kina, östra 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Kina, norra | `https://chinanorth.api.cognitive.azure.cn` |
 

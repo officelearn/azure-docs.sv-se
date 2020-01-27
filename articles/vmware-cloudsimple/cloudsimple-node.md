@@ -38,7 +38,7 @@ Följande typer av noder är tillgängliga för etablering eller reservation.
 
 | SKU           | CS28-nod                 | CS36-nod                 | CS36m-nod                |
 |---------------|-----------------------------|-----------------------------|-----------------------------|
-| Region        | Östra USA, västra USA            | Östra USA, västra USA            | Europa, västra                 |
+| Region        | USA, östra, USA, västra            | USA, östra, USA, västra            | Europa, västra                 |
 | Processor           | 2x 2,2 GHz, 28 kärnor (56 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) |
 | RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
 | Cachedisk    | 1,6 – TB NVMe                 | 3,2 – TB NVMe                 | 3,2 – TB NVMe                 |

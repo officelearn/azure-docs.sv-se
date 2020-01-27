@@ -235,10 +235,10 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | **Regioner för nationella Azure-moln**| **BGP-community värde** |
 | --- | --- |
 | **Amerikanska myndigheter** |  |
-| Arizona (USA-förvaltad region) | 12076:51106 |
+| US Gov, Arizona | 12076:51106 |
 | US Gov, Iowa | 12076:51109 |
 | Virginia (USA-förvaltad region) | 12076:51105 |
-| Texas (USA-förvaltad region) | 12076:51108 |
+| US Gov, Texas | 12076:51108 |
 | US DoD, centrala | 12076:51209 |
 | US DoD, östra | 12076:51205 |
 

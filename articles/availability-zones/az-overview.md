@@ -38,7 +38,7 @@ De kombinationer av Azure-tjänster och regioner som stöder Tillgänglighetszon
 
 |                                 |Nord- och Sydamerika |              |           |           | Europa |              |          |              | Asien och stillahavsområdet |                 |
 |----------------------------|----------|----------|---------|---------|--------------|------------|--------|----------|----------|-------------|
-|          |USA, centrala|USA, östra|USA, östra 2|USA, västra 2|Frankrike, centrala|Europa, norra|Storbritannien, södra|Europa, västra|Japan, östra|Asien, sydöstra|
+|          |USA, centrala|USA, östra|USA, östra 2|USA, västra 2|Frankrike, centrala|Europa, norra|Storbritannien, södra|Europa, västra|Japan, östra|Sydostasien|
 | **Compute**                         |            |              |           |           |                |              |          |             |            |                |
 | Virtuella Linux-datorer          | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |
 | Windows Virtuella datorer        | &#10003;   | &#10003;     | &#10003;  | &#10003;  | &#10003;       | &#10003;     | &#10003; | &#10003;    | &#10003;   | &#10003;       |

@@ -16,6 +16,6 @@ ms.locfileid: "75445818"
 | Regioner | OS | Tillgängliga GPU-SKU: er |
 | -------- | ---- | :-----------: |
 | Östra USA, Västeuropa, västra USA 2 | Linux | K80, P100, V100 |
-| Asien, sydöstra | Linux | P100, V100|
+| Sydostasien | Linux | P100, V100|
 | Indien, centrala | Linux | V100 |
 | Europa, norra | Linux | K80 |

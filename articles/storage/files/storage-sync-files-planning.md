@@ -273,11 +273,11 @@ Azure File Sync är endast tillgängligt i följande regioner:
 | Södra Afrika, västra * | Kapstaden |
 | USA, södra centrala | Texas |
 | Indien, södra | Chennai |
-| Asien, sydöstra | Singapore |
+| Sydostasien | Singapore |
 | Storbritannien, södra | London |
 | Storbritannien, västra | Cardiff |
-| Arizona (USA-förvaltad region) | Arizona |
-| Texas (USA-förvaltad region) | Texas |
+| US Gov, Arizona | Arizona |
+| US Gov, Texas | Texas |
 | USA Gov Virginia | Virginia |
 | Förenade Arabemiraten, norra | Dubai |
 | Förenade Arabemiraten Central * | Abu Dhabi |
@@ -307,7 +307,7 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Kanada, östra         | Kanada, centrala     |
 | Indien, centrala       | Indien, södra        |
 | USA, centrala          | USA, östra 2          |
-| Asien, östra           | Asien, sydöstra     |
+| Asien, östra           | Sydostasien     |
 | USA, östra             | USA, västra            |
 | USA, östra 2           | USA, centrala         |
 | Frankrike, centrala      | Frankrike, södra       |
@@ -322,12 +322,12 @@ För att stödja redundansväxlingen mellan Geo-redundant lagring och Azure File
 | Sydafrika, västra   | Sydafrika, norra |
 | USA, södra centrala    | USA, norra centrala   |
 | Indien, södra         | Indien, centrala      |
-| Asien, sydöstra      | Asien, östra          |
+| Sydostasien      | Asien, östra          |
 | Storbritannien, södra            | Storbritannien, västra            |
 | Storbritannien, västra             | Storbritannien, södra           |
-| Arizona (USA-förvaltad region)      | Texas (USA-förvaltad region)       |
+| US Gov, Arizona      | US Gov, Texas       |
 | US Gov, Iowa         | USA Gov Virginia    |
-| USA Gov Virginia      | Texas (USA-förvaltad region)       |
+| USA Gov Virginia      | US Gov, Texas       |
 | Europa, västra         | Europa, norra       |
 | USA, västra centrala     | USA, västra 2          |
 | USA, västra             | USA, östra            |

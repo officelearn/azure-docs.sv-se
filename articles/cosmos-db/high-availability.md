@@ -79,7 +79,7 @@ Den här funktionen är tillgänglig i följande Azure-regioner:
 
 - Storbritannien, södra
 
-- Asien, sydöstra
+- Sydostasien
 
 - USA, östra
 

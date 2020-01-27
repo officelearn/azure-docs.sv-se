@@ -57,7 +57,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
   * USA, centrala
   * Centrala USA-EUAP
   * Europa, norra
-  * Asien, sydöstra
+  * Sydostasien
 
 * Installera [Visual Studio 2019](https://www.visualstudio.com/vs/) med [Skriv bords utveckling C++ med](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat arbets belastning.
 * Installera den senaste versionen av [Git](https://git-scm.com/download/).

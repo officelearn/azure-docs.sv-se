@@ -160,7 +160,7 @@ Ja, Azure cache för Redis finns i Azure Government Cloud, Azure Kina 21Vianet-m
 | I molnet   | DNS-suffix för Redis            |
 |---------|---------------------------------|
 | Offentlig  | *.redis.cache.windows.net       |
-| USA-förvaltad region  | *.redis.cache.usgovcloudapi.net |
+| US Gov  | *.redis.cache.usgovcloudapi.net |
 | Tyskland | *.redis.cache.cloudapi.de       |
 | Kina   | *.redis.cache.chinacloudapi.cn  |
 

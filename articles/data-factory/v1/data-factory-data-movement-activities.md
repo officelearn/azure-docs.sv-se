@@ -109,8 +109,8 @@ När både käll-och mottagar data lager finns i molnet använder Data Factory e
 | &nbsp; | Europa, västra | Europa, västra |
 | Storbritannien | Storbritannien, västra | Storbritannien, södra |
 | &nbsp; | Storbritannien, södra | Storbritannien, södra |
-| Asien och stillahavsområdet | Asien, sydöstra | Asien, sydöstra |
-| &nbsp; | Asien, östra | Asien, sydöstra |
+| Asien och stillahavsområdet | Sydostasien | Sydostasien |
+| &nbsp; | Asien, östra | Sydostasien |
 | Australien | Australien, östra | Australien, östra |
 | &nbsp; | Australien, sydöstra | Australien, sydöstra |
 | Indien | Indien, centrala | Indien, centrala |

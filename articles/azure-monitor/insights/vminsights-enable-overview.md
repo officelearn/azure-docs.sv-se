@@ -49,7 +49,7 @@ Azure Monitor for VMs stöder en Log Analytics arbets yta i följande regioner:
 - Europa, norra
 - Europa, västra
 - Asien, östra
-- Asien, sydöstra
+- Sydostasien
 - Indien, centrala
 - Japan, östra
 - Australien, östra

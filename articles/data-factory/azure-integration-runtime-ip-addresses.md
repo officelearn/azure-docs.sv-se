@@ -34,7 +34,7 @@ Tillåt trafik från IP-adresserna som anges för Azure integration runtime i de
 |                | Region              | IP-adresser                                                 |
 | -------------- | ------------------- | ------------------------------------------------------------ |
 | Asien           | Asien, östra           | 20.189.104.128/25, </br>20.189.106.0/26, </br>13.75.39.112/28 |
-| &nbsp;         | Asien, sydöstra      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
+| &nbsp;         | Sydostasien      | 20.43.128.128/25, </br>20.43.130.0/26, </br>40.78.236.176/28 |
 | Australien      | Australien, östra      | 20.37.193.0/25,</br>20.37.193.128/26,</br>13.70.74.144/28    |
 | &nbsp;         | Australien, sydöstra | 20.42.225.0/25,</br>20.42.225.128/26,</br>13.77.53.160/28    |
 | Brasilien         | Brasilien, södra        | 191.235.224.128/25,</br>191.235.225.0/26,</br>191.233.205.160/28 |

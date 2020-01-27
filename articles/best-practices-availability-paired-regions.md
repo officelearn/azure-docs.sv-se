@@ -35,7 +35,7 @@ Bild 1 – regionala Azure-par
 | Kanada |Centrala Kanada |Östra Kanada |
 | Kina |Kina, norra |Kina, östra|
 | Kina |Kina, norra 2 |Kina, östra 2|
-| Europa |Nordeuropa (Irland) |Västeuropa (Nederländerna) |
+| Europa |Europa, norra (Irland) |Europa, västra (Nederländerna) |
 | Frankrike |Frankrike, centrala|Frankrike, södra|
 | Tyskland |Centrala Tyskland |Nordöstra Tyskland |
 | Indien |Indien, centrala |Södra Indien |
@@ -50,9 +50,9 @@ Bild 1 – regionala Azure-par
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten, centrala
 | OSS-försvars departement |US DoD, östra |US DoD, centrala |
-| Amerikanska myndigheter |Arizona (USA-förvaltad region) |Texas (USA-förvaltad region) |
+| Amerikanska myndigheter |US Gov, Arizona |US Gov, Texas |
 | Amerikanska myndigheter |US Gov, Iowa |Virginia (USA-förvaltad region) |
-| Amerikanska myndigheter |Virginia (USA-förvaltad region) |Texas (USA-förvaltad region) |
+| Amerikanska myndigheter |Virginia (USA-förvaltad region) |US Gov, Texas |
 
 Tabell 1 – mappning av regionala Azure-par
 

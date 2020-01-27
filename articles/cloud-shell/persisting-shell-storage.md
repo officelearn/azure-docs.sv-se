@@ -69,7 +69,7 @@ Det finns Cloud Shell datorer i följande regioner:
 |Område|Region|
 |---|---|
 |Nord- och Sydamerika|Östra USA, södra centrala USA, västra USA|
-|Europa|Nordeuropa, Västeuropa|
+|Europa|Europa, norra, Europa, västra|
 |Asien och stillahavsområdet|Indien, centrala, Sydostasien|
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Begränsa resurs skapande med en Azure-resurs princip

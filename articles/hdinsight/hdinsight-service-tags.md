@@ -105,7 +105,7 @@ Om klustret till exempel skapas i `East US 2` region, måste du lägga till föl
 | Europa | Europa, norra | HDInsight. Europanorra |
 | &nbsp; | Europa, västra| HDInsight. WestEurope |
 | Asien | Asien, östra | HDInsight. Asienöstra |
-| &nbsp; | Asien, sydöstra | HDInsight. Sydostasien |
+| &nbsp; | Sydostasien | HDInsight. Sydostasien |
 | Australien | Australien, östra | HDInsight. AustraliaEast |
 
 #### <a name="group-2"></a>Grupp 2

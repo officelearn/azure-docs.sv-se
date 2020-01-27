@@ -43,7 +43,7 @@ Talet SDK är tillgängligt i dessa regioner för **tal igenkänning**, **text t
 | USA, södra centrala | `southcentralus`     | https://southcentralus.cris.ai |
 | Indien, centrala    | `centralindia`       | https://centralindia.cris.ai   |
 | Asien, östra        | `eastasia`           | https://eastasia.cris.ai       |
-| Asien, sydöstra   | `southeastasia`      | https://southeastasia.cris.ai  |
+| Sydostasien   | `southeastasia`      | https://southeastasia.cris.ai  |
 | Japan, östra       | `japaneast`          | https://japaneast.cris.ai      |
 | Sydkorea, centrala    | `koreacentral`       | https://koreacentral.cris.ai   |
 | Australien, östra   | `australiaeast`      | https://australiaeast.cris.ai  |
@@ -60,7 +60,7 @@ Tillgängliga regioner för **avsikts igenkänning** via tal-SDK: n är följand
 | Global region | Region           | Parametern för tal-SDK |
 | ------------- | ---------------- | -------------------- |
 | Asien          | Asien, östra        | `eastasia`           |
-| Asien          | Asien, sydöstra   | `southeastasia`      |
+| Asien          | Sydostasien   | `southeastasia`      |
 | Australien     | Australien, östra   | `australiaeast`      |
 | Europa        | Europa, norra     | `northeurope`        |
 | Europa        | Europa, västra      | `westeurope`         |
@@ -86,7 +86,7 @@ Det här är en delmängd av de publicerings regioner som stöds av [language Un
 | USA, östra 2      | `eastus2`            |
 | Europa, västra    | `westeurope`         |
 | Europa, norra   | `northeurope`        |
-| Asien, sydöstra | `southeastasia`      |
+| Sydostasien | `southeastasia`      |
 
 ## <a name="rest-apis"></a>REST API:er
 

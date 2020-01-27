@@ -185,7 +185,7 @@ Den Azure SQL Database nivån på den storskaliga nivån är för närvarande ti
 - Europa, norra
 - Sydafrika, norra
 - USA, södra centrala
-- Asien, sydöstra
+- Sydostasien
 - Storbritannien, södra
 - Storbritannien, västra
 - Europa, västra

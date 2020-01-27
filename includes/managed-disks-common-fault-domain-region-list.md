@@ -6,7 +6,7 @@ ms.date: 11/25/2018
 ms.author: cynthn
 ms.openlocfilehash: 984b6aed6ae1b36432b932afb7d0f9dfb0b2dc15
 ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/22/2019
 ms.locfileid: "72783608"
@@ -55,7 +55,7 @@ ms.locfileid: "72783608"
 | Brasilien, södra        | 2                       |
 |                     |                         |
 | USA Gov Virginia     | 2                       |
-| Texas (USA-förvaltad region)        | 2                       |
-| Arizona (USA-förvaltad region)      | 2                       |
+| US Gov, Texas        | 2                       |
+| US Gov, Arizona      | 2                       |
 | US DoD, centrala      | 2                       |
 | USA DoD, östra         | 2                       |

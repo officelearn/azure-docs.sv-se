@@ -63,7 +63,7 @@ Dessa DNN-modeller är för närvarande tillgängliga:
 
 FPGAs är tillgängliga i dessa Azure-regioner:
   - USA, östra
-  - Asien, sydöstra
+  - Sydostasien
   - Europa, västra
   - USA, västra 2
 

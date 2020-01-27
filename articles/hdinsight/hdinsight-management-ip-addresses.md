@@ -49,7 +49,7 @@ Tillåt trafik från IP-adresserna som anges för Azure HDInsight-hälso-och han
 | Land | Region | Tillåtna käll-IP-adresser | Tillåtet mål | Riktning |
 | ---- | ---- | ---- | ---- | ----- |
 | Asien | Asien, östra | 23.102.235.122</br>52.175.38.134 | \*:443 | Inkommande |
-| &nbsp; | Asien, sydöstra | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkommande |
+| &nbsp; | Sydostasien | 13.76.245.160</br>13.76.136.249 | \*:443 | Inkommande |
 | Australien | Australien, östra | 104.210.84.115</br>13.75.152.195 | \*:443 | Inkommande |
 | &nbsp; | Australien, sydöstra | 13.77.2.56</br>13.77.2.94 | \*:443 | Inkommande |
 | Brasilien | Brasilien, södra | 191.235.84.104</br>191.235.87.113 | \*:443 | Inkommande |

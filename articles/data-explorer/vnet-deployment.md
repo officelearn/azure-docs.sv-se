@@ -127,7 +127,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Sydafrika, norra | 102.133.129.138 |
 | Sydafrika, västra | 102.133.0.97 |
 | USA, södra centrala | 20.45.3.60 |
-| Asien, sydöstra | 40.119.203.252 |
+| Sydostasien | 40.119.203.252 |
 | Indien, södra | 40.81.72.110 |
 | Storbritannien, södra | 40.81.154.254 |
 | Storbritannien, västra | 40.81.122.39 |
@@ -167,7 +167,7 @@ Genom att distribuera Azure Datautforskaren-kluster i under nätet kan du konfig
 | Sydafrika, västra | 104.211.224.189 |
 | USA, södra centrala | 23.98.145.105 |
 | Indien, södra | 23.99.5.162 |
-| Asien, sydöstra | 168.63.173.234 |
+| Sydostasien | 168.63.173.234 |
 | Storbritannien, södra | 23.97.212.5 |
 | Storbritannien, västra | 23.97.212.5 |
 | USA, västra centrala | 168.61.212.201 |

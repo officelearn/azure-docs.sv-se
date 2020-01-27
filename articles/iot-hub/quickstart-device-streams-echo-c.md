@@ -59,7 +59,7 @@ För hands versionen av enhets strömmar stöds för närvarande bara för IoT-h
   * USA, centrala
   * Centrala USA-EUAP
   * Europa, norra
-  * Asien, sydöstra
+  * Sydostasien
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
 

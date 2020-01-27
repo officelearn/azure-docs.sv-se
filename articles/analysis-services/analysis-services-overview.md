@@ -111,7 +111,7 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Australien, östra     |    S8, S9, S8v2, S9v2    |    1     |
 |Australien, sydöstra     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan, östra     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Asien, sydöstra     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
 |Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov

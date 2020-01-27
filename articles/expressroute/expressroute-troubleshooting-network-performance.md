@@ -191,7 +191,7 @@ Test konfiguration:
 | Seattle | Storbritannien, södra         |  7 708 km | 146 MS |  10,6 Mbit per sekund |   896 Mbit per sekund |
 | Seattle | Europa, västra      |  7 834 km | 153 MS |  10,2 Mbit per sekund |   761 Mbit per sekund |
 | Seattle | Australien, östra   | 12 484 km | 165 ms |   9,4 Mbit per sekund |   794 Mbit per sekund |
-| Seattle | Asien, sydöstra   | 12 989 km | 170 MS |   9,2 Mbit per sekund |   756 Mbit per sekund |
+| Seattle | Sydostasien   | 12 989 km | 170 MS |   9,2 Mbit per sekund |   756 Mbit per sekund |
 | Seattle | Brasilien, södra *   | 10 930 km | 189 MS |   8,2 Mbit per sekund |   699 Mbit per sekund |
 | Seattle | Indien, södra      | 12 918 km | 202 MS |   7,7 Mbit per sekund |   634 Mbit per sekund |
 

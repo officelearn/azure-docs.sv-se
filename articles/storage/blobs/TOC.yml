@@ -619,18 +619,6 @@
       items:
         - name: Analysera data med Databricks
           href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Hantera blobar utan kod
-          items:
-            - name: PowerShell
-              href: storage-quickstart-blobs-powershell.md
-            - name: CLI
-              href: storage-quickstart-blobs-cli.md
-        - name: Utveckla med blobar
-          items:
-            - name: .NET
-              href: storage-quickstart-blobs-dotnet.md
-            - name: Python
-              href: storage-quickstart-blobs-python.md
     - name: Självstudier
       items:
         - name: 'Extrahera, transformera och läsa in data med Azure Databricks'
@@ -657,36 +645,12 @@
           href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Bästa praxis
           href: data-lake-storage-best-practices.md
-        - name: Åtkomstnivåer
-          items:
-            - name: Åtkomstnivåer
-              href: storage-blob-storage-tiers.md
-            - name: Hantera Azure Blob Storage-livscykeln
-              href: storage-lifecycle-management-concepts.md
-        - name: Säkerhet
-          items:
-            - name: Översikt över Storage-säkerhet
-              href: ../blobs/security-recommendations.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Åtkomstkontroll
-              href: data-lake-storage-access-control.md
-        - name: Loggning
-          items:
-            - name: Lagringsanalys
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Lagringsanalysloggar
-              href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Händelsehantering
-          href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Åtkomstkontroll (kataloger och filer)
+          href: data-lake-storage-access-control.md
     - name: Gör så här för att
       items:
-        - name: Skapa och hantera lagringskonton
-          items:
-            - name: Skapa ett lagringskonto för din Data Lake
-              href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Hantera data med Storage Explorer
-              href: ../blobs/data-lake-storage-explorer.md
-            - name: Uppgradera ett lagringskonto
-              href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Skapa ett lagringskonto för din Data Lake
+          href: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'Hantera kataloger, filer och åtkomstkontrollistor'
           items:
             - name: .NET
@@ -700,43 +664,7 @@
             - name: CLI
               href: data-lake-storage-directory-file-acl-cli.md
             - name: Storage Explorer
-              href: data-lake-storage-how-to-set-permissions-storage-explorer.md
-        - name: Överföra data
-          items:
-            - name: AzCopy
-              items:
-                - name: Kom igång
-                  href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Använda med Data Lake Storage Gen2
-                  href: ../common/storage-use-azcopy-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: 'Konfigurera, optimera, felsöka'
-                  href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Använda Distcp
-              href: ../blobs/data-lake-storage-use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Använda Azure Data Factory
-              href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Skydda data
-          items:
-            - name: Konfigurera brandväggar och virtuella nätverk
-              href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Konfigurera kundhanterade nycklar för tjänstkryptering
-              items:
-                - name: Portalen
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Hantera åtkomstbehörighet med RBAC
-              items:
-                - name: Portalen
-                  href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Ange behörighet för filer och kataloger
-              href: ../blobs/data-lake-storage-how-to-set-permissions-storage-explorer.md
+              href: data-lake-storage-explorer.md
         - name: Optimera prestanda
           items:
             - name: Översikt
@@ -761,43 +689,16 @@
           href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Referens
       items:
-        - name: PowerShell
-          href: /powershell/module/azure.storage
-        - name: Azure CLI
-          href: /cli/azure/storage
         - name: .NET
-          items:
-            - name: Blobar (version 12.x)
-              href: /dotnet/api/azure.storage.blobs
-            - name: Dataflytt
-              href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: Lagringsresursprovider
-              href: /dotnet/api/overview/azure/storage/management
+          href: /dotnet/api/azure.storage.files.datalake
         - name: Java
-          items:
-            - name: Blobar (version 12.x)
-              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
-            - name: Blobar (version 8.x)
-              href: /java/api/com.microsoft.azure.storage.blob
-            - name: Lagringsresursprovider
-              href: /java/api/overview/azure/storage/management
-        - name: JavaScript (version 12.x)
-          href: /javascript/api/@azure/storage-blob/
-        - name: Python (version 12.x)
-          href: /python/api/azure-storage-blob/
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html'
+        - name: Python
+          href: 'https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html'
+        - name: Javascript
+          href: 'https://www.npmjs.com/package/@azure/storage-file-datalake/v/12.0.0-preview.6'
         - name: REST
-          items:
-            - name: 'Blobar, köer, tabeller och filer'
-              href: /rest/api/storageservices
-            - name: Data Lake Storage Gen2
-              href: /rest/api/storageservices/data-lake-storage-gen2
-            - name: Resursprovider
-              href: /rest/api/storagerp
-            - name: Import/Export
-              href: /rest/api/storageimportexport
-        - name: Resource Manager-mall
-          displayName: ARM
-          href: /azure/templates/microsoft.storage/allversions
+          href: /rest/api/storageservices/data-lake-storage-gen2
     - name: Resurser
       items:
         - name: Kända problem

@@ -69,7 +69,7 @@
               href: time-series-insights-update-query-data-csharp.md
             - name: Power BI-integrering
               href: concepts-power-bi.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Bevilja åtkomst till data
       href: time-series-insights-data-access.md
@@ -91,7 +91,7 @@
           href: time-series-insights-send-events.md
         - name: Skala din miljö
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: Forma JSON för frågor
+        - name: Forma JSON för ingress och frågor
           href: how-to-shape-query-json.md
         - name: Minimera begränsningar
           href: time-series-insights-environment-mitigate-latency.md
@@ -107,7 +107,7 @@
           href: time-series-insights-update-how-to-troubleshoot.md
         - name: Datamodellering
           href: time-series-insights-update-how-to-tsm.md
-        - name: Forma JSON för frågor
+        - name: Forma JSON för ingress och frågor
           href: time-series-insights-update-how-to-shape-events.md
         - name: Ansluta till Power BI
           href: how-to-connect-power-bi.md

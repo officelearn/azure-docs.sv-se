@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
-ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/21/2020
+ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977573"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715842"
 ---
-# <a name="collect-azure-activity-log-with-legacy-settings"></a>Samla in Azure aktivitets logg med äldre inställningar
-[Azure aktivitets loggen](platform-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Tills nyligen har du skapat en logg profil för att skicka aktivitets logg poster till [ett händelsehubben eller lagrings konto](activity-log-export.md) och använde en koppling för att samla in dem i en [Log Analytics-arbetsyta](activity-log-collect.md). I den här artikeln beskrivs skillnaden mellan metoderna, hur du arbetar med befintliga äldre inställningar och hur du rensar äldre inställningar som förberedelse för diagnostikinställningar.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Uppdatera till Azure aktivitets logg samling och exportera
+[Azure aktivitets loggen](platform-logs-overview.md) är en [plattforms logg](platform-logs-overview.md) som ger inblick i händelser på prenumerations nivå som har inträffat i Azure. Metoden att skicka aktivitets logg poster till [ett händelsehubben eller ett lagrings konto](activity-log-export.md) eller till en [Log Analytics arbets yta](activity-log-collect.md) har ändrats för att använda [diagnostikinställningar](diagnostic-settings.md). I den här artikeln beskrivs skillnaden mellan metoderna och hur du rensar äldre inställningar i förberedelser för att ändra inställningarna för diagnostik.
 
 
 ## <a name="differences-between-methods"></a>Skillnader mellan metoder
@@ -39,14 +39,16 @@ Att använda diagnostikinställningar har följande fördelar jämfört med nuva
 ### <a name="differences-in-data"></a>Skillnader i data
 Diagnostikinställningar samlar in samma data som föregående metoder som används för att samla in aktivitets loggen med följande aktuella skillnader:
 
-Följande egenskaper har tagits bort:
+Följande kolumner har tagits bort. Ersättningen för de här kolumnerna är i ett annat format, så du kan behöva ändra logg frågor som använder dem. Du kanske fortfarande ser borttagna kolumner i schemat, men de kommer inte att fyllas i med data.
 
-- ActivityStatus
-- ActivitySubstatus
-- OperationName
-- ResourceProvider
+| Borttagen kolumn | Ersättnings kolumn |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | ResourceProviderValue  |
 
-Följande egenskaper har lagts till:
+Följande kolumn har lagts till:
 
 - Authorization_d
 - Claims_d

@@ -3,24 +3,24 @@ title: Utforska data i SQL Server-dator – Team Data Science Process
 description: Så här att utforska data som lagras i en SQL Server-VM på Azure med SQL- eller ett programmeringsspråk som Python.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: be75490e4e86956337ce38133df6095790b3a374
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ae8c7c43ecbf9bc625e1e46be3e2c71c8d57b6f7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303663"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720103"
 ---
 # <a name="explore-data-in-sql-server-virtual-machine-on-azure"></a>Utforska data i en virtuell dator med SQL Server på Azure
 
-Den här artikeln beskriver hur du utforska data som lagras i en SQL Server-VM på Azure. Detta kan göras med Datatransformering med hjälp av SQL eller med ett programmeringsspråk som Python.
+Den här artikeln beskriver hur du utforska data som lagras i en SQL Server-VM på Azure. Använd SQL eller python för att granska data.
 
 Den här uppgiften är ett steg i den [Team Data Science Process](overview.md).
 
@@ -51,7 +51,7 @@ Här följer några exempel SQL-skript som kan användas för att utforska datal
 > 
 
 ## <a name="python"></a>Utforska SQL-data med Python
-Använda Python för att utforska data och generera funktioner om data finns i SQL Server är liknande för bearbetning av data i Azure-blob med hjälp av Python, enligt beskrivningen i [processen Azure Blob-data i miljön data science](data-blob.md). Data måste läsas in från databasen till en pandas-DataFrame och sedan kan bearbetas ytterligare. Vi dokumenterar hur du ansluter till databasen och läser in data till dataram i det här avsnittet.
+Använda Python för att utforska data och generera funktioner om data finns i SQL Server är liknande för bearbetning av data i Azure-blob med hjälp av Python, enligt beskrivningen i [processen Azure Blob-data i miljön data science](data-blob.md). Läs in data från databasen till en Pandas-DataFrame och sedan kan du bearbeta dem ytterligare. Vi dokumenterar hur du ansluter till databasen och läser in data till dataram i det här avsnittet.
 
 Följande formatet för anslutningssträngen kan användas för att ansluta till en SQL Server-databas från Python med pyodbc (Ersätt servername, dbname, användarnamn och lösenord med dina specifika värden):
 

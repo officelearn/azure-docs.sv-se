@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: Begrepp
   items:
-    - name: Översikt över datainmatning
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: Datainhämtning
+      items:
+        - name: Översikt över datainmatning
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: Översikt över datavisualisering
       href: viz-overview.md
     - name: Säkerhetsöversikt
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: Strömningsinmatning
           href: ingest-data-streaming.md
+        - name: 'Använda SDK:er'
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: SDK för Node
+              href: node-ingest-data.md
+            - name: .NET Standard-SDK
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: SDK för Node
-          href: node-ingest-data.md
-        - name: .NET Standard-SDK
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Kopiera data med Azure Data Factory
-          href: data-factory-load-data.md
+        - name: json-formaterade data
+          href: ingest-json-formats.md
     - name: Söka i data
       items:
         - name: Skriva frågor
@@ -204,6 +208,8 @@
           items:
             - name: Integration med Data Factory
               href: data-factory-integration.md
+            - name: Kopiera data med Azure Data Factory
+              href: data-factory-load-data.md
             - name: Masskopiera data med en Azure Data Factory-mall
               href: data-factory-template.md
             - name: Köra kontrollkommandon med Azure Data Factory

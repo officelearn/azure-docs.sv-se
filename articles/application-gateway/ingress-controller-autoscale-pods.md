@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 0e1ba6d86778b40f96940c417050e242fde33845
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: b98ab8d3c4d03115ea689b4dfd3d8dee753f019d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797587"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715078"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Autoskala din AKS-poddar med hjälp av Application Gateway mått (beta)
 

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/12/2019
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: efef578f5c62bef4ae33b98b568fd6d5c1389c4a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672245"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715120"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Autentisering och auktorisering i Azure App Service
 
@@ -24,9 +24,9 @@ Azure App Service tillhandahåller stöd för inbyggd autentisering och auktoris
 Säker autentisering och auktorisering kräver djupgående förståelse av säkerhet, inklusive Federation, kryptering, [JSON Web token (JWT)](https://wikipedia.org/wiki/JSON_Web_Token) -hantering, [beviljande typer](https://oauth.net/2/grant-types/)och så vidare. App Service tillhandahåller de här verktygen så att du kan lägga mer tid och energi på att tillhandahålla affärs värde till din kund.
 
 > [!IMPORTANT]
-> Du behöver inte använda App Service för authn/authn. Många webb ramverk levereras med säkerhetsfunktioner och du kan använda dem om du vill. Om du behöver större flexibilitet än App Service tillhandahåller kan du också skriva egna verktyg.  
+> Du behöver inte använda App Service för authn/authn. Du kan använda de sammanslagna säkerhetsfunktionerna i ditt webb ramverk alternativt, eller så kan du skriva egna verktyg. Tänk dock på att [Chrome 80 gör större ändringar i dess implementering av SameSite för cookies](https://www.chromestatus.com/feature/5088147346030592) (lanserings datum runt den 2020 mars) och anpassad fjärrautentisering eller andra scenarier som förlitar sig på att en cookie-post på flera platser kan brytas när klientens webbläsare uppdateras. Lösningen är komplicerad eftersom den behöver stöd för olika SameSite-beteenden för olika webbläsare. 
 >
-> Men om du går med någon av de icke-App Service alternativen för fjärrautentisering bör du tänka på att [Chrome 80 gör ändringar i implementeringen av SameSite för cookies](https://www.chromestatus.com/feature/5088147346030592) (lanserings datum runt mars 2020) och appens autentiseringsmekanism kan brytas när klientens webbläsare uppdateras. ASP.NET Core-dokumentationen innehåller information om hur du kan åtgärda detta i din app, vid [http: webbläsare SameSite ändringar påverkar autentiseringen](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication). Den innehåller användbar vägledning om hur du testar den här avbrytande ändringen mot större webbläsare, oavsett om du använder ASP.NET Core eller inte.
+> ASP.NET Core 2,1 och senare versioner som är värd för App Service har redan korrigerats för den här avbrytande ändringen och hanterar Chrome 80 och äldre webbläsare på lämpligt sätt. Dessutom distribueras samma korrigering för ASP.NET Framework-4.7.2 på App Service instanserna i januari 2020. Mer information, inklusive hur du vet om din app har tagit emot korrigeringen, finns [Azure App Service SameSite cookie Update](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
 
 Information som är specifik för interna mobilappar finns i [användarautentisering och auktorisering för mobila appar med Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
@@ -85,7 +85,7 @@ App Service använder [federerade identiteter](https://en.wikipedia.org/wiki/Fed
 
 När du aktiverar autentisering och auktorisering med någon av dessa leverantörer, är dess inloggnings slut punkt tillgänglig för användarautentisering och för verifiering av autentiseringstoken från providern. Du kan ge dina användare ett valfritt antal inloggnings alternativ enkelt. Du kan också integrera en annan identitets leverantör eller [din egen anpassade identitets lösning][custom-auth].
 
-## <a name="authentication-flow"></a>Autentiseringspaket
+## <a name="authentication-flow"></a>autentiseringspaket
 
 Autentiserings flödet är detsamma för alla providers, men varierar beroende på om du vill logga in med providerns SDK:
 

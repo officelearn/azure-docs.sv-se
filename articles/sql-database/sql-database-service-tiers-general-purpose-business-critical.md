@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: 5e3cc12351313b8fb1dedf795031202070ac7cf7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.date: 01/23/2020
+ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558991"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715098"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database tjänst nivåer
 
@@ -51,7 +51,7 @@ I följande tabell beskrivs viktiga skillnader mellan tjänst nivåer för den s
 |**Tillgänglighet**|Alla| 99,99 % |  [99,95% med en sekundär replik, 99,99% med fler repliker](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99 % <br/> [99,995% med redundant zon i en enskild databas](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
 |**Minnes intern OLTP** | | Gäller inte | Gäller inte | Tillgänglig |
-|**Skrivskyddade repliker**| | 0  | 0 - 4 | 1 (inbyggt, ingår i priset) |
+|**Skrivskyddade repliker**| | 0 inbyggd <br> 0-4 med [geo-replikering](sql-database-active-geo-replication.md) | 0-4 inbyggd | 1 inbyggd, ingår i priset <br> 0-4 med [geo-replikering](sql-database-active-geo-replication.md) |
 |**Priser/fakturering** | Enkel databas | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. | [vCore för varje replik och använt lagrings utrymme](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS har ännu inte debiterats. | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. |
 || Hanterad instans | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | Gäller inte | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | 
 |**Rabatt modeller**| | [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-azure-hybrid-benefit.md) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Azure Hybrid-förmån](sql-database-azure-hybrid-benefit.md) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-azure-hybrid-benefit.md) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning|
@@ -81,7 +81,7 @@ Följande faktorer påverkar mängden lagrings utrymme som används för data-oc
 Använd [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)för att övervaka den aktuella totala storleken på dina MDF-och LDF-filer. Om du vill övervaka den aktuella storleken på de enskilda MDF-och LDF-filerna använder du [sys. database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql).
 
 > [!IMPORTANT]
-> Under vissa omständigheter kan du behöva krympa en databas för att frigöra utrymme som inte används. Mer information finns i [Hantera fil utrymme i Azure SQL Database](sql-database-file-space-management.md).
+> Under vissa omständigheter kan du behöva minska en databas för att frigöra oanvänt utrymme. Mer information finns i [hantera utrymmet i Azure SQL Database](sql-database-file-space-management.md).
 
 ## <a name="backups-and-storage"></a>Säkerhets kopiering och lagring
 

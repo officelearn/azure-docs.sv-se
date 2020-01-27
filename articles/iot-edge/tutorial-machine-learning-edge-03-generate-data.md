@@ -1,33 +1,33 @@
 ---
 title: 'Självstudie: skapa simulerade enhets data Machine Learning på Azure IoT Edge'
-description: I den här självstudien kommer du att skapa virtuella enheter som genererar simulerad telemetri som senare kan användas för att träna en maskin inlärnings modell.
+description: Skapa virtuella enheter som genererar simulerad telemetri som senare kan användas för att träna en maskin inlärnings modell.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 1/20/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1c56dd23084feabeb72f084b03e055d4aa09a11d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8f7a971315183e867ae06b58801d5855f90462a1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912269"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722398"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>Självstudie: skapa simulerade enhets data
 
 > [!NOTE]
 > Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
-I den här artikeln använder vi Machine Learning Training-data för att simulera en enhet som skickar telemetri till IoT Hub. Som anges i introduktionen använder den här självstudien för att [turbofan motor degradera simulerings data](https://c3.nasa.gov/dashlink/resources/139/) som simulerar data från en uppsättning flyg Plans motorer för utbildning och testning.
+I den här artikeln använder vi Machine Learning Training-data för att simulera en enhet som skickar telemetri till Azure IoT Hub. Som anges i introduktionen använder den här självstudien [turbofan](https://c3.nasa.gov/dashlink/resources/139/) för att simulera data från en uppsättning flyg Plans motorer för utbildning och testning.
 
-Från tillhör ande Readme. txt vet vi att:
+I vårt experiment scenario vet vi att:
 
-* Data består av flera multivarierad tids serier
-* Varje data uppsättning är indelad i utbildning och test del mängder
-* Varje tids serie är från en annan motor
-* Varje motor börjar med olika grader av inledande slitage och tillverknings variation
+* Data består av flera multivarierad tids serier.
+* Varje data uppsättning är indelad i utbildning och test del mängder.
+* Varje tids serie är från en annan motor.
+* Varje motor börjar med olika grader av inledande slitage och tillverknings variation.
 
 I den här självstudien använder vi en delmängd av en enda data uppsättning (FD003) för utbildning.
 
@@ -38,9 +38,9 @@ Simulatorn är ett C# program som använder sig av IoT Hub API: er för att regi
 DeviceHarness-projektet är ett .NET Core-projekt som C# har skrivits i fyra klasser:
 
 * **Program:** Start punkten för körning som ansvarar för att hantera användarindata och övergripande samordning.
-* **TrainingFileManager:** ansvarar för läsning och parsning av den valda data filen.
-* **CycleData:** representerar en enskild rad med data i en fil som har konverterats till meddelande format.
-* **TurbofanDevice:** ansvarig för att skapa en IoT-enhet som motsvarar en enskild enhet (tids serie) i data och överföring av data till IoT Hub via IoT-enheten.
+* **TrainingFileManager:** Ansvarig för läsning och parsning av den valda data filen.
+* **CycleData:** Representerar en enskild rad med data i en fil som har konverterats till meddelande format.
+* **TurbofanDevice:** Ansvarig för att skapa en IoT-enhet som motsvarar en enskild enhet (Time Series), i data och överföring av data till IoT Hub.
 
 De uppgifter som beskrivs i den här artikeln bör ta ungefär 20 minuter att slutföra.
 
@@ -48,22 +48,18 @@ Den verkliga motsvarigheten till arbetet i det här steget skulle förmodligen u
 
 ## <a name="configure-visual-studio-code-and-build-deviceharness-project"></a>Konfigurera Visual Studio Code och build DeviceHarness Project
 
-1. Öppna en fjärrskrivbordssession till den virtuella datorn, som visas i föregående artikel.
+1. Öppna en fjärrskrivbordssession till din utvecklings-VM.
 
-1. Öppna Visual Studio Code.
-
-1. I Visual Studio Code väljer du **fil** > **Öppna mapp.** ...
-
-1. I text rutan **mapp** anger `C:\source\IoTEdgeAndMlSample\DeviceHarness` och klickar på knappen **Välj mapp** .
-
-   Om OmniSharp-fel visas i utdatafönstret måste du avinstallera C# tillägget, stänga och öppna vs Code igen, installera C# tillägget och sedan läsa in fönstret igen.
+1. Öppna mappen `C:\source\IoTEdgeAndMlSample\DeviceHarness` i Visual Studio Code.
 
 1. Eftersom du använder tillägg på den här datorn för första gången, kommer vissa tillägg att uppdatera och installera deras beroenden. Du kan uppmanas att uppdatera tillägget. I så fall, väljer du **Omladdnings fönster**.
+
+   Om OmniSharp-fel visas i fönstret utdata måste du avinstallera C# tillägget.
 
 1. Du uppmanas att lägga till nödvändiga till gångar för DeviceHarness. Välj **Ja** för att lägga till dem.
 
    * Det kan ta några sekunder innan meddelandet visas.
-   * Om du missade det här meddelandet kontrollerar du ikonen "Bell" i det nedre högra hörnet.
+   * Om du missade det här meddelandet, se klock ikonen i det nedre högra hörnet.
 
    ![Meny tillägg för VS Code](media/tutorial-machine-learning-edge-03-generate-data/add-required-assets.png)
 
@@ -71,7 +67,9 @@ Den verkliga motsvarigheten till arbetet i det här steget skulle förmodligen u
 
    ![VS Code Restore-prompt](media/tutorial-machine-learning-edge-03-generate-data/restore-package-dependencies.png)
 
-1. Kontrol lera att din miljö är korrekt konfigurerad genom att utlösa en build-, `Ctrl + Shift + B`-eller **Terminal** > **köra build-aktivitet**.
+   Om du inte får de här meddelandena stänger du Visual Studio Code, tar bort katalogen bin och OBJ i `C:\source\IoTEdgeAndMlSample\DeviceHarness`, öppnar Visual Studio Code och öppnar mappen DeviceHarness igen.
+
+1. Kontrol lera att din miljö har kon figurer ATS korrekt genom att utlösa en version, **Ctrl** + **Shift** + **B**eller **Terminal** > **Kör build-aktivitet**.
 
 1. Du uppmanas att välja build-uppgiften som ska köras. Välj **build**.
 
@@ -87,21 +85,21 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
 ### <a name="sign-in-to-azure-in-visual-studio-code"></a>Logga in på Azure i Visual Studio Code
 
-1. Logga in på din Azure-prenumeration i Visual Studio Code genom att öppna kommando-paletten `Ctrl + Shift + P` eller **visa** > **kommando palett...** .
+1. Logga in på din Azure-prenumeration i Visual Studio Code genom att öppna paletten kommando, `Ctrl + Shift + P` eller **visa** > **kommando palett**.
 
-1. Vid prompt-sökningen efter och väljer du **Azure: Logga**in.
+1. Sök efter kommandot **Azure: Sign in** .
 
-1. Ett webbläsarfönster öppnas och du uppmanas att ange dina autentiseringsuppgifter. När du omdirigeras till en lyckad sida kan du stänga webbläsaren.
+   Ett webbläsarfönster öppnas och du uppmanas att ange dina autentiseringsuppgifter. När du omdirigeras till en lyckad sida kan du stänga webbläsaren.
 
 ### <a name="connect-to-your-iot-hub-and-retrieve-hub-connection-string"></a>Anslut till din IoT-hubb och hämta nav-anslutningssträng
 
-1. I det nedre avsnittet i Visual Studio Code Explorer väljer du rutan **Azure IoT Hub-enheter** för att expandera den.
+1. I det nedre avsnittet i Visual Studio Code Explorer väljer du den **Azure IoT Hub** -ram som ska expanderas.
 
 1. I den expanderade rutan klickar du på **välj IoT Hub**.
 
 1. När du uppmanas väljer du din Azure-prenumeration och sedan IoT Hub.
 
-1. Klicka i ramen för **Azure IoT Hub-enheter** och klicka på **...** för fler åtgärder. Välj **kopiera IoT Hub anslutnings sträng**.
+1. Klicka på **...** till höger om **Azure IoT Hub** för fler åtgärder. Välj **kopiera IoT Hub anslutnings sträng**.
 
    ![Kopiera IoT Hub anslutnings sträng](media/tutorial-machine-learning-edge-03-generate-data/copy-hub-connection-string.png)
 
@@ -109,7 +107,7 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
 1. Välj **visa** > **Terminal** för att öppna Visual Studio Code Terminal.
 
-   Om du inte ser någon prompt väljer du RETUR.
+   Om du inte ser någon prompt trycker du på RETUR.
 
 1. Ange `dotnet run` i terminalen.
 
@@ -119,7 +117,7 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
    ![Uppdatera IoT Hub enhets lista](media/tutorial-machine-learning-edge-03-generate-data/refresh-hub-device-list.png)
 
-1. Observera att enheter läggs till IoT Hub och att enheterna visas i grönt för att indikera att data skickas via den enheten.
+1. Observera att enheter läggs till IoT Hub och att enheterna visas i grönt för att indikera att data skickas via den enheten. När enheterna har skickat meddelanden till IoT-hubben kopplas de bort och visas som blå.
 
 1. Du kan visa meddelanden som skickas till hubben genom att högerklicka på valfri enhet och välja **starta övervakning inbyggd händelse slut punkt**. Meddelandena visas i fönstret utdata i Visual Studio Code.
 
@@ -129,13 +127,15 @@ Nu när vi har skapat projektet ansluter du till din IoT Hub för att få åtkom
 
 ## <a name="check-iot-hub-for-activity"></a>Kontrol lera IoT Hub för aktivitet
 
-De data som skickas av DeviceHarness gick till din IoT-hubb. Det är enkelt att verifiera att data har nått hubben med hjälp av Azure Portal.
+De data som skickas av DeviceHarness gick till din IoT-hubb, där du kan kontrol lera i Azure Portal.
 
-1. Öppna [Azure Portal](https://portal.azure.com/) och navigera till din IoT-hubb.
+1. Öppna [Azure Portal](https://portal.azure.com/) och navigera till IoT Hub som skapats för den här självstudien.
 
-1. På sidan Översikt ser du att data har skickats till hubben:  
+1. Välj **mått**i den vänstra rutans meny under **övervakning**.
 
-   ![Visa enhet till moln meddelanden i IoT Hub](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
+1. Klicka på list rutan **mått** på sidan diagram definition, rulla nedåt i listan och välj **Routing: data som levereras till lagring**. Diagrammet ska Visa insamling av när data dirigerades till lagringen.
+
+   ![Diagrammet visar insamling när data levereras till lagring](media/tutorial-machine-learning-edge-03-generate-data/iot-hub-usage.png)
 
 ## <a name="validate-data-in-azure-storage"></a>Verifiera data i Azure Storage
 
@@ -145,21 +145,21 @@ De data som vi precis skickade till din IoT Hub dirigerades till lagrings behål
 
 1. Välj **Storage Explorer (för hands version)** i lagrings konto navigeringen.
 
-1. I Storage Explorer väljer du **BLOB-behållare** och sedan **devicedata**.
+1. I Storage Explorer väljer du **BLOB-behållare** och `devicedata`.
 
-1. I innehålls rutan klickar du på mappen för namnet på IoT Hub, sedan året, månaden, dagen och timmen. Du kommer att se flera mappar som representerar minuterna när data skrevs.
+1. I rutan innehåll klickar du på mappen för namnet på IoT Hub följt av år, månad, dag och timme. Du kommer att se flera mappar som representerar minuterna när data skrevs.
 
    ![Visa mappar i Blob Storage](media/tutorial-machine-learning-edge-03-generate-data/confirm-data-storage-results.png)
 
 1. Klicka i någon av dessa mappar för att söka efter datafiler med etiketten **00** och **01** som motsvarar partitionen.
 
-1. Filerna skrivs i [Avro](https://avro.apache.org/) -format, men om du dubbelklickar på en av dessa filer öppnas en annan webbläsare-flik som delvis återger data. Om du i stället uppmanas du att öppna filen i ett program, kan du välja VS Code och det renderas korrekt.
+1. Filerna skrivs i [Avro](https://avro.apache.org/) -format. Dubbelklicka på någon av dessa filer för att öppna en annan flik i webbläsaren och återge data delvis. Om du uppmanas att öppna filen i ett program kan du välja VS Code och den kommer att återges på rätt sätt.
 
 1. Du behöver inte försöka att läsa eller tolka data just nu. Vi kommer att göra det i nästa artikel.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln använde vi ett .NET Core-projekt för att skapa en uppsättning virtuella enheter och skicka data via de enheterna via vår IoT Hub och till en Azure Storage-behållare. Det här projektet simulerar ett verkligt scenario där fysiska enheter skickar data, inklusive sensor avläsningar, operativa inställningar, felaktiga signaler och lägen, till en IoT Hub och därefter till en granskad lagring. När tillräckligt med data har samlats in använder vi den för att träna modeller som förutsäger återstående livs längd (RUL) för enheten, som vi kommer att visa i nästa artikel.
+I den här artikeln använde vi ett .NET Core-projekt för att skapa en uppsättning virtuella IoT-enheter och skicka data till vår IoT-hubb och till en Azure Storage-behållare. Det här projektet simulerar ett verkligt scenario där fysiska IoT-enheter skickar data till en IoT Hub och därefter till ett granskat lagrings utrymme. Dessa data omfattar sensor avläsningar, operativa inställningar, felsignaler och lägen, och så vidare. När tillräckligt med data har samlats in använder vi den för att träna modeller som förutsäger återstående livs längd (RUL) för enheten. Vi demonstrerar den här maskin inlärningen i nästa artikel.
 
 Fortsätt till nästa artikel om du vill träna en maskin inlärnings modell med data.
 

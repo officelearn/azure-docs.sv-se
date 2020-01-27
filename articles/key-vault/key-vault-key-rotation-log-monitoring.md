@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1f60ce3a23882a48e6008b76c0eedcab99e013b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a0aa20a8d1ddecfe401a4e099a4f298971779501
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883461"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720120"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Konfigurera Azure Key Vault med nyckel rotation och granskning
 
@@ -119,7 +119,7 @@ Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 3.10.30
 Install-Package Microsoft.Azure.KeyVault
 ```
 
-I din program kod skapar du en klass som innehåller metoden för din Azure Active Directory autentisering. I det här exemplet kallas klassen **utils**. Lägg till följande `using` -instruktion:
+I din program kod skapar du en klass som innehåller metoden för din Azure Active Directory autentisering. I det här exemplet kallas klassen **utils**. Lägg till följande `using`-instruktion:
 
 ```csharp
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
@@ -144,7 +144,7 @@ public async static Task<string> GetToken(string authority, string resource, str
 }
 ```
 
-Lägg till den kod som krävs för att anropa Key Vault och hämta ditt hemliga värde. Först måste du lägga till följande `using` -instruktion:
+Lägg till den kod som krävs för att anropa Key Vault och hämta ditt hemliga värde. Först måste du lägga till följande `using`-instruktion:
 
 ```csharp
 using Microsoft.Azure.KeyVault;
@@ -163,7 +163,7 @@ När du kör programmet bör du nu autentisera till Azure Active Directory och s
 ## <a name="key-rotation-using-azure-automation"></a>Nyckel rotation med Azure Automation
 
 > [!IMPORTANT]
-> Azure Automation runbooks kräver fortfarande att `AzureRM` modulen används.
+> Azure Automation runbooks kräver fortfarande att `AzureRM`-modulen används.
 
 Nu är du redo att konfigurera en rotations strategi för de värden som du lagrar som Key Vault hemligheter. Det går att rotera hemligheter på flera sätt:
 
@@ -272,7 +272,7 @@ Skapa sedan [en Azure-funktion](../azure-functions/functions-create-first-azure-
 
 Om du vill skapa en Azure Function-app väljer du **skapa en resurs**, söker i marketplace efter **Funktionsapp**och väljer sedan **skapa**. När du har skapat kan du använda en befintlig värd plan eller skapa en ny. Du kan också välja dynamisk värd. Mer information om värd alternativen för Azure Functions finns i [skala Azure Functions](../azure-functions/functions-scale.md).
 
-När du har skapat Azure Function-appen går du till den och väljer **tids** scenariot och **C\#**  för språket. Välj sedan **skapa den här funktionen**.
+När du har skapat Azure Function-appen går du till den och väljer **tids** scenariot och **C-\#** för språket. Välj sedan **skapa den här funktionen**.
 
 ![Azure Functions start bladet](./media/keyvault-keyrotation/Azure_Functions_Start.png)
 
@@ -314,7 +314,7 @@ public static void Run(TimerInfo myTimer, TextReader inputBlob, TextWriter outpu
         else
         {
             dtPrev = DateTime.UtcNow;
-            log.Verbose($"Sync point file didnt have a date. Setting to now.");
+            log.Verbose($"Sync point file didn't have a date. Setting to now.");
         }
     }
 
@@ -417,7 +417,7 @@ Lägg till en fil med namnet Project. JSON med följande innehåll:
 
 När du har valt **Spara**kommer Azure Functions att ladda ned de binärfiler som krävs.
 
-Växla till fliken **integrera** och ge parametern timer ett meningsfullt namn som ska användas i funktionen. I föregående kod förväntar sig funktionen att timern ska kallas min *tid*. Ange ett [cron-uttryck](../app-service/webjobs-create.md#CreateScheduledCRON) för timern enligt följande `0 * * * * *`:. Det här uttrycket gör att funktionen körs en gång i minuten.
+Växla till fliken **integrera** och ge parametern timer ett meningsfullt namn som ska användas i funktionen. I föregående kod förväntar sig funktionen att timern ska kallas min *tid*. Ange ett [cron-uttryck](../app-service/webjobs-create.md#CreateScheduledCRON) för timern enligt följande: `0 * * * * *`. Det här uttrycket gör att funktionen körs en gång i minuten.
 
 På samma **integrera** -flik lägger du till en indata från typen **Azure Blob Storage**. Den här indatan pekar på filen Sync. txt som innehåller tidsstämpeln för den senaste händelsen som såg ut av funktionen. Den här indatamängden används i funktionen med hjälp av parameter namnet. I föregående kod förväntar Azure Blob Storage-indata parameter namnet som *inputBlob*. Välj det lagrings konto där filen Sync. txt ska placeras (det kan vara samma eller ett annat lagrings konto). I fältet sökväg anger du sökvägen till filen i formatet `{container-name}/path/to/sync.txt`.
 
@@ -429,7 +429,7 @@ Funktionen är nu klar. Se till att växla tillbaka till fliken **utveckla** och
 
 Därefter måste du skapa en Azure Logic-app som hämtar de händelser som funktionen skickar till Service Bus kön, tolkar innehållet och skickar ett e-postmeddelande baserat på ett villkor som matchas.
 
-[Skapa en logisk app](../logic-apps/quickstart-create-first-logic-app-workflow.md) genom att välja **skapa en** > app för resurs**integrerings** > **logik**.
+[Skapa en logisk app](../logic-apps/quickstart-create-first-logic-app-workflow.md) genom att välja **skapa en resurs** > **integration** > **Logic app**.
 
 När du har skapat Logic-appen går du till den och väljer **Redigera**. I Logic app-redigeraren väljer du **Service Bus kö** och anger dina Service Bus autentiseringsuppgifter för att ansluta den till kön.
 

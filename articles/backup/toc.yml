@@ -178,6 +178,10 @@
           items:
             - name: Backup
               href: backup-azure-afs-automation.md
+            - name: Återställ
+              href: restore-afs-powershell.md
+            - name: Hantera
+              href: manage-afs-powershell.md
     - name: SAP HANA-databas i säkerhetskopiering av virtuella Azure-datorer
       items:
         - name: Översikt

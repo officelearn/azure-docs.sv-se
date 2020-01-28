@@ -46,7 +46,7 @@ Exempel på regionpar:
 |:--- |:--- |
 | USA, västra |USA, östra |
 | Europa, norra |Europa, västra |
-| Asien, sydöstra |Asien, östra |
+| Sydostasien |Asien, östra |
 
 Se [den fullständiga listan över regionpar](../articles/best-practices-availability-paired-regions.md#what-are-paired-regions).
 

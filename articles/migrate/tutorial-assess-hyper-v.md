@@ -61,7 +61,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
     **Geografi** | **Region**
     --- | ---
-    Asien  | Asien, sydöstra
+    Asien  | Sydostasien
     Europa | Europa, norra eller Europa, västra
     Storbritannien |  Storbritannien, södra eller Storbritannien, västra
     USA | Östra USA, västra USA 2 eller västra centrala USA

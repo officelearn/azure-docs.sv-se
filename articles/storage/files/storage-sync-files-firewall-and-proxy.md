@@ -114,7 +114,7 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 | Offentlig | Kanada, östra | https:\//kailani-cae.one.microsoft.com | Kanada, centrala | https:\//tm-kailani.cae.one.microsoft.com |
 | Offentlig | Indien, centrala | https:\//kailani-cin.one.microsoft.com | Indien, södra | https:\//tm-kailani-cin.one.microsoft.com |
 | Offentlig | USA, centrala | https:\//kailani-cus.one.microsoft.com | USA, östra 2 | https:\//tm-kailani-cus.one.microsoft.com |
-| Offentlig | Asien, östra | https:\//kailani11.one.microsoft.com | Asien, sydöstra | https:\//tm-kailani11.one.microsoft.com |
+| Offentlig | Asien, östra | https:\//kailani11.one.microsoft.com | Sydostasien | https:\//tm-kailani11.one.microsoft.com |
 | Offentlig | USA, östra | https:\//kailani1.one.microsoft.com | USA, västra | https:\//tm-kailani1.one.microsoft.com |
 | Offentlig | USA, östra 2 | https:\//kailani-ess.one.microsoft.com | USA, centrala | https:\//tm-kailani-ess.one.microsoft.com |
 | Offentlig | Japan, östra | https:\//japaneast01.afs.azure.net | Japan, västra | https:\//tm-japaneast01.afs.azure.net |
@@ -125,15 +125,15 @@ För affärs kontinuitet och haveri beredskap (BCDR) kan du ha angett Azure-filr
 | Offentlig | Europa, norra | https:\//kailani7.one.microsoft.com | Europa, västra | https:\//tm-kailani7.one.microsoft.com |
 | Offentlig | USA, södra centrala | https:\//southcentralus01.afs.azure.net | USA, norra centrala | https:\//tm-southcentralus01.afs.azure.net |
 | Offentlig | Indien, södra | https:\//kailani-sin.one.microsoft.com | Indien, centrala | https:\//tm-kailani-sin.one.microsoft.com |
-| Offentlig | Asien, sydöstra | https:\//kailani10.one.microsoft.com | Asien, östra | https:\//tm-kailani10.one.microsoft.com |
+| Offentlig | Sydostasien | https:\//kailani10.one.microsoft.com | Asien, östra | https:\//tm-kailani10.one.microsoft.com |
 | Offentlig | Storbritannien, södra | https:\//kailani-uks.one.microsoft.com | Storbritannien, västra | https:\//tm-kailani-uks.one.microsoft.com |
 | Offentlig | Storbritannien, västra | https:\//kailani-ukw.one.microsoft.com | Storbritannien, södra | https:\//tm-kailani-ukw.one.microsoft.com |
 | Offentlig | USA, västra centrala | https:\//westcentralus01.afs.azure.net | USA, västra 2 | https:\//tm-westcentralus01.afs.azure.net |
 | Offentlig | Europa, västra | https:\//kailani6.one.microsoft.com | Europa, norra | https:\//tm-kailani6.one.microsoft.com |
 | Offentlig | USA, västra | https:\//kailani.one.microsoft.com | USA, östra | https:\//tm-kailani.one.microsoft.com |
 | Offentlig | USA, västra 2 | https:\//westus201.afs.azure.net | USA, västra centrala | https:\//tm-westus201.afs.azure.net |
-| Myndigheter | Arizona (USA-förvaltad region) | https:\//usgovarizona01.afs.azure.us | Texas (USA-förvaltad region) | https:\//tm-usgovarizona01.afs.azure.us |
-| Myndigheter | Texas (USA-förvaltad region) | https:\//usgovtexas01.afs.azure.us | Arizona (USA-förvaltad region) | https:\//tm-usgovtexas01.afs.azure.us |
+| Myndigheter | US Gov, Arizona | https:\//usgovarizona01.afs.azure.us | US Gov, Texas | https:\//tm-usgovarizona01.afs.azure.us |
+| Myndigheter | US Gov, Texas | https:\//usgovtexas01.afs.azure.us | US Gov, Arizona | https:\//tm-usgovtexas01.afs.azure.us |
 
 - Om du använder lokalt redundant (LRS) eller zon redundant lagrings konto (ZRS) behöver du bara aktivera URL: en som anges under "primär slut punkts-URL".
 

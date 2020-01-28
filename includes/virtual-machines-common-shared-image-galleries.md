@@ -94,12 +94,12 @@ Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål 
 | Käll regioner        |                   |                    |                    |
 | --------------------- | ----------------- | ------------------ | ------------------ |
 | Australien, centrala     | Kina, östra        | Indien, södra        | Europa, västra        |
-| Australien, centrala 2   | Kina, östra 2      | Asien, sydöstra     | Storbritannien, södra           |
+| Australien, centrala 2   | Kina, östra 2      | Sydostasien     | Storbritannien, södra           |
 | Australien, östra        | Kina, norra       | Japan, östra         | Storbritannien, västra            |
 | Australien, sydöstra   | Kina, norra 2     | Japan, västra         | US DoD, centrala     |
 | Brasilien, södra          | Asien, östra         | Sydkorea, centrala      | USA DoD, östra        |
-| Kanada, centrala        | USA, östra           | Sydkorea, södra        | Arizona (USA-förvaltad region)     |
-| Kanada, östra           | USA, östra 2         | USA, norra centrala   | Texas (USA-förvaltad region)       |
+| Kanada, centrala        | USA, östra           | Sydkorea, södra        | US Gov, Arizona     |
+| Kanada, östra           | USA, östra 2         | USA, norra centrala   | US Gov, Texas       |
 | Indien, centrala         | USA, östra 2 EUAP    | Europa, norra       | USA Gov Virginia    |
 | USA, centrala            | Frankrike, centrala    | USA, södra centrala   | Indien, västra         |
 | Centrala USA-EUAP       | Frankrike, södra      | USA, västra centrala    | USA, västra            |

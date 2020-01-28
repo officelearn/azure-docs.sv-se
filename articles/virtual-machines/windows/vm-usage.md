@@ -93,7 +93,7 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    northcentralus        |    USA, norra centrala                      |
 |    northeurope           |    Europa, norra                          |
 |    southcentralus        |    USA, södra centrala                      |
-|    southeastasia         |    Asien, sydöstra                        |
+|    southeastasia         |    Sydostasien                        |
 |    Australienöstra            |    Indien, södra                              |
 |    UKNorth               |    Nord USA                              |
 |    uksouth               |    Storbritannien, södra                              |

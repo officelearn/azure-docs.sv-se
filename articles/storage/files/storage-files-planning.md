@@ -227,7 +227,7 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 |Europa, norra   |LRS     |
 |Indien, södra    |LRS     |
 |USA, södra centrala |LRS     |
-|Asien, sydöstra |LRS, ZRS|
+|Sydostasien |LRS, ZRS|
 |Schweiz, norra    |LRS     |
 |Schweiz, västra    |LRS     |
 |Förenade Arabemiraten, centrala    |LRS     |

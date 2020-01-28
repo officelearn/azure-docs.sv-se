@@ -158,7 +158,7 @@ Konfigurera ett Azure Migrate projekt och Lägg sedan till verktyget för migrer
 
     **Geografi** | **Region**
     --- | ---
-    Asien | Asien, sydöstra
+    Asien | Sydostasien
     Europa | Europa, norra eller Europa, västra
     USA | USA, östra eller USA, västra centrala
 

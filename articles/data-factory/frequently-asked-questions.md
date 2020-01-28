@@ -209,7 +209,7 @@ Datatransformering Data Flow stöds för närvarande i data fabriker som skapats
 * USA, östra 2
 * Japan, östra
 * Europa, norra
-* Asien, sydöstra
+* Sydostasien
 * USA, södra centrala
 * Storbritannien, södra
 * USA, västra centrala

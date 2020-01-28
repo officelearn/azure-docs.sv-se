@@ -32,7 +32,7 @@ Följande regioner och resurser är tillgängliga för behållar grupper med Lin
 | Östra Australien, Östra Japan | Linux | 2 | 8 |
 | USA, norra centrala | Linux | 2 | 3.5 |
 | Södra Brasilien, Östra Japan, västra Europa | Windows | 4 | 16 |
-| Östra USA, västra USA | Windows | 4 | 14 |
+| USA, östra, USA, västra | Windows | 4 | 14 |
 | Östra Australien, centrala Kanada, centrala Indien, centrala USA, Asien, östra, östra USA 2, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, södra Indien, Storbritannien, södra, västra USA 2 | Windows | 2 | 3.5 |
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>Tillgänglighet – Windows Server 2019 LTSC, 1809 distributioner (för hands version)

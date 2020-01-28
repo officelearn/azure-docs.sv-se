@@ -203,7 +203,7 @@ Om du inte följer självstudien för att utvärdera virtuella VMware-datorer, k
 
     **Geografi** | **Region**
     --- | ---
-    Asien | Asien, sydöstra
+    Asien | Sydostasien
     Europa | Europa, norra eller Europa, västra
     USA | USA, östra eller USA, västra centrala
 

@@ -38,7 +38,7 @@ I följande tabell sammanfattas efter region när den nedre Gen2 beräknings niv
 | Kina, norra |\* |\* |
 | Tyskland, centrala |\* |\* |
 | Tyskland, västra centrala |Tillgänglig |Den 1 maj 2020 |
-| Västra Indien |Tillgänglig |Den 1 maj 2020  |
+| Indien, västra |Tillgänglig |Den 1 maj 2020  |
 
 ## <a name="automatic-upgrade-process"></a>Automatisk uppgraderings process
 

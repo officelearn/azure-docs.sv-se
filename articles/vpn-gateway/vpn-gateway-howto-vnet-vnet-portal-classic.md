@@ -98,7 +98,7 @@ Adress utrymme: 10.11.0.0/16, 10.12.0.0/16 (valfritt)<br>
 Under näts namn: standard<br>
 Adress intervall för under nätet: 10.11.0.1/24<br>
 Resurs grupp: ClassicRG<br>
-Plats: Östra USA<br>
+Plats: USA, östra<br>
 GatewaySubnet: 10.11.1.0/27
 
 **Värden för TestVNet4**
@@ -108,7 +108,7 @@ Adress utrymme: 10.41.0.0/16, 10.42.0.0/16 (valfritt)<br>
 Under näts namn: standard<br>
 Adress intervall för under nätet: 10.41.0.1/24<br>
 Resurs grupp: ClassicRG<br>
-Plats: Västra USA<br>
+Plats: USA, västra<br>
 GatewaySubnet: 10.41.1.0/27
 
 **Tänk på följande inställningar när du skapar din virtuella nätverk:**

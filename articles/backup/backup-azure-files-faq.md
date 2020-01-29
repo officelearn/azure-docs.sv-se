@@ -42,7 +42,7 @@ Ja. Du måste dock [stoppa skyddet av en fil resurs](manage-afs-backup.md#stop-p
 
 Säkerhetskopieringen av Azure-filresurser är för närvarande en förhandsversion och är endast tillgängligt på följande platser:
 
-- Östra Australien (AE)
+- Australien, östra (AE)
 - Australien, sydöstra (ASE)
 - Brasilien, södra (BRS)
 - Kanada, centrala (CNC)

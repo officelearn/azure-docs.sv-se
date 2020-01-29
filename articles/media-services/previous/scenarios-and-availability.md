@@ -186,7 +186,7 @@ Media Services-kunder kan antingen välja en **Standard**-slutpunkt för direktu
 
 #### <a name="availability"></a>Tillgänglighet
 
-Tillgänglig i alla datacenter förutom: Tyskland, södra Brasilien, västra Indien, södra Indien och centrala Indien. 
+Tillgänglig i alla datacenter förutom: Tyskland, Brasilien, södra, Indien, västra, Indien, södra och Indien, centrala. 
 
 ### <a name="encoding-media-processors"></a>Mediebearbetare för kodning
 
@@ -250,8 +250,8 @@ Mer information finns i avsnittet om [skalning](#scaling).
 |Namn på RU-typ|Status|Datacenter
 |---|---|---|
 |S1|Allmänt tillgänglig|Alla|
-|S2|Allmänt tillgänglig|Alla utom södra Brasilien och västra Indien|
-|S3|Allmänt tillgänglig|Allt utom västra Indien|
+|S2|Allmänt tillgänglig|Alla utom Brasilien, södra och Indien, västra|
+|S3|Allmänt tillgänglig|Allt utom Indien, västra|
 
 ## <a name="additional-notes"></a>Ytterligare information
 

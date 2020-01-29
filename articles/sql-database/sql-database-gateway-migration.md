@@ -26,19 +26,19 @@ Kunderna får ett meddelande via e-post och i Azure Portal väl i förväg om ev
 ## <a name="impact-of-this-change"></a>Effekt av den här ändringen
 
 Den första avrundingen av trafikmigrering till nyare gateways har schemalagts för den **14 oktober 2019** i följande regioner:
-- Södra Brasilien
-- Västra USA
-- Västra Europa
-- Östra USA
-- Centrala USA
+- Brasilien, södra
+- USA, västra
+- Europa, västra
+- USA, östra
+- USA, centrala
 - Sydostasien
-- Södra centrala USA
-- Norra Europa
-- Norra centrala USA
-- Västra Japan
-- Östra Japan
+- USA, södra centrala
+- Europa, norra
+- USA, norra centrala
+- Japan, västra
+- Japan, östra
 - USA, östra 2
-- Östasien
+- Asien, östra
 
 Trafikmigreringen kommer att ändra den offentliga IP-adress som DNS matchar för SQL Database.
 Du kommer att påverkas om du har:

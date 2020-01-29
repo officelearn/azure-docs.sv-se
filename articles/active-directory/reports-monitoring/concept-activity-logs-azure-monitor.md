@@ -73,7 +73,7 @@ Om du redan har en Azure AD-licens behöver du en Azure-prenumeration för att k
 Varje spårningslogghändelse använder cirka 2 KB datalagring. Logga in händelse loggar är cirka 4 KB data lagring. I en klientorganisation med 100 000 användare skulle det ske ungefär 1,5 miljoner händelser per dag, vilket skulle kräva ungefär 3 GB datalagring per dag. Eftersom skrivningar sker i batchar om cirka fem minuter kan du förvänta dig ungefär 9 000 skrivåtgärder per månad. 
 
 
-Följande tabell innehåller en uppskattning av kostnaden, beroende på klientorganisationens storlek, för ett GPv2-lagringskonto i västra USA för minst ett års kvarhållning. För att skapa en mer tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Följande tabell innehåller en uppskattning av kostnaden, beroende på klientorganisationens storlek, för ett GPv2-lagringskonto i USA, västra för minst ett års kvarhållning. För att skapa en mer tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 
 | Loggkategori | Antal användare | Händelser per dag | Datavolym per månad (uppskattad) | Kostnad per månad (uppskattad) | Kostnad per år (uppskattad) |
@@ -98,7 +98,7 @@ Händelser batchas i intervall på ungefär fem minuter och skickas som ett ensk
 
 Exempelvis inträffar normalt cirka 18 händelser per sekund för en stor klientorganisation med fler än 100 000 användare, vilket är en hastighet som motsvarar 5 400 händelser var femte minut. Eftersom spårningsloggar är cirka 2 KB per händelse motsvarar detta 10,8 MB data. Därför skickas 43 meddelanden till händelsehubben i det femminutsintervallet. 
 
-Följande tabell innehåller uppskattad kostnad per månad för en grundläggande händelsehubb i västra USA, beroende på mängden händelsedata. För att beräkna en tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
+Följande tabell innehåller uppskattad kostnad per månad för en grundläggande händelsehubb i USA, västra, beroende på mängden händelsedata. För att beräkna en tillförlitlig uppskattning av den datavolym som du förväntar dig att du behöver för programmet använder du [priskalkylatorn för händelsehubbar](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 | Loggkategori | Antal användare | Händelser per sekund | Händelser per femminutsintervall | Volym per intervall | Meddelanden per intervall | Meddelanden per månad | Kostnad per månad (uppskattad) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|

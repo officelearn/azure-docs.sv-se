@@ -36,20 +36,20 @@ Du kan antingen konfigurera en egen anpassad slut punkt eller välja från en ra
 Under för hands versionen är följande förkonfigurerade slut punkter tillgängliga: 
 
 * **Azure-regioner**
-    * Södra Brasilien
+    * Brasilien, södra
     * Indien, centrala
-    * Centrala USA
-    * Östasien
+    * USA, centrala
+    * Asien, östra
     * USA, östra
-    * Västra Japan
-    * Norra Europa
+    * Japan, västra
+    * Europa, norra
     * Sydafrika, norra
     * Sydostasien 
     * Förenade Arabemiraten, norra
     * Storbritannien, västra  
-    * Västra Europa
+    * Europa, västra
     * USA, västra 
-    * Västra USA 2
+    * USA, västra 2
 * **Flera kombinationer av Azure-regioner** 
     * Östra USA, södra Brasilien 
     * USA, östra Asien, östra 

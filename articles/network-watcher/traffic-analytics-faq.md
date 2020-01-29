@@ -15,7 +15,7 @@ ms.date: 03/08/2018
 ms.author: kumud
 ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
 ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/11/2019
 ms.locfileid: "73907097"
@@ -66,56 +66,56 @@ Om du inte ser några utdata kan du kontakta respektive prenumerations administr
 ## <a name="in-which-azure-regions-is-traffic-analytics-available"></a>I vilka Azure-regioner är Trafikanalys tillgängliga?
 
 Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
-- Centrala Kanada
-- Västra centrala USA
-- Östra USA
+- Kanada, centrala
+- USA, västra centrala
+- USA, östra
 - USA, östra 2
 - USA, norra centrala
 - USA, södra centrala
-- Centrala USA
+- USA, centrala
 - USA, västra
-- Västra USA 2
+- USA, västra 2
 - Frankrike, centrala
 - Europa, västra
 - Europa, norra
-- Södra Brasilien
+- Brasilien, södra
 - Storbritannien, västra
 - Storbritannien, södra
-- Östra Australien
+- Australien, östra
 - Australien, sydöstra 
 - Asien, östra
 - Sydostasien
 - Sydkorea, centrala
 - Indien, centrala
 - Indien, södra
-- Östra Japan
-- Västra Japan
-- Virginia (USA-förvaltad region)
+- Japan, östra
+- Japan, västra
+- US Gov, Virginia
 - Kina, östra 2
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
-- Centrala Kanada
-- Västra centrala USA
-- Östra USA
+- Kanada, centrala
+- USA, västra centrala
+- USA, östra
 - USA, östra 2
 - USA, norra centrala
 - USA, södra centrala
-- Centrala USA
+- USA, centrala
 - USA, västra
-- Västra USA 2
+- USA, västra 2
 - Frankrike, centrala
 - Europa, västra
 - Europa, norra
 - Storbritannien, västra
 - Storbritannien, södra
-- Östra Australien
+- Australien, östra
 - Australien, sydöstra
 - Asien, östra
 - Sydostasien 
 - Sydkorea, centrala
 - Indien, centrala
-- Östra Japan
-- Virginia (USA-förvaltad region)
+- Japan, östra
+- US Gov, Virginia
 - Kina, östra 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan NSG: er jag aktivera flödes loggar i olika regioner än min arbets yta?

@@ -61,60 +61,60 @@ Trafik analys undersöker rå NSG flödes loggar och avbildar färre loggar geno
 
 Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 
-* Centrala Kanada
-* Västra centrala USA
-* Östra USA
+* Kanada, centrala
+* USA, västra centrala
+* USA, östra
 * USA, östra 2
 * USA, norra centrala
 * USA, södra centrala
-* Centrala USA
+* USA, centrala
 * USA, västra
-* Västra USA 2
+* USA, västra 2
 * Frankrike, centrala
 * Europa, västra
 * Europa, norra
-* Södra Brasilien
+* Brasilien, södra
 * Storbritannien, västra
 * Storbritannien, södra
-* Östra Australien
+* Australien, östra
 * Australien, sydöstra
 * Asien, östra
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala
 * Indien, södra
-* Östra Japan 
-* Västra Japan
-* Virginia (USA-förvaltad region)
+* Japan, östra 
+* Japan, västra
+* US Gov, Virginia
 * Kina, östra 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics arbets ytor
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
-* Centrala Kanada
-* Västra centrala USA
-* Östra USA
+* Kanada, centrala
+* USA, västra centrala
+* USA, östra
 * USA, östra 2
 * USA, norra centrala
 * USA, södra centrala
-* Centrala USA
+* USA, centrala
 * USA, västra
-* Västra USA 2
-* Centrala USA
+* USA, västra 2
+* USA, centrala
 * Frankrike, centrala
 * Europa, västra
 * Europa, norra
-* Södra Brasilien
+* Brasilien, södra
 * Storbritannien, västra
 * Storbritannien, södra
-* Östra Australien
+* Australien, östra
 * Australien, sydöstra
 * Asien, östra
 * Sydostasien
 * Sydkorea, centrala
 * Indien, centrala
-* Östra Japan
-* Virginia (USA-förvaltad region)
+* Japan, östra
+* US Gov, Virginia
 * Kina, östra 2
 
 ## <a name="prerequisites"></a>Krav

@@ -147,7 +147,7 @@ Det här avsnittet innehåller en översikt över hur BGP-communities kommer att
 
 Om du ansluter till Microsoft via ExpressRoute på valfri peeringplats i en geopolitisk region, får du åtkomst till alla Microsoft-molntjänster i alla regioner inom den geopolitiska gränsen. 
 
-Om du exempelvis har anslutit till Microsoft i Amsterdam via ExpressRoute, kommer du ha åtkomst till alla Microsoft-molntjänster som finns i norra Europa och västra Europa. 
+Om du exempelvis har anslutit till Microsoft i Amsterdam via ExpressRoute, kommer du ha åtkomst till alla Microsoft-molntjänster som finns i Europa, norra och Europa, västra. 
 
 Se sidan [ExpressRoute-partners och peeringplatser](expressroute-locations.md) för en detaljerad lista med geopolitiska regioner, associerade Azure-regioner och motsvarande ExpressRoute-peeringplatser.
 
@@ -156,41 +156,41 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | **Microsoft Azure-region** | **Regional BGP-community** | **Storage BGP-community** | **SQL BGP-community** | **Cosmos DB BGP-community** |
 | --- | --- | --- | --- | --- |
 | **Nordamerika** | |
-| Östra USA | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
+| USA, östra | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 |
 | USA, östra 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 |
-| Västra USA | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
-| Västra USA 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
-| Västra centrala USA | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
-| Norra centrala USA | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
-| Södra centrala USA | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
-| Centrala USA | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
-| Centrala Kanada | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
-| Östra Kanada | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
+| USA, västra | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 |
+| USA, västra 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 |
+| USA, västra centrala | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 |
+| USA, norra centrala | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 |
+| USA, södra centrala | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 |
+| USA, centrala | 12076:51009 | 12076:52009 | 12076:53009 | 12076:54009 |
+| Kanada, centrala | 12076:51020 | 12076:52020 | 12076:53020 | 12076:54020 |
+| Kanada, östra | 12076:51021 | 12076:52021 | 12076:53021 | 12076:54021 |
 | **Sydamerika** | |
-| Södra Brasilien | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
+| Brasilien, södra | 12076:51014 | 12076:52014 | 12076:53014 | 12076:54014 |
 | **Europa** | |
-| Norra Europa | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
-| Västra Europa | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
+| Europa, norra | 12076:51003 | 12076:52003 | 12076:53003 | 12076:54003 |
+| Europa, västra | 12076:51002 | 12076:52002 | 12076:53002 | 12076:54002 |
 | Storbritannien, södra | 12076:51024 | 12076:52024 | 12076:53024 | 12076:54024 |
 | Storbritannien, västra | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | Frankrike, centrala | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Frankrike, södra | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
 | **Asien och stillahavsområdet** | |
-| Östasien | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
+| Asien, östra | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sydostasien | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
 | **Japan** | |
-| Östra Japan | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
-| Västra Japan | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
+| Japan, östra | 12076:51012 | 12076:52012 | 12076:53012 | 12076:54012 |
+| Japan, västra | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 |
 | **Australien** | |
-| Östra Australien | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
-| Sydöstra Australien | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
+| Australien, östra | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 |
+| Australien, sydöstra | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 |
 | **Australiensiska myndigheter** | |
 | Australien, centrala | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 |
 | Australien, centrala 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 |
 | **Indien** | |
 | Södra Indien | 12076:51019 | 12076:52019 | 12076:53019 | 12076:54019 |
-| Västra Indien | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
-| Centrala Indien | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
+| Indien, västra | 12076:51018 | 12076:52018 | 12076:53018 | 12076:54018 |
+| Indien, centrala | 12076:51017 | 12076:52017 | 12076:53017 | 12076:54017 |
 | **Korea** | |
 | Sydkorea, södra | 12076:51028 | 12076:52028 | 12076:53028 | 12076:54028 |
 | Sydkorea, centrala | 12076:51029 | 12076:52029 | 12076:53029 | 12076:54029 |
@@ -237,7 +237,7 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | **Amerikanska myndigheter** |  |
 | US Gov, Arizona | 12076:51106 |
 | US Gov, Iowa | 12076:51109 |
-| Virginia (USA-förvaltad region) | 12076:51105 |
+| US Gov, Virginia | 12076:51105 |
 | US Gov, Texas | 12076:51108 |
 | US DoD, centrala | 12076:51209 |
 | US DoD, östra | 12076:51205 |

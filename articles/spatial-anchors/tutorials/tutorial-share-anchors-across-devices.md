@@ -77,7 +77,7 @@ Använd de här inställningarna i dialog rutan **Konfigurera värd plan** :
 | Inställning | Föreslaget värde | Beskrivning |
 |-|-|-|
 |App Service-plan| MySharingServicePlan | Namnet på App Service-planen. |
-| Plats | Västra USA | Datacenter som är värd för webbappen. |
+| Plats | USA, västra | Datacenter som är värd för webbappen. |
 | Storlek | Kostnadsfri | Den [pris nivå](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) som avgör värd funktionerna. |
 
 Välj **OK**.

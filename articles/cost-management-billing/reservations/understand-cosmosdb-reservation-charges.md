@@ -11,7 +11,7 @@ ms.author: banders
 ms.reviewer: sngun
 ms.openlocfilehash: cb20c88577bba614c70fdf5a266d482d06aeca57
 ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/15/2020
 ms.locfileid: "75995564"
@@ -39,8 +39,8 @@ Reservationsrabatten tillämpas på kostnader för Azure Cosmos DB-dataflöden t
 
 |Mätarbeskrivning  |Region |Förhållande  |
 |---------|---------|---------|
-|Azure Cosmos DB – 100 RU/s/timme – Asien och Stillahavsområdet, sydöstra  |  Asien och stillahavsområdet, sydöstra    |   1      |
-|Azure Cosmos DB – 100 RU/s/timme – Asien och Stillahavsområdet, östra |   Asien och stillahavsområdet, östra   |    1     |
+|Azure Cosmos DB – 100 RU/s/timme – Asien och Stillahavsområdet, sydöstra  |  Asien och Stillahavsområdet, sydöstra    |   1      |
+|Azure Cosmos DB – 100 RU/s/timme – Asien och Stillahavsområdet, östra |   Asien och Stillahavsområdet, östra   |    1     |
 |Azure Cosmos DB – 100 RU/s/timme – Europa, norra|  Europa, norra       |    1     |
 |Azure Cosmos DB – 100 RU/s/timme – Sydkorea, södra|    Sydkorea, södra     |     1    |
 |Azure Cosmos DB – 100 RU/s/timme – Europa, västra|    Europa, västra     |      1   |

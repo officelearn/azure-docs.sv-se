@@ -92,7 +92,7 @@ Vi använder följande värden i exemplen:
 
 * VNet-namn: TestVNet1
 * Resursgrupp: TestRG1
-* Plats: Östra USA
+* Plats: USA, östra
 * TestVNet1: 10.11.0.0/16 & 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -111,7 +111,7 @@ Vi använder följande värden i exemplen:
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Resursgrupp: TestRG4
-* Plats: Västra USA
+* Plats: USA, västra
 * GatewayName: VNet4GW
 * Offentlig IP: VNet4GWIP
 * VPNType: RouteBased

@@ -38,7 +38,7 @@ Varje Azure-region är kopplad till en annan region inom samma geografiska områ
 
 * Vid ett större Azure-avbrott prioriteras en region i varje par för att minska tiden för programåterställning. 
 * Planerade Azure-uppdateringar distribueras en i taget till kopplade regioner för att minimera nedtid och risk för programavbrott.
-* Data finns kvar i samma geografiska region som den andra regionen i paret (med undantag för Södra Brasilien) av skatte- och jurisdiktionsmässiga skäl.
+* Data finns kvar i samma geografiska region som den andra regionen i paret (med undantag för Brasilien, södra) av skatte- och jurisdiktionsmässiga skäl.
 
 Exempel på regionpar:
 

@@ -113,7 +113,7 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
    | ------- | ------------- | ----------- |
    | Användar konto | Fabrikam <br> sophia-owen@fabrikam.com | Det konto som du använde när du loggade in i Visual Studio |
    | **Prenumeration** | Användningsbaserad betalning <br> (sophia-owen@fabrikam.com) | Namnet på din Azure-prenumeration och det associerade kontot |
-   | **Resursgrupp** | MyLogicApp-RG <br> (Västra USA) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
+   | **Resursgrupp** | MyLogicApp-RG <br> (USA, västra) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
    | **Plats** | **Samma som resurs grupp** | Plats typen och en bestämd plats för att distribuera din Logic app. Plats typen är antingen en Azure-region eller en befintlig [integrerings tjänst miljö (ISE)](connect-virtual-network-vnet-isolated-environment.md). <p>I den här snabb starten ska du se till att plats typen är **region** och att platsen är inställd på **samma som resurs gruppen**. <p>**Obs!** när du har skapat ett resurs grupps projekt kan du [ändra plats typen och platsen](manage-logic-apps-with-visual-studio.md#change-location), men olika platstyp påverkar din Logic app på olika sätt. |
    ||||
 

@@ -42,7 +42,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD1* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanEastUS* och väljer sedan **OK**. 
-     |      Plats  |   Östra USA        |
+     |      Plats  |   USA, östra        |
     |||
 
 3. Välj **Skapa**.
@@ -54,7 +54,7 @@ Den här snabbstarten kräver att du har distribuerat två instanser av en webba
      | Namn           | Ange ett unikt namn för din webbapp  |
      | Resursgrupp          | Välj **Ny** och skriv sedan *myResourceGroupFD2* |
      | App Service-plan/plats         | Välj **Ny**.  I App Service-planen anger du *myAppServicePlanWestEurope* och väljer sedan **OK**. 
-     |      Plats  |   Västra Europa      |
+     |      Plats  |   Europa, västra      |
     |||
 
 

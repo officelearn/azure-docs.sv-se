@@ -52,7 +52,7 @@ Exempel domänen som används för den här självstudien är contoso.net, men A
    |**Namn**|[ditt domännamn] |Det domännamn som du har köpt. Den här självstudien använder contoso.net som ett exempel.|
    |**Prenumeration**|[Din prenumeration]|Välj den prenumeration där du vill skapa zonen.|
    |**Resursgrupp**|**Skapa ny:** contosoRG|Skapa en resursgrupp. Resursgruppens namn måste vara unikt inom den prenumeration du valde.<br>Platsen för resursgruppen har ingen inverkan på DNS-zonen. Platsen för DNS-zonen är alltid ”global” och visas inte.|
-   |**Plats**|Östra USA||
+   |**Plats**|USA, östra||
 
 ## <a name="retrieve-name-servers"></a>Hämta namnservrar
 

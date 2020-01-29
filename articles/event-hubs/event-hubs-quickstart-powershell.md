@@ -42,7 +42,7 @@ Om du använder PowerShell lokalt måste du köra den senaste versionen av Power
 
 En resursgrupp är en logisk samling Azure-resurser. Du behöver en resursgrupp för att kunna skapa en händelsehubb. 
 
-I följande exempel skapas en resursgrupp i regionen USA, västra. Ersätt `myResourceGroup` med namnet på resursgruppen som du vill använda:
+I följande exempel skapas en resursgrupp i regionen USA, östra. Ersätt `myResourceGroup` med namnet på resursgruppen som du vill använda:
 
 ```azurepowershell-interactive
 New-AzResourceGroup –Name myResourceGroup –Location eastus

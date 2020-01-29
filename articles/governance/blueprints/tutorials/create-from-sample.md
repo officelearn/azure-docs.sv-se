@@ -101,10 +101,10 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
      |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
      |Resurs grupp för ProdRG|Resursgrupp|Namn|ProductionRG|Definierar namnet på den första resurs gruppen.|
-     |Resurs grupp för ProdRG|Resursgrupp|Plats|Västra USA 2|Anger platsen för den första resurs gruppen.|
+     |Resurs grupp för ProdRG|Resursgrupp|Plats|USA, västra 2|Anger platsen för den första resurs gruppen.|
      |Deltagare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _deltagar_ roll tilldelningen i den första resurs gruppen.|
      |Resurs grupp för PreProdRG|Resursgrupp|Namn|PreProductionRG|Definierar namnet på den andra resurs gruppen.|
-     |Resurs grupp för PreProdRG|Resursgrupp|Plats|Västra USA|Anger platsen för den andra resurs gruppen.|
+     |Resurs grupp för PreProdRG|Resursgrupp|Plats|USA, västra|Anger platsen för den andra resurs gruppen.|
      |Ägare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska bevilja _ägar_ roll tilldelningen i den andra resurs gruppen.|
      |Läsare|Rolltilldelning|Användare eller grupp|{Ditt ID}|Definierar vilken användare eller grupp som ska ge roll tilldelningen _läsare_ i den andra resurs gruppen.|
 

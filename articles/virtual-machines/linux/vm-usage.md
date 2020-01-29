@@ -78,11 +78,11 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    Indiensödra         |    Kanada, centrala                            |
 |    Indien            |    Kanada, östra                               |
 |    Kanada          |    Indien, centrala                            |
-|    centra lus             |    Centrala USA                            |
+|    centra lus             |    USA, centrala                            |
 |    chinaeast             |    Kina, östra                            |
 |    chinanorth            |    Kina, norra                           |
-|    eastasia              |    Östasien                             |
-|    eastus                |    Östra USA                               |
+|    eastasia              |    Asien, östra                             |
+|    eastus                |    USA, östra                               |
 |    eastus2               |    USA, östra 2                             |
 |    GermanyCentral        |    Tyskland, centrala                            |
 |    GermanyNortheast      |    Tyskland, nordöstra                          |
@@ -90,9 +90,9 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    japanvästra             |    Japan, västra                               |
 |    Centrala          |    Sydkorea, centrala                            |
 |    KoreaSouth            |    Sydkorea, södra                              |
-|    usanorracentrala        |    Norra centrala USA                      |
-|    northeurope           |    Norra Europa                          |
-|    southcentralus        |    Södra centrala USA                      |
+|    usanorracentrala        |    USA, norra centrala                      |
+|    northeurope           |    Europa, norra                          |
+|    southcentralus        |    USA, södra centrala                      |
 |    Sydostasien         |    Sydostasien                        |
 |    Australienöstra            |    Indien, södra                              |
 |    UKNorth               |    Nord USA                              |
@@ -106,9 +106,9 @@ Region namnet som fyllts i i fältet resurs plats i användnings informationen v
 |    USGovTexas            |    USGov Texas                           |
 |    usgovvirginia         |    USGov Virginia                        |
 |    westcentralus         |    USA, västra centrala                       |
-|    westeurope            |    Västra Europa                           |
+|    westeurope            |    Europa, västra                           |
 |    Usavästracentrala             |    Indien, västra                               |
-|    westus                |    Västra USA                               |
+|    westus                |    USA, västra                               |
 |    westus2               |    USA, västra 2                             |
 
 

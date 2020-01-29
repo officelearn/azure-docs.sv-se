@@ -71,28 +71,28 @@ Ja. Det här är en lista över regionala slut punkter som du kan använda med A
 | Slut punkts typ | Region | Slutpunkt |
 |---------------|--------|----------|
 | Offentligt | Global (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
-| | Östra Australien | `https://australiaeast.api.cognitive.microsoft.com` |
-| | Södra Brasilien | `https://brazilsouth.api.cognitive.microsoft.com` |
-| | Centrala Kanada | `https://canadacentral.api.cognitive.microsoft.com` |
-| | Centrala USA | `https://centralus.api.cognitive.microsoft.com` |
-| | Östasien | `https://eastasia.api.cognitive.microsoft.com` |
-| | Östra USA | `https://eastus.api.cognitive.microsoft.com` |
+| | Australien, östra | `https://australiaeast.api.cognitive.microsoft.com` |
+| | Brasilien, södra | `https://brazilsouth.api.cognitive.microsoft.com` |
+| | Kanada, centrala | `https://canadacentral.api.cognitive.microsoft.com` |
+| | USA, centrala | `https://centralus.api.cognitive.microsoft.com` |
+| | Asien, östra | `https://eastasia.api.cognitive.microsoft.com` |
+| | USA, östra | `https://eastus.api.cognitive.microsoft.com` |
 | | USA, östra 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | Frankrike, centrala | `https://francecentral.api.cognitive.microsoft.com` |
-| | Centrala Indien | `https://centralindia.api.cognitive.microsoft.com` |
-| | Östra Japan | `https://japaneast.api.cognitive.microsoft.com` |
+| | Indien, centrala | `https://centralindia.api.cognitive.microsoft.com` |
+| | Japan, östra | `https://japaneast.api.cognitive.microsoft.com` |
 | | Sydkorea, centrala | `https://koreacentral.api.cognitive.microsoft.com` |
-| | Norra centrala USA | `https://northcentralus.api.cognitive.microsoft.com` |
-| | Norra Europa | `https://northeurope.api.cognitive.microsoft.com` |
+| | USA, norra centrala | `https://northcentralus.api.cognitive.microsoft.com` |
+| | Europa, norra | `https://northeurope.api.cognitive.microsoft.com` |
 | | Sydafrika, norra | `https://southafricanorth.api.cognitive.microsoft.com` |
-| | Södra centrala USA | `https://southcentralus.api.cognitive.microsoft.com` |
+| | USA, södra centrala | `https://southcentralus.api.cognitive.microsoft.com` |
 | | Sydostasien | `https://southeastasia.api.cognitive.microsoft.com` |
 | | Storbritannien, södra | `https://uksouth.api.cognitive.microsoft.com` |
-| | Västra centrala USA | `https://westcentralus.api.cognitive.microsoft.com` |
-| | Västra Europa | `https://westeurope.api.cognitive.microsoft.com` |
-| | Västra USA | `https://westus.api.cognitive.microsoft.com` |
-| | Västra USA 2 | `https://westus2.api.cognitive.microsoft.com` |
-| US Gov | Virginia (USA-förvaltad region) | `https://virginia.api.cognitive.microsoft.us` |
+| | USA, västra centrala | `https://westcentralus.api.cognitive.microsoft.com` |
+| | Europa, västra | `https://westeurope.api.cognitive.microsoft.com` |
+| | USA, västra | `https://westus.api.cognitive.microsoft.com` |
+| | USA, västra 2 | `https://westus2.api.cognitive.microsoft.com` |
+| US Gov | US Gov, Virginia | `https://virginia.api.cognitive.microsoft.us` |
 | Kina | Kina, östra 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | Kina, norra | `https://chinanorth.api.cognitive.azure.cn` |
 

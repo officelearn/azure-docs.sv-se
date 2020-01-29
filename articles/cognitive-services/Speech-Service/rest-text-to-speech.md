@@ -51,7 +51,7 @@ Med `voices/list` slut punkten kan du få en fullständig lista över röster f�
 | USA, östra | `https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, östra 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Frankrike, centrala | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
-| Centrala Indien | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
+| Indien, centrala | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Japan, östra | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | Sydkorea, centrala | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 | USA, norra centrala | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/voices/list` |

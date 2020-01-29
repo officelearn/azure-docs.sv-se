@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
 ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 01/26/2020
 ms.locfileid: "76760342"
@@ -46,9 +46,9 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 | Frankrike, centrala | 40.79.137.0, 40.79.129.1  |
 | Tyskland, centrala | 51.4.144.100     |
 | Tyskland, norra öst | 51.5.144.179  |
-| Centrala Indien | 104.211.96.159     |
+| Indien, centrala | 104.211.96.159     |
 | Södra Indien | 104.211.224.146  |
-| Västra Indien | 104.211.160.80    |
+| Indien, västra | 104.211.160.80    |
 | Japan, östra | 13.78.61.196, 191.237.240.43  |
 | Japan, västra | 104.214.148.156, 191.238.68.11    |
 | Sydkorea, centrala | 52.231.32.42   |

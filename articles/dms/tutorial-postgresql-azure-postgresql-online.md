@@ -210,7 +210,7 @@ För att slutföra alla databasobjekt som tabellscheman, index och lagrade proce
 
    Till exempel skapar följande kommando en tjänst i:
 
-   * Plats: Östra USA2
+   * Plats: USA, östra 2
    * Prenumeration: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Resursgruppsnamn: PostgresDemo
    * DMS-tjänstnamn: PostgresCLI

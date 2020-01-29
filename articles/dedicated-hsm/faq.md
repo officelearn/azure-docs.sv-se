@@ -66,20 +66,20 @@ Azure Dedicated HSM-tjänsten använder SafeNet Luna Network HSM 7-enheter (mode
 
 Från och med sent mars 2019 är dedikerad HSM tillgänglig i de 14 regionerna som anges nedan. Ytterligare regioner planeras och kan diskuteras via din Microsoft-konto representant.
 
-* Östra USA
+* USA, östra
 * Östra USA 2
-* Västra USA
-* Södra centrala USA
+* USA, västra
+* USA, södra centrala
 * Sydostasien
-* Östasien
+* Asien, östra
 * Nordeuropa
 * Västeuropa
 * Storbritannien, södra
 * Storbritannien, västra
-* Centrala Kanada
-* Östra Kanada
-* Östra Australien
-* Sydöstra Australien
+* Kanada, centrala
+* Kanada, östra
+* Australien, östra
+* Australien, sydöstra
 
 ## <a name="interoperability"></a>Samverkan
 

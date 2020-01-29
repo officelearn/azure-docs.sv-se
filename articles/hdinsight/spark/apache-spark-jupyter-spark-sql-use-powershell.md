@@ -45,7 +45,7 @@ Du använder ett PowerShell-skript för att skapa resurserna.  När du kör skri
 |Parameter|Värde|
 |------|------|
 |Azure-resursgruppsnamn | Ange ett unikt namn för resursgruppen.|
-|Plats| Ange Azure-regionen, t.ex. Centrala USA. |
+|Plats| Ange Azure-regionen, t.ex. USA, centrala. |
 |Namn på standardlagringskonto | Ange ett unikt namn för lagringskontot. |
 |Klusternamn | Ange ett unikt namn för HDInsight Spark-klustret.|
 |Autentiseringsuppgifter för klusterinloggning | Du kan använda det här kontot för att ansluta till klusterinstrumentpanelen senare i snabbstarten.|

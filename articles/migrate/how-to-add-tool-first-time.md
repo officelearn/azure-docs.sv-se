@@ -50,7 +50,7 @@ Skapa ett nytt Azure Migrate-projekt i en Azure-prenumeration och Lägg till ett
     Japan  | Japan, östra eller Japan, väst
     Storbritannien | Storbritannien, södra eller Storbritannien, västra
     USA | USA, centrala eller västra USA 2
-    Kanada | Centrala Kanada
+    Kanada | Kanada, centrala
     Indien  | Indien, centrala eller Indien, södra
     Australien | Australien, sydöstra
 

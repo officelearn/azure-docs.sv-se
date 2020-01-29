@@ -30,16 +30,16 @@ Du behöver Azure CLI-versionen 2.0.76 eller senare installerad och konfigurerad
 
 AKS-kluster kan för närvarande skapas med tillgänglighets zoner i följande regioner:
 
-* Centrala USA
+* USA, centrala
 * USA, östra 2
-* Östra USA
+* USA, östra
 * Frankrike, centrala
-* Östra Japan
+* Japan, östra
 * Europa, norra
 * Sydostasien
 * Storbritannien, södra
 * Europa, västra
-* Västra USA 2
+* USA, västra 2
 
 Följande begränsningar gäller när du skapar ett AKS-kluster med hjälp av tillgänglighets zoner:
 

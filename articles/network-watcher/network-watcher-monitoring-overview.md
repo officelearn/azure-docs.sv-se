@@ -79,7 +79,7 @@ De säkerhetsregler som gäller för ett nätverksgränssnitt är en kombination
 
 ## <a name="metrics"></a>Mått
 
-Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen östra USA för en exempelprenumeration:
+Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen USA, östra för en exempelprenumeration:
 
 ![Prenumerationsgränser](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

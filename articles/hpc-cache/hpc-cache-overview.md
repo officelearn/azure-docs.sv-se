@@ -51,11 +51,11 @@ Azure HPC-cache är tillgängligt i följande Azure-regioner:
 
 * USA, östra
 * USA, östra 2
-* Norra Europa
-* Västra Europa
+* Europa, norra
+* Europa, västra
 * Sydostasien
 * Sydney
-* Västra USA 2
+* USA, västra 2
 * Sydkorea, centrala
 
 På [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) finns den senaste tillgängliga informationen.

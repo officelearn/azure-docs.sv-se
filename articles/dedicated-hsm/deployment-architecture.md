@@ -29,21 +29,21 @@ Azure Dedicated HSM tillhandahåller kryptografisk nyckel lagring i Azure. Den u
 
 HSM: er distribueras mellan Microsofts Data Center och kan enkelt etableras som ett enhets par som grund för en lösning med hög tillgänglighet. De kan också distribueras i olika regioner för en katastrof flexibel lösning. Regionerna med dedikerad HSM är för närvarande:
 
-* Östra USA
+* USA, östra
 * USA, östra 2
-* Västra USA
-* Västra USA 2
-* Södra centrala USA
+* USA, västra
+* USA, västra 2
+* USA, södra centrala
 * Sydostasien
-* Östasien
-* Norra Europa
-* Västra Europa
+* Asien, östra
+* Europa, norra
+* Europa, västra
 * Storbritannien, södra
 * Storbritannien, västra
-* Centrala Kanada
-* Östra Kanada
-* Östra Australien
-* Sydöstra Australien
+* Kanada, centrala
+* Kanada, östra
+* Australien, östra
+* Australien, sydöstra
 
 Var och en av dessa regioner har HSM-rack som distribueras i antingen två oberoende data Center eller minst två oberoende tillgänglighets zoner. Asien, sydöstra har tre tillgänglighets zoner och östra USA 2 har två. Det finns totalt åtta regioner i Europa, Asien och USA som erbjuder dedikerad HSM-tjänst. Mer information om Azure-regioner finns i informationen om officiella [Azure-regioner](https://azure.microsoft.com/global-infrastructure/regions/).
 Vissa design faktorer för alla dedikerade HSM-baserade lösningar är plats/latens, hög tillgänglighet och stöd för andra distribuerade program.

@@ -92,9 +92,9 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Frankrike, centrala       | 40.79.137.0, 40.79.129.1 |
 | Tyskland, centrala      | 51.4.144.100       |
 | Tyskland, norra öst   | 51.5.144.179       |
-| Centrala Indien        | 104.211.96.159     |
+| Indien, centrala        | 104.211.96.159     |
 | Södra Indien          | 104.211.224.146    |
-| Västra Indien           | 104.211.160.80     |
+| Indien, västra           | 104.211.160.80     |
 | Japan, östra           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 | 
 | Japan, västra           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 | 
 | Sydkorea, centrala        | 52.231.32.42       |

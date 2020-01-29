@@ -63,7 +63,7 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda Kontrollera IP-flöde](#use-ip-flow-verify).
 
 1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
-2. Aktivera en nätverksbevakare i regionen Östra USA eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
+2. Aktivera en nätverksbevakare i regionen USA, östra eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -91,7 +91,7 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
 
     ![Kontrollera IP-flöde](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 
-    Resultatet visas efter några sekunder och anger att åtkomsten tillåts på grund av en säkerhetsregel med namnet **AllowInternetOutbound**. När du körde kontrollen skapade Network Watcher automatiskt en nätverksbevakare i regionen Östra USA om du hade en befintlig nätverksbevakare i en annan region än regionen Östra USA innan du körde kontrollen.
+    Resultatet visas efter några sekunder och anger att åtkomsten tillåts på grund av en säkerhetsregel med namnet **AllowInternetOutbound**. När du körde kontrollen skapade Network Watcher automatiskt en nätverksbevakare i regionen USA, östra om du hade en befintlig nätverksbevakare i en annan region än regionen USA, östra innan du körde kontrollen.
 4. Utför steg 3 igen, men ändra **Fjärr-IP-adress** till **172.31.0.100**. Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsregel med namnet **DefaultOutboundDenyAll**.
 5. Utför steg 3 igen, men ändra **Riktning** till **Inkommande**, **Lokal port** till **80** och **Fjärrport** till **60000**. Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsregel med namnet **DefaultInboundDenyAll**.
 

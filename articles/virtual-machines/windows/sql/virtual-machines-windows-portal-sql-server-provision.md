@@ -254,7 +254,7 @@ På fliken **Granska + skapa** granskar du sammanfattningen och väljer **skapa*
 Du kan övervaka distributionen från Azure Portal. Knappen **Meddelanden** längst upp på skärmen visar grundläggande status för distributionen.
 
 > [!NOTE]
-> För att ge dig en uppfattning om distributionstiden distribuerade jag en virtuell dator med SQL till östra USA med standardinställningar. Det här testdistributionen tog cirka 12 minuter att slutföra. Distributionen kan dock gå snabbare eller långsammare beroende på din region och dina valda inställningar.
+> För att ge dig en uppfattning om distributionstiden distribuerade jag en virtuell dator med SQL till USA, östra med standardinställningar. Det här testdistributionen tog cirka 12 minuter att slutföra. Distributionen kan dock gå snabbare eller långsammare beroende på din region och dina valda inställningar.
 
 ## <a id="remotedesktop"></a> Öppna den virtuella datorn med Fjärrskrivbord
 

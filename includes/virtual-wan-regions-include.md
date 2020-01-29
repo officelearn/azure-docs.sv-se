@@ -21,14 +21,14 @@ Plats-till-plats-baserad VPN-anslutning och virtuell WAN-arkitektur är tillgän
 
 |Geopolitisk region | Azure-regioner|
 |---|---|
-| Nordamerika | USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA västra centrala; Kanada, centrala; Kanada, östra |
-|Sydamerika |Södra Brasilien |
+| Nordamerika | USA, östra; USA, västra; USA, östra 2; USA, västra 2; USA, centrala; USA, södra centrala; USA, norra centrala; USA, västra centrala; Kanada, centrala; Kanada, östra |
+|Sydamerika |Brasilien, södra |
 | Europa | Frankrike, centrala; Frankrike, södra; Europa, norra; Europa, västra; Storbritannien, västra; Storbritannien, södra |
-| Asien | Östra Asien, Sydostasien |
-| Japan  | Västra Japan, östra Japan |
-| Australien | Sydöstra Australien, östra Australien |
-| Australien, myndigheter | Centrala Australien, Centrala Australien 2 |
-| Indien | Västra Indien, centrala Indien, södra Indien |
+| Asien | Asien, östra, Sydostasien |
+| Japan  | Japan, västra, Japan, östra |
+| Australien | Australien, sydöstra, Australien, östra |
+| Australien, myndigheter | Australien, centrala, Australien, centrala 2 |
+| Indien | Indien, västra, Indien, centrala, Indien, södra |
 | Sydkorea | Sydkorea, centrala; Sydkorea, södra |
 | Sydafrika | Södra Afrika, västra Sydafrika |
 

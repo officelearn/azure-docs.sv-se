@@ -65,20 +65,20 @@ Varje test som du skapar i Internet Analyzer består av två slut punkter – sl
 
 Följande förkonfigurerade slut punkter är tillgängliga under för hands versionen:
 * **Azure-regioner**
-    * Södra Brasilien
+    * Brasilien, södra
     * Indien, centrala
-    * Centrala USA
-    * Östasien
+    * USA, centrala
+    * Asien, östra
     * East US
-    * Västra Japan
-    * Norra Europa
+    * Japan, västra
+    * Europa, norra
     * Sydafrika, norra
     * Sydostasien
     * Förenade Arabemiraten, norra
     * Storbritannien, västra  
-    * Västra Europa
-    * Västra USA
-    * Västra USA 2
+    * Europa, västra
+    * USA, västra
+    * USA, västra 2
 * **Flera kombinationer av Azure-regioner**
     * Östra USA, södra Brasilien
     * USA, östra Asien, östra

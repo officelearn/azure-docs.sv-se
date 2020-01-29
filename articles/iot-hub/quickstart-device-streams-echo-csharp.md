@@ -11,7 +11,7 @@ ms.date: 03/14/2019
 ms.author: robinsh
 ms.openlocfilehash: 14139d56a9a733a284d0ec49cabcb3ff7ce67fce
 ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 11/14/2019
 ms.locfileid: "74084302"
@@ -31,7 +31,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 ## <a name="prerequisites"></a>Krav
 
 * För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapas i följande regioner:
-  * Centrala USA
+  * USA, centrala
   * Centrala USA-EUAP
   * Europa, norra
   * Sydostasien

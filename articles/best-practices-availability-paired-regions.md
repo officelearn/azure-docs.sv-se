@@ -28,31 +28,31 @@ Bild 1 – regionala Azure-par
 
 | Placering | Länkade regioner |  |
 |:--- |:--- |:--- |
-| Asien |Östasien |Sydostasien |
-| Australien |Östra Australien |Sydöstra Australien |
+| Asien |Asien, östra |Sydostasien |
+| Australien |Australien, östra |Australien, sydöstra |
 | Australien |Australien, centrala |Australien, centrala 2 |
-| Brasilien |Södra Brasilien |Södra centrala USA |
-| Kanada |Centrala Kanada |Östra Kanada |
+| Brasilien |Brasilien, södra |USA, södra centrala |
+| Kanada |Kanada, centrala |Kanada, östra |
 | Kina |Kina, norra |Kina, östra|
 | Kina |Kina, norra 2 |Kina, östra 2|
 | Europa |Europa, norra (Irland) |Europa, västra (Nederländerna) |
 | Frankrike |Frankrike, centrala|Frankrike, södra|
-| Tyskland |Centrala Tyskland |Nordöstra Tyskland |
-| Indien |Indien, centrala |Södra Indien |
-| Indien |Indien, västra |Södra Indien |
-| Japan |Östra Japan |Västra Japan |
+| Tyskland |Tyskland, centrala |Tyskland, nordöstra |
+| Indien |Indien, centrala |Indien, södra |
+| Indien |Indien, västra |Indien, södra |
+| Japan |Japan, östra |Japan, västra |
 | Korea |Sydkorea, centrala |Sydkorea, södra |
-| Nordamerika |Östra USA |Västra USA |
-| Nordamerika |USA, östra 2 |Centrala USA |
-| Nordamerika |Norra centrala USA |Södra centrala USA |
-| Nordamerika |Västra USA 2 |Västra centrala USA 
+| Nordamerika |USA, östra |USA, västra |
+| Nordamerika |USA, östra 2 |USA, centrala |
+| Nordamerika |USA, norra centrala |USA, södra centrala |
+| Nordamerika |USA, västra 2 |USA, västra centrala 
 | Sydafrika | Sydafrika, norra | Sydafrika, västra
 | Storbritannien |Storbritannien, västra |Storbritannien, södra |
 | Förenade Arabemiraten | Förenade Arabemiraten, norra | Förenade Arabemiraten, centrala
 | OSS-försvars departement |US DoD, östra |US DoD, centrala |
 | Amerikanska myndigheter |US Gov, Arizona |US Gov, Texas |
-| Amerikanska myndigheter |US Gov, Iowa |Virginia (USA-förvaltad region) |
-| Amerikanska myndigheter |Virginia (USA-förvaltad region) |US Gov, Texas |
+| Amerikanska myndigheter |US Gov, Iowa |US Gov, Virginia |
+| Amerikanska myndigheter |US Gov, Virginia |US Gov, Texas |
 
 Tabell 1 – mappning av regionala Azure-par
 

@@ -82,7 +82,7 @@ Det första steget är att skapa en Azure-funktion för att bearbeta aviseringen
     |**Prenumeration**|[Din prenumeration] Den prenumeration som du vill skapa Function-appen för.||
     |**Resursgrupp**|PacketCaptureRG|Resurs gruppen som innehåller Function-appen.|
     |**Värdplan**|Förbrukningsplan| Typ av plan som din Function-app använder. Alternativen är förbruknings-eller Azure App Services planer. |
-    |**Plats**|Centrala USA| Den region där du vill skapa Function-appen.|
+    |**Plats**|USA, centrala| Den region där du vill skapa Function-appen.|
     |**Lagringskonto**|automatiskt skapade texter| Det lagrings konto som Azure Functions behöver för allmän lagring.|
 
 3. På bladet **PacketCaptureExample Function-appar** väljer **du Functions** > **anpassad funktion** > **+** .

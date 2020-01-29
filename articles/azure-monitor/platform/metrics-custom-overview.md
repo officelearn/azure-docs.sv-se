@@ -171,26 +171,26 @@ Under den offentliga för hands versionen är möjligheten att publicera anpassa
 |Azure-region |Regionalt slut punkts prefix|
 |---|---|
 | **USA och Kanada** | |
-|Västra centrala USA | https:\//westcentralus.monitoring.azure.com/ |
-|Västra USA 2       | https:\//westus2.monitoring.azure.com/ |
-|Norra centrala USA | https:\//northcentralus.monitoring.azure.com
-|Södra centrala USA| https:\//southcentralus.monitoring.azure.com/ |
-|Centrala USA      | https:\//centralus.monitoring.azure.com |
-|Centrala Kanada | https:\//canadacentral.Monitoring.Azure.comc
-|Östra USA| https:\//eastus.monitoring.azure.com/ |
+|USA, västra centrala | https:\//westcentralus.monitoring.azure.com/ |
+|USA, västra 2       | https:\//westus2.monitoring.azure.com/ |
+|USA, norra centrala | https:\//northcentralus.monitoring.azure.com
+|USA, södra centrala| https:\//southcentralus.monitoring.azure.com/ |
+|USA, centrala      | https:\//centralus.monitoring.azure.com |
+|Kanada, centrala | https:\//canadacentral.Monitoring.Azure.comc
+|USA, östra| https:\//eastus.monitoring.azure.com/ |
 | **Europa** | |
-|Norra Europa    | https:\//northeurope.monitoring.azure.com/ |
-|Västra Europa     | https:\//westeurope.monitoring.azure.com/ |
+|Europa, norra    | https:\//northeurope.monitoring.azure.com/ |
+|Europa, västra     | https:\//westeurope.monitoring.azure.com/ |
 |Storbritannien, södra | https:\//uksouth.monitoring.azure.com
 |Frankrike, centrala | https:\//francecentral.monitoring.azure.com |
 | **Centralafrika** | |
 |Sydafrika, norra | https:\//southafricanorth.monitoring.azure.com
 | **Asien** | |
 |Indien, centrala | https:\//centralindia.monitoring.azure.com
-|Östra Australien | https:\//australiaeast.monitoring.azure.com
-|Östra Japan | https:\//japaneast.monitoring.azure.com
+|Australien, östra | https:\//australiaeast.monitoring.azure.com
+|Japan, östra | https:\//japaneast.monitoring.azure.com
 |Sydostasien  | https:\//southeastasia.monitoring.azure.com |
-|Östasien | https:\//eastasia.monitoring.azure.com
+|Asien, östra | https:\//eastasia.monitoring.azure.com
 |Sydkorea, centrala   | https:\//koreacentral.monitoring.azure.com
 
 

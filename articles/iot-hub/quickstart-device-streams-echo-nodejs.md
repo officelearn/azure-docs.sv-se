@@ -44,7 +44,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 För hands versionen av enhets strömmar stöds för närvarande bara för IoT-hubbar som skapats i följande regioner:
 
-  * Centrala USA
+  * USA, centrala
   * Centrala USA-EUAP
   * Europa, norra
   * Sydostasien

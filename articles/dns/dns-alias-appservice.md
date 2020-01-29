@@ -45,8 +45,8 @@ Skapa två Webb App Services planer i resurs gruppen med hjälp av följande tab
 
 |Namn  |Operativsystem  |Plats  |Prisnivå  |
 |---------|---------|---------|---------|
-|ASP-01     |Windows|Östra USA|Dev/test D1 – delad|
-|ASP-02     |Windows|Centrala USA|Dev/test D1 – delad|
+|ASP-01     |Windows|USA, östra|Dev/test D1 – delad|
+|ASP-02     |Windows|USA, centrala|Dev/test D1 – delad|
 
 ## <a name="create-app-services"></a>Skapa App Services
 
@@ -60,8 +60,8 @@ Skapa två webb program, en i varje App Service plan.
 
    |Namn<br>(måste vara unikt inom. azurewebsites.net)|Resursgrupp |Körnings stack|Region|App Service plan/plats
    |---------|---------|-|-|-------|
-   |App-01|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|Östra USA|ASP-01 (D1)|
-   |App-02|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|Centrala USA|ASP-02 (D1)|
+   |App-01|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|USA, östra|ASP-01 (D1)|
+   |App-02|Använd befintlig<br>Välj din resursgrupp|.NET Core 2.2|USA, centrala|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>Samla in viss information
 
@@ -89,8 +89,8 @@ Nu kan du skapa slut punkter för de två webbapparna.
 
    |Typ  |Namn  |Mål  |Plats  |Anpassade huvud inställningar|
    |---------|---------|---------|---------|---------|
-   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|Östra USA|värd:\<den URL som du registrerade för app-01-\><br>Exempel: **värd: app-01.azurewebsites.net**|
-   |Extern slut punkt     |End-02|IP-adress som du har spelat in för app-02|Centrala USA|värd:\<den URL som du registrerade för app-02-\><br>Exempel: **värd: app-02.azurewebsites.net**
+   |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|USA, östra|värd:\<den URL som du registrerade för app-01-\><br>Exempel: **värd: app-01.azurewebsites.net**|
+   |Extern slut punkt     |End-02|IP-adress som du har spelat in för app-02|USA, centrala|värd:\<den URL som du registrerade för app-02-\><br>Exempel: **värd: app-02.azurewebsites.net**
 
 ## <a name="create-dns-zone"></a>Skapa DNS-zon
 

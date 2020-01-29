@@ -503,16 +503,20 @@
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
             - name: Aviseringar om inaktuella Apache Ambari-data
               href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+            - name: Aviseringar om Apache Ambari-katalog
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
             - name: Felsöka ett långsamt eller felaktigt HDInsight-kluster
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Felsökning för Hadoop Distributed File System i Apache Hadoop
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Felsökning för Apache Hadoop YARN
               href: ./hdinsight-troubleshoot-yarn.md
+            - name: Ogiltigt BCFile-fel från Yarn-logg
+              href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
             - name: Felsöka Data Lake Store-filer
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
-            - name: Aviseringar om Apache Ambari-katalog
-              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
+            - name: Portkonflikt när tjänster startas
+              href: ./hadoop/troubleshoot-port-conflict.md
 - name: Apache Kafka
   items:
     - name: Översikt
@@ -870,5 +874,5 @@
           items:
             - name: ESP-autentiseringsproblem
               href: ./domain-joined/domain-joined-authentication-issues.md
-            - name: Det går inte att logga in på Zeppelin med ESP
-              href: ./domain-joined/domain-joined-zeppelin-signin.md
+            - name: Fel när kluster skapades med DomainNotFound
+              href: ./domain-joined/troubleshoot-domainnotfound.md

@@ -1,15 +1,15 @@
 ---
 layout: HubPage
-ms.date: 11-21-2019
+ms.date: 01-24-2020
 ms.topic: hub-page
 title: Dokumentation om Speech Service
 description: Kom igång med Speech-tjänsten. Identifiera tal, syntetisera tal, få översättningar i realtid, transkribera konversationer och integrera tal i robotupplevelser.
-ms.openlocfilehash: 7ae8f33e949519cc32d81b591503a159e045178b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a965090be737a10633ead2ca1ed7033ec061ed7f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381281"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771984"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -316,6 +316,63 @@ ms.locfileid: "75381281"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#speech-translation">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stöd för språk</h3>
+                                                    <p>Läs om vilka språk som stöds för avsiktsigenkänning.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-pricing.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Prissättning</h3>
+                                                    <p>Läs mer om kostnaderna för avsiktsigenkänning.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/luis/what-is-luis">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Läs dokumenten</h3>
+                                                    <p>Lär dig hur du lägger till avsiktsigenkänning i appar, verktyg och produkter. Inkluderar begrepp, självstudier, API-referens och viktig information.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -441,25 +498,6 @@ ms.locfileid: "75381281"
                         <a href="#conversationtranscription">Samtalstranskription</a>
                         <ul id="conversationtranscription" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/cts-overview">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Översikt</h3>
-                                                    <p>Lär dig mer om samtalstranskription och hur du integrerar den i dina produkter.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://aka.ms/speech/cts-microphone">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -491,6 +529,25 @@ ms.locfileid: "75381281"
                                                 <div class="cardText">
                                                     <h3>Transkribera konversationer asynkront</h3>
                                                     <p>Läs om hur du asynkront kan transkribera samtal, skapa en statusomröstning och ladda ned resultatet.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/call-center-transcription">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Avskrifter av kundtjänst</h3>
+                                                    <p>Lär dig hur du transkriberar stora volymer telefonidata som kommer från olika system.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -535,13 +592,8 @@ ms.locfileid: "75381281"
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#voice-assistants">Röstassistenter</a>
-                        <ul id="voice-assistants" class="cardsC">
                             <li>
-                                <a href="https://aka.ms/speech/va-overview">
+                                <a href="https://aka.ms/speech/cts-overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -551,14 +603,19 @@ ms.locfileid: "75381281"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Översikt</h3>
-                                                    <p>Läs mer om vad som krävs för att bygga en röstassistent.</p>
+                                                    <h3>Läs dokumenten</h3>
+                                                    <p>Lär dig mer om samtalstranskription och hur du integrerar den i dina produkter.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#voice-assistants">Röstassistenter</a>
+                        <ul id="voice-assistants" class="cardsC">
                             <li>
                                 <a href="https://aka.ms/speech/va-bot-framework">
                                     <div class="cardSize">
@@ -591,6 +648,106 @@ ms.locfileid: "75381281"
                                                 <div class="cardText">
                                                     <h3>Använda anpassade kommandon</h3>
                                                     <p>Lär dig att enkelt bygga robusta program för kommando och röststyrning, så att användarna kan utföra åtgärder med hjälp av sin röst.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/va-overview">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-reference.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Läs dokumenten</h3>
+                                                    <p>Läs mer om vad som krävs för att bygga en röstassistent.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#deploy-architecture">Värd</a>
+                        <ul id="deploy-architecture" class="cardsC">
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-how-to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Skapa en resurs för Azure Speech-tjänsten</h3>
+                                                    <p>Läs mer om hur du skaffar en prenumerationsnyckel för Azure, skapar en Speech-resurs och kommer igång.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="speech-container-howto.md?tabs=stt">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-containers.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Distribuera Speech-servicecontainrar</h3>
+                                                    <p>Läs mer om hur du använder Speech-containrar lokalt, med Kubernetes och Helm eller med Azure-containerinstanser.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/sovereign-clouds">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Suveräna moln</h3>
+                                                    <p>Tillgänglighet av Speech-tjänstresurser i nationella Azure-moln.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="regions.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Regioner som stöds</h3>
+                                                    <p>Lär dig var det finns stöd för Speech Service.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -658,7 +815,45 @@ ms.locfileid: "75381281"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                    
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/scenario-availability">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Scenario- och funktionstillgänglighet</h3>
+                                                    <p>Läs mer om Speech SDK-funktionsscenarierna i många olika programmeringsspråk och miljöer.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/regions">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-regions.png" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Regioner som stöds</h3>
+                                                    <p>Läs mer om tillgängliga regioner och slutpunkter för Speech-tjänsten.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -849,6 +1044,25 @@ ms.locfileid: "75381281"
                                 </a>
                             </li>
                             <li>
+                                <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Stöd för språk</h3>
+                                                    <p>Lär dig mer om programmering och stöd för talat språk för anpassad röst.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://aka.ms/speech/custom-tts-pricing">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -870,97 +1084,6 @@ ms.locfileid: "75381281"
                             </li>
                         </ul>
                     </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#scenarios">Scenarier</a>
-                <ul id="scenarios">
-                    <li>
-                        <a href="#use-cases">Användningsfall</a>
-                        <ul id="use-cases" class="cardsC">
-                            <li>
-                                <a href="call-center-transcription.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-call-center-transcription.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Avskrifter av kundtjänst</h3>
-                                                    <p>Ett vanligt scenario för tal till text är att transkribera stora volymer av telefondata som kan komma från källor som ett IVR-system (interaktivt röstsvar). </p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="scenario-availability.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-generic-programming-languages.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Scenario- och funktionstillgänglighet</h3>
-                                                    <p>Lär dig om scenario- och funktionstillgänglighet efter plattform och datorspråk.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#deploy-architecture">Distribution</a>
-                        <ul id="deploy-architecture" class="cardsC">
-                            <li>
-                                <a href="speech-container-howto.md?tabs=stt">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-containers.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Distribuera Speech Service till containrar</h3>
-                                                    <p>Använda Docker för att distribuera Speech Service till en containerinstans.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="regions.md">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech-regions.png" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Regioner som stöds</h3>
-                                                    <p>Lär dig var det finns stöd för Speech Service.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>                                    
-                        </ul>
-                    </li>                    
                 </ul>
             </li>
         </ul>

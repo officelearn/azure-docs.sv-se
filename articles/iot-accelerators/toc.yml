@@ -74,7 +74,7 @@
           href: overview-opc-twin-architecture.md
         - name: Arkitektur för OPC-valv
           href: overview-opc-vault-architecture.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Fjärrövervakning
       items:
@@ -221,6 +221,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Fjärrövervakning
       items:
         - name: Referensguide för utvecklare (.NET)

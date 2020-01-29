@@ -6,6 +6,8 @@
       href: iot-introduction.md
     - name: Azure IoT-tjänster och tekniker
       href: iot-services-and-technologies.md
+    - name: Alternativ för support och hjälp
+      href: iot-support-help.md
 - name: Säkerhet
   items:
     - name: Rekommendationer

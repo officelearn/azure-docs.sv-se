@@ -18,7 +18,7 @@
       href: concept-iot-central-solar-panel-app.md
     - name: Vad är programmallar?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Ansluta enheter
       items:
@@ -96,7 +96,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge-lösningar
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -104,6 +104,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: /azure/iot-fundamentals/iot-support-help
     - name: Kunddataförfrågningar
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: Webbläsare som stöds

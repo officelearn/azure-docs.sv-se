@@ -110,6 +110,8 @@
           href: connect-azure-stack.md
     - name: Flera klienter (MSSP)
       href: multiple-tenants-service-providers.md
+    - name: Konfigurera kundhanterade nycklar (CMK)
+      href: customer-managed-keys.md
     - name: Skapa incidenter från aviseringar
       href: create-incidents-from-alerts.md
     - name: Hotjakt

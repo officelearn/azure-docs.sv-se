@@ -215,7 +215,7 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge-lösningar
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -223,6 +223,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: Resurser
   items:
+    - name: Alternativ för support och hjälp
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'Azure IoT-exempel för C# (.NET)'
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
     - name: Azure IoT-exempel för Node.js

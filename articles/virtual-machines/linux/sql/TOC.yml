@@ -6,6 +6,10 @@
   items:
     - name: Skapa en virtuell SQL-dator – portalen
       href: provision-sql-server-linux-virtual-machine.md
+- name: Självstudier
+  items:
+    - name: Konfigurera Azure RHEL VM-tillgänglighetsgrupp med STONITH
+      href: sql-server-linux-rhel-ha-stonith-tutorial.md
 - name: Referens
   items:
     - name: Azure CLI

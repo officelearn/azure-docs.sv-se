@@ -404,6 +404,8 @@
               href: active-directory-optional-claims.md
             - name: Konfigurera livslängd för token
               href: active-directory-configurable-token-lifetimes.md
+            - name: Hantera SameSite-cookieändringar i webbläsaren Chrome
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: Tillämpningskonfiguration
           items:
             - name: Ny utbildningsguide för Azure-portalappsregistreringar

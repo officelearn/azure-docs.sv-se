@@ -37,6 +37,8 @@
       href: concept-security-module.md
     - name: Säkerhetsaviseringar
       href: concept-security-alerts.md
+    - name: Anpassningsbara säkerhetsaviseringar
+      href: concept-customizable-security-alerts.md
     - name: Säkerhetsrekommendationer
       href: concept-recommendations.md
     - name: Baslinje
@@ -45,7 +47,7 @@
       href: event-aggregation.md
     - name: Prissättning och associerade kostnader
       href: concept-pricing.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Vilken agent ska jag distribuera?
       items:

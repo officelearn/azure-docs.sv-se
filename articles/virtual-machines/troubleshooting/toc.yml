@@ -159,8 +159,6 @@
       href: troubleshoot-deploy-vm-linux.md
     - name: Windows
       href: troubleshoot-deploy-vm-windows.md
-    - name: 'Starta om, stänga av eller stoppa tjänster'
-      href: boot-error-troubleshoot-windows.md
 - name: Enhetsnamnen har ändrats
   href: troubleshoot-device-names-problems.md
 - name: Återställningsåtkomst till virtuell dator
@@ -199,6 +197,8 @@
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Omstartningsloop
       href: troubleshoot-reboot-loop.md
+    - name: 'Starta om, stänga av eller stoppa tjänster'
+      href: boot-error-troubleshoot-windows.md
     - name: Windows-uppdateringen har fastnat
       href: troubleshoot-stuck-updating-boot-error.md
 - name: Begränsningsfel

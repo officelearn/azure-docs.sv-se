@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: ae5e3481d51a27b05afdb334e6e04c785a68c01a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447681"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843047"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabb start: Lägg till frågor och svar med QnA Maker Portal
 
@@ -86,7 +86,7 @@ I den här proceduren lägger du till ytterligare frågor.
 
 ## <a name="add-metadata-to-filter-the-answers"></a>Lägg till metadata för att filtrera Svaren
 
-Genom att lägga till metadata till en fråga och en svars uppsättning kan klient programmet begära filtrerade svar. Filtret används innan den [första och andra rang](../concepts/knowledge-base.md#ranker-process) listan används.
+Genom att lägga till metadata till en fråga och en svars uppsättning kan klient programmet begära filtrerade svar. Filtret används innan den [första och andra rang](../concepts/query-knowledge-base.md#ranker-process) listan används.
 
 1. Lägg till den andra frågan och svars uppsättningen, utan metadata, från den [första tabellen i den här snabb](#qna-table)starten och fortsätt sedan med följande steg.
 

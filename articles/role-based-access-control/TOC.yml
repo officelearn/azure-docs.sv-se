@@ -40,8 +40,6 @@
           href: role-definitions.md
         - name: Visa lista över rolldefinitioner
           href: role-definitions-list.md
-        - name: Inbyggda roller
-          href: built-in-roles.md
     - name: Visa lista över rolltilldelningar
       items:
         - name: Portalen
@@ -96,6 +94,8 @@
       href: troubleshooting.md
 - name: Referens
   items:
+    - name: Inbyggda roller
+      href: built-in-roles.md
     - name: Åtgärder för resursprovider
       href: resource-provider-operations.md
     - name: RBAC-begränsningar

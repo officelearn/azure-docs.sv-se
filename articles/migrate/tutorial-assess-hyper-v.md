@@ -2,14 +2,14 @@
 title: Utvärdera virtuella Hyper-V-datorer för migrering till Azure med Azure Migrate | Microsoft Docs
 description: Beskriver hur du bedömer lokala virtuella Hyper-V-datorer för migrering till Azure med hjälp av Azure Migrate.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 01/23/2020
 ms.custom: mvc
-ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029025"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845509"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Utvärdera virtuella Hyper-V-datorer med Azure Migrate Server-utvärdering
 
@@ -139,7 +139,7 @@ Importera den hämtade filen och skapa den virtuella datorn.
 2. I **Välj import typ**klickar **du på Kopiera den virtuella datorn (skapa ett nytt unikt ID)** . Klicka sedan på **Nästa**.
 3. I **Välj mål**låter du standardvärdet vara kvar. Klicka på **Next**.
 4. Lämna standardinställningen i **Storage Folders**. Klicka på **Next**.
-5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure.
+5. I **Välj nätverk**anger du den virtuella växel som den virtuella datorn ska använda. Växeln behöver Internet anslutning för att skicka data till Azure. [Lär dig mer](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines) om att skapa en virtuell växel.
 6. Granska inställningarna i **Sammanfattning**. Klicka sedan på **Slutför**.
 7. Starta den virtuella datorn i Hyper-V Manager > **Virtual Machines**.
 

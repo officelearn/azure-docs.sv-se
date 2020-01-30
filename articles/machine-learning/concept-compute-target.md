@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 58df0fe6a598d97e0a9d985052cf3a8c198eb4cc
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 15bf6533106fe826c56b38cfb345c509d6d67966
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75541340"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844100"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Vad är beräknings mål i Azure Machine Learning? 
 
@@ -53,12 +53,12 @@ Du kan skapa Azure Machine Learning beräknings instanser (för hands version) e
 | | Azure Machine Learning-studio | Azure portal | SDK | Resource Manager-mall | CLI |
 |---| ----- | ----- | ----- | ----- | ----- |
 | Beräkningsinstans | ja | ja | ja | ja |  |
-| Beräkningskluster | ja | ja | ja | ja | ja |
+| Beräknings kluster | ja | ja | ja | ja | ja |
 
 När du skapar de här beräknings resurserna sker en del av din arbets yta automatiskt till skillnad från andra typer av beräknings mål.
 
 > [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+> Beräknings instanser är endast tillgängliga för arbets ytor med **norra centrala USA**, * * östra USA 2 * *, **nord Europa** eller **Storbritannien, södra**.
 >Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
 
 ### <a name="compute-clusters"></a>Beräknings kluster

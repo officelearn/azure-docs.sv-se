@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098621"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844568"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>Självstudie: publicera, prenumerera på händelser lokalt
 
@@ -45,9 +45,9 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 1. Klicka på mål enhetens ID i listan över enheter
 1. Välj **Ange moduler**. Låt sidan vara öppen. Du kommer att fortsätta med stegen i nästa avsnitt.
 
-### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
+### <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Den har tre steg: **Lägg till moduler**, **ange vägar**, och **granska distribution**.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
@@ -59,11 +59,13 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
    * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **Alternativ för att skapa behållare**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -127,7 +129,7 @@ Behåll standard vägarna och välj **Nästa** för att fortsätta till granskni
 ### <a name="submit-the-deployment-request"></a>Skicka distributions förfrågan
 
 1. I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i föregående avsnitt. Bekräfta att du ser båda modulerna: **eventgridmodule** och **prenumeranter** som anges i JSON. 
-1. Granska distributions informationen och välj sedan **Skicka**. När du har skickat distributionen kommer du tillbaka till sidan **enhet** .
+1. Granska information om din distribution, och välj sedan **skicka**. När du har skickat distributionen kommer du tillbaka till sidan **enhet** .
 1. I **avsnittet moduler**kontrollerar du att både **eventgrid** -och **Subscriber** -moduler visas. Och kontrol lera att den **angivna i distributionen** och **rapporteras av enhets** kolumner är inställd på **Ja**.
 
     Det kan ta en stund innan modulen har startats på enheten och sedan rapporteras tillbaka till IoT Hub. Uppdatera sidan om du vill se en uppdaterad status.
@@ -178,6 +180,8 @@ Som utgivare av en händelse måste du skapa ett event Grid-ämne. I Azure Event
 ## <a name="create-an-event-subscription"></a>Skapa en händelseprenumeration
 
 Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Om du vill ta emot en händelse måste du skapa en Event Grid prenumeration för ett ämne av intresse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Skapa Subscription. JSON med följande innehåll. Mer information om nytto lasten finns i vår [API-dokumentation](api.md)
 
@@ -307,4 +311,5 @@ I den här självstudien har du skapat ett event Grid-ämne, prenumeration och p
 - Följ [dokumentationen](configure-client-auth.md) om du vill konfigurera klientautentisering
 - Vidarebefordra händelser till Azure Functions i molnet genom att följa den här [självstudien](pub-sub-events-webhook-cloud.md)
 - [Reagera på Blob Storage händelser på IoT Edge](react-blob-storage-events-locally.md)
+- [Övervaka ämnen och prenumerationer på gränsen](monitor-topics-subscriptions.md)
 

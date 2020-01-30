@@ -1,31 +1,19 @@
 ---
 title: Azure Migrate support mat ris
 description: Innehåller en översikt över support inställningar och begränsningar för tjänsten Azure Migrate.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669157"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846556"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate support mat ris
 
 Du kan använda [tjänsten Azure Migrate](migrate-overview.md) för att utvärdera och migrera datorer till Microsoft Azure molnet. I den här artikeln sammanfattas allmänna support inställningar och begränsningar för Azure Migrate scenarier och distributioner.
-
-
-## <a name="azure-migrate-versions"></a>Azure Migrate versioner
-
-Det finns två versioner av tjänsten Azure Migrate:
-
-- **Aktuell version**: om du använder den här versionen kan du skapa nya Azure Migrate projekt, identifiera lokala utvärderingar och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md#release-version-july-2019).
-- **Tidigare version**: för kund som använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöddes) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte skapa nya Azure Migrate projekt eller utföra nya identifieringar.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>Scenarier för bedömning/migrering som stöds
 
@@ -71,6 +59,16 @@ Hyper-V:s virtuella datorer | Utvärdera upp till 35 000 virtuella Hyper-V-dator
 
 Ett projekt kan innehålla både virtuella VMware-datorer och virtuella Hyper-V-datorer, upp till utvärderings gränserna.
 
+## <a name="azure-permissions"></a>Azure-behörigheter
+
+För att Azure Migrate ska fungera med Azure behöver du dessa behörigheter innan du börjar utvärdera och migrera datorer.
+
+**Aktivitet** | **Behörigheter** | **Detaljer**
+--- | --- | ---
+Skapa ett Azure Migrate-projekt | Ditt Azure-konto måste ha behörighet att skapa ett projekt. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-create-project).
+Registrera Azure Migrates apparaten | Azure Migrate använder en förenklad [Azure Migrate-apparat](migrate-appliance.md) för att utvärdera virtuella VMware-datorer med Azure Migrate Server utvärdering och för att köra en [agent lös migrering](server-migrate-overview.md) av virtuella vmware-datorer med Azure Migrate Server-migrering. Den här installationen identifierar virtuella datorer och skickar VM-metadata och prestanda data till Azure Migrate.<br/><br/> Under registreringen skapar Azure Migrate två Azure Active Directory-appar (Azure AD) som unikt identifierar installationen och behöver behörighet att skapa dessa appar.<br/><br/> – Den första appen kommunicerar med Azure Migrate tjänstens slut punkter.<br/><br/> -Den andra appen får åtkomst till en Azure Key Vault som skapas under registreringen för att lagra konfigurations inställningar för Azure AD-appen. | Konfigurera för [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [Hyper-V](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)eller [fysiska servrar](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance).
+Skapa ett nyckel valv för migrering av VMware-agent | För att migrera virtuella VMware-datorer med agent lös Azure Migrate Server migrering skapar Azure Migrate en Key Vault för att hantera åtkomst nycklar till replikeringens lagrings konto i din prenumeration. Om du vill skapa valvet ställer du in behörigheter (ägare eller deltagare och administratör för användar åtkomst) på resurs gruppen där Azure Migrate-projektet finns. | [Konfigurera](tutorial-prepare-vmware.md#assign-role-assignment-permissions) behörigheter.
+
 ## <a name="supported-geographies"></a>Geografiska områden som stöds
 
 Du kan skapa ett Azure Migrate-projekt i ett antal geografiska områden. Även om du bara kan skapa projekt i dessa geografiska områden kan du utvärdera eller migrera datorer för andra mål platser. Projektets geografi används bara för att lagra identifierade metadata.
@@ -104,6 +102,14 @@ USA | USA, centrala eller västra USA 2
 
 [Granska](migrate-support-matrix-hyper-v.md) den Azure Migrate Server utvärderingen och stöd matrisen för Server migration för virtuella Hyper-V-datorer.
 
+
+
+## <a name="azure-migrate-versions"></a>Azure Migrate versioner
+
+Det finns två versioner av tjänsten Azure Migrate:
+
+- **Aktuell version**: om du använder den här versionen kan du skapa nya Azure Migrate projekt, identifiera lokala utvärderingar och dirigera utvärderingar och migreringar. [Läs mer](whats-new.md#release-version-july-2019).
+- **Tidigare version**: för kund som använder den tidigare versionen av Azure Migrate (endast utvärdering av lokala virtuella VMware-datorer stöddes) bör du nu använda den aktuella versionen. I den tidigare versionen kan du inte skapa nya Azure Migrate projekt eller utföra nya identifieringar.
 
 ## <a name="next-steps"></a>Nästa steg
 

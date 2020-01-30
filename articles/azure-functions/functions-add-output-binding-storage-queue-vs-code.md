@@ -3,12 +3,13 @@ title: Ansluta funktioner till Azure Storage med Visual Studio Code
 description: Lär dig hur du lägger till en utgående bindning för att ansluta dina funktioner till en Azure Storage kö med hjälp av Visual Studio Code.
 ms.date: 06/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: baddb6f02fe3d9c66e3c52d826ffe70c151d313e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+zone_pivot_groups: programming-languages-set-functions
+ms.openlocfilehash: 5b7d7be7854a216b7cb7b610ea6d51fdc496a93f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227439"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845648"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta funktioner till Azure Storage med Visual Studio Code
 
@@ -18,13 +19,18 @@ Den här artikeln visar hur du använder Visual Studio Code för att ansluta den
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du startar den här artikeln måste du uppfylla följande krav:
 
 * Installera [Azure Storage-tillägget för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage).
+
 * Installera [Azure Storage Explorer](https://storageexplorer.com/). Storage Explorer är ett verktyg som du använder för att undersöka Kömeddelanden som genereras av din utgående bindning. Storage Explorer stöds på macOS-, Windows-och Linux-baserade operativ system.
-* Installera [.net Core CLI verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) (C# endast projekt).
+
+::: zone pivot="programming-language-csharp"
+* Installera [.net Core CLI verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x).
+::: zone-end
+
 * Slutför stegen i [del 1 av snabb starten för Visual Studio Code](functions-create-first-function-vs-code.md). 
 
 Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerationen från Visual Studio Code. Du kan logga in genom att köra `Azure: Sign In` från kommando paletten. 
@@ -46,49 +52,162 @@ I [föregående snabb starts artikel](functions-create-first-function-vs-code.md
 
 Eftersom du använder en kö för lagring av utdata måste du ha installerat tillägget för lagrings bindningar innan du kör projektet. 
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
 
 Med undantag för HTTP-och timer-utlösare implementeras bindningar som tilläggs paket. Kör följande [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) kommando i terminalfönstret för att lägga till lagrings tilläggs paketet i projektet.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
----
+
+::: zone-end
+
 Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
 I functions kräver varje typ av bindning en `direction`, `type`och en unik `name` som ska definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-powershell"
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
----
+::: zone-end
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
 När bindningen har definierats kan du använda `name` av bindningen för att komma åt den som ett attribut i funktions under kommandot. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+::: zone pivot="programming-language-javascript"
 
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+
+Lägg till kod som använder objektet `msg` utgående bindning på `context.bindings` för att skapa ett Queue-meddelande. Lägg till den här koden före `context.res`-instruktionen.
+
+```typescript
+// Add a message to the Storage queue.
+context.bindings.msg = "Name passed to the function: " + name;
+```
+
+I det här läget bör din funktion se ut så här:
+
+```javascript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log('HTTP trigger function processed a request.');
+    const name = (req.query.name || (req.body && req.body.name));
+
+    if (name) {
+        // Add a message to the Storage queue.
+        context.bindings.msg = "Name passed to the function: " + name; 
+        // Send a "hello" response.
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+
+export default httpTrigger;
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+Lägg till kod som använder `Push-OutputBinding`-cmdlet för att skriva text till kön med `msg` utgående bindning. Lägg till den här koden innan du anger statusen OK i `if`-instruktionen.
+
+```powershell
+# Write the $name value to the queue.
+$outputMsg = "Name passed to the function: $name"
+Push-OutputBinding -name msg -Value $outputMsg
+```
+
+I det här läget bör din funktion se ut så här:
+
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$name = $Request.Query.Name
+if (-not $name) {
+    $name = $Request.Body.Name
+}
+
+if ($name) {
+    # Write the $name value to the queue.
+    $outputMsg = "Name passed to the function: $name"
+    Push-OutputBinding -name msg -Value $outputMsg
+
+    $status = [HttpStatusCode]::OK
+    $body = "Hello $name"
+}
+else {
+    $status = [HttpStatusCode]::BadRequest
+    $body = "Please pass a name on the query string or in the request body."
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = $status
+    Body = $body
+})
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
----
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-python"
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
+
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+
+[!INCLUDE [functions-run-function-test-local-vs-code-ps](../../includes/functions-run-function-test-local-vs-code-ps.md)]
+
+::: zone-end
 
 En ny kö med namnet **arbetskö** skapas i ditt lagrings konto av Functions-körningen när den utgående bindningen används först. Du använder Storage Explorer för att kontrol lera att kön har skapats tillsammans med det nya meddelandet.
 
@@ -140,27 +259,13 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 Du skapade resurser för att slutföra de här snabbstarterna. Det är möjligt att du debiteras för de här resurserna beroende på din [kontostatus](https://azure.microsoft.com/account/) och dina [servicepriser](https://azure.microsoft.com/pricing/). Om du inte behöver resurserna längre så visar vi hur du tar bort dem här:
 
-1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Open in portal`.
-
-1. Välj Function-appen och tryck på RETUR. Sidan Function app öppnas i [Azure Portal](https://portal.azure.com).
-
-1. På fliken **Översikt** väljer du länken namngiven under **resurs grupp**.
-
-    ![Välj den resursgrupp som du vill ta bort från sidan för funktionsappar.](./media/functions-add-output-binding-storage-queue-vs-code/functions-app-delete-resource-group.png)
-
-1. Granska listan över resurser som ingår och verifiera att det är dem som du vill ta bort på sidan **Resursgrupp**.
- 
-1. Välj **Ta bort resursgrupp** och följ instruktionerna.
-
-   Borttagningen kan ta några minuter. När du är färdig visas ett meddelande i några sekunder. Du kan även välja klockikonen längst upp på sidan för att se meddelandet.
+[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Mer information om hur du utvecklar funktioner finns i [utveckla Azure Functions med Visual Studio Code](functions-develop-vs-code.md).
-
-Sedan bör du aktivera Application Insights övervakning för din Function-app:
+Du har uppdaterat din HTTP-utlöst funktion för att skriva data till en lagrings kö. Härnäst kan du lära dig mer om hur du utvecklar funktioner med Visual Studio Code:
 
 > [!div class="nextstepaction"]
-> [Aktivera Application Insights-integrering](functions-monitoring.md#manually-connect-an-app-insights-resource)
+> [Utveckla Azure Functions med Visual Studio Code](functions-develop-vs-code.md)
 
 [Azure Storage Explorer]: https://storageexplorer.com/

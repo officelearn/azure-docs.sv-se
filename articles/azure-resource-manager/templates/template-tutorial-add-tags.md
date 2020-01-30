@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689691"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773186"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Självstudie: Lägg till taggar i din Resource Manager-mall
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 Din tidigare mall har distribuerat ett lagrings konto, App Service plan och en webbapp.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 När du har distribuerat dessa resurser kan du behöva spåra kostnader och hitta resurser som tillhör en kategori. Du kan lägga till taggar för att lösa problemen.
 
@@ -36,7 +36,7 @@ Du kan tagga resurser för att lägga till värden som hjälper dig att identifi
 
 I följande exempel visas ändringarna i mallen. Kopiera hela filen och ersätt din mall med dess innehåll.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
@@ -72,7 +72,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Välj en av resurserna, till exempel lagrings konto resursen. Nu ser du att det finns taggar.

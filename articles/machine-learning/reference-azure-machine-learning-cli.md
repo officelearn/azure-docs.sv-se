@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b30ace8d7ae7a818611856d46b2c50ed8db06f7
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fe9cee44970da94c346caffc0d5fe76ffebf4a0b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292458"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845147"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Använd CLI-tillägget för Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -175,7 +175,7 @@ Följande kommandon visar hur du arbetar med data uppsättningar i Azure Machine
     az ml dataset register -f mydataset.json
     ```
 
-    Om du vill ha information om formatet på den JSON-fil som används för att definiera data uppsättningen använder du `az ml dataset --show-template`.
+    Om du vill ha information om formatet på den JSON-fil som används för att definiera data uppsättningen använder du `az ml dataset register --show-template`.
 
     Mer information finns i [AZ ml data data register](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/dataset?view=azure-cli-latest#ext-azure-cli-ml-az-ml-dataset-archive).
 

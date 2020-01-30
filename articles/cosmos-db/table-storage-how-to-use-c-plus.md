@@ -1,19 +1,19 @@
 ---
 title: Använd Azure Table Storage och Azure Cosmos DB Tabell-API medC++
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: cpp
 ms.topic: sample
 ms.date: 10/07/2019
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: 5df344b3f9f3d2fc2ff6fa65667039c545b70841
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: e6d61e329ba91f53b11ace4d258b35950e188dcb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441187"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771222"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med C++
 
@@ -100,7 +100,7 @@ const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;
 
 Starta Azure Storage-emulatorn från Windows-skrivbordet genom att välja **Start** -knappen eller Windows-tangenten. Ange och kör *Microsoft Azure Storage-emulator*. Mer information finns i [Använd Azure Storage-emulatorn för utveckling och testning](../storage/common/storage-use-emulator.md).
 
-### <a name="retrieve-your-connection-string"></a>Hämta anslutningssträngen
+### <a name="retrieve-your-connection-string"></a>Hämtar anslutningssträngen
 
 Du kan använda `cloud_storage_account`-klassen för att representera din lagrings konto information. Om du vill hämta information om lagrings kontot från lagrings anslutnings strängen använder du metoden `parse`.
 

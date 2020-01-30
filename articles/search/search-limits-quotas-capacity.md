@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462487"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846282"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Tjänst begränsningar i Azure Kognitiv sökning
 
@@ -117,7 +117,7 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 | Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |24 timmar |24 timmar |
 | Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |2 timmar |2 timmar |
 | BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4&nbsp;miljon |4&nbsp;miljon |4&nbsp;miljon |Gäller inte |4&nbsp;miljon |4&nbsp;miljon |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4&nbsp;miljon |8&nbsp;miljon |16&nbsp;miljon |Gäller inte |4&nbsp;miljon |4&nbsp;miljon |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -151,7 +151,7 @@ För lagrings optimerade nivåer bör du förvänta dig ett lägre flöde för f
 
 ## <a name="data-limits-ai-enrichment"></a>Data begränsningar (AI-anrikning)
 
-En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment analys](cognitive-search-skill-sentiment.md)och [språk identifiering](cognitive-search-skill-language-detection.md) är beroende av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+En [pipeline för AI-anrikning](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment-analys](cognitive-search-skill-sentiment.md), [språk identifiering](cognitive-search-skill-language-detection.md)och [identifiering av PII](cognitive-search-skill-pii-detection.md) är beroende av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Begränsnings gränser
 

@@ -9,12 +9,12 @@ ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 1aa8c9ff26b85f5af8095ad1cff062b224abff83
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2daf17ccef1bca363fe92f71a332fbfa78637135
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982181"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844792"
 ---
 # <a name="quickstart-route-blob-storage-events-to-web-endpoint-with-the-azure-portal"></a>Snabb start: dirigera Blob Storage-händelser till webb slut punkt med Azure Portal
 
@@ -41,6 +41,9 @@ När du är klar kan se du att händelsedata som har skickats till webbappen.
 1. Skapa ett v2-lagringskonto för allmän användning eller ett Blob Storage-konto om du vill prenumerera på händelser. Mer information finns i [Skapa ett lagringskonto](../storage/common/storage-account-create.md).
 
    ![Startsteg](./media/blob-event-quickstart-portal/provide-blob-values.png)
+
+>[!NOTE]
+> Endast lagrings konton av typen **StorageV2 (generell användning v2)** och **BlobStorage** -stöd för händelse integrering. **Lagring (Genral Purpose v1)** stöder *inte* integrering med event Grid.
 
 ## <a name="create-a-message-endpoint"></a>Skapa en slutpunkt för meddelanden
 

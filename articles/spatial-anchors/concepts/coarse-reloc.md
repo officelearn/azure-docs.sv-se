@@ -1,6 +1,6 @@
 ---
 title: Grov omlokalisering
-description: Snabb starts guide för grov omlokalisering.
+description: Lär dig mer om att använda grov omlokalisering för att hitta ankare nära dig.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356359"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844402"
 ---
 # <a name="coarse-relocalization"></a>Grov omlokalisering
 

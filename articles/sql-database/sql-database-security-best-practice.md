@@ -6,14 +6,14 @@ ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 12/23/2019
+ms.date: 01/22/2020
 ms.reviewer: ''
-ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 095d435b9a595c420821da0813fdfc0893d70d89
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715175"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845880"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>Spelbok Security Best Practices Azure SQL Database
 
@@ -103,10 +103,10 @@ Central identitets hantering ger följande fördelar:
 > - RBAC-behörigheter som beviljats i Azure gäller inte för Azure SQL DB-behörigheter. Sådana behörigheter måste skapas/mappas manuellt i SQL DB med hjälp av befintliga SQL-behörigheter.
 > - På klient sidans Azure AD-autentisering måste du ha åtkomst till Internet eller via en användardefinierad väg (UDR) till ett VNet.
 > - Azure AD-åtkomsttoken cachelagras på klient sidan och dess livs längd beror på token-konfigurationen. Se artikeln, [konfigurerbara livstider för token i Azure Active Directory](../active-directory/develop/active-directory-configurable-token-lifetimes.md)
+> - Information om hur du felsöker problem med Azure AD-autentisering finns i följande blogg: <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ### <a name="multi-factor-authentication-mfa"></a>Multi-Factor Authentication (MFA)
 
-> [!NOTE]
 > Som nämns i: OSA-metoden #2, ISO Access Control (AC)
 
 Azure Multi-Factor Authentication (MFA) ger ytterligare säkerhet genom att kräva mer än en form av autentisering.
@@ -143,7 +143,6 @@ Azure Multi-Factor Authentication (MFA) ger ytterligare säkerhet genom att krä
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-users"></a>Minimera användningen av lösenordsbaserad autentisering för användare
 
-> [!NOTE]
 > Som nämns i: OSA-metoden #4, ISO Access Control (AC)
 
 Lösenordsbaserade autentiseringsmetoder är en svagare form av autentisering. Autentiseringsuppgifter kan komprometteras eller av misstag tas bort.
@@ -159,7 +158,6 @@ Lösenordsbaserade autentiseringsmetoder är en svagare form av autentisering. A
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-applications"></a>Minimera användningen av lösenordsbaserad autentisering för program 
 
-> [!NOTE]
 > Som nämns i: OSA-metoden #4, ISO Access Control (AC)
 
 **Implementera**:
@@ -217,7 +215,6 @@ SQL-autentisering syftar på autentiseringen av en användare när du ansluter t
 
 ### <a name="implement-principle-of-least-privilege"></a>Implementera princip för minsta behörighet
 
-> [!NOTE]
 > Som nämns i: FedRamp-kontroller AC-06, NIST: AC-6, OSA-praxis #3
 
 Principen om minsta behörighet anger att användarna inte bör ha fler privilegier än vad som behövs för att slutföra sina uppgifter. Mer information finns i artikeln [endast tillräckligt med administration](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview).
@@ -276,10 +273,9 @@ Följande metod tips är valfria men ger bättre hanterbarhet och support för d
 
 ### <a name="implement-separation-of-duties"></a>Implementera separering av uppgifter
 
-> [!NOTE]
 > Nämns i: FedRamp: AC-04, NIST: AC-5, ISO: A. 6.1.2, PCI 6.4.2, SOC: CM-3, SDL-3
 
-Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på att dela upp känsliga uppgifter i flera uppgifter som är kopplade till olika användare, vanligt vis för att förhindra data intrång.
+Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på att dela upp känsliga uppgifter i flera uppgifter som tilldelas till olika användare. Separering av uppgifter förhindrar data intrång.
 
 **Implementera**:
 
@@ -295,7 +291,7 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
   - Skapa Server roller för Server-wide-aktiviteter (skapa nya inloggningar, databaser) i en hanterad instans. 
   - Skapa databas roller för aktiviteter på databas nivå.
 
-- För vissa känsliga uppgifter bör du skapa särskilda lagrade procedurer som signerats av ett certifikat för att köra aktiviteter för användarens räkning. 
+- För vissa känsliga uppgifter bör du överväga att skapa särskilda lagrade procedurer som signerats av ett certifikat för att köra aktiviteter för användarens räkning. 
   - Exempel: [självstudie: signera lagrade procedurer med ett certifikat](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Implementera transparent datakryptering (TDE) med Kundhanterade nycklar i Azure Key Vault för att möjliggöra separering av uppgifter mellan data ägare och säkerhets ägare. 
@@ -326,9 +322,9 @@ Separering av uppgifter, även kallat ansvars fördelning, beskriver kravet på 
 
 - Du kan hämta definitionen av de inbyggda RBAC-rollerna för att se vilka behörigheter som används och skapa en anpassad roll baserat på utdrag och kumulation av dessa via PowerShell 
 
-- Eftersom en medlem i db_owner databas rollen kan ändra säkerhets inställningar som transparent datakryptering (TDE), eller ändra service nivå mål, bör detta medlemskap beviljas med försiktighet. Å andra sidan kräver många aktiviteter, t. ex. ändring av databas inställningar, t. ex. ändring av DB-alternativ db_owner behörighet. Granskningen spelar en nyckel roll i vilken lösning som helst.
+- Eftersom en medlem i db_owner databas rollen kan ändra säkerhets inställningar som transparent datakryptering (TDE), eller ändra service nivå mål, bör detta medlemskap beviljas med försiktighet. Det finns dock många aktiviteter som kräver db_owner-behörighet. Uppgift som att ändra en databas inställning, till exempel ändra DB-alternativ. Granskningen spelar en nyckel roll i vilken lösning som helst.
 
-- Det går inte att spara en db_owner från att Visa användar data med enbart behörigheter. Om det finns mycket känsliga data i en databas kan Always Encrypted användas för att på ett säkert sätt förhindra db_owners eller andra DBA att visa den.
+- Det går inte att begränsa behörigheterna för en db_owner och därför förhindra ett administrativt konto från att Visa användar data. Om det finns mycket känsliga data i en databas kan Always Encrypted användas för att på ett säkert sätt förhindra db_owners eller andra DBA att visa den.
 
 > [!NOTE]
 > Att uppnå separering av uppgifter (SoD) är en utmaning för säkerhetsrelaterade eller fel söknings uppgifter. Andra områden som utvecklings-och slut användar roller är enklare att åtskilja. De mest kompatibla kontrollerna tillåter användning av alternativa kontroll funktioner som granskning när andra lösningar inte är praktiska.
@@ -348,7 +344,6 @@ För läsarna som vill gå djupare till SoD rekommenderar vi följande resurser:
 
 ### <a name="perform-regular-code-reviews"></a>Utföra regelbunden kod granskning
 
-> [!NOTE]
 > Nämnt i: PCI: 6.3.2, SOC: SDL-3 
 
 Avgränsningen av uppgifter är inte begränsad till data i databasen, men innehåller program kod. Skadlig kod kan eventuellt kringgå säkerhets kontroller. Innan du distribuerar anpassad kod till produktion är det viktigt att granska vad som distribueras.
@@ -375,7 +370,7 @@ Avgränsningen av uppgifter är inte begränsad till data i databasen, men inneh
 
 - Se till att personen som genomför granskningen är en annan person än den ursprungliga kod författaren och kunskaps bara vid kod granskning och säker kodning.
 
-- Se till att känna till alla källor med kod ändringar: kod kan vara i T-SQL-skript; Det kan vara ad hoc-kommandon som ska köras eller distribueras i form av vyer, funktioner, utlösare och lagrade procedurer. Det kan också vara en del av jobb definitionerna för SQL-agenten (steg), köras inifrån SSIS-paket, Azure Data Factory och andra tjänster.
+- Se till att du känner till alla källor med kod ändringar. Koden kan vara i T-SQL-skript. Det kan vara ad hoc-kommandon som ska köras eller distribueras i form av vyer, funktioner, utlösare och lagrade procedurer. Det kan vara en del av jobb definitionerna för SQL-agenten (steg). Det kan också köras inifrån SSIS-paket, Azure Data Factory och andra tjänster.
 
 ## <a name="data-protection"></a>Dataskydd
 
@@ -387,14 +382,12 @@ Data skydd är en uppsättning funktioner för att skydda viktig information fr�
 
 ### <a name="encrypt-data-in-transit"></a>Kryptera data under överföring
 
-> [!NOTE]
 > Som nämns i: OSA-praxis #6, ISO-kontroll Family: kryptografi
 
 Skyddar dina data medan data flyttas mellan klienten och servern. Se [nätverks säkerhet](#network-security).
 
 ### <a name="encrypt-data-at-rest"></a>Kryptera data i vila
 
-> [!NOTE]
 > Som nämns i: OSA-praxis #6, ISO-kontroll Family: kryptografi
 
 Kryptering i vila är ett kryptografiskt skydd av data när de sparas i databas-, logg-och säkerhets kopior.
@@ -402,7 +395,7 @@ Kryptering i vila är ett kryptografiskt skydd av data när de sparas i databas-
 **Implementera**:
 
 - [Transparent databas kryptering (TDE)](transparent-data-encryption-azure-sql.md) med tjänst hanterade nycklar är aktiverade som standard för alla databaser som skapats efter 2017 i Azure SQL Database.
-- Om databasen skapas som ett resultat av en återställnings åtgärd från en lokal server i en hanterad instans, kommer TDE-inställningen för den ursprungliga databasen att respekteras. Om den ursprungliga databasen inte har TDE aktiverat, rekommenderar vi att TDE aktive ras manuellt för den hanterade instansen.
+- I en hanterad instans, om databasen skapas från en återställnings åtgärd med en lokal server, kommer TDE-inställningen för den ursprungliga databasen att följas. Om den ursprungliga databasen inte har TDE aktiverat, rekommenderar vi att TDE aktive ras manuellt för den hanterade instansen.
 
 **Bästa praxis**:
 
@@ -414,42 +407,42 @@ Kryptering i vila är ett kryptografiskt skydd av data när de sparas i databas-
 
 ### <a name="protect-sensitive-data-in-use-from-high-privileged-unauthorized-users"></a>Skydda känsliga data som används från privilegierade användare med hög behörighet
 
-Data som används är de data som lagras i minnet för databas systemet under körningen av SQL-frågor. Om din databas lagrar känsliga data, kan din organisation krävas för att säkerställa att användare med hög behörighet, till exempel Microsoft-operatörer eller databas administratörer i din organisation, förhindras från att extrahera data från minnet för den SQL Server processen och inte kan för att Visa klartext-data när du frågar databasen.
+Data som används är de data som lagras i minnet för databas systemet under körningen av SQL-frågor. Om din databas lagrar känsliga data kan din organisation krävas för att se till att privilegierade användare hindras från att Visa känsliga data i databasen. Användare med hög behörighet, till exempel Microsoft-operatörer eller databas administratörer i din organisation, bör kunna hantera databasen, men förhindras från att visa och potentiellt organisationers känsliga data från SQL Server processens minne eller genom att fråga databasen.
 
 **Implementera**:
 
-- Använd [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) för att se till att känsliga data inte visas i klartext i Azure SQL Database, även i minnet/används. Detta skyddar data från databas administratörer (databas administratörer) och moln administratörer (eller dåliga aktörer som kan personifiera privilegierade och obehöriga användare) och ger dig större kontroll över vem som kan komma åt dina data.
+- Använd [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) för att se till att känsliga data inte visas i klartext i Azure SQL Database, även i minnet/används. Always Encrypted skyddar data från databas administratörer (databas administratörer) och moln administratörer (eller dåliga aktörer som kan personifiera hög privilegierade och obehöriga användare) och ger dig större kontroll över vem som har åtkomst till dina data.
 
 **Bästa praxis**:
 
-- Always Encrypted är inte en ersättning för att kryptera data i vilo läge (TDE) eller under överföring (SSL/TLS) och bör inte användas för icke-känsliga data för att minimera prestanda-och funktions påverkan. Att använda Always Encrypted tillsammans med TDE och TLS rekommenderas för omfattande skydd av data i vila, överföring och användning. 
+- Always Encrypted är inte en ersättning för att kryptera data i vila (TDE) eller under överföring (SSL/TLS). Always Encrypted bör inte användas för icke-känsliga data för att minimera prestanda-och funktions påverkan. Att använda Always Encrypted tillsammans med TDE och Transport Layer Security (TLS) rekommenderas för omfattande skydd av data i vila, under överföring och används. 
 
-- Hantera Always Encrypted nycklar med rollseparering om du använder Always Encrypted för att skydda data från skadliga databas administratörer. Med rollseparering skapar en säkerhets administratör de fysiska nycklarna och en DBA skapar kolumn huvud nyckel och metadata-objekt i kolumn krypterings nyckel, som beskriver de fysiska nycklarna i-databasen. Under den här processen behöver inte säkerhets administratören åtkomst till databasen och DBA behöver inte åtkomst till de fysiska nycklarna i klartext. 
+- Hantera Always Encrypted nycklar med rollseparering om du använder Always Encrypted för att skydda data från skadliga databas administratörer. Med rollseparering skapas fysiska nycklar av en säkerhets administratör. DBA skapar kolumn huvud nyckeln och kolumn krypterings nyckelns metadata-objekt, som beskriver de fysiska nycklarna i databasen. Under den här processen behöver inte säkerhets administratören åtkomst till databasen och DBA behöver inte åtkomst till de fysiska nycklarna i klartext. 
   - Mer information finns i artikeln [Hantera nycklar med separering av roller](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) . 
 
 - Lagra dina kolumn huvud nycklar i Azure Key Vault för enkel hantering. Undvik att använda Windows certifikat arkiv (och i allmänhet distribuerade nyckel lagrings lösningar, i motsats till centrala nyckel hanterings lösningar) som gör nyckel hanteringen hårt. 
 
-- Tänk noggrant igenom nack delarna med att använda flera nycklar (kolumn huvud nyckel eller kolumn krypterings nycklar). Behåll antalet nycklar små för att minska kostnaderna för nyckel hantering. En kolumn huvud nyckel och en kolumn krypterings nyckel per databas är vanligt vis tillräckligt i stabilt läges miljöer (inte i mitten av en nyckel rotation), om du inte har olika användar grupper och använder olika nycklar och åtkomst till olika data.  
+- Tänk noggrant igenom nack delarna med att använda flera nycklar (kolumn huvud nyckel eller kolumn krypterings nycklar). Behåll antalet nycklar små för att minska kostnaderna för nyckel hantering. En kolumn huvud nyckel och en kolumn krypterings nyckel per databas är vanligt vis tillräckligt i stabilt läges miljöer (inte i mitten av en nyckel rotation). Du kan behöva ytterligare nycklar om du har olika användar grupper, var och en använder olika nycklar och åtkomst till olika data.  
 
 - Rotera kolumn huvud nycklar enligt dina krav. Om du också behöver rotera kolumn krypterings nycklar bör du överväga att använda online-kryptering för att minimera avbrotts tiden för programmet. 
   - Se överväganden för artikel, [prestanda och tillgänglighet](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-column-encryption-using-powershell#performance-and-availability-considerations). 
 
 - Använd deterministisk kryptering om beräkningarna (jämlikhet) för data behöver stödjas. Annars använder du slumpmässig kryptering. Undvik att använda deterministisk kryptering för data uppsättningar med låg entropi eller data uppsättningar med offentligt känd distribution. 
 
-- Om du är bekymrad om att tredje part kommer åt dina data lagligt utan ditt medgivande, se till att alla program och verktyg som har åtkomst till nycklar och data i klartext körs utanför Microsoft Azure molnet. Utan åtkomst till nycklarna har den tredje parten inget sätt att dekryptera data om inte krypteringen kringgås.
+- Om du är orolig för att få åtkomst till dina data från tredje part, utan ditt medgivande, ser du till att alla program och verktyg som har åtkomst till nycklar och data i klartext körs utanför Microsoft Azure molnet. Utan åtkomst till nycklarna har den tredje parten inget sätt att dekryptera data om inte krypteringen kringgås.
 
-- Always Encrypted har inte enkelt stöd för att bevilja tillfällig åtkomst till nycklarna (och skyddade data). Om du till exempel behöver dela nycklarna med en DBA, så att DBA kan utföra vissa rengörings åtgärder på känsliga och krypterade data, är det enda sättet att återställa åtkomsten till data från DBA att rotera både kolumn krypterings nycklarna och Colu mn-huvudnycklar som skyddar data, vilket är en dyr åtgärd. 
+- Always Encrypted har inte enkelt stöd för att bevilja tillfällig åtkomst till nycklarna (och skyddade data). Om du till exempel behöver dela nycklarna med en DBA så att DBA kan utföra vissa rengörings åtgärder på känsliga och krypterade data. Det enda sättet att använda tillförlitligheten att återkalla åtkomsten till data från DBA är att rotera både kolumn krypterings nycklarna och kolumn huvud nycklarna som skyddar data, vilket är en dyr åtgärd. 
 
-- För att få åtkomst till klartext-värden i krypterade kolumner måste användaren ha åtkomst till CMK, vilket skyddar kolumnerna som har kon figurer ATS i nyckel lagret som innehåller CMK. Dessutom måste användaren ha en kolumn huvud nyckel DEFINITION och Visa alla kolumn KRYPTERINGs nyckel definitioner databas behörigheter.
+- För att få åtkomst till klartext-värden i krypterade kolumner måste användaren ha åtkomst till CMK som skyddar kolumner, som har kon figurer ATS i nyckel lagret som innehåller CMK. Användaren måste också ha en **kolumn huvud nyckel definition** och **Visa alla kolumn krypterings nyckel definitioner** databas behörigheter.
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>Kontrol lera åtkomsten till program användare till känsliga data via kryptering
 
-Kryptering kan användas som ett sätt för att säkerställa att endast specifika program användare som har åtkomst till kryptografiska nycklar och kan visa eller uppdatera data.
+Kryptering kan användas som ett sätt för att säkerställa att endast specifika program användare som har åtkomst till kryptografiska nycklar kan visa eller uppdatera data.
 
 **Implementera**:
 
 - Använd kryptering på cell nivå (CLE). Mer information finns i artikeln [kryptera en data kolumn](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) . 
-- Du kan också överväga att använda Always Encrypted, men var medveten om dess begränsning, som anges nedan.
+- Använd Always Encrypted, men var medveten om dess begränsning. Begränsningarna visas nedan.
 
 **Bästa praxis**
 
@@ -457,18 +450,16 @@ När du använder CLE:
 
 - Kontrol lera åtkomst till nycklar via SQL-behörigheter och-roller. 
 
-- Använd AES (AES 256 rekommenderas) för data kryptering. Algoritmer, t. ex. RC4, DES och TripleDES, är föråldrade och bör inte användas på grund av kända sårbarheter. 
+- Använd AES (AES 256 rekommenderas) för data kryptering. Algoritmer, t. ex. RC4, DES och TripleDES, är inaktuella och bör inte användas på grund av kända sårbarheter. 
 
 - Skydda symmetriska nycklar med asymmetriska nycklar/certifikat (inte lösen ord) för att undvika att använda 3DES. 
 
 - Var försiktig när du migrerar en databas med hjälp av kryptering på cell nivå via export/import (BACPAC-filer). 
   - Se artikeln [rekommendationer för att använda kryptering på cell nivå i Azure SQL Database](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) om hur du förhindrar att nycklar går förlorade vid migrering av data, och för andra rekommendationer om bästa praxis.
 
-När du använder Always Encrypted bör du tänka på att Always Encrypted främst har utformats för att skydda känsliga data som används av användare med hög behörighet för Azure SQL Database (moln operatörer, databas administratörer) – se [skydda känsliga data som används från privilegierade användare med hög](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)behörighet. Tänk på följande utmaningar när du använder Always Encrypted för att skydda data från program användare:
+Tänk på att Always Encrypted främst har utformats för att skydda känsliga data som används från användare med hög behörighet för Azure SQL Database (moln operatörer, databas administratörer) – se [skydda känsliga data som används från privilegierade användare med hög privilegier](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users). Tänk på följande utmaningar när du använder Always Encrypted för att skydda data från program användare:
 
-- När du har beviljat en användare åtkomst till känsliga data genom att ge användarna behörighet att komma åt kolumn krypterings nyckeln och kolumn huvud nyckeln, för att på ett tillförlitligt sätt återkalla åtkomsten till en kolumn krypterings nyckel, vilket är en dyr åtgärd som kräver Om du krypterar om alla kolumner skyddas kolumn krypterings nyckeln. 
-
-- Som standard har alla driv rutiner för Microsoft-klienter som stöder Always Encrypted en global (ett per program) cache med kolumn krypterings nycklar. När en klient driv rutin har skaffat en kolumn krypterings nyckel i klartext genom att kontakta en nyckel lagrings plats som innehåller en kolumn huvud nyckel, cachelagras kolumn krypterings nyckeln i klartext, vilket gör det lättare att isolera data från användare av program med flera användare. Om ditt program personifierar slutanvändare när de interagerar med ett nyckel lager (till exempel Azure Key Vault), efter att en användares fråga fyller i cachen med en kolumn krypterings nyckel, kommer en efterföljande fråga som kräver samma nyckel men som utlösts av en annan användare att använda cachelagrad nyckel. Driv rutinen kommer inte att anropa nyckel lagret och den kommer inte att kontrol lera om den andra användaren har behörighet att komma åt kolumn krypterings nyckeln. Därför kommer användaren att kunna se krypterade data även om användaren inte har åtkomst till nycklarna. För att uppnå isolering av användare i ett program med flera användare kan du behöva inaktivera cachelagring av kolumn krypterings nycklar, vilket leder till ytterligare prestanda omkostnader eftersom driv rutinen måste kontakta nyckel lagret för varje data kryptering eller dekryptering reparation.
+- Som standard har alla driv rutiner för Microsoft-klienter som stöder Always Encrypted en global (ett per program) cache med kolumn krypterings nycklar. När en klient driv rutin hämtar en kolumn krypterings nyckel i klartext genom att kontakta en nyckel lagrings plats som innehåller en kolumn huvud nyckel cachelagras kolumn krypterings nyckeln i klartext. Detta gör det svårare att isolera data från användare av program med flera användare. Om ditt program personifierar slutanvändare när de interagerar med ett nyckel lager (till exempel Azure Key Vault), efter att en användares fråga fyller i cachen med en kolumn krypterings nyckel, kommer en efterföljande fråga som kräver samma nyckel men som utlösts av en annan användare att använda cachelagrad nyckel. Driv rutinen anropar inte nyckel lagret och kontrollerar inte om den andra användaren har behörighet att komma åt kolumn krypterings nyckeln. Det innebär att användaren kan se krypterade data även om användaren inte har åtkomst till nycklarna. För att uppnå isolering av användare i ett program med flera användare kan du inaktivera cachelagring av kolumn krypterings nycklar. Inaktive ring av cachelagring leder till ytterligare prestanda omkostnader eftersom driv rutinen måste kontakta nyckel lagret för varje data kryptering eller dekryptering.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>Skydda data mot obehörig visning av program användare samtidigt som du behåller data formatet
 En annan metod för att förhindra obehöriga användare från att visa data är att obfuscate eller maskera data samtidigt som data typerna och formaten bevaras så att användar programmen kan fortsätta hantera och visa data.
@@ -488,15 +479,15 @@ En annan metod för att förhindra obehöriga användare från att visa data är
 - Tillåt inte att App-användare kör ad hoc-frågor (eftersom de kan fungera kring dynamisk data maskning).  
   - Mer information finns i artikeln om att [kringgå maskning med hjälp av en metod för att maskera eller brutet kraft](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#security-note-bypassing-masking-using-inference-or-brute-force-techniques) .  
 
-- Använd en lämplig princip för åtkomst kontroll (via SQL-behörigheter, roller, RLS) för att begränsa användar behörigheter för att göra uppdateringar i de maskerade kolumnerna. Att skapa en mask i en kolumn förhindrar inte uppdateringar i den kolumnen. Även om användarna får maskerade data när de frågar den maskerade kolumnen, kan samma användare uppdatera data om de har Skriv behörighet.    
+- Använd en lämplig princip för åtkomst kontroll (via SQL-behörigheter, roller, RLS) för att begränsa användar behörigheter för att göra uppdateringar i de maskerade kolumnerna. Att skapa en mask i en kolumn förhindrar inte uppdateringar i den kolumnen. Användare som tar emot maskerade data när de frågar den maskerade kolumnen kan uppdatera data om de har Skriv behörighet.    
 
--  Dynamisk data maskning bevarar inte statistiska egenskaper för de maskerade värdena, vilket kan påverka frågeresultaten (till exempel frågor som innehåller filtrerings predikat eller kopplingar till maskerade data).
+-  Dynamisk data maskning bevarar inte statistiska egenskaper för de maskerade värdena. Detta kan påverka frågeresultaten (till exempel frågor som innehåller filtrerings predikat eller kopplingar till maskerade data).
 
 ## <a name="network-security"></a>Nätverkssäkerhet
 Nätverks säkerhet avser åtkomst kontroller och bästa metoder för att skydda dina data under överföring till Azure SQL Database.
 
 ### <a name="configure-my-client-to-connect-securely-to-azure-sql-database"></a>Konfigurera klienten för att ansluta säkert till Azure SQL Database 
-Förhindra att klient datorer och program ansluter till Azure SQL Database från välkända sårbarheter på grund av beroende av äldre protokoll och chiffersviter.
+Metod tips för hur du kan förhindra klient datorer och program med välkända sårbarheter (till exempel att använda äldre TLS-protokoll och chiffersviter) från att ansluta till Azure SQL Database.
 
 **Implementera**:
 
@@ -511,16 +502,16 @@ Förhindra att klient datorer och program ansluter till Azure SQL Database från
 
 - Minska angrepps vektorer via sårbarheter i SSL 2,0, SSL 3,0, TLS 1,0 och TLS 1,1 genom att inaktivera dem på klient datorer som ansluter till Azure SQL Database per [Transport Layer Security (TLS) register inställningar](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-10). 
 
-- Kontrol lera chiffersviter som är tillgängliga på klienten per [chiffersviter i TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel) och inaktivera 3Des per [konfigurering av TLS-chiffersviter](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order). 
+- Kontrol lera chiffersviter som är tillgängliga på klienten: [cipher-paket i TLS/SSL (Schannel SSP)](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel). Mer specifikt är att inaktivera 3DES per [konfigurering av TLS cipher Suite-ordningen](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order). 
 
-- Om du använder en hanterad instans använder du anslutnings typen **proxy** (standard) eftersom detta tvingar kryptering från Server sidan. Anslutnings typen för **omdirigering** stöder för närvarande inte tvingande kryptering och är bara tillgänglig för privata IP-anslutningar. 
-  - Mer information finns i [anslutnings principer för Azure SQL-](sql-database-connectivity-architecture.md#connection-policy)anslutning.
-  - Kryptering upprätthålls för anslutnings typerna proxy och omdirigering. 
+- För Azure SQL Database tillämpas kryptering för både proxy-och omdirigerings-anslutnings typer. Om du använder en hanterad instans använder du anslutnings typen **proxy** (standard) eftersom detta tvingar kryptering från Server sidan. Anslutnings typen för **omdirigering** stöder för närvarande inte tvingande kryptering och är bara tillgänglig för privata IP-anslutningar. 
+
+- Mer information finns i [anslutnings principer för Azure SQL-](sql-database-connectivity-architecture.md#connection-policy)anslutning.
+
 
 ### <a name="minimize-attack-surface"></a>Minimera attack ytan
-Minimera antalet funktioner som kan angripas av en obehörig användare genom att implementera nätverks åtkomst kontroller för Azure SQL Database.
+Minimera antalet funktioner som kan angripas av en obehörig användare. Implementera nätverks åtkomst kontroller för Azure SQL Database.
 
-> [!NOTE]
 > Nämns i: OSA-praxis #5
 
 **Implementera**:
@@ -528,7 +519,7 @@ Minimera antalet funktioner som kan angripas av en obehörig användare genom at
 I en Azure SQL Database Server (som innehåller singleton-databas eller elastiska pooler):
 - Ange Tillåt åtkomst till Azure-tjänster.
 
-- Använd tjänst slut punkter för virtuella nätverk och brand Väggs regler för virtuella nätverk.
+- Använda VNet-tjänstens slut punkter och brand Väggs regler för VNet.
 
 - Använd privat länk (förhands granskning).
 
@@ -538,8 +529,8 @@ I en hanterad instans:
 **Bästa praxis**:
 
 - Begränsa åtkomsten till Azure SQL Database genom att ansluta på en privat slut punkt (till exempel med hjälp av en privat data Sök väg): 
-  - En hanterad instans kan isoleras i ett virtuellt nätverk för att förhindra extern åtkomst. Program och verktyg som finns i samma eller peer-kopplat virtuella nätverk i samma region kan komma åt det direkt. Program och verktyg som finns i olika regioner kan använda VNet-till-VNet-anslutning eller ExpressRoute krets-peering för att upprätta anslutning. Kunden bör använda nätverks säkerhets grupper (NSG) för att begränsa åtkomsten över port 1433 till resurser som kräver åtkomst till en hanterad instans 
-  - För en SQL Database Server (som innehåller enskilda databaser eller elastiska pooler) använder du funktionen [privat länk](sql-database-private-endpoint-overview.md) som tillhandahåller en dedikerad privat IP-adress för SQL Database-servern i det virtuella nätverket. Du kan också använda [tjänst slut punkter för virtuella nätverk med brand Väggs regler för virtuella nätverk](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomsten till dina SQL Database-servrar.
+  - En hanterad instans kan isoleras inuti ett VNet för att förhindra extern åtkomst. Program och verktyg som finns i samma eller peer-kopplat VNet i samma region kan komma åt det direkt. Program och verktyg som finns i olika regioner kan använda VNet-till-VNet-anslutning eller ExpressRoute-krets-peering för att upprätta anslutning. Kunden bör använda nätverks säkerhets grupper (NSG) för att begränsa åtkomsten över port 1433 till resurser som kräver åtkomst till en hanterad instans 
+  - För en SQL Database Server (som innehåller enskilda databaser eller elastiska pooler) använder du funktionen för [privata länkar](sql-database-private-endpoint-overview.md) som tillhandahåller en dedikerad privat IP-adress för SQL Database-servern i ditt VNet. Du kan också använda [VNet-tjänstens slut punkter med VNet brand Väggs regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomsten till dina SQL Database-servrar.
   - Mobila användare bör använda punkt-till-plats-VPN-anslutningar för att ansluta över data Sök vägen.
   - Användare som är anslutna till sitt lokala nätverk bör använda plats-till-plats-VPN-anslutning eller ExpressRoute för att ansluta över data Sök vägen.
 
@@ -577,7 +568,7 @@ I en hanterad instans:
 
 - [Integrera din app med en Azure-Virtual Network](../app-service/web-sites-integrate-with-vnet.md) för anslutning av privata data vägar till en hanterad instans. Alternativt kan du också distribuera en webbapp med [App Service miljöer (ASE)](../app-service/environment/intro.md). 
 
-- För webbapp med ASE eller VNet-integrerad webbapp som ansluter till en databas i SQL Database Server kan du använda [VNet-tjänstens slut punkter och VNET brand Väggs regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomsten från ett särskilt VNet och undernät, och sedan ställa in **Tillåt Azure-tjänster** på off. Du kan också ansluta ASE till en hanterad instans via en privat data Sök väg.  
+- För webbapp med ASE eller VNet-integrerad webbapp som ansluter till en databas i SQL Database Server kan du använda [VNet-tjänstens slut punkter och VNET brand Väggs regler](sql-database-vnet-service-endpoint-rule-overview.md) för att begränsa åtkomsten från ett särskilt VNet och undernät. Ställ sedan in **Tillåt Azure-tjänster** på av. Du kan också ansluta ASE till en hanterad instans via en privat data Sök väg.  
 
 - Kontrol lera att din webbapp har kon figurer ATS per artikel och [metod tips för att skydda PaaS webb-och mobil program med hjälp av Azure App Service](../security/security-paas-applications-using-app-services.md). 
 
@@ -606,7 +597,6 @@ I en hanterad instans:
 ### <a name="protect-against-distributed-denial-of-service-ddos-attacks"></a>Skydda mot DDoS-attacker (distributed denial of Service)
 DDoS-attacker (distributed denial of Service) försöker av en obehörig användare att skicka en översvämning av nätverks trafik till Azure SQL Database i syfte att överbelasta Azure-infrastrukturen och göra det lättare att avvisa giltiga inloggningar och arbets belastningar.
 
-> [!NOTE]
 > Nämns i: OSA-praxis #9
 
 **Implementera**:
@@ -644,12 +634,12 @@ Med avancerat skydd kan du identifiera och svara på potentiella hot när de int
 
 **Bästa praxis**:
 
-- Konfigurera [avancerade data säkerhets](sql-database-advanced-data-security.md#getting-started-with-ads) för Azure SQL Database för en bestämd SQL Database Server eller en hanterad instans eller för alla SQL Database servrar och hanterade instanser i en prenumeration genom att växla till [Azure Security Center standard nivå](../security-center/security-center-pricing.md). 
+- Konfigurera [Avancerad data säkerhet (Ads)](sql-database-advanced-data-security.md#getting-started-with-ads) för Azure SQL Database för en bestämd SQL Database Server eller en hanterad instans. Du kan också konfigurera annonser för alla SQL Database-servrar och hanterade instanser i en prenumeration genom att växla till [Azure Security Center standard nivå](../security-center/security-center-pricing.md). 
 
-- För en fullständig utrednings erfarenhet rekommenderar vi att du aktiverar [SQL Database granskning](sql-database-auditing.md) för att spåra databas händelser och skriva dem till en Gransknings logg i ett Azure Storage konto eller en Azure Log Analytics-arbetsyta. 
+- För en fullständig utrednings erfarenhet rekommenderar vi att du aktiverar [SQL Database granskning](sql-database-auditing.md). Med granskning kan du spåra databas händelser och skriva dem till en Gransknings logg i ett Azure Storage konto eller i Azure Log Analytics-arbetsytan. 
 
 ### <a name="audit-critical-security-events"></a>Granska kritiska säkerhets händelser
-Spårning av databas händelser hjälper dig att förstå databas aktiviteter och få insyn i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser. Den gör det också möjligt och underlättar efterlevnaden av efterlevnaden av standarder. 
+Spårning av databas händelser hjälper dig att förstå databas aktiviteter. Du kan få insyn i avvikelser och avvikelser som kan tyda på affärs problem eller misstänkta säkerhets överträdelser. Den gör det också möjligt och underlättar efterlevnaden av efterlevnaden av standarder. 
 
 **Implementera**:
 
@@ -660,7 +650,7 @@ Spårning av databas händelser hjälper dig att förstå databas aktiviteter oc
 **Bästa praxis**:
 
 - Genom att konfigurera [SQL Database granskning](sql-database-auditing.md) på databas servern för granskning av händelser, granskas alla befintliga och nyligen skapade databaser på den servern.
-- Som standard innehåller gransknings principen alla åtgärder (frågor, lagrade procedurer och lyckade och misslyckade inloggningar) mot databaserna, vilket kan resultera i stora gransknings loggar. Vi rekommenderar att kunderna [konfigurerar granskning för olika typer av åtgärder och åtgärds grupper med hjälp av PowerShell](sql-database-auditing.md#subheading-7), för att kontrol lera antalet granskade åtgärder och minimera risken för händelse förlust. Detta gör det möjligt för kunder att endast fånga de data som verkligen behövs.
+- Som standard innehåller gransknings principen alla åtgärder (frågor, lagrade procedurer och lyckade och misslyckade inloggningar) mot databaserna, vilket kan resultera i stora gransknings loggar. Vi rekommenderar att kunderna [konfigurerar granskning för olika typer av åtgärder och åtgärds grupper med hjälp av PowerShell](sql-database-auditing.md#subheading-7). Genom att konfigurera detta kan du kontrol lera antalet granskade åtgärder och minimera risken för händelse förlust. Med anpassad gransknings konfiguration kan kunder bara fånga de gransknings data som behövs.
 - Gransknings loggar kan förbrukas direkt i [Azure Portal](https://portal.azure.com/)eller från den lagrings plats som har kon figurer ATS. 
 
 
@@ -673,13 +663,12 @@ Spårning av databas händelser hjälper dig att förstå databas aktiviteter oc
 - [SQL Server granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) 
 
 ### <a name="secure-audit-logs"></a>Säkra gransknings loggar
-För att stödja separering av uppgifter och för att separera DBA från granskare, är det viktigt att vidta åtgärder för att begränsa åtkomsten till lagrings kontot. 
+Begränsa åtkomsten till lagrings kontot för att stödja separering av uppgifter och separera DBA från granskare. 
 
 **Implementera**:
 
-- När du sparar gransknings loggar till Azure Storage se till att åtkomsten till lagrings kontot är begränsad till de lägsta säkerhets principerna genom att använda kontrol lera åtkomst till lagrings kontot.
-
-- Mer information finns i [auktorisera åtkomst till Azure Storage](../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- När du sparar gransknings loggar till Azure Storage bör du se till att åtkomsten till lagrings kontot är begränsad till de lägsta säkerhets principerna. Kontrol lera vem som har åtkomst till lagrings kontot.
+    - Mer information finns i [auktorisera åtkomst till Azure Storage](../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 **Bästa praxis**:
 
@@ -701,13 +690,13 @@ Förbättra databas säkerheten proaktivt genom att identifiera och åtgärda po
 
 **Bästa praxis**:
 
-- Börja med att köra VA på dina databaser och iterera genom att åtgärda misslyckade kontroller som motsätter sig säkerhets metod tips och konfigurera bas linjer för acceptabla konfigurationer tills genomsökningen är klar (alla kontroller).  
+- Börja med att köra VA på dina databaser och iterera genom att åtgärda misslyckade kontroller som motsätter sig säkerhets metod tips. Konfigurera bas linjer för acceptabla konfigurationer tills genomsökningen är _felfri_eller alla kontroller har slutförts.  
 
 - Konfigurera regelbundna återkommande genomsökningar som ska köras en gång i veckan och konfigurera den aktuella personen att ta emot sammanfattnings meddelanden. 
 
-- Granska VA-sammanfattningen efter varje veckovis genomsökning. För påträffade sårbarheter kan du utvärdera driften från föregående genomsöknings resultat och avgöra om kontrollen ska lösas, eller om det finns en legitim orsak till ändringen av konfigurationen.   
+- Granska VA-sammanfattningen efter varje veckovis genomsökning. För påträffade sårbarheter kan du utvärdera driften från föregående genomsöknings resultat och avgöra om kontrollen ska lösas. Granska om det finns en legitim orsak till ändringen av konfigurationen.   
 
-- Lös checkar och uppdatera bas linjer, om det är relevant, eller skapa biljett objekt för att lösa åtgärder och spåra dessa tills de har lösts. 
+- Lös checkar och uppdatera bas linjer där det är relevant. Skapa biljett objekt för att lösa åtgärder och spåra dessa tills de har lösts. 
 
 **Ytterligare resurser**:
 
@@ -721,7 +710,7 @@ Identifiera kolumner som potentiellt innehåller känsliga data. Klassificera ko
 **Implementera**:
 
 - Använd [identifiering och klassificering av SQL-data](sql-database-data-discovery-and-classification.md) för att identifiera, klassificera, märka och skydda känsliga data i dina databaser. 
-  - Visa klassificerings rekommendationerna som skapas av den automatiska identifieringen på instrument panelen för SQL-dataidentifiering och klassificering, och godkänn de relevanta klassificeringarna, så att känsliga data är beständiga med klassificering Etiketter. 
+  - Visa klassificerings rekommendationerna som skapas av den automatiserade identifieringen på instrument panelen för SQL data identifiering och klassificering. Godkänn de relevanta klassificeringarna, så att känsliga data är beständigt märkta med klassificerings etiketter. 
   - Lägg till klassificeringar manuellt för ytterligare känsliga data fält som inte har identifierats av den automatiserade mekanismen. 
 - Mer information finns i [klassificering av SQL data Discovery &](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification).
 
@@ -729,7 +718,7 @@ Identifiera kolumner som potentiellt innehåller känsliga data. Klassificera ko
 
 - Övervaka klassificerings instrument panelen regelbundet för en korrekt utvärdering av databasens klassificerings tillstånd. En rapport om databas klassificerings status kan exporteras eller skrivas ut för att dela för efterlevnads-och gransknings syfte.
 
-- Övervaka kontinuerligt status för rekommenderade känsliga data i SQL sårbarhets bedömning, genom att spåra den känsliga data identifierings regeln och identifiera eventuella drift i de rekommenderade kolumnerna för klassificering.  
+- Övervaka kontinuerligt status för rekommenderade känsliga data i SQL sårbarhets bedömning. Spåra den känsliga data identifierings regeln och identifiera eventuell avvikelse i de rekommenderade kolumnerna för klassificering.  
 
 - Använd klassificering på ett sätt som är anpassat till organisationens speciella behov. Anpassa din Information Protection-princip (känslighets etiketter, informations typer, identifierings logik) i [SQL information Protection](../security-center/security-center-info-protection-policy.md) -principen i Azure Security Center. 
 
@@ -739,7 +728,7 @@ Identifiera kolumner som potentiellt innehåller känsliga data. Klassificera ko
 **Implementera**:
 
 - Använd SQL Audit och data klassificering i kombination. 
-  - I [SQL Database gransknings](sql-database-auditing.md) loggen kan du spåra åtkomst specifikt till känsliga data och Visa information, till exempel de data som har öppnats samt dess känslighets etikett (se [gransknings åtkomst till känsliga data](sql-database-data-discovery-and-classification.md#subheading-3)). 
+  - I [SQL Database gransknings](sql-database-auditing.md) loggen kan du spåra åtkomst specifikt till känsliga data. Du kan också visa information, till exempel de data som har öppnats, samt dess känslighets etikett. Mer information finns i [gransknings åtkomst till känsliga data](sql-database-data-discovery-and-classification.md#subheading-3). 
 
 **Bästa praxis**:
 
@@ -765,7 +754,7 @@ Data exfiltrering är otillåten kopiering, överföring eller hämtning av data
 
 Att ansluta till Azure SQL Database Server över en offentlig slut punkt visar en data exfiltrering risk eftersom kunden måste öppna sina brand väggar till offentliga IP-adresser.  
 
-**Scenario 1**: ett program på en virtuell Azure-dator ansluter till en databas i en Azure SQL Database-Server. En falsk aktör får åtkomst till den virtuella datorn och komprometterar den. I det här scenariot innebär data exfiltrering att en extern entitet som använder den falska virtuella datorn ansluter till databasen, kopierar personliga data och lagrar dem i en blob-lagring eller en annan SQL Database i en annan prenumeration.
+**Scenario 1**: ett program på en virtuell Azure-dator ansluter till en databas i en Azure SQL Database-Server. En falsk aktör får åtkomst till den virtuella datorn och komprometterar den. I det här scenariot innebär data exfiltrering att en extern entitet som använder den falska virtuella datorn ansluter till databasen, kopierar personliga data och lagrar den i en blob-lagring eller en annan SQL Database i en annan prenumeration.
 
 **Scenario 2**: en rouge DBA. Det här scenariot höjs ofta av säkerhets känsliga kunder från reglerade branscher. I det här scenariot kan en användare med hög behörighet kopiera data från Azure SQL Database till en annan prenumeration som inte styrs av data ägaren.
 
@@ -774,16 +763,16 @@ Att ansluta till Azure SQL Database Server över en offentlig slut punkt visar e
 Idag erbjuder Azure SQL Database följande tekniker för att undvika data exfiltrering hot: 
 
 - Använd en kombination av reglerna för att tillåta och neka på NSG: er för virtuella Azure-datorer för att styra vilka regioner som kan nås från den virtuella datorn. 
-- Om du använder en Azure SQL Database Server (som innehåller singleton-databaser eller elastiska pooler) anger du följande:
+- Om du använder en Azure SQL Database Server (som innehåller singleton-databaser eller elastiska pooler) anger du följande alternativ:
   - Tillåt att Azure-tjänster stängs av.
   - Tillåt endast trafik från det undernät som innehåller din virtuella Azure-dator genom att konfigurera en brand Väggs regel för VNet.
   - Använd [privat länk](sql-database-private-endpoint-overview.md)
-- För en hanterad instans använder privata IP-åtkomst som standard de första data exfiltrering för en falsk virtuell dator. Aktivera funktionen för under näts delegering i ett undernät som tjänster ska använda för att automatiskt ställa in den mest restriktiva principen på ett under nätverk för hanterade instanser.
+- För en hanterad instans använder privata IP-åtkomst som standard de första data exfiltrering för en falsk virtuell dator. Aktivera funktionen för under näts delegering på ett undernät för att automatiskt ange den mest restriktiva principen för ett under näts under hanterad instans.
 - Den falska DBA-andelen är mer utsatt för en hanterad instans eftersom det har ett större yta och nätverks krav är synliga för kunderna. Den bästa minskningen av detta är att tillämpa alla metoder i denna säkerhets guide för att förhindra det falska DBA-scenariot på första platsen (inte bara för data exfiltrering). Always Encrypted är en metod för att skydda känsliga data genom att kryptera den och hålla nyckeln otillgänglig för DBA.
 
 ## <a name="security-aspects-of-business-continuity-and-availability"></a>Säkerhets aspekter av affärs kontinuitet och tillgänglighet
 
-De flesta säkerhets standarder hanterar data tillgänglighet när det gäller drifts kontinuitet, vilket uppnås genom implementering av redundans-och redundans funktioner för att undvika enskilda felpunkter. För katastrof scenarier är det en vanlig metod för att bevara säkerhets kopior av data och loggfiler. Följande avsnitt innehåller en översikt över de funktioner som är inbyggda i Azure, samt ytterligare alternativ som kan konfigureras för att uppfylla olika behov: 
+De flesta säkerhets standarder hanterar data tillgänglighet när det gäller drifts kontinuitet, vilket uppnås genom implementering av redundans-och redundans funktioner för att undvika enskilda felpunkter. För katastrof scenarier är det en vanlig metod för att bevara säkerhets kopior av data och loggfiler. Följande avsnitt innehåller en översikt över de funktioner som är inbyggda i Azure. Den innehåller också ytterligare alternativ som kan konfigureras för att uppfylla olika behov: 
 
 - Azure erbjuder inbyggd hög tillgänglighet: [hög tillgänglighet och Azure SQL Database](sql-database-high-availability.md) 
 

@@ -4,18 +4,23 @@ description: Hantera en virtuell dator med inventeringssamling
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419817"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844827"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Hantera en virtuell Azure-dator med inventeringssamling
 
-Du kan aktivera inventeringssamling för en virtuell Azure-dator via den virtuella datorns resurssida. Du kan samla in och visa inventeringar för program, filer, Linux-daemons, Windows-tjänster och Windows-registernycklar på dina datorer. Den här metoden ger ett webbläsarbaserat användargränssnitt för att installera och konfigurera inventeringssamling.
+Du kan aktivera inventeringssamling för en virtuell Azure-dator via den virtuella datorns resurssida. Du kan samla in och visa följande inventerings information på dina datorer:
+
+- Windows-programvara (Windows-program och Windows-uppdateringar), tjänster, filer och register nycklar
+- Linux-program (paket) daemonar och filer
+
+Den här metoden ger ett webbläsarbaserat användargränssnitt för att installera och konfigurera inventeringssamling.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -25,7 +30,7 @@ Den här artikeln förutsätter att du har en virtuell dator för att konfigurer
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="enable-inventory-collection-from-the-virtual-machine-resource-page"></a>Aktivera inventeringssamling via en virtuell dators resurssida
 
@@ -101,7 +106,7 @@ Om du väljer en dator grupp i listan öppnas sidan dator grupper. Den här sida
 
 Klona dator gruppen genom att klicka på knappen **+ klona** . Här måste du ge gruppen ett nytt namn och alias för gruppen. Definitionen kan ändras för tillfället. När du har ändrat frågan trycker du på **validera fråga** för att förhandsgranska de datorer som ska väljas. När du är nöjd med gruppen klickar du på **skapa** för att skapa dator gruppen
 
-Om du vill skapa en ny dator grupp väljer du **+ skapa en dator grupp**. Den här knappen öppnar **sidan Skapa en dator grupp** där du kan definiera den nya gruppen. Skapa gruppen genom att klicka på **Skapa**.
+Om du vill skapa en ny dator grupp väljer du **+ skapa en dator grupp**. Den här knappen öppnar **sidan Skapa en dator grupp** där du kan definiera den nya gruppen. Skapa gruppen genom att klicka på **skapa** .
 
 ![Skapa ny dator grupp](./media/automation-vm-inventory/create-new-group.png)
 

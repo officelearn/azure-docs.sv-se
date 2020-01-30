@@ -1,11 +1,9 @@
 ---
-title: Paketinspektion med Azure Network Watcher | Microsoft Docs
-description: Den här artikeln beskriver hur du använder Network Watcher för att utföra djup paketinspektion som samlas in från en virtuell dator
+title: Paket granskning med Azure Network Watcher | Microsoft Docs
+description: Den här artikeln beskriver hur du använder Network Watcher för att utföra djup paket inspektion som samlas in från en virtuell dator
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -13,103 +11,103 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716896"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845075"
 ---
-# <a name="packet-inspection-with-azure-network-watcher"></a>Paketinspektion med Azure Network Watcher
+# <a name="packet-inspection-with-azure-network-watcher"></a>Paket granskning med Azure Network Watcher
 
-Funktionen packet capture i Network Watcher kan du initiera och hantera avbildningar sessioner på virtuella datorer i Azure Portal, PowerShell, CLI, och programmässigt via SDK och REST API. Du kan hantera scenarier som kräver att paketet på data genom att tillhandahålla information i ett format som är enkel att använda infångade paket. Utnyttja gratisverktyg för att granska data du undersöka kommunikation till och från dina virtuella datorer och få insikter i din nätverkstrafik. Vissa exempel användningsområden för paket-infångade data är: undersöka problem med nätverket eller ett program, identifiera nätverket missbruk och intrång försök eller underhålla regelefterlevnad. I den här artikeln visar vi hur du öppnar en fil för avbildning av paket som tillhandahålls av Network Watcher med ett populära öppen källkod-verktyg. Vi ger även exempel som visar hur du beräkna en fördröjning i anslutningen, identifiera onormalt trafik och granska nätverk statistik.
+Med funktionen för att hämta paket i Network Watcher kan du starta och hantera insamlings-sessioner på dina virtuella Azure-datorer från portalen, PowerShell, CLI och program mässigt via SDK och REST API. Med paket fångst kan du hantera scenarier som kräver paket nivå data genom att tillhandahålla informationen i ett användbart format. Genom att använda verktyg som är tillgängliga fritt för att granska data kan du undersöka kommunikation som skickas till och från dina virtuella datorer och få insikter om nätverks trafiken. Exempel på användning av paket insamlings data är: undersöker nätverks-eller program problem, identifierar nätverks missbruk och intrångs försök eller upprätthåller efterlevnad. I den här artikeln visar vi hur du öppnar en paket avbildnings fil som tillhandahålls av Network Watcher med ett populärt verktyg för öppen källkod. Vi kommer också att tillhandahålla exempel som visar hur du beräknar en anslutnings fördröjning, identifierar onormal trafik och undersöker nätverks statistik.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln går igenom några förkonfigurerade scenarier på ett infångat paket som kördes tidigare. Dessa scenarier visar funktioner som kan nås genom att granska ett infångat paket. Det här scenariot använder [WireShark](https://www.wireshark.org/) att inspektera paketfångsten.
+Den här artikeln går igenom några förkonfigurerade scenarier på en insamlad paket körning tidigare. De här scenarierna illustrerar funktioner som kan nås genom att granska en paket fångst. I det här scenariot används [wireshark](https://www.wireshark.org/) för att kontrol lera paket fångsten.
 
-Det här scenariot förutsätter att du redan har kört ett infångat paket på en virtuell dator. Lär dig hur du skapar ett packet capture besök [fjärrinfångade hantera paket med portalen](network-watcher-packet-capture-manage-portal.md) eller med REST genom att besöka [hantera Fjärrinfångade paket med REST API](network-watcher-packet-capture-manage-rest.md).
+Det här scenariot förutsätter att du redan körde en paket avbildning på en virtuell dator. Information om hur du skapar ett paket fångst besök [hanterar paket fångster med portalen](network-watcher-packet-capture-manage-portal.md) eller med rest genom att besöka [Hantera paket insamlingar med REST API](network-watcher-packet-capture-manage-rest.md).
 
 ## <a name="scenario"></a>Scenario
 
-I det här scenariot kan du:
+I det här scenariot:
 
-* Granska ett infångat paket
+* Granska en paket fångst
 
-## <a name="calculate-network-latency"></a>Beräkna svarstid för nätverk
+## <a name="calculate-network-latency"></a>Beräkna nätverks fördröjning
 
-I det här scenariot visar vi hur du visar inledande serveranrop tid (RTT) av en Transmission Control Protocol (TCP)-konversation mellan två slutpunkter.
+I det här scenariot visar vi hur du visar den inledande tur och retur tiden för en Transmission Control Protocol (TCP) som inträffar mellan två slut punkter.
 
-När en TCP-anslutning har upprättats, följer de första tre paket som skickats under anslutningen ett mönster som vanligtvis kallas 3-vägs-handskakningen. Genom att undersöka de första två paket som skickats under den här handskakning en ursprunglig begäran från klienten och ett svar från servern, kan vi beräkna svarstiden när den här anslutningen har upprättats. Den här fördröjningen refereras till som serveranrop tid (RTT). Mer information om TCP-protokollet och trevägs handskakningen finns i följande resurs. [https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip](https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip )
+När en TCP-anslutning upprättas följer de första tre paketen som skickas i anslutningen ett mönster som vanligt vis kallas för den tre-vägshandskakning. Genom att undersöka de två första paketen som skickas i den här hand skakningen, en första begäran från klienten och ett svar från servern, kan vi beräkna fördröjningen när den här anslutningen upprättades. Den här fördröjningen kallas för tur och retur-tid. Mer information om TCP-protokollet och den tre-vägs hand skakningen hittar du i följande resurs. https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
 ### <a name="step-1"></a>Steg 1
 
-Launch WireShark
+Starta WireShark
 
 ### <a name="step-2"></a>Steg 2
 
-Läs in den **.cap** fil från din infångade paket. Den här filen finns i den blob som den har sparats på vår lokalt på den virtuella datorn, beroende på hur du har konfigurerat.
+Läs in **. Cap** -filen från paket fångsten. Den här filen finns i blobben som den sparades lokalt på den virtuella datorn, beroende på hur du konfigurerade den.
 
 ### <a name="step-3"></a>Steg 3
 
-Om du vill visa inledande serveranrop tid (RTT) i TCP-konversationer, kommer vi endast att titta på de första två paket som ingår i TCP-handskakningen. Vi kommer att använda två första paketen i 3-vägs-handskakningen som är [SYN], [SYN, ACK] paket. De har namngetts för flaggor i TCP-huvudet. Senaste paketet i handskakningen [ACK]-paketet ska inte användas i det här scenariot. [SYN]-paketet har skickats av klienten. När den tas emot skickar servern [ACK]-paketet som en bekräftelse att få SYN från klienten. Utnyttja det faktum att serverns svar kräver mycket lite belastning, vi beräkna RTT genom att subtrahera tiden [SYN, ACK] paketet togs emot av klienten med tiden [SYN] paket skickades av klienten.
+För att visa den första tur och retur-tiden i TCP-konversationer kommer vi bara att titta på de första två paketen som ingår i TCP-handskakningen. Vi kommer att använda de första två paketen i den tre-vägshandskakning, som är [SYN], [SYN, ACK]-paket. De namnges för flaggor som anges i TCP-huvudet. Det sista paketet i hand skakningen [ACK]-paketet kommer inte att användas i det här scenariot. [SYN]-paketet skickas av klienten. När servern har tagits emot skickar det [ACK]-paketet som en bekräftelse på att ta emot SYNen från klienten. Genom att dra nytta av att serverns svar kräver mycket lite omkostnader beräknar vi den för klar ande genom att subtrahera den tid då [SYN, ACK]-paketet togs emot av klienten med hjälp av Time [SYN]-paketet som skickades av klienten.
 
-Med hjälp av WireShark beräknas det här värdet för oss.
+Med WireShark beräknas det här värdet för oss.
 
-Om du vill visa de första två paket enklare i 3-vägs-handskakning TCP, ska vi använda filtrering krypteringsfunktionen i WireShark.
+För att lättare kunna visa de två första paketen i den här högpresterande hand skakningen använder vi den filtrerings kapacitet som tillhandahålls av WireShark.
 
-Expandera det ”Transmission Control Protocol”-segmentet i en [SYN]-paketet i din avbildning för att tillämpa filtret i WireShark och granska de flaggor som angetts i TCP-huvudet.
+Om du vill använda filtret i WireShark expanderar du "Transmission Control Protocol"-segmentet för ett [SYN]-paket i insamlingen och undersöker de flaggor som angetts i TCP-huvudet.
 
-Eftersom vi vill filtrera på alla [SYN] och [SYN, ACK] paket under flaggor bekräfta att Syn-bitars har angetts till 1 och sedan högerklickar du på Syn-bitars -> Använd som Filter -> valda.
+Eftersom vi vill filtrera på alla [SYN]-och [SYN, ACK]-paket, under flaggor bekräftar du att tillståndet för syn-biten är inställt på 1. Högerklicka sedan på tillståndet syn-> Apply as filter-> markerat.
 
-![Bild 7][7]
+![Figur 7][7]
 
 ### <a name="step-4"></a>Steg 4
 
-Nu när du har filtrerat fönstret om du vill endast visa paket med bitars [SYN], kan du enkelt välja konversationer som du är intresserad av att visa den första RTT. Ett enkelt sätt att visa RTT i WireShark klickar du på listrutan markerats ”SEQ-ACK” analys. Därefter visas RTT visas. I det här fallet har RTT 0.0022114 sekunder eller 2.211 ms.
+Nu när du har filtrerat fönstret så att det bara ser paket med bitarna [SYN], kan du enkelt välja konversationer som du är intresse rad av för att visa den inledande sökrutan. Ett enkelt sätt att Visa sökrutan i WireShark klickar du bara på list rutan som är markerad som "SEQ/ACK"-analys. Sedan visas den önskade visningen. I det här fallet var sökrutan var 0,0022114 sekunder eller 2,211 MS.
 
-![bild 8][8]
+![Figur 8][8]
 
-## <a name="unwanted-protocols"></a>Oönskad protokoll
+## <a name="unwanted-protocols"></a>Oönskade protokoll
 
-Du kan ha många program som körs på en virtuell datorinstans som du har distribuerat i Azure. Många av dessa program kommunicera över nätverket, kanske utan ditt uttryckliga medgivande. Vi kan använda infångade paket för att lagra nätverkskommunikation, för att undersöka hur programmet talar i nätverket och leta efter eventuella problem.
+Du kan ha många program som körs på en virtuell dator instans som du har distribuerat i Azure. Många av dessa program kommunicerar via nätverket, kanske utan uttrycklig behörighet. Genom att använda paket fångst för att lagra nätverkskommunikation kan vi undersöka hur programmet pratar i nätverket och leta efter eventuella problem.
 
-I det här exemplet vi går igenom ett tidigare körde infångade paket för oönskade protokoll som kan tyda på obehörig kommunikation från ett program som körs på din dator.
-
-### <a name="step-1"></a>Steg 1
-
-Med hjälp av samma avbildningen i scenariot ovan klickar du på **statistik** > **protokollet hierarki**
-
-![protokollet hierarki menyn][2]
-
-Fönstret protokollet hierarki visas. Den här vyn visar en lista över alla protokoll som har använts under avbildningssessionen och antalet paket som skickas och tas emot med hjälp av protokollen. Den här vyn kan användas för att hitta oönskad nätverkstrafik på virtuella datorer eller i nätverket.
-
-![protokollet hierarki öppnas][3]
-
-Uppstod trafik med hjälp av protokollet BitTorrent som används för peer-to-peer-fildelning som du ser i följande skärmbild. Som administratör du inte räknar med att se BitTorrent trafik på den här specifika virtuella datorer. Nu kan du tänka på den här trafiken, du kan ta bort peer-to-peer-programvara som installeras på den här virtuella datorn eller blockera trafik med hjälp av Nätverkssäkerhetsgrupper eller en brandvägg. Dessutom kan välja du att köra infångade paket enligt ett schema, så att du kan granska hur protokoll på dina virtuella datorer regelbundet. Ett exempel på hur du automatiserar uppgifter i nätverket i azure finns [övervaka nätverksresurser med azure automation](network-watcher-monitor-with-azure-automation.md)
-
-## <a name="finding-top-destinations-and-ports"></a>Söka efter vanliga mål och portar
-
-Förstå vilka typer av trafik, slutpunkter och de portar som kommunicerades via är en viktig vid övervakning eller felsökning av program och resurser i nätverket. Använda en paket-infångade filen ovan kan vi kan snabbt lära dig de främsta mål vår virtuella dator kommunicerar med och de portar som används.
+I det här exemplet granskar vi en tidigare paket fångst för oönskade protokoll som kan indikera obehörig kommunikation från ett program som körs på datorn.
 
 ### <a name="step-1"></a>Steg 1
 
-Med hjälp av samma avbildningen i scenariot ovan klickar du på **statistik** > **IPv4-statistik** > **mål och portar**
+Använd samma avbildning i föregående scenario och klicka på **statistik** > - **protokollsekvens**
 
-![Packet capture desto][4]
+![meny för protokoll-hierarki][2]
+
+Fönstret protokollsekvens visas. I den här vyn visas en lista över alla protokoll som användes under insamlingsbufferten och antalet paket som överförts och tagits emot med protokollen. Den här vyn kan vara användbar för att hitta oönskad nätverks trafik på virtuella datorer eller i nätverket.
+
+![hierarkin har öppnats][3]
+
+Som du kan se i följande skärmdump användes trafiken med BitTorrent-protokollet, som används för peer-to-peer-fildelning. Som administratör kommer du inte att se BitTorrent-trafik på dessa specifika virtuella datorer. Nu när du känner till den här trafiken kan du ta bort peer-to-peer-programvaran som är installerad på den här virtuella datorn eller blockera trafiken med hjälp av nätverks säkerhets grupper eller en brand vägg. Dessutom kan du välja att köra paket insamlingar enligt ett schema, så att du kan granska protokollet på dina virtuella datorer regelbundet. Ett exempel på hur du automatiserar nätverks aktiviteter i Azure finns i [övervaka nätverks resurser med Azure Automation](network-watcher-monitor-with-azure-automation.md)
+
+## <a name="finding-top-destinations-and-ports"></a>Hitta de vanligaste målen och portarna
+
+Att förstå vilka typer av trafik, slut punkterna och portarna som kommunicerats över är viktigt vid övervakning eller fel sökning av program och resurser i nätverket. Genom att använda en paket insamlings fil från ovan kan vi snabbt lära dig de vanligaste målen som den virtuella datorn kommunicerar med och vilka portar som används.
+
+### <a name="step-1"></a>Steg 1
+
+Använd samma avbildning i föregående scenario och klicka på **statistik** > **IPv4-statistik** > **destinationer och portar**
+
+![fönstret paket fångst][4]
 
 ### <a name="step-2"></a>Steg 2
 
-När vi tittar igenom de resultat som en rad sticker ut fanns det flera anslutningar på port 111. Har den mest använda porten 3389, vilket är Fjärrskrivbord och de återstående är dynamiska RPC-portar.
+När vi tittar igenom resultaten visas en rad med flera anslutningar på port 111. Den mest använda porten var 3389, som är fjärr skrivbord och de återstående dynamiska RPC-portarna.
 
-Den här trafiken kan innebära att ingenting, men det är en port som har använts för många anslutningar och är okända för administratören.
+Även om den här trafiken kan betyda ingenting, är det en port som används för många anslutningar och är okänd för administratören.
 
-![Bild 5][5]
+![Figur 5][5]
 
 ### <a name="step-3"></a>Steg 3
 
-Nu när vi har bestämt en out of plats port filtrerar vi vår avbildning baserat på porten.
+Nu när vi har fastställt en out-of-Place-port kan vi filtrera vår avbildning baserat på porten.
 
 Filtret i det här scenariot är:
 
@@ -117,15 +115,15 @@ Filtret i det här scenariot är:
 tcp.port == 111
 ```
 
-Vi ange filtertext ovan i filtrets textruta och tryck på RETUR.
+Vi anger filter texten från ovan i text rutan Filter och trycker på RETUR.
 
-![Bild 6][6]
+![bild 6][6]
 
-Vi kan se all trafik kommer från en lokal virtuell dator i samma undernät från resultatet. Om vi inte fortfarande förstår varför den här trafiken sker, kan vi ytterligare granska paket för att avgöra varför den gör dessa anrop på port 111. Med den här informationen kan vi dra lämplig åtgärd.
+I resultatet ser vi all trafik från en lokal virtuell dator i samma undernät. Om vi fortfarande inte förstår varför den här trafiken sker kan vi ytterligare granska paketen för att avgöra varför den gör dessa anrop på port 111. Med den här informationen kan vi vidta lämpliga åtgärder.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om andra diagnostiska funktioner i Network Watcher genom att besöka [Azure översikt för nätverksövervakning](network-watcher-monitoring-overview.md)
+Läs mer om de andra diagnostiska funktionerna i Network Watcher genom att gå till [Översikt över Azure Network Monitoring](network-watcher-monitoring-overview.md)
 
 [1]: ./media/network-watcher-deep-packet-inspection/figure1.png
 [2]: ./media/network-watcher-deep-packet-inspection/figure2.png

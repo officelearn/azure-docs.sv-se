@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/21/2020
-ms.openlocfilehash: e0c58c5c3fef41a472fe791f66292c9280531493
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/28/2020
+ms.openlocfilehash: 9a3a58cab2d9673a4660967e3a11d7f88900e718
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514688"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844963"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsamma Query-loggar i Azure Database for MySQL
 I Azure Database for MySQL är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
@@ -52,9 +52,6 @@ Se [logg dokumentationen för en långsam fråga](https://dev.mysql.com/doc/refm
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 Azure Database for MySQL är integrerat med Azure Monitor diagnostikloggar. När du har aktiverat långsamma Query-loggar på MySQL-servern kan du välja att de ska skickas till Azure Monitor loggar, Event Hubs eller Azure Storage. Om du vill veta mer om hur du aktiverar diagnostikloggar kan du läsa avsnittet så här i [dokumentationen för diagnostikloggar](../azure-monitor/platform/platform-logs-overview.md).
 
-> [!IMPORTANT]
-> Den här Diagnostic-funktionen för Server loggar är bara tillgänglig i Generell användning och minnesoptimerade [pris nivåer](concepts-pricing-tiers.md).
-
 I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings metoden kan de fält som ingår och i vilken ordning de visas variera.
 
 | **Egenskap** | **Beskrivning** |
@@ -82,7 +79,7 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 | `insert_id_s` | Infoga ID |
 | `sql_text_s` | Fullständig fråga |
 | `server_id_s` | Serverns ID |
-| `thread_id_s` | Tråd-id |
+| `thread_id_s` | Tråd-ID |
 | `\_ResourceId` | Resurs-URI |
 
 > [!Note]

@@ -4,29 +4,25 @@ description: I den här självstudien får du lära dig hur du kopplar samman vi
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to connect two virtual networks so that virtual machines in one virtual network can communicate with virtual machines in the other virtual network.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 08/16/2018
+ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a3966615d28630fdd2ab799f478ef7edaa3377e1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499883"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775297"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudie: Koppla samman virtuella nätverk med peerkoppling med hjälp av Azure Portal
 
-Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
+Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa två virtuella nätverk
@@ -44,9 +40,9 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-virtual-networks"></a>Skapa virtuella nätverk
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. Välj **Skapa en resurs** på Azure-portalen.
 2. Välj **Nätverk** och välj därefter **Virtuellt nätverk**.
-3. På sidan **grundläggande** anger eller väljer du följande information och accepterar standardinställningarna för de återstående inställningarna:
+3. På fliken **grundläggande** anger eller väljer du följande information och accepterar standardinställningarna för de återstående inställningarna:
 
     |Inställning|Värde|
     |---|---|
@@ -55,15 +51,17 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Region| Välj **USA, östra**.|
     |Namn|myVirtualNetwork1|
 
-4. På sidan **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange Subnet1 för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
+4. På fliken **IP-adresser** anger du 10.0.0.0/16 för fältet **adress utrymme** . Klicka på knappen **Lägg till undernät** nedan och ange *Subnet1* för **under nätets namn** och 10.0.0.0/24 för **under nätets adress intervall**.
+5. Välj **Granska + skapa** och välj sedan **skapa**.
    
-5. Utför steg 1–3 igen, med följande ändringar:
+5. Utför steg 1–5 igen, med följande ändringar:
 
     |Inställning|Värde|
     |---|---|
     |Namn|myVirtualNetwork2|
     |Adressutrymme|10.1.0.0/16|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |Namn på undernät | Subnet2|
     |Undernätsadressintervall|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Peerkoppla virtuella nätverk
@@ -96,7 +94,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
 ### <a name="create-the-first-vm"></a>Skapa den första virtuella datorn
 
-1. På Azure Portal-menyn eller på **Start** sidan väljer du **skapa en resurs**.
+1. Välj **Skapa en resurs** på Azure-portalen.
 2. Välj **Compute**, och välj sedan **Windows Server 2016 Datacenter**. Du kan välja ett annat operativsystem, men i återstående steg förutsätts att du har valt **Windows Server 2016 Datacenter**. 
 3. Ange eller välj följande information för **Grundinställningar**, acceptera standardinställningarna för återstående inställningar och välj sedan **Skapa**:
 
@@ -104,7 +102,7 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
     |---|---|
     |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
     |Namn|myVm1|
-    |Plats| Välj **USA, östra**.|
+    |Location| Välj **USA, östra**.|
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
    
@@ -115,9 +113,6 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
     |---|---|
     |Virtuellt nätverk| myVirtualNetwork1 – om det inte redan är valt väljer du **virtuellt nätverk** och väljer sedan **myVirtualNetwork1**.|
     |Undernät| Subnet1 – om det inte redan är valt väljer du **undernät** och sedan **Subnet1**.|
-    
-
-    ![Inställningar för virtuella datorer](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
    
 6. Välj **nätverk**. Välj **Tillåt valda portar** för alternativet **offentliga inkommande portar** . Välj **RDP** för alternativet **Välj inkommande portar** nedan. 
 
@@ -170,7 +165,7 @@ Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med åte
 
 Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehåller: 
 
-1. Skriv *myResourceGroup* i rutan **Sök** högst upp i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
+1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
 3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 

@@ -7,19 +7,19 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: e03429ed3df5bd3518d5e5194bd842b9a4f290ba
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991948"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844672"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Vad är Azure Event Grid på Azure IoT Edge?
-Event Grid på IoT Edge ger kraften och flexibiliteten i Azure Event Grid till gränsen för alla scenarier för pub/sub och event driven. Skapa ämnen, publicera händelser och prenumerera på flera destinationer oavsett om de är moduler på samma enhet, andra gräns enheter eller tjänster i molnet.
+Event Grid på IoT Edge ger kraften och flexibiliteten i Azure Event Grid till gränsen. Skapa ämnen, publicera händelser och prenumerera på flera destinationer oavsett om de är moduler på samma enhet, andra gräns enheter eller tjänster i molnet.
 
-Som i molnet hanterar Event Grid i IoT Edge-modulen Routning, filtrering och tillförlitlig leverans av händelser i stor skala. Filtrera händelser för att säkerställa att endast relevanta händelser skickas till olika händelse hanterare med avancerade sträng-, numeriska och booleska filter. Logik för omprövning ser till att händelsen når måldomänkontrollanten, Edge-enheten eller moln tjänsten även om den inte är tillgänglig vid tidpunkten för publiceringen. Du kan använda Event Grid på IoT Edge som en kraftfull metod för lagring och vidarebefordran.
+Som i molnet hanterar Event Grid i IoT Edge-modulen Routning, filtrering och tillförlitlig leverans av händelser i stor skala. Filtrera händelser för att säkerställa att endast relevanta händelser skickas till olika händelse hanterare med avancerade sträng-, numeriska och booleska filter. Logik för omprövning ser till att händelsen når mål målet även om den inte är tillgänglig vid tidpunkten för publiceringen. Du kan använda Event Grid på IoT Edge som en kraftfull metod för lagring och vidarebefordran.
 
-Event Grid på IoT Edge stöder både CloudEvents v 1.0 och anpassade händelse scheman. Den har också stöd för samma publicering och prenumererar på semantik som Event Grid i molnet för enkel interoperabilitet med Azure och tredje part.
+Event Grid på IoT Edge stöder både CloudEvents v 1.0 och anpassade händelse scheman. Det stöder också samma semantik/sub-semantik som Event Grid i molnet för enkel interoperabilitet.
 
 Den här artikeln innehåller en översikt över Azure Event Grid på IoT Edge. Stegvisa instruktioner för att använda den här modulen på Edge finns i [publicera, prenumerera på händelser lokalt](pub-sub-events-webhook-local.md). 
 
@@ -29,7 +29,7 @@ Den här bilden visar några av de olika sätt som du kan använda Event Grid p�
 
 ## <a name="when-to-use-event-grid-on-iot-edge"></a>När du ska använda Event Grid på IoT Edge
 
-Event Grid på IoT Edge skapas för att tillhandahålla en enhetlig, lättanvänd och tillförlitlig händelse modell för att skapa händelse drivna arkitekturer mellan gränsen och molnet.
+Event Grid på IoT Edge är det enkelt att använda, tillförlitlig händelse modell för mellan kanten och molnet.
 
 Event Grid på IoT Edge skapas med en symmetrisk runtime-yta i Azure-molnet, så att du kan använda samma händelser och API-samtal oavsett var du behöver. Oavsett om du använder pub/sub i molnet, på kanten eller mellan de två, kan Event Grid på IoT Edge nu vara en go-to-lösning.
 
@@ -55,13 +55,17 @@ Event Grid på IoT Edge har skapats för att skicka händelser till önskad plat
 
 * Andra moduler, inklusive IoT Hub, funktioner och anpassade moduler
 * Andra gräns enheter
-* Tjänster som finns i molnet, inklusive Azure Event Grid och Azure Functions
-* Webhooks
+* WebHooks
+* Azure Event Grid moln tjänst
+* Händelsehubbar
+* Service Bus-köer
+* Service Bus-ämnen
+* Lagrings köer
 
 ## <a name="supported-environments"></a>Miljöer som stöds
 För närvarande stöds Windows 64-bitars-, Linux 64-bitars-och ARM 32-bitars miljöer.
 
-## <a name="concepts"></a>Koncept
+## <a name="concepts"></a>Begrepp
 
 Det finns fem koncept i Azure Event Grid som gör att du kan komma igång:
 

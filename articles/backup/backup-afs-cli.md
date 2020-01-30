@@ -3,12 +3,12 @@ title: Säkerhetskopiera Azure-filresurser med Azure CLI
 description: Lär dig hur du använder Azure CLI för att säkerhetskopiera Azure-filresurser i Recovery Services valvet
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 10ae6d88e8a40ba4175e664ed338f0a02be7a7ca
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844049"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Säkerhetskopiera Azure-filresurser med CLI
 
@@ -104,7 +104,7 @@ Om du vill utlösa en säkerhets kopiering på begäran för fil resursen i stä
 
 Du måste definiera följande parametrar för att utlösa en säkerhets kopiering på begäran:
 
-* **--container-Name** är namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
+* **--container-Name** är namnet på det lagrings konto som är värd för fil resursen. Om du vill hämta **namnet** eller det **egna namnet** på din behållare använder du kommandot [AZ backup container List](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) .
 * **--objekt-Name** är namnet på den fil resurs som du vill aktivera en säkerhets kopiering på begäran för. Om du vill hämta **namnet** eller det **egna namnet** på det säkerhetskopierade objektet använder du kommandot [AZ backup item List](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) .
 * **--Behåll-tills** anger det datum då du vill behålla återställnings punkten. Värdet ska anges i UTC-timmarsformat (dd-mm-åååå).
 

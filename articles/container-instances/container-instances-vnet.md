@@ -4,12 +4,12 @@ description: Lär dig hur du distribuerar behållar grupper till ett nytt eller 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 12260dcb43a675414d38cb5067b230832dd2d16b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887964"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845171"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållar instanser i ett virtuellt Azure-nätverk
 
@@ -33,6 +33,7 @@ Vissa begränsningar gäller när du distribuerar behållar grupper till ett vir
 
 * Under nätet kan inte innehålla några andra resurs typer för att distribuera behållar grupper till ett undernät. Ta bort alla befintliga resurser från ett befintligt undernät innan du distribuerar behållar grupper till den, eller skapa ett nytt undernät.
 * Du kan inte använda en [hanterad identitet](container-instances-managed-identity.md) i en behållar grupp som distribuerats till ett virtuellt nätverk.
+* Du kan inte aktivera en [Direktmigrering](container-instances-liveness-probe.md) eller en [beredskaps avsökning](container-instances-readiness-probe.md) i en behållar grupp som distribueras till ett virtuellt nätverk.
 * På grund av de ytterligare nätverks resurser som berörs är distributionen av en behållar grupp till ett virtuellt nätverk normalt långsammare än att distribuera en standard behållar instans.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
@@ -84,7 +85,7 @@ Du kan använda [AZ container Create][az-container-create] för att distribuera 
 
 Om du vill distribuera till ett nytt virtuellt nätverk och låta Azure Skapa nätverks resurserna automatiskt, anger du följande när du kör [AZ container Create][az-container-create]:
 
-* Virtuellt nätverksnamn
+* Namn på virtuellt nätverk
 * Adressprefix för virtuellt nätverk i CIDR-format
 * Namn på undernät
 * Undernätsprefixets i CIDR-format
@@ -261,7 +262,7 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 
 
 > [!NOTE]
-> Om du får ett fel meddelande när du försöker ta bort nätverks profilen kan du med 2-3 dagar för plattformen automatiskt minimera problemet och försöka ta bort den igen. Om du fortfarande har problem med att ta bort nätverks profilen [öppnar du en support förfrågan](https://azure.microsoft.com/support/create-ticket/).
+> Om du får ett fel meddelande när du försöker ta bort nätverks profilen kan du med 3-4 dagar för plattformen automatiskt minimera problemet och försöka ta bort den igen. Om du behöver ta bort en nätverks profil direkt [öppnar du en supportbegäran som](https://azure.microsoft.com/support/create-ticket/) refererar till tjänsten Azure Container instances.
 
 Den här funktionen kräver för närvarande flera ytterligare kommandon för att ta bort nätverks resurserna som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser.
 

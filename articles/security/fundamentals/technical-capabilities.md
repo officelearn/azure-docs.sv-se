@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: a8dd859b05c3e95a1c584a7947334dad25813122
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970658"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845341"
 ---
 # <a name="azure-security-technical-capabilities"></a>Tekniska funktioner för Azure-säkerhet
 Den här artikeln innehåller en introduktion till säkerhets tjänster i Azure som hjälper dig att skydda dina data, resurser och program i molnet och uppfylla verksamhetens behov av säkerhet.
@@ -57,7 +57,7 @@ Microsofts identitets-och åtkomst hanterings lösningar hjälper till att skydd
 
 Säkerhets fördelarna med Azure Active Directory (Azure AD) inkluderar möjligheten att:
 
-- Skapa och hantera en enda identitet för varje användare i hybridföretaget och synkronisera användare, grupper och enheter.
+- Skapa och hantera en enda identitet för varje användare i ditt hybrid företag, hålla användare, grupper och enheter synkroniserade.
 
 - Ge åtkomst till enkel inloggning till dina program, inklusive tusentals förintegrerade SaaS-appar.
 
@@ -119,7 +119,7 @@ I Azure Portal eller via [Azure Active Directory portalen](https://aad.portal.az
 
 [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) är en global, identitets hanterings tjänst med hög tillgänglighet för klientbaserade program som kan skalas till hundratals miljoner identiteter. Den kan integreras över mobila plattformar och webbaserade plattformar. Konsumenterna kan logga in på alla program via anpassningsbara upplevelser genom att använda sina befintliga sociala konton eller genom att skapa nya autentiseringsuppgifter.
 
-Tidigare hade programutvecklare som ville [registrera sig och logga in konsumenter](../../active-directory-b2c/active-directory-b2c-overview.md) i sina program skrivit sin egen kod. Och de använde lokala databaser eller system för att lagra användarnamn och lösenord. Azure Active Directory B2C ger organisationen ett bättre sätt att integrera konsument identitets hantering i program med hjälp av en säker, standard-baserad plattform och en stor uppsättning utöknings bara principer.
+Tidigare hade programutvecklare som ville [registrera sig och logga in konsumenter](../../active-directory-b2c/overview.md) i sina program skrivit sin egen kod. Och de använde lokala databaser eller system för att lagra användarnamn och lösenord. Azure Active Directory B2C ger organisationen ett bättre sätt att integrera konsument identitets hantering i program med hjälp av en säker, standard-baserad plattform och en stor uppsättning utöknings bara principer.
 
 När du använder Azure Active Directory B2C kan dina konsumenter registrera sig för dina program genom att använda sina befintliga sociala konton (Facebook, Google, Amazon, LinkedIn) eller genom att skapa nya autentiseringsuppgifter (e-postadress och lösen ord eller användar namn och lösen ord).
 
@@ -256,7 +256,7 @@ Större data uppsättningar kan flyttas över en dedikerad höghastighets-WAN-l�
 
 Om du interagerar med Azure Storage via Azure Portal sker alla transaktioner via HTTPS. [Lagrings REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx) över https kan också användas för att interagera med [Azure Storage](https://azure.microsoft.com/services/storage/) och [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Sådana attacker kan vara ett första steg i att få åtkomst till konfidentiella data.
+Organisationer som inte kan skydda data under överföringen är mer känsliga för [man-in-the-The-the-Middle-attack](https://technet.microsoft.com/library/gg195821.aspx), [avlyssning](https://technet.microsoft.com/library/gg195641.aspx)och kapning av sessioner. Dessa attacker kan vara det första steget för att få åtkomst till konfidentiella data.
 
 Du kan läsa mer om alternativet för Azure VPN genom att läsa artikeln [planering och design för VPN gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md).
 

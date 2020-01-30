@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715892"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845464"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Exportera Azure aktivitets logg till lagring eller Azure Event Hubs
 
@@ -36,9 +36,10 @@ Att arkivera aktivitets loggen på ett lagrings konto är användbart om du vill
 ### <a name="storage-account"></a>Lagringskonto
 Om du ska arkivera aktivitets loggen måste du [skapa ett lagrings konto](../../storage/common/storage-account-create.md) om du inte redan har ett. Du bör inte använda ett befintligt lagrings konto som har andra data som inte övervakas, så att du kan kontrol lera åtkomsten till övervaknings data bättre. Om du också arkiverar loggar och mått till ett lagrings konto kan du välja att använda samma lagrings konto för att behålla alla övervaknings data på en central plats.
 
-Lagrings kontot behöver inte finnas i samma prenumeration som den prenumeration som avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna.
-> [!NOTE]
->  Du kan för närvarande inte arkivera data till ett lagrings konto som ligger bakom ett säkert virtuellt nätverk.
+Lagrings kontot behöver inte finnas i samma prenumeration som den prenumeration som avger loggar så länge som den användare som konfigurerar inställningen har lämplig RBAC-åtkomst till båda prenumerationerna. 
+
+> [!TIP]
+> Se [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) för att ge åtkomst till ett lagrings konto bakom ett skyddat virtuellt nätverk.
 
 ### <a name="event-hubs"></a>Händelsehubbar
 Om du skickar aktivitets loggen till en Event Hub måste du [skapa en Event Hub](../../event-hubs/event-hubs-create.md) om du inte redan har en. Om du tidigare har strömmat aktivitets logg händelser till den här Event Hubs namn rymden, kommer den händelsehubben att återanvändas.

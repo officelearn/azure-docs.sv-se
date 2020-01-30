@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5082ed06b4ce5baf3869fc035654be3c7a45f29f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003319"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845302"
 ---
-# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Självstudier: Använda Azure Key Vault med en virtuell Windows-dator i .NET
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Självstudie: använda Azure Key Vault med en virtuell Windows-dator i .NET
 
 Azure Key Vault hjälper dig att skydda hemligheter, t. ex. API-nycklar, databas anslutnings strängarna som du behöver för att få åtkomst till dina program, tjänster och IT-resurser.
 
@@ -37,7 +37,7 @@ Läs [Key Vault grundläggande koncept](basic-concepts.md)innan du börjar.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För Windows, Mac och Linux:
   * [Git](https://git-scm.com/downloads)
@@ -83,7 +83,7 @@ Den nya resurs gruppen kommer att användas i den här självstudien.
 Skapa ett nyckel valv i resurs gruppen genom att tillhandahålla kommandot [AZ](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) -kommando för att skapa med följande information:
 
 * Nyckel valvets namn: en sträng på 3 till 24 tecken som bara får innehålla siffror (0-9), bokstäver (a-z, A-Z) och bindestreck (-)
-* Resursgruppsnamn
+* Namn på resursgrupp
 * Plats: **USA, västra**
 
 ```azurecli
@@ -138,7 +138,7 @@ Logga in på den virtuella datorn genom att följa anvisningarna i [Anslut och l
 
 ## <a name="set-up-the-console-app"></a>Konfigurera konsol programmet
 
-Skapa en konsol app och installera de nödvändiga paketen med `dotnet` hjälp av kommandot.
+Skapa en konsol app och installera de nödvändiga paketen med hjälp av kommandot `dotnet`.
 
 ### <a name="install-net-core"></a>Installera .NET Core
 
@@ -181,10 +181,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-Redigera klass filen så att den innehåller koden i följande två stegs process:
+Redigera klass filen så att den innehåller koden i följande tre stegs process:
 
 1. Hämta en token från den lokala MSI-slutpunkten på den virtuella datorn. Om du gör det hämtas även en token från Azure AD.
-1. Skicka token till nyckel valvet och hämta sedan din hemlighet. 
+2. Skicka token till nyckel valvet och hämta sedan din hemlighet. 
+3. Lägg till valv namnet och det hemliga namnet i begäran.
 
 ```csharp
  class Program
@@ -205,9 +206,10 @@ Redigera klass filen så att den innehåller koden i följande två stegs proces
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();

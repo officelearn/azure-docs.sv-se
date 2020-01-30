@@ -3,9 +3,7 @@ title: Skapa en Azure Network Watcher-instans | Microsoft Docs
 description: Lär dig hur du aktiverar Network Watcher i en Azure-region.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: fd293c2815721295715c5e02846c55d4cdb74a32
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: damendo
+ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693476"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845121"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Skapa en Azure Network Watcher-instans
 
@@ -51,11 +49,11 @@ az provider register -n Microsoft.Network
 
 ## <a name="create-a-network-watcher-in-the-portal"></a>Skapa en Network Watcher i portalen
 
-Gå till **alla tjänster**  > **nätverks**  > **Network Watcher**. Du kan välja alla prenumerationer som du vill aktivera Network Watcher för. Den här åtgärden skapar en Network Watcher i varje region som är tillgänglig.
+Gå till **alla tjänster** > **nätverks** > **Network Watcher**. Du kan välja alla prenumerationer som du vill aktivera Network Watcher för. Den här åtgärden skapar en Network Watcher i varje region som är tillgänglig.
 
-![skapa en nätverks övervakare](./media/network-watcher-create/figure1.png)
+![Skapa en nätverks övervakare](./media/network-watcher-create/figure1.png)
 
-När du aktiverar Network Watcher med hjälp av portalen anges namnet på Network Watcher-instansen automatiskt till *NetworkWatcher_region_name* där *Region_name* motsvarar den Azure-region där instansen är aktive rad. Till exempel heter en Network Watcher som är aktive rad i regionen västra centrala USA namnet *NetworkWatcher_westcentralus*.
+När du aktiverar Network Watcher med hjälp av portalen anges namnet på Network Watcher-instansen automatiskt till *NetworkWatcher_region_name* där *Region_name* motsvarar den Azure-region där instansen är aktive rad. Till exempel heter en Network Watcher som är aktive rad i regionen västra centrala USA *NetworkWatcher_westcentralus*.
 
 Network Watcher-instansen skapas automatiskt i en resurs grupp med namnet *NetworkWatcherRG*. Resurs gruppen skapas om den inte redan finns.
 
@@ -105,7 +103,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## <a name="delete-a-network-watcher-in-the-portal"></a>Ta bort ett Network Watcher i portalen
 
-Gå till **alla tjänster**  > **nätverks**  > **Network Watcher**.
+Gå till **alla tjänster** > **nätverks** > **Network Watcher**.
 
 Välj fliken Översikt om du inte redan är där. Använd List rutan för att välja den prenumeration som du vill inaktivera nätverks övervakaren i.
 Expandera listan över regioner för din valda prenumeration genom att klicka på pilen. Använd de 3 punkterna till höger för att få åtkomst till snabb menyn.

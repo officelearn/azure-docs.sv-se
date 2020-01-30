@@ -3,12 +3,12 @@ title: Utveckla Azure Functions med Visual Studio Code
 description: Lär dig hur du utvecklar och testar Azure Functions med hjälp av Azure Functions-tillägget för Visual Studio Code.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547429"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845399"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>Utveckla Azure Functions med Visual Studio Code
 
@@ -65,11 +65,13 @@ Med funktionen Functions kan du skapa ett app-projekt med funktioner, tillsamman
 
 1. Välj mappen för ditt Function app-projekt och välj sedan **ett språk för ditt funktions projekt**.
 
+1. Om du inte redan har installerat kärn verktygen uppmanas du att **välja en version** av de Core-verktyg som ska installeras. Välj version 2. x eller en senare version. 
+
 1. Välj mallen **http-utlösare** , eller så kan du välja **hoppa över för** att skapa ett projekt utan en funktion. Du kan alltid [lägga till en funktion i projektet](#add-a-function-to-your-project) senare.
 
     ![Välj mallen HTTP-utlösare](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Skriv **HTTPTrigger** som funktions namn och välj Ange, och välj sedan **funktion** auktorisering. Den här behörighets nivån kräver att du anger en [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys) när du anropar funktions slut punkten.
+1. Skriv **HttpExample** som funktions namn och välj Ange, och välj sedan **funktion** auktorisering. Den här behörighets nivån kräver att du anger en [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys) när du anropar funktions slut punkten.
 
     ![Välj funktions auktorisering](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -189,6 +191,8 @@ Mer information finns i [bindnings referens för kö Storage-utdata](functions-b
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## <a name="publish-to-azure"></a>Publicera till Azure
 
@@ -330,7 +334,7 @@ Du kan också publicera inställningar genom att använda kommandot **Azure Func
 > [!TIP]
 > Se till att spara din lokala. Settings. JSON-fil innan du publicerar den.
 
-Om den lokala filen är krypterad dekrypteras den, publiceras och krypteras igen. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed.
+Om den lokala filen är krypterad dekrypteras den, publiceras och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta.
 
 Visa befintliga appinställningar i avsnittet **Azure: Functions** genom att expandera din prenumeration, din Function-app och **program inställningar**.
 
@@ -340,7 +344,7 @@ Visa befintliga appinställningar i avsnittet **Azure: Functions** genom att exp
 
 Om du har skapat program inställningar i Azure kan du ladda ned dem till din lokala. Settings. JSON-fil med hjälp av kommandot **Azure Functions: Hämta Fjärrinställningar** .
 
-Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen, som vid överföring. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed.
+Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen, som vid överföring. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta.
 
 ## <a name="monitoring-functions"></a>Övervaknings funktioner
 
@@ -391,28 +395,28 @@ Azure Functions-tillägget ger ett användbart grafiskt gränssnitt i avsnittet 
 | **Kopiera funktions webb adress** | Hämtar den fjärranslutna URL: en för en HTTP-utlöst funktion som körs i Azure. Läs mer i [Hämta URL för den distribuerade funktionen](#get-the-url-of-the-deployed-function). |
 | **Skapa Function-app i Azure** | Skapar en ny function-app i din prenumeration i Azure. Mer information finns i avsnittet om hur du [publicerar till en ny function-app i Azure](#publish-to-azure).        |
 | **Dekryptera inställningar** | Dekrypterar [lokala inställningar](#local-settings-file) som har krypterats med **Azure Functions: kryptera inställningar**.  |
-| **Delete Function App** | Removes a function app from your subscription in Azure. When there are no other apps in the App Service plan, you're given the option to delete that too. Other resources, like storage accounts and resource groups, aren't deleted. To remove all resources, you should instead [delete the resource group](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Your local project isn't affected. |
-|**Delete Function**  | Removes an existing function from a function app in Azure. Because this deletion doesn't affect your local project, instead consider removing the function locally and then [republishing your project](#republish-project-files). |
-| **Delete Proxy** | Removes an Azure Functions proxy from your function app in Azure. To learn more about proxies, see [Work with Azure Functions Proxies](functions-proxies.md). |
-| **Delete Setting** | Deletes a function app setting in Azure. This deletion doesn't affect settings in your local.settings.json file. |
-| **Disconnect from Repo**  | Removes the [continuous deployment](functions-continuous-deployment.md) connection between a function app in Azure and a source control repository. |
-| **Download Remote Settings** | Downloads settings from the chosen function app in Azure into your local.settings.json file. If the local file is encrypted, it's decrypted, updated, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
-| **Edit settings** | Changes the value of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file.  |
-| **Encrypt settings** | Encrypts individual items in the `Values` array in the [local settings](#local-settings-file). In this file, `IsEncrypted` is also set to `true`, which specifies that the local runtime will decrypt settings before using them. Encrypt local settings to reduce the risk of leaking valuable information. In Azure, application settings are always stored encrypted. |
-| **Execute Function Now** | Manually starts a [timer-triggered function](functions-bindings-timer.md) in Azure. This command is used for testing. To learn more about triggering non-HTTP functions in Azure, see [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md). |
-| **Initialize Project for Use with VS Code** | Adds the required Visual Studio Code project files to an existing Functions project. Use this command to work with a project that you created by using Core Tools. |
-| **Install or Update Azure Functions Core Tools** | Installs or updates [Azure Functions Core Tools], which is used to run functions locally. |
-| **Redeploy**  | Lets you redeploy project files from a connected Git repository to a specific deployment in Azure. To republish local updates from Visual Studio Code, [republish your project](#republish-project-files). |
-| **Rename Settings** | Changes the key name of an existing function app setting in Azure. This command doesn't affect settings in your local.settings.json file. After you rename settings in Azure, you should [download those changes to the local project](#download-settings-from-azure). |
-| **Starta om** | Restarts the function app in Azure. Deploying updates also restarts the function app. |
-| **Set AzureWebJobsStorage**| Sets the value of the `AzureWebJobsStorage` application setting. This setting is required by Azure Functions. It's set when a function app is created in Azure. |
-| **Börja** | Starts a stopped function app in Azure. |
-| **Start Streaming Logs** | Starts the streaming logs for the function app in Azure. Use streaming logs during remote troubleshooting in Azure if you need to see logging information in near-real time. To learn more, see [Streaming logs](#streaming-logs). |
-| **Stop** | Stops a function app that's running in Azure. |
-| **Stop Streaming Logs** | Stops the streaming logs for the function app in Azure. |
-| **Toggle as Slot Setting** | When enabled, ensures that an application setting persists for a given deployment slot. |
-| **Uninstall Azure Functions Core Tools** | Removes Azure Functions Core Tools, which is required by the extension. |
-| **Upload Local Settings** | Uploads settings from your local.settings.json file to the chosen function app in Azure. If the local file is encrypted, it's decrypted, uploaded, and encrypted again. If there are settings that have conflicting values in the two locations, you're prompted to choose how to proceed. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
+| **Ta bort Funktionsapp** | Tar bort en Function-app från din prenumeration i Azure. När det inte finns några andra appar i App Service plan får du möjlighet att ta bort det. Andra resurser, t. ex. lagrings konton och resurs grupper, tas inte bort. Om du vill ta bort alla resurser bör du i stället [ta bort resurs gruppen](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources). Ditt lokala projekt påverkas inte. |
+|**Ta bort funktion**  | Tar bort en befintlig funktion från en Function-app i Azure. Eftersom den här borttagningen inte påverkar ditt lokala projekt, bör du i stället ta bort funktionen lokalt och sedan [publicera projektet](#republish-project-files)igen. |
+| **Ta bort proxy** | Tar bort en Azure Functions proxy från din Function-app i Azure. Mer information om proxyservrar finns i [arbeta med Azure Functions-proxyservrar](functions-proxies.md). |
+| **Ta bort inställning** | Tar bort en funktion app-inställning i Azure. Den här borttagningen påverkar inte inställningarna i din lokala. Settings. JSON-fil. |
+| **Koppla från lagrings platsen**  | Tar bort den [kontinuerliga distributions](functions-continuous-deployment.md) anslutningen mellan en Function-app i Azure och en lagrings plats för käll kontroll. |
+| **Hämta Fjärrinställningar** | Hämtar inställningar från den valda Function-appen i Azure till din lokala. Settings. JSON-fil. Om den lokala filen är krypterad, dekrypteras, uppdateras och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
+| **Redigera inställningar** | Ändrar värdet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil.  |
+| **Krypterings inställningar** | Krypterar enskilda objekt i `Values` matrisen i de [lokala inställningarna](#local-settings-file). I den här filen är `IsEncrypted` också inställt på `true`, vilket anger att den lokala körnings miljön ska dekryptera inställningarna innan de används. Kryptera lokala inställningar för att minska risken för att värdefull information avslöjas. I Azure lagras program inställningarna alltid som krypterade. |
+| **Kör funktionen nu** | Startar en [timer-utlöst funktion](functions-bindings-timer.md) manuellt i Azure. Det här kommandot används för testning. Mer information om hur du utlöser icke-HTTP-funktioner i Azure finns i [köra en icke-http-utlöst funktion manuellt](functions-manually-run-non-http.md). |
+| **Initiera projekt för användning med VS Code** | Lägger till de nödvändiga Project-projektfilerna i Visual Studio-kod i ett befintligt Functions-projekt. Använd det här kommandot för att arbeta med ett projekt som du har skapat med hjälp av kärn verktyg. |
+| **Installera eller uppdatera Azure Functions Core Tools** | Installerar eller uppdaterar [Azure Functions Core tools], som används för att köra funktioner lokalt. |
+| **Distribuera om**  | Gör att du kan distribuera projektfiler från en ansluten git-lagringsplats till en speciell distribution i Azure. [Publicera om projektet](#republish-project-files)om du vill publicera om lokala uppdateringar från Visual Studio Code. |
+| **Byt namn på Inställningar** | Ändrar nyckel namnet för en befintlig funktion i appens inställning i Azure. Det här kommandot påverkar inte inställningarna i din lokala. Settings. JSON-fil. När du har bytt namn på inställningarna i Azure bör du [Hämta ändringarna till det lokala projektet](#download-settings-from-azure). |
+| **Börja** | Startar om Function-appen i Azure. Om du distribuerar uppdateringar startas Function-appen också om. |
+| **Ange AzureWebJobsStorage**| Anger värdet för `AzureWebJobsStorage` program inställningen. Den här inställningen krävs av Azure Functions. Den ställs in när en Function-app skapas i Azure. |
+| **Börja** | Startar en stoppad Function-app i Azure. |
+| **Starta strömmande loggar** | Startar strömmande loggar för Function-appen i Azure. Använd strömmande loggar vid fjärrfelsökning i Azure om du behöver se loggnings information i nära real tid. Mer information finns i [strömmande loggar](#streaming-logs). |
+| **Stanna** | Stoppar en Function-app som körs i Azure. |
+| **Stoppa strömmande loggar** | Stoppar strömmande loggar för Function-appen i Azure. |
+| **Växla som plats inställning** | När det är aktiverat, ser du till att en program inställning finns kvar för en specifik distributions plats. |
+| **Avinstallera Azure Functions Core Tools** | Tar bort Azure Functions Core Tools, vilket krävs av tillägget. |
+| **Ladda upp lokala inställningar** | Laddar upp inställningar från den lokala. Settings. JSON-filen till den valda Function-appen i Azure. Om den lokala filen är krypterad, dekrypteras, laddas upp och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta. Se till att spara ändringarna i din lokala. Settings. JSON-fil innan du kör det här kommandot. |
 | **Visa incheckning i GitHub** | Visar de senaste incheckningarna i en speciell distribution när din Function-app är ansluten till en lagrings plats. |
 | **Visa distributions loggar** | Visar loggarna för en speciell distribution till Function-appen i Azure. |
 

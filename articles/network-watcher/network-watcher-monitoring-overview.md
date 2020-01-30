@@ -3,9 +3,7 @@ title: Azure Network Watcher | Microsoft Docs
 description: Läs mer om Azure Network Watchers övervakning, diagnostik, mått och loggning av resurser i ett virtuellt nätverk.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 Customer intent: As someone with basic Azure network experience, I want to understand how Azure Network Watcher can help me resolve some of the network-related problems I've encountered and provide insight into how I use Azure networking.
 ms.assetid: 14bc2266-99e3-42a2-8d19-bd7257fec35e
 ms.service: network-watcher
@@ -14,14 +12,14 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 45470733c9cfed104e39786be48a6edae20ad489
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 81621a2b63eec804aaa7c74e1d77b06ef1adb79a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645216"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844997"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
@@ -79,7 +77,7 @@ De säkerhetsregler som gäller för ett nätverksgränssnitt är en kombination
 
 ## <a name="metrics"></a>Mått
 
-Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen USA, östra för en exempelprenumeration:
+Det finns [gränser](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#azure-resource-manager-virtual-networking-limits) för hur många nätverksresurser som du kan skapa i en Azure-prenumeration och region. Om du har nått gränsen kan du inte skapa fler resurser i prenumerationen eller regionen. Funktionen *Prenumerationsgräns för nätverket* innehåller en översikt över hur många av varje nätverksresurs du har distribuerat i en prenumeration och region, samt vilken gräns som finns för resursen. Följande bild visar delar av utdatan för de nätverksresurser som har distribuerats i regionen östra USA för en exempelprenumeration:
 
 ![Prenumerationsgränser](./media/network-watcher-monitoring-overview/subscription-limit.png)
 

@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/04/2020
-ms.openlocfilehash: eb73d614ca94bc1fa007a14f3705e50c74ab9e4f
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 940ada83aeabf4bf8746ad5f90592e0917f7b403
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922480"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844453"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Kognitiv sökning service REST API-version 2019-05-06-för hands version
 
@@ -30,10 +30,6 @@ I den här artikeln beskrivs `api-version=2019-05-06-Preview` versionen av searc
 + [Cosmos db indexerare](search-howto-index-cosmosdb.md) stöder MONGODB-API (för hands version), GREMLIN-API (för hands version) och API för Cassandra (för hands version).
 
 + [Azure Data Lake Storage Gen2 indexerare (för hands version)](search-howto-index-azure-data-lake-storage.md) kan indexera innehåll och metadata från data Lake Storage Gen2.
-
-+ [Extrahering av dokument (för hands version)](cognitive-search-skill-document-extraction.md) är en kognitiv kunskap som används vid indexering och som gör att du kan extrahera innehållet i en fil från en färdigheter. Tidigare inträffade endast dokument sprickor innan färdigheter kördes. Med att lägga till den här kunskapen kan du också utföra den här åtgärden i färdigheter-körning.
-
-+ [Text översättning (för hands version)](cognitive-search-skill-text-translation.md) är en kognitiv färdighet som används vid indexering som utvärderar text och, för varje post, returnerar texten översatt till det angivna mål språket.
 
 + [Kunskaps lager](knowledge-store-concept-intro.md) är ett nytt mål för en AI-baserad pipeline för anrikning. Den fysiska data strukturen finns i Azure Blob Storage och Azure Table Storage, och den skapas och fylls i när du kör en indexerare som har en bifogad kognitiv färdigheter. Definitionen av ett kunskaps lager anges i en färdigheter-definition. I kunskaps lager definitionen styr du de fysiska strukturerna för dina data genom *projektions* element som avgör hur data är formade, om data lagras i Table Storage eller Blob Storage, samt om det finns flera vyer.
 

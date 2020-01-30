@@ -3,12 +3,12 @@ title: Identifiera appar, roller och funktioner på lokala servrar med Azure Mig
 description: Lär dig hur du identifierar appar, roller och funktioner på lokala servrar med Azure Migrate Server bedömning.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280772"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846313"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>Identifiera appar, roller och funktioner i datorn
 
@@ -28,7 +28,7 @@ Identifiering av app med Azure Migrate: Server utvärderingen är agent lös. In
 2. Kontrol lera att du har [lagt](how-to-assess.md) till verktyget Azure Migrate: Server utvärderings verktyg i ett projekt.
 4. Kontrol lera [VMware-kraven](migrate-support-matrix-vmware.md#vmware-requirements) för att identifiera och utvärdera virtuella VMware-datorer med Azure Migrate-installationen.
 5. Kontrol lera [kraven](migrate-appliance.md) för att distribuera Azure Migrate-enheten.
-6. [Verifiera support och krav](/migrate-support-matrix-vmware.md#application-discovery) för program identifiering.
+6. [Verifiera support och krav](migrate-support-matrix-vmware.md#application-discovery) för program identifiering.
 
 ## <a name="prepare-for-app-discovery"></a>Förbered för identifiering av appar
 

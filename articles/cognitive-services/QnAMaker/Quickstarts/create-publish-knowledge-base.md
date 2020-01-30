@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8ec3e399459adfbb7cef9e3eafbaa024fec1589f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 26c7996d6a955a183121a59254131dcb1dc6706f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447609"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844270"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -120,7 +120,7 @@ När du gör ändringar i kunskaps basen och återpublicerar behöver du inte vi
 
 1. En ny flik i webbläsaren öppnas för Azure Portal med sidan för att skapa Azure Bot Service. Konfigurera Azure bot service. Robot-och QnA Maker kan dela Web App Service-planen, men kan inte dela webbappen. Det innebär att **appens namn** måste vara ett annat än namnet på appen för tjänsten QNA Maker.
 
-    * **Gör så här**
+    * **Inte**
         * Ändra bot-referens – om den inte är unik.
         * Välj SDK-språk. När bot har skapats kan du ladda ned koden till din lokala utvecklings miljö och fortsätta utvecklings processen.
     * **Gör inte**
@@ -155,9 +155,8 @@ Rensa QnA Maker-och bot Framework-resurser i Azure Portal.
 
 Mer information:
 
-* [Markdown-format i svar](../concepts/data-sources-supported.md)
-* [Testa din markdown](../concepts/data-sources-supported.md#testing-your-markdown)
-* QnA Maker [data källor](../Concepts/data-sources-supported.md).
+* [Markdown-format i svar](../reference-markdown-format.md)
+* QnA Maker [data källor](../concepts/knowledge-base.md).
 * [Konfigurations inställningar för bot-resurser](../tutorials/create-qna-bot.md).
 
 > [!div class="nextstepaction"]

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 11/17/2019
-ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 01/29/2020
+ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995940"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836567"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>Självstudie: mata in och fråga övervaknings data i Azure Datautforskaren 
 
@@ -330,7 +330,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
 2. Lägg till [uppdateringsprincipen](/azure/kusto/concepts/updatepolicy) i måltabellen. Den här principen kör frågan automatiskt på alla nyligen inmatade data i tabellen *DiagnosticRawRecords* mellanliggande data och matar in resultatet i tabellen *DiagnosticMetrics* :
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[Diagnostikloggar](#tab/diagnostic-logs)
@@ -344,7 +344,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
         | mv-expand events = Records
         | where isnotempty(events.operationName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Result = tostring(events.resultType),
@@ -363,7 +363,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
 2. Lägg till [uppdateringsprincipen](/azure/kusto/concepts/updatepolicy) i måltabellen. Den här principen kör frågan automatiskt på alla nyligen inmatade data i tabellen *DiagnosticRawRecords* mellanliggande data och matar in resultatet i tabellen *DiagnosticLogs* :
 
     ```kusto
-    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="activity-logstabactivity-logs"></a>[Aktivitets loggar](#tab/activity-logs)
@@ -376,7 +376,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Category = tostring(events.category),
@@ -393,7 +393,7 @@ Om du vill mappa aktivitets logg data till tabellen använder du följande fråg
 2. Lägg till [uppdateringsprincipen](/azure/kusto/concepts/updatepolicy) i måltabellen. Den här principen kör frågan automatiskt på alla nyligen inmatade data i tabellen *ActivityLogsRawRecords* mellanliggande data och matar in resultatet i tabellen *ActivityLogs* :
 
     ```kusto
-    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 ---
 
@@ -595,7 +595,7 @@ Frågeresultat:
 
 |   |   |
 | --- | --- |
-|   |  antal_ | any_Database | any_Table | any_IngestionSourcePath
+|   |  count_ | any_Database | any_Table | any_IngestionSourcePath
 |   | 00:06.156 | TestDatabase | DiagnosticRawRecords | https://rtmkstrldkereneus00.blob.core.windows.net/20190827-readyforaggregation/1133_TestDatabase_DiagnosticRawRecords_6cf02098c0c74410bd8017c2d458b45d.json.zip
 | | |
 

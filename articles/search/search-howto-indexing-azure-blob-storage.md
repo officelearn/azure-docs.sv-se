@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 793258b572fdcf2487d4b20fa07fb4ef5524b149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113019"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846261"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Indexera dokument i Azure Blob Storage med Azure Kognitiv sökning
 
@@ -30,7 +30,7 @@ BLOB-indexeraren kan extrahera text från följande dokument format:
 ## <a name="setting-up-blob-indexing"></a>Konfigurera BLOB-indexering
 Du kan konfigurera en Azure Blob Storage-indexerare med hjälp av:
 
-* [Azure Portal](https://ms.portal.azure.com)
+* [Azure-portalen](https://ms.portal.azure.com)
 * Azure Kognitiv sökning [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Kognitiv sökning [.NET SDK](https://aka.ms/search-sdk)
 
@@ -70,7 +70,7 @@ Mer information om API för att skapa DataSource finns i [skapa data källa](htt
 
 Du kan ange autentiseringsuppgifter för BLOB-behållaren på något av följande sätt:
 
-- **Anslutnings sträng för lagrings konto med fullständig åtkomst**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` du kan hämta anslutnings strängen från Azure Portal genom att gå till bladet lagrings konto > Inställningar > nycklar (för klassiska lagrings konton) eller Inställningar > åtkomst nycklar (för Azure Resurs hanterarens lagrings konton).
+- **Anslutnings sträng för lagrings konto med fullständig åtkomst**: `DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>` du kan hämta anslutnings strängen från Azure Portal genom att gå till bladet lagrings konto > Inställningar > nycklar (för klassiska lagrings konton) eller Inställningar > åtkomst nycklar (för Azure Resource Manager lagrings konton).
 - Anslutnings sträng för **signatur för delad åtkomst för lagrings konto** : `BlobEndpoint=https://<your account>.blob.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=b&sp=rl` säkerhets associationerna ska ha listan och Läs behörigheter för behållare och objekt (blobbar i detta fall).
 -  **Signatur för delad åtkomst för container**: `ContainerSharedAccessUri=https://<your storage account>.blob.core.windows.net/<container name>?sv=2016-05-31&sr=c&sig=<the signature>&se=<the validity end time>&sp=rl` att SAS ska ha listan och Läs behörigheterna för behållaren.
 
@@ -134,7 +134,7 @@ Beroende på [indexerings konfigurationen](#PartsOfBlobToIndex)kan BLOB-indexera
 * Text innehållet i dokumentet extraheras till ett sträng fält med namnet `content`.
 
 > [!NOTE]
-> Azure Kognitiv sökning begränsar hur mycket text den extraherar beroende på pris nivå: 32 000 tecken för kostnads fri nivå, 64 000 för Basic och 4 000 000 för standard, standard S2 och S3-nivåer. En varning ingår i status svaret för indexeraren för trunkerade dokument.  
+> Azure Kognitiv sökning begränsar hur mycket text den extraherar beroende på pris nivå: 32 000 tecken för kostnads fri nivå, 64 000 för Basic, 4 000 000 för standard, 8 000 000 för standard S2 och 16 000 000 för standard S3. En varning ingår i status svaret för indexeraren för trunkerade dokument.  
 
 * Användare-angivna metadataegenskaper som finns i blobben extraheras orda Grant.
 * Standard egenskaper för BLOB-metadata extraheras i följande fält:
@@ -162,7 +162,7 @@ I Azure Kognitiv sökning identifierar dokument nyckeln ett dokument unikt. Varj
 
 Du bör noga överväga vilka extraherade fält som ska mappas till nyckel fältet för ditt index. Kandidater är:
 
-* **metadata\_lagrings\_namn** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokumentet nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av den `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för det syftet).
+* **metadata\_lagrings\_namn** – detta kan vara en lämplig kandidat, men Observera att namnet inte är unikt, eftersom du kan ha blobbar med samma namn i olika mappar och 2) namnet får innehålla ogiltiga tecken i dokument nycklar, till exempel bindestreck. Du kan hantera ogiltiga tecken med hjälp av den `base64Encode` [fält mappnings funktionen](search-indexer-field-mappings.md#base64EncodeFunction) – om du gör det måste du komma ihåg att koda dokument nycklar när du skickar dem till API-anrop som lookup. (I .NET kan du till exempel använda UrlTokenEncode- [metoden](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) för det syftet).
 * **metadata\_lagring\_sökväg** – genom att använda den fullständiga sökvägen försäkrar du unika sökvägar, men sökvägen innehåller `/` tecken som är [ogiltiga i en dokument nyckel](https://docs.microsoft.com/rest/api/searchservice/naming-rules).  Som ovan kan du välja att koda nycklar med hjälp av [funktionen](search-indexer-field-mappings.md#base64EncodeFunction)`base64Encode`.
 * Om inget av alternativen ovan fungerar kan du lägga till en anpassad metadata-egenskap till Blobbarna. Det här alternativet kräver dock att BLOB-uppladdnings processen lägger till denna metadata-egenskap till alla blobbar. Eftersom nyckeln är en obligatorisk egenskap, kommer alla blobar som inte har denna egenskap att kunna indexeras.
 
@@ -280,7 +280,7 @@ Azure Kognitiv sökning begränsar storleken på blobbar som indexeras. De här 
 
     "parameters" : { "configuration" : { "indexStorageMetadataOnlyForOversizedDocuments" : true } }
 
-Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` och `maxFailedItemsPerBatch` konfigurations parametrar till önskade värden. Exempel:
+Du kan också fortsätta att indexera om fel inträffar när som helst, antingen vid parsning av blobbar eller när dokument läggs till i ett index. Om du vill ignorera ett visst antal fel anger du `maxFailedItems` och `maxFailedItemsPerBatch` konfigurations parametrar till önskade värden. Ett exempel:
 
     {
       ... other parts of indexer definition

@@ -9,16 +9,16 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100312"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844605"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>Självstudie: publicera, prenumerera på händelser i molnet
 
-Den här artikeln vägleder dig igenom alla steg som behövs för att publicera och prenumerera på händelser med Event Grid på IoT Edge.
+Den här artikeln vägleder dig igenom alla steg som behövs för att publicera och prenumerera på händelser med Event Grid på IoT Edge. I den här självstudien används och Azure Function som händelse hanterare. För ytterligare mål typer, se [händelse hanterare](event-handlers.md).
 
 Se [Event Grid-koncept](concepts.md) för att förstå vad ett ämne i Event Grid och prenumerationen är innan du fortsätter.
 
@@ -107,6 +107,8 @@ Som utgivare av en händelse måste du skapa ett event Grid-ämne. Avsnittet ref
 ## <a name="create-an-event-subscription"></a>Skapa en händelseprenumeration
 
 Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. Prenumeranterna måste skapa en Event Grid-prenumeration i ett ämne av intresse för att få en händelse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Skapa subscription2. JSON med följande innehåll. Läs vår [API-dokumentation](api.md) om du vill ha mer information om nytto lasten.
 
@@ -203,3 +205,4 @@ I den här självstudien har du skapat ett event Grid-ämne, prenumeration och p
 * Konfigurera persistence för Event Grid modul i [Linux](persist-state-linux.md) eller [Windows](persist-state-windows.md)
 * Följ [dokumentationen](configure-client-auth.md) om du vill konfigurera klientautentisering
 * Vidarebefordra händelser till Azure Event Grid i molnet genom att följa den här [självstudien](forward-events-event-grid-cloud.md)
+* [Övervaka ämnen och prenumerationer på gränsen](monitor-topics-subscriptions.md)

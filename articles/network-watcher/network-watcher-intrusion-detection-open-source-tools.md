@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Den här artikeln beskriver hur du använder Azure Network Watcher och verktyg med öppen källkod för att utföra identifiering av nätverks intrång
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 0f043f08-19e1-4125-98b0-3e335ba69681
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8a0b4ff4fc985355d8dc76f2f3fd7fb35da55ec0
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 781f3788c9001276315a2baed7060450fa00d77a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275924"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845031"
 ---
 # <a name="perform-network-intrusion-detection-with-network-watcher-and-open-source-tools"></a>Utför identifiering av nätverks intrång med Network Watcher och verktyg för öppen källkod
 
@@ -278,7 +276,7 @@ Instrument panelen exempel innehåller flera visualiseringar av suricata-aviseri
 
 Mer dokumentation om hur du skapar anpassade visualiseringar och instrument paneler finns i [Kibanas officiella dokumentation](https://www.elastic.co/guide/en/kibana/current/introduction.html).
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Genom att kombinera paket avbildningar som tillhandahålls av Network Watcher och ID-verktyg med öppen källkod, till exempel suricata, kan du utföra identifiering av nätverks intrång för en mängd olika hot. Med dessa instrument paneler kan du snabbt upptäcka trender och avvikelser i nätverket, och du kan också lära dig att identifiera Rotors Aker till aviseringar som skadliga användar agenter eller sårbara portar. Med den här extraherade informationen kan du fatta välgrundade beslut om hur du ska reagera på och skydda nätverket från eventuella skadliga intrångs försök och skapa regler för att förhindra framtida intrång i nätverket.
 

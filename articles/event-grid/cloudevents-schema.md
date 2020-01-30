@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548058"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844742"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Använd CloudEvents v 1.0-schemat med Event Grid
 
@@ -73,7 +73,6 @@ Du kan använda Event Grid för både indata och utdata av händelser i CloudEve
 |--------------------|---------------------
 | CloudEvents-format | CloudEvents-format
 | Event Grid format  | CloudEvents-format
-| CloudEvents-format | Event Grid format
 | Event Grid format  | Event Grid format
 
 För alla händelse scheman måste Event Grid verifiera vid publicering till ett event Grid-ämne och när en händelse prenumeration skapas. Mer information finns i [Event Grid säkerhet och autentisering](security-authentication.md).
@@ -109,8 +108,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-Den aktuella versionen av CloudEvents stöder inte batching av händelser. Publicera händelser med CloudEvent-schema till ett ämne genom att publicera varje händelse individuellt.
 
 ### <a name="output-schema"></a>Schema för utdata
 

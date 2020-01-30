@@ -1,5 +1,5 @@
 ---
-title: Problem med anslutningar och nätverk
+title: Anslutnings-och nätverks problem
 titleSuffix: Azure Cloud Services
 description: Den här artikeln innehåller vanliga frågor och svar om anslutningar och nätverk för Microsoft Azure Cloud Services.
 services: cloud-services
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: e41c2424e970c9493d612da99b64b8c2d649002f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 22f7c0ba98390b391a79a121f120b8ab6172cfb9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75386756"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845363"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Anslutnings-och nätverks problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -101,8 +101,8 @@ Eftersom den här bindningen för värd huvudet tillämpas via csdef-filen är t
 
 För att se till att den offentliga IP-adressen för din moln tjänst (även kallat VIP) inte ändras så att den kan vit listas av några olika klienter, rekommenderar vi att du har en reserverad IP-adress som är kopplad till den. Annars frigörs den virtuella IP-adress som tillhandahålls av Azure från din prenumeration om du tar bort distributionen. För att utföra VIP-växling måste du ha enskilda reserverade IP: er för både produktions-och mellanlagrings platser. Utan de kan växlings åtgärden Miss lyckas. Om du vill reservera en IP-adress och associera den med din moln tjänst kan du läsa följande artiklar:
 
-- [Reservera IP-adressen för en befintlig moln tjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [Reservera IP-adressen för en befintlig moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+- [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 Om du har fler än en instans för dina roller bör du inte göra något avbrott om du kopplar RIP till moln tjänsten. Alternativt kan du lägga till IP-intervallet för ditt Azure-datacenter i en lista över tillåtna. Du kan hitta alla Azure IP-intervall på [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=41653).
 

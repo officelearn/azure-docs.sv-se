@@ -3,19 +3,29 @@ title: Spåra ändringar med Azure Automation
 description: Ändringsspårning-lösningen hjälper dig att identifiera ändringar i program vara och Windows-tjänster som inträffar i din miljö.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418756"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844810"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med Ändringsspårning-lösningen
 
-Den här artikeln hjälper dig att använda Ändringsspårning lösning för att enkelt identifiera ändringar i din miljö. Lösningen spårar ändringar i Windows-och Linux-programvara, Windows-och Linux-filer, Windows-registernycklar, Windows-tjänster och Linux-daemon. Att identifiera konfigurations ändringar kan hjälpa dig att hitta drifts problem.
+Den här artikeln hjälper dig att använda Ändringsspårning lösning för att enkelt identifiera ändringar i din miljö. Lösningen spårar följande konfigurations ändringar för att hjälpa dig att hitta drifts problem:
+
+- Windows-programvara
+- Linux-programvara (paket)
+
+    >[!NOTE]
+    >Ändringsspårning spårar bara program vara som hanteras med distributionens paket hanterare.
+
+- Windows-och Linux-filer
+- Windows-registernycklar
+- Windows-tjänster
+- Linux-daemon
 
 Ändringar av installerad program vara, Windows-tjänster, Windows-register och filer och Linux-daemon på de övervakade servrarna skickas till Azure Monitor tjänsten i molnet för bearbetning. Logik tillämpas på mottagna data och molntjänsten registrerar data. Genom att använda informationen på Ändringsspårning instrument panelen kan du enkelt se de ändringar som har gjorts i Server infrastrukturen.
 
@@ -159,6 +169,8 @@ Använd följande steg för att konfigurera register nyckel spårning på Window
 
 * Rekursion för spårning av Windows-register
 * Nätverks fil system
+* Olika installations metoder spåras inte
+* *. exe-filer spåras inte för Windows
 
 Andra begränsningar:
 
@@ -268,7 +280,7 @@ Förutom den information som finns i portalen kan du göra sökningar mot loggar
 
 Följande tabell innehåller exempel på loggs ökningar för ändrings poster som samlas in av den här lösningen:
 
-|Söka i data  |Beskrivning  |
+|Fråga  |Beskrivning  |
 |---------|---------|
 |ConfigurationData<br>&#124;där ConfigDataType = = "WindowsServices" och SvcStartupType = = "Auto"<br>&#124;där SvcState = = "stoppad"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Visar de senaste inventerings posterna för Windows-tjänster som har ställts in på auto men som har rapporter ATS som stoppade<br>Resultaten är begränsade till den senaste posten för den SoftwareName och datorn      |
 |ConfigurationChange<br>&#124;där ConfigChangeType = = "Software" och ChangeCategory = = "borttaget"<br>&#124;Sortera efter TimeGenerated DESC|Visar ändrings poster för borttagen program vara|
@@ -297,7 +309,7 @@ När du har angett alla parametrar och logik kan vi tillämpa aviseringen på mi
 
 Aviseringar om ändringar i värd filen är en lämplig tillämpning av aviseringar för Ändringsspårning eller inventerings data, det finns många fler scenarier för aviseringar, inklusive de fall som definierats tillsammans med deras exempel frågor i avsnittet nedan.
 
-|Söka i data  |Beskrivning  |
+|Fråga  |Beskrivning  |
 |---------|---------|
 |ConfigurationChange <br>&#124;där ConfigChangeType = = "Files" och FileSystemPath innehåller "c:\\Windows\\system32\\driv rutiner\\"|Användbart för att spåra ändringar i system kritiska filer|
 |ConfigurationChange <br>&#124;där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c:\\Windows\\system32\\driv rutiner\\o.s.v.\\-värdar"|Användbart för att spåra ändringar i konfigurationsfiler för nycklar|

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514314"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846208"
 ---
 # <a name="what-is-personalizer"></a>Vad är Personanpassning?
 
@@ -43,7 +43,7 @@ Den __åtgärd__ som visas för användaren väljs med Machine Learning-modeller
 
 Det finns flera exempel scenarier:
 
-|Innehållstyp|**Åtgärder (med funktioner)**|**Kontext funktioner**|Returnerat åtgärds-ID för belöning<br>(Visa det här innehållet)|
+|Innehålls typ|**Åtgärder (med funktioner)**|**Kontext funktioner**|Returnerat åtgärds-ID för belöning<br>(Visa det här innehållet)|
 |--|--|--|--|
 |Nyhets lista|a. `The president...` (National, politiken, [text])<br>b. `Premier League ...` (global, sport, [text, bild, video])<br> c. `Hurricane in the ...` (regional, väder, [text, bild]|Enhetens Nyheter läses från<br>Månad eller säsong<br>|en `The president...`|
 |Film lista|1. `Star Wars` (1977, [Action, Adventure, fantasi], George Lucas)<br>2. `Hoop Dreams` (1994, [dokument, idrotts], Steve Jonas<br>3. `Casablanca` (1942, [romantik, drama, War], Michael Curtiz)|Enhets filmen bevakas från<br>skärm storlek<br>Typ av användare<br>|3. `Casablanca`|
@@ -99,6 +99,6 @@ Eftersom Personanpassaren använder samlad information i nära real tid för att
 * [Vad är förstärknings inlärning?](concepts-reinforcement-learning.md)
 * [Lär dig mer om funktioner och åtgärder för rang förfrågan](concepts-features.md)
 * [Läs om hur du avgör poängen för belönings förfrågan](concept-rewards.md)
-* [Snabbstarter]()
-* [Självstudie]()
+* [Snabbstarter](sdk-learning-loop.md)
+* [Självstudie](tutorial-use-azure-notebook-generate-loop-data.md)
 * [Använd den interaktiva demonstrationen](https://personalizationdemo.azurewebsites.net/)

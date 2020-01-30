@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231315"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845720"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Skapa din första beständiga funktion i JavaScript
 
@@ -38,7 +38,31 @@ För att slutföra den här kursen behöver du:
 
 [!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
+## <a name="create-an-azure-functions-project"></a>Skapa ditt lokala projekt 
+
+I det här avsnittet använder du Visual Studio Code för att skapa ett lokalt Azure Functions-projekt. 
+
+1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Create new project...`.
+
+1. Välj en katalog plats för projekt arbets ytan och välj **Välj**.
+
+    > [!NOTE]
+    > De här stegen har utformats för att slutföras utanför en arbets yta. Välj i det här fallet inte en projektmapp som ingår i en arbetsyta.
+
+1. Ange följande information för önskat språk i följande meddelanden:
+
+    | Uppmaning | Värde | Beskrivning |
+    | ------ | ----- | ----------- |
+    | Välj ett språk för ditt projekt för Function-appen | JavaScript | Skapa ett lokalt Node. js-Function-projekt. |
+    | Välj en version | Azure Functions v2 | Du ser bara det här alternativet när kärn verktygen inte redan har installerats. I det här fallet installeras kärn verktyg första gången du kör appen. |
+    | Välj en mall för projektets första funktion | HTTP-utlösare | Skapa en HTTP-utlöst funktion i appen ny funktion. |
+    | Ange ett funktions namn | HttpTrigger | Tryck på RETUR för att använda standard namnet. |
+    | Auktorisationsnivå | Funktion | På `function` behörighets nivå måste du ange en åtkomst nyckel när du anropar funktionens HTTP-slutpunkt. Detta gör det svårare att komma åt en oskyddad slut punkt. Mer information finns i [Authorization Keys](../functions-bindings-http-webhook.md#authorization-keys).  |
+    | Välj hur du vill öppna projektet | Lägg till i arbets ytan | Skapar Function-appen i den aktuella arbets ytan. |
+
+Visual Studio Code installerar Azure Functions Core Tools, om det behövs. Det skapar också ett Function-projekt i en ny arbets yta. Det här projektet innehåller konfigurationsfilerna [Host. JSON](../functions-host-json.md) och [Local. Settings. JSON](../functions-run-local.md#local-settings-file) . Dessutom skapas en HttpExample-mapp som innehåller- [definitions filen function. JSON](../functions-reference-node.md#folder-structure) och [filen index. js](../functions-reference-node.md#exporting-a-function), en Node. js-fil som innehåller funktions koden.
+
+En Package. JSON-fil skapas också i rotmappen.
 
 ## <a name="install-the-durable-functions-npm-package"></a>Installera npm-paketet för Durable Functions
 
@@ -60,7 +84,7 @@ Skapa först en HTTP-utlöst funktion som startar en orkestrering av beständig 
 
     ![Välj mallen för HTTP-startmallen](./media/quickstart-js-vscode/create-function-choose-template.png)
 
-3. Lämna standard namnet som `DurableFunctionsHttpStart` och tryck på * * * * Ange * * och välj sedan **Anonym** autentisering.
+3. Lämna standardnamnet som `DurableFunctionsHttpStart` och tryck på ** **RETUR** och välj sedan **anonym** autentisering.
 
     ![Välj anonym autentisering](./media/quickstart-js-vscode/create-function-anonymous-auth.png)
 

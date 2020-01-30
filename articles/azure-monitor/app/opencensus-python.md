@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432488"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846126"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
@@ -136,7 +136,7 @@ Här är de exportörer som openräkning tillhandahåller mappat till de typer a
 
 4. Nu när du kör python-skriptet bör du fortfarande uppmanas att ange värden, men bara värdet skrivs ut i gränssnittet. Den skapade `SpanData` skickas till Azure Monitor. Du hittar de utgivna span-data under `dependencies`.
 
-5. Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python).
+5. Om du vill ha mer information om sampling i openinventering kan du titta på [sampling i openräkning](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications).
 
 6. Om du vill ha mer information om telemetri-korrelation i dina spårnings data kan du ta en titt på [telemetri](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)för openräkning.
 

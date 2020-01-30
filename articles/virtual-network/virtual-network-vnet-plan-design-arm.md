@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646497"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845583"
 ---
 # <a name="plan-virtual-networks"></a>Planera virtuella nätverk
 
@@ -39,7 +39,7 @@ Alla Azure-resurser skapas i en Azure-region och prenumeration. En resurs kan ba
 
 ## <a name="subscriptions"></a>Prenumerationer
 
-Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration, upp till [gränsen](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumerations styrning](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
+Du kan distribuera så många virtuella nätverk som krävs inom varje prenumeration, upp till [gränsen](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits). Vissa organisationer har olika prenumerationer för olika avdelningar, till exempel. Mer information och överväganden kring prenumerationer finns i [prenumerations styrning](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentering
 

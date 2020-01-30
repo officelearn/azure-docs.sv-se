@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: I den här självstudien får du lära dig hur du diagnostiserar problem med nätverksroutning för virtuella datorer med funktionen för nästa hopp i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,18 +15,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276050"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845216"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>Självstudie: Diagnostisera problem med nätverksroutning i Azure Portal
 
-När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här självstudiekursen får du lära du dig att:
+När du distribuerar en virtuell dator (VM) skapas flera standardvägar i Azure för den. Du kan skapa egna vägar som ersätter Azures standardvägar. Ibland kan en egen väg leda till att en virtuell dator inte kan kommunicera med andra resurser. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en virtuell dator
@@ -55,8 +54,8 @@ Logga in på Azure Portal på https://portal.azure.com.
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -70,12 +69,12 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda funktionen för nästa hopp](#use-next-hop).
 
-1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
-3. Välj **Aktivera nätverksbevakaren**.
+3. Välj **Aktivera Network Watcher**.
 
 ### <a name="use-next-hop"></a>Använda funktionen för nästa hopp
 
@@ -115,7 +114,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

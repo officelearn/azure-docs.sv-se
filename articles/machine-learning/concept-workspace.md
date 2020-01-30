@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 4891ec0ae87f0d7b0cd7e5d5d550f955a8fde1db
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312387"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844083"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -49,7 +49,7 @@ Du kan interagera med din arbets yta på följande sätt:
 
 + På webben:
     + [Azure Machine Learning Studio](https://ml.azure.com) 
-    + [Azure Machine Learning designer](concept-designer.md) – endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor.
+    + [Azure Machine Learning designer (för hands version)](concept-designer.md) – endast tillgängligt i [Enterprise Edition](overview-what-is-azure-ml.md#sku) -arbetsytor.
 + I valfri python-miljö med [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + I valfri R-miljö med [Azure Machine Learning SDK för R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + På kommando raden med hjälp av Azure Machine Learning [CLI-tillägget](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli)
@@ -79,7 +79,7 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 | Skapa en virtuell dator för Notebook |   | **&check;** | |     |
 
 > [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+> Beräknings instanser är endast tillgängliga för arbets ytor med **norra centrala USA**, * * östra USA 2 * *, **nord Europa** eller **Storbritannien, södra**.
 >Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället.
 
 ## <a name='create-workspace'></a>Skapa en arbets yta

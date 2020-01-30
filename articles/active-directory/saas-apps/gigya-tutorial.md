@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 824e9c459df75ea0307fe314fbf4118cca6e69d3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159195"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841820"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Självstudie: Azure Active Directory integrering med Gigya
 
@@ -38,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 För att konfigurera Azure AD-integrering med Gigya behöver du följande:
 
-* En Azure AD-prenumeration. Om du inte har en Azure AD-miljö kan du få en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
+* En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
 * Gigya-prenumeration med enkel inloggning aktiverat
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
@@ -107,10 +107,10 @@ Utför följande steg för att konfigurera enkel inloggning i Azure AD med Gigya
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `http://<companyname>.gigya.com`
 
-    b. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `https://fidm.gigya.com/saml/v2.0/<companyname>`
+    b. I textrutan **Identifierare (entitets-ID)** skriver du en URL med följande mönster: `https://fidm.gigya.com/saml/v2.0/<companyname>`
 
     > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för Gigya](https://www.gigya.com/support-policy/) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Dessa värden är inte verkliga. Uppdatera dessa värden med faktisk inloggnings-URL och identifierare. Kontakta [supportteamet för Gigya](https://developers.gigya.com/display/GD/Opening+A+Support+Incident) och be om dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Konfigurera enkel inloggning med SAML** går du till avsnittet **SAML-signeringscertifikat**, klickar du på **Ladda ned** för att ladda ned **Certifikat (Base64)** från de angivna alternativen enligt dina behov och sparar det på datorn.
 
@@ -187,7 +187,7 @@ I det här avsnittet gör du det möjligt för Britta Simon att använda enkel i
 
     ![Gigya-länken i programlistan](common/all-applications.png)
 
-3. I menyn till vänster väljer du **Användare och grupper**.
+3. På menyn till vänster väljer du **Användare och grupper**.
 
     ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
@@ -229,7 +229,7 @@ För att Azure AD-användare ska kunna logga in i Gigya måste de etableras till
 
 I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på Gigya-panelen i åtkomstpanelen bör du automatiskt loggas in på Gigya som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
+När du klickar på Gigya-panelen i åtkomstpanelen bör du automatiskt loggas in på Gigya som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

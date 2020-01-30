@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/24/2020
+ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027774"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844691"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -23,7 +23,7 @@ Den här artikeln innehåller information om de **senaste** versionerna av Azure
 
 Azure HDInsight är en av de populäraste tjänsterna mellan företags kunder för analys med öppen källkod på Azure.
 
-## <a name="release-date-01092019"></a>Utgivnings datum: 01/09/2019
+## <a name="release-date-01092020"></a>Utgivnings datum: 01/09/2020
 
 Den här versionen gäller både för HDInsight 3,6 och 4,0. HDInsight-versionen görs tillgänglig för alla regioner över flera dagar. Lanserings datumet här anger den första regionens utgivnings datum. Om du inte ser ändringarna nedan väntar du tills lanseringen är aktiv i din region under flera dagar.
 
@@ -42,7 +42,7 @@ Alla hanterade diskar i HDInsight skyddas med Azure Storage Service Encryption (
 ## <a name="deprecation"></a>Utfasning
 Inga utfasningar för den här versionen. För att komma igång med kommande inaktuella ändringar, se [kommande ändringar](#upcoming-changes).
 
-## <a name="behavior-changes"></a>Funktionalitetsförändringar
+## <a name="behavior-changes"></a>Beteende ändringar
 Inga beteende ändringar för den här versionen. För att komma igång med kommande ändringar, se [kommande ändringar](#upcoming-changes).
 
 ## <a name="upcoming-changes"></a>Kommande ändringar
@@ -65,3 +65,34 @@ HDInsight fortsätter att göra kluster tillförlitlighet och prestanda förbät
 
 ## <a name="component-version-change"></a>Komponent versions ändring
 Ingen komponent versions ändring för den här versionen. Du hittar de aktuella komponent versionerna för HDInsight 4,0 AD HDInsight 3,6 här.
+
+## <a name="known-issues"></a>Kända problem
+
+Från och med den 24 januari 2020 uppstår ett aktivt problem där du kan få ett fel meddelande när du försöker använda en Jupyter Notebook. Använd stegen nedan för att åtgärda problemet. Du kan också se det här [MSDN-inlägget](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) eller det här [StackOverflow-inlägget](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) för uppdaterad information eller ställa frågor till fler frågor. Den här sidan kommer att uppdateras när problemet åtgärdas.
+
+**Kompileringsfel**
+
+* ValueError: kan inte konvertera antecknings boken till v5 eftersom den versionen inte finns
+* Ett fel uppstod vid inläsning av antecknings boken. Med den här versionen kan du läsa in Notebook format v4 eller tidigare
+
+**Orsak** 
+
+Filen _version. py på klustret har uppdaterats till 5. x. x i stället för 4.4. x. # #.
+
+**Lösning**
+
+Om du skapar en ny Jupyter-anteckningsbok och får ett av de fel som anges ovan utför du följande steg för att åtgärda problemet.
+
+1. Öppna Ambari i en webbläsare genom att gå till https://CLUSTERNAME.azurehdinsight.net, där kluster namn är namnet på klustret.
+1. I Ambari klickar du på **Jupyter**på den vänstra menyn och sedan på **tjänst åtgärder**klickar du på **stoppa**.
+1. SSH till klustrets huvudnoden där Jupyter-tjänsten körs.
+1. Öppna följande fil/usr/bin/Anaconda/lib/python2.7/site-packages/nbformat/_version. py i sudo-läge.
+1. Den befintliga posten bör visa något som liknar följande kod: 
+
+    version_info = (5, 0, 3)
+
+    Ändra posten till: 
+    
+    version_info = (4, 4, 0)
+1. Spara filen.
+1. Gå tillbaka till Ambari och klicka på **starta om alla**i **tjänst åtgärder**.

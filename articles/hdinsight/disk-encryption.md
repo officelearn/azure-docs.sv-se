@@ -7,14 +7,14 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982501"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846119"
 ---
-# <a name="customer-managed-key-disk-encryption"></a>Kund hanterad nyckel disk kryptering
+# <a name="customer-managed-key-disk-encryption"></a>Kundhanterad nyckeldiskkryptering
 
 Azure HDInsight stöder Kundhanterade nycklar, även kallat Bring Your Own Key-kryptering (BYOK) för data på hanterade diskar och resurs diskar som är anslutna till virtuella HDInsight-kluster. Med den här funktionen kan du använda Azure Key Vault för att hantera krypterings nycklar som skyddar data i andra i HDInsight-klustren. Dina kluster kan ha ett eller flera kopplade Azure Storage konton där krypterings nycklarna också kan hanteras av Microsoft eller kund, men krypterings tjänsten skiljer sig åt.
 
@@ -79,7 +79,7 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
     b. Under **Välj huvud konto**väljer du den användare-tilldelade hanterade identitet som du har skapat.
 
-    ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     c. Ange **nyckel behörigheter** för att **Hämta, ta emot** **, packa upp**och **figursätta**nyckeln.
 
@@ -100,6 +100,8 @@ Nu är du redo att skapa ett nytt HDInsight-kluster. Kundhanterad nyckel kan bar
 ### <a name="using-the-azure-portal"></a>Använda Azure Portal
 
 Under skapandet av klustret anger du den fullständiga nyckel-URL: en, inklusive nyckel versionen. Till exempel `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+
+![Skapa ett nytt kluster](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Använda Azure CLI
 

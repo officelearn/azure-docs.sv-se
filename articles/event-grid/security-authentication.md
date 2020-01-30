@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169565"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846306"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid säkerhet och autentisering 
 
@@ -87,7 +87,7 @@ För att bevisa ägarskapet för slutpunkten echo tillbaka verifieringskoden i e
 
 Du måste returnera en HTTP 200 OK svars status kod. HTTP 202 accepterades inte som ett giltigt verifierings svar för Event Grid prenumeration. Http-begäran måste slutföras inom 30 sekunder. Om åtgärden inte slutförs inom 30 sekunder avbryts åtgärden och du kan försöka igen efter 5 sekunder. Om alla försöken Miss lyckas behandlas det som ett fel i validerings hand skakningen.
 
-Eller så kan du verifiera manuellt prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelse prenumerationen är i ett väntande tillstånd tills den har verifierats. Verifierings-URL: en använder port 553. Om brand Väggs reglerna blockerar port 553 kan regler behöva uppdateras för lyckad hand skakning.
+Eller så kan du verifiera manuellt prenumerationen genom att skicka en GET-begäran till URL: en för verifiering. Händelseprenumerationen kvar i ett väntande tillstånd tills verifieras. Verifierings-URL: en använder port 553. Om brand Väggs reglerna blockerar port 553 kan regler behöva uppdateras för lyckad hand skakning.
 
 Hantera prenumeration verifiering handskakningen exempelvis se ett [ C# exempel](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
@@ -95,7 +95,7 @@ Hantera prenumeration verifiering handskakningen exempelvis se ett [ C# exempel]
 
 Om du ser ett fel meddelande under skapandet av händelse prenumerationen, till exempel "försöket att validera den angivna slut punkten https:\//Your-Endpoint-here misslyckades. Mer information finns på https:\//aka.ms/esvalidation ", det betyder att det är ett haveri i validerings hand skakningen. Lös felet genom att kontrollera följande aspekter:
 
-* Har du kontroll över programkoden i mål-slutpunkten? Till exempel om du skapar en HTTP-utlösare baserade Azure-funktion, har du åtkomst till programkod för att göra ändringar i den?
+* Kontrollerar du vilken program kod som körs i mål slut punkten? Till exempel om du skapar en HTTP-utlösare baserade Azure-funktion, har du åtkomst till programkod för att göra ändringar i den?
 * Om du har åtkomst till programkoden kan implementera ValidationCode baserat handskakning mekanism som visas i exemplet ovan.
 
 * Om du inte har åtkomst till programkoden (till exempel, om du använder en tredjepartstjänst som stöder webhooks) kan använda du mekanismen för manuell handskakning. Kontrollera att du använder 2018-05-01-preview API-versionen eller senare (installera tillägget för Event Grid Azure CLI) för att ta emot validationUrl i händelsen verifiering. Slutför manuell verifiering handskakningen genom att hämta värdet för den `validationUrl` egenskapen och gå till URL: en i webbläsaren. Om verifieringen lyckas, bör du se ett meddelande i din webbläsare att valideringen har lyckats. Du ser att händelsen prenumerationens provisioningState är ”lyckades”. 
@@ -348,6 +348,10 @@ Följande är exempel Event Grid rolldefinitioner som användarna kan vidta olik
 ```
 
 Du kan skapa anpassade roller med [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md), och [REST](../role-based-access-control/custom-roles-rest.md).
+
+## <a name="encryption-at-rest"></a>Vilande kryptering
+
+Alla händelser eller data som skrivs till disk av tjänsten Event Grid krypteras av en Microsoft-hanterad nyckel som garanterar att den är krypterad i vila. Dessutom är den maximala tids perioden som händelser eller data behålls i 24 timmar i enlighet med principen för [Event Grid försök igen](delivery-and-retry.md). Event Grid tar automatiskt bort alla händelser eller data efter 24 timmar, eller händelsens tids till Live, beroende på vilket som är mindre.
 
 ## <a name="next-steps"></a>Nästa steg
 

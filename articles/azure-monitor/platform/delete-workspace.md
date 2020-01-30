@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fabb2524547bd7837d3644d79f0023311ddccdfc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547259"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845549"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
 
@@ -23,7 +23,7 @@ Den här artikeln förklarar begreppet Azure Log Analytics arbets yta mjuk bortt
 När du tar bort en Log Analytics arbets yta utförs en mjuk borttagnings åtgärd för att tillåta återställning av arbets ytan, inklusive data och anslutna agenter inom 14 dagar, oavsett om borttagningen var oavsiktligt eller avsiktligt. Efter den mjuka borttagnings perioden är arbets ytans resurs och dess data inte återställnings bara – data placeras i kö för permanent borttagning och rensas fullständigt inom 30 dagar. Namnet på arbets ytan är frigjord och du kan använda det för att skapa en ny arbets yta.
 
 > [!NOTE]
-> Det går inte att stänga av beteendet för mjuk borttagning. Vi kommer snart att lägga till ett alternativ för att åsidosätta mjuk borttagning när du använder en Force-tagg i borttagnings åtgärden.
+> Om du vill åsidosätta beteendet för mjuk borttagning och ta bort arbets ytan permanent, följer du stegen i den [permanenta arbets ytan ta bort](#Permanent workspace delete).
 
 Du bör vara försiktig när du tar bort en arbets yta eftersom det kan finnas viktiga data och konfiguration som kan påverka din tjänst åtgärd negativt. Granska vilka agenter, lösningar och andra Azure-tjänster och källor som lagrar data i Log Analytics, till exempel:
 
@@ -89,7 +89,7 @@ Du kan återställa en arbets yta genom att skapa den på nytt med hjälp av fö
 
 * Prenumerations-ID
 * Resurs grupps namn
-* Namn på arbetsyta
+* Namn på arbets yta
 * Region
 
 ### <a name="powershell"></a>PowerShell

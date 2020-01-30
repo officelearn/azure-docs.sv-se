@@ -3,12 +3,12 @@ title: Självstudie – Skapa en Application Gateway ingress-kontrollant i Azure
 description: Självstudie som visar hur du skapar ett Kubernetes-kluster med Azure Kubernetes Service med Application Gateway som ingress-kontrollant
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867402"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772857"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>Självstudie: skapa en Application Gateway ingress-kontrollant i Azure Kubernetes-tjänsten
 
@@ -51,7 +51,7 @@ Det första steget är att skapa katalogen som innehåller Terraform-konfigurati
     cd clouddrive
     ```
 
-1. Skapa en katalog som heter `terraform-aks-k8s`.
+1. Skapa en katalog som heter `terraform-aks-appgw-ingress`.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -731,8 +731,8 @@ Koden i det här avsnittet använder [Helm](/azure/aks/kubernetes-helm) -Kuberne
     - `armAuth.secretJSON`: behövs bara när den hemliga typen för tjänst objekt väljs (när `armAuth.type` har angetts till `servicePrincipal`).
 
     Viktiga anteckningar:
-    - `identityResourceID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_client_id)"`.
-    - `identityClientID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_resource_id)"`.
+    - `identityResourceID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_resource_id)"`.
+    - `identityClientID`-värdet skapas i terraform-skriptet och kan hittas genom att köra: `echo "$(terraform output identity_client_id)"`.
     - `<resource-group>`-värdet är resurs gruppen för din app-Gateway.
     - `<identity-name>`-värdet är namnet på den skapade identiteten.
     - Alla identiteter för en angiven prenumeration kan listas med hjälp av: `az identity list`.

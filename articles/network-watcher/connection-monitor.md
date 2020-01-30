@@ -3,8 +3,7 @@ title: Självstudie – övervaka nätverkskommunikation med hjälp av Azure Por
 description: I den här självstudien får du lära dig hur du övervakar nätverkskommunikation mellan två virtuella datorer med Azure Network Watchers funktion för anslutnings övervakning.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to monitor communication between a VM and another VM. If the communication fails, I need to know why, so that I can resolve the problem.
@@ -14,18 +13,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: acdaf2318c3082db876ed9c69b704d3d00cd4c90
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419689"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834662"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Självstudie: Övervaka nätverkskommunikationen mellan två virtuella datorer i Azure Portal
 
-Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här självstudiekursen får du lära du dig att:
+Det kan vara mycket viktigt att kommunikationen mellan en virtuell dator (VM) och en slutpunkt, som en annan virtuell dator, fungerar ordentligt. Ibland görs konfigurationsändringar som kan bryta kommunikationen. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer
@@ -39,7 +38,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
-## <a name="create-vms"></a>Skapa VM:ar
+## <a name="create-vms"></a>Skapa virtuella datorer
 
 Skapa två virtuella datorer.
 
@@ -55,8 +54,8 @@ Skapa två virtuella datorer.
     |Användarnamn| Ange ett valfritt användarnamn.|
     |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Under **Inställningar** väljer du **Tillägg**. Välj **Lägg till tillägg** och välj **Network Watcher Agent for Windows**, så som visas i följande bild:
@@ -115,7 +114,7 @@ Skapa en anslutningsövervakare för övervakning av kommunikationen via TCP-por
 
     Notera följande information:
 
-    | Objekt                     | Värde                      | Detaljer                                                     |
+    | Objekt                     | Värde                      | Information                                                     |
     | ---------                | ---------                  |--------                                                     |
     | Status                   | Nåbar                  | Visar om slutpunkten kan nås eller inte.|
     | GENOMSN. TIDSFÖRDRÖJNING          | Visar anslutningens tidsfördröjning i millisekunder. Anslutningsövervakaren söker av anslutningen var 60:e sekund så att du kan se svarstiderna över tid.                                         |
@@ -170,7 +169,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

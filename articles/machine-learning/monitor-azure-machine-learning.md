@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: 1c5b2879659305e55bb01e4cfab27c7a1b343155
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894858"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845739"
 ---
 # <a name="monitoring-azure-machine-learning"></a>Övervaknings Azure Machine Learning
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs övervaknings data som genereras av Azure Machine L
 
 Azure Machine Learning loggar övervakning av data med hjälp av Azure Monitor, som är en fullständig stack övervaknings tjänst i Azure. Azure Monitor innehåller en fullständig uppsättning funktioner för att övervaka dina Azure-resurser. Den kan också övervaka resurser i andra moln och lokalt.
 
-Börja med artikeln [Azure Monitor översikt](/azure/azure-monitor/overview), som ger en översikt över övervakningsfunktionerna. Följande avsnitt bygger på den här informationen genom att tillhandahålla specifika säkerhets med Azure Monitor med Azure Machine Learning.
+Börja med artikeln [Azure Monitor översikt](/azure/azure-monitor/overview), som ger en översikt över övervakningsfunktionerna. Följande avsnitt bygger på den här informationen genom att tillhandahålla information om hur du använder Azure Monitor med Azure Machine Learning.
 
 För att förstå kostnader som är kopplade till Azure Monitor, se [användning och beräknade kostnader](/azure/azure-monitor/platform/usage-estimated-costs). För att förstå hur lång tid det tar för dina data att visas i Azure Monitor, se [logg data](/azure/azure-monitor/platform/data-ingestion-time)Inhämtnings tid.
 

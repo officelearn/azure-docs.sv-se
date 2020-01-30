@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760631"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845326"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>Språk-och region stöd för tal tjänsten
 
@@ -72,7 +72,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ta-IN` | Tamil (Indien) | Ja | Språk modell
 `te-IN` | Telugu (Indien) | Ja | Inga
 `th-TH` | Thailändska (Thailand) | Ja | Inga
-`tr-TR` | Turkiet | Ja | Inga
+`tr-TR` | Turkiska (Turkiet) | Ja | Inga
 `zh-CN` | Kinesiska (Mandarin, förenklad) | Ja | Akustisk modell<br>Språk modell
 `zh-HK` | Kinesiska (kantonesiska, traditionell) | Ja | Språk modell
 `zh-TW` | Kinesiska (Mandarin Taiwanesiska) | Ja | Språk modell
@@ -111,7 +111,7 @@ Det finns fler än 75 standard röster i över 45 språk och nationella inställ
 
 Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning | Kort namn
 -------|----------|---------|----------|----------
-<sup>**1**</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
+<sup>1</sup>`ar-EG` | Arabiska (Egypten) | Kvinna | ”Microsoft Server tal Text till tal-röst (ar-t.ex., Hoda)” | "ar-EG-Hoda"
 `ar-SA` | Arabiska (Saudiarabien) | Man | ”Microsoft Server tal Text till tal-röst (ar-SA, Naayf)” | "ar-SA-Naayf"
 `bg-BG` | Bulgariska | Man | ”Microsoft Server tal Text till tal röst (bg-BG, Ivan)” | "BG-BG-Ivan"
 `ca-ES` | Katalanska (Spanien) | Kvinna | ”Microsoft Server tal Text till tal röst (ca-ES, HerenaRUS)” | "ca-ES-HerenaRUS"
@@ -181,7 +181,7 @@ Nationella inställningar | Språk | Kön | Fullständig tjänst namns mappning 
 `ta-IN` | Tamil (Indien) | Man | ”Microsoft Server tal Text till tal-röst (ta-IN-, Valluvar)” | "ta-IN-Valluvar"
 `te-IN` | Telugu (Indien) | Kvinna | ”Microsoft Server tal Text till tal-röst (te-IN-, Chitra)” | "te-IN-Chitra"
 `th-TH` | Thai | Man | ”Microsoft Server tal Text till tal röst (th-TH, Pattara)” | "th-TH-Pattara"
-`tr-TR` | Turkiska | Kvinna | ”Microsoft Server tal Text till tal röst (tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
+`tr-TR` | Turkiska (Turkiet) | Kvinna | ”Microsoft Server tal Text till tal röst (tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
 `vi-VN` | Vietnamesiska | Man | ”Microsoft Server tal Text till tal röst (vi VN ett)” | "vi-VN-An"
 `zh-CN` | Kinesiska (fastlandet) | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-CN, HuihuiRUS)” | "zh-CN-HuihuiRUS"
 | | | Kvinna | ”Microsoft Server tal Text till tal-röst (zh-CN, Yaoyao, Apollo)” | "zh-CN-Yaoyao-Apollo"

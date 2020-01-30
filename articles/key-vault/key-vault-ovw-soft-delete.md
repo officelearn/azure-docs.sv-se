@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 89b7dc639a3140f17a62087c5ba0d05fb6df4d7f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883130"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845808"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Översikt över Azure Key Vault mjuk borttagning
 
@@ -36,13 +36,21 @@ Azure Key Vaults är spårade resurser som hanteras av Azure Resource Manager. A
 
 Med den här funktionen är BORTTAGNINGs åtgärden för ett Key Vault-eller Key Vault-objekt en mjuk borttagning, vilket effektivt ger resurserna för en viss kvarhållningsperiod (90 dagar), samtidigt som du får det utseende som objektet tas bort. Tjänsten tillhandahåller ytterligare en mekanism för att återställa det borttagna objektet, i princip ångra borttagningen. 
 
-Mjuk borttagning är ett valfritt Key Vault beteende och är **inte aktiverat som standard** i den här versionen. Den kan aktive ras via [CLI](key-vault-soft-delete-cli.md) eller [PowerShell](key-vault-soft-delete-powershell.md).
+Mjuk borttagning är nu aktiverat som standard för nyligen skapade nyckel valv. Det kan inaktive ras via [Azure CLI](key-vault-soft-delete-cli.md) eller [Azure PowerShell](key-vault-soft-delete-powershell.md).
+
+Standardkvarhållning är 90 dagar, men det är möjligt att ange ett värde mellan 7 och 90 dagar via Azure Portal för bevarande princip. Bevarande principen rensa skydd använder samma intervall. 
+
+När mjuk borttagning har ställts in på ett nyckel valv kan det inte inaktive ras och bevarande princip intervallet kan inte ändras. 
+
+Du kan inte återanvända namnet på ett nyckel valv som har varit mjuk-Borttaget tills kvarhållningsperioden har passerat. 
 
 ### <a name="purge-protection"></a>Rensa skydd 
 
-När rensnings skyddet är på går det inte att rensa ett valv eller ett objekt i Deleted-tillstånd förrän kvarhållningsperioden på 90 dagar har passerat. Dessa valv och objekt kan fortfarande återställas, vilket gör det möjligt för kunderna att följa bevarande principen. 
-
 Rensnings skyddet är ett valfritt Key Vault beteende och är **inte aktiverat som standard**. Den kan aktive ras via [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) eller [PowerShell](key-vault-soft-delete-powershell.md#enabling-purge-protection).
+
+När rensnings skyddet är på kan inte ett valv eller ett objekt i det borttagna läget rensas förrän kvarhållningsperioden har passerat. Borttagnings bara valv och objekt kan fortfarande återställas, vilket säkerställer att bevarande principen kommer att följas. 
+
+Standardkvarhållning är 90 dagar, men det är möjligt att ange ett värde mellan 7 och 90 dagar via Azure Portal för bevarande princip. När lagrings princip intervallet har angetts och sparats kan det inte ändras för det valvet. 
 
 ### <a name="permitted-purge"></a>Tillåten rensning
 

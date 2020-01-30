@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100659"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844725"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>Självstudie: vidarebefordra händelser till Event Grid Cloud
 
@@ -23,7 +23,7 @@ Den här artikeln vägleder dig igenom alla steg som krävs för att vidarebefor
 * Reagera på gräns händelser i molnet.
 * Vidarebefordra händelser till Event Grid i molnet och använda Azure Event Hubs eller Azure Storage köer för att buffra händelser innan de bearbetas i molnet.
 
-För att slutföra den här självstudien måste du ha en förståelse för Event Grid koncept på [Edge](concepts.md) och [Azure](../concepts.md).
+ För att slutföra den här självstudien måste du ha en förståelse för Event Grid koncept på [Edge](concepts.md) och [Azure](../concepts.md). För ytterligare mål typer, se [händelse hanterare](event-handlers.md). 
 
 ## <a name="prerequisites"></a>Krav 
 För att kunna slutföra den här självstudien behöver du:
@@ -83,6 +83,7 @@ Om du till exempel har skapat ett ämne med namnet `testegcloudtopic` i västra 
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>Skapa Event Grid prenumeration vid gränsen
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Skapa subscription3. JSON med följande innehåll. Se vår [API-dokumentation](api.md) för mer information om nytto lasten.
 
@@ -201,3 +202,4 @@ I den här självstudien publicerade du en händelse på gränsen och vidarebefo
 * Information om hur du felsöker problem med att använda Azure Event Grid på IoT Edge finns i [fel söknings guide](troubleshoot.md).
 * Vidarebefordra händelser till IoTHub genom att följa den här [självstudien](forward-events-iothub.md)
 * Vidarebefordra händelser till webhook i molnet genom att följa den här [självstudien](pub-sub-events-webhook-cloud.md)
+* [Övervaka ämnen och prenumerationer på gränsen](monitor-topics-subscriptions.md)

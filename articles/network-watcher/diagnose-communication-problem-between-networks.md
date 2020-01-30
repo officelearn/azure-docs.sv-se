@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: I den här självstudien får du lära dig hur du diagnostiserar ett kommunikations problem mellan ett virtuellt Azure-nätverk som är anslutet till ett lokalt eller annat virtuellt nätverk, via en virtuell Azure-nätverksgateway med hjälp av Network Watcher funktion för VPN-diagnostik.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 Customer intent: I need to determine why resources in a virtual network can't communicate with resources in a different network.
 ms.service: network-watcher
 ms.devlang: na
@@ -14,18 +12,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/27/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 974e45b761fb45e4bc1c451fa6755e16cab49e11
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419732"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834696"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>Självstudier: Diagnostisera kommunikationsproblem mellan nätverk med hjälp av Azure Portal
 
-En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här självstudiekursen får du lära du dig att:
+En virtuell nätverksgateway ansluter ett virtuellt Azure-nätverk till ett lokalt nätverk eller till ett annat virtuellt nätverk. I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Diagnostisera problem med en virtuell nätverksgateway med funktionen VPN-diagnostik i Network Watcher
@@ -51,14 +49,14 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
-Om du redan har en aktiv nätverksbevakare i regionen Östra USA går du vidare till [Diagnostisera en gateway](#diagnose-a-gateway).
+Om du redan har en aktiv nätverksbevakare i regionen USA, östra går du vidare till [Diagnostisera en gateway](#diagnose-a-gateway).
 
-1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-communication-problem-between-networks/enable-network-watcher.png)
 
-3. Välj **Aktivera nätverksbevakaren**.
+3. Välj **Aktivera Network Watcher**.
 
 ## <a name="diagnose-a-gateway"></a>Diagnostisera en gateway
 

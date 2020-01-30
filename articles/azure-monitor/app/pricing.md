@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0a800a95d00e482b2342911111f43cfadb5a9c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406539"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845639"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -38,9 +38,9 @@ Det finns två sätt att hantera detta: användning av standard övervakning och
 
 ### <a name="data-collection-when-using-sampling"></a>Data insamling när du använder sampling
 
-Med ASP.NET SDK: s [anpassningsbara sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på fem händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
+Med ASP.NET SDK: s [anpassningsbara sampling](sampling.md#adaptive-sampling)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på fem händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
 
-För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagnings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), som exempel på hur data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling av fast pris för ASP.net, ASP.net Core och Java-webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) för att minska trafiken som skickas från webb servern och webbläsare
+För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagnings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling), som exempel på hur data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling av fast pris för ASP.net, ASP.net Core och Java-webbplatser](sampling.md#fixed-rate-sampling) för att minska trafiken som skickas från webb servern och webbläsare
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
 

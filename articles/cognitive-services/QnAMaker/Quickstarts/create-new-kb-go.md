@@ -10,16 +10,16 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/16/2019
 ms.author: diberry
-ms.openlocfilehash: 1039b72d5834ff837bcddd34d1d2c518364f96ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 483524520962b46a7c6cb1c1829c4a26227a1a8f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447623"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844287"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med hjälp av Go
 
-Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/data-sources-supported.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
+Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/knowledge-base.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
 
 Den här snabbstarten anropar API:er för QnA Maker:
 * [Skapa kunskapsbas](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create)
@@ -49,7 +49,7 @@ När du har lagt till nödvändiga beroenden lägger du till de konstanter som k
 
 Ställ in följande värden:
 
-* `<your-qna-maker-subscription-key>` – **nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal, på den QNA Maker resursen på sidan snabb start. Detta är inte samma som för förutsägelse slut punkts nyckel.
+* `<your-qna-maker-subscription-key>` – **nyckeln** är en 32 tecken sträng och är tillgänglig i Azure Portal, på QNA Maker resursen på snabb starts sidan. Detta är inte samma som för förutsägelse slut punkts nyckel.
 * `{your-resource-name}` – ditt **resurs namn** används för att skapa slut punkts-URL: en för redigering i formatet för `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Detta är inte samma URL som används för att fråga efter förutsägelse slut punkten.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
@@ -81,7 +81,7 @@ Lägg till följande funktioner för att göra en HTTP POST-begäran för att sk
 
 [!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
 
-Det här API-anropet returnerar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats.
+Detta API-anrop anropar ett JSON-svar som innehåller åtgärds-ID. Använd åtgärds-ID:t för att fastställa om KB har skapats.
 
 ```JSON
 {
@@ -127,7 +127,7 @@ go build create-new-knowledge-base.go
 
 ## <a name="run-the-program"></a>Köra programmet
 
-Ange följande kommando på en kommandorad för att köra programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut till konsolfönstret.
+Ange följande kommando på en kommandorad för att köra programmet. Begäran skickas till API:et för QnA Maker för att skapa KB, och sedan söker den efter resultat var 30:e sekund. Varje svar skrivs ut i konsolfönstret.
 
 ```bash
 go run create-new-knowledge-base

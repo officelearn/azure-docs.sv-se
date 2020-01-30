@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: b453a04a170764a037eed7415eaf71e5a4d37526
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098673"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844604"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Distribuera Event Grid IoT Edge modul
 
@@ -33,15 +33,17 @@ Det finns flera sätt att distribuera moduler till en IoT Edge-enhet och alla fu
 1. Klicka på mål enhetens ID i listan över enheter
 1. Välj **Ange moduler**. Låt sidan vara öppen. Du kommer att fortsätta med stegen i nästa avsnitt.
 
-### <a name="configure-a-deployment-manifest"></a>Konfigurera ett distributions manifest
+### <a name="configure-a-deployment-manifest"></a>Konfigurera ett manifest för distribution
 
-Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som ska distribueras, hur data flödar mellan moduler och önskade egenskaper för modulen. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Det finns tre steg: **Lägg till moduler**, **Ange vägar**och **Granska distribution**.
+Ett manifest för distribution är ett JSON-dokument som beskriver vilka moduler för att distribuera, hur data flödar mellan moduler och önskade egenskaper för modultvillingar. Azure Portal har en guide som vägleder dig genom att skapa ett distributions manifest i stället för att skapa JSON-dokumentet manuellt.  Den har tre steg: **Lägg till moduler**, **ange vägar**, och **granska distribution**.
 
 ### <a name="add-modules"></a>Lägg till moduler
 
 1. I avsnittet **distributions moduler** väljer du **Lägg till**
 1. Från typer av moduler i list rutan väljer du **IoT Edge modul**
 1. Ange namn, avbildning, behållarens skapande alternativ för behållaren:
+
+[!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
 
    * **Namn**: eventgridmodule
    * **Bild-URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
@@ -50,8 +52,8 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth:clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -78,8 +80,8 @@ Ett distributions manifest är ett JSON-dokument som beskriver vilka moduler som
 
 ### <a name="review-deployment"></a>Granska distribution
 
-1. I avsnittet granska visas JSON-distributions manifestet som skapades utifrån dina val i de föregående två avsnitten. Bekräfta att du ser de två modulerna i listan: **$edgeAgent** och **$edgeHub**. Dessa två moduler utgör den IoT Edge körningen och måste vara standardvärden i varje distribution.
-1. Granska distributions informationen och välj sedan **Skicka**.
+1. Granska avsnittet visas i du JSON-distributionen manifest som har skapats baserat på dina val i de föregående två avsnitt. Bekräfta att du ser de två modulerna i listan: **$edgeAgent** och **$edgeHub**. Dessa två moduler utgör den IoT Edge körningen och måste vara standardvärden i varje distribution.
+1. Granska information om din distribution, och välj sedan **skicka**.
 
 ### <a name="verify-your-deployment"></a>Verifiera distributionen
 

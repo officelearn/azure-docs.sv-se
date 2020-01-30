@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 50dd6e2387abbf5b24adcee708dd2ff387e33261
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660621"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845389"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Konfigurations-och hanterings problem för Azure Cloud Services: vanliga frågor och svar
 
@@ -174,11 +174,11 @@ Se [ny: konfigurerbar tids gräns för inaktivitet för Azure Load Balancer](htt
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>Hur gör jag för att associera en statisk IP-adress till min moln tjänst?
 Om du vill konfigurera en statisk IP-adress måste du skapa en reserverad IP-adress. Den här reserverade IP-adressen kan kopplas till en ny moln tjänst eller till en befintlig distribution. Mer information finns i följande dokument:
-* [Så här skapar du en reserverad IP-adress](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [Reservera IP-adressen för en befintlig moln tjänst](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [Koppla en reserverad IP-adress till en ny moln tjänst](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [Koppla en reserverad IP-adress till en distribution som körs](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [Så här skapar du en reserverad IP-adress](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
+* [Reservera IP-adressen för en befintlig moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+* [Koppla en reserverad IP-adress till en ny moln tjänst](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
+* [Koppla en reserverad IP-adress till en distribution som körs](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
+* [Koppla en reserverad IP-adress till en moln tjänst med hjälp av en tjänst konfigurations fil](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Vilka är de funktioner och funktioner som Azure Basic IP-adresser och DDOS tillhandahåller?
 Azure har IP-adresser/ID: n i Data Center fysiska servrar för att skydda mot hot. Dessutom kan kunderna distribuera säkerhetslösningar från tredje part, till exempel brand väggar för webb program, nätverks brand väggar, program mot skadlig kod, intrångs identifiering, skydds system (ID/IP-adresser) med mera. Mer information finns i [skydda dina data och till gångar och följa globala säkerhets standarder](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity).
@@ -219,7 +219,7 @@ Cloud Services stöder inte RBAC-modellen (rollbaserad åtkomst kontroll) efters
 
 Se [förstå de olika rollerna i Azure](../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-## <a name="remote-desktop"></a>Fjärrskrivbord
+## <a name="remote-desktop"></a>Fjärr skrivbord
 
 ### <a name="can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission"></a>Kan Microsoft Internal Engineers fjärr skrivbord till moln tjänst instanser utan behörighet?
 Microsoft följer en strikt process som inte tillåter interna tekniker att använda fjärr skrivbord i moln tjänsten utan skriftligt tillstånd (e-post eller annan skriftlig kommunikation) från ägaren eller deras utformning.

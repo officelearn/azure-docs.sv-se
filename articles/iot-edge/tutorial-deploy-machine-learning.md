@@ -9,34 +9,33 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 420db19a5ddcddfe37fa1a922e792fc0c8bc5b66
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5bfbf4a432f720b683ded4c85530135d86b24eba
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75912306"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773008"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Distribuera Azure Machine Learning som en IoT Edge-modul (förhandsversion)
 
-Använd Azure Notebooks för att utveckla en Machine Learning-modul och distribuera den till en Linux-enhet som kör Azure IoT Edge. 
-
+Använd Azure Notebooks för att utveckla en Machine Learning-modul och distribuera den till en Linux-enhet som kör Azure IoT Edge.
 Du kan använda IoT Edge-moduler för att distribuera kod som implementerar din affärslogik direkt till dina IoT Edge-enheter. Den här självstudiekursen vägleder dig genom processen att distribuera en Azure Machine Learning-modul som förutsäger när en enhet slutar fungera baserat på simulerade data om datortemperaturen. Mer information om Azure Machine Learning på IoT Edge finns i [Azure Machine Learning dokumentation](../machine-learning/how-to-deploy-and-where.md).
+
+>[!NOTE]
+>Azure Machine Learning-moduler på Azure IoT Edge finns i en allmänt tillgänglig förhandsversion.
 
 Azure Machine Learning-modulen som du skapar i den här självstudiekursen läser av miljödata som genereras av enheten och märker meddelandena som avvikande eller normala.
 
 I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
+>
 > * Skapa en Azure Machine Learning-modul
 > * Push-överför en modulbehållare till ett Azure-containerregister
 > * Distribuera Azure Machine Learning-modul till din IoT Edge-enhet
 > * Visa genererade data
 
->[!NOTE]
->Azure Machine Learning-moduler på Azure IoT Edge finns i en allmänt tillgänglig förhandsversion.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 
 ## <a name="prerequisites"></a>Krav
 
@@ -50,21 +49,19 @@ Molnresurser:
 
 * En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 * En Azure Machine Learning-arbetsyta. Följ anvisningarna i [använda Azure Portal för att komma igång med Azure Machine Learning](../machine-learning/tutorial-1st-experiment-sdk-setup.md) för att skapa en och lär dig hur du använder den.
-   * Anteckna arbets ytans namn, resurs grupp och prenumerations-ID. Dessa värden är alla tillgängliga i Översikt över arbets ytan i Azure Portal. Du kommer att använda dessa värden senare i självstudien för att ansluta en Azure-anteckningsbok till arbets ytans resurser. 
-
+  * Anteckna arbets ytans namn, resurs grupp och prenumerations-ID. Dessa värden är alla tillgängliga i Översikt över arbets ytan i Azure Portal. Du kommer att använda dessa värden senare i självstudien för att ansluta en Azure-anteckningsbok till arbets ytans resurser.
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Skapa och Distribuera Azure Machine Learning modul
 
 I det här avsnittet konverterar du tränade Machine Learning-modeller och till en Azure Machine Learning behållare. Alla komponenter som krävs för dockeravbildningen finns i [AI Toolkit for Azure IoT Edge Git repo](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial) (AI-verktyg för Azure IoT Edge Git-lagringsplats). Följ de här stegen för att ladda upp lagrings platsen till Microsoft Azure Notebooks för att skapa behållaren och skicka den till Azure Container Registry.
 
-
 1. Navigera till dina Azure Notebooks-projekt. Du kan komma dit från din Azure Machine Learning arbets yta i [Azure Portal](https://portal.azure.com) eller genom att logga in på [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects) med ditt Azure-konto.
 
 2. Välj **Ladda upp GitHub lagrings platsen**.
 
-3. Ange följande namn på GitHub-databasen: `Azure/ai-toolkit-iot-edge`. Avmarkera den **offentliga** rutan om du vill hålla ditt projekt privat. Välj **Importera**. 
+3. Ange följande namn på GitHub-databasen: `Azure/ai-toolkit-iot-edge`. Avmarkera den **offentliga** rutan om du vill hålla ditt projekt privat. Välj **Importera**.
 
-4. När importen är färdig navigerar du till det nya **AI-Toolkit-IoT-Edge** -projektet och öppnar mappen **IoT Edge självstudie för avvikelse identifiering** . 
+4. När importen är färdig navigerar du till det nya **AI-Toolkit-IoT-Edge** -projektet och öppnar mappen **IoT Edge självstudie för avvikelse identifiering** .
 
 5. Kontrol lera att projektet körs. Annars väljer du **kör på kostnads fri beräkning**.
 
@@ -72,7 +69,7 @@ I det här avsnittet konverterar du tränade Machine Learning-modeller och till 
 
 6. Öppna filen **aml_config/config.JSON** .
 
-7. Redigera konfigurations filen så att den innehåller värdena för ditt Azure-prenumerations-ID, en resurs grupp i din prenumeration och din Azure Machine Learning arbets ytans namn. Du kan hämta alla dessa värden från **översikts** avsnittet på din arbets yta i Azure. 
+7. Redigera konfigurations filen så att den innehåller värdena för ditt Azure-prenumerations-ID, en resurs grupp i din prenumeration och din Azure Machine Learning arbets ytans namn. Du kan hämta alla dessa värden från **översikts** avsnittet på din arbets yta i Azure.
 
 8. Spara konfigurations filen.
 
@@ -85,31 +82,31 @@ I det här avsnittet konverterar du tränade Machine Learning-modeller och till 
 12. Kör cellerna i antecknings boken genom att markera dem och välja **Kör** eller tryck på `Shift + Enter`.
 
     >[!TIP]
-    >Några av cellerna i själv studie kursen om avvikelse identifiering är valfria, eftersom de skapar resurser som vissa användare kan eller ännu inte har, till exempel en IoT Hub. Om du infogar din befintliga resursinformation i den första cellen får du fel meddelanden om du kör cellerna som skapar nya resurser eftersom Azure inte skapar några dubbla resurser. Detta är bra och du kan ignorera felen eller hoppa över dessa valfria avsnitt helt och hållet. 
+    >Några av cellerna i själv studie kursen om avvikelse identifiering är valfria, eftersom de skapar resurser som vissa användare kan eller ännu inte har, till exempel en IoT Hub. Om du infogar din befintliga resursinformation i den första cellen får du fel meddelanden om du kör cellerna som skapar nya resurser eftersom Azure inte skapar några dubbla resurser. Detta är bra och du kan ignorera felen eller hoppa över dessa valfria avsnitt helt och hållet.
 
-Genom att slutföra alla steg i antecknings boken har du tränat en avvikelse identifierings modell, skapat den som en Docker-behållar avbildning och publicerade avbildningen till Azure Container Registry. Sedan testade du modellen och distribuerar den slutligen till din IoT Edge-enhet. 
+Genom att slutföra alla steg i antecknings boken har du tränat en avvikelse identifierings modell, skapat den som en Docker-behållar avbildning och publicerade avbildningen till Azure Container Registry. Sedan testade du modellen och distribuerar den slutligen till din IoT Edge-enhet.
 
 ## <a name="view-container-repository"></a>Visa behållarens lagrings plats
 
-Kontrol lera att behållar avbildningen har skapats och lagrats i Azure Container Registry som är associerat med din Machine Learning-miljö. Den antecknings bok som du använde i föregående avsnitt angav automatiskt behållar avbildningen och autentiseringsuppgifterna för din IoT Edge enhet, men du bör veta var de lagras så att du kan hitta informationen igen senare. 
+Kontrol lera att behållar avbildningen har skapats och lagrats i Azure Container Registry som är associerat med din Machine Learning-miljö. Den antecknings bok som du använde i föregående avsnitt angav automatiskt behållar avbildningen och autentiseringsuppgifterna för din IoT Edge enhet, men du bör veta var de lagras så att du kan hitta informationen igen senare.
 
-1. I [Azure Portal](https://portal.azure.com)navigerar du till Machine Learning service-arbetsytan. 
+1. I [Azure Portal](https://portal.azure.com)navigerar du till Machine Learning service-arbetsytan.
 
-2. I **översikts** avsnittet visas information om arbets ytan och dess tillhör ande resurser. Välj **registervärdet** , som ska vara namnet på din arbets yta följt av slumpmässiga tal. 
+2. I **översikts** avsnittet visas information om arbets ytan och dess tillhör ande resurser. Välj **registervärdet** , som ska vara namnet på din arbets yta följt av slumpmässiga tal.
 
-3. I behållar registret väljer du **databaser**. Du bör se en databas med namnet **tempanomalydetection** som har skapats av den antecknings bok som du körde i föregående avsnitt. 
+3. I behållar registret väljer du **databaser**. Du bör se en databas med namnet **tempanomalydetection** som har skapats av den antecknings bok som du körde i föregående avsnitt.
 
-4. Välj **tempanomalydetection**. Du bör se att lagrings platsen har en tagg: **1**. 
+4. Välj **tempanomalydetection**. Du bör se att lagrings platsen har en tagg: **1**.
 
-   Nu när du känner till register namnet, databas namnet och taggen, känner du till den fullständiga avbildnings Sök vägen för behållaren. Bild Sök vägar ser ut som **\<registry_name\>. azurecr.io/tempanomalydetection:1**. Du kan använda avbildningssökvägen för att distribuera containern till IoT Edge-enheter. 
+   Nu när du känner till register namnet, databas namnet och taggen, känner du till den fullständiga avbildnings Sök vägen för behållaren. Bild Sök vägar ser ut som **\<registry_name\>. azurecr.io/tempanomalydetection:1**. Du kan använda avbildnings Sök vägen för att distribuera behållaren till IoT Edge enheter.
 
 5. I behållar registret väljer du **åtkomst nycklar**. Du bör se ett antal autentiseringsuppgifter, till exempel **inloggnings Server** och **användar namn**och **lösen ord** för en administratörs användare.
 
-   Dessa autentiseringsuppgifter kan ingå i distributionsmanifestet så att IoT Edge-enheten kan hämta containeravbildningar från registret. 
+   Dessa autentiseringsuppgifter kan inkluderas i distributions manifestet för att ge din IoT Edge enhet åtkomst till att hämta behållar avbildningar från registret.
 
-Nu vet du var Machine Learning behållar avbildningen lagras. Nästa avsnitt går igenom stegen för att Visa behållaren som körs som en modul på din IoT Edge-enhet. 
+Nu vet du var Machine Learning behållar avbildningen lagras. Nästa avsnitt går igenom stegen för att Visa behållaren som körs som en modul på din IoT Edge-enhet.
 
-## <a name="view-generated-data"></a>Visa genererade data
+## <a name="view-the-generated-data"></a>Visa genererade data
 
 Du kan visa meddelanden som skapas av varje IoT Edge-modul och du kan visa meddelanden som skickas till din IoT Hub.
 
@@ -147,7 +144,7 @@ Följande steg visar hur du ställer in Visual Studio Code för att övervaka me
 
 4. Välj **...** igen och välj **starta övervakning inbyggd händelse slut punkt**.
 
-5. Kontrollera meddelandena som kommer från tempSensor var femte sekund. Meddelandena innehåller egenskapen **anomaly**, som machinelearningmodule tilldelar värdet true eller false. Egenskapen **AzureMLResponse** innehåller värdet "OK" om modellen har körts med lyckat resultat.
+5. Kontrollera meddelandena som kommer från tempSensor var femte sekund. Meddelande texten innehåller en egenskap som kallas **avvikelse**, som machinelearningmodule ger med värdet true eller false. Egenskapen **AzureMLResponse** innehåller värdet "OK" om modellen har körts med lyckat resultat.
 
    ![Azure Machine Learning svar i meddelande texten](./media/tutorial-deploy-machine-learning/ml-output.png)
 

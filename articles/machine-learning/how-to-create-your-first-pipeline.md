@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5b2fa550029c35ca989d6746254298cf1e92992d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 01ab09383a29db38d2ce8c7c513bed76aafcc44a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75764583"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845934"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -40,7 +40,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan
 * [Konfigurera utvecklings miljön](how-to-configure-environment.md) för att installera Azure Machine Learning SDK eller använd en [Azure Machine Learning beräknings instans (för hands version)](concept-compute-instance.md) med SDK redan installerad.
 
 > [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+> Beräknings instanser är endast tillgängliga för arbets ytor med **norra centrala USA**, * * östra USA 2 * *, **nord Europa** eller **Storbritannien, södra**.
 >Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
 
 Börja med att koppla din arbets yta:

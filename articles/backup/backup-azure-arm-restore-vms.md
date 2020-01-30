@@ -4,18 +4,18 @@ description: Återställa en virtuell Azure-dator från en återställnings punk
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 98101639d82ede2a6c625ea9da413bcf93f6a185
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d0b2e85fa3dfb0168c40c6b8838c7b9890c92ab6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753932"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844015"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
 Den här artikeln beskriver hur du återställer virtuella Azure-Datadata från återställnings punkterna som lagras i [Azure Backup](backup-overview.md) Recovery Services valv.
 
-## <a name="restore-options"></a>Återställningsalternativ
+## <a name="restore-options"></a>Återställnings alternativ
 
 Azure Backup erbjuder ett antal olika sätt att återställa en virtuell dator.
 
@@ -57,7 +57,7 @@ Om du inte har behörighet kan du [återställa en disk](#restore-disks)och seda
 2. Klicka på en virtuell dator. Återställnings punkter från de senaste 30 dagarna visas som standard på VM-instrumentpanelen. Du kan visa återställnings punkter som är äldre än 30 dagar eller filtrera för att hitta återställnings punkter baserat på datum, tidsintervall och olika typer av ögonblicks bilds konsekvens.
 3. Klicka på **Återställ virtuell dator**om du vill återställa den virtuella datorn.
 
-    ![Återställningspunkt](./media/backup-azure-arm-restore-vms/restore-point.png)
+    ![Återställnings punkt](./media/backup-azure-arm-restore-vms/restore-point.png)
 
 4. Välj en återställnings punkt som ska användas för återställningen.
 
@@ -159,7 +159,7 @@ Användar upplevelsen för sekundär regions återställning liknar den primära
 
 ![Välj den virtuella dator som ska återställas](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
-![Välj återställningspunkt](./media/backup-azure-arm-restore-vms/sec-rp.png)
+![Välj återställnings punkt](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
 ![Återställ konfiguration](./media/backup-azure-arm-restore-vms/rest-config.png)
 
@@ -214,7 +214,7 @@ När du har utlöst återställnings åtgärden skapar säkerhets kopierings tj�
 Det finns ett antal saker att notera när du återställer en virtuell dator:
 
 - Tillägg som finns under säkerhets kopierings konfigurationen installeras, men är inte aktiverade. Om du ser ett problem installerar du om tilläggen.
-- Om den säkerhetskopierade virtuella datorn har en statisk IP-adress, kommer den återställda virtuella datorn ha en dynamisk IP-adress för att undvika konflikter. Du kan [lägga till en statisk IP-adress till den återställda virtuella datorn](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
+- Om den säkerhetskopierade virtuella datorn har en statisk IP-adress, kommer den återställda virtuella datorn ha en dynamisk IP-adress för att undvika konflikter. Du kan [lägga till en statisk IP-adress till den återställda virtuella datorn](/previous-versions/azurevirtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm).
 - Det finns ingen tillgänglighets uppsättning för en återställd virtuell dator. Om du använder alternativet för att återställa diskar kan du [Ange en tillgänglighets uppsättning](../virtual-machines/windows/tutorial-availability-sets.md) när du skapar en virtuell dator från disken med hjälp av den angivna mallen eller PowerShell.
 - Om du använder en Cloud-Init-baserad Linux-distribution, till exempel Ubuntu, av säkerhets skäl, blockeras lösen ordet efter återställningen. Använd tillägget VMAccess på den återställda virtuella datorn för att [återställa lösen ordet](../virtual-machines/linux/reset-password.md). Vi rekommenderar att du använder SSH-nycklar på dessa distributioner, så du behöver inte återställa lösen ordet efter återställningen.
 - Om du inte kan komma åt den virtuella datorn när den har återställts på grund av att den virtuella datorn har brutit relationer med domänkontrollanten följer du stegen nedan för att öppna den virtuella datorn:

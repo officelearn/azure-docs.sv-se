@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f45859370ae178fb186399fdd2648bf37f0985aa
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910911"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844759"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>Självstudie: dirigera elektriska bilar med Azure Notebooks (python)
 
@@ -22,7 +22,7 @@ Azure Maps är en portfölj med geospatiala tjänst-API: er som är internt inte
 
 Azure Maps REST-API: er kan anropas från språk som python och R för att aktivera geospatiala data analyser och maskin inlärnings scenarier. Azure Maps erbjuder en robust uppsättning [routnings-API: er](https://docs.microsoft.com/rest/api/maps/route) som gör att användarna kan beräkna vägar mellan flera data punkter. Beräkningarna baseras på olika villkor, till exempel fordons typ eller nåbart utrymme. 
 
-I den här självstudien får du gå igenom ett scenario som hjälper dig att hjälpa en driv rutin vars batteri avgift för el fordonet är låg för att hitta den närmaste möjliga laddnings stationen, baserat på enhets tiden från fordonets plats.
+I den här självstudien får du hjälp med att gå igenom en driv rutin vars batteri batteri är låg. Driv rutinen måste hitta den närmaste möjliga laddnings stationen från fordonets plats.
 
 I den här kursen ska du:
 
@@ -39,7 +39,7 @@ I den här kursen ska du:
 
 För att slutföra den här självstudien måste du först skapa ett Azure Maps konto och hämta din primär nyckel (prenumerations nyckel). 
 
-Om du vill skapa en Azure Maps konto prenumeration på pris nivån S1, följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) för att skapa en Azure Maps konto prenumeration med pris nivån S1. 
+Om du vill skapa en Azure Maps konto prenumeration följer du instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps). Du behöver en Azure Maps konto prenumeration med pris nivån S1. 
 
 Följ anvisningarna i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account)för att hämta den primära prenumerations nyckeln för ditt konto.
 
@@ -64,7 +64,7 @@ Om du vill följa med i den här självstudien måste du skapa ett Azure Noteboo
 
 1. Välj **Skapa**.
 
-1. När projektet har skapats laddar du ned [dokument filen Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook). 
+1. När projektet har skapats kan du ladda ned den här [dokument filen för Jupyter Notebook](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook).
 
 1. I listan projekt på sidan **Mina projekt** väljer du ditt projekt och väljer sedan **Ladda upp** för att överföra dokument filen Jupyter Notebook. 
 
@@ -72,15 +72,15 @@ Om du vill följa med i den här självstudien måste du skapa ett Azure Noteboo
 
 1. Ladda upp filen från datorn och välj sedan **slutförd**.
 
-1. När överföringen har slutförts visas filen på projekt sidan. Välj filen för att öppna den som en Jupyter Notebook.
+1. När överföringen har slutförts visas filen på projekt sidan. Dubbelklicka på filen för att öppna den som en Jupyter Notebook.
 
-För att hjälpa dig att bättre förstå de funktioner som implementeras i Notebook-filen rekommenderar vi att du kör koden i antecknings boken en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i appen Notebook.
+Du kan få bättre förståelse för de funktioner som implementeras i Notebook-filen genom att köra koden i antecknings boken en cell i taget. Du kan köra koden i varje cell genom att klicka på knappen **Kör** överst i appen Notebook.
 
   ![Knappen Kör](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>Installera på paket i projektet
 
-Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att göra följande:
+Om du vill köra koden i antecknings boken installerar du paket på projekt nivå genom att utföra följande steg:
 
 1. Hämta filen [*Requirements. txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) från [Azure Maps Jupyter Notebook-lagringsplatsen](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)och ladda sedan upp den till projektet.
 1. På instrumentpanelen för projektet väljer **Projektinställningar**. 
@@ -95,9 +95,9 @@ Om du vill köra koden i antecknings boken installerar du paket på projekt niv�
 
 ## <a name="load-the-required-modules-and-frameworks"></a>Läs in de nödvändiga modulerna och ramverken
 
-Kör följande skript för att läsa in alla nödvändiga moduler och ramverk:
+Om du vill läsa in alla nödvändiga moduler och ramverk kör du följande skript.
 
-```python
+```Python
 import time
 import aiohttp
 import urllib.parse
@@ -106,9 +106,9 @@ from IPython.display import Image, display
 
 ## <a name="request-the-reachable-range-boundary"></a>Begär det nåbara Intervallets gränser
 
-I vårt scenario har ett paket leverans företag några elektriska fordon i sin flotta. Under dagen måste elektriska fordon debiteras igen utan att behöva gå tillbaka till lagret. Varje gång den aktuella återstående avgiften sjunker till mindre än en timme (det vill säga batteriet har låg belastning), söker du efter en uppsättning debiterings stationer som ligger inom ett nåbart intervall och hämtar gräns informationen för intervallet. 
+Ett paket leverans företag har vissa elektriska fordon i sin flotta. Under dagen måste elektriska fordon debiteras igen utan att behöva gå tillbaka till lagret. Varje gång den återstående avgiften sjunker till mindre än en timme söker du efter en uppsättning med debiterings stationer som ligger inom ett nåbart intervall. I princip kan du söka efter en laddnings Station när batteriet har låg belastning. Och du får information om gränserna för det intervallet av debiterings stationer. 
 
-Eftersom företaget föredrar att använda vägar som kräver en balans mellan ekonomi och hastighet, är det begärda routeType ett *eko*kort. Följande skript anropar [API: t för att hämta väg intervall](https://docs.microsoft.com/rest/api/maps/route/getrouterange) för Azure Maps routningstjänsten genom att använda parametrar för fordonets förbruknings modell. Skriptet tolkar sedan svaret för att skapa ett polygon-objekt i det interjson-format som representerar Car: s maximala räckvidd.
+Eftersom företaget föredrar att använda vägar som kräver en balans mellan ekonomi och hastighet, är det begärda routeType ett *eko*kort. Följande skript anropar [API: t för att hämta väg intervall](https://docs.microsoft.com/rest/api/maps/route/getrouterange) för Azure Maps-routningstjänsten. Den använder parametrar för fordonets förbruknings modell. Skriptet tolkar sedan svaret för att skapa ett polygon-objekt i det interjson-format som representerar Car: s maximala räckvidd.
 
 Du kan fastställa gränserna för det tillgängliga intervallet för det elektriska fordonet genom att köra skriptet i följande cell:
 
@@ -173,7 +173,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Ladda upp det nåbara intervallet och debitera platser för Azure Maps data tjänst
 
-Du vill visualisera på en karta över debiterings stationerna och gränsen för det elektriska fordonets maximala räckvidd. Det gör du genom att ladda upp data om gränser och debitera Stations data som JSON-objekt för att Azure Maps data tjänsten med hjälp av [API: et för data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
+På en karta vill du visualisera debiterings stationerna och gränsen för det elektriska fordonets maximala räckvidd. Det gör du genom att ladda upp data om gränser och debitera Stations data som JSON-objekt för att Azure Maps data tjänst. Använd [API för data uppladdning](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). 
 
 Om du vill överföra data för gränser och debiterings plats till Azure Maps data tjänst kör du följande två celler:
 
@@ -239,7 +239,7 @@ poiUdid = getPoiUdid["udid"]
 
 ## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>Återge debiterings stationer och nåbart intervall på en karta
 
-När du har laddat upp data till data tjänsten anropar du Azure Maps [Hämta avbildnings tjänsten](https://docs.microsoft.com/rest/api/maps/render/getmapimage) för att återge debiterings punkterna och den maximalt tillgängliga gränsen på den statiska kart bilden genom att köra följande skript:
+När du har överfört data till data tjänsten anropar du Azure Maps [Hämta avbildnings tjänst](https://docs.microsoft.com/rest/api/maps/render/getmapimage). Den här tjänsten används för att återge debiterings punkterna och den maximalt tillgängliga gränsen på den statiska kart bilden genom att köra följande skript:
 
 ```python
 # Get boundaries for the bounding box.
@@ -281,9 +281,9 @@ display(Image(poiRangeMap))
 
 ## <a name="find-the-optimal-charging-station"></a>Hitta den optimala laddnings stationen
 
-När du har bestämt alla potentiella avgifts stationer inom det nåbara intervallet vill du veta vilken av dem som kan nås inom en kort tid. 
+Först vill du fastställa alla potentiella avgifts stationer inom det nåbara intervallet. Sedan vill du veta vilken av dem som kan nås inom kort tid. 
 
-Följande skript anropar Azure Maps [mat ris routnings-API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix), som returnerar för den angivna fordons platsen res tiden och avståndet till varje laddnings Station. Skriptet i nästa cell tolkar svaret för att hitta den närmast tillgängliga avgifts stationen med avseende på tid.
+Följande skript anropar API: [et för Azure Maps mat ris routning](https://docs.microsoft.com/rest/api/maps/route/postroutematrix). Den returnerar den angivna fordons platsen, res tiden och avståndet till varje laddnings Station. Skriptet i nästa cell tolkar svaret för att hitta den närmast tillgängliga avgifts stationen med avseende på tid.
 
 Kör skriptet i följande cell för att hitta den närmaste tillgängliga avgifts stationen som kan nås i minst tids period:
 
@@ -336,7 +336,7 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>Visualisera vägen
 
-För att visualisera vägen laddar du först upp flödes data som ett interjson-objekt för att Azure Maps data tjänsten med hjälp av Azure Maps [data överförings-API: et](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Sedan anropar du åter givnings tjänsten, [Hämta avbildnings-API](https://docs.microsoft.com/rest/api/maps/render/getmapimage)för att rendera vägen på kartan och visualisera den.
+För att visualisera vägen laddar du först upp flödes data som ett interjson-objekt för att Azure Maps data tjänst. Det gör du med hjälp av API: et för Azure Maps [data överföring](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Anropa sedan åter givnings tjänsten, [Hämta avbildnings-API](https://docs.microsoft.com/rest/api/maps/render/getmapimage)för att rendera vägen på kartan och visualisera den.
 
 Kör följande skript för att hämta en avbildning för den återgivna vägen på kartan:
 

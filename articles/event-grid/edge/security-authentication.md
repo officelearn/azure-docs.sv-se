@@ -9,18 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 77b4b265b2e993ccdbc9e07fd2dab5a37ed22a6b
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5dfa17fd702b76e2cfaa7a91066dbc6749c1069e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992163"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844521"
 ---
 # <a name="security-and-authentication"></a>Säkerhet och autentisering
 
 Säkerhet och autentisering är ett avancerat begrepp och det kräver att du först Event Grid grunderna. Börja [här](concepts.md) om du är nybörjare på Event Grid IoT Edge. Event Grid-modulen bygger på den befintliga säkerhets infrastrukturen på IoT Edge. Mer information och konfiguration finns i [den här dokumentationen](../../iot-edge/security.md) .
 
-I följande avsnitt beskrivs hur de här inställningarna skyddas och autentiseras:-
+I följande avsnitt beskrivs hur de här inställningarna skyddas och autentiseras:
 
 * TLS-konfiguration
 * Inkommande klientautentisering
@@ -37,7 +37,7 @@ I följande avsnitt beskrivs hur de här inställningarna skyddas och autentiser
 
 Event Grid modul är värd för både HTTP-och HTTPS-slutpunkter. Varje IoT Edge modul tilldelas ett Server certifikat av IoT Edges säkerhets daemon. Vi använder Server certifikatet för att skydda slut punkten. Vid förfallo datum uppdateras modulen automatiskt med ett nytt certifikat från IoT Edge Security daemon.
 
-Som standard tillåts endast HTTPS-kommunikation. Du kan åsidosätta det här beteendet via **inkommande: serverAuth: tlsPolicy** -konfiguration. Följande tabell innehåller de möjliga värdena för den här egenskapen.
+Som standard tillåts endast HTTPS-kommunikation. Du kan åsidosätta det här beteendet via **inbound__serverAuth__tlsPolicy** konfiguration. Följande tabell innehåller de möjliga värdena för den här egenskapen.
 
 | Möjliga värde (n) | Beskrivning |
 | ---------------- | ------------ |
@@ -49,29 +49,29 @@ Som standard tillåts endast HTTPS-kommunikation. Du kan åsidosätta det här b
 
 Klienter är enheter som utför hanterings-och/eller körnings åtgärder. Klienter kan vara andra IoT Edge moduler, icke-IoT-program.
 
-Event Grid-modulen stöder två typer av klientautentisering:-
+Event Grid-modulen stöder två typer av klientautentisering:
 
 * Signaturer för delad åtkomst (SAS)
-* certifikatbaserad
+* Certifikatbaserad
 
 Som standard är Event Grid-modulen konfigurerad att endast godkänna certifikatbaserad autentisering. Vid start hämtar Event Grid-modulen "TrustBundle" från IoT Edge Security daemon och använder den för att verifiera eventuella klient certifikat. Klient certifikat som inte matchar den här kedjan kommer att avvisas med `UnAuthorized`.
 
 ### <a name="certificate-based-client-authentication"></a>Certifikatbaserad klientautentisering
 
-Certifikatbaserad autentisering är aktiverat som standard. Du kan välja att inaktivera certifikatbaserad autentisering via egenskapen **inkommande: clientAuth: clientCert: Enabled**. Följande tabell innehåller möjliga värden.
+Certifikatbaserad autentisering är aktiverat som standard. Du kan välja att inaktivera certifikatbaserad autentisering via egenskaps **inbound__clientAuth__clientCert__enabled**. Följande tabell innehåller möjliga värden.
 
 | Möjliga värde (n) | Beskrivning |
 | ----------------  | ------------ |
-| sant | Standard. Kräver att alla begär anden i Event Grid-modulen visar ett klient certifikat. Dessutom måste du konfigurera **inkommande: clientAuth: clientCert: Source**.
+| sant | Standard. Kräver att alla begär anden i Event Grid-modulen visar ett klient certifikat. Dessutom måste du konfigurera **inbound__clientAuth__clientCert__source**.
 | false | Tvinga inte en klient att presentera certifikatet.
 
-Följande tabell innehåller möjliga värden för **inkommande: clientAuth: clientCert: Source**
+Följande tabell innehåller möjliga värden för **inbound__clientAuth__clientCert__source**
 
 | Möjliga värde (n) | Beskrivning |
 | ---------------- | ------------ |
 | IoT Edge | Standard. Använder IoT Edgeens Trustbundle för att validera alla klient certifikat.
 
-Om en klient presenterar en självsignerad, kommer Event Grid-modulen som standard att avvisa sådana begär Anden. Du kan välja att tillåta självsignerade klient certifikat via egenskapen **inkommande: clientAuth: clientCert: allowUnknownCA** . Följande tabell innehåller möjliga värden.
+Om en klient presenterar en självsignerad, kommer Event Grid-modulen som standard att avvisa sådana begär Anden. Du kan välja att tillåta självsignerade klient certifikat via **inbound__clientAuth__clientCert__allowUnknownCA** egenskap. Följande tabell innehåller möjliga värden.
 
 | Möjliga värde (n) | Beskrivning |
 | ----------------  | ------------|
@@ -79,20 +79,20 @@ Om en klient presenterar en självsignerad, kommer Event Grid-modulen som standa
 | false | Får inga förfrågningar om självsignerade certifikat visas.
 
 >[!IMPORTANT]
->I produktions scenarier kanske du vill ange **inkommande: clientAuth: clientCert: allowUnknownCA** till **false**.
+>I produktions scenarier kanske du vill ange **inbound__clientAuth__clientCert__allowUnknownCA** till **falskt**.
 
 ### <a name="sas-key-based-client-authentication"></a>SAS-nyckelbaserad klientautentisering
 
 Förutom certifikatbaserad autentisering kan Event Grid-modulen också utföra SAS-baserad autentisering. SAS-nyckeln är som en hemlighet som kon figurer ATS i Event Grid-modulen som den ska använda för att validera alla inkommande samtal. Klienter måste ange hemligheten i HTTP-huvudet "AEG-SAS-Key". Begäran kommer att avvisas med `UnAuthorized` om den inte matchar.
 
-Konfigurationen för att kontrol lera SAS-nyckelbaserad autentisering är **inkommande: clientAuth: sasKeys: Enabled**.
+Konfigurationen för att kontrol lera SAS-nyckelbaserad autentisering är **inbound__clientAuth__sasKeys__enabled**.
 
 | Möjliga värde (n) | Beskrivning  |
 | ----------------  | ------------ |
-| sant | Tillåter SAS-nyckelbaserad autentisering. Kräver **inkommande: clientAuth: sasKeys: KEY1** eller **inkommande: clientAuth: sasKeys: key2**
+| sant | Tillåter SAS-nyckelbaserad autentisering. Kräver **inbound__clientAuth__sasKeys__key1** eller **inbound__clientAuth__sasKeys__key2**
 | false | Standard. SAS-nyckelbaserad autentisering har inaktiverats.
 
- **inkommande: clientAuth: sasKeys: KEY1** och **inkommande: clientAuth: sasKeys: key2** är nycklar som du konfigurerar Event Grid-modulen för att kontrol lera mot inkommande begär Anden. Minst en av nycklarna måste konfigureras. Klienten som gör begäran måste presentera nyckeln som en del av begär ande rubriken "**AEG-SAS-Key**". Om båda nycklarna har kon figurer ATS kan klienten antingen visa en av nycklarna.
+ **inbound__clientAuth__sasKeys__key1** och **inbound__clientAuth__sasKeys__key2** är nycklar som du konfigurerar Event Grid-modulen för att kontrol lera mot inkommande begär Anden. Minst en av nycklarna måste konfigureras. Klienten som gör begäran måste presentera nyckeln som en del av begär ande rubriken "**AEG-SAS-Key**". Om båda nycklarna har kon figurer ATS kan klienten antingen visa en av nycklarna.
 
 > [!NOTE]
 >Du kan konfigurera båda metoderna för autentisering. I sådana fall är SAS-nyckeln först markerad och endast om det Miss lyckas utförs den certifikatbaserad autentiseringen. För att en begäran ska lyckas måste bara en av autentiseringsmetoderna lyckas.
@@ -103,14 +103,14 @@ Klienten i utgående kontext refererar till Event Grid modul. Åtgärden som utf
 
 Varje IoT Edge modul tilldelas ett identitets certifikat av IoT Edges säkerhets daemon. Vi använder identitets certifikatet för utgående samtal. Vid förfallo datum uppdateras modulen automatiskt med ett nytt certifikat från IoT Edge Security daemon.
 
-Konfigurationen för att kontrol lera utgående klientautentisering är **utgående: clientAuth: clientCert: Enabled**.
+Konfigurationen för att kontrol lera utgående klientautentisering är **outbound__clientAuth__clientCert__enabled**.
 
 | Möjliga värde (n) | Beskrivning |
 | ----------------  | ------------ |
-| sant | Standard. Kräver alla utgående begär Anden från Event Grid-modulen för att presentera ett certifikat. Måste konfigurera **utgående: clientAuth: clientCert: Source**.
+| sant | Standard. Kräver alla utgående begär Anden från Event Grid-modulen för att presentera ett certifikat. Måste konfigureras **outbound__clientAuth__clientCert__source**.
 | false | Kräv inte Event Grid modul för att presentera sitt certifikat.
 
-Konfigurationen som styr certifikatets källa är **utgående: clientAuth: clientCert: Source**.
+Konfigurationen som styr certifikatets källa är **outbound__clientAuth__clientCert__source**.
 
 | Möjliga värde (n) | Beskrivning |
 | ---------------- | ------------ |
@@ -120,21 +120,21 @@ Konfigurationen som styr certifikatets källa är **utgående: clientAuth: clien
 
 En av mål typerna för en Event Grid-prenumerant är "webhook". Som standard godkänns bara HTTPS-slutpunkter för sådana prenumeranter.
 
-Konfigurationen för att kontrol lera att webhookens mål princip har **utgående: webhook: httpsOnly**.
+Konfigurationen för att styra webhook-målservern **outbound__webhook__httpsOnly**.
 
 | Möjliga värde (n) | Beskrivning |
 | ----------------  | ------------ |
 | sant | Standard. Tillåter endast prenumeranter med HTTPS-slutpunkt.
 | false | Tillåter prenumeranter med antingen HTTP-eller HTTPS-slutpunkt.
 
-Som standard kommer Event Grid-modulen validera prenumerantens Server certifikat. Du kan hoppa över verifieringen genom att åsidosätta **utgående: webhook: skipServerCertValidation**. Möjliga värden är:-
+Som standard kommer Event Grid-modulen validera prenumerantens Server certifikat. Du kan hoppa över verifieringen genom att åsidosätta **outbound__webhook__skipServerCertValidation**. Möjliga värden:
 
 | Möjliga värde (n) | Beskrivning |
 | ----------------  | ------------ |
 | sant | Verifiera inte prenumerantens Server certifikat.
 | false | Standard. Verifiera prenumerantens Server certifikat.
 
-Om prenumerantens certifikat är självsignerat avvisar som standard Event Grid-modulen sådana prenumeranter. Om du vill tillåta självsignerade certifikat kan du åsidosätta **utgående: webhook: allowUnknownCA**. Följande tabell innehåller möjliga värden.
+Om prenumerantens certifikat är självsignerat avvisar som standard Event Grid-modulen sådana prenumeranter. Om du vill tillåta självsignerade certifikat kan du åsidosätta **outbound__webhook__allowUnknownCA**. Följande tabell innehåller möjliga värden.
 
 | Möjliga värde (n) | Beskrivning |
 | ----------------  | ------------ |
@@ -142,7 +142,7 @@ Om prenumerantens certifikat är självsignerat avvisar som standard Event Grid-
 | false | Får inga förfrågningar om självsignerade certifikat visas.
 
 >[!IMPORTANT]
->I produktions scenarier ska du ange **utgående: webhook: allowUnknownCA** till **false**.
+>I produktions scenarier ska du ange **outbound__webhook__allowUnknownCA** till **falskt**.
 
 > [!NOTE]
 >IoT Edge-miljön genererar självsignerade certifikat. Rekommendation är att generera certifikat som utfärdats av auktoriserade certifikat utfärdare för produktions arbets belastningar och ange egenskapen **allowUnknownCA** på både inkommande och utgående till **false**.
@@ -151,7 +151,7 @@ Om prenumerantens certifikat är självsignerat avvisar som standard Event Grid-
 
 En Event Grid modul är **säker som standard**. Vi rekommenderar att du behåller dessa standardinställningar för dina produktions distributioner.
 
-Följande är de GUID-principer som ska användas när du konfigurerar:-
+Följande är de GUID-principer som du kan använda när du konfigurerar:
 
 * Tillåt endast HTTPS-begäranden till modulen.
 * Tillåt endast certifikatbaserad klientautentisering. Tillåt endast de certifikat som utfärdas av välkända certifikat utfärdare. Tillåt inte självsignerade certifikat.
@@ -160,22 +160,22 @@ Följande är de GUID-principer som ska användas när du konfigurerar:-
 * Tillåt endast HTTPS-prenumeranter för webhook-destinations typer.
 * Verifiera alltid prenumerantens Server certifikat för mål typerna för webhook. Tillåt endast certifikat som utfärdats av välkända certifikat utfärdare. Tillåt inte självsignerade certifikat.
 
-Som standard distribueras Event Grid-modulen med följande konfiguration:-
+Som standard distribueras Event Grid-modulen med följande konfiguration:
 
  ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "PortBindings": {

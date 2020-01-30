@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759507"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845886"
 ---
 # <a name="hyperscale-service-tier"></a>Hyperskalatjänstnivå
 
@@ -72,7 +72,7 @@ Storskalig Service Tier är endast tillgängligt i [vCore-modellen](sql-database
 
 - **Lagring**:
 
-  Du behöver inte ange den maximala data storleken när du konfigurerar en storskalig databas. På hyperskalenivå debiteras du för lagring av databasen baserat på faktisk allokering. Storage tilldelas automatiskt mellan 40 GB och 100 TB, i steg som justeras dynamiskt mellan 10 GB och 40 GB. En storskalig databas skapas med en start storlek på 10 GB och börjar växa med 10 GB var 10: e minut tills den når storleken på 40 GB.
+  Du behöver inte ange den maximala data storleken när du konfigurerar en storskalig databas. På hyperskalenivå debiteras du för lagring av databasen baserat på faktisk allokering. Storage tilldelas automatiskt mellan 40 GB och 100 TB, i 10 GB steg om 10 GB. Flera datafiler kan växa vid samma tidpunkt om det behövs. En storskalig databas skapas med en start storlek på 10 GB och börjar växa med 10 GB var 10: e minut tills den når storleken på 40 GB.
 
 Mer information om priser för storskalig prissättning finns [Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/)
 
@@ -117,8 +117,8 @@ En storskalig databas kan skapas med hjälp av [Azure Portal](https://portal.azu
 Följande T-SQL-kommando skapar en storskalig databas. Du måste ange både versions-och tjänst målet i `CREATE DATABASE`-instruktionen. Se [resurs gränserna](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) för en lista över giltiga tjänst mål.
 
 ```sql
--- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Create a Hyperscale Database
+CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 Då skapas en storskalig databas på Gen5-maskinvara med 4 kärnor.
@@ -130,8 +130,8 @@ Du kan flytta dina befintliga Azure SQL-databaser till skalning med hjälp av [A
 Följande T-SQL-kommando flyttar en databas till den storskaliga tjänst nivån. Du måste ange både versions-och tjänst målet i `ALTER DATABASE`-instruktionen.
 
 ```sql
--- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Alter a database to make it a Hyperscale Database
+ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
@@ -160,7 +160,7 @@ Om du behöver återställa en Azure SQL Database storskalig databas till en ann
 2. Följ anvisningarna i avsnittet [geo-återställning](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) på sidan om hur du återställer Azure SQL-databaser från automatiska säkerhets kopieringar.
 
 > [!NOTE]
-> Eftersom källan och målet är i olika regioner kan databasen inte dela lagring av ögonblicks bilder med käll databasen som i icke-geo-återställningar, som är mycket snabbt.  Om det finns en geo-återställning av en storskalig databas, är det en åtgärd för data storlek, även om målet är i det kopplade området för den geo-replikerade lagringen.  Det innebär att en geo-återställning tar tid som är proportionell till storleken på databasen som återställs.  Om målet är i den kopplade regionen kommer kopian att finnas i ett Data Center, vilket kommer att bli betydligt snabbare än med en lång kopia över Internet, men det kopierar fortfarande alla bitar.
+> Eftersom källan och målet är i olika regioner kan databasen inte dela lagring av ögonblicks bilder med käll databasen som i icke-geo-återställningar, som är mycket snabbt. Om det finns en geo-återställning av en storskalig databas, är det en åtgärd för data storlek, även om målet är i det kopplade området för den geo-replikerade lagringen.  Det innebär att en geo-återställning tar tid som är proportionell till storleken på databasen som återställs.  Om målet är i det kopplade området, kommer kopian att vara inom en region, vilket kommer att bli betydligt snabbare än en kopia i flera regioner, men det är fortfarande en data åtgärd.
 
 ## <a name=regions></a>Tillgängliga regioner
 

@@ -1,12 +1,9 @@
 ---
-title: Självstudie – logga flöde för nätverks trafik till och från en virtuell dator med hjälp av Azure Portal
-titleSuffix: Azure Network Watcher
-description: I den här självstudien får du lära dig hur du loggar nätverks trafikflöde till och från en virtuell dator med hjälp av Network Watcher NSG flödes loggar.
+title: Logga nätverkstrafik till och från en virtuell dator – Azure Portal | Microsoft Docs
+description: Lär dig hur du loggar nätverkstrafik till och från en virtuell dator med funktionen NSG-flödesloggar i Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -16,16 +13,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 7f4466b6f6de5028db8b62389c9d5ddbdafc9d62
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280993"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841020"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Självstudier: Logga nätverkstrafik till och från en virtuell dator med hjälp av Azure Portal
+
+> [!div class="op_single_selector"]
+> - [Azure-portalen](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [Azure Resource Manager](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 Med en nätverkssäkerhetsgrupp (NSG) kan du filtrera inkommande trafik till och utgående trafik från en virtuell dator (VM). Du kan logga nätverkstrafiken som skickas via en NSG med funktionen NSG-flödesloggar i Network Watcher. I den här guiden får du lära dig hur man:
 
@@ -61,7 +65,7 @@ Det tar några minuter att skapa den virtuella datorn. Fortsätt inte med stegen
 
 ## <a name="enable-network-watcher"></a>Aktivera Network Watcher
 
-Om du redan har aktiverat en nätverksbevakare i östra USA går du vidare till [Registrera Insights-providern](#register-insights-provider).
+Om du redan har aktiverat en nätverksbevakare i USA, östra går du vidare till [Registrera Insights-providern](#register-insights-provider).
 
 1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
@@ -93,7 +97,10 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
     | Location       | Välj **USA, östra**                                           |
     | Resursgrupp | Välj **Använd befintlig** och sedan **myResourceGroup**. |
 
-    Lagrings kontot måste finnas i samma region som NSG. Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats.     
+    Det tar ungefär en minut att skapa lagringskontot. Fortsätt inte med de återstående stegen förrän lagringskontot har skapats. Om du använder ett befintligt lagringskonto i stället för att skapa ett nytt väljer du ett lagringskonto där **Alla nätverk** (standard) har valts för **Brandväggar och virtuella nätverk** under **Inställningar** för lagringskontot. I samtliga fall måste lagrings kontot finnas i samma region som NSG.
+
+    > [!NOTE]
+    > Även om Microsoft. Insight och Microsoft. Networking-leverantörer stöds för närvarande som betrodda Microsoft-tjänster för Azure Storage, är NSG Flow-loggar fortfarande inte fullständigt installerade. Om du vill aktivera NSG flödes loggning måste **alla nätverk** fortfarande väljas tills den här funktionen har publicerats helt. 
 4. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 5. Välj **NSG-flödesloggar** under **LOGGAR**, som du ser i följande bild:
 
@@ -107,8 +114,9 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
 
 9. Välj lagringskontot som du skapade i steg 3.
    > [!NOTE]
-   > NSG flödes loggar fungerar inte med ett lagrings konto om:
-   > * Lagrings kontot har ett [hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) aktiverat.
+   > NSG flödes loggar fungerar inte med lagrings konton om:
+   > * Lagrings kontona har en brand vägg aktive rad.
+   > * [Hierarkiskt namn område](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) har Aktiver ATS för lagrings kontona.
 1. Välj **Alla tjänster** längst upp till vänster på portalen. Skriv *Network Watcher* i **filterrutan**. När **Network Watcher** visas i sökresultatet väljer du posten.
 10. Ange **Bevarande (dagar)** till 5 och välj sedan **Spara**.
 
@@ -120,10 +128,10 @@ Providern **Microsoft.Insights** krävs för NSG-flödesloggning. Registrera pro
    ![Ladda ned flödesloggar](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Välj lagringskontot som du konfigurerade i steg 2 i [Aktivera NSG-flödesloggar](#enable-nsg-flow-log).
-4. Under **BLOB service**väljer du **behållare**och väljer sedan behållaren **Insights-logs-networksecuritygroupflowevent** .
+4. Under **BLOB service**väljer du **blobbar**och väljer sedan behållaren **Insights-logs-networksecuritygroupflowevent** .
 5. I behållaren navigerar du till mapphierarkin tills du kommer till en PT1H. JSON-fil, som du ser i bilden nedan. Loggfiler skrivs till en mapphierarki som följer följande namngivnings konvention: https://{storageAccountName}. blob. Core. Windows. net/Insights-logs-networksecuritygroupflowevent/resourceId =/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y = {Year}/m = {månad}/d = {Day}/h = {Hour}/m = 00/macAddress = {macAddress}/PT1H.json
 
-   ![Flödeslogg](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
+   ![Flödes logg](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Välj **...** till höger om PT1H.json-filen och välj **Ladda ned**.
 
@@ -220,4 +228,4 @@ Värdet för **mac** i föregående utdata är nätverksgränssnittets MAC-adres
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudiekursen lärde du dig hur du aktiverar NSG-flödesloggning för en nätverkssäkerhetsgrupp. Du lärde dig också hur du laddar ned och visar data som loggats i en fil. Rådata i JSON-filen kan vara svåra att tolka. Du kan visualisera data med hjälp av [trafikanalysverktyg](traffic-analytics.md) i Network Watcher, Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) och andra verktyg.
+I den här självstudiekursen lärde du dig hur du aktiverar NSG-flödesloggning för en nätverkssäkerhetsgrupp. Du lärde dig också hur du laddar ned och visar data som loggats i en fil. Rådata i JSON-filen kan vara svåra att tolka. För att visualisera flödes logg data kan du använda [Azure trafikanalys](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md)och andra verktyg. Du kan prova alternativa metoder för att aktivera NSG flödes loggar som [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md) och [arm-mallar](network-watcher-nsg-flow-logging-azure-resource-manager.md).

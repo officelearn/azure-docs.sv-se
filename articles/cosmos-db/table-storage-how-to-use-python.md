@@ -1,20 +1,20 @@
 ---
 title: Använda Azure Cosmos DB Tabell-API och Azure Table Storage med python
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: sample
 ms.date: 04/05/2018
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 1bb09ec4a7cc2a64edabfa2014ea7c1cf48ad835
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b3a6f4397ca1b8c56f06f6d967804c94096ee308
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972898"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770995"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-python"></a>Komma igång med Azure Table Storage och Azure Cosmos DB Table-API:et med hjälp av Python
 
@@ -184,7 +184,7 @@ print(task.description)
 print(task.priority)
 ```
 
-## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
+## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
 
 Du kan hämta en uppsättning entiteter genom att ange en filtersträng med parametern **filter**. Det här exemplet hämtar alla aktiviteter i Seattle genom att tillämpa ett filter på PartitionKey:
 

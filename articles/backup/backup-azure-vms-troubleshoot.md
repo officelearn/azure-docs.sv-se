@@ -4,12 +4,12 @@ description: I den här artikeln får du lära dig hur du felsöker fel som påt
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 6baf878a1afac011997800b78f059e254e3f2a06
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513804"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845529"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Felsöka säkerhets kopierings fel på virtuella Azure-datorer
 
@@ -278,6 +278,6 @@ VM-säkerhetskopiering är beroende av utfärdande av ögonblicks bild kommandon
 DHCP måste vara aktiverat i gästen för att IaaS VM-säkerhetskopiering ska fungera. Om du behöver en statisk privat IP-adress konfigurerar du den via Azure Portal eller PowerShell. Kontrol lera att DHCP-alternativet i den virtuella datorn är aktiverat.
 Få mer information om hur du konfigurerar en statisk IP-adress med hjälp av PowerShell:
 
-* [Så här lägger du till en statisk intern IP-adress till en befintlig virtuell dator](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [Så här lägger du till en statisk intern IP-adress till en befintlig virtuell dator](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * [Ändra tilldelnings metoden för en privat IP-adress som tilldelats till ett nätverks gränssnitt](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

@@ -2,21 +2,87 @@
 title: Avsnitt om avancerad program uppgradering
 description: I den här artikeln beskrivs några avancerade ämnen som rör uppgradering av ett Service Fabric-program.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/28/2020
+ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457524"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845425"
 ---
 # <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric program uppgradering: avancerade ämnen
-## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>Lägga till eller ta bort tjänst typer under en program uppgradering
+
+## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>Lägga till eller ta bort tjänst typer under en program uppgradering
+
 Om en ny tjänst typ läggs till i ett publicerat program som en del av en uppgradering, läggs den nya tjänst typen till i det distribuerade programmet. Sådan uppgradering påverkar inte någon av tjänst instanserna som redan tillhör programmet, men en instans av tjänst typen som lades till måste skapas för att den nya tjänst typen ska vara aktiv (se [New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps)).
 
 På samma sätt kan tjänst typer tas bort från ett program som en del av en uppgradering. Alla tjänst instanser av tjänst typen att ta bort måste dock tas bort innan du fortsätter med uppgraderingen (se [Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps)).
 
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>Undvik anslutning vid tillstånds lös planerat avbrott i tjänsten (för hands version)
+
+För planerad tillstånds lösa instansen, till exempel program/kluster-uppgradering eller nod-inaktive ring, kan anslutningar släppas på grund av att den exponerade slut punkten tas bort när den har slocknat.
+
+Undvik detta genom att konfigurera funktionen *RequestDrain* (förhands granskning) genom att lägga till en *stängnings fördröjning* för replik instans i tjänst konfigurationen. Detta säkerställer att den slut punkt som annonseras av tillstånds lösa instansen tas bort *innan* fördröjnings tiden börjar stänga instansen. Den här fördröjningen gör att befintliga begär Anden kan tömmas innan instansen faktiskt slutar fungera. Klienter meddelas om funktionen för slut punkts ändringar via motringning, så att de kan lösa slut punkten igen och undvika att skicka nya begär anden till instansen.
+
+### <a name="service-configuration"></a>Tjänst konfiguration
+
+Det finns flera sätt att konfigurera fördröjningen på tjänst sidan.
+
+ * **När du skapar en ny tjänst**anger du en `-InstanceCloseDelayDuration`:
+
+    ```powershell
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    ```
+
+ * **När du definierar tjänsten i avsnittet standarder i applikations manifestet**tilldelar du egenskapen `InstanceCloseDelayDurationSeconds`:
+
+    ```xml
+          <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
+              <SingletonPartition />
+          </StatelessService>
+    ```
+
+ * **När du uppdaterar en befintlig tjänst**anger du en `-InstanceCloseDelayDuration`:
+
+    ```powershell
+    Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+### <a name="client-configuration"></a>Klientkonfiguration
+
+Om du vill få ett meddelande när en slut punkt har ändrats kan klienter registrera ett återanrop (`ServiceManager_ServiceNotificationFilterMatched`) så här: 
+
+```csharp
+    var filterDescription = new ServiceNotificationFilterDescription
+    {
+        Name = new Uri(serviceName),
+        MatchNamePrefix = true
+    };
+    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
+    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
+
+private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
+{
+      // Resolve service to get a new endpoint list
+}
+```
+
+Ändrings meddelandet är en indikation på att slut punkterna har ändrats, att klienten ska lösa in slut punkterna igen och inte använda slut punkterna som inte annonseras längre så fort de går nedåt.
+
+### <a name="optional-upgrade-overrides"></a>Valfria uppgraderings åsidosättningar
+
+Förutom att ställa in försenade varaktigheter per tjänst kan du också åsidosätta fördröjningen vid uppgradering av program/kluster med samma (`InstanceCloseDelayDurationSec`) alternativ:
+
+```powershell
+Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+
+Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+```
+
+Fördröjnings tiden gäller endast för den anropade uppgraderings instansen och ändrar annars inte enskilda tjänst fördröjnings konfigurationer. Du kan till exempel använda detta för att ange en fördröjning av `0` för att hoppa över förkonfigurerade uppgraderings fördröjningar.
+
 ## <a name="manual-upgrade-mode"></a>Manuellt uppgraderings läge
+
 > [!NOTE]
 > Det *övervakade* uppgraderings läget rekommenderas för alla Service Fabric-uppgraderingar.
 > Uppgraderings läget för *UnmonitoredManual* bör endast övervägas för misslyckade eller pausade uppgraderingar. 
@@ -30,6 +96,7 @@ I *UnmonitoredManual* -läge har program administratören total kontroll över f
 Slutligen är *UnmonitoredAuto* -läget användbart för att utföra snabba uppgraderingar vid utveckling eller testning av tjänster eftersom inga användarindata krävs och inga program hälso principer utvärderas.
 
 ## <a name="upgrade-with-a-diff-package"></a>Uppgradera med ett diff-paket
+
 I stället för att tillhandahålla ett komplett programpaket kan uppgraderingar också utföras genom att du konfigurerar diff-paket som bara innehåller de uppdaterade kod-/konfigurations-och data paketen tillsammans med det fullständiga applikations manifestet och fullständiga tjänst manifest. Fullständiga programpaket krävs bara för den första installationen av ett program i klustret. Efterföljande uppgraderingar kan antingen vara från kompletta programpaket eller diff-paket.  
 
 Alla referenser i program manifestet eller tjänst manifesten för ett diff-paket som inte går att hitta i programpaketet ersätts automatiskt med den för tillfället etablerade versionen.
@@ -113,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
 ```
 
-## <a name="rolling-back-application-upgrades"></a>Återställa program uppgraderingar
+## <a name="roll-back-application-upgrades"></a>Återställa program uppgraderingar
 
 Även om uppgraderingar kan skickas framåt i ett av tre lägen (*övervakad*, *UnmonitoredAuto*eller *UnmonitoredManual*) kan de bara återställas i antingen *UnmonitoredAuto* -eller *UnmonitoredManual* -läge. Att återställa i *UnmonitoredAuto* -läget fungerar på samma sätt som när du följer undantaget att standardvärdet för *UpgradeReplicaSetCheckTimeout* är olika – se [program uppgraderings parametrar](service-fabric-application-upgrade-parameters.md). Återställningen av *UnmonitoredManual* -läget fungerar på samma sätt som bakåt. återställningen inaktive ras automatiskt när du har slutfört varje UD och måste återupptas direkt med hjälp av [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) för att fortsätta med återställningen.
 

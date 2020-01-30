@@ -1,20 +1,20 @@
 ---
 title: Använda Azure Cosmos DB Tabell-API och Azure Table Storage med ruby
-description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table API.
+description: Lagra strukturerade data i molnet med Azure Table Storage eller Azure Cosmos DB Table-API:et.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: ruby
 ms.topic: sample
 ms.date: 04/05/2018
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 0a2649db7639338b7b2714181b8caf670306f987
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7994b478321c925b3eab73291a109d50b9066fef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441146"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770879"
 ---
 # <a name="how-to-use-azure-table-storage-and-the-azure-cosmos-db-table-api-with-ruby"></a>Använda Azure Table Storage och Azure Cosmos DB Table-API:et med Ruby
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -130,7 +130,7 @@ result = azure_table_service.get_entity("testtable", "test-partition-key",
     "1")
 ```
 
-## <a name="query-a-set-of-entities"></a>Fråga efter en uppsättning entiteter
+## <a name="query-a-set-of-entities"></a>Köra frågor mot en uppsättning entiteter
 Om du vill fråga efter en uppsättning enheter i en tabell skapar du ett hash-objekt för frågan och använder metoden **query_entities()** . Exemplet nedan visar hur du hämtar alla entiteter med samma **PartitionKey**:
 
 ```ruby

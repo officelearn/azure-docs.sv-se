@@ -15,23 +15,22 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 66edbc872fe5f1d4320107aa21ed2792bdd4fecc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083895"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844351"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Medieanalys på Media Servicess plattformen 
 
 ## <a name="retirement-plans"></a>Pensions planer
 
 > [!IMPORTANT]
-> Följande tidigare medie processorer kommer att dras tillbaka om 2020, se information i följande tabell. 
+> Följande tidigare medie processor kommer att dras tillbaka om 2020, se information i följande tabell. 
 
 |Namn på mediebearbetare|Datum för indragning|Ytterligare information|
 |---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 1 januari 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).|
 |[Azure Media Indexer](media-services-index-content.md)|1 oktober 2020|Medie processorn kommer att ersättas av [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). Mer information finns i [Migrera från Azure Media Indexer till Azure Media Services video Indexer](migrate-indexer-v1-v2.md)
  
 ## <a name="overview"></a>Översikt
@@ -51,17 +50,21 @@ Media Analytics-medieprocessorer producerar MP4-filer eller JSON-filer. Om en me
 ## <a name="media-analytics-services"></a>Medieanalys tjänster
 
 ### <a name="indexer"></a>Indexerare
-Med Azure Media Indexer kan du göra innehåll sökbart och generera spår med dold textning. Jämfört med den tidigare versionen har Azure Media Indexer 2-förhands granskning snabbare indexering och bredare språk stöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska, portugisiska och arabiska. Detaljerad information och exempel finns i [bearbeta videor med Azure Media Indexer 2](media-services-process-content-with-indexer2.md).
+Med Azure Media Indexer kan du göra innehåll sökbart och generera spår med dold textning. Detaljerad information och exempel finns i [Indexera mediefiler med Azure Media Indexer](media-services-index-content.md).
+
 ### <a name="motion-detector"></a>Rörelsedetektor
 Du kan använda rörelse detektor för att identifiera rörelse i en video med Station ära bakgrunder. På så sätt kan du kontrol lera om det finns falska positiva identifieringar för rörelse händelser som identifieras av övervaknings kameror. Detaljerad information och exempel finns i [rörelse identifiering för Azure-medieanalys](media-services-motion-detection.md).
+
 ### <a name="face-detector"></a>Ansiktsigenkänning
 Genom att använda ansikts detektor kan du identifiera folkets ansikten och deras känslor, inklusive glädje, ledsenhet och överraskningar. Detta har flera användbara bransch program, som beskrivs senare, inklusive agg regering och analys av reaktioner hos personer som deltar i en händelse. Detaljerad information och exempel finns i [identifiering av ansikts-och känslo för Azure-medieanalys](media-services-face-and-emotion-detection.md).
+
 ### <a name="video-summarization"></a>Video Sammanfattning
 Video sammanfattningen kan hjälpa dig att skapa sammanfattningar av långa videor genom att automatiskt välja intressanta kodfragment från käll videon. Den här funktionen är användbar när du vill ge en snabb översikt över vad som förväntas i en lång video. Detaljerad information och exempel finns i [använda Azure Media Video thumbnails för att skapa video Sammanfattning](media-services-video-summarization.md).
-### <a name="optical-character-recognition"></a>Optisk teckenigenkänning
+### <a name="optical-character-recognition"></a>Optisk teckenläsning
 Med Azure Media OCR (optisk tecken läsning) kan du konvertera text innehåll i videofiler till redigerbar, sökbar digital text. Du kan sedan automatisera extraheringen av meningsfulla metadata från video signalen på mediet.
 ### <a name="scalable-face-redaction"></a>Skalbara ansikts bortredigering
 Azure Media Redactor är en Medieanalys medie processor som erbjuder skalbara ansikts bortredigering i molnet. Genom att använda ansikts bortredigering kan du ändra videon så att den oskarpa ytan av valda individer blir oskarp. Du kanske vill använda ansikts bortredigering-tjänsten i nyhets medier eller när offentlig säkerhet är involverad. Några minuter av tagningar som innehåller flera ansikten kan ta timmar till bortredigering manuellt, men med den här tjänsten tar ansikts bortredigering bara några enkla steg. Mer information finns i avsnittet [bortredigering-ansikten med Azure-medieanalys](media-services-face-redaction.md) artikeln.
+
 ### <a name="content-moderation"></a>Innehållsmoderering
 Med Azure Content Moderator kan du använda dator redigering för dina videor. Du vill kanske exempelvis identifiera möjligt innehåll som är olämpligt för barn eller olämpligt innehåll i videor och granska innehåll som flaggats av det mänskliga modereringsteamet. Att manuellt konfigurera videor för oönskat innehåll är en tids krävande och kostsam uppgift. Med den här tjänsten och tillhör ande gransknings verktyg kombinerar du datorbaserade moderatorer med funktioner för mänsklig ineffektivhet för bästa resultat och kostnads effektivt. Mer information finns i artikeln [bearbeta videor med Azure Content moderator](media-services-content-moderation.md) .
 
@@ -75,7 +78,7 @@ Medieanalys kan hjälpa organisationer och företag att få nya insikter från v
 I det här avsnittet visas Medieanalys medie processorer och hur du använder .NET eller REST för att hämta ett MP-objekt (Media processor).
 
 ### <a name="mp-names"></a>MP-namn
-* Azure Media Indexer 2 för hands version
+
 * Azure Media Indexer
 * Azure Media Face Detector
 * Azure Media Motion Detector
@@ -112,7 +115,7 @@ Begäran:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.12
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Svar:

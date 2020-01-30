@@ -7,18 +7,18 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bd1487d7922d8ea81c4b09773eed978e64cd9e8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 648eb6cdb1787e1cbdf82bd8e5c8499b0dbaf02c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457232"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772264"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Självstudie: Distribuera Azure Stream Analytics som en IoT Edge modul
 
 Många IoT-lösningar använder analys tjänster för att få insikt om data när de tas emot i molnet från IoT-enheter. Med Azure IoT Edge kan du använda logik från [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) och flytta den till själva enheten. Du kan minska hur mycket data som överförs och minska tiden det tar att reagera på insikter genom att bearbeta telemetriströmmar på gränsen.
 
-Azure IoT Edge och Azure Stream Analytics är integrerade så att du kan skapa ett Azure Stream Analytics-jobb i Azure Portal och sedan distribuera det som en IoT Edge-modul utan ytterligare kod.  
+Azure IoT Edge och Azure Stream Analytics är integrerade för att förenkla din arbets belastnings utveckling. Du kan skapa ett Azure Stream Analytics jobb i Azure Portal och sedan distribuera det som en IoT Edge modul utan ytterligare kod.  
 
 Azure Stream Analytics ger en omfattande strukturerad frågesyntax för data analys, både i molnet och på IoT Edge enheter. Mer information finns i [Azure Stream Analytics-dokumentationen](../stream-analytics/stream-analytics-edge.md).
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig hur man:
 
 <center>
 
-![diagram – självstudier arkitektur, Stage och Deploy ASA-jobb](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+![diagram – själv studie arkitektur: mellanlagra och distribuera ASA-jobb](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,7 +46,7 @@ En Azure IoT Edge-enhet:
 
 Molnresurser:
 
-* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure. 
+* En [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) på kostnadsfri nivå eller standardnivå i Azure.
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Skapa ett Azure Stream Analytics-jobb
 
@@ -54,20 +54,20 @@ I det här avsnittet skapar du ett Azure Stream Analytics jobb som gör följand
 
 * Ta emot data från IoT Edges enheten.
 * Fråga telemetridata för värden utanför ett uppsättnings intervall.
-* Vidta åtgärder på den IoT Edge enheten baserat på frågeresultaten. 
+* Vidta åtgärder på den IoT Edge enheten baserat på frågeresultaten.
 
 ### <a name="create-a-storage-account"></a>Skapa ett lagringskonto
 
-När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-enhet måste det lagras på ett sätt som kan anropas från enheten. Du kan använda ett befintligt Azure Storage-konto eller skapa ett nytt nu. 
+När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-enhet måste det lagras på ett sätt som kan anropas från enheten. Du kan använda ett befintligt Azure Storage konto eller skapa ett nytt nu.
 
-1. I Azure Portal går du till **skapa en resurs** > **lagrings** > **lagrings konto**. 
+1. I Azure Portal går du till **skapa en resurs** > **lagrings** > **lagrings konto**.
 
 1. Skapa lagringskontot genom att ange följande värden:
 
    | Field | Värde |
    | ----- | ----- |
    | Prenumeration | Välj samma prenumeration som din IoT-hubb. |
-   | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
+   | Resursgrupp | Vi rekommenderar att du använder samma resurs grupp för alla test resurser för IoT Edge snabb starter och självstudier. Till exempel **IoTEdgeResources**. |
    | Namn | Ange ett unikt namn för lagringskontot. |
    | Location | Välj en plats i närheten av dig. |
 
@@ -88,7 +88,7 @@ När du skapar ett Azure Stream Analytics-jobb som ska köras på en IoT Edge-en
    | Resursgrupp | Vi rekommenderar att du använder samma resursgrupp för alla testresurser som du skapar i snabbstarterna och självstudierna om IoT Edge. Till exempel **IoTEdgeResources**. |
    | Location | Välj en plats i närheten av dig. |
    | Värdmiljö | Välj **Gräns**. |
- 
+
 1. Välj **Skapa**.
 
 ### <a name="configure-your-job"></a>Konfigurera jobbet
@@ -105,7 +105,7 @@ I det här avsnittet används de tre elementen för indata, utdata och fråga f�
 
 1. Välj **Edge Hub** i listrutan.
 
-1. Ange **temperatur** som inmatat alias i fönstret **Nya indata**. 
+1. Ange **temperatur** som inmatat alias i fönstret **Nya indata**.
 
 1. Behåll standardvärdena för de andra fälten och välj **Spara**.
 
@@ -152,7 +152,7 @@ För att förbereda Stream Analytics-jobbet för distribution till en IoT Edge-e
 
 ## <a name="deploy-the-job"></a>Distribuera jobbet
 
-Du kan nu distribuera Azure Stream Analytics-jobbet till din IoT Edge-enhet. 
+Du kan nu distribuera Azure Stream Analytics-jobbet till din IoT Edge-enhet.
 
 I det här avsnittet använder du guiden **Ange moduler** på Azure Portal för att skapa ett *distributionsmanifest*. Ett distributionsmanifest är en JSON-fil som beskriver alla moduler som ska distribueras till en enhet, containerregistren som lagrar modulavbildningarna, hur modulerna ska hanteras och hur modulerna kan kommunicera med varandra. Din IoT Edge-enhet hämtar distributionsmanifestet från IoT Hub och använder sedan informationen i det för att distribuera och konfigurera alla dess tilldelade moduler.
 

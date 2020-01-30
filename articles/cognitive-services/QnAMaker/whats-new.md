@@ -10,18 +10,18 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 94c2f86b6d0a592e53c2ab1f9833bdb045f81583
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 2d7615d810e96beb61c3fe0b182a88158dc77c07
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325875"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844844"
 ---
 # <a name="whats-new-in-qna-maker"></a>Vad är nytt i QnA Maker
 
-Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.  
+Läs om vad som är nytt i tjänsten. Dessa objekt kan vara viktig för anteckningar, videor, blogg inlägg och andra typer av information. Skapa ett bok märke för den här sidan för att hålla dig uppdaterad med tjänsten.
 
-## <a name="release-notes"></a>Viktig information 
+## <a name="release-notes"></a>Viktig information
 
 Lär dig vad som är nytt med QnA Maker.
 
@@ -33,15 +33,15 @@ Lär dig vad som är nytt med QnA Maker.
 
 ### <a name="october-2019"></a>Oktober 2019
 
-* [Ange språket](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) för alla kunskaps baser i QNA Maker-tjänsten explicit. 
+* [Ange språket](./how-to/language-knowledge-base.md#select-language-when-creating-first-knowledge-base) för alla kunskaps baser i QNA Maker-tjänsten explicit.
 
 ### <a name="september-2019"></a>September 2019
 
-* Importera och exportera med [XLS-filformat](concepts/data-sources-supported.md) 
+* Importera och exportera med [XLS-filformat](concepts/content-types.md)
 
 ### <a name="june-2019"></a>Juni 2019
 
-* Förbättrad [rangordnings modell](concepts/knowledge-base.md#ranker-process) för franska, italienska, tyska, spanska, portugisiska
+* Förbättrad [rangordnings modell](concepts/query-knowledge-base.md#ranker-process) för franska, italienska, tyska, spanska, portugisiska
 
 ### <a name="april-2019"></a>April 2019
 
@@ -51,7 +51,7 @@ Lär dig vad som är nytt med QnA Maker.
 ### <a name="march-2019"></a>Mars 2019
 
 * [Aktiv inlärning](how-to/improve-knowledge-base.md) ger förslag på nya fråge alternativ baserat på riktiga användar frågor
-* Förbättrad [ranknings](concepts/knowledge-base.md#ranker-process) modell för naturliga språk bearbetning (NLP) för engelska 
+* Förbättrad [ranknings](concepts/query-knowledge-base.md#ranker-process) modell för naturliga språk bearbetning (NLP) för engelska
 
 > [!div class="nextstepaction"]
 > [Skapa en QnA Maker-tjänst](how-to/set-up-qnamaker-service-azure.md)

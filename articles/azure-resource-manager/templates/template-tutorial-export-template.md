@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0680309b13bf4499f0d153f44e575c1762b54d79
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472578"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773176"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 
@@ -26,17 +26,17 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json":::
 
 Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske vill lägga till fler resurser i den. Du kan exportera en mall från en befintlig resurs för att snabbt hämta JSON för resursen.
 
 ## <a name="create-app-service-plan"></a>Skapa apptjänstplan
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **Skapa en resurs**.
 1. I **Sök på Marketplace**anger **App Service plan**och väljer sedan **App Service plan**.  Välj inte **App Service plan (klassisk)**
 1. Välj **Skapa**.
-1. Ange:
+1. Går
 
     - **Prenumeration**: Välj din Azure-prenumeration.
     - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett namn. Ange ett annat resurs grupps namn än det som du har använt i den här själv studie serien.
@@ -76,7 +76,7 @@ I följande exempel visas tilläggen i mallen. Den innehåller den exporterade k
 
 Kopiera hela filen och ersätt din mall med dess innehåll.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json" range="1-77" highlight="28-31,50-69":::
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
@@ -111,7 +111,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Resurs gruppen innehåller ett lagrings konto och en App Service plan.

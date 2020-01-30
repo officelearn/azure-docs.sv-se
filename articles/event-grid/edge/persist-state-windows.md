@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 485c6d4a92539a2ba67aece319c68d31649e8045
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992267"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844623"
 ---
 # <a name="persist-state-in-windows"></a>Sparat tillstånd i Windows
 
-Ämnen och prenumerationer som skapas i Event Grid-modulen lagras som standard i behållar fil systemet. Utan persistence, om modulen har distribuerats om, kommer alla metadata som skapats att gå förlorade. Om du vill bevara data mellan distributioner måste du spara data utanför behållar fil systemet. För närvarande sparas endast metadata. Händelser lagras i minnet. Om Event Grid modul omdistribueras eller startas om, kommer alla ej levererade händelser att gå förlorade.
+Ämnen och prenumerationer som skapas i Event Grid-modulen lagras som standard i behållar fil systemet. Utan persistence, om modulen har distribuerats om, kommer alla metadata som skapats att gå förlorade. Om du vill bevara data mellan distributioner och omstarter måste du spara data utanför behållar fil systemet. 
+
+Som standard sparas endast metadata och händelser lagras fortfarande i minnet för bättre prestanda. Följ avsnittet beständiga händelser för att aktivera händelse beständighet.
 
 Den här artikeln innehåller de steg som krävs för att distribuera Event Grid-modulen med persistence i Windows-distributioner.
 
@@ -27,7 +29,7 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
 
 ## <a name="persistence-via-volume-mount"></a>Persistence via volym montering
 
-[Docker-volymer](https://docs.docker.com/storage/volumes/) används för att bevara data mellan distributioner. Om du vill montera en volym måste du skapa den med Docker-kommandon, ge behörigheter så att behållaren kan läsa, skriva till den och sedan distribuera modulen. Det finns ingen möjlighet att automatiskt skapa en volym med nödvändiga behörigheter för Windows. Den måste skapas innan du distribuerar.
+[Docker-volymer](https://docs.docker.com/storage/volumes/) används för att bevara data mellan distributioner. Om du vill montera en volym måste du skapa den med Docker-kommandon, ge behörigheter så att behållaren kan läsa, skriva till den och sedan distribuera modulen.
 
 1. Skapa en volym genom att köra följande kommando:
 
@@ -82,17 +84,17 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     ```json
         {
               "Env": [
-                "inbound:serverAuth:tlsPolicy=strict",
-                "inbound:serverAuth:serverCert:source=IoTEdge",
-                "inbound:clientAuth:sasKeys:enabled=false",
-                "inbound:clientAuth:clientCert:enabled=true",
-                "inbound:clientAuth:clientCert:source=IoTEdge",
-                "inbound:clientAuth:clientCert:allowUnknownCA=true",
-                "outbound:clientAuth:clientCert:enabled=true",
-                "outbound:clientAuth:clientCert:source=IoTEdge",
-                "outbound:webhook:httpsOnly=true",
-                "outbound:webhook:skipServerCertValidation=false",
-                "outbound:webhook:allowUnknownCA=true"
+                "inbound__serverAuth__tlsPolicy=strict",
+                "inbound__serverAuth__serverCert__source=IoTEdge",
+                "inbound__clientAuth__sasKeys__enabled=false",
+                "inbound__clientAuth__clientCert__enabled=true",
+                "inbound__clientAuth__clientCert__source=IoTEdge",
+                "inbound__clientAuth__clientCert__allowUnknownCA=true",
+                "outbound__clientAuth__clientCert__enabled=true",
+                "outbound__clientAuth__clientCert__source=IoTEdge",
+                "outbound__webhook__httpsOnly=true",
+                "outbound__webhook__skipServerCertValidation=false",
+                "outbound__webhook__allowUnknownCA=true"
               ],
               "HostConfig": {
                 "Binds": [
@@ -118,21 +120,22 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "myeventgridvol:C:\\app\\metadataDb"
+                "myeventgridvol:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -147,7 +150,7 @@ Den här artikeln innehåller de steg som krävs för att distribuera Event Grid
 
 ## <a name="persistence-via-host-directory-mount"></a>Beständighet via värd katalog montering
 
-Du kan också välja att skapa en katalog på värd systemet och montera den katalogen.
+I stället för att montera en volym kan du skapa en katalog på värd systemet och montera den katalogen.
 
 1. Skapa en katalog på värd fil systemet genom att köra följande kommando.
 
@@ -180,21 +183,22 @@ Du kan också välja att skapa en katalog på värd systemet och montera den kat
     ```json
     {
         "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
          ],
          "HostConfig": {
             "Binds": [
-                "C:\\myhostdir:C:\\app\\metadataDb"
+                "C:\\myhostdir:C:\\app\\metadataDb",
+                "C:\\myhostdir2:C:\\app\\eventsDb"
              ],
              "PortBindings": {
                     "4438/tcp": [
@@ -206,3 +210,30 @@ Du kan också välja att skapa en katalog på värd systemet och montera den kat
          }
     }
     ```
+## <a name="persist-events"></a>Kvarhåll händelser
+
+Om du vill aktivera händelse persistence måste du först aktivera beständiga metadata antingen via volym montering eller värd katalog montering med hjälp av ovanstående avsnitt.
+
+Viktiga saker att tänka på när du behåller händelser:
+
+* Beständiga händelser aktive ras för en prenumeration per händelse och är valbar när en volym eller katalog har monterats.
+* Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
+* Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system men blir bara en noticible i stor skala.
+
+Om du vill aktivera händelse beständighet för en händelse prenumeration anger `persistencePolicy` `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

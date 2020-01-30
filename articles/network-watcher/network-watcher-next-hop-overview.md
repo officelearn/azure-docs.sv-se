@@ -1,11 +1,9 @@
 ---
 title: Introduktion till nästa hopp i Azure Network Watcher | Microsoft Docs
-description: Den här artikeln innehåller en översikt över Network Watcher nästa hopp-funktionen.
+description: Den här artikeln innehåller en översikt över Network Watcher nästa hopp-funktion.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
 ms.service: network-watcher
 ms.devlang: na
@@ -13,21 +11,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: eb613455ccd6b6630d0d75b5a8458f812bb36846
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 33c22b5b68b6677e8cf271dc185007316ec44500
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64730219"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844066"
 ---
-# <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Använd nästa hopp för att diagnostisera problem med Routning-VM
+# <a name="use-next-hop-to-diagnose-virtual-machine-routing-problems"></a>Använd nästa hopp för att diagnostisera problem med Routning av virtuell dator
 
-Trafik från en virtuell dator (VM) som skickas till ett mål baserat på de effektiva vägarna som är associerade med ett nätverksgränssnitt (NIC). Nästa hopp hämtar nästa hopptyp och IP-adress för ett paket från en viss virtuell dator och nätverkskort. Att känna till nästa hopp hjälper dig att avgöra om trafik dirigeras till det avsedda målet, eller om trafiken som skickas långt. En felaktig konfigurering av vägar, där trafiken börjar dirigeras till en lokal plats eller en virtuell installation, kan leda till problem med nätverksanslutningen. Nästa hopp returnerar också routningstabellen som är associerad med nästa hopp. Om vägen har definierats som en användardefinierad väg, returneras det flödet. Nästa hopp i annat fall returnerar **Systemväg**.
+Trafik från en virtuell dator (VM) skickas till ett mål baserat på de effektiva vägar som är associerade med ett nätverks gränssnitt (NIC). Nästa hopp hämtar nästa hopp typ och IP-adress för ett paket från en angiven virtuell dator och NIC. Att känna till nästa hopp hjälper dig att avgöra om trafiken dirigeras till det avsedda målet, eller om trafiken skickas i ett helt ställe. En felaktig konfigurering av vägar, där trafik dirigeras till en lokal plats, eller en virtuell installation, kan leda till anslutnings problem. Nästa hopp returnerar också den routningstabell som är associerad med nästa hopp. Om vägen definieras som en användardefinierad väg returneras den vägen. Annars returnerar nästa hopp **system väg**.
 
-![Nästa hopp-översikt](./media/network-watcher-next-hop-overview/figure1.png)
+![Översikt över nästa hopp](./media/network-watcher-next-hop-overview/figure1.png)
 
-Nästa hopp som kan returneras av funktionen nästa hopp är följande:
+Följande hopp som kan returneras av nästa hopp-funktion är följande:
 
 * Internet
 * VirtualAppliance
@@ -36,10 +34,10 @@ Nästa hopp som kan returneras av funktionen nästa hopp är följande:
 * VirtualNetworkPeering
 * VirtualNetworkServiceEndpoint 
 * MicrosoftEdge
-* Ingen
+* Inget
 
-Läs mer om varje nästa hopptyp i [routningsöversikten](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+Mer information om varje hopp-typ finns i [routning – översikt](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs hur du använder nästa hopp för att diagnostisera problem med Virtuella nätverk routning i diagnostisera VM network routning problem med att använda den [Azure-portalen](diagnose-vm-network-routing-problem.md), [PowerShell](diagnose-vm-network-routing-problem-powershell.md), eller [Azure CLI](diagnose-vm-network-routing-problem-cli.md).
+Information om hur du använder nästa hopp för att diagnosticera problem med Routning av virtuella dator nätverk finns i diagnostisera problem med att vidarebefordra VM-nätverk med hjälp av [Azure Portal](diagnose-vm-network-routing-problem.md), [POWERSHELL](diagnose-vm-network-routing-problem-powershell.md)eller [Azure CLI](diagnose-vm-network-routing-problem-cli.md).

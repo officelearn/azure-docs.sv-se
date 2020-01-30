@@ -1,29 +1,29 @@
 ---
-title: 'Snabb start: skapa en Standard Load Balancer-Azure PowerShell'
+title: 'Snabb start: skapa en Load Balancer-Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: Den här snabb starten visar hur du skapar en Standard Load Balancer med hjälp av Azure PowerShell
+description: Den här snabb starten visar hur du skapar en Load Balancer med hjälp av Azure PowerShell
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/07/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 21488fbc8a5a9354db74d5b93719d100bce8878c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045664"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846527"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-using-azure-powershell"></a>Snabb start: skapa en Standard Load Balancer med Azure PowerShell
+# <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>Snabb start: skapa en Load Balancer med Azure PowerShell
 
 Den här snabbstarten visar hur du skapar en Standard Load Balancer med Azure PowerShell. Om du vill testa belastningsutjämnaren distribuerar du tre virtuella datorer som kör Windows Server och belastningsutjämna en webbapp mellan de virtuella datorerna. Mer information om Standard Load Balancer finns i [Vad är en Standard Load Balancer](load-balancer-standard-overview.md).
 
@@ -45,7 +45,7 @@ New-AzResourceGroup -Name $rgName -Location $location
 
 ## <a name="create-a-public-ip-address"></a>Skapa en offentlig IP-adress
 
-För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en offentlig IP-adress med namnet *myPublicIP* i resurs gruppen *myResourceGroupSLB* :
+För att kunna komma åt din app på Internet behöver du en offentlig IP-adress för lastbalanseraren. Skapa en offentlig IP-adress med hjälp av [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). I följande exempel skapas en zon med redundant offentlig IP-adress med namnet *myPublicIP* i resurs gruppen *myResourceGroupSLB* :
 
 ```azurepowershell
 $publicIp = New-AzPublicIpAddress `
@@ -56,11 +56,25 @@ $publicIp = New-AzPublicIpAddress `
  -SKU Standard
 ```
 
-## <a name="create-standard-load-balancer"></a>Skapa en Standard Load Balancer
+Om du vill skapa en offentlig IP-adress för zonindelade i zon 1, använder du följande:
+
+```azurepowershell
+$publicIp = New-AzPublicIpAddress `
+ -ResourceGroupName $rgName `
+ -Name 'myPublicIP' `
+ -Location $location `
+ -AllocationMethod static `
+ -SKU Standard
+ -zone 1
+```
+
+Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Microsoft rekommenderar att du använder standard för produktions arbets belastningar.
+
+## <a name="create-load-balancer"></a>Skapa belastningsutjämnare
 
 I det här avsnittet konfigurerar du klientdelens IP-adress och serverdelsadresspoolen för lastbalanseraren och skapar sedan Standard Load Balancer.
 
-### <a name="create-front-end-ip"></a>Skapa klientdels-IP
+### <a name="create-frontend-ip"></a>Skapa klientdels-IP
 
 Skapa en IP-adress på klientdelen med hjälp av [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig). I följande exempel skapas en IP-konfiguration på klientdelen med namnet *myFrontEnd* och adressen *myPublicIP* kopplas:
 
@@ -146,6 +160,8 @@ $lb = New-AzLoadBalancer `
   -InboundNatRule $natrule1,$natrule2,$natrule3
 ```
 
+Använd ```-SKU Basic``` för att skapa en grundläggande Load Balancer. Microsoft rekommenderar att du använder standard för produktions arbets belastningar.
+
 ## <a name="create-network-resources"></a>Skapa nätverksresurser
 Innan du kan distribuera virtuella datorer och testa din belastningsutjämnare måste du skapar nätverksresurser som stöds – virtuellt nätverk och virtuella nätverkskort. 
 
@@ -195,6 +211,9 @@ $RdpPublicIP_3 = New-AzPublicIpAddress `
   -AllocationMethod static
 
 ```
+
+Använd ```-SKU Basic``` för att skapa en grundläggande offentlig IP-adress. Microsoft rekommenderar att du använder standard för produktions arbets belastningar.
+
 ### <a name="create-network-security-group"></a>Skapa nätverkssäkerhetsgrupp
 Skapa en nätverkssäkerhetsgrupp så att du kan definiera inkommande anslutningar till det virtuella nätverket.
 
@@ -356,7 +375,6 @@ Remove-AzResourceGroup -Name myResourceGroupSLB
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har du skapat en Standard Load Balancer, anslutit virtuella datorer till den, konfigurerat trafikregeln för lastbalansering, hälsoavsökningen och sedan testat lastbalanseraren. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabb starten har du skapat en Standard Load Balancer anslutna virtuella datorer till den, konfigurerat Load Balancer trafik regel, hälso avsökning och sedan testat Load Balancer. Om du vill veta mer om Azure Load Balancer fortsätter du till [Azure Load Balancer själv studie kurser](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Självstudier om Azure Load Balancer](tutorial-load-balancer-basic-internal-portal.md)
+Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).

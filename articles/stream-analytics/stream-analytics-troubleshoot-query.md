@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5534a46ba99d1536d331b5852ef47588f03d73a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980283"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844435"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Felsöka Azure Stream Analytics frågor
 
@@ -21,21 +21,24 @@ I den här artikeln beskrivs vanliga problem med att utveckla Stream Analytics f
 
 ## <a name="query-is-not-producing-expected-output"></a>Frågan producerar inte förväntade utdata
 1.  Undersök fel genom att testa lokalt:
-    - Välj **test**på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
-    - Du kan också [testa frågan direkt med Live-ingången](stream-analytics-live-data-local-testing.md) med Stream Analytics verktyg för Visual Studio.
+    - På Azure Portal väljer du **test**på fliken **fråga** . Använd de hämtade exempel data för att [testa frågan](stream-analytics-test-query.md). Undersök eventuella fel och försök att åtgärda dem.   
+    - Du kan också [testa din fråga lokalt](stream-analytics-live-data-local-testing.md) med Azure Stream Analytics verktyg för Visual Studio eller [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  Om du använder [**timestamp by**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)kontrollerar du att händelserna har tidsstämplar som är större än [jobbets start tid](stream-analytics-out-of-order-and-late-events.md).
+2.  [Felsök frågor steg för steg lokalt med hjälp av jobb diagram](debug-locally-using-job-diagram.md) i Azure Stream Analytics verktyg för Visual Studio. Jobb diagrammet är att visa hur data flödar från inmatnings källor (Händelsehubben, IoT Hub osv.) genom flera fråge steg och slutligen utdata till sinks. Varje fråge steg mappas till en tillfällig resultat uppsättning som definierats i skriptet med instruktionen WITH. Du kan visa informationen och måtten i varje fråge steg i varje steg i mellanliggande resultat uppsättning för att hitta källan till problemet.
+    resultat](./media/debug-locally-using-job-diagram/preview-result.png) för förhands granskning av ![jobb diagram
 
-3.  Eliminera vanliga fall GRO par, till exempel:
+3.  Om du använder [**timestamp by**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)kontrollerar du att händelserna har tidsstämplar som är större än [jobbets start tid](stream-analytics-out-of-order-and-late-events.md).
+
+4.  Eliminera vanliga fall GRO par, till exempel:
     - En [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) -sats i frågan filtrerade ut alla händelser och förhindrar att utdata genereras.
     - En [**Cast**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) -funktion Miss lyckas, vilket medför att jobbet Miss lyckas. Undvik typ konverterings felen genom att använda [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics) i stället.
     - När du använder fönster funktioner väntar du tills hela fönstrets varaktighet visar utdata från frågan.
     - Tidsstämpeln för händelser föregår jobbets start tid och därmed ignoreras händelser.
 
-4.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](stream-analytics-out-of-order-and-late-events.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion.
+5.  Se till att principer för händelse ordning konfigureras som förväntat. Gå till **Inställningar** och välj [**händelse ordning**](stream-analytics-out-of-order-and-late-events.md). Principen tillämpas *inte* när du använder **test** knappen för att testa frågan. Resultatet är en skillnad mellan testning i webbläsaren jämfört med att köra jobbet i produktion. 
 
-5. Felsöka med hjälp av gransknings-och diagnostikloggar:
-    - Använd [gransknings loggar](../azure-resource-manager/management/view-activity-logs.md)och filtrera för att identifiera och felsöka fel.
+6. Felsöka med hjälp av gransknings-och diagnostikloggar:
+    - Använd [gransknings loggar](../azure-resource-manager/resource-group-audit.md)och filtrera för att identifiera och felsöka fel.
     - Använd [jobb diagnostiska loggar](stream-analytics-job-diagnostic-logs.md) för att identifiera och felsöka fel.
 
 ## <a name="job-is-consuming-too-many-streaming-units"></a>Jobbet tar för många enheter för strömning

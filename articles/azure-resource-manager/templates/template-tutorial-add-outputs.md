@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 540e037e83d359dc67cb32f98dec0319bf490707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472984"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765735"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Självstudie: lägga till utdata i Resource Manager-mallen
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 Den distribuerar ett lagrings konto, men returnerar inte någon information om lagrings kontot. Du kan behöva avbilda egenskaper från en ny resurs så att de är tillgängliga senare för referens.
 
@@ -36,7 +36,7 @@ Du kan använda utdata för att returnera värden från mallen. Det kan till exe
 
 I följande exempel visas ändringarna i mallen för att lägga till ett utmatnings värde. Kopiera hela filen och ersätt din mall med dess innehåll.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
 Det finns några viktiga saker att notera om det utdata som du har lagt till.
 
@@ -94,7 +94,7 @@ Du har gjort en stor del av de senaste sex självstudierna. Vi tar en stund att 
 
 Nu ska vi titta på resurs gruppen och distributions historiken.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Beroende på vilka steg du gjorde bör du ha minst ett och kanske flera lagrings konton i resurs gruppen.

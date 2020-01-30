@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: I den här snabbstarten lär du dig hur du diagnostiserar problem med filtreringen av nätverkstrafik på en virtuell dator med hjälp av funktionen Kontrollera IP-flöde i Azure Network Watcher.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276015"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844929"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Snabbstart: Diagnostisera problem med filtreringen av nätverkstrafik på virtuella datorer med hjälp av Azure Portal
 
@@ -45,10 +44,10 @@ Logga in på Azure Portal på https://portal.azure.com.
     |---|---|
     |Namn|myVm|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och ange **myResourceGroup**.|
-    |Plats| Välj **USA, östra**|
+    |Resursgrupp| Välj **Skapa ny** och skriv **myResourceGroup**.|
+    |Location| Välj **USA, östra**|
 
 4. Välj en storlek för den virtuella datorn och sedan **Välj**.
 5. Acceptera standardinställningarna under **Inställningar** och välj **OK**.
@@ -62,8 +61,8 @@ Om du vill testa nätverkskommunikationen med Network Watcher måste du först a
 
 Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare till [Använda Kontrollera IP-flöde](#use-ip-flow-verify).
 
-1. Välj **Alla tjänster** på portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
-2. Aktivera en nätverksbevakare i regionen USA, östra eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
+1. Välj **Alla tjänster** i portalen. I **filterrutan** skriver du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
+2. Aktivera en nätverksbevakare i regionen Östra USA eftersom det var i den regionen som den virtuella datorn distribuerades i ett tidigare steg. Välj **Regioner** för att expandera avsnittet och välj sedan **...** till höger om **USA, östra**, som du ser i följande bild:
 
     ![Aktivera Network Watcher](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
 
@@ -73,7 +72,7 @@ Om du redan har aktiverat en nätverksbevakare i minst en region går du vidare 
 
 När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till och från den virtuella datorn som standard. Om du vill kan du åsidosätta standardinställningarna i Azure och tillåta eller neka andra typer av trafik.
 
-1. Välj **Alla tjänster** på portalen. Skriv **Network Watcher** i *filterrutan* för *Alla tjänster*. Välj **Network Watcher** i sökresultatet.
+1. Välj **Alla tjänster** i portalen. I rutan **alla tjänster** *Filter* anger du *Network Watcher*. Välj **Network Watcher** i sökresultatet.
 2. Välj **Kontrollera IP-flöde** under **DIAGNOSTISKA VERKTYG FÖR NÄTVERK**.
 3. Välj din prenumeration, ange eller välj följande värden och välj sedan **Kontrollera**, som du ser i bilden nedan:
 
@@ -91,7 +90,7 @@ När du skapar en virtuell dator tillåter och nekar Azure nätverkstrafik till 
 
     ![Kontrollera IP-flöde](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)
 
-    Resultatet visas efter några sekunder och anger att åtkomsten tillåts på grund av en säkerhetsregel med namnet **AllowInternetOutbound**. När du körde kontrollen skapade Network Watcher automatiskt en nätverksbevakare i regionen USA, östra om du hade en befintlig nätverksbevakare i en annan region än regionen USA, östra innan du körde kontrollen.
+    Resultatet visas efter några sekunder och anger att åtkomsten tillåts på grund av en säkerhetsregel med namnet **AllowInternetOutbound**. När du körde kontrollen skapade Network Watcher automatiskt en nätverksbevakare i regionen Östra USA om du hade en befintlig nätverksbevakare i en annan region än regionen Östra USA innan du körde kontrollen.
 4. Utför steg 3 igen, men ändra **Fjärr-IP-adress** till **172.31.0.100**. Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsregel med namnet **DefaultOutboundDenyAll**.
 5. Utför steg 3 igen, men ändra **Riktning** till **Inkommande**, **Lokal port** till **80** och **Fjärrport** till **60000**. Resultatet som returneras anger att åtkomsten nekas på grund av en säkerhetsregel med namnet **DefaultInboundDenyAll**.
 
@@ -121,7 +120,7 @@ Ta bort resursgruppen, skalningsuppsättningen och alla resurser som den innehå
 
 1. Skriv *myResourceGroup* i **sökrutan** överst i portalen. När du ser **myResourceGroup** i sökresultatet väljer du den.
 2. Välj **Ta bort resursgrupp**.
-3. Skriv *myResourceGroup* i **SKRIV RESURSGRUPPSNAMNET:** och välj **Ta bort**.
+3. Skriv *myResourceGroup* där du uppmanas att **skriva resursgruppens namn:** (Skriv resursgruppens namn) och välj **Ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -3,12 +3,12 @@ title: Övervaka Kubernetes kluster hälsa med Azure Monitor för behållare | M
 description: Den här artikeln beskriver hur du kan visa och analysera hälso tillståndet för dina AKS-och icke-AKS-kluster med Azure Monitor för behållare.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405084"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843998"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>Förstå hälsotillstånd för Kubernetes-kluster med Azure Monitor för containrar
 
@@ -23,7 +23,7 @@ Information om hur du aktiverar Azure Monitor för behållare finns i [Onboard A
 >[!NOTE]
 >Om du vill ha stöd för AKS-motor kluster kontrollerar du att det uppfyller följande:
 >- Den använder den senaste versionen av Helm- [klienten](https://helm.sh/docs/using_helm/).
->- Agent versionen för behållare är *Microsoft/OMS: ciprod11012019*. Information om hur du uppgraderar agenten finns i [Uppgradera agent på Kubernetes-kluster](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster).
+>- Agent versionen för behållare är *Microsoft/OMS: ciprod11012019*. Information om hur du uppgraderar agenten finns i [Uppgradera agent på Kubernetes-kluster](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster).
 >
 
 ## <a name="overview"></a>Översikt
@@ -48,12 +48,12 @@ Alla Övervakare visas i en hierarkisk layout i fönstret hälsohierarki, där e
 * Utvärdera minnes användningen från noden och behållaren.
 * Status för poddar och noder baserat på beräkningen av deras färdiga tillstånd som rapporteras av Kubernetes.
 
-Följande ikoner används för att visa status:
+Ikonerna som används för att indikera tillstånd är följande:
 
 |Ikon|Betydelse|  
 |--------|-----------|  
-|![Grön kryssruteikon är lika med felfri](./media/container-insights-health/healthyicon.png)|Fungerar, hälsotillståndet är bra (grönt)|  
-|![Gul triangel och utropstecken innebär en varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  
+|![Grön kryss indikator anger felfri](./media/container-insights-health/healthyicon.png)|Lyckades, hälso tillståndet är OK (grönt)|  
+|![Gul triangel och utrops tecken är varning](./media/container-insights-health/warningicon.png)|Varning (gul)|  
 |![Röd knapp med vitt X anger kritiskt tillstånd](./media/container-insights-health/criticalicon.png)|Kritisk (röd)|  
 |![Nedtonad ikon](./media/container-insights-health/grayicon.png)|Okänt (grått)|  
 
@@ -63,7 +63,7 @@ För att förstå beteendet och konfigurationen av varje Övervakare som stöder
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com). 
+Logga in på [Azure Portal](https://portal.azure.com). 
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>Visa hälso tillståndet för ett AKS-eller icke-AKS-kluster
 

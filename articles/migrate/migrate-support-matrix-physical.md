@@ -3,12 +3,12 @@ title: Stöd för fysisk server utvärdering med Azure Migrate
 description: Läs mer om stöd för fysisk server-utvärdering med Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 057d384c14328deca2853e891f23250aa1d61702
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 489f95bbbbeb261b56f1a3a86da44f5fcce0adf5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154796"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846569"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>Support mat ris för fysisk server-utvärdering 
 
@@ -42,7 +42,7 @@ Om du vill utvärdera lokala datorer för migrering till Azure med den här arti
 | **Operativsystem** | Alla [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) -och [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -operativsystem stöds förutom följande:<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
-## <a name="azure-migrate-appliance-requirements"></a>Krav för Azure Migrate utrustning
+## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
 
 Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för identifiering och utvärdering. Installationen av fysiska servrar kan köras på en virtuell dator eller på en fysisk dator. Du ställer in det med ett PowerShell-skript som du hämtar från Azure Portal.
 
@@ -53,10 +53,10 @@ Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för iden
 
 I följande tabell sammanfattas port kraven för utvärdering.
 
-**Enhet** | **Anslutning**
+**Anordningar** | **Anslutning**
 --- | ---
-**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
-**Fysiska servrar** | **Windows:** Inkommande anslutningar på port 443, WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda metadata från Windows-servrar. <br/> **Linux:**  Inkommande anslutningar på port 22 (UDP) för hämtning av konfigurations-och prestanda-metadata från Linux-servrar. |
+**Enhet** | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ``` https://<appliance-ip-or-name>:44368 ```<br/> Utgående anslutningar på portarna 443 (HTTPS), 5671 och 5672 (AMQP) för att skicka metadata för identifiering och prestanda till Azure Migrate.
+**Fysiska servrar** | **Windows:** Inkommande anslutningar på WinRM-portar 5985 (HTTP) och 5986 (HTTPS) för att hämta konfigurations-och prestanda metadata från Windows-servrar. <br/> **Linux:**  Inkommande anslutningar på port 22 (UDP) för hämtning av konfigurations-och prestanda-metadata från Linux-servrar. |
 
 ## <a name="agent-based-dependency-visualization"></a>Agent-baserad beroende visualisering
 
@@ -68,7 +68,7 @@ I följande tabell sammanfattas port kraven för utvärdering.
 **Distribution** | Innan du distribuerar beroende visualisering bör du ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server bedömning som har lagts till i projektet. Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer.<br/><br/> Beroende visualisering är inte tillgänglig i Azure Government.
 **Tjänstkarta** | Agent-baserad beroende visualisering använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) lösning i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Om du vill distribuera associerar du en ny eller befintlig Log Analytics arbets yta med ett Azure Migrate projekt.
 **Log Analytics-arbetsyta** | Arbets ytan måste vara i samma prenumeration som Azure Migrate-projektet.<br/><br/> Azure Migrate stöder arbets ytor som finns i regionerna östra USA, Sydostasien och Europa, västra.<br/><br/>  Arbets ytan måste vara i en region där [tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> Det går inte att ändra arbets ytan för ett Azure Migrate projekt när den har lagts till.
-**Avgifter** | Tjänstkarta-lösningen debiteras inga avgifter för de första 180 dagarna (från dagen då du kopplade arbets ytan Log Analytics med Azure Migrate-projektet).<br/><br/> Efter 180 dagar kommer standard Log Analytics avgifter att gälla.<br/><br/> Om du använder någon annan lösning än Tjänstkarta i den associerade Log Analytics arbets ytan debiteras standard Log Analytics avgifter.<br/><br/> Om du tar bort Azure Migrate-projektet raderas inte arbets ytan med den. När du har tagit bort projektet är Tjänstkarta inte kostnads fritt, och varje nod debiteras enligt den betalda nivån i Log Analytics arbets ytan.
+**Utgifts** | Tjänstkarta-lösningen debiteras inga avgifter för de första 180 dagarna (från dagen då du kopplade arbets ytan Log Analytics med Azure Migrate-projektet).<br/><br/> Efter 180 dagar kommer standard Log Analytics avgifter att gälla.<br/><br/> Om du använder någon annan lösning än Tjänstkarta i den associerade Log Analytics arbets ytan debiteras standard Log Analytics avgifter.<br/><br/> Om du tar bort Azure Migrate-projektet raderas inte arbets ytan med den. När du har tagit bort projektet är Tjänstkarta inte kostnads fritt, och varje nod debiteras enligt den betalda nivån i Log Analytics arbets ytan.
 **Aktörer** | Agent-baserad beroende visualisering kräver att två agenter installeras på varje dator som du vill analysera.<br/><br/> - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [beroende agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 **Internetanslutning** | Om datorerna inte är anslutna till Internet måste du installera Log Analytics gateway på dem.
 

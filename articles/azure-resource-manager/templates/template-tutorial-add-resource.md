@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472963"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765594"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>Självstudie: Lägg till en resurs i Resource Manager-mallen
 
@@ -28,7 +28,7 @@ Om du vill lägga till en lagrings konto definition i den befintliga mallen titt
 
 Ersätt **{ge-Unique-Name}** med ett unikt lagrings konto namn. Namnet på lagringskontot måste vara unikt i Azure. Namnet får bara innehålla gemena bokstäver eller siffror. Det får inte vara längre än 24 tecken. Du kan prova ett namngivnings mönster som att använda **store1** som prefix och sedan lägga till dina initialer och dagens datum. Till exempel kan namnet som du använder se ut som **store1abc09092019**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json?range=1-19&highlight=5-17)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
 Att gissa ett unikt namn för ett lagrings konto är inte enkelt och fungerar inte bra för att automatisera stora distributioner. Senare i den här själv studie serien använder du mallar som gör det enklare att skapa ett unikt namn.
 
@@ -94,7 +94,7 @@ Distributionen tar längre tid än distributionen av tomma mallar eftersom lagri
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att ett lagrings konto har distribuerats.

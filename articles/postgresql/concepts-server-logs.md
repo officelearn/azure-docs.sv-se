@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2636e9a225002148e4cd79bb2176e0883aed623a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721327"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844946"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Loggar i Azure Database for PostgreSQL-enskild server
 Med Azure Database for PostgreSQL kan du konfigurera och få åtkomst till postgres standard loggar. Loggarna kan användas för att identifiera, felsöka och reparera konfigurations fel och underoptimala prestanda. Loggnings information som du kan konfigurera och komma åt innehåller fel, fråga efter information, autovakuum-poster, anslutningar och kontroll punkter. (Åtkomst till transaktions loggar är inte tillgänglig).
@@ -69,7 +69,7 @@ Om du vill aktivera diagnostikloggar med PowerShell, CLI eller REST API går du 
 
 ### <a name="access-diagnostic-logs"></a>Få åtkomst till diagnostikloggar
 
-Hur du kommer åt loggarna beror på vilken slut punkt du väljer. För Azure Storage beskrivs schemat i artikeln [Logga lagrings konto](../azure-monitor/platform/resource-logs-collect-storage.md) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+Hur du kommer åt loggarna beror på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../azure-monitor/platform/resource-logs-collect-storage.md) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
 
 För Azure Monitor loggar skickas loggar till den valda arbets ytan. Postgres-loggarna använder samlings läget **AzureDiagnostics** , så att de kan frågas från AzureDiagnostics-tabellen. Fälten i tabellen beskrivs nedan. Läs mer om frågor och aviseringar i Översikt över [Azure Monitor loggar frågor](../azure-monitor/log-query/log-query-overview.md) .
 
@@ -78,7 +78,7 @@ Följande är frågor som du kan försöka komma igång med. Du kan konfigurera 
 Sök efter alla postgres-loggar för en viss server under den senaste dagen
 ```
 AzureDiagnostics
-| where LogicalServerName_s == 'myservername'
+| where LogicalServerName_s == "myservername"
 | where TimeGenerated > ago(1d) 
 ```
 

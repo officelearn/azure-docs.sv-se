@@ -3,12 +3,12 @@ title: Stöd för VMware-utvärdering i Azure Migrate
 description: Läs mer om stöd för VMware-utvärdering i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 74dae71404fe827c9e19d5e3042afd2f98a7a5dd
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154694"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846188"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Support mat ris för VMware-utvärdering 
 
@@ -52,11 +52,11 @@ Förutom att identifiera datorer kan Azure Migrate: Server utvärdering kan iden
 --- | ---
 **vCenter Server** | Datorer som du vill identifiera och utvärdera måste hanteras av vCenter Server version 5,5, 6,0, 6,5 eller 6,7.
 **Behörigheter (utvärdering)** | vCenter Server skrivskyddat konto.
-**Behörigheter (app-Discovery)** | vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för virtuella datorer > gäst åtgärder.
+**Behörigheter (app-Discovery)** | vCenter Server konto med skrivskyddad åtkomst och behörigheter som har Aktiver ATS för **virtuella datorer > gäst åtgärder**.
 **Behörigheter (beroende visualisering)** | Center Server-konto med skrivskyddad åtkomst och privilegier som är aktiverade för **virtuella datorer** > **gäst åtgärder**.
 
 
-## <a name="azure-migrate-appliance-requirements"></a>Krav för Azure Migrate utrustning
+## <a name="azure-migrate-appliance-requirements"></a>Installationskrav för Azure Migrate
 
 Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för identifiering och utvärdering. Installationen av VMware distribueras med hjälp av en beredskaps mall som importeras till vCenter Server. 
 
@@ -65,10 +65,11 @@ Azure Migrate använder [Azure Migrates enheten](migrate-appliance.md) för iden
 
 ## <a name="port-access"></a>Port åtkomst
 
-**Enhet** | **Anslutning**
+**Anordningar** | **Anslutning**
 --- | ---
-Enhet | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443, 5671 och 5672 för att skicka identifierings-och prestanda-metadata till Azure Migrate.
+Enhet | Inkommande anslutningar på TCP-port 3389 för att tillåta fjärr skrivbords anslutningar till enheten.<br/><br/> Inkommande anslutningar på port 44368 för fjärråtkomst till appen för program hantering med URL: en: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Utgående anslutningar på port 443 (HTTPS), 5671 och 5672 (AMQP) för att skicka identifierings-och prestanda-metadata till Azure Migrate.
 vCenter Server | Inkommande anslutningar på TCP-port 443 för att tillåta att installationen samlar in konfigurations-och prestanda-metadata för utvärderingar. <br/><br/> Enheten ansluter som standard till vCenter på port 443. Om vCenter-servern lyssnar på en annan port kan du ändra porten när du konfigurerar identifiering.
+ESXi-värdar | **Krävs endast för [program identifiering](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) och [visualisering av beroende för agent](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization)** <br/><br/> Enheten ansluter till ESXi-värdar på TCP-port 443 för att identifiera program och köra en agent lös beroende visualisering på de virtuella datorer som körs på värdarna.
 
 ## <a name="agent-based-dependency-visualization"></a>Agent-baserad beroende visualisering
 
@@ -80,14 +81,14 @@ vCenter Server | Inkommande anslutningar på TCP-port 443 för att tillåta att 
 **Distribution** | Innan du distribuerar beroende visualisering bör du ha ett Azure Migrate-projekt på plats, med verktyget Azure Migrate: Server bedömning som har lagts till i projektet. Du kan distribuera beroende visualisering när du har konfigurerat en Azure Migrate-apparat för att identifiera dina lokala datorer.<br/><br/> Beroende visualisering är inte tillgänglig i Azure Government.
 **Tjänstkarta** | Agent-baserad beroende visualisering använder [tjänstkarta](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) lösning i [Azure Monitor loggar](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview).<br/><br/> Om du vill distribuera associerar du en ny eller befintlig Log Analytics arbets yta med ett Azure Migrate projekt.
 **Log Analytics-arbetsyta** | Arbets ytan måste vara i samma prenumeration som Azure Migrate-projektet.<br/><br/> Azure Migrate stöder arbets ytor som finns i regionerna östra USA, Sydostasien och Europa, västra.<br/><br/>  Arbets ytan måste vara i en region där [tjänstkarta stöds](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-enable-overview#prerequisites).<br/><br/> Det går inte att ändra arbets ytan för ett Azure Migrate projekt när den har lagts till.
-**Avgifter** | Tjänstkarta-lösningen debiteras inga avgifter för de första 180 dagarna (från dagen då du kopplade arbets ytan Log Analytics med Azure Migrate-projektet).<br/><br/> Efter 180 dagar kommer standard Log Analytics avgifter att gälla.<br/><br/> Om du använder någon annan lösning än Tjänstkarta i den associerade Log Analytics arbets ytan debiteras standard Log Analytics avgifter.<br/><br/> Om du tar bort Azure Migrate-projektet raderas inte arbets ytan med den. När du har tagit bort projektet är Tjänstkarta inte kostnads fritt, och varje nod debiteras enligt den betalda nivån i Log Analytics arbets ytan.
+**Utgifts** | Tjänstkarta-lösningen debiteras inga avgifter för de första 180 dagarna (från dagen då du kopplade arbets ytan Log Analytics med Azure Migrate-projektet).<br/><br/> Efter 180 dagar kommer standard Log Analytics avgifter att gälla.<br/><br/> Om du använder någon annan lösning än Tjänstkarta i den associerade Log Analytics arbets ytan debiteras standard Log Analytics avgifter.<br/><br/> Om du tar bort Azure Migrate-projektet raderas inte arbets ytan med den. När du har tagit bort projektet är Tjänstkarta inte kostnads fritt, och varje nod debiteras enligt den betalda nivån i Log Analytics arbets ytan.
 **Aktörer** | Agent-baserad beroende visualisering kräver att två agenter installeras på varje dator som du vill analysera.<br/><br/> - [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows)<br/><br/> - [beroende agent](https://docs.microsoft.com/azure/azure-monitor/platform/agents-overview#dependency-agent). 
 **Internetanslutning** | Om datorerna inte är anslutna till Internet måste du installera Log Analytics gateway på dem.
 
 
 ## <a name="agentless-dependency-visualization"></a>Agentfri visualisering av beroenden
 
-Detta alternativ förhandsvisas just nu. [Läs mer](how-to-create-group-machine-dependencies-agentless.md). Kraven sammanfattas i följande tabell.
+Det här alternativet är för närvarande en för hands version. [Läs mer](how-to-create-group-machine-dependencies-agentless.md). Kraven sammanfattas i följande tabell.
 
 **Krav** | **Detaljer**
 --- | ---

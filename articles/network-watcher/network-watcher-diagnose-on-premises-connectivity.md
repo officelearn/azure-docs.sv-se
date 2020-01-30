@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Den här artikeln beskriver hur du diagnostiserar lokal anslutning via VPN-gateway med Azure Network Watcher Resource Troubleshooting.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: aeffbf3d-fd19-4d61-831d-a7114f7534f9
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 528684031404dbd907205e69f3565155fa1856b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: damendo
+ms.openlocfilehash: 835b3a69e779b536961110b674ae67f4e8c13ce0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454298"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845066"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnostisera lokal anslutning via VPN-gatewayer
 
@@ -84,12 +82,12 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 | Feltyp | Orsak | Logg|
 |---|---|---|
-| NoFault | När inget fel har identifierats. |Ja|
+| Nofel | När inget fel har identifierats. |Ja|
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Inga|
-| PlannedMaintenance |  Underhåll utförs på Gateway-instansen.  |Inga|
+| PlannedMaintenance |  Gateway-instansen är under underhåll.  |Inga|
 | UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring. | Inga |
 | VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Detta inträffar när hälso avsökningen Miss lyckas. | Inga |
-| PlatformInActive | Det är något problem med plattformen. | Inga|
+| PlatformInActive | Det finns ett problem med plattformen. | Inga|
 | ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
 | NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Detta är endast en varning.| Inga|
 | ConnectionsNotConnected | Ingen anslutning är ansluten. Detta är endast en varning.| Ja|
@@ -99,9 +97,9 @@ Med Azure Network Watcher fel söknings funktionen kan du diagnostisera och fels
 
 | Feltyp | Orsak | Logg|
 |---|---|---|
-| NoFault | När inget fel har identifierats. |Ja|
+| Nofel | När inget fel har identifierats. |Ja|
 | GatewayNotFound | Det går inte att hitta någon gateway eller gateway. |Inga|
-| PlannedMaintenance | Underhåll utförs på Gateway-instansen.  |Inga|
+| PlannedMaintenance | Gateway-instansen är under underhåll.  |Inga|
 | UserDrivenUpdate | När en användar uppdatering pågår. Detta kan vara en åtgärd för storleks ändring.  | Inga |
 | VipUnResponsive | Det går inte att komma åt den primära instansen av gatewayen. Det inträffar när hälso avsökningen Miss lyckas. | Inga |
 | ConnectionEntityNotFound | Anslutnings konfigurationen saknas. | Inga |

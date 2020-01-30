@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861667"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846152"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Formhändelser med förhandsversionen av Azure Time Series Insights
 
@@ -156,5 +156,4 @@ I exemplet ovan skulle den sammanslagna `data_flow`-egenskapen ge en namn konfli
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att kunna använda dessa rikt linjer i övningen läser du [Azure Time Series Insights förhandsgranska frågesyntax](./time-series-insights-query-data-csharp.md). Du lär dig mer om frågesyntaxen för Time Series Insights för hands versionen REST API för data åtkomst.
-- Läs de [JSON-former som stöds](./time-series-insights-send-events.md#supported-json-shapes)för att lära dig mer om JSON-former som stöds.
+För att kunna använda dessa rikt linjer i övningen läser du [Azure Time Series Insights förhandsgranska frågesyntax](./time-series-insights-query-data-csharp.md). Du lär dig mer om frågesyntaxen för Time Series Insights för hands versionen REST API för data åtkomst.

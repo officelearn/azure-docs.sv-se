@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a27022f8c06449d8b05f90f78055b983bc88c01c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472858"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765511"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Självstudie: Lägg till variabler i Resource Manager-mallen
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 Parametern för lagrings konto namnet är svår att använda eftersom du måste ange ett unikt namn. Om du har slutfört de tidigare självstudierna i den här serien är du förmodligen trött på att gissa ett unikt namn. Du löser problemet genom att lägga till en variabel som skapar ett unikt namn för lagrings kontot.
 
@@ -34,7 +34,7 @@ Parametern för lagrings konto namnet är svår att använda eftersom du måste 
 
 I följande exempel visas ändringarna för att lägga till en variabel i mallen som skapar ett unikt lagrings konto namn. Kopiera hela filen och ersätt din mall med dess innehåll.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 Observera att det innehåller en variabel med namnet **uniqueStorageName**. Den här variabeln använder fyra funktioner för att skapa ett sträng värde.
 
@@ -83,7 +83,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att en lagrings konto resurs har distribuerats. Namnet på lagrings kontot är **lagrat** plus en sträng med slumpmässiga tecken.

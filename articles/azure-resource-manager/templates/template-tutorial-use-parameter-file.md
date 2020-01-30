@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: abafa00febe0431acf5c678cc179c6c114fa9179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472375"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773153"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudie: använda parameter-filer för att distribuera Resource Manager-mallen
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 Din mall har många parametrar som du kan ange under distributionen. I slutet av den föregående själv studie kursen såg din mall ut som:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
 
 Den här mallen fungerar bra, men nu vill du enkelt hantera de parametrar som du skickar i för mallen.
 
@@ -36,13 +36,13 @@ Parameter-filer är JSON-filer med en struktur som liknar din mall. I filen ange
 
 I VS Code skapar du en ny fil med följande innehåll. Spara filen med namnet **azuredeploy. Parameters. dev. JSON**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 Den här filen är din parameter fil för utvecklings miljön. Observera att den använder Standard_LRS för lagrings kontot, namnger resurser med ett **dev** -prefix och ställer in **miljö** tag gen på **dev**.
 
 Skapa en ny fil med följande innehåll. Spara filen med namnet **azuredeploy. Parameters. prod. JSON**.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
 Den här filen är parameter filen för produktions miljön. Observera att den använder Standard_GRS för lagrings kontot, namnger resurser med ett **contoso** -prefix och ställer in **miljö** tag gen på **produktion**. I en verklig produktions miljö vill du också använda en app service med en annan SKU än kostnads fri, men vi fortsätter att använda SKU: n för den här självstudien.
 
@@ -120,7 +120,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs grupperna från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Du ser de två nya resurs grupper som du har distribuerat i den här självstudien.
 1. Välj antingen resurs grupp och Visa de distribuerade resurserna. Observera att de stämmer överens med de värden som du har angett i parameter filen för den miljön.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719831"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844980"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -26,6 +26,10 @@ Läs om vad som är nytt i tjänsten. Skapa ett bok märke för den här sidan f
 Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspegla den utökade (ännu valfria) användningen av kognitiva kunskaper och AI-bearbetning i kärn åtgärder. API-versioner, NuGet-paket, namnrymder och slut punkter är oförändrade. Nya och befintliga Sök lösningar påverkas inte av tjänst namns ändringen.
 
 ## <a name="feature-announcements"></a>Funktions aviseringar
+
+### <a name="february-2020"></a>Februari 2020
+
++ [Identifiering av PII](cognitive-search-skill-pii-detection.md) är en kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt.
 
 ### <a name="january-2020"></a>Januari 2020
 
@@ -52,7 +56,7 @@ Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspe
 
 + [Extrahering av dokument (för hands version)](cognitive-search-skill-document-extraction.md) är en kognitiv kunskap som används vid indexering och som gör att du kan extrahera innehållet i en fil från en färdigheter. Tidigare inträffade endast dokument sprickor innan färdigheter kördes. Med att lägga till den här kunskapen kan du också utföra den här åtgärden i färdigheter-körning.
 
-+ [Text översättning (för hands version)](cognitive-search-skill-text-translation.md) är en kognitiv färdighet som används vid indexering som utvärderar text och, för varje post, returnerar texten översatt till det angivna mål språket.
++ [Översättning av text](cognitive-search-skill-text-translation.md) är en kognitiv kunskap som används vid indexering som utvärderar text och, för varje post, returnerar texten översatt till det angivna mål språket.
 
 + [Power BI mallar](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) kan rivstart med visualiseringar och analys av berikat innehåll i ett kunskaps lager på Power BI Desktop. Den här mallen är utformad för Azure Table-projektioner som skapats via [guiden Importera data](knowledge-store-create-portal.md).
 

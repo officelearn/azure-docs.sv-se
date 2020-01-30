@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098686"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844708"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>Självstudie: vidarebefordra händelser till IoTHub
 
@@ -81,6 +81,8 @@ Som utgivare av en händelse måste du skapa ett event Grid-ämne. Avsnittet ref
 ## <a name="create-event-subscription"></a>Skapa händelse prenumeration
 
 Prenumeranter kan registrera sig för händelser som publiceras i ett ämne. För att ta emot händelser måste de skapa en Event Grid-prenumeration i ett ämne av intresse.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. Skapa subscription4. JSON med följande innehåll. Läs vår [API-dokumentation](api.md) om du vill ha mer information om nytto lasten.
 
@@ -212,3 +214,4 @@ I den här självstudien har du skapat ett event Grid-ämne, en Edge Hub-prenume
 * Konfigurera persistence för Event Grid modul i [Linux](persist-state-linux.md) eller [Windows](persist-state-windows.md)
 * Följ [dokumentationen](configure-client-auth.md) om du vill konfigurera klientautentisering
 * Vidarebefordra händelser till Azure Event Grid i molnet genom att följa den här [självstudien](forward-events-event-grid-cloud.md)
+* [Övervaka ämnen och prenumerationer på gränsen](monitor-topics-subscriptions.md)

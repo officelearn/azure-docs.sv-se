@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 27243f47df7da22ab4adda088bdf631c1030dd6c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771827"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845194"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>Felsöka interaktivt på en Azure Machine Learning beräknings instans med VS Code Remote
 
 I den här artikeln får du lära dig hur du konfigurerar Visual Studio Code-fjärrhantering på en Azure Machine Learning beräknings instans så att du **interaktivt kan felsöka koden** från vs Code. 
 
 > [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+> Beräknings instanser är endast tillgängliga för arbets ytor med **norra centrala USA**, * * östra USA 2 * *, **nord Europa** eller **Storbritannien, södra**.
 
 + En [Azure Machine Learning beräknings instans](concept-compute-instance.md) är en fullständigt hanterad molnbaserad arbets station för data forskare och innehåller funktioner för hantering och företags beredskap för IT-administratörer. 
 

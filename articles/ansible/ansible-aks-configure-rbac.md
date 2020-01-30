@@ -4,12 +4,12 @@ description: Lär dig hur du använder Ansible för att konfigurera RBAC i Azure
 keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes, Azure Active Directory, RBAC
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156869"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836974"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera rollbaserad åtkomst kontroll (RBAC) roller i Azure Kubernetes service (AKS) med hjälp av Ansible
 
@@ -119,7 +119,7 @@ Spara följande spelbok som `aks-create.yml`:
 
 Om du vill skapa en RBAC-bindning måste du först hämta Azure AD-objekt-ID: t. 
 
-1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Ange `Azure Active Directory`i fältet Sök högst upp på sidan. 
 
@@ -156,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-Ersätt `&lt;your-aad-account>` plats hållaren med ditt Azure AD [-klientens objekt-ID](#get-the-azure-ad-object-id).
+Ersätt `<your-aad-account>` plats hållaren med ditt Azure AD [-klientens objekt-ID](#get-the-azure-ad-object-id).
 
 Spara följande Spelbok – som distribuerar den nya rollen till AKS-som `aks-kube-deploy.yml`:
 

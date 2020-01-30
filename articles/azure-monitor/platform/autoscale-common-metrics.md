@@ -4,12 +4,12 @@ description: Lär dig vilka mått som används ofta för automatisk skalning av 
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364602"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845576"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor vanliga mått för autoskalning
 
@@ -36,7 +36,7 @@ Följande mått på värdnivå genereras som standard för virtuella Azure-dator
 - [Värd mått för Resource Manager-baserade virtuella Windows-och Linux-datorer](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Värd mått för Resource Manager-baserade Windows-och Linux-VM Scale Sets](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>Gäst operativ system mått Resource Manager-baserade virtuella Windows-datorer
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Gäst operativ system mått för Resource Manager-baserade virtuella Windows-datorer
 När du skapar en virtuell dator i Azure aktive ras diagnostik med hjälp av tillägget Diagnostics. Tillägget Diagnostics ger en uppsättning mått som tas från den virtuella datorn. Det innebär att du kan Autoskala av mått som inte genereras som standard.
 
 Du kan skapa en lista över måtten med hjälp av följande kommando i PowerShell.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |Antal |
 | \NetworkInterface\TotalCollisions |Antal |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>Vanliga mått för webb Server grupper
-Du kan också utföra autoskalning baserat på vanliga webb server mått, till exempel http-köns längd. IT-måttets namn är **HttpQueueLength**.  I följande avsnitt visas tillgängliga mått för Server grupp (Web Apps).
+## <a name="commonly-used-app-service-server-farm-metrics"></a>Ofta använda App Service (Server grupp) mått
+Du kan också utföra autoskalning baserat på vanliga webb server mått, till exempel http-köns längd. Dess mått namn är **HttpQueueLength**.  I följande avsnitt visas tillgängliga mått för Server grupp (App Service).
 
 ### <a name="web-apps-metrics"></a>Web Apps mått
 Du kan generera en lista med Web Apps måtten med hjälp av följande kommando i PowerShell.
@@ -159,8 +159,8 @@ Till exempel, med ett klassiskt lagrings konto, inkluderar metricTrigger för au
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 För ett (icke-klassiskt) lagrings konto skulle metricTrigger innehålla:
@@ -177,7 +177,7 @@ Du kan skala efter Service Bus Kölängd, vilket är antalet meddelanden i Servi
 För VM Scale-uppsättningar kan du uppdatera inställningen för autoskalning i Resource Manager-mallen för att använda *metricName* som *ApproximateMessageCount* och skicka ID: t för lagrings kön som *metricResourceUri*.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

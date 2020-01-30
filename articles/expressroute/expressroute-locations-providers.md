@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: cbddd912831247e30f2913414c6dfa13131dde99
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 02e2c0472a6ba7449229a5de5c6d8948be064644
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719865"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845781"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute-partners och peeringplatser
 
@@ -95,7 +95,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Dubai2** | [du datamena](http://datamena.com/solutions/data-centre) | 3 | Förenade Arabemiraten, norra | Ej tillämpligt | du datamena, Megaport, orange, Orixcom |
 | **Dublin** | [Equinix DB3](https://www.equinix.com/locations/europe-colocation/ireland-colocation/dublin-data-centers/db3/) | 1 | Europa, norra | 10G, 100G | Colt, eir, Equinix, Interxion, Megaport |
 | **Frankfurt** | [Interxion FRA11](https://www.interxion.com/Locations/frankfurt/) | 1 | Tyskland, västra centrala | 10G, 100G | Colt, CIX, GEANT, Interxion, Megaport, orange, Telia Carrier |
-| **Genèvekonventionen** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Schweiz, västra | 10G, 100G | Equinix |
+| **Genèvekonventionen** | [Equinix GV2](https://www.equinix.com/locations/europe-colocation/switzerland-colocation/geneva-data-centers/gv2/) | 1 | Schweiz, västra | 10G, 100G | Equinix, Megaport |
 | **Hong Kong SAR** | [Equinix HK1](https://www.equinix.com/locations/asia-colocation/hong-kong-colocation/hong-kong-data-center/hk1/) | 2 | Asien, östra | Ej tillämpligt | Aryaka Networks, British Telecom, CenturyLink Cloud Connect, Chief Telecom, Kina, Storbritannien global, Equinix, intercloud, Megaport, NTT Communications, orange, PCCW global Limited, Tata Communications, Telia Carrier, Verizon |
 | **Jakarta** | Telkom Indonesien | 4 | Ej tillämpligt | 10 G | |
 | **Johannesburg** | [Teraco JB1](https://www.teraco.co.za/data-centre-locations/johannesburg/#jb1) | 3 | Sydafrika, norra | 10 G | Brittiska telekom, Internet-lösningar – moln anslutning, flytande telekom, orange, Teraco |
@@ -108,7 +108,7 @@ Följande tabell innehåller anslutningsplatser och tjänstleverantörerna för 
 | **Melbourne** | [NextDC M1](https://www.nextdc.com/data-centres/m1-melbourne-data-centre) | 2 | Australien, sydöstra | 10G, 100G | AARNet, Devoli, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation, TPG Telecom |
 | **Miami** | [Equinix MI1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/miami-data-centers/mi1/) | 1 | Ej tillämpligt | 10 G | C3ntro, Equinix, Megaport, Neutrona-nätverk |
 | **Milano** | [IRIDEOS](https://irideos.it/en/data-centers/) | 1 | Ej tillämpligt | 10 G | |
-| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | Ej tillämpligt | Ej tillämpligt | Bell Canada, Cologix, Megaport, Telus, Zayo |
+| **Montreal** | [Cologix MTL3](https://www.cologix.com/data-centers/montreal/mtl3/) | 1 | Ej tillämpligt | 10G, 100G | Bell Canada, Cologix, Megaport, Telus, Zayo |
 | **Mumbai** | Tata Communications | 2 | Indien, västra | Ej tillämpligt | Global CloudXchange (GCX), Reliance Jio, Sify, Tata Communications, Verizon |
 | **Mumbai2** | Airtel | 2 | Indien, västra | Ej tillämpligt | Airtel, Sify, Vodafone Idea |
 | **München** | [EdgeConneX](https://www.edgeconnex.com/locations/europe/) | 1 | Ej tillämpligt | 10G, 100G | |
@@ -160,7 +160,7 @@ De nationella Azure-molnen är isolerade från varandra och från globala affär
 | **Plats** | **Tjänstleverantörer** |
 | --- | --- |
 | **Peking** |China Telecom |
-| **Beijing2** | Kina, GDS |
+| **Beijing2** | Kina, telekom, Kina, Unicom, GDS |
 | **Shanghai** |China Telecom |
 | **Shanghai2** | Kina, GDS |
 

@@ -7,18 +7,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c5b7b4301eb9cf019399795fc45b69fe152061d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722330"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844487"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid händelse schema för Blob Storage
 
 Den här artikeln innehåller egenskaper och schema för Blob Storage-händelser. En introduktion till händelse scheman finns i [Azure Event Grid händelse schema](event-schema.md).
 
 En lista över exempel skript och självstudier finns i [lagrings händelse källa](event-sources.md#storage).
+
+>[!NOTE]
+> Endast lagrings konton av typen **StorageV2 (generell användning v2)** och **BlobStorage** -stöd för händelse integrering. **Lagring (Genral Purpose v1)** stöder *inte* integrering med event Grid.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Lista över händelser för BLOB REST-API: er
 

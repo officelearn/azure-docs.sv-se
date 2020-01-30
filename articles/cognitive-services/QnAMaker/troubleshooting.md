@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e56722831ef05364b8ee4d342553158fba19ffaa
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 159b00f9417f4a572655f1f93208dbc755012922
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760733"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844861"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -95,7 +95,7 @@ Standardmeddelandet är en del av inställningarna i din App service.
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Varför är min SharePoint-länken inte komma extrahera?
 
-Se [datakällans platser](./Concepts/data-sources-supported.md#data-source-locations) för mer information.
+Se [datakällans platser](./Concepts/knowledge-base.md#data-source-locations) för mer information.
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Uppdateringar som jag gjorde på min kunskapsbas inte visas publicera. Varför inte?
 

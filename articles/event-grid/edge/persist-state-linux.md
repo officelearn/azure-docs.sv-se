@@ -9,16 +9,18 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 3506399537fe2cb16014ceb3429bce5aeee8cb69
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100341"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844640"
 ---
 # <a name="persist-state-in-linux"></a>Sparat tillstånd i Linux
 
-Ämnen och prenumerationer som skapas i Event Grid-modulen lagras som standard i behållar fil systemet. Utan persistence, om modulen har distribuerats om, kommer alla metadata som skapats att gå förlorade. För närvarande sparas endast metadata. Händelser lagras i minnet. Om Event Grid modul omdistribueras eller startas om, kommer alla ej levererade händelser att gå förlorade.
+Ämnen och prenumerationer som skapas i Event Grid-modulen lagras som standard i behållar fil systemet. Utan persistence, om modulen har distribuerats om, kommer alla metadata som skapats att gå förlorade. Om du vill bevara data mellan distributioner och omstarter måste du spara data utanför behållar fil systemet.
+
+Som standard sparas endast metadata och händelser lagras fortfarande i minnet för bättre prestanda. Följ avsnittet beständiga händelser för att aktivera händelse beständighet.
 
 Den här artikeln innehåller steg för att distribuera Event Grid-modulen med persistence i Linux-distributioner.
 
@@ -61,7 +63,8 @@ Följande konfiguration leder till exempel till skapandet av volymen **egmetadat
   ],
   "HostConfig": {
     "Binds": [
-      "egmetadataDbVol:/app/metadataDb"
+      "egmetadataDbVol:/app/metadataDb",
+      "egdataDbVol:/app/eventsDb"
     ],
     "PortBindings": {
       "4438/tcp": [
@@ -74,7 +77,7 @@ Följande konfiguration leder till exempel till skapandet av volymen **egmetadat
 }
 ```
 
-Du kan också skapa en Docker-volym med hjälp av Docker-klient kommandon. 
+I stället för att montera en volym kan du skapa en katalog på värd systemet och montera den katalogen.
 
 ## <a name="persistence-via-host-directory-mount"></a>Beständighet via värd katalog montering
 
@@ -138,7 +141,8 @@ I stället för en Docker-volym har du också möjlighet att montera en Host-map
           ],
           "HostConfig": {
                 "Binds": [
-                  "/myhostdir:/app/metadataDb"
+                  "/myhostdir:/app/metadataDb",
+                  "/myhostdir2:/app/eventsDb"
                 ],
                 "PortBindings": {
                       "4438/tcp": [
@@ -153,3 +157,32 @@ I stället för en Docker-volym har du också möjlighet att montera en Host-map
 
     >[!IMPORTANT]
     >Ändra inte den andra delen av bind-värdet. Den pekar på en angiven plats i modulen. För modulen Event Grid i Linux måste den vara **/app/metadata**.
+
+
+## <a name="persist-events"></a>Kvarhåll händelser
+
+Om du vill aktivera händelse persistence måste du först aktivera beständiga metadata antingen via volym montering eller värd katalog montering med hjälp av ovanstående avsnitt.
+
+Viktiga saker att tänka på när du behåller händelser:
+
+* Beständiga händelser aktive ras för en prenumeration per händelse och är valbar när en volym eller katalog har monterats.
+* Händelse persistence konfigureras för en händelse prenumeration när den skapas och kan inte ändras när händelse prenumerationen har skapats. Om du vill växla händelse beständighet måste du ta bort och återskapa händelse prenumerationen.
+* Beständiga händelser är nästan alltid långsammare än i minnes åtgärder, men hastigheten är mycket beroende av enhetens egenskaper. Kompromissen mellan hastighet och tillförlitlighet är till för alla meddelande system, men vanligt vis blir noticible i stor skala.
+
+Om du vill aktivera händelse beständighet för en händelse prenumeration anger `persistencePolicy` `true`:
+
+ ```json
+        {
+          "properties": {
+            "persistencePolicy": {
+              "isPersisted": "true"
+            },
+            "destination": {
+              "endpointType": "WebHook",
+              "properties": {
+                "endpointUrl": "<your-webhook-url>"
+              }
+            }
+          }
+        }
+ ```

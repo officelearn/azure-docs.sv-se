@@ -5,18 +5,18 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/28/2020
 ms.author: mlearned
-ms.openlocfilehash: cbc653b86ed83f9d6a7348d39f51dc7cd49c6892
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d1fdd17b0f6b8ed91d4496f7e9e5a578e53556fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615678"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845225"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Använd Azures rollbaserade åtkomst kontroller för att definiera åtkomst till konfigurations filen Kubernetes i Azure Kubernetes service (AKS)
 
-Du kan interagera med Kubernetes-kluster med `kubectl` verktyget. Azure CLI är ett enkelt sätt att få åtkomst till autentiseringsuppgifter och konfigurations information för att ansluta till dina AKS-kluster `kubectl`med hjälp av. Om du vill begränsa vem som kan hämta den Kubernetes konfigurations informationen (*kubeconfig*) och begränsa behörigheterna som de har kan du använda rollbaserad åtkomst kontroll (RBAC) i Azure.
+Du kan interagera med Kubernetes-kluster med hjälp av `kubectl`-verktyget. Azure CLI är ett enkelt sätt att få åtkomst till autentiseringsuppgifter och konfigurations information för att ansluta till AKS-kluster med hjälp av `kubectl`. Om du vill begränsa vem som kan hämta den Kubernetes konfigurations informationen (*kubeconfig*) och begränsa behörigheterna som de har kan du använda rollbaserad åtkomst kontroll (RBAC) i Azure.
 
 Den här artikeln visar hur du tilldelar RBAC-roller som begränsar vem som kan hämta konfigurations information för ett AKS-kluster.
 
@@ -28,28 +28,32 @@ Den här artikeln kräver också att du kör Azure CLI-version 2.0.65 eller sena
 
 ## <a name="available-cluster-roles-permissions"></a>Tillgängliga kluster roll behörigheter
 
-När du interagerar med ett AKS- `kubectl` kluster med verktyget används en konfigurations fil som definierar kluster anslutnings information. Den här konfigurations filen lagras vanligt vis i *~/.Kube/config*. Flera kluster kan definieras i den här *kubeconfig* -filen. Du växlar mellan kluster med kommandot [kubectl config use-context][kubectl-config-use-context] .
+När du interagerar med ett AKS-kluster med hjälp av `kubectl`-verktyget används en konfigurations fil som definierar kluster anslutnings information. Den här konfigurations filen lagras vanligt vis i *~/.Kube/config*. Flera kluster kan definieras i den här *kubeconfig* -filen. Du växlar mellan kluster med kommandot [kubectl config use-context][kubectl-config-use-context] .
 
 Med kommandot [AZ AKS get-credentials][az-aks-get-credentials] kan du hämta autentiseringsuppgifter för ett AKS-kluster och slå samman dem till *kubeconfig* -filen. Du kan använda Azures rollbaserade åtkomst kontroller (RBAC) för att kontrol lera åtkomsten till dessa autentiseringsuppgifter. Med dessa Azure RBAC-roller kan du definiera vem som kan hämta *kubeconfig* -filen och vilka behörigheter de har i klustret.
 
 De två inbyggda rollerna är:
 
 * **Administratörs roll för Azure Kubernetes service Cluster**  
-    * Tillåter åtkomst till API-anrop för *Microsoft. container service/managedClusters/listClusterAdminCredential/Action* . Detta API-anrop [visar autentiseringsuppgifter för kluster administratören][api-cluster-admin].
-    * Hämtar *kubeconfig* för *clusterAdmin* -rollen.
+  * Tillåter åtkomst till API-anrop för *Microsoft. container service/managedClusters/listClusterAdminCredential/Action* . Detta API-anrop [visar autentiseringsuppgifter för kluster administratören][api-cluster-admin].
+  * Hämtar *kubeconfig* för *clusterAdmin* -rollen.
 * **Användar roll för Azure Kubernetes service-kluster**
-    * Tillåter åtkomst till API-anrop för *Microsoft. container service/managedClusters/listClusterUserCredential/Action* . Det här API-anropet [visar autentiseringsuppgifter för klustrets användare][api-cluster-user].
-    * Hämtar *kubeconfig* för *clusterUser* -rollen.
+  * Tillåter åtkomst till API-anrop för *Microsoft. container service/managedClusters/listClusterUserCredential/Action* . Det här API-anropet [visar autentiseringsuppgifter för klustrets användare][api-cluster-user].
+  * Hämtar *kubeconfig* för *clusterUser* -rollen.
 
 Dessa RBAC-roller kan tillämpas på en Azure Active Directory (AD) användare eller grupp.
+
+> ! Lägg I kluster som använder Azure AD har användare med rollen *clusterUser* en tom *kubeconfig* -fil som efterfrågar en inloggning. När användaren har loggat in har användarna åtkomst baserat på deras inställningar för Azure AD-användare eller grupper. Användare med rollen *clusterAdmin* har administratörs åtkomst.
+>
+> Kluster som inte använder Azure AD använder bara *clusterAdmin* -rollen.
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>Tilldela roll behörigheter till en användare eller grupp
 
 Om du vill tilldela en av de tillgängliga rollerna måste du hämta resurs-ID för AKS-klustret och ID: t för Azure AD-användarkontot eller-gruppen. Följande exempel kommandon:
 
 * Hämta kluster resurs-ID: t med kommandot [AZ AKS show][az-aks-show] för klustret med namnet *myAKSCluster* i resurs gruppen *myResourceGroup* . Ange ditt eget kluster och resurs grupp namn efter behov.
-* Använder [AZ-kontot show][az-account-show] och [AZ AD User show][az-ad-user-show] commands för att hämta ditt användar-ID.
-* Tilldelar slutligen en roll med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] .
+* Använd [AZ-kontot show][az-account-show] och [AZ AD User show][az-ad-user-show] commands för att hämta ditt användar-ID.
+* Ange slutligen en roll med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] .
 
 I följande exempel tilldelas *rollen Azure Kubernetes service Cluster admin* till ett enskilt användar konto:
 
@@ -69,7 +73,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Om du vill tilldela behörigheter till en Azure AD-grupp uppdaterar du den `--assignee` parameter som visas i föregående exempel med objekt-ID för *gruppen* i stället för en *användare*. Om du vill hämta objekt-ID för en grupp använder du kommandot [AZ AD Group show][az-ad-group-show] . I följande exempel hämtas objekt-ID: t för Azure AD-gruppen med namnet *AppDev*:`az ad group show --group appdev --query objectId -o tsv`
+> Om du vill tilldela behörigheter till en Azure AD-grupp uppdaterar du `--assignee`-parametern som visas i föregående exempel med objekt-ID för *gruppen* i stället för en *användare*. Om du vill hämta objekt-ID för en grupp använder du kommandot [AZ AD Group show][az-ad-group-show] . I följande exempel hämtas objekt-ID: t för Azure AD-gruppen med namnet *AppDev*: `az ad group show --group appdev --query objectId -o tsv`
 
 Du kan ändra den tidigare tilldelningen till *kluster användar rollen* vid behov.
 
@@ -125,7 +129,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>Ta bort roll behörigheter
 
-Om du vill ta bort roll tilldelningar använder du kommandot [AZ roll tilldelning ta bort][az-role-assignment-delete] . Ange konto-ID och kluster resurs-ID som hämtades i föregående kommandon. Om du har tilldelat rollen till en grupp i stället för en användare, anger du lämpligt grupp objekt-ID i stället för `--assignee` kontots objekt-ID för parametern:
+Om du vill ta bort roll tilldelningar använder du kommandot [AZ roll tilldelning ta bort][az-role-assignment-delete] . Ange konto-ID och kluster resurs-ID som hämtades i föregående kommandon. Om du har tilldelat rollen till en grupp i stället för en användare, anger du lämpligt grupp objekt-ID i stället för kontots objekt-ID för parametern `--assignee`:
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER

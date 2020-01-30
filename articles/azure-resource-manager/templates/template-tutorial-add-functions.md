@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b32b0377502697e32e56e5c8324ca287c9a3cf69
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75473054"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773213"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>Självstudie: Lägg till mallar i Resource Manager-mallen
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
 Platsen för lagrings kontot är hårdkodad till **USA, östra**. Du kan dock behöva distribuera lagrings kontot till andra regioner. Du är återigen inriktad på ett problem med din mall som saknar flexibilitet. Du kan lägga till en parameter för platsen, men det skulle vara bra om standardvärdet har gjorts mer meningsfullt än bara ett hårdkodat värde.
 
@@ -40,7 +40,7 @@ I följande exempel visas ändringarna för att lägga till en parameter med nam
 
 Kopiera hela filen och ersätt din mall med dess innehåll.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json" range="1-44" highlight="24-27,34":::
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
@@ -74,7 +74,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Du ser att en lagrings konto resurs har distribuerats och har samma plats som resurs gruppen.

@@ -1,5 +1,5 @@
 ---
-title: Vanliga frågor och svar
+title: Vanliga frågor
 description: Vanliga frågor och svar om tjänsten Azure-spatiala ankare.
 author: ramonarguelles
 manager: vriveras
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277087"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844895"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Vanliga frågor om Azure Spatial Anchors
 
@@ -112,6 +112,7 @@ När du skapar en fästpunkt registrerar klient-SDK miljöinformation runt den p
 **A:** Utvecklare kan bygga appar med Azures spatiala ankare med välbekanta verktyg och ramverk för sina enheter:
 
 - Unity över HoloLens, iOS och Android
+- Xamarin på iOS och Android
 - Swift eller Objective-C i iOS
 - Java eller Android NDK i Android
 - C++/WinRT på HoloLens

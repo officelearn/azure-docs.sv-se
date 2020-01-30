@@ -5,29 +5,24 @@ description: I den här självstudien får du lära dig att dirigera nätverkstr
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350298"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775285"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Självstudie: Dirigera nätverkstrafik med en routningstabell med hjälp av Azure-portalen
 
-Som standard dirigerar Azure trafik mellan alla undernät inom ett virtuellt nätverk. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här självstudiekursen får du lära du dig att:
+Som standard dirigerar Azure trafik mellan alla undernät inom ett virtuellt nätverk. Du kan skapa egna vägar för att åsidosätta Azures standardroutning. Möjligheten att skapa anpassade vägar är användbar om du exempelvis vill dirigera trafik mellan undernät via en virtuell nätverksinstallation (NVA). I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en routningstabell
@@ -48,19 +43,19 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-1. Längst upp till vänster på skärmen väljer du **Skapa en resurs** > **Nätverk** > **Routningstabell**.
-
-1. I **Skapa routningstabell** anger eller väljer du följande information:
+1. Från Azure Portal-menyn väljer du **skapa en resurs**.
+2. I rutan Sök anger du *routningstabellen*. När **routningstabellen** visas i Sök resultaten väljer du den.
+3. På sidan **routningstabell** väljer du **skapa**.
+4. I **Skapa routningstabell** anger eller väljer du följande information:
 
     | Inställning | Värde |
     | ------- | ----- |
     | Namn | Ange *myRouteTablePublic*. |
     | Prenumeration | Välj din prenumeration. |
     | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj *OK*. |
-    | Location | Låt standardvärdet **USA, östra** vara kvar.
+    | Location | Välj **USA, östra**.
     | Virtual Network spridning av Gateway-väg | Låt standardvärdet **Aktiverad** vara kvar. |
-
-1. Välj **Skapa**.
+5. Välj **Skapa**.
 
 ## <a name="create-a-route"></a>Skapa en väg
 
@@ -164,10 +159,10 @@ NVA:er är virtuella datorer som hjälper till med nätverksfunktioner såsom ro
     | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett valfritt användarnamn. |
-    | lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
-    | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**.
+    | Offentliga inkommande portar | Välj **Ingen**.
     | **SPARA PENGAR** |  |
     | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
 

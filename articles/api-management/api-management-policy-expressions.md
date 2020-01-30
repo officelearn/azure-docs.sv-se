@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: e9e6eff4c527ff2e22be57ebc1eb3dcdb3c4e0ab
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241981"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845286"
 ---
 # <a name="api-management-policy-expressions"></a>API Management princip uttryck
-I den här artikeln beskrivs syntaxen C# för princip uttryck 7. Varje uttryck har åtkomst till den implicit tillhandahållna [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och en tillåten [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework typer.
+I den här artikeln beskrivs syntaxen C# för princip uttryck i 7. Varje uttryck har åtkomst till den implicit tillhandahållna [kontext](api-management-policy-expressions.md#ContextVariables) variabeln och en tillåten [delmängd](api-management-policy-expressions.md#CLRTypes) av .NET Framework typer.
 
 Mer information:
 

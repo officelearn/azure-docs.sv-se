@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846400"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>Så här konfigurerar du Virtual Network stöd för en Premium Azure-cache för Redis
 Azure cache för Redis har olika cache-erbjudanden, vilket ger flexibilitet i valet av cache-storlek och-funktioner, inklusive funktioner för Premium-nivå, till exempel klustring, beständighet och stöd för virtuella nätverk. Ett VNet är ett privat nätverk i molnet. När en Azure-cache för Redis-instans har kon figurer ATS med ett VNet, är den inte offentligt adresserad och kan endast nås från virtuella datorer och program i VNet. Den här artikeln beskriver hur du konfigurerar stöd för virtuella nätverk för en Premium Azure-cache för Redis-instansen.
@@ -37,7 +37,7 @@ Konfigurera VNet för din nya cache genom att klicka på **Virtual Network** på
 
 ![Virtuellt nätverk][redis-cache-vnet]
 
-Välj önskat undernät i list rutan **undernät** och ange önskad **statisk IP-adress**. Om du använder ett klassiskt virtuellt nätverk är fältet **statisk IP-adress** valfritt och om inget anges väljs det som du väljer från det valda under nätet.
+Välj önskat undernät i list rutan **undernät** .  Om du vill kan du ange en **statisk IP-adress**. Fältet **statisk IP-adress** är valfritt, och om inget anges väljs ett alternativ från det valda under nätet.
 
 > [!IMPORTANT]
 > När du distribuerar en Azure-cache för Redis till ett virtuellt resurs hanterings nätverk måste cachen finnas i ett dedikerat undernät som inte innehåller några andra resurser förutom Azure cache för Redis-instanser. Om ett försök görs att distribuera en Azure-cache för Redis till ett virtuellt nätverk till ett undernät som innehåller andra resurser, Miss lyckas distributionen.
@@ -76,7 +76,7 @@ Om du vill ansluta till Azure-cachen för Redis-instansen när du använder ett 
 Följande lista innehåller svar på vanliga frågor om Azure cache för Redis-skalning.
 
 * Vilka är några vanliga problem med att konfigurera Azure cache för Redis och virtuella nätverk?
-* [Hur kan jag kontrol lera att mitt cacheminne fungerar i ett VNET?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
+* [Hur kan jag kontrollera att mitt cacheminne fungerar i ett virtuellt nätverk?](#how-can-i-verify-that-my-cache-is-working-in-a-vnet)
 * Varför visas ett fel meddelande om att Fjärrcertifikatet är ogiltigt vid försök att ansluta till Azure-cachen för Redis i ett VNET.
 * [Kan jag använda virtuella nätverk med en standard-eller Basic-cache?](#can-i-use-vnets-with-a-standard-or-basic-cache)
 * Varför fungerar det inte att skapa en Azure-cache för Redis i vissa undernät, men inte till andra?
@@ -98,7 +98,7 @@ När Azure cache för Redis finns i ett VNet används portarna i följande tabel
 
 Det finns nio krav för utgående port. Utgående begär anden i dessa intervall är antingen utgående till andra tjänster som krävs för att cachen ska fungera eller internt till Redis-undernätet för kommunikation mellan noder. För geo-replikering finns ytterligare utgående krav för kommunikation mellan undernät i den primära och den sekundära cachen.
 
-| Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
+| Port (ar) | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |Utgående |TCP |Redis-beroenden för Azure Storage/PKI (Internet) | (Redis-undernät) |* |
 | 443 | Utgående | TCP | Redis beroende av Azure Key Vault | (Redis-undernät) | AzureKeyVault <sup>1</sup> |
@@ -124,7 +124,7 @@ Om du använder en mellanliggande replikering mellan cacheminnen i virtuella Azu
 
 Det finns åtta krav för ingående port intervall. Inkommande begär anden i dessa intervall är antingen inkommande från andra tjänster som finns i samma VNET eller internt i Redis under nät kommunikation.
 
-| Portar | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
+| Port (ar) | Riktning | Transport protokoll | Syfte | Lokal IP | Fjärr-IP |
 | --- | --- | --- | --- | --- | --- |
 | 6379, 6380 |Inkommande |TCP |Klient kommunikation till Redis, Azure Load Balancing | (Redis-undernät) | (Redis-undernät), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |Inkommande |TCP |Intern kommunikation för Redis | (Redis-undernät) |(Redis-undernät) |

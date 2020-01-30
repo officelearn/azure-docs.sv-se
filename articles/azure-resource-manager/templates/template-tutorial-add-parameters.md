@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472970"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773212"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Självstudie: lägga till parametrar i Resource Manager-mallen
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 Du kanske har lagt märke till att det finns ett problem med den här mallen. Lagrings konto namnet är hårdkodat. Du kan bara använda den här mallen för att distribuera samma lagrings konto varje gång. Om du vill distribuera ett lagrings konto med ett annat namn måste du skapa en ny mall, vilket uppenbart inte är ett praktiskt sätt att automatisera dina distributioner.
 
@@ -36,7 +36,7 @@ Lägg till en parameter som du kan använda för att skicka in ett lagrings kont
 
 Kopiera hela filen och ersätt din mall med dess innehåll.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>Distribuera mallen
 
@@ -80,7 +80,7 @@ Med parametrar kan du anpassa distributionen genom att tillhandahålla värden s
 
 Den tidigare mallen har alltid distribuerat ett Standard_LRS lagrings konto. Du kanske vill ha flexibiliteten att distribuera olika SKU: er beroende på miljön. I följande exempel visas ändringarna för att lägga till en parameter för SKU. Kopiera hela filen och klistra in den över din mall.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 **StorageSKU** -parametern har ett standardvärde. Det här värdet används när ett värde inte anges under distributionen. Den innehåller också en lista över tillåtna värden. Värdena matchar de värden som behövs för att skapa ett lagrings konto. Du vill inte att användare av mallen ska skicka in SKU: er som inte fungerar.
 

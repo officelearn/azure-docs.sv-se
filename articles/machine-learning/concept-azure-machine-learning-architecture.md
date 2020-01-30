@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8e1f144fdf94df445fb64b9b489cba1e9998f381
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546069"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845615"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Hur Azure Machine Learning fungerar: arkitektur och koncept
 
@@ -58,7 +58,7 @@ Använd följande verktyg för Azure Machine Learning:
 + <a href="#compute-targets">Compute-mål</a>
 + <a href="#datasets-and-datastores">Data uppsättningar & data lager</a>
 + <a href="#endpoints">Slut punkter</a>
-+ <a href="#environments">Miljöer</a>
++ <a href="#environments">Utrymmen</a>
 + [Kostnadsberäknare](#estimators)
 + <a href="#experiments">Experiment</a>
 + <a href="#github-tracking-and-integration">Git-spårning</a>
@@ -85,7 +85,7 @@ Aktiviteter kan ge aviseringar via SDK eller webb gränssnittet så att du enkel
 ### <a name="compute-instance"></a>Beräknings instans (för hands version)
 
 > [!NOTE]
-> Beräknings instanser är endast tillgängliga för arbets ytor med en region i **norra centrala USA** eller **Storbritannien, södra**.
+> Beräknings instanser är endast tillgängliga för arbets ytor med **norra centrala USA**, * * östra USA 2 * *, **nord Europa** eller **Storbritannien, södra**.
 >Om din arbets yta finns i en annan region kan du fortsätta att skapa och använda en [virtuell dator](concept-compute-instance.md#notebookvm) i stället. 
 
 En **Azure Machine Learning beräknings instans** (tidigare VM) är en fullständigt hanterad molnbaserad arbets station som innehåller flera verktyg och miljöer som är installerade för maskin inlärning. Beräknings instanser kan användas som beräknings mål för utbildnings-och inferencing-jobb. För stora aktiviteter är [Azure Machine Learning beräknings kluster](how-to-set-up-training-targets.md#amlcompute) med skalnings funktioner för flera noder ett bättre beräknings måls val.

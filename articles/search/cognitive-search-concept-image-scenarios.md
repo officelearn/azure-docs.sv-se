@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113850"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838266"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Så här bearbetar och extraherar du information från bilder i AI-anriknings scenarier
 
@@ -213,9 +213,9 @@ Om du behöver transformera normaliserade koordinater till det ursprungliga koor
         }
 ```
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 + [Skapa indexerare (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analysera bild kunskaper](cognitive-search-skill-image-analysis.md)
++ [Bild analys kunskaper](cognitive-search-skill-image-analysis.md)
 + [OCR-kunskaper](cognitive-search-skill-ocr.md)
 + [Text sammanfognings kunskaper](cognitive-search-skill-textmerger.md)
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff2ff69ca00a9ed9c48ebd6f1704fac0b16d068
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 1df823776208418eae3e465693dd51e108c5a8bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940999"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841037"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -96,7 +96,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | Egenskaper | Tillåtna värden | Användning |
 | --- | --- | --- |
 | city |Valfritt sträng värde eller *Null* |(User. City-EQ "värde") |
-| land |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
+| ursprungslandet |Valfritt sträng värde eller *Null* |(User. Country-EQ "värde") |
 | companyName | Valfritt sträng värde eller *Null* | (User. företags namn – EQ "värde") |
 | avdelning |Valfritt sträng värde eller *Null* |(User. Department-EQ "värde") |
 | displayName |Valfritt sträng värde |(User. displayName-EQ "value") |
@@ -105,7 +105,7 @@ Följande är de användar egenskaper som du kan använda för att skapa ett end
 | givenName |Valfritt sträng värde eller *Null* |(User. givenName-EQ "value") |
 | jobTitle |Valfritt sträng värde eller *Null* |(User. befattning-EQ "value") |
 | e-post |Valfritt sträng värde eller *Null* (SMTP-adress för användaren) |(User. mail-EQ "värde") |
-| smeknamn för e-post |Valfritt sträng värde (e-postalias för användaren) |(User. smek namn-EQ "värde") |
+| mailNickName |Valfritt sträng värde (e-postalias för användaren) |(User. smek namn-EQ "värde") |
 | mobila |Valfritt sträng värde eller *Null* |(User. Mobile-EQ "value") |
 | objekt-ID |Användar objektets GUID |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | Lokal säkerhets identifierare (SID) för användare som synkroniserats från lokalt till molnet. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
@@ -144,7 +144,7 @@ I följande tabell visas alla operatorer som stöds och deras syntax för ett en
 | Innehåller inte |-notContains |
 | Innehåller |– innehåller |
 | Matchar inte |-notMatch |
-| Matcha |-matcha |
+| villkoren |-matcha |
 | I | – in |
 | Inte i | -notIn |
 
@@ -178,7 +178,7 @@ Värdena som används i ett uttryck kan bestå av flera typer, inklusive:
 
 * Strängar
 * Boolesk – sant, falskt
-* nummer
+* Tal
 * Matriser – nummer mat ris, sträng mat ris
 
 När du anger ett värde i ett uttryck är det viktigt att du använder rätt syntax för att undvika fel. Några tips för syntax är:
@@ -213,7 +213,7 @@ Följande är exempel på korrekt utformade medlemskaps regler med flera uttryck
 (user.department -eq "Sales") -and -not (user.jobTitle -contains "SDE")
 ```
 
-### <a name="operator-precedence"></a>Prioritet för operator
+### <a name="operator-precedence"></a>Prioritet för Operator
 
 Alla operatorer visas nedan i prioritetsordning från högsta till lägsta. Operatorerna på samma rad har samma prioritet:
 
@@ -370,7 +370,7 @@ Du kan också skapa en regel som väljer enhets objekt för medlemskap i en grup
 > [!NOTE]
 > systemlabels är ett skrivskyddat attribut som inte kan anges med Intune.
 >
-> För Windows 10 är rätt format för deviceOSVersion-attributet följande: (Device. deviceOSVersion-EQ "10,0 (17763)"). Formateringen kan val IDE ras med PowerShell-cmdleten Get-MsolDevice.
+> För Windows 10 är rätt format för deviceOSVersion-attributet följande: (Device. deviceOSVersion-EQ "10.0.17763"). Formateringen kan val IDE ras med PowerShell-cmdleten Get-MsolDevice.
 
 Följande enhets egenskaper kan användas.
 

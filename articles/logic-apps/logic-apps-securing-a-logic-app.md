@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981181"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843556"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Säker åtkomst och data i Azure Logic Apps
 
@@ -370,7 +370,7 @@ Mer information finns i följande avsnitt i det här avsnittet:
 
 Om du [automatiserar distributionen för logi Kap par med hjälp av Resource Manager-mallar](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)kan du definiera säkra [mallparametrar](../azure-resource-manager/templates/template-parameters.md), som utvärderas vid distribution, med hjälp av `securestring` och `secureobject` typer. Om du vill definiera mallparametrar använder du mallens översta nivå `parameters` avsnitt, som skiljer sig från arbets flödes definitionens `parameters` avsnitt. Använd en separat [parameter fil](../azure-resource-manager/templates/parameter-files.md)för att ange värden för mallparametrar.
 
-Om du till exempel använder hemligheter kan du definiera och använda säkra mallparametrar som hämtar dessa hemligheter från [Azure Key Vault](../key-vault/key-vault-overview.md) vid distributionen. Sedan kan du referera till nyckel valvet och hemligheten i parameter filen. Mer information finns i de här ämnena:
+Om du till exempel använder hemligheter kan du definiera och använda säkra mallparametrar som hämtar dessa hemligheter från [Azure Key Vault](../key-vault/key-vault-overview.md) vid distributionen. Sedan kan du referera till nyckel valvet och hemligheten i parameter filen. Mer information finns i följande avsnitt:
 
 * [Skicka känsliga värden vid distribution med hjälp av Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 * [Säkra parametrar i Azure Resource Manager mallar](#secure-parameters-deployment-template) senare i det här avsnittet
@@ -620,7 +620,7 @@ HTTP-och HTTPS-slutpunkter stöder olika typer av autentisering. Baserat på utl
 
 ### <a name="basic-authentication"></a>Grundläggande autentisering
 
-Om alternativet [grundläggande](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) är tillgängligt anger du följande egenskaps värden:
+Om alternativet [grundläggande](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) är tillgängligt anger du följande egenskaps värden:
 
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
@@ -682,7 +682,7 @@ Mer information om hur du skyddar tjänster med hjälp av autentisering av klien
 
 * [Säkra API: er med autentisering av klient certifikat i Azure API Management](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Säkra backend-tjänster med autentisering av klient certifikat i Azure API Management](../api-management/api-management-howto-mutual-certificates.md)
-* [Skydda din RESTfuL-tjänst genom att använda klient certifikat](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [Skydda din RESTfuL-tjänst genom att använda klient certifikat](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [Autentiseringsuppgifter för program-autentisering](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Använd ett SSL-certifikat i program koden i Azure App Service](../app-service/configure-ssl-certificate-in-code.md)
 
@@ -748,7 +748,7 @@ I utlösaren eller åtgärden som stöder RAW-autentisering anger du följande e
 
 | Egenskap (designer) | Egenskap (JSON) | Krävs | Värde | Beskrivning |
 |---------------------|-----------------|----------|-------|-------------|
-| **Autentisering** | `type` | Ja | Raw | Autentiseringstypen som ska användas |
+| **Autentisering** | `type` | Ja | Outspädd | Autentiseringstypen som ska användas |
 | **Värde** | `value` | Ja | <*Authorization-Head-value*> | Det Authorization-huvud värde som ska användas för autentisering |
 ||||||
 

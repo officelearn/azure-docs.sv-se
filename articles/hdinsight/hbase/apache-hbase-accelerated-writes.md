@@ -1,19 +1,18 @@
 ---
 title: Azure HDInsight-accelererade skrivningar för Apache HBase
 description: Ger en översikt över funktionen Azure HDInsight-accelererade skrivningar, som använder Premium-hanterade diskar för att förbättra prestanda för filen Apache HBase Write Ahead.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/24/2020
+ms.openlocfilehash: 7165bab96d037f6782bc9aa6767cadd9b35f058c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156938"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764593"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Azure HDInsight-accelererade skrivningar för Apache HBase
 
@@ -33,13 +32,13 @@ Om en **RegionServer** kraschar eller blir otillgänglig innan memstores töms, 
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Accelererade skrivningar i Azure HDInsight för Apache HBase
 
-Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjning som orsakas av att skriva loggar som finns i moln lagring.  Funktionen accelererade skrivningar för HDInsight Apache HBase-kluster, ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnoden). Skriv loggar i förväg skrivs sedan till Hadoop-filsystemet (HDFS) som är monterat på dessa Premium-hanterade diskar i stället för till moln lagring.  Premium-hanterade – diskar använder Solid-State-diskar (SSD) och erbjuder utmärkta I/O-prestanda med fel tolerans.  Till skillnad från ohanterade diskar, kommer den inte att påverka andra lagrings enheter i samma tillgänglighets uppsättning om en lagrings enhet slutar fungera.  Det innebär att hanterade diskar ger låg Skriv fördröjning och bättre återhämtning för dina program. Mer information om Azure-hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md). 
+Funktionen accelererade skrivningar löser problemet med högre Skriv-fördröjning som orsakas av att skriva loggar som finns i moln lagring.  Funktionen accelererade skrivningar för HDInsight Apache HBase-kluster, ansluter Premium SSD-hanterade diskar till varje RegionServer (arbetsnoden). Skriv loggar i förväg skrivs sedan till Hadoop-filsystemet (HDFS) som är monterat på dessa Premium-hanterade diskar i stället för till moln lagring.  Premium-hanterade – diskar använder Solid-State-diskar (SSD) och erbjuder utmärkta I/O-prestanda med fel tolerans.  Till skillnad från ohanterade diskar påverkar den inte andra lagrings enheter i samma tillgänglighets uppsättning om en lagrings enhet slutar fungera.  Det innebär att hanterade diskar ger låg Skriv fördröjning och bättre återhämtning för dina program. Mer information om Azure-hanterade diskar finns i [Introduktion till Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>Så här aktiverar du påskyndade skrivningar för HBase i HDInsight
 
-Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv**klickar du på kryss rutan bredvid **Aktivera påskyndade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
+Om du vill skapa ett nytt HBase-kluster med funktionen för accelererade skrivningar följer du stegen i [Konfigurera kluster i HDInsight](../hdinsight-hadoop-provision-linux-clusters.md) tills du når **steg 3, lagring**. Under **Inställningar för metaarkiv**markerar du kryss rutan bredvid **Aktivera HBase-accelererade skrivningar**. Fortsätt sedan med de återstående stegen för att skapa kluster.
 
-![Aktivera alternativ för påskyndad skrivning för HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
+![Aktivera alternativ för påskyndad skrivning för HDInsight Apache HBase](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
 
 ## <a name="other-considerations"></a>Andra överväganden
 

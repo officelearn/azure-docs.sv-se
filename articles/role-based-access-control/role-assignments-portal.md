@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/25/2019
+ms.date: 01/25/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 17a325e96e9709b60da2f23d1dc68e3300fde80c
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4003e11120c13624379cf7dad9334e896cd3a7a8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707870"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774733"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Lägga till eller ta bort roll tilldelningar med hjälp av Azure RBAC och Azure Portal
 
@@ -33,9 +33,9 @@ Om du vill lägga till eller ta bort roll tilldelningar måste du ha:
 
 - `Microsoft.Authorization/roleAssignments/write`-och `Microsoft.Authorization/roleAssignments/delete` behörigheter, till exempel [administratör för användar åtkomst](built-in-roles.md#user-access-administrator) eller [ägare](built-in-roles.md#owner)
 
-## <a name="overview-of-access-control-iam"></a>Översikt över åtkomst kontroll (IAM)
+## <a name="access-control-iam"></a>Åtkomst kontroll (IAM)
 
-**Åtkomst kontroll (IAM)** är det blad som du använder för att tilldela roller. Det kallas även identitets-och åtkomst hantering och visas på flera platser i Azure Portal. Följande visar ett exempel på bladet åtkomst kontroll (IAM) för en prenumeration.
+**Åtkomst kontroll (IAM)** är det blad som du använder för att tilldela roller för att bevilja åtkomst till Azure-resurser. Det kallas även identitets-och åtkomst hantering och visas på flera platser i Azure Portal. Följande visar ett exempel på bladet åtkomst kontroll (IAM) för en prenumeration.
 
 ![Åtkomst kontroll (IAM) bladet för en prenumeration](./media/role-assignments-portal/access-control-subscription.png)
 
@@ -47,7 +47,7 @@ För att bli mest effektiv med åtkomst kontroll bladet (IAM), hjälper det om d
 
 1. **Vilken roll behöver de?**
 
-    Behörigheter grupperas tillsammans i roller. Du kan välja från en lista över flera [inbyggda roller](built-in-roles.md) eller använda dina egna anpassade roller.
+    Behörigheter grupperas tillsammans i roller. Du kan välja från en lista över flera [inbyggda roller](built-in-roles.md) eller så kan du använda dina egna anpassade roller.
 
 1. **Var behöver de ha åtkomst?**
 
@@ -55,21 +55,25 @@ För att bli mest effektiv med åtkomst kontroll bladet (IAM), hjälper det om d
 
 ## <a name="add-a-role-assignment"></a>Lägg till en roll tilldelning
 
-Följ dessa steg om du vill tilldela en roll i olika scope.
+Du lägger till en roll tilldelning i Azure RBAC för att bevilja åtkomst till en Azure-resurs. Följ dessa steg om du vill tilldela en roll.
 
-1. I Azure Portal klickar du på **alla tjänster** och väljer sedan omfånget. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
+1. I Azure Portal klickar du på **alla tjänster** och väljer sedan den omfattning som du vill bevilja åtkomst till. Du kan till exempel välja **hanterings grupper**, **prenumerationer**, **resurs grupper**eller en resurs.
 
-1. Klicka på den aktuella resursen.
+1. Klicka på resursen för det aktuella omfånget.
 
 1. Klicka på **Åtkomstkontroll (IAM)** .
 
-1. Klicka på fliken **roll tilldelningar** för att visa alla roll tilldelningar i det här omfånget.
+1. Klicka på fliken **roll tilldelningar** för att Visa roll tilldelningarna i det här området.
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
+    ![Fliken åtkomst kontroll (IAM) och roll tilldelningar](./media/role-assignments-portal/role-assignments.png)
+
+1. Klicka på **Lägg till** > **Lägg till roll tilldelning**.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
    ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
+
+    Fönstret Lägg till roll tilldelning öppnas.
 
    ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -81,23 +85,29 @@ Följ dessa steg om du vill tilldela en roll i olika scope.
 
    Efter en liten stund tilldelas säkerhets objekt rollen i det valda omfånget.
 
+    ![Lägg till roll tilldelning Sparad](./media/role-assignments-portal/add-role-assignment-save.png)
+
 ## <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Tilldela en användare som administratör för en prenumeration
 
 Om du vill göra en användare till en administratör för en Azure-prenumeration tilldelar du den till [ägar](built-in-roles.md#owner) rollen i prenumerations omfånget. Ägar rollen ger användaren fullständig åtkomst till alla resurser i prenumerationen, inklusive behörighet att bevilja åtkomst till andra. De här stegen är desamma som för andra rolltilldelningar.
 
 1. I Azure-portalen klickar du på **Alla tjänster** och sedan **Prenumerationer**.
 
-1. Klicka på den prenumeration där du vill lägga till en roll tilldelning.
+1. Klicka på prenumerationen du vill ge åtkomst till.
 
 1. Klicka på **Åtkomstkontroll (IAM)** .
 
-1. Klicka på fliken **Rolltilldelningar** så att du ser alla rolltilldelningar för prenumerationen.
+1. Klicka på fliken **roll tilldelningar** för att Visa roll tilldelningarna för den här prenumerationen.
 
-1. Klicka på **Lägg till** > **Lägg till rolltilldelning** för att öppna fönsterrutan Lägg till rolltilldelning.
+    ![Fliken åtkomst kontroll (IAM) och roll tilldelningar](./media/role-assignments-portal/role-assignments.png)
+
+1. Klicka på **Lägg till** > **Lägg till roll tilldelning**.
 
    Om du inte har behörighet att tilldela roller är alternativet Lägg till rolltilldelning inaktiverat.
 
    ![Menyn Lägg till](./media/role-assignments-portal/add-menu.png)
+
+    Fönstret Lägg till roll tilldelning öppnas.
 
    ![Fönsterrutan Lägg till rolltilldelning](./media/role-assignments-portal/add-role-assignment.png)
 
@@ -111,7 +121,7 @@ Om du vill göra en användare till en administratör för en Azure-prenumeratio
 
 ## <a name="remove-a-role-assignment"></a>Ta bort en rolltilldelning
 
-I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa steg om du vill ta bort en roll tilldelning.
+I Azure RBAC tar du bort åtkomsten från en Azure-resurs genom att ta bort en roll tilldelning. Följ dessa steg om du vill ta bort en roll tilldelning.
 
 1. Öppna **åtkomst kontroll (IAM)** i ett omfång, till exempel hanterings grupp, prenumeration, resurs grupp eller resurs, där du vill ta bort åtkomsten.
 
@@ -127,7 +137,7 @@ I RBAC kan du ta bort en rolltilldelning för att ta bort åtkomst. Följ dessa 
 
 1. I meddelandet om att ta bort rolltilldelningen klickar du på **Ja**.
 
-    Ärvda tilldelningar kan inte tas bort. Om du behöver ta bort en ärvd tilldelning så måste du göra det i samma omfång som där rolltilldelningen skapades. I kolumnen **omfattning** bredvid **(ärvd)** finns en länk som tar dig till den omfattning där rollen tilldelades. Gå till omfånget som visas där om du vill ta bort rolltilldelningen.
+    Om du ser ett meddelande om att ärvda roll tilldelningar inte kan tas bort försöker du ta bort en roll tilldelning i ett underordnat omfång. Du bör öppna åtkomst kontroll (IAM) i omfånget där rollen har tilldelats och försöka igen. Ett snabbt sätt att öppna åtkomst kontroll (IAM) i rätt omfång är att titta i kolumnen **omfattning** och klicka på länken bredvid **(ärvd)** .
 
    ![Ta bort rolltilldelningsmeddelande](./media/role-assignments-portal/remove-role-assignment-inherited.png)
 

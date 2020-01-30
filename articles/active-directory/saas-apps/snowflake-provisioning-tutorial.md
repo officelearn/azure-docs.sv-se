@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Konfigurera snö flingor för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
+title: 'Självstudie: Konfigurera snö för automatisk användar etablering med Azure Active Directory | Microsoft Docs'
 description: Lär dig hur du konfigurerar Azure Active Directory att automatiskt etablera och avetablera användar konton till snö flingor.
 services: active-directory
 documentationcenter: ''
@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 04d9ec8cad2404466d2df649df4d5c461768b76f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2aaf1d2b377abc0b10b0b14de03d01c7f6fae5b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693617"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767770"
 ---
-# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Självstudier: Konfigurera snö flingor för automatisk användar etablering
+# <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Självstudie: Konfigurera snö för automatisk användar etablering
 
 Syftet med den här självstudien är att demonstrera de steg som ska utföras i snö och Azure Active Directory (Azure AD) för att konfigurera Azure AD att automatiskt etablera och avetablera användare och/eller grupper till snö flingor.
 
@@ -31,7 +31,7 @@ Syftet med den här självstudien är att demonstrera de steg som ska utföras i
 >
 > Den här anslutningen är för närvarande en offentlig för hands version. Mer information om allmänna Microsoft Azure användnings villkor för för hands versions funktioner finns i kompletterande användnings [villkor för Microsoft Azure för](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)hands versioner.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Det scenario som beskrivs i den här självstudien förutsätter att du redan har följande krav:
 
@@ -41,7 +41,7 @@ Det scenario som beskrivs i den här självstudien förutsätter att du redan ha
 
 ## <a name="assigning-users-to-snowflake"></a>Tilldela användare till snö flingor
 
-Azure Active Directory använder ett begrepp som kallas tilldelningar för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
+Azure Active Directory använder ett begrepp som kallas *tilldelningar* för att avgöra vilka användare som ska få åtkomst till valda appar. I kontexten för automatisk användar etablering synkroniseras endast de användare och/eller grupper som har tilldelats till ett program i Azure AD.
 
 Innan du konfigurerar och aktiverar automatisk användar etablering bör du bestämma vilka användare och/eller grupper i Azure AD som behöver åtkomst till snö flingor. När du har bestämt dig kan du tilldela dessa användare och/eller grupper till snö flingor genom att följa anvisningarna här:
 * [Tilldela en användare eller grupp till en företags app](../manage-apps/assign-user-or-group-access-portal.md)
@@ -56,10 +56,7 @@ Innan du konfigurerar och aktiverar automatisk användar etablering bör du best
 
 Innan du konfigurerar snö flingor för automatisk användar etablering med Azure AD måste du aktivera SCIM-etablering på snö flingor.
 
-> [!NOTE]
-> Den här integrationen är i privat för hands version i snö idag. Om du vill aktivera den här funktionen i ditt snö flingor-konto kontaktar du din kund på din snö Sälj representant.
-
-1. Logga in på din snö-administratörskonsolen. Ange frågan som visas nedan i arbets ytan markerad och klicka på **Kör**.
+1. Logga in på din snö-administratörskonsolen. Ange frågan som visas nedan i kalkyl bladet markerat och klicka på **Kör**.
 
     ![Snö administrations konsol](media/Snowflake-provisioning-tutorial/image00.png)
 
@@ -83,7 +80,7 @@ Om du vill konfigurera snö för automatisk användar etablering med Azure AD m�
 
 2. Gå till **företags program**och välj sedan **alla program**.
 
-    ![Bladet för Enterprise-program](common/enterprise-applications.png)
+    ![Bladet Företagsprogram](common/enterprise-applications.png)
 
 3. Om du vill lägga till ett nytt program väljer du knappen **nytt program** överst i fönstret.
 
@@ -118,7 +115,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Fliken etablering](common/provisioning-automatic.png)
 
-5. Under avsnittet admin credentials, inmatat `https://<Snowflake Account URL>/scim/v2` i klient-URL. Ett exempel på klient-URL: en:`https://acme.snowflakecomputing.com/scim/v2`
+5. Under avsnittet admin credentials, in`https://<Snowflake Account URL>/scim/v2` i klient-URL. Ett exempel på klient-URL: en: `https://acme.snowflakecomputing.com/scim/v2`
 
 6. Mata in **scim-autentiseringstoken** som hämtades tidigare i **hemlig token**. Klicka på **Testa anslutning** för att se till att Azure AD kan ansluta till snö flingor. Om anslutningen Miss lyckas kontrollerar du att ditt snö-konto har administratörs behörighet och försöker igen.
 
@@ -126,7 +123,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
 7. I fältet **e-postavisering** anger du e-postadressen till den person eller grupp som ska få etablerings fel meddelanden och markerar kryss rutan – **Skicka ett e-postmeddelande när ett fel uppstår**.
 
-    ![E-post för aviseringar](common/provisioning-notification-email.png)
+    ![E-postmeddelande](common/provisioning-notification-email.png)
 
 8. Klicka på **Spara**.
 
@@ -152,7 +149,7 @@ Det här avsnittet vägleder dig genom stegen för att konfigurera Azure AD Prov
 
     ![Etablerings status växlad på](common/provisioning-toggle-on.png)
 
-15. Definiera de användare och/eller grupper som du vill etablera till snö flingor genom att välja önskade värden i **omfång** i avsnittet **Inställningar** .
+15. Definiera de användare och/eller grupper som du vill etablera till snö flingor genom att välja önskade värden i **omfång** i avsnittet **Inställningar** . Om det här alternativet inte är tillgängligt konfigurerar du de obligatoriska fälten under admin-autentiseringsuppgifter, klickar på **Spara** och uppdaterar sidan. 
 
     ![Etablerings omfång](common/provisioning-scope.png)
 

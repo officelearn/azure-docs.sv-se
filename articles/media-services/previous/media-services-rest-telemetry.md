@@ -1,6 +1,6 @@
 ---
-title: Konfigurera telemetri för Azure Media Services med REST | Microsoft Docs
-description: Den här artikeln visar hur du använder Azure Media Services-telemetri med hjälp av REST API...
+title: Konfigurera Azure Media Services telemetri med REST | Microsoft Docs
+description: Den här artikeln visar hur du använder Azure Media Services telemetri med REST API..
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,42 +14,42 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761785"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774872"
 ---
-# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurera telemetri för Azure Media Services med REST
+# <a name="configuring-azure-media-services-telemetry-with-rest"></a>Konfigurera Azure Media Services telemetri med REST
 
-Det här avsnittet beskriver allmänna steg som du kan följa när du konfigurerar Azure Media Services (AMS)-telemetri med hjälp av REST API. 
+I det här avsnittet beskrivs allmänna steg som du kan vidta när du konfigurerar telemetri för Azure Media Services (AMS) med hjälp av REST API. 
 
 >[!NOTE]
->För detaljerad förklaring av vad är AMS telemetri och hur du använder den, finns i den [översikt](media-services-telemetry-overview.md) avsnittet.
+>En detaljerad förklaring av vad är AMS telemetri och hur du använder det finns i [översikts](media-services-telemetry-overview.md) avsnittet.
 
 Stegen som beskrivs i det här avsnittet är:
 
-- Hämta lagringskontot som associerats med ett Media Services-konto
-- Hämta Notification-slutpunkterna
-- Skapa en Aviseringsslutpunkten för övervakning. 
+- Hämta det lagrings konto som är associerat med ett Media Services konto
+- Hämta meddelande slut punkter
+- Skapar en meddelande slut punkt för övervakning. 
 
-    Om du vill skapa en Aviseringsslutpunkten inställd på EndPointType AzureTable (2) och endPontAddress inställd på storage-tabell (till exempel https:\//telemetryvalidationstore.table.core.windows.net/).
+    Om du vill skapa en slut punkt för meddelanden anger du EndPointType till AzureTable (2) och endPontAddress inställd på lagrings tabellen (till exempel https:\//telemetryvalidationstore.table.core.windows.net/).
   
-- Hämta övervakningsinställningar
+- Hämta övervaknings konfigurationerna
 
-    Skapa en övervakningskonfiguration inställningar för de tjänster som du vill övervaka. Mer än en övervakning konfigurationsinställningar tillåts. 
+    Skapa en övervaknings konfigurations inställning för de tjänster som du vill övervaka. Det går inte att använda fler än en övervaknings konfigurations inställning. 
 
-- Lägg till en övervakningskonfiguration
+- Lägg till en övervaknings konfiguration
 
 
  
-## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Hämta lagringskontot som är associerade med ett Media Services-konto
+## <a name="get-the-storage-account-associated-with-a-media-services-account"></a>Hämta det lagrings konto som är associerat med ett Media Services konto
 
 ### <a name="request"></a>Förfrågan
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -72,12 +72,12 @@ Stegen som beskrivs i det här avsnittet är:
     
     {"d":{"results":[{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts('telemetryvalidationstore')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.StorageAccount"},"Name":"telemetryvalidationstore","IsDefault":true,"BytesUsed":null}]}}
 
-## <a name="get-the-notification-endpoints"></a>Hämta Notification-slutpunkterna
+## <a name="get-the-notification-endpoints"></a>Hämta meddelande slut punkter
 
 ### <a name="request"></a>Förfrågan
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -105,12 +105,12 @@ Stegen som beskrivs i det här avsnittet är:
         }
     }
  
-## <a name="create-a-notification-endpoint-for-monitoring"></a>Skapa en Notification-slutpunkt för övervakning
+## <a name="create-a-notification-endpoint-for-monitoring"></a>Skapa en meddelande slut punkt för övervakning
 
 ### <a name="request"></a>Förfrågan
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -126,7 +126,7 @@ Stegen som beskrivs i det här avsnittet är:
     }
 
 > [!NOTE]
-> Glöm inte att ändra den ”https:\//telemetryvalidationstore.table.core.windows.net” värde till ditt lagringskonto.
+> Glöm inte att ändra värdet "https:\//telemetryvalidationstore.table.core.windows.net" till ditt lagrings konto.
 
 ### <a name="response"></a>Svar
 
@@ -147,12 +147,12 @@ Stegen som beskrivs i det här avsnittet är:
     
     {"d":{"__metadata":{"id":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","uri":"https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints('nb%3Anepid%3AUUID%3A76bb4faf-ea29-4815-840a-9a8e20102fc4')","type":"Microsoft.Cloud.Media.Vod.Rest.Data.Models.NotificationEndPoint"},"Id":"nb:nepid:UUID:76bb4faf-ea29-4815-840a-9a8e20102fc4","Name":"monitoring","Created":"\/Date(1449033042667)\/","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}}
  
-## <a name="get-the-monitoring-configurations"></a>Hämta övervakningsinställningar
+## <a name="get-the-monitoring-configurations"></a>Hämta övervaknings konfigurationerna
 
 ### <a name="request"></a>Förfrågan
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -177,12 +177,12 @@ Stegen som beskrivs i det här avsnittet är:
     
     {"d":{"results":[]}}
 
-## <a name="add-a-monitoring-configuration"></a>Lägg till en övervakningskonfiguration
+## <a name="add-a-monitoring-configuration"></a>Lägg till en övervaknings konfiguration
 
 ### <a name="request"></a>Förfrågan
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -225,7 +225,7 @@ Stegen som beskrivs i det här avsnittet är:
 ### <a name="request"></a>Förfrågan
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -233,9 +233,9 @@ Stegen som beskrivs i det här avsnittet är:
     Content-Type: application/json; charset=utf-8
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-## <a name="consuming-telemetry-information"></a>Förbrukar telemetriinformation
+## <a name="consuming-telemetry-information"></a>Förbrukar telemetri information
 
-Läs om hur konsumerande telemetriinformation [detta](media-services-telemetry-overview.md) avsnittet.
+Information om hur du förbrukar telemetri finns i [det här](media-services-telemetry-overview.md) avsnittet.
 
 ## <a name="next-steps"></a>Nästa steg
 

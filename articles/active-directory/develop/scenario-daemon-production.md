@@ -1,5 +1,5 @@
 ---
-title: 'Flytta daemon-appen som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
+title: 'Flytta en daemon-app som anropar webb-API: er till produktion – Microsoft Identity Platform | Azure'
 description: 'Lär dig hur du flyttar en daemon-app som anropar webb-API: er till produktion'
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,23 +15,23 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 990273e84bfceb9f4a19eae8bf5890e8303a5857
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: db5f52c95daf4e93c140b4c93f39dad19971319d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702274"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775211"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>Daemon-app som anropar webb-API: er – flytta till produktion
 
 Nu när du vet hur man hämtar och använder en token för ett tjänst-till-tjänst-anrop, lär du dig hur du flyttar din app till produktion.
 
-## <a name="deployment---case-of-multi-tenant-daemon-apps"></a>Distribution – fall av daemon-appar för flera innehavare
+## <a name="deployment---multitenant-daemon-apps"></a>Distribution – daemon-appar för flera innehavare
 
-Om du är en ISV som skapar ett daemon-program som kan köras i flera klienter måste du se till att klient administratörerna:
+Om du är en ISV som skapar ett daemon-program som kan köras i flera klienter, måste du se till att klient organisationens administratör:
 
-- Tillhandahåller ett tjänst huvud namn för programmet
-- Ger medgivande till programmet
+- Tillhandahåller ett tjänst huvud namn för programmet.
+- Ger medgivande till programmet.
 
 Du måste förklara vad kunderna har för att utföra dessa åtgärder. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -39,24 +39,24 @@ Du måste förklara vad kunderna har för att utföra dessa åtgärder. Mer info
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här följer några länkar för att lära dig mer:
+Här följer några länkar som hjälper dig att lära dig mer:
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-- Om du inte redan har gjort det kan du prova snabb starten [Hämta en token och anropa Microsoft Graph API från en konsol app med appens identitet](./quickstart-v2-netcore-daemon.md).
+- Snabb start: [Hämta en token och anropa Microsoft Graph API från en konsol app med hjälp av appens identitet](./quickstart-v2-netcore-daemon.md).
 - Referens dokumentation för:
-  - Instansiera [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder)
-  - Anropar [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder)
+  - Instansierar [ConfidentialClientApplication](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder).
+  - Anropar [AcquireTokenForClient](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenforclientparameterbuilder).
 - Andra exempel/Självstudier:
   - [Microsoft-Identity-Platform-Console-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) innehåller ett enkelt .net Core daemon-konsolprogram som visar användare av en klient som frågar Microsoft Graph.
 
-    ![topologi](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![Exempel på daemon app-topologi](media/scenario-daemon-app/daemon-app-sample.svg)
 
-    Samma exempel illustrerar också variationen med certifikat.
+    Samma exempel illustrerar också en variant med certifikat:
 
-    ![topologi](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![Exempel på daemon-app-certifikat](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
-  - [Microsoft-Identity-Platform-ASPNET-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) har ett ASP.NET MVC-webbprogram som synkroniserar data från Microsoft Graph att använda identiteten för programmet i stället för en användares räkning. Exemplet illustrerar även godkännande processen för administratörer.
+  - [Microsoft-Identity-Platform-ASPNET-webapp-daemon](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) har en ASP.NET MVC-webbapp som synkroniserar data från Microsoft Graph med hjälp av identiteten för programmet i stället för en användares räkning. Det här exemplet illustrerar även godkännande processen för administratörer.
 
     ![topologi](media/scenario-daemon-app/damon-app-sample-web.svg)
 

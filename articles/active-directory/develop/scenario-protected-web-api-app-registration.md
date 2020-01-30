@@ -16,89 +16,101 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ffa5c0ff9aac636a584743f839d780d2df2db5ef
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2d9e5d051f101288b8528b47fa88b4783a040950
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702002"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775153"
 ---
 # <a name="protected-web-api-app-registration"></a>Skyddat webb-API: registrera appar
 
 I den här artikeln förklaras information om app-registrering för ett skyddat webb-API.
 
-Se [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md) för vanliga steg för att registrera en app.
+Vanliga steg för att registrera en app finns i [snabb start: registrera ett program med Microsoft Identity Platform](quickstart-register-app.md).
 
 ## <a name="accepted-token-version"></a>Godkänd token-version
 
-Slut punkten för Microsoft Identity Platform kan utfärda två typer av tokens: v 1.0-token och v 2.0-token. Mer information om dessa token [finns i åtkomsttoken](access-tokens.md). Den godkända token-versionen beror på vilka **konto typer som stöds** och som du valde när du skapade ditt program:
+Slut punkten för Microsoft Identity Platform kan utfärda v 1.0-token och v 2.0-token. Mer information om dessa token [finns i åtkomsttoken](access-tokens.md).
 
-- Om värdet för **konto typer som stöds** är **konton i en organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** , är den godkända token-versionen v 2.0.
+Den godkända token-versionen beror på de **konto typer som stöds** och du väljer när du skapar programmet.
+
+- Om värdet för **konto typer som stöds** är **konton i en organisations katalog och personliga Microsoft-konton (t. ex. Skype, Xbox, Outlook.com)** är den godkända token-versionen v 2.0.
 - Annars är den godkända token-versionen v 1.0.
 
 När du har skapat programmet kan du fastställa eller ändra den godkända token-versionen genom att följa dessa steg:
 
-1. I Azure Portal väljer du din app och väljer sedan **manifestet** för din app.
-2. Sök efter **"accessTokenAcceptedVersion"** i manifestet. Observera att värdet är **2**. Den här egenskapen anger Azure Active Directory (Azure AD) som webb-API: et accepterar v 2.0-token. Om värdet är **Null**är den godkända token-versionen v 1.0.
-3. Om du har ändrat version för token väljer du **Spara**.
+1. I Azure Portal väljer du din app och väljer sedan **manifest**.
+1. Hitta egenskapen **accessTokenAcceptedVersion** i manifestet. Egenskapens standardvärde är 2.
+1. Värdet anger att Azure Active Directory (Azure AD) vilken token-version som webb-API: n accepterar.
+    - Om värdet är 2 accepterar webb-API v 2.0-token.
+    - Om värdet är **Null**accepterar webb-API: et v 1.0-token.
+1. Om du har ändrat version för token väljer du **Spara**.
 
 > [!NOTE]
-> Webb-API: et anger vilken token-version (v 1.0 eller v 2.0) den accepterar. När klienter begär en token för webb-API: n från slut punkten för Microsoft Identity Platform (v 2.0) får de en token som visar vilken version som accepteras av webb-API: et.
+> Webb-API: et anger vilken token-version den accepterar. När en klient begär en token för ditt webb-API från Microsoft Identity Platform (v 2.0) slut punkten, hämtar klienten en token som anger vilken token-version som webb-API: n accepterar.
 
 ## <a name="no-redirect-uri"></a>Ingen omdirigerings-URI
 
-Webb-API: er behöver inte registrera en omdirigerings-URI eftersom ingen användare har loggat in interaktivt.
+Webb-API: er behöver inte registrera en omdirigerings-URI eftersom ingen användare interaktivt loggas in.
 
-## <a name="expose-an-api"></a>Gör ett API tillgängligt
+## <a name="exposed-api"></a>Exponerat API
 
-En annan inställning som är speciell för webb-API: er är det exponerade API: et och exponerade omfång.
+Andra inställningar som är speciella för webb-API: er är exponerade API och exponerade omfång.
 
-### <a name="resource-uri-and-scopes"></a>Resurs-URI och omfång
+### <a name="application-id-uri-and-scopes"></a>Program-ID-URI och omfång
 
-Omfattningar är vanligt vis i form `resourceURI/scopeName`. För Microsoft Graph har Sök vägarna genvägar som `User.Read`. Den här strängen är en genväg för `https://graph.microsoft.com/user.read`.
+Omfattningarna har vanligt vis formuläret `resourceURI/scopeName`. För Microsoft Graph har omfången genvägar. `User.Read` är till exempel en genväg till `https://graph.microsoft.com/user.read`.
 
-Under registreringen av appen måste du definiera följande parametrar:
+När du registrerar appar måste du definiera följande parametrar:
 
-- Resurs-URI. Som standard rekommenderar program registrerings portalen att du använder `api://{clientId}`. Den här resurs-URI: n är unik, men den är inte läslig. Du kan ändra det, men se till att det nya värdet är unikt.
-- Ett eller flera *omfång*. (Till klient program visas de som *delegerade behörigheter* för ditt webb-API.)
-- En eller flera *app-roller*. (Till klient program visas de som *program behörigheter* för ditt webb-API.)
+- Resurs-URI
+- Ett eller flera omfång
+- En eller flera app-roller
 
-Omfattningarna visas också på skärmen för medgivande som visas för slutanvändare av appen. Därför måste du ange motsvarande strängar som beskriver omfånget:
+Som standard rekommenderar program registrerings portalen att du använder resurs-URI `api://{clientId}`. Denna URI är unik men inte läslig. Om du ändrar URI måste du kontrol lera att det nya värdet är unikt.
 
-- Som det visas av slutanvändaren.
-- Som det visas av klient organisationens administratör, som kan ge administrativt medgivande.
+För klient program visas omfattningar som *delegerade behörigheter* och app-roller visas som *program behörigheter* för ditt webb-API.
+
+Omfattningar visas också i godkännande fönstret som presenteras för användare av din app. Du måste ange motsvarande strängar som beskriver omfånget:
+
+- Som det setts av en användare.
+- Som det visas av en innehavaradministratör, som kan ge administrativt medgivande.
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Exponera delegerade behörigheter (omfattningar)
 
-1. Välj avsnittet **exponera ett API** i program registreringen.
+1. Välj **exponera ett API** i program registreringen.
 1. Välj **Lägg till omfång**.
 1. Om du uppmanas att godkänna den föreslagna program-ID-URI: n (`api://{clientId}`) genom att välja **Spara och fortsätt**.
-1. Ange följande parametrar:
-      - Använd **access_as_user**för **omfattnings namn**.
-      - För **vem som kan**godkänna, se till att **Administratörer och användare** är markerade.
-      - I **visnings namn för administratörs medgivande**anger du **åtkomst TodoListService som en användare**.
-      - I **Administratörs medgivande Beskrivning**anger **du åtkomst till TODOLISTSERVICE webb-API som en användare**.
-      - I **användar medgivande visnings namn**anger du **Access-TodoListService som en användare**.
-      - I **användar medgivande beskrivningen**, anger **du åtkomst till TODOLISTSERVICE webb-API som en användare**.
-      - Behåll **tillstånds** inställningen **aktive rad**.
-      - Välj **Lägg till omfattning**.
+1. Ange följande värden:
+    - Välj **omfångs namn** och ange **access_as_user**.
+    - Välj **vem som kan** godkänna och se till att **Administratörer och användare** är markerade.
+    - Välj **visnings namn för administratörs medgivande** och ange **Access-TodoListService som en användare**.
+    - Välj **Beskrivning av administratörs medgivande** och ange **åtkomst till TODOLISTSERVICE webb-API som en användare**.
+    - Välj **användar medgivande visnings namn** och ange **Access-TodoListService som en användare**.
+    - Välj **Beskrivning av användar medgivande** och ange **åtkomst till TODOLISTSERVICE webb-API som en användare**.
+    - Behåll värdet för **tillstånd** inställt på **aktive rad**.
+ 1. Välj **Lägg till omfattning**.
 
 ### <a name="if-your-web-api-is-called-by-a-daemon-app"></a>Om ditt webb-API anropas av en daemon-app
 
-I det här avsnittet får du lära dig hur du registrerar ditt skyddade webb-API så att det kan anropas säkert av daemon-appar.
+I det här avsnittet får du lära dig hur du registrerar ditt skyddade webb-API så att daemon-appar kan anropa det på ett säkert sätt.
 
-- Du måste exponera *program behörigheter*. Du ska endast deklarera program behörigheter eftersom daemon-appar inte interagerar med användare, så delegerade behörigheter skulle inte vara begripliga.
-- Klient organisations administratörer kan kräva Azure Active Directory (Azure AD) för att utfärda token för ditt webb-API endast till program som har registrerat sig för att få åtkomst till ett webb-API: s program behörigheter.
+- Du deklarerar och exponerar endast *program behörigheter* eftersom daemon-appar inte interagerar med användare. Delegerade behörigheter skulle inte vara begripliga.
+- Klient organisations administratörer kan kräva att Azure AD bara utfärdar webb-API-token till program som har registrerat sig för att få åtkomst till ett av API: ns program behörigheter.
 
 #### <a name="exposing-application-permissions-app-roles"></a>Exponera program behörigheter (app-roller)
 
 Om du vill visa program behörigheter måste du redigera manifestet.
 
 1. Välj **manifest**i program registreringen för ditt program.
-1. Redigera manifestet genom att leta upp `appRoles`s inställningen och lägga till en eller flera program roller. Roll definitionen finns i följande exempel på JSON-block. Lämna `allowedMemberTypes` inställt på endast `"Application"`. Kontrol lera att `id` är ett unikt GUID och att `displayName` och `value` inte innehåller blank steg.
+1. Om du vill redigera manifestet letar du upp `appRoles`-inställningen och lägger till program roller. Roll definitionerna finns i följande exempel-JSON-block.
+1. Lämna `allowedMemberTypes` inställt på endast `"Application"`.
+1. Kontrol lera att `id` är ett unikt GUID.
+1. Kontrol lera att `displayName` och `value` inte innehåller blank steg.
 1. Spara manifestet.
 
-I följande exempel visas innehållet i `appRoles`. (`id` kan vara valfritt unikt GUID.)
+I följande exempel visas innehållet i `appRoles`där värdet för `id` kan vara ett unikt GUID.
 
 ```JSon
 "appRoles": [
@@ -117,26 +129,31 @@ I följande exempel visas innehållet i `appRoles`. (`id` kan vara valfritt unik
 
 #### <a name="ensuring-that-azure-ad-issues-tokens-for-your-web-api-to-only-allowed-clients"></a>Se till att Azure AD utfärdar token för ditt webb-API till endast tillåtna klienter
 
-Webb-API: et söker efter app-rollen. (Det är det som utvecklare kan använda för att exponera program behörigheter.) Men du kan också konfigurera Azure AD för att utfärda en token för ditt webb-API till appar som har godkänts av klient administratören för att få åtkomst till ditt API. För att lägga till denna ökade säkerhet:
+Webb-API: et söker efter app-rollen. Den här rollen är en program varu utvecklares sätt att exponera program behörigheter. Du kan också konfigurera Azure AD att bara utfärda API-token till appar som klient administratören godkänner för API-åtkomst.
 
-1. På sidan **Översikt över** appen för din app-registrering väljer du länken med namnet på din app under **hanterat program i lokal katalog**. Rubriken för det här fältet kan vara trunkerad. Du kan till exempel se **hanterat program i...**
+För att lägga till denna ökade säkerhet:
+
+1. Gå till **översikts** sidan för appen för att registrera din app.
+1. Under **hanterat program i lokal katalog**väljer du länken med namnet på din app. Etiketten för det här urvalet kan vara trunkerad. Du kan till exempel se **hanterat program i...**
 
    > [!NOTE]
    >
-   > När du väljer den här länken går du till **översikts sidan för företags program** som är kopplad till tjänstens huvud namn för ditt program i klient organisationen där du skapade den. Du kan gå tillbaka till registrerings sidan för appen genom att använda knappen tillbaka i webbläsaren.
+   > När du väljer den här länken går du till **översikts sidan för företags program** . Den här sidan är kopplad till tjänstens huvud namn för ditt program i den klient där du skapade det. Du kan gå till registrerings sidan för appen genom att använda knappen tillbaka i webbläsaren.
 
 1. Välj sidan **Egenskaper** i avsnittet **Hantera** på sidan företags program.
 1. Om du bara vill att Azure AD ska tillåta åtkomst till ditt webb-API från vissa klienter måste du ange **användar tilldelning krävs?** till **Ja**.
 
    > [!IMPORTANT]
    >
-   > Om du anger **användar tilldelning krävs?** till **Ja**kontrollerar Azure AD program roll tilldelningarna för klienterna när de begär en åtkomsttoken för webb-API: et. Om klienten inte är tilldelad till några app-roller kommer Azure AD returnera fel `invalid_client: AADSTS501051: Application <application name> is not assigned to a role for the <web API>`.
+   > Om du anger **användar tilldelning krävs?** till **Ja**kontrollerar Azure AD program roll tilldelningarna för en klient när den begär en webb-API-åtkomsttoken. Om klienten inte är tilldelad någon app-roll returnerar Azure AD fel meddelandet "invalid_client: AADSTS501051: program \<program namn\> tilldelas inte en roll för \<Web API\>".
    >
-   > Om du behåller **användar tilldelningen krävs?** ange till **Nej**, *det går inte att kontrol lera roll tilldelningarna för rollerna när en klient begär en ÅTKOMSTTOKEN för ditt webb-API*. Alla daemon-klienter (det vill säga alla klienter som använder klientens autentiseringsuppgifter Flow) kommer att kunna hämta en åtkomsttoken för API: et genom att ange dess mål grupp. Alla program kommer att kunna få åtkomst till API: et utan att begära behörigheter för det. Men ditt webb-API kan alltid, enligt beskrivningen i föregående avsnitt, kontrol lera att programmet har rätt roll (vilket tillåts av klient administratören). API: et utför den här kontrollen genom att verifiera att åtkomsttoken har ett roll anspråk och att värdet för det här anspråket är korrekt. (I vårt fall är värdet `access_as_application`.)
+   > Om du behåller **användar tilldelningen krävs?** ange till **Nej**, det går inte att kontrol lera roll tilldelningarna för rollerna när en klient begär en åtkomsttoken för ditt webb-API. Alla daemon-klienter, vilket innebär att alla klienter som använder flödet för klientautentiseringsuppgifter, kan få en åtkomsttoken för API: et genom att ange dess mål grupp. Alla program kan komma åt API: et utan att begära behörigheter för det.
+   >
+   > Men enligt beskrivningen i föregående avsnitt, kan ditt webb-API alltid verifiera att programmet har rätt roll, vilket är auktoriserat av klient organisationens administratör. API: et utför den här kontrollen genom att verifiera att åtkomsttoken har ett roll anspråk och att värdet för det här anspråket är korrekt. I det föregående JSON-exemplet är värdet `access_as_application`.
 
 1. Välj **Spara**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Appens kod konfiguration](scenario-protected-web-api-app-configuration.md)
+> [App Code-konfiguration](scenario-protected-web-api-app-configuration.md)

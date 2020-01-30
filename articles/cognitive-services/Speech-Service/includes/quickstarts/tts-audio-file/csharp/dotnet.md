@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72086f1df2b497a722b2752b56a32e6c269fe32d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75467352"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768133"
 ---
 ## <a name="prerequisites"></a>Krav
 
@@ -185,7 +185,7 @@ namespace helloworld
 
 Nu är du redo att bygga din app och testa vår tal syntes med röst tjänsten.
 
-1. **Kompilera koden** – från meny raden för visuell Stuio väljer du **Bygg** > build- **lösning**.
+1. **Kompilera koden** – från meny raden i Visual Studio väljer du **Bygg** > build- **lösning**.
 2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på **F5**.
 3. **Starta syntes** – texten konverteras till tal och sparas i de ljuddata som anges.
 

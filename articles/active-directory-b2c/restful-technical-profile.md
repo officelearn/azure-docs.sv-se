@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263378"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840289"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en RESTful teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -260,7 +260,7 @@ public class ResponseContent
 
 I följande artiklar finns exempel på hur du använder en RESTful teknisk profil:
 
-- [Integrera REST API Claims-utbyten i Azure AD B2C användar resa som validering av användarindata](active-directory-b2c-custom-rest-api-netfw.md)
-- [Skydda dina RESTful-tjänster med hjälp av HTTP Basic-autentisering](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [Skydda din RESTful-tjänst genom att använda klient certifikat](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som verifiering vid användarindata](active-directory-b2c-rest-api-validation-custom.md)
+- [Integrera REST API Claims-utbyten i Azure AD B2C användar resa som validering av användarindata](rest-api-claims-exchange-dotnet.md)
+- [Skydda dina RESTful-tjänster med hjälp av HTTP Basic-autentisering](secure-rest-api-dotnet-basic-auth.md)
+- [Skydda din RESTful-tjänst genom att använda klient certifikat](secure-rest-api-dotnet-certificate-auth.md)
+- [Genom gång: integrera REST API Claims-utbyten i Azure AD B2C användar resa som verifiering vid användarindata](custom-policy-rest-api-claims-validation.md)

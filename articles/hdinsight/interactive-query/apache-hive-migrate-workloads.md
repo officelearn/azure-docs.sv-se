@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eceb4b312476d701ec8ce4eb0ce4886621824b3a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706026"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841599"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migrera Azure HDInsight 3,6 Hive-arbetsbelastningar till HDInsight 4,0
 
@@ -118,7 +118,7 @@ Den här komprimeringen krävs eftersom HDInsight 3,6 och HDInsight 4,0 syra tab
 
 När du har slutfört metaarkiv-migreringen och komprimerings stegen kan du migrera det aktuella lagret. När du har slutfört strukturen för Hive-lagret har HDInsight 4,0-lagret följande egenskaper:
 
-|3,6 |4,0 |
+|3.6 |4.0 |
 |---|---|
 |Externa tabeller|Externa tabeller|
 |Icke-transaktionella hanterade tabeller|Externa tabeller|
@@ -183,7 +183,9 @@ I HDInsight 3,6 är GUI-klienten för att interagera med Hive-Server den Ambari 
 |Bash-skript-URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |Node-typ (er)|Huvud|
 
-Vänta 5 till 10 minuter och starta sedan data Analytics Studio med hjälp av denna URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+Vänta 10 till 15 minuter och starta sedan data Analytics Studio med hjälp av följande URL: `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+En uppdatering av Ambari-ANVÄNDARGRÄNSSNITTET och/eller en omstart av alla Ambari-komponenter kan krävas innan du får åtkomst till DAS.
 
 När DAS har installerats, om du inte ser frågorna som du har kört i visnings programmet för frågor, så gör du följande:
 

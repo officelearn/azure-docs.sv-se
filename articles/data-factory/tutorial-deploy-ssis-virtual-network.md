@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 593ceb884e751ca3115b08baf0c9c7e802057f54
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864991"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841105"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>Konfigurera en Azure-SQL Server Integration Services (SSIS) integration Runtime (IR) för att ansluta till ett virtuellt nätverk
 
@@ -66,11 +66,11 @@ Stegen är:
 
 ## <a name="configure-a-virtual-network"></a>Konfigurera ett virtuellt nätverk
 
-Använd Azure Portal till ett virtuellt nätverk innan du försöker ansluta till ett Azure-SSIS IR.
+Använd Azure Portal för att konfigurera ett virtuellt nätverk innan du försöker ansluta till ett Azure-SSIS IR.
 
 1. Starta Microsoft Edge eller Google Chrome. För närvarande stöder endast dessa webbläsare Data Factory användar gränssnitt.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **fler tjänster**. Filtrera och välj **virtuella nätverk**.
 

@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf9372cfc89aca3285128c96c1b7e6756ba42cda
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 306407252a6f5bc4071947b6aafa2d50bccc97a8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026213"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842741"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-fil konventioner för .NET
 
@@ -46,7 +46,7 @@ Om ditt scenario skiljer sig från de som anges ovan kan du behöva överväga e
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Vad är standard satserna för sats fils konventioner?
 
-[Standard konventionerna för batch-filen](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) är ett namngivnings schema för de mål behållare och blob-sökvägar som utdatafilerna skrivs till. Filer som är beständiga för Azure Storage som följer fil konventions standarderna är automatiskt tillgängliga för visning i Azure Portal. Portalen är medveten om namngivnings konventionen och kan därför Visa filer som följer den.
+[Standard konventionerna för batch-filen](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files) är ett namngivnings schema för de mål behållare och blob-sökvägar som utdatafilerna skrivs till. Filer som är beständiga för Azure Storage som följer fil konventions standarderna är automatiskt tillgängliga för visning i Azure Portal. Portalen är medveten om namngivnings konventionen och kan därför Visa filer som följer den.
 
 Bibliotek för fil konventioner för .NET namnger automatiskt dina lagrings behållare och Uppgiftsutdata enligt fil konventions standarden. Biblioteket fil konventioner innehåller också metoder för att fråga utdatafiler i Azure Storage i enlighet med jobb-ID, aktivitets-ID eller syfte.
 
@@ -228,15 +228,15 @@ Bibliotek för batch-fil konventioner för .NET finns på [NuGet][nuget_package]
 - Se [Spara uppgifts data till Azure Storage med batch-tjänst-API:](batch-task-output-files.md) et för att lära dig hur du använder batch-tjänstens API för att spara utdata.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
-[github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
-[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
+[github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files
+[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_cloudstorageaccount]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
+[net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx
 [net_joboutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.aspx
 [net_joboutputstorage_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync.aspx

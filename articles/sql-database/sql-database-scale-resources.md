@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: d367d9eedc06dbfe0e5096372a4f09c66ea35013
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c4366b2718271b1e27325e6946c5016e9230cea4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462607"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835920"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>Skala databas resurser dynamiskt med minimal stillestånds tid
 
@@ -55,7 +55,8 @@ Alla tre varianter i Azure SQL Database erbjuder viss möjlighet att dynamiskt s
 - En [hanterad instans](sql-database-managed-instance.md) använder [virtuella kärnor](sql-database-managed-instance.md#vcore-based-purchasing-model) -läge och gör att du kan definiera högsta processor kärnor och maximalt lagrings utrymme som allokeras till din instans. Alla databaser inom instansen delar resurserna som är allokerade till instansen.
 - [Elastiska pooler](sql-database-elastic-pool-scale.md) gör att du kan definiera högsta resurs gräns per grupp av databaser i poolen.
 
-Att initiera åtgärden för att skala upp eller ned i någon av varianter startar databas motor processen och flyttar den till en annan virtuell dator om det behövs. Processen att flytta databas motorn till en ny virtuell dator är en **online process** där du kan fortsätta att använda din befintliga Azure SQL Database-tjänst medan processen pågår. När mål databas motorn är fullständigt initierad och redo att bearbeta frågorna växlar anslutningarna [från källa till mål databas motorn](sql-database-single-database-scale.md#impact-of-changing-service-tier-or-rescaling-compute-size).
+Att initiera åtgärden för att skala upp eller ned i någon av varianter startar databas motor processen och flyttar den till en annan virtuell dator om det behövs. Processen att flytta databas motorn till en ny virtuell dator är en **online process** där du kan fortsätta att använda din befintliga Azure SQL Database-tjänst medan processen pågår. När mål databas motorn är fullständigt initierad och redo att bearbeta frågorna växlar anslutningarna [från källa till mål databas motorn](sql-database-single-database-scale.md#impact). 
+
 
 > [!NOTE]
 > Du kan vänta en kort anslutnings rast när processen för att skala upp/skala ned är färdig. Om du har implementerat [omprövnings logik för vanliga tillfälliga fel](sql-database-connectivity-issues.md#retry-logic-for-transient-errors), ser du inte redundansväxlingen.

@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb8711bc4a6134ec740a55d9f5d5794b2de77ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588595"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773946"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Visualisera data från Azure Datautforskaren i streckat
 
-[Omstreck](https://www.redash.io/) ansluter och frågar dina data källor och skapar instrument paneler för att visualisera data och dela dem med peer-datorer. I den här artikeln får du lära dig hur du konfigurerar Azure Datautforskaren som en data källa för att göra om streck och sedan visualisera data.
+[Omstreck](https://redash.io/) ansluter och frågar dina data källor och skapar instrument paneler för att visualisera data och dela dem med peer-datorer. I den här artikeln får du lära dig hur du konfigurerar Azure Datautforskaren som en data källa för att göra om streck och sedan visualisera data.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 1. [Skapa kluster och databas](create-cluster-database-portal.md).
 1. Mata in data enligt beskrivningen i mata [in exempel data i Azure datautforskaren](ingest-sample-data.md). Mer information om inmatnings alternativ finns i [Översikt över](ingest-data-overview.md)inmatning.
@@ -81,7 +81,7 @@ ms.locfileid: "73588595"
 
     ![Skapa instrument panel](media/redash/create-dashboard.png)
 
-1. I fönstret **ny instrument panel** , namnge din instrument panel och välj **Spara**. I **< Dashboard_name >** -fönstret väljer du **Lägg till widget** för att skapa en ny widget. 
+1. I fönstret **ny instrument panel** , namnge din instrument panel och välj **Spara**. I **< Dashboard_name >** fönstret väljer du **Lägg till widget** för att skapa en ny widget. 
 
 1. I fönstret **Lägg till widget** väljer du frågenamn, **sedan visualisering**och **parametrar**. Välj **Lägg till på instrument panelen**
 

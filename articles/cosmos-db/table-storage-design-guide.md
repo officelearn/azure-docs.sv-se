@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 74bd22de81e385a4fbd9129a70616e24b594b0b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441327"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771521"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Tabell design guide för Azure Table Storage: skalbara och genomförda tabeller
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-För att utforma skalbara och presterande tabeller måste du tänka på en rad olika faktorer, inklusive kostnad. Om du tidigare har utformat scheman för Relations databaser är det viktigt att du är bekant med dessa överväganden. Men det finns vissa likheter mellan Azure Table Storage och Relations modeller, men det finns också många viktiga skillnader. Dessa skillnader leder vanligt vis till olika design som kan se till att det är intuitivt eller fel i någon bekant relation mellan Relations databaser, men det är viktigt om du designar för ett NoSQL nyckel/värde-lager, till exempel Table Storage.
+För att utforma skalbara och presterande tabeller måste du tänka på en rad olika faktorer, däribland kostnad. Om du tidigare har utformat scheman för relationsdatabaser är det viktigt att du är bekant med dessa överväganden. Det finns vissa likheter mellan Azure Table Storage och relationsdatabaser, men det finns också många viktiga skillnader. Dessa skillnader leder vanligtvis till olika design som kan se till att det är intuitivt eller fel i någon bekant relation mellan relationsdatabaser, men det är viktigt om du designar för ett NoSQL-nyckel/värde-lager, till exempel Table Storage.
 
 Table Storage är utformat för att stödja molnbaserade program som kan innehålla miljard tals entiteter ("rader" i Relations databas terminologi) eller för data uppsättningar som måste ha stöd för hög transaktions volymer. Du måste därför tänka på olika sätt att lagra dina data och förstå hur Table Storage fungerar. Ett väl utformat NoSQL-datalager kan göra det möjligt för din lösning att skala mycket ytterligare (och en lägre kostnad) än en lösning som använder en Relations databas. Den här guiden hjälper dig med de här avsnitten.  
 
@@ -193,7 +193,7 @@ En bra utgångs punkt så att du kan läsa data effektivt är att fråga "vilka 
 ### <a name="how-your-choice-of-partitionkey-and-rowkey-affects-query-performance"></a>Hur du väljer `PartitionKey` och `RowKey` påverkar frågans prestanda
 I följande exempel förutsätter vi att tabell lagring lagrar anställdas entiteter med följande struktur (de flesta av exemplen tar inte med `Timestamp`-egenskapen för tydlighetens skull):  
 
-| Kolumnnamn | Datatyp |
+| kolumn namn | Datatyp |
 | --- | --- |
 | `PartitionKey` (avdelnings namn) |String |
 | `RowKey` (medarbetar-ID) |String |

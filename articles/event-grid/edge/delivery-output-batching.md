@@ -9,14 +9,14 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 7d6b83354baf3db5ddb65f94fee1c3dce2dcca94
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a6f033af34088081090251f2e5e7cd4a07ce43cc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992462"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841755"
 ---
-# <a name="output-batching"></a>Batching av utdata
+# <a name="output-batching"></a>Batchbearbetning av utdata
 
 Event Grid har stöd för att leverera mer än en händelse i en enda leverans förfrågan. Den här funktionen gör det möjligt att öka det övergripande leverans flödet utan att betala HTTP per begäran-omkostnader. Batching är inaktiverat som standard och kan aktive ras per prenumeration.
 
@@ -77,16 +77,16 @@ Event Gridens batching-beteende kan anpassas per prenumerant genom att ändra f�
 
 Följande distributions tids inställningar styr det högsta tillåtna värdet när en händelse prenumeration skapas.
 
-| Egenskaps namn | Beskrivning |
+| Egenskapsnamn | Beskrivning |
 | ------------- | ----------- | 
-| `api:deliveryPolicyLimits:maxpreferredBatchSizeInKilobytes` | Högsta tillåtna värde för `PreferredBatchSizeInKilobytes` ratt. Standard `1033`.
-| `api:deliveryPolicyLimits:maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratt. Standard `50`.
+| `api__deliveryPolicyLimits__maxpreferredBatchSizeInKilobytes` | Högsta tillåtna värde för `PreferredBatchSizeInKilobytes` ratt. Standard `1033`.
+| `api__deliveryPolicyLimits__maxEventsPerBatch` | Högsta tillåtna värde för `MaxEventsPerBatch` ratt. Standard `50`.
 
 ## <a name="configuring-runtime-default-values"></a>Konfigurera standardvärden för körning
 
 Följande distributions tids inställningar styr körnings standardvärdet för varje ratt när det inte anges i händelse prenumerationen. För att kunna upprepas måste minst en ratt anges för händelse prenumerationen för att aktivera batching-beteendet.
 
-| Egenskaps namn | Beskrivning |
+| Egenskapsnamn | Beskrivning |
 | ------------- | ----------- |
-| `broker:defaultMaxBatchSizeInBytes` | Maximal storlek för leverans förfrågan när endast `MaxEventsPerBatch` anges. Standard `1_058_576`.
-| `broker:defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när endast `MaxBatchSizeInBytes` anges. Standard `10`.
+| `broker__defaultMaxBatchSizeInBytes` | Maximal storlek för leverans förfrågan när endast `MaxEventsPerBatch` anges. Standard `1_058_576`.
+| `broker__defaultMaxEventsPerBatch` | Maximalt antal händelser som ska läggas till i en batch när endast `MaxBatchSizeInBytes` anges. Standard `10`.

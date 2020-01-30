@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732594"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771576"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>OFFSET LIMIT-sats i Azure Cosmos DB
 
@@ -37,7 +37,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>Anmärkningar
   
-  Både OFFSET-antalet och LIMIT-antalet krävs i OFFSET LIMIT-satsen. Om en valfri `ORDER BY`-sats används skapas resultat uppsättningen genom att hoppa över de beställda värdena. Annars returnerar frågan en fast ordning med värden. Den här satsen stöds nu för frågor inom en enda partition och frågor om flera partitioner.
+  Både antalet `OFFSET` och antalet `LIMIT` måste anges i `OFFSET LIMIT`-satsen. Om en valfri `ORDER BY`-sats används skapas resultat uppsättningen genom att hoppa över de beställda värdena. Annars returnerar frågan en fast ordning med värden.
+
+  Avgiften för en fråga med `OFFSET LIMIT` kommer att öka när antalet förskjutningar ökar. För frågor som har flera resultat sidor rekommenderar vi vanligt vis att du använder fortsättnings-token. Fortsättnings-token är ett "bok märke" för platsen där frågan senare kan återupptas. Om du använder `OFFSET LIMIT`finns inget bok märke. Om du vill returnera nästa sida för frågan måste du starta från början.
+  
+  Du bör använda `OFFSET LIMIT` för fall när du vill hoppa över dokumenten helt och spara klient resurser. Du bör till exempel använda `OFFSET LIMIT` om du vill hoppa över till 1000th-frågeresultaten och inte behöver visa resultat 1 till 999. På Server delen läser `OFFSET LIMIT` fortfarande varje dokument, inklusive de som hoppas över. Prestanda fördelarna är ett besparingar i klient resurser genom att undvika bearbetnings dokument som inte behövs.
 
 ## <a name="examples"></a>Exempel
 
@@ -50,7 +54,7 @@ Här är ett exempel på en fråga som hoppar över det första värdet och retu
     OFFSET 1 LIMIT 1
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -69,7 +73,7 @@ Här är en fråga som hoppar över det första värdet och returnerar det andra
     OFFSET 1 LIMIT 1
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [

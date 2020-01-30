@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949414"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841241"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -28,15 +28,15 @@ Det finns flera sätt att anpassa användar gränssnittet för användaren som a
 
 ### <a name="user-flows"></a>Användarflöden
 
-Om du använder [användar flöden](active-directory-b2c-reference-policies.md)kan du ändra utseendet på dina användar flödes sidor genom att använda inbyggda *mallar*för sidlayout, eller genom att använda din egen HTML och CSS. Båda metoderna beskrivs längre fram i den här artikeln.
+Om du använder [användar flöden](user-flow-overview.md)kan du ändra utseendet på dina användar flödes sidor genom att använda inbyggda *mallar*för sidlayout, eller genom att använda din egen HTML och CSS. Båda metoderna beskrivs längre fram i den här artikeln.
 
 Du kan använda [Azure Portal](tutorial-customize-ui.md) för att konfigurera anpassningen av gränssnittet för användar flöden.
 
 ### <a name="custom-policies"></a>Anpassade principer
 
-Om du använder [anpassade principer](active-directory-b2c-overview-custom.md) för att tillhandahålla registrering eller inloggning, lösen ords återställning eller profil redigering i programmet använder [du principfiler för att anpassa användar gränssnittet](active-directory-b2c-ui-customization-custom.md).
+Om du använder [anpassade principer](custom-policy-overview.md) för att tillhandahålla registrering eller inloggning, lösen ords återställning eller profil redigering i programmet använder [du principfiler för att anpassa användar gränssnittet](custom-policy-ui-customization.md).
 
-Om du behöver tillhandahålla dynamiskt innehåll baserat på kundens beslut kan du använda anpassade principer som kan [ändra sid innehållet dynamiskt](active-directory-b2c-ui-customization-custom-dynamic.md) beroende på en parameter som skickas i en frågesträng. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en parameter som du skickar från ditt webb program eller mobil program.
+Om du behöver tillhandahålla dynamiskt innehåll baserat på kundens beslut kan du använda anpassade principer som kan [ändra sid innehållet dynamiskt](custom-policy-ui-customization-dynamic.md) beroende på en parameter som skickas i en frågesträng. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en parameter som du skickar från ditt webb program eller mobil program.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -65,6 +65,8 @@ Välj sedan en mall i listan. Här följer några exempel på inloggnings sidorn
 När du väljer en mall tillämpas den valda layouten på alla sidor i ditt användar flöde och URI: n för varje sida visas i fältet URI för **anpassad sida** .
 
 ## <a name="custom-html-and-css"></a>Anpassad HTML och CSS
+
+Om du vill skapa en egen princip-layout med din anpassade HTML och CSS kan du göra det genom att växla "Använd anpassat sid innehåll" för varje namn som finns i principen. Följ anvisningarna nedan om konfigurationer för anpassad layout:
 
 Azure AD B2C kör kod i kundens webbläsare med hjälp av en metod som kallas [CORS (Cross-Origin Resource Sharing)](https://www.w3.org/TR/cors/).
 
@@ -150,7 +152,7 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 
 ## <a name="localize-content"></a>Lokalisera innehåll
 
-Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](active-directory-b2c-reference-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect-parametern `ui-locales` till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
+Du lokaliserar ditt HTML-innehåll genom att aktivera [språk anpassning](user-flow-language-customization.md) i Azure AD B2C klient organisationen. När du aktiverar den här funktionen kan Azure AD B2C vidarebefordra OpenID Connect-parametern `ui-locales` till din slut punkt. Din innehålls Server kan använda den här parametern för att tillhandahålla språkspecifika HTML-sidor.
 
 Innehållet kan hämtas från olika platser baserat på det språk som används. I din CORS-aktiverade slut punkt ställer du in en mappstruktur som värd för innehåll för vissa språk. Du anropar rätt ett om du använder jokertecknet `{Culture:RFC5646}`.
 
@@ -179,4 +181,4 @@ HTML-och CSS-exempelfilerna i mallarna finns i katalogen [/sample_templates](htt
     [Anpassa användar gränssnittet för dina program i Azure Active Directory B2C](tutorial-customize-ui.md).
 - Om du använder **anpassade principer**kan du börja anpassa användar gränssnittet med artikeln:
 
-    [Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+    [Anpassa ditt programs användar gränssnitt med hjälp av en anpassad princip i Azure Active Directory B2C](custom-policy-ui-customization.md).

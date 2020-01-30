@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: d605b852d37af3b1e2ef0868084f3c0b99c24784
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263429"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765726"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Vad övervakas av Azure Monitor?
 I den här artikeln beskrivs de olika program och tjänster som övervakas av Azure Monitor. 
@@ -42,7 +42,7 @@ Lösningar baseras på logg frågor och vyer som är anpassade för ett visst pr
 |:---|:---|
 | [Agent hälsa](insights/solution-agenthealth.md) | Analysera hälsan och konfigurationen av Log Analyticss agenter. |
 | [Varningshantering](platform/alert-management-solution.md) | Analysera aviseringar som samlats in från System Center Operations Manager, nagios eller zabbix. |
-| [Tjänstkarta](insights/service-map.md) | Identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. Samma funktion finns i   |
+| [Tjänstkarta](insights/service-map.md) | Identifierar automatiskt program komponenter i Windows-och Linux-system och mappar kommunikationen mellan tjänsterna. |
 
 
 
@@ -78,7 +78,7 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Blockchain Service | Inga | Ja | Inga |  |
 |Skisser | Inga | Inga | Inga |  |
 |Robottjänst | Inga | Inga | Inga |  |
-|Molntjänster | Ja | Ja | Inga | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
+|Cloud Services | Ja | Ja | Inga | Agent som krävs för att övervaka gäst operativ system och arbets flöden.  |
 |Cloud Shell | Inga | Inga | Inga |  |
 |Kognitiva tjänster | Ja | Ja | Inga |  |
 |Container Instances | Ja | Inga | Inga |  |
@@ -88,19 +88,19 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Kostnadshantering | Inga | Inga | Inga |  |
 |Data Box | Inga | Inga | Inga |  |
 |Data Catalog Gen2 | Inga | Inga | Inga |  |
-|Data Explorer | Ja | Ja | Inga |  |
+|Datautforskaren | Ja | Ja | Inga |  |
 |Data Factory | Ja | Ja | Inga |  |
 |Data Factory v2 | Inga | Ja | Inga |  |
-|Data Share | Inga | Inga | Inga |  |
-|Database for MariaDB | Ja | Ja | Inga |  |
-|Database for MySQL | Ja | Ja | Inga |  |
-|Database for PostgreSQL | Ja | Ja | Inga |  |
+|Data resurs | Inga | Inga | Inga |  |
+|Databas för MariaDB | Ja | Ja | Inga |  |
+|Databas för MySQL | Ja | Ja | Inga |  |
+|Databas för PostgreSQL | Ja | Ja | Inga |  |
 |Database Migration Service | Inga | Inga | Inga |  |
 |Databricks | Inga | Ja | Inga |  |
 |DDoS Protection | Ja | Ja | Inga |  |
 |DevOps | Inga | Inga | Inga |  |
 |DNS | Ja | Inga | Inga |  |
-|Domännamn | Inga | Inga | Inga |  |
+|Domän namn | Inga | Inga | Inga |  |
 |– | Inga | Inga | Inga |  |
 |Dynamics 365 kund engagemang | Inga | Inga | Inga |  |
 |Dynamics 365-ekonomi och-åtgärder | Inga | Inga | Inga |  |
@@ -109,9 +109,9 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |ExpressRoute | Ja | Ja | Inga |  |
 |Brandvägg | Ja | Ja | Inga |  |
 |Front Door | Ja | Ja | Inga |  |
-|Functions | Ja | Ja | Inga |  |
+|Funktioner | Ja | Ja | Inga |  |
 |HDInsight | Inga | Ja | Inga |  |
-|HPC Cache | Inga | Inga | Inga |  |
+|HPC-cache | Inga | Inga | Inga |  |
 |Informationsskydd | Inga | Ja | Inga |  |
 |Intune | Inga | Ja | Inga |  |
 |IoT Central | Inga | Inga | Inga |  |
@@ -121,11 +121,11 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |Load Balancer | Ja | Ja | Inga |  |
 |Logikappar | Ja | Ja | Inga |  |
 |Machine Learning Service | Inga | Inga | Inga |  |
-|Hanterade program  | Inga | Inga | Inga |  |
+|Managed Applications  | Inga | Inga | Inga |  |
 |Kartor  | Inga | Inga | Inga |  |
 |Media Services | Ja | Ja | Inga |  |
 |Microsoft Flow | Inga | Inga | Inga |  |
-|Microsoft Hanterat skrivbord | Inga | Inga | Inga |  |
+|Microsoft-hanterat skriv bord | Inga | Inga | Inga |  |
 |Microsoft PowerApps | Inga | Inga | Inga |  |
 |Microsoft Social Engagement | Inga | Inga | Inga |  |
 |Microsoft Stream | Ja | Ja | Inga |  |
@@ -154,9 +154,9 @@ I följande tabell visas Azure-tjänster och de data som samlas in i Azure Monit
 |SQL Database | Ja | Ja | Inga |  |
 |SQL Server Stretch Database | Ja | Ja | Inga |  |
 |Stack | Inga | Inga | Inga |  |
-|Lagring | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
+|Storage | Ja | Inga | [Ja](insights/storage-insights-overview.md) |  |
 |Storage cache | Inga | Inga | Inga |  |
-|Lagringssynkroniseringstjänster | Inga | Inga | Inga |  |
+|Tjänster för synkronisering av lagring | Inga | Inga | Inga |  |
 |Stream Analytics | Ja | Ja | Inga |  |
 |Time Series Insights | Ja | Ja | Inga |  |
 |TINA | Inga | Inga | Inga |  |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951072"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840272"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure Active Directory B2C att använda en anpassad princip
 
@@ -38,7 +38,7 @@ Följande flöden stöds inte:
 
 ## <a name="prerequisites"></a>Krav
 
-Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
+Slutför stegen i [Kom igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md).
 
 ## <a name="register-an-application"></a>Registrera ett program
 
@@ -264,8 +264,8 @@ Använd ditt favorit-API utvecklings program för att generera ett API-anrop och
 | Nyckel | Värde |
 | --- | ----- |
 | användarnamn | `user-account` |
-| lösenord | `password1` |
-| grant_type | lösenord |
+| password | `password1` |
+| grant_type | password |
 | omfång | OpenID `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | token id_token |
@@ -342,4 +342,4 @@ Azure AD B2C uppfyller OAuth 2,0-standarder för offentliga autentiseringsuppgif
 ## <a name="next-steps"></a>Nästa steg
 
 - Se ett fullständigt exempel på det här scenariot i [Azure Active Directory B2C anpassad princip start paket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc).
-- Läs mer om de tokens som används av Azure Active Directory B2C i [referensen för token](active-directory-b2c-reference-tokens.md).
+- Läs mer om de tokens som används av Azure Active Directory B2C i [referensen för token](tokens-overview.md).

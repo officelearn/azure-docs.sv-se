@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 01/27/2020
 ms.author: nitinme
-ms.openlocfilehash: 14affb2c2aa53fc7a2b1a5946e81ad124800f678
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0de0c83b0c459d29c304dbf51eaa44a62e895760
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981267"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773084"
 ---
 # <a name="tutorial-use-form-recognizer-with-azure-logic-apps-to-analyze-invoices"></a>Självstudie: använda formulär igenkänning med Azure Logic Apps för att analysera fakturor
 
-I den här självstudien skapar du ett arbets flöde i Azure Logic Apps som använder formulär igenkänning, en tjänst som ingår i Azure Cognitive Services Suite för att extrahera data från fakturor. Du använder formulär igenkänning för att först träna en modell med en exempel data uppsättning och sedan testa modellen med en annan data uppsättning. Exempel data som används i den här självstudien lagras i Azure Storage BLOB-behållare.
+I den här självstudien skapar du ett arbets flöde i Azure Logic Apps som använder formulär igenkänning, en tjänst som ingår i Azure Cognitive Services Suite för att extrahera data från fakturor. Först tränar du en formulär igenkännings modell med en exempel data uppsättning och testar sedan modellen på en annan data uppsättning.
 
 Den här själv studie kursen beskriver följande:
 
@@ -41,12 +41,12 @@ Formulär tolken är tillgänglig i en för hands version med begränsad åtkoms
 
 ## <a name="understand-the-invoice-to-be-analyzed"></a>Förstå fakturan som ska analyseras
 
-Exempel data uppsättningen som vi använder för att träna modellen och testa modellen är tillgänglig som en. zip-fil från [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Hämta och extrahera. zip-filen och öppna en faktura-PDF-fil i mappen **/Train** . Observera att det finns en tabell med faktura numret, faktura datumet osv. 
+Exempel data uppsättningen som du ska använda för att träna och testa modellen är tillgänglig som en. zip-fil från [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Hämta och extrahera. zip-filen och öppna en faktura-PDF-fil i mappen **/Train** . Observera att det finns en tabell med faktura numret, faktura datumet och så vidare. 
 
 > [!div class="mx-imgBorder"]
 > ![exempel faktura](media/tutorial-form-recognizer-with-logic-apps/sample-receipt.png)
 
-I den här självstudien får vi lära dig hur du extraherar information från sådana tabeller till ett JSON-format med hjälp av ett arbets flöde som skapats med hjälp av Azure Logic Apps och formulär tolk.
+I den här självstudien får du lära dig hur du använder ett Azure Logic Apps-arbetsflöde för att extrahera informationen från tabeller som dessa till JSON-format.
 
 ## <a name="create-an-azure-storage-blob-container"></a>Skapa en Azure Storage BLOB-behållare
 
@@ -62,7 +62,7 @@ Du använder den här behållaren för att ladda upp exempel data som krävs fö
 
 Ladda ned exempel data som är tillgängliga på [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Extrahera data till en lokal mapp och överför innehållet i mappen **/Train** till den **formrecocontainer** som du skapade tidigare. Följ anvisningarna i [Ladda upp en Block-Blob](../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) för att ladda upp data till en behållare.
 
-Kopiera URL: en för behållaren. Du kommer att behöva detta senare i den här självstudien. Om du har skapat lagrings kontot och behållaren med samma namn som visas i den här självstudien blir URL *: en https:\//formrecostorage.blob.Core.Windows.net/formrecocontainer/* .
+Kopiera URL: en för behållaren. Du behöver den här URL-adressen senare i självstudien. Om du har skapat lagrings kontot och behållaren med samma namn som visas i den här självstudien blir URL *: en https:\//formrecostorage.blob.Core.Windows.net/formrecocontainer/* .
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -75,7 +75,7 @@ Du kan använda Azure Logic Apps för att automatisera och dirigera uppgifter oc
 * Konfigurera Logic-appen så att den använder en formulär tolken **träna modell** för att träna en modell med hjälp av exempel data som du överförde till Azure Blob Storage.
 * Konfigurera Logic-appen så att den använder en formulär tolk som **analyserar** formulär för att använda den modell som du redan har tränat. Den här komponenten kommer att analysera den faktura som du tillhandahåller för den här Logic-appen baserat på den modell som den tränade tidigare.
 
-Låt oss börja! Följ dessa steg för att konfigurera arbets flödet.
+Följ dessa steg för att konfigurera arbets flödet.
 
 1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integration** > **Logic app**.
 
@@ -99,7 +99,7 @@ Låt oss börja! Följ dessa steg för att konfigurera arbets flödet.
 
 ### <a name="configure-the-logic-app-to-trigger-the-workflow-when-an-email-arrives"></a>Konfigurera Logic-appen så att den utlöser arbets flödet när ett e-postmeddelande tas emot
 
-I den här självstudien utlöser du arbets flödet när ett e-postmeddelande tas emot med en bifogad faktura. I den här självstudien väljer vi Office 365 som e-posttjänst, men du kan använda andra e-postleverantörer som du vill använda.
+I den här självstudien utlöser du arbets flödet när ett e-postmeddelande tas emot med en bifogad faktura. I den här självstudien används Office 365 som e-posttjänst, men du kan använda andra e-postleverantörer som du vill använda.
 
 1. Välj alla på flikarna, Välj **Office 365 Outlook**och välj sedan **när ett nytt e-postmeddelande kommer**under **utlösare**.
 
@@ -109,8 +109,8 @@ I den här självstudien utlöser du arbets flödet när ett e-postmeddelande ta
 
 1. Utför följande steg i nästa dialog ruta.
     1. Välj den mapp som ska övervakas för nya e-postmeddelanden.
-    1. För **har bilagor** väljer du **Ja**. Detta säkerställer att endast e-postmeddelanden med bifogade filer utlöser arbets flödet.
-    1. Välj **Ja**för **Inkludera bifogade filer** . Detta säkerställer att innehållet i den bifogade filen används i underordnad bearbetning.
+    1. För **har bifogade filer**väljer du **Ja**. Detta säkerställer att endast e-postmeddelanden med bifogade filer utlöser arbets flödet.
+    1. För **Inkludera bifogade filer**väljer du **Ja**. Detta säkerställer att innehållet i den bifogade filen används i underordnad bearbetning.
 
         > [!div class="mx-imgBorder"]
         > ![konfigurera e-utlösare för Logic app](media/tutorial-form-recognizer-with-logic-apps/logic-app-specify-email-folder.png)
@@ -149,14 +149,14 @@ I det här avsnittet lägger du till åtgärden **analysera formulär** i arbets
     > [!div class="mx-imgBorder"]
     > ![analysera en formulär tolks modell](media/tutorial-form-recognizer-with-logic-apps/logic-app-form-reco-analyze-model.png)
 
-1. Gör följande i dialog rutan **analysera formulär** :
+1. Utför följande steg i dialog rutan **analysera formulär** :
 
     1. Klicka på text rutan **modell-ID** och välj **modelId**i dialog rutan som öppnas under fliken **dynamiskt innehåll** . Genom att göra detta ger du Flow-appen med modell-ID: t för den modell som du tränade i det sista avsnittet.
 
         > [!div class="mx-imgBorder"]
         > ![använda ModelID för formulär igenkänning](media/tutorial-form-recognizer-with-logic-apps/analyze-form-model-id.png)
 
-    2. Klicka på text rutan **dokument** och i dialog rutan som öppnas, under fliken **dynamiskt innehåll** , väljer du **bilagor innehåll**. Genom att göra detta konfigurerar du flödet så att det använder exempel faktura filen som är bifogad i e-postmeddelandet som skickas för att utlösa arbets flödet.
+    2. Klicka på text rutan **dokument** och i dialog rutan som öppnas, under fliken **dynamiskt innehåll** , väljer du **bilagor innehåll**. Detta konfigurerar flödet så att det använder exempel faktura filen som är bifogad i e-postmeddelandet som utlöser arbets flödet.
 
         > [!div class="mx-imgBorder"]
         > ![använda e-postbilaga för att analysera fakturor](media/tutorial-form-recognizer-with-logic-apps/analyze-form-input-data.png)
@@ -165,7 +165,7 @@ I det här avsnittet lägger du till åtgärden **analysera formulär** i arbets
 
 ### <a name="extract-the-table-information-from-the-invoice"></a>Extrahera tabell informationen från fakturan
 
-I det här avsnittet ska vi konfigurera Logic-appen så att den extraherar informationen från tabellen i fakturorna.
+I det här avsnittet konfigurerar du Logic-appen så att informationen från tabellen i fakturorna extraheras.
 
 1. Välj **Lägg till en åtgärd**och under **Välj en åtgärd**söker du efter **Skriv** och under de åtgärder som är tillgängliga väljer du **skapa** igen.
     ![extrahera tabell information från fakturan](media/tutorial-form-recognizer-with-logic-apps/extract-table.png)
@@ -179,7 +179,7 @@ I det här avsnittet ska vi konfigurera Logic-appen så att den extraherar infor
 
 ## <a name="test-your-logic-app"></a>Testa din Logic app
 
-Om du vill testa Logic-appen använder du exempel fakturorna i mappen **/test** i den exempel data uppsättning som du laddade ned från [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Utför följande steg:
+Om du vill testa Logic-appen använder du exempel fakturorna i mappen **/test** i den exempel data uppsättning som du laddade ned från [GitHub](https://go.microsoft.com/fwlink/?linkid=2090451). Följ de här stegen:
 
 1. Från Azure Logic Apps designer för din app väljer du **Kör** i verktygsfältet längst upp. Arbets flödet är nu aktivt och väntar på att få ett e-postmeddelande med fakturan bifogad.
 1. Skicka ett e-postmeddelande med en exempel faktura som är kopplad till den e-postadress som du angav när du skapade Logic-appen. Se till att e-postmeddelandet levereras till den mapp som du angav när du konfigurerade Logic-appen.

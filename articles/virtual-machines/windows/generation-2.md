@@ -3,7 +3,7 @@ title: Azure-stöd för virtuella datorer i generation 2
 description: Översikt över Azure-stöd för virtuella datorer i generation 2
 services: virtual-machines-windows
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
-ms.openlocfilehash: 6f03826bf0b82150fa89ad6e17cbcb76f98bb835
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/28/2020
+ms.author: jushiman
+ms.openlocfilehash: ace08d95e1f2eb5a6e7252ecdf505e282b04ddf8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790032"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837364"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Stöd för virtuella datorer i generation 2 i Azure
 
@@ -30,7 +30,7 @@ Virtuella datorer i generation 2 använder den nya UEFI-baserade start arkitektu
 
 ## <a name="generation-2-vm-sizes"></a>Generation 2 VM-storlekar
 
-Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbjuder nu generation 2-stöd för följande valda VM-serien:
+Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure (förutom för virtuella datorer i Mv2-serien). Azure erbjuder nu generation 2-stöd för följande valda VM-serien:
 
 * [B-serien](https://docs.microsoft.com/azure/virtual-machines/windows/b-series-burstable)
 * [DC-serien](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dc-series)
@@ -66,11 +66,11 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Generation 2-funktion                | Lokal Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Säker start                         | :heavy_check_mark:  | röntgen   |
-| Avskärmad virtuell dator                         | :heavy_check_mark:  | röntgen   |
-| vTPM                                | :heavy_check_mark:  | röntgen   |
-| Virtualiseringsbaserad säkerhet (VBS) | :heavy_check_mark:  | röntgen   |
-| VHDX-format                         | :heavy_check_mark:  | röntgen   |
+| Säker start                         | :heavy_check_mark:  | :x:   |
+| Avskärmad virtuell dator                         | :heavy_check_mark:  | :x:   |
+| vTPM                                | :heavy_check_mark:  | :x:   |
+| Virtualiseringsbaserad säkerhet (VBS) | :heavy_check_mark:  | :x:   |
+| VHDX-format                         | :heavy_check_mark:  | :x:   |
 
 ## <a name="features-and-capabilities"></a>Funktioner och funktioner
 
@@ -86,13 +86,13 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Kapacitet | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
-| OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
+| OS-disk > 2 TB                    | :x:                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Stöd för skalnings uppsättning för virtuell dator | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | Säkerhets kopiering/återställning                    | :heavy_check_mark: | :heavy_check_mark: |
 | Galleri för delad avbildning              | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Disk Encryption             | :heavy_check_mark: | röntgen                |
+| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
 
 ## <a name="creating-a-generation-2-vm"></a>Skapar en virtuell dator i generation 2
 
@@ -123,6 +123,12 @@ Använd till exempel följande PowerShell-cmdlet för att hämta en lista över 
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
+```
+
+Du kan också använda Azure CLI för att se alla tillgängliga generation 2-avbildningar som listas av **Publisher**.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
 ```
 
 Om du skapar en virtuell dator med Windows Server 2012 som operativ system väljer du antingen generation 1 (BIOS) eller generation 2 (UEFI) VM SKU, som ser ut så här:

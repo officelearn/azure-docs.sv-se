@@ -15,16 +15,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f96393adf0eaed8a28bc1a2ec0def6b0386bd7ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: abe4ecf77e7a65251830ff822b15f79291471202
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701985"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773341"
 ---
 # <a name="scenario-protected-web-api"></a>Scenario: skyddat webb-API
 
-I det här scenariot visar vi hur du kan exponera ett webb-API och hur du kan skydda det så att endast autentiserade användare får åtkomst till API: et. Du vill aktivera autentiserade användare med både arbets-och skol konton eller personliga personliga Microsoft-konton för att använda ditt webb-API.
+I det här scenariot får du lära dig hur du exponerar ett webb-API. Du lär dig också hur du skyddar webb-API: et så att endast autentiserade användare kan komma åt det.
+
+Om du vill använda ditt webb-API måste du antingen aktivera autentiserade användare med både arbets-och skol konton eller aktivera Microsoft personliga konton.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -32,10 +34,10 @@ I det här scenariot visar vi hur du kan exponera ett webb-API och hur du kan sk
 
 ## <a name="specifics"></a>Information
 
-Här är några information som du behöver känna till för att skydda webb-API: er:
+Här är en detaljerad information som du behöver känna till för att skydda webb-API: er:
 
 - Din app-registrering måste exponera minst ett omfång. Den token-version som accepteras av ditt webb-API är beroende av inloggnings mål gruppen.
-- Konfigurationen av koden för webb-API: n måste validera den token som används vid anrop till webb-API: et.
+- Kod konfigurationen för webb-API: n måste validera den token som används när webb-API: t anropas.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,14 +9,14 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ee2b3a35b6f1817b89541a31d0bde4adf00ade2a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992540"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841837"
 ---
-# <a name="rest-api"></a>REST-API
+# <a name="rest-api"></a>REST API
 I den här artikeln beskrivs REST-API: er för Azure Event Grid på IoT Edge
 
 ## <a name="common-api-behavior"></a>Gemensamt API-beteende
@@ -41,7 +41,7 @@ I händelse av **EventGridSchema** eller **CustomSchema**kan värdet för Conten
 
 ```Content-Type: application/json; charset=utf-8```
 
-Om det är **CloudEventSchemaV1_0** i strukturerat läge kan värdet för Content-Type vara något av följande värden:
+Om **CloudEventSchemaV1_0** i strukturerat läge kan värdet för Content-Type vara något av följande värden:
 
 ```Content-Type: application/cloudevents+json```
     
@@ -51,7 +51,7 @@ Om det är **CloudEventSchemaV1_0** i strukturerat läge kan värdet för Conten
     
 ```Content-Type: application/cloudevents-batch+json; charset=utf-8```
 
-I händelse av **CloudEventSchemaV1_0** i binärt läge finns mer information i [dokumentationen](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) .
+I händelse av **CloudEventSchemaV1_0** i binärt läge, se [dokumentationen](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) för mer information.
 
 ### <a name="error-response"></a>Fel svar
 Alla API: er returnerar ett fel med följande nytto last:
@@ -183,6 +183,7 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -527,7 +528,7 @@ I exemplen i det här avsnittet används `EndpointType=Webhook;`. JSON-exemplen 
 
 **Fält beskrivningar för nytto Last**
 - ```Id``` är obligatoriskt. Det kan vara valfritt sträng värde som anroparen har fyllt i. Event Grid utför ingen dubblettidentifiering eller använder inga semantik i det här fältet.
-- ```Topic``` är valfritt, men om det anges måste det matcha topic_name från begärd URL
+- ```Topic``` är valfritt, men om det anges måste det matcha topic_name från URL: en för begäran
 - ```Subject``` är obligatorisk, kan vara valfritt sträng värde
 - ```EventType``` är obligatorisk, kan vara valfritt sträng värde
 - ```EventTime``` är obligatoriskt, verifieras det inte, utan bör vara en korrekt DateTime.
@@ -619,8 +620,8 @@ Använd den här måltypen för att skicka händelser till andra moduler (som ä
 Begränsningar för attributet `endpointUrl`:
 - Det får inte vara null.
 - Det måste vara en absolut URL.
-- Om outbound__webhook__httpsOnly är inställt på sant i EventGridModule-inställningarna måste det endast vara HTTPS.
-- Om outbound__webhook__httpsOnly är inställt på false kan det vara HTTP eller HTTPS.
+- Om outbound__webhook__httpsOnly har angetts till sant i EventGridModule-inställningarna måste det endast vara HTTPS.
+- Om outbound__webhook__httpsOnly har angetts till false, kan det vara HTTP eller HTTPS.
 
 Begränsningar för egenskapen `eventDeliverySchema`:
 - Den måste överensstämma med det underbeskrivande ämnets schema.
@@ -674,7 +675,7 @@ EndpointUrl
 - Sökvägen `/api/events` måste definieras i URL-sökvägen för begäran.
 - Den måste ha `api-version=2018-01-01` i frågesträngen.
 - Om outbound__eventgrid__httpsOnly är inställt på sant i EventGridModule-inställningarna (sant som standard), måste det endast vara HTTPS.
-- Om outbound__eventgrid__httpsOnly har angetts till false kan det vara HTTP eller HTTPS.
+- Om outbound__eventgrid__httpsOnly är inställt på falskt, kan det vara HTTP eller HTTPS.
 - Om outbound__eventgrid__allowInvalidHostnames är inställt på falskt (falskt som standard) måste den ha en av följande slut punkter:
    - `eventgrid.azure.net`
    - `eventgrid.azure.us`
@@ -686,3 +687,93 @@ SasKey:
 TopicName:
 - Om Subscription. EventDeliverySchema är inställt på EventGridSchema placeras värdet från det här fältet i varje händelses ämnes fält innan det vidarebefordras till Event Grid i molnet.
 - Om Subscription. EventDeliverySchema har angetts till CustomEventSchema ignoreras den här egenskapen och den anpassade händelse nytto lasten vidarebefordras exakt som den togs emot.
+
+## <a name="set-up-event-hubs-as-a-destination"></a>Konfigurera Event Hubs som ett mål
+
+Om du vill publicera till en Event Hub ställer du in `endpointType` till `eventHub` och anger:
+
+* connectionString: anslutnings sträng för den specifika Händelsehubben som du har genererat via en princip för delad åtkomst.
+
+    >[!NOTE]
+    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Du kan skapa en entitets-Specific-anslutningssträng genom att navigera till den speciella händelsehubben som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets connecection sträng.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Konfigurera Service Bus köer som ett mål
+
+Om du vill publicera till en Service Bus kö ställer du in `endpointType` till `serviceBusQueue` och ger:
+
+* connectionString: anslutnings sträng för den specifika Service Bus kön som du har genererat via en princip för delad åtkomst.
+
+    >[!NOTE]
+    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Generera en entitets-Specific-anslutningssträng genom att gå till den angivna Service Buss kön som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets Specific connecection-sträng.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-topics-as-a-destination"></a>Konfigurera Service Bus ämnen som mål
+
+Om du vill publicera till ett Service Bus-ämne ställer du in `endpointType` till `serviceBusTopic` och anger:
+
+* connectionString: anslutnings sträng för det specifika Service Bus ämne som du har genererat via en princip för delad åtkomst.
+
+    >[!NOTE]
+    > Anslutnings strängen måste vara en speciell entitet. Det går inte att använda en anslutnings sträng för namn områden. Generera en entitets-speciell anslutnings sträng genom att gå till den aktuella Service Bus avsnittet som du vill publicera till i Azure-portalen och klicka på **principer för delad åtkomst** för att generera en ny entitets Specific connecection-sträng.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-storage-queues-as-a-destination"></a>Konfigurera lagrings köer som mål
+
+Om du vill publicera till en lagrings kö ställer du in `endpointType` till `storageQueue` och anger:
+
+* queueName: namnet på lagrings kön som du publicerar till.
+* connectionString: anslutnings sträng för lagrings kontot som lagrings kön finns i.
+
+    >[!NOTE]
+    > Unline Event Hubs, Service Bus köer och Service Bus ämnen, den anslutnings sträng som används för lagrings köer är inte entitets-specifika. I stället måste den, men anslutnings strängen för lagrings kontot.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

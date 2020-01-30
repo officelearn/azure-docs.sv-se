@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f920df20a8dc1cace76f641ce1c71f9b91a30bf4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 70253e66903916bde05f9e6e55e3c0609cb4a146
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867677"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841122"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Självstudie: träna och distribuera en modell från CLI
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -246,7 +246,7 @@ Utdata från det här kommandot liknar följande JSON:
 > [!IMPORTANT]
 > Kopiera värdet för `id` posten, som det används i nästa avsnitt.
 
-Om du vill se en mer omfattande mall för JSON-filen som beskriver en data uppsättning använder du följande kommando:
+Om du vill se en mer omfattande mall för en data uppsättning använder du följande kommando:
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -288,7 +288,7 @@ data:
 
 Ändra värdet för `id` posten så att den matchar värdet som returnerades när du registrerade data uppsättningen. Det här värdet används för att läsa in data till beräknings målet under träningen.
 
-Den här YAML gör följande:
+Den här YAML resulterar i följande åtgärder under utbildningen:
 
 * Monterar data uppsättningen (baserat på data uppsättningens ID) i tränings miljön och lagrar sökvägen till monterings punkten i `mnist`-miljövariabeln.
 * Överför platsen för data (monterings punkten) i övnings miljön till skriptet med hjälp av argumentet `--data-folder`.
@@ -298,7 +298,7 @@ Runconfig-filen innehåller också information som används för att konfigurera
 > [!TIP]
 > Även om det är möjligt att skapa en runconfig-fil manuellt, skapades den i det här exemplet med den `generate-runconfig.py`-fil som finns i lagrings platsen. Den här filen hämtar en referens till den registrerade data uppsättningen, skapar en körnings konfigurations program mässigt och sparar den sedan i filen.
 
-Mer information om att köra konfigurationsfiler finns i [Konfigurera och använda beräknings mål för modell träning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli), eller referera till den här [JSON-filen](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) för att se hela schemat för en runconfig.
+Mer information om att köra konfigurationsfiler finns i [Konfigurera och använda Compute-mål för modell träning](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). En fullständig JSON-referens finns i [runconfigschema. JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Skicka in utbildnings körningen
 
@@ -379,7 +379,9 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 Det här kommandot distribuerar en ny tjänst med namnet `myservice`, med version 1 av den modell som du registrerade tidigare.
 
-`inferenceConfig.yml`-filen innehåller information om hur du kan utföra en härledning, till exempel start skriptet (`score.py`) och program beroenden. Mer information om strukturen för den här filen finns i schemat för [konfiguration av energischemat](reference-azure-machine-learning-cli.md#inference-configuration-schema). Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
+`inferenceConfig.yml`-filen innehåller information om hur du använder modellen för härledning. Till exempel refererar den till Start-skriptet (`score.py`) och program beroenden. 
+
+Mer information om strukturen för den här filen finns i schemat för [konfiguration av energischemat](reference-azure-machine-learning-cli.md#inference-configuration-schema). Mer information om Entry-skript finns i [Distribuera modeller med Azure Machine Learning](how-to-deploy-and-where.md#prepare-to-deploy).
 
 `aciDeploymentConfig.yml` beskriver distributions miljön som används som värd för tjänsten. Distributions konfigurationen är speciell för den beräknings typ som du använder för distributionen. I det här fallet används en Azure Container instance. Mer information finns i [konfigurations schema för distribution](reference-azure-machine-learning-cli.md#deployment-configuration-schema).
 

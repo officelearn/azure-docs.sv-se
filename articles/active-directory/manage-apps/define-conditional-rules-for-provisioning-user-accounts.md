@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3401ed08a9332d4bb2735e536df33c201b28ca0e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711695"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841956"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
 Syftet med den här artikeln är att förklara hur du använder omfångs filter för att definiera attributbaserade regler som avgör vilka användare som ska tillhandahållas till ett program.
@@ -94,7 +94,12 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
    g. **regex-matchning**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
 
    h. **ingen regex-matchning**. Sats returnerar true om det utvärderade attributet inte matchar ett mönster för reguljära uttryck.
- 
+   
+   i. **Greater_Than.** Sats returnerar true om det utvärderade attributet är större än värdet. Värdet som anges i omfångs filtret måste vara ett heltal och attributet för användaren måste vara ett heltal [0, 1, 2,...]. 
+   
+   j. **Greater_Than_OR_EQUALS.** Sats returnerar true om det utvärderade attributet är större än eller lika med värdet. Värdet som anges i omfångs filtret måste vara ett heltal och attributet för användaren måste vara ett heltal [0, 1, 2,...]. 
+
+
 >[!IMPORTANT] 
 > Filtren includes och IsMemberOf stöds inte. De kommer snart att tas bort från användar gränssnittet.
 

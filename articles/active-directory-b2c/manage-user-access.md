@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0fc09ca77e4fb0c3666478873d5d09a13d23ec8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367118"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840442"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Hantera användar åtkomst i Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ Följande är ett exempel på ett användar flöde för att samla in föräldra 
 
 5. När antingen den mindre eller den vuxen återkallar medgivande kan Azure AD-Graph API användas för att ändra **consentProvidedForMinor** till **nekad**. Alternativt kan programmet välja att ta bort en mindre person vars medgivande har återkallats. Det är möjligt att anpassa användar flödet så att den autentiserade mindre (eller överordnade som använder del kontot) kan återkalla medgivande. Azure AD B2C poster **consentProvidedForMinor** som **nekad**.
 
-Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**och **ageGroup**finns i [användar resurs typ](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Mer information om anpassade attribut finns i [använda anpassade attribut för att samla in information om dina användare](active-directory-b2c-reference-custom-attr.md). När du hanterar utökade attribut med hjälp av Azure AD Graph API måste du använda den långa versionen av attributet, till exempel *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
+Mer information om **legalAgeGroupClassification**, **consentProvidedForMinor**och **ageGroup**finns i [användar resurs typ](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user). Mer information om anpassade attribut finns i [använda anpassade attribut för att samla in information om dina användare](user-flow-custom-attributes.md). När du hanterar utökade attribut med hjälp av Azure AD Graph API måste du använda den långa versionen av attributet, till exempel *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>Samla in datum för födelse-och lands-/region data
 

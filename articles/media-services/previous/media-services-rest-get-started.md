@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014861"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773684"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Kom igång med att leverera innehåll på begäran med hjälp av REST  
 
@@ -36,7 +36,7 @@ Klicka på bilden för att visa den i full storlek.
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Följande förutsättningar måste vara uppfyllda för att börja utveckla med Media Services med REST-API: er.
 
 * Ett Azure-konto. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -54,7 +54,7 @@ Följande aktiviteter visas i den här snabb starten.
 6. Spela upp ditt innehåll.
 
 >[!NOTE]
->Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här artikeln](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Det finns en gräns på 1 000 000 principer för olika AMS-principer (till exempel för positionerarprincipen eller ContentKeyAuthorizationPolicy). Använd samma princip-ID om du alltid använder samma dagar/åtkomst behörigheter, till exempel principer för positionerare som är avsedda att vara på plats under en längre tid (principer som inte uppladdas). Mer information finns i [den här](media-services-dotnet-manage-entities.md#limit-access-policies) artikeln.
 
 Mer information om AMS REST-enheter som används i den här artikeln finns [Azure Media Services REST API referens](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Se även [Azure Media Services begrepp](media-services-concepts.md).
 
@@ -89,11 +89,11 @@ I Media Services överför du dina digitala filer till en tillgång. **Till gån
 
 Ett av de värden som du måste ange när du skapar en till gång är till gångs skapande alternativ. Egenskapen **Options** är ett uppräknings värde som beskriver de krypterings alternativ som en till gång kan skapas med. Ett giltigt värde är ett av värdena i listan nedan, inte en kombination av värden från den här listan:
 
-* Ingen = **0** -ingen kryptering används. När du använder det här alternativet skyddas inte innehållet i överföring eller i vila i lagring.
+* **Ingen** = **0** -ingen kryptering används. När du använder det här alternativet skyddas inte innehållet i överföring eller i vila i lagring.
     Om du planerar att leverera en MP4 med progressivt nedladdning ska du använda det här alternativet.
-* StorageEncrypted = **1** – krypterar ditt tydliga innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterade i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
-* CommonEncryptionProtected = **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady DRM (till exempel Smooth Streaming som skyddas med PlayReady DRM).
-* EnvelopeEncryptionProtected = **4** – Använd det här alternativet om du överför HLS som krypteras med AES. Filerna måste ha kodats och krypterats av Transform Manager.
+* **StorageEncrypted** = **1** – krypterar ditt rensade innehåll lokalt med AES-256-bitars kryptering och laddar sedan upp det till Azure Storage där det lagras krypterade i vila. Tillgångar som skyddas med Lagringskryptering avkrypteras automatiskt och placeras i ett krypterat filsystem före kodning och kan krypteras igen innan de överförs tillbaka som en ny utdatatillgång. Lagringskryptering används i första hand när du vill skydda indatamediefiler av hög kvalitet med stark kryptering i vila på disk.
+* **CommonEncryptionProtected** = **2** – Använd det här alternativet om du överför innehåll som redan har krypterats och skyddas med common Encryption eller PlayReady drm (till exempel Smooth Streaming som skyddas med PlayReady DRM).
+* **EnvelopeEncryptionProtected** = **4** – Använd det här alternativet om du överför HLS som krypteras med AES. Filerna måste ha kodats och krypterats av Transform Manager.
 
 ### <a name="create-an-asset"></a>Skapa en till gång
 En till gång är en behållare för flera typer eller uppsättningar med objekt i Media Services, inklusive video, ljud, bilder, miniatyr samlingar, text spår och filer med dold textning. När du skapar en till gång i REST API måste du skicka POST-begäran till Media Services och placera all egenskaps information om din till gång i begär ande texten.
@@ -109,7 +109,7 @@ I följande exempel visas hur du skapar en till gång.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 45
@@ -163,7 +163,7 @@ När du har överfört din digitala mediefil till en BLOB-behållare använder d
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
 
@@ -225,7 +225,7 @@ I följande exempel visas hur du skapar en Access policy:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
 
@@ -284,7 +284,7 @@ I följande exempel visas hur du skapar en SAS-URL Locator, som definieras av ty
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
 
@@ -339,7 +339,7 @@ När du har angett Access policy och lokaliseraren laddas den faktiska filen upp
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
 ### <a name="update-the-assetfile"></a>Uppdatera AssetFile
-Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Exempel:
+Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Ett exempel:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -348,7 +348,7 @@ Nu när du har laddat upp filen uppdaterar du FileAsset storlek (och annan). Exe
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
     {  
@@ -376,7 +376,7 @@ Om det lyckas returneras följande:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -395,7 +395,7 @@ Om det lyckas returneras följande:
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 **HTTP-svar**
@@ -409,7 +409,7 @@ Om det lyckas returneras följande:
 
 När du har matat in till gångar i Media Services kan Media kodas, transmux, vattenstämplas och så vidare innan de levereras till klienter. Dessa aktiviteter schemaläggs och körs mot flera bakgrundsrollinstanser för höga prestanda och tillgänglighet. Dessa aktiviteter kallas jobb och varje jobb består av atomiska uppgifter som gör det faktiska arbetet i till gångs filen (mer information finns i [jobb](https://docs.microsoft.com/rest/api/media/operations/job), [aktivitets](https://docs.microsoft.com/rest/api/media/operations/task) beskrivningar).
 
-Som tidigare nämnts kan du när du arbetar med Azure Media Services ett av de vanligaste scenarierna leverera strömning med anpassad bit hastighet till dina klienter. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bithastighet till något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG-streck.
+Som tidigare nämnts kan du när du arbetar med Azure Media Services ett av de vanligaste scenarierna leverera strömning med anpassad bit hastighet till dina klienter. Media Services kan dynamiskt paketera en uppsättning MP4-filer med anpassningsbar bit hastighet i något av följande format: HTTP Live Streaming (HLS), Smooth Streaming, MPEG-streck.
 
 I följande avsnitt visas hur du skapar ett jobb som innehåller en kodnings uppgift. Uppgiften anger att Omkoda mezzaninfil-filen till en uppsättning hastigheter med anpassningsbar bit hastighet med **Media Encoder Standard**. Avsnittet visar också hur du övervakar jobb bearbetnings förloppet. När jobbet har slutförts kan du skapa positionerare som behövs för att få åtkomst till dina till gångar.
 
@@ -426,7 +426,7 @@ Följande kod begär kodarens ID.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -460,7 +460,7 @@ Följande kod begär kodarens ID.
     }
 
 ### <a name="create-a-job"></a>Skapa ett jobb
-Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning du vill utföra. Du kan skapa jobb och deras relaterade uppgifter på ett av två sätt med hjälp av REST API: Aktiviteter kan definieras infogade via aktiviteternas navigerings egenskap på jobb enheter eller genom OData batch-bearbetning. Media Services SDK använder batchbearbetning. För läsning av kod exemplen i den här artikeln definieras dock uppgifter som infogas. Information om batchbearbetning finns i batch- [bearbetning för Open data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
+Varje jobb kan ha en eller flera aktiviteter beroende på vilken typ av bearbetning du vill utföra. Du kan skapa jobb och deras relaterade uppgifter på ett av två sätt med hjälp av REST API: aktiviteter kan definieras infogade via aktiviteternas navigerings egenskap på jobb enheter eller genom OData batch-bearbetning. Media Services SDK använder batchbearbetning. För läsning av kod exemplen i den här artikeln definieras dock uppgifter som infogas. Information om batchbearbetning finns i batch- [bearbetning för Open data Protocol (OData)](https://www.odata.org/documentation/odata-version-3-0/batch-processing/).
 
 I följande exempel visas hur du skapar och publicerar ett jobb med en aktivitets uppsättning för att koda en video med en angiven upplösning och kvalitet. Följande dokumentations avsnitt innehåller en lista över alla [aktivitets för inställningar](https://msdn.microsoft.com/library/mt269960) som stöds av Media Encoder Standard-processorn.  
 
@@ -473,7 +473,7 @@ I följande exempel visas hur du skapar och publicerar ett jobb med en aktivitet
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
 
@@ -568,12 +568,12 @@ Det finns några viktiga saker att notera i en jobb förfrågan:
 * Värde parametern som du skickar till JobInputAsset eller JobOutputAsset representerar index värdet för en till gång. De faktiska till gångarna definieras i InputMediaAssets-och OutputMediaAssets-navigerings egenskaperna på jobb enhets definitionen.
 
 > [!NOTE]
-> Eftersom Media Services bygger på OData v3 refereras de enskilda till gångarna i InputMediaAssets-och OutputMediaAssets-navigerings egenskaps samlingarna via ett namn-värdepar för "__metadata: URI".
+> Eftersom Media Services bygger på OData v3 refereras de enskilda till gångarna i InputMediaAssets-och OutputMediaAssets-navigerings egenskaps samlingarna via ett "__metadata: URI"-namn-värdepar.
 >
 >
 
 * InputMediaAssets mappar till en eller flera till gångar som du har skapat i Media Services. OutputMediaAssets skapas av systemet. De refererar inte till en befintlig till gång.
-* OutputMediaAssets kan namnges med attributet assetName. Om det här attributet inte finns är namnet på OutputMediaAsset det som är det inre text värdet för `<outputAsset>` elementet med ett suffix för antingen jobbnamn eller jobb-ID-värdet (i de fall där namn egenskapen inte har definierats). Om du till exempel anger ett värde för assetName till "Sample", skulle egenskapen OutputMediaAsset name anges till "Sample". Men om du inte har angett ett värde för assetName, men ställt in jobb namnet på "NewJob", blir OutputMediaAsset-namnet "JobOutputAsset (värde) _NewJob".
+* OutputMediaAssets kan namnges med attributet assetName. Om det här attributet inte finns är namnet på OutputMediaAsset det som är det inre textvärdet för `<outputAsset>`-elementet med ett suffix för antingen jobb namnets värde eller jobb-ID-värdet (i de fall där namn egenskapen inte har definierats). Om du till exempel anger ett värde för assetName till "Sample", skulle egenskapen OutputMediaAsset name anges till "Sample". Men om du inte har angett ett värde för assetName, men ställt in jobb namnet på "NewJob", blir OutputMediaAsset-namnet "JobOutputAsset (värde) _NewJob".
 
     I följande exempel visas hur du ställer in attributet assetName:
 
@@ -595,7 +595,7 @@ Du kan hämta jobb statusen genom att använda egenskapen state, som du ser i f�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
@@ -632,7 +632,7 @@ I följande exempel visas hur du anropar CancelJob.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.2
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
@@ -656,7 +656,7 @@ Följande kod visar hur du begär ID för utdata till gång.
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -694,7 +694,7 @@ Följande kod visar hur du begär ID för utdata till gång.
 
 ## <a id="publish_get_urls"></a>Publicera till gången och få URL: er för strömning och progressiv nedladdning med REST API
 
-Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av lokaliserare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. 
+Om du vill strömma eller hämta en tillgång behöver du först ”publicera” den genom att skapa en positionerare. Lokaliserare ger åtkomst till filer som finns i tillgången. Media Services stöder två typer av positionerare: OnDemandOrigin-positionerare som används för att strömma media (till exempel MPEG DASH, HLS eller Smooth Streaming) och Access Signature (SAS)-positionerare som används för att hämta mediefiler. 
 
 När du har skapat lokaliserarna kan du skapa de URL: er som används för att strömma eller hämta dina filer.
 
@@ -733,7 +733,7 @@ I följande exempel visas hur du anger Access policy för Läs behörighet för 
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
@@ -756,7 +756,7 @@ Följande kod visar hur du hämtar en URL som kan användas för att hämta en m
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
@@ -821,7 +821,7 @@ När du har angett Access policy och lokaliseraren kan du hämta filer med hjäl
 
 Mer information om hur du arbetar med Azure Storage-blobar finns i [BLOB Service REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
 
-Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Exempel:    
+Som ett resultat av det kodnings jobb som du utförde tidigare (kodning i adaptiv MP4-uppsättning) har du flera MP4-filer som du kan ladda ned progressivt. Ett exempel:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -847,7 +847,7 @@ Följande kod visar hur du skapar en URL-adress för strömning:
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182
@@ -915,7 +915,7 @@ Strömma videon med hjälp av [Azure Media Services Player](https://aka.ms/azure
 
 Om du vill testa progressiv nedladdning klistrar du in en URL i en webbläsare (till exempel IE, Chrome, Safari).
 
-## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: Sökvägar för Media Services-utbildning
+## <a name="next-steps-media-services-learning-paths"></a>Nästa steg: sökvägar för Media Services-utbildning
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Ge feedback

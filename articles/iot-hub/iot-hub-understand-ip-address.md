@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: f05be2725ef766bb1e5fd7f2624e754a2e21698a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563181"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772152"
 ---
 # <a name="iot-hub-ip-addresses"></a>IoT Hub IP-adresser
 
@@ -30,9 +30,11 @@ IP-adressprefix för IoT Hub offentliga slut punkter publiceras regelbundet unde
 
 * När du lägger till Tillåt-regler i enhetens brand Väggs konfiguration, är det bäst att tillhandahålla vissa [portar som används av tillämpliga protokoll](./iot-hub-devguide-protocols.md#port-numbers).
 
-* IP-adressprefix för IoT Hub kan komma att ändras. Dessa ändringar publiceras regelbundet via service tag innan de börjar att fungera. Det är därför viktigt att du utvecklar processer för att regelbundet hämta och använda de senaste service taggarna. Den här processen kan automatiseras via [API: et för identifiering av service märken](../virtual-network/service-tags-overview.md#service-tags-on-premises).
+* IP-adressprefix för IoT Hub kan komma att ändras. Dessa ändringar publiceras regelbundet via service tag innan de börjar att fungera. Det är därför viktigt att du utvecklar processer för att regelbundet hämta och använda de senaste service taggarna. Den här processen kan automatiseras via [API: et för identifiering av service märken](../virtual-network/service-tags-overview.md#service-tags-on-premises). Observera att API för identifiering av service märken fortfarande är i för hands version och i vissa fall får du inte skapa en fullständig lista över taggar och IP-adresser. Innan identifierings-API: et är allmänt tillgängligt, kan du överväga att använda [tjänst taggarna i nedladdnings Bart JSON](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) 
 
 * Använd *AzureIoTHub. [ region namn]* -tagg för att identifiera IP-prefix som används av IoT Hub-slutpunkter i en speciell region. För att konto för haveri beredskap för data Center, eller [regional redundans](iot-hub-ha-dr.md) garanterar anslutning till IP-prefix för din IoT Hubs region för geo-par är också aktive rad.
+
+* Genom att konfigurera brand Väggs regler i IoT Hub kan du blockera anslutningen som krävs för att köra Azure CLI-och PowerShell-kommandon mot din IoT Hub. För att undvika detta kan du lägga till regler för klienternas IP-adressprefix för att återaktivera CLI-eller PowerShell-klienter för att kommunicera med din IoT Hub.  
 
 
 ## <a name="limitations-and-workarounds"></a>Begränsningar och lösningar

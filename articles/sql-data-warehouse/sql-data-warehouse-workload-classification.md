@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 05/01/2019
+ms.date: 01/27/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 15ca4b9fe3c40b7bf49d86464858747642e3cb5a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685382"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768836"
 ---
 # <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL Data Warehouse arbets belastnings klassificering
 
@@ -36,14 +36,24 @@ Alla instruktioner klassificeras inte eftersom de inte kräver resurser eller ä
 
 ## <a name="classification-process"></a>Klassificerings process
 
-Klassificering i SQL Data Warehouse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Med den här syntaxen kan SQL Data Warehouse användare tilldela prioritet och en resurs klass för förfrågningar.  
+Klassificering i SQL Data Warehouse uppnås idag genom att tilldela användare till en roll som har en motsvarande resurs klass som är tilldelad till den med hjälp av [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql). Möjligheten att karakterisera begär Anden utöver en inloggning till en resurs klass är begränsad till den här funktionen. En bättre metod för klassificering är nu tillgänglig med [klassificerings metoden skapa arbets belastning](/sql/t-sql/statements/create-workload-classifier-transact-sql) .  Med den här syntaxen kan SQL Data Warehouse användare tilldela prioritet och hur mycket system resurser som tilldelas en begäran via parametern `workload_group`. 
 
 > [!NOTE]
 > Klassificeringen utvärderas per begäran. Flera begär anden i en enda session kan klassificeras på olika sätt.
 
-## <a name="classification-precedence"></a>Klassificerings prioritet
+## <a name="classification-weighting"></a>Klassificerings viktning
 
-Som en del av klassificerings processen är prioritet på plats för att avgöra vilken resurs klass som är tilldelad. Klassificering baserat på en databas användare har företräde framför roll medlemskap. Om du skapar en klassificerare som mappar användare a-databasens användare till resurs klassen mediumrc. Mappa sedan rollen Rolla databas (av vilken användare a är medlem) till resurs klassen largerc. Den klassificerare som mappar databas användaren till resurs klassen mediumrc prioriteras över den klassificerare som mappar rollen Rolla databas till resurs klassen largerc.
+Som en del av klassificerings processen är viktningen på plats för att avgöra vilken arbets belastnings grupp som tilldelas.  Viktningen ser ut så här:
+
+|Klassificerings parameter |Vikt   |
+|---------------------|---------|
+|MEMBERNAME: ANVÄNDARE      |64       |
+|MEMBERNAME: ROLL      |32       |
+|WLM_LABEL            |16       |
+|WLM_CONTEXT          |8        |
+|START_TIME/END_TIME  |4        |
+
+Parametern `membername` är obligatorisk.  Men om det angivna membername är en databas användare i stället för en databas roll, är viktningen för användaren högre och därmed att klassificeraren väljs.
 
 Om en användare är medlem i flera roller med olika resurs klasser tilldelade eller matchade i flera klassificerare får användaren den högsta resurs klass tilldelningen.  Detta beteende är konsekvent med tilldelnings beteendet för den befintliga resurs klassen.
 
@@ -59,7 +69,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 System klassificerare som skapats för din räkning ger en enkel sökväg för att migrera till arbets belastnings klassificering. Genom att använda mappningar av resurs klass rollen med klassificerings prioritet kan det leda till att du börjar med att skapa nya klassificerare som är viktiga.
 
-Tänk dig följande scenario:
+Föreställ dig följande scenario:
 
 - Ett befintligt informations lager har en databas användare som tilldelats rollen largerc resurs klass. Tilldelningen av resurs klassen utfördes med sp_addrolemember.
 - Data lagret har nu uppdaterats med hantering av arbets belastning.
@@ -85,4 +95,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 - Mer information om hur du skapar en klassificerare finns i [create klassificerare för arbets belastning (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql).  
 - Se snabb start för hur du skapar en arbets belastnings klassificering [skapa en arbets belastnings klassificering](quickstart-create-a-workload-classifier-tsql.md).
 - Se instruktions artiklar för att [Konfigurera arbets belastnings prioritet](sql-data-warehouse-how-to-configure-workload-importance.md) och hur du [hanterar och övervakar arbets belastnings hantering](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
-- Se [sys. DM _pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) för att visa frågor och prioriteten som tilldelats.
+- Se [sys. dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) för att visa frågor och prioriteten som tilldelats.

@@ -8,21 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 2375d8ee92d9c04c287b7fca793fcdc236e1e8f4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: f7f716734875d652de575991a4dc1b7bfe948ae3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720046"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773519"
 ---
 # <a name="set-up-advanced-threat-protection-for-azure-key-vault-preview"></a>Konfigurera Avancerat skydd för Azure Key Vault (för hands version)
 
 Avancerat skydd för Azure Key Vault ger ytterligare ett lager med säkerhets information. Det här verktyget identifierar potentiellt skadliga försök att komma åt eller utnyttja Key Vault-konton. Med det inbyggda avancerade skydds skyddet i Azure Security Center kan du åtgärda hot utan att vara säkerhets expert, och utan att lära dig fler säkerhets övervaknings system.
 
 När Security Center identifierar avvikande aktivitet visas aviseringar. Den skickar också prenumerations administratören med information om den misstänkta aktiviteten och rekommendationerna för att undersöka och åtgärda de identifierade hoten.
-
-> [!NOTE]
-> Avancerat skydd för Azure Key Vault är för närvarande endast tillgängligt i Nordamerika regioner.
 
 ## <a name="set-up-advanced-threat-protection-from-azure-security-center"></a>Konfigurera Avancerat skydd från Azure Security Center
 

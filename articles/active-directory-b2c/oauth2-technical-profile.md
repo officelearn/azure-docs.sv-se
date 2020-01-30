@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 33bad4982d54eb18e91be28511fb9137223f4a91
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 53190eda66347c23b981c5d6e0631630e9989deb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950977"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840374"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth2 teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -80,22 +80,22 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program identifieraren för identitets leverantören. |
-| IdTokenAudience | Nej | Id_tokenens mål grupp. Om det här alternativet anges kontrollerar Azure AD B2C om token finns i ett anspråk som returneras av identitets leverantören och är lika med det som anges. |
+| IdTokenAudience | Inga | Id_tokenens mål grupp. Om det här alternativet anges kontrollerar Azure AD B2C om token finns i ett anspråk som returneras av identitets leverantören och är lika med det som anges. |
 | authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 6749. |
 | AccessTokenEndpoint | Ja | URL: en för token-slutpunkten enligt RFC 6749. |
 | ClaimsEndpoint | Ja | URL: en för slut punkten för användar information enligt RFC 6749. |
-| AccessTokenResponseFormat | Nej | Formatet på slut punkts anropet för åtkomsttoken. Facebook kräver till exempel en HTTP GET-metod, men svaret om åtkomsttoken är i JSON-format. |
-| AdditionalRequestQueryParameters | Nej | Parametrar för ytterligare begär ande fråga. Du kanske till exempel vill skicka ytterligare parametrar till din identitets leverantör. Du kan inkludera flera parametrar med hjälp av komma-avgränsare. |
-| ClaimsEndpointAccessTokenName | Nej | Namnet på frågesträngparametern för åtkomsttoken. Vissa identitets-providers anspråks slut punkter stöder HTTP-begäran. I det här fallet skickas Bearer-token med hjälp av en frågesträngparametern i stället för Authorization-huvudet. |
-| ClaimsEndpointFormatName | Nej | Namnet på parametern format Query String. Du kan till exempel ange namnet som `format` i den här LinkedIn-slutpunkten för anspråk `https://api.linkedin.com/v1/people/~?format=json`. |
-| ClaimsEndpointFormat | Nej | Värdet för parametern format Query String. Du kan till exempel ange värdet som `json` i den här LinkedIn-slutpunkten för anspråk `https://api.linkedin.com/v1/people/~?format=json`. |
-| ProviderName | Nej | Namnet på identitets leverantören. |
-| response_mode | Nej | Metoden som identitets leverantören använder för att skicka tillbaka resultatet till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard) eller `fragment`. |
-| omfång | Nej | Omfattningen av begäran som definieras enligt OAuth2 Identity Provider-specifikationen. Till exempel `openid`, `profile`och `email`. |
-| HttpBinding | Nej | Den förväntade HTTP-bindningen till åtkomsttoken och slut punkter för anspråks-token. Möjliga värden: `GET` eller `POST`.  |
-| ResponseErrorCodeParamName | Nej | Namnet på parametern som innehåller fel meddelandet som returnerades över HTTP 200 (OK). |
-| ExtraParamsInAccessTokenEndpointResponse | Nej | Innehåller de extra parametrar som kan returneras i svaret från **AccessTokenEndpoint** av vissa identitets leverantörer. Svaret från **AccessTokenEndpoint** innehåller till exempel en extra parameter, till exempel `openid`, som är en obligatorisk parameter förutom access_token i en frågesträng för **ClaimsEndpoint** . Flera parameter namn ska undantas och avgränsas med kommatecken ",". |
-| ExtraParamsInClaimsEndpointRequest | Nej | Innehåller de extra parametrar som kan returneras i **ClaimsEndpoint** -begäran av vissa identitets leverantörer. Flera parameter namn ska undantas och avgränsas med kommatecken ",". |
+| AccessTokenResponseFormat | Inga | Formatet på slut punkts anropet för åtkomsttoken. Facebook kräver till exempel en HTTP GET-metod, men svaret om åtkomsttoken är i JSON-format. |
+| AdditionalRequestQueryParameters | Inga | Parametrar för ytterligare begär ande fråga. Du kanske till exempel vill skicka ytterligare parametrar till din identitets leverantör. Du kan inkludera flera parametrar med hjälp av komma-avgränsare. |
+| ClaimsEndpointAccessTokenName | Inga | Namnet på frågesträngparametern för åtkomsttoken. Vissa identitets-providers anspråks slut punkter stöder HTTP-begäran. I det här fallet skickas Bearer-token med hjälp av en frågesträngparametern i stället för Authorization-huvudet. |
+| ClaimsEndpointFormatName | Inga | Namnet på parametern format Query String. Du kan till exempel ange namnet som `format` i den här LinkedIn-slutpunkten för anspråk `https://api.linkedin.com/v1/people/~?format=json`. |
+| ClaimsEndpointFormat | Inga | Värdet för parametern format Query String. Du kan till exempel ange värdet som `json` i den här LinkedIn-slutpunkten för anspråk `https://api.linkedin.com/v1/people/~?format=json`. |
+| ProviderName | Inga | Namnet på identitets leverantören. |
+| response_mode | Inga | Metoden som identitets leverantören använder för att skicka tillbaka resultatet till Azure AD B2C. Möjliga värden: `query`, `form_post` (standard) eller `fragment`. |
+| omfång | Inga | Omfattningen av begäran som definieras enligt OAuth2 Identity Provider-specifikationen. Till exempel `openid`, `profile`och `email`. |
+| HttpBinding | Inga | Den förväntade HTTP-bindningen till åtkomsttoken och slut punkter för anspråks-token. Möjliga värden: `GET` eller `POST`.  |
+| ResponseErrorCodeParamName | Inga | Namnet på parametern som innehåller fel meddelandet som returnerades över HTTP 200 (OK). |
+| ExtraParamsInAccessTokenEndpointResponse | Inga | Innehåller de extra parametrar som kan returneras i svaret från **AccessTokenEndpoint** av vissa identitets leverantörer. Svaret från **AccessTokenEndpoint** innehåller till exempel en extra parameter, till exempel `openid`, som är en obligatorisk parameter förutom access_token i en frågesträng för **ClaimsEndpoint** . Flera parameter namn ska undantas och avgränsas med kommatecken ",". |
+| ExtraParamsInClaimsEndpointRequest | Inga | Innehåller de extra parametrar som kan returneras i **ClaimsEndpoint** -begäran av vissa identitets leverantörer. Flera parameter namn ska undantas och avgränsas med kommatecken ",". |
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -113,7 +113,7 @@ Om du använder **b2clogin.com** -domänen i stället för **login.microsoftonli
 
 Exempel:
 
-- [Lägg till Google + som en OAuth2-identitetsprovider med anpassade principer](active-directory-b2c-custom-setup-goog-idp.md)
+- [Lägg till Google + som en OAuth2-identitetsprovider med anpassade principer](identity-provider-google-custom.md)
 
 
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/29/2019
 ms.author: absha
-ms.openlocfilehash: 12759deb3e1775b5170d40cc609fe8c6226bf0d6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a8882a810d18d06b33d6382bd8bd86ffe75b39d8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704586"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766816"
 ---
 # <a name="metrics-for-application-gateway"></a>Mått för Application Gateway
 
@@ -22,7 +22,9 @@ Application Gateway publicerar data punkter, som kallas mått, för att [Azure M
 
 ### <a name="timing-metrics"></a>Tids mått
 
-Följande mått är relaterade till tiden för begäran och svar är tillgängliga. Genom att analysera dessa mått för en specifik lyssnare kan du avgöra om den går långsammare i på grund av WAN, Application Gateway, nätverket mellan Application Gateway och Server dels programmet eller Server delens program prestanda.
+Application Gateway innehåller flera inbyggda tids mått som relaterar till begäran och svar som alla mäts i millisekunder. 
+
+![](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -30,28 +32,41 @@ Följande mått är relaterade till tiden för begäran och svar är tillgängli
 
 - **Server dels anslutnings tid**
 
-  Åtgången tid för att upprätta en anslutning till ett Server dels program. Detta omfattar nätverks svars tiden och den tid det tar för backend-serverns TCP-stack att upprätta nya anslutningar. I händelse av SSL innehåller det även den tid det tar för hand skakningen. 
+  Åtgången tid för att upprätta en anslutning till backend-programmet. 
+
+  Detta omfattar nätverks svars tiden och den tid det tar för backend-serverns TCP-stack att upprätta nya anslutningar. I händelse av SSL innehåller det även den tid det tar för hand skakningen. 
 
 - **Svars tid för första byte för Server del**
 
-  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet. Detta uppskattar summan av Server *dels anslutnings tiden* och svars tiden för backend-programmet (den tid det tog att generera innehåll, potentiellt hämtade databas frågor och börja överföra svaret till Application Gateway)
+  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den första byten i svars huvudet. 
+
+  Detta uppskattar summan av *Server dels anslutnings tiden*, tid det tar för en begäran att komma åt Server delen från Application Gateway, tid det tar för backend-program att svara (den tid det tog att generera innehåll, potentiellt hämtning av databas frågor) och den tid det tar för den första byten av svaret att uppnå Application Gateway från Server delen.
 
 - **Svars tid för senaste byte för Server delen**
 
-  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten. Detta uppskattar summan av *svars tid för första byte* och data överföring (detta tal kan variera beroende på storleken på objekt som begärs och Server nätverkets svars tid)
+  Tidsintervall mellan början av att upprätta en anslutning till backend-servern och ta emot den sista byten i svars texten. 
+
+  Detta uppskattar summan av *svars tid för första byte* och data överföring (detta tal kan variera beroende på storleken på objekt som begärs och Server nätverkets svars tid).
 
 - **Total tid för Application Gateway**
 
-  Genomsnittlig tid det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som genomsnitt av intervallet från den tid då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs, vilket motsvarar summan av bearbetnings tiden för Application Gateway och *svars tiden för sista byte i Server delen*
+  Genomsnittlig tid det tar för en begäran att tas emot, bearbetas och dess svar skickas. 
+
+  Detta är intervallet från den tidpunkt då Application Gateway tar emot den första byten i HTTP-begäran till den tidpunkt då den senaste svars byte har skickats till klienten. Detta inkluderar bearbetnings tiden som det tar Application Gateway, *Server delens svars tid för senaste byte*, tid det tar för Application Gateway att skicka alla svar och den aktuella *klienten*.
 
 - **Klient-/klient**
 
-  Genomsnittlig fördröjning mellan klienter och Application Gateway. Det här måttet anger hur lång tid det tar att upprätta anslutningar och returnera bekräftelser. 
-
-Dessa mått kan användas för att avgöra om den observerade minskningen beror på Application Gateway, nätverks-och backend-serverns TCP-stack-mättnad, prestanda för backend-program eller stor fil storlek.
-Om det till exempel finns en topp i svars tiden för första byte, men Server dels anslutnings tiden är konstant, kan det härledas att programgatewayen till Server dels latens och tiden det tar att upprätta anslutningen är stabil och insamling orsakas av en n ökning i svars tiden för backend-programmet. Om insamlingen i svars tiden för första byte-bytet är associerad med motsvarande insamling i Server dels anslutnings tiden kan det härledas att antingen nätverket eller serverns TCP-stack har mätt. Om du ser att det finns en ökning i Server delens sista byte-svars tid, men svars tiden för den första byte-tiden är konstant, beror det förmodligen på att mängden av en större fil begärs. På samma sätt, om den totala tiden för programgatewayen är mycket mer än svars tiden för den sista byten, kan det vara ett tecken på prestanda Flask hals på Application Gateway.
+  Genomsnittlig fördröjning mellan klienter och Application Gateway.
 
 
+
+Dessa mått kan användas för att avgöra om den observerade minskningen beror på klient nätverket, Application Gateway prestanda, backend-nätverket och Server dels serverns TCP-stack-mättnad, prestanda för backend-program eller stor fil storlek.
+
+Om det till exempel finns en topp i den *första byte tiden för svars tid* , men tiden för *anslutnings tiden för Server delen* är stabil, kan det härledas att programgatewayen till Server dels svars tiden och den tid det tar att upprätta anslutningen är stabil och insamling orsakas av en ökning av svars tiden för backend-programmet. Å andra sidan, om inökningen i *svars tiden för första byte-bytet* är kopplad till en motsvarande insamling i *Server dels anslutnings tiden*, kan det härledas att antingen nätverket mellan Application Gateway-och backend-servern eller Server dels serverns TCP-stack har mätt. 
+
+Om du märker att det finns en topp i *svars tiden för sista byte i Server delen* , men *svars tiden för första byte-databytet* är stabil, kan det härledas att insamling är på grund av en större fil som begärs.
+
+På samma sätt, om den *totala tiden för programgatewayen* har en topp men *svars tiden för Server delens svars tid* är stabil, kan det antingen vara ett tecken på en prestanda Flask hals i Application Gateway eller en Flask hals i nätverket mellan klient och Application Gateway. Dessutom, om *klientens* sökklass också har en motsvarande insamling, anger detta att försämringen beror på nätverket mellan klient och Application Gateway.
 
 ### <a name="application-gateway-metrics"></a>Application Gateway mått
 
@@ -112,11 +127,11 @@ För Application Gateway är följande mått tillgängliga:
 
 - **Antal felfria värdar**
 
-  Antalet Server delar som bedöms felfritt av hälso avsökningen. Du kan filtrera efter en pool per server del för att Visa felfria/Felaktiga värdar i en viss backend-pool.
+  Antalet Server delar som bedöms felfritt av hälso avsökningen. Du kan filtrera efter en pool per server del för att visa antalet felfria värdar i en viss backend-pool.
 
 - **Antal felaktiga värdar**
 
-  Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera efter en pool per server del för att Visa Felaktiga värdar i en viss backend-pool.
+  Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera per server dels pool för att visa antalet felaktiga värdar i en viss backend-pool.
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Mått som stöds av Application Gateway v1 SKU
 
@@ -158,11 +173,11 @@ För Application Gateway är följande mått tillgängliga:
 
 - **Antal felfria värdar**
 
-  Antalet Server delar som bedöms felfritt av hälso avsökningen. Du kan filtrera efter en pool per server del för att Visa felfria/Felaktiga värdar i en viss backend-pool.
+  Antalet Server delar som bedöms felfritt av hälso avsökningen. Du kan filtrera efter en pool per server del för att visa antalet felfria värdar i en viss backend-pool.
 
 - **Antal felaktiga värdar**
 
-  Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera efter en pool per server del för att Visa Felaktiga värdar i en viss backend-pool.
+  Antalet Server delar som avvisats i hälso avsökningen. Du kan filtrera per server dels pool för att visa antalet felaktiga värdar i en viss backend-pool.
 
 ## <a name="metrics-visualization"></a>Mått visualisering
 

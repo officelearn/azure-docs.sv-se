@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: f7a1ff63f39777c1f7a83190adae2991138a11d3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 46be6acc1ef08770826a2e020c8930eba0787791
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464053"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774448"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Skydda ett fristående kluster i Windows med hjälp av Windows-säkerhet
 För att förhindra obehörig åtkomst till ett Service Fabric-kluster måste du skydda klustret. Säkerhet är särskilt viktigt när klustret kör produktions arbets belastningar. Den här artikeln beskriver hur du konfigurerar säkerhet för nod-till-nod-och klient-till-nod med hjälp av Windows-säkerhet i *ClusterConfig. JSON* -filen.  Processen motsvarar steget Konfigurera säkerhets steg i [skapa ett fristående kluster som körs på Windows](service-fabric-cluster-creation-for-windows-server.md). Mer information om hur Service Fabric använder Windows-säkerhet finns i [kluster säkerhets scenarier](service-fabric-cluster-security.md).
@@ -52,7 +52,7 @@ Konfigurations filen *ClusterConfig. gMSA. Windows. MultiMachine. JSON* som häm
 | IsAdmin |Ange till true för att ange att domän användaren har administratörs åtkomst eller falskt för användar klient åtkomst. |
 
 > [!NOTE]
-> ClustergMSAIdentity-värdet har formatet "mysfgmsa@mydomain".
+> ClustergMSAIdentity-värdet måste ha formatetmysfgmsa@mydomain.
 
 [Nod-till-nod-säkerhet](service-fabric-cluster-security.md#node-to-node-security) konfigureras genom att ange **ClustergMSAIdentity** när Service Fabric måste köras under gMSA. För att kunna bygga förtroende relationer mellan noder måste de göras medvetna om varandra. Detta kan åstadkommas på två olika sätt: Ange det grupphanterade tjänst kontot som innehåller alla noder i klustret eller ange domän dator gruppen som innehåller alla noder i klustret. Vi rekommenderar starkt att du använder [gMSA-metoden (Group Managed Service Account)](https://technet.microsoft.com/library/hh831782.aspx) , särskilt för större kluster (fler än 10 noder) eller för kluster som sannolikt kommer att växa eller krympa.  
 Den här metoden kräver inte att en domän grupp skapas för vilken kluster administratörer har beviljats behörighet att lägga till och ta bort medlemmar. Dessa konton är också användbara för automatisk lösen ords hantering. Mer information finns i [komma igång med grupphanterade tjänst konton](https://technet.microsoft.com/library/jj128431.aspx).  

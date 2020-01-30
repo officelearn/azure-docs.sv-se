@@ -3,22 +3,20 @@ title: Vanliga frågor och svar om Azure Traffic Analytics | Microsoft Docs
 description: Få svar på några vanliga frågor om trafik analys.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: kumud
-ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
-ms.translationtype: HT
+ms.author: damendo
+ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907097"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840629"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Vanliga frågor och svar om Trafikanalys
 
@@ -41,16 +39,16 @@ Ditt konto måste uppfylla något av följande för att aktivera trafik analys:
 - Ditt konto måste ha någon av följande roller för rollbaserad åtkomst kontroll (RBAC) i prenumerations omfånget: ägare, deltagare, läsare eller nätverks deltagare.
 - Om ditt konto inte har tilldelats någon av de tidigare angivna rollerna, måste det tilldelas en anpassad roll som har tilldelats följande åtgärder på prenumerations nivå.
             
-    - Microsoft. Network/applicationGateways/Read
+    - Microsoft.Network/applicationGateways/read
     - Microsoft. Network/Connections/Read
-    - Microsoft. Network/belastningsutjämnare/Read 
-    - Microsoft. Network/localNetworkGateways/Read 
-    - Microsoft. Network/networkInterfaces/Read 
-    - Microsoft. Network/networkSecurityGroups/Read 
-    - Microsoft. Network/publicIPAddresses/Read
+    - Microsoft.Network/loadBalancers/read 
+    - Microsoft.Network/localNetworkGateways/read 
+    - Microsoft.Network/networkInterfaces/read 
+    - Microsoft.Network/networkSecurityGroups/read 
+    - Microsoft.Network/publicIPAddresses/read
     - Microsoft. Network/routeTables/Read
-    - Microsoft. Network/virtualNetworkGateways/Read 
-    - Microsoft. Network/virtualNetworks/Read
+    - Microsoft.Network/virtualNetworkGateways/read 
+    - Microsoft.Network/virtualNetworks/read
         
 Så här kontrollerar du roller som har tilldelats en användare för en prenumeration:
 
@@ -90,7 +88,7 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 - Indien, södra
 - Japan, östra
 - Japan, västra
-- US Gov, Virginia
+- USA Gov Virginia
 - Kina, östra 2
 
 Arbets ytan Log Analytics måste finnas i följande regioner:
@@ -115,7 +113,7 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 - Sydkorea, centrala
 - Indien, centrala
 - Japan, östra
-- US Gov, Virginia
+- USA Gov Virginia
 - Kina, östra 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>Kan NSG: er jag aktivera flödes loggar i olika regioner än min arbets yta?
@@ -265,6 +263,62 @@ Trafikanalys har inte inbyggt stöd för aviseringar. Men eftersom Trafikanalys 
 - Använd [schemat som beskrivs här](traffic-analytics-schema.md) för att skriva dina frågor 
 - Klicka på ny varnings regel för att skapa aviseringen
 - Använd [logg aviserings dokumentationen](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) för att skapa aviseringen
+
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>Hur gör jag för att kontrol lera vilka virtuella datorer som tar emot de flesta lokala trafik
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            | where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+            | render timechart
+
+  För IP-adresser:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+            | render timechart
+
+För tid, Använd format: åååå-mm-dd 00:00:00
+
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>Hur gör jag för att kontrol lera standard avvikelsen i trafik som tagits emot av mina virtuella datorer från lokala datorer
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by vm
+
+
+För IP-adresser:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by IP
+            
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>Hur gör jag för att kontrol lera vilka portar som kan kommas åt (eller bocked) mellan IP-par med NSG-regler
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+            | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
+            destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+            | mvexpand SourceIp = sourceIPs to typeof(string)
+            | mvexpand DestIp = destIPs to typeof(string)
+            | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+            | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hur kan jag navigera med hjälp av tangent bordet i Geo Map-vyn?
 

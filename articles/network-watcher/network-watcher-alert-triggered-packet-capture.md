@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Den här artikeln beskriver hur du skapar en avisering som utlöses av en paket insamling med Azure Network Watcher
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276122"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842945"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Använda paket fångst för proaktiv nätverks övervakning med aviseringar och Azure Functions
 
@@ -144,7 +142,7 @@ Om du vill använda Network Watcher PowerShell-cmdlets laddar du upp den senaste
 
 7. Upprepa de här stegen för **AZ. Accounts** och **AZ. Resources**.
 
-    ![Överföra filer][functions6]
+    ![Ladda upp filer][functions6]
 
 1. När du är klar ska varje mapp ha PowerShell-modulens filer från den lokala datorn.
 

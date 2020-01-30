@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/09/2019
-ms.openlocfilehash: c8051126fc4a895c6e72e90942fac65d777afd8e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.date: 01/27/2020
+ms.openlocfilehash: be6fd633f026c98e8f75467dc8661e695e121721
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546494"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841275"
 ---
 # <a name="summarize-data"></a>Sammanfatta data
 
@@ -46,7 +46,7 @@ Modulen beräknar de viktiga poängen för varje kolumn och returnerar en rad me
 
 Rapporten från modulen kan innehålla följande statistik. 
 
-|Kolumnnamn|Beskrivning|
+|kolumn namn|Beskrivning|
 |------|------|  
 |**Funktion**|Kolumnens namn|
 |**Reparationer**|Antal rader|
@@ -59,7 +59,7 @@ Rapporten från modulen kan innehålla följande statistik.
 |**1: a kvartilen**|Värde vid första kvartilen|
 |**Säte**|Kolumn värde för median|
 |**tredje kvartilen**|Värde vid tredje kvartilen|
-|**Mode**|Läge för kolumn värden|
+|**Offline**|Läge för kolumn värden|
 |**Område**|Ett heltal som representerar antalet värden mellan högsta och lägsta värden|
 |**Exempel avvikelse**|Varians för kolumn; Se Obs!|
 |**Exempel på standard avvikelse**|Standard avvikelse för kolumn; Se Obs!|
@@ -70,6 +70,20 @@ Rapporten från modulen kan innehålla följande statistik.
 |**P5**|5% percentil|
 |**P95**|95% percentil|
 |**P 99,5**|99,5% percentil |
+
+## <a name="technical-notes"></a>Tekniska anteckningar
+
+- För icke-numeriska kolumner beräknas endast värdena för antal, unika värden och antalet saknade värden. För annan statistik returneras ett null-värde.
+
+- Kolumner som innehåller booleska värden bearbetas med följande regler:
+
+    - Vid beräkningen av min används ett logiskt och används.
+    
+    - Vid beräkning av Max, ett logiskt eller används
+    
+    - Vid beräknings intervallet kontrollerar modulen först om antalet unika värden i kolumnen är lika med 2.
+    
+    - När du beräknar statistik som kräver flytt ALS beräkningar behandlas värdena true som 1,0 och värdet false behandlas som 0,0.
 
 ## <a name="next-steps"></a>Nästa steg
 

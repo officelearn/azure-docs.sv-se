@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 7df1651be01b4bed533c1173cc37bddda58f0aa3
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 597839f633ed2b925b86c5f859a0fb2d3b64dd59
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895817"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773661"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Översikt över Media Services åtgärder REST API 
 
@@ -45,7 +45,7 @@ Följande överväganden gäller när du använder REST.
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.17
+        x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         Host: media.windows.net
   
@@ -60,7 +60,7 @@ För varje anrop du gör i Media Services finns det en uppsättning obligatorisk
 
 | Huvud | Typ | Värde |
 | --- | --- | --- |
-| Autentisering |Bearer |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
+| Autentisering |Ägar |Bearer är den enda godkända mekanismen för auktorisering. Värdet måste också innehålla den åtkomsttoken som tillhandahålls av Azure Active Directory. |
 | x-ms-version |Decimal |2,17 (eller senaste versionen)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
@@ -75,21 +75,21 @@ Följande är en uppsättning valfria huvuden:
 | Huvud | Typ | Värde |
 | --- | --- | --- |
 | Datum |RFC 1123-datum |Tidsstämpel för begäran |
-| Acceptera |Innehållstyp |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
+| Godkänt |Innehålls typ |Begärd innehålls typ för svaret, till exempel följande:<p> -Application/JSON; OData = verbose<p> -Application/Atom + XML<p> Svar kan ha en annan innehålls typ, till exempel en BLOB Fetch, där ett lyckat svar innehåller BLOB-dataströmmen som nytto lasten. |
 | Accept-Encoding |Gzip, deflate |GZIP och DEFLATE-kodning, om tillämpligt. Obs! för stora resurser kan Media Services ignorera detta sidhuvud och returnera data som inte är komprimerade. |
 | Acceptera-språk |"sv", "es" och så vidare. |Anger det språk som ska besvaras. |
 | Acceptera-teckenuppsättning |Teckenuppsättnings typ som "UTF-8" |Standardvärdet är UTF-8. |
 | X-HTTP-Method |HTTP-metod |Tillåter att klienter eller brand väggar som inte stöder HTTP-metoder som att lägga till eller ta bort använder dessa metoder, tunnlade via ett GET-anrop. |
-| Content-Type |Innehållstyp |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
-| klient-begärande-ID |Sträng |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Viktigt**<p>Värdena bör vara tak vid 2096b (2 000). |
+| Content-Type |Innehålls typ |Innehålls typ för begär ande texten i begäran om att skicka eller publicera. |
+| klient-begärande-ID |String |Ett callation-definierat värde som identifierar den angivna begäran. Om det här värdet anges tas det här värdet med i svarsmeddelandet som ett sätt att mappa begäran. <p><p>**Viktigt**<p>Värdena bör vara tak vid 2096b (2 000). |
 
 ## <a name="standard-http-response-headers-supported-by-media-services"></a>Standard-HTTP-svarshuvuden som stöds av Media Services
 Följande är en uppsättning huvuden som kan returneras till dig, beroende på vilken resurs du begärde och vilka åtgärder du avsåg att utföra.
 
 | Huvud | Typ | Värde |
 | --- | --- | --- |
-| begärande-ID |Sträng |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
-| klient-begärande-ID |Sträng |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
+| begärande-ID |String |En unik identifierare för den aktuella åtgärden, genererad tjänst. |
+| klient-begärande-ID |String |En identifierare som anges av anroparen i den ursprungliga begäran, om sådan finns. |
 | Datum |RFC 1123-datum |Datum/tid då begäran bearbetades. |
 | Content-Type |Varierar |Innehålls typen för svars texten. |
 | Content-Encoding |Varierar |Gzip eller deflatera efter behov. |
@@ -104,7 +104,7 @@ Följande är en fullständig lista över HTTP-verb som kan användas när du g�
 | PLACERA |Ersätter ett objekt, eller skapar ett namngivet objekt (om tillämpligt). |
 | DELETE |Tar bort ett objekt. |
 | Katalog |Uppdaterar ett befintligt objekt med namngivna egenskaps ändringar. |
-| HEAD |Returnerar metadata för ett objekt för GET-svar. |
+| FÖRETAGETS |Returnerar metadata för ett objekt för GET-svar. |
 
 ## <a name="discover-and-browse-the-media-services-entity-model"></a>Identifiera och bläddra i Media Services Entity-modellen
 För att göra Media Services entiteter mer synliga kan $metadatas åtgärden användas. Du kan hämta alla giltiga entitetstyper, entitets egenskaper, associationer, funktioner, åtgärder och så vidare. Genom att lägga till åtgärden $metadata i slutet av Media Services REST API slut punkten kan du komma åt den här identifierings tjänsten.

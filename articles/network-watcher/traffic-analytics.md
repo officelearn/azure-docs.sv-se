@@ -3,23 +3,21 @@ title: Azure Traffic Analytics | Microsoft Docs
 description: Lär dig hur du analyserar flödes loggar i Azure Network Security Group med trafik analys.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907150"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840595"
 ---
 # <a name="traffic-analytics"></a>Trafikanalys
 
@@ -85,7 +83,7 @@ Du kan använda Traffic Analytics för NSG: er i någon av följande regioner:
 * Indien, södra
 * Japan, östra 
 * Japan, västra
-* US Gov, Virginia
+* USA Gov Virginia
 * Kina, östra 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>Regioner som stöds: Log Analytics arbets ytor
@@ -114,7 +112,7 @@ Arbets ytan Log Analytics måste finnas i följande regioner:
 * Sydkorea, centrala
 * Indien, centrala
 * Japan, östra
-* US Gov, Virginia
+* USA Gov Virginia
 * Kina, östra 2
 
 ## <a name="prerequisites"></a>Krav
@@ -125,22 +123,22 @@ Ditt konto måste vara medlem i någon av följande [inbyggda Azure-roller](../r
 
 |Distributionsmodell   | Roll                   |
 |---------          |---------               |
-|Resource Manager   | Ägare                  |
+|Resurshanterare   | Ägare                  |
 |                   | Deltagare            |
 |                   | Läsare                 |
 |                   | Nätverks deltagare    |
 
 Om ditt konto inte har tilldelats någon av de inbyggda rollerna måste det tilldelas en [anpassad roll](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) som har tilldelats följande åtgärder på prenumerations nivå:
 
-- "Microsoft. Network/applicationGateways/Read"
+- "Microsoft.Network/applicationGateways/read"
 - "Microsoft. Network/Connections/Read"
 - "Microsoft. Network/belastningsutjämnare/Read"
 - "Microsoft. Network/localNetworkGateways/Read"
-- "Microsoft. Network/networkInterfaces/Read"
+- "Microsoft.Network/networkInterfaces/read"
 - "Microsoft. Network/networkSecurityGroups/Read"
 - "Microsoft. Network/publicIPAddresses/Read"
 - "Microsoft. Network/routeTables/Read"
-- "Microsoft. Network/virtualNetworkGateways/Read"
+- "Microsoft.Network/virtualNetworkGateways/read"
 - "Microsoft. Network/virtualNetworks/Read"
 
 Information om hur du kontrollerar användar behörighet finns i [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md).
@@ -294,7 +292,7 @@ Några av de insikter du kanske vill få när Trafikanalys har kon figurer ATS f
 
     ![Instrument panels demonstration av trafik distribution](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- Geo-kartan visar det övre menyfliksområdet för val av parametrar, t. ex. Data Center (distribuerat/ingen-distribution/aktiv/inaktiv/Trafikanalys aktive rad/Trafikanalys inte aktive rad) och länder/regioner som bidrar till att skadas/skadlig trafik till den aktiva spridningen
+- Geo-kartan visar det övre menyfliksområdet för val av parametrar, t. ex. Data Center (distribuerat/ingen-distribution/aktiv/inaktiv/Trafikanalys aktive rad/Trafikanalys inte aktive rad) och länder/regioner som bidrar till att den aktiva distributionen är oskadlig/skadlig trafik:
 
     ![Visning av den geografiska kart vyn som demonstrerar aktiv distribution](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
@@ -343,7 +341,7 @@ Trafik distribution per Programgateway & Load Balancer, topologi, topp källor f
  - Veta vilket undernät som är konversation till vilken Application Gateway eller Load Balancer. Om du upptäcker oväntade konversationer kan du korrigera konfigurationen.
  - Om falska nätverk är konversation med en Programgateway eller Load Balancer kan du korrigera det genom att konfigurera NSG-regler för att blockera de falska nätverken. 
 
-    ![undernät – topologi-demonstration – trafik-distribution-till-a-Application-Gateway-undernät-med-avser](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visa portar och virtuella datorer som tar emot trafik från Internet
 
@@ -382,7 +380,7 @@ Har du skadlig trafik i din miljö? Var kommer den från? Var är den avsedd fö
 
     ![Statistik information om främsta NSG i loggs ökning](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 För att få svar på vanliga frågor, se [vanliga frågor och svar om trafik analys](traffic-analytics-faq.md).
 

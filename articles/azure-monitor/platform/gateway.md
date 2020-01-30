@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547310"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773295"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Ansluta datorer utan Internet åtkomst med hjälp av Log Analytics gateway i Azure Monitor
 
@@ -159,7 +159,7 @@ I följande tabell beskrivs de parametrar som stöds av installations programmet
 |Port | TCP-portnummer för gateway att lyssna på |
 |PROGRAMPROXYFILEN | IP-adress för proxyserver |
 |INSTALLDIR | Fullständigt kvalificerad sökväg för att ange installations katalog för gateway-programfiler |
-|USERNAME | Användar-ID för autentisering med proxyserver |
+|ANVÄNDAR | Användar-ID för autentisering med proxyserver |
 |PASSWORD | Lösen ord för användar-ID för autentisering med proxy |
 |LicenseAccepted | Ange värdet **1** för att kontrol lera att du accepterar licens avtalet |
 |HASAUTH | Ange värdet **1** när PARAMETRARNA för användar namn/lösen ord anges |
@@ -204,13 +204,13 @@ Om du vill lära dig att utforma och distribuera en Windows Server 2016 nätverk
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Information om hur du utformar och distribuerar en Azure Load Balancer finns i [Vad är Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Om du vill distribuera en grundläggande belastningsutjämnare följer du stegen som beskrivs i den här [snabb](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) starten, med undantag för de steg som beskrivs i avsnittet **skapa backend-servrar**.   
+Information om hur du utformar och distribuerar en Azure Load Balancer finns i [Vad är Azure Load Balancer?](../../load-balancer/load-balancer-overview.md). Om du vill distribuera en grundläggande belastningsutjämnare följer du stegen som beskrivs i den här [snabb](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) starten, med undantag för de steg som beskrivs i avsnittet **skapa backend-servrar**.   
 
 > [!NOTE]
 > Om du konfigurerar Azure Load Balancer med hjälp av **Basic SKU**, krävs det att virtuella Azure-datorer tillhör en tillgänglighets uppsättning. Mer information om tillgänglighets uppsättningar finns i [Hantera tillgängligheten för virtuella Windows-datorer i Azure](../../virtual-machines/windows/manage-availability.md). Om du vill lägga till befintliga virtuella datorer i en tillgänglighets uppsättning läser du [ange Azure Resource Manager tillgänglighets uppsättning för virtuella](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)datorer.
 > 
 
-När belastningsutjämnaren har skapats måste en backend-pool skapas, som distribuerar trafik till en eller flera gateway-servrar. Följ stegen som beskrivs i artikeln snabb starts artikel [Skapa resurser för belastningsutjämnaren](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer).  
+När belastningsutjämnaren har skapats måste en backend-pool skapas, som distribuerar trafik till en eller flera gateway-servrar. Följ stegen som beskrivs i artikeln snabb starts artikel [Skapa resurser för belastningsutjämnaren](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).  
 
 >[!NOTE]
 >När du konfigurerar hälso avsökningen bör den konfigureras att använda TCP-porten för Gateway-servern. Hälso avsökningen lägger till eller tar bort gateway-servrarna dynamiskt från belastnings Utjämnings rotationen baserat på deras svar på hälso kontroller. 
@@ -333,7 +333,7 @@ Ett fel i steg 3 innebär att modulen inte har importer ATS. Felet kan inträffa
 | `Get-OMSGatewayConfig` |Nyckel |Hämtar konfigurationen av tjänsten |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Key (krävs) <br> Värde |Ändrar konfigurationen av tjänsten |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Hämtar adressen för relay (överordnad) proxy |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> lösenord |Anger relay (överordnad) proxy-adress (och autentiseringsuppgifter) |1. Ange en relä-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en Relay proxy som inte behöver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Rensa proxyinställningar för relä:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Adress<br> Användarnamn<br> Lösenord |Anger relay (överordnad) proxy-adress (och autentiseringsuppgifter) |1. Ange en relä-proxy och autentiseringsuppgifter:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Ange en Relay proxy som inte behöver autentisering: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. Rensa proxyinställningar för relä:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Hämtar den för tillfället tillåtna värden (endast lokalt konfigurerade tillåtna värdar, inte automatiskt hämtade tillåtna värdar) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Värd (krävs) |Lägger till värden i listan med tillåtna |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Värd (krävs) |Tar bort värden från listan över tillåtna |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

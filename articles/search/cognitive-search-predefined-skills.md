@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f419b19b576ebf6f7f853b41128908487f047df6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4f0975aceeb55c8f184ebe4e6a44d819b4a8bf38
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113372"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837868"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Inbyggda kognitiva färdigheter för text-och bild bearbetning under indexering (Azure Kognitiv sökning)
 
@@ -35,6 +35,7 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Den här kunskapen använder en förtränad modell för att identifiera vilket språk som används (ett språk-ID per dokument). När flera språk används i samma text segment, är utdata LCID för det mest använda språket.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Konsoliderar text från en samling fält till ett enda fält.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | Den här kunskapen använder en förtränad modell för att upprätta entiteter för en fast uppsättning kategorier: personer, plats, organisation, e-post, URL: er, DateTime-fält. |
+| [Microsoft. färdigheter. text. PIIDetectionSkill](cognitive-search-skill-pii-detection.md)  | Den här kunskapen använder en förtränad modell för att extrahera personligt identifierbar information från en viss text. Kompetensen ger också olika alternativ för att maskera identifierade PII-enheter i texten.  |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Den här kunskapen använder en förtränad modell för att räkna upp positiva eller negativa sentiment på en post efter post. Poängen är mellan 0 och 1. Neutrala Poäng inträffar för både null-fall när sentiment inte kan identifieras och för text som betraktas som neutral.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Delar upp text i sidor så att du kan utöka eller utöka innehållet stegvis. |
 | [Microsoft. färdigheter. text. TranslationSkill](cognitive-search-skill-text-translation.md) | Den här kunskapen använder en förtränad modell för att översätta inmatad text till en rad olika språk för normalisering eller lokalisering av användnings fall. |
@@ -48,7 +49,7 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 
 Information om hur du skapar en [anpassad färdighet](cognitive-search-custom-skill-web-api.md)finns i [så här definierar du ett anpassat gränssnitt](cognitive-search-custom-skill-interface.md) och [exempel: skapa en anpassad färdighet för AI-berikning](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 + [Så här definierar du en färdigheter](cognitive-search-defining-skillset.md)
 + [Definition av anpassat kompetens gränssnitt](cognitive-search-custom-skill-interface.md)

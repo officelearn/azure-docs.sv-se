@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100702"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841720"
 ---
 # <a name="delivery-and-retry"></a>Leverans och nytt försök
 
@@ -27,7 +27,7 @@ Event Grid tillhandahåller varaktig leverans. Det försöker leverera varje med
 
 Event Grid väntar upp till 60 sekunder innan ett meddelande har levererats. Om prenumerantens slut punkt inte ACK ger svar, kommer meddelandet att placeras i en av våra säkerhets kopierings köer för efterföljande återförsök.
 
-Det finns två förkonfigurerade köer som avgör vilket schema som försök görs att försöka igen. De är:-
+Det finns två förkonfigurerade köer som avgör vilket schema som försök görs att försöka igen. De är:
 
 | Schema | Beskrivning |
 | ---------| ------------ |
@@ -43,7 +43,7 @@ Det finns två förkonfigurerade köer som avgör vilket schema som försök gö
 
 ## <a name="retry-policy-limits"></a>Princip begränsningar för återförsök
 
-Det finns två konfigurationer som avgör princip för återförsök. De är:-
+Det finns två konfigurationer som avgör princip för återförsök. De är:
 
 * Maximalt antal försök
 * TTL (Time-to-Live) för händelse
@@ -52,12 +52,12 @@ En händelse tas bort om någon av gränserna för principen för återförsök 
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>Konfigurera standardvärden för alla prenumeranter
 
-Det finns två egenskaper: `brokers:defaultMaxDeliveryAttempts` och `broker:defaultEventTimeToLiveInSeconds` som kan konfigureras som en del av Event Grid-distributionen, som styr återförsöks principens standardinställningar för alla prenumeranter.
+Det finns två egenskaper: `brokers__defaultMaxDeliveryAttempts` och `broker__defaultEventTimeToLiveInSeconds` som kan konfigureras som en del av Event Grid-distributionen, som styr återförsöks principens standardinställningar för alla prenumeranter.
 
-| Egenskaps namn | Beskrivning |
+| Egenskapsnamn | Beskrivning |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | Maximalt antal försök att leverera en händelse. Standardvärde: 30.
-| `broker:defaultEventTimeToLiveInSeconds` | TTL för händelse i sekunder efter vilken en händelse tas bort om den inte levereras. Standardvärde: **7200** sekunder
+| `broker__defaultMaxDeliveryAttempts` | Maximalt antal försök att leverera en händelse. Standardvärde: 30.
+| `broker__defaultEventTimeToLiveInSeconds` | TTL för händelse i sekunder efter vilken en händelse tas bort om den inte levereras. Standardvärde: **7200** sekunder
 
 ## <a name="configuring-defaults-per-subscriber"></a>Konfigurera standardinställningar per prenumerant
 
@@ -71,8 +71,8 @@ I följande exempel konfigureras princip för återförsök i Event Grid-modulen
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {

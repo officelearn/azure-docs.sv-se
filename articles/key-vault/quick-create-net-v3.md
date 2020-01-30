@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 11/05/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 29e1af5f23b2167a524872731490b5862a14e5c1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9b92796e477ea0dd6795015edd3f400dd2cc9aa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975405"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773747"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v3"></a>Snabb start: Azure Key Vault klient bibliotek för .NET (SDK v3)
 
@@ -25,7 +25,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Öka säkerheten och kontrollen över nycklar och lösen ord.
 - Skapa och importera krypterings nycklar på några minuter.
 - Minska svars tiden med moln skalning och global redundans.
-- Förenkla och automatisera uppgifter för SSL/TLS-certifikat.
+- Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
 [API Reference-dokumentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [paketet (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
@@ -139,7 +139,7 @@ Med Azure Key Vault klient biblioteket för .NET kan du hantera nycklar och rela
 
 Hela konsol programmet finns på https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 ### <a name="add-directives"></a>Lägg till direktiv
 

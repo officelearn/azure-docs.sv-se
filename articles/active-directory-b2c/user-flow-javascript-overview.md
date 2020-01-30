@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f6d4849b02f320c7479469b4ee56be50e4f8dee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950841"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840102"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Java Script och versioner av sidlayouten i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C innehåller en uppsättning paketerat innehåll som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i dina användar flöden och anpassade principer. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md) eller aktivera det i portalen för användar flöden, välja en sidlayout och använda [b2clogin.com](b2clogin.md) i dina begär Anden.
+Azure AD B2C innehåller en uppsättning paketerat innehåll som innehåller HTML, CSS och Java Script för användar gränssnitts elementen i dina användar flöden och anpassade principer. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](custom-policy-overview.md) eller aktivera det i portalen för användar flöden, välja en sidlayout och använda [b2clogin.com](b2clogin.md) i dina begär Anden.
 
 Om du vill aktivera kod för [Java Script](javascript-samples.md) på klient sidan vill du vara säker på att de element som du baserar ditt Java Script på inte är oföränderliga. Annars kan alla ändringar orsaka oväntade beteenden på dina användar sidor. För att förhindra dessa problem kan du använda en sidlayout och ange en version för sidlayouten. På så sätt ser du till att alla innehålls definitioner som du har baserat på Java Script är oföränderliga. Även om du inte planerar att aktivera Java Script kan du ange en version för sidlayouten för dina sidor.
 

@@ -3,22 +3,22 @@ title: Aktivera SSL i en behållar grupp
 description: Skapa en SSL-eller TLS-slutpunkt för en behållar grupp som körs i Azure Container Instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 7578ad6f8c451694a90dde00b74bf2e8c6c61109
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483490"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773062"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>Aktivera en SSL-slutpunkt i en behållar grupp
 
 Den här artikeln visar hur du skapar en [behållar grupp](container-instances-container-groups.md) med en program behållare och en sidvagn-behållare som kör en SSL-Provider. Genom att konfigurera en behållar grupp med en separat SSL-slutpunkt aktiverar du SSL-anslutningar för ditt program utan att ändra program koden.
 
-Du konfigurerar en behållar grupp bestående av två behållare:
+Du ställer in ett exempel på en behållar grupp bestående av två behållare:
 * En program behållare som kör en enkel webbapp med hjälp av den offentliga Microsoft [ACI-HelloWorld-](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) avbildningen. 
 * En sidvagn-behållare som kör den offentliga [nginx](https://hub.docker.com/_/nginx) -avbildningen som kon figurer ATS för att använda SSL. 
 
-I det här exemplet exponerar behållar gruppen bara port 443 för nginx med dess offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållar appar som lyssnar på andra portar.
+I det här exemplet exponerar behållar gruppen bara port 443 för nginx med dess offentliga IP-adress. Nginx dirigerar HTTPS-begäranden till den medföljande webbappen, som lyssnar internt på port 80. Du kan anpassa exemplet för behållar appar som lyssnar på andra portar. Se [Nästa steg](#next-steps) för andra metoder för att aktivera SSL i en behållar grupp.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +38,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 Följ anvisningarna för att lägga till identifierings informationen. För eget namn anger du det värdnamn som är associerat med certifikatet. När du uppmanas att ange ett lösen ord trycker du på RETUR utan att skriva för att hoppa över tillägg av lösen ord.
 
-Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Exempel:
+Kör följande kommando för att skapa det självsignerade certifikatet (. CRT-filen) från certifikat förfrågan. Ett exempel:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -235,4 +235,10 @@ Den här artikeln visar hur du konfigurerar en nginx-behållare för att aktiver
 
 Den här artikeln använder nginx i den sidvagn, men du kan använda en annan SSL-Provider, till exempel [Caddy](https://caddyserver.com/).
 
-En annan metod för att aktivera SSL i en behållar grupp är att distribuera gruppen i ett [virtuellt Azure-nätverk](container-instances-vnet.md) med en [Azure Application Gateway](../application-gateway/overview.md). Gatewayen kan konfigureras som en SSL-slutpunkt. Se en exempel [distributions mall](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) som du kan anpassa för att aktivera SSL-avslutning på gatewayen.
+Om du distribuerar din behållar grupp i ett [virtuellt Azure-nätverk](container-instances-vnet.md)kan du överväga andra alternativ för att aktivera en SSL-slutpunkt för en server dels container instans, inklusive:
+
+* [Azure Functions-proxyservrar](../azure-functions/functions-proxies.md)
+* [Azure API Management](../api-management/api-management-key-concepts.md)
+* [Azure Application Gateway](../application-gateway/overview.md)
+
+Om du vill använda en Programgateway, se en mall för exempel [distribution](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet).

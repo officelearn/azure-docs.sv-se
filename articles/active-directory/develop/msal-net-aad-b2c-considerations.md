@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695712"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834203"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Använda MSAL.NET för att logga in användare med sociala identiteter
 
@@ -176,7 +176,7 @@ Den föreslagna lösningen är att använda [cachelagring efter princip](#acquir
 Du kan också använda `tid`-anspråk om du använder [anpassade principer för B2C](https://aka.ms/ief), eftersom det ger möjlighet att returnera ytterligare anspråk till programmet. Läs mer om [anspråks omvandling](/azure/active-directory-b2c/claims-transformation-technical-profile)
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Minskning av "saknas från" token Response "
-Ett alternativ är att använda anspråket "namn" som önskat användar namn. Processen beskrivs i den här [B2C dokument](../../active-directory-b2c/active-directory-b2c-reference-policies.md) -> "i kolumnen retur anspråk väljer du de anspråk som du vill ska returneras i de token som skickas tillbaka till programmet efter en lyckad profil redigerings upplevelse. Välj till exempel visnings namn, post nummer. "
+Ett alternativ är att använda anspråket "namn" som önskat användar namn. Processen beskrivs i den här [B2C dokument](../../active-directory-b2c/user-flow-overview.md) -> "i kolumnen retur anspråk väljer du de anspråk som du vill ska returneras i de token som skickas tillbaka till programmet efter en lyckad profil redigerings upplevelse. Välj till exempel visnings namn, post nummer. "
 
 ## <a name="next-steps"></a>Nästa steg 
 

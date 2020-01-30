@@ -2,25 +2,23 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/27/2018
+ms.date: 01/13/2020
 ms.author: glenga
-ms.openlocfilehash: 031a460862cf12efa02c139074e5a7066f0526c6
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c6579b8b091f9053e1e64be3793d17953e464a16
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187141"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842227"
 ---
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
-Innan du kan publicera appen måste du logga in på Azure.
+Innan du kan publicera appen måste du logga in på Azure. Om du redan är inloggad går du till nästa avsnitt.
 
-1. I den **Azure: Functions** området, Välj **logga in på Azure...** . Om du inte redan har ett kan du **skapa ett kostnadsfritt Azure-konto**.
+1. Välj Azure-ikonen i aktivitets fältet och välj sedan **Logga in på Azure**i avsnittet **Azure: Functions** . Om du inte redan har en, kan du **skapa ett kostnads fritt Azure-konto**.
 
     ![Svar för funktion-localhost i webbläsaren](./media/functions-sign-in-vs-code/functions-sign-into-azure.png)
 
-1. Välj **Kopiera och öppna** när du uppmanas att göra det eller kopiera koden som visas och öppna <https://aka.ms/devicelogin> i webbläsaren.
+1. När du uppmanas till webbläsaren väljer du ditt Azure-konto och loggar in med dina autentiseringsuppgifter för Azure-kontot. 
 
-1. Klistra in den kopierade koden på sidan **Inloggning på enhet**, kontrollera inloggningen för Visual Studio Code och välj sedan **Fortsätt**.  
-
-1. Slutför inloggningen med dina Azure-kontouppgifter. När du har loggat in kan du stänga webbläsaren.
+1. När du har loggat in kan du stänga det nya webbläsarfönstret. De prenumerationer som tillhör ditt Azure-konto visas i sido fältet.

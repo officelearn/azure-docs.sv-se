@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
-ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/24/2020
+ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450690"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765750"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Vanliga frågor och svar om Azure Monitor for VMs allmänt tillgängliga (GA)
 
@@ -20,19 +20,28 @@ Vanliga frågor och svar om allmän tillgänglighet omfattar ändringar som sker
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>Uppdateringar för Azure Monitor for VMs
 
-Vi planerar att lansera en ny version av Azure Monitor for VMs i januari 2020. Kunder som aktiverar Azure Monitors för virtuella datorer efter den här versionen får den nya versionen automatiskt, men befintliga kunder som redan använder Azure Monitor for VMs uppmanas att uppgradera. Dessa vanliga frågor och svar och vår dokumentation ger vägledning för att utföra en uppgradering i stor skala om du har stora distributioner över flera arbets ytor.
+Vi har släppt en ny version av Azure Monitor for VMs. Kunder som aktiverar Azure Monitors för virtuella datorer kommer nu att få den nya versionen, men befintliga kunder som redan använder Azure Monitor for VMs uppmanas att uppgradera. Dessa vanliga frågor och svar och vår dokumentation ger vägledning för att utföra en uppgradering i stor skala om du har stora distributioner över flera arbets ytor.
 
-Med den här uppgraderingen lagras Azure Monitor for VMs prestanda data i samma `InsightsMetrics`-tabell som [Azure Monitor för behållare](container-insights-overview.md)och gör det enklare för dig att fråga de två data uppsättningarna. Du kan också lagra Mer Diverse data uppsättningar som vi inte kunde lagra i tabellen som användes tidigare. Och våra prestandavyer kommer att uppdateras så att den nya tabellen används.
+Med den här uppgraderingen lagras Azure Monitor for VMs prestanda data i samma *InsightsMetrics* -tabell som [Azure Monitor för behållare](container-insights-overview.md), vilket gör det enklare för dig att fråga de två data uppsättningarna. Du kan också lagra Mer Diverse data uppsättningar som vi inte kunde lagra i tabellen som användes tidigare. 
 
-Vi flyttar till nya data typer för våra anslutnings data uppsättningar. Den här ändringen sker i december 2019 och meddelas i en Azure Update-blogg. Data som finns lagrade i `ServiceMapComputer_CL` och `ServiceMapProcess_CL`, som är anpassade logg tabeller, flyttas till dedikerade data typer som heter `VMComputer` och `VMProcess`. Genom att flytta till dedikerade data typer får de prioritet för data inmatning och tabell schemat är standardiserat i alla kunder.
+I nästa vecka eller två kommer våra prestanda visningar också att uppdateras till att använda den här nya tabellen.
 
 Vi inser att vi ber befintliga kunder att uppgradera orsakar avbrott i sitt arbets flöde, vilket är anledningen till att vi har valt att göra detta nu i en offentlig för hands version i stället för senare efter GA.
 
+
 ## <a name="what-is-changing"></a>Vad ändras?
 
-När du har slutfört onboarding-processen för Azure Monitor for VMs aktiverar du Tjänstkarta-lösningen på den arbets yta som du har valt för att lagra dina övervaknings data och konfigurerar sedan prestanda räknare för de data som vi samlar in från dina virtuella datorer. Vi kommer att lansera en ny lösning med namnet **VMInsights**, som innehåller ytterligare funktioner för data insamling tillsammans med en ny plats för att lagra dessa data i din Log Analytics-arbetsyta.
+Vi har släppt en ny lösning med namnet VMInsights, som innehåller ytterligare funktioner för data insamling tillsammans med en ny plats för att lagra dessa data i din Log Analytics-arbetsyta. 
 
-Den nuvarande processen med att använda prestanda räknare i Log Analytics-arbetsytan skickar data till `Perf`s tabellen. Den här nya lösningen skickar data till en tabell med namnet `InsightsMetrics` som också används av Azure Monitor för behållare. Det här tabell schemat gör att vi kan lagra ytterligare mått och tjänst data uppsättningar som inte är kompatibla med tabell formatet perf.
+Tidigare aktiverade vi ServiceMap-lösningen på din arbets yta och ställer in prestanda räknare i Log Analytics arbets ytan för att skicka data till *perf* -tabellen. Den här nya lösningen skickar data till en tabell med namnet *InsightsMetrics* som också används av Azure Monitor för behållare. Det här tabell schemat gör att vi kan lagra ytterligare mått och tjänst data uppsättningar som inte är kompatibla med tabell formatet *perf* .
+
+
+## <a name="how-do-i-upgrade"></a>Hur gör jag för att uppgradering?
+Varje virtuell dator som kräver uppgradering identifieras på fliken **Kom igång** i Azure Monitor for VMs i Azure Portal. Du kan uppgradera en enskild virtuell dator eller välja flera för att uppgradera tillsammans. Använd följande kommando för att uppgradera med PowerShell:
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>Vad ska jag göra med prestanda räknarna i min arbets yta om jag installerar VMInsights-lösningen?
 

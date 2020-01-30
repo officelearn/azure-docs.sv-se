@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 322b7656a5e8cb5d0fd0274cc9f09adec2c2c5e1
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3b4b9f782d3306777e853a22ed24fac803da4fb9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514773"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835264"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Säkerhets aviseringar – en referens guide
 
@@ -48,7 +48,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |**Aktivering av register nyckeln WDigest UseLogonCredential har upptäckts**|Analysen av värd data har upptäckt en ändring i register nyckeln HKLM\SYSTEM\CurrentControlSet\Control\SecurityProviders\WDigest\ "UseLogonCredential". Speciellt att den här nyckeln har uppdaterats för att tillåta att inloggnings uppgifter lagras i klartext i LSA-minnet. När en angripare väl har Aktiver ATS kan det ta bort lösen ord i klartext från LSA-minnet med Mimikatz för autentiseringsuppgifter.|-|
 |**Kodad körbar fil har identifierats i kommando rads data**|Analys av värd data på% {komprometterad värd} har identifierat en Base64 64-kodad körbar fil. Detta har tidigare associerats med angripare som försöker konstruera körbara filer direkt genom en kommandosekvens, och som försöker undvika intrångs identifierings system genom att se till att inga enskilda kommandon utlöser en avisering. Detta kan vara en legitim aktivitet eller en indikation på en komprometterad värd.|-|
 |**Identifierad fördunklade kommando rad**|Angripare använder allt mer komplexa döljande-tekniker för att undvika identifieringar som körs mot underliggande data. Analys av värd data på% {komprometterad värd} identifierade misstänkta indikatorer för döljande på kommando raden.|-|
-|**Identifierade Petya utpressnings indikatorer**|Analys av värd data på% {komprometterad värd} identifierade indikatorer som är associerade med Petya utpressnings tro Jan. Mer information finns i https://blogs.technet.microsoft.com/mmpc/2017/06/27/new-ransomware-old-techniques-petya-adds-worm-capabilities/. Granska kommando raden som är associerad med den här aviseringen och eskalera aviseringen till säkerhets teamet.|-|
+|**Identifierade Petya utpressnings indikatorer**|Analys av värd data på% {komprometterad värd} identifierade indikatorer som är associerade med Petya utpressnings tro Jan. Se https://blogs.technet.microsoft.com/mmpc/2017/06/27/new-ransomware-old-techniques-petya-adds-worm-capabilities/ för mer information. Granska kommando raden som är associerad med den här aviseringen och eskalera aviseringen till säkerhets teamet.|-|
 |**En möjlig körning av körbar keygen upptäcktes**|Analys av värd data på% {komprometterad värd} upptäckte körning av en process vars namn indikerar ett keygen-verktyg. sådana verktyg används vanligt vis för att manipulation av program varu licensierings metoder, men deras nedladdning är ofta paketerat med annan skadlig program vara. Aktivitets grupp guld har visat sig kunna använda sådan keygens för att få tillbaka dörrens åtkomst till värdar som de kompromettera.|-|
 |**Möjlig körning av skadlig kod Jan spridare upptäcktes**|Analys av värd data på% {komprometterad värd} upptäckte ett fil namn som tidigare har associerats med en av aktivitets gruppens guld metoder för att installera skadlig kod på en skadelidande-värd.|-|
 |**En möjlig lokal rekognosering-aktivitet identifierades**|Analys av värd data på% {komprometterad värd} har identifierat en kombination av SYSTEMINFO-kommandon som tidigare har associerats med en av aktivitets gruppens guld metoder för att utföra rekognosering-aktivitet.  Även om "SYSTEMINFO. exe" är ett legitimt Windows-verktyg, körs det två gånger i följd på det sätt som har uppstått här är sällsynt.|-|
@@ -108,7 +108,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |**Misstänkt SVCHOST-process utförd**|System processen SVCHOST observerades vid körning i en onormal kontext. Skadlig kod använder ofta SVCHOST för att maskera sin skadliga aktivitet.|-|
 |**Misstänkt system fils körning**|Analysen av värd data upptäckte en körbar fil på% {komprometterad värd} som körs från en ovanlig plats. Den här körbara filen kan antingen vara en legitim aktivitet eller en indikation på en komprometterad värd.|-|
 |**Misstänkt system process utförd**|System processen% {process Name} observerades vid körning i en onormal kontext. Skadlig kod använder ofta detta process namn för att maskera sin skadliga aktivitet.|-|
-|**Misstänkt Volume Shadow Copy-aktivitet**|Analys av värddata har identifierat en borttagningsaktivitet för en skuggkopia på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Viss skadlig kod och särskilt utpressnings tro vara riktad till sabotage säkerhets kopierings strategier.|-|
+|**Misstänkt Volume Shadow Copy-aktivitet**|Analysen av värd data har identifierat en borttagnings aktivitet för skugg kopior på resursen. Skuggkopia av volym (VSC) är en viktig artefakt som lagrar ögonblicksbilder av data. Viss skadlig kod och särskilt utpressnings tro vara riktad till sabotage säkerhets kopierings strategier.|-|
 |**Misstänkt register värde för WindowPosition har identifierats**|Analys av värd data på% {komprometterad värd} identifierade en försöks ändring av register konfiguration för WindowPosition som kan tyda på att dölja program fönster i icke-synliga avsnitt på Skriv bordet.  Detta kan vara en legitim aktivitet eller en indikation på en komprometterad dator: den här typen av aktivitet har tidigare associerats med ett känt annons program (eller oönskad program vara) som Win32/OneSystemCare och Win32/SystemHealer och skadlig kod som Win32/Creprote. När WindowPosition-värdet är inställt på 201329664, (hex: 0x0c00 0c00, som motsvarar X-axeln = 0c00 och Y-axeln = 0c00) placeras konsol programmets fönster i ett icke synligt avsnitt på användarens skärm i ett område som är dolt från vyn under den synliga Start-menyn eller aktivitets fältet. Känt misstänkt HEX-värde inkluderar, men inte begränsat till c000c000|-|
 |**Suspiciously med namnet process upptäcktes**|Analys av värd data på% {komprometterad värd} identifierade en process vars namn liknar men skiljer sig från en ofta utförd process (% {liknar process namnet}). Även om den här processen kan vara ofarliga kan angriparna ibland döljas i klartext genom att namnge sina skadliga Verktyg för att likna tillåtna process namn.|-|
 |**Ovanlig process körning har identifierats**|Analys av värd data på% {komprometterad värd} identifierade körningen av en process med% {User Name} som var ovanligt. Konton som% {User Name} tenderar att utföra en begränsad uppsättning åtgärder, den här körningen bedöms vara utanför bokstaven och kan vara misstänkt.|-|
@@ -234,7 +234,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 ||||
 
 
-## <a name="alerts-akscluster"></a>Aviseringar för AKS-kluster nivå
+## <a name="alerts-akscluster"></a>Aviseringar för behållare – Azure Kubernetes service-kluster
 
 [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
 
@@ -249,7 +249,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 |**PREVIEW-container med en känslig volym montering har identifierats**|Kubernetes Gransknings logg analys upptäckte en ny behållare med en känslig volym montering. Den volym som upptäcktes är en hostPath-typ som monterar en känslig fil eller mapp från noden till behållaren. Om behållaren komprometteras kan angriparen använda den här monteringen för att få åtkomst till noden.|PrivilegeEscalation|
 ||||
 
-## <a name="alerts-containerhost"></a>Aviseringar för behållares värd nivå
+## <a name="alerts-containerhost"></a>Aviseringar för behållare – värd nivå
 
 [Mer information och anmärkningar](security-center-alerts-compute.md#azure-containers-)
 
@@ -304,7 +304,7 @@ Under aviserings tabellerna finns en tabell som beskriver Azure Security Center 
 ||||
 
 
-## <a name="alerts-azurecosmos"></a>Azure Cosmos DB
+## <a name="alerts-azurecosmos"></a>Aviseringar för Azure Cosmos DB (för hands version)
 
 [Mer information och anmärkningar](security-center-alerts-data-services.md#azure-cosmos-db)
 
@@ -404,7 +404,7 @@ Security Center som stöds av Kill-kedjeen är baserade på [Mitre att & CK™ F
 |**CredentialAccess**|Åtkomst till autentiseringsuppgifter representerar tekniker som resulterar i åtkomst till eller kontroll över system-, domän-eller tjänsteautentiseringsuppgifter som används i en företags miljö. Angripare kommer sannolikt att försöka erhålla legitima autentiseringsuppgifter från användare eller administratörs konton (lokal system administratör eller domän användare med administratörs åtkomst) som ska användas i nätverket. Med tillräcklig åtkomst i ett nätverk kan en angripare skapa konton för senare användning i miljön.|
 |**Identifiering**|Identifiering består av tekniker som gör det möjligt för angripare att få kunskap om systemet och det interna nätverket. När angripare får till gång till ett nytt system måste de orientera sig själva om vad de nu har kontroll över och vilka fördelar som driften av systemet ger sina aktuella mål eller övergripande mål under intrånget. Operativ systemet innehåller många inbyggda verktyg som hjälper dig i den här angrepps fasen för informations insamling.|
 |**LateralMovement**|Lateral förflyttning består av tekniker som gör det möjligt för en angripare att komma åt och kontrol lera fjärranslutna system i ett nätverk och kan, men inte nödvändigt vis, inkludera körning av verktyg på fjärrsystem. Den laterala rörelse tekniken kan göra det möjligt för en angripare att samla in information från ett system utan ytterligare verktyg, till exempel ett verktyg för fjärråtkomst. En angripare kan använda lateral förflyttning för många olika ändamål, inklusive fjärrkörning av verktyg, pivotering till ytterligare system, åtkomst till speciell information eller filer, åtkomst till ytterligare autentiseringsuppgifter eller orsaka en påverkan.|
-|**Projektering**|Körningstaktiken representerar tekniker som resulterar i att inkräktarkontrollerad kod körs på ett lokalt eller fjärrstyrt system. Den här taktik används ofta tillsammans med lateral förflyttning för att expandera åtkomst till fjärranslutna system i ett nätverk.|
+|**Projektering**|Körnings taktik representerar tekniker som resulterar i att angripare-kontrollerad kod körs på ett lokalt eller fjärrstyrt system. Den här taktik används ofta tillsammans med lateral förflyttning för att expandera åtkomst till fjärranslutna system i ett nätverk.|
 |**Samling**|Samlingen består av tekniker som används för att identifiera och samla in information, till exempel känsliga filer, från ett mål nätverk före exfiltrering. Den här kategorin omfattar även platser i ett system eller nätverk där angripare kan söka efter information till stjäla.|
 |**Exfiltrering**|Exfiltrering refererar till tekniker och attribut som ett resultat av eller stöd i angripare tar bort filer och information från ett mål nätverk. Den här kategorin omfattar även platser i ett system eller nätverk där angripare kan söka efter information till stjäla.|
 |**CommandAndControl**|Kommandot och kontrollen taktik representerar hur angripare kommunicerar med system under deras kontroll i ett mål nätverk.|

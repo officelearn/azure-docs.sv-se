@@ -1,24 +1,24 @@
 ---
 title: Azure Cosmos DB Tabell-API .NET SDK & resurser
 description: Läs mer om Azure Cosmos DB Table API inklusive frisläppningsdatum, dras tillbaka datum och ändringar som gjorts mellan varje version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5e98c40384207c77b4ea7e9557a7d1ebebd95e47
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058575"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771620"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET-API: Information om hämtning och version
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET API: Hämta och viktig information
 
 > [!div class="op_single_selector"]
-> * [NET](table-sdk-dotnet.md)
+> * [.NET](table-sdk-dotnet.md)
 > * [.NET-standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
@@ -28,7 +28,7 @@ ms.locfileid: "71058575"
 |---|---|
 |**Hämta SDK**|[NuGet](https://aka.ms/acdbtablenuget)|
 |**Snabbstart**|[Azure Cosmos DB: Bygg en app med .NET och Tabell-API](create-table-dotnet.md)|
-|**Självstudie**|[Azure Cosmos DB: Utveckla med Tabell-API i .NET](tutorial-develop-table-dotnet.md)|
+|**Självstudie**|[Azure Cosmos DB: utveckla med Tabell-API i .NET](tutorial-develop-table-dotnet.md)|
 |**Aktuella framework som stöds**|[Microsoft .NET Framework 4.5.1](https://www.microsoft.com/en-us/download/details.aspx?id=40779)|
 
 > [!IMPORTANT]
@@ -80,7 +80,7 @@ ms.locfileid: "71058575"
 
 Microsoft tillhandahåller ett meddelande minst **12 månader** i förväg för att dra tillbaka en SDK för att utjämna över gången till en nyare/version som stöds.
 
-`Microsoft.Azure.CosmosDB.Table` Biblioteket är för närvarande endast tillgängligt för .NET Framework och är i underhålls läge och kommer att bli inaktuellt snart. Nya funktioner och funktioner och optimeringar läggs bara till i .NET standard-biblioteket [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), så vi rekommenderar att du uppgraderar till [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
+`Microsoft.Azure.CosmosDB.Table`s biblioteket är för närvarande endast tillgängligt för .NET Framework och är i underhålls läge och kommer att bli inaktuellt snart. Nya funktioner och funktioner och optimeringar läggs bara till i .NET standard-biblioteket [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), så vi rekommenderar att du uppgraderar till [Microsoft. Azure. Cosmos. table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table).
 
 [Windowsazure. Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) för hands versions paketet är inaktuell. WindowsAzure. Storage-PremiumTable SDK kommer att dras tillbaka den 15 november 2018, där det inte är tillåtet att begära förfrågningar till det tillbakadragna SDK: n. 
 
@@ -98,7 +98,7 @@ Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas
 | [1.0.0](#1.0.0) |Den 15 november 2017|15 november 2019 |
 | 0.9.0 – för hands version |11 november 2017 |11 november 2019 |
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du får felet 
 
@@ -118,7 +118,7 @@ När du försöker använda paketet Microsoft. Azure. CosmosDB. table NuGet har 
     
 * Använd det önskade verktyget för hantering av NuGet-paket och installera paketet Microsoft. Azure. Storage. common NuGet innan du installerar Microsoft. Azure. CosmosDB. Table.
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

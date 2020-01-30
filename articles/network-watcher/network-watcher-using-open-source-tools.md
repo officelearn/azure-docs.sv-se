@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Den här sidan beskriver hur du använder Network Watcher paket avbildning med Capanalysis för att visualisera trafik mönster till och från dina virtuella datorer.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277764"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840663"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualisera nätverks trafik mönster till och från dina virtuella datorer med hjälp av verktyg med öppen källkod
 
@@ -75,7 +72,7 @@ CapAnalysis erbjuder olika alternativ för att visualisera paket fångsten, som 
 
     ![capanalysis-statistik][7]
 
-1. geomappning
+1. Geomappning
 
     I det här fönstret får du en karta över nätverks trafiken, med färger som skal änd ras till volymen trafik från varje land/region. Du kan välja markerade länder/regioner om du vill visa ytterligare flödes statistik, till exempel hur stor andel av data som skickas och tas emot från IP-adresser i landet/regionen.
 
@@ -89,7 +86,7 @@ CapAnalysis erbjuder olika alternativ för att visualisera paket fångsten, som 
 
     Besök [https://www.capanalysis.net/ca/#about](https://www.capanalysis.net/ca/#about) om du vill veta mer om alla CapAnalysis-funktioner.
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Med Network Watcher kan du samla in de data som krävs för att utföra nätverks-data utredning och bättre förstå nätverks trafiken. I det här scenariot visade vi hur paket insamlingar från Network Watcher enkelt kan integreras med visualiserings verktyg med öppen källkod. Genom att använda verktyg med öppen källkod, till exempel CapAnalysis för att visualisera paket, kan du utföra djup paket inspektion och snabbt identifiera trender inom nätverks trafiken.
 

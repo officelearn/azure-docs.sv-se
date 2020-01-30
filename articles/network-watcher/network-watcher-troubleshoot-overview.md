@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Den här sidan ger en översikt över fel söknings funktionerna i Network Watcher-resursen
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: c1145cd6-d1cf-4770-b1cc-eaf0464cc315
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 199b4fc762919c2e3988f477c14d09fc23b0136b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277778"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840697"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Introduktion till resurs fel sökning i Azure Network Watcher
 
@@ -50,30 +47,30 @@ Följande tabeller visar de olika fel typerna (ID under resultat från föregåe
 
 ### <a name="gateway"></a>Gateway
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Orsak | Logg|
 |---|---|---|
 | Nofel | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
-| PlannedMaintenance |  Gateway-instansen är under underhåll  |Nej|
-| UserDrivenUpdate | Det här felet inträffar när en användar uppdatering pågår. Uppdateringen kan vara en åtgärd för storleks ändring. | Nej |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett hälso avsöknings fel. | Nej |
-| PlatformInActive | Det finns ett problem med plattformen. | Nej|
-| ServiceNotRunning | Den underliggande tjänsten körs inte. | Nej|
-| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Nej|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Inga|
+| PlannedMaintenance |  Gateway-instansen är under underhåll  |Inga|
+| UserDrivenUpdate | Det här felet inträffar när en användar uppdatering pågår. Uppdateringen kan vara en åtgärd för storleks ändring. | Inga |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett hälso avsöknings fel. | Inga |
+| PlatformInActive | Det finns ett problem med plattformen. | Inga|
+| ServiceNotRunning | Den underliggande tjänsten körs inte. | Inga|
+| NoConnectionsFoundForGateway | Det finns inga anslutningar på gatewayen. Det här felet är bara en varning.| Inga|
 | ConnectionsNotConnected | Anslutningarna är inte anslutna. Det här felet är bara en varning.| Ja|
 | GatewayCPUUsageExceeded | Den aktuella processor användningen för gateway är > 95%. | Ja |
 
 ### <a name="connection"></a>Anslutning
 
-| Feltyp | Orsak | Logga|
+| Feltyp | Orsak | Logg|
 |---|---|---|
 | Nofel | När inget fel har identifierats |Ja|
-| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Nej|
-| PlannedMaintenance | Gateway-instansen är under underhåll  |Nej|
-| UserDrivenUpdate | Det här felet inträffar när en användar uppdatering pågår. Uppdateringen kan vara en åtgärd för storleks ändring.  | Nej |
-| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett hälso avsöknings fel. | Nej |
-| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Nej |
-| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Nej|
+| GatewayNotFound | Det går inte att hitta någon gateway eller gateway som har tillhandahållits |Inga|
+| PlannedMaintenance | Gateway-instansen är under underhåll  |Inga|
+| UserDrivenUpdate | Det här felet inträffar när en användar uppdatering pågår. Uppdateringen kan vara en åtgärd för storleks ändring.  | Inga |
+| VipUnResponsive | Det här felet uppstår när den primära instansen av gatewayen inte kan nås på grund av ett hälso avsöknings fel. | Inga |
+| ConnectionEntityNotFound | Anslutnings konfigurationen saknas | Inga |
+| ConnectionIsMarkedDisconnected | Anslutningen har marker ATS som "frånkopplad" |Inga|
 | ConnectionNotConfiguredOnGateway | Ingen anslutning har kon figurer ATS för den underliggande tjänsten. | Ja |
 | ConnectionMarkedStandby | Den underliggande tjänsten är markerad som standby.| Ja|
 | Autentisering | I förväg delad nyckel matchar inte | Ja|

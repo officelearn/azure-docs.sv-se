@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96bf088e6db29817d1ae4276c254a84723e5d03d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480195"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840340"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Konfigurera telefonin loggning och inloggning med anpassade principer i Azure AD B2C
 
@@ -30,7 +30,7 @@ Följ stegen i den här artikeln för att använda anpassade principer för att 
 
 * [Azure AD B2C klient](tutorial-create-tenant.md)
 * [Webb program](tutorial-register-applications.md) som är registrerat i din klient
-* [Anpassade principer](active-directory-b2c-get-started-custom.md) har laddats upp till din klient
+* [Anpassade principer](custom-policy-get-started.md) har laddats upp till din klient
 
 ## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>Hämta inloggnings start paketet för telefon &
 
@@ -44,7 +44,7 @@ Följande steg förutsätter att du har slutfört [kraven](#prerequisites) och r
 
 1. I varje fil ersätter du strängen `yourtenant` med namnet på din Azure AD B2C-klient. Om namnet på din B2C-klient till exempel är *contosob2c*, blir alla instanser av `yourtenant.onmicrosoft.com` `contosob2c.onmicrosoft.com`.
 
-1. Slutför stegen i avsnittet [Lägg till program-ID: n i avsnittet anpassad princip](active-directory-b2c-get-started-custom.md#add-application-ids-to-the-custom-policy) i [komma igång med anpassade principer i Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). I det här fallet uppdaterar du `/phone-number-passwordless/` **`Phone_Email_Base.xml`** med **program-ID: n** för de två program som du registrerade när du slutförde kraven, *IdentityExperienceFramework* och *ProxyIdentityExperienceFramework*.
+1. Slutför stegen i avsnittet [Lägg till program-ID: n i avsnittet anpassad princip](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) i [komma igång med anpassade principer i Azure Active Directory B2C](custom-policy-get-started.md). I det här fallet uppdaterar du `/phone-number-passwordless/` **`Phone_Email_Base.xml`** med **program-ID: n** för de två program som du registrerade när du slutförde kraven, *IdentityExperienceFramework* och *ProxyIdentityExperienceFramework*.
 
 ## <a name="upload-the-policy-files"></a>Ladda upp principfiler
 

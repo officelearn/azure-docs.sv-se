@@ -9,18 +9,20 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771520"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767632"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Lathund-bladet Machine Learning algorithm för Azure Machine Learning designer
 
 I **lathund-bladet Azure Machine Learning algorithm** kan du välja rätt algoritm för en förutsägelse analys modell.
 
-Azure Machine Learning har ett stort bibliotek med algoritmer från ***klassificering***, ***rekommenderade system***, ***klustring***, ***avvikelse identifiering***, ***Regressions*** -och ***text analys*** familjer. Var och en är utformad för att lösa en annan typ av Machine Learning-problem.
+Azure Machine Learning har ett stort bibliotek med algoritmer från ***klassificering***, ***rekommenderade system***, ***klustring***, ***avvikelse identifiering***, ***regression***och ***text analys*** familjer. Var och en är utformad för att lösa en annan typ av Machine Learning-problem.
+
+Ytterligare vägledning finns i [så här väljer du algoritmer](how-to-select-algorithms.md)
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>Ladda ned: Machine Learning algorithm lathund blad
 
@@ -32,7 +34,7 @@ Hämta och skriv ut Machine Learning algorithm lathund-bladet i tabloid-storlek 
 
 ## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Så här använder du lathund-bladet Machine Learning algorithm
 
-Förslagen som erbjuds i den här algoritmen lathund-blad är ungefärliga regler. Vissa kan vara böjda och vissa kan vara flagrantly överträdda. Detta är avsett att föreslå en start punkt. Var inte rädd att köra en tävlings huvud mellan flera algoritmer på dina data. Det finns bara ingen ersättning för att förstå principerna för varje algoritm och det system som genererade dina data.
+Förslagen som erbjuds i den här algoritmen lathund-blad är ungefärliga regler. Vissa kan vara böjda och vissa kan vara flagrantly överträdda. Det här lathund-bladet är avsett att föreslå en start punkt. Var inte rädd att köra en tävlings huvud mellan flera algoritmer på dina data. Det finns bara ingen ersättning för att förstå principerna för varje algoritm och det system som genererade dina data.
 
 Alla Machine Learning-algoritmer har en egen typ eller induktiv kompensation. För ett särskilt problem kan flera algoritmer vara lämpliga och en algoritm kan passa bättre än andra. Men det är inte alltid möjligt att lära sig i förväg, vilket är den bästa anpassningen. I sådana fall visas flera algoritmer tillsammans i lathund-bladet. En lämplig strategi är att testa en algoritm, och om resultatet inte ännu är tillfredsställande kan du prova med de andra. 
 
@@ -48,17 +50,17 @@ I övervakad utbildning är varje data punkt märkt eller associerad med en kate
 
 ### <a name="unsupervised-learning"></a>Oövervakat lärande
 
-I en obevakad inlärning har data punkter inga etiketter kopplade till sig. Målet för en ej övervakad utbildningskurs är i stället att organisera data på ett visst sätt eller för att beskriva dess struktur. Detta kan betyda att gruppera dem i kluster, som K-betyder, eller att hitta olika sätt att titta på komplexa data så att det ser enklare ut.
+I en obevakad inlärning har data punkter inga etiketter kopplade till sig. Målet för en ej övervakad utbildningskurs är i stället att organisera data på ett visst sätt eller för att beskriva dess struktur. Oövervakade inlärnings grupps data i kluster, som K-betyder, eller hittar olika sätt att titta på komplexa data så att det ser enklare ut.
 
 ### <a name="reinforcement-learning"></a>Kunskapsförmedling
 
-I förstärknings inlärningen hämtar algoritmen för att välja en åtgärd som svar på varje data punkt. Det är en vanlig metod i Robotics, där uppsättningen sensor läsningar vid en tidpunkt är en data punkt och algoritmen måste välja nästa åtgärd för roboten. Det är också en naturlig anpassning för Sakernas Internet program. Learning-algoritmen får också en belönings signal en kort tid senare, vilket anger hur väl beslutet var. Utifrån detta ändrar algoritmen strategin för att uppnå den högsta belöningen. 
+I förstärknings inlärningen hämtar algoritmen för att välja en åtgärd som svar på varje data punkt. Det är en vanlig metod i Robotics, där uppsättningen sensor läsningar vid en tidpunkt är en data punkt och algoritmen måste välja nästa åtgärd för roboten. Det är också en naturlig anpassning för Sakernas Internet program. Learning-algoritmen får också en belönings signal en kort tid senare, vilket anger hur väl beslutet var. Med hjälp av den här signalen ändrar algoritmen strategin för att uppnå den högsta belöningen. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Lär dig mer om Studio i Azure Machine Learning och Azure Portal](overview-what-is-azure-ml.md).
+* Se ytterligare vägledning om [hur du väljer algoritmer](how-to-select-algorithms.md)
 
-* Se en lista över algoritmer och moduler i [algoritm-och modulreferens](algorithm-module-reference/module-reference.md).
+* [Lär dig mer om Studio i Azure Machine Learning och Azure Portal](overview-what-is-azure-ml.md).
 
 * [Självstudie: Bygg en förutsägelse modell i Azure Machine Learning designer](tutorial-designer-automobile-price-train-score.md).
 

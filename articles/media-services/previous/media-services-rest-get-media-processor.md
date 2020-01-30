@@ -1,6 +1,6 @@
 ---
-title: Så här hämtar du en Medieprocessor-instans med hjälp av REST | Microsoft Docs
-description: Lär dig hur du skapar ett media processorkomponenten för att koda, konvertera formatet, kryptera eller dekryptera medieinnehåll för Azure Media Services.
+title: Så här hämtar du en Media processor instans med REST | Microsoft Docs
+description: Lär dig hur du skapar en medie processor komponent för att koda, konvertera format, kryptera eller dekryptera medie innehåll för Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,41 +14,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d342cff6d322195ee88a74215f814be7d702aa5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d7b3922c9bb7eb79cd6436ba1b265714678fcc8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761984"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774909"
 ---
-# <a name="how-to-get-a-media-processor-instance"></a>Så här hämtar du en Medieprocessor-instans
+# <a name="how-to-get-a-media-processor-instance"></a>Så här hämtar du en medie processor instans
 > [!div class="op_single_selector"]
-> * [NET](media-services-get-media-processor.md)
+> * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
 > 
 > 
 
 ## <a name="overview"></a>Översikt
-Mediebearbetare är en komponent som hanterar en specifik video eller ljud bearbetning av aktivitet, till exempel kodning, Formatkonvertering, kryptering eller dekryptering medieinnehåll. Alla aktiviteter som skickas till Media Services kräver en medieprocessor att koda, kryptera eller konvertering av video- eller ljudinnehåll innehåll. 
+Medie processorer är en komponent som hanterar en enskild video-eller ljud bearbetnings uppgift, till exempel kodning, format konvertering, kryptering eller dekryptering av medie innehåll. Alla aktiviteter som skickas till Media Services kräver en medie processor för att koda, kryptera eller konvertera video-eller ljud innehållet. 
 
-## <a name="azure-media-processors"></a>Azure media-processorer 
+## <a name="azure-media-processors"></a>Azure Media-processorer 
 
-Följande avsnitt innehåller en lista över mediebearbetare:
+Följande avsnitt innehåller listor över medie processorer:
 
-* [Mediebearbetare för kodning](scenarios-and-availability.md#encoding-media-processors)
-* [Mediebearbetare för analys](scenarios-and-availability.md#analytics-media-processors)
+* [Koda medie processorer](scenarios-and-availability.md#encoding-media-processors)
+* [Analytics Media-processorer](scenarios-and-availability.md#analytics-media-processors)
 
 >[!NOTE]
->Vid åtkomst till entiteter i Media Services, måste du ange specifika namn på huvudfält och värden i HTTP-förfrågningar. Mer information finns i [installationsprogrammet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
+>När du använder entiteter i Media Services måste du ange vissa huvud fält och värden i dina HTTP-begäranden. Mer information finns i [installations programmet för Media Services REST API-utveckling](media-services-rest-how-to-use.md).
 
-## <a name="connect-to-media-services"></a>Ansluta till Media Services
+## <a name="connect-to-media-services"></a>Anslut till Medietjänster
 
-Information om hur du ansluter till AMS API finns i [åtkomst till Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
+Information om hur du ansluter till AMS-API: et finns i [komma åt Azure Media Services-API med Azure AD-autentisering](media-services-use-aad-auth-to-access-ams-api.md). 
 
 
-## <a name="get-a-media-processor"></a>Hämta en medieprocessor
+## <a name="get-a-media-processor"></a>Hämta en medie processor
 
-Följande REST-anrop visar hur du hämtar en media processorinstans efter namn (i det här fallet **Media Encoder Standard**). 
+Följande REST-anrop visar hur du hämtar en medie processor instans efter namn (i det här fallet **Media Encoder Standard**). 
 
 Begäran:
 
@@ -59,7 +59,7 @@ Begäran:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 Svar:
@@ -87,6 +87,6 @@ Svar:
 ## <a name="provide-feedback"></a>Ge feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-steps"></a>Nästa steg
-Nu när du vet hur du hämtar en media processorinstans går du till den [koda en tillgång](media-services-rest-get-started.md) artikel som visar hur du använder Media Encoder Standard koda en tillgång.
+## <a name="next-steps"></a>Efterföljande moment
+Nu när du vet hur du hämtar en medie processor instans går du till [så här kodar du en till gångs](media-services-rest-get-started.md) artikel som visar hur du använder Media Encoder Standard för att koda en till gång.
 

@@ -5,14 +5,14 @@ services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707210"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767372"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Support principer för Azure Kubernetes-tjänsten
 
@@ -42,6 +42,8 @@ Tjänsterna *hanteras* i den mening att Microsoft och AKS-teamet distribuerar, a
 
 > [!NOTE]
 > AKS Worker-noder visas i Azure Portal som vanliga Azure IaaS-resurser. Men de här virtuella datorerna distribueras till en anpassad Azure-resurs grupp (föregås av MC\\*). Det går att ändra AKS Worker-noder. Du kan t. ex. använda SSH (Secure Shell) för att ändra AKS Worker-noder på samma sätt som du ändrar normala virtuella datorer (du kan dock inte ändra bas operativ system avbildningen och ändringar kanske inte behålls genom en uppdatering eller omstart) och du kan koppla andra Azure-resurser till AKS arbetsnoder. Men när du gör ändringar *utanför band-hanteringen och anpassningen* kan AKS-klustret bli oanvändbart. Undvik att ändra arbetsnoder om inte Microsoft Support dirigerar dig om att göra ändringar.
+
+Om du skickar åtgärder som inte stöds enligt definitionen ovan, till exempel out-of-band-deallokering av alla agent-noder, återges inte klustret. AKS förbehåller sig rätten att arkivera kontroll plan som har kon figurer ATS ur support rikt linjerna för utökade perioder som är lika med och bortom 30 dagar. AKS upprätthåller säkerhets kopiering av etcd metadata i kluster och kan enkelt allokera om klustret. Den här Omallokeringen kan initieras av en pågående åtgärd som tar klustret tillbaka till support, till exempel en uppgradering eller skalning till aktiva agent-noder.
 
 ## <a name="shared-responsibility"></a>Delat ansvar
 

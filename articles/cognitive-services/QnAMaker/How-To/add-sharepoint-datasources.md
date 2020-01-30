@@ -10,43 +10,43 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: diberry
-ms.openlocfilehash: da73f42c17a3688e7f1f464ec4a3bbe77cbc9229
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955199"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843300"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>Lägg till en säker SharePoint-datakälla i kunskaps basen
 
-Lägg till säkra SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory. 
+Lägg till säkra SharePoint-datakällor i kunskaps basen för att utöka kunskaps basen med frågor och svar som kan skyddas med Active Directory.
 
-När du lägger till ett skyddat SharePoint-dokument i kunskaps basen måste du begära Active Directory-behörighet för QnA Maker som QnA Maker Manager. När den här behörigheten ges från Active Directory Manager till QnA Maker för åtkomst till SharePoint behöver den inte anges igen. Varje efterföljande dokument tillägg till kunskaps basen behöver inte auktoriseras om det finns i samma SharePoint-resurs. 
+När du lägger till ett skyddat SharePoint-dokument i kunskaps basen måste du begära Active Directory-behörighet för QnA Maker som QnA Maker Manager. När den här behörigheten ges från Active Directory Manager till QnA Maker för åtkomst till SharePoint behöver den inte anges igen. Varje efterföljande dokument tillägg till kunskaps basen behöver inte auktoriseras om det finns i samma SharePoint-resurs.
 
 Om QnA Maker Knowledge Base Manager inte är Active Directory Manager måste du kommunicera med Active Directory Manager för att slutföra den här processen.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>Lägg till filtyper som stöds i kunskaps basen
 
-Du kan lägga till alla filtyper [](../Concepts/data-sources-supported.md) som stöds av QNA Maker från en SharePoint-webbplats till din kunskaps bas. Du kan behöva bevilja [behörigheter](#permissions) om fil resursen är skyddad.
+Du kan lägga till alla [filtyper](../Concepts/content-types.md) som stöds av QNA Maker från en SharePoint-webbplats till din kunskaps bas. Du kan behöva bevilja [behörigheter](#permissions) om fil resursen är skyddad.
 
-1. I biblioteket med SharePoint-webbplatsen väljer du filens ellips-meny, `...`.
+1. Från biblioteket med SharePoint-webbplatsen väljer du filens ellips-meny `...`.
 1. Kopiera filens URL.
 
    ![Hämta SharePoint-filens URL genom att välja filens ellips-meny och sedan kopiera URL: en.](../media/add-sharepoint-datasources/get-sharepoint-file-url.png)
 
-1. I QnA Maker Portal, på sidan **Inställningar** , lägger du [till URL: en](edit-knowledge-base.md#add-datasource) i kunskaps basen. 
+1. I QnA Maker Portal, på sidan **Inställningar** , lägger du [till URL: en](edit-knowledge-base.md#add-datasource) i kunskaps basen.
 
 ### <a name="images-with-sharepoint-files"></a>Bilder med SharePoint-filer
 
 Om filerna innehåller bilder extraheras de inte. Du kan lägga till avbildningen från QnA Maker Portal efter att filen extraherats till QnA-par.
 
-Lägg till avbildningen med följande markdown-syntax: 
+Lägg till avbildningen med följande markdown-syntax:
 
 ```markdown
 ![Explanation or description of image](URL of public image)
 ```
 
-Texten i hakparenteserna, `[]`förklarar bilden. URL: en i parenteser `()`, är den direkta länken till bilden. 
+Texten i hakparenteserna `[]`, förklarar bilden. URL: en i parenteser `()`är den direkta länken till bilden.
 
 När du testar QnA-paret i den interaktiva test panelen visas bilden i stället för markdown-texten på den QnA Maker portalen. Detta validerar att avbildningen kan hämtas offentligt från klient programmet.
 
@@ -57,31 +57,31 @@ Beviljande av behörigheter sker när en skyddad fil från en SharePoint-Server 
 * inga ytterligare steg – den person som lägger till filen har alla behörigheter som krävs.
 * steg för både [kunskaps bas hanteraren](#knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal) och [Active Directory Manager](#active-directory-manager-grant-file-read-access-to-qna-maker).
 
-Se stegen nedan. 
+Se stegen nedan.
 
 ### <a name="knowledge-base-manager-add-sharepoint-data-source-in-qna-maker-portal"></a>Kunskaps bas hanterare: Lägg till SharePoint-datakälla i QnA Maker Portal
 
 När **QNA Maker Manager** lägger till ett skyddat SharePoint-dokument i en kunskaps bas, initierar kunskaps bas hanteraren en begäran om behörighet som Active Directorys hanteraren måste slutföra.
 
-Begäran börjar med ett popup-fönster för att autentisera till ett Active Directory-konto. 
+Begäran börjar med ett popup-fönster för att autentisera till ett Active Directory-konto.
 
 ![Autentisera användar konto](../media/add-sharepoint-datasources/authenticate-user-account.png)
 
-När QnA Maker Manager väljer kontot får Azure Active Directory administratören ett meddelande om att de behöver tillåta QnA Maker-appen (inte QnA Maker Manager) åtkomst till SharePoint-resursen. Azure Active Directory Manager måste göra detta för varje SharePoint-resurs, men inte i alla dokument i resursen. 
+När QnA Maker Manager väljer kontot får Azure Active Directory administratören ett meddelande om att de behöver tillåta QnA Maker-appen (inte QnA Maker Manager) åtkomst till SharePoint-resursen. Azure Active Directory Manager måste göra detta för varje SharePoint-resurs, men inte i alla dokument i resursen.
 
 ### <a name="active-directory-manager-grant-file-read-access-to-qna-maker"></a>Active Directory-hanteraren: ge Läs behörighet till filen QnA Maker
 
-Active Directory Manager (inte QnA Maker Manager) måste bevilja åtkomst till QnA Maker för att få åtkomst till SharePoint-resursen genom att välja [den här länken](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2Fwww.qnamaker.ai%3A%2FCreate&state=68) för att auktorisera QNA Maker portalens SharePoint-Enterprise-app så att den har fil Läs behörighet. 
+Active Directory Manager (inte QnA Maker Manager) måste bevilja åtkomst till QnA Maker för att få åtkomst till SharePoint-resursen genom att välja [den här länken](https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=id_token&scope=Files.Read%20Files.Read.All%20Sites.Read.All%20User.Read%20User.ReadBasic.All%20profile%20openid%20email&client_id=c2c11949-e9bb-4035-bda8-59542eb907a6&redirect_uri=https%3A%2F%2F www.qnamaker.ai%3A%2FCreate&state=68) för att auktorisera QNA Maker portalens SharePoint-Enterprise-app så att den har fil Läs behörighet.
 
 ![Azure Active Directory Manager beviljar behörighet interaktivt](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 
 <!--
-The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`. 
+The Active Directory manager must grant QnA Maker access either by application name, `QnAMakerPortalSharePoint`, or by application ID, `c2c11949-e9bb-4035-bda8-59542eb907a6`.
 -->
 <!--
-### Grant access from the interactive pop-up window 
+### Grant access from the interactive pop-up window
 
-The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharePoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharePoint**, and a list of permissions requested. Select **Accept** to provide those permissions. 
+The Active Directory manager will get a pop-up window requesting permissions to the `QnAMakerPortalSharePoint` app. The pop-up window includes the QnA Maker Manager email address that initiated the request, an `App Info` link to learn more about **QnAMakerPortalSharePoint**, and a list of permissions requested. Select **Accept** to provide those permissions.
 
 ![Azure Active Directory manager grants permission interactively](../media/add-sharepoint-datasources/aad-manager-grants-permission-interactively.png)
 -->
@@ -89,7 +89,7 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
 ### Grant access from the App Registrations list
 
-1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**. 
+1. The Active Directory manager signs in to the Azure portal and opens **[App registrations list](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ApplicationsListBlade)**.
 
 1. Search for and select the **QnAMakerPortalSharePoint** app. Change the second filter box from **My apps** to **All apps**. The app information will open on the right side.
 
@@ -99,52 +99,52 @@ The Active Directory manager will get a pop-up window requesting permissions to 
 
     [![Select Settings in the right-side blade](../media/add-sharepoint-datasources/select-settings-for-qna-maker-app-registration.png)](../media/add-sharepoint-datasources/select-settings-for-qna-maker-app-registration.png#lightbox)
 
-1. Under **API access**, select **Required permissions**. 
+1. Under **API access**, select **Required permissions**.
 
     ![Select 'Settings', then under 'API access', select 'Required permission'](../media/add-sharepoint-datasources/select-required-permissions-in-settings-blade.png)
 
-1. Do not change any settings in the **Enable Access** window. Select **Grant Permission**. 
+1. Do not change any settings in the **Enable Access** window. Select **Grant Permission**.
 
     [![Under 'Grant Permission', select 'Yes'](../media/add-sharepoint-datasources/grant-app-required-permissions.png)](../media/add-sharepoint-datasources/grant-app-required-permissions.png#lightbox)
 
-1. Select **YES** in the pop-up confirmation windows. 
+1. Select **YES** in the pop-up confirmation windows.
 
     ![Grant required permissions](../media/add-sharepoint-datasources/grant-required-permissions.png)
 -->
 ### <a name="grant-access-from-the-azure-active-directory-admin-center"></a>Bevilja åtkomst från Azure Active Directory administrations Center
 
-1. Active Directory Manager loggar in på Azure Portal och öppnar **[företags program](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** . 
+1. Active Directory Manager loggar in på Azure Portal och öppnar **[företags program](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps)** .
 
-1. Sök efter `QnAMakerPortalSharePoint` Välj QNA Maker-appen. 
+1. Sök efter `QnAMakerPortalSharePoint` Välj QnA Maker-appen.
 
     [![Sök efter QnAMakerPortalSharePoint i listan över företags appar](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png)](../media/add-sharepoint-datasources/search-enterprise-apps-for-qna-maker.png#lightbox)
 
-1. Gå till **behörigheter**under **säkerhet**. Välj **bevilja administrativt godkännande för organisationen**. 
+1. Gå till **behörigheter**under **säkerhet**. Välj **bevilja administrativt godkännande för organisationen**.
 
-    [![Välj autentiserad användare för Active Directory admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
+    [![väljer autentiserad användare för Active Directory admin](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png)](../media/add-sharepoint-datasources/grant-aad-permissions-to-enterprise-app.png#lightbox)
 
-1. Välj ett inloggnings konto med behörigheter för att bevilja behörigheter för Active Directory. 
+1. Välj ett inloggnings konto med behörigheter för att bevilja behörigheter för Active Directory.
 
 
-  
+
 <!--
 
 ## Add SharePoint data source with APIs
 
-You need to get the SharePoint file's URI before adding it to QnA Maker. 
+You need to get the SharePoint file's URI before adding it to QnA Maker.
 
 ## Get SharePoint File URI
 
 Use the following steps to transform the SharePoint URL into a sharing token.
 
-1. Encode the URL using [base64](https://en.wikipedia.org/wiki/Base64). 
+1. Encode the URL using [base64](https://en.wikipedia.org/wiki/Base64).
 
-1. Convert the base64-encoded result to an unpadded base64url format with the following character changes. 
+1. Convert the base64-encoded result to an unpadded base64url format with the following character changes.
 
-    * Remove the equal character, `=` from the end of the value. 
-    * Replace `/` with `_`. 
-    * Replace `+` with `-`. 
-    * Append `u!` to be beginning of the string. 
+    * Remove the equal character, `=` from the end of the value.
+    * Replace `/` with `_`.
+    * Replace `+` with `-`.
+    * Append `u!` to be beginning of the string.
 
 1. Sign in to Graph explorer and run the following query, where `sharedURL` is ...:
 
@@ -179,9 +179,9 @@ Use the **@microsoft.graph.downloadUrl** from the previous section as the `fileu
 
 ## Remove QnA Maker app from SharePoint authorization
 
-1. Use the steps in the previous section to find the Qna Maker app in the Active Directory admin center. 
-1. When you select the **QnAMakerPortalSharePoint**, select **Overview**. 
-1. Select **Delete** to remove permissions. 
+1. Use the steps in the previous section to find the Qna Maker app in the Active Directory admin center.
+1. When you select the **QnAMakerPortalSharePoint**, select **Overview**.
+1. Select **Delete** to remove permissions.
 
 -->
 

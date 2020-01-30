@@ -6,17 +6,17 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: ef5c7de782d833aad96516d3e5357a0ed575a781
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/27/2020
+ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722881"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772338"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>Hämta JSON-formaterade exempel data till Azure Datautforskaren
 
-Den här artikeln visar hur du matar in JSON-formaterade data i en Azure Datautforskaren Database. Du börjar med enkla exempel på RAW och mappad JSON, fortsätter till multi-reported JSON och sedan kan du ta itu med mer komplexa JSON-scheman som innehåller matriser och ord listor. 
+Den här artikeln visar hur du matar in JSON-formaterade data i en Azure Datautforskaren Database. Du börjar med enkla exempel på RAW och mappad JSON, fortsätter till multi-reported JSON och sedan kan du ta itu med mer komplexa JSON-scheman som innehåller matriser och ord listor.  I exemplen beskrivs hur du matar in JSON-formaterade data med hjälp av KQL (Kusto C#Query Language), eller python. Kusto-frågespråket `ingest` kontroll kommandon körs direkt till motor slut punkten. I produktions scenarier körs inmatningen till den Datahantering tjänsten med hjälp av klient bibliotek eller data anslutningar. Läs [in inmatnings data med hjälp av azure datautforskaren python-biblioteket](/azure/data-explorer/python-ingest-data) och mata [in data med hjälp av Azure DATAUTFORSKAREN .net standard SDK](/azure/data-explorer/net-standard-ingest-data) för att få en genom gång om att mata in data med dessa klient bibliotek.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -81,9 +81,6 @@ Använd Kusto frågespråk för att mata in data i RAW JSON-format.
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
-
-    > [!NOTE]
-    > Detta visar de `ingest` kontroll kommandon som körs direkt till motor slut punkten. I produktions scenarier körs inmatningen till den Datahantering tjänsten med hjälp av klient bibliotek eller data anslutningar. Läs [in inmatnings data med hjälp av azure datautforskaren python-biblioteket](/azure/data-explorer/python-ingest-data) och mata [in data med hjälp av Azure DATAUTFORSKAREN .net standard SDK](/azure/data-explorer/net-standard-ingest-data) för att få en genom gång om att mata in data med dessa klient bibliotek.
 
 # <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
 
@@ -651,4 +648,4 @@ Dictionary Structured JSON innehåller nyckel/värde-par. JSON-poster genomgår 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över data inmatning](ingest-data-overview.md)
-* [Skriv frågor](write-queries.md)
+* [Skriva frågor](write-queries.md)

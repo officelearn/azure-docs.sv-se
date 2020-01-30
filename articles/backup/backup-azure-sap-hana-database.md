@@ -3,12 +3,12 @@ title: Säkerhetskopiera en SAP HANA-databas till Azure med Azure Backup
 description: I den här artikeln lär du dig hur du säkerhetskopierar en SAP HANA-databas till virtuella Azure-datorer med tjänsten Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c5df198d009f0d4a9f37a68d6b21386f06842722
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753968"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765521"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Säkerhetskopiera SAP HANA-databaser i virtuella Azure-datorer
 
@@ -23,6 +23,10 @@ I den här artikeln får du lära dig hur du:
 > * Identifiera databaser
 > * Konfigurera säkerhets kopior
 > * Köra ett säkerhets kopierings jobb på begäran
+
+>[!NOTE]
+>**Mjuk borttagning för SQL Server i Azure VM och mjuk borttagning för SAP HANA i Azure VM-arbetsbelastningar** finns nu i för hands version.<br>
+>Registrera dig för för hands versionen genom att skriva till oss på AskAzureBackupTeam@microsoft.com
 
 ## <a name="prerequisites"></a>Krav
 
@@ -132,7 +136,7 @@ Aktivera nu säkerhets kopiering.
     ![Välj objekt som ska säkerhets kopie ras](./media/backup-azure-sap-hana-database/select-items.png)
 3. I **säkerhets kopierings policy** > **väljer du säkerhets kopierings princip**, skapar en ny säkerhets kopierings princip för databaserna enligt anvisningarna nedan.
 
-    ![Välj säkerhetskopieringsprincip](./media/backup-azure-sap-hana-database/backup-policy.png)
+    ![Välj säkerhets kopierings princip](./media/backup-azure-sap-hana-database/backup-policy.png)
 4. När du har skapat principen klickar du på **Aktivera säkerhets kopiering**på menyn **säkerhets kopiering** .
 
     ![Aktivera säkerhets kopiering](./media/backup-azure-sap-hana-database/enable-backup.png)

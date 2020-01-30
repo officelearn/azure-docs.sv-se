@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863901"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774429"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Stöd mat ris för haveri beredskap för lokala virtuella Hyper-V-datorer till Azure
 
@@ -33,7 +33,7 @@ Hyper-V utan Virtual Machine Manager | Du kan utföra haveri beredskap till Azur
 **Server** | **Krav** | **Detaljer**
 --- | --- | ---
 Hyper-V (körs utan Virtual Machine Manager) |  Windows Server 2019, Windows Server 2016 (inklusive Server Core-installation), Windows Server 2012 R2 med senaste uppdateringar | Om du redan har konfigurerat Windows Server 2012 R2 med/eller SCVMM 2012 R2 med Azure Site Recovery och planerar att uppgradera operativ systemet, följer du vägledningen [.](upgrade-2012R2-to-2016.md) 
-Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/>
+Hyper-V (körs med Virtual Machine Manager) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Om Virtual Machine Manager används bör Windows Server 2019-värdar hanteras i Virtual Machine Manager 2019. På samma sätt bör Windows Server 2016-värdar hanteras i Virtual Machine Manager 2016.<br/><br/> Obs! failback till alternativ plats stöds inte för Windows Server 2019-värdar.
 
 
 ## <a name="replicated-vms"></a>Replikerade virtuella datorer
@@ -44,7 +44,7 @@ I följande tabell sammanfattas stödet för virtuella datorer. Site Recovery st
  **Komponent** | **Detaljer**
 --- | ---
 Konfiguration av virtuell dator | Virtuella datorer som replikeras till Azure måste uppfylla [kraven för Azure](#azure-vm-requirements).
-Gästoperativsystem | Alla gäst operativ system [som stöds för Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server stöds inte.
+Gäst operativ system | Alla gäst operativ system [som stöds för Azure](https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases)...<br/><br/> Windows Server 2016 Nano Server stöds inte.
 
 
 ## <a name="vmdisk-management"></a>Hantering av virtuell dator/disk
@@ -111,10 +111,10 @@ SMB 3.0 | Inga | Inga
 RDM | Ej tillämpligt | Ej tillämpligt
 Disk > 1 TB | Ja, upp till 4 095 GB | Ja, upp till 4 095 GB
 Disk: logisk och fysisk sektor i 4K | Stöds inte: gen 1/Gen 2 | Stöds inte: gen 1/Gen 2
-Disk: logisk och 512 byte fysisk sektor för 4K | Ja |  Ja
+Disk: logisk och 512-byte fysisk sektor | Ja |  Ja
 Hantering av logiska volymer (LVM). LVM stöds endast på data diskar. Azure tillhandahåller bara en enda OS-disk. | Ja | Ja
 Volym med Striped disk > 1 TB | Ja | Ja
-Lagringsutrymmen | Inga | Inga
+Lagrings utrymmen | Inga | Inga
 Snabb Lägg till/ta bort disk | Inga | Inga
 Uteslut disk | Ja | Ja
 Multipath (MPIO) | Ja | Ja
@@ -125,7 +125,7 @@ Multipath (MPIO) | Ja | Ja
 --- | --- | ---
 Lokalt redundant lagring | Ja | Ja
 Geografiskt redundant lagring. | Ja | Ja
-Geo-redundant lagring med läsbehörighet (RA-GRS) | Ja | Ja
+Geo-redundant lagring med Läs behörighet | Ja | Ja
 Cool Storage | Inga | Inga
 Frekvent lagring| Inga | Inga
 Blockblob-objekt | Inga | Inga
@@ -133,8 +133,8 @@ Kryptering i rest (SSE)| Ja | Ja
 Kryptering i vilo läge (CMK) <br></br> (Endast för redundans till Managed Disks)| Ja (via PowerShell AZ 3.3.0-modul och senare) | Ja (via PowerShell AZ 3.3.0-modul och senare)
 Premium-lagring | Ja | Ja
 Import/export-tjänst | Inga | Inga
-Azure Storage-konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
-Ändra lagrings konto | Nej. Det går inte att ändra målets Azure Storage-konto när replikeringen har Aktiver ATS. Om du vill ändra inaktiverar du och aktiverar sedan haveri beredskap igen. | Inga
+Azure Storage konton med aktive rad brand vägg | Ja. För mål lagring och cache. | Ja. För mål lagring och cache.
+Ändra lagrings konto | Nej. Mål Azure Storages kontot kan inte ändras efter att replikeringen har Aktiver ATS. Ändra genom att inaktivera och sedan aktivera haveri beredskap igen. | Inga
 
 
 ## <a name="azure-compute-features"></a>Beräknings funktioner i Azure
@@ -151,14 +151,14 @@ Lokala virtuella datorer som du replikerar till Azure måste uppfylla de krav p�
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystem | Site Recovery stöder alla operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Krav kontrollen Miss lyckas om den inte stöds.
+Gäst operativ system | Site Recovery stöder alla operativ system som [stöds av Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).  | Krav kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 32-bitars (Windows Server 2008)/64-bit | Krav kontrollen Miss lyckas om den inte stöds.
 Storlek på operativ system disk | Upp till 2 048 GB för virtuella datorer i generation 1.<br/><br/> Upp till 300 GB för virtuella datorer i generation 2.  | Krav kontrollen Miss lyckas om den inte stöds.
 Antal operativ system diskar | 1 | Krav kontrollen Miss lyckas om den inte stöds.
 Antal data diskar | 16 eller mindre  | Krav kontrollen Miss lyckas om den inte stöds.
 VHD-storlek för datadisk | Upp till 4 095 GB | Krav kontrollen Miss lyckas om den inte stöds.
 Nätverkskort | Flera nätverkskort stöds |
-Delad virtuell hårddisk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
+Delad virtuell hård disk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
 FC-disk | Stöds inte | Krav kontrollen Miss lyckas om den inte stöds.
 Hård disk format | VHD <br/><br/> VHDX | Site Recovery konverterar automatiskt VHDX till VHD när du växlar över till Azure. När du växlar tillbaka till den lokala datorn fortsätter de virtuella datorerna att använda VHDX-formatet.
 BitLocker | Stöds inte | BitLocker måste inaktive ras innan du aktiverar replikering för en virtuell dator.
@@ -183,7 +183,7 @@ Se till att du kör de senaste leverantörs-och agent versionerna för att se ti
 **Namn** | **Beskrivning** | **Detaljer**
 --- | --- | --- 
 Azure Site Recovery Provider | Koordinera kommunikation mellan lokala servrar och Azure <br/><br/> Hyper-V med Virtual Machine Manager: installerad på Virtual Machine Manager-servrar<br/><br/> Hyper-V utan Virtual Machine Manager: installerat på Hyper-V-värdar| Senaste version: 5.1.2700.1 (tillgänglig från Azure Portal)<br/><br/> [Senaste funktioner och korrigeringar](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
-Microsoft Azure Recovery Services-agenten | Samordnar replikering mellan virtuella Hyper-V-datorer och Azure<br/><br/> Installerat på lokala Hyper-V-servrar (med eller utan Virtual Machine Manager) | Senaste agent som är tillgänglig från portalen
+Microsoft Azure Recovery Services agent | Samordnar replikering mellan virtuella Hyper-V-datorer och Azure<br/><br/> Installerat på lokala Hyper-V-servrar (med eller utan Virtual Machine Manager) | Senaste agent som är tillgänglig från portalen
 
 
 

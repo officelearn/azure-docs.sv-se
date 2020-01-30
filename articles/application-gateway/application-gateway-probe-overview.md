@@ -5,18 +5,24 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/16/2019
+ms.date: 01/28/2020
 ms.author: victorh
-ms.openlocfilehash: 2938665aa0c0a3df66b6ddcfd1c8c5fbc4598319
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130677"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766830"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Översikt över Application Gateway Health Monitoring
 
-Azure Application Gateway övervakar som standard hälsan för alla resurser i sin backend-pool och tar automatiskt bort alla resurser som betraktas som felaktiga från poolen. Application Gateway fortsätter att övervaka skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar. Application Gateway skickar hälso avsökningar med samma port som definieras i Server delens HTTP-inställningar. Den här konfigurationen säkerställer att avsökningen testar samma port som kunderna skulle använda för att ansluta till Server delen.
+Azure Application Gateway övervakar som standard hälsan för alla resurser i sin backend-pool och tar automatiskt bort alla resurser som betraktas som felaktiga från poolen. Application Gateway fortsätter att övervaka skadade instanser och lägger tillbaka dem till den felfria backend-poolen när de blir tillgängliga och svarar på hälso avsökningar. Application Gateway skickar hälso avsökningar med samma port som definieras i Server delens HTTP-inställningar. Den här konfigurationen säkerställer att avsökningen testar samma port som kunderna skulle använda för att ansluta till Server delen. 
+
+Käll-IP-adressen Application Gateway använder för hälso avsökningar beror på backend-poolen:
+ 
+- Om backend-poolen är en offentlig slut punkt är käll adressen den offentliga IP-adressen för Application Gateway-frontend.
+- Om backend-poolen är en privat slut punkt kommer käll-IP-adressen från det privata IP-adressutrymmet i Application Gateway-undernätet.
+
 
 ![exempel på avsökning av Application Gateway][1]
 
@@ -34,7 +40,7 @@ Om standard avsöknings kontrollen Miss lyckas för Server A, tar programgateway
 
 ### <a name="probe-matching"></a>Avsöknings matchning
 
-Som standard betraktas ett HTTP (S)-svar med status kod mellan 200 och 399 som felfri. Anpassade hälso avsökningar stöder även två matchnings villkor. Matchnings villkor kan användas för att välja att ändra standard tolkningen av vad som utgör ett felfritt svar.
+Som standard betraktas ett HTTP (S)-svar med status kod mellan 200 och 399 som felfri. Anpassade hälso avsökningar stöder även två matchnings villkor. Matchnings villkor kan användas för att välja att ändra standard tolkningen av vad som gör ett felfritt svar.
 
 Följande är matchnings villkor: 
 
@@ -43,7 +49,7 @@ Följande är matchnings villkor:
 
 Matchnings villkor kan anges med hjälp av `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet.
 
-Exempel:
+Ett exempel:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399

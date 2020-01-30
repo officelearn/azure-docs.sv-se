@@ -9,16 +9,16 @@ ms.date: 10/05/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 336b6157128468169264d6ffa9564da4d9338aae
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992449"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841773"
 ---
 # <a name="configure-identity-for-the-event-grid-module"></a>Konfigurera identitet för Event Grid-modulen
 
-Den här artikeln innehåller exempel på möjliga identitets konfigurationer för en Event Grid-modul. Som standard kommer Event Grid-modulen att presentera sitt identitets certifikat som det har kon figurer ATS av IoT Security daemon. Ett identitets certifikat visas av Event Grid-modulen på de utgående samtal som är när de levererar händelser. En prenumerant till en Event Grid-händelse kan sedan välja att verifiera att den verkligen är den Event Grid-modul som skickade händelsen innan händelsen accepteras.
+Den här artikeln beskriver hur du konfigurerar identitet för rutnätet på kant. Som standard visar Event Grid-modulen sitt identitets certifikat enligt konfigurationen i IoT Security daemon. Event Grid på gränsen visar sitt identitets certifikat med utgående samtal när de levererar händelser. En prenumerant kan sedan verifiera att den är den Event Grid-modul som skickade händelsen innan den accepteras.
 
 Se [säkerhets-och autentiserings](security-authentication.md) guide för alla möjliga konfigurationer.
 
@@ -28,8 +28,8 @@ Här är en exempel konfiguration för att alltid presentera ett identitets cert
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge"
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge"
   ]
 }
  ```
@@ -40,7 +40,7 @@ Här är en exempel konfiguration för att inte presentera ett identitets certif
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=false"
+    "outbound__clientAuth__clientCert__enabled=false"
   ]
 }
  ```

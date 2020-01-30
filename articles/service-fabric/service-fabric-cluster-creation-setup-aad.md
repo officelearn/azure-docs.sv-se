@@ -3,12 +3,12 @@ title: Konfigurera Azure Active Directory för klientautentisering
 description: Lär dig hur du konfigurerar Azure Active Directory (Azure AD) för att autentisera klienter för Service Fabric kluster.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614697"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843828"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>Konfigurera Azure Active Directory för klientautentisering
 
@@ -104,9 +104,19 @@ När du försöker logga in på Azure AD i Service Fabric Explorer returnerar si
 Kluster (webb) som representerar Service Fabric Explorer försöker autentisera mot Azure AD, och som en del av begäran tillhandahåller URL: en för omdirigerings RETUR. Men URL: en visas inte i listan Azure AD Application **svars-URL** .
 
 #### <a name="solution"></a>Lösning
-Välj Appregistreringar på AAD-sidan, Välj ditt kluster program och välj sedan knappen **svars-URL: er** . På sidan svars-URL: er lägger du till URL: en för Service Fabric Explorer i listan eller ersätter ett objekt i listan. När du är färdig sparar du ändringen.
+På sidan Azure AD väljer du **Appregistreringar**, väljer kluster programmet och väljer sedan **svars-URL: er**. I rutan **svars-URL: er** lägger du till Service Fabric Explorer URL i listan eller ersätter ett objekt i listan. Spara ändringen.
 
 ![Webb program svars-URL][web-application-reply-url]
+
+### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>Att ansluta till klustret med Azure AD-autentisering via PowerShell ger ett fel när du loggar in: "AADSTS50011"
+#### <a name="problem"></a>Problem
+När du försöker ansluta till ett Service Fabric kluster med hjälp av Azure AD via PowerShell returnerar inloggnings sidan ett fel: "AADSTS50011: svars-URL: en som anges i begäran matchar inte de svars-URL: er som har kon figurer ATS för programmet: &lt;-GUID&gt;."
+
+#### <a name="reason"></a>Orsak
+I likhet med föregående problem försöker PowerShell autentisera mot Azure AD, vilket ger en omdirigerings-URL som inte visas i listan med **URL: er** för Azure AD-programsvar.  
+
+#### <a name="solution"></a>Lösning
+Använd samma process som i föregående problem, men URL: en måste anges till `urn:ietf:wg:oauth:2.0:oob`, en särskild omdirigering för kommando rads autentisering.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>Ansluta klustret med hjälp av Azure AD-autentisering via PowerShell
 Om du vill ansluta Service Fabric klustret använder du följande PowerShell-kommando exempel:

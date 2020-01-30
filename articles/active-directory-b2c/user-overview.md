@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a627b0eebc3aa4a19b0670f899d3032d8df58da4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: f9573f4d226df4eb6068af679f2eb45dc87c7e40
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620462"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840068"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Översikt över användar konton i Azure Active Directory B2C
 
@@ -49,21 +49,21 @@ När du lägger till ett nytt arbets konto måste du tänka på följande konfig
 
 Du kan använda följande information för att skapa ett nytt arbets konto:
 
-- [Azure Portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure-portalen](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
 
 ### <a name="update-a-user-profile"></a>Uppdatera en användar profil
 
 Du kan använda följande information för att uppdatera profilen för en användare:
 
-- [Azure Portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure-portalen](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ### <a name="reset-a-password-for-a-user"></a>Återställa ett lösen ord för en användare
 
 Du kan använda följande information för att återställa lösen ordet för en användare:
 
-- [Azure Portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure-portalen](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](https://docs.microsoft.com/graph/api/user-update?view=graph-rest-1.0)
 
 ## <a name="guest-user"></a>Gäst användare
@@ -76,12 +76,12 @@ Du kan också använda [Microsoft Graph API](https://docs.microsoft.com/graph/ap
 
 ## <a name="consumer-user"></a>Konsument användare
 
-Konsument användaren kan logga in på program som skyddas av Azure AD B2C, men kan inte komma åt Azure-resurser som Azure Portal. Konsument användaren kan använda ett lokalt konto eller federerade konton, till exempel Facebook eller Twitter. Ett konsument konto skapas med hjälp av ett [registrerings-eller inloggnings användar flöde](../active-directory-b2c/active-directory-b2c-reference-policies.md)med hjälp av Azure AD Graph API eller genom att använda Azure Portal.
+Konsument användaren kan logga in på program som skyddas av Azure AD B2C, men kan inte komma åt Azure-resurser som Azure Portal. Konsument användaren kan använda ett lokalt konto eller federerade konton, till exempel Facebook eller Twitter. Ett konsument konto skapas med hjälp av ett [registrerings-eller inloggnings användar flöde](user-flow-overview.md)med hjälp av Azure AD Graph API eller genom att använda Azure Portal.
 
-Du kan ange de data som samlas in när ett konsument användar konto skapas med anpassade användarattribut. Mer information finns i [definiera anpassade attribut i Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-reference-custom-attr.md).
+Du kan ange de data som samlas in när ett konsument användar konto skapas med anpassade användarattribut. Mer information finns i [definiera anpassade attribut i Azure Active Directory B2C](user-flow-custom-attributes.md).
 
-Du kan använda informationen i avsnittet **skapa konsument användar konton** i [använda Azure AD-Graph API](active-directory-b2c-devquickstarts-graph-dotnet.md) för att skapa ett Azure AD B2C konsument konto. Du kan också använda informationen i avsnittet **Uppdatera konsument användar konton** i samma artikel för att hantera egenskaperna för kontot.
+Du kan använda informationen i avsnittet **skapa konsument användar konton** i [använda Azure AD-Graph API](manage-user-accounts-graph-api.md) för att skapa ett Azure AD B2C konsument konto. Du kan också använda informationen i avsnittet **Uppdatera konsument användar konton** i samma artikel för att hantera egenskaperna för kontot.
 
 ### <a name="migrate-consumer-user-accounts"></a>Migrera konsument användar konton
 
-Du kanske behöver migrera befintliga konsument användar konton från valfri identitetsprovider till Azure AD B2C. Mer information finns i [användar migrering](active-directory-b2c-user-migration.md) eller [migrering av användare med sociala identiteter](active-directory-b2c-social-migration.md).
+Du kanske behöver migrera befintliga konsument användar konton från valfri identitetsprovider till Azure AD B2C. Mer information finns i [användar migrering](user-migration.md) eller [migrering av användare med sociala identiteter](migrate-social-identities.md).

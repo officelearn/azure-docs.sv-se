@@ -1,12 +1,12 @@
 ---
-title: 'Snabbstart: Skapa en Standard Load Balancer – Azure-portalen'
+title: 'Snabb start: skapa en offentlig Load Balancer-Azure Portal'
 titleSuffix: Azure Load Balancer
-description: Den här snabb starten visar hur du skapar en Standard Load Balancer med hjälp av Azure Portal.
+description: Den här snabb starten visar hur du skapar en Load Balancer med hjälp av Azure Portal.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771469"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843879"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabbstart: Skapa en Standard Load Balancer som lastbalanserar virtuella datorer med Azure Portal
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snabb start: skapa en Load Balancer för att belastningsutjämna virtuella datorer med Azure Portal
 
-Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabbstartsguiden visar hur du lastbalanserar virtuella datorer med en Standard Load Balancer.
+Med belastningsutjämning får du högre tillgänglighet och skala genom att inkommande förfrågningar sprids över flera virtuella datorer. Du kan använda Azure Portal för att skapa en lastbalanserare som lastbalanserar virtuella datorer (VM). Den här snabb starten visar hur du kan belastningsutjämna virtuella datorer med en offentlig Load Balancer.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 
@@ -32,9 +32,9 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.com).
 
-## <a name="create-a-standard-load-balancer"></a>Skapa en Standard Load Balancer
+## <a name="create-a-load-balancer"></a>Skapa en lastbalanserare
 
-I det här avsnittet skapar du en Standard Load Balancer som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig Standard Load Balancer eller en intern Standard Load Balancer. Standard Load Balancer stöder endast offentlig IP-adress, grundläggande offentliga IP-adresser stöds inte. När du skapar en offentlig Standard Load Balancer måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del (med namnet as *LoadBalancerFrontend* som standard) för standard Load Balancer. 
+I det här avsnittet skapar du en Load Balancer som hjälper till att belastningsutjämna virtuella datorer. Du kan skapa en offentlig Load Balancer eller en intern Load Balancer. När du skapar en offentlig Load Balancer måste du också skapa en ny offentlig IP-adress som är konfigurerad som klient del (med namnet as *LoadBalancerFrontend* som standard) för Load Balancer.
 
 1. På den övre vänstra sidan av skärmen väljer du **skapa en resurs** > **nätverks** > **Load Balancer**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
@@ -46,10 +46,11 @@ I det här avsnittet skapar du en Standard Load Balancer som hjälper till att b
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
     | Typ          | Välj **Offentligt**.                                        |
-    | SKU           | Välj **standard**.                          |
-    | Offentlig IP-adress | Välj **Skapa ny**. |
+    | SKU           | Välj **standard** eller **Basic**. Microsoft rekommenderar standard för produktions arbets belastningar.  |
+    | Offentlig IP-adress | Välj **Skapa ny**. Om du har en befintlig offentlig IP-adress som du vill använda väljer du **Använd befintlig** |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
-    |Tillgänglighetszon| Välj **Zonredundant**.    |
+    | Tillgänglighetszon | Skriv *Zone-redundant* för att skapa en elastisk Load Balancer. Om du vill skapa en zonindelade Load Balancer väljer du en speciell zon från 1, 2 eller 3 |
+
 3. På fliken **Granska och skapa** väljer du **skapa**.   
 
     ![Skapa en Standard Load Balancer](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -58,7 +59,7 @@ I det här avsnittet skapar du en Standard Load Balancer som hjälper till att b
 
 I det här avsnittet konfigurerar du Load Balancer inställningar för en backend-adresspool, en hälso avsökning och anger en balans regel.
 
-### <a name="create-a-backend-address-pool"></a>Skapa en serverdelsadresspool
+### <a name="create-a-backend-pool"></a>Skapa en backend-pool
 
 För att distribuera trafik till de virtuella datorerna innehåller en backend-adresspool IP-adresserna för de virtuella nätverkskorten som är anslutna till Load Balancer. Skapa *myBackendPool* för backend-adresspoolen för att inkludera virtuella datorer för belastnings utjämning av Internet trafik.
 
@@ -79,7 +80,7 @@ Om du vill tillåta att Load Balancer övervakar appens status använder du en h
     | Protokoll | Välj **http**. |
     | Port | Ange *80*.|
     | Intervall | Ange *15* som **intervall** i sekunder mellan avsöknings försök. |
-    | Tröskelvärde för Ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
+    | Tröskelvärde för ej felfri | Välj **2** för antalet fel i **tröskeln** eller på varandra följande avsöknings fel som måste inträffa innan en virtuell dator betraktas som ohälsosam.|
     | | |
 4. Välj **OK**.
 
@@ -95,8 +96,8 @@ En lastbalanseringsregel används för att definiera hur trafiken ska distribuer
     | Namn | Ange *myHTTPRule*. |
     | Protokoll | Välj **TCP**. |
     | Port | Ange *80*.|
-    | Serverdelsport | Ange *80*. |
-    | Serverdelspool | Välj *myBackendPool*.|
+    | Backend-port | Ange *80*. |
+    | Backend-pool | Välj *myBackendPool*.|
     | Hälsoavsökning | Välj *myHealthProbe*. |
 4. Lämna resten av standardinställningarna och välj sedan **OK**.
 
@@ -122,7 +123,7 @@ I det här avsnittet skapar du ett virtuellt nätverk, skapar tre virtuella dato
 1. Lämna resten av standardinställningarna och välj **Skapa**.
 
 ### <a name="create-virtual-machines"></a>Skapa virtuella datorer
-Standard Load Balancer stöder bara virtuella datorer med standard-IP-adresser i backend-poolen. I det här avsnittet ska du skapa tre virtuella datorer (*myVM1*, *myVM2* och *MyVM3*) med en offentlig standard-IP-adress i tre olika zoner (*zon 1*, *zon 2*och *Zon 3*) som senare läggs till i backend-poolen för standard Load Balancer som skapades tidigare.
+Offentliga IP-SKU: er och Load Balancer SKU: er måste matcha. För Standard Load Balancer använder du virtuella datorer med standard-IP-adresser i backend-poolen. I det här avsnittet ska du skapa tre virtuella datorer (*myVM1*, *myVM2* och *MyVM3*) med en offentlig standard-IP-adress i tre olika zoner (*zon 1*, *zon 2*och *Zon 3*) som senare läggs till i backend-poolen för Load Balancer som skapades tidigare. Om du har valt grundläggande använder du virtuella datorer med grundläggande IP-adresser.
 
 1. På den övre vänstra sidan av portalen väljer du **skapa en resurs** > **Compute** > **Windows Server 2019 Data Center**. 
    
@@ -138,7 +139,7 @@ Standard Load Balancer stöder bara virtuella datorer med standard-IP-adresser i
 1. På fliken **nätverk** ser du till att följande är markerat:
    - **Virtuellt nätverk**: *myVnet*
    - **Undernät**: *myBackendSubnet*
-   - **Offentlig ip** > Välj **Skapa ny**och i fönstret **skapa offentlig IP-adress** för **SKU**väljer du **standard**och för **tillgänglighets zon**väljer du **zon-redundant**och väljer sedan **OK**.
+   - **Offentlig ip** > Välj **Skapa ny**och i fönstret **skapa offentlig IP-adress** för **SKU**väljer du **standard**och för **tillgänglighets zon**väljer du **zon-redundant**och väljer sedan **OK**. Om du har skapat en grundläggande Load Balancer väljer du Basic. Microsoft rekommenderar att du använder standard-SKU för produktions arbets belastningar.
    - För att skapa en ny nätverkssäkerhetsgrupp (NSG), en typ av brandvägg, går du till **Nätverkssäkerhetsgrupp** och väljer **Avancerat**. 
        1. I fältet **Konfigurera nätverkssäkerhetsgrupp** väljer du **Skapa ny**. 
        1. Skriv *myNetworkSecurityGroup*och välj **OK**.
@@ -167,15 +168,20 @@ I det här avsnittet skapar du en regel för nätverks säkerhets grupper för a
 1. Välj **alla tjänster** i den vänstra menyn, Välj **alla resurser**och välj sedan **myNetworkSecurityGroup** som finns i resurs gruppen **myResourceGroupSLB** i listan resurser.
 2. Under **Inställningar** väljer du **Inkommande säkerhetsregler** och sedan **Lägg till**.
 3. Ange dessa värden för den ingående säkerhetsregeln *myHTTPRule* så att inkommande HTTP-anslutningar som använder port 80 tillåts:
-    - *Tjänstetagg* – för **Källa**.
-    - *Internet* – för **Källtjänsttagg**
-    - *80* – för **målportsintervall**
-    - *TCP* – för **Protokoll**
-    - *Tillåt* – för **Åtgärd**
-    - *100* för **Prioritet**
-    - *myHTTPRule* för namn
-    - *Tillåt HTTP* – för beskrivning
+    - **Källa**: *service tag*
+    -  **Käll tjänst tag gen**: *Internet*
+    - **Mål Port intervall**: *80*
+    - **Protokoll**: *TCP*
+    - **Åtgärd**: *Tillåt*
+    - **Prioritet**: *100*
+    - **Namn**: *myHTTPRule* 
+    - **Beskrivning**: "*Tillåt http* 
 4. Välj **Lägg till**.
+5. Upprepa stegen för inkommande RDP-regel, om det behövs, med följande olika värden:
+   - **Målportintervall**: Skriv *3389*.
+   - **Prioritet**: Skriv *200*. 
+   - **Namn**: Skriv *MyRDPRule*. 
+   - **Beskrivning**: Skriv *Tillåt RDP*. 
  
 ### <a name="install-iis"></a>Installera IIS
 
@@ -214,7 +220,6 @@ Ta bort resurs gruppen, Load Balancer och alla relaterade resurser när de inte 
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat en Standard Load Balancer anslutna virtuella datorer till den, konfigurerat Load Balancer trafik regel, hälso avsökning och sedan testat Load Balancer. Om du vill läsa mer om Azure Load Balancer fortsätter du till självstudierna för Azure Load Balancer.
+I den här snabb starten har du skapat en Standard Load Balancer anslutna virtuella datorer till den, konfigurerat Load Balancer trafik regel, hälso avsökning och sedan testat Load Balancer. Om du vill veta mer om Azure Load Balancer fortsätter du till [Azure Load Balancer själv studie kurser](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
 
-> [!div class="nextstepaction"]
-> [Självstudier om Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+Läs mer om [Load Balancer-och tillgänglighets zoner](load-balancer-standard-availability-zones.md).

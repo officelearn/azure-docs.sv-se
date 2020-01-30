@@ -1,57 +1,55 @@
 ---
-title: Introduktion till Azure Network Watcher anslutning felsöka | Microsoft Docs
-description: Den här sidan innehåller en översikt över den felsökning kapaciteten för Network Watcher-anslutning
+title: Introduktion till fel sökning av Azure Network Watcher-anslutning | Microsoft Docs
+description: Den här sidan innehåller en översikt över fel söknings funktionen Network Watcher anslutning
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705814"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842877"
 ---
-# <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutningen felsöka i Azure Network Watcher
+# <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introduktion till anslutnings fel sökning i Azure Network Watcher
 
-Felsöka anslutningen funktionen i Network Watcher kan du kontrollera en TCP direktanslutning från en virtuell dator till en virtuell dator (VM), fullständigt kvalificerade domännamnet (FQDN), URI eller IPv4-adress. Scenarier för nätverk är komplexa, implementeras med hjälp av nätverkssäkerhetsgrupper, brandväggar, användardefinierade vägar och resurser som tillhandahålls av Azure. Komplexa konfigurationer gör det svårt att felsöka anslutningsproblem. Network Watcher kan du minska tiden för att hitta och identifiera anslutningsproblem. Resultatet som returneras kan ge insikter om om ett anslutningsproblem beror på en plattform eller ett problem med användare. Anslutningen kan kontrolleras med [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), och [REST API](network-watcher-connectivity-rest.md).
+Funktionen för att felsöka anslutningar i Network Watcher ger möjlighet att kontrol lera en direkt TCP-anslutning från en virtuell dator till en virtuell dator (VM), fullständigt kvalificerat domän namn (FQDN), URI eller IPv4-adress. Nätverks scenarier är komplexa, de implementeras med hjälp av nätverks säkerhets grupper, brand väggar, användardefinierade vägar och resurser som tillhandahålls av Azure. Komplexa konfigurationer gör fel sökning av anslutnings problem. Network Watcher bidrar till att minska tiden för att hitta och identifiera anslutnings problem. Resultaten som returneras kan ge insikter om ett anslutnings problem på grund av ett plattforms-eller användar konfigurations problem. Anslutningen kan kontrol leras med [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md)och [REST API](network-watcher-connectivity-rest.md).
 
 > [!IMPORTANT]
-> Felsökning av anslutning kräver att den virtuella datorn som du felsöker från har den `AzureNetworkWatcherExtension` VM-tillägget installerat. Installera tillägget på en Windows-VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och Linux VM finns [tillägg för virtuell dator i Azure Network Watcher-Agent för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på slutpunkten för målet.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="response"></a>Svar
 
-I följande tabell visas egenskaperna returneras när anslutningsfelsökning har körts.
+I följande tabell visas de egenskaper som returneras när fel sökning av anslutning har körts.
 
 |Egenskap  |Beskrivning  |
 |---------|---------|
-|ConnectionStatus     | Status för Anslutningskontrollen. Möjliga resultat är **nåbar** och **tillbaka**.        |
-|AvgLatencyInMs     | Genomsnittlig svarstid under anslutningskontroll i millisekunder. (Endast visas om status kontrollen kan nås)        |
-|MinLatencyInMs     | Lägsta svarstid under anslutningskontroll i millisekunder. (Endast visas om status kontrollen kan nås)        |
-|MaxLatencyInMs     | Maximal svarstid under anslutningskontroll i millisekunder. (Endast visas om status kontrollen kan nås)        |
-|ProbesSent     | Antal avsökningar som skickats under denna kontroll. Max-värdet är 100.        |
-|ProbesFailed     | Antal avsökningar som misslyckades under kontrollen. Max-värdet är 100.        |
-|Hopp     | Hopp för hopp-sökvägen från källa till mål.        |
-|Hops[].Type     | Typ av resurs. Möjliga värden är **källa**, **VirtualAppliance**, **VnetLocal**, och **Internet**.        |
-|Hops[].Id | Unik identifierare för hoppet.|
-|Hops[].Address | IP-adress hopp.|
-|Hops[].ResourceId | ResourceID hopp om hoppet är en Azure-resurs. Om det är en internet-resurs, ResourceID är **Internet**. |
-|Hops[].NextHopIds | Den unika identifieraren för nästa hopp vidtas.|
-|Hops[].Issues | En samling problem som uppstod under kontrollen som hopp. Om det finns inga problem, är värdet tomt.|
-|Hops[].Issues[].Origin | I det aktuella hoppet där problemet uppstod. Möjliga värden:<br/> **Inkommande** -problem finns på länken från det föregående hoppet till det aktuella hoppet<br/>**Utgående** -problem finns på länken från det aktuella hoppet till nästa hopp<br/>**Lokala** -problem finns på det aktuella hoppet.|
-|Hops[].Issues[].Severity | Allvarlighetsgrad för problem som identifierats. Möjliga värden är **fel** och **varning**. |
-|Hops[].Issues[].Type |Typ av problem hittades. Möjliga värden: <br/>**CPU**<br/>**Minne**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
-|Hops[].Issues[].Context |Information om problem hittades.|
-|Hops[].Issues[].Context[].key |Nyckeln för nyckel-värdepar returnerade.|
-|Hops[].Issues[].Context[].value |Det returnerade värdet för nyckel-värdepar.|
+|ConnectionStatus     | Status för anslutnings kontrollen. Det går att **komma åt** möjliga **resultat och det**kan inte användas.        |
+|AvgLatencyInMs     | Genomsnittlig svars tid under anslutnings kontrollen i millisekunder. (Visas bara om kontroll status kan kontaktas)        |
+|MinLatencyInMs     | Lägsta svars tid under anslutnings kontrollen i millisekunder. (Visas bara om kontroll status kan kontaktas)        |
+|MaxLatencyInMs     | Högsta svars tid under anslutnings kontrollen i millisekunder. (Visas bara om kontroll status kan kontaktas)        |
+|ProbesSent     | Antal avsökningar som skickats under kontrollen. Max värdet är 100.        |
+|ProbesFailed     | Antal avsökningar som inte kunde kontrol leras. Max värdet är 100.        |
+|Hopp     | Hopp per hopp väg från källa till mål.        |
+|Hops[].Type     | Typ av resurs. Möjliga värden är **Source**, **VirtualAppliance**, **VnetLocal**och **Internet**.        |
+|Hops[].Id | Unikt ID för hoppet.|
+|Hops[].Address | Hoppets IP-adress.|
+|Hops[].ResourceId | ResourceID för hoppet om hoppet är en Azure-resurs. Om det är en Internet resurs är ResourceID **Internet**. |
+|Hops[].NextHopIds | Den unika identifieraren för nästa hopp som tas.|
+|Hops[].Issues | En samling problem som påträffades under kontrollen vid det hoppet. Om det inte fanns några problem är värdet tomt.|
+|Hopp []. Problem []. Kommer | Vid det aktuella hoppet, där problemet uppstod. Möjliga värden:<br/> **Inkommande** – problem finns på länken från föregående hopp till det aktuella hoppet<br/>**Utgående** – problem är på länken från det aktuella hoppet till nästa hopp<br/>**Lokalt** problem är på det aktuella hoppet.|
+|Hops[].Issues[].Severity | Problemets allvarlighets grad har upptäckts. Möjliga värden är **fel** och **Varning**. |
+|Hops[].Issues[].Type |Typ av problem som hittats. Möjliga värden: <br/>**CPU**<br/>**Minnesoptimerade**<br/>**GuestFirewall**<br/>**DnsResolution**<br/>**NetworkSecurityRule**<br/>**UserDefinedRoute** |
+|Hops[].Issues[].Context |Information om problemet som har hittats.|
+|Hops[].Issues[].Context[].key |Nyckel för nyckel värdes paret som returneras.|
+|Hops[].Issues[].Context[].value |Värdet för nyckel värdes paret som returnerades.|
 
 Följande är ett exempel på ett problem som finns på ett hopp.
 
@@ -70,19 +68,19 @@ Följande är ett exempel på ett problem som finns på ett hopp.
     }
 ]
 ```
-## <a name="fault-types"></a>Typer av fel
+## <a name="fault-types"></a>Fel typer
 
-Anslutningsfelsökning returnerar fel typer om anslutningen. Följande tabell innehåller en lista över de aktuella fault-typer som returneras.
+Fel sökning av anslutning returnerar fel typer om anslutningen. I följande tabell visas en lista över de aktuella fel typerna som returneras.
 
 |Typ  |Beskrivning  |
 |---------|---------|
-|Processor     | Hög processoranvändning.       |
-|Minne     | Hög minnesanvändning.       |
-|GuestFirewall     | Trafik blockeras på grund av en virtuell dator brandväggskonfiguration.        |
-|DNSResolution     | DNS-matchningen misslyckades för måladressen.        |
-|NetworkSecurityRule    | Trafik blockeras av en NSG-regel (regel returneras)        |
-|UserDefinedRoute|Trafiken sjönk på grund av en användardefinierad eller systemväg. |
+|Processor     | Hög CPU-användning.       |
+|Minne     | Hög minnes användning.       |
+|GuestFirewall     | Trafiken blockeras på grund av en konfiguration av en brand vägg för virtuella datorer.        |
+|DNSResolution     | DNS-matchningen misslyckades för mål adressen.        |
+|NetworkSecurityRule    | Trafiken blockeras av en NSG-regel (regeln returneras)        |
+|UserDefinedRoute|Trafiken bryts på grund av en användardefinierad eller system väg. |
 
 ### <a name="next-steps"></a>Nästa steg
 
-Lär dig att felsöka anslutningar som använder den [Azure-portalen](network-watcher-connectivity-portal.md), [PowerShell](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md), eller [REST API](network-watcher-connectivity-rest.md).
+Lär dig hur du felsöker anslutningar med hjälp av [Azure Portal](network-watcher-connectivity-portal.md), [POWERSHELL](network-watcher-connectivity-powershell.md), [Azure CLI](network-watcher-connectivity-cli.md)eller [REST API](network-watcher-connectivity-rest.md).

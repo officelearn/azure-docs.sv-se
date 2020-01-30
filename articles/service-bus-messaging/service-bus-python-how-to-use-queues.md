@@ -1,10 +1,9 @@
 ---
 title: 'Snabb start: använda Azure Service Bus köer med python'
-description: Lär dig hur du använder Azure Service Bus köer med python.
+description: Den här artikeln visar hur du använder python för att skapa, skicka meddelanden till och ta emot meddelanden från Azure Service Bus köer.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus-messaging
@@ -12,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: d0f579fcd82860380f1aaa651a61c0259d075a0d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748523"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773498"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Snabb start: använda Azure Service Bus köer med python
 
@@ -30,7 +29,7 @@ Den här artikeln visar hur du använder python för att skapa, skicka meddeland
 
 Mer information om python Azure Service Bus-bibliotek finns i [Service Bus bibliotek för python](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 - En Azure-prenumeration. Du kan aktivera dina [förmåner för Visual Studio eller MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - Ett Service Bus namn område som skapats genom att följa stegen i [snabb starten: använd Azure Portal för att skapa ett Service Bus ämne och prenumerationer](service-bus-quickstart-topics-subscriptions-portal.md). Kopiera den primära anslutnings strängen från skärmen **principer för delad åtkomst** som du kan använda senare i den här artikeln. 
 - Python 3.4 x eller senare, med [python Azure Service Bus][Python Azure Service Bus package] -paketet installerat. Mer information finns i [installations guiden för python](/azure/python/python-sdk-azure-install). 
@@ -101,7 +100,7 @@ with queue_client.get_receiver() as queue_receiver:
         message.complete()
 ```
 
-### <a name="use-the-peek_lock-parameter"></a>Använd parametern peek_lock
+### <a name="use-the-peek_lock-parameter"></a>Använd peek_lock parameter
 
 Den valfria `peek_lock` parametern för `get_receiver` avgör om Service Bus tar bort meddelanden från kön när de läses. Standard läget för att ta emot meddelanden är *PeekLock*, eller `peek_lock` anges till **True**, som läser (tittar) och låser meddelanden utan att ta bort dem från kön. Varje meddelande måste slutföras explicit för att ta bort det från kön.
 

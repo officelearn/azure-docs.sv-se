@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 908f02807d5a3f7c2c1391c3c59a54fc88bbd831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884157"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769245"
 ---
 # <a name="certificate-creation-methods"></a>Metoder för att skapa certifikat
 
@@ -41,10 +41,10 @@ Följande beskrivningar motsvarar de gröna bokstavs stegen i föregående diagr
 Följande beskrivningar motsvarar de gröna bokstavs stegen i föregående diagram.
 
 1. I diagrammet ovan skapar programmet ett certifikat som börjar med att skapa en nyckel i ditt nyckel valv.
-2. Key Vault skickar och SSL-certifikatbegäran till certifikat utfärdaren.
+2. Key Vault skickar en TLS/SSL-certifikatbegäran till certifikat utfärdaren.
 3. Programmet avsöker, i en slinga och väntar, för din Key Vault för att slutföra certifikatet. Certifikatet har skapats när Key Vault tar emot CA: ns svar med x509-certifikat.
-4. CA: n svarar på Key Vault SSL-certifikatbegäran med ett X509 SSL-certifikat.
-5. Ditt nya certifikat har skapats med sammanslagningen av X509-certifikatet för CA: n.
+4. CA: n svarar på Key Vaults TLS/SSL-certifikatbegäran med ett TLS/SSL X. 509-certifikat.
+5. Ditt nya certifikat har skapats med sammanslagningen av TLS/SSL X. 509-certifikatet för certifikat utfärdaren.
 
 ## <a name="asynchronous-process"></a>Asynkron process
 Att skapa KV-certifikat är en asynkron process. Den här åtgärden skapar en KV-certifikatbegäran och returnerar HTTP-statuskoden 202 (accepterad). Status för begäran kan spåras genom att avsöka det väntande objekt som skapas av den här åtgärden. Den fullständiga URI: n för det väntande objektet returneras i plats rubriken.  
@@ -53,7 +53,7 @@ När en begäran om att skapa ett KV-certifikat har slutförts ändras statusen 
 
 ## <a name="first-creation"></a>Första skapande
  När ett KV-certifikat skapas för första gången skapas även en adresserad nyckel och hemlighet med samma namn som certifikatet. Om namnet redan används kan åtgärden inte utföras med HTTP-statuskod 409 (konflikt).
-Den adresser bara nyckeln och hemligheten hämtar attributen från attributen för KV-certifikat. Den adresser bara nyckeln och hemligheten som skapas på det här sättet har marker ATS som hanterade nycklar och hemligheter, vars livs längd hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Obs! Om ett KV-certifikat går ut eller inaktive ras, kommer motsvarande nyckel och hemlighet att sluta fungera.  
+Den adresser bara nyckeln och hemligheten hämtar attributen från attributen för KV-certifikat. Den adresser bara nyckeln och hemligheten som skapas på det här sättet har marker ATS som hanterade nycklar och hemligheter, vars livs längd hanteras av Key Vault. Hanterade nycklar och hemligheter är skrivskyddade. Obs: om ett KV-certifikat går ut eller inaktive ras, kommer motsvarande nyckel och hemlighet att sluta fungera.  
 
  Om det här är den första åtgärden för att skapa ett KV-certifikat krävs en princip.  En princip kan också tillhandahållas med efterföljande skapande åtgärder för att ersätta princip resursen. Om ingen princip anges används princip resursen på tjänsten för att skapa en nästa version av KV-certifikatet. Observera att när en begäran om att skapa en nästa version pågår, är det aktuella KV-certifikatet och motsvarande adresser bara nyckel och hemlighet oförändrat.  
 
@@ -88,7 +88,7 @@ Skapande av certifikat kan slutföras manuellt eller med en "egen" utfärdare. K
 
 Observera att när en beställning placeras hos utfärdaren kan den ta eller åsidosätta x509-certifikatets tillägg och certifikatets giltighets period baserat på certifikat typen.  
 
- Auktoriseringsregeln Kräver behörigheten certifikat/skapa.
+ Auktorisering: kräver behörigheten certifikat/skapa.
 
 ## <a name="see-also"></a>Se även
  - [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)

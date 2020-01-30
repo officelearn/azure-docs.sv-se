@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: 4919c8f303488b583ea4d10dca87dd29bfb52e99
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b73c329c3db54ba78db15ced8e919af4d4a45d7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75374088"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76835172"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Vanliga frågor och svar om SQL Server som körs på virtuella Windows-datorer i Azure
 
@@ -66,7 +66,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
    Nej. För Galleri avbildningar för virtuella datorer som innehåller SQL Server måste du välja en av de angivna avbildningarna antingen via Azure Portal eller via [PowerShell](virtual-machines-windows-ps-sql-create.md). Du kan dock distribuera en virtuell Windows-dator och själv installera SQL Server till den. Du måste sedan [Registrera din SQL Server VM med SQL Server VM Resource Provider](virtual-machines-windows-sql-register-with-resource-provider.md) för att kunna hantera dina SQL Server VM i portalen, samt använda funktioner som automatisk uppdatering och automatisk säkerhets kopiering. 
 
 
-## <a name="creation"></a>Skapa
+## <a name="creation"></a>Flikar
 
 1. **Hur gör jag för att skapar du en virtuell Azure-dator med SQL Server?**
 
@@ -82,15 +82,6 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
    Det finns tre sätt att göra detta på. Om du är en kund med Enterprise Agreement (EA) kan du etablera en av de [avbildningar för virtuella datorer som har stöd för licenser](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), som även kallas för att ta din egen licens (BYOL). Om du har [Software Assurance](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-default)kan du aktivera [Azure Hybrid-förmån](virtual-machines-windows-sql-ahb.md) på en befintlig PAYG-avbildning (betala per användning). Du kan också kopiera SQL Server installationsmedia till en virtuell Windows Server-dator och sedan installera SQL Server på den virtuella datorn. Se till att registrera SQL Server VM med [resurs leverantören](virtual-machines-windows-sql-register-with-resource-provider.md) för funktioner som till exempel portal hantering, automatisk säkerhets kopiering och automatisk uppdatering. 
 
-1. **Måste jag betala för att licensiera SQL Server på en virtuell Azure-dator om den endast används för vänteläge/redundans?**
-
-   Om du vill ha en kostnads fri passiv licens för en sekundär tillgänglighets grupp i vänte läge eller en instans av redundanskluster måste du uppfylla alla följande kriterier som beskrivs i [produkt licens villkoren](https://www.microsoft.com/licensing/product-licensing/products):
-
-   1. Du har [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) genom [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. Den passiva SQL Server-instansen hanterar inte SQL Server data till klienter eller kör aktiva SQL Server arbets belastningar. Den används endast för att synkronisera med den primära servern och upprätthålla annars den passiva databasen i ett varmt vänte läge. Om den betjänar data, till exempel rapporter till klienter som kör aktiva SQL Server arbets belastningar eller utför något annat arbete än vad som anges i produkt villkoren, måste det vara en betald licensierad SQL Server-instans. Följande aktivitet tillåts på den sekundära instansen: konsekvens kontroll av databas eller CheckDB, fullständiga säkerhets kopior, säkerhets kopior av transaktions logg och övervakning av resurs användnings data. Du kan också köra den primära och motsvarande haveri beredskaps instansen samtidigt under korta perioder av haveri beredskap, var 90 dag. 
-   1. Den aktiva SQL Server-licensen omfattas av Software Assurance och tillåter **en** passiv sekundär SQL Server instans, med upp till samma beräknings mängd som den licensierade aktiva servern. 
-   1. Den sekundära SQL Server VM använder en [katastrof återställnings](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) licens i Azure Portal.
-
 1. **Kan jag ändra en virtuell till att använda min egen SQL Server-licens om den skapades från en av galleriavbildningarna med betala per användning?**
 
    Ja. Du kan enkelt byta en PAYG (betala per användning)-Galleri avbildningen (BYOL) genom att aktivera [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/faq/).  Mer information finns i [så här ändrar du licensierings modellen för en SQL Server VM](virtual-machines-windows-sql-ahb.md). Den här funktionen är för närvarande endast tillgänglig för kunder med offentliga moln.
@@ -98,6 +89,10 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 1. **Kräver byte av licensieringsmodeller någon avbrottstid för SQL Server?**
 
    Nej. Att [ändra licensierings modellen](virtual-machines-windows-sql-ahb.md) kräver ingen stillestånds tid för SQL Server eftersom ändringen börjar gälla omedelbart och inte kräver omstart av den virtuella datorn. Men för att registrera SQL Server VM med SQL Server VM Resource Provider, är [SQL IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md) en förutsättning och installation av SQL IaaS-tillägget i _full_ läge startar om SQL Server tjänsten. Om SQL IaaS-tillägget behöver installeras kan du antingen installera det i _Lightweight_ -läge för begränsade funktioner eller installera det i _fullständigt_ läge under en underhålls period. SQL IaaS-tillägget som installeras i _Lightweight_ -läge kan uppgraderas till _fullständigt_ läge när som helst, men kräver en omstart av SQL Servers tjänsten. 
+   
+1. **Är det möjligt att växla licensierings modell på en SQL Server VM distribuerad med hjälp av den klassiska modellen?**
+
+   Nej. Det finns inte stöd för att ändra licensierings modell på en klassisk virtuell dator. Du kan migrera den virtuella datorn till Azure Resource Manager-modellen och registrera dig hos SQL Server VM Resource Provider. När den virtuella datorn har registrerats med SQL Server VM Resource Provider, blir licensierings modellens ändringar tillgängliga på den virtuella datorn.
 
 1. **Kan jag använda Azure Portal för att hantera flera instanser på samma virtuella dator?**
 
@@ -106,6 +101,32 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 1. **Kan CSP-prenumerationer aktivera Azure Hybrid-förmån?**
 
    Ja, Azure Hybrid-förmån är tillgängligt för CSP-prenumerationer. CSP-kunder bör först distribuera en avbildning med betala per användning och sedan [ändra licensierings modellen](virtual-machines-windows-sql-ahb.md) till egen licens.
+   
+ 
+1. **Måste jag betala för att licensiera SQL Server på en virtuell Azure-dator om den endast används för vänteläge/redundans?**
+
+   Om du vill ha en kostnads fri passiv licens för en sekundär tillgänglighets grupp i vänte läge eller en instans av redundanskluster måste du uppfylla alla följande kriterier som beskrivs i [produkt licens villkoren](https://www.microsoft.com/licensing/product-licensing/products):
+
+   1. Du har [License Mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) genom [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
+   1. Den passiva SQL Server-instansen hanterar inte SQL Server data till klienter eller kör aktiva SQL Server arbets belastningar. Den används endast för att synkronisera med den primära servern och upprätthålla annars den passiva databasen i ett varmt vänte läge. Om den betjänar data, till exempel rapporter till klienter som kör aktiva SQL Server arbets belastningar eller utför något annat arbete än vad som anges i produkt villkoren, måste det vara en betald licensierad SQL Server-instans. Följande aktivitet tillåts på den sekundära instansen: konsekvens kontroll av databas eller CheckDB, fullständiga säkerhets kopior, säkerhets kopior av transaktions logg och övervakning av resurs användnings data. Du kan också köra den primära och motsvarande haveri beredskaps instansen samtidigt under korta perioder av haveri beredskap, var 90 dag. 
+   1. Den aktiva SQL Server-licensen omfattas av Software Assurance och tillåter **en** passiv sekundär SQL Server instans, med upp till samma beräknings mängd som den licensierade aktiva servern. 
+   1. Den sekundära SQL Server VM använder en [katastrof återställnings](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure) licens i Azure Portal.
+   
+1. **Vad betraktas som en passiv instans?**
+
+   Den passiva SQL Server-instansen hanterar inte SQL Server data till klienter eller kör aktiva SQL Server arbets belastningar. Den används endast för att synkronisera med den primära servern och upprätthålla annars den passiva databasen i ett varmt vänte läge. Om den betjänar data, till exempel rapporter till klienter som kör aktiva SQL Server arbets belastningar eller utför något annat arbete än vad som anges i produkt villkoren, måste det vara en betald licensierad SQL Server-instans. Följande aktivitet tillåts på den sekundära instansen: konsekvens kontroll av databas eller CheckDB, fullständiga säkerhets kopior, säkerhets kopior av transaktions logg och övervakning av resurs användnings data. Du kan också köra den primära och motsvarande haveri beredskaps instansen samtidigt under korta perioder av haveri beredskap, var 90 dag.
+   
+
+1. **Vilka scenarier kan använda unsmake Recovery (DR)-förmånen?**
+
+   [Licens guiden](https://aka.ms/sql2019licenseguide) innehåller scenarier där Disaster Recovery-förmånen kan användas. Mer information hittar du i produkt villkoren och pratar med licens kontakterna eller konto chefen.
+
+1. **Vilka prenumerationer har stöd för haveri beredskap (DR)-förmånen?**
+
+   Omfattande program som erbjuder Software Assurance-likvärdiga prenumerations rättigheter som en fast förmån har stöd för DR-förmånen. Detta inkluderar. men är inte begränsat till, öppning svärdet (OV), Open Value-prenumerationen (OVS), Enterprise-avtal (EA), Enterprise Subscription Agreement (EAS) och server-och moln registrering (SCE). Mer information hittar du i [produkt villkoren](https://www.microsoft.com/licensing/product-licensing/products) och pratar om licens kontakter eller acocunt Manager. 
+
+   
+ ## <a name="resource-provider"></a>Resursprovider
 
 1. **Kommer den virtuella datorn att registreras med den nya SQL Server VM resurs leverantören att få ytterligare kostnader?**
 
@@ -127,9 +148,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
     Ja. Om du har distribuerat SQL Server från ditt eget medium och installerat SQL IaaS-tillägget kan du registrera dina SQL Server VM med resurs leverantören för att få de hanterings förmåner som ges av tillägget för SQL-IaaS. Du kan dock inte konvertera en självdistribuerad SQL Server VM för att betala per användning.
 
-1. **Är det möjligt att växla licensierings modell på en SQL Server VM distribuerad med hjälp av den klassiska modellen?**
 
-   Nej. Det finns inte stöd för att ändra licensierings modell på en klassisk virtuell dator. Du kan migrera den virtuella datorn till Azure Resource Manager-modellen och registrera dig hos SQL Server VM Resource Provider. När den virtuella datorn har registrerats med SQL Server VM Resource Provider, blir licensierings modellens ändringar tillgängliga på den virtuella datorn. 
    
 
 
@@ -183,7 +202,7 @@ Den här artikeln innehåller svar på några av de vanligaste frågorna om att 
 
 1. **Stöds SQL Server FCI (failover Cluster instances) på virtuella Azure-datorer?**
 
-   Ja. Du kan [skapa ett Windows-redundanskluster på Windows Server 2016](virtual-machines-windows-portal-sql-create-failover-cluster.md) och använda LAGRINGSDIRIGERING (S2D) för kluster lagringen. Du kan också använda klustring eller lagrings lösningar från tredje part enligt beskrivningen i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
+   Ja. Du kan installera en instans av ett redundanskluster med hjälp av antingen [Premium fil resurser (PFS)](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) eller [Storage Spaces Direct (S2D)](virtual-machines-windows-portal-sql-create-failover-cluster.md) för underlag rings systemet. Premium-filresurser ger IOPS och data flödes kapacitet som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du överväga att använda lagrings dirigering baserat på hanterade Premium eller Ultra disks. Du kan också använda klustring eller lagrings lösningar från tredje part enligt beskrivningen i [hög tillgänglighet och haveri beredskap för SQL Server i Azure Virtual Machines](virtual-machines-windows-sql-high-availability-dr.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
    > För närvarande stöds inte det _fullständiga_ [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) för SQL Server FCI på Azure. Vi rekommenderar att du avinstallerar det _fullständiga_ tillägget från virtuella datorer som ingår i FCI och installerar tillägget i _Lightweight_ -läge i stället. Det här tillägget har stöd för funktioner, till exempel automatisk säkerhets kopiering och uppdatering och vissa Portal funktioner för SQL Server. Dessa funktioner fungerar inte för SQL Server virtuella datorer när den _fullständiga_ agenten har avinstallerats.

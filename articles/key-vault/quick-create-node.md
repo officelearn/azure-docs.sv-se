@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e36e3ae9ce2e8ca116921de428b4dcc09b37afb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a59ba62df546c60c4086829eec355d3e69b69363
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978585"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773727"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>Snabb start: Azure Key Vault klient bibliotek för Node. js (v4)
 
@@ -22,7 +22,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Öka säkerheten och kontrollen över nycklar och lösen ord.
 - Skapa och importera krypterings nycklar på några minuter.
 - Minska svars tiden med moln skalning och global redundans.
-- Förenkla och automatisera uppgifter för SSL/TLS-certifikat.
+- Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
 [API Reference-dokumentation](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [bibliotekets käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [paketet (NPM)](https://www.npmjs.com/package/@azure/keyvault-secrets)
@@ -123,7 +123,7 @@ Med Azure Key Vault klient biblioteket för Node. js kan du hantera nycklar och 
 
 Hela konsol programmet finns på https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 ### <a name="add-directives"></a>Lägg till direktiv
 

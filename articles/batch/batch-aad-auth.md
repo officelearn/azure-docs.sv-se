@@ -12,14 +12,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/15/2019
+ms.date: 01/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56fcd5a8a02e292fdf43f9d22f3987813bce0743
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ce3582539d6130e13ef205806d780164ba70c4fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029821"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842545"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autentisera batch service-lösningar med Active Directory
 
@@ -119,7 +119,7 @@ Om du vill autentisera ett program som körs obevakat använder du ett huvud nam
 
 När ditt program autentiserar med ett huvud namn för tjänsten, skickar det både program-ID och en hemlighet till Azure AD. Du måste skapa och kopiera den hemliga nyckeln för att använda från din kod.
 
-Följ dessa steg i Azure-portalen:
+Följ de här stegen i Azure Portal:
 
 1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**. Välj **app-registreringar**.
 1. Välj ditt program i listan med app-registreringar.
@@ -144,6 +144,67 @@ Ditt program bör nu visas i inställningarna för åtkomst kontroll med en RBAC
 
 ![Tilldela en RBAC-roll till ditt program](./media/batch-aad-auth/app-rbac-role.png)
 
+### <a name="assign-a-custom-role"></a>Tilldela en anpassad roll
+
+En anpassad roll ger detaljerad behörighet till en användare för att skicka jobb, uppgifter med mera. Detta ger möjlighet att förhindra att användare utför åtgärder som påverkar kostnader, till exempel skapa pooler eller ändra noder.
+
+Du kan använda en anpassad roll för att bevilja behörighet till en Azure AD-användare, en grupp eller ett tjänst huvud namn för följande RBAC-åtgärder:
+
+- Microsoft. batch/batchAccounts/pooler/Skriv
+- Microsoft. batch/batchAccounts/pooler/ta bort
+- Microsoft. batch/batchAccounts/pooler/läsa
+- Microsoft. batch/batchAccounts/jobSchedules/Write
+- Microsoft. batch/batchAccounts/jobSchedules/Delete
+- Microsoft. batch/batchAccounts/jobSchedules/Read
+- Microsoft. batch/batchAccounts/Jobs/Write
+- Microsoft. batch/batchAccounts/Jobs/Delete
+- Microsoft. batch/batchAccounts/Jobs/Read
+- Microsoft. batch/batchAccounts/certifikat/skriva
+- Microsoft. batch/batchAccounts/certifikat/ta bort
+- Microsoft. batch/batchAccounts/certifikat/läsa
+- Microsoft. batch/batchAccounts/Read (för alla Läs åtgärder)
+- Microsoft. batch/batchAccounts/Listnycklar/Action (för alla åtgärder)
+
+Anpassade roller är för användare som autentiseras av Azure AD, inte för batch-kontots autentiseringsuppgifter (delad nyckel). Observera att autentiseringsuppgifterna för batch-kontot ger fullständig behörighet till batch-kontot. Observera också att jobb som använder autopoolen kräver behörigheter på grupp nivå.
+
+Här är ett exempel på en anpassad roll definition:
+
+```json
+{
+ "properties":{
+    "roleName":"Azure Batch Custom Job Submitter",
+    "type":"CustomRole",
+    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
+    "assignableScopes":[
+      "/subscriptions/88888888-8888-8888-8888-888888888888"
+    ],
+    "permissions":[
+      {
+        "actions":[
+          "Microsoft.Batch/*/read",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/alertRules/*"
+        ],
+        "notActions":[
+
+        ],
+        "dataActions":[
+          "Microsoft.Batch/batchAccounts/jobs/*",
+          "Microsoft.Batch/batchAccounts/jobSchedules/*"
+        ],
+        "notDataActions":[
+
+        ]
+      }
+    ]
+  }
+}
+```
+
+Mer allmän information om hur du skapar en anpassad roll finns i [anpassade roller för Azure-resurser](../role-based-access-control/custom-roles.md).
+
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Hämta klient-ID för Azure Active Directory
 
 Klient-ID: t identifierar den Azure AD-klient som tillhandahåller Authentication Services för ditt program. Följ dessa steg om du vill hämta klient-ID:
@@ -154,7 +215,7 @@ Klient-ID: t identifierar den Azure AD-klient som tillhandahåller Authenticatio
 
 ![Kopiera katalog-ID](./media/batch-aad-auth/aad-directory-id.png)
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 I kod exemplen i det här avsnittet visas hur du autentiserar med Azure AD med integrerad autentisering och med ett huvud namn för tjänsten. De flesta av dessa kod exempel använder .NET, men begreppen liknar andra språk.
 

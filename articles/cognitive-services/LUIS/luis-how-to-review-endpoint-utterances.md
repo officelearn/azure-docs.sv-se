@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: ed0b9450217b06ff145641d9e268ccee28ee49b2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710598"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775137"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>Förbättra LUIS-appen genom att granska slut punkts yttranden
 
@@ -27,6 +27,22 @@ Processen för att granska slut punkts yttranden för korrekta förutsägelser k
 ## <a name="enable-active-learning"></a>Aktivera aktiv inlärning
 
 Om du vill aktivera aktiv inlärning måste du logga användar frågor. Detta åstadkommer du genom att anropa [slut punkts frågan](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) med parametern och värdet för `log=true` QueryString.
+
+Använd LUIS-portalen för att skapa rätt slut punkts fråga.
+
+1. Välj din app i listan över appar i [Luis-portalen för förhands granskning](https://preview.luis.ai/).
+1. Gå till avsnittet **Hantera** och välj sedan **Azure-resurser**.
+1. För den tilldelade förutsägelse resursen väljer du **ändra**frågeparametrar.
+
+    > [!div class="mx-imgBorder"]
+    > ![använda LUIS-portalen för att spara loggar, vilket krävs för aktiv inlärning.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. Växla **Spara loggar** och spara genom att välja **färdig**.
+
+    > [!div class="mx-imgBorder"]
+    > ![använda LUIS-portalen för att spara loggar, vilket krävs för aktiv inlärning.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     Den här åtgärden ändrar exempel-URL genom att lägga till parametern `log=true` QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>Korrigera yttranden genom att korrigera avsikts förutsägelser
 

@@ -3,19 +3,19 @@ title: Utvärderingar i Azure Migrate
 description: Lär dig mer om utvärderingar i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029113"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833337"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Om utvärderingar i Azure Migrate
 
 Den här artikeln beskriver hur utvärderingar beräknas i [Azure Migrate: Server bedömning](migrate-services-overview.md#azure-migrate-server-assessment-tool). Du kan köra utvärderingar på grupper av lokala datorer för att ta reda på om de är redo för migrering till Azure Migrate.
 
 ## <a name="how-do-i-run-an-assessment"></a>Hur gör jag för att köra en utvärdering?
-Du kan köra en utvärdering med hjälp av Azure Migrate: Server utvärdering eller något annat Azure-verktyg eller från tredje part. När du har skapat ett Azure Migrate-projekt lägger du till det verktyg du behöver. [Läs mer] (how-to-add-tool-first-time.md
+Du kan köra en utvärdering med hjälp av Azure Migrate: Server utvärdering eller något annat Azure-verktyg eller från tredje part. När du har skapat ett Azure Migrate-projekt lägger du till det verktyg du behöver. [Läs mer](how-to-add-tool-first-time.md)
 
 ### <a name="collect-compute-data"></a>Samla in beräknings data
 
@@ -124,11 +124,11 @@ Server utvärderingen granskar följande egenskaper för den lokala virtuella da
 --- | --- | ---
 **Start typ** | Azure har stöd för virtuella datorer med en start typ av BIOS, inte UEFI. | Villkorligt redo om start typen är UEFI.
 **Kärnor** | Antalet kärnor på datorerna måste vara lika med eller mindre än det maximala antalet kärnor (128) som stöds för en virtuell Azure-dator.<br/><br/> Om prestanda historiken är tillgänglig, Azure Migrate beakta de använda kärnorna för jämförelse. Om en bekvämlighets faktor anges i utvärderings inställningarna multipliceras antalet använda kärnor av den praktiska faktorn.<br/><br/> Om det inte finns någon prestanda historik använder Azure Migrate tilldelade kärnor utan att använda den praktiska faktorn. | Redo om det är mindre än eller lika med begränsningar.
-**Minne** | Datorns minnes storlek måste vara lika med eller mindre än det maximala minne (3892 gigabyte [GB] i Azure M-serien Standard_M128m&nbsp;<sup>2</sup>) som tillåts för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate använda det använda minnet för jämförelse. Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
+**Minnesoptimerade** | Datorns minnes storlek måste vara lika med eller mindre än det maximala minne (3892 gigabyte [GB] i Azure M-serien Standard_M128m&nbsp;<sup>2</sup>) som tillåts för en virtuell Azure-dator. [Läs mer](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> Om prestanda historiken är tillgänglig kan Azure Migrate använda det använda minnet för jämförelse. Om en bekvämlighets faktor anges multipliceras det använda minnet av den praktiska faktorn.<br/><br/> Om det inte finns någon historik används allokerat minne utan att du använder den praktiska faktorn.<br/><br/> | Redo om det är inom gränserna.
 **Lagrings disk** | Den allokerade storleken på en disk måste vara 32 TB eller mindre. Även om Azure har stöd för 64-TB-diskar med Ultra SSD diskar, Azure Migrate: Server utvärdering söker för närvarande efter 32 TB som disk storleks gränser eftersom de inte stöder Ultra SSD än. <br/><br/> Antalet diskar som är anslutna till datorn måste vara 65 eller mindre, inklusive OS-disken. | Redo om det är inom gränserna.
 **Nätverk** | En dator måste ha 32 eller färre nätverks gränssnitt (NIC) anslutna till den. | Redo om det är inom gränserna.
 
-### <a name="guest-operating-system"></a>Gästoperativsystem
+### <a name="guest-operating-system"></a>Gäst operativ system
 Tillsammans med VM-egenskaper tittar Server utvärderingen på datorns gäst operativ system för att avgöra om den kan köras på Azure.
 
 > [!NOTE]
@@ -136,7 +136,7 @@ Tillsammans med VM-egenskaper tittar Server utvärderingen på datorns gäst ope
 
 Följande logik används av Server utvärderingen för att identifiera Azure-beredskap baserat på operativ systemet.
 
-**Operativsystem** | **Detaljer** | **Status för Azure-beredskap**
+**Operativ system** | **Detaljer** | **Status för Azure-beredskap**
 --- | --- | ---
 Windows Server 2016 & alla SPs | Azure ger fullständig support. | Redo för Azure
 Windows Server 2012 R2 & alla SPs | Azure ger fullständig support. | Redo för Azure

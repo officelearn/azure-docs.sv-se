@@ -6,15 +6,15 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 05/20/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 37249d904343a4eddb0d1e82f451c3b9e95a479d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953496"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770745"
 ---
 # <a name="azure-table-storage-overview"></a>Översikt över Azure Table Storage
 
@@ -30,7 +30,7 @@ Du kan använda Table Storage för att lagra flexibla datauppsättningar som anv
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) är en kostnadsfri, fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data i Windows, macOS och Linux.
 
-* [Komma igång med Azure Cosmos DB Table API och Azure Table storage med .NET SDK](table-storage-how-to-use-dotnet.md)
+* [Kom igång med Azure Cosmos DB Tabell-API och Azure Table Storage med hjälp av .NET SDK](table-storage-how-to-use-dotnet.md)
 
 * Fullständig information om tillgängliga API:er finns i referensdokumentationen för tabelltjänsten:
 

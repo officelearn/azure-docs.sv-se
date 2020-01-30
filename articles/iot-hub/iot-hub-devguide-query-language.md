@@ -1,33 +1,33 @@
 ---
-title: Förstå Azure IoT Hub-frågespråk | Microsoft Docs
-description: Utvecklarguide – beskrivning av IoT-hubben som SQL-liknande frågespråk som används för att hämta information om enheten/modultvillingar och jobb från IoT hub.
+title: Förstå Azure-språket för IoT Hub frågor | Microsoft Docs
+description: Guide för utvecklare – Beskrivning av SQL-liknande IoT Hub frågespråk som används för att hämta information om enhet/modul-dubbla och jobb från IoT Hub.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
-ms.openlocfilehash: 03d2ca0b7d6b53215c5293f84c8b22a2dc0d8297
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: b224de96f6b6baedc3b57e0245a4c4e8748576b4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67450064"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767722"
 ---
-# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub-frågespråk för tvillingar för enheten och modulen, jobb och meddelanderoutning
+# <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>IoT Hub frågespråk för enhet och modul, flera jobb och meddelanderoutning
 
-IoT Hub tillhandahåller ett kraftfullt SQL-liknande språk för att hämta information om [enhetstvillingar](iot-hub-devguide-device-twins.md), [modultvillingar](iot-hub-devguide-module-twins.md), [jobb](iot-hub-devguide-jobs.md), och [meddelanderoutning](iot-hub-devguide-messages-d2c.md). Den här artikeln beskriver vi:
+IoT Hub är ett kraftfullt SQL-liknande språk för att hämta information om [enhetens dubblare](iot-hub-devguide-device-twins.md), [modulens dubblare](iot-hub-devguide-module-twins.md), [jobb](iot-hub-devguide-jobs.md)och [meddelanderoutning.](iot-hub-devguide-messages-d2c.md) Den här artikeln visar:
 
-* En introduktion till de viktigaste funktionerna i frågespråket IoT Hub och
-* Detaljerad beskrivning av språket. Mer information om frågespråk för meddelanderoutning finns [frågor i meddelanderoutning](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
+* En introduktion till huvud funktionerna i IoT Hub frågespråk och
+* En detaljerad beskrivning av språket. Information om frågespråket för meddelanderoutning finns i [frågor i](../iot-hub/iot-hub-devguide-routing-query-syntax.md)meddelanderoutning.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Enheten och modulen twin frågor
 
-[Enhetstvillingar](iot-hub-devguide-device-twins.md) och [modultvillingar](iot-hub-devguide-module-twins.md) kan innehålla godtycklig JSON-objekt som både taggar och egenskaper. IoT Hub kan du fråga enhetstvillingar och modultvillingar som ett enda JSON-dokument som innehåller alla twin information.
+[Enheten är uppflätad](iot-hub-devguide-device-twins.md) och [modulerna](iot-hub-devguide-module-twins.md) kan innehålla godtyckliga JSON-objekt som både Taggar och egenskaper. Med IoT Hub kan du fråga enhetens dubblare och modul sammanflätade som ett enda JSON-dokument med all dubbel information.
 
-Anta exempelvis att din IoT hub-enhetstvillingar har följande struktur (modultvilling skulle vara liknande bara med en ytterligare moduleId):
+Anta till exempel att din IoT Hub-enhet har följande struktur (modulin skulle vara precis med ytterligare en moduleId):
 
 ```json
 {
@@ -79,25 +79,25 @@ Anta exempelvis att din IoT hub-enhetstvillingar har följande struktur (modultv
 }
 ```
 
-### <a name="device-twin-queries"></a>Enhetstvillingfrågor
+### <a name="device-twin-queries"></a>Enhets dubbla frågor
 
-IoT-hubb exponerar enhetstvillingar som en dokumentsamling som heter **enheter**. Följande fråga hämtar exempelvis hela uppsättningen av enhetstvillingar:
+IoT Hub visar att enheten är uppflätad som en dokument samling som kallas **enheter**. Följande fråga hämtar till exempel hela enhets uppsättningen:
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> [Azure IoT SDK: er](iot-hub-devguide-sdks.md) stöder sidindelning av stora resultat.
+> [Azure IoT-SDK](iot-hub-devguide-sdks.md) : er stöder växling av stora resultat.
 
-IoT Hub kan du hämta enhetstvillingar filtrering med godtyckliga villkor. Till exempel att ta emot device twins var den **location.region** tagg har angetts till **USA** använder du följande fråga:
+Med IoT Hub kan du hämta enhets filter med valfria villkor. Om du till exempel vill ta emot enheten på flera **platser där taggen location. region** har angetts till **oss** använder du följande fråga:
 
 ```sql
 SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Booleska operatorer och aritmetiskt jämförelser stöds också. Till exempel om du vill hämta enhetstvillingar finns i USA och konfigurerad för att skicka telemetri till mindre än varje minut, använder du följande fråga:
+Booleska operatorer och aritmetiska jämförelser stöds också. För att till exempel hämta enheter som finns i USA och som kon figurer ATS för att skicka telemetri mindre än varje minut, använder du följande fråga:
 
 ```sql
 SELECT * FROM devices
@@ -105,23 +105,23 @@ SELECT * FROM devices
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
-Underlätta för dig, det är också möjligt att använda konstanterna i matrisen med de **IN** och **ni** (inte i) operatörer. Till exempel använda enhetstvillingar som rapporterar Wi-Fi eller trådbunden anslutning för att hämta följande fråga:
+Som bekvämlighet är det också möjligt att använda matriskonstanter med operatorerna **in** och **nom** (inte in). Om du till exempel vill hämta en enhet som rapporterar WiFi eller kabelansluten anslutning använder du följande fråga:
 
 ```sql
 SELECT * FROM devices
   WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
-Du behöver ofta identifiera alla enhetstvillingar som innehåller en viss egenskap. Funktionen stöds av IoT Hub `is_defined()` för detta ändamål. Exempelvis kan du hämta enhetstvillingar som definierar den `connectivity` egenskapen använder du följande fråga:
+Det är ofta nödvändigt att identifiera alla enheter som innehåller en speciell egenskap. IoT Hub stöder funktionen `is_defined()` för det här ändamålet. Om du t. ex. vill hämta dubbla enheter som definierar `connectivity`-egenskapen använder du följande fråga:
 
 ```SQL
 SELECT * FROM devices
   WHERE is_defined(properties.reported.connectivity)
 ```
 
-Referera till den [WHERE-satsen](iot-hub-devguide-query-language.md#where-clause) avsnittet för fullständig referens av vilka filtreringsfunktioner.
+Se avsnittet [WHERE-sats](iot-hub-devguide-query-language.md#where-clause) för en fullständig referens till filtrerings funktionerna.
 
-Gruppering och aggregeringar stöds också. Till exempel om du vill hitta antal enheter i varje status för konfiguration av telemetri, använder du följande fråga:
+Gruppering och agg regeringar stöds också. Om du till exempel vill hitta antalet enheter i varje konfigurations status för telemetri använder du följande fråga:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -130,7 +130,7 @@ SELECT properties.reported.telemetryConfig.status AS status,
   GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Den här grupperingen frågan returnerar ett resultat liknar följande exempel:
+Den här grupp frågan returnerar ett resultat som liknar följande exempel:
 
 ```json
 [
@@ -149,29 +149,29 @@ Den här grupperingen frågan returnerar ett resultat liknar följande exempel:
 ]
 ```
 
-I det här exemplet tre enheter rapporteras framgångsrik konfigurering, två fortfarande tillämpar konfigurationen och en rapporterade ett fel.
+I det här exemplet har tre enheter rapporterat att konfigurationen har slutförts, två använder fortfarande konfigurationen och ett fel rapporteras.
 
-Projektionsfrågor kan utvecklare returnerar bara de egenskaper som de som intresserar dig. Till exempel frånkopplade om du vill hämta den senaste aktivitetstiden för alla enheter, Använd följande fråga:
+Med projektions frågor kan utvecklare bara returnera de egenskaper som de bryr sig om. För att till exempel hämta den senaste aktivitets tiden för alla frånkopplade enheter använder du följande fråga:
 
 ```sql
 SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 ```
 
-### <a name="module-twin-queries"></a>Modulen twin frågor
+### <a name="module-twin-queries"></a>Modul, dubbla frågor
 
-Frågekörning på modultvillingar liknar frågekörning på enhetstvillingar, men använder en annan samling/namnrymd; i stället för från **enheter**, du fråga från **devices.modules**:
+Fråga om modulernas dubblare liknar fråga på enheten, men med en annan samling/namnrymd; i stället för från **enheter**frågar du från **enheter. modules**:
 
 ```sql
 SELECT * FROM devices.modules
 ```
 
-Tillåter vi inte koppling mellan enheter och devices.modules samlingar. Om du vill fråga modultvillingar mellan enheter, gör du det baserat på taggar. Den här frågan returnerar alla modultvillingar på alla enheter med statusen genomsökning:
+Vi tillåter inte koppling mellan enheterna och enheterna. modules-samlingar. Om du vill att fråge modulen ska ha flera enheter, gör du det baserat på taggar. Den här frågan returnerar all modul dubbla på alla enheter med genomsöknings status:
 
 ```sql
 SELECT * FROM devices.modules WHERE properties.reported.status = 'scanning'
 ```
 
-Den här frågan returnerar alla modultvillingar med statusen genomsökning, men bara om den angivna Undergrupp enheter:
+Den här frågan returnerar alla moduler med skannings status, men endast på den angivna del mängden av enheter:
 
 ```sql
 SELECT * FROM devices.modules
@@ -179,9 +179,9 @@ SELECT * FROM devices.modules
   AND deviceId IN ['device1', 'device2']
 ```
 
-### <a name="c-example"></a>C#-exempel
+### <a name="c-example"></a>C#exempel
 
-Frågefunktioner som exponeras av den [C#-tjänst-SDK](iot-hub-devguide-sdks.md) i den **RegistryManager** klass.
+Fråge funktionen exponeras av SDK för [ C# tjänsten](iot-hub-devguide-sdks.md) i klassen **RegistryManager** .
 
 Här är ett exempel på en enkel fråga:
 
@@ -197,13 +197,13 @@ while (query.HasMoreResults)
 }
 ```
 
-Den **fråga** objektet instantieras med en storlek (upp till 100). Och sedan flera sidor som hämtas genom att anropa den **GetNextAsTwinAsync** metoder flera gånger.
+**Frågespråket** instansieras med en sid storlek (upp till 100). Sedan hämtas flera sidor genom att anropa **GetNextAsTwinAsync** -metoderna flera gånger.
 
-Frågeobjektet visar flera **nästa** värden, beroende på vilket alternativ för deserialisering som krävs av frågan. Till exempel enhetstvilling eller jobb enhetsobjekt eller vanlig JSON när du använder projektioner.
+Objektet fråga visar flera **Nästa** värden, beroende på vilket avserialiserings alternativ som krävs av frågan. Till exempel enhets-eller jobb objekt, eller vanlig JSON när du använder projektioner.
 
-### <a name="nodejs-example"></a>Node.js-exempel
+### <a name="nodejs-example"></a>Node. js-exempel
 
-Frågefunktioner som exponeras av den [Azure IoT service SDK för Node.js](iot-hub-devguide-sdks.md) i den **registret** objekt.
+Fråge funktionen exponeras av [Azure IoT service SDK för Node. js](iot-hub-devguide-sdks.md) i **Registry** -objektet.
 
 Här är ett exempel på en enkel fråga:
 
@@ -226,20 +226,20 @@ var onResults = function(err, results) {
 query.nextAsTwin(onResults);
 ```
 
-Den **fråga** objektet instantieras med en storlek (upp till 100). Och sedan flera sidor som hämtas genom att anropa den **nextAsTwin** metoden flera gånger.
+**Frågespråket** instansieras med en sid storlek (upp till 100). Sedan hämtas flera sidor genom att **nextAsTwin** -metoden anropas flera gånger.
 
-Frågeobjektet visar flera **nästa** värden, beroende på vilket alternativ för deserialisering som krävs av frågan. Till exempel enhetstvilling eller jobb enhetsobjekt eller vanlig JSON när du använder projektioner.
+Objektet fråga visar flera **Nästa** värden, beroende på vilket avserialiserings alternativ som krävs av frågan. Till exempel enhets-eller jobb objekt, eller vanlig JSON när du använder projektioner.
 
 ### <a name="limitations"></a>Begränsningar
 
 > [!IMPORTANT]
-> Frågeresultat kan ha ett par minuters fördröjning med avseende på de senaste värdena i enhetstvillingar. Om frågar enskilda enhetstvillingar efter ID, använder du hämta device twin API. Detta API innehåller de senaste värdena alltid och har högre nätverksbegränsningar.
+> Frågeresultaten kan ha några minuters fördröjning i förhållande till de senaste värdena i enheten är dubbla. Om en fråga om en enskild enhet är uppflätad med ID, använder du funktionen [Hämta dubbla REST API](https://docs.microsoft.com/rest/api/iothub/service/gettwin). Detta API returnerar alltid de senaste värdena och har högre begränsnings gränser. Du kan utfärda REST API direkt eller använda motsvarande funktioner i en av [Azure IoT Hub service SDK: erna](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
-Jämförelser är för närvarande endast mellan primitiva typer (inga objekt), till exempel `... WHERE properties.desired.config = properties.reported.config` stöds endast om dessa egenskaper har primitiva värden.
+För närvarande stöds jämförelser bara mellan primitiva typer (inga objekt), till exempel `... WHERE properties.desired.config = properties.reported.config` stöds endast om dessa egenskaper har primitiva värden.
 
-## <a name="get-started-with-jobs-queries"></a>Kom igång med frågor om jobb
+## <a name="get-started-with-jobs-queries"></a>Kom igång med jobb frågor
 
-[Jobb](iot-hub-devguide-jobs.md) ger dig ett sätt att utföra åtgärder på Enhetsuppsättningar. Varje enhetstvillingen innehåller information om de jobb som den är en del i en samling som heter **jobb**.
+[Jobb](iot-hub-devguide-jobs.md) är ett sätt att köra åtgärder på enhets uppsättningar. Varje enhet, som innehåller information om de jobb som den ingår i en samling som kallas **jobb**.
 
 ```json
 {
@@ -270,25 +270,25 @@ Jämförelser är för närvarande endast mellan primitiva typer (inga objekt), 
 }
 ```
 
-Den här samlingen är för närvarande frågningsbar som **devices.jobs** i IoT Hub-frågespråk.
+För närvarande är den här samlingen frågad som **Devices.Jobs** i IoT Hub frågespråk.
 
 > [!IMPORTANT]
-> För närvarande returneras egenskapen jobb aldrig vid sökning efter enhetstvillingar. Det vill säga de frågor som innehåller ”från enheter”. Egenskapen jobb som bara kan användas direkt med frågor med `FROM devices.jobs`.
+> För närvarande returneras inte jobb-egenskapen när en fråga om enheten är uppkopplad. Det vill säga frågor som innehåller "från enheter". Det går bara att komma åt jobb egenskapen direkt med frågor med hjälp av `FROM devices.jobs`.
 >
 >
 
-Du kan exempelvis använda följande fråga för att hämta alla jobb (senaste och schemalagda) som påverkar en enskild enhet:
+Om du till exempel vill hämta alla jobb (tidigare och schemalagda) som påverkar en enskild enhet kan du använda följande fråga:
 
 ```sql
 SELECT * FROM devices.jobs
   WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
-Observera hur den här frågan innehåller specifika status (och svaret direkt metod) för varje jobb som returneras.
+Observera hur den här frågan tillhandahåller enhetsspecifika status (och eventuellt det direkta metod svaret) för varje jobb som returneras.
 
-Det är också möjligt att filtrera med valfritt booleskt villkor för alla objektegenskaper i den **devices.jobs** samling.
+Det går också att filtrera med valfria booleska villkor för alla objekt egenskaper i **Devices.Jobs** -samlingen.
 
-Till exempel om du vill hämta alla slutförda device twin uppdateringsjobb som har skapats efter September 2016 för en specifik enhet, använder du följande fråga:
+För att till exempel hämta alla slutförda enhets dubbla uppdaterings jobb som har skapats efter den 2016 september för en speciell enhet, Använd följande fråga:
 
 ```sql
 SELECT * FROM devices.jobs
@@ -298,7 +298,7 @@ SELECT * FROM devices.jobs
     AND devices.jobs.createdTimeUtc > '2016-09-01'
 ```
 
-Du kan också hämta resultat per enhet för ett enskilt jobb.
+Du kan också hämta resultatet av varje enhet i ett enda jobb.
 
 ```sql
 SELECT * FROM devices.jobs
@@ -307,15 +307,15 @@ SELECT * FROM devices.jobs
 
 ### <a name="limitations"></a>Begränsningar
 
-För närvarande frågar på **devices.jobs** har inte stöd för:
+För närvarande stöder inte frågor på **Devices.Jobs** :
 
-* Projektioner, därför kan bara `SELECT *` är möjligt.
-* Villkor som refererar till enhetstvillingen förutom jobbegenskaper (se föregående avsnitt).
-* Utföra aggregeringar, till exempel antal, avg, gruppera efter.
+* Projektioner, därför är det bara `SELECT *` möjligt.
+* Villkor som refererar till enheten, tillsammans med jobb egenskaper (se föregående avsnitt).
+* Utföra agg regeringar, t. ex. Count, AVG, Group by.
 
-## <a name="basics-of-an-iot-hub-query"></a>Grunderna i en IoT Hub-fråga
+## <a name="basics-of-an-iot-hub-query"></a>Grunderna i en IoT Hub fråga
 
-Varje IoT Hub-fråga består av väljer och från satser med valfritt var och en GROUP BY-satser. Varje fråga som körs på en samling av JSON-dokument, till exempel enhetstvillingar. FROM-satsen anger dokumentsamling itereras på (**enheter**, **devices.modules**, eller **devices.jobs**). Sedan tillämpas filtret i WHERE-satsen. Resultatet av det här steget är grupperade med aggregeringar, som angetts i GROUP BY-satsen. En rad skapas för varje grupp som angetts i SELECT-satsen.
+Varje IoT Hub fråga består av SELECT-och FROM-satser, med valfria WHERE-och GROUP BY-satser. Varje fråga körs på en samling JSON-dokument, t. ex. enheten. FROM-satsen anger den dokument samling som ska upprepas på (**enheter**, **enheter. moduler**eller **Devices.Jobs**). Sedan används filtret i WHERE-satsen. Med agg regeringar grupperas resultatet av det här steget som anges i GROUP BY-satsen. För varje grupp genereras en rad som anges i SELECT-satsen.
 
 ```sql
 SELECT <select_list>
@@ -324,22 +324,22 @@ SELECT <select_list>
   [GROUP BY <group_specification>]
 ```
 
-## <a name="from-clause"></a>FROM-satsen
+## <a name="from-clause"></a>FROM-sats
 
-Den **från < from_specification >** satsen kan anta att bara tre värden: **FRÅN enheter** att fråga enhetstvillingar, **från devices.modules** att fråga modultvillingar, eller **från devices.jobs** till Frågedetaljer jobb per enhet.
+From **< from_specification >** -satsen kan bara anta tre värden: **från enheter** för att fråga enheten till varandra, **från enheter. moduler** till fråge modul, dubbla eller **från Devices.Jobs** för att söka efter jobb per enhets information.
 
-## <a name="where-clause"></a>WHERE-satsen
+## <a name="where-clause"></a>WHERE-sats
 
-Den **där < filter_condition >** -satsen är valfritt. Anger ett eller flera villkor att JSON-dokument i samlingen från måste uppfylla för att vara med i resultatet. Valfritt JSON-dokument måste utvärderas de angivna villkoren ”true” som ska ingå i resultatet.
+Satsen **WHERE < filter_condition >** är valfri. Det anger ett eller flera villkor som JSON-dokumenten i från-samlingen måste uppfylla för att inkluderas som en del av resultatet. Alla JSON-dokument måste utvärdera de angivna villkoren till "true" för att inkluderas i resultatet.
 
-Tillåtna villkor beskrivs i avsnittet [uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
+De tillåtna villkoren beskrivs i avsnitts [uttryck och villkor](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
-## <a name="select-clause"></a>SELECT-satsen
+## <a name="select-clause"></a>SELECT-sats
 
-Den **väljer < select_list >** är obligatoriskt och anger vilka värden hämtas från frågan. Den anger JSON-värden som används för att generera nya JSON-objekt.
-För varje element i den filtrerade (och eventuellt grupperade) delmängden av samlingen från genererar Projektionsfasen ett nytt JSON-objekt. Det här objektet har konstruerats med värdena som anges i SELECT-satsen.
+**> välj < select_list** är obligatorisk och anger vilka värden som hämtas från frågan. Den anger de JSON-värden som ska användas för att generera nya JSON-objekt.
+För varje element i den filtrerade (och alternativt grupperade) delmängd av från-samlingen genererar projektion-fasen ett nytt JSON-objekt. Det här objektet konstrueras med de värden som anges i SELECT-satsen.
 
-Nedan följer grammatik i SELECT-satsen:
+Följande är grammatiken i SELECT-satsen:
 
 ```
 SELECT [TOP <max number>] <projection list>
@@ -361,15 +361,15 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** refererar till en egenskap av JSON-dokument i samlingen från. Några exempel på Välj satser finns i komma igång med device twin frågor avsnittet.
+**Attribute_name** refererar till en egenskap i JSON-dokumentet i från-samlingen. Några exempel på SELECT-satser finns i avsnittet komma igång med enhets dubbla frågor.
 
-För närvarande val av satser skiljer sig från **Välj*** stöds endast i mängdfrågor på enhetstvillingar.
+För närvarande stöds inte markerings satser som skiljer sig från **Select*** i mängd frågor på enheten.
 
 ## <a name="group-by-clause"></a>GROUP BY-sats
 
-Den **GROUP BY < group_specification >** -satsen är ett valfritt steg som körs efter det filter som angetts i WHERE-satsen och innan projektionen som anges i listan Välj. Den grupperar dokument baserat på värdet för ett attribut. Dessa grupper används för att generera sammanställda värden som anges i SELECT-satsen.
+Satsen **Group by < group_specification >** är ett valfritt steg som körs efter filtret som anges i WHERE-satsen, och innan projektionen som anges i SELECT. Den grupperar dokument baserat på värdet för ett attribut. Dessa grupper används för att generera sammanställda värden som anges i SELECT-satsen.
 
-Ett exempel på en fråga med GROUP BY är:
+Ett exempel på en fråga som använder GROUP BY är:
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
@@ -378,7 +378,7 @@ FROM devices
 GROUP BY properties.reported.telemetryConfig.status
 ```
 
-Formella syntaxen för GROUP BY är:
+Den formella syntaxen för GROUP BY är:
 
 ```
 GROUP BY <group_by_element>
@@ -387,22 +387,22 @@ GROUP BY <group_by_element>
     | < group_by_element > '.' attribute_name
 ```
 
-**Attribute_name** refererar till en egenskap av JSON-dokument i samlingen från.
+**Attribute_name** refererar till en egenskap i JSON-dokumentet i från-samlingen.
 
-GROUP BY-satsen stöds för närvarande bara när du frågar efter enhetstvillingar.
+GROUP BY-satsen stöds för närvarande bara när du frågar enheten.
 
 > [!IMPORTANT]
-> Termen `group` hanteras för närvarande som en särskild nyckelord i frågor. I om du använder `group` din egenskapsnamn, bör du omgivande med dubbla hakparenteser för att undvika fel, t.ex. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+> Termen `group` behandlas för närvarande som ett särskilt nyckelord i frågor. Om du i stället använder `group` som egenskaps namn, bör du överväga att omge det med dubbla hakparenteser för att undvika fel, t. ex. `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
 >
 
 ## <a name="expressions-and-conditions"></a>Uttryck och villkor
 
-På hög nivå, en *uttryck*:
+Ett *uttryck*på hög nivå:
 
-* Returnerar en instans av en JSON-typ (till exempel boolesk, tal, sträng, matrisen eller objekt).
-* Definieras av manipulera data från enheten JSON-dokument och konstanter som med hjälp av inbyggda operatorer och funktioner.
+* Utvärderar till en instans av en JSON-typ (till exempel boolesk, siffra, sträng, matris eller objekt).
+* Definieras genom att ändra data som kommer från enhets-JSON-dokumentet och konstanter med inbyggda operatorer och funktioner.
 
-*Villkor* är uttryck som utvärderas till ett booleskt värde. En konstant som skiljer sig från boolesk **SANT** anses **FALSKT**. Den här regeln innehåller **null**, **odefinierat**, valfri instans av objektet eller matrisen, valfri sträng och Boolean **FALSKT**.
+*Villkor* är uttryck som utvärderas till ett booleskt värde. En annan konstant än Boolean **True** anses vara **falskt**. Den här regeln inkluderar **Null**, **Odefinierad**, alla objekt eller Array-instanser, valfri sträng och booleska **falskt**.
 
 Syntaxen för uttryck är:
 
@@ -432,20 +432,20 @@ Syntaxen för uttryck är:
 <array_constant> ::= '[' <constant> [, <constant>]+ ']'
 ```
 
-För att förstå vad varje symbol i uttryck syntax står för, finns i följande tabell:
+För att förstå vad varje symbol i uttrycks syntaxen står för, se följande tabell:
 
 | Symbol | Definition |
 | --- | --- |
-| attribute_name | Alla egenskaper i JSON-dokumentet i den **FROM** samling. |
-| binary_operator | Alla binära operatorn som anges i den [operatörer](#operators) avsnittet. |
-| function_name| En funktion som anges i den [Functions](#functions) avsnittet. |
-| decimal_literal |Ett flyttal uttrycks i decimalform. |
-| hexadecimal_literal |Ett tal uttrycks av strängen ”0 x” följt av en sträng med hexadecimala siffror. |
-| string_literal |Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Stränglitteraler omges av enkla citattecken eller dubbla citattecken. Tillåtna visar: `\'`, `\"`, `\\`, `\uXXXX` för Unicode-tecken som definieras av 4 hexadecimala siffror. |
+| attribute_name | Alla egenskaper i JSON-dokumentet i **från** -samlingen. |
+| binary_operator | En binär operator som anges i avsnittet [operatorer](#operators) . |
+| function_name| Alla funktioner som anges i avsnittet [Functions](#functions) . |
+| decimal_literal |Ett växel uttryck uttryckt i Decimal form. |
+| hexadecimal_literal |Ett tal som uttrycks av strängen 0x följt av en sträng med hexadecimala siffror. |
+| string_literal |Stränglitteraler är Unicode-strängar som representeras av en sekvens med noll eller flera Unicode-tecken eller escape-sekvenser. Sträng litteraler omges av enkla citat tecken eller dubbla citat tecken. Tillåtna Escape: `\'`, `\"`, `\\`, `\uXXXX` för Unicode-tecken som definieras av 4 hexadecimala siffror. |
 
 ### <a name="operators"></a>Operatorer
 
-Följande operatorer som stöds:
+Följande operatorer stöds:
 
 | Familj | Operatorer |
 | --- | --- |
@@ -453,55 +453,55 @@ Följande operatorer som stöds:
 | Logiska |AND, OR, NOT (och, eller, inte) |
 | Jämförelse |=, !=, <, >, <=, >=, <> |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
-När du frågar efter tvillingar och jobb som det går endast att är funktionen:
+Vid frågor om dubbla och jobb är den enda funktioner som stöds:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| IS_DEFINED(Property) | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde (inklusive `null`). |
+| IS_DEFINED (egenskap) | Returnerar ett booleskt värde som anger om egenskapen har tilldelats ett värde (inklusive `null`). |
 
-Följande matematiska funktioner stöds i vägar villkor:
+I villkor för flöden stöds följande matematiska funktioner:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
 | ABS(x) | Returnerar det absoluta (positiva) värdet för det angivna numeriska uttrycket. |
-| EXP(x) | Returnerar exponentiell värdet för det angivna numeriska uttrycket (e ^ x). |
-| Power(x,y) | Returnerar värdet för det angivna uttrycket till angiven potens (x ^ y).|
-| Square(x) | Returnerar för det angivna numeriska värdet. |
-| CEILING(x) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
-| FLOOR(x) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
-| SIGN(x) | Returnerar positiv (+ 1), noll (0) eller minustecken (-1) i det angivna numeriska uttrycket.|
+| EXP (x) | Returnerar exponent svärdet för det angivna numeriska uttrycket (e ^ x). |
+| STRÖM (x, y) | Returnerar värdet för det angivna uttrycket till den angivna exponenten (x ^ y).|
+| FYRKANT (x) | Returnerar för det angivna numeriska värdet. |
+| TAK (x) | Returnerar det minsta heltalsvärdet som är större än eller lika med det angivna numeriska uttrycket. |
+| BASYTA (x) | Returnerar det största heltalsvärdet som är mindre än eller lika med det angivna numeriska uttrycket. |
+| TECKEN (x) | Returnerar positiv (+ 1), noll (0) eller minustecken (-1) i det angivna numeriska uttrycket.|
 | SQRT(x) | Returnerar kvadratroten för det angivna numeriska värdet. |
 
-I vägar villkor stöds följande typkontroll och omvandling funktioner:
+I villkor för flöden stöds följande typ kontroll och data typs funktioner:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| AS_NUMBER | Konverterar den inmatade strängen till ett tal. `noop` Om indata är ett tal. `Undefined` om strängen inte representerar ett tal.|
+| AS_NUMBER | Konverterar Indatasträngen till ett tal. `noop` om indatatypen är ett tal. `Undefined` om strängen inte representerar ett tal.|
 | IS_ARRAY | Returnerar ett booleskt värde som anger om vilken typ av det angivna uttrycket är en matris. |
 | IS_BOOL | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett booleskt värde. |
 | IS_DEFINED | Returnerar ett booleskt värde som anger huruvida egenskapen har tilldelats ett värde. |
 | IS_NULL | Returnerar ett booleskt värde som anger om vilken typ av det angivna uttrycket är null. |
 | IS_NUMBER | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett tal. |
 | IS_OBJECT | Returnerar ett booleskt värde som anger om det angivna uttrycket är ett JSON-objekt. |
-| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om det angivna uttrycket är en primitiv hämtas (string, Boolean, numeriska och eller `null`). |
+| IS_PRIMITIVE | Returnerar ett booleskt värde som anger om typen för det angivna uttrycket är en primitiv (sträng, boolesk, numerisk eller `null`). |
 | IS_STRING | Returnerar ett booleskt värde som anger om det angivna uttrycket är en sträng. |
 
-Följande sträng-funktioner stöds i vägar villkor:
+I villkor för flöden stöds följande sträng funktioner:
 
 | Funktion | Beskrivning |
 | -------- | ----------- |
-| SAMMANFOGA (x, y,...) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
-| LENGTH(x) | Returnerar antalet tecken i angivet stränguttryck.|
-| LOWER(x) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
-| UPPER(x) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
-| DELSTRÄNGEN (sträng, start [, längd]) | Returnerar en del av ett stränguttryck med början vid den angivna nollbaserade teckenpositionen och fortsätter med den angivna längden eller i slutet av strängen. |
-| INDEX_OF (string, fragment) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas.|
+| CONCAt (x, y,...) | Returnerar en sträng som är resultatet av en sammanfogning av två eller fler strängvärden. |
+| LÄNGD (x) | Returnerar antalet tecken i angivet stränguttryck.|
+| LÄGRE (x) | Returnerar ett stränguttryck efter att teckendata med versaler har konverterats till gemener. |
+| ÖVRE (x) | Returnerar ett stränguttryck efter att teckendata med gemener har konverterats till versaler. |
+| Del sträng (sträng, start [, längd]) | Returnerar en del av ett stränguttryck med början vid den angivna nollbaserade teckenpositionen och fortsätter med den angivna längden eller i slutet av strängen. |
+| INDEX_OF (sträng, fragment) | Returnerar startpositionen för den första förekomsten av det andra stränguttrycket i det första angivna stränguttrycket eller -1 om strängen inte hittas.|
 | STARTS_WITH (x, y) | Returnerar ett booleskt värde som anger om först stränguttryck börjar med andra. |
-| ENDS_WITH(x, y) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
-| CONTAINS(x,y) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
+| ENDS_WITH (x, y) | Returnerar ett booleskt värde som anger om först stränguttryck slutar med andra. |
+| INNEHÅLLER (x, y) | Returnerar ett booleskt värde som anger huruvida det första stränguttrycket innehåller det andra. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig att köra frågor i dina appar med hjälp av [Azure IoT SDK: er](iot-hub-devguide-sdks.md).
+Lär dig hur du kör frågor i dina appar med hjälp av [Azure IoT SDK](iot-hub-devguide-sdks.md): er.

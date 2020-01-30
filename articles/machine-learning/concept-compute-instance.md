@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974095"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769102"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Vad är en Azure Machine Learning beräknings instans?
 
@@ -117,7 +117,7 @@ I arbets ytan i Azure Machine Learning Studio väljer du **Compute**och sedan **
 
 Du kan utföra följande åtgärder:
 
-* Skapa en beräknings instans. Ange namn, typ av virtuell Azure-dator inklusive GPU, aktivera/inaktivera SSH-åtkomst och konfigurera inställningar för virtuellt nätverk. Du kan också skapa en instans direkt från integrerade antecknings böcker, Azure Portal, Resource Manager-mall eller Azure Machine Learning SDK. De dedikerade kärnorna per regions kvot som används för att skapa beräknings instanser är enhetliga och delas med Azure Machine Learning beräknings kluster kvot.
+* Skapa en beräknings instans. Ange namn, typ av virtuell Azure-dator inklusive GPU: er (antecknings typ för virtuell dator kan inte ändras efter att du har skapat), aktivera/inaktivera SSH-åtkomst och konfigurera inställningar för virtuellt nätverk. Du kan också skapa en instans direkt från integrerade antecknings böcker, Azure Portal, Resource Manager-mall eller Azure Machine Learning SDK. De dedikerade kärnorna per regions kvot som används för att skapa beräknings instanser är enhetliga och delas med Azure Machine Learning beräknings kluster kvot.
 * Uppdatera fliken beräknings instanser
 * Starta, stoppa och starta om en beräknings instans
 * Ta bort en beräknings instans
@@ -138,7 +138,7 @@ Du kan också skapa en instans
 
 De dedikerade kärnorna per region kvot, som gäller för skapande av beräknings instanser, är enhetliga och delade med Azure Machine Learning utbildnings kluster kvot. 
 
-## <a name="compute-target"></a>Beräkningsmål
+## <a name="compute-target"></a>Compute Target
 
 Du kan använda beräknings instanser som ett [utbildnings mål](concept-compute-target.md#train) som liknar Azure Machine Learning Compute Training-kluster. Etablera en virtuell dator med flera GPU: n för att köra distribuerade utbildnings jobb med TensorFlow/PyTorch-uppskattningar. Du kan också skapa en körnings konfiguration och använda den för att köra experimentet på beräknings instansen. Du kan använda Compute instance som ett lokalt inferencing distributions mål för testning/fel söknings scenarier.
 

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289534"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772038"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Felsöka Azure Migrate-installationen och identifieringen
 
@@ -85,7 +85,7 @@ Om du får det här anslutnings felet kanske du inte kan ansluta till vCenter Se
 Om du får felet 60030 eller 60031 kan du göra följande för att utföra en Azure Key Vault hanterings åtgärd:
 - Kontrol lera att Azure-användarkontot som används för att registrera installationen har minst deltagar behörighet för prenumerationen.
 - Kontrol lera att kontot har åtkomst till nyckel valvet som anges i fel meddelandet och försök sedan igen.
-- Kontakta Microsofts supportavdelning om problemet kvarstår.
+- Kontakta Microsoft-supporten om problemet kvarstår.
 - [Lär dig mer](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) om de Azure-roller och behörigheter som krävs.
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>Fel 60028: det gick inte att initiera identifiering
@@ -131,7 +131,7 @@ Om detta inte fungerar och du identifierar VMware-servrar:
 
 ## <a name="vm-data-not-in-portal"></a>VM-data som inte ingår i portalen
 
-Om identifierade virtuella datorer inte visas i portalen väntar du några minuter. Det tar upp till 30 minuter innan identifierade data visas i portalen. Om det inte finns några data efter 30 minuter kan du prova att uppdatera enligt följande
+Om identifierade virtuella datorer inte visas i portalen eller om VM-data är inaktuella, väntar du några minuter. Det tar upp till 30 minuter för ändringar i identifierade VM-konfigurationsdata som visas i portalen. Det kan ta några timmar innan ändringar i program data visas. Om det inte finns några data efter den här tiden kan du prova att uppdatera enligt följande
 
 1. I **servrar** > **Azure Migrate Server-utvärdering**väljer du **Översikt**.
 2. Under **Hantera**väljer du **agenthälsa**.
@@ -148,7 +148,7 @@ Azure Migrate stöder identifiering av program, roller och funktioner med hjälp
 
 Vanliga fel för identifiering av appar sammanfattas i tabellen.
 
-**Fel** | **Orsak** | **Åtgärd**
+**Fels** | **Orsak** | **Åtgärd**
 --- | --- | --- | ---
 10000: "Det gick inte att identifiera de program som är installerade på servern". | Detta kan inträffa om datorns operativ system inte är Windows eller Linux. | Använd endast app Discovery för Windows/Linux.
 10001: "Det gick inte att hämta de program som har installerats på servern". | Internt fel-vissa saknade filer i installationen. | Kontakta Microsoft-supporten.
@@ -166,7 +166,8 @@ Vanliga fel för identifiering av appar sammanfattas i tabellen.
 9009: "Det gick inte att hämta de program som har installerats på servern". | Kan inträffa om inställningarna för Windows User Account Control (UAC) på servern är restriktiva och förhindra identifiering av installerade program. | Sök efter "User Account Control"-inställningar på servern och konfigurera UAC-inställningen på servern till en av de lägre två nivåerna.
 9010: "Det gick inte att hämta de program som har installerats på servern". | Kan vara ett internt fel.  | TF problemet löses inte inom 24 timmar, kontakta supporten.
 8084: "Det gick inte att identifiera program på grund av VMware-fel: <Exception from VMware>" | Azure Migrates enheten använder VMware API: er för att identifiera program. Det här problemet kan inträffa om ett undantags fel uppstår i vCenter Server vid försök att identifiera program. Fel meddelandet från VMware visas i fel meddelandet som visas i portalen. | Sök efter meddelandet i VMware- [dokumentationen](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)och följ stegen för att åtgärda problemet. Kontakta Microsoft-supporten om du inte kan åtgärda det.
-
+9012: "Det gick inte att identifiera de program som är installerade på servern" | Problemet kan uppstå på grund av ett internt fel.  | Kontakta supporten om problemet inte löses inom 24 timmar.
+9013: "Det gick inte att identifiera de program som är installerade på servern" | En ny tillfällig profil skapas varje gången som loggar in på den virtuella datorn.  | Se till att ingen tillfällig profil har skapats för den angivna gäst användaren.
 
 
 

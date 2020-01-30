@@ -15,20 +15,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 38df99f0a4932f477e900382c7ff1ae7b50febe9
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: b2d388160c6ca744b10c17bda17c59e22940f98b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702478"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775248"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>Daemon-app som anropar webb-API: er – hämta en token
 
-När det konfidentiella klient programmet har skapats kan du hämta en token för appen genom att anropa ``AcquireTokenForClient``, skicka omfånget och framtvinga eller inte uppdatera token.
+När du har skapat ett konfidentiellt klient program kan du hämta en token för appen genom att anropa `AcquireTokenForClient`, skicka omfånget och eventuellt framtvinga en uppdatering av token.
 
 ## <a name="scopes-to-request"></a>Omfattningar som ska begäras
 
-Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten gör att Azure AD kan använda **behörigheter på program nivå** som har deklarerats statiskt under program registreringen. Som tidigare sett måste dessa API-behörigheter beviljas av en klient administratör
+Omfånget för att begära ett flöde för klientautentiseringsuppgifter är namnet på resursen följt av `/.default`. Den här texten talar om för Azure Active Directory (Azure AD) att använda *behörigheter på program nivå* som har deklarerats statiskt under program registrering. Dessa API-behörigheter måste också beviljas av en innehavaradministratör.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -39,7 +39,7 @@ var scopes = new [] {  ResourceId+"/.default"};
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-I MSAL python skulle konfigurations filen se ut som följande kodfragment:
+I MSAL python ser konfigurations filen ut som detta kodfragment:
 
 ```Json
 {
@@ -55,26 +55,26 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 ---
 
-### <a name="case-of-azure-ad-v10-resources"></a>Exempel på Azure AD-resurser (v 1.0)
+### <a name="azure-ad-v10-resources"></a>Azure AD-resurser (v 1.0)
 
-Det omfång som används för klientens autentiseringsuppgifter ska alltid vara resourceId + "/.default"
+Det omfång som används för klientautentiseringsuppgifter bör alltid vara resurs-ID följt av `/.default`.
 
 > [!IMPORTANT]
-> För MSAL som frågar en åtkomsttoken för en resurs som accepterar en v 1.0-åtkomsttoken parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
-> Om t. ex. Azure SQL ( **https://database.windows.net** )-resursen förväntar sig en mål grupp som slutar med ett snedstreck (för Azure SQL: `https://database.windows.net/` ) måste du begära ett omfång för `https://database.windows.net//.default` (Observera det dubbla snedstrecket). Se även MSAL.NET problem [#747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel.
+> När MSAL begär en åtkomsttoken för en resurs som accepterar en version 1,0-åtkomsttoken, parsar Azure AD den önskade mål gruppen från det begärda omfånget genom att ta allt före det sista snedstrecket och använda det som resurs-ID.
+> Om till exempel Azure SQL Database (**https:\//Database.Windows.net**) förväntar sig resursen en mål grupp som slutar med ett snedstreck (för Azure SQL Database `https://database.windows.net/`) måste du begära ett omfång för `https://database.windows.net//.default`. (Observera det dubbla snedstrecket.) Se även MSAL.NET problem [#747: resurs-URL: en avslutande snedstreck utelämnas, vilket orsakade SQL-auth-fel](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747).
 
 ## <a name="acquiretokenforclient-api"></a>AcquireTokenForClient-API
 
-Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande beroende på plattformarna.
+Om du vill hämta en token för appen använder du `AcquireTokenForClient` eller motsvarande, beroende på plattform.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ```csharp
 using Microsoft.Identity.Client;
 
-// With client credentials flows the scopes is ALWAYS of the shape "resource/.default", as the
+// With client credentials flows, the scope is always of the shape "resource/.default" because the
 // application permissions need to be set statically (in the portal or by PowerShell), and then granted by
-// a tenant administrator
+// a tenant administrator.
 string[] scopes = new string[] { "https://graph.microsoft.com/.default" };
 
 AuthenticationResult result = null;
@@ -85,14 +85,14 @@ try
 }
 catch (MsalUiRequiredException ex)
 {
-    // The application does not have sufficient permissions
-    // - did you declare enough app permissions in during the app creation?
-    // - did the tenant admin needs to grant permissions to the application.
+    // The application doesn't have sufficient permissions.
+    // - Did you declare enough app permissions during app creation?
+    // - Did the tenant admin grant permissions to the application?
 }
 catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 {
-    // Invalid scope. The scope has to be of the form "https://resourceurl/.default"
-    // Mitigation: change the scope to be as expected !
+    // Invalid scope. The scope has to be in the form "https://resourceurl/.default"
+    // Mitigation: Change the scope to be as expected.
 }
 ```
 
@@ -102,9 +102,9 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 # The pattern to acquire a token looks like this.
 result = None
 
-# Firstly, looks up a token from cache
-# Since we are looking for token for the current app, NOT for an end user,
-# notice we give account parameter as None.
+# First, the code looks up a token from the cache.
+# Because we're looking for a token for the current app, not for a user,
+# use None for the account parameter.
 result = app.acquire_token_silent(config["scope"], account=None)
 
 if not result:
@@ -112,17 +112,17 @@ if not result:
     result = app.acquire_token_for_client(scopes=config["scope"])
 
 if "access_token" in result:
-    # Call a protected API with the access token
+    # Call a protected API with the access token.
     print(result["token_type"])
 else:
     print(result.get("error"))
     print(result.get("error_description"))
-    print(result.get("correlation_id"))  # You may need this when reporting a bug
+    print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Detta är ett utdrag från [MSAL java-dev-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
+Den här koden extraheras från [MSAL java-dev-exempel](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/).
 
 ```Java
 ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
@@ -138,7 +138,7 @@ BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
     System.out.println("Returned ok - " + res);
     System.out.println("ID Token - " + res.idToken());
 
-    /* call a protected API with res.accessToken() */
+    /* Call a protected API with res.accessToken() */
 };
 
 future.whenCompleteAsync(processAuthResult);
@@ -149,12 +149,12 @@ future.join();
 
 ### <a name="protocol"></a>Protokoll
 
-Om du ännu inte har ett bibliotek för ditt språk väljer du att använda protokollet direkt:
+Om du ännu inte har ett bibliotek för ditt valda språk, kanske du vill använda protokollet direkt:
 
-#### <a name="first-case-access-token-request-with-a-shared-secret"></a>Första fallet: begäran om åtkomsttoken med en delad hemlighet
+#### <a name="first-case-access-the-token-request-by-using-a-shared-secret"></a>Första fallet: få åtkomst till Tokenbegäran med hjälp av en delad hemlighet
 
 ```Text
-POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1           //Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -164,10 +164,10 @@ client_id=535fb089-9ff3-47b6-9bfb-4f1264799865
 &grant_type=client_credentials
 ```
 
-#### <a name="second-case-access-token-request-with-a-certificate"></a>Andra fall: åtkomsttoken för begäran med ett certifikat
+#### <a name="second-case-access-the-token-request-by-using-a-certificate"></a>Andra fallet: få åtkomst till Tokenbegäran med hjälp av ett certifikat
 
 ```Text
-POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity
+POST /{tenant}/oauth2/v2.0/token HTTP/1.1               // Line breaks for clarity.
 Host: login.microsoftonline.com
 Content-Type: application/x-www-form-urlencoded
 
@@ -182,7 +182,7 @@ Mer information finns i protokoll dokumentationen: [Microsoft Identity Platform 
 
 ## <a name="application-token-cache"></a>Cache för program-token
 
-I MSAL.NET använder `AcquireTokenForClient` token **cache för program** (alla andra AcquireTokenXX-metoder använder user token cache) anropar inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient` som `AcquireTokenSilent` **använder token** cache. `AcquireTokenForClient` kontrollerar cacheminnet för **program** -token och uppdaterar det.
+I MSAL.NET använder `AcquireTokenForClient` Application token cache. (Alla andra AcquireToken*XX* -metoder använder user token cache.) Anropa inte `AcquireTokenSilent` innan du anropar `AcquireTokenForClient`, eftersom `AcquireTokenSilent` använder *användartoken.* `AcquireTokenForClient` kontrollerar cacheminnet för *program* -token och uppdaterar det.
 
 ## <a name="troubleshooting"></a>Felsöka
 
@@ -192,8 +192,8 @@ Om du får ett fel meddelande om att du har använt ett ogiltigt omfång, använ
 
 ### <a name="did-you-forget-to-provide-admin-consent-daemon-apps-need-it"></a>Glömde du att ge administratörs tillåtelse? Daemon-appar behöver!
 
-Om du får ett fel meddelande när du anropar API: t **för otillräckliga behörigheter för att slutföra åtgärden**, måste klient organisationens administratör bevilja behörighet till programmet. Se steg 6 i registrera klient programmet ovan.
-Du ser vanligt vis fel som följande fel Beskrivning:
+Om du får **otillräcklig behörighet för att slutföra åtgärds** felet när du anropar API: t måste klient organisationens administratör bevilja behörighet till programmet. Se steg 6 i registrera klient programmet ovan.
+Du ser vanligt vis ett fel som ser ut ungefär så här:
 
 ```JSon
 Failed to call the web API: Forbidden

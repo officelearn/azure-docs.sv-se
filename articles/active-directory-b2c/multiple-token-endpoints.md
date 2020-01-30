@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950994"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840408"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>Migrera ett OWIN webb-API till b2clogin.com
 
@@ -33,7 +33,7 @@ I följande avsnitt finns ett exempel på hur du aktiverar flera utfärdare i et
 
 Du behöver följande Azure AD B2C resurser på plats innan du fortsätter med stegen i den här artikeln:
 
-* [Användar flöden](tutorial-create-user-flows.md) eller [anpassade principer](active-directory-b2c-get-started-custom.md) som skapats i din klient organisation
+* [Användar flöden](tutorial-create-user-flows.md) eller [anpassade principer](custom-policy-get-started.md) som skapats i din klient organisation
 
 ## <a name="get-token-issuer-endpoints"></a>Hämta token för utfärdarens slut punkter
 
@@ -147,7 +147,7 @@ När slut punkts strängarna skapas när webbappen körs, används b2clogin.com-
 
 I den här artikeln presenteras en metod för att konfigurera ett webb-API som implementerar Microsoft OWIN mellanprogram (Katana) för att acceptera tokens från flera utfärdares slut punkter. Som du kanske märker finns det flera andra strängar i *Web. config-* filerna för både TaskService-och TaskWebApp-projekt som skulle behöva ändras om du vill skapa och köra dessa projekt mot din egen klient. Du är välkommen att ändra projekten på rätt sätt om du vill se dem i praktiken, men en fullständig genom gång av detta ligger utanför omfånget för den här artikeln.
 
-Mer information om de olika typerna av säkerhetstoken som genereras av Azure AD B2C finns i [Översikt över tokens i Azure Active Directory B2C](active-directory-b2c-reference-tokens.md).
+Mer information om de olika typerna av säkerhetstoken som genereras av Azure AD B2C finns i [Översikt över tokens i Azure Active Directory B2C](tokens-overview.md).
 
 <!-- LINKS - External -->
 [sample-archive]: https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi/archive/master.zip

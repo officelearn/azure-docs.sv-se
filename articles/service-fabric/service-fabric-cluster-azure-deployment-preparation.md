@@ -3,12 +3,12 @@ title: Planera distribution av Azure Service Fabric-kluster
 description: Lär dig mer om att planera och förbereda för en produktions Service Fabric kluster distribution till Azure.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463316"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834458"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planera och förbereda för en kluster distribution
 
@@ -37,9 +37,59 @@ Minimi storleken på virtuella datorer för varje nodtyp bestäms av den [hållb
 
 Det minsta antalet virtuella datorer för den primära nodtypen avgörs av den [Tillförlitlighets nivå][reliability] som du väljer.
 
-Se de lägsta rekommendationerna för [primära nodtyper](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [tillstånds känsliga arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)och [tillstånds lösa arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads). 
+Se de lägsta rekommendationerna för [primära nodtyper](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance), [tillstånds känsliga arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)och [tillstånds lösa arbets belastningar på icke-primära nodtyper](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads).
 
 Fler än det minsta antalet noder bör baseras på antalet repliker av de program/tjänster som du vill köra i den här nodtypen.  Med [kapacitets planering för Service Fabric program](service-fabric-capacity-planning.md) kan du beräkna vilka resurser du behöver för att köra dina program. Du kan alltid skala klustret uppåt eller nedåt senare för att justera för att ändra program arbets belastning. 
+
+#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>Använd tillfälliga OS-diskar för skalnings uppsättningar för virtuella datorer
+
+*Tillfälliga OS-diskar* har skapats på den lokala virtuella datorn (VM) och sparas inte på fjärr Azure Storage. De rekommenderas för alla Service Fabric Node-typer (primär och sekundär), på grund av traditionella beständiga OS-diskar, tillfälliga OS-diskar:
+
+* Minska svars tiden för Läs/skriv till OS-disk
+* Aktivera snabbare återställnings-och avbildnings hanterings åtgärder
+* Minska totalkostnaden (diskarna är kostnads fria och debiteras inga ytterligare lagrings kostnader)
+
+Tillfälliga OS-diskar är inte en speciell Service Fabric funktion, utan i stället en funktion i de *skalnings uppsättningar för virtuella* Azure-datorer som mappas till Service Fabric Node-typer. Om du använder dem med Service Fabric krävs följande i klustrets Azure Resource Manager mall:
+
+1. Se till att Node-typerna har [stöd för Azure VM-storlekar som stöds](../virtual-machines/windows/ephemeral-os-disks.md) för tillfälliga OS-diskar och att storleken på den virtuella datorn har tillräckligt med cachestorlek för att stöda storleken på operativ system disken (se *Obs!* ) Exempel:
+
+    ```xml
+    "vmNodeType1Size": {
+        "type": "string",
+        "defaultValue": "Standard_DS3_v2"
+    ```
+
+    > [!NOTE]
+    > Se till att välja en VM-storlek med en cachestorlek som är lika stor som eller större än storleken på den virtuella datorns OS-disk, annars kan din Azure-distribution leda till fel (även om den först accepteras).
+
+2. Ange en version av en skalnings uppsättning för virtuella datorer (`vmssApiVersion`) av `2018-06-01` eller senare:
+
+    ```xml
+    "variables": {
+        "vmssApiVersion": "2018-06-01",
+    ```
+
+3. I avsnittet skalnings uppsättning för virtuell dator i distributions mal len anger du `Local` alternativ för `diffDiskSettings`:
+
+    ```xml
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "virtualMachineProfile": {
+            "storageProfile": {
+                "osDisk": {
+                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
+                        "caching": "ReadOnly",
+                        "createOption": "FromImage",
+                        "diffDiskSettings": {
+                            "option": "Local"
+                        },
+                }
+            }
+        }
+    ```
+
+Mer information och ytterligare konfigurations alternativ finns i [tillfälliga OS-diskar för virtuella Azure-datorer](../virtual-machines/windows/ephemeral-os-disks.md) 
+
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Välj nivåer för hållbarhet och pålitlighet för klustret
 Hållbarhets nivån används för att ange systemet de privilegier som dina virtuella datorer har med den underliggande Azure-infrastrukturen. I den primära nodtypen kan du med den här behörigheten Service Fabric pausa alla infrastruktur förfrågningar för virtuella datorer (till exempel en VM-omstart, återställning av virtuella datorer eller migrering av virtuella datorer) som påverkar kraven på kvorum för system tjänsterna och dina tillstånds känsliga tjänster. I de icke-primära nodtypen kan den här behörigheten Service Fabric pausa alla infrastruktur begär Anden för virtuella datorer (t. ex. omstart av virtuell dator, avbildning av virtuell dator och migrering av virtuella datorer) som påverkar kraven för de tillstånds känsliga tjänsterna.  För fördelarna med de olika nivåerna och rekommendationerna på vilken nivå som ska användas och när, se behållar [egenskaperna för klustret][durability].

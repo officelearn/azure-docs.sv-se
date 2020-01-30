@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942247"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833302"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>Hantera vågrätt kluster skalning (skala ut) i Azure Datautforskaren för att hantera ändring efter frågan
 
@@ -31,7 +31,7 @@ Genom att använda vågrät skalning kan du skala antalet instanser automatiskt,
 
 2. I fönstret **skala ut** väljer du den metod för autoskalning som du vill använda: **manuell skalning**, **optimerad autoskalning**eller **anpassad autoskalning**.
 
-### <a name="manual-scale"></a>Manuell skala
+### <a name="manual-scale"></a>Manuell skalning
 
 Manuell skalning är standardinställningen när klustret skapas. Klustret har en statisk kapacitet som inte ändras automatiskt. Du väljer den statiska kapaciteten med hjälp av **antalet instans antal** . Klustrets skalning förblir i den inställningen tills du gör en ny ändring.
 
@@ -58,9 +58,10 @@ Optimerad autoskalning börjar fungera. Dess åtgärder visas nu i Azures aktivi
 När klustret närmar sig ett tillstånd för överförbrukning kan du skala ut för att upprätthålla optimala prestanda. Skala ut sker när:
 * Antalet kluster instanser är lägre än det maximala antalet instanser som definierats av användaren.
 * Användningen av cacheminnet är hög i över en timme.
+* PROCESSORN är hög i mer än en timme.
 
 > [!NOTE]
-> Skala ut-logiken avser för närvarande inte förbruknings användning och CPU-mått. Om dessa mått är viktiga för ditt användnings fall använder du [anpassad autoskalning](#custom-autoscale).
+> Skala ut-logiken tar för närvarande inte hänsyn till användnings måttet. Om det här måttet är viktigt för ditt användnings fall använder du [anpassad autoskalning](#custom-autoscale).
 
 **Skala i**
 
@@ -84,7 +85,7 @@ Med hjälp av anpassad autoskalning kan du skala klustret dynamiskt baserat på 
 
 1. I rutan **namn på inställning för autoskalning** anger du ett namn, till exempel *utskalning: cache-användning*. 
 
-   ![Skalningsregel](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
+   ![Skalnings regel](media/manage-cluster-horizontal-scaling/custom-autoscale-method.png)
 
 2. I **skalnings läge**väljer du **skala baserat på ett mått**. Det här läget ger dynamisk skalning. Du kan också välja **skala till ett angivet instans antal**.
 

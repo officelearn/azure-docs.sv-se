@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933447"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765404"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -79,7 +79,6 @@ Konfigurera Azure Active Directory-appen så att den använder det implicita bid
 
 Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-token. Därefter gör du en autentiserad HTTP-begäran till Azure Digitals med den hämtade token:
 
-1. Gå till [www.getpostman.com](https://www.getpostman.com/) för att ladda ned appen.
 1. Kontrol lera att **behörighets webb adressen** är korrekt. Det bör ha formatet:
 
     ```plaintext
@@ -88,15 +87,19 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
     | Namn  | Ersätt med | Exempel |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | Namnet på din klient organisation eller organisation | `microsoft` |
+    | YOUR_AZURE_TENANT | Namnet på din klient organisation eller organisation. Använd det människo egna namnet i stället för det alfanumeriska **klient-ID: t** för din Azure Active Directory app-registrering. | `microsoft` |
 
-1. Välj fliken **auktorisering** , välj **OAuth 2,0**och välj sedan **Hämta ny**åtkomsttoken.
+1. Gå till [www.getpostman.com](https://www.getpostman.com/) för att ladda ned appen.
+
+1. Öppna Postman-appen, klicka på New | Create new (Ny | Skapa ny), och välj Request (Begäran). Ange ett namn på begäran. Välj en samling eller mapp att spara den i och klicka på Spara. 
+
+1. Vi vill bli GET-begäran. Välj fliken **auktorisering** , välj OAuth 2,0 och välj sedan **Hämta ny**åtkomsttoken.
 
     | Field  | Värde |
     |---------|---------|
-    | Grant Type (Typ av beviljande) | `Implicit` |
-    | Callback URL (Webbadress för återanrop) | `https://www.getpostman.com/oauth2/callback` |
-    | Auth URL (Auktoriseringswebbadress) | Använd **URL:** en för auktorisering från **steg 2** |
+    | Typ av beviljande | `Implicit` |
+    | Återanrops-URL | `https://www.getpostman.com/oauth2/callback` |
+    | URL för autentisering | Använd **URL:** en för auktorisering från **steg 2** |
     | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory-app som skapades eller återanvändas från föregående avsnitt |
     | Omfång | Lämna tomt |
     | Status | Lämna tomt |
@@ -106,7 +109,7 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
     [exempel på ![Postman-klient](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
-1. Välj **Request Token** (Begär token).
+1. Välj **token för begäran**.
   
 1. Rulla nedåt och välj **Använd token**.
 

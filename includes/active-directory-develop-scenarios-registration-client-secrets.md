@@ -14,33 +14,33 @@ ms.workload: identity
 ms.date: 04/18/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 8f98808aa0f8a2c32e2117447824114747091a82
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a5d34ac7eea50b67bd679d8cb8ddecf7ca277abd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68912504"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773395"
 ---
-## <a name="registration-of-secrets-or-certificates"></a>Registrering av hemligheter eller certifikat
+## <a name="register-secrets-or-certificates"></a>Registrera hemligheter eller certifikat
 
-Som ett konfidentiellt klient program måste du registrera ett hemligt eller certifikat. Du kan registrera dina program hemligheter antingen via den interaktiva miljön i [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview)eller använda kommando rads verktyg (som PowerShell)
+Som för alla konfidentiella klient program måste du registrera ett hemligt eller certifikat. Du kan registrera dina program hemligheter antingen via den interaktiva miljön i [Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) eller genom att använda kommando rads verktyg (som PowerShell).
 
-### <a name="registering-client-secrets-using-the-application-registration-portal"></a>Registrera klient hemligheter med hjälp av program registrerings portalen
+### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>Registrera klient hemligheter med hjälp av program registrerings portalen
 
 Hantering av klientautentiseringsuppgifter sker på sidan **certifikat & hemligheter** för ett program:
 
-![image](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+![Sidan certifikat & hemligheter](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
 
-- program hemligheten (kallas även klient hemlighet) genereras av Azure AD under registreringen av det konfidentiella klient programmet. Den här generationen sker när du väljer **ny klient hemlighet**. Vid det här skedet måste du kopiera den hemliga strängen i Urklipp för användning i appen innan du väljer **Spara**. Den här strängen visas inte längre.
-- certifikatet laddas upp i program registreringen med hjälp av knappen **Ladda upp certifikat** . Azure AD stöder bara certifikat som är direkt registrerade i programmet och inte följer certifikat kedjor.
+- Program hemligheten (kallas även klient hemligheten) genereras av Azure AD under registreringen av det konfidentiella klient programmet. Den här generationen sker när du väljer **ny klient hemlighet**. Vid det här skedet måste du kopiera den hemliga strängen till Urklipp för användning i appen innan du väljer **Spara**. Den här strängen visas inte längre.
+- Under program registrering använder du knappen **Ladda upp certifikat** för att ladda upp certifikatet. Azure AD stöder bara certifikat som är direkt registrerade i programmet och som inte följer certifikat kedjor.
 
-Mer information finns i [snabb start: Konfigurera ett klient program för att få åtkomst till webb-API: er | Lägg till autentiseringsuppgifter i programmet](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application)
+Mer information finns i [snabb start: Konfigurera ett klient program för åtkomst till webb-API: er | Lägg till autentiseringsuppgifter i ditt program](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
 
 
 
-### <a name="registering-client-secrets-using-powershell"></a>Registrera klient hemligheter med PowerShell
+### <a name="register-client-secrets-by-using-powershell"></a>Registrera klient hemligheter med hjälp av PowerShell
 
 Alternativt kan du registrera ditt program med Azure AD med hjälp av kommando rads verktyg. Exemplet [Active-Directory-dotnetcore-daemon-v2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) visar hur du registrerar en program hemlighet eller ett certifikat med ett Azure AD-program:
 
-- Mer information om hur du registrerar en program hemlighet finns i [AppCreationScripts/configure. ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190)
-- Mer information om hur du registrerar ett certifikat med programmet finns i [AppCreationScripts-withCert/configure. ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178)
+- Mer information om hur du registrerar en program hemlighet finns i [AppCreationScripts/configure. ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Mer information om hur du registrerar ett certifikat med ett program finns i [AppCreationScripts-withCert/configure. ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

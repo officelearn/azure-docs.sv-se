@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Den här sidan beskriver hur du visualiserar NSG Flow-loggar med Power BI.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277735"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840612"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualisering av flödes loggar för nätverks säkerhets grupper med Power BI
 
@@ -45,7 +42,7 @@ Med hjälp av de visualiseringar som anges i mallen kan du undersöka:
 
 Den angivna mallen kan redige ras så att du kan ändra den för att lägga till nya data, visuella objekt eller redigera frågor som passar dina behov.
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
 Innan du börjar måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på en eller flera nätverks säkerhets grupper i ditt konto. Anvisningar om hur du aktiverar nätverks säkerhets flödes loggar finns i följande artikel: [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 
@@ -106,7 +103,7 @@ Den här mallen innehåller följande utsnitt så att du endast kan se de data s
 
 ![utsnitt][13]
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Vi visade i det här fallet genom att använda flödes loggar för nätverks säkerhets grupper som tillhandahålls av Network Watcher och Power BI, och vi kan visualisera och förstå trafiken. Med den angivna mallen kan Power BI Ladda ned loggarna direkt från lagringen och bearbeta dem lokalt. Hur lång tid det tar att läsa in mallen beror på antalet begärda filer och den totala storleken på hämtade filer.
 
@@ -122,7 +119,7 @@ Du kan anpassa den här mallen efter dina behov. Det finns många olika sätt so
 
 * Om du har en stor mängd loggar rekommenderar vi att du undersöker en lösning med hjälp av ett annat data lager som Data Lake eller SQL Server.
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 Lär dig hur du visualiserar dina NSG Flow-loggar med den elastiska stacken genom att besöka [visualisera Azure Network WATCHER NSG flödes loggar med verktyg för öppen källkod](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 

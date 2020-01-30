@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15ccbc568a2986fbb2a547eb958b5e853c8c9f77
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 083433d31f088eae1e138dd9cbd5ac05bbe8a304
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154830"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773310"
 ---
 # <a name="how-sso-to-on-premises-resources-works-on-azure-ad-joined-devices"></a>Hur SSO till lokala resurser fungerar på Azure AD-anslutna enheter
 
@@ -30,22 +30,21 @@ Den här artikeln förklarar hur det fungerar.
 
 ## <a name="how-it-works"></a>Så här fungerar det 
 
-Eftersom du behöver bara komma ihåg ett enda användar namn och lösen ord, underlättar SSO åtkomst till dina resurser och förbättrar säkerheten för din miljö. Med en Azure AD-ansluten enhet har användarna redan en SSO-upplevelse till molnappar i din miljö. Om din miljö har en Azure AD och en lokal AD, vill du förmodligen utöka omfattningen av din SSO-upplevelse till dina lokala branschspecifika appar, fil resurser och skrivare.  
+Eftersom du behöver bara komma ihåg ett enda användar namn och lösen ord, underlättar SSO åtkomst till dina resurser och förbättrar säkerheten för din miljö. Med en Azure AD-ansluten enhet har användarna redan en SSO-upplevelse till molnappar i din miljö. Om din miljö har en Azure AD och en lokal AD, vill du förmodligen utöka omfattningen av din SSO-upplevelse till dina lokala branschspecifika appar, fil resurser och skrivare.
 
 Azure AD-anslutna enheter har ingen kunskap om din lokala AD-miljö eftersom de inte är anslutna till den. Du kan dock ange ytterligare information om din lokala AD till dessa enheter med Azure AD Connect.
 
 En miljö med både en Azure AD och en lokal AD är även känd med hybrid miljö. Om du har en hybrid miljö är det troligt att du redan har Azure AD Connect distribuerat för att synkronisera din lokala identitets information till molnet. Som en del av synkroniseringsprocessen synkroniserar Azure AD Connect lokal användar information till Azure AD. När en användare loggar in på en Azure AD-ansluten enhet i en hybrid miljö:
 
-1. Azure AD skickar namnet på den lokala domänen som användaren är medlem i tillbaka till enheten. 
+1. Azure AD skickar namnet på den lokala domänen som användaren är medlem i tillbaka till enheten.
 1. Tjänsten Local Security Authority (LSA) möjliggör Kerberos-autentisering på enheten.
 
-Under ett åtkomst försök till en resurs i användarens lokala domän, enheten:
+Under ett åtkomst försök till en resurs som begär Kerberos i användarens lokala miljö, enheten:
 
-1. Använder domän informationen för att hitta en domänkontrollant (DC). 
 1. Skickar lokal domän information och användarautentiseringsuppgifter till den lokaliserade DOMÄNKONTROLLANTen för att få användaren autentiserad.
-1. Tar emot en Kerberos [biljett beviljande biljett (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) som används för att komma åt AD-anslutna resurser.
+1. Tar emot en Kerberos [biljett beviljande biljett (TGT)](https://docs.microsoft.com/windows/desktop/secauthn/ticket-granting-tickets) som används för att komma åt AD-anslutna resurser. Om försöket att hämta TGT för AAD Connect-domänen Miss lyckas (en viss tids gräns för DCLocator kan orsaka en fördröjning), försöker Autentiseringshanteraren-poster, eller så kan användaren få ett popup-meddelande om att begära autentiseringsuppgifter för mål resursen.
 
-Alla appar som har kon figurer ATS för **Windows-integrerad autentisering** får sömlös inloggning när en användare försöker komma åt dem.  
+Alla appar som har kon figurer ATS för **Windows-integrerad autentisering** får sömlös inloggning när en användare försöker komma åt dem.
 
 Windows Hello för företag kräver ytterligare konfiguration för att aktivera lokal SSO från en Azure AD-ansluten enhet. Mer information finns i [Konfigurera Azure AD-anslutna enheter för lokal enkel inloggning med Windows Hello för företag](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 

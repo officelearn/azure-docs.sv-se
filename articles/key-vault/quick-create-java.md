@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e06c8d5373f8740e8091daae242a4f7af6c0ea4a
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995872"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769223"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>Snabb start: Azure Key Vault klient bibliotek för Java
 
@@ -22,7 +22,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Öka säkerheten och kontrollen över nycklar och lösen ord.
 - Skapa och importera krypterings nycklar på några minuter.
 - Minska svars tiden med moln skalning och global redundans.
-- Förenkla och automatisera uppgifter för SSL/TLS-certifikat.
+- Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
 [Käll koden](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault) | [API Reference dokumentation](https://azure.github.io/azure-sdk-for-java) | [produkt dokumentation](index.yml) | [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/keyvault/azure-security-keyvault-secrets/src/samples/java/com/azure/security/keyvault/secrets)
@@ -170,7 +170,7 @@ Med Azure Key Vault klient bibliotek för Java kan du hantera nycklar och relate
 
 Hela konsol programmet finns på https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 ### <a name="add-directives"></a>Lägg till direktiv
 

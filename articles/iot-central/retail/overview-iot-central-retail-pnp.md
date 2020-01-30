@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 8b1861b96f7ed53388d49e226bf3880bfcf657cb
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: bff6731e767fccb0800c30dfe3e75a800f54c59d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895868"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773056"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Skapa lösningar för detaljhandeln med Azure IoT Central
 
@@ -30,7 +30,7 @@ I följande avsnitt beskrivs funktionerna i dessa programmallar:
 
 ## <a name="connected-logistics"></a>Ansluten logistik
 
-Globala logistik utgifter förväntas uppnå $10.6 TN i 2020. Transport av gods konton för de flesta av dessa utgifter och leverantörer av leverans är under intensiv konkurrens kraftig belastning och begränsningar.
+Globala logistik utgifter förväntas uppnå $10 600 000 000 000 i 2020. Transport av gods konton för de flesta av dessa utgifter och leverantörer av leverans är under intensiv konkurrens kraftig belastning och begränsningar.
 
 Du kan använda IoT-sensorer för att samla in och övervaka omgivnings förhållanden som temperatur, fuktighet, lutning, stöt, ljus och platsen för en försändelse. Du kan kombinera telemetri som samlats in från IoT-sensorer och enheter med andra data källor, till exempel väder-och trafik information i molnbaserade Business Intelligence system.
 

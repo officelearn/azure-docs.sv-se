@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722551"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768665"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -326,8 +326,8 @@ Om du använder [Virtual Network tjänst slut punkter och regler](sql-database-v
 Om din affärs kontinuitets plan kräver redundans med hjälp av grupper med automatisk redundans, kan du begränsa åtkomsten till din SQL-databas med hjälp av traditionella brand Väggs regler. Följ dessa steg för att stödja automatisk redundans:
 
 1. [Skapa en offentlig IP-adress](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
-2. [Skapa en offentlig belastningsutjämnare](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) och tilldela den till den offentliga IP-adressen.
-3. [Skapa ett virtuellt nätverk och de virtuella datorerna](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers) för dina klient dels komponenter
+2. [Skapa en offentlig belastningsutjämnare](../load-balancer/quickstart-load-balancer-standard-public-portal.md) och tilldela den till den offentliga IP-adressen.
+3. [Skapa ett virtuellt nätverk och de virtuella datorerna](../load-balancer/quickstart-load-balancer-standard-public-portal.md) för dina klient dels komponenter
 4. [Skapa en nätverks säkerhets grupp](../virtual-network/security-overview.md) och konfigurera inkommande anslutningar.
 5. Se till att de utgående anslutningarna är öppna för Azure SQL Database med hjälp av SQL [-tjänst tag gen](../virtual-network/security-overview.md#service-tags).
 6. Skapa en [brand Väggs regel för SQL Database](sql-database-firewall-configure.md) för att tillåta inkommande trafik från den offentliga IP-adressen som du skapar i steg 1.

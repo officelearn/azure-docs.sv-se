@@ -14,12 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d16ab7acd87fa6cc7907f8fee3400c2e416e6cfe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697429"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834254"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Gör så här: Lägg till app-roller i ditt program och ta emot dem i token
 
@@ -44,7 +44,7 @@ Dessa program roller definieras i [Azure Portal](https://portal.azure.com) i pro
 1. Redigera appens manifest genom att leta upp `appRoles`s inställningen och lägga till alla dina program roller.
 
      > [!NOTE]
-     > Varje app Role-definition i det här manifestet måste ha ett annat giltigt GUID för egenskapen `id`. 
+     > Varje app Role-definition i det här manifestet måste ha ett annat giltigt GUID inom kontexten för manifestet för egenskapen `id`.    
      > 
      > Egenskapen `value` för varje app Role-definition bör exakt matcha de strängar som används i koden i programmet. Egenskapen `value` får inte innehålla blank steg. Om det gör det får du ett fel meddelande när du sparar manifestet.
      

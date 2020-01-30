@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 259ce2b1881c31c2558539fed34513575d193a48
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961993"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840425"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Använd Azure Portal för att skapa och ta bort konsument användare i Azure AD B2C
 
@@ -37,7 +37,7 @@ Den här artikeln fokuserar på att arbeta med **konsument konton** i Azure Port
 
 ## <a name="create-a-consumer-user"></a>Skapa en konsument användare
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
 1. På den vänstra menyn väljer du **Azure AD B2C**. Eller Välj **alla tjänster** och Sök efter och välj **Azure AD B2C**.
 1. Under **Hantera** väljer du **Användare**.
@@ -61,4 +61,4 @@ Mer information om hur du återställer en användare inom de första 30 dagarna
 
 ## <a name="next-steps"></a>Nästa steg
 
-För automatiserade scenarier för användar hantering, till exempel när du migrerar användare från en annan identitetsprovider till din Azure AD B2C katalog, se [Azure AD B2C:](active-directory-b2c-user-migration.md)användarmigrering.
+För automatiserade scenarier för användar hantering, till exempel när du migrerar användare från en annan identitetsprovider till din Azure AD B2C katalog, se [Azure AD B2C:](user-migration.md)användarmigrering.

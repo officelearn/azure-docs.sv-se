@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5673465c9ff1afe83c5d9d549a78e1547a59b72f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 229f49255fbc72f74f07b1e7098417d136f35c27
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701968"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775181"
 ---
 # <a name="protected-web-api---move-to-production"></a>Skyddat webb-API – flytta till produktion
 
@@ -30,17 +30,15 @@ Nu när du vet hur du skyddar ditt webb-API kan du flytta det till produktion.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du anropar underordnade API: er:
+Lär dig att anropa ett underordnat API.
 
 > [!div class="nextstepaction"]
 > [Scenario – webb-API-anrop underordnade API: er](scenario-web-api-call-api-overview.md)
 
-
-Lär dig mer med självstudier och exempel:
-
+Lär dig mer med självstudier och exempel.
 
 > [!div class="nextstepaction"]
-> [Anropa en skyddad API med hjälp av daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
+> [Anropa en skyddad API med hjälp av en daemon](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/tree/master/2-Call-OwnApi)
 
 > [!div class="nextstepaction"]
 > [Själv studie kurs om ASP.NET Core Web API](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2)

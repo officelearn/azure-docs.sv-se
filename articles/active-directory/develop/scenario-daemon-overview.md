@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: af4b00a630c2fc7d1b806a98f537e8635807609e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ffbad5981f29ade9f27a434a9273969af4ed82de
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702257"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773413"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>Scenario: daemon-program som anropar webb-API: er
 
@@ -38,28 +38,28 @@ Ditt program kan hämta en token för att anropa ett webb-API för sig själv (i
 
 Här följer några exempel på användnings fall för daemon-appar:
 
-- Webb program som används för att etablera eller administrera användare eller utföra batch-processer i en katalog
-- Skriv bords program (t. ex. Windows-tjänster i Windows eller daemon-processer i Linux) som utför batch-jobb eller en operativ system tjänst som körs i bakgrunden
+- Webb program som används för att etablera eller administrera användare eller göra batch-processer i en katalog
+- Skriv bords program (t. ex. Windows-tjänster på Windows-eller daemon-processer i Linux) som utför batch-jobb eller en tjänst för operativ system som körs i bakgrunden
 - Webb-API: er som behöver manipulera kataloger, inte vissa användare
 
-Det finns ett annat vanligt fall där icke-daemon-program använder klientautentiseringsuppgifter: även om de agerar för användarens räkning måste de ha åtkomst till ett webb-API eller en resurs med sin identitet av tekniska skäl. Ett exempel är åtkomst till hemligheter i ett nyckel valv eller en Azure SQL-databas för cache.
+Det finns ett annat vanligt fall där icke-daemon-program använder klientautentiseringsuppgifter: även om de agerar för användarens räkning måste de ha åtkomst till ett webb-API eller en resurs som har sin egen identitet av tekniska skäl. Ett exempel är åtkomst till hemligheter i Azure Key Vault eller en Azure SQL-databas för cache.
 
 Program som hämtar en token för sina egna identiteter:
 
-- är konfidentiella klient program. Dessa appar, med tanke på att de får åtkomst till resurser oberoende av en användare, måste bevisa sin identitet. De är också i stället känsliga appar som de måste godkänna av Azure Active Directory (Azure AD)-klient organisations administratörer.
+- är konfidentiella klient program. Dessa appar, med tanke på att de får åtkomst till resurser oberoende av användarna, måste bevisa sin identitet. De är också i stället känsliga appar. De måste godkännas av Azure Active Directory (Azure AD)-klient organisations administratörer.
 - Har registrerat en hemlighet (program lösen ord eller certifikat) med Azure AD. Den här hemligheten skickas under anropet till Azure AD för att hämta en token.
 
 ## <a name="specifics"></a>Information
 
 > [!IMPORTANT]
 >
-> - Det går inte att använda användar åtgärder med ett daemon-program. Ett daemon-program kräver en egen identitet. Den här typen av program begär en åtkomsttoken genom att använda dess program identitet och presentera dess program-ID, autentiseringsuppgift (lösen ord eller certifikat) och program-ID-URI till Azure AD. Efter en lyckad autentisering tar daemonen emot en åtkomsttoken (och en uppdateringstoken) från slut punkten för Microsoft Identity Platform, som sedan används för att anropa webb-API: et (och uppdateras vid behov).
-> - Eftersom användar åtgärder inte är möjliga är det inte möjligt att ge ett ökat tillstånd. Alla nödvändiga API-behörigheter måste konfigureras vid program registrering och koden för programmet begär bara statiskt definierade behörigheter. Det innebär också att daemon-program inte stöder stegvist tillstånd.
+> - Användare kan inte interagera med ett daemon-program. Ett daemon-program kräver en egen identitet. Den här typen av program begär en åtkomsttoken genom att använda dess program identitet och presentera dess program-ID, autentiseringsuppgift (lösen ord eller certifikat) och program-ID-URI till Azure AD. Efter en lyckad autentisering tar daemonen emot en åtkomsttoken (och en uppdateringstoken) från slut punkten för Microsoft Identity Platform. Denna token används sedan för att anropa webb-API: et (och uppdateras vid behov).
+> - Eftersom användarna inte kan interagera med daemon-program går det inte att använda ett stegvist tillstånd. Alla nödvändiga API-behörigheter måste konfigureras vid program registrering. Koden för programmet begär bara statiskt definierade behörigheter. Det innebär också att daemon-program inte stöder stegvist tillstånd.
 
 För utvecklare har slut punkt till slut punkt i det här scenariot följande aspekter:
 
-- Daemon-program kan bara fungera i Azure AD-klienter. Det skulle inte vara bra att skapa ett daemon-program som försöker manipulera Microsoft-personliga konton. Om du är en affärsutvecklare (LOB) kan du skapa daemon-appen i din klient organisation. Om du är en ISV kanske du vill skapa ett daemon-program för flera innehavare. De måste godkännas av varje klient administratör.
-- **Svars-URI** behövs inte under [program registreringen](./scenario-daemon-app-registration.md). Du måste dela hemligheter eller certifikat eller signerade intyg med Azure AD och du måste begära program behörigheter och bevilja administratörs medgivande för att kunna använda dessa program behörigheter.
+- Daemon-program kan bara fungera i Azure AD-klienter. Det skulle inte vara bra att skapa ett daemon-program som försöker manipulera Microsoft-personliga konton. Om du är en affärsutvecklare (LOB) kan du skapa daemon-appen i din klient organisation. Om du är en ISV kanske du vill skapa ett daemon-program för flera innehavare. Varje klient organisations administratör måste ge sitt medgivande.
+- Svars-URI behövs inte under [program registreringen](./scenario-daemon-app-registration.md). Du måste dela hemligheter eller certifikat eller signerade intyg med Azure AD. Du måste också begära program behörigheter och bevilja administratörs medgivande för att kunna använda dessa program behörigheter.
 - [Program konfigurationen](./scenario-daemon-app-configuration.md) måste ange klientautentiseringsuppgifterna som delas med Azure AD under program registreringen.
 - Det [omfång](scenario-daemon-acquire-token.md#scopes-to-request) som används för att hämta en token med ett flöde för klientautentiseringsuppgifter måste vara ett statiskt omfång.
 

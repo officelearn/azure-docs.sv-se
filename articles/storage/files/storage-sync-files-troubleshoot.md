@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704552"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842724"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -1084,7 +1084,35 @@ Om filer inte kan Azure Files till nivån:
        - Kör `fltmc`i en upphöjd kommando tolk. Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
 
 > [!NOTE]
-> Händelse-ID 9003 loggas en gång i timmen i händelse loggen för telemetri om en fil inte går att skikta (en händelse loggas per felkod). Händelse loggarna för drift och diagnostik ska användas om ytterligare information behövs för att diagnostisera ett problem.
+> Händelse-ID 9003 loggas en gång i timmen i händelse loggen för telemetri om en fil inte går att skikta (en händelse loggas per felkod). Kontrol lera avsnittet [nivåer fel och reparation](#tiering-errors-and-remediation) för att se om reparations stegen visas för felkoden.
+
+### <a name="tiering-errors-and-remediation"></a>Fel i skiktning och reparation
+
+| HRESULT | HRESULT (decimal) | Felsträng | Problem | Åtgärd |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | – 2134351805 | ECS_E_GHOSTING_FILE_IN_USE | Filen kunde inte skiktas eftersom den används. | Ingen åtgärd krävs. Filen kommer att placeras i nivå av när den inte längre används. |
+| 0x80c80241 | – 2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | Filen kunde inte skiktas eftersom den exkluderas av synkroniseringen. | Ingen åtgärd krävs. Filer i undantags listan för synkronisering kan inte skiktas. |
+| 0x80c86042 | – 2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | Filen kunde inte skiktas eftersom den inte hittades på servern. | Ingen åtgärd krävs. Om felet kvarstår kontrollerar du om filen finns på servern. |
+| 0x80c83053 | – 2134364077 | ECS_E_CREATE_SV_FILE_DELETED | Filen kunde inte skiktas eftersom den togs bort i Azure-filresursen. | Ingen åtgärd krävs. Filen bör tas bort från servern vid nästa hämtning av Sync-sessionen. |
+| 0x80c8600e | – 2134351858 | ECS_E_AZURE_SERVER_BUSY | Filen kunde inte skiktas på grund av ett nätverks problem. | Ingen åtgärd krävs. Om felet kvarstår kontrollerar du nätverks anslutningen till Azure-filresursen. |
+| 0x80072EE7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | Filen kunde inte skiktas på grund av ett nätverks problem. | Ingen åtgärd krävs. Om felet kvarstår kontrollerar du nätverks anslutningen till Azure-filresursen. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | Filen kunde inte skiktas på grund av nekad åtkomst. Det här felet kan inträffa om filen finns i en skrivskyddad DFS-R-replikmapp. | Azure Files Sync stöder inte serverslutpunkter i skrivskyddade DFS-R-replikeringsmappar. Mer information finns i [planerings guiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) . |
+| 0x80072efe | – 2147012866 | WININET_E_CONNECTION_ABORTED | Filen kunde inte skiktas på grund av ett nätverks problem. | Ingen åtgärd krävs. Om felet kvarstår kontrollerar du nätverks anslutningen till Azure-filresursen. |
+| 0x80c80261 | – 2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | Filen kunde inte skiktas eftersom fil storleken är mindre än den storlek som stöds. | Om agent versionen är mindre än 9,0 är den minsta fil storlek som stöds 64 kB. Om agent versionen är 9,0 och senare, baseras den minsta fil storlek som stöds på fil systemets kluster storlek (kluster storlek med dubbel fil system). Om fil systemets kluster storlek till exempel är 4kb, är den minsta fil storleken 8 KB. |
+| 0x80c83007 | – 2134364153 | ECS_E_STORAGE_ERROR | Filen kunde inte skiktas på grund av ett problem med Azure Storage. | Om felet kvarstår öppnar du en support förfrågan. |
+| 0x800703e3 | – 2147023901 | ERROR_OPERATION_ABORTED | Filen kunde inte skiktas på grund av att den har återkallats på samma tidpunkt. | Ingen åtgärd krävs. Filen kommer att skiktas när återställningen är klar och filen inte längre används. |
+| 0x80c80264 | – 2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Filen kunde inte skiktas eftersom den inte har synkroniserats med Azure-filresursen. | Ingen åtgärd krävs. Filen kommer att-nivå när den har synkroniserats till Azure-filresursen. |
+| 0x80070001 | – 2147942401 | ERROR_INVALID_FUNCTION | Filen kunde inte skiktas eftersom moln nivå filter driv rutinen (storagesync. sys) inte körs. | Lös problemet genom att öppna en upphöjd kommando tolk och köra följande kommando: in FLTMC load storagesync <br>Om storagesync filter driv rutinen inte kan läsas in när du kör in FLTMC-kommandot avinstallerar du Azure File Sync agenten, startar om servern och installerar om Azure File Sync agenten. |
+| 0x80070070 | – 2147024784 | ERROR_DISK_FULL | Filen kunde inte skiktas på grund av otillräckligt disk utrymme på den volym där Server slut punkten finns. | Lös problemet genom att frigöra minst 100 MB disk utrymme på den volym där Server slut punkten finns. |
+| 0x80070490 | – 2147023728 | ERROR_NOT_FOUND | Filen kunde inte skiktas eftersom den inte har synkroniserats med Azure-filresursen. | Ingen åtgärd krävs. Filen kommer att-nivå när den har synkroniserats till Azure-filresursen. |
+| 0x80c80262 | – 2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Filen kunde inte skiktas eftersom den är en referens punkt som inte stöds. | Om filen är en referens punkt för datadeduplicering följer du stegen i [planerings guiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) för att aktivera stöd för datadeduplicering. Filer med andra referens punkter än datadeduplicering stöds inte och kommer inte att skiktas.  |
+| 0x80c83052 | – 2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | Filen kunde inte skiktas eftersom den har ändrats. | Ingen åtgärd krävs. Filen kommer att skiktas när den ändrade filen har synkroniserats med Azure-filresursen. |
+| 0x80c80269 | – 2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | Filen kunde inte skiktas eftersom den inte har synkroniserats med Azure-filresursen. | Ingen åtgärd krävs. Filen kommer att-nivå när den har synkroniserats till Azure-filresursen. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | Filen kunde inte skiktas på grund av ett nätverks problem. | Ingen åtgärd krävs. Om felet kvarstår kontrollerar du nätverks anslutningen till Azure-filresursen. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Filen kunde inte skiktas eftersom den har ändrats. | Ingen åtgärd krävs. Filen kommer att skiktas när den ändrade filen har synkroniserats med Azure-filresursen. |
+| 0x800705aa | – 2147023446 | ERROR_NO_SYSTEM_RESOURCES | Filen kunde inte skiktas på grund av otillräckliga system resurser. | Om felet kvarstår bör du undersöka vilken program-eller kernel-lägesinstallation som förbrukar system resurser. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>Så här felsöker du filer som inte kan återkallas  
 Om filerna inte kan återkallas:
@@ -1109,7 +1137,7 @@ Om filerna inte kan återkallas:
 | 0x80c86002 | – 2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Det gick inte att återkalla filen eftersom den inte är tillgänglig i Azure-filresursen. | Lös problemet genom att kontrol lera att filen finns i Azure-filresursen. Om filen finns i Azure-filresursen uppgraderar du till den senaste versionen av Azure File Sync [agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions). |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Det gick inte att återkalla filen på grund av ett auktoriseringsfel till lagrings kontot. | Lös problemet genom att kontrol lera [Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Det gick inte att återkalla filen eftersom Azure-filresursen inte är tillgänglig. | Kontrol lera att fil resursen finns och att den är tillgänglig. Om fil resursen har tagits bort och återskapats utför du stegen som dokumenteras i [synkroniseringen eftersom Azure-filresursen togs bort och återskapas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) för att ta bort och återskapa synkroniseringsresursen. |
-| 0x800705aa | – 2147023446 | ERROR_NO_SYSTEM_RESOURCES | Det gick inte att återkalla filen på grund av insuffcient system resurser. | Om felet kvarstår bör du undersöka vilken program-eller kernel-lägesinstallation som förbrukar system resurser. |
+| 0x800705aa | – 2147023446 | ERROR_NO_SYSTEM_RESOURCES | Det gick inte att återkalla filen på grund av otillräckliga system resurser. | Om felet kvarstår bör du undersöka vilken program-eller kernel-lägesinstallation som förbrukar system resurser. |
 | 0x8007000e | – 2147024882 | ERROR_OUTOFMEMORY | Filen kunde inte återkallas på grund av insuffcient-minne. | Om felet kvarstår bör du undersöka vilken program-eller kernel-läge driv rutin som orsakar det låga minnes tillståndet. |
 | 0x80070070 | – 2147024784 | ERROR_DISK_FULL | Filen kunde inte återkallas på grund av otillräckligt disk utrymme. | Lös problemet genom att frigöra utrymme på volymen genom att flytta filer till en annan volym, öka storleken på volymen eller tvinga filer till nivån genom att använda cmdleten Invoke-StorageSyncCloudTiering. |
 
@@ -1228,7 +1256,7 @@ Om problemet inte är löst kör du AFSDiag-verktyget:
 
 3. För spårnings nivån Azure File Sync kernelläge anger du **1** (om inget annat anges för att skapa mer utförliga spår) och trycker sedan på RETUR.
 4. För spårnings nivån i Azure File Sync-användarläge anger du **1** (om inget annat anges för att skapa mer utförliga spår) och trycker sedan på RETUR.
-5. Återskapa felet. När du är klar anger du **D**.
+5. Återskapa problemet. När du är klar anger du **D**.
 6. En. zip-fil som innehåller loggar och spårningsfiler sparas i den utgående katalogen som du har angett.
 
 ## <a name="see-also"></a>Se också

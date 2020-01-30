@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 100f059f7c9f18ab6920f50c850b3b8d5a617908
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951045"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840204"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Om tekniska profiler i Azure Active Directory B2C anpassade principer
 
@@ -38,7 +38,7 @@ En teknisk profil möjliggör följande typer av scenarier:
 - [RESTful-Provider](restful-technical-profile.md) – anrop till REST API tjänster, till exempel verifiera användarindata, utöka användar data eller integrera med branschspecifika program.
 - [SAML2](saml-technical-profile.md) -Federation med valfri SAML-protokoll identitets leverantör.
 - [Självkontrollerad](self-asserted-technical-profile.md) – interagera med användaren. Du kan till exempel samla in användarens autentiseringsuppgifter för att logga in, återge registrerings sidan eller lösen ords återställning.
-- [Sessionshantering](active-directory-b2c-reference-sso-custom.md) – hantera olika typer av sessioner.
+- [Sessionshantering](custom-policy-reference-sso.md) – hantera olika typer av sessioner.
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Tekniskt profil flöde
@@ -49,7 +49,7 @@ Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspr�
  
 1. **InputClaimsTransformation** -indata-anspråk för varje utgående [anspråks omvandling](claimstransformations.md) hämtas från anspråks säcken och efter körningen tas de utgående anspråken tillbaka i anspråks säcken. De utgående anspråken för en inmatnings anspråks omvandling kan vara inmatade anspråk för en efterföljande omvandling av anspråk.
 2. **InputClaims** -anspråk hämtas från anspråks säcken och används för den tekniska profilen. En [självkontrollerad teknisk profil](self-asserted-technical-profile.md) använder till exempel indata-anspråk för att fylla i de utgående anspråk som användaren tillhandahåller. En REST API teknisk profil använder ingångs anspråk för att skicka indataparametrar till REST API-slutpunkten. Azure Active Directory använder ingångs anspråk som unik identifierare för att läsa, uppdatera eller ta bort ett konto.
-3. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Exempel:
+3. **Körning av teknisk profil** – den tekniska profilen utbyter anspråk med den konfigurerade parten. Ett exempel:
     - Omdirigera användaren till identitets leverantören för att slutföra inloggningen. Efter lyckad inloggning återgår användaren och den tekniska profil körningen fortsätter.
     - Anropa ett REST API när du skickar parametrar som InputClaims och få tillbaka information som OutputClaims.
     - Skapa eller uppdatera användar kontot.
@@ -57,7 +57,7 @@ Alla typer av tekniska profiler delar samma koncept. Du kan skicka indata-anspr�
 4. **ValidationTechnicalProfiles** – för en [självkontrollerad teknisk profil](self-asserted-technical-profile.md)kan du anropa en [teknisk profil för verifiering](validation-technical-profile.md)av Indatatyp. Den tekniska verifierings profilen verifierar de data som profileras av användaren och returnerar ett fel meddelande eller OK, med eller utan utgående anspråk. Innan Azure AD B2C skapar ett nytt konto kontrollerar det till exempel om användaren redan finns i katalog tjänsterna. Du kan anropa en REST API teknisk profil för att lägga till din egen affärs logik.<p>Omfattningen av de utgående anspråken för en verifierings teknisk profil är begränsad till den tekniska profilen som anropar den tekniska profilen för verifiering och andra tekniska profiler för verifiering under samma tekniska profil. Om du vill använda de utgående anspråken i nästa Orchestration-steg måste du lägga till de utgående anspråken till den tekniska profilen som anropar den tekniska profilen för verifiering.
 5. **OutputClaims** -anspråk returneras tillbaka till anspråks säcken. Du kan använda de här anspråken i nästa steg för att dirigera eller utföra anspråk på utdata.
 6. **OutputClaimsTransformations** -indata-anspråk för varje utgående [anspråks omvandling](claimstransformations.md) hämtas från anspråks säcken. De utgående anspråken för den tekniska profilen från föregående steg kan vara inmatnings anspråk för en transformering av utdata-anspråk. Efter körningen sätts de utgående anspråken tillbaka i anspråks säcken. De utgående anspråken för en transformering av utgående anspråk kan också vara inmatnings anspråk för en efterföljande transformering av utgående anspråk.
-7. **Sessions hantering för enkel inloggning (SSO)**  - [SSO-sessionshantering](active-directory-b2c-reference-sso-custom.md) styr interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel kontrol lera om valet av identitets leverantörer visas eller om information om lokalt konto måste anges igen.
+7. **Sessions hantering för enkel inloggning (SSO)**  - [SSO-sessionshantering](custom-policy-reference-sso.md) styr interaktionen med en användare när användaren redan har autentiserats. Administratören kan till exempel kontrol lera om valet av identitets leverantörer visas eller om information om lokalt konto måste anges igen.
 
 En teknisk profil kan ärva från en annan teknisk profil för att ändra inställningar eller lägga till nya funktioner.  **IncludeTechnicalProfile** -elementet är en referens till den grundläggande tekniska profil som en teknisk profil härleds från.
 

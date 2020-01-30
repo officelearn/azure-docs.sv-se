@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978065"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842443"
 ---
 # <a name="sap-lama-connector-for-azure"></a>SAP LaMa-anslutning för Azure
 
@@ -87,7 +87,7 @@ Azure-anslutaren kan använda ett huvud namn för tjänsten för att auktorisera
 1. Klicka på ny registrering
 1. Ange ett namn och klicka på registrera
 1. Välj den nya appen och klicka på certifikat & hemligheter på fliken Inställningar
-1. Skapa en ny klient hemlighet, ange en beskrivning för en ny nyckel, Välj när hemligheten ska exire och klicka på Spara
+1. Skapa en ny klient hemlighet, ange en beskrivning för en ny nyckel, Välj när hemligheten ska gå ut och klicka på Spara
 1. Anteckna värdet. Den används som lösen ord för tjänstens huvud namn
 1. Anteckna programmets ID. Den används som användar namn för tjänstens huvud namn
 
@@ -294,7 +294,7 @@ ANF tillhandahåller NFS för Azure. I samband med SAP LaMa fören klar skapande
 
 Östra Australien, centrala USA, östra USA, östra USA 2, norra Europa, södra centrala USA, Västeuropa och västra USA 2.
 
-#### <a name="network-requirements"></a>Nätverkskrav
+#### <a name="network-requirements"></a>Nätverks krav
 
 ANF kräver ett delegerat undernät som måste vara en del av samma VNET som SAP-servrarna. Här är ett exempel på en sådan konfiguration.
 Den här skärmen visar skapandet av VNET och det första under nätet:

@@ -3,18 +3,18 @@ title: Återge anpassade data på en raster karta | Microsoft Azure Maps
 description: I den här artikeln får du lära dig hur du återger anpassade data på en raster karta genom att använda Microsoft Azure Maps-tjänsten för statisk avbildning.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/29/2019
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911474"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766055"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Återge anpassade data på en raster karta
 
@@ -29,7 +29,7 @@ Om du vill återge anpassade kartnålar, etiketter och geometri överlägg kan d
 
 ### <a name="create-an-azure-maps-account"></a>Skapa ett Azure Maps-konto
 
-För att kunna slutföra procedurerna i den här artikeln måste du först skapa ett Azure Maps konto och hämta konto nyckeln. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
+För att slutföra procedurerna i den här artikeln måste du först skapa ett Azure Maps konto och hämta din mappnings konto nyckel. Följ instruktionerna i [skapa ett konto](quick-demo-map-app.md#create-an-account-with-azure-maps) om du vill skapa en Azure Maps konto prenumeration och följ stegen i [Hämta primär nyckel](quick-demo-map-app.md#get-the-primary-key-for-your-account) för att hämta den primära nyckeln för ditt konto. Mer information om autentisering i Azure Maps finns i [hantera autentisering i Azure Maps](./how-to-manage-authentication.md).
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>Återge kartnålar med etiketter och en anpassad bild
@@ -43,7 +43,7 @@ Slutför följande steg för att återge kartnålar med etiketter och en anpassa
 
 1. Skapa en samling där förfrågningarna ska lagras. I Postman-appen väljer du **ny**. I fönstret **Skapa nytt** väljer du **samling**. Namnge samlingen och välj knappen **skapa** . 
 
-2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** på en begäran för kartnålarna, Välj den samling som du skapade i föregående steg som den plats där du vill spara begäran och välj sedan **Spara**.
+2. Välj **nytt** om du vill skapa en begäran. I fönstret **Skapa nytt** väljer du **begäran**. Ange ett **namn** på en begäran för kartnålarna. Välj den samling som du skapade i föregående steg som den plats där du vill spara begäran och välj sedan **Spara**.
     
     ![Skapa en begäran i Postman](./media/how-to-render-custom-data/postman-new.png)
 
@@ -142,13 +142,13 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. Kopiera din status-URI och Lägg till prenumerations nyckel parametern till den med dess värde som din Azure Maps konto prenumerations nyckel som du använde för att överföra data. Status-URI-formatet bör se ut så här:
+5. Kopiera din status-URI och Lägg till prenumerations nyckel parametern till den med värdet för din Azure Maps konto prenumerations nyckel. Använd samma konto prenumerations nyckel som du använde för att ladda upp data. Status-URI-formatet bör se ut så här:
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. För att hämta udId öppnar du en ny flik i Postman-appen och väljer Hämta HTTP-metod på fliken Builder och gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId.
+6. Om du vill hämta udId öppnar du en ny flik i Postman-appen och väljer Hämta HTTP-metod på fliken Builder och gör en GET-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId.
 
    ```JSON
    {
@@ -156,7 +156,7 @@ Du kan också hämta plats informationen för sökvägen och PIN-koden genom att
    }
    ```
 
-7. Använd `udId`-värdet som tagits emot från API: et för data överföring för att återge funktioner på kartan. Det gör du genom att öppna en ny flik i den samling som du skapade i föregående avsnitt. Välj metoden Hämta HTTP på fliken Builder och ange denna URL för att få en GET-begäran:
+7. Använd `udId`-värdet som tagits emot från API: et för data överföring för att återge funktioner på kartan. Det gör du genom att öppna en ny flik i den samling som du skapade i föregående avsnitt. Välj metoden Hämta HTTP på fliken Builder, Ersätt {Subscription-Key} och {udId} med dina värden och ange denna URL för att få en GET-begäran:
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Du kan ändra utseendet på en polygon genom att använda format modifierare med
 > Proceduren i det här avsnittet kräver ett Azure Maps konto i pris nivån S1.
 
 
-Du kan göra kartnålar och deras etiketter större eller mindre med hjälp av `sc` skal formats modifieraren. Den här modifieraren tar ett värde som är större än noll. Värdet 1 är standard skalan. Värden som är större än 1 gör PIN-koderna större och värden som är mindre än 1 blir mindre. Mer information om format modifierare finns i [Parametrar för statisk avbildnings tjänst Sök väg](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+Du kan ändra utseendet på PIN-märkena genom att lägga till format modifierare. Om du till exempel vill göra kartnålar och deras etiketter större eller mindre använder du modifieraren `sc` skalnings format. Den här modifieraren tar ett värde som är större än noll. Värdet 1 är standard skalan. Värden som är större än 1 gör PIN-koderna större och värden som är mindre än 1 blir mindre. Mer information om format modifierare finns i [Parametrar för statisk avbildnings tjänst Sök väg](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Följ dessa steg om du vill återge en cirkel och kartnålar med anpassade etiketter:
@@ -206,6 +206,18 @@ Följ dessa steg om du vill återge en cirkel och kartnålar med anpassade etike
     Här är svars bilden:
 
     ![Återge en cirkel med anpassade kartnålar](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. Ändra färgen på kartnålarna från det sista steget genom att ändra "co"-format modifieraren. Titta på `pins=default|la15+50|al0.66|lc003C62|co002D62|`, den aktuella färgen anges som #002D62 i CSS. Anta att du vill ändra den till #41d42a. Skriv det nya färg värdet efter "co"-specifikationen, så här: `pins=default|la15+50|al0.66|lc003C62|co41D42A|`. Gör en ny GET-begäran:
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Här är svars bilden när du har ändrat färgerna på stiften:
+
+    ![Återge en cirkel med uppdaterade kartnålar](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+På samma sätt kan du ändra, lägga till och ta bort andra format modifierare.
 
 ## <a name="next-steps"></a>Nästa steg
 

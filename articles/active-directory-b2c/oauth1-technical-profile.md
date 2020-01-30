@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951113"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840391"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definiera en OAuth1 teknisk profil i en Azure Active Directory B2C anpassad princip
 
@@ -71,12 +71,12 @@ Den tekniska profilen returnerar även anspråk som inte returneras av identitet
 | Attribut | Krävs | Beskrivning |
 | --------- | -------- | ----------- |
 | client_id | Ja | Program identifieraren för identitets leverantören. |
-| ProviderName | Nej | Namnet på identitets leverantören. |
+| ProviderName | Inga | Namnet på identitets leverantören. |
 | request_token_endpoint | Ja | URL: en för token för begäran som enligt RFC 5849. |
 | authorization_endpoint | Ja | URL: en för Authorization-slutpunkten enligt RFC 5849. |
 | access_token_endpoint | Ja | URL: en för token-slutpunkten enligt RFC 5849. |
-| ClaimsEndpoint | Nej | URL till användar informations slut punkten. |
-| ClaimsResponseFormat | Nej | Format för anspråk svar.|
+| ClaimsEndpoint | Inga | URL till användar informations slut punkten. |
+| ClaimsResponseFormat | Inga | Format för anspråk svar.|
 
 ## <a name="cryptographic-keys"></a>Kryptografiska nycklar
 
@@ -94,7 +94,7 @@ Om du använder **b2clogin.com** -domänen i stället för **login.microsoftonli
 
 Exempel:
 
-- [Lägg till Twitter som en OAuth1 identitets leverantör genom att använda anpassade principer](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Lägg till Twitter som en OAuth1 identitets leverantör genom att använda anpassade principer](identity-provider-twitter-custom.md)
 
 
 

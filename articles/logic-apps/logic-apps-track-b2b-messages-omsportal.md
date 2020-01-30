@@ -3,17 +3,15 @@ title: Spåra B2B-meddelanden med Azure Monitor-loggar
 description: Spåra B2B-kommunikation för integrations konton och Azure Logic Apps med Azure Log Analytics
 services: logic-apps
 ms.suite: integration
-author: divyaswarnkar
-ms.author: divswa
-ms.reviewer: jonfan, estfan, logicappspm
+ms.reviewer: jonfan, divswa, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6e66bdfcfe9e84c1095f03a41439b904c7cb96df
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792929"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773721"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Spåra B2B-meddelanden med Azure Monitor-loggar
 
@@ -167,7 +165,7 @@ Här är namn formaten för varje nedladdad AS2-mapp och filer.
 | Mapp eller fil | Namn format |
 | :------------- | :---------- |
 | Mapp för meddelanden | [Sender]\_[mottagare]\_AS2\_[korrelations-ID]\_[meddelande-ID]\_[tidsstämpel] |
-| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [avsändare]\_[mottagare]\_AS2\_[korrelations-ID]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata\_nytto Last. txt </p></p>**Indata**: [sender]\_[mottagare]\_AS2\_[KORRELATIONS-ID]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata. txt |
+| Indata, utdata och om konfiguration, bekräftelse-filer | **Indatakälla**: [avsändare]\_[mottagare]\_AS2\_[korrelations-ID]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata\_nytto Last. txt </p></p>**Indata**: [sender]\_[mottagare]\_AS2\_[KORRELATIONS-ID]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_AS2\_[korrelations-ID]\_utdata. txt |
 |          |             |
 
 <a name="x12-message-properties"></a>
@@ -199,8 +197,8 @@ Här är namn formaten för varje nedladdad X12-mapp och filer.
 
 | Mapp eller fil | Namn format |
 | :------------- | :---------- |
-| Mapp för meddelanden | [Sender]\_[mottagare]\_X12\_[Interchange-Control-Number]\_[global-Control-Number]\_[Transaction-set-Control-Number]\_[tidsstämpel] |
-| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [avsändare]\_[mottagare]\_X12\_[Interchange-Control-number]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_utdata\_Payload. txt </p></p>**Indata**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_utdata. txt |
+| Mapp för meddelanden | [sender]\_[receiver]\_X12\_[interchange-control-number]\_[global-control-number]\_[transaction-set-control-number]\_[timestamp] |
+| Indata, utdata och om konfiguration, bekräftelse-filer | **Indatakälla**: [avsändare]\_[mottagare]\_X12\_[Interchange-Control-number]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_utdata\_Payload. txt </p></p>**Indata**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_X12\_[Interchange-Control-number]\_utdata. txt |
 |          |             |
 
 <a name="EDIFACT-message-properties"></a>
@@ -233,7 +231,7 @@ Här är namn formaten för varje nedladdad EDIFACT-mapp och filer.
 | Mapp eller fil | Namn format |
 | :------------- | :---------- |
 | Mapp för meddelanden | [Sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-Number]\_[global-Control-Number]\_[Transaction-set-Control-Number]\_[tidsstämpel] |
-| Indata, utdata och om konfiguration, bekräftelse fil | **Indatakälla**: [avsändare]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_utdata\_Payload. txt </p></p>**Indata**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_utdata. txt |
+| Indata, utdata och om konfiguration, bekräftelse-filer | **Indatakälla**: [avsändare]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_input_payload. txt </p>**Utmatnings nytto Last**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_utdata\_Payload. txt </p></p>**Indata**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_Inputs. txt </p></p>**Utdata**: [sender]\_[mottagare]\_EDIFACT\_[Interchange-Control-number]\_utdata. txt |
 |          |             |
 
 ## <a name="next-steps"></a>Nästa steg

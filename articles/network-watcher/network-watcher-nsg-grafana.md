@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och Grafana.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
+author: damendo
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
@@ -15,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: mareat
-ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277947"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840918"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Hantera och analysera flödes loggar för nätverks säkerhets grupper med hjälp av Network Watcher och Grafana
 
@@ -201,7 +199,7 @@ Följande skärm bild visar ett diagram och diagram som visar de vanligaste flö
 
 ![Instrument panels diagram](./media/network-watcher-nsg-grafana/network-watcher-nsg-grafana-fig4.png)
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Genom att integrera Network Watcher med ElasticSearch och Grafana har du nu ett bekvämt och centraliserat sätt att hantera och visualisera NSG flödes loggar samt andra data. Grafana har ett antal andra kraftfulla diagram funktioner som också kan användas för att hantera flödes loggar ytterligare och bättre förstå nätverks trafiken. Nu när du har skapat en Grafana-instans och anslutit till Azure kan du fortsätta att utforska de andra funktionerna som den erbjuder.
 

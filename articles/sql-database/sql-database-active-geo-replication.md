@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822661"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842671"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Skapa och använda aktiv geo-replikering
 
-Aktiv geo-replikering är Azure SQL Database funktion som gör att du kan skapa läsbara sekundära databaser för enskilda databaser på en SQL Database-Server i samma eller olika data Center (region).
+Aktiv geo-replikering är en Azure SQL Database funktion som gör att du kan skapa läsbara sekundära databaser för enskilda databaser på en SQL Database-Server i samma eller ett annat data Center (region).
 
 > [!NOTE]
 > Aktiv geo-replikering stöds inte av hanterade instanser. Använd [grupper för automatisk redundans](sql-database-auto-failover-group.md)för geografisk redundansväxling av hanterade instanser.
@@ -124,6 +124,79 @@ Om du väljer att skapa den sekundära med lägre beräknings storlek ger loggen
 
 Mer information om SQL Database beräknings storlekarna finns i [SQL Database Service nivåer](sql-database-purchase-models.md).
 
+## <a name="cross-subscription-geo-replication"></a>Geo-replikering mellan prenumerationer
+
+Om du vill konfigurera aktiv geo-replikering mellan två databaser som tillhör olika prenumerationer (oavsett om de finns under samma klient organisation eller inte) måste du följa den särskilda proceduren som beskrivs i det här avsnittet.  Proceduren baseras på SQL-kommandon och kräver: 
+
+- Skapa en privilegie rad inloggning på båda servrarna
+- Lägga till IP-adressen i listan över tillåtna klienter för klienten som utför ändringen på båda servrarna (till exempel IP-adressen för värden som kör SQL Server Management Studio). 
+
+Klienten som utför ändringarna behöver nätverks åtkomst till den primära servern. Även om samma IP-adress för klienten måste läggas till i listan över tillåtna på den sekundära servern, krävs ingen nätverks anslutning till den sekundära servern. 
+
+### <a name="on-the-master-of-the-primary-server"></a>På den primära serverns huvud server
+
+1. Lägg till IP-adressen i listan över tillåtna klienter för klienten som utför ändringarna (mer information finns i [Konfigurera brand vägg](sql-database-firewall-configure.md)). 
+1. Skapa en inloggning som är dedikerad för att konfigurera aktiv geo-replikering (och justera autentiseringsuppgifterna efter behov):
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01'
+   ```
+
+1. Skapa en motsvarande användare och tilldela den till DBManager-rollen: 
+
+   ```sql
+   create user geodrsetup for login gedrsetup
+   alter role geodrsetup dbmanager add member geodrsetup
+   ```
+
+1. Anteckna SID för den nya inloggningen med hjälp av den här frågan: 
+
+   ```sql
+   select sid from sys.sql_logins where name = 'geodrsetup'
+   ```
+
+### <a name="on-the-source-database-on-the-primary-server"></a>På käll databasen på den primära servern
+
+1. Skapa en användare för samma inloggning:
+
+   ```sql
+   create user geodrsetup for login geodrsetup
+   ```
+
+1. Lägg till användaren i rollen db_owner:
+
+   ```sql
+   alter role db_owner add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-secondary-server"></a>På den sekundära serverns huvud server 
+
+1. Lägg till IP-adressen i listan över tillåtna klienter för klienten som utför ändringarna. Den måste ha samma exakta IP-adress som den primära servern. 
+1. Skapa samma inloggning som på den primära servern med samma lösen ord för användar namn och SID: 
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
+   ```
+
+1. Skapa en motsvarande användare och tilldela den till DBManager-rollen:
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-primary-server"></a>På den primära serverns huvud server
+
+1. Logga in på den primära serverns huvud server med den nya inloggningen. 
+1. Skapa en sekundär replik av käll databasen på den sekundära servern (ändra databas namn och servername efter behov):
+
+   ```sql
+   alter database dbrep add secondary on server <servername>
+   ```
+
+Efter den första installationen kan användare, inloggningar och brand Väggs regler som skapats tas bort. 
+
+
 ## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>Bevara autentiseringsuppgifter och brand Väggs regler i synkronisering
 
 Vi rekommenderar att du använder [IP brand Väggs regler på databas nivå](sql-database-firewall-configure.md) för geo-replikerade databaser så att dessa regler kan replikeras med databasen för att säkerställa att alla sekundära databaser har samma IP-brandvägg som primär. Den här metoden eliminerar behovet av att kunderna manuellt ska konfigurera och underhålla brand Väggs regler på servrar som är värdar för både de primära och sekundära databaserna. Om du använder [inneslutna databas användare](sql-database-manage-logins.md) för data åtkomst säkerställer både primära och sekundära databaser alltid samma autentiseringsuppgifter för användaren, vilket innebär att det inte finns några avbrott på grund av fel matchningar med inloggningar och lösen ord. Med att lägga till [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)kan kunderna hantera användar åtkomst till både primära och sekundära databaser och eliminera behovet av att hantera autentiseringsuppgifter i databaserna helt och hållet.
@@ -173,8 +246,8 @@ Som tidigare nämnts kan aktiv geo-replikering även hanteras via programmering 
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Använd REDUNDANS eller FORCE_FAILOVER_ALLOW_DATA_LOSS för att växla en sekundär databas till att vara primär för att initiera redundans |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Använd ta bort sekundär på servern om du vill avsluta en datareplikering mellan en SQL Database och den angivna sekundära databasen. |
 | [sys. geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Returnerar information om alla befintliga replikeringsinställningar för varje databas på Azure SQL Database-servern. |
-| [sys. dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik SQL-databas. |
-| [sys. dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
+| [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |Hämtar den senaste replikerings tiden, den senaste replikeringsfördröjning och annan information om replikeringslänken för en specifik SQL-databas. |
+| [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |Visar status för alla databas åtgärder inklusive status för replikeringslänken. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |gör att programmet väntar tills alla genomförda transaktioner replikeras och bekräftas av den aktiva sekundära databasen. |
 |  | |
 

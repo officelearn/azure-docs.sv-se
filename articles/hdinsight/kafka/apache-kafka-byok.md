@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 12/09/2019
-ms.openlocfilehash: b4a6ef4a8559276ea1f74e133055a613ddcbcab4
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/27/2020
+ms.openlocfilehash: 72fd23e4283925b91d749fef0afac4e87e93405c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495165"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841696"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Ta med din egen nyckel för Apache Kafka på Azure HDInsight
 
@@ -39,13 +39,13 @@ Vi går igenom följande steg för att skapa ett BYOK-aktiverat Kafka-kluster:
 
 Om du vill autentisera till Key Vault skapar du en användardefinierad hanterad identitet med hjälp av [Azure Portal](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md), [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md), [Azure Resource Manager](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)eller [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md). Mer information om hur hanterade identiteter fungerar i Azure HDInsight finns i [hanterade identiteter i Azure HDInsight](../hdinsight-managed-identities.md). Även om Azure Active Directory krävs för hanterade identiteter och BYOK till Kafka, är Enterprise Security Package (ESP) inte ett krav. Se till att spara resurs-ID: t för den hanterade identiteten när du lägger till det i Key Vault åtkomst principen.
 
-![Skapa användardefinierad hanterad identitet i Azure Portal](./media/apache-kafka-byok/user-managed-identity-portal.png)
+![Skapa användardefinierad hanterad identitet i Azure Portal](./media/apache-kafka-byok/azure-portal-create-managed-identity.png)
 
 ## <a name="set-up-the-key-vault-and-keys"></a>Konfigurera Key Vault och nycklar
 
 HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv kan du importera dina nycklar till Azure Key Vault. Kom ihåg att nycklarna måste ha "mjuk borttagning". Funktionen "mjuk borttagning" är tillgänglig i gränssnitten REST, .NET/C#, PowerShell och Azure CLI.
 
-1. Om du vill skapa ett nytt nyckel valv följer du snabb starten för [Azure Key Vault](../../key-vault/key-vault-overview.md) . Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md).
+1. Om du vill skapa ett nytt nyckel valv följer du snabb starten för [Azure Key Vault](../../key-vault/quick-create-cli.md) . Mer information om hur du importerar befintliga nycklar finns på [nycklar, hemligheter och certifikat](../../key-vault/about-keys-secrets-and-certificates.md).
 
 1. Aktivera "mjuk borttagning" i Key-valvet med hjälp av AZ-kommando för [uppdatering](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) cli.
 
@@ -79,7 +79,7 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
     b. Under **Välj huvud konto**väljer du den användare-tilldelade hanterade identitet som du har skapat.
 
-    ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/apache-kafka-byok/add-key-vault-access-policy-select-principal.png)
+    ![Ange Välj huvud konto för Azure Key Vault åtkomst princip](./media/apache-kafka-byok/azure-portal-add-access-policy.png)
 
     c. Ange **nyckel behörigheter** för att **Hämta, ta emot** **, packa upp**och **figursätta**nyckeln.
 
@@ -97,9 +97,9 @@ HDInsight har endast stöd för Azure Key Vault. Om du har ett eget nyckel valv 
 
 Nu är du redo att skapa ett nytt HDInsight-kluster. BYOK kan bara tillämpas på nya kluster när klustret skapas. Det går inte att ta bort kryptering från BYOK-kluster och BYOK kan inte läggas till i befintliga kluster.
 
-![Kafka disk kryptering i Azure Portal](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
+![Kafka disk kryptering i Azure Portal](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka.png)
 
-Under skapandet av klustret anger du den fullständiga nyckel-URL: en, inklusive nyckel versionen. Till exempel `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n.
+Under skapandet av klustret anger du den fullständiga nyckel-URL: en, inklusive nyckel versionen. Till exempel `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`. Du måste också tilldela den hanterade identiteten till klustret och ange nyckel-URI: n. Information om hur du skapar ett fullständigt kluster finns i [skapa Apache Hadoop kluster med hjälp av Azure Portal](./apache-kafka-get-started.md)
 
 ## <a name="rotating-the-encryption-key"></a>Rotera krypterings nyckeln
 

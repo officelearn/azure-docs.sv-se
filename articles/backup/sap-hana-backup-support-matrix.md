@@ -3,12 +3,12 @@ title: Stödmatris för SAP HANA-säkerhetskopiering
 description: I den här artikeln lär du dig om de scenarier och begränsningar som stöds när du använder Azure Backup för att säkerhetskopiera SAP HANA databaser på virtuella Azure-datorer.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 2063da4c5210cace41454d8bdc5b12e636ba76cd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 82d844385290ab0dc2953537c1f9a3387dd7b2b2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705657"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842639"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Supportmatris för säkerhetskopiering av SAP HANA-databaser på virtuella Azure-datorer
 
@@ -33,7 +33,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **Scenario**               | **Konfigurationer som stöds**                                | **Konfigurationer som inte stöds**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topologi**               | Endast SAP HANA som körs i virtuella Azure Linux-datorer                    | HANA stora instanser (HLI)                                   |
-| **Geografiska områden**                   | **GA**<br />**Europa** – Västeuropa, Nord Europa, Frankrike, centrala, Frankrike, södra, Storbritannien, södra, Storbritannien, västra, Tyskland, norra, Tyskland, västra centrala, Schweiz, norra, Schweiz, västra<br />**Asien och Stillahavsområdet** – Australien, centrala Australien 2, östra Australien, sydöstra Australien, Östra Japan, västra Japan, centrala Korea, södra Korea<br /><br>**Förhandsgranskningsvyn**<br />**Amerika** – centrala USA, östra USA 2, östra USA, norra centrala USA, södra centrala USA, västra USA 2, västra centrala USA, västra USA, centrala Kanada, Östra Kanada, södra Brasilien<br />**Asien och Stillahavsområdet** – Asien, östra, Sydostasien, Central Indien, södra Indien | Kina, östra, Kina, norra, Kina östra, Kina, norra 2, västra Indien, Central Schweiz, norra, Sydafrika, norra, södra Afrika, västra Förenade Arabemiraten, norra Förenade Arabemiraten Central, Azure Government regioner |
+| **Geografiska områden**                   | **GA**<br />**Europa** – Västeuropa, Nord Europa, Frankrike, centrala, Storbritannien, södra, Storbritannien, västra, Tyskland, norra, Tyskland, västra centrala, Schweiz, norra, Schweiz, västra<br />**Asien och Stillahavsområdet** – Australien, centrala Australien 2, östra Australien, sydöstra Australien, Östra Japan, västra Japan, centrala Korea, södra Korea<br /><br>**Förhandsgranskningsvyn**<br />**Amerika** – centrala USA, östra USA 2, östra USA, norra centrala USA, södra centrala USA, västra USA 2, västra centrala USA, västra USA, centrala Kanada, Östra Kanada <br />**Asien och Stillahavsområdet** – Asien, östra, Sydostasien, Central Indien, södra Indien | Kina, östra, Kina, norra, Kina östra, Kina, norra 2, västra Indien, Central Schweiz, norra, sydöstra Sydafrika, västra Sydafrika, västra Förenade Arabemiraten, norra Förenade Arabemiraten Central, Azure Government regioner, södra Brasilien, södra Brasilien |
 | **OS-versioner**            | SLES 12 med SP2, SP3 eller SP4                                | SLES 15, RHEL                                                |
 | **HANA-versioner**          | SDC på HANA 1. x, MDC på HANA 2. x < = SPS04 rev 44            | -                                                            |
 | **HANA-distributioner**       | SAP HANA på en enda virtuell Azure-dator – skala upp               | Skalbarhet                                                    |

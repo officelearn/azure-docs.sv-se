@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 50f8b5b4412e02692bf2b5d57b7f0dee27c2a25a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514837"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842707"
 ---
 # <a name="automate-mobility-service-installation"></a>Automatisera mobilitets tjänst installation
 
@@ -19,7 +19,7 @@ Den här artikeln beskriver hur du automatiserar installation och uppdateringar 
 När du distribuerar Site Recovery för haveri beredskap för lokala virtuella VMware-datorer och fysiska servrar till Azure, installerar du mobilitets tjänst agenten på varje dator som du vill replikera. Mobilitets tjänsten samlar in data skrivningar på datorn och vidarebefordrar dem till den Site Recovery processervern för replikering. Du kan distribuera mobilitets tjänsten på ett par olika sätt:
 
 - **Push-installation**: låt Site Recovery installera mobilitets tjänst agenten när du aktiverar replikering för en dator i Azure Portal.
-- **Manuell installation**: installera mobilitets tjänsten manuellt på varje dator. [Läs mer](/vmware-physical-mobility-service-overview.md) om push och manuell installation.
+- **Manuell installation**: installera mobilitets tjänsten manuellt på varje dator. [Läs mer](vmware-physical-mobility-service-overview.md) om push och manuell installation.
 - **Automatiserad distribution**: automatiserad installation med verktyg för program varu distribution, till exempel Microsoft Endpoint Configuration Manager eller verktyg från tredje part, till exempel Intigua JetPatch.
 
 Automatisk installation och uppdatering tillhandahåller en lösning om:
@@ -44,7 +44,7 @@ För automatisk installation behöver du följande:
 
 I följande tabell sammanfattas verktyg och processer för automatisering av mobilitets tjänst distributionen.
 
-**Verktyg** | **Detaljer** | **Instruktioner**
+**Verktyg** | **Detaljer** | **Problemlösning**
 --- | --- | ---
 **Configuration Manager** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/>2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned en ägg fil för att distribuera Site Recovery konfigurations servern som en virtuell VMware-dator med hjälp av en OVF-mall.<br/><br/> 2. du registrerar konfigurations servern med Site Recovery tjänsten, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 3. för automatisk distribution av mobilitets tjänster skapar du en nätverks resurs som innehåller konfigurations serverns lösen fras och mobilitets tjänstens installationsfiler.<br/><br/> 4. du skapar ett Configuration Manager-paket som innehåller installationen eller uppdateringarna och förbereder distributionen av mobilitets tjänsten.<br/><br/> 5. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med Configuration Manager](#automate-with-configuration-manager).
 **JetPatch** | 1. kontrol lera att du har de [krav](#prerequisites) som anges ovan på plats. <br/><br/> 2. distribuera haveri beredskap genom att konfigurera käll miljön, inklusive Ladda ned och distribuera JetPatch-Agent Manager för Azure Site Recovery i din Site Recovery-miljö med hjälp av en OVF-mall.<br/><br/> 2. du registrerar konfigurations servern med Site Recovery, ställer in Azure-miljön och konfigurerar en replikeringsprincip.<br/><br/> 3. för automatisk distribution initierar och slutför du konfigurationen av JetPatch Agent Manager.<br/><br/> 4. i JetPatch kan du skapa en Site Recovery-princip för att automatisera distributionen och uppgraderingen av mobilitets tjänst agenten. <br/><br/> 5. du kan sedan aktivera replikering till Azure för de datorer där mobilitets tjänsten är installerad. | [Automatisera med JetPatch Agent Manager](https://jetpatch.com/microsoft-azure-site-recovery-deployment-guide/).<br/><br/> [Felsök agent installation](https://kc.jetpatch.com/hc/articles/360035981812) i JetPatch.
@@ -358,7 +358,7 @@ cd /tmp
     --- | --- | ---
     **Namn** | Installera Microsoft Azure Mobility Service (Windows) | Installera Microsoft Azure Mobility Service (Linux).
     **Kommandorad** | install.bat | ./install_linux.sh
-    **Programmet kan köra** | Oavsett om någon användare är inloggad | Oavsett om någon användare är inloggad
+    **Programmet kan köra** | Huruvida en användare är inloggad eller inte | Huruvida en användare är inloggad eller inte
     **Andra parametrar** | Använd standardinställningen | Använd standardinställningen
 
    ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)

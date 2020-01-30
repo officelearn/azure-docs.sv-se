@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444513"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773853"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -129,6 +129,12 @@ Inställning av data flödes-och batch-egenskaper på CosmosDB-mottagare börjar
 * Batchstorlek: beräkna den grova rad storleken för dina data och se till att rowSize * batchstorleken är mindre än 2 000 000. Om så är fallet ökar du batchstorleken för att få bättre data flöde
 * Data flöde: Ange en högre data flödes inställning här så att dokument kan skrivas snabbare till CosmosDB. Kom ihåg de högre RU-kostnaderna baserat på en hög data flödes inställning.
 *   Budget för Skriv data flöde: Använd ett värde som är mindre än det totala antalet ru: er per minut. Om du har ett data flöde med ett stort antal Spark-partitioner, kan du ange en budget genom strömning för att öka balansen mellan dessa partitioner.
+
+## <a name="join-performance"></a>Anslut till prestanda
+
+Att hantera prestanda för kopplingar i ditt data flöde är en mycket vanlig åtgärd som du kommer att utföra under hela livs cykeln för dina data transformationer. I ADF kräver data flöden inte data som ska sorteras före koppling när de här åtgärderna utförs som hash-kopplingar i Spark. Du kan dock dra nytta av förbättrad prestanda med anslutnings optimeringen "sändning". Detta undviker att blanda genom att trycka ned innehållet på någon av de båda sidorna av kopplings relationen till Spark-noden. Detta fungerar bra för mindre tabeller som används för referens sökningar. Större tabeller som kanske inte passar i nodens minne är inte lämpliga kandidater för sändnings optimering.
+
+En annan kopplings optimering är att bygga dina kopplingar på ett sådant sätt att det gör att Spark är tendenser att implementera kors kopplingar. Om du till exempel inkluderar litterala värden i dina kopplings villkor kan Spark se att som ett krav för att utföra en fullständig kartesiska-produkt först och sedan filtrera ut de kopplade värdena. Men om du ser till att du har kolumn värden på båda sidor om ditt kopplings villkor kan du undvika den här Spark-inducerade kartesiska-produkten och förbättra prestanda för dina anslutningar och data flöden.
 
 ## <a name="next-steps"></a>Nästa steg
 

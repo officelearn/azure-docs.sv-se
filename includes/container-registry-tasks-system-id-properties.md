@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5cca18b881250ce99df35d681bec6091ea4a27b9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 94adac6ba232f8931d00083432c027ddccb2ce64
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642103"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842510"
 ---
-I kommandots utdata `identity` visar avsnittet en identitet av typen `SystemAssigned` som anges i uppgiften. `principalId` Är tjänstens huvud namn-ID för identiteten:
+I kommandots utdata visar `identity` avsnittet en identitet av typen `SystemAssigned` anges i uppgiften. `principalId` är identitetens ID för tjänstens huvud namn:
 
 ```console
 [...]
@@ -28,10 +28,10 @@ I kommandots utdata `identity` visar avsnittet en identitet av typen `SystemAssi
   "location": "eastus",
 [...]
 ``` 
-Använd kommandot [AZ ACR Task show][az-acr-task-show] för att lagra principalId i en variabel som ska användas i senare kommandon:
+Använd kommandot [AZ ACR Task show][az-acr-task-show] för att lagra principalId i en variabel som ska användas i senare kommandon. Ersätt namnet på uppgiften och registret i följande kommando:
 
 ```azurecli
-principalID=$(az acr task show --name dockerhubtask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

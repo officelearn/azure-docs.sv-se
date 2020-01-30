@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948819"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838963"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via ett användar flöde till ditt program i Azure Active Directory B2C
 
-Ett [användar flöde](active-directory-b2c-reference-policies.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När resan startar får Azure AD B2C en [åtkomsttoken från identitets](active-directory-b2c-reference-tokens.md) leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du aktiverar ett anspråk i ditt användar flöde för att skicka token till de program som du registrerar i Azure AD B2C.
+Ett [användar flöde](user-flow-overview.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När resan startar får Azure AD B2C en [åtkomsttoken från identitets](tokens-overview.md) leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du aktiverar ett anspråk i ditt användar flöde för att skicka token till de program som du registrerar i Azure AD B2C.
 
-Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) -identitets leverantörer, som innehåller [Facebook](active-directory-b2c-setup-fb-app.md) och [Google](active-directory-b2c-setup-goog-app.md). För alla andra identitets leverantörer returneras anspråket tomt.
+Azure AD B2C stöder för närvarande bara att skicka åtkomsttoken för [OAuth 2,0](authorization-code-flow.md) -identitets leverantörer, som innehåller [Facebook](identity-provider-facebook.md) och [Google](identity-provider-google.md). För alla andra identitets leverantörer returneras anspråket tomt.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -56,4 +56,4 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att använda d
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer i [Översikt över Azure AD B2C tokens](active-directory-b2c-reference-tokens.md).
+Läs mer i [Översikt över Azure AD B2C tokens](tokens-overview.md).

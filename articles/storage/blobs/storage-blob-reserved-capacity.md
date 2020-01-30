@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981822"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768400"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>Optimera kostnader för Blob Storage med reserverad kapacitet
 
@@ -54,7 +54,7 @@ Så här köper du reserverad kapacitet:
 
 - Du måste ha **ägar** rollen för minst ett företag eller en enskild prenumeration med priser enligt principen betala per användning.
 - För företags prenumerationer måste **Lägg till reserverade instanser** vara aktiverade i EA-portalen. Eller, om inställningen är inaktive rad, måste du vara en EA-administratör i prenumerationen.
-- För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure Cosmos DB reserverad kapacitet.
+- För ett CSP-program (Cloud Solution Provider) kan endast administratörs agenter eller försäljnings agenter köpa Azure Blob Storage reserverad kapacitet.
 
 ## <a name="determine-required-capacity-before-purchase"></a>Fastställ nödvändig kapacitet innan köpet
 
@@ -85,7 +85,7 @@ Följ dessa steg för att köpa reserverad kapacitet:
    | **Redundans** | Alternativet redundans för reservationen. Alternativen är *LRS*, *ZRS*, *GRS*och *ra-GZRS*. Mer information om redundans alternativ finns [Azure Storage redundans](../common/storage-redundancy.md). |
    | **Fakturerings frekvens** | Anger hur ofta kontot debiteras för reservationen. Alternativen omfattar *varje månad* eller i *förskott*. |
    | **Storlek** | Den region där reservationen gäller. |
-   |**Begrepp**  | Ett år eller tre år.   |
+   |**Löp**  | Ett år eller tre år.   |
 
 1. När du har valt parametrar för din reservation, visar Azure Portal kostnaden. Portalen visar också rabatt procenten för betalning per användning.
 

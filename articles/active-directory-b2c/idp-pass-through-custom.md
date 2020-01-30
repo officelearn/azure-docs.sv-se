@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f7122035f8d70cb91f4ec4f64e1dd4f7b2842b8
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949848"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76839099"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Skicka en åtkomsttoken via en anpassad princip till ditt program i Azure Active Directory B2C
 
-En [anpassad princip](active-directory-b2c-get-started-custom.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När detta inträffar tar Azure AD B2C [emot en åtkomsttoken](active-directory-b2c-reference-tokens.md) från identitets leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du lägger till en anspråks typ och ett utgående anspråk till din anpassade princip för att skicka token till de program som du registrerar i Azure AD B2C.
+En [anpassad princip](custom-policy-get-started.md) i Azure Active Directory B2C (Azure AD B2C) ger användare av programmet en möjlighet att registrera sig eller logga in med en identitets leverantör. När detta inträffar tar Azure AD B2C [emot en åtkomsttoken](tokens-overview.md) från identitets leverantören. Azure AD B2C använder denna token för att hämta information om användaren. Du lägger till en anspråks typ och ett utgående anspråk till din anpassade princip för att skicka token till de program som du registrerar i Azure AD B2C.
 
-Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](active-directory-b2c-reference-oauth-code.md) och [OpenID Connect](active-directory-b2c-reference-oidc.md) Identity providers. För alla andra identitets leverantörer returneras anspråket tomt.
+Azure AD B2C stöder överföring av åtkomsttoken för [OAuth 2,0](authorization-code-flow.md) och [OpenID Connect](openid-connect.md) Identity providers. För alla andra identitets leverantörer returneras anspråket tomt.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -84,9 +84,9 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 
 ### <a name="upload-the-files"></a>Ladda upp filerna
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att klicka på filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
+3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
 4. Välj **ramverk för identitets upplevelse**.
 5. På sidan anpassade principer klickar du på **Ladda upp princip**.
 6. Välj **Skriv över principen om den finns**och Sök sedan efter och välj *TrustframeworkExtensions. XML-* filen.
@@ -105,4 +105,4 @@ När du testar dina program i Azure AD B2C kan det vara praktiskt att ha Azure A
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om tokens i [Azure Active Directory B2C token-referens](active-directory-b2c-reference-tokens.md).
+Läs mer om tokens i [Azure Active Directory B2C token-referens](tokens-overview.md).

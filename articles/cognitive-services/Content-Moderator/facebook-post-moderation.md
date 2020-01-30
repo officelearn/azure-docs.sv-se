@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936013"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774273"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>Självstudie: måttlig Facebook-inlägg och-kommandon med Azure Content Moderator
 
@@ -35,7 +35,7 @@ Det här diagrammet illustrerar varje komponent i det här scenariot:
 ![Diagram över Content Moderator ta emot information från Facebook genom "FBListener" och skicka information via "CMListener"](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> I 2018 implementerade Facebook en mer strikt först konsumentsajter av Facebook-appar. Du kommer inte att kunna slutföra stegen i den här själv studie kursen om din app inte har granskats och godkänts av Facebooks gransknings teamet.
+> I 2018 implementerade Facebook en striktare först konsumentsajter-princip för Facebook-appar. Du kommer inte att kunna slutföra stegen i den här själv studie kursen om din app inte har granskats och godkänts av Facebooks gransknings teamet.
 
 ## <a name="prerequisites"></a>Krav
 

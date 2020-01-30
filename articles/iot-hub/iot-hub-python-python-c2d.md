@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 4cda59448856630468076ef63c51b8a216a31bd0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 53bff62795e54d88e768b3a22c8b358519b69a91
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001955"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767811"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>Skicka meddelanden från moln till enhet med IoT Hub (python)
 
@@ -41,7 +41,7 @@ I slutet av den här självstudien kör du två python-konsol program:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -51,7 +51,7 @@ I det här avsnittet skapar du en python-konsol-app för att simulera enheten oc
 
 1. Skapa en **SimulatedDevice.py** -fil med hjälp av en text redigerare.
 
-2. Lägg till följande `import` -instruktioner och variabler i början av **SimulatedDevice.py** -filen:
+2. Lägg till följande `import`-instruktioner och variabler i början av **SimulatedDevice.py** -filen:
 
    ```python
     import threading
@@ -85,7 +85,7 @@ I det här avsnittet skapar du en python-konsol-app för att simulera enheten oc
     ```python
     def iothub_client_sample_run():
         try:
-            client = iothub_client_init()
+            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
             message_listener_thread = threading.Thread(target=message_listener, args=(client,))
             message_listener_thread.daemon = True
@@ -122,7 +122,7 @@ I det här avsnittet skapar du en python-konsol-app som skickar meddelanden frå
 
 1. Skapa en **SendCloudToDeviceMessage.py** -fil med hjälp av en text redigerare.
 
-2. Lägg till följande `import` -instruktioner och variabler i början av **SendCloudToDeviceMessage.py** -filen:
+2. Lägg till följande `import`-instruktioner och variabler i början av **SendCloudToDeviceMessage.py** -filen:
 
     ```python
     import random

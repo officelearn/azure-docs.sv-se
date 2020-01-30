@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bc00f348e9443384c7799bf227efd7309d6aeac2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50ac62ded92b69f44324f4f9c5eacee939159449
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702206"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834135"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Skriv bords app som anropar webb-API: er: Hämta en token
 
@@ -215,7 +215,7 @@ WithParentActivityOrWindow(object parent).
 
 Klassen definierar följande konstanter:
 
-- ``SelectAccount`` tvingar STS att presentera dialog rutan konto val som innehåller konton som användaren har en session för. Det här alternativet är användbart när programutvecklare vill låta användarna välja mellan olika identiteter. Det här alternativet driver MSAL för att skicka ``prompt=select_account`` till identitets leverantören. Det här alternativet är standardinställningen. Det är ett bra jobb att tillhandahålla bästa möjliga upplevelse baserat på tillgänglig information, till exempel konto och närvaro för en session för användaren. Ändra det inte om du inte har en lämplig anledning att göra det.
+- ``SelectAccount`` tvingar STS att presentera dialog rutan konto val som innehåller konton som användaren har en session för. Det här alternativet är användbart när programutvecklare vill låta användarna välja mellan olika identiteter. Det här alternativet driver MSAL för att skicka ``prompt=select_account`` till identitets leverantören. Det här alternativet är standardvärdet. Det är ett bra jobb att tillhandahålla bästa möjliga upplevelse baserat på tillgänglig information, till exempel konto och närvaro för en session för användaren. Ändra det inte om du inte har en lämplig anledning att göra det.
 - med ``Consent`` kan programutvecklaren tvinga användaren att tillfrågas om medgivande, även om medgivande beviljades tidigare. I det här fallet skickar MSAL `prompt=consent` till identitets leverantören. Det här alternativet kan användas i vissa säkerhetsfokuserade program där organisationens styrning kräver att användaren visas i dialog rutan medgivande varje gången programmet används.
 - ``ForceLogin`` gör det möjligt för programutvecklaren att be användaren att ange autentiseringsuppgifter för tjänsten, även om användaren inte behöver göra något. Det här alternativet kan vara användbart för att låta användaren logga in igen om det inte går att förvärva en token. I det här fallet skickar MSAL `prompt=login` till identitets leverantören. Ibland används den i säkerhetsfokuserade program där organisationens styrning kräver att användaren loggar in på nytt varje gång de kommer åt specifika delar av ett program.
 - ``Never`` (endast för .NET 4,5 och WinRT) uppmanas inte användaren, utan försöker istället använda den cookie som är lagrad i den dolda inbäddade vyn. Mer information finns i Web views in MSAL.NET. Det kan hända att du inte kan använda det här alternativet. I så fall genererar `AcquireTokenInteractive` ett undantag för att meddela att en användar gränssnitts interaktion krävs. Du måste använda en annan `Prompt` parameter.
@@ -413,7 +413,7 @@ Om du vill logga in en domän användare på en domän eller en Azure AD-anslute
 
 - Utfärdaren som skickas i `PublicClientApplicationBuilder` måste vara:
   - Innehavaren av formuläret `https://login.microsoftonline.com/{tenant}/`, där `tenant` är antingen det GUID som representerar klient-ID: t eller en domän som är associerad med klienten.
-  - För [arbets-och skol konton](`https://login.microsoftonline.com/organizations/`).
+  - För alla arbets-och skol konton: `https://login.microsoftonline.com/organizations/`.
   - Microsoft-personliga konton stöds inte. Du kan inte använda/vanliga-eller/consumers-klienter.
 
 - Eftersom integrerad Windows-autentisering är ett tyst flöde:
@@ -554,7 +554,7 @@ Det här flödet gäller inte för MacOS.
 
 ---
 
-## <a name="username-and-password"></a>Användarnamn och lösenord
+## <a name="username-and-password"></a>Användar namn och lösen ord
 
 Du kan också hämta en token genom att ange användar namn och lösen ord. Det här flödet är begränsat och rekommenderas inte, men det finns fortfarande användnings fall där det är nödvändigt.
 

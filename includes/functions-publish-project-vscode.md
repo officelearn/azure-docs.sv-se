@@ -1,47 +1,64 @@
 ---
-title: ta med fil
-description: ta med fil
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 04/16/2019
+ms.date: 01/12/2020
 ms.author: glenga
-ms.custom: include file
-ms.openlocfilehash: 30a6d8556a251ba76dff77e004fb864f3eaf04cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f1553a5c9d55366b2764877b48d0606ff8e0b370
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279509"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842187"
 ---
 ## <a name="publish-the-project-to-azure"></a>Publicera projektet på Azure
 
-I Visual Studio Code kan du publicera funktionsprojektet direkt på Azure. Samtidigt skapar du en funktionsapp och relaterade resurser i Azure-prenumerationen. Funktionsappen är ett körningssammanhang för dina funktioner. Projektet paketeras och distribueras till den nya funktionsappen i Azure-prenumerationen.
+I det här avsnittet ska du skapa en Function-app och relaterade resurser i din Azure-prenumeration och sedan distribuera din kod. 
 
-Som standard skapar Visual Studio Code alla Azure-resurser som krävs för att skapa din Function-app. Namnen på de här resurserna baseras på det program namn för funktionen som du väljer. Om du behöver fullständig kontroll över de skapade resurserna kan du i stället [publicera med avancerade alternativ](../articles/azure-functions/functions-develop-vs-code.md#enable-publishing-with-advanced-create-options).
+1. Välj Azure-ikonen i aktivitets fältet och välj sedan knappen **distribuera till Function-appen** i avsnittet **Azure:** functions.
 
-Det här avsnittet förutsätter att du skapar en ny function-app i Azure.
+    ![Publicera ditt projekt till Azure](media/functions-publish-project-vscode/function-app-publish-project.png)
 
-> [!IMPORTANT]
-> Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure.
+1. Ange följande information i prompten:
 
-1. I Visual Studio Code, trycker du på F1 för att öppna kommando paletten. I paletten kommando söker du efter och väljer `Azure Functions: Deploy to function app...`.
+    ::: zone pivot="programming-language-csharp,programming-language-powershell"
 
-1. Om du inte är inloggad uppmanas du att **Logga in på Azure**. Du kan också **skapa ett kostnads fritt Azure-konto**. När du har loggat in från webbläsaren går du tillbaka till Visual Studio Code. 
+    | Uppmaning | Värde | Beskrivning |
+    | ------ | ----- | ----- |
+    | Välj prenumeration | Din prenumeration | Visas när du har flera prenumerationer. |
+    | Välj Funktionsapp i Azure | + Skapa nytt Funktionsapp | Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. |
+    | Ange ett globalt unikt namn för Function-appen | Unikt namn | Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
+    | Välj en plats för nya resurser | Region | Välj en [region](https://azure.microsoft.com/regions/) nära dig. | 
 
-1. Om du har flera prenumerationer **väljer du en prenumeration** för Function-appen och väljer sedan **+ Skapa ny Funktionsapp i Azure**.
+    ::: zone-end
 
-1. Ange ett globalt unikt namn som identifierar funktionsappen och tryck på Retur. Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`.
+    ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python"
 
-    När du trycker på RETUR skapas följande Azure-resurser i din prenumeration:
+    | Uppmaning | Värde | Beskrivning |
+    | ------ | ----- | ----- |
+    | Välj prenumeration | Din prenumeration | Visas när du har flera prenumerationer. |
+    | Välj Funktionsapp i Azure | + Skapa nytt Funktionsapp | Om du publicerar till en befintlig funktionsapp skrivs innehållet i den appen över i Azure. |
+    | Ange ett globalt unikt namn för Function-appen | Unikt namn | Giltiga tecken i ett namn på en funktionsapp är `a-z`, `0-9` och `-`. |
+    | Välj en körning | Din version | Välj den språk version som du har kört lokalt. |
+    | Välj en plats för nya resurser | Region | Välj en [region](https://azure.microsoft.com/regions/) nära dig. | 
 
-    * **[Resurs grupp](../articles/azure-resource-manager/management/overview.md)** : innehåller alla Azure-resurser som skapats. Namnet baseras på namnet på din Function-app.
-    * **[Lagrings konto](../articles/storage/common/storage-account-create.md)** : ett standard lagrings konto skapas med ett unikt namn som baseras på namnet på din Function-app.
-    * **[Värd plan](../articles/azure-functions/functions-scale.md)** : en förbruknings plan skapas i regionen Västra USA för att vara värd för din server lös Function-app.
-    * **Function-app**: ditt projekt distribueras till och körs i den här nya Function-appen.
+    ::: zone-end
 
-    Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
+    
+1.  När det är slutfört skapas följande Azure-resurser i din prenumeration:
 
-1. Gå tillbaka till avsnittet **Azure: Functions** , expandera den nya Function-appen under din prenumeration. Expandera **funktioner**, högerklicka på **HttpTrigger**och välj sedan **Kopiera funktions webb adress**.
+    + **[Resurs grupp](../articles/azure-resource-manager/management/overview.md)** : innehåller alla Azure-resurser som skapats. Namnet baseras på namnet på din Function-app.
+    + **[Lagrings konto](../articles//storage/common/storage-introduction.md#types-of-storage-accounts)** : ett standard lagrings konto skapas med ett unikt namn som baseras på namnet på din Function-app.
+    + **[Värd plan](../articles/azure-functions/functions-scale.md)** : en förbruknings plan skapas i regionen Västra USA för att vara värd för din server lös Function-app.
+    + **Function-app**: ditt projekt distribueras till och körs i den här nya Function-appen.
+    + **[Application Insights]()** : en instans, som är ansluten till din Function-app, skapas baserat på funktions namnet.
+
+    Ett meddelande visas när funktionsappen har skapats och distributionspaketet har tillämpats. 
+    
+1. Välj **Visa utdata** i det här meddelandet för att Visa skapande-och distributions resultaten, inklusive de Azure-resurser som du har skapat.
+
+    ![Skapa fullständig avisering](media/functions-publish-project-vscode/function-create-notifications.png)
+
+1. Gå tillbaka till avsnittet **Azure: Functions** i sido fältet och expandera den nya Function-appen under din prenumeration. Expandera **funktioner**, högerklicka på (Windows) eller Ctrl + klicka (MacOS) på **HttpExample**och välj sedan **Kopiera funktions webb adress**.
 
     ![Kopiera funktions webb adressen för den nya HTTP-utlösaren](./media/functions-publish-project-vscode/function-copy-endpoint-url.png)

@@ -16,12 +16,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228179"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774893"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Självstudie: push-meddelanden till vissa iOS-enheter med Azure Notification Hubs
 
@@ -159,7 +159,7 @@ Det första steget är att lägga till GRÄNSSNITTs elementen i din befintliga s
 9. I `didRegisterForRemoteNotificationsWithDeviceToken`-metoden i `AppDelegate.m`ersätter du koden i-metoden med följande kod för att skicka enhetens token till `notifications`-klassen. `notifications`-klassen utför registreringen för meddelanden med kategorier. Om användaren ändrar kategori val, anropar du `subscribeWithCategories`-metoden som svar på knappen **Prenumerera** för att uppdatera dem.
 
     > [!NOTE]
-    > Eftersom den enhets-token som tilldelats av Apple Push Notification Service (APN) kan när som helst, bör du registrera dig för meddelanden ofta för att undvika aviserings problem. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
+    > Eftersom den enhets-token som tilldelats av Apple Push Notification Service (APN) kan ändras när som helst, bör du registrera dig för meddelanden ofta för att undvika aviserings problem. Det här exemplet registrerar för meddelande varje gång som appen startas. För appar som körs ofta, mer än en gång om dagen, kan du förmodligen hoppa över registreringen och spara bandbredd om mindre än en dag har gått sedan den tidigare registreringen.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -247,7 +247,7 @@ Appen kan nu lagra en uppsättning kategorier i enhetens lokala lagrings utrymme
 
 ## <a name="optional-send-tagged-notifications"></a>valfritt Skicka taggade meddelanden
 
-Om du inte har åtkomst till Visual Studio kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från [Azure Portal] med hjälp av fliken Felsök för Notification Hub.
+Om du inte har åtkomst till Visual Studio kan du gå vidare till nästa avsnitt och skicka meddelanden från själva appen. Du kan också skicka rätt mall-meddelande från [Azure-portalen] med hjälp av fliken Felsök för Notification Hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
@@ -371,4 +371,4 @@ I den här självstudien skickade du broadcast-meddelanden till vissa iOS-enhete
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/dn530749.aspx
 [Notification Hubs How-To for iOS]: https://msdn.microsoft.com/library/jj927168.aspx
 [get-started]: notification-hubs-ios-apple-push-notification-apns-get-started.md
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

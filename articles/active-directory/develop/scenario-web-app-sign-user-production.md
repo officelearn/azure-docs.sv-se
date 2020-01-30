@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 88ad32a289d499cd385f8f3095113a4b329b80f4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701543"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768105"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>Webbapp som loggar in användare: flytta till produktion
 
@@ -29,6 +29,13 @@ Nu när du vet hur du kan hämta en token för att anropa webb-API: er, lär dig
 
 ## <a name="next-steps"></a>Nästa steg
 
+### <a name="same-site"></a>Samma plats
+
+Se till att du förstår möjliga problem med nya versioner av Chrome-webbläsaren
+
+> [!div class="nextstepaction"]
+> [Så här hanterar du ändringar i SameSite cookies i Chrome-webbläsaren](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>Scenario för att anropa webb-API: er
 
 När din webbapp loggar in användare kan den anropa webb-API: er åt de inloggade användarna. Att anropa webb-API: er från webbappen är objektet i följande scenario:
@@ -36,7 +43,7 @@ När din webbapp loggar in användare kan den anropa webb-API: er åt de inlogga
 > [!div class="nextstepaction"]
 > [Webbapp som anropar webb-API:er](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Djupgående övning: ASP.NET Core Web Apps-självstudie
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Djupgående övning: ASP.NET Core Web Apps-självstudie
 
 Lär dig mer om andra sätt att logga in användare med den här ASP.NET Core själv studie kursen: 
 
@@ -51,7 +58,7 @@ Den här Progressive-kursen har produktions klart kod för en webbapp, inklusive
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - Nationella moln
 
-### <a name="sample-code-java-web-app"></a>Exempel kod: Java-webbapp
+## <a name="sample-code-java-web-app"></a>Exempel kod: Java-webbapp
 
 Läs mer om Java-webbappen från det här exemplet på GitHub: 
 

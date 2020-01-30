@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954655"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767950"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>Visualisera real tids sensor data från din Azure IoT Hub i ett webb program
 
@@ -165,10 +165,10 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. Etablera nu en webbapp i App Service plan. Parametern `--deployment-local-git` gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck.
+2. Etablera nu en webbapp i App Service plan. Parametern `--deployment-local-git` gör att webbappens kod kan laddas upp och distribueras från en git-lagringsplats på den lokala datorn. Ditt webb program namn måste vara globalt unikt och får innehålla versaler, gemener, siffror och bindestreck. Se till att ange Node version 10,6 eller senare för parametern `--runtime`, beroende på vilken version av Node. js-körningen som du använder. Du kan använda kommandot `az webapp list-runtimes` för att få en lista över körningar som stöds.
 
    ```azurecli-interactive
-   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
 3. Lägg nu till program inställningar för de miljövariabler som anger IoT Hub-anslutningssträngen och konsument gruppen för Event Hub. Enskilda inställningar är avgränsade med utrymme i `-settings` parameter. Använd tjänst anslutnings strängen för din IoT-hubb och den konsument grupp som du skapade tidigare i den här självstudien. Citera inte värdena.
@@ -229,7 +229,7 @@ I det här avsnittet etablerar du en webbapp i App Service och distribuerar din 
 
 11. Gå till `https://<your web app name>.azurewebsites.net` i en webbläsare. En webb sida som liknar den som du såg när du körde webb programmet visas lokalt. Om du antar att enheten kör och skickar data bör du se en körnings kurva om de 50 senaste temperatur-och fuktighets avläsningarna som skickas av enheten.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du kommer över eventuella problem med det här exemplet kan du prova stegen i följande avsnitt. Om du fortfarande har problem kan du skicka feedback till oss längst ned i det här avsnittet.
 

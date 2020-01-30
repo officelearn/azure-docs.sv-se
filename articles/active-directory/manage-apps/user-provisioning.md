@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9848e686188288b507a0a74d0f9fa16f8f0e4253
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711469"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841207"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för program med Azure Active Directory
 
@@ -67,7 +67,7 @@ Azure AD innehåller Förintegrerad support för många populära SaaS-appar och
 
 * **Program som stöder SCIM 2,0**. Information om hur du kan ansluta program som implementerar SCIM 2,0-baserade API: er för användar hantering finns i [bygga en scim-slutpunkt och konfigurera användar etablering](use-scim-to-provision-users-and-groups.md).
 
-## <a name="what-is-scim"></a>Vad är SCIM?
+## <a name="what-is-system-for-cross-domain-identity-management-scim"></a>Vad är system för SCIM (Cross-Domain Identity Management)?
 
 För att automatisera etablering och avetablering kan appar exponera egna användar-och grupp-API: er. Men alla som försöker hantera användare i mer än en app meddelar dig att varje app försöker utföra samma enkla åtgärder, till exempel att skapa eller uppdatera användare, lägga till användare i grupper eller avetablera användare. Alla dessa enkla åtgärder implementeras bara lite annorlunda, med olika slut punkts sökvägar, olika metoder för att ange användar information och ett annat schema som representerar varje informations element.
 

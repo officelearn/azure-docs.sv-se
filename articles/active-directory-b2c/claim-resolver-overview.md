@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949882"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836056"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Om anspråk matchare i Azure Active Directory B2C anpassade principer
 
-Anspråk matchare i Azure Active Directory B2C (Azure AD B2C) [anpassade principer](active-directory-b2c-overview-custom.md) ger Sammanhangs information om en auktoriseringsbegäran, till exempel princip namn, KORRELATIONS-ID för begäran, användar gränssnitts språk med mera.
+Anspråk matchare i Azure Active Directory B2C (Azure AD B2C) [anpassade principer](custom-policy-overview.md) ger Sammanhangs information om en auktoriseringsbegäran, till exempel princip namn, KORRELATIONS-ID för begäran, användar gränssnitts språk med mera.
 
 Om du vill använda en anspråks lösare i ett indata-eller utgående anspråk definierar du en sträng **claimType**, under elementet [ClaimsSchema](claimsschema.md) , och anger sedan **DefaultValue** till anspråks lösa ren i elementet indata-eller utdata-anspråk. Azure AD B2C läser värdet för anspråks matcharen och använder värdet i den tekniska profilen.
 
@@ -51,7 +51,7 @@ I följande avsnitt listas tillgängliga anspråks lösningar.
 | {Culture: LanguageName} | Den två bokstävernas ISO-kod för språket. | en |
 | {Culture: LCID}   | LCID för språk koden. | 1033 |
 | {Culture: RegionName} | ISO-koden för den två bokstaven för regionen. | USA |
-| {Culture: RFC5646} | Språk koden RFC5646. | en-US |
+| {Culture: RFC5646} | Språk koden RFC5646. | sv-SE |
 
 ### <a name="policy"></a>Princip
 
@@ -137,7 +137,7 @@ Med hjälp av anspråks matchare kan du fylla i inloggnings namnet eller diriger
 
 ### <a name="dynamic-ui-customization"></a>Anpassning av dynamiskt gränssnitt
 
-Med Azure AD B2C kan du skicka frågesträngs parametrar till dina HTML-slutpunkter för innehålls definitioner så att du dynamiskt kan återge sid innehållet. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
+Med Azure AD B2C kan du skicka frågesträngs parametrar till dina HTML-slutpunkter för innehålls definitioner så att du dynamiskt kan återge sid innehållet. Du kan till exempel ändra bakgrunds bilden på Azure AD B2C registrerings-eller inloggnings sida baserat på en anpassad parameter som du skickar från ditt webb program eller mobil program. Mer information finns i [Konfigurera användar gränssnittet dynamiskt genom att använda anpassade principer i Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md). Du kan också lokalisera HTML-sidan baserat på en språk parameter, eller så kan du ändra innehållet baserat på klient-ID: t.
 
 Följande exempel skickar i frågesträngen en parameter med namnet **campaignId** med värdet `hawaii`, en **språk** kod `en-US`och en **app** som representerar klient-ID:
 
@@ -159,7 +159,7 @@ Som ett resultat Azure AD B2C skickar ovanstående parametrar till sidan HTML-in
 
 ### <a name="application-insights-technical-profile"></a>Application Insights teknisk profil
 
-Med Azure Application insikter och anspråks matchare kan du få insikter om användar beteendet. I Application Insights teknisk profil skickar du inloggade anspråk som är sparade för att Azure Application insikter. Mer information finns i [spåra användar beteende i Azure AD B2C-transporter med hjälp av Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md). I följande exempel skickas princip-ID: t, korrelations-ID, språk och klient-ID till Azure Application insikter.
+Med Azure Application insikter och anspråks matchare kan du få insikter om användar beteendet. I Application Insights teknisk profil skickar du inloggade anspråk som är sparade för att Azure Application insikter. Mer information finns i [spåra användar beteende i Azure AD B2C-transporter med hjälp av Application Insights](analytics-with-application-insights.md). I följande exempel skickas princip-ID: t, korrelations-ID, språk och klient-ID till Azure Application insikter.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

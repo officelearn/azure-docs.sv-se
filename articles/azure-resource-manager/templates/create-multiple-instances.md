@@ -3,12 +3,12 @@ title: Distribuera flera instanser av resurser
 description: Använd kopierings åtgärd och matriser i en Azure Resource Manager-mall för att iterera flera gånger när du distribuerar resurser.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 54d406771f64d97a3ba564556be6dc49677a732d
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 0250f5ee64c91d8d75ad246271ab31324a2553f8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121989"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836937"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resurs, egenskap eller variabel iteration i Azure Resource Manager mallar
 
@@ -205,6 +205,10 @@ I följande exempel visas hur du tillämpar `copy` på data disks-egenskapen på
 
 Observera att när du använder `copyIndex` inuti en egenskap iteration måste du ange namnet på iterationen. Du behöver inte ange namnet när det används med resurs upprepning.
 
+> [!NOTE]
+> Egenskapen iteration stöder också ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' data disks ', 1).
+>
+
 Resource Manager expanderar `copy` matris under distributionen. Namnet på matrisen blir namnet på egenskapen. De angivna värdena blir objekt egenskaperna. Den distribuerade mallen blir:
 
 ```json
@@ -299,6 +303,10 @@ Du kan använda en iteration av resurs och egenskap tillsammans. Referera till e
 ## <a name="variable-iteration"></a>Variabel iteration
 
 Om du vill skapa flera instanser av en variabel använder du egenskapen `copy` i avsnittet Variables. Du skapar en matris med element som skapats från värdet i egenskapen `input`. Du kan använda egenskapen `copy` i en variabel eller på den översta nivån i avsnittet variabler. När du använder `copyIndex` inuti en variabel iteration måste du ange namnet på iterationen.
+
+> [!NOTE]
+> Variabeln iteration stöder också ett offset-argument. Förskjutningen måste komma efter namnet på iterationen, till exempel copyIndex (' diskNames ', 1).
+>
 
 Ett enkelt exempel på hur du skapar en matris med sträng värden finns i [Kopiera array-mall](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/copy-array/azuredeploy.json).
 
@@ -484,7 +492,7 @@ Anta till exempel att du vanligt vis definierar en data uppsättning som en unde
 
 Om du vill skapa mer än en data uppsättning flyttar du den utanför data fabriken. Data uppsättningen måste vara på samma nivå som data fabriken, men den är fortfarande en underordnad resurs till data fabriken. Du bevarar relationen mellan data uppsättningen och data fabriken genom egenskaperna typ och namn. Eftersom typen inte längre kan härledas från positionen i mallen måste du ange den fullständigt kvalificerade typen i formatet: `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
-Om du vill upprätta en överordnad/underordnad relation med en instans av data fabriken anger du ett namn för den data uppsättning som innehåller namnet på den överordnade resursen. Använd formatet `{parent-resource-name}/{child-resource-name}`.
+Om du vill upprätta en överordnad/underordnad relation med en instans av data fabriken anger du ett namn för den data uppsättning som innehåller namnet på den överordnade resursen. Använd formatet: `{parent-resource-name}/{child-resource-name}`.
 
 I följande exempel visas implementeringen:
 

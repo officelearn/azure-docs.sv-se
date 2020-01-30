@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432303"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842409"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fel i fil systemet
 
@@ -79,7 +79,7 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
 ## <a name="use-the-serial-console"></a>Använda seriekonsolen
 
-1. Anslut till serie konsolen.
+1. Anslut till seriekonsol.
 
    > [!Note]
    > Mer information om hur du använder en serie konsol för Linux finns i:
@@ -110,20 +110,20 @@ Lös problemet genom att starta den virtuella datorn i nödfalls läge med hjäl
 
    ```
    mkdir /temp
-   mount /dev/sda2 /temp
+   mount /dev/sda1 /temp
    ```
 
 8. Om disken inte kan monteras kör du kommandot xfs_repair med alternativet-L (tvinga logg nollor):
 
    ```
-   xfs_repair /dev/sda2 -L
+   xfs_repair /dev/sda1 -L
    ```
 
 9. Försök sedan att montera fil systemet. Om disken har monterats visas följande utdata:
  
    ```
-   XFS (sda2): Mounting V1 Filesystem
-   XFS (sda2): Ending clean mount
+   XFS (sda1): Mounting V1 Filesystem
+   XFS (sda1): Ending clean mount
    ```
 
 10. Starta om den virtuella datorn och kontrol lera sedan om problemet är löst.

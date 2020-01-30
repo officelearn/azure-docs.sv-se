@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: a514dbce91a98bd51e51b1724d631bc224b2f33a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b76441c8b11032d3713d7679acfc7f350533b76b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527934"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769199"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>Snabb start: Azure Key Vault klient bibliotek för python
 
@@ -22,7 +22,7 @@ Azure Key Vault hjälper dig att skydda krypteringsnycklar och hemligheter som a
 - Öka säkerheten och kontrollen över nycklar och lösen ord.
 - Skapa och importera krypterings nycklar på några minuter.
 - Minska svars tiden med moln skalning och global redundans.
-- Förenkla och automatisera uppgifter för SSL/TLS-certifikat.
+- Förenkla och automatisera uppgifter för TLS/SSL-certifikat.
 - Använd FIPS 140-2 nivå 2-verifierade HSM: er.
 
 [API-referens dokumentation](/python/api/overview/azure/key-vault?view=azure-python) | [bibliotekets käll kods](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [paket (python-paket index)](https://pypi.org/project/azure-keyvault/)
@@ -123,7 +123,7 @@ Med Azure Key Vault klient biblioteket för python kan du hantera nycklar och re
 
 Hela konsol programmet finns på https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 ### <a name="add-directives"></a>Lägg till direktiv
 

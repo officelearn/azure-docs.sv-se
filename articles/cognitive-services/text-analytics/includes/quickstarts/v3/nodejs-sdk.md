@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 69899f521e73cb5af1af145a0915dbe1a017f307
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 8ae78bb8c0b70e20bfe12b8dc52c02abb6030bdf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281212"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774103"
 ---
 <a name="HOLTop"></a>
 
@@ -22,6 +22,7 @@ ms.locfileid: "76281212"
 
 > [!NOTE]
 > * I den här snabb starten används version `3.0-preview` av Textanalys-klient biblioteket, som innehåller en offentlig för hands version för bättre [Attitydanalys](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) och [ner (Named Entity Recognition)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features).
+>
 > * Koden i den här artikeln använder icke-säkrade lagrings referenser för enkla orsaker. För produktions scenarier rekommenderar vi att du skickar strängar i batchar för prestanda och skalbarhet. Du kan till exempel anropa `SentimentBatchAsync()` i stället för `Sentiment()`.
 
 ## <a name="prerequisites"></a>Krav
@@ -36,6 +37,9 @@ ms.locfileid: "76281212"
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
+
+> [!NOTE]
+> Du kan också köra den här versionen av klient biblioteket för Textanalys [i webbläsaren](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md).
 
 I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
 
@@ -83,7 +87,7 @@ Text skickas till API: et som en lista över `documents`, som är `dictionary` o
 
 Objektet Response är en lista som innehåller analys informationen för varje dokument. 
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 * [Klientautentisering](#client-authentication)
 * [Attitydanalys](#sentiment-analysis) (offentlig för hands version)

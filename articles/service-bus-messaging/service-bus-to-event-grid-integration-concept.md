@@ -1,10 +1,9 @@
 ---
 title: Översikt över integration av Azure Service Bus till Event Grid | Microsoft Docs
-description: Beskrivning av Service Bus-meddelanden och Event Grid-integration
+description: Den här artikeln innehåller en beskrivning av hur Azure Service Bus Messaging integreras med Azure Event Grid.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 5d4ece6b631882200c6f98f6de5daa543fdf7ce4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1e514e2856afae4ff6f877bb193935da1bc5d623
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072141"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773484"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Översikt över integration av Azure Service Bus till Event Grid
 
@@ -39,7 +38,7 @@ Om du vill aktivera funktionen behöver du följande:
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ### <a name="verify-that-you-have-contributor-access"></a>Kontrollera att du har deltagarbehörighet
-Gå till din Service Bus-namnrymd och välj **Åtkomstkontroll (IAM)** samt fliken **Rolltilldelningar**. Kontrollera att du har deltagaråtkomst till namnrymden. 
+Gå till din Service Bus namnrum och välj sedan **åtkomst kontroll (IAM)** och fliken **roll tilldelningar** . kontrol lera att du har deltagar åtkomst till namn området. 
 
 ### <a name="events-and-event-schemas"></a>Händelser och händelsescheman
 
@@ -82,7 +81,7 @@ Schemat för den här händelsen är följande:
 
 Du kan hämta minst en händelse per kö för obeställbara meddelanden, som innehåller meddelanden utan aktiva mottagare.
 
-Schemat för den här händelsen ser ut så här:
+Schemat för den här händelsen är följande:
 
 ```JSON
 [{

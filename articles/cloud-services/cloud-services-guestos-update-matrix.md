@@ -10,14 +10,14 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/15/2020
+ms.date: 1/24/2020
 ms.author: raiye
-ms.openlocfilehash: 1139e2b26cdc1dee524b1d3b6a942c735c43aec7
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c4bdb6fec5c20940e0afe4ab2e94702a2b21a60c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122253"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765319"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure gäst operativ system versioner och SDK-kompatibilitet mat ris
 Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för Cloud Services. Den här informationen hjälper dig att planera uppgraderings vägen innan ett gäst operativ system är inaktiverat. Om du konfigurerar dina roller så att de använder *automatiska* uppdateringar av gäst operativ system enligt beskrivningen i [Azures uppdaterings inställningar för gäst operativ system][Azure Guest OS Update Settings]är det inte viktigt att du läser den här sidan.
@@ -41,6 +41,9 @@ Innehåller uppdaterad information om de senaste Azure Guest OS-versionerna för
 Är du osäker på hur du uppdaterar ditt gäst operativ system? Kolla [här][cloud updates] .
 
 ## <a name="news-updates"></a>Diskussions grupps uppdateringar
+
+###### <a name="january-24-2020"></a>**24 januari 2020**
+Gäst operativ systemet i januari har släppts. 
 
 ###### <a name="january-8-2020"></a>**8 januari 2020**
 December gäst operativ system har släppts.
@@ -115,11 +118,12 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-6.15 _202001-01  |  24 januari 2020  |  Publicera 6,17  |  
 | WA – GÄST-OS-6.14 _201912-01 | 8 januari 2020 | Publicera 6,16 |  
-| WA – GÄST-OS-6.13 _201911-01 | 5 december 2019 | Publicera 6,15 |  
-|~~WA – GÄST-OS-6,12 _201910-01~~| Den 1 november 2019 | 8 januari 2020 |  
+|~~WA – GÄST-OS-6.13 _201911-01~~| 5 december 2019 | 24 januari 2020 |  
+|~~WA – GÄST-OS-6,12 _201910-01~~| 1 november 2019 | 8 januari 2020 |  
 |~~WA – GÄST-OS-6.11 _201909-01~~| 7 oktober 2019 | 5 december 2019 |  
-|~~WA – GÄST-OS-6.10-_201908 – 01~~| 4 augusti 2019 | Den 1 november 2019  |  
+|~~WA – GÄST-OS-6.10-_201908 – 01~~| 4 augusti 2019 | 1 november 2019  |  
 |~~WA – GÄST-OS-6,9-_201907 – 0~~|26 juli 2019 | 7 oktober 2019 |
 |~~WA – GÄST-OS-6,8 _201906 – 01~~|8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-6.7 _201905 – 01~~ |6 juni 2019 |26 juli 2019 |
@@ -142,11 +146,12 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-5.39 _202001-01  |  24 januari 2020  |  Publicera 5,41  |  
 | WA – GÄST-OS-5.38 _201912-01 | 8 januari 2020 | Publicera 5,40 |  
-| WA – GÄST-OS-5.37 _201911-01 | 5 december 2019 | Publicera 5,39 |  
-|~~WA – GÄST-OS-5.36 _201910-01~~| Den 1 november 2019 | 8 januari 2020 |  
+|~~WA – GÄST-OS-5.37 _201911-01~~| 5 december 2019 | 24 januari 2020 |  
+|~~WA – GÄST-OS-5.36 _201910-01~~| 1 november 2019 | 8 januari 2020 |  
 |~~WA – GÄST-OS-5.35 _201909-01~~| 7 oktober 2019 | 5 december 2019 |  
-|~~WA – GÄST-OS-5.34 _201908-01~~|  4 augusti 2019  | Den 1 november 2019 |  
+|~~WA – GÄST-OS-5.34 _201908-01~~|  4 augusti 2019  | 1 november 2019 |  
 |~~WA – GÄST-OS-5.33 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |  
 |~~WA – GÄST-OS-5.32 _201906-01~~|8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-5.31 _201905-01~~ |6 juni 2019 |26 juli 2019 |
@@ -166,11 +171,12 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-4.74 _202001-01  |  24 januari 2020  |  Publicera 4,76  |  
 | WA – GÄST-OS-4.73 _201912-01 | 8 januari 2020 | Publicera 4,75 |  
-| WA – GÄST-OS-4.72 _201911-01 | 5 december 2019 | Publicera 4,74 |  
-|~~WA – GÄST-OS-4.71 _201910-01~~| Den 1 november 2019 | 8 januari 2020 |  
+|~~WA – GÄST-OS-4.72 _201911-01~~| 5 december 2019 | 24 januari 2020 |  
+|~~WA – GÄST-OS-4.71 _201910-01~~| 1 november 2019 | 8 januari 2020 |  
 |~~WA – GÄST-OS-4.70 _201909-01~~| 7 oktober 2019 | 5 december 2019 |  
-|~~WA – GÄST-OS-4.69 _201908-01~~| 4 augusti 2019 | Den 1 november 2019 |  
+|~~WA – GÄST-OS-4.69 _201908-01~~| 4 augusti 2019 | 1 november 2019 |  
 |~~WA – GÄST-OS-4.68 _201907-01~~| 26 juli 2019  | 7 oktober 2019 |
 |~~WA – GÄST-OS-4.67 _201906-01~~| 8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-4.66 _201905-01~~ |6 juni 2019 |26 juli 2019 |
@@ -190,11 +196,12 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-3.81 _202001-01  |  24 januari 2020  |  Publicera 3,83  |  
 | WA – GÄST-OS-3.80 _201912-01 | 8 januari 2020 | Publicera 3,82 |  
-| WA – GÄST-OS-3.79 _201911-01 | 5 december 2019 | Publicera 3,81 |  
-|~~WA – GÄST-OS-3.78 _201910-01~~| Den 1 november 2019 | 8 januari 2020 |  
+|~~WA – GÄST-OS-3.79 _201911-01~~| 5 december 2019 | 24 januari 2020 |  
+|~~WA – GÄST-OS-3.78 _201910-01~~| 1 november 2019 | 8 januari 2020 |  
 |~~WA – GÄST-OS-3.77 _201909-01~~| 7 oktober 2019 | 5 december 2019 |  
-|~~WA – GÄST-OS-3.76 _201908-01~~|  4 augusti 2019  |  Den 1 november 2019  |  
+|~~WA – GÄST-OS-3.76 _201908-01~~|  4 augusti 2019  |  1 november 2019  |  
 |~~WA – GÄST-OS-3,75 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |
 |~~WA – GÄST-OS-3.74 _201906-01~~| 8 juli 2019 |4 augusti 2019 |
 |~~WA – GÄST-OS-3.73 _201905-01~~ |6 juni 2019 |26 juli 2019 |
@@ -214,11 +221,12 @@ Gäst operativ systemet i september har släppts.
 
 | Konfigurations sträng | Utgivningsdatum | Inaktive rings datum |
 | --- | --- | --- |
+|  WA – GÄST-OS-2.94 _202001-01  |  24 januari 2020  |  Publicera 2,96  |  
 | WA – GÄST-OS-2.93 _201912-01 | 8 januari 2020 | Publicera 2,95 |  
-| WA – GÄST-OS-2.92 _201911-01 | 5 december 2019 | Publicera 2,94 |  
-|~~WA – GÄST-OS-2.91 _201910-01~~| Den 1 november 2019 | 8 januari 2020 |  
+|~~WA – GÄST-OS-2.92 _201911-01~~| 5 december 2019 | 24 januari 2020 |  
+|~~WA – GÄST-OS-2.91 _201910-01~~| 1 november 2019 | 8 januari 2020 |  
 |~~WA – GÄST-OS-2.90 _201909-01~~| 7 oktober 2019 | 5 december 2019 |  
-|~~WA – GÄST-OS-2.89 _201908-01~~| 4 augusti 2019 | Den 1 november 2019 |  
+|~~WA – GÄST-OS-2.89 _201908-01~~| 4 augusti 2019 | 1 november 2019 |  
 |~~WA – GÄST-OS-2,88 _201907-01~~| 26 juli 2019 | 7 oktober 2019 |
 |~~WA – GÄST-OS-2.87 _201906-01~~|8 juli 2019 | 4 augusti 2019 |
 |~~WA – GÄST-OS-2.86 _201905-01~~ |6 juni 2019 |26 juli 2019 |
@@ -234,7 +242,7 @@ Gäst operativ systemet i september har släppts.
 ## <a name="msrc-patch-updates"></a>Uppdateringar av MSRC-uppdatering
 Listan över korrigeringar som ingår i varje månads gäst operativ system version finns [här][patches].
 
-## <a name="sdk-support"></a>SDK-support
+## <a name="sdk-support"></a>SDK-stöd
 Även om [indragnings principen för Azure SDK][retire policy sdk] visar att endast versioner som är äldre än 2,2 stöds, kan du använda tidigare versioner av vissa gäst operativ system familjer. Du bör alltid använda den senaste SDK som stöds.
 
 | Gäst operativ system familj | Kompatibla SDK-versioner |

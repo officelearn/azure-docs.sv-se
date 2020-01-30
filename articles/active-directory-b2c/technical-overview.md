@@ -10,16 +10,16 @@ ms.topic: overview
 ms.date: 09/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4d45e4c79f46061ca177858fd517153fb5f29c41
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5801cc4fdfeb4bbdf7c22e2be2f686558611a7f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123828"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840221"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Teknisk och funktions översikt över Azure Active Directory B2C
 
-Den här artikeln innehåller en mer djupgående introduktion till tjänsten. [Azure Active Directory B2C](active-directory-b2c-overview.md) Som beskrivs här är de primära resurser som du arbetar med i tjänsten, dess funktioner och hur dessa gör att du kan tillhandahålla en helt anpassad identitets upplevelse för dina kunder i dina program.
+Den här artikeln innehåller en mer djupgående introduktion till tjänsten. [Azure Active Directory B2C](overview.md) Som beskrivs här är de primära resurser som du arbetar med i tjänsten, dess funktioner och hur dessa gör att du kan tillhandahålla en helt anpassad identitets upplevelse för dina kunder i dina program.
 
 ## <a name="azure-ad-b2c-tenant"></a>Azure AD B2C klient
 
@@ -38,7 +38,7 @@ De primära resurserna som du arbetar med i en Azure AD B2C klient organisation 
   * *Lokala* konton som gör det möjligt för användare att registrera sig och logga in med ett användar namn (eller e-postadress eller annat ID) och lösen ord.
 * **Nycklar** – Lägg till och hantera krypterings nycklar för signering och validering av tokens.
 
-En Azure AD B2C klient är den första resurs som du måste skapa för att komma igång med Azure AD B2C. Lär dig mer [i Självstudier: Skapa en Azure Active Directory B2C-klientorganisation](tutorial-create-tenant.md).
+En Azure AD B2C klient är den första resurs som du måste skapa för att komma igång med Azure AD B2C. Lär dig mer i [Självstudier: skapa en Azure Active Directory B2C-klient](tutorial-create-tenant.md).
 
 ## <a name="accounts-in-azure-ad-b2c"></a>Konton i Azure AD B2C
 
@@ -48,7 +48,7 @@ Azure AD B2C definierar flera typer av användar konton. Azure Active Directory,
 * **Gäst konto** – externa användare som du bjuder in till din klient som gäster. Ett typiskt scenario för att bjuda in en gäst användare till din Azure AD B2C klient organisation är att dela administrations ansvar.
 * **Konsument konto** – konsument konton är de konton som skapas i Azure AD B2C-katalogen när användare slutför inloggnings användar resan i ett program som du har registrerat i din klient.
 
-![Sidan Azure AD B2C användar hantering i Azure Portal](media/technical-overview/portal-01-users.png)<br/>*Figur: Användar katalog inom en Azure AD B2C-klient i Azure Portal*
+![Azure AD B2C användar hanterings sidan i Azure Portal](media/technical-overview/portal-01-users.png)<br/>*Bild: användar katalog i en Azure AD B2C-klient i Azure Portal*
 
 ### <a name="consumer-accounts"></a>Konsument konton
 
@@ -61,7 +61,7 @@ Ett konsument konto kan associeras med dessa identitets typer:
 
 En användare med ett konsument konto kan logga in med flera identiteter, till exempel användar namn, e-post, anställnings-ID, myndighets-ID och andra. Ett enda konto kan ha flera identiteter, både lokala och sociala.
 
-![Konsument konto identiteter](media/technical-overview/identities.png)<br/>*Figur: Ett enda konsument konto med flera identiteter i Azure AD B2C*
+![konsument konto identiteter](media/technical-overview/identities.png)<br/>*Bild: ett enda konsument konto med flera identiteter i Azure AD B2C*
 
 Med Azure AD B2C kan du hantera vanliga attribut för konsument konto profiler, t. ex. visnings namn, efter namn, förnamn, stad och andra. Du kan också utöka Azure AD-schemat för att lagra ytterligare information om dina användare. Till exempel deras land eller placering, vilket språk som helst, samt inställningar som om de vill prenumerera på ett nyhets brev eller aktivera Multi-Factor Authentication.
 
@@ -79,7 +79,7 @@ På sidan för registrering eller inloggning visar Azure AD B2C en lista över e
 
 ![Mobilt inloggnings exempel med ett socialt konto (Facebook)](media/technical-overview/external-idp.png)
 
-Information om hur du lägger till identitets leverantörer i Azure AD B2C finns [i Självstudier: Lägga till identitetsprovidrar i dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md).
+Information om hur du lägger till identitets leverantörer i Azure AD B2C finns i [Självstudier: Lägg till identitets leverantörer i dina program i Azure Active Directory B2C](tutorial-add-identity-providers.md).
 
 ## <a name="identity-experiences-user-flows-or-custom-policies"></a>Identitets upplevelser: användar flöden eller anpassade principer
 
@@ -109,13 +109,13 @@ Du kan konfigurera inställningar för användar flöden så att de kan styra id
 
 De vanligaste identitets scenarierna för majoriteten av mobil-, webb-och program med en enda sida kan definieras och implementeras effektivt med användar flöden. Vi rekommenderar att du använder de inbyggda användar flödena, om du inte har avancerade användar körnings scenarier som kräver full flexibilitet för anpassade principer.
 
-Lär dig mer om användar flöden i [användar flöden i Azure Active Directory B2C](active-directory-b2c-reference-policies.md).
+Lär dig mer om användar flöden i [användar flöden i Azure Active Directory B2C](user-flow-overview.md).
 
 ### <a name="custom-policy"></a>Anpassad princip
 
 Anpassade principer låser upp åtkomst till den fulla kraften i IEF-Orchestration-motorn (Identity Experience Framework). Med anpassade principer kan du använda IEF för att bygga nästan all autentisering, användar registrering eller profil redigerings upplevelse som du kan föreställa dig.
 
-Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Exempel:
+Med Identity Experience Framework kan du skapa användar resor med valfri kombination av steg. Ett exempel:
 
 * Federera med andra identitets leverantörer
 * Krav för MFA (Multi-Factor Authentication) för första och tredje part
@@ -130,13 +130,13 @@ En anpassad princip definieras av flera XML-filer som refererar till varandra i 
 
 Den kraftfulla flexibiliteten med anpassade principer är mest lämplig för när du behöver bygga komplexa identitets scenarier. Utvecklare som konfigurerar anpassade principer måste definiera de betrodda relationerna i noggrann detalj för att inkludera slut punkter för metadata, exakta definitioner för anspråk och konfigurera hemligheter, nycklar och certifikat efter behov av varje identitets leverantör.
 
-Lär dig mer om anpassade principer i [anpassade principer i Azure Active Directory B2C](active-directory-b2c-overview-custom.md).
+Lär dig mer om anpassade principer i [anpassade principer i Azure Active Directory B2C](custom-policy-overview.md).
 
 ## <a name="protocols-and-tokens"></a>Protokoll och token
 
-Azure AD B2C stöder [OpenID Connect- och OAuth 2.0-protokollen](active-directory-b2c-reference-protocols.md) för användarresor. I Azure AD B2C-implementeringen av OpenID Connect startar ditt program användarresan genom att utfärda autentiseringsbegäranden till Azure AD B2C.
+Azure AD B2C stöder [OpenID Connect- och OAuth 2.0-protokollen](protocols-overview.md) för användarresor. I Azure AD B2C-implementeringen av OpenID Connect startar ditt program användarresan genom att utfärda autentiseringsbegäranden till Azure AD B2C.
 
-Resultatet av en begäran till Azure AD B2C är en säkerhetstoken som t.ex. en [ID-token eller åtkomsttoken](active-directory-b2c-reference-tokens.md). Denna säkerhetstoken definierar användarens identitet. Tokens tas emot från Azure AD B2C slut punkter som `/token` eller `/authorize` slut punkten. Med dessa tokens kan du komma åt anspråk som kan användas för att validera en identitet och tillåta åtkomst till säkra resurser.
+Resultatet av en begäran till Azure AD B2C är en säkerhetstoken som t.ex. en [ID-token eller åtkomsttoken](tokens-overview.md). Denna säkerhetstoken definierar användarens identitet. Tokens tas emot från Azure AD B2C slut punkter som `/token` eller `/authorize` slut punkten. Med dessa tokens kan du komma åt anspråk som kan användas för att validera en identitet och tillåta åtkomst till säkra resurser.
 
 För externa identiteter stöder Azure AD B2C Federation med alla OAuth 1,0-, OAuth 2,0-, OpenID Connect-, SAML-och WS-utfodras-identitets leverantörer.
 
@@ -148,7 +148,7 @@ Föregående diagram visar hur Azure AD B2C kan kommunicera med olika protokoll 
 1. När en användare av programmet väljer att logga in med en extern identitetsprovider som använder SAML-protokollet anropar Azure AD B2C SAML-protokollet för att kommunicera med den identitets leverantören.
 1. När användaren har slutfört inloggnings åtgärden med den externa identitets leverantören, returnerar Azure AD B2C token till det förlitande part programmet med OpenID Connect.
 
-## <a name="application-integration"></a>Integrering av program
+## <a name="application-integration"></a>Integrering av applikationer
 
 När en användare vill logga in i ditt program, oavsett om det är en webb-, mobil-, skriv bords-eller Enkels Ides applikation (SPA), initierar programmet en auktoriseringsbegäran till en användar flöde eller en anpassad princip slut punkt. Användar flödet eller den anpassade principen definierar och styr användarens upplevelse. När de slutför ett användar flöde, till exempel *registrerings-eller inloggnings* flödet, Azure AD B2C skapar en token och omdirigerar sedan tillbaka användaren till ditt program.
 
@@ -172,7 +172,7 @@ Med språk anpassning i Azure AD B2C kan du hantera olika språk som passar dina
 
 ![Tre inloggnings sidor som visar användar gränssnitts text på olika språk](media/technical-overview/localization.png)
 
-Se hur lokalisering fungerar i [språk anpassning i Azure Active Directory B2C](active-directory-b2c-reference-language-customization.md).
+Se hur lokalisering fungerar i [språk anpassning i Azure Active Directory B2C](user-flow-language-customization.md).
 
 ## <a name="add-your-own-business-logic"></a>Lägg till din egen affärslogik
 
@@ -195,7 +195,7 @@ Du kan lägga till ett REST API-anrop i alla steg i användar resan som definier
 * När Azure AD B2C har skapat ett nytt konto i katalogen
 * Innan Azure AD B2C utfärdar en åtkomsttoken
 
-Om du vill se hur du använder anpassade principer för RESTful API-integrering i Azure AD B2C, se [integrera REST API anspråk utbyten i din Azure AD B2C användar resa](active-directory-b2c-custom-rest-api-netfw.md).
+Om du vill se hur du använder anpassade principer för RESTful API-integrering i Azure AD B2C, se [integrera REST API anspråk utbyten i din Azure AD B2C användar resa](rest-api-claims-exchange-dotnet.md).
 
 ## <a name="protect-customer-identities"></a>Skydda kund identiteter
 
@@ -223,7 +223,7 @@ Mer information om Azure AD-roller, inklusive Azure AD B2C administrations roll 
 
 Azure AD B2C Multi-Factor Authentication (MFA) hjälper till att skydda åtkomsten till data och program samtidigt som användarnas skull bibehålls. Den ger ytterligare säkerhet genom att kräva en andra form av autentisering och ger stark autentisering genom att erbjuda en mängd användarvänliga autentiseringsmetoder. Dina användare kan kanske inte anropas för MFA baserat på konfigurations beslut som du kan göra som administratör.
 
-Se Aktivera MFA i användar flöden i [Aktivera Multi-Factor Authentication i Azure Active Directory B2C](active-directory-b2c-reference-mfa.md).
+Se Aktivera MFA i användar flöden i [Aktivera Multi-Factor Authentication i Azure Active Directory B2C](custom-policy-multi-factor-authentication.md).
 
 ### <a name="smart-account-lockout"></a>Utelåsning av Smart konto
 
@@ -231,13 +231,13 @@ För att förhindra lösen ords gissnings försök i brutet läge, Azure AD B2C 
 
 ![Konto Smart utelåsning](media/technical-overview/smart-lockout1.png)
 
-Mer information om hur du hanterar lösen ords skydds inställningar finns i [Hantera hot mot resurser och data i Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+Mer information om hur du hanterar lösen ords skydds inställningar finns i [Hantera hot mot resurser och data i Azure Active Directory B2C](threat-management.md).
 
 ### <a name="password-complexity"></a>Lösenordskomplexitet
 
 Under registreringen eller lösen ords återställning måste användarna ange ett lösen ord som uppfyller komplexitets reglerna. Som standard tillämpar Azure AD B2C en stark lösen ords princip. Azure AD B2C innehåller också konfigurations alternativ för att ange komplexitets kraven för de lösen ord som kunderna använder.
 
-Du kan konfigurera krav för lösen ords komplexitet i både [användar flöden](active-directory-b2c-reference-password-complexity.md) och [anpassade principer](active-directory-b2c-reference-password-complexity-custom.md).
+Du kan konfigurera krav för lösen ords komplexitet i både [användar flöden](user-flow-password-complexity.md) och [anpassade principer](custom-policy-password-complexity.md).
 
 ## <a name="auditing-and-logs"></a>Granskning och loggar
 
@@ -254,17 +254,17 @@ I en Gransknings logg, som är tillgänglig för din Azure AD B2C klient eller f
 
 ![Gransknings loggen för enskilda användare visas i Azure Portal](media/technical-overview/audit-log.png)
 
-Mer information om gransknings loggar finns i avsnittet [komma åt Azure AD B2C gransknings loggar](active-directory-b2c-reference-audit-logs.md).
+Mer information om gransknings loggar finns i avsnittet [komma åt Azure AD B2C gransknings loggar](view-audit-logs.md).
 
 ### <a name="usage-insights"></a>Användnings insikter
 
 Med Azure AD B2C kan du upptäcka när personer registrerar sig eller loggar in i din webbapp, var dina användare finns och vilka webbläsare och operativ system de använder. Genom att integrera Azure Application insikter i Azure AD B2C med anpassade principer kan du få information om hur personer registrerar sig, loggar in, återställer sitt lösen ord eller redigerar sina profiler. Med sådan kunskap kan du fatta data drivna beslut för dina kommande utvecklings cyklar.
 
-Lär dig mer om användnings analys i [spåra användar beteende i Azure Active Directory B2C att använda Application Insights](active-directory-b2c-custom-guide-eventlogger-appins.md).
+Lär dig mer om användnings analys i [spåra användar beteende i Azure Active Directory B2C att använda Application Insights](analytics-with-application-insights.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du har djupare erfarenhet av de funktioner och tekniska aspekterna av Azure Active Directory B2C, kom igång med tjänsten genom att skapa en B2C-klient:
 
 > [!div class="nextstepaction"]
-> [Självstudier: Skapa en Azure Active Directory B2C klient >](tutorial-create-tenant.md)
+> [Självstudie: skapa en Azure Active Directory B2C klient >](tutorial-create-tenant.md)

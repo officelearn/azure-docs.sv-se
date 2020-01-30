@@ -10,18 +10,18 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: a106699f4e3148eba85acc913e6f97be6ce9be66
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: bffba0ce5481250a696cdf4ec0aed6b59620bfe9
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515086"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773834"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Snabbstart: Kontrollera en enhet ansluten till en IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
-IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direkta metoder för att fjärrändra beteendet hos en enhet ansluten till din IoT-hubb.
+IoT Hub är en Azure-tjänst som gör att du kan hantera dina IoT-enheter från molnet och mata in stora mängder enhets telemetri till molnet för lagring eller bearbetning. I den här snabbstarten använder du en *direktmetod* för att styra en simulerad enhet som är ansluten till IoT Hub. Du kan använda direktmetoder för att fjärrändra beteendet hos en enhet ansluten till IoT Hub.
 
 Snabbstarten använder två färdiga .NET-program:
 
@@ -51,7 +51,7 @@ Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för
 az extension add --name azure-cli-iot-ext
 ```
 
-Ladda ned C#-exempelprojektet från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip, om du inte redan har gjort det, och extrahera ZIP-arkivet.
+Om du inte redan har gjort det kan du hämta Azure C# IoT-exempel från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera zip-arkivet.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 

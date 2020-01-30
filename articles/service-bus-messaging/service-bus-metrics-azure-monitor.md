@@ -1,21 +1,20 @@
 ---
 title: Azure Service Bus mått i Azure Monitor | Microsoft Docs
-description: Använd Azure Monitor för att övervaka Service Bus entiteter
+description: Den här artikeln förklarar hur du använder Azure Monitor för att övervaka Service Bus entiteter (köer, ämnen och prenumerationer).
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 6d25bdf6ff8e790466f3a28e3b6043e347d74198
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261860"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773537"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Service Bus mått i Azure Monitor
 
@@ -63,11 +62,11 @@ Räknar antalet förfrågningar om data och hantering av åtgärder.
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-| Inkommande förfrågningar| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|Slutförda förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|Serverfel|Antalet begär Anden som inte behandlats på grund av ett fel i tjänsten Service Bus under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|Användar fel (se följande underavsnitt)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|Begränsade begär Anden|Antalet begär Anden som har begränsats eftersom användningen överskreds.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+| Inkommande begär Anden| Antalet begär Anden som gjorts till tjänsten Service Bus under en angiven period. <br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Lyckade förfrågningar|Antalet lyckade förfrågningar som gjorts till tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Server fel|Antalet begär Anden som inte behandlats på grund av ett fel i tjänsten Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Användar fel (se följande underavsnitt)|Antal begäranden som inte bearbetas på grund av användarfel under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Begränsade begär Anden|Antalet begär Anden som har begränsats eftersom användningen överskreds.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ### <a name="user-errors"></a>Användar fel
 
@@ -81,18 +80,18 @@ Följande två typer av fel klassificeras som användar fel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-|Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
-| Meddelanden| Antal meddelanden i en kö/ett ämne. <br/><br/> Processor Count <br/> Sammansättnings typ: Average <br/> Dimension EntityName |
-| ActiveMessages| Antal aktiva meddelanden i en kö/ett ämne. <br/><br/> Processor Count <br/> Sammansättnings typ: Average <br/> Dimension EntityName |
-| Meddelanden med obeställbara meddelanden| Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. <br/><br/> Processor Count <br/> Sammansättnings typ: Average <br/>Dimension EntityName |
-| Schemalagda meddelanden| Antal schemalagda meddelanden i en kö/ett ämne. <br/><br/> Processor Count <br/> Sammansättnings typ: Average  <br/> Dimension EntityName |
+|Inkommande meddelanden|Antalet händelser eller meddelanden som skickats till Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+|Utgående meddelanden|Antalet händelser eller meddelanden som har tagits emot från Service Bus under en angiven period.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
+| Meddelanden| Antal meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimensionen: EntityName |
+| ActiveMessages| Antal aktiva meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/> Dimensionen: EntityName |
+| Meddelanden med obeställbara meddelanden| Antal meddelanden om obeställbara meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt <br/>Dimensionen: EntityName |
+| Schemalagda meddelanden| Antal schemalagda meddelanden i en kö/ett ämne. <br/><br/> Enhet: antal <br/> Sammansättnings typ: genomsnitt  <br/> Dimensionen: EntityName |
 
 ## <a name="connection-metrics"></a>Anslutningsmått
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|ActiveConnections|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Processor Count <br/> Sammansättnings typ: Totalt <br/> Dimension EntityName|
+|ActiveConnections|Antal aktiva anslutningar för ett namnområde och på en entitet.<br/><br/> Enhet: antal <br/> Sammansättningstyp: Totalt antal <br/> Dimensionen: EntityName|
 
 ## <a name="resource-usage-metrics"></a>Användnings statistik för resursanvändningen
 
@@ -101,8 +100,8 @@ Följande två typer av fel klassificeras som användar fel:
 
 | Måttnamn | Beskrivning |
 | ------------------- | ----------------- |
-|CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Processor Percent <br/> Sammansättnings typ: Maximal <br/> Dimension EntityName|
-|Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Processor Percent <br/> Sammansättnings typ: Maximal <br/> Dimension EntityName|
+|CPU-användning per namnrymd|Procent andel CPU-användning för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimensionen: EntityName|
+|Minnes storleks användning per namnrymd|Den procentuella minnes användningen för namn området.<br/><br/> Enhet: procent <br/> Sammansättnings typ: högsta <br/> Dimensionen: EntityName|
 
 ## <a name="metrics-dimensions"></a>Mått dimensioner
 
@@ -123,10 +122,10 @@ Azure Service Bus stöder följande dimensioner för mått i Azure Monitor. Det 
     3. Välj **Service Bus-namnområdet** i listan. 
     4. Välj **Done** (Klar). 
     
-        ![Välj namnområde](./media/service-bus-metrics-azure-monitor/select-namespace.png)
+        ![Välj namnrymd](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. Välj **Lägg till kriterier**och utför följande åtgärder på sidan **Konfigurera signal logik** :
     1. Välj **mått** för **signal typ**. 
-    2. Välj en signal. Exempel: **Tjänst fel**. 
+    2. Välj en signal. Till exempel: **tjänst fel**. 
 
         ![Välj server fel](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. Välj **större än** för **villkor**.

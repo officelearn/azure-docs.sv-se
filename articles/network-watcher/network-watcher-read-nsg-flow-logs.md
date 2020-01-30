@@ -3,22 +3,20 @@ title: Läs NSG Flow-loggar | Microsoft Docs
 description: Den här artikeln visar hur du tolkar NSG Flow-loggar
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
-ms.author: kumud
-ms.openlocfilehash: cdfcf6b379feb5cc71c173275601ce9c55d57d12
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.author: damendo
+ms.openlocfilehash: ee44dda7a7ca2f7e1ad386498798191fe792cef0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539245"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840850"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
@@ -33,7 +31,7 @@ NSG flödes loggar lagras i ett lagrings konto i [block-blobbar](https://docs.mi
 
 I följande scenario har du en exempel flödes logg som lagras i ett lagrings konto. Du lär dig hur du selektivt läser de senaste händelserna i NSG Flow-loggar. I den här artikeln använder du PowerShell, men begreppen som beskrivs i artikeln är inte begränsade till programmeringsspråket och gäller för alla språk som stöds av Azure Storage API: er.
 
-## <a name="setup"></a>Konfiguration
+## <a name="setup"></a>Installation
 
 Innan du börjar måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på en eller flera nätverks säkerhets grupper i ditt konto. Anvisningar om hur du aktiverar nätverks säkerhets flödes loggar finns i följande artikel: [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 

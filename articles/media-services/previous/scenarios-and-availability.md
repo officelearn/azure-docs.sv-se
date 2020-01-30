@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978176"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843947"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenarier och tillgängligheten för Media Services-funktioner i datacenter
 
@@ -37,7 +37,7 @@ Det här avsnittet beskriver vanliga scenarier för att leverera innehåll [live
 
 Om du vill börja använda Azure Media Services ska du ha följande:
 
-* Ett Azure-konto. Om du inte har något konto kan skapa du ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information om den kostnadsfria utvärderingsversionen av Azure finns [Kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
+* Ett Azure-konto. Om du inte har något konto kan du skapa ett kostnadsfritt utvärderingskonto på bara några minuter. Mer information finns i [kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com).
 * Ett Azure Media Services-konto. Mer information finns i [Skapa konto](media-services-portal-create-account.md).
 * Slutpunkten för direktuppspelning som du vill spela upp innehåll från måste ha tillståndet **Körs**.
 
@@ -117,7 +117,7 @@ Information om tillgänglighet i datacenter finns i avsnittet [Tillgänglighet](
 
 Vid liveuppspelning kan du välja någon av följande vägar:
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot direktsänd ström med flera bithastigheter från lokala kodare (genomströmning)
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Arbeta med kanaler som tar emot liveström med flera bithastigheter från lokala kodare (genomströmning)
 
 I följande diagram visas de huvudsakliga delarna i AMS-plattformen som ingår i arbetsflödet **Genomströmning**.
 
@@ -211,9 +211,8 @@ Media Analytics är en samling tal- och visionskomponenter som gör det enklare 
 |Azure Media Indexer|Allmänt tillgänglig|Alla|
 |Azure Media Motion Detector|Förhandsversion|Alla|
 |Azure Media OCR|Förhandsversion|Alla|
-|Azure Media Redactor|Förhandsversion|Alla|
+|Azure Media Redactor|Allmänt tillgänglig|Alla|
 |Azure Media Video Thumbnails|Förhandsversion|Alla|
-|Azure Media Indexer 2|Förhandsversion|Allt utom Kina och federala myndigheter|
 
 ### <a name="protection"></a>Skydd
 

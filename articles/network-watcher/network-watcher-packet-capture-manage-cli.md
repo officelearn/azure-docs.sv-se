@@ -1,11 +1,9 @@
 ---
-title: Hantera infångade paket med Azure Network Watcher – Azure CLI | Microsoft Docs
-description: Den här sidan förklarar hur du hanterar paket avbildningsfunktionen i Network Watcher med Azure CLI
+title: Hantera paket fångster med Azure Network Watcher – Azure CLI | Microsoft Docs
+description: På den här sidan förklaras hur du hanterar funktionen för att skapa paket i Network Watcher med hjälp av Azure CLI
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: cb0c1d10-f7f2-4c34-b08c-f73452430be8
 ms.service: network-watcher
 ms.devlang: na
@@ -13,56 +11,56 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7e6b1d77d002b8c1ed32a4e7adbdd1a46cf65668
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: 7eea4c05a48c5e055766f942cc44ee4cf189de5d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687091"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840869"
 ---
-# <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Hantera infångade paket med Azure Network Watcher med Azure CLI
+# <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Hantera paket fångster med Azure Network Watcher med Azure CLI
 
 > [!div class="op_single_selector"]
-> - [Azure Portal](network-watcher-packet-capture-manage-portal.md)
+> - [Azure-portalen](network-watcher-packet-capture-manage-portal.md)
 > - [PowerShell](network-watcher-packet-capture-manage-powershell.md)
 > - [Azure CLI](network-watcher-packet-capture-manage-cli.md)
-> - [Azure REST-API](network-watcher-packet-capture-manage-rest.md)
+> - [Azure-REST API](network-watcher-packet-capture-manage-rest.md)
 
-Network Watcher-infångade kan du skapa avbildning sessioner för att spåra trafik till och från en virtuell dator. Filter tillhandahålls för avbildningssessionen att se till att du fångar upp trafiken som du vill. Det hjälper dig för att diagnostisera nätverk avvikelser både reaktivt och proaktivt infångade paket. Andra användningsområden är att samla in nätverksstatistik, få information om nätverk intrång, felsöka klient-/ serverkommunikation och mycket mer. Genom för att utlösa infångade paket via en fjärranslutning, förenklar med den här funktionen ansvaret för att köra ett infångat manuellt och på den önskade datorn, vilket sparar värdefull tid.
+Med Network Watcher paket insamling kan du skapa avbildnings sessioner för att spåra trafik till och från en virtuell dator. Filter tillhandahålls för insamlingsbufferten för att se till att du bara fångar den trafik som du vill använda. Med paket fångst kan du diagnostisera nätverks avvikelser både återaktivt och proaktivt. Andra användnings områden innefattar insamling av nätverks statistik, få information om nätverks intrång, för att felsöka klient-server-kommunikation och mycket mer. Genom att kunna fjärrutlös paket fångster kan den här funktionen under lätta belastningen på att köra en paket registrering manuellt och på önskad dator, vilket sparar värdefull tid.
 
-Om du vill utföra stegen i den här artikeln, måste du [installera Azure-kommandoradsgränssnittet för Mac, Linux och Windows (Azure CLI)](/cli/azure/install-azure-cli).
+För att utföra stegen i den här artikeln måste du [Installera Azures kommando rads gränssnitt för Mac, Linux och Windows (Azure CLI)](/cli/azure/install-azure-cli).
 
-Den här artikeln tar dig igenom de olika administrativa uppgifter som är tillgängliga för infångade paket.
+Den här artikeln tar dig igenom de olika hanterings uppgifter som för närvarande är tillgängliga för paket fångst.
 
-- [**Starta ett infångat paket**](#start-a-packet-capture)
-- [**Stoppa ett infångat paket**](#stop-a-packet-capture)
-- [**Ta bort ett infångat paket**](#delete-a-packet-capture)
-- [**Ladda ned ett infångat paket**](#download-a-packet-capture)
+- [**Starta en paket fångst**](#start-a-packet-capture)
+- [**Stoppa en paket fångst**](#stop-a-packet-capture)
+- [**Ta bort en paket avbildning**](#delete-a-packet-capture)
+- [**Ladda ned en paket avbildning**](#download-a-packet-capture)
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
 Den här artikeln förutsätter att du har följande resurser:
 
-- En instans av Network Watcher i regionen som du vill skapa ett infångat paket
-- En virtuell dator med packet capture tillägget aktiverat.
+- En instans av Network Watcher i den region som du vill skapa en paket fångst
+- En virtuell dator med paket insamlings tillägget aktiverat.
 
 > [!IMPORTANT]
-> Paketfångsten kräver en agent körs på den virtuella datorn. Agenten installeras som ett tillägg. Anvisningar för VM-tillägg, besök [virtuella datorer, tillägg och funktioner](../virtual-machines/windows/extensions-features.md).
+> Paket fångst kräver att en agent körs på den virtuella datorn. Agenten installeras som ett tillägg. Instruktioner för VM-tillägg finns i [tillägg och funktioner för virtuella datorer](../virtual-machines/windows/extensions-features.md).
 
 ## <a name="install-vm-extension"></a>Installera VM-tillägg
 
 ### <a name="step-1"></a>Steg 1
 
-Kör den `az vm extension set` cmdlet för att installera packet capture agenten på den virtuella gästdatorn.
+Kör cmdleten `az vm extension set` för att installera paket insamlings agenten på den virtuella gäst datorn.
 
-För Windows-datorer:
+För virtuella Windows-datorer:
 
 ```azurecli
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentWindows --version 1.4
 ```
 
-För Linux-datorer:
+För virtuella Linux-datorer:
 
 ```azurecli
 az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
@@ -70,13 +68,13 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 
 ### <a name="step-2"></a>Steg 2
 
-Om du vill kontrollera att agenten är installerad, kör den `vm extension show` cmdlet och skickar den resursnamnet grupp och den virtuella datorn. Kontrollera den resulterande listan för att säkerställa att agenten är installerad.
+Kontrol lera att agenten är installerad genom att köra cmdleten `vm extension show` och skicka den till resurs gruppen och namnet på den virtuella datorn. Kontrol lera den resulterande listan för att se till att agenten är installerad.
 
 ```azurecli
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
 ```
 
-I följande exempel är ett exempel på svaret från att köras `az vm extension show`
+Följande exempel är ett exempel på svaret från att köra `az vm extension show`
 
 ```json
 {
@@ -98,13 +96,13 @@ I följande exempel är ett exempel på svaret från att köras `az vm extension
 }
 ```
 
-## <a name="start-a-packet-capture"></a>Starta ett infångat paket
+## <a name="start-a-packet-capture"></a>Starta en paket fångst
 
-När de föregående stegen har slutförts, är packet capture agenten installerad på den virtuella datorn.
+När föregående steg har slutförts installeras paket insamlings agenten på den virtuella datorn.
 
 ### <a name="step-1"></a>Steg 1
 
-Nästa steg är att hämta Network Watcher-instans. Den här namn i Network Watcher skickas till den `az network watcher show` cmdlet i steg 4.
+Nästa steg är att hämta Network Watcher-instansen. Tdet namn för Network Watcher skickas till `az network watcher show` cmdlet i steg 4.
 
 ```azurecli
 az network watcher show --resource-group resourceGroup --name networkWatcherName
@@ -112,7 +110,7 @@ az network watcher show --resource-group resourceGroup --name networkWatcherName
 
 ### <a name="step-2"></a>Steg 2
 
-Hämta ett storage-konto. Det här lagringskontot används för att lagra filen packet capture.
+Hämta ett lagrings konto. Det här lagrings kontot används för att lagra paket insamlings filen.
 
 ```azurecli
 azure storage account list
@@ -120,13 +118,13 @@ azure storage account list
 
 ### <a name="step-3"></a>Steg 3
 
-Filter kan användas för att begränsa de data som lagras med paketfångsten. I följande exempel ställer in ett infångat paket med flera filter.  De första tre filter samlar in utgående TCP-trafik från lokala IP 10.0.0.3 till målportar 20, 80 och 443.  Senaste filtret samlar in UDP-trafik.
+Filter kan användas för att begränsa de data som lagras av paket fångsten. I följande exempel ställer du in en paket avbildning med flera filter.  De första tre filtren samlar endast utgående TCP-trafik från lokala IP-10.0.0.3 till mål portarna 20, 80 och 443.  Det sista filtret samlar endast in UDP-trafik.
 
 ```azurecli
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-I följande exempel är utdatan som förväntas från att köras i `az network watcher packet-capture create` cmdlet.
+I följande exempel visas förväntade utdata från att köra cmdleten `az network watcher packet-capture create`.
 
 ```json
 {
@@ -179,15 +177,15 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 }
 ```
 
-## <a name="get-a-packet-capture"></a>Hämta ett infångat paket
+## <a name="get-a-packet-capture"></a>Hämta en paket fångst
 
-Kör den `az network watcher packet-capture show-status` cmdleten hämtar status för ett infångat paket som körs för tillfället, eller slutfördes.
+Om du kör `az network watcher packet-capture show-status`-cmdlet: en, hämtas statusen för den pågående eller slutförda paket fångsten.
 
 ```azurecli
 az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-I följande exempel är utdata från den `az network watcher packet-capture show-status` cmdlet. I följande exempel är när avbildningen har stoppats, med en StopReason TimeExceeded. 
+I följande exempel visas utdata från `az network watcher packet-capture show-status`-cmdleten. I följande exempel visas när avbildningen stoppas, med en StopReason på TimeExceeded. 
 
 ```
 {
@@ -204,31 +202,31 @@ cketCaptures/packetCaptureName",
 }
 ```
 
-## <a name="stop-a-packet-capture"></a>Stoppa ett infångat paket
+## <a name="stop-a-packet-capture"></a>Stoppa en paket fångst
 
-Genom att köra den `az network watcher packet-capture stop` cmdlet, om en avbildningssessionen är håller på att den har stoppats.
+Genom att köra cmdleten `az network watcher packet-capture stop`, om en redigeringssession pågår, stoppas den.
 
 ```azurecli
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> Cmdleten returnerar inga svar när kördes på en pågående avbildningssessionen eller en befintlig session som redan har stoppats.
+> Cmdleten returnerar inget svar när den kördes på en pågående infångstutlösare eller en befintlig session som redan har stoppats.
 
-## <a name="delete-a-packet-capture"></a>Ta bort ett infångat paket
+## <a name="delete-a-packet-capture"></a>Ta bort en paket avbildning
 
 ```azurecli
 az network watcher packet-capture delete --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> Filen i lagringskontot tas inte bort om du tar bort ett infångat paket.
+> Om du tar bort en paket avbildning tas inte filen bort i lagrings kontot.
 
-## <a name="download-a-packet-capture"></a>Ladda ned ett infångat paket
+## <a name="download-a-packet-capture"></a>Ladda ned en paket avbildning
 
-När packet capture sessionen är klar kan att överföra filen avbildning till blob-lagring eller till en lokal fil på den virtuella datorn. Lagringsplatsen för paketfångsten har definierats vid skapandet av sessionen. Ett praktiskt verktyg för att komma åt dessa avbilda filer som sparats i ett lagringskonto är Microsoft Azure Storage Explorer, som kan hämtas här:  https://storageexplorer.com/
+När din paket insamlings session har slutförts kan infångstfilen överföras till Blob Storage eller till en lokal fil på den virtuella datorn. Lagrings platsen för paket fångsten definieras vid skapandet av sessionen. Ett användbart verktyg för att komma åt dessa insamlingsfiler som sparas till ett lagrings konto är Microsoft Azure Storage Explorer, som kan hämtas här: https://storageexplorer.com/
 
-Om ett lagringskonto anges sparas packet capture filer till ett lagringskonto på följande plats:
+Om ett lagrings konto anges sparas paket insamlings filer till ett lagrings konto på följande plats:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscriptions/{subscriptionId}/resourcegroups/{storageAccountResourceGroup}/providers/microsoft.compute/virtualmachines/{VMName}/{year}/{month}/{day}/packetCapture_{creationTime}.cap
@@ -236,8 +234,8 @@ https://{storageAccountName}.blob.core.windows.net/network-watcher-logs/subscrip
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du automatiserar infångade paket med virtuella datorer aviseringar genom att visa [skapar en avisering utlösta paketfångsten](network-watcher-alert-triggered-packet-capture.md)
+Lär dig hur du automatiserar paket fångster med aviseringar för virtuella datorer genom att visa [skapa en varning utlöst paket fångst](network-watcher-alert-triggered-packet-capture.md)
 
-Hitta om vissa trafik är tillåten i eller utanför din virtuella dator genom att besöka [Kontrollera Kontrollera IP-flöde](diagnose-vm-network-traffic-filtering-problem.md)
+Ta reda på om en viss trafik tillåts i eller från den virtuella datorn genom [att gå igenom kontrol lera IP-flöde verifiera](diagnose-vm-network-traffic-filtering-problem.md)
 
 <!-- Image references -->

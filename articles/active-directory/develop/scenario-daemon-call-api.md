@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5a234e0b5d3a88b722257aa80249f4d80182d12f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 338b638d6b33bcbbb5cf377643a96c71b0d314bd
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702240"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775201"
 ---
 # <a name="daemon-app-that-calls-web-apis---call-a-web-api-from-the-app"></a>Daemon-app som anropar webb-API: er – anropa ett webb-API från appen
 
-En daemon-app kan anropa ett webb-API från ett .NET daemon-program eller anropa flera förauktoriserade webb-API: er.
+.NET daemon-appar kan anropa ett webb-API. .NET daemon-appar kan också anropa flera förauktoriserade webb-API: er.
 
-## <a name="calling-a-web-api-daemon-application"></a>Anropa ett daemon-program för webb-API
+## <a name="calling-a-web-api-from-a-daemon-application"></a>Anropa ett webb-API från ett daemon-program
 
 Så här använder du token för att anropa ett API:
 
@@ -67,7 +67,7 @@ JSONObject responseObject = HttpClientHelper.processResponse(responseCode, respo
 
 ## <a name="calling-several-apis"></a>Anropa flera API: er
 
-Webb-API: er som du anropar måste vara för hands godkända för daemon-appar. Det får inget stegvist godkännande med daemon-appar (det finns inga användar åtgärder). Klient organisationens administratör måste förauktorisera programmet och alla API-behörigheter. Om du vill anropa flera API: er måste du hämta en token för varje resurs, varje tid som anropar `AcquireTokenForClient`. MSAL kommer att använda Application token-cache för att undvika onödiga tjänst anrop.
+Webb-API: er som du anropar måste vara för hands godkända för daemon-appar. Det finns inget stegvist godkännande med daemon-appar. (Det finns inga användar åtgärder.) Klient organisationens administratör måste ge sitt medgivande i förväg för programmet och alla API-behörigheter. Om du vill anropa flera API: er måste du hämta en token för varje resurs, varje tid som anropar `AcquireTokenForClient`. MSAL kommer att använda Application token-cache för att undvika onödiga tjänst anrop.
 
 ## <a name="next-steps"></a>Nästa steg
 

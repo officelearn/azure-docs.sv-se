@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 8d4713cba94971971558a72c680e3c8f80331662
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
-ms.translationtype: HT
+ms.openlocfilehash: e520c9a1e9d40c318b8e2b69801bf5cc600e16bb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760342"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772048"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Anslutnings arkitektur i Azure Database for MySQL
 Den här artikeln förklarar Azure Database for MySQL anslutnings arkitektur och hur trafiken dirigeras till din Azure Database for MySQL-instans från klienter både inom och utanför Azure.
@@ -50,14 +50,14 @@ I följande tabell visas de primära och sekundära IP-adresserna för Azure Dat
 | Södra Indien | 104.211.224.146  |
 | Indien, västra | 104.211.160.80    |
 | Japan, östra | 13.78.61.196, 191.237.240.43  |
-| Japan, västra | 104.214.148.156, 191.238.68.11    |
+| Japan, västra | 104.214.148.156, 191.238.68.11, 40.74.96.7, 40.74.96.6 |
 | Sydkorea, centrala | 52.231.32.42   |
 | Sydkorea, södra | 52.231.200.86    |
 | USA, norra centrala | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | Europa, norra | 40.113.93.91, 191.235.193.75    |
 | Sydafrika, norra  | 102.133.152.0    |
 | Sydafrika, västra | 102.133.24.0   |
-| USA, södra centrala |13.66.62.124, 23.98.162.75   |
+| USA, södra centrala |13.66.62.124, 23.98.162.75, 104.214.16.39, 20.45.120.0   |
 | Sydostasien | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | Förenade Arabemiraten, centrala | 20.37.72.64  |
 | Förenade Arabemiraten, norra | 65.52.248.0    |

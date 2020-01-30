@@ -5,19 +5,19 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452111"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774481"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Beskriv ett Service Fabric kluster med hjälp av kluster resurs hanteraren
 Kluster resurs hanterarens funktion i Azure Service Fabric ger flera mekanismer för att beskriva ett kluster:
 
 * Feldomäner
 * Uppgradera domäner
-* Nodegenskaper
+* Egenskaper för nod
 * Nods kapacitet
 
 Under körningen använder kluster resurs hanteraren den här informationen för att säkerställa hög tillgänglighet för de tjänster som körs i klustret. Även om de här viktiga reglerna upprätthålls försöker den också optimera resursanvändningen i klustret.
@@ -472,7 +472,7 @@ Först ser du till att datorer inte är överbelastade. Det innebär att se till
 
 För det andra är det en balans och optimering som är avgörande för att köra tjänster effektivt. Kostnads effektiva eller prestanda känsliga tjänst erbjudanden kan inte tillåta att vissa noder är aktiva medan andra är kall. Aktiva noder leder till resurs konkurrens och dåliga prestanda. Kalla noder representerar slöseri med resurser och ökade kostnader. 
 
-Service Fabric representerar resurser som *mått*. Mått är alla logiska eller fysiska resurser som du vill beskriva till Service Fabric. Exempel på mått är "WorkQueueDepth" eller "MemoryInMb". Information om de fysiska resurser som Service Fabric kan styra på noder finns i [resurs styrning](service-fabric-resource-governance.md). Information om hur du konfigurerar anpassade mått och deras användnings områden finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric representerar resurser som *mått*. Mått är alla logiska eller fysiska resurser som du vill beskriva till Service Fabric. Exempel på mått är "WorkQueueDepth" eller "MemoryInMb". Information om de fysiska resurser som Service Fabric kan styra på noder finns i [resurs styrning](service-fabric-resource-governance.md). Information om standard måtten som används av kluster resurs hanteraren och hur du konfigurerar anpassade mått finns i [den här artikeln](service-fabric-cluster-resource-manager-metrics.md).
 
 Mått skiljer sig från placerings begränsningar och Node-egenskaper. Node-egenskaperna är statiska beskrivningar av noderna. Mått beskriver resurser som noderna har och som tjänsterna använder när de körs på en nod. En Node-egenskap kan vara **HasSSD** och kan ställas in på True eller false. Mängden utrymme som är tillgängligt för den SSD och hur mycket som konsumeras av tjänster är ett mått som "DriveSpaceInMb". 
 

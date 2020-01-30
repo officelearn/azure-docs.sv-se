@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872306"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843268"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -65,7 +65,7 @@ Kom ihåg följande rikt linjer om du skapar ett dokument med flera vändare:
 
 * Använd rubriker och under rubriker för att beteckna hierarkier. Till exempel kan du ange den överordnade QnA och H2 för att ange den QnA som ska tas med i frågan. Använd liten rubrik storlek för att beteckna efterföljande hierarkier. Använd inte formatmall, färg eller någon annan mekanism för att göra en struktur i ditt dokument, QnA Maker inte extraherar flera inaktiverade prompter.
 
-* Första bokstaven i rubriken måste vara kapitaliserad. 
+* Första bokstaven i rubriken måste vara kapitaliserad.
 
 * Avsluta inte en rubrik med ett frågetecken, `?`.
 
@@ -113,7 +113,7 @@ Lägg till en uppföljnings fråga till ett befintligt fråga-och-svar-par som i
 1. Välj **Lägg till uppföljnings fråga**i kolumnen **svar** i raden för att **Logga in**.
 1. Ange följande värden i fälten i popup-fönstret för **uppföljnings prompten** :
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Visa text|Ange **Stäng av enheten**. Det här är en anpassad text som visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende| Markera den här kryss rutan. Ett svar returneras bara om frågan anger sammanhang.|
@@ -150,7 +150,7 @@ När du lägger till ett nytt fråga-och-svar-par i kunskaps basen ska varje par
 1. Välj **Lägg till uppföljnings fråga**i **svars** kolumnen för den här frågan.
 1. Under **uppföljnings prompt (för hands version)** skapar du en ny uppföljning genom att ange följande värden:
 
-    |Fält|Värde|
+    |Field|Värde|
     |--|--|
     |Visa text|*Skapa ett Windows-konto*. Den anpassade text som ska visas i uppföljnings anvisningarna.|
     |Endast Sammanhangs beroende|Markera den här kryss rutan. Svaret returneras endast om frågan anger sammanhang.|
@@ -368,7 +368,7 @@ Du kan lägga till eller ta bort prompter med flera turn-meddelanden med hjälp 
 
 ## <a name="export-knowledge-base-for-version-control"></a>Exportera kunskaps bas för versions kontroll
 
-QnA Maker [stöder versions kontroll](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) i QNA Makers portalen genom att inkludera flera steg i konversationen i den exporterade filen.
+QnA Maker stöder versions kontroll genom att inkludera konversations steg med flera turn i den exporterade filen.
 
 ## <a name="next-steps"></a>Nästa steg
 

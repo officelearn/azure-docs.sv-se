@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747337"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842477"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Gransknings loggning i Azure Database for PostgreSQL-enskild server
 
@@ -65,10 +65,8 @@ med pgAudit kan du Konfigurera loggning av session-eller objekt granskning. I [g
 När du har [installerat pgAudit](#installing-pgaudit)kan du konfigurera dess parametrar för att starta loggningen. [PgAudit-dokumentationen](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) innehåller definitionen av varje parameter. Testa parametrarna först och bekräfta att du får det förväntade beteendet.
 
 > [!NOTE]
-> Om du anger `pgaudit.log_client` till på omdirigeras loggarna till en klient process (t. ex. psql) i stället för att skrivas till filen. Den här inställningen bör normalt vara inaktiverad.
-
-> [!NOTE]
-> `pgaudit.log_level` aktive ras endast när `pgaudit.log_client` är på. I Azure Portal finns det för närvarande en bugg med `pgaudit.log_level`: en kombinations ruta visas, vilket innebär att flera nivåer kan väljas. Dock bör endast en nivå väljas. 
+> Om du anger `pgaudit.log_client` till på omdirigeras loggarna till en klient process (t. ex. psql) i stället för att skrivas till filen. Den här inställningen bör normalt vara inaktiverad. <br> <br>
+> `pgaudit.log_level` aktive ras endast när `pgaudit.log_client` är på.
 
 > [!NOTE]
 > I Azure Database for PostgreSQL kan `pgaudit.log` inte anges med en `-` (minus) tecken gen väg enligt beskrivningen i pgAudit-dokumentationen. Alla obligatoriska instruktionsklasser (READ, WRITE osv.) ska anges var för sig.
@@ -87,6 +85,22 @@ Mer information om `log_line_prefix`finns i postgresql- [dokumentationen](https:
 ### <a name="getting-started"></a>Komma igång
 Kom igång snabbt genom att ange `pgaudit.log` till `WRITE`och öppna loggarna för att granska utdata. 
 
+## <a name="viewing-audit-logs"></a>Visa gransknings loggar
+Om du använder. log-filer tas gransknings loggarna med i samma fil som fel loggarna för PostgreSQL. Du kan ladda ned loggfiler från Azure- [portalen](howto-configure-server-logs-in-portal.md) eller [CLI](howto-configure-server-logs-using-cli.md). 
+
+Om du använder Azure Diagnostic-loggning beror det på hur du kommer åt loggarna på vilken slut punkt du väljer. Information om Azure Storage finns i artikeln [Logga lagrings konto](../azure-monitor/platform/resource-logs-collect-storage.md) . Information om Event Hubs finns i artikeln [Stream Azure-loggar](../azure-monitor/platform/resource-logs-stream-event-hubs.md) .
+
+För Azure Monitor loggar skickas loggar till den valda arbets ytan. Postgres-loggarna använder samlings läget **AzureDiagnostics** , så att de kan frågas från AzureDiagnostics-tabellen. Fälten i tabellen beskrivs nedan. Läs mer om frågor och aviseringar i Översikt över [Azure Monitor loggar frågor](../azure-monitor/log-query/log-query-overview.md) .
+
+Du kan använda den här frågan för att komma igång. Du kan konfigurera aviseringar baserat på frågor.
+
+Sök efter alla postgres-loggar för en viss server under den senaste dagen
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>Nästa steg
 - [Läs mer om loggning i Azure Database for PostgreSQL](concepts-server-logs.md)

@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779967"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773943"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
@@ -33,7 +33,7 @@ Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure-portalen](https://portal.azure.com/).
+Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-event-hub"></a>Skapa en händelsehubb
 
@@ -118,6 +118,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     | Händelsehubb | *test-hub* | Händelsehubben som du skapade. |
     | Konsumentgrupp | *test-group* | Konsumentgruppen som definierades i hubben som du skapade. |
     | Egenskaper för händelse system | Välj relevanta egenskaper | [System egenskaper för Event Hub](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. När du lägger till system egenskaper [skapar](/azure/kusto/management/tables#create-table) eller [uppdaterar](/azure/kusto/management/tables#alter-table-and-alter-merge-table) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. |
+    | Komprimering | *Inga* | Komprimerings typen för nytto lasten för Event Hub-meddelanden. Komprimerings typer som stöds: *ingen, gzip*.|
     | | |
 
     **Mål tabell:**
@@ -128,15 +129,15 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, Multiline JSON, PSV, SOHSV, SCSV, TSV, TSVE och TXT. Komprimerings alternativ som stöds: GZip |
-    | Kolumnmappning | *TestMapping* | [Mappningen](/azure/kusto/management/mappings) som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumn namn och data typer för **TestTable**. Krävs för JSON, Multiline JSON eller AVRO, och valfritt för andra format.|
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, Multiline JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC och PARQUET. |
+    | Kolumnmappning | *TestMapping* | [Mappningen](/azure/kusto/management/mappings) som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumn namn och data typer för **TestTable**. Krävs för JSON eller Multiline-JSON, och valfritt för andra format.|
     | | |
 
     > [!NOTE]
     > * Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
     > * Endast händelser som står i kö efter att du har skapat data anslutningen matas in.
-    > * Aktivera GZip-komprimering för statisk routning genom att öppna en [supportbegäran i Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Aktivera GZip-komprimering för dynamisk routning som visas i [exempel appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest). 
-    > * Avro-format och händelse system egenskaper stöds inte i komprimerings nytto lasten.
+    > * Du kan också ange komprimerings typ via dynamiska egenskaper som visas i [exempel appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest).
+    > * Avro-, ORC-och PARQUET-format samt händelse system egenskaper stöds inte av GZip-komprimerings nytto Last.
 
 [!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 

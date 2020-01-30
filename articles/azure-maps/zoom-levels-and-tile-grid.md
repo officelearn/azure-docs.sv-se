@@ -3,24 +3,24 @@ title: Zoomnings nivåer och panels rutnät | Microsoft Azure Maps
 description: I den här artikeln får du lära dig om zoomnings nivåer och panel rutnät i Microsoft Azure Maps.
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 09d6e357b87b59e8010e38693806da5f26f5b679
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6ee697ac9b7849a0231d9916c6fa8bc73ef7f9b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910780"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765846"
 ---
 # <a name="zoom-levels-and-tile-grid"></a>Zoomningsnivåer och rutnät
 
-Azure Maps använda det sfäriska Mercator i projekt koordinatsystemet (EPSG: 3857). En projektion är den matematiska modell som används för att omvandla den sfäriska jordgloben till en plan karta. Projektionen av sfär-Mercator sträcker sig över kartan vid stavarna för att skapa en kvadratisk karta. Detta förvränger skalan och ytan på kartan, men har två viktiga egenskaper som uppväger denna förvrängning:
+Azure Maps använda det sfäriska Mercator i projekt koordinatsystemet (EPSG: 3857). En projektion är den matematiska modell som används för att omvandla den sfäriska jordgloben till en plan karta. Den sfäriska Mercator-projektionen sträcker ut kartan på staven för att skapa en kvadratisk karta. Den här projektionen förvränger skalan och ytan på kartan markant, men har två viktiga egenskaper som uppväger denna förvrängning:
 
-- Det är en proformerad projektion, vilket innebär att den bevarar formen på relativt små objekt. Detta är särskilt viktigt när du visar flyg bilder, eftersom vi vill undvika att ändra form på byggnader. Kvadratiska byggnader ska visas i fyrkant, inte rektangulära.
-- Det är en cylindrisk projektion, vilket innebär att norra och södra alltid är raka och raka, och väst och öst alltid är rakt åt vänster och höger. 
+- Det är en proformerad projektion, vilket innebär att den bevarar formen på relativt små objekt. Att bevara formen på små objekt är särskilt viktigt när du visar flyg bilder. Vi vill till exempel undvika att förvränga formen på byggnader. Kvadratiska byggnader ska visas i fyrkant, inte rektangulära.
+- Det är en cylindrisk projektion. Norra och syd är alltid uppåt och nedåt, och väst och öst är alltid vänster och höger. 
 
 För att optimera prestanda för kart hämtning och visning är kartan indelad i fyrkantiga paneler. Azure Maps SDK: s användnings paneler som har en storlek på 512 x 512 pixlar för väg kartor och mindre 256 x 256 pixlar för satellit-bilder. Azure Maps innehåller raster-och vektor paneler för 23 zoomnings nivåer, numrerade 0 till och med 22. På zoomnings nivå 0 passar hela världen på en enda panel:
 
@@ -36,7 +36,7 @@ layout för ![2x2 Map-panel](media/zoom-levels-and-tile-grid/map-2x2-tile-layout
 
 Varje ytterligare zoomnings nivå är fyra delar av panelerna i föregående, vilket skapar ett rutnät med 2<sup>zoom</sup> x 2-<sup>zoomning</sup>. Zoomnings nivå 22 är ett rutnät 2<sup>22</sup> x 2<sup>22</sup>eller 4 194 304 x 4 194 304 paneler (17 592 186 044 416 paneler totalt).
 
-Azure Maps interaktiva kart kontroller för webb-och Android-stöd zoomnivå 25 zoomnings nivåer, numrerade 0 till 24. Även om vägtrafiks data bara kommer att vara tillgängliga på zoomnings nivåerna i när panelerna är tillgängliga.
+Azure Maps interaktiva kart kontroller för webb-och Android-stöd 25 zoomnings nivåer, numrerade 0 till 24. Även om vägtrafiks data bara kommer att vara tillgängliga på zoomnings nivåerna i när panelerna är tillgängliga.
 
 I följande tabell visas en fullständig lista över värden för zoomnings nivåer där panel storleken är 512 bild punkter fyrkant:
 
@@ -70,7 +70,7 @@ I följande tabell visas en fullständig lista över värden för zoomnings niv�
 
 ## <a name="pixel-coordinates"></a>Pixel koordinater
 
-Om du har valt projektion och skala för att använda på varje zoomnings nivå kan vi konvertera geografiska koordinater till pixel koordinater. Den fullständiga bild punkts bredden och höjden på en kart bild av världen för en viss zoomnivå kan beräknas som:
+Om du har valt projektion och skala för att använda på varje zoomnings nivå kan vi konvertera geografiska koordinater till pixel koordinater. Den fullständiga bild punkts bredden och höjden på en kart bild av världen för en viss zoomnings nivå beräknas som:
 
 ```javascript
 var mapWidth = tileSize * Math.pow(2, zoom);
@@ -82,9 +82,11 @@ Eftersom kart bredd och höjd skiljer sig på varje zoomnings nivå, så är pix
 
 <center>
 
-![karta som visar pixel dimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)</center>
+![Karta som visar pixel dimensioner](media/zoom-levels-and-tile-grid/map-width-height.png)
 
-Med hänsyn till latitud och longitud i grader, och detalj nivån, kan pixlarnas XY-koordinater beräknas på följande sätt:
+</center>
+
+Med hänsyn till latitud och longitud i grader, och detalj nivån, beräknas pixlarnas XY-koordinater på följande sätt:
 
 ```javascript
 var sinLatitude = Math.sin(latitude * Math.PI/180);
@@ -94,11 +96,11 @@ var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
-Värdena för latitud och longitud antas vara på WGS 84-datum. Även om Azure Maps använder en sfärisk projektion är det viktigt att konvertera alla geografiska koordinater till ett gemensamt datum och att WGS 84 valdes vara det datum. Värdet longitud antas vara mellan-180 och + 180 grader, och Latitude-värdet måste klippas till mellan-85,05112878 och 85,05112878. På så sätt undviker du en ojämnhet på stavarna och gör att den projicerade kartan blir kvadratisk.
+Värdena för latitud och longitud antas vara på WGS 84-datum. Även om Azure Maps använder en sfärisk projektion är det viktigt att konvertera alla geografiska koordinater till ett gemensamt datum. WGS 84 är det valda datumet. Värdet longitud antas vara mellan-180 grader och + 180 grader, och Latitude-värdet måste klippas in i intervallet från-85,05112878 till 85,05112878. Genom att följa dessa värden undviker du en ojämnhet på stavarna och ser till att den projicerade kartan är en kvadrat-form.
 
 ## <a name="tile-coordinates"></a>Panel koordinater
 
-Den renderade kartan klipps ut i paneler för att optimera prestanda för kart hämtning och visning. I takt med att antalet pixlar skiljer sig på varje zoomnings nivå, så gör antalet brickor:
+Den renderade kartan klipps ut i paneler för att optimera prestanda för kart hämtning och visning. Antalet bild punkter och antalet paneler varierar på varje zoomnings nivå:
 
 ```javascript
 var numberOfTilesWide = Math.pow(2, zoom);
@@ -120,9 +122,9 @@ var tileX = Math.floor(pixelX / tileSize);
 var tileY = Math.floor(pixelY / tileSize);
 ```
 
-Paneler anropas av zoomnings nivå och x-och y-koordinaterna som motsvarar panelens position i rutnätet för den zoomnings nivån.
+Paneler kallas för zoomnings nivå. X-och y-koordinaterna motsvarar panelens position i rutnätet för den zoomnings nivån.
 
-När du bestämmer vilken zoomnings nivå som ska användas, kommer du ihåg att varje plats har en fast position på sin panel. Det innebär att antalet paneler som behövs för att visa en bestämd expanse område är beroende av den exakta placeringen av zoomnings rutnätet i världen. Om det t. ex. finns två punkter 900 meters avstånd *kan* det bara ta tre paneler att visa en väg mellan dem i zoomnings nivå 17. Men om den västerländska punkten är till höger om dess panel och den östra punkten till vänster om panelen, kan det ta fyra paneler:
+När du bestämmer vilken zoomnings nivå som ska användas, kommer du ihåg att varje plats har en fast position på sin panel. Det innebär att antalet paneler som behövs för att visa en bestämd expanse område är beroende av den exakta placeringen av zoomnings rutnätet på världs kartan. Om det t. ex. finns två punkter 900 meters avstånd *kan* det bara ta tre paneler att visa en väg mellan dem i zoomnings nivå 17. Men om den västerländska punkten är till höger om dess panel och den östra punkten till vänster om panelen, kan det ta fyra paneler:
 
 <center>
 

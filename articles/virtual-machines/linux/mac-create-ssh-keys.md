@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 6cf636e7d7ee35680c1da872b186748c333a81dc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 2da8264b7a1d0ad2ec485f106457cef18f233261
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74929993"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843913"
 ---
 # <a name="quick-steps-create-and-use-an-ssh-public-private-key-pair-for-linux-vms-in-azure"></a>Snabb steg: skapa och använda ett offentligt privat privat nyckel par för virtuella Linux-datorer i Azure
 
@@ -70,13 +70,16 @@ Ett typiskt offentligt nyckel värde ser ut som i det här exemplet:
 ssh-rsa AAAAB3NzaC1yc2EAABADAQABAAACAQC1/KanayNr+Q7ogR5mKnGpKWRBQU7F3Jjhn7utdf7Z2iUFykaYx+MInSnT3XdnBRS8KhC0IP8ptbngIaNOWd6zM8hB6UrcRTlTpwk/SuGMw1Vb40xlEFphBkVEUgBolOoANIEXriAMvlDMZsgvnMFiQ12tD/u14cxy1WNEMAftey/vX3Fgp2vEq4zHXEliY/sFZLJUJzcRUI0MOfHXAuCjg/qyqqbIuTDFyfg8k0JTtyGFEMQhbXKcuP2yGx1uw0ice62LRzr8w0mszftXyMik1PnshRXbmE2xgINYg5xo/ra3mq2imwtOKJpfdtFoMiKhJmSNHBSkK7vFTeYgg0v2cQ2+vL38lcIFX4Oh+QCzvNF/AXoDVlQtVtSqfQxRVG79Zqio5p12gHFktlfV7reCBvVIhyxc2LlYUkrq4DHzkxNY5c9OGSHXSle9YsO3F1J5ip18f6gPq4xFmo6dVoJodZm9N0YMKCkZ4k1qJDESsJBk2ujDPmQQeMjJX3FnDXYYB182ZCGQzXfzlPDC29cWVgDZEXNHuYrOLmJTmYtLZ4WkdUhLLlt5XsdoKWqlWpbegyYtGZgeZNRtOOdN6ybOPJqmYFd2qRtb4sYPniGJDOGhx4VodXAjT09omhQJpE6wlZbRWDvKC55R2d/CSPHJscEiuudb+1SG2uA/oik/WQ== username@domainname
 ```
 
-Om du kopierar och klistrar in innehållet i den offentliga nyckel filen som ska användas i Azure Portal eller en Resource Manager-mall ser du till att du inte kopierar något avslutande blank steg. Om du vill kopiera en offentlig nyckel i macOS kan du skicka den offentliga nyckel filen till **pbcopy**. På samma sätt i Linux kan du skicka en offentlig nyckel fil till program som **xclip**.
+Om du kopierar och klistrar in innehållet i den offentliga nyckel filen som ska användas i Azure Portal eller en Resource Manager-mall ser du till att du inte kopierar något avslutande blank steg. Om du vill kopiera en offentlig nyckel i macOS kan du skicka den offentliga nyckel filen till `pbcopy`. På samma sätt i Linux kan du skicka vidare den offentliga nyckel filen till program som `xclip`.
 
 Den offentliga nyckeln som du placerar på din virtuella Linux-dator i Azure lagras som standard i ~/.ssh/id_rsa. pub, om du inte har angett en annan plats när du skapade nyckel paret. Om du vill använda [Azure CLI 2,0](/cli/azure) för att skapa en virtuell dator med en befintlig offentlig nyckel anger du värdet och eventuellt platsen för den offentliga nyckeln med hjälp av kommandot [AZ VM create](/cli/azure/vm#az-vm-create) med alternativet `--ssh-key-value`. I följande kommando ersätter du *VMName*, *RGname*och *keyFile* med dina egna värden:
 
 ```azurecli
-az vm create --name VMname --resource-group RGname --ssh-key-value @keyFile
+az vm create --name VMname --resource-group RGname --ssh-key-values mysshkey.pub
 ```
+
+Om du vill använda flera SSH-nycklar med den virtuella datorn kan du ange dem i en blankstegsavgränsad lista, till exempel den här `--ssh-key-values sshkey-desktop.pub sshkey-laptop.pub`.
+
 
 ## <a name="ssh-into-your-vm"></a>SSH till den virtuella datorn
 

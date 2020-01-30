@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231100"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766234"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Registrera Azure Functions bindnings tillägg
 
@@ -26,10 +26,10 @@ I följande tabell visas när och hur du registrerar bindningar.
 
 | Utvecklingsmiljö |Registrering<br/> i funktioner 1. x  |Registrering<br/> i funktioner 2. x  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|Automatisk|Automatisk|
+|Azure portal|Automatisk|Automatisk|
 |Non-.NET-språk eller utveckling av lokala Azure Core-verktyg|Automatisk|[Använda Azure Functions Core Tools-och paket paket](#extension-bundles)|
 |C#klass bibliotek med Visual Studio|[Använda NuGet-verktyg](#vs)|[Använda NuGet-verktyg](#vs)|
-|C#klass bibliotek med Visual Studio Code|Saknas|[Använd .NET Core CLI](#vs-code)|
+|C#klass bibliotek med Visual Studio Code|Gäller inte|[Använd .NET Core CLI](#vs-code)|
 
 ## <a name="extension-bundles"></a>Tilläggs paket för lokal utveckling
 
@@ -62,9 +62,6 @@ Ersätt `<TARGET_VERSION>` i exemplet med en angiven version av paketet, till ex
 Om du använder `Install-Package` för att referera till en bindning behöver du inte använda [tilläggs paket](#extension-bundles). Den här metoden är speciell för klass bibliotek som skapats i Visual Studio.
 
 ## <a name="vs-code"></a>C# klass bibliotek med Visual Studio Code
-
-> [!NOTE]
-> Vi rekommenderar att du använder [tilläggs paket](#extension-bundles) för att automatiskt installera en kompatibel uppsättning bindnings tilläggs paket. 
 
 I **Visual Studio Code**installerar du paket för ett C# klass biblioteks projekt från kommando tolken med kommandot [dotnet Lägg till paket](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) i .net Core cli. Följande exempel visar hur du lägger till en bindning:
 

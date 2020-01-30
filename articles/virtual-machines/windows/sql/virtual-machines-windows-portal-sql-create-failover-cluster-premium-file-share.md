@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965346"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772616"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -77,13 +77,15 @@ Innan du slutför stegen i den här artikeln bör du redan ha:
 
 - En Microsoft Azure prenumeration.
 - En Windows-domän på Azure Virtual Machines.
-- Ett konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
+- Ett domän användar konto som har behörighet att skapa objekt både på virtuella Azure-datorer och i Active Directory.
+- Ett domän användar konto för att köra SQL Server tjänsten och som du kan logga in på den virtuella datorn med när du monterar fil resursen.  
 - Ett virtuellt Azure-nätverk och undernät med tillräckligt med IP-adressutrymme för dessa komponenter:
    - Två virtuella datorer.
    - IP-adressen för klustret för växling vid fel.
    - En IP-adress för varje FCI.
 - DNS konfigurerat på Azure-nätverket och pekar på domän kontrol Lanterna.
-- En [Premium fil resurs](../../../storage/files/storage-how-to-create-premium-fileshare.md) baserat på lagrings kvoten för din databas för dina datafiler.
+- En [Premium-filresurs](../../../storage/files/storage-how-to-create-premium-fileshare.md) som ska användas som den klustrade enheten, baserat på lagrings kvoten för din databas för dina datafiler.
+- Om du använder Windows Server 2012 R2 och äldre behöver du en annan fil resurs som används som fil resurs vittne, eftersom det finns stöd för moln vittnen för Windows 2016 och nyare. Du kan använda en annan Azure-filresurs, eller så kan du använda en fil resurs på en separat virtuell dator. Om du ska använda en annan Azure-filresurs kan du montera den med samma process som för den Premium-filresurs som används för den klustrade enheten. 
 
 Med dessa krav på plats kan du börja skapa ett redundanskluster. Det första steget är att skapa de virtuella datorerna.
 
@@ -180,7 +182,8 @@ När du har skapat och konfigurerat de virtuella datorerna kan du konfigurera Pr
 1. Upprepa de här stegen på varje SQL Server VM som ska ingå i klustret.
 
   > [!IMPORTANT]
-  > Överväg att använda en separat fil resurs för säkerhets kopierings filer för att spara IOPS och utrymmes kapaciteten för den här resursen för data-och loggfiler. Du kan använda antingen en Premium-eller standard fil resurs för säkerhets kopierings filer.
+  > - Överväg att använda en separat fil resurs för säkerhets kopierings filer för att spara IOPS och utrymmes kapaciteten för den här resursen för data-och loggfiler. Du kan använda antingen en Premium-eller standard fil resurs för säkerhets kopierings filer.
+  > - Om du använder Windows 2012 R2 och äldre följer du samma steg för att montera fil resursen som du kommer att använda som fil resurs vittne. 
 
 ## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Steg 3: Konfigurera redundansklustret med fil resursen
 
@@ -189,7 +192,7 @@ Nästa steg är att konfigurera redundansklustret. I det här steget ska du utf�
 1. Lägg till funktionen kluster för växling vid fel i Windows Server.
 1. Verifiera klustret.
 1. Skapa klustret för växling vid fel.
-1. Skapa moln vittnet.
+1. Skapa moln vittnet (för Windows Server 2016 och nyare) eller fil resurs vittnet (för Windows Server 2012 R2 och äldre).
 
 
 ### <a name="add-windows-server-failover-clustering"></a>Lägg till kluster för växling vid fel i Windows Server
@@ -263,9 +266,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness"></a>Skapa ett moln vittne
+### <a name="create-a-cloud-witness-win-2016-"></a>Skapa ett moln vittne (Win 2016 +)
 
-Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. Detta tar bort behovet av en separat virtuell dator som är värd för en vittnes resurs.
+Om du använder Windows Server 2016 och senare måste du skapa ett moln vittne. Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. Detta tar bort behovet av en separat virtuell dator som är värd för en vittnes resurs eller som använder en separat fil resurs.
 
 1. [Skapa ett moln vittne för redundansklustret](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -273,7 +276,11 @@ Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage-blob. D
 
 1. Spara åtkomst nycklarna och behållar-URL: en.
 
-1. Konfigurera ett kvorumlogg för redundanskluster. Se [Konfigurera kvorumdisken i användar gränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+### <a name="configure-quorum"></a>Konfigurera kvorum 
+
+För Windows Server 2016 och senare konfigurerar du klustret så att det använder det moln vittne som du nyss skapade. Följ alla steg för att [Konfigurera kvorumdisken i användar gränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness).
+
+För Windows Server 2012 R2 och äldre följer du samma steg i [Konfigurera kvorumdisken i användar gränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) , men på sidan **Välj kvorumdisk** väljer du alternativet **Konfigurera ett fil resurs vittne** . Ange den fil resurs som du allokerat som fil resurs vittnet, oavsett om det är ett konto som du har konfigurerat på en separat virtuell dator eller monterat från Azure. 
 
 
 ## <a name="step-4-test-cluster-failover"></a>Steg 4: testa redundanskluster
@@ -296,7 +303,7 @@ När du har konfigurerat klustret för växling vid fel kan du skapa SQL Server 
 
 1. Välj **ny SQL Server redundanskluster installationen**. Följ anvisningarna i guiden för att installera SQL Server FCI.
 
-   FCI data kataloger måste finnas på Premium-filresursen. Ange den fullständiga sökvägen till resursen i det här formuläret: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. En varning visas som talar om att du har angett en fil server som data katalog. Den här varningen förväntas. Kontrol lera att det konto som du har sparat fil resursen med är samma konto som den SQL Server tjänsten använder för att undvika eventuella problem.
+   FCI data kataloger måste finnas på Premium-filresursen. Ange den fullständiga sökvägen till resursen i det här formuläret: `\\storageaccountname.file.core.windows.net\filesharename\foldername`. En varning visas som talar om att du har angett en fil server som data katalog. Den här varningen förväntas. Se till att det användar konto som du använder RDP till den virtuella datorn när du sparade fil resursen är samma konto som den SQL Server tjänsten använder för att undvika eventuella problem.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="Använd fil resurs som SQL data-kataloger":::
 
@@ -356,7 +363,7 @@ Så här skapar du belastningsutjämnaren:
 
 1. Välj **OK** för att skapa backend-poolen.
 
-### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en hälsoavsökning för lastbalanserare
+### <a name="configure-a-load-balancer-health-probe"></a>Konfigurera en belastnings utjämning hälso avsökning
 
 1. På bladet belastnings utjämning väljer du **hälso avsökningar**.
 

@@ -15,49 +15,49 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f857cfabfcacc5bb11e152a53fddee612c63d75b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 88062c2134600d5b1460858c3799cfc8daa83744
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702444"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775231"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>Daemon-app som anropar webb-API: er – kod konfiguration
 
 Lär dig hur du konfigurerar koden för daemon-programmet som anropar webb-API: er.
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>MSAL-bibliotek med stöd för daemon-appar
+## <a name="msal-libraries-that-support-daemon-apps"></a>MSAL-bibliotek som stöder daemon-appar
 
-Microsoft-bibliotek som stöder daemon-appar är:
+Dessa Microsoft-bibliotek stöder daemon-appar:
 
   MSAL-bibliotek | Beskrivning
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | Plattformar som stöds för att bygga ett daemon-program är .NET Framework och .NET Core-plattformar (inte UWP, Xamarin. iOS och Xamarin. Android som dessa plattformar används för att bygga offentliga klient program)
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Stöd för daemon-program i python
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Stöd för daemon-program i Java
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework-och .NET Core-plattformarna stöds för att skapa daemon-program. (UWP, Xamarin. iOS och Xamarin. Android stöds inte eftersom dessa plattformar används för att bygga offentliga klient program.)
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL python | Stöd för daemon-program i python.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Stöd för daemon-program i Java.
 
-## <a name="configuration-of-the-authority"></a>Behörighets konfiguration
+## <a name="configure-the-authority"></a>Konfigurera utfärdaren
 
-Med tanke på att daemon-programmen inte använder delegerade behörigheter, men program behörigheter, kan deras *konto typ som stöds* inte vara *konton i någon organisations katalog och personliga Microsoft-konton (till exempel Skype, Xbox, Outlook.com)* . Det finns ingen innehavaradministratör för att ge ett medgivande till daemon-programmet för Microsoft-personliga konton. Du måste välja *konton i min organisation* eller *konton i alla organisationer*.
+Daemon-program använder program behörigheter i stället för delegerade behörigheter. Deras konto typer som stöds får inte vara ett konto i någon organisations katalog eller någon personlig Microsoft-konto (till exempel Skype, Xbox, Outlook.com). Det finns ingen innehavaradministratör för att bevilja medgivande till ett daemon-program för ett personligt Microsoft-konto. Du måste välja *konton i min organisation* eller *konton i alla organisationer*.
 
-Den auktoritet som anges i program konfigurationen ska därför vara klient-Ed (ange ett klient-ID eller ett domän namn som är kopplat till din organisation).
+Den auktoritet som anges i program konfigurationen ska därför vara klient organisation (som anger ett klient-ID eller ett domän namn som är kopplat till din organisation).
 
-Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) . Det finns även en begränsning i MSAL: `organizations` tillåts endast när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
+Om du är en ISV och vill tillhandahålla ett verktyg för flera innehavare kan du använda `organizations`. Men tänk på att du även måste förklara för kunderna hur de ska bevilja administrativt medgivande. Mer information finns i [begära medgivande för en hel klient](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant). Det finns också en begränsning i MSAL: `organizations` tillåts bara när klientautentiseringsuppgifterna är en program hemlighet (inte ett certifikat).
 
-## <a name="application-configuration-and-instantiation"></a>Program konfiguration och instansiering
+## <a name="configure-and-instantiate-the-application"></a>Konfigurera och instansiera programmet
 
 I MSAL-bibliotek skickas klientens autentiseringsuppgifter (hemlighet eller certifikat) som en parameter för den konfidentiella klient program konstruktionen.
 
 > [!IMPORTANT]
-> Även om ditt program är ett konsol program som körs som en tjänst, om det är ett daemon-program måste det vara ett konfidentiellt klient program.
+> Även om ditt program är ett konsol program som körs som en tjänst, om det är ett daemon-program, måste det vara ett konfidentiellt klient program.
 
 ### <a name="configuration-file"></a>Konfigurationsfil
 
 Konfigurations filen definierar:
 
-- utfärdaren eller moln instansen och tenantId
-- ClientID som du fick från program registreringen
-- antingen en klient hemlighet eller ett certifikat
+- Utfärdaren eller moln instansen och klient-ID: t.
+- Det klient-ID som du fick från program registreringen.
+- Antingen en klient hemlighet eller ett certifikat.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -73,11 +73,11 @@ Konfigurations filen definierar:
 }
 ```
 
-Antingen anger du en clientSecret eller en certificateName. Båda inställningarna är exklusiva.
+Du anger antingen en `ClientSecret` eller en `CertificateName`. De här inställningarna är exklusiva.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-När du skapar en konfidentiell klient med klient hemligheter, är [parametrarna. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) -konfigurationsfilen i [python](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet enligt följande.
+När du skapar en konfidentiell klient med klient hemligheter, är [parametrarna. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/1-Call-MsGraph-WithSecret/parameters.json) -konfigurations filen i [python](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet följande:
 
 ```Json
 {
@@ -89,7 +89,7 @@ När du skapar en konfidentiell klient med klient hemligheter, är [parametrarna
 }
 ```
 
-När du skapar en konfidentiell klient med certifikat, är [parametrarna. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) -konfigurationsfilen i [python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet följande.
+När du skapar en konfidentiell klient med certifikat, är [parametrarna. JSON](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/parameters.json) -konfigurationsfilen i [python daemon](https://github.com/Azure-Samples/ms-identity-python-daemon) -exemplet följande:
 
 ```Json
 {
@@ -104,7 +104,7 @@ När du skapar en konfidentiell klient med certifikat, är [parametrarna. JSON](
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Här är klassen som används i MSAL java dev-exempel för att konfigurera exemplen: [testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+[Testdata](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java) är klassen som används för att konfigurera MSAL java dev-exempel:
 
 ```Java
 public class TestData {
@@ -118,12 +118,11 @@ public class TestData {
 
 ---
 
-### <a name="instantiation-of-the-msal-application"></a>Instansiering av MSAL-programmet
+### <a name="instantiate-the-msal-application"></a>Instansiera MSAL-programmet
 
-Om du vill instansiera MSAL-programmet måste du:
+Om du vill instansiera MSAL-programmet måste du lägga till, referera eller importera MSAL-paketet (beroende på språket).
 
-- Lägg till, referera till eller importera MSAL-paketet (beroende på språk)
-- Sedan är konstruktionen olika beroende på om du använder klient hemligheter eller certifikat (eller som ett avancerat scenario, signerade intyg)
+Konstruktion skiljer sig beroende på om du använder klient hemligheter eller certifikat (eller som ett avancerat scenario, signerade intyg).
 
 #### <a name="reference-the-package"></a>Referera till paketet
 
@@ -133,7 +132,7 @@ Referera till MSAL-paketet i program koden.
 
 Lägg till [Microsoft. IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet-paketet i ditt program.
 I MSAL.NET representeras det konfidentiella klient programmet av `IConfidentialClientApplication`-gränssnittet.
-Använd MSAL.NET-namnrymd i käll koden
+Använd namn området MSAL.NET i käll koden.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -157,7 +156,7 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-client-secrets"></a>Instansiera det konfidentiella klient programmet med klient hemligheter
+#### <a name="instantiate-the-confidential-client-application-with-a-client-secret"></a>Instansiera det konfidentiella klient programmet med en klient hemlighet
 
 Här är koden för att instansiera det konfidentiella klient programmet med en klient hemlighet:
 
@@ -175,7 +174,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```Python
 config = json.load(open(sys.argv[1]))
 
-# Create a preferably long-lived app instance which maintains a token cache.
+# Create a preferably long-lived app instance that maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential=config["secret"],
@@ -197,7 +196,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-client-certificate"></a>Instansiera det konfidentiella klient programmet med klient certifikat
+#### <a name="instantiate-the-confidential-client-application-with-a-client-certificate"></a>Instansiera det konfidentiella klient programmet med ett klient certifikat
 
 Här är koden för att bygga ett program med ett certifikat:
 
@@ -216,7 +215,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```Python
 config = json.load(open(sys.argv[1]))
 
-# Create a preferably long-lived app instance which maintains a token cache.
+# Create a preferably long-lived app instance that maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
@@ -228,12 +227,12 @@ app = msal.ConfidentialClientApplication(
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-I MSAL. Java det finns två byggprogram för att instansiera det konfidentiella klient programmet med certifikat:
+I MSAL Java finns det två byggprogram för att instansiera det konfidentiella klient programmet med certifikat:
 
 ```Java
 
-InputStream pkcs12Certificate = ... ; /* containing PCKS12 formatted certificate*/
-string certificatePassword = ... ;    /* contains the password to access the certificate */
+InputStream pkcs12Certificate = ... ; /* Containing PCKS12-formatted certificate*/
+string certificatePassword = ... ;    /* Contains the password to access the certificate */
 
 ConfidentialClientApplication app = ConfidentialClientApplication.builder(
         TestData.CONFIDENTIAL_CLIENT_ID,
@@ -257,18 +256,18 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### <a name="advanced-scenario---instantiate-the-confidential-client-application-with-client-assertions"></a>Avancerat scenario – instansiera det konfidentiella klient programmet med klient kontroll
+#### <a name="advanced-scenario-instantiate-the-confidential-client-application-with-client-assertions"></a>Avancerat scenario: instansiera det konfidentiella klient programmet med klient kontroll
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-I stället för en klient hemlighet eller ett certifikat kan det konfidentiella klient programmet också bevisa sin identitet med hjälp av klientens intyg.
+I stället för en klient hemlighet eller ett certifikat kan det konfidentiella klient programmet också bevisa sin identitet genom att använda klientens kontroll.
 
 MSAL.NET har två metoder för att tillhandahålla signerade kontroller till appen konfidentiell klient:
 
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-När du använder `WithClientAssertion`måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md)
+När du använder `WithClientAssertion`måste du ange ett signerat JWT. Det här avancerade scenariot beskrivs i [klient kontroll](msal-net-client-assertions.md).
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -277,8 +276,8 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-När du använder `WithClientClaims`kommer MSAL.NET att beräkna en signerad kontroll som innehåller de anspråk som förväntas av Azure AD plus ytterligare klient anspråk som du vill skicka.
-Här är ett kodfragment om hur du gör det:
+När du använder `WithClientClaims`kommer MSAL.NET att skapa en signerad kontroll som innehåller de anspråk som förväntas av Azure AD, plus ytterligare klient anspråk som du vill skicka.
+Den här koden visar hur du gör:
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -294,12 +293,12 @@ Mer information finns i [klient kontroll](msal-net-client-assertions.md).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-I MSAL python kan du ange klient anspråk med anspråken som ska signeras av den här `ConfidentialClientApplication`privata nyckeln.
+I MSAL python kan du ange klient anspråk genom att använda anspråken som ska signeras av den här `ConfidentialClientApplication`privata nyckeln.
 
 ```Python
 config = json.load(open(sys.argv[1]))
 
-# Create a preferably long-lived app instance which maintains a token cache.
+# Create a preferably long-lived app instance that maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
@@ -310,7 +309,7 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
-Mer information finns i MSAL python: s referens dokumentation för [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__).
+Mer information finns i referens dokumentationen för MSAL python för [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 

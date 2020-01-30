@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: ee5acc97e4b05a0e93f4ceee8c04b400da211b49
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552142"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769497"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser via exempel
 
@@ -156,7 +156,7 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Antaganden för data flöde: körnings tid = 10 min + 10 min TTL | 10 \* 16 kärnor i allmän beräkning med TTL på 10 |
 | Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
 
-**Pris för total scenario: $0,3011**
+**Pris för total scenario: $1,4631**
 
 - Data Factory åtgärder = **$0,0001**
   - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]

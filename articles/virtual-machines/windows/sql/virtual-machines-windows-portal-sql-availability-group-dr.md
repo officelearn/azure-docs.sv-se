@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: cd27e581aaca241fc15886f9f72546f92391b744
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037539"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772699"
 ---
 # <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>Konfigurera en tillgänglighets grupp på Azure SQL Server virtuella datorer i olika regioner
 
@@ -93,9 +93,26 @@ Gör så här om du vill skapa en replik i ett fjärranslutet Data Center:
 
 1. [Lägg till den nya SQL Server i Windows Server-redundansklustret](virtual-machines-windows-portal-sql-availability-group-tutorial.md#addNode).
 
-1. Skapa en IP-adressresurs i klustret.
+1. Lägg till en IP-adressresurs i klustret.
 
-   Du kan skapa IP-adressresursen i Klusterhanteraren för växling vid fel. Högerklicka på rollen tillgänglighets grupp, klicka på **Lägg till resurs**, **fler resurser**och klicka på **IP-adress**.
+   Du kan skapa IP-adressresursen i Klusterhanteraren för växling vid fel. Välj namnet på klustret, högerklicka sedan på kluster namnet under **kluster kärn resurser** och välj **Egenskaper**: 
+
+   ![Kluster egenskaper](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-name-properties.png)
+
+   I dialog rutan **Egenskaper** väljer du **Lägg till** under **IP-adress**och lägger sedan till IP-adressen för kluster namnet från den fjärranslutna nätverks regionen. Välj **OK** i dialog rutan **IP-adress** och välj sedan **OK** igen i dialog rutan **kluster egenskaper** för att spara den nya IP-adressen. 
+
+   ![Lägg till kluster-IP](./media/virtual-machines-windows-portal-sql-availability-group-dr/add-cluster-ip-address.png)
+
+
+1. Lägg till IP-adressen som ett beroende för kärn kluster namnet.
+
+   Öppna kluster egenskaperna en gång till och välj fliken **beroenden** . Konfigurera ett eller beroende för de två IP-adresserna: 
+
+   ![Kluster egenskaper](./media/virtual-machines-windows-portal-sql-availability-group-dr/cluster-ip-dependencies.png)
+
+1. Lägg till en IP-adressresurs i tillgänglighets grupps rollen i klustret. 
+
+   Högerklicka på rollen tillgänglighets grupp i Klusterhanteraren för växling vid fel, Välj **Lägg till resurs**, **fler resurser**och välj **IP-adress**.
 
    ![Skapa IP-adress](./media/virtual-machines-windows-portal-sql-availability-group-dr/20-add-ip-resource.png)
 
@@ -103,16 +120,6 @@ Gör så här om du vill skapa en replik i ett fjärranslutet Data Center:
 
    - Använd nätverket från fjärrplatsens Data Center.
    - Tilldela IP-adressen från den nya Azure Load Balancer. 
-
-1. [Aktivera Always on-tillgänglighetsgrupper](https://msdn.microsoft.com/library/ff878259.aspx)på den nya SQL Server i Konfigurationshanteraren för SQL Server.
-
-1. [Öppna brand Väggs portar på den nya SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
-
-   De port nummer som du måste öppna beror på din miljö. Öppna portar för speglings slut punkten och hälso avsökningen för Azure Load Balancer.
-
-1. [Lägg till en replik i tillgänglighets gruppen på den nya SQL Server](https://msdn.microsoft.com/library/hh213239.aspx).
-
-   För en replik i en fjärran sluten Azure-region ställer du in den för asynkron replikering med manuell redundans.  
 
 1. Lägg till IP-adressresursen som ett beroende för klient åtkomst punktens kluster (nätverks namn).
 
@@ -137,6 +144,17 @@ Kör PowerShell-skriptet med klustrets nätverks namn, IP-adress och avsöknings
 
    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
    ```
+
+1. [Aktivera Always on-tillgänglighetsgrupper](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server)på den nya SQL Server i Konfigurationshanteraren för SQL Server.
+
+1. [Öppna brand Väggs portar på den nya SQL Server](virtual-machines-windows-portal-sql-availability-group-prereq.md#endpoint-firewall).
+
+   De port nummer som du måste öppna beror på din miljö. Öppna portar för speglings slut punkten och hälso avsökningen för Azure Load Balancer.
+
+
+1. [Lägg till en replik i tillgänglighets gruppen på den nya SQL Server](/sql/database-engine/availability-groups/windows/use-the-add-replica-to-availability-group-wizard-sql-server-management-studio).
+
+   För en replik i en fjärran sluten Azure-region ställer du in den för asynkron replikering med manuell redundans.  
 
 ## <a name="set-connection-for-multiple-subnets"></a>Ange anslutning för flera undernät
 
@@ -164,11 +182,11 @@ Om du vill testa lyssnare anslutningen till fjärrregionen kan du växla över r
 
 När du har testat anslutningen flyttar du tillbaka den primära repliken till ditt primära Data Center och återställer tillgänglighets läget till sina normala drift inställningar. I följande tabell visas de normala drift inställningarna för den arkitektur som beskrivs i det här dokumentet:
 
-| Plats | Server instans | Roll | Tillgänglighets läge | Växlings läge
+| Location | Server instans | Roll | Tillgänglighets läge | Växlings läge
 | ----- | ----- | ----- | ----- | -----
 | Primärt Data Center | SQL-1 | Primär | Synkron | Automatisk
 | Primärt Data Center | SQL-2 | Sekundär | Synkron | Automatisk
-| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkron | Manuell
+| Sekundärt eller fjärranslutna Data Center | SQL-3 | Sekundär | Asynkron | Manuellt
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>Mer information om planerade och forced manual failover

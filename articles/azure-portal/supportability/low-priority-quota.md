@@ -1,141 +1,138 @@
 ---
-title: Kvot för virtuell dator på plats | Microsoft Docs
-description: Öka kvot gränserna genom att göra kvot begär Anden
+title: Kvot för virtuella dator datorer – Azure
+description: Öka kvot gränserna för virtuella datorer med virtuella datorer, vilket ger en modell av Azure-användning som låter dig ta med lägre kostnader i Exchange för att låta Azure ta bort virtuella datorer vid behov.
 author: sowmyavenkat86
 ms.author: svenkat
-ms.date: 11/19/2019
+ms.date: 01/27/2020
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9567df95e4e66d9c6b82b29cb9bba9adaf39349d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3e6dddfc458f390f5648e23a8a2af8d714de4bf2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75897304"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842820"
 ---
 # <a name="spot-quota-increase-limits-for-all-vm-series"></a>Punkt kvot: öka gränserna för alla VM-serier
 
-Virtuella datorer (VM) tillhandahåller en annan modell för Azure-användning. De låter dig säga lägre kostnader i Exchange för att låta Azure ta bort virtuella datorer efter behov för distributioner med betala per användning eller reserverad VM-instans. Mer information om virtuella datorer finns i [Azure-virtuella datorer för skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/use-spot).
+Virtuella datorer (VM) tillhandahåller en annan modell för Azure-användning. De låter dig säga lägre kostnader i Exchange för att låta Azure ta bort virtuella datorer efter behov för distributioner med betala per användning eller reserverad VM-instans. Mer information om virtuella datorer finns i [Azure-virtuella datorer för skalnings uppsättningar för virtuella datorer](../../virtual-machine-scale-sets/use-spot.md).
 
 Azure Resource Manager stöder två typer av vCPU-kvoter för virtuella datorer:
+
 * *Virtuella datorer med betala per* användning och *reserverade VM-instanser* omfattas av en *standard vCPU-kvot*.
-* *Virtuella datorer för virtuella datorer* omfattas av en *vCPU kvot*. 
+* *Virtuella datorer för virtuella datorer* omfattas av en *vCPU kvot*.
 
-För *kvot typen vCPU* används Resource Manager vCPU kvoter i alla tillgängliga VM-serier som en enda regional gräns.
+För kvot typen vCPU används Resource Manager vCPU kvoter i alla tillgängliga serier för virtuella datorer som en enda regional gräns.
 
-När du distribuerar en ny virtuell dator, får den totala nya och befintliga vCPU-användningen för alla VM-instanser för virtuella datorer inte överskrida den godkända kvot gränsen för vCPU. Om kvoten överskrids tillåts inte distributionen av virtuella datorer. 
+När du distribuerar en ny virtuell dator, får den totala nya och befintliga vCPU-användningen för alla VM-instanser för virtuella datorer inte överskrida den godkända kvot gränsen för vCPU. Om kvoten överskrids tillåts inte distributionen av virtuella datorer.
 
-Den här artikeln beskriver hur du begär en ökning av kvot gränsen för vCPU med hjälp av Azure Portal. 
+Den här artikeln beskriver hur du begär en ökning av kvot gränsen för vCPU med hjälp av Azure Portal.
 
-Mer information om standard kvoter för vCPU finns i [vCPU-kvoter för virtuella datorer](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och [begränsningar för Azure-prenumerationer och tjänster](https://aka.ms/quotalimits). 
+Mer information om standard kvoter för vCPU finns i [vCPU-kvoter för virtuella datorer](../../virtual-machines/windows/quotas.md) och [begränsningar för Azure-prenumerationer, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-Mer information om hur du ökar vCPU-gränsen per region finns i [standard kvot: regional vCPU Limit ökning](https://docs.microsoft.com/azure/azure-supportability/regional-quota-requests).
+Mer information om hur du ökar vCPU-gränsen per region finns i [standard kvot: öka gränserna efter region](regional-quota-requests.md).
 
-## <a name="request-a-quota-limit-increase-from-the-help--support-pane"></a>Begär en kvot gräns ökning från fönstret Hjälp + Support 
+## <a name="request-a-quota-limit-increase-from-help--support"></a>Begär en kvot gräns öka från hjälp + support
 
-Om du vill begära en gräns för plats kvots ökning för alla VM-serier från **Hjälp + Support** -fönstret, gör du följande:
+Så här begär du en ökning av plats kvoten för alla serie nummer för virtuella datorer med **Hjälp + Support**:
 
 > [!NOTE]
-> Du kan också begära en ökad kvot gräns för flera regioner genom ett enda support ärende. Mer information finns i steg 8. 
+> Du kan också begära en ökad kvot gräns för flera regioner genom ett enda support ärende. Mer information finns i steg 8.
 
-1. I den vänstra rutan i [Azure Portal](https://portal.azure.com)väljer du **Hjälp + Support**.
+1. Från [Azure Portal](https://portal.azure.com) -menyn väljer du **Hjälp + Support**.
 
-   ![Länken "Help + support"](./media/resource-manager-core-quotas-request/helpsupport.png)
- 
-1. I **Hjälp + Support** -fönstret väljer du **ny supportbegäran**. 
+   ![Länken Hjälp + Support](./media/resource-manager-core-quotas-request/help-plus-support.png)
 
-    ![Ny supportbegäran](./media/resource-manager-core-quotas-request/newsupportrequest.png)
+1. I **Hjälp + Support**väljer du **ny supportbegäran**.
 
-1. I list rutan **typ av ärende** väljer du begränsningar för **tjänsten och prenumerationen (kvoter)** .
+    ![Skapa en ny supportbegäran](./media/resource-manager-core-quotas-request/new-support-request.png)
 
-   ![List rutan utfärdande typ](./media/resource-manager-core-quotas-request/issuetypedropdown.png)
+1. För **typ av problem**väljer du **begränsningar för tjänsten och prenumerationen (kvoter)** .
 
-1. I list rutan **prenumeration** väljer du den prenumeration vars kvot du vill öka.
+   ![Välj en typ av problem](./media/resource-manager-core-quotas-request/select-quota-issue-type.png)
 
-   ![List rutan "prenumeration"](./media/resource-manager-core-quotas-request/select-subscription-sr.png)
-   
-1. I list rutan **kvot typ** väljer du **Compute-VM (kärnor-virtuella processorer) prenumerations gränsen ökar**. 
+1. För **prenumeration**väljer du den prenumeration vars kvot du vill öka.
 
-   ![List rutan "kvot typ"](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Välj en prenumeration för ökad kvot](./media/resource-manager-core-quotas-request/select-subscription-support-request.png)
 
-1. Välj fliken **information** och välj **Ange information**under **problem information**och ange ytterligare information som kan hjälpa dig att bearbeta din begäran.
+1. För **typ av kvot**, Välj **Compute-VM (kärnor-virtuella processorer) prenumerations gränsen ökar**.
 
-   ![Länken "Tillhandahåll information"](./media/resource-manager-core-quotas-request/provide-details.png)
-   
-1. I fönstret **kvot information** längst upp till höger gör du följande:
+   ![Välj en kvot typ](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-   ![Fönstret "kvot information"](./media/resource-manager-core-quotas-request/3-7.png)
+1. Välj **Nästa: lösningar** för att öppna **problem information**. Välj **Ange information** om du vill ange ytterligare information.
 
-   a. Välj lämplig modell i list rutan **distributions modell** .
+   ![Länken "Tillhandahåll information"](./media/resource-manager-core-quotas-request/provide-details-link.png)
 
-   b. Välj en plats i list rutan **platser** . För den valda platsen, under **typer**, i rutan **Välj typ** , anger du **dekor**. 
-   
-   ![Fliken "ny support förfrågan"](./media/resource-manager-core-quotas-request/3-8.png)
+1. I **kvot information**, utför följande steg:
 
-    Under **typer**kan du begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar. 
-    
-    Mer information finns i [standard kvot: serien per VM-serien vCPU Limit ökning](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+   1. För **distributions modell**väljer du lämplig modell och för **platser**väljer du en plats.
 
-   c. Ange den nya kvot gränsen som du vill använda för den här prenumerationen. 
- 
-   ![Text rutan "ny vCPU gräns"](./media/resource-manager-core-quotas-request/3-9.png)
+      ![Ange ytterligare kvot information](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i list rutan och väljer sedan en lämplig VM-typ. Du kan sedan ange en gräns som gäller för den ytterligare platsen.
+   1. Välj **dekor**under **typer**i **Välj en typ**för den valda platsen.
 
-   ![Ytterligare platser i fönstret "kvot information"](./media/resource-manager-core-quotas-request/3-10.png)
+      ![Välj dekor typ](./media/resource-manager-core-quotas-request/select-spot-type.png)
+
+       Under **typer**kan du begära både standard-och plats kvot typer från ett enda support ärende via stöd för flera markeringar.
+
+       Mer information finns i [standard kvot: öka gränserna efter VM-serien](per-vm-quota-requests.md).
+
+   1. Ange den nya kvot gränsen som du vill använda för den här prenumerationen.
+
+      ![Välj en ny kvot för VM-VM](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
+
+1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i **platser**och väljer sedan en lämplig VM-typ. Du kan sedan ange en gräns som gäller för den ytterligare platsen.
+
+   ![Ange ytterligare platser i kvot information](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
 
 1. Välj **Spara och fortsätt** att skapa support förfrågan.
 
 ## <a name="request-a-quota-limit-increase-from-the-subscriptions-pane"></a>Begär en kvot gräns ökning från fönstret prenumerationer
 
-Gör så här för att begära en gräns för plats kvots ökning för alla VM-serier från fönstret **prenumerationer** :
+Så här begär du en ökning av plats kvoten för alla VM-serier från fönstret **prenumerationer** :
 
 > [!NOTE]
-> Du kan också begära en ökad kvot gräns för flera regioner genom ett enda support ärende. Mer information finns i steg 7. 
+> Du kan också begära en ökad kvot gräns för flera regioner genom ett enda support ärende. Mer information finns i steg 7.
 
-1. I den vänstra rutan i [Azure Portal](https://portal.azure.com)väljer du **prenumerationer**.
+1. Sök efter och välj **prenumerationer**i [Azure Portal](https://portal.azure.com).
 
-   ![Länken "prenumerationer"](./media/resource-manager-core-quotas-request/subscriptions.png)
+   ![Prenumerationer i Azure Portals sökning](./media/resource-manager-core-quotas-request/search-for-subscriptions.png)
 
 1. Välj den prenumeration vars kvot du vill öka.
 
-   ![Fönstret prenumerationer](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Prenumerationer att välja för ändringar](./media/resource-manager-core-quotas-request/select-subscription-change-quota.png)
 
-1. I den vänstra rutan på sidan **\<prenumerations namn >** väljer du **användning + kvoter**.
+1. I det vänstra fönstret väljer du **användning + kvoter**.
 
-   ![Länken "användning + kvoter"](./media/resource-manager-core-quotas-request/select-usage-quotas.png)
+   ![Länken "användning + kvoter"](./media/resource-manager-core-quotas-request/select-usage-plus-quotas.png)
 
 1. Välj **begär ökning**längst upp till höger.
 
-   ![Begär ökning](./media/resource-manager-core-quotas-request/request-increase.png)
+   ![Välj för att öka kvoten](./media/resource-manager-core-quotas-request/request-increase-from-subscription.png)
 
-1. I list rutan **kvot typ** väljer du **Compute-VM (kärnor-virtuella processorer) prenumerations gränsen ökar**.
+1. För **typ av kvot**, Välj **Compute-VM (kärnor-virtuella processorer) prenumerations gränsen ökar**.
 
-   ![List rutan "kvot typ"](./media/resource-manager-core-quotas-request/select-quota-type.png)
+   ![Välj en kvot typ](./media/resource-manager-core-quotas-request/select-quota-type.png)
 
-1. I fönstret **kvot information** längst upp till höger gör du följande:
+1. Välj **Nästa: lösningar** för att öppna **problem information**. Välj **Ange information** om du vill ange ytterligare information. I **kvot information**anger du följande information:
 
-   ![Fönstret "kvot information"](./media/resource-manager-core-quotas-request/3-2-6.png)
- 
-   a. Välj lämplig modell i list rutan **distributions modell** .
+   1. För **distributions modell**väljer du lämplig modell och för **platser**väljer du en plats.
 
-   b. Välj en plats i list rutan **platser** . 
-   
-   c. För den valda platsen, under **typer**, i rutan **Välj typ** , anger du **dekor**.
+      ![Ange kvot information](./media/resource-manager-core-quotas-request/quota-details-deployment-locations.png)
 
-   ![Fönstret "kvot information"](./media/resource-manager-core-quotas-request/3-2-7.png)
+   1. Välj **dekor**under **typer**i **Välj en typ**för den valda platsen.
 
-   Mer information finns i [standard kvot: serien per VM-serien vCPU Limit ökning](https://docs.microsoft.com/azure/azure-supportability/per-vm-quota-requests).
+      ![Välj dekor typ](./media/resource-manager-core-quotas-request/select-spot-type.png)
 
-   d. Ange den nya kvot gränsen som du vill använda för den här prenumerationen.
+      Mer information finns i [standard kvot: öka gränserna efter VM-serien](per-vm-quota-requests.md).
 
-   ![Text rutan "ny vCPU gräns"](./media/resource-manager-core-quotas-request/3-2-8.png)
- 
-1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i list rutan och väljer sedan en lämplig VM-typ. Du kan sedan ange en gräns som gäller för den ytterligare platsen.
+   1. Ange den nya kvot gränsen som du vill använda för den här prenumerationen.
 
-   ![Ytterligare platser i fönstret "kvot information"](./media/resource-manager-core-quotas-request/3-2-9.png)
- 
+      ![Ange ett nytt värde för vCPU-gränsen](./media/resource-manager-core-quotas-request/spot-set-new-quota.png)
+
+1. Om du vill begära en kvot ökning för mer än en plats väljer du en annan plats i **platser**och väljer sedan en lämplig VM-typ. Du kan sedan ange en gräns som gäller för den ytterligare platsen.
+
+   ![Välj ytterligare platser i kvot information](./media/resource-manager-core-quotas-request/quota-details-multiple-locations.png)
+
 1. Välj **Spara och fortsätt** att skapa support förfrågan.
-
-

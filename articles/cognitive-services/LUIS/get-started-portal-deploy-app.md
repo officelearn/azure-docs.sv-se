@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448075"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772483"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabb start: Distribuera en app i LUIS-portalen
 
@@ -45,7 +45,7 @@ Du skapar en förutsägelse slut punkts resurs i Azure Portal. Den här resursen
    |Redigerings plats|**USA, västra**|Azure-regionen för redigering.|
    |Redigera pris nivå|**F0**|Standard pris nivån för redigering.|
    |Körnings plats|**USA, västra**|Azure-regionen för förutsägelse slut punkts frågor.|
-   |Pris nivå för körning|**S0**|Den här pris nivån ger till gång till en webbplats med hög trafik.|
+   |Pris nivå för körning|**S0**|Den här pris nivån tillhandahåller för webbplatser med hög trafik.|
    | | | |
 
 
@@ -74,6 +74,9 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 1. Slutför samma steg för att lägga till redigerings nyckeln till din app.
 
 1. Hitta den nya raden i tabellen för den nya förutsägelse resursen och kopiera slut punkts-URL: en. Den är korrekt konstruerad för att göra en `HTTP GET`-begäran till LUIS API-slutpunkten för en förutsägelse.
+
+> [!TIP]
+> Om du tänker använda aktiv inlärning för att förbättra LUIS-appen väljer du **ändra** frågeparametrar och väljer **Spara loggar**. Den här åtgärden ändrar exempel-URL genom att lägga till parametern `log=true` QueryString. Kopiera och Använd fråge-URL: en för den ändrade exemplet när du gör förutsägelse frågor till körnings slut punkten.
 
 ## <a name="train-the-app"></a>Träna appen
 

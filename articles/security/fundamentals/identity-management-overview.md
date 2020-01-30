@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129365"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840459"
 ---
 # <a name="azure-identity-management-security-overview"></a>Översikt över Azure Identity Management-säkerhet
 
@@ -102,11 +102,11 @@ Säkerhetsövervakning, varningar och Machine Learning-baserade rapporter som id
 
 I den Azure Portal, hamnar rapporter i följande kategorier:
 
-* **Avvikelse rapporter**: Innehåller inloggnings händelser som vi har identifierat som avvikande. Målet är att du ska känna till sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
-* **Integrerade program rapporter**: Ge insikter om hur moln program används i din organisation. Azure AD erbjuder integrering med tusentals moln program.
-* **Fel rapporter**: Ange fel som kan uppstå när du etablerar konton till externa program.
-* **Användarspecifika rapporter**: Visa information om inloggnings aktiviteter för enheten för en speciell användare.
-* **Aktivitets loggar**: Innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna och grupp aktivitets ändringar och registrerings aktivitet.
+* **Avvikelse rapporter**: innehåller inloggnings händelser som vi har identifierat som avvikande. Målet är att du ska känna till sådan aktivitet och göra det möjligt för dig att avgöra om en händelse är misstänkt.
+* **Integrerade program rapporter**: ger insikter om hur moln program används i din organisation. Azure AD erbjuder integrering med tusentals moln program.
+* **Fel rapporter**: ange fel som kan uppstå när du etablerar konton till externa program.
+* **Användarspecifika rapporter**: Visa information om enhets inloggnings aktiviteter för en speciell användare.
+* **Aktivitets loggar**: innehåller en lista över alla granskade händelser under de senaste 24 timmarna, senaste 7 dagarna eller de senaste 30 dagarna samt grupp aktivitets ändringar och registrering av lösen ord.
 
 Läs mer:
 
@@ -125,8 +125,8 @@ När du använder Azure AD B2C kan dina konsumenter registrera sig för dina pro
 Läs mer:
 
 * [Vad är Azure Active Directory B2C?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C för hands version: Registrera dig och logga in konsumenter i dina program](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C för hands version: Typer av program](../../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C för hands version: registrera och logga in användare i dina program](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C för hands version: typer av program](../../active-directory-b2c/application-types.md)
 
 ## <a name="device-registration"></a>Enhetsregistrering
 
@@ -165,7 +165,7 @@ Azure AD Identity Protection är en säkerhets tjänst som tillhandahåller en s
 Läs mer:
 
 * [Azure AD Identity Protection](/azure/active-directory/identity-protection/overview)
-* [Kanal 9: Azure AD och identitet visar: För hands version av identitets skydd](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Kanal 9: Azure AD och identitet Visa: identitets skydd för hands version](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>Hybrid identitets hantering/Azure AD Connect
 

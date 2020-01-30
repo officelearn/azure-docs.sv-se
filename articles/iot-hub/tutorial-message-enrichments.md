@@ -7,41 +7,37 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 323730fff4659c87058669016b69808a880994cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c2ac5d3de37a1a89ebd63b89666f164444e0a63
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453814"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773782"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>Självstudie: använda Azure IoT Hub meddelande anrikning
+# <a name="tutorial-use-azure-iot-hub-message-enrichments"></a>Självstudie: Använd Azure IoT Hub meddelande-anrikning
 
-*Meddelande anrikning* är möjligheten för IoT Hub att *stämpla* meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten. En anledning till att använda meddelande berikare är att inkludera data som kan användas för att förenkla bearbetningen i den underordnade bearbetningen. För att till exempel kunna identifiera enhets telemetri med en enhets rik tagg kan kunderna minska belastningen på kunder för att göra enhetens dubbla API-anrop för den här informationen. Mer information finns i [Översikt över meddelande anrikninger](iot-hub-message-enrichments-overview.md).
+*Meddelande anrikninger* beskriver möjligheten för Azure IoT Hub att *stämpla* meddelanden med ytterligare information innan meddelandena skickas till den angivna slut punkten. En anledning till att använda meddelande berikare är att inkludera data som kan användas för att förenkla bearbetningen i den underordnade bearbetningen. För att till exempel kunna identifiera enhets telemetri med en enhets rik tagg kan kunderna minska belastningen på kunder för att göra enhetens dubbla API-anrop för den här informationen. Mer information finns i [Översikt över meddelande anrikninger](iot-hub-message-enrichments-overview.md).
 
-I den här självstudien får du se två sätt för att skapa och konfigurera de resurser som krävs för att testa meddelanden som behövs för en IoT Hub. Resurserna innehåller ett lagrings konto med två lagrings behållare – en som innehåller de berikade meddelandena och en för att lagra de ursprungliga meddelandena. Dessutom ingår en IoT-hubb för att ta emot meddelanden och dirigera dem till lämplig lagrings behållare beroende på om de är omfattande eller inte. 
+I den här självstudien får du se två sätt för att skapa och konfigurera de resurser som behövs för att testa meddelande berikarna för en IoT-hubb. Resurserna innehåller ett lagrings konto med två lagrings behållare. En behållare innehåller de berikade meddelandena och en annan behållare innehåller de ursprungliga meddelandena. Dessutom ingår en IoT-hubb för att ta emot meddelanden och dirigera dem till lämplig lagrings behållare baserat på om de är omfattande eller inte.
 
-* Den första metoden är att använda Azure CLI för att skapa resurser och konfigurera meddelanderoutning. Sedan definierar du anrikningerna manuellt med hjälp av [Azure Portal](https://portal.azure.com). 
+* Den första metoden är att använda Azure CLI för att skapa resurser och konfigurera meddelanderoutning. Sedan definierar du anrikningerna manuellt med hjälp av [Azure Portal](https://portal.azure.com).
 
-* Den andra metoden är att använda en Azure Resource Manager mall för att skapa både resurserna *och* konfigurationerna för meddelanderoutning och meddelande berikare. 
+* Den andra metoden är att använda en Azure Resource Manager mall för att skapa både resurserna *och* konfigurationerna för meddelanderoutning och meddelande berikare.
 
-När konfigurationerna för meddelanderoutning och meddelande förbrukare har slutförts använder du ett program för att skicka meddelanden till IoT Hub, som sedan dirigerar dem till båda lagrings behållarna. Endast meddelanden som skickas till slut punkten för den **berikade** lagrings behållaren är omfattande.
+När konfigurationerna för meddelanderoutning och meddelande förbrukare har avslut ATS använder du ett program för att skicka meddelanden till IoT Hub. Hubben dirigerar sedan dem till båda lagrings behållarna. Endast meddelanden som skickas till slut punkten för den **berikade** lagrings behållaren är omfattande.
 
 Här är de uppgifter du utför för att slutföra den här självstudien:
 
 **Använda IoT Hub meddelande anrikning**
 > [!div class="checklist"]
-> * Första metoden: manuella meddelande anrikningar
->   - Skapa resurser och konfigurera meddelanderoutning med Azure CLI.
->   - Konfigurera meddelande anrikningerna manuellt med hjälp av [Azure Portal](https://portal.azure.com).
-> * Andra metod: använda en RM-mall
->   - Skapa resurser, konfigurera meddelanderoutning och meddelande anrikningar med hjälp av en Azure Resource Manager-mall. 
+> * Första metoden: skapa resurser och konfigurera meddelanderoutning med hjälp av Azure CLI. Konfigurera meddelande berikarna manuellt med hjälp av [Azure Portal](https://portal.azure.com).
+> * Andra metoden: skapa resurser och konfigurera meddelanderoutning och meddelande berikare med hjälp av en Resource Manager-mall. 
 > * Kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben.
 > * Visa resultaten och kontrol lera att meddelandets anrikning fungerar som förväntat.
 
 ## <a name="prerequisites"></a>Krav
 
 * Du måste ha en Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
 * Installera [Visual Studio](https://www.visualstudio.com/).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -50,34 +46,32 @@ Här är de uppgifter du utför för att slutföra den här självstudien:
 
 Ladda ned [IoT C# -exemplen](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) från GitHub och packa upp dem. Den här lagrings platsen har flera program, skript och Resource Manager-mallar. De som ska användas för de här självstudierna är följande:
 
-* För den manuella metoden finns det ett CLI-skript för att skapa resurserna. Det här skriptet finns i **/azure-iot-samples-csharp/iot-hub/tutorials/routing/simulateddevice/resources/iothub_msgenrichment_cli. azcli**. Det här skriptet skapar resurserna och konfigurerar meddelanderoutning. När du har kört det kan du skapa meddelande berikarna manuellt med hjälp av [Azure Portal](https://portal.azure.com) och sedan köra DeviceSimulation-appen för att se hur de fungerar.
-
-* För den automatiserade metoden finns det en Azure Resource Manager-mall. Mallen finns i **/azure-iot-samples-csharp/iot-hub/tutorials/routing/simulateddevice/resources/template_msgenrichments. JSON**. Den här mallen skapar resurserna, konfigurerar meddelanderoutning, och slutligen, konfigurerar meddelandets anrikning. När du har läst in den här mallen kör du appen för enhets simulering för att se hur de fungerar.
-
+* För den manuella metoden finns det ett CLI-skript som används för att skapa resurserna. Det här skriptet finns i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli. Det här skriptet skapar resurserna och konfigurerar meddelanderoutning. När du har kört skriptet skapar du meddelandena manuellt med hjälp av [Azure Portal](https://portal.azure.com).
+* För den automatiserade metoden finns det en Azure Resource Manager-mall. Mallen finns i/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/template_msgenrichments. JSON. Den här mallen skapar resurserna, konfigurerar meddelanderoutning och konfigurerar sedan meddelande Förvarningen.
 * Det tredje program du använder är appen för enhets simulering, som du använder för att skicka meddelanden till IoT-hubben och testa meddelande berikarna.
 
-## <a name="manual-set-up-and-configuration-using-azure-cli"></a>Manuell konfiguration och konfiguration med Azure CLI
+## <a name="manually-set-up-and-configure-by-using-the-azure-cli"></a>Konfigurera och konfigurera manuellt med hjälp av Azure CLI
 
-Förutom att skapa nödvändiga resurser konfigurerar Azure CLI-skriptet även de två vägarna till de slut punkter som är separata lagrings behållare. Mer information om hur du konfigurerar meddelanderoutning finns i [själv studie kursen för routning](tutorial-routing.md). När resurserna har kon figurer ATS använder du [Azure Portal](https://portal.azure.com) för att konfigurera meddelande berikare för varje slut punkt och fortsätter sedan till test steget.
+Förutom att skapa nödvändiga resurser konfigurerar Azure CLI-skriptet även de två vägarna till de slut punkter som är separata lagrings behållare. Mer information om hur du konfigurerar meddelanderoutning finns i [själv studie kursen om routning](tutorial-routing.md). När resurserna har kon figurer ATS använder du [Azure Portal](https://portal.azure.com) för att konfigurera meddelande anrikninger för varje slut punkt. Fortsätt sedan till test steget.
 
 > [!NOTE]
 > Alla meddelanden dirigeras till båda slut punkterna, men endast meddelanden som skickas till slut punkten med konfigurerade meddelande berikar kommer att berikas.
 >
 
-Du kan använda skriptet nedan eller öppna skriptet i/Resources-mappen för den hämtade lagrings platsen. Här följer de steg som skriptet utför:
+Du kan använda skriptet som följer eller så kan du öppna skriptet i/Resources-mappen för den hämtade lagrings platsen. Skriptet utför följande steg:
 
-* Skapa en IoT Hub.
+* Skapa en IoT-hubb.
 * Skapa ett lagringskonto.
-* Skapa två behållare i lagrings kontot – en för de berikade meddelandena och en för meddelanden som inte är omfattande.
-* Konfigurera routning för de två olika lagrings kontona.
+* Skapa två behållare i lagrings kontot. En behållare är för de berikade meddelandena och en annan behållare är för meddelanden som inte är omfattande.
+* Konfigurera routning för de två olika lagrings kontona:
     * Skapa en slut punkt för varje lagrings konto behållare.
     * Skapa en väg för varje slut punkt för lagrings konto behållare.
 
-Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub namn och lagrings konto namn. För att göra det enklare att köra skriptet läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. RandomValue skapas en gång överst i skriptet och läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att den ska vara slumpmässig, kan du ange den som en tom sträng eller ett angivet värde.
+Det finns flera resurs namn som måste vara globalt unika, till exempel IoT Hub-namn och lagrings konto namn. För att göra det enklare att köra skriptet läggs dessa resurs namn till med ett slumpmässigt alfanumeriskt värde som kallas *randomValue*. Det slumpmässiga värdet genereras en gång överst i skriptet. Den läggs till i resurs namnen vid behov i hela skriptet. Om du inte vill att värdet ska vara slumpmässigt kan du ange det som en tom sträng eller till ett speciellt värde.
 
-Om du inte redan har gjort det öppnar du ett [Cloud Shell-fönster](https://shell.azure.com) och kontrollerar att det är inställt på bash. Öppna skriptet i den zippade lagrings platsen, Använd Ctrl-A för att markera allt, sedan Ctrl + C för att kopiera det. Alternativt kan du kopiera följande CLI-skript eller öppna det direkt i Cloud Shell. Klistra in skriptet i Cloud Shell fönstret genom att högerklicka på kommando raden och välja **Klistra in**. Skriptet kör en instruktion i taget. När skriptet har körts klart väljer du **RETUR** för att kontrol lera att det kör det senaste kommandot. Följande kod block visar det skript som används, med kommentarer som förklarar vad det gör.
+Om du inte redan har gjort det öppnar du ett Azure [Cloud Shell-fönster](https://shell.azure.com) och ser till att det är inställt på bash. Öppna skriptet i den zippade lagrings platsen, Välj CTRL + A för att markera alla och välj sedan Ctrl + C för att kopiera det. Du kan också kopiera följande CLI-skript eller öppna det direkt i Cloud Shell. Klistra in skriptet i Cloud Shell fönstret genom att högerklicka på kommando raden och välja **Klistra in**. Skriptet kör en instruktion i taget. När skriptet har körts klart väljer du **RETUR** för att kontrol lera att det kör det senaste kommandot. Följande kod block visar det skript som används, med kommentarer som förklarar vad det gör.
 
-Här följer resurserna som skapats av skriptet. En **omfattande** metod är att resursen är för meddelanden med anrikninger. **Original** innebär att resursen är för meddelanden som inte är omfattande.
+Här följer resurserna som skapats av skriptet. *Förrikat* innebär att resursen är för meddelanden med anrikninger. *Original* innebär att resursen avser meddelanden som inte är berikade.
 
 | Namn | Värde |
 |-----|-----|
@@ -249,13 +243,13 @@ az iot hub route create \
 
 I det här läget är resurserna alla konfigurerade och meddelande dirigeringen har kon figurer ATS. Du kan visa konfigurationen för meddelanderoutning i portalen och konfigurera meddelande Förvarningen för meddelanden till den **berikade** lagrings behållaren.
 
-### <a name="manually-configure-the-message-enrichments-using-the-azure-portal"></a>Konfigurera meddelandets anrikning manuellt med hjälp av Azure Portal
+### <a name="manually-configure-the-message-enrichments-by-using-the-azure-portal"></a>Konfigurera meddelande anrikningen manuellt med hjälp av Azure Portal
 
-1. Gå till din IoT Hub genom att välja **resurs grupper**och välj sedan den resurs grupp som har kon figurer ATS för den här självstudien (**ContosoResourcesMsgEn**). Leta upp IoT Hub i listan och markera det. Välj **meddelanderoutning** för IoT Hub.
+1. Gå till din IoT-hubb genom att välja **resurs grupper**. Välj sedan den resurs grupp som har kon figurer ATS för den här självstudien (**ContosoResourcesMsgEn**). Hitta IoT Hub i listan och markera den. Välj **meddelanderoutning** för IoT Hub.
 
    ![Välj meddelanderoutning](./media/tutorial-message-enrichments/select-iot-hub.png)
 
-   Fönstret meddelanderoutning har tre flikar – **vägar**, **anpassade slut punkter**och **utöka meddelanden**. Du kan bläddra bland de första två flikarna för att se konfigurationen som konfigureras av skriptet. Använd den tredje fliken för att lägga till meddelande berikare. Nu ska vi utöka meddelanden till slut punkten för den lagrings behållare som heter **berikad**. Fyll i namnet och värdet och välj sedan slut punkts **ContosoStorageEndpointEnriched** i list rutan. Här är ett exempel på hur du konfigurerar en anrikning som lägger till IoT Hub namn i meddelandet:
+   Fönstret meddelanderoutning innehåller tre flikar med namnet **vägar**, **anpassade slut punkter**och **utöka meddelanden**. Bläddra bland de första två flikarna för att se konfigurationen som konfigureras av skriptet. Använd den tredje fliken för att lägga till meddelande berikare. Nu ska vi utöka meddelanden till slut punkten för den lagrings behållare som heter **berikad**. Fyll i namnet och värdet och välj sedan slut punkts **ContosoStorageEndpointEnriched** i list rutan. Här är ett exempel på hur du konfigurerar en anrikning som lägger till IoT Hub-namnet i meddelandet:
 
    ![Lägg till första berikning](./media/tutorial-message-enrichments/add-message-enrichments.png)
 
@@ -268,35 +262,36 @@ I det här läget är resurserna alla konfigurerade och meddelande dirigeringen 
    |Kund | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]
-   > Om enheten inte har ett värde med dubbla stämplas det värde som du lägger till i rutan som en sträng för värdet i meddelandets anrikning. Om du vill se enhetens dubbla information går du till din hubb i portalen, väljer **IoT-enheter**, väljer din enhet och väljer sedan **enhets** topp överst på sidan.
+   > Om enheten inte har någon enhet, så stämplas värdet du anger som en sträng för värdet i meddelandets berikare. Om du vill se enhetens dubbla information går du till din hubb i portalen och väljer **IoT-enheter**. Välj din enhet och välj sedan **enhet** , högst upp på sidan.
    >
-   > Du kan redigera den dubbla informationen för att lägga till taggar (till exempel plats) och ange den till ett särskilt värde om du vill. Mer information finns i [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub)
+   > Du kan redigera den dubbla informationen för att lägga till taggar, till exempel plats, och ange det till ett särskilt värde. Mer information finns i [Understand and use device twins in IoT Hub](iot-hub-devguide-device-twins.md) (Förstå och använda enhetstvillingar i IoT Hub).
 
 3. När du är klar bör fönstret se ut ungefär så här:
 
    ![Tabell med alla omfattande tillägg](./media/tutorial-message-enrichments/all-message-enrichments.png)
 
-4. Välj **Verkställ** för att spara ändringarna. Gå vidare till avsnittet [testa meddelandets berikare](#testing-message-enrichments) .
+4. Välj **Verkställ** för att spara ändringarna. Gå vidare till avsnittet [testa meddelande berikare](#test-message-enrichments) .
 
-## <a name="use-an-rm-template-to-create-and-configure-the-resources-message-routing-and-message-enrichments"></a>Använd en RM-mall för att skapa och konfigurera resurser, meddelanderoutning och meddelande anrikninger 
+## <a name="create-and-configure-by-using-a-resource-manager-template"></a>Skapa och konfigurera med hjälp av en Resource Manager-mall
+Du kan använda en Resource Manager-mall för att skapa och konfigurera resurser, meddelanderoutning och meddelande anrikning.
 
-1. Logga in på Azure-portalen. Klicka på **+ skapa en resurs**. Nu öppnas sökrutan. Sök efter **mall distribution**. I resultat fönstret väljer du **malldistribution (distribuera med anpassad mall)** .
+1. Logga in på Azure Portal. Välj **+ skapa en resurs** för att öppna en sökruta. Ange *mall distribution*och Sök efter den. I resultat fönstret väljer du **malldistribution (distribuera med anpassad mall)** .
 
    ![Malldistribution i Azure Portal](./media/tutorial-message-enrichments/template-select-deployment.png)
 
-1. Välj **skapa** i fönstret mall distribution. 
+1. Välj **skapa** i rutan **malldistribution** .
 
-1. I fönstret anpassad distribution. Välj **Bygg en egen mall i redigeraren**.
+1. I fönstret **Anpassad distribution** väljer du **Bygg en egen mall i redigeraren**.
 
-1. I fönstret Redigera mall väljer du **Läs in fil**. Du ser Utforskaren i Windows. Leta upp filen **template_messageenrichments. JSON** i den zippade lagrings platsen-filen i **/IoT-Hub/tutorials/routing/SimulatedDevice/Resources**. 
+1. I fönstret **Redigera mall** väljer du **Läs in fil**. Utforskaren visas. Leta upp filen **template_messageenrichments. JSON** i den zippade lagrings platsen-filen i **/IoT-Hub/tutorials/routing/SimulatedDevice/Resources**. 
 
    ![Välj mall från lokal dator](./media/tutorial-message-enrichments/template-select.png)
 
-1. Välj **Öppna** för att läsa in mallfilen från den lokala datorn. Det läser in det i redigerings fönstret och visar det till dig.
+1. Välj **Öppna** för att läsa in mallfilen från den lokala datorn. Den läses in och visas i fönstret Redigera.
 
-   Den här mallen har kon figurer ATS för att använda ett globalt unikt IoT Hub namn och lagrings konto namn genom att lägga till ett slumpmässigt värde i slutet av standard namnen, så att du kan använda mallen utan att göra några ändringar i den. 
+   Den här mallen har kon figurer ATS för att använda ett globalt unikt namn och lagrings konto namn för IoT Hub genom att lägga till ett slumpmässigt värde i slutet av standard namnen, så att du kan använda mallen utan att göra några ändringar i den.
 
-   Här är de resurser som skapas genom att läsa in mallen. En **omfattande** metod är att resursen är för meddelanden med anrikninger. **Original** innebär att resursen är för meddelanden som inte är omfattande. Detta är samma värden som används i Azure CLI-skriptet.
+   Här är de resurser som skapas genom att läsa in mallen. **Förrikat** innebär att resursen är för meddelanden med anrikninger. **Original** innebär att resursen avser meddelanden som inte är berikade. Detta är samma värden som används i Azure CLI-skriptet.
 
    | Namn | Värde |
    |-----|-----|
@@ -311,33 +306,33 @@ I det här läget är resurserna alla konfigurerade och meddelande dirigeringen 
    | flödes namn 1 | ContosoStorageRouteOriginal |
    | flödes namn 2 | ContosoStorageRouteEnriched |
 
-1. Välj **Spara**och fönstret anpassad distribution visas med alla parametrar som används av mallen. Det enda fält du behöver ange är **resurs gruppen**. Skapa antingen en ny eller Välj en i list rutan.
+1. Välj **Spara**. Fönstret **Anpassad distribution** visas och visar alla parametrar som används av mallen. Det enda fält du behöver ange är **resurs grupp**. Skapa antingen en ny eller Välj en från List rutan.
 
-   Här är den övre halvan av det anpassade distributions fönstret. Du kan se var du fyller i resurs gruppen.
+   Här är den övre halvan av det **anpassade distributions** fönstret. Du kan se var du fyller i resurs gruppen.
 
    ![Övre halvan av anpassat distributions fönster](./media/tutorial-message-enrichments/template-deployment-top.png)
 
-1. Här är den nedre halvan av det anpassade distributions fönstret. Du kan se resten av parametrarna och de allmänna villkoren. 
+1. Här är den nedre halvan av det **anpassade distributions** fönstret. Du kan se resten av parametrarna och villkoren. 
 
    ![Nedre halvan av anpassat distributions fönster](./media/tutorial-message-enrichments/template-deployment-bottom.png)
 
-1. Markera kryss rutan som anger att du godkänner villkoren och välj sedan **köp** för att fortsätta med mallen distribution.
+1. Markera kryss rutan för att godkänna de allmänna villkoren. Välj sedan **köp** för att fortsätta med mallen distribution.
 
-1. Vänta tills mallen är fullständigt distribuerad. Du kan välja klock ikonen längst upp på skärmen för att kontrol lera förloppet. När det är klart kan du fortsätta att [testa meddelandets anrikning](#testing-message-enrichments).
+1. Vänta tills mallen är fullständigt distribuerad. Välj klock ikonen längst upp på skärmen för att kontrol lera förloppet. När den är klar fortsätter du till avsnittet [testa meddelandets berikare](#test-message-enrichments) .
 
-## <a name="testing-message-enrichments"></a>Testa meddelandets anrikning
+## <a name="test-message-enrichments"></a>Testa meddelanden
 
-Du kan visa meddelandets berikare genom att välja **resurs grupper**och sedan välja den resurs grupp som du använder för den här självstudien. Välj sedan IoT Hub i listan över resurser och gå till **meddelanden**. Detta visar konfigurationen av meddelanderoutning och de konfigurerade berikarna.
+Välj **resurs grupper**om du vill visa meddelande berikarna. Välj sedan den resurs grupp som du använder för den här självstudien. Välj IoT-hubben i listan över resurser och gå till **meddelanden**. Konfigurationen av meddelanderoutning och de konfigurerade berikarna visas.
 
-Nu när meddelande berikarna har kon figurer ATS för slut punkten kan du köra det simulerade enhets programmet för att skicka meddelanden till IoT Hub. Hubben har kon figurer ATS med inställningar som utför följande:
+Nu när meddelande berikarna har kon figurer ATS för slut punkten kan du köra det simulerade enhets programmet för att skicka meddelanden till IoT Hub. Hubben konfigurerades med inställningar som utför följande aktiviteter:
 
-* Meddelanden som dirigeras till ContosoStorageEndpointOriginal för lagrings slut punkter kommer inte att beskrivas och kommer att lagras i lagrings container `original`.
+* Meddelanden som dirigeras till ContosoStorageEndpointOriginal för lagrings slut punkter kommer inte att vara omfattande och lagras i `original`för lagrings behållare.
 
 * Meddelanden som dirigeras till ContosoStorageEndpointEnriched för lagrings slut punkter kommer att beskrivas och lagras i `enriched`för lagrings behållare.
 
-Det simulerade enhets programmet är ett av programmen i den zippade nedladdningen. Programmet skickar meddelanden för var och en av de olika metoderna för meddelanderoutning i [operationsföljden](tutorial-routing.md). Detta omfattar Azure Storage.
+Det simulerade enhets programmet är ett av programmen i den zippade nedladdningen. Programmet skickar meddelanden för var och en av de olika metoderna för meddelanderoutning i [operationsföljden](tutorial-routing.md), som innehåller Azure Storage.
 
-Dubbelklicka på lösnings filen (IoT_SimulatedDevice. SLN) för att öppna koden i Visual Studio och öppna sedan Program.cs. Ersätt namnet på IoT-hubben för markören `{your hub name}`. Formatet på värd namnet för IoT Hub är **{ditt Hubbs namn}. Azure-Devices.net**. I den här självstudien är hubbens värd namn **ContosoTestHubMsgEn.Azure-Devices.net**. Ersätt sedan den enhets nyckel som du sparade tidigare när du körde skriptet för att skapa resurserna för markören `{your device key}`.
+Dubbelklicka på lösnings filen **IoT_SimulatedDevice. SLN** för att öppna koden i Visual Studio och öppna sedan **program.cs**. Ersätt namnet på IoT-hubben för markören `{your hub name}`. Formatet på värd namnet för IoT Hub är **{ditt Hubbs namn}. Azure-Devices.net**. I den här självstudien är hubbens värd namn ContosoTestHubMsgEn.azure-devices.net. Ersätt sedan den enhets nyckel som du sparade tidigare när du körde skriptet för att skapa resurserna för markören `{your device key}`.
 
 Om du inte har enhets nyckeln kan du hämta den från portalen. När du har loggat in går du till **resurs grupper**, väljer din resurs grupp och väljer sedan din IoT Hub. Titta på **IoT-enheter** för test enheten och välj din enhet. Välj kopierings ikonen bredvid **primär nyckel** för att kopiera den till Urklipp.
 
@@ -357,9 +352,9 @@ Appen skickar ett nytt enhet till molnet-meddelande till IoT-hubben varje sekund
 
 Visa data när flera lagrings meddelanden har skickats.
 
-1. Välj **resurs grupper**och leta sedan reda på resurs gruppen (ContosoResourcesMsgEn) och markera den.
+1. Välj **Resursgrupper**. Hitta din resurs grupp, **ContosoResourcesMsgEn**och välj den.
 
-2. Välj ditt lagrings konto (contosostorage). Välj **Storage Explorer (för hands version)** i markerings fönstret till vänster.
+2. Välj ditt lagrings konto, som är **contosostorage**. Välj **Storage Explorer (för hands version)** i det vänstra fönstret.
 
    ![Välj Storage Explorer](./media/tutorial-message-enrichments/select-storage-explorer.png)
 
@@ -367,15 +362,15 @@ Visa data när flera lagrings meddelanden har skickats.
 
    ![Se behållare i lagrings kontot](./media/tutorial-message-enrichments/show-blob-containers.png)
 
-Meddelandena i behållaren som heter **berikade** har meddelanden som ingår i meddelandena. Meddelandena i behållaren som kallas **original** kommer att ha RAW-meddelanden utan några berikningar. Öka detalj nivån till en av behållarna tills du kommer till slutet och öppna den senaste meddelande filen. gör sedan samma sak för den andra behållaren för att kontrol lera att det inte finns några berikade tillägg i meddelanden i behållaren.
+Meddelandena i behållaren som heter **berikade** har meddelanden som ingår i meddelandena. Meddelandena i behållaren som kallas **original** har RAW-meddelanden utan några berikningar. Öka detalj nivån till en av behållarna tills du kommer till slutet och öppna den senaste meddelande filen. Gör sedan samma sak för den andra behållaren för att kontrol lera att det inte finns några omfattande tillägg i meddelanden i behållaren.
 
-När du tittar på meddelanden som har berikats bör du se "mina IoT Hub" med hubbens namn, samt platsen och kund-ID: t, så här:
+När du tittar på meddelanden som har berikats bör du se "mina IoT Hub" med hubbens namn och plats och kund-ID, så här:
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage","my IoT Hub":"contosotesthubmsgen3276","devicelocation":"$twin.tags.location","customerID":"6ce345b8-1e4a-411e-9398-d34587459a3a"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
 ```
 
-Här är ett meddelande som inte är förväntat. "mina IoT Hub", "devicelocation" och "customerID" visas inte här, eftersom dessa är fälten som skulle läggas till av berikarna och den här slut punkten har inga berikningar.
+Här är ett meddelande som inte kan utökas. Observera att "mina IoT Hub", "devicelocation" och "customerID" inte visas här eftersom dessa fält har lagts till av berikningarna. Den här slut punkten har inga berikningar.
 
 ```json
 {"EnqueuedTimeUtc":"2019-05-10T06:06:32.7220000Z","Properties":{"level":"storage"},"SystemProperties":{"connectionDeviceId":"Contoso-Test-Device","connectionAuthMethod":"{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}","connectionDeviceGenerationId":"636930642531278483","enqueuedTime":"2019-05-10T06:06:32.7220000Z"},"Body":"eyJkZXZpY2VJZCI6IkNvbnRvc28tVGVzdC1EZXZpY2UiLCJ0ZW1wZXJhdHVyZSI6MjkuMjMyMDE2ODQ4MDQyNjE1LCJodW1pZGl0eSI6NjQuMzA1MzQ5NjkyODQ0NDg3LCJwb2ludEluZm8iOiJUaGlzIGlzIGEgc3RvcmFnZSBtZXNzYWdlLiJ9"}
@@ -383,11 +378,11 @@ Här är ett meddelande som inte är förväntat. "mina IoT Hub", "devicelocatio
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resurs gruppen om du vill ta bort alla resurser som du har skapat i den här självstudien. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tar du bort IoT-hubben, lagringskontot och själva resursgruppen.
+Ta bort resurs gruppen om du vill ta bort alla resurser som du skapade i den här självstudien. Detta tar även bort alla resurser som ingår i gruppen. I det här fallet tar du bort IoT-hubben, lagringskontot och själva resursgruppen.
 
 ### <a name="use-the-azure-cli-to-clean-up-resources"></a>Rensa resurser med hjälp av Azure CLI
 
-Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). `$resourceGroup` ställdes in för att **ContosoResourcesMsgEn** tillbaka i början av den här självstudien.
+Om du vill ta bort resursgruppen använder du kommandot [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Kom ihåg att `$resourceGroup` var inställt på **ContosoResourcesMsgEn** i början av den här självstudien.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup
@@ -399,18 +394,14 @@ I den här självstudien har du konfigurerat och testat lägga till meddelande a
 
 **Använda IoT Hub meddelande anrikning**
 > [!div class="checklist"]
-> * Första metoden
->   * Skapa resurser och konfigurera meddelanderoutning med Azure CLI.
->   * Konfigurera meddelande anrikningerna manuellt med hjälp av [Azure Portal](https://portal.azure.com).
-> * Andra metoden
->   * Skapa resurser, konfigurera meddelanderoutning och meddelande anrikningar med hjälp av en Azure Resource Manager-mall. 
+> * Första metoden: skapa resurser och konfigurera meddelanderoutning med hjälp av Azure CLI. Konfigurera meddelande berikarna manuellt med hjälp av [Azure Portal](https://portal.azure.com).
+> * Andra metoden: skapa resurser och konfigurera meddelanderoutning och meddelande anrikningar med hjälp av en Azure Resource Manager mall.
 > * Kör en app som simulerar en IoT-enhet som skickar meddelanden till hubben.
 > * Visa resultaten och kontrol lera att meddelandets anrikning fungerar som förväntat.
 
-Mer information om meddelande berikare finns i [Översikt över meddelande berikare](iot-hub-message-enrichments-overview.md).
+Mer information om meddelande berikare finns i [Översikt över meddelande anrikninger](iot-hub-message-enrichments-overview.md).
 
 Mer information om meddelanderoutning finns i följande artiklar:
 
 * [Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](iot-hub-devguide-messages-d2c.md)
-
 * [Självstudie: IoT Hub routning](tutorial-routing.md)

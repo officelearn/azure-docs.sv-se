@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 9f9e84570c7e7a4a2049c9f357d001c3316a4106
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33d0e5c40e4c7d404558fe8fa7a5fb8f5967924e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166351"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773791"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>Snabb start: skicka telemetri från en enhet till en IoT-hubb och Läs den med ett Server dels program (.NET)
 
@@ -47,7 +47,7 @@ Kör följande kommando för att lägga till Microsoft Azure IoT-tillägget för
 az extension add --name azure-cli-iot-ext
 ```
 
-Ladda ned exempelprojektet för C# från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera ZIP-arkivet.
+Hämta Azure IoT C# -exempel från https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip och extrahera zip-arkivet.
 
 ## <a name="create-an-iot-hub"></a>Skapa en IoT Hub
 

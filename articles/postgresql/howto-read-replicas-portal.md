@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: 5e031354d4695a1d7eb6f199e23e74b796273230
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 01/24/2020
+ms.openlocfilehash: dd79618b8d9f016c92166edb9ecdb0bfb113947e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770228"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768948"
 ---
 # <a name="create-and-manage-read-replicas-in-azure-database-for-postgresql---single-server-from-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for PostgreSQL-enskild server från Azure Portal
 
@@ -27,6 +27,9 @@ De här stegen måste användas för att förbereda en huvud server i Generell a
 1. I Azure Portal väljer du den befintliga Azure Database for PostgreSQL-servern som ska användas som huvud server.
 
 2. Välj **replikering**under **Inställningar**på Server panelen.
+
+> [!NOTE] 
+> Om du ser **Inaktivera stöd för replikering** nedtonad är replikeringsinställningarna redan inställda på servern som standard. Du kan hoppa över följande steg och gå till skapa en Läs replik. 
 
 3. Välj **Aktivera stöd för replikering**. 
 
@@ -47,7 +50,7 @@ De här stegen måste användas för att förbereda en huvud server i Generell a
 Att aktivera stöd för replikering är en engångs åtgärd per huvud server. En knapp för att **Inaktivera stöd för replikering** tillhandahålls för din bekvämlighet. Vi rekommenderar inte att du inaktiverar stöd för replikering, såvida du inte är säker på att du aldrig kommer att skapa en replik på den här huvud servern. Du kan inte inaktivera stöd för replikering medan huvud servern har befintliga repliker.
 
 
-## <a name="create-a-read-replica"></a>Skapa en Läs replik
+## <a name="create-a-read-replica"></a>Skapa en skrivskyddad replik
 Följ dessa steg om du vill skapa en Läs replik:
 
 1. Välj den befintliga Azure Database for PostgreSQL-server som ska användas som huvud server. 
@@ -106,7 +109,7 @@ Följ dessa steg om du vill stoppa replikeringen mellan en huvud server och en L
    ![Bekräfta att replikeringen ska stoppas](./media/howto-read-replicas-portal/confirm-stop-replication.png)
  
 
-## <a name="delete-a-master-server"></a>Ta bort en huvud server
+## <a name="delete-a-master-server"></a>Ta bort en huvudserver
 Om du vill ta bort en huvud server använder du samma steg som för att ta bort en fristående Azure Database for PostgreSQL Server. 
 
 > [!IMPORTANT]

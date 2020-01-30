@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d754964ac6c16c87e6f0825b4f1a955d38fa3530
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756236"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841258"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Självstudie: Konfigurera G Suite för automatisk användar etablering
 
@@ -209,6 +209,7 @@ Mer information om hur du läser den Azure AD etablering loggar finns i [rapport
 
 ## <a name="common-issues"></a>Vanliga problem
 * Auktoriseringsfel kan uppstå när kontot som används för att upprätta en anslutning inte är för en administratör i GSuite. Kontrol lera att det konto som används för att auktorisera åtkomst har administratörs behörighet för **alla domäner** som användare måste tillhandahålla. 
+* Azure AD stöder inaktive ring av användare i GSuite så att de inte kan komma åt programmet, men inte ta bort användare i GSuite.
 
 ## <a name="next-steps"></a>Nästa steg
 

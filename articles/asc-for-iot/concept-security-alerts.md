@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2019
+ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: aaf3111270687e3921d542d87981a25868842f93
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ac0152d0164c3577ade3d862e9512b920c451518
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554921"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766514"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center för IoT-säkerhetsaviseringar
 
@@ -30,11 +30,11 @@ En avisering fungerar som en indikator för potentiella kompromisser och bör un
 
 I den här artikeln hittar du en lista över inbyggda aviseringar som kan utlösas på dina IoT Hub-och/eller IoT-enheter.
 Förutom inbyggda aviseringar kan du med hjälp av Azure Security Center för IoT definiera anpassade aviseringar baserat på förväntat IoT Hub och/eller enhets beteende.
-Mer information finns i [skapa anpassade aviseringar](quickstart-create-custom-alerts.md).
+Mer information finns i [anpassningsbara aviseringar](concept-customizable-security-alerts.md).
 
 ## <a name="built-in-alerts-for-iot-devices"></a>Inbyggda aviseringar för IoT-enheter
 
-| Namn | Allvarsgrad | Data Källa | Beskrivning | Föreslagna reparations steg|                  
+| Namn | Allvarsgrad | Datakälla | Beskrivning | Föreslagna reparations steg|                  
 |----------|---------------|-------------|-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |**Hög** allvarlighets grad|  |  |  |
 |   Binär kommando rad   | Hög | Agent | LA Linux Binary som anropas/körs från kommando raden upptäcktes. Den här processen kan vara en legitim aktivitet eller en indikation på att enheten har komprometterats.|   Granska kommandot med den användare som körde det och kontrol lera om det är något giltigt förväntat att köras på enheten. Annars eskalerar du aviseringen till ditt informations säkerhets team. |
@@ -88,13 +88,13 @@ Mer information finns i [skapa anpassade aviseringar](quickstart-create-custom-a
 | Allvarsgrad | Namn                                                                         | Beskrivning | Rekommenderad reparation|
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|
 |**Medelhög** allvarlighets grad|  |  |  |
-|  Nytt certifikat har lagts till i en IoT Hub  | Medium                                     |Ett certifikat med namnet \'% {DescCertificateName} \' har lagts till i IoT Hub \'% {DescIoTHubName} \'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.| 1. kontrol lera att certifikatet har lagts till av en auktoriserad part. <br> 2. om den inte har lagts till av en auktoriserad part tar du bort certifikatet och eskalerar aviseringen till organisationens säkerhets team.  |
-|  Certifikatet har tagits bort från en IoT Hub  | Medium                             | Ett certifikat med namnet \'% {DescCertificateName} \' togs bort från IoT Hub \'% {DescIoTHubName} \'. Om den här åtgärden har gjorts av en obehörig part kan det tyda på en skadlig aktivitet.| 1. kontrol lera att certifikatet har tagits bort av en auktoriserad part. <br> 2. om certifikatet inte har tagits bort av en auktoriserad part lägger du till certifikatet igen och eskalerar aviseringen till organisationens säkerhets team. |
-| Ett misslyckat försök har upptäckts för att lägga till ett certifikat i en IoT Hub   | Medium    | Det gick inte att lägga till certifikat \'% {DescCertificateName} \' till IoT Hub \'% {DescIoTHubName} \'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.|   Se till att behörigheter för att ändra certifikat endast beviljas till behöriga parter.  |
-|  Ett misslyckat försök har upptäckts för att ta bort ett certifikat från en IoT Hub | Medium  | Ett misslyckat försök att ta bort certifikat \'% {DescCertificateName} \' från IoT Hub \'% {DescIoTHubName} \'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet. |Se till att behörigheter för att ändra certifikat endast beviljas till en auktoriserad part.
+|  Nytt certifikat har lagts till i en IoT Hub  | Medium                                     |Ett certifikat med namnet \'% {DescCertificateName}\' har lagts till i IoT Hub \'% {DescIoTHubName}\'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.| 1. kontrol lera att certifikatet har lagts till av en auktoriserad part. <br> 2. om den inte har lagts till av en auktoriserad part tar du bort certifikatet och eskalerar aviseringen till organisationens säkerhets team.  |
+|  Certifikatet har tagits bort från en IoT Hub  | Medium                             | Ett certifikat med namnet \'% {DescCertificateName}\' togs bort från IoT Hub \'% {DescIoTHubName}\'. Om den här åtgärden har gjorts av en obehörig part kan det tyda på en skadlig aktivitet.| 1. kontrol lera att certifikatet har tagits bort av en auktoriserad part. <br> 2. om certifikatet inte har tagits bort av en auktoriserad part lägger du till certifikatet igen och eskalerar aviseringen till organisationens säkerhets team. |
+| Ett misslyckat försök har upptäckts för att lägga till ett certifikat i en IoT Hub   | Medium    | Det gick inte att lägga till certifikat \'% {DescCertificateName}\' till IoT Hub \'% {DescIoTHubName}\'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet.|   Se till att behörigheter för att ändra certifikat endast beviljas till behöriga parter.  |
+|  Ett misslyckat försök har upptäckts för att ta bort ett certifikat från en IoT Hub | Medium  | Ett misslyckat försök att ta bort certifikat \'% {DescCertificateName}\' från IoT Hub \'% {DescIoTHubName}\'. Om den här åtgärden har gjorts av en obehörig part kan det indikera skadlig aktivitet. |Se till att behörigheter för att ändra certifikat endast beviljas till en auktoriserad part.
 |**Låg** allvarlighets grad|  |  |  |
 |   Försök att lägga till eller redigera en diagnostisk inställning för en IoT Hub identifieras   | Låg     | Försök att lägga till eller redigera diagnostikinställningar för en IoT Hub har identifierats. Med diagnostikinställningar kan du återskapa aktivitets spårningar i utrednings syfte när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det indikera skadlig aktivitet.  |1. kontrol lera att certifikatet har tagits bort av en auktoriserad part.<br> 2. om certifikatet inte har tagits bort av en auktoriserad part lägger du till certifikatet igen och eskalerar aviseringen till ditt informations säkerhets team.
-|   Försök att ta bort en diagnostisk inställning från en IoT Hub upptäcktes        | Låg      | Det fanns% {DescAttemptStatusMessage} \' försöker lägga till eller redigera diagnostikinställningar \'% {DescDiagnosticSettingName} \' av IoT Hub \'% {DescIoTHubName} \'. Med diagnostisk inställning kan du återskapa aktivitets spårningar för utrednings ändamål när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det tyda på en skadlig aktivitet. |Se till att behörigheter för att ändra diagnostikinställningar endast beviljas till en auktoriserad part.
+|   Försök att ta bort en diagnostisk inställning från en IoT Hub upptäcktes        | Låg      | Det fanns% {DescAttemptStatusMessage}\' försöker lägga till eller redigera diagnostikinställningar \'% {DescDiagnosticSettingName}\' av IoT Hub \'% {DescIoTHubName}\'. Med diagnostisk inställning kan du återskapa aktivitets spårningar för utrednings ändamål när en säkerhets incident inträffar eller nätverket komprometteras. Om den här åtgärden inte har gjorts av en auktoriserad part kan det tyda på en skadlig aktivitet. |Se till att behörigheter för att ändra diagnostikinställningar endast beviljas till en auktoriserad part.
 |
 
 ## <a name="next-steps"></a>Nästa steg

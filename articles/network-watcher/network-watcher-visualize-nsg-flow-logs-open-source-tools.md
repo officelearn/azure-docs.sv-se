@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: Hantera och analysera flödes loggar för nätverks säkerhets grupper i Azure med hjälp av Network Watcher och elastisk stack.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: e567994038fb4f71ef86dc577760ecf4699a0b1d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277750"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840646"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualisera Azure Network Watcher NSG Flow-loggar med verktyg för öppen källkod
 
@@ -240,7 +237,7 @@ Instrument panelen exempel innehåller flera visualiseringar av flödes loggarna
 
 Med hjälp av frågefönstret överst i instrument panelen kan du filtrera instrument panelen baserat på vilken parameter som helst i flödena, till exempel prenumerations-ID, resurs grupper, regel eller någon annan variabel av intresse. Mer information om Kibana-frågor och filter finns i den [officiella dokumentationen](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 
-## <a name="conclusion"></a>Sammanfattning
+## <a name="conclusion"></a>Slutsats
 
 Genom att kombinera flödes loggar för nätverks säkerhets grupper med den elastiska stacken har vi kommit igång med kraftfulla och anpassningsbara sätt att visualisera vår nätverks trafik. Med dessa instrument paneler kan du snabbt få och dela insikter om din nätverks trafik, samt filtrera och undersöka eventuella avvikelser. Med Kibana kan du skräddarsy dessa instrument paneler och skapa olika visualiseringar för att uppfylla alla krav på säkerhet, granskning och efterlevnad.
 

@@ -1,24 +1,24 @@
 ---
 title: Azure Cosmos DB Tabell-API .NET standard SDK & resurser
 description: Lär dig allt om Azure Cosmos DB Tabell-API och .NET standard SDK, inklusive versions datum, datum för indragningen och ändringar som gjorts mellan varje version.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996221"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771593"
 ---
-# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Information om hämtning och version
+# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB tabell .NET standard-API: Hämta och viktig information
 > [!div class="op_single_selector"]
 > 
-> * [NET](table-sdk-dotnet.md)
+> * [.NET](table-sdk-dotnet.md)
 > * [.NET-standard](table-sdk-dotnet-standard.md)
 > * [Java](table-sdk-java.md)
 > * [Node.js](table-sdk-nodejs.md)
@@ -108,7 +108,7 @@ Detta plattforms oberoende .NET standard-bibliotek [Microsoft. Azure. Cosmos. ta
 | [0.9.1 till och – för hands version](#0.9.1-preview) |18 oktober 2018 |--- |
 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 

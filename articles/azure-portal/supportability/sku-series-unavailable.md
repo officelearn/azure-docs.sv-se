@@ -1,25 +1,27 @@
 ---
-title: SKU-serien är inte tillgänglig | Microsoft Docs
-description: Vissa SKU-serier är inte tillgängliga för den valda prenumerationen för den här regionen.
+title: Region eller SKU-serien är inte tillgänglig – Azure
+description: Vissa SKU-serier är inte tillgängliga för den valda prenumerationen för den här regionen, vilket kan kräva support förfrågan för prenumerations hantering.
 services: Azure Supportability
 author: stevendotwang
 ms.service: azure-supportability
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/27/2020
 ms.author: xingwan
-ms.openlocfilehash: e317ae1ad88cf162f1d55a06d19e7b3b0b88ce60
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b0f0762ded6804c0b0d90a19223c082f0fb8fd49
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896732"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843656"
 ---
 # <a name="region-or-sku-unavailable"></a>Otillgänglig region eller SKU
+
 Den här artikeln beskriver hur du löser problemet med en Azure-prenumeration som inte har åtkomst till en region eller en VM SKU.
 
 ## <a name="symptoms"></a>Symtom
 
-### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>När du distribuerar en virtuell dator får du ett av följande fel meddelanden:
+När du distribuerar en virtuell dator får du ett av följande fel meddelanden:
+
 ```
 Code: SkuNotAvailable
 Message: The requested size for resource '<resource>' is currently not available in location 
@@ -37,7 +39,7 @@ Code: NotAvailableForSubscription
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>När du köper reserverade instanser av virtuella datorer får du ett av följande fel meddelanden:
+När du köper reserverade instanser av virtuella datorer får du ett av följande fel meddelanden:
 
 ```
 Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
@@ -48,32 +50,38 @@ different location. Supported locations are: <list of locations>
 Message: This size is currently unavailable in this location for this subscription
 ```
 
-### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>När du skapar en supportbegäran för att öka beräknings kärn kvoten är en region eller en SKU-serie inte tillgänglig för urvalet.
+När du skapar en supportbegäran för att öka beräknings kärn kvoten är en region eller en SKU-familj inte tillgänglig för val.
 
 ## <a name="solution"></a>Lösning
-Vi rekommenderar först att du betraktar en alternativ region eller SKU som uppfyller dina affärs behov. Om du inte kan hitta en lämplig region eller SKU skapar du en [support förfrågan](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) för prenumerations hantering enligt stegen nedan:
 
+Vi rekommenderar först att du betraktar en alternativ region eller SKU som uppfyller dina affärs behov.
 
-- På sidan grundläggande väljer du ärende typ som "prenumerations hantering", väljer prenumerationen och klickar på Nästa.
+Om du inte kan hitta en lämplig region eller SKU skapar du en [support förfrågan](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) för **prenumerations hantering** enligt följande steg:
 
-![Bladet Grundläggande inställningar](./media/SKU-series-unavailable/BasicsSubMgmt.png)
+1. Från [Azure Portal](https://portal.azure.com) -menyn väljer du **Hjälp + Support**. Välj sedan **ny supportbegäran**.
 
+1. I **grunderna**väljer du **prenumerations hantering**för **typ av problem**.
 
--   På sidan problem väljer du problem typen som "andra allmänna frågor".
-- I avsnittet information:
-  - Ange om du vill distribuera virtuella datorer eller köpa reserverade instanser av virtuella datorer
-  - Ange region, SKU och antalet virtuella dator instanser som du planerar att distribuera eller köpa
+1. Välj en **prenumeration** och ange en kort beskrivning i **sammanfattningen**.
 
+   ![Fliken grunder i den nya support förfrågan](./media/SKU-series-unavailable/support-request-basics.png)
 
-![Problem](./media/SKU-series-unavailable/ProblemSubMgmt.png)
+1. För **problem typ**väljer du **Välj typ av problem**.
 
--   Ange din kontakt information och klicka på "skapa".
+1. I **Välj problem typ**väljer du ett alternativ, till exempel kan **inte komma åt min prenumeration eller resurs** > **mitt problem inte visas ovan**. Välj **Spara**.
 
-![Kontaktinformation](./media/SKU-series-unavailable/ContactInformation.png)
+   ![Ange ett problem för begäran](./media/SKU-series-unavailable/support-request-select-problem-type.png)
 
-## <a name="feedback"></a>Feedback
-Vi är alltid öppna för återkoppling och förslag! Skicka oss dina [förslag](https://feedback.azure.com/forums/266794-support-feedback). Dessutom kan du delta i oss via [Twitter](https://twitter.com/azuresupport) eller MSDN- [Forum](https://social.msdn.microsoft.com/Forums/azure).
+1. Välj **Nästa: lösningar** för att utforska möjliga lösningar. Om det behövs väljer du **Nästa: information** att fortsätta.
+
+1. Ange ytterligare information som du kan ange, tillsammans med din kontakt information.
+
+1. Välj **Granska + skapa**. När du har verifierat din information väljer du **skapa** för att skapa begäran.
+
+## <a name="send-us-your-suggestions"></a>Skicka förslag till oss
+
+Vi är alltid öppna för feedback och förslag! Skicka oss dina [förslag](https://feedback.azure.com/forums/266794-support-feedback). Dessutom kan du engagera oss på [Twitter](https://twitter.com/azuresupport) -eller MSDN- [Forum](https://social.msdn.microsoft.com/Forums/azure).
 
 ## <a name="learn-more"></a>Läs mer
-[Vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq)
 
+[Vanliga frågor och svar om support för Azure](https://azure.microsoft.com/support/faq)

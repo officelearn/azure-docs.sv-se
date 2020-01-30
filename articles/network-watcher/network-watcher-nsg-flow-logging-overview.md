@@ -4,27 +4,24 @@ titleSuffix: Azure Network Watcher
 description: Den här artikeln förklarar hur du använder funktionen NSG Flow-loggar i Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 47d91341-16f1-45ac-85a5-e5a640f5d59e
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 509545443bc08e8613d5f7a9ba7f33d2a90684b8
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.author: damendo
+ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830521"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841003"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduktion till flödes loggning för nätverks säkerhets grupper
 
-NSG-flödesloggar (nätverkssäkerhetsgrupp) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en nätverkssäkerhetsgrupp. Flödesloggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, det nätverksgränssnitt (NIC) som flödet gäller för, 5-tupelinformation om flödet (käll-/mål-IP, käll-/målport och protokoll), huruvida trafiken tilläts eller nekades samt, i version 2, dataflödesinformation (byte och paket).
+Flödes loggar för nätverks säkerhets grupper (NSG) är en funktion i Network Watcher som gör att du kan visa information om inkommande och utgående IP-trafik via en NSG. Flödes loggar skrivs i JSON-format och visar utgående och inkommande flöden per regel, nätverks gränssnittet (NIC) flödet gäller för 5-tuple-information om flödet (käll-/mål-IP, käll-och mål Port och protokoll), om trafiken tilläts eller nekades, och i version 2, data flödes information (byte och paket).
 
 
 ![Översikt över flödes loggar](./media/network-watcher-nsg-flow-logging-overview/figure1.png)

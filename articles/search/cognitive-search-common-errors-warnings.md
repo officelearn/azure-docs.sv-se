@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314733"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838555"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Felsöka vanliga index fel och varningar i Azure Kognitiv sökning
 
@@ -249,7 +249,7 @@ Om du vet att din data uppsättning innehåller flera språk och därför behöv
 ```
 
 Här följer några referenser för de språk som stöds för närvarande för var och en av de kunskaper som kan skapa det här fel meddelandet:
-* [Textanalys språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (för [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)och [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Textanalys språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (för [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)och [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Språk som stöds av Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (för [texten TranslationSkill](cognitive-search-skill-text-translation.md))
 * [Text SplitSkill](cognitive-search-skill-textsplit.md) Språk som stöds: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -303,7 +303,7 @@ Den [Table Storage tjänsten](https://azure.microsoft.com/services/storage/table
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## <a name="warning-truncated-extracted-text-to-x-characters"></a>Varning: trunkerad extraherad text till X tecken
-Indexerare begränsar hur mycket text som kan extraheras från ett dokument. Den här gränsen är beroende av pris nivån: 32 000 tecken för kostnads fri nivå, 64 000 för Basic och 4 000 000 för standard-, standard S2-och standard S3-nivåer. Text som trunkerades kommer inte att indexeras. Undvik den här varningen genom att dela upp dokument med stora mängder text till flera mindre dokument. 
+Indexerare begränsar hur mycket text som kan extraheras från ett dokument. Den här gränsen är beroende av pris nivån: 32 000 tecken för kostnads fri nivå, 64 000 för Basic, 4 000 000 för standard, 8 000 000 för standard S2 och 16 000 000 för standard S3. Text som trunkerades kommer inte att indexeras. Undvik den här varningen genom att dela upp dokument med stora mängder text till flera mindre dokument. 
 
 Mer information finns i [gränser för indexerare](search-limits-quotas-capacity.md#indexer-limits).
 

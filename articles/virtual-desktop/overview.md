@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 83744750a664a3a992d823f0b7e76768e249aaba
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721429"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772774"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
@@ -139,7 +139,7 @@ Windows Virtual Desktop stöder följande x64-operativ system avbildningar:
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop stöder inte x86 (32-bitars), Windows 10 Enterprise N eller Windows 10 Enterprise KN-operativsystem avbildningar.
+Windows Virtual Desktop stöder inte x86 (32-bitars), Windows 10 Enterprise N eller Windows 10 Enterprise KN-operativsystem avbildningar. Windows 7 stöder inte heller några VHD-eller VHDX-baserade profil lösningar som finns på hanterade Azure Storage på grund av en begränsning för sektor storlek.
 
 Tillgängliga alternativ för Automation och distribution beror på vilket operativ system och vilken version du väljer, som du ser i följande tabell: 
 

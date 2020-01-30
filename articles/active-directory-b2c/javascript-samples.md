@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 996893f95b11d716feb4253688d3ab1d62d140ee
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 42dc09ef4518bfda8c63ee183499b1b2e8c22991
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659533"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841939"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>JavaScript-exempel för användning i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Du kan lägga till din egen kod för Java Script på klient sidan i Azure Active Directory B2C (Azure AD B2C)-program. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](active-directory-b2c-overview-custom.md), välja en [sidlayout](page-layout.md)och använda [b2clogin.com](b2clogin.md) i dina begär Anden. I den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera skript körning.
+Du kan lägga till din egen kod för Java Script på klient sidan i Azure Active Directory B2C (Azure AD B2C)-program. Om du vill aktivera Java Script för dina program måste du lägga till ett element i din [anpassade princip](custom-policy-overview.md), välja en [sidlayout](page-layout.md)och använda [b2clogin.com](b2clogin.md) i dina begär Anden. I den här artikeln beskrivs hur du kan ändra den anpassade principen för att aktivera skript körning.
 
 > [!NOTE]
 > Om du vill aktivera Java Script för användar flöden, se [Java Script och versioner av sidlayout i Azure Active Directory B2C](user-flow-javascript-overview.md).
@@ -151,4 +151,4 @@ I koden, Ersätt `termsOfUseUrl` med länken till din villkor för användning. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du kan anpassa användargränssnittet i dina program i [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](active-directory-b2c-ui-customization-custom.md).
+Mer information om hur du kan anpassa användargränssnittet i dina program i [anpassa användargränssnittet i ditt program med en anpassad princip i Azure Active Directory B2C](custom-policy-ui-customization.md).

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514127"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845478"
 ---
 ::: zone target="chromeless"
 
@@ -155,10 +155,28 @@ Vid behov kan du kontakta Quantium Solutions support (på japanska) med följand
 
    Om du stöter på några problem kan du kontakta Data Box Operations Asia på adbo@microsoft.com. I ämnesrubriken anger du jobbnamnet och det problem som påträffats.
 
-3. Lämna över till fraktföretaget. 
+3. Lämna över till fraktföretaget.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[I egenhanterade](#tab/in-selfmanaged)
+
+Om du använder Data Box Disk i Japan, Singapore, Korea och Europa, västra, och har valt alternativet för egenhanterad frakt vid orderskapande, följer du dessa anvisningar. 
+
+1. Gå till bladet **Översikt** för din beställning i Azure Portal. Gå igenom de instruktioner som visas när du väljer **Schemalägg hämtning**. Du bör se en auktoriseringskod som används vid tidpunkten för avlämning av ordern.
+
+2. Skicka ett e-postmeddelande till Azure Data Box-driftsteamet med hjälp av följande mall när du är redo att returnera enheten.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. Azure Data Box-driftsteamet kontaktar dig för att organisera avlämningen på Azure-datacentret.
 
 ::: zone target="docs"
+
+---
 
 ## <a name="next-steps"></a>Nästa steg
 

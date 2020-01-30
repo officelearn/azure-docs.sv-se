@@ -13,26 +13,25 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: 'Skapa funktion – C#'
-      href: functions-create-your-first-function-visual-studio.md
-    - name: Skapa funktion – Java
-      href: functions-create-first-java-maven.md
-    - name: Skapa funktion – JavaScript
-      href: functions-create-first-function-vs-code.md
-    - name: Skapa funktion – PowerShell
-      href: functions-create-first-function-powershell.md
-    - name: Skapa funktion – Python
-      href: functions-create-first-function-python.md
-    - name: Ansluta till tjänster
+    - name: Skapa funktion
+      expanded: true
       items:
-        - name: 'Storage – C#'
-          href: functions-add-output-binding-storage-queue-vs.md
-        - name: Storage – Java
-          href: functions-add-output-binding-storage-queue-java.md
-        - name: Storage – JavaScript
+        - name: Visual Studio-koden
+          href: /azure/azure-functions/functions-create-first-function-vs-code
+        - name: Visual Studio
+          href: functions-create-your-first-function-visual-studio.md
+        - name: Kommandorad
+          href: functions-create-first-azure-function-azure-cli.md
+        - name: Maven (Java)
+          href: functions-create-first-java-maven.md
+    - name: Ansluta till lagring
+      items:
+        - name: Visual Studio-koden
           href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Storage – Python
-          href: functions-add-output-binding-storage-queue-python.md
+        - name: Visual Studio
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Maven (Java)
+          href: functions-add-output-binding-storage-queue-java.md
 - name: Självstudier
   items:
     - name: Funktioner med Logic Apps
@@ -137,7 +136,7 @@
       href: functions-networking-options.md
     - name: IP-adresser
       href: ip-addresses.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Utveckla
       items:
@@ -160,7 +159,7 @@
                 - name: Azure Portal
                   href: functions-create-first-azure-function.md
                 - name: Kommandorad
-                  href: functions-create-first-azure-function-azure-cli.md
+                  href: create-cli.md
                 - name: Visual Studio
                   href: create-visual-studio.md
                 - name: Visual Studio-koden

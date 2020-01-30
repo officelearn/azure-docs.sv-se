@@ -400,6 +400,8 @@
           href: cognitive-search-skill-conditional.md
         - name: Extrahering av dokument
           href: cognitive-search-skill-document-extraction.md
+        - name: PII-identifiering
+          href: cognitive-search-skill-pii-detection.md
     - name: Anpassade färdigheter
       items:
         - name: Anpassat webb-API

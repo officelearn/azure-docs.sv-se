@@ -67,23 +67,37 @@
       href: Tutorials/create-qna-bot.md
 - name: Begrepp
   items:
-    - name: Kunskapsbas
-      href: Concepts/knowledge-base.md
-      displayName: 'metadata, pair'
-    - name: Använda LUIS och QnA Maker
-      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
-    - name: Utvecklingslivscykel för en kunskapsbas
-      href: Concepts/development-lifecycle-knowledge-base.md
-      displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Azure-resurser
+      href: Concepts/azure-resources.md
+    - name: Designa en kunskapsbas
+      items:
+        - name: För språk
+          href: Concepts/design-language-culture.md
+        - name: För klientprogram
+          href: Concepts/integration-with-other-applications.md
+    - name: Datakällor och innehåll
+      items:
+        - name: Importerar från datakällor
+          href: Concepts/knowledge-base.md
+        - name: Innehållstyper som importerats
+          href: Concepts/content-types.md
+        - name: Uppsättningar med frågor och svar
+          href: Concepts/question-answer-set.md
+    - name: Livscykel för kunskapsbas
+      items:
+        - name: Utvecklingscykel
+          href: Concepts/development-lifecycle-knowledge-base.md
+          displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Fråga kunskapsbas
+      items:
+        - name: Få svar
+          displayName: 'DefaultAnswer, Default answer'
+          href: Concepts/query-knowledge-base.md
+        - name: Förtroendepoäng
+          href: Concepts/confidence-score.md
     - name: Bästa praxis
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
-    - name: Förtroendepoäng
-      displayName: 'DefaultAnswer, Default answer'
-      href: Concepts/confidence-score.md
-    - name: Datakällor som stöds
-      href: Concepts/data-sources-supported.md
-      displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: Anvisningar
   items:
     - name: Redigera kunskapsbas
@@ -106,6 +120,8 @@
         - name: Få svar med hjälp av metadata
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+        - name: Ange standardsvar
+          href: How-to/change-default-answer.md
         - name: Skapa en robot med QnA Maker och LUIS
           href: Tutorials/integrate-qnamaker-luis.md
         - name: Val av språk

@@ -232,6 +232,8 @@
           href: disks-types.md
         - name: Kryptering
           href: disk-encryption.md
+        - name: Disklagringsreservationer
+          href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Designa för höga prestanda
           href: premium-storage-performance.md
         - name: Diskutvidgning
@@ -551,6 +553,8 @@
           href: disks-use-storage-explorer-managed-disks.md
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
+        - name: Reservera disklagring
+          href: disks-reserved-capacity.md
         - name: Skapa en inkrementell ögonblicksbild
           href: disks-incremental-snapshots.md
         - name: Säkerhetskopiera ohanterade diskar

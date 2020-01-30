@@ -12,6 +12,8 @@
           href: prepay-sql-data-warehouse-charges.md
         - name: Köpa en VM-reservation
           href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json
+        - name: Azure-disklagring
+          href: ../../virtual-machines/linux/disks-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Köpa en Azure Storage-reservation
           href: ../../storage/blobs/storage-blob-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Köpa en Cosmos DB-reservation
@@ -40,8 +42,12 @@
       items:
         - name: Rabatter för reserverade VM-instanser
           href: ../manage/understand-vm-reservation-charges.md
+        - name: Så här skapas reservationsrekommendationer
+          href: reserved-instance-purchase-recommendations.md
         - name: Rabatter för reserverad kapacitet i Azure Storage
           href: understand-storage-charges.md
+        - name: Reservationsrabatter för Azure-disklagring
+          href: understand-disk-reservations.md
         - name: Rabatter för reserverad kapacitet i Cosmos DB
           href: understand-cosmosdb-reservation-charges.md
         - name: Rabatter för reserverad kapacitet i SQL Database

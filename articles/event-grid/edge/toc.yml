@@ -24,6 +24,8 @@
   items:
     - name: Event Grid-begrepp
       href: concepts.md
+    - name: Händelsehanterare och mål
+      href: event-handlers.md
     - name: Säkerhet och autentisering
       href: security-authentication.md
     - name: Händelsescheman
@@ -34,7 +36,7 @@
       href: delivery-output-batching.md
     - name: Avancerad filtrering
       href: advanced-filtering.md
-- name: Instruktionsguider
+- name: Anvisningar
   items:
     - name: Spara tillstånd
       items:
@@ -42,6 +44,8 @@
           href: persist-state-linux.md
         - name: Windows
           href: persist-state-windows.md
+    - name: Övervaka ämnen och prenumerationer
+      href: monitor-topics-subscriptions.md
     - name: Konfigurera protokoll för API
       href: configure-api-protocol.md
     - name: Konfigurera klientautentisering
@@ -60,3 +64,5 @@
       href: configure-event-grid.md
     - name: Konfigurationsschema för modultvilling
       href: twin-json.md
+    - name: Viktig information
+      href: release-notes.md

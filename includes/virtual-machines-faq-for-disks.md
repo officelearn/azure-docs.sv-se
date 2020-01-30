@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359976"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887580"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -145,31 +145,23 @@ Generation 1-avbildningar kan bara använda GPT-partitionering på data diskar, 
 
 Ögonblicks bilder av Premium SSD, standard SSD och standard-HDD stöder. För dessa tre disk typer stöds ögonblicks bilder för alla disk storlekar (inklusive diskar upp till 32 TiB i storlek). Ultra disks stöder inte ögonblicks bilder.
 
-### <a name="disk-reservation"></a>Disk reservation
+**Vad är Azure disk-reservationer?**
+Disk reservation är möjligheten att köpa ett års disk lagring i förväg, vilket minskar den totala kostnaden. Mer information om Azure disk reservations finns i vår artikel om ämnet: [förstå hur reservations rabatten tillämpas på Azure-diskar](../articles/cost-management-billing/reservations/understand-disk-reservations.md).
 
-**Vad är Azure disk reservation?**
-Disk reservation är möjligheten att köpa ett års disk lagring i förväg, vilket minskar den totala kostnaden.
+**Vilka alternativ erbjuder Azure disk reservation?** Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du betala med en enskild förskottsbetalning eller månatligen. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks. 
 
-**Vilka alternativ erbjuder Azure disk reservation?**
-Med Azure disk reservation får du möjlighet att köpa Premium-SSD i de angivna SKU: erna från P30 (1 TiB) upp till P80 (32 TiB) under ett år. Det finns ingen begränsning för den minsta mängd diskar som krävs för att köpa en disk reservation. Dessutom kan du betala med en enskild förskottsbetalning eller månatligen. Ingen ytterligare transaktionell kostnad tillämpas för Premium SSD Managed Disks.
+Reservationer görs i form av diskar, inte kapacitet. Med andra ord får du en enda P80-disk när du reserverar en P80-disk (32 TiB). du kan sedan inte dela upp den här reservationen i två mindre P70-diskar (16 TiB). Du kan naturligtvis reservera så många eller så få diskar som du vill, inklusive två separata P70-diskar (16 TiB).
 
-Reservationer görs i form av diskar, inte kapacitet. Med andra ord får du en enda P80-disk när du reserverar en P80-disk (32 TiB), du kan inte Divvy den för att reservera upp till två mindre P70-diskar (16 TiB). Du kan naturligtvis reservera så många eller så få diskar som du vill, inklusive två separata P70-diskar (16 TiB).
+**Hur tillämpas Azure disk reservation?**  
+Disk reservationen följer en modell liknande de reserverade virtuella dator instanserna. Skillnaden är att en disk reservation inte kan tillämpas på olika SKU: er, medan en VM-instans kan. Mer information om VM-instanser finns i [Spara kostnader med Azure Reserved VM instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) .    
 
-**Hur debiteras jag för Azure disk reservation?**
-- För Enterprise-avtal-kunder (EA) kommer Azures betalnings åtagande först att användas för att köpa Azure disk-reservationer. I scenarier där EA-kunder har använt hela sitt betalnings åtagande, kan disk reservationer fortfarande köpas, och dessa inköp faktureras för den enda förskotts betalningen på nästa debiterings faktura.
+**Kan jag använda min data lagring via reservationen av Azure-diskar i flera regioner?**     
+Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, östra 2) och kan därför inte användas utanför dessa konstruktioner. Du kan alltid köpa ytterligare en Azure disks-reservation för dina disk lagrings behov i andra regioner eller SKU: er. 
 
-- För kunder som köper via Azure.com, vid tidpunkten för köpet debiteras kredit kortet för filen för den fullständiga utbetalningen (eller månatliga fasta betalningar) av Azure disks-reservation.
-
-**Hur tillämpas Azure disk reservation?**
-Disk reservationen följer en modell liknande de reserverade virtuella dator instanserna. Skillnaden är att en disk reservation inte kan tillämpas på olika SKU: er, medan en VM-instans kan. Mer information om VM-instanser finns i [Spara kostnader med Azure Reserved VM instances](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) . 
-
-**Kan jag använda min data lagring via reservationen av Azure-diskar i flera regioner?**
-Azure disks-reservationen köps för en bestämd region och SKU (som P30 i USA, östra 2) och kan därför inte användas utanför dessa konstruktioner. Du kan alltid köpa ytterligare en Azure disks-reservation för dina disk lagrings behov i andra regioner eller SKU: er.
-
-**Vad händer när reservationen för Azure disks upphör att gälla?**
+**Vad händer när reservationen för Azure disks upphör att gälla?**    
 Du får e-postmeddelanden 30 dagar innan det går ut och sedan på förfallo datumet. När reservationen går ut fortsätter de distribuerade diskarna att köras och debiteras enligt de senaste priserna enligt principen [betala per](https://azure.microsoft.com/pricing/details/managed-disks/)användning.
 
-## <a name="ultra-disks"></a>Ultradiskar
+## <a name="ultra-disks"></a>Ultra disks
 
 **Vad ska jag ställa in mitt hård disk data flöde på?**
 Om du är osäker på vad du ska ställa in disk data flödet på rekommenderar vi att du börjar med att anta en i/o-storlek på 16 KiB och justerar prestandan därifrån när du övervakar ditt program. Formeln är: data flöde i Mbit/s = # av IOPS * 16/1000.

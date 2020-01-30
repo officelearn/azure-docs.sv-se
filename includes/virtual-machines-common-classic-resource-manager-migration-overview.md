@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: kasing
 ms.custom: include file
-ms.openlocfilehash: c550174bff0529e0fc619f1de79c41ab7cf62a36
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0ffbbe5505c9316f362ebbc41d311f97408f1b17
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021027"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887659"
 ---
 Den här artikeln beskriver hur du migrerar infrastruktur som en tjänst (IaaS) resurser från de klassiska distributions modellerna till Resource Manager och hur du ansluter resurser från de två distributions modeller som finns i din prenumeration med hjälp av Virtual Network plats-till-plats-gatewayer. Du kan läsa mer om [Azure Resource Manager funktioner och förmåner](../articles/azure-resource-manager/management/overview.md). 
 
@@ -75,7 +75,7 @@ Om ditt lagrings konto inte har några associerade diskar eller Virtual Machines
 > Distributions modellen för Resource Manager har inte begreppet klassiska avbildningar och diskar. När lagrings kontot migreras visas inte klassiska avbildningar och diskar i Resource Manager-stacken men de virtuella hård diskarna finns kvar i lagrings kontot.
 
 Följande skärm bilder visar hur du uppgraderar ett klassiskt lagrings konto till ett Azure Resource Manager lagrings konto med hjälp av Azure Portal:
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Navigera till ditt lagringskonto.
 3. I avsnittet **Inställningar** klickar du på **migrera till arm**.
 4. Klicka på **validera** för att fastställa hur migreringen är genomförbar.
@@ -124,6 +124,7 @@ Följande konfigurationer stöds inte för närvarande.
 | Databearbetning | Moln tjänster som innehåller mer än en tillgänglighets uppsättning eller flera tillgänglighets uppsättningar. |Detta stöds inte för närvarande. Flytta Virtual Machines till samma tillgänglighets uppsättning innan du migrerar. |
 | Databearbetning | Virtuell dator med Azure Security Center-tillägget | Azure Security Center installerar automatiskt tillägg på Virtual Machines för att övervaka deras säkerhet och utlösa aviseringar. Dessa tillägg installeras vanligt vis automatiskt om Azure Security Centers principen är aktive rad för prenumerationen. Om du vill migrera Virtual Machines inaktiverar du Security Center-principen för prenumerationen, som tar bort Security Center övervaknings tillägget från Virtual Machines. |
 | Databearbetning | Virtuell dator med säkerhets kopiering eller Snapshot-tillägg | Dessa tillägg installeras på en virtuell dator som har kon figurer ATS med tjänsten Azure Backup. Även om migreringen av de här virtuella datorerna inte stöds, följer du anvisningarna [här](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-faq#vault) för att behålla säkerhets kopior som togs innan migreringen.  |
+| Databearbetning | Virtuell dator med Azure Site Recovery-tillägget | Dessa tillägg installeras på en virtuell dator som har kon figurer ATS med tjänsten Azure Site Recovery. Även om migreringen av lagrings utrymme som används med Site Recovery fungerar, påverkas den aktuella replikeringen. Du måste inaktivera och aktivera VM-replikering efter lagringsmigrering. |
 | Nätverk |Virtuella nätverk som innehåller virtuella datorer och webb-/arbets roller |Detta stöds inte för närvarande. Flytta webb-/arbets rollerna till sina egna Virtual Network innan du migrerar. När den klassiska Virtual Network har migrerats kan den migrerade Azure Resource Manager Virtual Network vara peer-kopplad med den klassiska Virtual Network för att uppnå liknande konfiguration som tidigare.|
 | Nätverk | Klassiska ExpressRoute-kretsar |Detta stöds inte för närvarande. Dessa kretsar måste migreras till Azure Resource Manager innan du påbörjar migreringen av IaaS. Läs mer i [Flytta ExpressRoute-kretsar från den klassiska distributions modellen till Resource Manager](../articles/expressroute/expressroute-move.md).|
 | Azure Apptjänst |Virtuella nätverk som innehåller App Service miljöer |Detta stöds inte för närvarande. |

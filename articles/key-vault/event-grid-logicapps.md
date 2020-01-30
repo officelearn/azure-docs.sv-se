@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ccc4aaed8e5827fbc06b252c8c88b814d9a31fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74135021"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845839"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Använd Logic Apps för att ta emot e-post om status ändringar för Key Vault-hemligheter
 
@@ -34,7 +34,6 @@ Börja med att skapa en Logic app med event Grid-hanteraren och prenumerera på 
 
 Följ dessa steg om du vill skapa en Azure Event Grid-prenumeration:
 
-1. Öppna Azure Portal med hjälp av följande länk: https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true 
 1. I Azure Portal går du till ditt nyckel valv, väljer **händelser > kom igång** och klickar på **Logic Apps**
 
     

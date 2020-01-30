@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268300"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887703"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Förstå omstarter av virtuella datorer – underhåll och driftavbrott
 Det finns tre scenarier som kan leda till att den virtuella datorn i Azure påverkas: oplanerat maskin varu underhåll, oväntad stillestånds tid och planerat underhåll.
@@ -79,12 +79,13 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> Obs! under vissa omständigheter kan det hända att två VM-delar av samma AvailabilitySet delar samma Faulydomain. Detta kan bekräftas genom att gå till AvailabilitySet och kontrol lera kolumnen "fel domän".
-> Det här beteendet kan observeras när följande sekvens uppstod när de virtuella datorerna distribuerades:
+> [!NOTE]
+> Under vissa omständigheter kan 2 virtuella datorer i samma AvailabilitySet dela samma Faulydomain. Du kan bekräfta detta genom att gå till din tillgänglighets uppsättning och kontrol lera kolumnen **fel domän** .
+> Detta kan bero på följande sekvens medan de virtuella datorerna distribueras:
 > - Distribuera den första virtuella datorn
 > - Stoppa/frigör den första virtuella datorn
 > - Distribuera den andra virtuella datorn under dessa omständigheter kan operativ system disken för den andra virtuella datorn skapas på samma feldomän som den första virtuella datorn, så att den andra virtuella datorn även kommer att hamna på samma Faulydomain. 
-> För att undvika det här problemet rekommenderar vi att du inte stoppar/frigör den virtuella datorn mellan distributionerna.
+> För att undvika det här problemet rekommenderar vi att du inte stoppar/frigör de virtuella datorerna mellan distributionerna.
 
 Om du planerar att använda virtuella datorer med ohanterade diskar följer du rekommendationerna nedan för lagrings konton där virtuella hård diskar (VHD) för virtuella datorer lagras som [Page blobbar](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

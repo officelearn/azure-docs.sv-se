@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768476"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845922"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Lägg till ett SSL-certifikat i Azure App Service
 
@@ -61,6 +61,7 @@ Det kostnads fria App Service-hanterade certifikatet är en lösning för att sk
 - Har inte stöd för certifikat med jokertecken.
 - Stöder inte blott-domäner.
 - Kan inte exporteras.
+- Stöder inte DNS A-poster.
 
 > [!NOTE]
 > Det kostnads fria certifikatet utfärdas av DigiCert. För vissa toppnivå domäner måste du uttryckligen tillåta DigiCert som en certifikat utfärdare genom att skapa en [CAA-domän post](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization) med värdet: `0 issue digicert.com`.
@@ -137,7 +138,7 @@ På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för 
 | Location | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
 | Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
-| Åtkomst till virtuellt nätverk | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
+| Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
 
 När du har valt valvet stänger du sidan **Key Vault-lagringsplats** . **Steg 1: Store** -alternativet ska visa en grön bock markering för lyckad. Låt sidan vara öppen för nästa steg.
 

@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: 67d9ff3d4a69ed12d1fd023085eb33a68d02d37b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711075"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846484"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Skapa en funktion i Linux med en anpassad behållare
 
@@ -18,7 +18,7 @@ I den här självstudien skapar du och distribuerar python-kod till Azure Functi
 
 Du kan också använda en standard-Azure App Service-behållare enligt beskrivningen i [skapa din första funktion på Linux](functions-create-first-azure-function-azure-cli-linux.md). Bas avbildningar som stöds för Azure Functions finns i [Azure Functions Base images-lagrings platsen](https://hub.docker.com/_/microsoft-azure-functions-base).
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en Function-app och Dockerfile med hjälp av Azure Functions Core Tools.
@@ -290,7 +290,7 @@ Om du vill distribuera funktions koden till Azure måste du skapa tre resurser:
 
 Du kan använda Azure CLI-kommandon för att skapa dessa objekt. Varje kommando innehåller JSON-utdata när den har slutförts.
 
-1. Logga in på Azure med kommandot [AZ login](/cli/azure/group#az-login) :
+1. Logga in på Azure med kommandot [AZ login](/cli/azure/reference-index#az-login) :
 
     ```azurecli
     az login

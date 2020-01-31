@@ -2,18 +2,18 @@
 title: Extrahera, transformera och läsa in (ETL) i skala – Azure HDInsight
 description: Lär dig hur extrahering, transformering och inläsning används i HDInsight med Apache Hadoop.
 author: ashishthaps
+ms.author: ashishth
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/13/2019
-ms.author: ashishth
-ms.openlocfilehash: ceafee2d3356d37e74039789c8243ace41c141b2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: hdinsightactive
+ms.date: 01/27/2020
+ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435777"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846011"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extrahera, transformera och läsa in (ETL) i skala
 
@@ -85,13 +85,13 @@ För att ladda upp data uppsättningar i terabyte-intervallet kan nätverks för
 
 Azure SQL DW är ett bra alternativ för att lagra rensade och för beredda resultat för framtida analyser.  Azure HDInsight kan användas för att utföra tjänsterna för Azure SQL DW.
 
-Azure SQL Data Warehouse (SQL DW) är ett Relations databas lager som är optimerat för analytiska arbets belastningar.  Azure SQL DW-skalningar baserade på partitionerade tabeller.  Tabeller kan partitioneras över flera noder.  Azure SQL DW-noder väljs vid tidpunkten för skapandet.  De kan skalas efter faktumet, men det är en aktiv process som kan kräva data förflyttning. Mer information finns i [SQL Data Warehouse-hantera beräkning](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md) .
+Azure SQL Data Warehouse (SQL DW) är ett Relations databas lager som är optimerat för analytiska arbets belastningar.  Azure SQL DW-skalningar baserade på partitionerade tabeller.  Tabeller kan partitioneras över flera noder.  Azure SQL DW-noder väljs vid tidpunkten för skapandet.  De kan skalas efter faktumet, men det är en aktiv process som kan kräva data förflyttning. Mer information finns i [SQL Data Warehouse-Manage Compute](../../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 
 Apache HBase är ett nyckel värdes lager som är tillgängligt i Azure HDInsight.  Apache HBase är en NoSQL-databas med öppen källkod som har skapats på Hadoop och modellerats efter Google BigTable. HBase tillhandahåller slumpmässig åtkomst och stark konsekvens för stora mängder ostrukturerade och semistrukturerade data i en schema lös databas som organiseras av kolumn familjer.
 
-Data lagras i tabellens rader och data i raderna grupperas per kolumnfamilj. HBase är en schemalös databas i den mening att varken kolumner eller den typ av data som lagras i dem måste definieras innan du använder dem. Den öppna källkoden skalas linjärt för att hantera petabyte med data på tusentals noder. HBase kan förlita sig på dataredundans, batchbearbetning och andra funktioner som tillhandahålls av distribuerade program i Hadoop-eko systemet.   
+Data lagras i tabellens rader och data i raderna grupperas per kolumnfamilj. HBase är en schemalös databas i den mening att varken kolumner eller den typ av data som lagras i dem måste definieras innan du använder dem. Den öppna källkoden skalas linjärt för att hantera petabyte med data på tusentals noder. HBase kan förlita sig på dataredundans, batchbearbetning och andra funktioner som tillhandahålls av distribuerade program i Hadoop-eko systemet.
 
 HBase är ett utmärkt mål för sensor-och loggdata för framtida analys.
 
@@ -107,7 +107,7 @@ Azure erbjuder tre olika Relations databaser som PAAS (Platform-as-a-Service).
 
 Dessa produkter skalas upp, vilket innebär att de skalas genom att lägga till mer processor och minne.  Du kan också välja att använda Premium diskar med produkterna för bättre I/O-prestanda.
 
-## <a name="azure-analysis-services"></a>Azure Analysis Services 
+## <a name="azure-analysis-services"></a>Azure Analysis Services
 
 Azure Analysis Services (AAS) är en analys data motor som används i besluts support och affärs analys, vilket ger analys data för företags rapporter och klient program som Power BI, Excel, repor ting Services-rapporter och andra data visualiserings verktyg.
 
@@ -115,11 +115,11 @@ Analysis-kuber kan skalas genom att ändra nivåer för varje enskild kub.  Mer 
 
 ## <a name="extract-and-load"></a>Extrahera och Läs in
 
-När data finns i Azure kan du använda många tjänster för att extrahera och läsa in dem i andra produkter.  HDInsight stöder Sqoop och FLUME. 
+När data finns i Azure kan du använda många tjänster för att extrahera och läsa in dem i andra produkter.  HDInsight stöder Sqoop och FLUME.
 
 ### <a name="apache-sqoop"></a>Apache Sqoop
 
-Apache Sqoop är ett verktyg som utformats för att effektivt överföra data mellan strukturerade, halv strukturerade och ostrukturerade data källor. 
+Apache Sqoop är ett verktyg som utformats för att effektivt överföra data mellan strukturerade, halv strukturerade och ostrukturerade data källor.
 
 Sqoop använder MapReduce för att importera och exportera data för att tillhandahålla parallell drift och fel tolerans.
 
@@ -131,10 +131,10 @@ Apache FLUME kan inte användas med Azure HDInsight.  En lokal Hadoop-installati
 
 ## <a name="transform"></a>Transformera
 
-När data finns på den valda platsen måste du rensa den, kombinera den eller förbereda den för ett särskilt användnings mönster.  Hive, gris och Spark SQL är alla lämpliga alternativ för den typen av arbete.  De stöds i HDInsight. 
+När data finns på den valda platsen måste du rensa den, kombinera den eller förbereda den för ett särskilt användnings mönster.  Hive, gris och Spark SQL är alla lämpliga alternativ för den typen av arbete.  De stöds i HDInsight.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Använda Apache gris med Apache Hadoop på HDInsight](hdinsight-use-pig.md)
-* [Använda Apache Hive som ETL-verktyg](apache-hadoop-using-apache-hive-as-an-etl-tool.md) 
+* [Använda Apache Hive som ETL-verktyg](apache-hadoop-using-apache-hive-as-an-etl-tool.md)
 * [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](../hdinsight-hadoop-use-data-lake-storage-gen2.md)
+* [Flytta data från Azure SQL Database till Apache Hive tabell](./apache-hadoop-use-sqoop-mac-linux.md)

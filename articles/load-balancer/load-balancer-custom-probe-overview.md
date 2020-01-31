@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690397"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769175"
 ---
 # <a name="load-balancer-health-probes"></a>Hälsoavsökningar för Load Balancer
 
@@ -200,7 +200,7 @@ Load Balancer är en direkt tjänst (avslutar inte TCP-anslutningar) och flödet
 
 UDP-datagram skickas till felfria backend-slutpunkter.
 
-UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP. Om en server dels hälso avsökningen Miss lyckas kan befintliga UDP-flöden flyttas till en annan felfria instans i backend-poolen.
+UDP anslutningslös och det finns inga läget för energiflöde som spåras för UDP. Om det inte går att söka efter en backend-slutpunkt flyttas befintliga UDP-flöden till en annan felfria instans i backend-poolen.
 
 Om alla avsökningar för alla instanser i en serverdelspool misslyckas avslutas befintliga UDP-flöden för Basic och Standard belastningsutjämnare.
 

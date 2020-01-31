@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 99eb1581c03732691af5eaf9f482ca4ba0605863
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0feb0a1a682328f1e23a7d800eb4f5653a6acdd1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75472585"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765422"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Självstudie: Använd Azure snabb starts mallar
 
@@ -26,7 +26,7 @@ Du måste ha Visual Studio Code med Resource Manager Tools-tillägget och anting
 
 I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json":::
 
 Den här mallen används för att distribuera lagrings konton och App Service-planer, men du kanske vill lägga till en webbplats i den. Du kan använda färdiga mallar för att snabbt identifiera den JSON som krävs för att distribuera en resurs.
 
@@ -45,9 +45,10 @@ Den här mallen används för att distribuera lagrings konton och App Service-pl
 
 Slå samman snabb starts mal len med den befintliga mallen:
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json" range="1-108" highlight="32-45,49,85-100":::
 
-Webb program namnet måste vara unikt i Azure. För att förhindra dubblettnamn har **webAppPortalName** -variabeln uppdaterats från **"webAppPortalName": "[concat (parameters (" webAppName "),"-webapp ")]"** till **"webAppPortalName": "[concat (parameters (" webAppName "), uniqueString (resourceGroup (). ID)]]"** .
+Webb program namnet måste vara unikt i Azure. För att förhindra dubblettnamn har **webAppPortalName** -variabeln uppdaterats från **"webAppPortalName": "[concat (parameters (" webAppName "),"-webapp ")]"** till **"webAppPortalName": "[concat (parameters (" webAppName "), uniqueString (resourceGroup (). ID)]"** .
+
 
 Lägg till ett kommatecken i slutet av `Microsoft.Web/serverfarms`-definitionen för att avgränsa resurs definitionen från `Microsoft.Web/sites`-definitionen.
 

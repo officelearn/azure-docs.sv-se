@@ -4,9 +4,9 @@ title: Dokumentation om förhandsversionen av Azure App Configuration
 metadata:
   title: 'Dokumentation om Azure App Configuration – självstudier, API-referens'
   description: Azure App Configuration är en hanterad tjänst som hjälper utvecklare att centralisera sina program- och funktionsinställningar enkelt och säkert.
-  author: yegu-ms
+  author: lisaguthrie
   manager: maiye
-  ms.author: yegu
+  ms.author: lcozzens
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 04/19/2019

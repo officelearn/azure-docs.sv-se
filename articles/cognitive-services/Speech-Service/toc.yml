@@ -459,6 +459,8 @@
           href: speech-sdk.md
         - name: Scenariotillgänglighet
           href: scenario-availability.md
+        - name: Skicka ett program
+          href: ship-application.md
     - name: Snabbstarter
       items:
         - name: Skapa ett projekt

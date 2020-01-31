@@ -65,6 +65,7 @@
       items:
         - name: Förstå och justera direktuppspelningsenheter
           href: stream-analytics-streaming-unit-consumption.md
+          displayName: 'scale, performance'
         - name: Förbättra prestanda för frågor
           href: stream-analytics-parallelization.md
         - name: Partitionera om indata

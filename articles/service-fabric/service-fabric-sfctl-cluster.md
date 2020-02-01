@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl-kluster
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera kluster.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 807457f3edaef8e0edcdbf53b482e2e4ffee174c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639164"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906150"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Välj, hantera och använda Service Fabric kluster.
@@ -160,7 +160,7 @@ Hämtar listan över användardefinierade fel åtgärder filtrerade genom angivn
 
 |Argument|Beskrivning|
 | --- | --- |
-| --state-filter | Används för att filtrera på OperationState för användardefinierade åtgärder. -65535-Välj alla-1-Välj körs-2-Välj RollingBack-8-Välj slutförd-16-Välj fel-32-Välj avbruten-64-Välj ForceCancelled.  Standard\: 65535. |
+| --state-filter | Används för att filtrera på OperationState för användardefinierade åtgärder. -65535-Välj alla-1-Välj körs-2-Välj RollingBack-8-Välj slutförd-16-Välj felad-32-Välj avbruten-64-Välj ForceCancelled.  Standard\: 65535. |
 | --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
 | --type-filter | Används för att filtrera på OperationType för användardefinierade åtgärder. -65535-Välj alla-1-Välj PartitionDataLoss. -2-Välj PartitionQuorumLoss. -4-Välj PartitionRestart. -8-Välj NodeTransition.  Standard\: 65535. |
 
@@ -235,7 +235,7 @@ Skickar en hälso rapport i ett Service Fabric-kluster. Rapporten måste innehå
 | --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
 | --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
 | --timeout-t | Standard\: 60. |
-| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ange tiden för Live till oändlig. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
+| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
 
 ### <a name="global-arguments"></a>Globala argument
 
@@ -250,7 +250,7 @@ Skickar en hälso rapport i ett Service Fabric-kluster. Rapporten måste innehå
 ## <a name="sfctl-cluster-select"></a>Välj sfctl-kluster
 Ansluter till en Service Fabric kluster slut punkt.
 
-Om du ansluter till ett säkert kluster anger du en absolut sökväg till ett certifikat (. CRT) och en nyckel fil (. Key) eller en enskild fil med båda (. pem). Ange inte båda. Om du vill ansluta till ett säkert kluster kan du även ange en absolut sökväg till en CA-Bundle eller en katalog över betrodda CA-certifikat.  Det finns ingen anslutning till ett kluster utan att köra det här kommandot först, inklusive en anslutning till localhost. Men ingen explicit slut punkt krävs för att ansluta till ett lokalt kluster.
+Om du ansluter till ett säkert kluster anger du en absolut sökväg till ett certifikat (. CRT) och en nyckel fil (. Key) eller en enskild fil med båda (. pem). Ange inte båda. Om du vill ansluta till ett säkert kluster kan du även ange en absolut sökväg till en CA-Bundle eller en katalog över betrodda CA-certifikat.  Det finns ingen anslutning till ett kluster utan att köra det här kommandot först, inklusive en anslutning till localhost. Men ingen explicit slut punkt krävs för att ansluta till ett lokalt kluster.  Om du använder ett självsignerat certifikat eller annat certifikat som inte har signerats av en välkänd certifikat utfärdare, kan du skicka in parametern--ca för att säkerställa att verifieringen lyckas. Om du inte använder ett produktions kluster för att kringgå verifiering på klient sidan (användbart för självsignerade eller inte välkända certifikat utfärdare), Använd alternativet--No-verify. När det är möjligt rekommenderas det inte för produktions kluster. Ett certifikat verifierings fel kan resultera i fel.
 
 ### <a name="arguments"></a>Argument
 

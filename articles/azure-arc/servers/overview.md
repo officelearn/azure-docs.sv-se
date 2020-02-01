@@ -1,62 +1,78 @@
 ---
-title: Översikt över Azure båge för servrar
-description: Lär dig hur du använder Azure Arc för servrar för att automatisera livs cykeln för infrastruktur och program.
+title: Översikt över Azure Arc for Servers (för hands version)
+description: Lär dig hur du använder Azure Arc för servrar för att hantera datorer som ligger utanför Azure, som om det är en Azure-resurs.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-servers
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, önskad tillstånds konfiguration, uppdaterings hantering, ändrings spårning, inventering, Runbooks, python, grafisk, hybrid
-ms.date: 11/04/2019
+ms.date: 01/29/2020
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 06e3b490f4f9cef64ae8bca5aed4d0518f10ba0e
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: b0f1d235391c4c4e3804a6dccc8174e946035b6a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659629"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899194"
 ---
-# <a name="what-is-azure-arc-for-servers"></a>Vad är Azure-båge för servrar?
+# <a name="what-is-azure-arc-for-servers-preview"></a>Vad är Azure-båge för servrar (förhands granskning)
 
-Med Azure-båge för servrar kan du hantera datorer som ligger utanför Azure.
-När en dator som inte är en Azure-dator är ansluten till Azure blir den en **ansluten dator** och behandlas som en resurs i Azure. Varje **ansluten dator** har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure policy och taggning.
+Med Azure Arc för servrar (för hands version) kan du hantera dina Windows-och Linux-datorer utanför Azure på företagets nätverk eller annan moln leverantör, på samma sätt som du hanterar virtuella datorer i Azure. När en hybrid dator är ansluten till Azure blir den en ansluten dator och behandlas som en resurs i Azure. Varje ansluten dator har ett resurs-ID, hanteras som en del av en resurs grupp i en prenumeration och fördelar med Azures standard konstruktioner, till exempel Azure Policy och att använda taggar.
 
-Ett agent paket måste installeras på varje dator för att du ska kunna ansluta det till Azure. Resten av det här dokumentet förklarar processen i detalj.
+För att kunna leverera den här upplevelsen med dina hybrid datorer utanför Azure måste den Azure-anslutna dator agenten installeras på varje dator som du planerar att ansluta till Azure. Den här agenten levererar inga andra funktioner och ersätter inte Azure [Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md). Log Analytics agent för Windows och Linux krävs om du vill övervaka operativ system och arbets belastningar som körs på datorn proaktivt, hantera den med hjälp av Automation-runbooks eller lösningar som Uppdateringshantering eller använda andra Azure-tjänster som [Azure Security Center](../../security-center/security-center-intro.md).
 
-Datorerna har statusen **ansluten** eller **frånkopplad** baserat på hur nyligen agenten har checkat in. Varje incheckning kallas för ett pulsslag. Om en dator inte har incheckat inom de senaste 5 minuterna visas den som offline tills anslutningen har återställts.  <!-- For more information on troubleshooting agent connectivity, see [Troubleshooting Azure Arc for servers](troubleshoot/arc-for-servers.md). -->
+>[!NOTE]
+>Den här för hands versionen är avsedd i utvärderings syfte och vi rekommenderar att du inte hanterar kritiska produktions datorer.
+>
 
-![Anslutna servrar](./media/overview/arc-for-servers-onboarded-servers.png)
+## <a name="supported-scenarios"></a>Scenarier som stöds
 
-## <a name="clients"></a>Klienter
+Azure-båge för servrar (för hands version) stöder följande scenarier med anslutna datorer:
+
+- Tilldela [Azure policy gäst konfigurationer](../../governance/policy/concepts/guest-configuration.md) med samma erfarenhet som princip tilldelning för virtuella Azure-datorer.
+- Loggdata som samlas in av Log Analytics-agenten och lagras på arbets ytan Log Analytics. datorn är registrerad med nu innehåller egenskaper som är speciella för datorn, t. ex. resurs-ID, som kan användas för att ge stöd åt [resurs kontexts](../../azure-monitor/platform/design-logs-deployment.md#access-mode) loggar.
+
+## <a name="supported-regions"></a>Regioner som stöds
+
+Med Azure Arc for Servers (för hands version) stöds endast vissa regioner:
+
+- WestUS2
+- Västeuropa
+- WestAsia
+
+## <a name="prerequisites"></a>Krav
 
 ### <a name="supported-operating-systems"></a>Operativsystem som stöds
 
-I offentlig för hands version stöder vi:
+Följande versioner av operativ systemet Windows och Linux stöds officiellt för den Azure-anslutna dator agenten: 
 
 - Windows Server 2012 R2 och senare
 - Ubuntu 16,04 och 18,04
 
-Den offentliga för hands versionen är utformad i utvärderings syfte och bör inte användas för att hantera kritiska produktions resurser.
+>[!NOTE]
+>Den här för hands versionen av den anslutna dator agenten för Windows stöder endast Windows Server som kon figurer ATS för att använda det engelska språket.
+>
 
-## <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
+### <a name="azure-subscription-and-service-limits"></a>Prenumerations-och tjänst begränsningar i Azure
 
-Se till att du läser Azure Resource Manager gränser och planera för antalet datorer som ska anslutas enligt den rikt linje som anges för [prenumerationen](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager)och för [resurs grupperna](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits). I synnerhet finns det en gräns på 800 servrar per resurs grupp som standard.
+Innan du konfigurerar dina datorer med Azure Arc for Servers (för hands version) bör du granska gränsen för Azure Resource Manager [prenumerations gränser](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) och [resurs gruppen](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) för att planera för antalet datorer som ska anslutas.
 
-## <a name="networking-configuration"></a>Nätverks konfiguration
+### <a name="networking-configuration"></a>Nätverks konfiguration
 
-Vid installation och körning kräver agenten anslutning till **Azure Arc-tjänstens slut punkter**. Om utgående anslutning blockeras av brand väggar kontrollerar du att följande URL: er inte blockeras som standard. Alla anslutningar är utgående från agenten till Azure och skyddas med **SSL**. All trafik kan dirigeras via en **https** -proxy. Om du tillåter IP-adressintervall eller domän namn som servrarna tillåts ansluta till måste du tillåta port 443 åtkomst till följande service märken och DNS-namn.
+Den anslutna dator agenten för Linux och Windows kommunicerar på ett säkert sätt till Azure-bågen via TCP-port 443. Om datorn ansluter via en brand vägg eller proxyserver för att kommunicera via Internet kan du läsa igenom kraven nedan för att förstå kraven på nätverks konfigurationen.
+
+Om den utgående anslutningen begränsas av din brand vägg eller proxyserver kontrollerar du att URL: erna i listan nedan inte är blockerade. Om du bara tillåter de IP-adressintervall eller domän namn som krävs för att agenten ska kunna kommunicera med tjänsten, måste du också tillåta åtkomst till följande service märken och URL: er.
 
 Service märken:
 
-* AzureActiveDirectory
-* AzureTrafficManager
+- AzureActiveDirectory
+- AzureTrafficManager
 
-En lista över IP-adresser för varje service tag/region finns i JSON-filen – [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publicerar veckovis uppdateringar som innehåller varje Azure-tjänst och de IP-intervall som används. Mer information finns i [tjänst Taggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Er
 
-Dessa DNS-namn tillhandahålls utöver service tag-information om IP-intervall, eftersom majoriteten av tjänsterna för närvarande inte har en registrering av service tag och, vilket kan vara att IP-adresser kan ändras. Om IP-intervall krävs för brand Väggs konfigurationen ska **AzureCloud** -tjänst tag gen användas för att ge åtkomst till alla Azure-tjänster. Inaktivera inte säkerhetsövervakning eller inspektion av dessa URL: er, men tillåt dem som andra Internet trafik.
-
-| Domänmiljö | Nödvändiga Azure-tjänsteslutpunkter |
+| Agentresurs | Beskrivning |
 |---------|---------|
 |management.azure.com|Azure Resource Manager|
 |login.windows.net|Azure Active Directory|
@@ -65,116 +81,58 @@ Dessa DNS-namn tillhandahålls utöver service tag-information om IP-intervall, 
 |*-agentservice-prod-1.azure-automation.net|Gästkonfiguration|
 |*. his.hybridcompute.azure-automation.net|Hybrid identitets tjänst|
 
-### <a name="installation-network-requirements"></a>Installations nätverks krav
+En lista över IP-adresser för varje service tag/region finns i JSON-filen – [Azure IP-intervall och service märken – offentligt moln](https://www.microsoft.com/download/details.aspx?id=56519). Microsoft publicerar veckovis uppdateringar som innehåller varje Azure-tjänst och de IP-intervall som används. Mer information finns i [service tag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
-Ladda ned [Azure Connected Machine agent-paketet](https://aka.ms/AzureConnectedMachineAgent) från våra officiella distributions servrar. de här platserna måste vara tillgängliga från din miljö. Du kan välja att ladda ned paketet till en fil resurs och installera agenten därifrån. I det här fallet kan onboarding-skriptet som genereras från Azure Portal behöva ändras.
+URL: erna i föregående tabell krävs utöver informationen om tjänst Tagns IP-adressintervall eftersom majoriteten av tjänsterna för närvarande inte har en registrering av service tag. Därför kan IP-adresserna ändras. Om det krävs IP-adressintervall för brand Väggs konfigurationen ska **AzureCloud** -tjänst tag gen användas för att ge åtkomst till alla Azure-tjänster. Inaktivera inte säkerhetsövervakning eller granskning av dessa URL: er, Tillåt dem som andra Internet trafik.
 
-Windows:
+### <a name="register-azure-resource-providers"></a>Registrera Azure-resurs leverantörer
 
-* `aka.ms`
-* `download.microsoft.com`
+Azure båg for-servrar (för hands version) är beroende av följande Azure-resurs-providers i din prenumeration för att kunna använda den här tjänsten:
 
-Linux:
+- **Microsoft.HybridCompute**
+- **Microsoft. GuestConfiguration**
 
-* `aka.ms`
-* `packages.microsoft.com`
-
-Se avsnittet [Proxy Server-konfiguration](quickstart-onboard-powershell.md#proxy-server-configuration)för information om hur du konfigurerar agenten för att använda proxyservern.
-
-## <a name="register-the-required-resource-providers"></a>Registrera nödvändiga resurs leverantörer
-
-För att kunna använda Azure-bågen för servrar måste du registrera nödvändiga resurs leverantörer.
-
-* **Microsoft.HybridCompute**
-* **Microsoft. GuestConfiguration**
-
-Du kan registrera resurs leverantörerna med följande kommandon:
+Om de inte är registrerade kan du registrera dem med hjälp av följande kommandon:
 
 Azure PowerShell:
 
 ```azurepowershell-interactive
 Login-AzAccount
-Set-AzContext -SubscriptionId [subscription you want to onboard]
-Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
-Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
+Set-AzContext -SubscriptionId [subscription you want to onboard]
+Register-AzResourceProvider -ProviderNamespace Microsoft.HybridCompute
+Register-AzResourceProvider -ProviderNamespace Microsoft.GuestConfiguration
 ```
 
 Azure CLI:
 
 ```azurecli-interactive
-az account set --subscription "{Your Subscription Name}"
-az provider register --namespace 'Microsoft.HybridCompute'
-az provider register --namespace 'Microsoft.GuestConfiguration'
+az account set --subscription "{Your Subscription Name}"
+az provider register --namespace 'Microsoft.HybridCompute'
+az provider register --namespace 'Microsoft.GuestConfiguration'
 ```
 
-Du kan också registrera resurs leverantörer med hjälp av portalen genom att följa stegen under [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+Du kan också registrera resurs leverantörerna i Azure Portal genom att följa stegen under [Azure Portal](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-## <a name="machine-changes-after-installing-the-agent"></a>Dator ändringar efter installation av agenten
+## <a name="connected-machine-agent"></a>Ansluten dator agent
 
-Om du har en lösning för ändrings spårning distribuerad i din miljö kan du använda listan nedan för att spåra, identifiera och tillåta de ändringar som gjorts av installations paketet för **Azure Connected Machine agent (AzCMAgent)** .
+Du kan ladda ned Azure Connected Machine agent-paketet för Windows och Linux från de platser som anges nedan.
 
-När du har installerat agenten ser du följande ändringar som gjorts på dina servrar.
+- [Windows agent Windows Installer-paketet](https://aka.ms/AzureConnectedMachineAgent) från Microsoft Download Center.
+- Linux Agent-paketet distribueras från Microsofts [paket lagrings plats](https://packages.microsoft.com/) med det önskade paket formatet för distributionen (. RPM eller. DEB).
 
-### <a name="windows"></a>Windows
+>[!NOTE]
+>Under för hands versionen har endast ett paket släppts, vilket är lämpligt för Ubuntu 16,04 eller 18,04.
 
-Tjänster installerade:
+## <a name="install-and-configure-agent"></a>Installera och konfigurera agenten
 
-* `Himds` – tjänsten **Azure Connected Machine agent** .
-* `Dscservice` eller `gcd` – **gäst konfigurations** tjänsten.
+Att ansluta datorer i din hybrid miljö direkt med Azure kan utföras med hjälp av olika metoder beroende på dina behov. I följande tabell beskrivs varje metod för att avgöra vilken som fungerar bäst för din organisation.
 
-Filer som lagts till på servern:
+| Metod | Beskrivning |
+|--------|-------------|
+| Interaktivt | Installera agenten manuellt på ett enda eller litet antal datorer enligt stegen i [ansluta datorer från Azure Portal](quickstart-onboard-portal.md).<br> Från Azure Portal kan du generera ett skript och köra det på datorn för att automatisera installations-och konfigurations stegen för agenten.|
+| I skala | Installera och konfigurera agenten för flera datorer efter att [ansluta datorerna med ett huvud namn för tjänsten](quickstart-onboard-powershell.md).<br> Den här metoden skapar ett huvud namn för tjänsten för att ansluta datorer icke-interaktivt.|
 
-* `%ProgramFiles%\AzureConnectedMachineAgent\*.*` plats för **Azure Connected Machine agent** -filer.
-* `%ProgramData%\GuestConfig\*.*` - **gäst konfigurations** loggar.
 
-Register nyckel platser:
+## <a name="next-steps"></a>Nästa steg
 
-* `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure Connected Machine Agent`-register nycklar för **Azure Connected Machine agent**.
-
-### <a name="linux"></a>Linux
-
-Tjänster installerade:
-
-* `Himdsd` – tjänsten **Azure Connected Machine agent** .
-* `dscd` eller `gcd` – **gäst konfigurations** tjänsten.
-
-Filer som lagts till på servern:
-
-* `/var/opt/azcmagent/**` plats för **Azure Connected Machine agent** -filer.
-* `/var/lib/GuestConfig/**` - **gäst konfigurations** loggar.
-
-## <a name="supported-scenarios"></a>Scenarier som stöds
-
-När du har registrerat en nod kan du börja hantera dina noder med andra Azure-tjänster.
-
-I offentlig för hands version stöds följande scenarier för **anslutna datorer**.
-
-## <a name="guest-configuration"></a>Gästkonfiguration
-
-När du har anslutit datorn till Azure kan du tilldela Azure-principer till **anslutna datorer** med samma erfarenhet som princip tilldelning till virtuella Azure-datorer.
-
-Mer information finns i [förstå Azure policys gäst konfiguration](../../governance/policy/concepts/guest-configuration.md).
-
-Gäst konfigurations agentens loggar för en **ansluten dator** finns på följande platser:
-
-* Windows – `%ProgramFiles%\AzureConnectedMachineAgent\logs\dsc.log`
-* Linux:-`/opt/logs/dsc.log`
-
-## <a name="log-analytics"></a>Log Analytics
-
-Loggdata som samlas in av [Microsoft Monitoring Agent (MMA)](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) och lagras på Log Analytics-arbetsyta innehåller nu egenskaper som är speciella för datorn, till exempel **ResourceID**, som kan användas för resursens koncentriska logg åtkomst.
-
-- Datorer som redan har MMA-agenten installerad kommer att ha **Azure Arc** -funktioner aktiverade via uppdaterade hanterings paket.
-- [MMA-agentens version 10.20.18011 eller senare](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) krävs för integrering av Azure Arc för servrar.
-- När du frågar efter loggdata i [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)kommer det returnerade dataschemat att innehålla hybrid- **ResourceId** i formuläret `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>`.
-
-Mer information finns i [Kom igång med Log Analytics i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).
-
-<!-- MMA agent version 10.20.18011 and later -->
-
-## <a name="next-steps"></a>Efterföljande moment
-
-Det finns två metoder för att ansluta datorer med Azure-båge för servrar.
-
-* **Interaktivt** – Följ snabb starten för [portalen](quickstart-onboard-portal.md) om du vill generera ett skript från portalen och köra det på datorn. Det här är det bästa alternativet om du ansluter en dator i taget.
-* **I skala** – Följ snabb starten för [PowerShell](quickstart-onboard-powershell.md) för att skapa ett huvud namn för tjänsten för att ansluta datorer icke-interaktivt.
+- Om du vill börja utvärdera Azure-bågen för servrar (för hands version) följer du artikeln [Connect hybrid Machines to Azure från Azure Portal](quickstart-onboard-portal.md). 

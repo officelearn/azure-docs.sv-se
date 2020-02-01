@@ -2,13 +2,13 @@
 title: Azure Migrate-replikeringsinstallation
 description: Lär dig mer om Azure Migrate Replication-enhet för agent-baserad VMWare-migrering.
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: 574877c6a0a5ade068cff08041b29d2465430ed1
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/30/2020
+ms.openlocfilehash: 4521fce6310b319d155a2f0c418cd934be7e2cb8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029035"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901553"
 ---
 # <a name="replication-appliance"></a>Replikeringsfil
 
@@ -91,7 +91,7 @@ https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.
 
 ## <a name="port-access"></a>Port åtkomst
 
-**Enhet** | **Anslutning**
+**Anordningar** | **Anslutning**
 --- | ---
 Virtuella datorer | Mobilitets tjänsten som körs på virtuella datorer kommunicerar med den lokala replikerings enheten (konfigurations servern) på port HTTPS 443 inkommande, för hantering av replikering.<br/><br/> Virtuella datorer skickar replikeringsdata till processervern (körs på konfigurations serverdatorn) på port HTTPS 9443 inkommande. Den här porten kan ändras.
 Replikeringsfil | Replikeringstjänsten dirigerar replikering med Azure över Port HTTPS 443 utgående.

@@ -1,33 +1,32 @@
 ---
-title: 'Snabb start: skicka och ta emot händelser med python – Azure Event Hubs'
-description: 'Snabb start: den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs.'
+title: Skicka eller ta emot händelser från Azure Event Hubs med python (gammal)
+description: Den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs med hjälp av det gamla Azure-eventhub version 1-paketet.
 services: event-hubs
-author: ShubhaVijayasarathy
+author: spelluru
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 01/08/2020
-ms.author: shvija
-ms.openlocfilehash: c4fa9e6038f4007246552610f537825f9def92a8
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.date: 01/15/2020
+ms.author: spelluru
+ms.openlocfilehash: 654ccd6352dc0b671cc3becdafd2f1e1102dd39e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939959"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902947"
 ---
-# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python"></a>Snabb start: skicka och ta emot händelser med Event Hubs med python
+# <a name="quickstart-send-and-receive-events-with-event-hubs-using-python-azure-eventhub-version-1"></a>Snabb start: skicka och ta emot händelser med Event Hubs med python (Azure-eventhub version 1)
 
-Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri från distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. Mer information om Event Hubs finns i [Azure-Event Hubs](event-hubs-about.md) och- [funktioner och terminologi i Azure Event Hubs](event-hubs-features.md).
+Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri från distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Mer information om Event Hubs finns i [Azure-Event Hubs](event-hubs-about.md) och- [funktioner och terminologi i Azure Event Hubs](event-hubs-features.md).
 
 Den här snabb starten visar hur du skapar python-program som skickar händelser till och tar emot händelser från en händelsehubben. 
 
-> [!IMPORTANT]
-> I den här snabb starten används version 1 av Azure Event Hubs python SDK. Om du är nybörjare på Azure Event Hubs använder du version 5 av python SDK. En snabb start som använder version 5 av python SDK finns i [den här artikeln](get-started-python-send-v2.md). Information om hur du migrerar en befintlig kod från version 1 till version 5 finns i [migreringsguiden](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md).
+> [!WARNING]
+> Den här snabb starten är för version 1 av Azure Event Hubs python SDK. Vi rekommenderar att du [migrerar](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md) koden till [version 5 av python SDK](get-started-python-send-v2.md).
 
-
-> [!NOTE]
-> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString` och `EventHubName` strängar med Event Hub-värdena. 
+ 
+ 
 
 ## <a name="prerequisites"></a>Krav
 
@@ -40,15 +39,16 @@ För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 - Python-paketet för Event Hubs. Installera paketet genom att köra det här kommandot i en kommando tolk med python i sökvägen: 
   
   ```cmd
-  pip install azure-eventhub
+  pip install azure-eventhub==1.3.*
   ```
-  
-  > [!NOTE]
-  > Koden i den här snabb starten använder den aktuella stabila versionen av 1.3.1 för Event Hubs SDK. Exempel kod som använder för hands versionen av SDK finns i [https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples).
+
 
 ## <a name="send-events"></a>Skicka händelser
 
 Så här skapar du ett python-program som skickar händelser till en Event Hub:
+
+> [!NOTE]
+> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString` och `EventHubName` strängar med Event Hub-värdena.
 
 1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
 2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100 händelser till din event hub.

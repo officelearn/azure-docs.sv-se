@@ -1,14 +1,14 @@
 ---
 title: Skapa ett program för Azure Service Fabric container
-description: Skapa din första Windows-containerapp på Azure Service Fabric. Skapa en Docker-avbildning med en Python-app, överför avbildningen till ett containerregister och skapa och distribuera en Service Fabric-containerapp.
+description: Skapa din första Windows-containerapp på Azure Service Fabric. Bygg en Docker-avbildning med ett python-program, skicka avbildningen till ett behållar register och sedan bygga och distribuera behållaren till Azure Service Fabric.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458006"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906260"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Skapa din första Service Fabric-containerapp i Windows
 
@@ -16,7 +16,7 @@ ms.locfileid: "75458006"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln beskriver hur du skapar en Docker-avbildning som innehåller ett webb program för python- [flaska](http://flask.pocoo.org/) och distribuerar det till ett Service Fabric kluster som körs på den lokala datorn. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
+Du behöver inga göra några ändringar i din app för att köra en befintlig app i en Windows-container i ett Service Fabric-kluster. Den här artikeln beskriver hur du skapar en Docker-avbildning som innehåller ett webb program för python- [flaska](http://flask.pocoo.org/) och distribuerar det till ett Azure Service Fabric-kluster. Du kan också dela programmet via [Azure Container-registret](/azure/container-registry/). Den här artikeln förutsätter att du har grundläggande kunskaper om Docker. Mer information om Docker finns i [Docker Overview](https://docs.docker.com/engine/understanding-docker/) (Översikt över Docker).
 
 > [!NOTE]
 > Den här artikeln gäller för en Windows-utvecklings miljö.  Service Fabric kluster körning och Docker-körningsmiljön måste köras på samma OS.  Det går inte att köra Windows-behållare i ett Linux-kluster.

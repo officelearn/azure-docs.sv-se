@@ -3,19 +3,19 @@ title: Stöd för VMware-migrering i Azure Migrate
 description: Läs mer om stöd för migrering av VMware VM i Azure Migrate.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: e33811563063c0f8eb94b9927d07596d51cd45e4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030229"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901537"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Support mat ris för VMware-migrering
 
 Den här artikeln sammanfattar support inställningar och begränsningar för migrering av virtuella VMware-datorer med [Azure Migrate: Server-migrering](migrate-services-overview.md#azure-migrate-server-migration-tool) . Om du vill ha information om hur du bedömer virtuella VMware-datorer för migrering till Azure läser du [matrisen för utvärderings support](migrate-support-matrix-vmware.md).
 
 
-## <a name="migration-options"></a>Migreringsalternativ
+## <a name="migration-options"></a>Migrations alternativ
 
 Du kan migrera virtuella VMware-datorer på ett par olika sätt:
 
@@ -24,7 +24,7 @@ Du kan migrera virtuella VMware-datorer på ett par olika sätt:
 
 Läs [den här artikeln](server-migrate-overview.md) för att ta reda på vilken metod du vill använda.
 
-## <a name="migration-limitations"></a>Migreringsbegränsningar
+## <a name="migration-limitations"></a>Begränsningar för migrering
 
 - Du kan välja upp till 10 virtuella datorer på en gång för replikering. Om du vill migrera fler datorer kan du replikera i grupper om 10.
 - För VMware-agent lös migrering kan du köra upp till 100 replikeringar samtidigt.
@@ -71,7 +71,7 @@ Vid migrering utan agent används Azure Migrate-installationen som distribueras 
 
 ## <a name="agentless-ports"></a>Agenter-portar
 
-**Enhet** | **Anslutning**
+**Anordningar** | **Anslutning**
 --- | ---
 Enhet | Utgående anslutningar på port 443 för att överföra replikerade data till Azure och för att kommunicera med Azure Migrate tjänster som dirigerar replikering och migrering.
 vCenter Server | Inkommande anslutningar på port 443 för att tillåta att enheten dirigerar replikering – skapa ögonblicks bilder, kopiera data, versions ögonblicks bilder
@@ -94,7 +94,7 @@ Tabellen sammanfattar VMware VM-stöd för virtuella VMware-datorer som du vill 
 **Support** | **Detaljer**
 --- | ---
 **Dator arbets belastning** | Azure Migrate stöder migrering av arbets belastningar (t. ex. Active Directory, SQL Server osv.) som körs på en dator som stöds.
-**Operativsystem** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för virtuella dator operativ system.
+**Operativ system** | Du hittar den senaste informationen i [operativ systemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#replicated-machines) för Site Recovery. Azure Migrate tillhandahåller identiskt stöd för virtuella dator operativ system.
 **Linux-filsystem/gäst lagring** | Du hittar den senaste informationen i [Linux-filsystemets stöd](../site-recovery/vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage) för Site Recovery. Azure Migrate har samma stöd för Linux-filsystem.
 **Nätverk/lagring** | För den senaste informationen granskar du kraven för [nätverk](../site-recovery/vmware-physical-azure-support-matrix.md#network) och [lagring](../site-recovery/vmware-physical-azure-support-matrix.md#storage) för Site Recovery. Azure Migrate tillhandahåller identiska nätverks-/lagrings krav.
 **Krav för Azure** | Du hittar den senaste informationen i [Azure-nätverket](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [lagrings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)-och [beräknings](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) kraven för Site Recovery. Azure Migrate har identiska krav för VMware-migrering.
@@ -123,7 +123,15 @@ När du ställer in replikeringen med hjälp av den ägg-mall som finns i Azure 
 
 - Lär dig mer om [krav för replikering](migrate-replication-appliance.md#appliance-requirements) av VMware.
 - MySQL måste vara installerat på enheten. Lär dig mer om [installations alternativ](migrate-replication-appliance.md#mysql-installation).
-- Lär dig mer om [webb adresser](migrate-replication-appliance.md#url-access) som krävs för att få åtkomst till replikerings enheten.
+- Lär dig mer om [webb adresser](migrate-replication-appliance.md#url-access) och [portar]() som krävs för att få åtkomst till replikerings enheten.
+
+## <a name="agent-based-ports"></a>Agenter-baserade portar
+
+**Anordningar** | **Anslutning**
+--- | ---
+Virtuella datorer | Mobilitets tjänsten som körs på virtuella datorer kommunicerar med den lokala replikerings enheten (konfigurations servern) på port HTTPS 443 inkommande, för hantering av replikering.<br/><br/> Virtuella datorer skickar replikeringsdata till processervern (körs på konfigurations serverdatorn) på port HTTPS 9443 inkommande. Den här porten kan ändras.
+Replikeringsfil | Replikeringstjänsten dirigerar replikering med Azure över Port HTTPS 443 utgående.
+Processerver | Processervern tar emot replikeringsdata, optimerar och krypterar den och skickar den till Azure Storage via port 443 utgående.<br/> Som standard körs processervern på replikerings enheten.
 
 ## <a name="azure-vm-requirements"></a>Krav för virtuell Azure-dator
 
@@ -131,14 +139,14 @@ Alla lokala virtuella datorer som replikeras till Azure måste uppfylla de krav 
 
 **Komponent** | **Krav** | **Detaljer**
 --- | --- | ---
-Gästoperativsystem | Verifierar att virtuella VMware-operativsystem stöds för migrering.<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
+Gäst operativ system | Verifierar att virtuella VMware-operativsystem stöds för migrering.<br/> Du kan migrera alla arbets belastningar som körs på ett operativ system som stöds. | Kontrollen Miss lyckas om den inte stöds.
 Gäst operativ systemets arkitektur | 64-bitars. | Kontrollen Miss lyckas om den inte stöds.
 Storlek på operativ system disk | Upp till 2 048 GB. | Kontrollen Miss lyckas om den inte stöds.
 Antal operativ system diskar | 1 | Kontrollen Miss lyckas om den inte stöds.
 Antal data diskar | 64 eller mindre. | Kontrollen Miss lyckas om den inte stöds.
 Data disk storlek | Upp till 4 095 GB | Kontrollen Miss lyckas om den inte stöds.
 Nätverkskort | Flera nätverkskort stöds. |
-Delad virtuell hårddisk | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
+Delad virtuell hård disk | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
 FC-disk | Stöds inte. | Kontrollen Miss lyckas om den inte stöds.
 BitLocker | Stöds inte. | BitLocker måste inaktive ras innan du aktiverar replikering för en dator.
 VM-namn | Mellan 1 och 63 tecken.<br/> Begränsat till bokstäver, siffror och bindestreck.<br/><br/> Dator namnet måste börja och sluta med en bokstav eller en siffra. |  Uppdatera värdet i dator egenskaperna i Site Recovery.

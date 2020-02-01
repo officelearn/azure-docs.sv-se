@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659839"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901481"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Skapa och hantera åtgärds grupper i Azure Portal
 En åtgärds grupp är en samling aviserings inställningar som definieras av ägaren av en Azure-prenumeration. Azure Monitor-och Service Health-aviseringar använder åtgärds grupper för att meddela användare om att en avisering har utlösts. Olika aviseringar kan använda samma åtgärds grupp eller olika åtgärds grupper beroende på användarens krav. Du kan konfigurera upp till 2 000 åtgärds grupper i en prenumeration.
@@ -72,12 +72,12 @@ När du har skapat en åtgärds grupp visas den i avsnittet **Åtgärds grupper*
 > [!NOTE]
 > Se [begränsningar för prenumerations tjänsten för övervakning](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) av numeriska gränser för varje objekt nedan.  
 
-### <a name="automation-runbook"></a>Automation Runbook
+### <a name="automation-runbook"></a>Automation-Runbook
 Se begränsningar för [Azure-prenumerations tjänsten](../../azure-resource-manager/management/azure-subscription-service-limits.md) för begränsningar i Runbook-nyttolaster.
 
 Du kan ha ett begränsat antal Runbook-åtgärder i en åtgärds grupp. 
 
-### <a name="azure-app-push-notifications"></a>Push-meddelanden i Azure-appen
+### <a name="azure-app-push-notifications"></a>Push-meddelanden i Azure App
 Du kan ha ett begränsat antal Azure App-åtgärder i en åtgärds grupp.
 
 ### <a name="email"></a>E-post
@@ -88,13 +88,13 @@ E-postmeddelanden kommer att skickas från följande e-postadresser. Kontrol ler
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
-### <a name="email-azure-resource-manager-role"></a>E-posta Azure Resource Manager-rollen
+### <a name="email-azure-resource-manager-role"></a>E-Azure Resource Manager roll
 Skicka e-post till medlemmarna i prenumerationens roll.
 
 Du kan ha ett begränsat antal e-poståtgärder i en åtgärds grupp. Se artikeln [rate relimiting information](./../../azure-monitor/platform/alerts-rate-limiting.md) .
 
 ### <a name="function"></a>Funktion
-Funktions tangenterna för Function-appar som kon figurer ATS som åtgärder läses via Functions-API: t, som för närvarande krävs v2-funktions program för att konfigurera app-inställningen "AzureWebJobsSecretStorageType" till "Files". Mer information finns i [ändringar av nyckel hantering i functions v2]( https://aka.ms/funcsecrets).
+Anropar en befintlig HTTP trigger-slutpunkt i [Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app).
 
 Du kan ha ett begränsat antal funktions åtgärder i en åtgärds grupp.
 

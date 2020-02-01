@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl-program
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera program.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645420"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906209"
 ---
 # <a name="sfctl-application"></a>sfctl application
 Skapa, ta bort och hantera program och program typer.
@@ -530,9 +530,12 @@ Du kan också Visa uppladdnings förloppet för varje fil i paketet. Överförin
 |Argument|Beskrivning|
 | --- | --- |
 | --sökväg [obligatoriskt] | Sökväg till lokalt programpaket. |
+| --Komprimera | Gäller endast för Service Fabric programpaket. Skapa en ny mapp som innehåller det komprimerade programpaketet till standard platsen eller till den plats som anges av parametern Compressed-location och ladda sedan upp den nya mappen. <br><br> Om det redan finns en komprimerad fil som genererats av sfctl kommer den att skrivas över om den här flaggan har angetts. Ett fel returneras om katalogen inte är ett programpaket. Om det redan är ett komprimerat programpaket kopieras mappen över som är. Som standard tas det nyligen skapade komprimerade programpaketet bort efter en lyckad uppladdning. Om överföringen inte lyckas rensar du det komprimerade paketet manuellt efter behov. Borttagningen tar inte bort tomma kataloger som kan ha skapats om parametern Compressed location refererar till obefintliga kataloger. |
+| --komprimerad plats | Platsen där det komprimerade programpaketet ska läggas till. <br><br> Om ingen plats anges placeras det komprimerade paketet under en nyligen skapad mapp som kallas sfctl_compressed_temp under den överordnade katalogen som anges i argumentet Path. Om argumentet Path exempelvis har värdet C\:/FolderA/AppPkg, läggs det komprimerade paketet till C\:/FolderA/sfctl_compressed_temp/AppPkg. |
 | --avbildnings Arkiv-sträng | Mål avbildnings lager att ladda upp programpaketet till.  Standard\: Fabric\:avbildnings arkiv. <br><br> Om du vill överföra till en fil Sök väg startar du den här parametern med "fil\:". Annars bör värdet vara anslutnings strängen för bild arkivet, till exempel standardvärdet. |
+| --Behåll-komprimerad | Huruvida det genererade komprimerade paketet ska behållas vid slutförd uppladdning. <br><br> Om den inte anges kommer de komprimerade Appaketet att tas bort vid lyckad slut för ande. Om överföringen inte lyckades lagras programpaketet alltid i utdatakatalogen för omöverföring. |
 | --show-Progress | Visa fil överförings förlopp för stora paket. |
-| --timeout-t | Den totala tids gränsen i sekunder. Det går inte att överföra och returnera fel efter att varaktigheten för uppladdningen har passerat. Denna timeout gäller för hela programpaketet och enskilda fil-timeoutar är samma som den återstående tids gränsen.  Standard\: 300. |
+| --timeout-t | Den totala tids gränsen i sekunder. Det går inte att överföra och returnera fel efter att varaktigheten för uppladdningen har passerat. Denna timeout gäller för hela programpaketet och enskilda fil-timeoutar är samma som den återstående tids gränsen. Timeout inkluderar inte den tid som krävs för att komprimera programpaketet.  Standard\: 300. |
 
 ### <a name="global-arguments"></a>Globala argument
 

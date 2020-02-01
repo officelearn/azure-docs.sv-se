@@ -3,33 +3,30 @@ title: 'Snabb start: Azure Blob Storage klient bibliotek v 2.1 för python'
 description: I den här snabbstarten skapar du ett lagringskonto och en container i objektlagring (Blob). Sedan använder du lagrings klient bibliotek v 2.1 för python och laddar upp en blob till Azure Storage, laddar ned en blob och listar blobarna i en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/11/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: 3e1adc9220dd9b49c49ff3fe5e798dfcc9d5c928
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 4b0248604b6e9189d5275177a4960e4c352e8215
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122686"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906434"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v21-for-python"></a>Snabb start: Azure Blob Storage klient bibliotek v 2.1 för python
+# <a name="quickstart-manage-blobs-with-python-v21-sdk"></a>Snabb start: hantera blobbar med python v 2.1 SDK
 
-I den här artikeln använder du python för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage. Blobbar är bara objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Blobbar i Azure Storage skiljer sig från fil resurser, schema lösa tabeller och meddelande köer.  Mer information finns i [Introduktion till Azure Storage](/azure/storage/common/storage-introduction).
-
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+I den här snabb starten lär du dig att hantera blobbar med hjälp av python. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
 
 ## <a name="prerequisites"></a>Krav
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/).
+- [Azure Storage SDK för python](https://github.com/Azure/azure-sdk-for-python).
 
-Kontrollera att du har följande ytterligare krav installerade:
-
-* [Python](https://www.python.org/downloads/)
-
-* [Azure Storage SDK för Python](https://github.com/Azure/azure-sdk-for-python)
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 

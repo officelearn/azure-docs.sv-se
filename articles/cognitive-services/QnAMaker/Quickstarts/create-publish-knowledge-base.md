@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/29/2020
 ms.author: diberry
-ms.openlocfilehash: 26c7996d6a955a183121a59254131dcb1dc6706f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a3bdc118be96630ebcf3bf63a2948976dc9b4261
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844270"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901686"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
@@ -39,7 +39,7 @@ Ta med en användare av en CHI2TEST för att göra din kunskap mer engagerande m
 1. På sidan **skapa** väljer du **skapa en QNA-tjänst**. Du dirigeras till [Azure-portalen](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) för att konfigurera en QnA Maker-tjänst i din prenumeration.
 
 1. Skapa resursen i Azure Portal. Kom ihåg Azure Active Directory ID, prenumeration, QnA-resurs namn som du valde när du skapade resursen.
-1. Gå tillbaka till QnA Maker portalen, uppdatera webb sidan i portalen för att fortsätta skapa din kunskaps bas.
+1. Gå tillbaka till QnA Maker portalen, uppdatera webb sidan i portalen för att fortsätta skapa din kunskaps bas. Välj en befintlig klient, prenumeration och den nya resursen. Välj språk. Detta är det språk som används för alla kunskaps baser i den här QnA Makers tjänsten.
 
    ![Skärm bild av att välja en QnA Maker tjänst kunskaps bas](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 

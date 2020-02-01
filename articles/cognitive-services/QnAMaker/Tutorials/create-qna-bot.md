@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 01/28/2020
 ms.author: diberry
-ms.openlocfilehash: 0ddce3e4112dfb14309878927493abb3cb6b451a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a9afef07af1332910cc9e25f9d66db5930df3bd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447376"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901655"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Självstudie: skapa en QnA-robot med Azure Bot Service v4
 
@@ -41,11 +41,11 @@ Skapa en robot som ett klient program för kunskaps basen.
 
 1. Gå till sidan **publicera** i QNA Maker-portalen och publicera din kunskaps bas. Välj **skapa bot**.
 
-    ![Gå till sidan publicera i QnA Maker-portalen och publicera din kunskaps bas. Välj Create Bot (Skapa robot).](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
+    [![i QnA Maker-portalen, gå till sidan publicera och publicera din kunskaps bas. Välj Skapa bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png#lightbox)
 
-    Azure-portalen öppnas med inställningarna för att skapa en robot.
+    Azure Portal öppnas med konfigurationen för att skapa bot.
 
-1.  Ange inställningar för att skapa roboten:
+1.  Ange inställningarna för att skapa roboten:
 
     |Inställning|Värde|Syfte|
     |--|--|--|
@@ -57,7 +57,7 @@ Skapa en robot som ett klient program för kunskaps basen.
     |Appnamn|`qna-maker-central-us-bot-app`|Det här är en webbapp som endast stöder din bot. Detta bör inte vara samma namn som QnA Maker tjänsten redan använder. Delning av QnA Makers webbapp med andra resurser stöds inte.|
     |SDK-språk|C#|Detta är det underliggande programmeringsspråk som används av robot Framework SDK. Dina val är [C#](https://github.com/Microsoft/botbuilder-dotnet) eller [Node. js](https://github.com/Microsoft/botbuilder-js).|
     |QnA auth-nyckel|**Ändra inte**|Det här värdet fylls i åt dig.|
-    |App Service plan/plats|**Ändra inte**|I den här självstudien är platsen inte viktig.|
+    |App Service-plan/plats|**Ändra inte**|I den här självstudien är platsen inte viktig.|
     |Application Insights|**Ändra inte**|Loggningen skickas till Application Insights.|
     |Microsoft app-ID|**Ändra inte**|Active Directory-användare och lösen ord måste anges.|
 
@@ -70,9 +70,9 @@ Skapa en robot som ett klient program för kunskaps basen.
 
 ## <a name="chat-with-the-bot"></a>Chatta med roboten
 
-1. Öppna den nya robotresursen från meddelandet i Azure-portalen.
+1. Öppna den nya bot-resursen från meddelandet i Azure Portal.
 
-    ![Öppna den nya robotresursen från meddelandet i Azure-portalen.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
+    ![Öppna den nya bot-resursen från meddelandet i Azure Portal.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
 1. Från **bot-hantering**väljer du **test i Web Chat** och anger: `How large can my KB be?`. Roboten kommer att svara med:
 
@@ -101,8 +101,6 @@ Om du inte har skapat någon ny resurs grupp måste du hitta de resurser som är
 
 ## <a name="related-to-qna-maker-bots"></a>Relaterad till QnA Maker robotar
 
-* QnA Maker Help bot som används i QnA Maker-portalen är tillgänglig som ett bot- [exempel](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support).
-    ![QnA Maker Hjälp robot ikon är röd robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
 * [Sjukvårds robotar](https://docs.microsoft.com/HealthBot/qna_model_howto) använder QNA Maker som en av deras [språk modeller](https://docs.microsoft.com/HealthBot/qna_model_howto).
 
 

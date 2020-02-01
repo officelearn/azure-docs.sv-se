@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 02/08/2018
 ms.author: kumud
 ms.custom: include file
-ms.openlocfilehash: 4b419bd8c19cffaf84582cb4fa9e46592746da3f
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 4219df03f74f737c5f2435f9bc0842189dc1fd49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751633"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909168"
 ---
 | | Standard-SKU | Grundläggande SKU |
 | --- | --- | --- |
-| Storlek på serverdelspool | Stöder upp till 1000 instanser. | Stöder upp till 100 instanser. |
+| Storlek på serverdelspool | Stöder upp till 1000 instanser. | Har stöd för upp till 300 instanser. |
 | Slutpunkter för serverdelspool | Alla virtuella datorer i ett enda virtuellt nätverk, inklusive blandningar av virtuella datorer, tillgänglighets uppsättningar och skalnings uppsättningar för virtuella datorer. | Virtuella datorer i en enskild tillgänglighetsuppsättning eller en VM-skalningsuppsättning. |
 | [Hälsoavsökningar](../articles/load-balancer/load-balancer-custom-probe-overview.md#types) | TCP, HTTP, HTTPS | TCP, HTTP |
 | [Beteende hos hälsoavsökning ur funktion](../articles/load-balancer/load-balancer-custom-probe-overview.md#probedown) | TCP-anslutningar är aktiva vid en instans avsökning __och__ i alla avsökningar. | TCP-anslutningar är vilande vid en instans avsökning. Alla TCP-anslutningar avslutas när alla avsökningar är nere. |

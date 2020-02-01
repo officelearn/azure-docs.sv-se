@@ -1,17 +1,17 @@
 ---
 title: Integrera Azure Key Vault med Azure Policy
-description: Lär dig hur du skapar, hämtar och tar bort hemligheter från ett Azure Key Vault med hjälp av .NET-klient biblioteket (v4)
+description: Lär dig hur du integrerar Azure Key Vault med Azure Policy
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/12/2019
+ms.date: 01/28/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: b59b367d38f95bafe7d3e1320d1365f708dc75dd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c32d2fb45bbd4f4a9b4845bb4ef27a439d536677
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077374"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905869"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrera Azure Key Vault med Azure Policy
 
@@ -149,7 +149,7 @@ Att tilldela en princip med en "Neka"-effekt kan ta upp till 30 minuter (genomsn
 - Det finns inga nyckel valv i omfånget för princip tilldelningen.
 - Det finns inga nyckel valv med certifikat inom omfånget för princip tilldelningen. 
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 - Läs mer om [tjänsten Azure policy](../governance/policy/overview.md)
 - Se ett exempel: [Key Vault valv utan virtuella nätverks slut punkter](../governance/policy/samples/keyvault-no-vnet-rules.md)

@@ -1,16 +1,16 @@
 ---
 title: Azure Service Fabric CLI – sfctl är
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera infrastrukturen.
+description: Lär dig mer om sfctl, Azure-Service Fabric kommando rads gränssnitt. Innehåller en lista med kommandon för att hantera infrastrukturen.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c3c98e8da0c2a5449296a0fd108977ec0633f83d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a64aaca97c9df61d795c82d64e6048d6f9ae032f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639130"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906088"
 ---
 # <a name="sfctl-is"></a>sfctl is
 Fråga och skicka kommandon till infrastruktur tjänsten.

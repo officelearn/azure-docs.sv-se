@@ -3,41 +3,33 @@ title: 'Snabb start: Azure Blob Storage-bibliotek V12 – python'
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för python för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: faa73874d7e662eb23e85d46ecaf21a11d10ce73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 03f298b49e6a1eba84e8adf5ca6039df0bfe1abd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443741"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906426"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-python"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för python
+# <a name="quickstart-manage-blobs-with-python-v12-sdk"></a>Snabb start: hantera blobbar med python V12 SDK
 
-Kom igång med Azure Blob Storages klient bibliotek V12 för python. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
-
-> [!NOTE]
-> För att komma igång med den tidigare SDK-versionen, se [snabb start: Azure Blob Storage klient bibliotek för python](storage-quickstart-blobs-python-legacy.md).
-
-Använd klient biblioteket för Azure Blob Storage för att:
-
-* Skapa en container
-* Ladda upp en blob till Azure Storage
-* Lista alla blobar i en behållare
-* Ladda ned blobben till den lokala datorn
-* Ta bort en container
+I den här snabb starten lär du dig att hantera blobbar med hjälp av python. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
 
 [API Reference-dokumentation](/python/api/azure-storage-blob) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob) | [paket (Python-paket index)](https://pypi.org/project/azure-storage-blob/) | [exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Krav
 
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Python](https://www.python.org/downloads/) för ditt operativ system – 2,7, 3,5 eller högre
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/) 2,7, 3,5 eller senare.
+
+> [!NOTE]
+> För att komma igång med den tidigare SDK-versionen, se [snabb start: hantera blobbar med python v 2.1 SDK](storage-quickstart-blobs-python-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -81,7 +73,7 @@ Från projekt katalogen:
 
 1. Öppna en ny textfil i kod redigeraren
 1. Lägg till `import`-uttryck
-1. Skapa strukturen för programmet, inklusive mycket grundläggande undantags hantering
+1. Skapa strukturen för programmet, inklusive grundläggande undantags hantering
 
     Här är koden:
 
@@ -119,7 +111,7 @@ Använd följande python-klasser för att interagera med dessa resurser:
 * [ContainerClient](/python/api/azure-storage-blob/azure.storage.blob.containerclient): klassen `ContainerClient` gör att du kan ändra Azure Storage behållare och deras blobbar.
 * [BlobClient](/python/api/azure-storage-blob/azure.storage.blob.blobclient): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för python:
 
@@ -234,7 +226,7 @@ with open(download_file_path, "wb") as download_file:
 
 Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med hjälp av metoden [delete_container](/python/api/azure-storage-blob/azure.storage.blob.containerclient#delete-container---kwargs-) . Du kan också ta bort de lokala filerna, om du vill.
 
-Appen pausar indata från användaren genom att anropa `input()` innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
+Appen pausar indata från användaren genom att anropa `input()` innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna har skapats korrekt innan de tas bort.
 
 Lägg till den här koden i slutet av `try` blocket:
 
@@ -298,4 +290,4 @@ Om du vill se exempel appar för Blob Storage fortsätter du till:
 > [Azure Blob Storage SDK V12 python-exempel](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob/samples)
 
 * Mer information finns i [Azure SDK för python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-blob/README.md).
-* För självstudier, exempel, snabb starter och annan dokumentation går du [till Azure för python-utvecklare](/azure/python/).
+* Självstudier, exempel, snabb starter och annan dokumentation finns på [Azure för python-utvecklare](/azure/python/).

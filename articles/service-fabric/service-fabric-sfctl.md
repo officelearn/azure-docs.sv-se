@@ -3,17 +3,17 @@ title: Azure Service Fabric CLI – sfctl
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista över kommandon och under grupper.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 518e60ee92a637533fdf5ab44053d1a1c8757bbe
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 56efa15a7de3414f9c535e66bd80c94594cd5038
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645250"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906217"
 ---
 # <a name="sfctl"></a>sfctl
-Kommandon för att hantera Service Fabric kluster och entiteter. Den här versionen är kompatibel med Service Fabric 6,5-körningsmiljön.
+Kommandon för att hantera Service Fabric kluster och entiteter. Den här versionen är kompatibel med Service Fabric 7,0-körningsmiljön.
 
 Kommandon följer mönstret Substantiv-verb. Se under grupper för mer information.
 
@@ -30,7 +30,7 @@ Kommandon följer mönstret Substantiv-verb. Se under grupper för mer informati
 | [mesh](service-fabric-sfctl-mesh.md) | Ta bort och hantera Service Fabric nät-program. |
 | [nodfel](service-fabric-sfctl-node.md) | Hantera noderna som utgör ett kluster. |
 | [partitionstabellen](service-fabric-sfctl-partition.md) | Fråga och hantera partitioner för alla tjänster. |
-| [property](service-fabric-sfctl-property.md) | Lagra och fråga efter egenskaper under Service Fabric namn. |
+| [immaterialrätt](service-fabric-sfctl-property.md) | Lagra och fråga efter egenskaper under Service Fabric namn. |
 | [Replica](service-fabric-sfctl-replica.md) | Hantera de repliker som hör till-tjänstepartitioner. |
 | [rpm](service-fabric-sfctl-rpm.md) | Fråga och skicka kommandon till tjänsten Repair Manager. |
 | [sa-cluster](service-fabric-sfctl-sa-cluster.md) | Hantera fristående Service Fabric kluster. |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a51bb91a63f032f87da59fe95f5e3282cbaa0bea
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771623"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906263"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -201,49 +201,14 @@ Det här avsnittet gäller endast för standard fil resurser. Alla Premium-filre
 
 ### <a name="regional-availability"></a>Regional tillgänglighet
 
-Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa regioner är de tillgängliga med en 100 TiB-gräns, dessa regioner visas i följande tabell:
+Standard fil resurser med 100 TiB-kapacitets gräns är tillgängliga globalt i alla Azure-regioner –
 
-|Region |Redundans stöds |
-|-------|---------|
-|Australien, centrala    |LRS     |
-|Australien, centrala 2    |LRS     |
-|Australien, östra |LRS     |
-|Australien, sydöstra|LRS |
-|Brasilien, södra    |LRS     |
-|Kanada, centrala  |LRS     |
-|Kanada, östra     |LRS     |
-|Indien, centrala  |LRS     |
-|USA, centrala *   |LRS, ZRS    |
-|Asien, östra      |LRS     |
-|USA, östra *        |LRS, ZRS|
-|USA, östra 2 *      |LRS, ZRS     |
-|Frankrike, centrala |LRS, ZRS|
-|Frankrike, södra   |LRS     |
-|Japan, östra     |LRS     |
-|Japan, västra     |LRS     |
-|Sydkorea, centrala  |LRS     |
-|Sydkorea, södra    |LRS     |
-|USA, norra centrala |LRS   |
-|Europa, norra   |LRS     |
-|Indien, södra    |LRS     |
-|USA, södra centrala |LRS     |
-|Sydostasien |LRS, ZRS|
-|Schweiz, norra    |LRS     |
-|Schweiz, västra    |LRS     |
-|Förenade Arabemiraten, centrala    |LRS     |
-|Förenade Arabemiraten, norra    |LRS     |
-|Storbritannien, norra   |LRS, ZRS    |
-|Storbritannien, södra    |LRS     |
-|Storbritannien, västra    |LRS     |
-|USA, västra centrala|LRS     |
-|Västeuropa *    |LRS, ZRS|
-|Indien, västra   |LRS     |
-|USA, västra        |LRS     |
-|USA, västra 2      |LRS, ZRS|
+- LRS: alla regioner, utom Sydafrika, norra och södra Afrika.
+   - Nationella moln (myndigheter, Tyskland, Kina) stöds via PowerShell och kommando rads gränssnittet för Azure (CLI). Inget stöd för portalen. 
+   - Östra USA, östra 2; USA, Västeuropa: alla nya konton stöds. Ett litet antal befintliga konton har inte slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
 
-\* som stöds för nya konton, har inte alla befintliga konton slutfört uppgraderings processen. Du kan kontrol lera om dina befintliga lagrings konton har slutfört uppgraderings processen genom att försöka [Aktivera stora fil resurser](storage-files-how-to-create-large-file-share.md).
-
-För att hjälpa oss att prioritera nya regioner och funktioner kan du fylla i den här [undersökningen](https://aka.ms/azurefilesatscalesurvey).
+- ZRS: alla regioner, utom Japan, östra; Nord Europa, norra Sydafrika.
+- GRS/GZRS: stöds inte.
 
 ### <a name="enable-and-create-larger-file-shares"></a>Aktivera och skapa större fil resurser
 

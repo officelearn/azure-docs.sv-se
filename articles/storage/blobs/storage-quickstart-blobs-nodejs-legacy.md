@@ -3,24 +3,26 @@ title: 'Snabb start: klient biblioteket för Azure Blob Storage-v10 för Java Sc
 description: Skapa, ladda upp och ta bort blobbar och behållare i Node. js med Azure Storage klient bibliotek v10 för Java Script
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/24/2019
+ms.date: 01/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: dd59dec65f75a17c35750140349101c600a92636
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6a530c96c99a9f22f1943a5b874656bcabd9594b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862857"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906471"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v10-for-javascript"></a>Snabb start: klient biblioteket för Azure Blob Storage-v10 för Java Script
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-nodejs"></a>Snabb start: hantera blobbar med Java Script v10 SDK i Node. js
 
-I den här snabbstarten får du lära dig att använda [Azure Storage v10 SDK för JavaScript](https://github.com/Azure/azure-sdk-for-js) i Node.js för att ladda upp, hämta, lista, och ta bort blobar och hantera containrar.
+I den här snabb starten lär du dig att hantera blobbar med hjälp av Node. js. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du överför, laddar ned, listar och tar bort blobbar och hanterar behållare.
 
 ## <a name="prerequisites"></a>Krav
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## <a name="download-the-sample-application"></a>Hämta exempelprogrammet
 
@@ -133,7 +135,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. Klassen [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) ansvarar för att hantera tidsgränser för begäranden och den efterföljande konstanten används för att definiera tidsgränser som används i det här exemplet.
+Begär Anden som görs av API: et kan ställas in på timeout efter ett angivet intervall. Klassen [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) ansvarar för att hantera tidsgränser för begäranden och den efterföljande konstanten används för att definiera tidsgränser som används i det här exemplet.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -203,7 +205,7 @@ Precis som med containern finns inte blockbloben än. *blockBlobURL*-variabeln a
 
 ### <a name="using-the-aborter-class"></a>Använda klassen Aborter
 
-Begäranden som görs av API:et kan konfigureras med tidsgränser efter ett visst intervall. *Avbrotts* klassen ansvarar för att hantera hur tids gränsen för tids gränsen uppnåddes. Följande kod skapar en kontext där en uppsättning begär Anden får 30 minuter att köra.
+Begär Anden som görs av API: et kan ställas in på timeout efter ett angivet intervall. *Avbrotts* klassen ansvarar för att hantera hur tids gränsen för tids gränsen uppnåddes. Följande kod skapar en kontext där en uppsättning begär Anden får 30 minuter att köra.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);

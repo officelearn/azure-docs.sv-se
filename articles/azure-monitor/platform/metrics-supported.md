@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 0210317ef74433b740feb043a1cc4f1f9bc2ef57
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310789"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901150"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Mått som stöds med Azure Monitor
 
@@ -34,7 +34,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |qpu_metric|QPU|Antal|Medel|QPU. Intervallet 0-100 för S1, 0-200 för S2 och 0-400 för S4|ServerResourceType|
-|memory_metric|Minne|Byte|Medel|Memory. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|ServerResourceType|
+|memory_metric|Minne|Byte|Medel|Minnesoptimerade. Intervallet 0-25 GB för S1, 0-50 GB för S2 och 0-100 GB för S4|ServerResourceType|
 |private_bytes_metric|Privata byte|Byte|Medel|Privata byte.|ServerResourceType|
 |virtual_bytes_metric|Virtuella byte|Byte|Medel|Virtuella byte.|ServerResourceType|
 |TotalConnectionRequests|Totalt antal anslutnings begär Anden|Antal|Medel|Totalt antal anslutnings begär Anden. Dessa är mottagna.|ServerResourceType|
@@ -75,7 +75,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |ShortParsingBusyThreads|Trådar: kort parsning upptagna trådar|Antal|Medel|Antalet upptagna trådar i den kort parsar trådpoolen.|ServerResourceType|
 |ShortParsingIdleThreads|Trådar: kort parsning inaktiva trådar|Antal|Medel|Antal inaktiva trådar i kort parsar trådpoolen.|ServerResourceType|
 |ShortParsingJobQueueLength|Trådar: kort parsning av jobb Kölängd|Antal|Medel|Antal jobb i kö för kort parsar trådpoolen.|ServerResourceType|
-|memory_thrashing_metric|Minnesförslöing|Procent|Medel|Genomsnittligt minne nedskräpning.|ServerResourceType|
+|memory_thrashing_metric|Nedskräpning för minne|Procent|Medel|Genomsnittligt minne nedskräpning.|ServerResourceType|
 |mashup_engine_qpu_metric|M-motor QPU|Antal|Medel|QPU användning av kombinations motor processer|ServerResourceType|
 |mashup_engine_memory_metric|M motor minne|Byte|Medel|Minnes användning per kombinations motor processer|ServerResourceType|
 |mashup_engine_private_bytes_metric|M motor privata byte|Byte|Medel|Användning av privata byte med kombinations motor processer.|ServerResourceType|
@@ -242,7 +242,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |cachemisses|Cachemissar|Antal|Totalt||ShardId|
 |cachemissrate|Missar i cache|Procent|cachemissrate||ShardId|
 |getcommands|Sparas|Antal|Totalt||ShardId|
-|setcommands|Uppsättningar|Antal|Totalt||ShardId|
+|setcommands|Definierar|Antal|Totalt||ShardId|
 |operationsPerSecond|Åtgärder per sekund|Antal|Maximal||ShardId|
 |evictedkeys|Avlägsnade nycklar|Antal|Totalt||ShardId|
 |totalkeys|Totalt antal nycklar|Antal|Maximal||ShardId|
@@ -472,7 +472,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |BlobCapacity|Blobkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots Blob Service i byte.|BlobType,-nivå|
 |BlobCount|Antalet blobar|Antal|Medel|Antalet blobar i lagringskontots Blob Service.|BlobType,-nivå|
 |ContainerCount|Antal blobcontainrar|Antal|Medel|Antalet containrar i lagringskontots Blob Service.|Inget|
-|IndexCapacity|Indexkapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Inget|
+|IndexCapacity|Index kapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Inget|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -536,7 +536,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |BlockedCalls|Blockerade anrop|Antal|Totalt|Antal anrop som har överskridit frekvensen eller kvot gränsen.|ApiName, OperationName, region|
 |ServerErrors|Server fel|Antal|Totalt|Antal anrop med internt tjänst fel (HTTP-svarskod 5xx).|ApiName, OperationName, region|
 |ClientErrors|Klient fel|Antal|Totalt|Antal anrop med fel på klient sidan (HTTP-svarskod 4xx).|ApiName, OperationName, region|
-|Datain|Data in|Byte|Totalt|Storlek på inkommande data i byte.|ApiName, OperationName, region|
+|Datain|Data i|Byte|Totalt|Storlek på inkommande data i byte.|ApiName, OperationName, region|
 |Data|Data ut|Byte|Totalt|Storlek på utgående data i byte.|ApiName, OperationName, region|
 |Svarstid|Svarstid|Millisekunder|Medel|Svars tid i millisekunder.|ApiName, OperationName, region|
 |CharactersTranslated|Översatta tecken|Antal|Totalt|Totalt antal tecken i begäran om inkommande text.|ApiName, OperationName, region|
@@ -572,7 +572,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Skrivna byte på datadisk/SEK|Skrivna byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|LUN|
 |Läs åtgärder för data disk/SEK|Läs åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|LUN|
 |Skriv åtgärder för data disk/SEK|Skriv åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|LUN|
-|Ködjup för datadisk|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|LUN|
+|Data disk Queue djup|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|LUN|
 |Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inget|
 |Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inget|
 |Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inget|
@@ -617,7 +617,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Skrivna byte på datadisk/SEK|Skrivna byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|LUN, VMName|
 |Läs åtgärder för data disk/SEK|Läs åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|LUN, VMName|
 |Skriv åtgärder för data disk/SEK|Skriv åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|LUN, VMName|
-|Ködjup för datadisk|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|LUN, VMName|
+|Data disk Queue djup|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|LUN, VMName|
 |Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|VMName|
 |Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|VMName|
 |Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|VMName|
@@ -662,7 +662,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Skrivna byte på datadisk/SEK|Skrivna byte på datadisk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden|LUN|
 |Läs åtgärder för data disk/SEK|Läs åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden|LUN|
 |Skriv åtgärder för data disk/SEK|Skriv åtgärder för data disk/SEK (för hands version)|CountPerSecond|Medel|Skriv IOPS från en enskild disk under övervaknings perioden|LUN|
-|Ködjup för datadisk|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|LUN|
+|Data disk Queue djup|Data disk Queue djup (för hands version)|Antal|Medel|Data diskens ködjup (eller Kölängd)|LUN|
 |Lästa byte för OS-disk/SEK|Lästa byte för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s lästa från en enskild disk under övervaknings perioden för operativ system disken|Inget|
 |Skrivna byte per operativ system disk/SEK|Skrivna byte per operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Byte/s skrivs till en enskild disk under övervaknings perioden för operativ system disken|Inget|
 |Läs åtgärder för operativ system disk/SEK|Läs åtgärder för operativ system disk/SEK (för hands version)|CountPerSecond|Medel|Läsa IOPS från en enskild disk under övervaknings perioden för operativ system disken|Inget|
@@ -876,7 +876,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |d2c.telemetry.ingress.allProtocol|Skicka försök för telemetri|Antal|Totalt|Antalet telemetri från enhet till molnet försökte skickas till din IoT-hubb|Inget|
-|d2c.telemetry.ingress.success|Skickade telemetrimeddelanden|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Inget|
+|d2c.telemetry.ingress.success|Meddelande om telemetri|Antal|Totalt|Antal telemetri om enhet till molnet har skickats till din IoT-hubb|Inget|
 |C2D. commands. utgående. Complete. lyckades|C2D meddelande leveranser har slutförts|Antal|Totalt|Antalet meddelande leveranser från moln till enhet har slutförts av enheten|Inget|
 |c2d.commands.egress.abandon.success|Övergivna C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som har övergivits av enheten|Inget|
 |c2d.commands.egress.reject.success|Avvisade C2D-meddelanden|Antal|Totalt|Antal meddelanden från moln till enhet som avvisats av enheten|Inget|
@@ -889,57 +889,57 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |d2c.telemetry.egress.invalid|Routning: telemetri-meddelanden är inkompatibla|Antal|Totalt|Antalet gånger IoT Hub routningen kunde inte leverera meddelanden på grund av inkompatibilitet med slut punkten. Det här värdet omfattar inte återförsök.|Inget|
 |d2c.telemetry.egress.fallback|Routning: meddelanden levererade till reserv|Antal|Totalt|Antalet gånger IoT Hub vidarebefordran av meddelanden till slut punkten som är kopplad till återställnings vägen.|Inget|
 |d2c.endpoints.egress.eventHubs|Routning: meddelanden levererade till Händelsehubben|Antal|Totalt|Antal gånger IoT Hub routning har levererat meddelanden till Event Hub-slutpunkter.|Inget|
-|d2c.endpoints.latency.eventHubs|Routning: meddelandesvarstid för händelsehubb|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelande intränger till en Event Hub-slutpunkt.|Inget|
+|d2c.endpoints.latency.eventHubs|Routning: meddelande fördröjning för Event Hub|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och meddelande intränger till en Event Hub-slutpunkt.|Inget|
 |d2c.endpoints.egress.serviceBusQueues|Routning: meddelanden levererade till Service Bus kö|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus-köns slut punkter.|Inget|
-|d2c.endpoints.latency.serviceBusQueues|Routning: meddelandesvarstid för Service Bus-kö|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en Service Bus Queue-slutpunkt.|Inget|
+|d2c.endpoints.latency.serviceBusQueues|Routning: meddelande fördröjning för Service Bus kö|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en Service Bus Queue-slutpunkt.|Inget|
 |d2c.endpoints.egress.serviceBusTopics|Routning: meddelanden levererade till Service Bus ämnet|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till Service Bus ämnes slut punkter.|Inget|
 |d2c.endpoints.latency.serviceBusTopics|Routning: meddelande fördröjning för Service Bus ämne|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelande intränger i en Service Bus avsnitts slut punkt.|Inget|
 |d2c.endpoints.egress.builtIn.events|Routning: meddelanden som levereras till meddelanden/händelser|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till den inbyggda slut punkten (meddelanden/händelser).|Inget|
 |d2c.endpoints.latency.builtIn.events|Routning: meddelande fördröjning för meddelanden/händelser|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub och telemetri intränger in i den inbyggda slut punkten (meddelanden/händelser).|Inget|
 |D2C. endpoints. utgående. Storage|Routning: meddelanden som levereras till lagring|Antal|Totalt|Antalet gånger IoT Hub routning har levererat meddelanden till lagrings slut punkter.|Inget|
 |d2c.endpoints.latency.storage|Routning: meddelande fördröjning för lagring|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) mellan meddelandet intränger mot IoT Hub-och telemetri-meddelanden intränger i en lagrings slut punkt.|Inget|
-|D2C. endpoints. utgående. Storage. byte|Routning: data som levererats till minne|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inget|
-|d2c.endpoints.egress.storage.blobs|Routning: blobar som levererats till minne|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inget|
+|D2C. endpoints. utgående. Storage. byte|Routning: data som levereras till lagring|Byte|Totalt|Mängden data (byte) IoT Hub routning som levereras till lagrings slut punkter.|Inget|
+|d2c.endpoints.egress.storage.blobs|Routning: blobbar levererade till lagring|Antal|Totalt|Antal gånger IoT Hub som levererade blobbar till lagrings slut punkter.|Inget|
 |EventGridDeliveries|Event Grid leveranser (för hands version)|Antal|Totalt|Antalet IoT Hub-händelser som publicerats till Event Grid. Använd resultat dimensionen för antalet lyckade och misslyckade förfrågningar. EventType-dimensionen visar typen av händelse (https://aka.ms/ioteventgrid).|ResourceId, resultat, EventType|
 |EventGridLatency|Event Grid svars tid (för hands version)|Millisekunder|Medel|Den genomsnittliga svars tiden (millisekunder) från när IoT Hub-händelsen genererades till när händelsen publicerades till Event Grid. Det här talet är ett medelvärde mellan alla händelse typer. Använd EventType-dimensionen för att se svars tiden för en speciell typ av händelse.|ResourceId, EventType|
 |d2c.twin.read.success|Lyckades dubbla läsningar från enheter|Antal|Totalt|Antalet framgångs rika enhets uppinitierade dubbla läsningar.|Inget|
-|d2c.twin.read.failure|Misslyckade tvillingläsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Inget|
-|d2c.twin.read.size|Svarsstorlek för tvillingläsningar från enheter|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initierats av enheten.|Inget|
+|d2c.twin.read.failure|Misslyckade dubbla läsningar från enheter|Antal|Totalt|Antalet misslyckade, dubbla läsningar som initierats av enheten.|Inget|
+|d2c.twin.read.size|Svars storlek för dubbla läsningar från enheter|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initierats av enheten.|Inget|
 |d2c.twin.update.success|Lyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet lyckade, dubbla uppdateringar som initierats av enheten.|Inget|
-|d2c.twin.update.failure|Misslyckade tvillinguppdateringar från enheter|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Inget|
+|d2c.twin.update.failure|Misslyckade dubbla uppdateringar från enheter|Antal|Totalt|Antalet misslyckade, dubbla uppdateringar som initierats av enheten.|Inget|
 |d2c.twin.update.size|Storlek på dubbla uppdateringar från enheter|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initierats av enheten.|Inget|
 |c2d.methods.success|Direkta metod anrop|Antal|Totalt|Antalet lyckade direkta metod anrop.|Inget|
-|C2D. Methods. Failure|Misslyckade direktmetodsanrop|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Inget|
-|C2D. Methods. requestSize|Begäransstorlek för direktmetodsanrop|Byte|Medel|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Inget|
-|C2D. Methods. responseSize|Svarsstorlek för direktmetodsanrop|Byte|Medel|Medelvärde, min och Max för alla lyckade direkta metod svar.|Inget|
+|C2D. Methods. Failure|Misslyckade direkta metod anrop|Antal|Totalt|Antalet misslyckade direkta metod anrop.|Inget|
+|C2D. Methods. requestSize|Begär ande storlek för direkta metod anrop|Byte|Medel|Genomsnitt, min och Max för alla lyckade direkta metod begär Anden.|Inget|
+|C2D. Methods. responseSize|Svars storlek för direkta metod anrop|Byte|Medel|Medelvärde, min och Max för alla lyckade direkta metod svar.|Inget|
 |c2d.twin.read.success|Lyckades dubbla läspaket från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla lyckade.|Inget|
-|c2d.twin.read.failure|Misslyckade tvillingläsningar från serverdel|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inget|
-|c2d.twin.read.size|Svarsstorlek för tvillingläsningar från serverdel|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Inget|
-|c2d.twin.update.success|Lyckade tvillinguppdateringar från serverdel|Antal|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Inget|
-|c2d.twin.update.failure|Misslyckade tvillinguppdateringar från serverdel|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Inget|
+|c2d.twin.read.failure|Det gick inte att dubbla läsningar från Server delen|Antal|Totalt|Antalet dubbla läsningar som initierats av alla misslyckade backend-slutpunkter.|Inget|
+|c2d.twin.read.size|Svars storlek för dubbla läsningar från Server delen|Byte|Medel|Genomsnitt, min och Max för alla lyckade, dubbla läsningar som initieras i slut punkt.|Inget|
+|c2d.twin.update.success|Lyckades dubbla uppdateringar från Server delen|Antal|Totalt|Antalet fullständiga uppdateringar som initierats av alla lyckade backend-uppdateringar.|Inget|
+|c2d.twin.update.failure|Misslyckade dubbla uppdateringar från Server delen|Antal|Totalt|Antalet dubbla uppdateringar som initierats av alla misslyckade backend-slutpunkter.|Inget|
 |c2d.twin.update.size|Storlek på dubbla uppdateringar från Server delen|Byte|Medel|Genomsnitt, min och Max storlek för alla lyckade, dubbla uppdateringar som initieras.|Inget|
 |twinQueries. lyckades|Lyckades dubbla frågor|Antal|Totalt|Antalet lyckade dubbla frågor.|Inget|
-|twinQueries. Failure|Misslyckade tvillingfrågor|Antal|Totalt|Antalet misslyckade dubbla frågor.|Inget|
+|twinQueries. Failure|Misslyckade dubbla frågor|Antal|Totalt|Antalet misslyckade dubbla frågor.|Inget|
 |twinQueries.resultSize|Resultat storlek för dubbla frågor|Byte|Medel|Genomsnitt, min och Max för resultat storleken för alla lyckade dubbla frågor.|Inget|
 |jobs.createTwinUpdateJob.success|Skapandet av dubbla uppdaterings jobb lyckades|Antal|Totalt|Antalet slutförda skapandet av dubbla uppdaterings jobb.|Inget|
-|jobs.createTwinUpdateJob.failure|Misslyckat skapande av tvillinguppdateringsjobb|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Inget|
+|jobs.createTwinUpdateJob.failure|Det gick inte att skapa dubbla uppdaterings jobb|Antal|Totalt|Antalet misslyckade skapandet av dubbla uppdaterings jobb.|Inget|
 |jobs.createDirectMethodJob.success|Lyckade skapande av metod anrops jobb|Antal|Totalt|Antalet slutförda skapande av direkta metod anrops jobb.|Inget|
-|jobs.createDirectMethodJob.failure|Misslyckat skapande av metodanropsjobb|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Inget|
+|jobs.createDirectMethodJob.failure|Det gick inte att skapa metod anrops jobb|Antal|Totalt|Antalet misslyckade skapande av direkta anrops jobb för metoden.|Inget|
 |jobs.listJobs.success|Lyckade anrop till List jobb|Antal|Totalt|Antalet lyckade anrop till List jobb.|Inget|
-|Jobs. listJobs. Failure|Misslyckade anrop för att lista jobb|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inget|
+|Jobs. listJobs. Failure|Misslyckade anrop till List jobb|Antal|Totalt|Antalet misslyckade anrop till List jobb.|Inget|
 |Jobs. cancelJob. lyckades|Slutförda jobb avbokningar|Antal|Totalt|Antalet lyckade anrop för att avbryta ett jobb.|Inget|
-|Jobs. cancelJob. Failure|Misslyckade jobbannulleringar|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Inget|
+|Jobs. cancelJob. Failure|Misslyckade jobb-annulleringar|Antal|Totalt|Antalet misslyckade anrop för att avbryta ett jobb.|Inget|
 |Jobs. queryJobs. lyckades|Slutförda jobb frågor|Antal|Totalt|Antalet lyckade anrop för att köra frågor mot jobb.|Inget|
-|Jobs. queryJobs. Failure|Misslyckade jobbfrågor|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Inget|
-|jobb. slutfört|Slutförda arbeten|Antal|Totalt|Antalet slutförda jobb.|Inget|
+|Jobs. queryJobs. Failure|Misslyckade jobb frågor|Antal|Totalt|Antalet misslyckade anrop till jobb för frågor.|Inget|
+|jobb. slutfört|Slutförda jobb|Antal|Totalt|Antalet slutförda jobb.|Inget|
 |jobb. misslyckades|Misslyckade jobb|Antal|Totalt|Antalet misslyckade jobb.|Inget|
-|d2c.telemetry.ingress.sendThrottle|Antal begränsningsfel|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
+|d2c.telemetry.ingress.sendThrottle|Antal begränsnings fel|Antal|Totalt|Antal begränsnings fel som beror på begränsning av enhetens data flöde|Inget|
 |dailyMessageQuotaUsed|Totalt antal meddelanden som används|Antal|Medel|Antal sammanlagt antal meddelanden som använts idag|Inget|
 |deviceDataUsage|Total användning av enhets data|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
 |deviceDataUsageV2|Total användning av enhets data (för hands version)|Byte|Totalt|Överförda byte till och från alla enheter som är anslutna till IotHub|Inget|
 |totalDeviceCount|Totalt antal enheter (förhands granskning)|Antal|Medel|Antal enheter som har registrerats för din IoT-hubb|Inget|
-|connectedDeviceCount|Anslutna enheter (förhandsversion)|Antal|Medel|Antal enheter som är anslutna till din IoT-hubb|Inget|
-|konfigurationer|Konfigurationsmått|Antal|Totalt|Mått för konfigurations åtgärder|Inget|
+|connectedDeviceCount|Anslutna enheter (förhands granskning)|Antal|Medel|Antal enheter som är anslutna till din IoT-hubb|Inget|
+|konfigurationer|Konfigurations mått|Antal|Totalt|Mått för konfigurations åtgärder|Inget|
 
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
@@ -956,7 +956,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |AddRegion|Region tillagt|Antal|Antal|Region tillagt|Region|
-|AvailableStorage|Tillgängligt lagringsutrymme|Byte|Totalt|Totalt tillgängligt lagrings utrymme som har rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
+|AvailableStorage|Tillgängligt lagrings utrymme|Byte|Totalt|Totalt tillgängligt lagrings utrymme som har rapporter ATS med 5 minuters precision|Samlings namn, DatabaseName, region|
 |CassandraConnectionClosures|Cassandra-anslutningens stängningar|Antal|Totalt|Antalet Cassandra-anslutningar som stängdes, rapporteras med en 1 minuts kornig het|APIType, region, ClosureReason|
 |CassandraRequestCharges|Avgifter för Cassandra-begäran|Antal|Totalt|Ru: er förbrukat för Cassandra begär Anden|APIType, DatabaseName, samlings region, OperationType, ResourceType|
 |CassandraRequests|Cassandra-begäranden|Antal|Antal|Antal Cassandra-begäranden som gjorts|APIType, DatabaseName, samlings region, OperationType, ResourceType, ErrorCode|
@@ -992,8 +992,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |TransactionCount|Antal transaktioner|Antal|Antal|Totalt antal transaktioner|TransactionCount|
-|SuccessCount|Antal slutförda|Antal|Antal|Antal genomförda transaktioner|SuccessCount|
-|FailureCount|Antal misslyckade|Antal|Antal|Antal misslyckade transaktioner|FailureCount|
+|SuccessCount|Antal lyckade|Antal|Antal|Antal genomförda transaktioner|SuccessCount|
+|FailureCount|Antal haverier|Antal|Antal|Antal misslyckade transaktioner|FailureCount|
 |SuccessLatency|Svars tid|Millisekunder|Medel|Svars tid för lyckade transaktioner|SuccessCount|
 
 ## <a name="microsofteventgriddomains"></a>Microsoft. EventGrid/Domains
@@ -1139,7 +1139,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |availabilityResults/antal|Tillgänglighetstester|Antal|Antal|Antal tillgänglighets test|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
 |availabilityResults/varaktighet|Tillgänglighets testets varaktighet|Millisekunder|Medel|Tillgänglighets testets varaktighet|availabilityResult/namn, availabilityResult/plats, availabilityResult/lyckad|
 |browserTimings/networkDuration|Nätverks anslutnings tid för sid inläsning|Millisekunder|Medel|Tid mellan användar förfrågan och nätverks anslutning. Inkluderar DNS-sökning och transport anslutning.|Inget|
-|browserTimings/processingDuration|Klientbehandlingstid|Millisekunder|Medel|Tiden mellan att ta emot sista byten i ett dokument tills DOM har lästs in. Asynkrona begär Anden kan fortfarande bearbetas.|Inget|
+|browserTimings/processingDuration|Klient bearbetnings tid|Millisekunder|Medel|Tiden mellan att ta emot sista byten i ett dokument tills DOM har lästs in. Asynkrona begär Anden kan fortfarande bearbetas.|Inget|
 |browserTimings/receiveDuration|Tar emot svars tid|Millisekunder|Medel|Tiden mellan den första och sista byten, eller till från koppling.|Inget|
 |browserTimings/sendDuration|Tid för att skicka begäran|Millisekunder|Medel|Tiden mellan nätverks anslutning och mottagande av den första byten.|Inget|
 |browserTimings/totalDuration|Sid inläsnings tid för webbläsare|Millisekunder|Medel|Tid från användar förfrågan tills DOM, formatmallar, skript och bilder har lästs in.|Inget|
@@ -1157,14 +1157,14 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |performanceCounters/processorCpuPercentage|Processor tid|Procent|Medel|Den procent andel av tiden som processorn ägnat åt icke-inaktiva trådar.|Cloud/roleInstance|
 |performanceCounters/memoryAvailableBytes|Tillgängligt minne|Byte|Medel|Fysiskt minne som är omedelbart tillgängligt för allokering till en process eller för system användning.|Cloud/roleInstance|
 |performanceCounters/processPrivateBytes|Privata byte för process|Byte|Medel|Minne som tilldelats exklusivt för de övervakade program processerna.|Cloud/roleInstance|
-|begär Anden/varaktighet|Serversvarstid|Millisekunder|Medel|Tiden mellan att ta emot en HTTP-förfrågan och avsluta sändningen av svaret.|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
+|begär Anden/varaktighet|Server svars tid|Millisekunder|Medel|Tiden mellan att ta emot en HTTP-förfrågan och avsluta sändningen av svaret.|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
 |begär Anden/antal|Server begär Anden|Antal|Antal|Antal slutförda HTTP-förfrågningar.|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
 |begär Anden/misslyckade|Misslyckade förfrågningar|Antal|Antal|Antal HTTP-begäranden som marker ATS som misslyckade. I de flesta fall är dessa förfrågningar med svars kod > = 400 och inte lika med 401.|begäran/performanceBucket, begäran/resultCode, begäran/framgång, åtgärd/syntetisk, Cloud/roleInstance, Cloud/roleName|
 |begär Anden/pris|Server begär ande frekvens|CountPerSecond|Medel|Antal server begär Anden per sekund|Request/performanceBucket, Request/resultCode, operation/syntetisk, Cloud/roleInstance, Request/lyckades, Cloud/roleName|
 |undantag/antal|Undantag|Antal|Antal|Sammanlagt antal undantag som inte har fångats.|Cloud/roleName, Cloud/roleInstance, Client/Type|
 |undantag/webbläsare|Webbläsarundantag|Antal|Antal|Antal ej fångade undantag som har utlösts i webbläsaren.|klient-isServer, Cloud/roleName|
 |undantag/Server|Server undantag|Antal|Antal|Antal ej fångade undantag som har utlösts i serverprogrammet.|klient-isServer, Cloud/roleName, Cloud/roleInstance|
-|spårning/antal|Spårningar|Antal|Antal|Spårnings dokument antal|Trace/severityLevel, operation/syntetisk, Cloud/roleName, Cloud/roleInstance|
+|spårning/antal|Anden|Antal|Antal|Spårnings dokument antal|Trace/severityLevel, operation/syntetisk, Cloud/roleName, Cloud/roleInstance|
 
 
 
@@ -1400,19 +1400,19 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|PacketsInDDoS|Inkommande paket DDoS|CountPerSecond|Maximal|Inkommande paket DDoS|Inget|
-|PacketsDroppedDDoS|Inkommande paket som förlorats DDoS|CountPerSecond|Maximal|Inkommande paket som förlorats DDoS|Inget|
-|PacketsForwardedDDoS|Inkommande paket som vidarekopplats DDoS|CountPerSecond|Maximal|Inkommande paket som vidarekopplats DDoS|Inget|
+|PacketsInDDoS|DDoS för inkommande paket|CountPerSecond|Maximal|DDoS för inkommande paket|Inget|
+|PacketsDroppedDDoS|Inkommande paket som släppts DDoS|CountPerSecond|Maximal|Inkommande paket som släppts DDoS|Inget|
+|PacketsForwardedDDoS|Vidarebefordrade inkommande paket DDoS|CountPerSecond|Maximal|Vidarebefordrade inkommande paket DDoS|Inget|
 |TCPPacketsInDDoS|DDoS inkommande TCP-paket|CountPerSecond|Maximal|DDoS inkommande TCP-paket|Inget|
 |TCPPacketsDroppedDDoS|Inkommande TCP-paket ignorerade DDoS|CountPerSecond|Maximal|Inkommande TCP-paket ignorerade DDoS|Inget|
 |TCPPacketsForwardedDDoS|Inkommande TCP-paket, vidarebefordrade DDoS|CountPerSecond|Maximal|Inkommande TCP-paket, vidarebefordrade DDoS|Inget|
 |UDPPacketsInDDoS|DDoS för inkommande UDP-paket|CountPerSecond|Maximal|DDoS för inkommande UDP-paket|Inget|
 |UDPPacketsDroppedDDoS|Ignorerade inkommande UDP-paket DDoS|CountPerSecond|Maximal|Ignorerade inkommande UDP-paket DDoS|Inget|
 |UDPPacketsForwardedDDoS|Vidarebefordrade inkommande UDP-paket DDoS|CountPerSecond|Maximal|Vidarebefordrade inkommande UDP-paket DDoS|Inget|
-|BytesInDDoS|Inkommande byte DDoS|BytesPerSecond|Maximal|Inkommande byte DDoS|Inget|
-|BytesDroppedDDoS|Inkommande byte som förlorats DDoS|BytesPerSecond|Maximal|Inkommande byte som förlorats DDoS|Inget|
-|BytesForwardedDDoS|Inkommande byte som vidarekopplats DDoS|BytesPerSecond|Maximal|Inkommande byte som vidarekopplats DDoS|Inget|
-|TCPBytesInDDoS|Inkommande TCP-byte DDoS|BytesPerSecond|Maximal|Inkommande TCP-byte DDoS|Inget|
+|BytesInDDoS|DDoS för inkommande byte|BytesPerSecond|Maximal|DDoS för inkommande byte|Inget|
+|BytesDroppedDDoS|Ignorerade inkommande byte DDoS|BytesPerSecond|Maximal|Ignorerade inkommande byte DDoS|Inget|
+|BytesForwardedDDoS|Inkommande byte, vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande byte, vidarebefordrade DDoS|Inget|
+|TCPBytesInDDoS|DDoS för inkommande TCP-byte|BytesPerSecond|Maximal|DDoS för inkommande TCP-byte|Inget|
 |TCPBytesDroppedDDoS|Inkommande TCP-byte utelämnade DDoS|BytesPerSecond|Maximal|Inkommande TCP-byte utelämnade DDoS|Inget|
 |TCPBytesForwardedDDoS|Inkommande TCP byte-vidarebefordrade DDoS|BytesPerSecond|Maximal|Inkommande TCP byte-vidarebefordrade DDoS|Inget|
 |UDPBytesInDDoS|DDoS för inkommande UDP-byte|BytesPerSecond|Maximal|DDoS för inkommande UDP-byte|Inget|
@@ -1421,7 +1421,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |IfUnderDDoSAttack|Under DDoS-attack eller inte|Antal|Maximal|Under DDoS-attack eller inte|Inget|
 |DDoSTriggerTCPPackets|Inkommande TCP-paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Inkommande TCP-paket för att utlösa DDoS-minskning|Inget|
 |DDoSTriggerUDPPackets|Ingående UDP-paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Ingående UDP-paket för att utlösa DDoS-minskning|Inget|
-|DDoSTriggerSYNPackets|Inkommande SYN-paket för att utlösa DDoS-riskreducering|CountPerSecond|Maximal|Inkommande SYN-paket för att utlösa DDoS-riskreducering|Inget|
+|DDoSTriggerSYNPackets|Inkommande SYN paket för att utlösa DDoS-minskning|CountPerSecond|Maximal|Inkommande SYN paket för att utlösa DDoS-minskning|Inget|
 |VipAvailability|Tillgänglighet för data Sök väg|Antal|Medel|Genomsnittlig tillgänglighet för IP-adress per tids längd|Port|
 |ByteCount|Antal byte|Antal|Totalt|Totalt antal byte som skickats inom tids perioden|Port, riktning|
 |PacketCount|Antal paket|Antal|Totalt|Totalt antal överförda paket inom tids perioden|Port, riktning|
@@ -1565,7 +1565,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |ResponseSize|Svars storlek|Byte|Totalt|Antalet byte som skickats som svar från HTTP/S-proxy till klienter|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BillableResponseSize|Fakturerbart svars storlek|Byte|Totalt|Antalet fakturerbara byte (minsta 2KB per begäran) som skickats som svar från HTTP/S-proxy till klienter.|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendRequestCount|Antal Server dels begär Anden|Antal|Totalt|Antalet förfrågningar som skickats från HTTP/S-proxyn till Server delar|HttpStatus, HttpStatusGroup, Server del|
-|BackendRequestLatency|Svars tid för Server del|Millisekunder|Medel|Tiden som beräknas från när begäran skickades av HTTP/S-proxyn till Server delen tills HTTP/S-proxyn fick den senaste svars byten från Server delen|Serverdel|
+|BackendRequestLatency|Svars tid för Server del|Millisekunder|Medel|Tiden som beräknas från när begäran skickades av HTTP/S-proxyn till Server delen tills HTTP/S-proxyn fick den senaste svars byten från Server delen|Backend|
 |TotalLatency|Total svars tid|Millisekunder|Medel|Den tid som beräknas från när klientbegäran togs emot av HTTP/S-proxy tills klienten bekräftade den senaste svars byten från HTTP/S-proxyn|HttpStatus, HttpStatusGroup, ClientRegion, ClientCountry|
 |BackendHealthPercentage|Server delens hälso procent|Procent|Medel|Procent andelen lyckade hälso avsökningar från HTTP/S-proxyn till Server delar|Backend, BackendPool|
 |WebApplicationFirewallRequestCount|Antal begär Anden om webb programs brand vägg|Antal|Totalt|Antalet klient begär Anden som bearbetats av brand väggen för webbaserade program|PolicyName, RuleName, åtgärd|
@@ -1659,8 +1659,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Average_ använt växlings utrymme i procent|Använt växlings utrymme i procent|Antal|Medel|Average_ använt växlings utrymme i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Available MB minne|Tillgängligt minne i megabyte|Antal|Medel|Average_Available MB minne|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Växling vid Average_Available megabyte|Tillgängliga megabyte växlings utrymme|Antal|Medel|Växling vid Average_Available megabyte|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Page läsningar/s|Sidläsningar/sek|Antal|Medel|Average_Page läsningar/s|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_Page skrivningar/SEK|Sidskrivningar/sek|Antal|Medel|Average_Page skrivningar/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page läsningar/s|Sid läsningar/s|Antal|Medel|Average_Page läsningar/s|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_Page skrivningar/SEK|Sid skrivningar/SEK|Antal|Medel|Average_Page skrivningar/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Pages per sekund|Sidor/s|Antal|Medel|Average_Pages per sekund|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Used megabyte växlings utrymme|Använt megabyte växlings utrymme|Antal|Medel|Average_Used megabyte växlings utrymme|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Used minne i MB|Använt minne i MB|Antal|Medel|Average_Used minne i MB|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1681,7 +1681,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Average_Used minne i KB|Använt minne i KB|Antal|Medel|Average_Used minne i KB|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Virtual delat minne|Virtuellt delat minne|Antal|Medel|Average_Virtual delat minne|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% DPC-tid|DPC-tid i procent|Antal|Medel|Average_% DPC-tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Average_ ledig tid i procent|Inaktivitetstid i procent|Antal|Medel|Average_ ledig tid i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
+|Average_ ledig tid i procent|Ledig tid i procent|Antal|Medel|Average_ ledig tid i procent|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Avbrotts tid i procent för Average_%|% Avbrotts tid|Antal|Medel|Avbrotts tid i procent för Average_%|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% i/o-vänte tid|% I/o-vänte tid|Antal|Medel|Average_% i/o-vänte tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% bra tid|% Trevligt tid|Antal|Medel|Average_% bra tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
@@ -1710,7 +1710,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Average_Bytes totalt/SEK|Totalt antal byte/s|Antal|Medel|Average_Bytes totalt/SEK|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_% processor tid|Tid i procent för processor|Antal|Medel|Average_% processor tid|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
 |Average_Processor Kölängd|Kölängd för processor|Antal|Medel|Average_Processor Kölängd|Dator, ObjectName, InstanceName, CounterPath, SourceSystem|
-|Pulsslag|Pulsslag|Antal|Totalt|Pulsslag|Dator, OSType, version, SourceComputerId|
+|Tveka|Tveka|Antal|Totalt|Tveka|Dator, OSType, version, SourceComputerId|
 |Uppdatering|Uppdatering|Antal|Medel|Uppdatering|Dator, produkt, klassificering, UpdateState, valfri, godkänd|
 |Händelse|Händelse|Antal|Medel|Händelse|Källa, EventLog, dator, EventCategory, EventLevel, EventLevelName, EventID|
 
@@ -1733,11 +1733,11 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|QueryDuration|Frågevaraktighet|Millisekunder|Medel|DAX-frågans varaktighet i det sista intervallet|Inga dimensioner|
+|QueryDuration|Frågans varaktighet|Millisekunder|Medel|DAX-frågans varaktighet i det sista intervallet|Inga dimensioner|
 |QueryPoolJobQueueLength|Trådar: Kölängd för jobbkö|Antal|Medel|Antal jobb i kön för trådpoolen för Query.|Inga dimensioner|
-|qpu_high_utilization_metric|Hög användning av QPU|Antal|Totalt|QPU hög användning under den senaste minuten, 1 för hög QPU användning, annars 0|Inga dimensioner|
-|memory_metric|Minne|Byte|Medel|Memory. Intervallet 0-3 GB för a1, 0-5 GB för a2, 0-10 GB för A3, 0-25 GB för A4, 0-50 GB för A5 och 0-100 GB för A6|Inga dimensioner|
-|memory_thrashing_metric|Minnesförslöing|Procent|Medel|Genomsnittligt minne nedskräpning.|Inga dimensioner|
+|qpu_high_utilization_metric|QPU hög användning|Antal|Totalt|QPU hög användning under den senaste minuten, 1 för hög QPU användning, annars 0|Inga dimensioner|
+|memory_metric|Minne|Byte|Medel|Minnesoptimerade. Intervallet 0-3 GB för a1, 0-5 GB för a2, 0-10 GB för A3, 0-25 GB för A4, 0-50 GB för A5 och 0-100 GB för A6|Inga dimensioner|
+|memory_thrashing_metric|Nedskräpning för minne|Procent|Medel|Genomsnittligt minne nedskräpning.|Inga dimensioner|
 
 
 
@@ -1851,8 +1851,8 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |dwu_used|DWU som används|Antal|Maximal|DWU som används. Gäller endast för data lager.|Inget|
 |cache_hit_percent|Procent andel cacheträffar|Procent|Maximal|Procent av cacheträffar. Gäller endast för data lager.|Inget|
 |cache_used_percent|Procent andel som används|Procent|Maximal|Procent andel som används. Gäller endast för data lager.|Inget|
-|sqlserver_process_core_percent|SQL Server process kärn procent|Procent|Maximal|CPU-användning som en procent andel av SQL DB-processen. Ej tillämpligt för data lager.|Inget|
-|sqlserver_process_memory_percent|SQL Server process minne i procent|Procent|Maximal|Minnes användning som en procent andel av SQL DB-processen. Ej tillämpligt för data lager.|Inget|
+|sqlserver_process_core_percent|SQL Server process kärn procent|Procent|Maximal|PROCESSOR användning i procent för SQL Server processen, mätt av operativ systemet. För närvarande endast tillgängligt för serverbaserade databaser.|Inget|
+|sqlserver_process_memory_percent|SQL Server process minne i procent|Procent|Maximal|Minnes användnings procent för SQL Server processen, mätt av operativ systemet. För närvarande endast tillgängligt för serverbaserade databaser.|Inget|
 |tempdb_data_size|Data fil storlek i tempdb i KB|Antal|Maximal|Data fil storlek för tempdb i KB. Ej tillämpligt för data lager.|Inget|
 |tempdb_log_size|TempDB-logg fils storlek kilobyte|Antal|Maximal|TempDB-logg fils storlek kilobyte. Ej tillämpligt för data lager.|Inget|
 |tempdb_log_used_percent|Procent använt tempdb-logg|Procent|Maximal|TempDB procent logg används. Ej tillämpligt för data lager.|Inget|
@@ -1885,7 +1885,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|Inget|
 |database_sessions_percent|Sessioner i procent|Procent|Medel|Sessioner i procent|DatabaseResourceId|
 |eDTU_limit|eDTU-gräns|Antal|Medel|eDTU-gräns. Gäller för DTU-baserade elastiska pooler.|Inget|
-|storage_limit|Maximal datastorlek|Byte|Medel|Maximal datastorlek|Inget|
+|storage_limit|Max storlek för data|Byte|Medel|Max storlek för data|Inget|
 |eDTU_used|eDTU använt|Antal|Medel|eDTU används. Gäller för DTU-baserade elastiska pooler.|Inget|
 |database_eDTU_used|eDTU använt|Antal|Medel|eDTU använt|DatabaseResourceId|
 |storage_used|Använt data utrymme|Byte|Medel|Använt data utrymme|Inget|
@@ -1947,7 +1947,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |BlobCapacity|Blobkapacitet|Byte|Medel|Mängden lagring som används av lagringskontots Blob Service i byte.|BlobType,-nivå|
 |BlobCount|Antalet blobar|Antal|Medel|Antalet blobar i lagringskontots Blob Service.|BlobType,-nivå|
 |ContainerCount|Antal blobcontainrar|Antal|Medel|Antalet containrar i lagringskontots Blob Service.|Inget|
-|IndexCapacity|Indexkapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Inget|
+|IndexCapacity|Index kapacitet|Byte|Medel|Mängden lagrings utrymme som används av ADLS Gen2 (hierarkiskt) index i byte.|Inget|
 |Transaktioner|Transaktioner|Antal|Totalt|Antalet begäranden som görs till en lagringstjänst eller för den angivna API-åtgärden. I det här värdet räknas både lyckade och misslyckade förfrågningar samt förfrågningar som genererat fel. Använd måttet responsetype för antalet annan typ av svar.|ResponseType, typ av typ, ApiName, autentisering|
 |Ingångshändelser|Ingångshändelser|Byte|Totalt|Mängden ingående data i byte. Det här värdet innefattar inkommande data från en extern klient till Azure Storage samt inkommande data inom Azure.|Typ av typ, ApiName, autentisering|
 |Utgående|Utgående|Byte|Totalt|Mängden utgående data i byte. Det här värdet innefattar utgående data från en extern klient till Azure Storage samt utgående data inom Azure. Därför motsvarar inte det här värdet fakturerbara utgående data.|Typ av typ, ApiName, autentisering|
@@ -2161,7 +2161,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |MemoryPercentage|Minnes procent|Procent|Medel|Minnes procent|Instans|
 |DiskQueueLength|Diskkölängd|Antal|Medel|Diskkölängd|Instans|
 |HttpQueueLength|Längd på http-kö|Antal|Medel|Längd på http-kö|Instans|
-|BytesReceived|Data in|Byte|Totalt|Data in|Instans|
+|BytesReceived|Data i|Byte|Totalt|Data i|Instans|
 |Bytes sent|Data ut|Byte|Totalt|Data ut|Instans|
 |TcpSynSent|TCP-syn har skickats|Antal|Medel|TCP-syn har skickats|Instans|
 |TcpSynReceived|TCP-syn mottagen|Antal|Medel|TCP-syn mottagen|Instans|
@@ -2179,7 +2179,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |---|---|---|---|---|---|
 |CpuTime|CPU-tid|Sekunder|Totalt|CPU-tid|Instans|
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
-|BytesReceived|Data in|Byte|Totalt|Data in|Instans|
+|BytesReceived|Data i|Byte|Totalt|Data i|Instans|
 |Bytes sent|Data ut|Byte|Totalt|Data ut|Instans|
 |Http101|Http 101|Antal|Totalt|Http 101|Instans|
 |Http2xx|Http-2xx|Antal|Totalt|Http-2xx|Instans|
@@ -2190,12 +2190,12 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Http406|Http 406|Antal|Totalt|Http 406|Instans|
 |Http4xx|Http-4xx|Antal|Totalt|Http-4xx|Instans|
 |Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
+|MemoryWorkingSet|Minnes arbets mängd|Byte|Medel|Minnes arbets mängd|Instans|
 |AverageMemoryWorkingSet|Genomsnittlig arbets mängd för minne|Byte|Medel|Genomsnittlig arbets mängd för minne|Instans|
-|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
+|AverageResponseTime|Genomsnittlig svars tid|Sekunder|Medel|Genomsnittlig svars tid|Instans|
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Konsolindataobjekt|Antal referenser|Antal|Medel|Antal referenser|Instans|
-|Trådar|Räkning av trådar|Antal|Medel|Räkning av trådar|Instans|
+|Konversation|Antal trådar|Antal|Medel|Antal trådar|Instans|
 |PrivateBytes|Privata byte|Byte|Medel|Privata byte|Instans|
 |IoReadBytesPerSecond|IO-lästa byte per sekund|BytesPerSecond|Totalt|IO-lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|Skrivna byte i i/o per sekund|BytesPerSecond|Totalt|Skrivna byte i i/o per sekund|Instans|
@@ -2217,10 +2217,10 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
-|BytesReceived|Data in|Byte|Totalt|Data in|Instans|
+|BytesReceived|Data i|Byte|Totalt|Data i|Instans|
 |Bytes sent|Data ut|Byte|Totalt|Data ut|Instans|
 |Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
+|MemoryWorkingSet|Minnes arbets mängd|Byte|Medel|Minnes arbets mängd|Instans|
 |AverageMemoryWorkingSet|Genomsnittlig arbets mängd för minne|Byte|Medel|Genomsnittlig arbets mängd för minne|Instans|
 |FunctionExecutionUnits|Funktions körnings enheter|MB/millisekunder|Totalt|[Funktions körnings enheter](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instans|
 |FunctionExecutionCount|Funktions körnings antal|Antal|Totalt|Funktions körnings antal|Instans|
@@ -2248,7 +2248,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |---|---|---|---|---|---|
 |CpuTime|CPU-tid|Sekunder|Totalt|CPU-tid|Instans|
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
-|BytesReceived|Data in|Byte|Totalt|Data in|Instans|
+|BytesReceived|Data i|Byte|Totalt|Data i|Instans|
 |Bytes sent|Data ut|Byte|Totalt|Data ut|Instans|
 |Http101|Http 101|Antal|Totalt|Http 101|Instans|
 |Http2xx|Http-2xx|Antal|Totalt|Http-2xx|Instans|
@@ -2259,15 +2259,15 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Http406|Http 406|Antal|Totalt|Http 406|Instans|
 |Http4xx|Http-4xx|Antal|Totalt|Http-4xx|Instans|
 |Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|MemoryWorkingSet|Arbetsminne|Byte|Medel|Arbetsminne|Instans|
+|MemoryWorkingSet|Minnes arbets mängd|Byte|Medel|Minnes arbets mängd|Instans|
 |AverageMemoryWorkingSet|Genomsnittlig arbets mängd för minne|Byte|Medel|Genomsnittlig arbets mängd för minne|Instans|
-|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
+|AverageResponseTime|Genomsnittlig svars tid|Sekunder|Medel|Genomsnittlig svars tid|Instans|
 |HttpResponseTime|Svars tid|Sekunder|Medel|Svars tid|Instans|
 |FunctionExecutionUnits|Funktions körnings enheter|Antal|Totalt|Funktions körnings enheter|Instans|
 |FunctionExecutionCount|Funktions körnings antal|Antal|Totalt|Funktions körnings antal|Instans|
 |AppConnections|Anslutningar|Antal|Medel|Anslutningar|Instans|
 |Konsolindataobjekt|Antal referenser|Antal|Medel|Antal referenser|Instans|
-|Trådar|Räkning av trådar|Antal|Medel|Räkning av trådar|Instans|
+|Konversation|Antal trådar|Antal|Medel|Antal trådar|Instans|
 |PrivateBytes|Privata byte|Byte|Medel|Privata byte|Instans|
 |IoReadBytesPerSecond|IO-lästa byte per sekund|BytesPerSecond|Totalt|IO-lästa byte per sekund|Instans|
 |IoWriteBytesPerSecond|Skrivna byte i i/o per sekund|BytesPerSecond|Totalt|Skrivna byte i i/o per sekund|Instans|
@@ -2290,7 +2290,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Mått|Metrisk visningsnamn|Enhet|Sammansättningstyp:|Beskrivning|Dimensioner|
 |---|---|---|---|---|---|
 |Begäranden|Begäranden|Antal|Totalt|Begäranden|Instans|
-|BytesReceived|Data in|Byte|Totalt|Data in|Instans|
+|BytesReceived|Data i|Byte|Totalt|Data i|Instans|
 |Bytes sent|Data ut|Byte|Totalt|Data ut|Instans|
 |Http101|Http 101|Antal|Totalt|Http 101|Instans|
 |Http2xx|Http-2xx|Antal|Totalt|Http-2xx|Instans|
@@ -2301,7 +2301,7 @@ Azure Monitor tillhandahåller flera olika sätt att interagera med mått, inklu
 |Http406|Http 406|Antal|Totalt|Http 406|Instans|
 |Http4xx|Http-4xx|Antal|Totalt|Http-4xx|Instans|
 |Http5xx|Http-serverfel|Antal|Totalt|Http-serverfel|Instans|
-|AverageResponseTime|Genomsnittlig svarstid|Sekunder|Medel|Genomsnittlig svarstid|Instans|
+|AverageResponseTime|Genomsnittlig svars tid|Sekunder|Medel|Genomsnittlig svars tid|Instans|
 |CpuPercentage|CPU-procent|Procent|Medel|CPU-procent|Instans|
 |MemoryPercentage|Minnes procent|Procent|Medel|Minnes procent|Instans|
 |DiskQueueLength|Diskkölängd|Antal|Medel|Diskkölängd|Instans|

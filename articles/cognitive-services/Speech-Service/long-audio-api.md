@@ -1,21 +1,21 @@
 ---
 title: Tids krävande ljud-API (för hands version) – tal tjänst
 titleSuffix: Azure Cognitive Services
-description: ''
+description: 'Lär dig hur den långa ljud-API: n är utformad för asynkron syntes av lång Forms text till tal.'
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.author: erhopf
-ms.openlocfilehash: ff8cdf78d923394caf36610534eb5dcc7de571a4
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/30/2020
+ms.author: dapine
+ms.openlocfilehash: 033103e10971be2f6c220ccdb2c3586c7dc2ef05
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562552"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900243"
 ---
 # <a name="long-audio-api-preview"></a>Långt ljud-API (för hands version)
 

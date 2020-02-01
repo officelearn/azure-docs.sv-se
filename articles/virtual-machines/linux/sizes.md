@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 5e10c0905237f3cc28dd0ac113dfaf844e781bac
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c16ff8fed19340811578ccb39cbac7242b7c5861
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646667"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905738"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Storlekar för virtuella Linux-datorer i Azure
 I den här artikeln beskrivs tillgängliga storlekar och alternativ för de virtuella Azure-datorer som du kan använda för att köra dina Linux-appar och arbets belastningar. Den innehåller också distributions överväganden för att vara medveten om när du planerar att använda dessa resurser. Den här artikeln är också tillgänglig för [virtuella Windows-datorer](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -67,7 +67,7 @@ Läs mer om de olika VM-storlekar som är tillgängliga:
 - [Lagringsoptimerad](sizes-storage.md)
 - [GPU](sizes-gpu.md)
 - [Databehandling med höga prestanda](sizes-hpc.md)
-- Kontrol lera [föregående generations](sizes-previous-gen.md) sida för en standard, DV1 (D1-4 och D11-14 v1) och A8-A11-serien
+- Kontrol lera [föregående generations](sizes-previous-gen.md) sida för Basic och standard, hög prestanda A8 – A11, D/DSv1 (D1-4 och D11-14 v1), F/Fsv1, G/GS, Lsv1 och NVv2 serien.
 
 
 

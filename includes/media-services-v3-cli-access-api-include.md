@@ -8,18 +8,24 @@ ms.topic: include
 ms.date: 05/01/2019
 ms.author: juliako
 ms.custom: include file
-ms.openlocfilehash: b0f93f950b55052ea8d8b31538c47226413dc82a
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 58e9156091702718dccd75eb4a57e5b6d8c1f073
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187434"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896324"
 ---
-## <a name="access-the-media-services-api"></a>Åtkomst till Media Services API
+## <a name="access-the-media-services-api"></a>Åtkomst till Media Services-API:n
 
 För att ansluta till Azure Media Services-API:er använder du autentisering av Azure AD-tjänstens huvudnamn. Följande kommando skapar ett Azure AD-program och bifogar ett huvudnamn för tjänsten till kontot. Du bör konfigurera ditt program med de värden som returneras.
 
-Innan du kör skriptet, bör du ersätta den `amsaccount` och `amsResourceGroup` med namn som du valde när du skapar dessa resurser. `amsaccount` är namnet på Azure Media Services-kontot där tjänstens huvudnamn ska bifogas.
+Innan du kör skriptet bör du ersätta `amsaccount` och `amsResourceGroup` med de namn som du valde när du skapade resurserna. `amsaccount` är namnet på Azure Media Services-kontot där tjänstens huvudnamn ska bifogas.
+
+Om du har åtkomst till flera prenumerationer ställer du först in den aktiva prenumerationen på den prenumeration där Media Services kontot skapades.
+
+```azurecli
+az account set --subscription subscriptionId
+```
 
 Följande kommando returnerar `json`-utdata:
 

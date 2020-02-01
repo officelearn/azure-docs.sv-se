@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a88f03adab3beaea75ec2fa9a1c6f59b09739025
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76153162"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899210"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Självstudie: Konfigurera ett geografiskt avgränsnings tecken genom att använda Azure Maps
 
@@ -174,7 +174,7 @@ När Postman-appen har installerats följer du de här stegen för att ladda upp
 
 I det här avsnittet skapar vi en händelse hanterare som tar emot meddelanden. Den här händelse hanteraren bör meddela Operations Manager om att ange och avsluta händelser för all utrustning.
 
-Vi gör två [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) -tjänster för att hantera, registrera och avsluta händelser. När händelserna i Logic Apps utlösare utlöses fler händelser i följd. Tanken är att skicka aviseringar, i det här fallet e-postmeddelanden, till Operations Manager. Följande bild visar skapandet av en logikapp för geofence-inträdeshändelsen. På liknande sätt kan skapa du en till för utträdeshändelsen. Mer information finns i avsnittet om [händelsehanterare som stöds](https://docs.microsoft.com/azure/event-grid/event-handlers).
+Vi gör två [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) -tjänster för att hantera in-och avsluts händelser. När händelserna i Logic Apps utlösare utlöses fler händelser i följd. Tanken är att skicka aviseringar, i det här fallet e-postmeddelanden, till Operations Manager. Följande bild visar skapandet av en logikapp för geofence-inträdeshändelsen. På liknande sätt kan skapa du en till för utträdeshändelsen. Mer information finns i avsnittet om [händelsehanterare som stöds](https://docs.microsoft.com/azure/event-grid/event-handlers).
 
 1. Skapa en logikapp i Azure-portalen
 
@@ -194,7 +194,7 @@ Vi gör två [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-hand
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Skapa en prenumeration för Azure Maps-händelser
 
-Azure Maps har stöd för tre händelsetyper. Du kan ta en titt på de Azure Maps händelse typer som stöds [här] (https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps. Vi behöver två olika händelse prenumerationer, en för händelsen ange och en för avsluts händelser.
+Azure Maps har stöd för tre händelsetyper. Du kan ta en titt på händelsetyper som Azure Maps stöder [här](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Vi behöver två olika händelse prenumerationer, en för händelsen ange och en för avsluts händelser.
 
 Följ stegen nedan för att skapa en händelseprenumeration för geofence-inträdeshändelserna. Du kan prenumerera på geofence-utträdeshändelser på ett liknande sätt.
 

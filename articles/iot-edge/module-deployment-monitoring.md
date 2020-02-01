@@ -4,16 +4,16 @@ description: Använda automatisk distributioner i Azure IoT Edge för att hanter
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 12/12/2019
+ms.date: 01/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 406830add1891a058e9b43fccb8435aa4d339ed0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8aaac6100ba980301ff3e85a3ac3959bfee89b49
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548687"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76895962"
 ---
 # <a name="understand-iot-edge-automatic-deployments-for-single-devices-or-at-scale"></a>Förstå IoT Edge automatiska distributioner för enskilda enheter eller i stor skala
 
@@ -61,7 +61,7 @@ Mål villkoret utvärderas kontinuerligt under hela livs längden för distribut
 
 Du kan till exempel ha en distribution med en Target condition-taggar. miljö = ' Prod '. När du sätta igång distributionen finns 10 produktionsenheter. Modulerna som har installerats i dessa 10 enheter. IoT Edge agent status visar totalt 10 enheter, 10 lyckade svar, 0 felsvar och 0 väntande svar. Nu lägger du till fem fler enheter med tags.environment = 'prod'. Tjänsten identifierar ändringen och IoT Edge agentens status blir 15 enheter, 10 lyckade svar, 0 felsvar och 5 väntande svar när den distribueras till de fem nya enheterna.
 
-Använd valfritt booleskt villkor på device twins taggar eller deviceId för att välja målenheter. Om du vill använda villkoret med taggar kan du behöva lägga till ”taggar”:{} avsnittet i enhetstvillingen under samma nivå som egenskaper. [Mer information om taggar i enhetstvilling](../iot-hub/iot-hub-devguide-device-twins.md)
+Använd booleska villkor på enhetens dubbla taggar, enhetens dubbla rapporterade egenskaper eller deviceId för att välja mål enheter. Om du vill använda villkoret med taggar kan du behöva lägga till ”taggar”:{} avsnittet i enhetstvillingen under samma nivå som egenskaper. [Mer information om taggar i enhetstvilling](../iot-hub/iot-hub-devguide-device-twins.md)
 
 Exempel på mål villkor:
 
@@ -70,10 +70,11 @@ Exempel på mål villkor:
 * Tags.Environment = prod och tags.location = 'westus'
 * Tags.Environment = prod eller tags.location = 'westus'
 * Tags.operator = ”John” och tags.environment = prod inte deviceId = 'linuxprod1'
+* egenskaper. redevicemodel = ' 4000x '
 
-Här följer några avgränsar när du skapar en Målvillkor:
+Tänk på följande begränsningar när du skapar ett mål villkor:
 
-* Du kan bara skapa en Målvillkor med hjälp av taggar eller deviceId i enhetstvillingen.
+* I enhet, kan du bara bygga ett mål villkor med hjälp av taggar, rapporterade egenskaper eller deviceId.
 * Dubbla citattecken tillåts inte i någon del av målvillkoret. Använd enkla citattecken.
 * Enkla citattecken representerar värden för målvillkoret. Du måste därför escape enkelt citattecken med ett annat enkelt citattecken om det är en del av namnet på enheten. Till exempel att fokusera på en enhet med namnet `operator'sDevice`, skriva `deviceId='operator''sDevice'`.
 * Siffror, bokstäver och följande tecken är tillåtna i villkoret målvärden: `-:.+%_#*?!(),=@;$`.
@@ -92,8 +93,8 @@ Som standard rapporterar alla distributioner på fyra mått:
 
 * **Riktad** visar de IoT Edge enheter som matchar villkoret för distributions målet.
 * **Tillämpad** visar riktade IoT Edge enheter som inte är riktade till en annan distribution med högre prioritet.
-* **Rapporten lyckades** visar de IoT Edge enheter som har rapporterat tillbaka till tjänsten att modulerna har distribuerats korrekt.
-* **Rapporterings fel** visar de IoT Edge enheter som har rapporterat tillbaka till tjänsten att en eller flera moduler inte har distribuerats korrekt. För att undersöka felet, fjärransluta till dessa enheter och visa loggfilerna.
+* **Rapporten lyckades** visar de IoT Edge enheter som har rapporterat att modulerna har distribuerats korrekt.
+* **Rapporterings fel** visar de IoT Edge enheter som har rapporterat att en eller flera moduler inte har distribuerats. För att undersöka felet, fjärransluta till dessa enheter och visa loggfilerna.
 
 Du kan också definiera egna anpassade mått som hjälper dig att övervaka och hantera distributionen.
 
@@ -112,7 +113,7 @@ Lager distributioner är automatiska distributioner som kan kombineras tillsamma
 
 Lager distributioner har samma grundläggande komponenter som vilken automatisk distribution som helst. De riktar in enheter baserat på taggar i enheten är dubbla och ger samma funktioner kring etiketter, mått och status rapportering. Lager distributioner har också tilldelade prioriteter, men i stället för att använda prioritet för att avgöra vilken distribution som tillämpas på en enhet, avgör prioriteten hur flera distributioner rangordnas på en enhet. Om två lager distributioner till exempel har en modul eller en väg med samma namn, tillämpas den skiktade distributionen med högre prioritet medan den lägre prioriteten skrivs över.
 
-System runtime-modulerna, edgeAgent och edgeHub är inte konfigurerade som en del av en lager distribution. Alla IoT Edge enheter som är riktade mot en lager distribution behöver en standard automatisk distribution som tillämpas först för att tillhandahålla den bas som lager distributioner kan läggas till i.
+System runtime-modulerna, edgeAgent och edgeHub är inte konfigurerade som en del av en lager distribution. Alla IoT Edge enheter som är riktade mot en lager distribution måste först använda en automatisk standard distribution. Den automatiska distributionen tillhandahåller den bas där lager distributioner kan läggas till.
 
 En IoT Edge enhet kan bara använda en och endast en automatisk automatisk distribution, men den kan tillämpa flera lager automatiska distributioner. Alla lager distributioner som riktas mot en enhet måste ha en högre prioritet än den automatiska distributionen av enheten.
 
@@ -141,7 +142,7 @@ I en standard distribution kan du till exempel lägga till modulen simulerad tem
 }
 ```
 
-I en lager distribution som riktar sig till samma enheter, eller en delmängd av samma enheter, kanske du vill lägga till ytterligare en egenskap som anger att den simulerade sensorn skickar 1000 meddelanden och sedan stoppar. Du vill inte skriva över de befintliga egenskaperna, så du skapar ett nytt avsnitt i önskade egenskaper som kallas `layeredProperties`, som innehåller den nya egenskapen:
+I en lager distribution som är riktad mot en eller flera av samma enheter kan du lägga till en egenskap som anger att den simulerade sensorn skickar 1000 meddelanden och sedan stoppar. Du vill inte skriva över de befintliga egenskaperna, så du skapar ett nytt avsnitt i önskade egenskaper som kallas `layeredProperties`, som innehåller den nya egenskapen:
 
 ```json
 "SimulatedTemperatureSensor": {

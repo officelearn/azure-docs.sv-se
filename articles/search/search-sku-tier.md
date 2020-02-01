@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427020"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899842"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Välj en pris nivå för Azure Kognitiv sökning
 
@@ -21,15 +21,20 @@ När du skapar en Azure Kognitiv sökning-tjänst [skapas en resurs](search-crea
 
 De flesta kunder börjar med den kostnads fria nivån så att de kan utvärdera tjänsten. Efter utvärdering är det vanligt att skapa en andra tjänst på en av de högre nivåerna för utveckling och produktions distributioner.
 
-Även om alla nivåer, inklusive den kostnads fria nivån, vanligt vis erbjuder funktions paritet, kan större arbets belastningar diktera ett behov för högre nivåer. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
+## <a name="feature-availability-by-tier"></a>Funktions tillgänglighet per nivå
 
-> [!NOTE] 
-> Undantag för funktions paritet är [indexerare](search-indexer-overview.md)som inte är tillgängliga på S3 HD.
->
+Nästan alla funktioner är tillgängliga på alla nivåer, inklusive kostnads fri, men en funktion eller ett arbets flöde som är resurs krävande kanske inte fungerar bra om du inte ger den tillräckligt med kapacitet. [AI-anrikning](cognitive-search-concept-intro.md) har till exempel långvariga färdigheter som tar slut på en kostnads fri tjänst, om inte data uppsättningen är liten.
 
-## <a name="available-tiers"></a>Tillgängliga nivåer
+I följande tabell beskrivs nivå-relaterade funktions begränsningar.
 
-Nivåer återspeglar egenskaperna hos maskin varan som är värd för tjänsten (i stället för funktioner) och särskiljs av:
+| Funktion | Begränsningar |
+|---------|-------------|
+| [indexerare](search-indexer-overview.md) | Indexerare är inte tillgängliga på S3 HD. |
+| [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) | Inte tillgängligt på den kostnads fria nivån. |
+
+## <a name="tiers-skus"></a>Nivåer (SKU: er)
+
+Nivåerna särskiljs av:
 
 + Antal index och indexerare som du kan skapa
 + Storlek och hastighet för partitioner (fysisk lagring)
@@ -80,7 +85,7 @@ För [AI-anrikning](cognitive-search-concept-intro.md)bör du planera att [koppl
 |-----------|----------------|
 | Dokument sprickor, text extrahering | Kostnadsfri |
 | Dokument sprickor, avbildnings extrahering | Faktureras enligt antalet bilder som har extraherats från dina dokument. I en [indexerare-konfiguration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)är **imageAction** den parameter som utlöser avbildnings extrahering. Om **imageAction** är inställt på "ingen" (standard) debiteras du inte för avbildnings extrahering. Hastigheten för avbildnings extrahering dokumenteras på sidan med [pris information](https://azure.microsoft.com/pricing/details/search/) för Azure kognitiv sökning.|
-| [Inbyggda kognitiva kunskaper](cognitive-search-predefined-skills.md) | Faktureras enligt samma takt som om du har utfört uppgiften genom att använda Cognitive Services direkt. |
+| [Inbyggda kognitiva kompetenser](cognitive-search-predefined-skills.md) | Faktureras enligt samma takt som om du har utfört uppgiften genom att använda Cognitive Services direkt. |
 | Anpassade färdigheter | En anpassad färdighet är funktioner som du anger. Kostnaden för att använda en anpassad färdighet beror helt på om anpassad kod anropar andra avgiftsbelagda tjänster. |
 
 <a name="search-units"></a>
@@ -97,9 +102,9 @@ Fakturerings takten är per timme per SU. Varje nivå har en progressivt högre 
 
 De flesta kunder tar bara en del av den totala kapaciteten online, där resten av reserven behålls. För fakturering bestämmer antalet partitioner och repliker som du ansluter online, vilket avgör vad du betalar per timme.
 
-## <a name="how-to-manage-and-reduce-costs"></a>Hantera och minska kostnaderna
+## <a name="how-to-manage-costs"></a>Så här hanterar du kostnader
 
-Utöver följande förslag kan du gå till [fakturerings-och kostnads hantering](https://docs.microsoft.com/azure/billing/billing-getting-started).
+Följande förslag kan hjälpa dig att hålla kostnaderna minst:
 
 - Skapa alla resurser i samma region, eller i så få regioner som möjligt, för att minimera eller eliminera bandbredds kostnader.
 
@@ -109,7 +114,11 @@ Utöver följande förslag kan du gå till [fakturerings-och kostnads hantering]
 
 - Skala upp för resurs krävande åtgärder som indexering och justera sedan nedåt för vanliga frågor och arbets belastningar. Börja med den lägsta konfigurationen för Azure Kognitiv sökning (en SU som består av en partition och en replik) och övervaka sedan användar aktivitet för att identifiera användnings mönster som indikerar ett behov av mer kapacitet. Om det finns ett förutsägbart mönster kanske du kan synkronisera skalning med aktivitet (du måste skriva kod för att automatisera detta).
 
-Du kan inte stänga av en Sök tjänst för att minska din faktura. Dedikerade resurser är alltid operativa, allokeras för exklusiv användning för din tjänsts livs längd. Vad gäller själva tjänsten är det enda sättet att sänka din faktura till att minska antalet repliker och partitioner till en nivå som fortfarande ger acceptabel prestanda och [SLA-efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/), eller skapa en tjänst på en lägre nivå (S1 Tim pris är lägre än S2 eller S3-priser). Förutsatt att du etablerar tjänsten i det nedre slutet av dina belastnings prognoser, kan du skapa en andra större tjänst, återskapa dina index på den andra tjänsten och sedan ta bort den första.
+Du kan också besöka [fakturerings-och kostnads hantering](https://docs.microsoft.com/azure/billing/billing-getting-started) för inbyggda verktyg och funktioner som är relaterade till utgifter.
+
+Det går inte att stänga av en Sök tjänst temporärt. Dedikerade resurser är alltid operativa, allokeras för exklusiv användning för din tjänsts livs längd. Att ta bort en tjänst är permanent och tar också bort tillhör ande data.
+
+Vad gäller själva tjänsten är det enda sättet att sänka din faktura till att minska antalet repliker och partitioner till en nivå som fortfarande ger acceptabel prestanda och [SLA-efterlevnad](https://azure.microsoft.com/support/legal/sla/search/v1_0/), eller skapa en tjänst på en lägre nivå (S1 Tim pris är lägre än S2 eller S3-priser). Förutsatt att du etablerar tjänsten i det nedre slutet av dina belastnings prognoser, kan du skapa en andra större tjänst, återskapa dina index på den andra tjänsten och sedan ta bort den första.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>Utvärdera kapacitets kraven
 

@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/24/2019
-ms.openlocfilehash: 8e563ae095cf39cdce3e671d4099d2bf1592100a
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.date: 01/29/2020
+ms.openlocfilehash: d43b580f60f5ae8d2782cf9762b02aa1360e5a40
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513634"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901196"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Samla in loggdata med Log Analytics agent
 
@@ -89,7 +89,7 @@ I följande tabell visas de paket som krävs för Linux-distributioner som stöd
 |-----------------|------------|----------------|
 |Glibc |    GNU C-bibliotek | 2.5-12 
 |Openssl    | OpenSSL-bibliotek | 1.0. x eller 1.1. x |
-|Curl | webb klient för sväng | 7.15.5 |
+|Klammerparentes | webb klient för sväng | 7.15.5 |
 |Python – ctypes | | 
 |PAM | Pluggable Authentication Modules | | 
 
@@ -106,6 +106,7 @@ Informationen nedan visar den konfigurations information för proxy och brand v�
 
 |Agentresurs|Portar |Riktning |Kringgå HTTPS-kontroll|
 |------|---------|--------|--------|   
+|OMS *. Azure. com |Port 443 |Utgående |Ja |
 |*.ods.opinsights.azure.com |Port 443 |Utgående|Ja |  
 |*.oms.opinsights.azure.com |Port 443 |Utgående|Ja |  
 |*.blob.core.windows.net |Port 443 |Utgående|Ja |  

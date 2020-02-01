@@ -1,20 +1,20 @@
 ---
-title: Översikt över Azure Portal | Microsoft Docs
+title: Kom igång med Azure snabb start Center
 description: Använd den guidade guiden för Azure snabb start Center för att komma igång med Azure. Lär dig att konfigurera, migrera och förnya.
 services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 09/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 624be4cca4fd274fdc5d2b2c374b87b3e0974888
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 21dd43b5179d0752699bb56b51a2c08976aa037b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310548"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900700"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Kom igång med Azure snabb start Center
 
@@ -33,8 +33,10 @@ Azure snabb starts Center har tre alternativ för att komma igång:
 ## <a name="how-to-use-azure-quickstart-center"></a>Använda Azure snabb starts Center
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Välj **alla tjänster** i det övre avsnittet av marginal listen.
-1. Välj **allmänt** > **snabb starts Center**. Välj stjärn ikonen för att spara till dina **Favoriter**.
+
+1. Välj **alla tjänster** på Azure Portal-menyn.
+
+1. Välj **allmänt** > **snabb starts Center**.
 
 En djupgående titt på vad Azure snabb starts Center kan göra för dig, kolla in den här videon:
 > [!VIDEO https://www.youtube.com/embed/0bSA7RXrbAg]

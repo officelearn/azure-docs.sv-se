@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl nät tjänst – replik
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hämta replik information för en program resurs.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 219a691dd1b74ec2214c156018e6e3f62366f523
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645335"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905950"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 Hämta replik information och lista repliker för en specifik tjänst i en program resurs.

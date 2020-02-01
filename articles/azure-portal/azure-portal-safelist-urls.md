@@ -1,30 +1,33 @@
 ---
-title: 'SAFELIST Azure Portal URL: er | Microsoft Docs'
+title: SAFELIST Azure Portal webb adresser på din brand vägg eller proxyserver
 description: 'Lägg till dessa URL: er till proxyservern kringgå för kommunikation med Azure Portal och dess tjänster'
 services: azure-portal
 keywords: ''
 author: mgblythe
 ms.author: mblythe
-ms.date: 09/13/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 3f81d41bc6d8ce07ea4e7b11c7c48f9b68d70466
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: c5bba7296a05cfbb72698a991ece1ef298689bd1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310584"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900654"
 ---
 # <a name="safelist-the-azure-portal-urls-on-your-firewall-or-proxy-server"></a>SAFELIST Azure Portal webb adresser på din brand vägg eller proxyserver
 
-För bästa prestanda och anslutning mellan ditt lokala nätverk och det lokala nätverket och Azure-molnet konfigurerar du lokala säkerhetsenheter för att kringgå säkerhets begränsningar för Azure Portal-URL: er. Nätverks administratörer distribuerar ofta proxyservrar, brand väggar eller andra enheter för att skydda och styra hur användare får åtkomst till Internet. Regler som är utformade för att skydda användare kan dock ibland blockera eller sakta ned legitim affärs relaterad Internet trafik, inklusive kommunikation mellan dig och Azure. För att optimera anslutningen mellan ditt nätverk och Azure Portal och dess tjänster rekommenderar vi att du lägger till Azure Portal webb adresser i din SAFELIST.
+Du kan konfigurera lokala säkerhets enheter för att kringgå säkerhets begränsningar för Azure Portal-URL: er. Den här konfigurationen kan förbättra prestandan och anslutningen mellan ditt lokala nätverk och ditt lokala nätverk och Azure-molnet.
+
+Nätverks administratörer distribuerar ofta proxyservrar, brand väggar eller andra enheter. De här enheterna skyddar och ger kontroll över hur användare får åtkomst till Internet. Regler som är utformade för att skydda användare kan ibland blockera eller sakta ned giltig affärs relaterad Internet trafik. Trafiken omfattar kommunikation mellan dig och Azure. För att optimera anslutningen mellan ditt nätverk och Azure Portal och dess tjänster rekommenderar vi att du lägger till Azure Portal webb adresser i din SAFELIST.
 
 ## <a name="azure-portal-urls-for-proxy-bypass"></a>Azure Portal-URL: er för att kringgå proxyserver
 
-URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln där organisationen har distribuerats. Välj molnet och Lägg sedan till listan med URL: er till proxyservern eller brand väggen för att tillåta nätverks trafik till dessa slut punkter för att kringgå begränsningar.
+URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln där organisationen har distribuerats. Om du vill tillåta nätverks trafik till dessa slut punkter för att kringgå begränsningar väljer du ditt moln. Lägg sedan till listan med URL: er till proxyservern eller brand väggen.
 
 #### <a name="public-cloudtabpublic-cloud"></a>[Offentligt moln](#tab/public-cloud)
+
 ```
 *.aadcdn.microsoftonline-p.com
 *.aka.ms
@@ -48,6 +51,7 @@ URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln d
 ```
 
 #### <a name="us-government-cloudtabus-government-cloud"></a>[Amerikanskt myndighets moln](#tab/us-government-cloud)
+
 ```
 *.azure.us
 *.loganalytics.us
@@ -60,6 +64,7 @@ URL-slutpunkterna till SAFELIST för Azure Portal är bara för det Azure-moln d
 ```
 
 #### <a name="china-government-cloudtabchina-government-cloud"></a>[Kinas regerings moln](#tab/china-government-cloud)
+
 ```
 *.azure.cn
 *.microsoft.cn

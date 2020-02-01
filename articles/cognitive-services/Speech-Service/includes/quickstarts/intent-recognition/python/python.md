@@ -1,28 +1,24 @@
 ---
-title: 'Snabb start: identifiera tal, avsikter och entiteter, python-tal-tjänst'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: f2a46b8a0868aaa1097dd7f1ae738a2a3e06e3b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9bc514c32d97958d8ab154dc2c5533747f380e86
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772859"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900557"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* Om det här är ditt första python-projekt använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">skapa ett tomt exempel projekt</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installera Speech SDK för din utvecklings miljö</a>.
+* Om det här är ditt första python-projekt använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">skapa <span class="docon docon-navigate-external x-hidden-focus"> </span>ett tomt exempel projekt </a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Installera Speech SDK för din utvecklings miljö <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 
@@ -65,7 +61,7 @@ Nu ska vi skapa en `IntentRecognizer`. Infoga den här koden direkt under din ta
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>Lägg till ett LanguageUnderstandingModel och avsikter
 
-Du måste associera en `LanguageUnderstandingModel` med avsikts tolken och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering. 
+Du måste associera en `LanguageUnderstandingModel` med avsikts tolken och lägga till de avsikter som du vill identifiera. Vi ska använda avsikter från den färdiga domänen för start automatisering.
 
 Infoga den här koden under `IntentRecognizer`. Se till att du ersätter `"YourLanguageUnderstandingAppId"` med ditt LUIS-app-ID. 
 
@@ -90,7 +86,7 @@ Under ditt anrop till `recognize_once()`lägger du till följande kod: [!code-py
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-Nu bör din kod se ut så här:  
+Nu bör din kod se ut så här:
 
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.

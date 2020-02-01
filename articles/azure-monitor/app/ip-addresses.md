@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977817"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899111"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>IP-adresser som används av Application Insights och Log Analytics
 Tjänsten [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) använder ett antal IP-adresser. Du kan behöva känna till de här adresserna om appen som du övervakar ligger bakom en brand vägg.
@@ -56,6 +56,14 @@ Statusövervakare konfiguration – behövs bara när du gör ändringar.
 
 ## <a name="availability-tests"></a>Tillgänglighetstester
 Det här är listan över adresser från vilka [webb testerna för tillgänglighet](../../azure-monitor/app/monitor-web-app-availability.md) körs. Om du vill köra webbtester på din app, men webb servern är begränsad till att betjäna vissa klienter, måste du tillåta inkommande trafik från våra tillgänglighets test servrar.
+
+Om du använder Azure nätverks säkerhets grupper lägger du helt enkelt till **en regel för inkommande port** som tillåter trafik från Application Insights tillgänglighets test genom att välja **service tag** som **källa** och **ApplicationInsightsAvailability** som **käll tjänst tag**.
+
+>[!div class="mx-imgBorder"]
+>![under Inställningar väljer du inkommande säkerhets regler och väljer sedan Lägg till överst på fliken ](./media/ip-addresses/add-inbound-security-rule.png)
+
+>[!div class="mx-imgBorder"]
+>![Lägg till fliken inkommande säkerhets regel](./media/ip-addresses/add-inbound-security-rule2.png)
 
 Öppna portarna 80 (http) och 443 (https) för inkommande trafik från dessa adresser (IP-adresser grupperas efter plats):
 
@@ -195,7 +203,7 @@ Obs!: *. applicationinsights.io-domänen ägs av Application Insights-teamet.
 
 | Syfte | URI | IP | Portar |
 | --- | --- | --- | --- |
-| Portalen | portal.loganalytics.io | dynamisk | 80,443 |
+| Portal | portal.loganalytics.io | dynamisk | 80,443 |
 | CDN | applicationanalytics.azureedge.net | dynamisk | 80,443 |
 
 Obs!: *. loganalytics.io-domänen ägs av Log Analyticss teamet.
@@ -225,7 +233,7 @@ Obs!: *. loganalytics.io-domänen ägs av Log Analyticss teamet.
 | Syfte | URI | IP | Portar |
 | --- | --- | --- | --- |
 | Agent | agent.azureserviceprofiler.net<br/>*.agent.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
-| Portalen | gateway.azureserviceprofiler.net | dynamisk | 443
+| Portal | gateway.azureserviceprofiler.net | dynamisk | 443
 | Lagring | *.core.windows.net | dynamisk | 443
 
 ## <a name="snapshot-debugger"></a>Felsökning av ögonblicksbild
@@ -236,5 +244,5 @@ Obs!: *. loganalytics.io-domänen ägs av Log Analyticss teamet.
 | Syfte | URI | IP | Portar |
 | --- | --- | --- | --- |
 | Agent | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
-| Portalen | ppe.gateway.azureserviceprofiler.net | dynamisk | 443
+| Portal | ppe.gateway.azureserviceprofiler.net | dynamisk | 443
 | Lagring | *.core.windows.net | dynamisk | 443

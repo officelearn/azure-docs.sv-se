@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 885ddd5c25a36e2b12379ea7639956c1c4ca5437
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538428"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904279"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>Skapa händelse drivna Machine Learning-arbetsflöden (för hands version)
 
@@ -32,21 +32,6 @@ Använd Event Grid för att aktivera vanliga scenarier som:
 
 * Deltagar-eller ägar åtkomst till Azure Machine Learning arbets ytan du skapar händelser för.
 * Välj en händelse hanterarens slut punkt, till exempel en webhook eller Event Hub. Mer information finns i [händelse hanterare](https://docs.microsoft.com/azure/event-grid/event-handlers). 
-
-## <a name="register-resource-providers"></a>Registrera resursprovidrar
-
-Om du använde Azure Event Grid eller Machine Learning före 1 2019 november kan du behöva registrera om resurs leverantörerna innan du kan följa stegen i det här dokumentet. Gör så här för att registrera providers på nytt:
-
-1. Gå till Azure Portal och välj __prenumerationer__. Välj den prenumeration som du vill arbeta med.
-1. Välj __resurs leverantörer__och Sök sedan efter __EventGrid__.
-1. Markera posten __Microsoft. EventGrid__ och välj sedan __registrera igen__.
-
-    ![omregistrera-resurs-Provider](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. Sök efter __MachineLearningServices__, Välj posten och välj sedan __registrera igen__.
-
-> [!TIP]
-> Om du inte har behörighet att slutföra de här stegen ber du prenumerations administratören att utföra dem.
 
 ## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Konfigurera maskin inlärnings händelser med hjälp av Azure Portal
 

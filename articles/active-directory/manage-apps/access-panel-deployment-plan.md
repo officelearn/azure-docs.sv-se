@@ -15,12 +15,12 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512859"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897072"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Planera en Azure Active Directory åtkomst panels distribution
 
@@ -37,7 +37,7 @@ Med hjälp av Azure AD-åtkomst panelen kan du:
 Administratörer kan också hantera:
 
 * Villkor för tjänsten
-* Organisationer
+* Företag
 * Åtkomstgranskningar
 
 
@@ -89,10 +89,10 @@ I följande tabell beskrivs de viktigaste användnings fallen för en åtkomst p
 | Styrning| Livs cykeln för användar tilldelningarna till Azure AD-anslutna program och grupper definieras och övervakas. |
 | Säkerhet| Åtkomst till resurser styrs via användar-och grupp tilldelningar. Endast auktoriserade användare kan hantera resurs åtkomst. |
 | Prestanda| Tids linjer för distribution av åtkomst tilldelningar dokumenteras och övervakas. |
-| Användarens upplevelse| Användarna är medvetna om funktionerna i åtkomst panelen och hur de används.|
-| Användarens upplevelse| Användare kan hantera sina åtkomst till program och grupper.|
-| Användarens upplevelse| Användare kan hantera sina konton. |
-| Användarens upplevelse| Användarna är medvetna om webbläsarkompatibilitet. |
+| Användar upplevelse| Användarna är medvetna om funktionerna i åtkomst panelen och hur de används.|
+| Användar upplevelse| Användare kan hantera sina åtkomst till program och grupper.|
+| Användar upplevelse| Användare kan hantera sina konton. |
+| Användar upplevelse| Användarna är medvetna om webbläsarkompatibilitet. |
 | Support| Användare kan hitta support för problem med åtkomst panelen. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Metod tips för att distribuera Azure AD-åtkomst panel
@@ -227,9 +227,9 @@ Planera i vilken ordning du ska lägga till program i Start programmet för Mina
 
 Alla Azure AD SSO-aktiverade program kan läggas till i Start programmet för Mina appar. Andra program läggs till med hjälp av det länkade SSO-alternativet. Du kan konfigurera en program panel som länkar till URL: en för ditt befintliga webb program. Med länkad SSO kan du börja dirigera användare till portalen för Mina appar utan att migrera alla program till Azure AD SSO. Du kan gradvis flytta till Azure AD SSO-konfigurerade program utan att störa användarnas upplevelse.
 
-#### <a name="use-my-apps-workspaces-preview"></a>Använda arbets ytor för Mina appar (för hands version)
+#### <a name="use-my-apps-collections"></a>Använda Mina appar-samlingar
 
-Som standard visas alla program på en enda sida. Men du kan använda arbets ytor för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda arbets ytor för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i så [här använder du arbets ytor i Mina appar för att anpassa användar åtkomst paneler (för hands version)](access-panel-workspaces.md). 
+Som standard visas alla program på en enda sida. Men du kan använda samlingar för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda samlingar för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i så [här anpassar du användar åtkomst paneler med mina appar-samlingar](access-panel-collections.md). 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>Planera om du ska använda Mina appar eller en befintlig Portal
 
@@ -309,59 +309,59 @@ Följande tester bör utföras med både företagsägda enheter och personliga e
 #### <a name="application-sso-access-test-case-examples"></a>Exempel på exempel på SSO-åtkomst för programkompatibilitet:
 
 
-| Företagscase| Förväntat resultat |
+| Företagscase| Expected result |
 | - | -|
 | Användaren loggar in på Mina appar-portalen| Användaren kan logga in och se sina program |
-| Användaren startar ett externt SSO-program| Användaren loggas in automatiskt till programmet |
-| Användaren startar ett SSO-program för första gången| Användaren måste installera tillägget Mina appar |
-| Användaren startar ett SSO-program en gång efter| Användaren loggas in automatiskt till programmet |
-| Användaren startar en app från Office 365-portalen| Användaren loggas in automatiskt till programmet |
-| Användaren startar en app från Managed Browser| Användaren loggas in automatiskt till programmet |
+| User launches a federated SSO application| User is automatically signed in to the application |
+| User launches a password SSO application for the first time| User needs to install the My Apps extension |
+| User launches a password SSO application a subsequent time| User is automatically signed in to the application |
+| User launches an app from Office 365 Portal| User is automatically signed in to the application |
+| User launches an app from the Managed Browser| User is automatically signed in to the application |
 
 
-#### <a name="application-self-service-capabilities-test-case-examples"></a>Exempel på test fall för program självbetjänings funktioner
+#### <a name="application-self-service-capabilities-test-case-examples"></a>Application self-service capabilities test case examples
 
 
-| Företagscase| Förväntat resultat |
+| Företagscase| Expected result |
 | - | - |
-| Användaren kan hantera medlemskap för programmet| Användare kan lägga till/ta bort medlemmar som har åtkomst till appen |
-| Användaren kan redigera programmet| Användaren kan redigera programmets beskrivning och autentiseringsuppgifter för SSO-program för lösen ord |
+| User can manage membership to the application| User can add/remove members who have access to the app |
+| User can edit the application| User can edit the application’s description and credentials for password SSO applications |
 
-### <a name="rollback-steps"></a>Återställnings steg
+### <a name="rollback-steps"></a>Rollback steps
 
-Det är viktigt att planera vad som ska göras om distributionen inte fungerar som planerat. Om SSO-konfigurationen Miss lyckas under distributionen måste du förstå hur du [felsöker SSO-problem](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) och minskar påverkan på användarna. I extrema fall kan du behöva [återställa SSO](../manage-apps/plan-sso-deployment.md).
+It’s important to plan what to do if your deployment doesn’t go as planned. If SSO configuration fails during deployment, you must understand how to [troubleshoot SSO issues](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sso) and reduce impact to your users. In extreme circumstances, you might need to [roll back SSO](../manage-apps/plan-sso-deployment.md).
 
 
-## <a name="manage-your-implementation"></a>Hantera din implementering
+## <a name="manage-your-implementation"></a>Manage your implementation
 
-Du bör använda den minst privilegierade rollen för att utföra en obligatorisk uppgift i Azure Active Directory. [Granska de olika roller som är tillgängliga](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) och välj rätt för att lösa dina behov för varje person för det här programmet. Vissa roller kan behöva tillämpas tillfälligt och tas bort när distributionen har slutförts.
+You should use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
 
-| Profiler| Roller| Azure AD-roll  |
+| Profiler| Roller| Azure AD role  |
 | - | -| -|
-| Supportavdelningen-administratör| Nivå 1-stöd| Inget |
-| Identitets administratör| Konfigurera och Felsök när problem påverkar Azure AD| Global administratör |
-| Programadministratör| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
-| Infrastruktur administratörer| Certifikat förnyelse ägare| Global administratör |
-| Företags ägare/från intressenter| Användar attestering i program, konfiguration av användare med behörigheter| Inget |
+| Helpdesk admin| Tier 1 support| Inget |
+| Identity admin| Configure and debug when issues impact Azure AD| Global administratör |
+| Application admin| User attestation in application, configuration on users with permissions| Inget |
+| Infrastructure admins| Cert rollover owner| Global administratör |
+| Business owner/stakeholder| User attestation in application, configuration on users with permissions| Inget |
 
-Du kan använda [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) för att hantera roller för att ge ytterligare gransknings-, kontroll-och åtkomst granskning för användare med katalog behörigheter.
+You can use [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) to manage your roles to provide additional auditing, control, and access review for users with directory permissions.
 
-### <a name="troubleshoot-access-panel-issues"></a>Felsöka problem med åtkomst panelen
+### <a name="troubleshoot-access-panel-issues"></a>Troubleshoot Access Panel issues
 
-Skapa fel söknings guider för support organisationen med vanliga scenarier, som pekar på Microsofts dokumentation i sina resolutioner. Du kanske vill skapa guider som bryter supporten till de nivåer som används av din organisation.
+Create troubleshooting guides for your support organization with common scenarios, which point to Microsoft documentation in their resolutions. You might want to create guides that break support into the tiers used by your organization.
 
-Se följande fel söknings guider för referens:
+See these troubleshooting guides for reference:
 
-[Program som inte visas](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
+[Applications not appearing](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-application-not-appearing)
 
-[Oväntade program visas](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application)
+[Unexpected applications appearing](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-unexpected-application)
 
-[Användaren kan inte logga in på åtkomst panelen](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem)
+[User cannot sign in to the Access Panel](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-web-sign-in-problem)
 
-[Problem med självbetjäning för program åtkomst](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access)
+[Problems using self-service application access](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-troubleshoot-self-service-access)
 
-[Problem med webb läsar tillägget](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
+[Issues with the browser extension](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-access-panel-browser-extension)
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Planera en distribution av Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)
+[Plan a deployment of Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

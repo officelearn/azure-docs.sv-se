@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl-nod
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera klusternoder.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 43b242d6c7c41b6198b8f909ab5ae056f0982307
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645301"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905877"
 ---
 # <a name="sfctl-node"></a>sfctl node
 Hantera noderna som utgör ett kluster.
@@ -19,17 +19,44 @@ Hantera noderna som utgör ett kluster.
 
 |Kommando|Beskrivning|
 | --- | --- |
-| Inaktivera | Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte. |
-| Aktivera | Aktivera en Service Fabric klusternod som för närvarande är inaktive rad. |
+| Lägg till konfiguration-parameter-Overrides | Lägger till listan över konfigurations åsidosättningar på den angivna noden. |
+| Tillåt | Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte. |
+| Använd | Aktivera en Service Fabric klusternod som för närvarande är inaktive rad. |
+| Get-Configuration-Overrides | Hämtar listan över konfigurations åsidosättningar på den angivna noden. |
 | hälsa | Hämtar hälsan för en Service Fabric-nod. |
 | info | Hämtar information om en angiven nod i Service Fabric klustret. |
 | lista | Hämtar listan över noder i Service Fabric klustret. |
 | läser in | Hämtar inläsnings information för en Service Fabric-nod. |
+| ta bort konfiguration – åsidosättningar | Tar bort konfigurations åsidosättningar på den angivna noden. |
 | ta bort tillstånd | Meddelar Service Fabric att det beständiga läget på en nod har tagits bort permanent eller förlorats. |
 | report-health | Skickar en hälso rapport på Service Fabric-noden. |
 | restart | Startar om en Service Fabric klusternod. |
 | period | Startar eller stoppar en klusternod. |
 | över gång-status | Hämtar förloppet för en åtgärd som startades med StartNodeTransition. |
+
+## <a name="sfctl-node-add-configuration-parameter-overrides"></a>sfctl Node Add-Configuration-parameter-Overrides
+Lägger till listan över konfigurations åsidosättningar på den angivna noden.
+
+Med det här API: et kan du lägga till alla befintliga konfigurations åsidosättningar på den angivna noden.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --config-parameter-override-list [required] | Beskrivning för att lägga till en lista över konfigurations åsidosättningar. |
+| --Node-Name [required] | Nodens namn. |
+| --Force | Framtvinga tillägg av konfigurations åsidosättningar på angivna noder. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
 ## <a name="sfctl-node-disable"></a>Inaktivera sfctl-nod
 Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte.
@@ -58,6 +85,28 @@ Inaktivera en Service Fabric klusternod med angivet inaktive rings syfte. När i
 Aktivera en Service Fabric klusternod som för närvarande är inaktive rad.
 
 Aktiverar en Service Fabric klusternod som för närvarande är inaktive rad. När den är aktive rad blir noden återigen ett giltigt mål för att placera nya repliker, och eventuella inaktiverade repliker på noden återaktiveras.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Node-Name [required] | Nodens namn. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
+## <a name="sfctl-node-get-configuration-overrides"></a>sfctl Node get-Configuration-Overrides
+Hämtar listan över konfigurations åsidosättningar på den angivna noden.
+
+Med detta API kan du hämta alla befintliga konfigurations åsidosättningar på den angivna noden.
 
 ### <a name="arguments"></a>Argument
 
@@ -167,10 +216,32 @@ Hämtar inläsnings information för en Service Fabric nod för alla mått som h
 | --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
 | --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
 
+## <a name="sfctl-node-remove-configuration-overrides"></a>sfctl Node Remove-Configuration-Overrides
+Tar bort konfigurations åsidosättningar på den angivna noden.
+
+Med detta API kan du ta bort alla befintliga konfigurations åsidosättningar på den angivna noden.
+
+### <a name="arguments"></a>Argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Node-Name [required] | Nodens namn. |
+| --timeout-t | Tids gränsen för servern för att utföra åtgärden på några sekunder. Denna timeout anger den tids period som klienten vill vänta tills den begärda åtgärden har slutförts. Standardvärdet för den här parametern är 60 sekunder.  Standard\: 60. |
+
+### <a name="global-arguments"></a>Globala argument
+
+|Argument|Beskrivning|
+| --- | --- |
+| --Felsök | Öka loggnings utförligheten för att visa alla fel söknings loggar. |
+| --hjälp-h | Visa det här hjälp meddelandet och avsluta. |
+| --utdata-o | Utdataformat.  Tillåtna värden\: JSON, jsonc, Table, TSV.  Standard\: JSON. |
+| --fråga | Frågesträngen JMESPath. Mer information och exempel finns i http\://jmespath.org/. |
+| --utförlig | Öka loggningens utförlighet. Använd--debug för fullständiga fel söknings loggar. |
+
 ## <a name="sfctl-node-remove-state"></a>sfctl Node Remove-State
 Meddelar Service Fabric att det beständiga läget på en nod har tagits bort permanent eller förlorats.
 
-Detta innebär att det inte går att återställa det sparade läget för noden. Detta inträffar vanligt vis om en hård disk rensats rent eller om en hård disk kraschar. Noden måste vara avstängd för att åtgärden ska lyckas. Den här åtgärden låter Service Fabric veta att replikerna på noden inte längre finns och att Service Fabric ska sluta vänta på att de repliker ska komma att säkerhets kopie ras. Kör inte denna cmdlet om läget på noden inte har tagits bort och noden kan komma att säkerhets kopie ras med sitt tillstånd intakt. Från Service Fabric 6,5, för att kunna använda det här API: t för Seed-noder, ändra startnoderna till vanliga (icke-start) noder och anropa sedan detta API för att ta bort nodens tillstånd. Om klustret körs på Azure kommer Service Fabric att försöka ändra det automatiskt till en nod som inte är en STARTNOD, efter att noden är nere. Detta gör du genom att kontrol lera att antalet icke-startnoder i den primära nodtypen inte är mindre än antalet startnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen för att uppnå detta. För fristående kluster, om noden inte förväntas komma att säkerhets kopie ras med sitt tillstånd intakt, tar du bort noden från klustret, se https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
+Detta innebär att det inte går att återställa det sparade läget för noden. Detta inträffar vanligt vis om en hård disk rensats rent eller om en hård disk kraschar. Noden måste vara avstängd för att åtgärden ska lyckas. Den här åtgärden låter Service Fabric veta att replikerna på noden inte längre finns och att Service Fabric ska sluta vänta på att de repliker ska komma att säkerhets kopie ras. Kör inte denna cmdlet om läget på noden inte har tagits bort och noden kan komma att säkerhets kopie ras med sitt tillstånd intakt. Från Service Fabric 6,5, för att kunna använda det här API: t för Seed-noder, ändra startnoderna till vanliga (icke-start) noder och anropa sedan detta API för att ta bort nodens tillstånd. Om klustret körs på Azure kommer Service Fabric att försöka ändra det automatiskt till en nod som inte är en STARTNOD, efter att noden är nere. Detta gör du genom att kontrol lera att antalet icke-startnoder i den primära nodtypen inte är mindre än antalet startnoder. Om det behövs kan du lägga till fler noder till den primära nodtypen för att uppnå detta. För fristående kluster, om noden inte förväntas komma att säkerhets kopie ras med sitt tillstånd intakt, tar du bort noden från klustret, se https\://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes.
 
 ### <a name="arguments"></a>Argument
 
@@ -207,7 +278,7 @@ Rapporterar hälso tillståndet för den angivna Service Fabric-noden. Rapporten
 | --remove-when-expired | Värde som anger om rapporten tas bort från hälso arkivet när den upphör att gälla. <br><br> Om värdet är True tas rapporten bort från hälso arkivet när den har gått ut. Om värdet är false behandlas rapporten som ett fel när den upphör att gälla. Värdet för den här egenskapen är falskt som standard. När klienter rapporterar regelbundet ska de ange RemoveWhenExpired false (standard). På så sätt har rapportören problem (t. ex. död läge) och kan inte rapportera. enheten utvärderas vid fel när hälso rapporten upphör att gälla. Den här flaggan anger att entiteten har fel hälso tillstånd. |
 | --sekvens-nummer | Serie numret för den här hälso rapporten som en numerisk sträng. <br><br> Rapportens sekvensnummer används av hälso lagret för att identifiera inaktuella rapporter. Om inget värde anges genereras ett sekvensnummer automatiskt av hälso klienten när en rapport läggs till. |
 | --timeout-t | Standard\: 60. |
-| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ange tiden för Live till oändlig. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
+| --TTL | Varaktigheten för vilken den här hälso rapporten är giltig. I det här fältet används ISO8601-format för att ange varaktighet. <br><br> När klienter rapporterar regelbundet bör de skicka rapporter med högre frekvens än tid till Live. Om klienterna rapporterar över över gången kan de ställa in tiden till oändligt. När TTL-tiden förfaller, tas den hälso händelse som innehåller hälso informationen antingen bort från hälso lagret, om RemoveWhenExpired är sant eller om den utvärderas som fel, om RemoveWhenExpired false. Om inget värde anges, är Time to Live standardvärdet oändligt. |
 
 ### <a name="global-arguments"></a>Globala argument
 

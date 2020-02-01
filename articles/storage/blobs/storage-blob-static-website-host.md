@@ -5,23 +5,23 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 10/22/2019
+ms.date: 1/22/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: cd3db902d713910de5a8199df85089d62569f9d7
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 97679ec48ee9120005118b6cacaf37e45657db08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757572"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906627"
 ---
 <!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # <a name="tutorial-host-a-static-website-on-blob-storage"></a>Självstudie: var värd för en statisk webbplats på Blob Storage
 
-Den här självstudien är del ett i en serie. Där lär du dig att skapa och distribuera en statisk webbplats till Azure Storage. När du är klar har du en statisk webbplats som användare kan nå offentligt. 
+I den här självstudien får du lära dig hur du skapar och distribuerar en statisk webbplats till Azure Storage. När du är klar har du en statisk webbplats som användare kan nå offentligt. 
 
-I del ett i den här serien lärde du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera hantering av en statisk webbplats
@@ -57,7 +57,7 @@ Det första steget är att konfigurera ditt lagringskonto för att hantera en st
 1. Välj **Aktivera** för att aktivera hantering av statisk webbplats för lagringskontot.
 1. I fältet **Indexdokumentnamn** anger du standardindexsidan *index.html*. Standardindexsidan visas när en användare navigerar till roten för den statiska webbplatsen.  
 1. I fältet **Sökväg för feldokument** anger du standardfelsidan *404. html*. Standardfelsidan visas när en användare försöker navigera till en sida som inte finns på den statiska webbplatsen.
-1. Klicka på **Save** (Spara). Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
+1. Klicka på **Spara**. Azure-portalen visar nu slutpunkten för den statiska webbplatsen. 
 
     ![Aktivera hantering av statisk webbplats för ett lagringskonto](media/storage-blob-static-website-host/enable-static-website-hosting.png)
 
@@ -99,9 +99,9 @@ Du har slutfört självstudien och distribuerat en statisk webbplats till Azure.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I del ett i den här självstudien lärde du dig att konfigurera ett Azure Storage-konto för hantering av en statisk webbplats, och du skapade och distribuerade en statisk webbplats till en Azure-slutpunkt.
+I den här självstudien har du lärt dig hur du konfigurerar ditt Azure Storage-konto för statisk webbplats värd och hur du skapar och distribuerar en statisk webbplats till en Azure-slutpunkt.
 
-Nu kan du gå vidare till del två, där du konfigurerar en anpassad domän med SSL för din statiska webbplats med Azure CDN.
+Nu ska du lära dig hur du konfigurerar en anpassad domän med den statiska webbplatsen.
 
 > [!div class="nextstepaction"]
-> [Använda Azure CDN för att aktivera en anpassad domän med SSL för en statisk webbplats](storage-blob-static-website-custom-domain.md)
+> [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)

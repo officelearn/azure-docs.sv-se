@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: ea60faf5b5689fa674095201d3db18422d3e0f1b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 093bfbd976ace41f635976ff27fa4292e5c4df3c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980503"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905151"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka kluster skapande fel med Azure HDInsight
 
@@ -22,7 +22,7 @@ Följande problem är de vanligaste orsakerna till kluster skapande fel:
 - Behörighets problem
 - Begränsningar för resurs principer
 - Brandväggar
-- Resurslås
+- Resurs lås
 - Komponent versioner som inte stöds
 - Begränsningar för lagrings konto namn
 - Drift avbrott för tjänsten
@@ -78,7 +78,7 @@ Andra namngivnings begränsningar gäller även för skapande av kluster. Mer in
 
 ## <a name="service-outages"></a>Drift avbrott för tjänsten
 
-Kontrol lera [Azure-status](https://status.azure.com/status) för eventuella problem med avbrott och tjänster.
+Kontrol lera [Azure-status](https://status.azure.com) för eventuella problem med avbrott och tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
 

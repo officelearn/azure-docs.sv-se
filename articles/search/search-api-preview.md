@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/04/2020
-ms.openlocfilehash: 940ada83aeabf4bf8746ad5f90592e0917f7b403
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/15/2020
+ms.openlocfilehash: 71c6879f467823ab01f4c60ac4d9f26cffcd4eea
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844453"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896113"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Kognitiv sökning service REST API-version 2019-05-06-för hands version
 
@@ -22,8 +22,11 @@ I den här artikeln beskrivs `api-version=2019-05-06-Preview` versionen av searc
 > [!NOTE]
 > För hands versions funktionerna är tillgängliga för testning och experimentering med målet att samla in feedback och kan komma att ändras. Vi rekommenderar starkt att du använder för hands versioner av API: er i produktions program.
 
+## <a name="features-in-2019-05-06-preview"></a>Funktioner i 2019-05-06 – för hands version
 
-## <a name="new-in-2019-05-06-preview"></a>Nyhet i 2019-05-06 – för hands version
+I det här avsnittet visas funktioner som har för hands versions status. De flesta lades till i den aktuella 2019-05-06-för hands versions-API: et, men en del som `moreLikeThis` är från tidigare för hands versioner som har samlats in i det senaste för 
+
+När en förhands gransknings funktion blir allmänt tillgänglig tas den bort från listan. Du kan kontrol lera [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=search) eller [Nyheter](whats-new.md) för meddelanden om allmän tillgänglighet.
 
 + [Stegvis anrikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) lägger till cachelagring i en pipeline för berikning, som gör att du kan återanvända befintliga utdata om en viss ändring, till exempel en uppdatering av en färdigheter eller ett annat objekt, inte ändrar innehållet. Cachelagring gäller endast för berikade dokument som produceras av en färdigheter.
 
@@ -33,13 +36,11 @@ I den här artikeln beskrivs `api-version=2019-05-06-Preview` versionen av searc
 
 + [Kunskaps lager](knowledge-store-concept-intro.md) är ett nytt mål för en AI-baserad pipeline för anrikning. Den fysiska data strukturen finns i Azure Blob Storage och Azure Table Storage, och den skapas och fylls i när du kör en indexerare som har en bifogad kognitiv färdigheter. Definitionen av ett kunskaps lager anges i en färdigheter-definition. I kunskaps lager definitionen styr du de fysiska strukturerna för dina data genom *projektions* element som avgör hur data är formade, om data lagras i Table Storage eller Blob Storage, samt om det finns flera vyer.
 
-## <a name="earlier-preview-features"></a>Tidigare för hands versions funktioner
-
-Funktioner som meddelats i tidigare förhands granskningar finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller växla till `2019-05-06-Preview` utan att ändra förväntat beteende.
-
 + [moreLikeThis Query-parameter](search-more-like-this.md) hittar dokument som är relevanta för ett speciellt dokument. Den här funktionen finns i tidigare för hands versioner. 
 
-+ [CSV-BLOB-indexering](search-howto-index-csv-blobs.md) skapar ett dokument per rad, i stället för ett dokument per text-blob.
+## <a name="earlier-preview-features"></a>Tidigare för hands versions funktioner
+
+Funktioner som meddelats i tidigare förhands granskningar, om de inte har övergått till allmän tillgänglighet, finns fortfarande i offentlig för hands version. Om du anropar ett API med en tidigare för hands version av API-version kan du fortsätta att använda den versionen eller växla till `2019-05-06-Preview` utan att ändra förväntat beteende.
 
 ## <a name="how-to-call-a-preview-api"></a>Så här anropar du ett för hands versions-API
 

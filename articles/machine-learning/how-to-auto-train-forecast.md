@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 78654dfd5a11219d39d53b4042157333656f9aa3
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834757"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905715"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Automatisk träna en tids serie prognos modell
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,7 +124,7 @@ För prognos uppgifter använder automatisk maskin inlärning för bearbetning o
 
 Mer information finns i [referens dokumentationen](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) .
 
-Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till fältet `day_datetime` i data uppsättningen. Definiera parametern `grain_column_names` för att se till att **två separata tids serie grupper** skapas för data. en för Store A och B. Ange slutligen `max_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size`och ange en enda fördröjning på målvärdena för två perioder i förväg med parametern `target_lags`. Vi rekommenderar att du ställer in `max_horizon``target_rolling_window_size` och `target_lags` till "Auto", vilket automatiskt identifierar dessa värden. I exemplet nedan har inställningarna "Auto" använts för dessa paramaters. 
+Skapa tids serie inställningarna som ett Dictionary-objekt. Ange `time_column_name` till fältet `day_datetime` i data uppsättningen. Definiera parametern `grain_column_names` för att se till att **två separata tids serie grupper** skapas för data. en för Store A och B. Ange slutligen `max_horizon` till 50 för att förutsäga för hela test uppsättningen. Ange en prognos period på 10 perioder med `target_rolling_window_size`och ange en enda fördröjning på målvärdena för två perioder i förväg med parametern `target_lags`. Vi rekommenderar att du ställer in `max_horizon``target_rolling_window_size` och `target_lags` till "Auto", vilket automatiskt identifierar dessa värden. I exemplet nedan har inställningarna "Auto" använts för dessa parametrar. 
 
 ```python
 time_series_settings = {
@@ -226,7 +226,7 @@ Beräkna RMSE (rot genomsnitts fel) mellan `actual_labels` faktiska värdena och
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
+rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 

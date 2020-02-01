@@ -1,12 +1,13 @@
 ---
-title: Azure AD Connect Health - diagnostisera Duplicerat attribut synkroniseringsfel | Microsoft Docs
-description: Det här dokumentet beskriver processen för diagnos av Duplicerat attribut synkroniseringsfel och en potentiell korrigering av överblivna objektet scenarier direkt från Azure-portalen.
+title: Azure AD Connect Health-diagnostisera synkroniseringsfel | Microsoft Docs
+description: Det här dokumentet beskriver diagnos processen för dubblerade synkroniseringsfel och en eventuell korrigering av de överblivna objekt scenarierna direkt från Azure Portal.
 services: active-directory
 documentationcenter: ''
 author: zhiweiwangmsft
 manager: maheshu
 editor: billmath
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,42 +15,42 @@ ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1fd5f9746299d72ed58a3209013822505b19b56
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 48ed9abf3e088e2581a3dd81b7c89e6b99da3ceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702559"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897188"
 ---
-# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda synkroniseringsfel Duplicerat attribut
+# <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnostisera och åtgärda dubbla synkroniseringsfel
 
 ## <a name="overview"></a>Översikt
-Azure Active Directory (Azure AD) Connect Health introducerar tar ett steg längre för att markera synkroniseringsfel kan hjälpåtgärder. Den felsöker Duplicerat attribut synkroniseringsfel och korrigeringar objekt som kopplas från Azure AD.
-Funktionen diagnos har följande fördelar:
-- Det ger en diagnostisk procedur som begränsar Duplicerat attribut synkroniseringsfel. Och det ger specifik korrigeringar.
-- Det gäller en korrigering för dedikerade scenarier från Azure AD för att åtgärda felet i ett enda steg.
-- Ingen uppgradering eller konfiguration krävs för att aktivera den här funktionen.
-Läs mer om Azure AD, [identitet identitetssynkronisering och duplicerad attributåterhämtning](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
+Ta ett steg längre för att markera synkroniseringsfel, Azure Active Directory (Azure AD) Connect Health introducerar självbetjänings reparation. Den felsöker dubbletten av synkroniseringsfel och korrigerar objekt som är överblivna från Azure AD.
+Diagnos funktionen har följande fördelar:
+- Den innehåller en diagnostisk procedur som begränsar synkroniseringsfel för dubblerade attribut. Och ger vissa korrigeringar.
+- Den tillämpar en korrigering för dedikerade scenarier från Azure AD för att lösa felet i ett enda steg.
+- Det krävs ingen uppgradering eller konfiguration för att aktivera den här funktionen.
+Mer information om Azure AD finns i [Identitetssynkronisering och duplicerat attribut återhämtning](how-to-connect-syncservice-duplicate-attribute-resiliency.md).
 
-## <a name="problems"></a>Problem
+## <a name="problems"></a>Formulärcachen
 ### <a name="a-common-scenario"></a>Ett vanligt scenario
-När **QuarantinedAttributeValueMustBeUnique** och **AttributeValueMustBeUnique** synkroniseringsfel uppstår är det vanligt att se en **UserPrincipalName** eller **Proxyadresser** konflikten i Azure AD. Du kan lösa synkroniseringsfel genom att uppdatera motstridiga källobjektet från den lokala sidan. Fel vid synkronisering kommer att matcha efter nästa synkronisering. Den här bilden anger till exempel att två användare har en konflikt mellan sina **UserPrincipalName**. Båda är **Joe.J\@contoso.com**. Motstridiga objekt har satts i karantän i Azure AD.
+När **QuarantinedAttributeValueMustBeUnique** -och **AttributeValueMustBeUnique** -Synkroniseringsfel inträffar är det vanligt att se en konflikt i en **userPrincipalName** -eller **proxy-adress** i Azure AD. Du kan lösa synkroniseringsfel genom att uppdatera det motstridiga källobjektet från den lokala sidan. Synkroniseringsfel kommer att lösas efter nästa synkronisering. Den här bilden visar till exempel att två användare har en konflikt mellan **userPrincipalName**. Båda är **Joe. J\@contoso.com**. Objekt som är i konflikt i karantän i Azure AD.
 
-![Diagnostisera fel vanligt scenario för Lösenordssynkronisering](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
+![Felsöka vanliga scenarion vid synkroniseringsfel](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
-### <a name="orphaned-object-scenario"></a>Överblivna objektet scenario
-Ibland kanske du upptäcker att en befintlig användare förlorar den **Källfästpunkt**. Borttagningen av källobjektet inträffade i den lokala Active Directory. Men ändringen av borttagning av signalen aldrig fick synkroniseras till Azure AD. Den här förlusten sker av skäl som motorn synkroniseringsproblem eller domän migrering. När samma objekt hämtar återställts eller återskapas, logiskt, en befintlig användare ska vara användare ska synkroniseras från den **Källfästpunkt**. 
+### <a name="orphaned-object-scenario"></a>Scenario för överblivna objekt
+Ibland kanske du upptäcker att en befintlig användare förlorar **käll ankaret**. Borttagningen av källobjektet inträffade i lokala Active Directory. Men ändringen av borttagnings signalen synkroniserades aldrig till Azure AD. Den här förlusten sker av orsaker som problem med synkroniseringsproblem eller domän migrering. När samma objekt återställs eller återskapas logiskt, ska en befintlig användare vara den användare som ska synkroniseras från **käll fäst punkten**. 
 
-När en befintlig användare är en molnbaserad objekt, kan du också se motstridiga användaren synkroniseras till Azure AD. Användaren kan inte matchas synkroniserade till det befintliga objektet. Det finns inget enkelt sätt att mappa om den **Källfästpunkt**. Läs mer om den [befintliga kunskapsbas](https://support.microsoft.com/help/2647098). 
+När en befintlig användare är ett moln objekt kan du också se den motstridiga användaren som synkroniseras med Azure AD. Användaren kan inte matchas i synkronisering med det befintliga objektet. Det finns inget direkt sätt att mappa om **käll ankaret**. Läs mer om den [befintliga kunskaps basen](https://support.microsoft.com/help/2647098). 
 
-Till exempel bevarar det befintliga objektet i Azure AD en licens för Joe. Ett nyligen synkroniserade objekt med en annan **Källfästpunkt** sker i ett tillstånd med Duplicerat attribut i Azure AD. Ändringar för Joe i den lokala Active Directory tillämpas inte på Josefs ursprungliga användaren (befintliga objekt) i Azure AD.  
+Det befintliga objektet i Azure AD bevarar till exempel licensen för Johan. Ett nyligen synkroniserat objekt med en annan **käll ankare** sker i ett duplicerat attribut tillstånd i Azure AD. Ändringar för Joe i lokala Active Directory tillämpas inte på Joe ' s ursprungliga användare (befintligt objekt) i Azure AD.  
 
-![Diagnostisera fel överblivna objektet scenario för Lösenordssynkronisering](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnostisera synkroniseringsfel överblivna objekt scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
-## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Diagnostik och felsökning i Connect Health 
-Diagnostisera-funktionen stöder användarobjekt med följande duplicerade attribut:
+## <a name="diagnostic-and-troubleshooting-steps-in-connect-health"></a>Diagnostik-och fel söknings steg i Connect Health 
+Funktionen diagnostisera stöder användar objekt med följande duplicerade attribut:
 
-| Attributnamn | Typ av synkronisering|
+| Attributnamn | Typer av synkroniseringsfel|
 | ------------------ | -----------------|
 | UserPrincipalName | QuarantinedAttributeValueMustBeUnique eller AttributeValueMustBeUnique | 
 | ProxyAddresses | QuarantinedAttributeValueMustBeUnique eller AttributeValueMustBeUnique | 
@@ -57,102 +58,102 @@ Diagnostisera-funktionen stöder användarobjekt med följande duplicerade attri
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Till den här funktionen **Global administratör** behörighet, eller **deltagare** behörighet från RBAC-inställningar.
+> För att få åtkomst till den här funktionen, krävs behörigheten **Global administratör** eller **deltagare** från RBAC-inställningarna.
 >
 
-Följ stegen från Azure portal för att begränsa felinformation synkronisering och tillhandahålla mer specifika lösningar:
+Följ stegen från Azure Portal för att begränsa synkroniseringsfel och tillhandahålla mer specifika lösningar:
 
-![Synkronisera fel diagnos steg](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
+![Steg vid diagnos av synkroniseringsfel](./media/how-to-connect-health-diagnose-sync-errors/IIdFixSteps.png)
 
-Vidta några åtgärder för att identifiera specifika scenarier som går att åtgärda från Azure-portalen  
-1.  Kontrollera den **diagnostisera status** kolumn. Statusen visar om det finns ett sätt att åtgärda ett synkroniseringsfel direkt från Azure Active Directory. Med andra ord en felsökning flödet finns som kan begränsa felsituation och åtgärda den.
+Ta några steg för att identifiera vissa fixable-scenarier från Azure Portal:  
+1.  Kontrol lera kolumnen **diagnostisera status** . Statusen visar om det finns ett möjligt sätt att åtgärda ett synkroniseringsfel direkt från Azure Active Directory. Ett fel söknings flöde finns med andra ord som kan begränsa fel fallet och eventuellt åtgärda det.
 
 | Status | Vad betyder det? |
 | ------------------ | -----------------|
-| Inte startad | Du har inte besökt diagnos processen. Beroende på diagnostiska resultatet är det en potentiell sättet att åtgärda synkroniseringsfel direkt från portalen. |
-| Manuell korrigering krävs | Felet passar inte villkor korrigeringsfiler från portalen. Antingen motstridiga objekt av typen inte användare, eller du har gått redan igenom stegen för diagnostik och det fanns ingen korrigering-lösning från portalen. I det senare fallet finns en korrigering från den lokala sidan fortfarande lösningarna. [Läs mer om lokala korrigeringar](https://support.microsoft.com/help/2647098). | 
-| Väntar på synkronisering | En korrigering har tillämpats. Portalen väntar på nästa synkroniseringscykel att rensa felet. |
+| Inte startat | Du har inte besökt den här diagnos processen. Det finns ett möjligt sätt att åtgärda synkroniseringsfel direkt från portalen, beroende på det diagnostiska resultatet. |
+| Manuell korrigering krävs | Felet passar inte villkoren för tillgängliga korrigeringar från portalen. Objekt typerna som är i konflikt med varandra är inte användare, eller så har du redan gått igenom de diagnostiska stegen och ingen korrigerings lösning var tillgänglig från portalen. I det senare fallet är en åtgärd från den lokala sidan fortfarande en av lösningarna. [Läs mer om lokala korrigeringar](https://support.microsoft.com/help/2647098). | 
+| Väntande synkronisering | En korrigering tillämpades. Portalen väntar på nästa Sync-cykel för att rensa felet. |
 
   >[!IMPORTANT]
-  > Diagnostisk status-kolumnen återställs efter varje synkroniseringscykel. 
+  > Kolumnen diagnostisk status återställs efter varje synkronisering. 
   >
 
-1. Välj den **diagnostisera** knappen under felinformationen. Du besvara några frågor och identifiera felinformation synkronisering. Svar på frågor hjälper dig att identifiera ett fall med överblivna objektet.
+1. Välj knappen **diagnostisera** under fel informationen. Du kommer att besvara några frågor och identifiera informationen om synkroniseringsfel. Svar på frågor hjälper dig att identifiera ett överblivna objekt.
 
-1. Om en **Stäng** knappen visas i slutet av diagnostik, det finns inga snabbkorrigering från portalen utifrån dina svar. Referera till lösningen som visas i det sista steget. Korrigeringar från den lokala är fortfarande lösningarna. Välj den **Stäng** knappen. Status för det aktuella synkroniseringsfelet växlar till **Manuell korrigering krävs**. Statusen kvar under den aktuella synkroniseringscykel.
+1. Om en **stängnings** knapp visas i slutet av diagnostiken finns det ingen snabb korrigering tillgänglig från portalen, baserat på dina svar. Läs den lösning som visas i det sista steget. Korrigeringar från lokala lösningar är fortfarande lösningarna. Välj knappen **Stäng** . Status för det aktuella synkroniseringsfel växlar till **Manuell korrigering krävs**. Statusen ligger kvar under den aktuella synkroniseringen.
 
-1. Efter ett fall med överblivna objektet identifieras kan du åtgärda duplicerade attribut synkroniseringsfel direkt från portalen. Om du vill starta processen, Välj den **åtgärda problem** knappen. Status för de aktuella synkronisering fel uppdateringarna till **väntar på synkronisering**.
+1. När ett överblivna objekt har identifierats kan du åtgärda synkroniseringsfel direkt från portalen. Om du vill utlösa processen väljer du knappen **Använd korrigering** . Status för det aktuella synkroniseringsfel uppdateras till **väntande synkronisering**.
 
-1. Felet ska tas bort från listan efter nästa synkroniseringscykel.
+1. Efter nästa Sync-cykel bör felet tas bort från listan.
 
-## <a name="how-to-answer-the-diagnosis-questions"></a>Hur de ska svara på frågor om diagnostik 
-### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Så att användaren finns i din lokala Active Directory?
+## <a name="how-to-answer-the-diagnosis-questions"></a>Hur du besvarar diagnos frågor 
+### <a name="does-the-user-exist-in-your-on-premises-active-directory"></a>Finns användaren i din lokala Active Directory?
 
-Den här frågan försöker identifiera källobjektet för den befintliga användaren från en lokal Active Directory.  
-1. Kontrollera om Azure Active Directory har ett objekt med angiven **UserPrincipalName**. Om den inte svarar **nr**.
-2. I annat fall måste du kontrollera om objektet är fortfarande i omfånget för synkronisering.  
-   - Sök i anslutarplatsen för Azure AD med hjälp av det unika namnet.
-   - Om objektet finns i den **väntande Lägg till** tillstånd, besvara **nr**. Azure AD Connect kan inte ansluta objektet till rätt Azure AD-objekt.
-   - Om objektet inte hittas besvara **Ja**.
+Den här frågan försöker identifiera källobjektet för den befintliga användaren från den lokala Active Directory.  
+1. Kontrol lera om Azure Active Directory har ett objekt med angivet **userPrincipalName**. Om inte, svara på **Nej**.
+2. Om det gör det kontrollerar du om objektet fortfarande finns i omfånget för synkronisering.  
+   - Sök i Azure AD Connector-utrymmet genom att använda DN.
+   - Om objektet finns i **väntande Lägg till** -tillstånd, svara **Nej**. Azure AD Connect kan inte ansluta objektet till rätt Azure AD-objekt.
+   - Om objektet inte hittas svarar du **Ja**.
 
-I det här frågan försöker identifiera om **Joe Jackson** fortfarande finns i den lokala Active Directory.
-För den **vanligt scenario**, både användare **Joe Johnson** och **Joe Jackson** finns i den lokala Active Directory. I karantän objekten är två olika användare.
+I de här exemplen försöker frågan identifiera om **Joe Jackson** fortfarande finns i lokala Active Directory.
+För det **vanliga scenariot**finns både användarna **Joe Johnson** och **Joe Jackson** i lokala Active Directory. Objekt i karantän är två olika användare.
 
-![Diagnostisera fel vanligt scenario för Lösenordssynkronisering](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
+![Felsöka vanliga scenarion vid synkroniseringsfel](./media/how-to-connect-health-diagnose-sync-errors/IIdFixCommonCase.png)
 
-För den **överblivna objektet scenariot**, endast enanvändarläge **Joe Johnson** finns i den lokala Active Directory:
+För det **överblivna objekt scenariot**finns det bara en användare med **Joe-Johnson** i lokala Active Directory:
 
-![Diagnostisera synkronisering överblivna felobjektet * finns användare * scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnostisera synkroniseringsfel överblivna objekt * finns användaren * scenariot](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
-### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Båda kontona hör till samma användare?
-Den här frågan kontrollerar en inkommande motstridiga användare och Dete befintliga användarobjekt i Azure AD för att se om de hör till samma användare.  
-1. Objektet i konflikt har nyligen synkroniserats till Azure Active Directory. Jämför objektets attribut:  
+### <a name="do-both-of-these-accounts-belong-to-the-same-user"></a>Tillhör båda dessa konton samma användare?
+Den här frågan kontrollerar en inkommande motstridig användare och det befintliga användarobjektet i Azure AD för att se om de tillhör samma användare.  
+1. Objektet som krockar är nyligen synkroniserat med Azure Active Directory. Jämför objektets attribut:  
    - Visningsnamn
-   - Användarens huvudnamn
+   - User Principal Name
    - Objekt-ID
-2. Om Azure AD inte kan jämföra dem, kontrollerar om Active Directory innehåller objekt med de angivna **UserPrincipalNames**. Svar **nr** om du hittar båda.
+2. Om det inte går att jämföra dem med Azure AD kontrollerar du om Active Directory har objekt med angiven **UserPrincipalNames**. Svara **Nej** om du hittar båda.
 
-I följande exempel visas de två objekten som hör till samma användare **Joe Johnson**.
+I följande exempel tillhör de två objekten till samma användar- **Johan Johnson**.
 
-![Diagnostisera synkronisering överblivna felobjektet * samma användare * scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
+![Diagnostisera synkroniseringsfel överblivna objekt * samma användare * scenario](./media/how-to-connect-health-diagnose-sync-errors/IIdFixOrphanedCase.png)
 
 
-## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>Vad händer när den används i scenariot överblivna objekt
-Utifrån svaren på föregående frågorna visas den **åtgärda problem** knappen när en korrigering är tillgänglig från Azure AD. I det här fallet synkroniserar lokala objektet med ett oväntat Microsoft Azure AD-objekt. De två objekten mappas med hjälp av den **Källfästpunkt**. Den **åtgärda problem** träder dessa eller liknande steg:
-1. Uppdateringar i **Källfästpunkt** till rätt objekt i Azure AD.
-2. Tar bort objektet i konflikt i Azure AD om den finns.
+## <a name="what-happens-after-the-fix-is-applied-in-the-orphaned-object-scenario"></a>Vad som händer när korrigeringen har tillämpats i scenariot för överblivna objekt
+Utifrån svaren på föregående frågor visas knappen **Använd korrigering** när det finns en korrigerings fil från Azure AD. I det här fallet synkroniseras det lokala objektet med ett oväntat Azure AD-objekt. De två objekten mappas med hjälp av **käll ankaret**. **Använd korrigerings** ändring tar dessa eller liknande steg:
+1. Uppdaterar **käll fäst punkten** till rätt objekt i Azure AD.
+2. Tar bort objektet i konflikt i Azure AD om det finns.
 
-![Diagnostisera synkroniseringsfel efter korrigering](./media/how-to-connect-health-diagnose-sync-errors/IIdFixAfterFix.png)
+![Diagnostisera synkroniseringsfel efter korrigeringen](./media/how-to-connect-health-diagnose-sync-errors/IIdFixAfterFix.png)
 
 >[!IMPORTANT]
-> Den **åtgärda problem** ändringen gäller bara överblivna objektet.
+> **Tillämpa korrigering** av ändringar gäller endast överblivna objekt.
 >
 
-Användaren kan komma åt den ursprungliga resursen är en länk till ett befintligt objekt efter föregående steg. Den **diagnostisera status** uppdateras värdet i listvyn till **väntar på synkronisering**. Fel vid synkronisering kommer att matcha efter nästa synkronisering. Connect Health kommer kom inte längre löst sync-fel i listvyn.
+Efter föregående steg kan användaren komma åt den ursprungliga resursen, som är en länk till ett befintligt objekt. Värdet **diagnostisera status** i listan uppdateras till **väntar på synkronisering**. Synkroniseringsfel kommer att lösas efter nästa synkronisering. Connect Health visar inte längre det lösta synkroniseringsfel i list visningen.
 
-## <a name="failures-and-error-messages"></a>Fel- och felmeddelanden
-**Användare med attribut i konflikt är Mjuk tas bort i Azure Active Directory. Se till att användaren är hårda borttagen innan du kan utföra.**  
-Användaren med attribut som är i konflikt i Azure AD ska rensas innan du kan tillämpa korrigeringen. Kolla in [hur du tar bort användaren permanent i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) innan du försöker korrigeringen. Användaren tas också automatiskt bort permanent efter 30 dagar i ej permanent Borttaget tillstånd. 
+## <a name="failures-and-error-messages"></a>Fel och fel meddelanden
+**Användaren med ett attribut som är i konflikt är mjuk borttagning i Azure Active Directory. Se till att användaren är hårt borttagen innan du försöker igen.**  
+Användaren med ett attribut i konflikt i Azure AD bör rensas innan du kan använda Fix. Ta en titt på [hur du tar bort användaren permanent i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) innan du försöker utföra korrigeringen igen. Användaren tas också bort automatiskt efter 30 dagar i läget Soft Deleted. 
 
-**Uppdatera källfästpunkt till molnbaserade användare i din klientorganisation stöds inte.**  
-Molnbaserad användaren i Azure AD ska inte ha källfästpunkt. Uppdatera källfästpunkt stöds inte i det här fallet. Manuell korrigering krävs från lokalt. 
+**Det går inte att uppdatera käll ankare till molnbaserad användare i din klient organisation.**  
+Molnbaserad användare i Azure AD ska inte ha käll ankare. Uppdatering av käll ankare stöds inte i det här fallet. Manuell korrigering krävs från lokalt. 
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
-**F.** Vad händer om körningen av den **åtgärda problem** misslyckas?  
-**S.** Om det går inte att köra, är det möjligt att Azure AD Connect körs ett exportfel. Uppdatera portalsidan och försök igen efter nästa synkronisering. Synkroniseringscykel standard är 30 minuter. 
-
-
-**F.** Vad händer om den **befintligt objekt** bör vara objekt som ska tas bort?  
-**S.** Om den **befintligt objekt** ska tas bort, inte processen innebär en ändring av **Källfästpunkt**. Du kan vanligtvis åtgärda det från den lokala Active Directory. 
+## <a name="faq"></a>FAQ
+**F.** Vad händer om det inte går att **använda Fix** -åtgärden?  
+**S.** Om körningen Miss lyckas är det möjligt att Azure AD Connect kör ett export fel. Uppdatera portal sidan och försök igen efter nästa synkronisering. Standard cykeln för synkronisering är 30 minuter. 
 
 
-**F.** Vilka behörigheter behöver en användare att tillämpa korrigeringen?  
-**S.** **Global administratör**, eller **deltagare** från RBAC-inställningar har behörighet att komma åt diagnostiken och felsökning av processen.
+**F.** Vad händer om det **befintliga objektet** ska vara det objekt som ska tas bort?  
+**S.** Om det **befintliga objektet** ska tas bort, innebär det inte att **käll ankaret**ändras. Vanligt vis kan du åtgärda det från lokala Active Directory. 
 
 
-**F.** Måste jag konfigurera Azure AD Connect eller uppdatera Azure AD Connect Health-agenten för den här funktionen?  
+**F.** Vilken behörighet behöver användaren för att kunna tillämpa korrigeringen?  
+**S.** **Global administratör**eller **deltagare** från RBAC-inställningarna har behörighet att komma åt diagnostik-och fel söknings processen.
+
+
+**F.** Måste jag konfigurera Azure AD Connect eller uppdatera Azure AD Connect Health Agent för den här funktionen?  
 **S.** Nej, diagnos processen är en fullständig molnbaserad funktion.
 
 
-**F.** Om det befintliga objektet är ej permanent borttagen, diagnos processen gör objektet active igen?  
-**S.** Nej, korrigeringen inte uppdatera objektattribut än **Källfästpunkt**.
+**F.** Om det befintliga objektet är mjukt Borttaget, gör diagnosen att objektet aktive ras igen?  
+**S.** Nej, den här korrigeringen kommer inte att uppdatera objektattribut som inte är **käll ankare**.

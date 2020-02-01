@@ -8,20 +8,18 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687584"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898770"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>SSH-stöd för Azure App Service på Linux
 
-[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) används ofta för att fjärrköra administrativa kommandon från en kommando rad Terminal. App Service på Linux ger SSH-stöd till appens behållare med var och en av de inbyggda Docker-avbildningarna som används för körnings stacken för nya webbappar. 
+[Secure Shell (SSH)](https://wikipedia.org/wiki/Secure_Shell) används ofta för att fjärrköra administrativa kommandon från en kommando rad Terminal. App Service på Linux ger SSH-stöd till app-behållaren. 
 
-![Körnings stackar](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-För anpassade Docker-avbildningar, genom att konfigurera SSH-servern i den anpassade avbildningen.
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 Du kan också ansluta till behållaren direkt från den lokala utvecklings datorn med SSH och SFTP.
 

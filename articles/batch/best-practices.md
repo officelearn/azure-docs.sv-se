@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c2acd09df51b942a08a85d96d907e064367377a7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026157"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900293"
 ---
 # <a name="azure-batch-best-practices"></a>Metod tips för Azure Batch
 
@@ -67,7 +67,7 @@ Poolens livs längd kan variera beroende på vilken metod du vill tilldela och v
 
 Allokeringsfel för pooler kan inträffa när som helst under första allokeringen eller efterföljande storleks ändringar. Detta kan bero på temporär kapacitets utbelastning i en region eller andra Azure-tjänster som batchen använder. Kärn kvoten är inte en garanti utan en gräns.
 
-### <a name="unplanned-downtime"></a>Oplanerat stillestånd
+### <a name="unplanned-downtime"></a>Oplanerad stillestånds tid
 
 Batch-pooler kan uppleva stillestånds händelser i Azure. Detta är viktigt att tänka på när du planerar och utvecklar ditt scenario eller ett arbets flöde för batch.
 
@@ -152,3 +152,15 @@ Aktiviteter kan göras om automatiskt med batch. Det finns två typer av återf�
 ### <a name="security-isolation"></a>Säkerhets isolering
 
 Om ditt scenario kräver att du isolerar jobb från varandra i isolerings syfte bör du isolera dessa jobb genom att ha dem i separata pooler. En pool är säkerhets isolerings gränser i batch och som standard är två pooler inte synliga eller kan kommunicera med varandra. Undvik att använda separata batch-konton som ett sätt att isolera.
+
+## <a name="moving"></a>Flyttat
+
+### <a name="move-batch-account-across-regions"></a>Flytta batch-konto mellan regioner 
+
+Det finns olika scenarier där du vill flytta ditt befintliga batch-konto från en region till en annan. Till exempel kanske du vill flytta till en annan region som en del av Disaster Recovery-planeringen.
+
+Azure Batch-konton kan inte flyttas från en region till en annan. Du kan dock använda en Azure Resource Manager mall för att exportera den befintliga konfigurationen av ditt batch-konto.  Du kan sedan mellanlagra resursen i en annan region genom att exportera batch-kontot till en mall, ändra parametrarna för att matcha mål regionen och sedan distribuera mallen till den nya regionen. När du har överfört mallen till den nya regionen måste du återskapa certifikat, jobb scheman och programpaket. Kom ihåg att ta bort det ursprungliga batch-kontot eller resurs gruppen för att genomföra ändringarna och slutföra flyttningen av batch-kontot.  
+
+Mer information om Resource Manager och mallar finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal).
+
+

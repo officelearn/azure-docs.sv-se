@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 628b8bb5c3cb83ae6038a7150420893d7abe61d5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4b725c8a1bf0649a640c02a9a1828ec9014d36d6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112283"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905657"
 ---
 # <a name="indexing-documents-in-azure-data-lake-storage-gen2"></a>Indexera dokument i Azure Data Lake Storage Gen2
 
@@ -47,3 +47,10 @@ Indexering av innehåll i Data Lake Storage Gen2 är identiskt med indexering av
 Azure Data Lake Storage Gen2 implementerar en [åtkomst kontroll modell](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control) som stöder både RBAC (Azure rollbaserad åtkomst kontroll) och POSIX-liknande åtkomst kontrol listor (ACL: er). När du indexerar innehåll från Data Lake Storage Gen2 kommer Azure Kognitiv sökning inte att extrahera RBAC-och ACL-information från innehållet. Detta innebär att den här informationen inte ingår i ditt Azure Kognitiv sökning-index.
 
 Om det är viktigt att ha åtkomst kontroll på varje dokument i indexet är det upp till programutvecklaren att implementera [säkerhets trimning](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search).
+
+## <a name="change-detection"></a>Ändrings identifiering
+
+Data Lake Storage Gen2 indexeraren stöder ändrings identifiering. Det innebär att när indexeraren kör så indexeras bara de ändrade blobbar som fastställs av blobens `LastModified` tidsstämpel.
+
+> [!NOTE] 
+> Data Lake Storage Gen2 tillåter att kataloger byter namn. När du byter namn på en katalog får tidsstämplar för blobarna i katalogen inte uppdaterats. Det innebär att indexeraren inte Omindexerar dessa blobbar. Om du behöver blobarna i en katalog som ska indexeras om efter en katalog namns ändring eftersom de nu har nya URL: er, måste du uppdatera `LastModified` tidstämpeln för alla blobar i katalogen så att indexeraren kan indexera om dem under en framtida körning.

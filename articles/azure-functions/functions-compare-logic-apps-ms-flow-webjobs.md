@@ -4,13 +4,17 @@ description: 'Jämför Microsofts moln tjänster som är optimerade för integra
 ms.topic: overview
 ms.date: 04/09/2018
 ms.custom: mvc
-ms.openlocfilehash: 822726a7a9336df724d6361e40ce5e1da27b94a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9f2c498b55e7c7cc84a047343d084e1f54569dd2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75409843"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898931"
 ---
+> [!NOTE]
+> Nu kan Microsoft Flow automatiseras. Mer information finns i den här [bloggen](https://aka.ms/flow-now-pa).
+> 
+> Innehållet kommer att uppdateras för att avspegla anpassnings ändringen under de kommande dagarna.
 # <a name="choose-the-right-integration-and-automation-services-in-azure"></a>Välj rätt integrering och automatiserings tjänster i Azure
 
 Den här artikeln jämför följande Microsoft-molntjänster:
@@ -76,7 +80,7 @@ WebJobs och WebJobs-SDK:n fungerar bäst tillsammans, men du kan använda WebJob
 
 Azure Functions bygger på WebJobs-SDK:n, och delar därför många händelseutlösare och anslutningsappar med andra Azure-tjänster. Här är några faktorer som du bör tänka på när du väljer mellan Azure Functions och WebJobs med WebJobs-SDK:n:
 
-|  | Funktioner | WebJobs med Webjobs-SDK:n |
+|  | Functions | WebJobs med Webjobs-SDK:n |
 | --- | --- | --- |
 |[Serverlös appmodell](https://azure.microsoft.com/solutions/serverless/) med [automatisk skalning](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Utveckla och testa i webbläsaren](functions-create-first-azure-function.md) |✔||

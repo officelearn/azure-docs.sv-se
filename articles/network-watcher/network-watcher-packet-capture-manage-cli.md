@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7eea4c05a48c5e055766f942cc44ee4cf189de5d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f83fb2377f2db1deaed453131a61e26677b3d87d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840869"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896394"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Hantera paket fångster med Azure Network Watcher med Azure CLI
 
@@ -52,7 +52,7 @@ Den här artikeln förutsätter att du har följande resurser:
 
 ### <a name="step-1"></a>Steg 1
 
-Kör cmdleten `az vm extension set` för att installera paket insamlings agenten på den virtuella gäst datorn.
+Kör kommandot `az vm extension set` för att installera paket insamlings agenten på den virtuella gäst datorn.
 
 För virtuella Windows-datorer:
 
@@ -63,15 +63,21 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 För virtuella Linux-datorer:
 
 ```azurecli
-az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
+az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux --version 1.4
 ```
 
 ### <a name="step-2"></a>Steg 2
 
-Kontrol lera att agenten är installerad genom att köra cmdleten `vm extension show` och skicka den till resurs gruppen och namnet på den virtuella datorn. Kontrol lera den resulterande listan för att se till att agenten är installerad.
+Kontrol lera att agenten är installerad genom att köra kommandot `vm extension show` och skicka den till resurs gruppen och namnet på den virtuella datorn. Kontrol lera den resulterande listan för att se till att agenten är installerad.
 
+För virtuella Windows-datorer:
 ```azurecli
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
+```
+
+För virtuella Linux-datorer:
+```azurecli
+az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name AzureNetworkWatcherExtension
 ```
 
 Följande exempel är ett exempel på svaret från att köra `az vm extension show`
@@ -100,31 +106,24 @@ Följande exempel är ett exempel på svaret från att köra `az vm extension sh
 
 När föregående steg har slutförts installeras paket insamlings agenten på den virtuella datorn.
 
+
 ### <a name="step-1"></a>Steg 1
-
-Nästa steg är att hämta Network Watcher-instansen. Tdet namn för Network Watcher skickas till `az network watcher show` cmdlet i steg 4.
-
-```azurecli
-az network watcher show --resource-group resourceGroup --name networkWatcherName
-```
-
-### <a name="step-2"></a>Steg 2
 
 Hämta ett lagrings konto. Det här lagrings kontot används för att lagra paket insamlings filen.
 
 ```azurecli
-azure storage account list
+az storage account list
 ```
 
-### <a name="step-3"></a>Steg 3
+### <a name="step-2"></a>Steg 2
 
-Filter kan användas för att begränsa de data som lagras av paket fångsten. I följande exempel ställer du in en paket avbildning med flera filter.  De första tre filtren samlar endast utgående TCP-trafik från lokala IP-10.0.0.3 till mål portarna 20, 80 och 443.  Det sista filtret samlar endast in UDP-trafik.
+Nu är du redo att skapa en paket fångst.  Först ska vi undersöka de parametrar som du kanske vill konfigurera. Filter är en sådan parameter som kan användas för att begränsa de data som lagras av paket fångsten. I följande exempel ställer du in en paket avbildning med flera filter.  De första tre filtren samlar endast utgående TCP-trafik från lokala IP-10.0.0.3 till mål portarna 20, 80 och 443.  Det sista filtret samlar endast in UDP-trafik.
 
 ```azurecli
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-I följande exempel visas förväntade utdata från att köra cmdleten `az network watcher packet-capture create`.
+I följande exempel visas förväntade utdata från att köra kommandot `az network watcher packet-capture create`.
 
 ```json
 {
@@ -179,13 +178,13 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>Hämta en paket fångst
 
-Om du kör `az network watcher packet-capture show-status`-cmdlet: en, hämtas statusen för den pågående eller slutförda paket fångsten.
+Genom att köra kommandot `az network watcher packet-capture show-status` hämtar status för en pågående eller slutförd paket fångst.
 
 ```azurecli
 az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-I följande exempel visas utdata från `az network watcher packet-capture show-status`-cmdleten. I följande exempel visas när avbildningen stoppas, med en StopReason på TimeExceeded. 
+I följande exempel visas utdata från kommandot `az network watcher packet-capture show-status`. I följande exempel visas när avbildningen stoppas, med en StopReason på TimeExceeded. 
 
 ```
 {
@@ -204,14 +203,14 @@ cketCaptures/packetCaptureName",
 
 ## <a name="stop-a-packet-capture"></a>Stoppa en paket fångst
 
-Genom att köra cmdleten `az network watcher packet-capture stop`, om en redigeringssession pågår, stoppas den.
+Genom att köra kommandot `az network watcher packet-capture stop`, om en redigeringssession pågår, stoppas den.
 
 ```azurecli
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> Cmdleten returnerar inget svar när den kördes på en pågående infångstutlösare eller en befintlig session som redan har stoppats.
+> Kommandot returnerar inget svar när det kördes på en pågående redigeringssession eller en befintlig session som redan har stoppats.
 
 ## <a name="delete-a-packet-capture"></a>Ta bort en paket avbildning
 

@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760019"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905758"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>För hands version: skapa en Azure Image Builder-mall 
 
@@ -317,6 +317,8 @@ Anpassa egenskaper:
 - **restartCheckCommand** – kommando för att kontrol lera om omstart lyckades (valfritt). 
 - **restartTimeout** – timeout för omstart har angetts som en sträng med storlek och enhet. Till exempel `5m` (5 minuter) eller `2h` (2 timmar). Standardvärdet är: ' 5 m '
 
+### <a name="linux-restart"></a>Linux-omstart  
+Det finns ingen Linux restart-anpassning, men om du installerar driv rutiner eller komponenter som kräver en omstart, kan du installera dem och anropa en omstart med hjälp av Shell-anpassningen, det finns en 20min SSH-tidsgräns till den virtuella dator som skapas.
 
 ### <a name="powershell-customizer"></a>PowerShell-anpassning 
 Shell-anpassningen stöder körning av PowerShell-skript och infogat kommando, skripten måste vara offentligt tillgängliga för IB för att få åtkomst till dem.

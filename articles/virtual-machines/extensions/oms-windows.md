@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2019
+ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 604be42ec74f75e3aa9c790092ed83aee4ad25e1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969953"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76907018"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Azure Monitor tillägg för virtuell dator för Windows
 
@@ -38,6 +38,7 @@ Följande tabell innehåller en mappning av versionen av Windows Azure Monitor V
 
 | Log Analytics Windows agent-paket version | Azure Monitor version av Windows VM-tillägg | Utgivningsdatum | Viktig information |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18018 | 1.0.18018 | Oktober 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li></ul> |
 | 10.20.18011 | 1.0.18011 | Juli 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Ökat MaxExpressionDepth till 10000 </li></ul> |
 | 10.20.18001 | 1.0.18001 | Juni 2019 | <ul><li> Mindre fel korrigeringar och stabiliserings förbättringar </li><li> Möjlighet att inaktivera standardautentiseringsuppgifter vid anslutning av proxy (stöd för WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH) har lagts till </li></ul>|
 | 10.19.13515 | 1.0.13515 | Mars 2019 | <ul><li>Mindre stabiliserings korrigeringar </li></ul> |

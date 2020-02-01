@@ -1,6 +1,6 @@
 ---
-title: Sök efter platser med hjälp av Azure Maps Search Service | Microsoft Azure Maps
-description: I den här artikeln får du lära dig hur du söker efter en plats med hjälp av Microsoft Azure Maps-Search Service.
+title: Sök efter en plats med Azure Maps Sök tjänster | Microsoft Azure Maps
+description: I den här artikeln får du lära dig hur du söker efter en plats med hjälp av Microsoft Azure Maps-Search Service för kodning och omvänt geografi.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 01/15/2020
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 20a2c18875096680cd1eba7601e88965fcbcc568
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 3b5da7eab9cff5c5e051fc4d5ab7ff582a95c20d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715350"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899224"
 ---
-# <a name="using-azure-maps-search-services-for-geocoding-and-reverse-geocoding"></a>Använda Azure Maps Sök tjänster för att koda och omvänta polykodning
+# <a name="search-for-a-location-using-azure-maps-search-services"></a>Sök efter en plats med Azure Maps Sök tjänster
 
 Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) är en uppsättning RESTful-API: er som är utformade för att hjälpa utvecklare att söka efter adresser, platser, företags listor efter namn eller kategori och annan geografisk information. Utöver stöd för traditionell landskod kan tjänster också omvända koder för hår koder och korsade gator utifrån latitud och longitud. Värdena för latitud och longitud som returneras av sökningen kan användas som parametrar i andra Azure Maps tjänster som [väg](https://docs.microsoft.com/rest/api/maps/route) -och [väder](https://docs.microsoft.com/rest/api/maps/weather) tjänster.
 
-Nu är det dags att lära dig:
+I den här artikeln får du lära dig hur du:
 
 * Begär latitud-och longitud-koordinater för en adress (kod för den här adressen) genom att använda [Sök adress-API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddress)
 * Sök efter en adress eller ett intresse punkt (POI) med hjälp av [API för fuzzy search](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
@@ -79,7 +79,7 @@ I det här fallet angav du en fullständig adress fråga och får ett enda resul
 
 Flaggan **typeahead** visar API för adresss ökning för att behandla frågan som en del indata och returnera en matris med förutsägande värden.
 
-## <a name="search-for-an-address-using-fuzzy-search-api"></a>Sök efter en adress med hjälp av API för fuzzy-sökning
+## <a name="using-fuzzy-search-api"></a>Använda API för fuzzy-sökning
 
 Azure Maps[ API för oskarp sökning](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) är en rekommenderad tjänst som du kan använda när du inte vet vad dina användarindata är för en Sök fråga. API: et kombinerar en POI-sökning (Point of Interest) och en kanonisk "enkel rads sökning". API: t kan till exempel hantera indata för valfri kombination av adress eller POI-token. Det kan också vägas med en kontext position (lat./lon. par), helt begränsad av en koordinat och radie, eller körs oftare utan någon fäst punkt för geo-förskjutning.
 
@@ -136,49 +136,12 @@ De flesta Sök frågor som standard `maxFuzzyLevel=1` för att få prestanda och
     | koder | 47,620525 |
     | lon | – 122,349274 |
 
-## <a name="search-for-address-properties-and-coordinates"></a>Sök efter adress egenskaper och koordinater
 
-Du kan skicka en fullständig eller delvis gatuadress till Sök-adress-API: et. Du får fortfarande ett svar som innehåller detaljerade adress egenskaper. Detaljerade adress egenskaper är värden som positions värden i höjd och longitud, kommun eller underavdelning.
+## <a name="search-for-a-street-address-using-reverse-address-search"></a>Sök efter en gatuadress med omvänd adresss ökning
 
-1. I Postman klickar du på **ny begäran** | **Hämta begäran** och ge den namnet **adress Sök**.
-2. På fliken Builder väljer du metoden **Hämta** http, anger fråge-URL: en för API-slutpunkten och väljer ett Authorization-protokoll, om det finns några.
+Azure Maps [Get search Address reversed API]( https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) hjälper till att översätta en koordinat (till exempel: 37,786505,-122,3862) till en human gatuadress. Oftast behövs detta för att spåra program där du får ett GPS-flöde från enheten eller till gången och vill veta vilken adress som koordinaten finns i.
+Om du har en uppsättning koordinerande platser för omvänd landskod, kan du använda [posts öknings adress omvänt batch-API](https://docs.microsoft.com/rest/api/maps/search/postsearchaddressreversebatch) för att skicka en batch med frågor i ett enda API-anrop.
 
-    ![Adresss ökning](./media/how-to-search-for-address/address_search_url.png)
-  
-    | Parameter | Föreslaget värde |
-    |---------------|------------------------------------------------|
-    | HTTP-metod | HÄMTA |
-    | URL för begäran | [https://atlas.microsoft.com/search/address/json?](https://atlas.microsoft.com/search/address/json?) |
-    | Autentisering | Ingen autentisering |
-
-3. Klicka på **params**och ange följande nyckel/värde-par som ska användas som fråga-eller Sök vägs parametrar i fråge-URL:
-  
-    ![Adresss ökning](./media/how-to-search-for-address/address_search_params.png)
-  
-    | Nyckel | Värde |
-    |------------------|-------------------------|
-    | api-version | 1.0 |
-    | prenumerations nyckel | \<din Azure Maps nyckel\> |
-    | DocumentDB | 400 Broad St, Seattle, WA 98109 |
-  
-4. Klicka på **Skicka** och granska svars texten.
-  
-    I det här fallet angav du en fullständig adress fråga och får ett enda resultat i svars texten.
-  
-5. I params redigerar du frågesträngen till följande värde:
-    ```plaintext
-        400 Broad, Seattle
-    ```
-
-6. Lägg till följande nyckel/värde-par i avsnittet **params** och klicka på **Skicka**:
-
-    | Nyckel | Värde |
-    |-----|------------|
-    | typeahead | sant |
-
-    Flaggan **typeahead** visar API för adresss ökning för att behandla frågan som en del indata och returnera en matris med förutsägande värden.
-
-## <a name="make-a-reverse-address-search"></a>Göra en omvänd adresss ökning
 
 1. I Postman klickar du på **ny begäran** | **Hämta begäran** och ge den namnet **Omvänd adress Sök**.
 
@@ -265,3 +228,4 @@ Du kan skicka en fullständig eller delvis gatuadress till Sök-adress-API: et. 
 ## <a name="next-steps"></a>Nästa steg
 
 - Utforska [Azure Maps Search Service API-](https://docs.microsoft.com/rest/api/maps/search) dokumentationen.
+- Lär dig mer om [metod tips](https://docs.microsoft.com/azure/azure-maps/how-to-use-best-practices-for-search).

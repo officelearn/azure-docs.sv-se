@@ -1,28 +1,24 @@
 ---
-title: 'Snabb start: identifiera tal, avsikter och entiteter, Java-tal-tjänst'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: c5d70bba32df5940d929482e37317d40bd496676
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a6bf8bb558e82fefbbe6ff306f628a4b449a4e83
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761467"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900537"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* Om det här är ditt första Java-projekt (JRE) använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">skapa ett tomt exempel projekt</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installera Speech SDK för din utvecklings miljö</a>.
+* Om det här är ditt första Java-projekt (JRE) använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=jre" target="_blank">skapa <span class="docon docon-navigate-external x-hidden-focus"> </span>ett tomt exempel projekt </a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=jre" target="_blank">Installera Speech SDK för din utvecklings miljö <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 
@@ -96,7 +92,7 @@ Det är viktigt att publicera tal resurserna när du är klar med dem. Infoga de
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-Nu bör din kod se ut så här:  
+Nu bör din kod se ut så här:
 
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.
@@ -105,7 +101,7 @@ Nu bör din kod se ut så här:
 
 ## <a name="build-and-run-your-app"></a>Skapa och kör din app
 
-Tryck på F11 eller välj **Kör** > **Felsök**.
+Tryck på <kbd>F11</kbd>eller välj **Kör** > **Felsök**.
 Följande 15 sekunder av talindata från mikrofonen identifieras och loggas i konsolfönstret.
 
 ## <a name="next-steps"></a>Nästa steg

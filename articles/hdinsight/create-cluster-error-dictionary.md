@@ -1,19 +1,19 @@
 ---
 title: Skapa en kluster fel ord lista
 description: Lär dig hur du skapar en kluster fel ord lista.
-ms.reviewer: hrasheed
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
-ms.openlocfilehash: ee9ed5374b12c3130d952770a4be6a759e37339a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156870"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905495"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: fel vid skapande av kluster
 
@@ -210,7 +210,7 @@ Detta fel uppstår vanligt vis när det uppstår ett tillfälligt problem eller 
 
 ### <a name="resolution"></a>Upplösning
 
-På sidan [Azure-status](https://status.azure.com/status) finns några Azure-avbrott som kan påverka kluster distributionen. Försök att distribuera kluster igen om det inte finns några avbrott.
+På sidan [Azure-status](https://status.azure.com) finns några Azure-avbrott som kan påverka kluster distributionen. Försök att distribuera kluster igen om det inte finns några avbrott.
 
 ## <a name="next-steps"></a>Nästa steg
 

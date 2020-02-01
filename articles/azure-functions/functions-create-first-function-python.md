@@ -4,18 +4,18 @@ description: Skapa och distribuera en server lös python-kod till molnet med hj�
 ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 452c5aeab5d2a1092cb7d338d37e26a82d92396e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845506"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898576"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>Snabb start: skapa en HTTP-utlöst python-funktion i Azure
 
 I den här artikeln använder du kommando rads verktyg för att skapa en python-funktion som svarar på HTTP-begäranden. När du har testat koden lokalt distribuerar du den till den serverbaserade miljön för Azure Functions. Att slutföra den här snabb starten innebär en låg kostnad av några USD cent eller mindre i ditt Azure-konto.
 
-Det finns också en [Visual Studio Code-baserad version](/azure/python/tutorial-vs-code-serverless-python-01) av den här artikeln.
+Det finns också en [Visual Studio Code-baserad version](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python) av den här artikeln.
 
 ## <a name="prerequisites"></a>Krav
 

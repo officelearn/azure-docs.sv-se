@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 630a018c25ac8663fd369c1256e376b8039182c9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b5875d0672fc187920883abe208ad30c4d2b1051
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910804"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898550"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps väder täckning
 
@@ -86,7 +86,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Surinam                                 | ✓ |   |  ✓| 
 | Trinidad och Tobago                      | ✓ |   |  ✓| 
 | Turks- och Caicosöarna                 | ✓ |   |  ✓| 
-| USA:s yttre öar                    | ✓ |   |  ✓| 
+| Amerikanska öar                    | ✓ |   |  ✓| 
 | Amerikanska jungfru öarna                      | ✓ |   |  ✓| 
 | USA                            | ✓ | ✓ |  ✓| 
 | Uruguay                                  | ✓ |   |  ✓| 
@@ -110,7 +110,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Centralafrikanska republiken    | ✓               |                              |        ✓| 
 | Tchad                        | ✓               |                              |        ✓| 
 | Komorerna                     | ✓               |                              |        ✓| 
-| Kongo (DR)                 | ✓               |                              |        ✓|
+| Kongo (Dr)                 | ✓               |                              |        ✓|
 | Côte D' Ivoire               | ✓               |                              |        ✓| 
 | Djibouti                    | ✓               |                              |        ✓| 
 | Egypten                       | ✓               |                              |        ✓| 
@@ -118,7 +118,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Eritrea                     | ✓               |                              |        ✓| 
 | eSwatini                    | ✓               |                              |        ✓| 
 | Etiopien                    | ✓               |                              |        ✓| 
-| Franska sydterritorierna | ✓               |                              |        ✓| 
+| Franska södra territorier | ✓               |                              |        ✓| 
 | Gabon                       | ✓               |                              |        ✓| 
 | Gambia                      | ✓               |                              |        ✓| 
 | Ghana                       | ✓               |                              |        ✓| 
@@ -179,7 +179,6 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Afghanistan                       | ✓ |   |  ✓| 
 | Amerikanska Samoa                    | ✓ |   |  ✓| 
 | Australien                         | ✓ | ✓ |  ✓| 
-| Azerbajdzjan                        | ✓ |   |  ✓| 
 | Bangladesh                        | ✓ |   |  ✓| 
 | Bhutan                            | ✓ |   |  ✓| 
 | Brittiska territoriet i Indiska oceanen    | ✓ |   |  ✓| 
@@ -187,12 +186,12 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Kambodja                          | ✓ |   |  ✓| 
 | Kina                             | ✓ | ✓ |  ✓| 
 | Julön                  | ✓ |   |  ✓| 
-| Kokosöarna           | ✓ |   |  ✓| 
+| Kokos öarna           | ✓ |   |  ✓| 
 | Cooköarna                      | ✓ |   |  ✓| 
 | Fiji                              | ✓ |   |  ✓| 
 | Franska Polynesien                  | ✓ |   |  ✓| 
 | Guam                              | ✓ |   |  ✓| 
-| Heardön och McDonaldöarna | ✓ |   |  ✓| 
+| Heard-och McDonaldöarna | ✓ |   |  ✓| 
 | Hongkong SAR                     | ✓ |   |  ✓| 
 | Indien                             | ✓ |   |  ✓| 
 | Indonesien                         | ✓ |   |  ✓| 
@@ -205,7 +204,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Macao SAR                         | ✓ |   |  ✓| 
 | Malaysia                          | ✓ |   |  ✓| 
 | Maldiverna                          | ✓ |   |  ✓| 
-| Marshallöarna                  | ✓ |   |  ✓| 
+| Marshall öarna                  | ✓ |   |  ✓| 
 | Mikronesien                        | ✓ |   |  ✓| 
 | Mongoliet                          | ✓ |   |  ✓| 
 | Myanmar                           | ✓ |   |  ✓| 
@@ -215,7 +214,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Nya Zeeland                       | ✓ |   |  ✓| 
 | Niue                              | ✓ |   |  ✓| 
 | Norfolkön                    | ✓ |   |  ✓| 
-| Nordkorea                       | ✓ |   |  ✓| 
+| Nord Korea                       | ✓ |   |  ✓| 
 | Nordmarianerna          | ✓ |   |  ✓| 
 | Pakistan                          | ✓ |   |  ✓| 
 | Palau                             | ✓ |   |  ✓| 
@@ -247,7 +246,8 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Albanien                | ✓ |   |  ✓| 
 | Andorra                | ✓ |   |  ✓| 
 | Armenien                | ✓ |   |  ✓| 
-| Österrike                | ✓ | ✓ |  ✓| 
+| Österrike                | ✓ | ✓ |  ✓|
+| Azerbajdzjan             | ✓ |   |  ✓| 
 | Vitryssland                | ✓ |   |  ✓| 
 | Belgien                | ✓ | ✓ |  ✓| 
 | Bosnien och Hercegovina | ✓ | ✓ |  ✓| 
@@ -264,7 +264,7 @@ Följande tabell innehåller information om vilken typ av väder information som
 | Tyskland                | ✓ | ✓ |  ✓| 
 | Gibraltar              | ✓ | ✓ |  ✓| 
 | Grekland                 | ✓ |   |  ✓| 
-| Guernsey               | ✓ |   |  ✓| 
+| Guernseypund               | ✓ |   |  ✓| 
 | Ungern                | ✓ | ✓ |  ✓| 
 | Island                | ✓ |   |  ✓| 
 | Irland                | ✓ | ✓ |  ✓| 

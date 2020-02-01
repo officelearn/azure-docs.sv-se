@@ -9,6 +9,7 @@ manager: daveba
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,15 +18,15 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bbd1ad6178e0120bf8414fc424b79254e306d2c2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350478"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897272"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Övervaka AD FS med Azure AD Connect Health
-Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Mer information om övervakning av Azure AD Connect (Sync) med Azure AD Connect Health finns i [Använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Mer information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns i [Använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
+Följande dokumentation gäller specifikt för övervakningen av AD FS-infrastrukturen med Azure AD Connect Health. Information om övervakning Azure AD Connect (Sync) med Azure AD Connect Health finns i [använda Azure AD Connect Health för synkronisering](how-to-connect-health-sync.md). Information om övervakning av Active Directory Domain Services med Azure AD Connect Health finns dessutom i [använda Azure AD Connect Health med AD DS](how-to-connect-health-adds.md).
 
 ## <a name="alerts-for-ad-fs"></a>AD FS-aviseringar
 Avsnittet om Azure AD Connect Health-aviseringar innehåller en lista över aktiva aviseringar. För varje avisering finns relevant information, lösningssteg och länkar till relaterad dokumentation.
@@ -46,7 +47,7 @@ Azure AD Connect Health-användningsanalys analyserar autentiseringstrafiken på
 
 Om du vill välja fler mått, ange ett tidsintervall eller ändra grupperingen högerklickar du på diagrammet med användningsanalysen och väljer Redigera diagram. Sedan kan du ange tidsintervallet, välja ett annat mått och ändra grupperingen. Du kan visa autentiseringstrafikens fördelning baserat på olika ”mått” och gruppera varje mått med relevanta ”gruppera efter”-parametrar som beskrivs i följande avsnitt:
 
-**Mått: Totalt antal begäranden**: Totalt antal begäranden som bearbetas av AD FS-servrarna.
+**Mått: Totalt antal förfrågningar**: Totalt antal förfrågningar som bearbetas av AD FS-servrarna.
 
 |Gruppera efter | Vad grupperingen betyder och varför den är användbar? |
 | --- | --- |
@@ -62,12 +63,12 @@ Om du vill välja fler mått, ange ett tidsintervall eller ändra grupperingen h
 
 |Gruppera efter | Vad grupperingen betyder och varför den är användbar? |
 | --- | --- |
-| Feltyp | Visar antalet fel baserat på fördefinierade feltyper. Den här grupperingen är användbar för att förstå de vanliga typerna av fel. <ul><li>Felaktigt användarnamn eller lösenordet: Fel på grund av felaktigt användarnamn eller lösenord.</li> <li>”Extranätsutelåsning”: Fel som beror på att begärandena togs emot från en användare som var utelåst från extranätet </li><li> ”Upphört lösenord”: Fel som beror på att användaren loggar in med ett lösenord som upphört att gälla.</li><li>”Inaktiverat konto”: Fel som beror på att användaren loggar in med ett inaktiverat konto.</li><li>”Enhetsautentisering”: Fel som beror på att användaren inte kan autentiseras med enhetsautentisering.</li><li>”Autentisering med användarcertifikat”: Fel som beror på att användaren inte kan autentiseras på grund av ett ogiltigt certifikat.</li><li>”MFA”: Fel som beror på att användaren inte kan autentiseras via multifaktorautentisering.</li><li>”Annan autentiseringsuppgift”: ”Utfärdandeauktorisering”: Fel som beror på auktoriseringsfel.</li><li>”Utfärdandedelegering”: Fel som beror på utfärdandedelegeringsfel.</li><li>”Tokengodkännande”: Fel som beror på att ADFS avvisar token från en tredjeparts identitetsprovider.</li><li>”Protocol”: Fel som beror på protokollfel.</li><li>”Okänt”: Allmänt fel. Andra fel som inte passar i de angivna kategorierna.</li> |
+| Feltyp | Visar antalet fel baserat på fördefinierade feltyper. Den här grupperingen är användbar för att förstå de vanliga typerna av fel. <ul><li>Felaktigt användarnamn eller lösenord: Fel som beror på ett felaktigt användarnamn eller lösenord.</li> <li>”Utelåsning från extranät”: Fel som beror på att förfrågningarna togs emot från en användare som var utelåst från extranätet </li><li> ”Lösenordet har upphört att gälla”: Fel som beror på att användaren loggar in med ett lösenord som upphört att gälla.</li><li>”Inaktiverat konto”: Fel som beror på att användaren loggar in med ett inaktiverat konto.</li><li>”Enhetsautentisering”: Fel som beror på att användaren inte kan autentiseras med enhetsautentisering.</li><li>”Autentisering med användarcertifikat”: Fel som beror på att användaren inte kan autentiseras på grund av ett ogiltigt certifikat.</li><li>”MFA”: Fel som beror på att användaren inte kan autentiseras med hjälp av Multi-Factor Authentication.</li><li>”Andra autentiseringsuppgifter”: ”Utfärdandeauktorisering”: Fel som beror på auktoriseringsproblem.</li><li>”Utfärdandedelegering”: Fel som beror på utfärdandedelegeringsproblem.</li><li>”Tokengodkännande”: Fel som beror på att ADFS avvisar token från en tredjeparts identitetsprovider.</li><li>”Protokoll”: Fel som beror på protokollproblem.</li><li>”Okänt”: Samla in allt. Andra fel som inte passar i de angivna kategorierna.</li> |
 | Server | Grupperar felen baserat på servern. Denna gruppering är användbar för att förstå felfördelningen mellan servrar. En ojämn fördelning kan vara ett tecken på att en server har felaktigt tillstånd. |
 | Nätverksplats | Grupperar felen baserat på förfrågningarnas nätverksplats (intranät eller extranät). Denna gruppering är användbar för att förstå vilken typ av förfrågningar som misslyckas. |
 |  Program | Grupperar felen baserat på målprogrammet (förlitande part). Denna gruppering är användbar för att förstå vilket program som har flest antal fel. |
 
-**Mått: Antal användare**: Det genomsnittliga antal unika användare som aktivt autentiserar med AD FS
+**Mått: Antal användare** – Det genomsnittliga antalet unika användare som aktivt autentiserar med AD FS
 
 |Gruppera efter | Vad grupperingen betyder och varför den är användbar? |
 | --- | --- |
@@ -84,7 +85,7 @@ Om du väljer filteralternativet längst upp i bladet kan du filtrera efter serv
 ## <a name="top-50-users-with-failed-usernamepassword-logins"></a>De 50 användarna med flest misslyckade inloggningar med användarnamn/lösenord
 Ett av de vanligaste skälen till en misslyckad autentiseringsbegäran på en AD FS-server är en begäran med ogiltiga autentiseringsuppgifter, dvs. ett felaktigt användarnamn eller lösenord. Påverkar vanligtvis användare på grund av komplexa lösenord, glömt lösenord eller skrivfel.
 
-Men det finns andra orsaker som kan resultera i att ett oväntat antal begäranden av den här typen hanteras av AD FS-servrarna, till exempel: Ett program cachelagrar autentiseringsuppgifter för användare och autentiseringsuppgifterna upphör att gälla, eller att en användare som vill vålla skada försöker logga in på ett konto med en serie välkända lösenord. Dessa två exempel är giltiga skäl som kan leda till en ökning i begäranden.
+Men det finns andra skäl till ett oväntat antal begäranden som hanteras av AD FS-servrar, exempelvis: ett program som lagrar användarens autentiseringsuppgifter i cacheminnet och autentiseringsuppgifterna upphör att gälla eller en obehörig användare som försöker logga in på ett konto med ett antal välkända lösenord. Dessa två exempel är giltiga skäl som kan leda till en ökning i begäranden.
 
 Azure AD Connect Health för AD FS tillhandahåller en rapport över de 50 användarna med flest misslyckade inloggningsförsök på grund av ett ogiltigt användarnamn eller lösenord. Rapporten skapas genom att bearbeta granskningshändelserna som genereras av alla AD FS-servrar i servergrupperna.
 
@@ -117,8 +118,8 @@ Rapporten innehåller följande information:
 > [!NOTE]
 > Den här rapporten uppdateras automatiskt var tolfte timme med den nya informationen som samlats in inom den tidsperioden. Därför kanske inloggningsförsök under de senaste 12 timmarna inte finns med i rapporten.
 
-## <a name="related-links"></a>Relaterade länkar
+## <a name="related-links"></a>Tillhörande länkar
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installation av Azure AD Connect Health Agent](how-to-connect-health-agent-install.md)
-* [Riskfyllda IP-adresser](how-to-connect-health-adfs-risky-ip.md)
+* [Riskfylld IP-rapport](how-to-connect-health-adfs-risky-ip.md)
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/29/2020
+ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844691"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905225"
 ---
 # <a name="release-notes"></a>Viktig information
 
@@ -68,7 +68,7 @@ Ingen komponent versions ändring för den här versionen. Du hittar de aktuella
 
 ## <a name="known-issues"></a>Kända problem
 
-Från och med den 24 januari 2020 uppstår ett aktivt problem där du kan få ett fel meddelande när du försöker använda en Jupyter Notebook. Använd stegen nedan för att åtgärda problemet. Du kan också se det här [MSDN-inlägget](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) eller det här [StackOverflow-inlägget](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) för uppdaterad information eller ställa frågor till fler frågor. Den här sidan kommer att uppdateras när problemet åtgärdas.
+Från och med den 29 januari 2020 uppstår ett aktivt problem där du kan få ett fel meddelande när du försöker använda en Jupyter Notebook. Använd stegen nedan för att åtgärda problemet. Du kan också se det här [MSDN-inlägget](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) eller det här [StackOverflow-inlägget](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) för uppdaterad information eller ställa frågor till fler frågor. Den här sidan kommer att uppdateras när problemet åtgärdas.
 
 **Kompileringsfel**
 
@@ -77,22 +77,26 @@ Från och med den 24 januari 2020 uppstår ett aktivt problem där du kan få et
 
 **Orsak** 
 
-Filen _version. py på klustret har uppdaterats till 5. x. x i stället för 4.4. x. # #.
+Filen _version. py på klustret har uppdaterats till 5. x. x i stället för 4.4. x. # # eller Ambari måste startas om.
 
 **Lösning**
 
 Om du skapar en ny Jupyter-anteckningsbok och får ett av de fel som anges ovan utför du följande steg för att åtgärda problemet.
 
-1. Öppna Ambari i en webbläsare genom att gå till https://CLUSTERNAME.azurehdinsight.net, där kluster namn är namnet på klustret.
+1. Öppna Ambari i en webbläsare genom att gå till `https://CLUSTERNAME.azurehdinsight.net`, där kluster namn är namnet på klustret.
 1. I Ambari klickar du på **Jupyter**på den vänstra menyn och sedan på **tjänst åtgärder**klickar du på **stoppa**.
 1. SSH till klustrets huvudnoden där Jupyter-tjänsten körs.
 1. Öppna följande fil/usr/bin/Anaconda/lib/python2.7/site-packages/nbformat/_version. py i sudo-läge.
-1. Den befintliga posten bör visa något som liknar följande kod: 
+1. Kontrol lera värdet för version_info.
+1. Om värdet för version_info är inställt på: 
 
     version_info = (5, 0, 3)
 
-    Ändra posten till: 
+    Ändra sedan posten till: 
     
     version_info = (4, 4, 0)
-1. Spara filen.
+
+    Och spara filen. 
+
+    Om version_info redan har angetts till (4, 4, 0) fortsätter du till nästa steg eftersom endast Ambari måste startas om, inga ytterligare ändringar krävs.
 1. Gå tillbaka till Ambari och klicka på **starta om alla**i **tjänst åtgärder**.

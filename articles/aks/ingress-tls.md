@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 01/15/2020
+ms.date: 01/29/2020
 ms.author: mlearned
-ms.openlocfilehash: 5df7a8a639c87f90df0d3d22f84c4e93ac81e3a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 661ed72265b81f47cbe8e9cf26595632360ec352
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028306"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898804"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Skapa en HTTPS ingress-styrenhet på Azure Kubernetes service (AKS)
 
@@ -92,7 +92,7 @@ az network dns record-set a add-record \
 ```
 
 > [!NOTE]
-> Alternativt kan du konfigurera ett fullständigt domän namn för IP-adressen för ingångs enheten i stället för en anpassad domän.
+> Alternativt kan du konfigurera ett fullständigt domän namn för IP-adressen för ingångs enheten i stället för en anpassad domän. Observera att det här exemplet gäller för ett bash-gränssnitt.
 > 
 > ```azurecli-interactive
 > # Public IP address of your ingress controller

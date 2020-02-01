@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: c8f123871f1e87a18dadfa82ad6bb27d1c145dc4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c3b06289ba6ce98d4307a8255981ecdba069fdfa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863350"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905410"
 ---
 # <a name="add-an-event-hub-event-source-to-your-time-series-insights-environment"></a>Lägg till en event hub-händelsekälla till Time Series Insights-miljön
 
@@ -54,7 +54,7 @@ Så här lägger du till en ny konsumentgrupp i din event hub
 
 ## <a name="add-a-new-event-source"></a>Lägg till en ny händelsekälla
 
-1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Leta upp din befintliga Time Series Insights-miljö. I den vänstra menyn väljer du **alla resurser**, och välj sedan din Time Series Insights-miljö.
 

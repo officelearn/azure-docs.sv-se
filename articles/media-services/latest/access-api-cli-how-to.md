@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d66b3e1b6ed2c8eef9f5cd21c0657648ad550ebe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 06ca26ee9a8af7f49aba6a48a1831d30d5886851
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896155"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896321"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Åtkomst Azure Media Services API med Azure CLI
  
@@ -28,7 +28,8 @@ Om du vill använda autentisering av Azure AD-tjänstens huvud namn för att ans
 * Resurs-URI för REST-Media Services
 * Azure AD-program värden: klient-ID och klient hemlighet
 
-Detaljerad förklaring finns i [komma åt Media Services v3-API: er](media-services-apis-overview.md#accessing-the-azure-media-services-api).
+> [!IMPORTANT]
+> Detaljerad förklaring finns i [komma åt Media Services v3-API: er](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 Den här artikeln visar hur du använder Azure CLI för att skapa ett Azure AD-program och tjänstens huvud namn och hämta de värden som behövs för att få åtkomst till Azure Media Services resurser.
 

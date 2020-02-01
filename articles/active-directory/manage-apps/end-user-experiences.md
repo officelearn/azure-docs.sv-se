@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274207"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896901"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Slut användar upplevelse för program i Azure Active Directory
 
@@ -36,7 +36,7 @@ Vilken metod (er) du väljer att distribuera i din organisation är ditt eget go
 
 ![Skärm bild som visar Azure AD Access panel-portalen](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-Som standard visas alla program på en enda sida. Men du kan använda arbets ytor för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda arbets ytor för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i så [här använder du arbets ytor i Mina appar för att anpassa användar åtkomst paneler (för hands version)](access-panel-workspaces.md). 
+Som standard visas alla program på en enda sida. Men du kan använda samlingar för att gruppera relaterade program och presentera dem på en separat flik, vilket gör dem lättare att hitta. Du kan till exempel använda samlingar för att skapa logiska grupperingar av program för vissa jobb roller, aktiviteter, projekt och så vidare. Mer information finns i så [här anpassar du användar åtkomst paneler med mina appar-samlingar](access-panel-collections.md). 
 
 Åtkomst panelen är separat från Azure Portal och kräver inte att användare har en Azure-prenumeration eller en Office 365-prenumeration.
 

@@ -1,16 +1,16 @@
 ---
 title: Azure Service Fabric CLI – egenskapen sfctl
-description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att visa och fråga egenskaper för artiklar.
+description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att lagra och fråga efter egenskaper.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639113"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905824"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Lagra och fråga efter egenskaper under Service Fabric namn.
@@ -105,7 +105,7 @@ Skapar eller uppdaterar den angivna Service Fabric-egenskapen under ett visst na
 | --- | --- |
 | --namn-ID [obligatoriskt] | Service Fabric namn, utan URI-schemat "Fabric\:". |
 | --egenskap-namn [obligatoriskt] | Namnet på egenskapen Service Fabric. |
-| --värde [obligatoriskt] | Beskriver ett egenskaps värde för Service Fabric. Detta är en JSON-sträng. <br><br> JSON-strängen har två fält, "typ" av data och "värde" för data. Värdet för "kind" måste vara det första objektet som ska visas i JSON-strängen och kan vara värdena Binary, Int64, Double, String eller GUID. Värdet ska vara seriellt-kan användas för de typer som anges. Värdena "kind" och "data" ska anges som strängar. |
+| --värde [obligatoriskt] | Beskriver ett egenskaps värde för Service Fabric. Detta är en JSON-sträng. <br><br> JSON-strängen har två fält, "typ" av data och värdet som anges som data för data. Värdet för "kind" måste vara det första objektet som ska visas i JSON-strängen och kan vara värdena Binary, Int64, Double, String eller GUID. Värdet ska vara seriellt-kan användas för de typer som anges. Värdena "kind" och "data" ska anges som strängar. |
 | --anpassad-ID-typ | Egenskapens anpassade typ-ID. Med den här egenskapen kan användaren tagga typen för egenskapens värde. |
 | --timeout-t | Standard\: 60. |
 

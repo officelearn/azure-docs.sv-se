@@ -1,6 +1,6 @@
 ---
 title: Samla in anpassade mått för virtuella Linux-datorer med InfluxData-agenten för teleympkvistar
-description: anvisningar om hur du distribuerar InfluxData-på en virtuell Linux-dator i Azure och konfigurerar agenten för att publicera mått till Azure Monitor.
+description: Anvisningar om hur du distribuerar InfluxData-på en virtuell Linux-dator i Azure och konfigurerar agenten för att publicera mått till Azure Monitor.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b4cf5dc53c0fe256c9ecab5a844300224b860e44
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926747"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901316"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Samla in anpassade mått för en virtuell Linux-dator med InfluxData-agenten för teleympkvistar
 
@@ -21,7 +21,7 @@ Genom att använda Azure Monitor kan du samla in anpassade mått via din program
 
 ## <a name="influxdata-telegraf-agent"></a>InfluxDatain ympkvistar-agent 
 
-[Teleympkvistar](https://docs.influxdata.com/telegraf/v1.7/) är en plugin-driven agent som möjliggör insamling av mått från över 150 olika källor. Beroende på vilka arbets belastningar som körs på den virtuella datorn kan du konfigurera agenten för att utnyttja specialiserade plugin-program för att samla in mått. Exempel är MySQL, NGINX och Apache. Genom att använda plugin-program för utdata kan agenten skriva till destinationer som du väljer. Teleympkvistar-agenten har integrerats direkt med Azure Monitor anpassade mått REST API. Det stöder ett plugin-program för Azure Monitor-utdata. Genom att använda det här plugin-programmet kan agenten samla in arbets belastnings mått på den virtuella Linux-datorn och skicka dem som anpassade mått till Azure Monitor. 
+[Teleympkvistar](https://docs.influxdata.com/telegraf/) är en plugin-driven agent som möjliggör insamling av mått från över 150 olika källor. Beroende på vilka arbets belastningar som körs på den virtuella datorn kan du konfigurera agenten för att utnyttja specialiserade plugin-program för att samla in mått. Exempel är MySQL, NGINX och Apache. Genom att använda plugin-program för utdata kan agenten skriva till destinationer som du väljer. Teleympkvistar-agenten har integrerats direkt med Azure Monitor anpassade mått REST API. Det stöder ett plugin-program för Azure Monitor-utdata. Genom att använda det här plugin-programmet kan agenten samla in arbets belastnings mått på den virtuella Linux-datorn och skicka dem som anpassade mått till Azure Monitor. 
 
  ![Översikt över Telegraph-agent](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
@@ -29,7 +29,7 @@ Genom att använda Azure Monitor kan du samla in anpassade mått via din program
 
 I den här självstudien distribuerar vi en virtuell Linux-dator som kör operativ systemet Ubuntu 16,04 LTS. Teleympkvistar-agenten stöds för de flesta Linux-operativsystem. Både Debian-och RPM-paket är tillgängliga tillsammans med unpaketerade Linux-binärfiler på [InfluxData nedladdnings Portal](https://portal.influxdata.com/downloads). I den här [installations guiden för netympkvistar](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/) finns ytterligare installationsinstruktioner och alternativ. 
 
-Logga in på [Azure-portalen](https://portal.azure.com).
+Logga in på [Azure Portal](https://portal.azure.com).
 
 Skapa en ny virtuell Linux-dator: 
 

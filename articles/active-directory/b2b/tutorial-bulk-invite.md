@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 493c60e8148b666ba1f514d303229b7a11c2e43e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425032"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908844"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>Självstudie: grupp inbjudan till Azure AD B2B Collaboration Users (för hands version)
 
@@ -27,6 +27,7 @@ ms.locfileid: "75425032"
 
 > [!NOTE]
 > Från och med 12/22/2019 har funktionen för grupp användare (förhands granskning) inaktiverats tillfälligt.
+> Det finns för närvarande inget känt datum för när funktionen aktive ras igen. 
 
 Om du använder Azure Active Directory (Azure AD) B2B-samarbete för att arbeta med externa partners, kan du bjuda in flera gästanvändare till din organisation samtidigt. I den här självstudien får du lära dig hur du använder Azure Portal för att skicka mass inbjudningar till externa användare. Närmare bestämt kan du göra följande:
 

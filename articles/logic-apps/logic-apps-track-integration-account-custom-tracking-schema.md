@@ -1,25 +1,23 @@
 ---
 title: Anpassade spårnings scheman för B2B-meddelanden
-description: Skapa anpassade spårnings scheman som övervakar B2B-meddelanden i integrations konton för Azure Logic Apps med Enterprise-integrationspaket
+description: Skapa anpassade spårnings scheman för att övervaka B2B-meddelanden i Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.openlocfilehash: 7d7c5ef9e9a86c8b061a56fe41c0c8bbfc5ddbb3
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/01/2020
+ms.openlocfilehash: c82f9cbfaf2e23ddaa5e4b05f4aac4795d3e16a9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792792"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903064"
 ---
-# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Skapa anpassade spårnings scheman som övervakar arbets flöden från slut punkt till slut punkt i Azure Logic Apps
+# <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-a"></a>Skapa anpassade spårnings scheman som övervakar arbets flöden från slut punkt till slut punkt i Azure Logic A
 
-Det finns inbyggd spårning som du kan aktivera för olika delar av ditt verksamhets-till-affärs-arbetsflöde, till exempel spårning av AS2-eller X12-meddelanden. När du skapar arbets flöden som innehåller en Logic app, BizTalk Server, SQL Server eller något annat lager, kan du Aktivera anpassad spårning som loggar händelser från början till slutet av arbets flödet. 
-
-Den här artikeln innehåller anpassad kod som du kan använda i lager utanför din Logic app. 
+Azure Logic Apps har inbyggd spårning som du kan aktivera för delar av arbets flödet. Du kan dock konfigurera anpassad spårning som loggar händelser från början till slutet av arbets flöden, till exempel arbets flöden som innehåller en Logic app, BizTalk Server, SQL Server eller något annat lager. Den här artikeln innehåller anpassad kod som du kan använda i lager utanför din Logic app.
 
 ## <a name="custom-tracking-schema"></a>Anpassat spårningsschema
 
@@ -36,7 +34,7 @@ Den här artikeln innehåller anpassad kod som du kan använda i lager utanför 
       "operation": {
          "operationName": "",
          "repeatItemScopeName": "",
-         "repeatItemIndex": "",
+         "repeatItemIndex": ,
          "trackingId": "",
          "correlationId": "",
          "clientRequestId": ""
@@ -47,39 +45,37 @@ Den här artikeln innehåller anpassad kod som du kan använda i lager utanför 
          "eventLevel": "",
          "eventTime": "",
          "recordType": "",
-         "record": {                
-         }
+         "record": {}
       }
    ]
 }
 ```
 
 | Egenskap | Krävs | Typ | Beskrivning |
-| --- | --- | --- | --- |
-| sourceType | Ja |   | Typ av körnings källa. Tillåtna värden är **Microsoft. Logic/arbetsflöden** och **Custom**. |
-| källa | Ja |   | Om käll typen är **Microsoft. Logic/-arbetsflöden**måste käll informationen följa det här schemat. Om käll typen är **anpassad**är schemat ett JToken. |
-| systemId | Ja | Sträng | Logic app system-ID. |
-| RunId | Ja | Sträng | Körnings-ID för Logic app. |
-| operationName | Ja | Sträng | Åtgärdens namn (till exempel åtgärd eller utlösare). |
-| repeatItemScopeName | Ja | Sträng | Upprepa objekt namn om åtgärden finns i en `foreach`/`until` slinga. |
-| repeatItemIndex | Ja | Integer | Om åtgärden finns i en `foreach`/`until` slinga. Anger det upprepande objekt indexet. |
-| trackingId | Nej | Sträng | Spårnings-ID, för att korrelera meddelandena. |
-| correlationId | Nej | Sträng | Korrelations-ID för att korrelera meddelandena. |
-| clientRequestId | Nej | Sträng | Klienten kan fylla i den för att korrelera meddelanden. |
-| eventLevel | Ja |   | Händelsens nivå. |
-| eventTime | Ja |   | Tid för händelsen, i UTC-format ÅÅÅÅ-MM-DDTHH: MM: SS. 00000Z. |
-| RecordType | Ja |   | Typ av spårnings post. Det tillåtna värdet är **anpassat**. |
-| konkurrentpost | Ja |   | Anpassad posttyp. Det tillåtna formatet är JToken. |
-||||
+|----------|----------|------|-------------|
+| sourceType | Ja | String | Typ av körnings källa med följande tillåtna värden: `Microsoft.Logic/workflows``custom` |
+| källa | Ja | Sträng eller JToken | Om käll typen är `Microsoft.Logic/workflows`måste käll informationen följa det här schemat. Om käll typen är `custom`är schemat ett JToken. |
+| systemId | Ja | String | Logic app system-ID |
+| runId | Ja | String | Körnings-ID för Logic app |
+| operationName | Ja | String | Namn på åtgärden, till exempel åtgärd eller utlösare |
+| repeatItemScopeName | Ja | String | Upprepa objekt namn om åtgärden finns i en `foreach`eller `until` slinga |
+| repeatItemIndex | Ja | Integer | Anger att åtgärden finns i en `foreach`-eller `until`-slinga och är det upprepade objekt index numret. |
+| trackingId | Inga | String | Spårnings-ID för att korrelera meddelandena |
+| correlationId | Inga | String | Korrelations-ID för att korrelera meddelandena |
+| clientRequestId | Inga | String | Klienten kan fylla i den här egenskapen för att korrelera meddelanden |
+| eventLevel | Ja | String | Händelsens nivå |
+| eventTime | Ja | DateTime | Tid för händelsen i UTC-format: *ÅÅÅÅ-MM-ddTHH: mm: SS. 00000Z* |
+| recordType | Ja | String | Typ av spårnings post med endast detta tillåtna värde: `custom` |
+| record | Ja | JToken | Anpassad posttyp med endast JToken-format |
+|||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>Spårnings scheman för B2B-protokoll
 
 Information om B2B-protokoll spårnings scheman finns i:
 
-* [AS2-spårningsscheman](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)   
+* [AS2-spårningsscheman](../logic-apps/logic-apps-track-integration-account-as2-tracking-schemas.md)
 * [X12-spårningsscheman](logic-apps-track-integration-account-x12-tracking-schema.md)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om att [övervaka B2B-meddelanden](logic-apps-monitor-b2b-message.md)
-* Lär dig mer om att [spåra B2B-meddelanden i Azure Monitor loggar](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Lär dig mer om att [övervaka B2B-meddelanden med Azure Monitor loggar](../logic-apps/monitor-b2b-messages-log-analytics.md)

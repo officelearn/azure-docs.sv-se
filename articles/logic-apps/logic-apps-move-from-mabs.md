@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666660"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905429"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>Migrera appar och lösningar från BizTalk Services till Azure Logic Apps
 
@@ -125,7 +125,7 @@ Till skillnad från BizTalk Services är de här åtgärderna fristående från 
 
 ## <a name="manage-and-monitor"></a>Hantera och övervaka
 
-I BizTalk Services kan en särskild Portal tillhandahålla spårnings funktioner för att övervaka och felsöka problem. Logic Apps ger bättre spårnings-och övervakningsfunktioner via [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)och innehåller en mobilapp för att hålla ett öga på sakernas gång när du är på språng.
+I BizTalk Services kan en särskild Portal tillhandahålla spårnings funktioner för att övervaka och felsöka problem. Logic Apps tillhandahåller omfattande spårnings-och övervakningsfunktioner för att övervaka Logi Kap par [i Azure Portal](../logic-apps/monitor-logic-apps.md)och innehåller en mobilapp för att hålla ett öga på sakernas gång när du är på språng.
 
 ## <a name="high-availability"></a>Hög tillgänglighet
 

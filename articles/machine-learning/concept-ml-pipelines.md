@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772609"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905725"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Vad är Azure Machine Learning pipelines?
 
@@ -26,7 +26,7 @@ Med Azure Machine Learning pipelines kan du skapa arbets flöden i dina Machine 
 + Flexibilitet
 + Versions hantering och spårning
 + Modulariteten 
-+ Kvalitetssäkring
++ Kvalitets garanti
 + Kostnads kontroll
 
 Dessa förmåner blir viktiga så snart ditt Machine Learning-projekt flyttas bortom ren utforskning och till iteration. Det kan vara värdefullt att använda pipeliner med en enda steg. Machine Learning-projekt är ofta i komplext tillstånd, och det kan vara en avsättning för att göra den exakta processen för ett enskilt arbets flöde en trivial process.
@@ -48,12 +48,12 @@ Azure-molnet tillhandahåller flera andra pipelines, var och en med olika ändam
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Vad kan Azure ML-pipeliner göra?
 
-En Azure Machine Learning pipeline är ett oberoende körbart arbets flöde för en fullständig Machine Learning-uppgift. Under aktiviteter kapslas in som en serie steg i pipelinen. En Azure Machine Learning pipeline kan vara lika enkelt som en som anropar ett Python-skript, så det _kan hända_ bara vad som helst. Pipelines _bör_ fokusera på Machine Learning-uppgifter som:
+En Azure Machine Learning pipeline är ett oberoende körbart arbets flöde för en fullständig Machine Learning-uppgift. Underaktiviteter kapslas in som en serie steg i pipelinen. En Azure Machine Learning pipeline kan vara lika enkelt som en som anropar ett Python-skript, så det _kan hända_ bara vad som helst. Pipelines _bör_ fokusera på Machine Learning-uppgifter som:
 
-+ Förberedelse av data, inklusive import, validering och rensning, munging och transformering, normalisering och mellanlagring
-+ Konfiguration av utbildning, inklusive parametera argument, Sök vägar och loggning/rapporterings konfiguration
++ Förberedelse av data, inklusive import, validering och rensning, omvandling och transformering, normalisering och mellanlagring
++ Träningskonfiguration, inklusive parametrisera argument, sökvägar och loggnings-/rapporteringskonfigurationer
 + Utbildning och validering på ett effektivt och upprepade gånger, vilket kan omfatta att ange vissa data del mängder, olika maskin varu beräknings resurser, distribuerad bearbetning och förlopps övervakning
-+ Distribution, inklusive versions hantering, skalning, etablering och åtkomst kontroll 
++ Distribution, inklusive versionshantering, skalning, etablering och åtkomstkontroll 
 
 Oberoende steg gör det möjligt för flera data forskare att arbeta med samma pipeline samtidigt utan beskattnings beräknings resurser. Separata steg gör det också enkelt att använda olika beräknings typer/storlekar för varje steg.
 
@@ -203,6 +203,20 @@ De främsta fördelarna med att använda pipeliner för dina Machine Learning-ar
 |**Spårning och versionshantering**|I stället för att manuellt spåra data och resultat Sök vägar när du itererar, använder du pipelines SDK för att explicit namnge och version av data källor, indata och utdata. Du kan också hantera skript och data separat för ökad produktivitet.|
 | **Modulariteten** | Genom att avgränsa områden och isolera ändringar kan program vara utvecklas snabbare med högre kvalitet. | 
 |**Samarbete**|Pipelines gör det möjligt för data experter att samar beta över alla områden i design processen för maskin inlärning, samtidigt som de kan arbeta med pipeline-steg samtidigt.|
+
+## <a name="modules"></a>Moduler
+
+Även om stegen i pipelinen tillåter åter användning av resultatet av en tidigare körning, förutsätter stegen i arbetet att de skript och beroende filer som krävs måste vara tillgängliga lokalt. Om en data expert vill bygga ovanpå befintlig kod, måste skript och beroenden ofta klonas från en separat lagrings plats.
+
+Moduler är liknande i användning av pipeline-steg, men tillhandahåller versions hantering under hela arbets ytan, vilket möjliggör samarbete och åter användning i skala. Moduler är utformade för att återanvändas i flera pipeliner och kan utvecklas för att anpassa en särskild beräkning till olika användnings fall. Användare kan utföra följande uppgifter via arbets ytan, utan att använda externa databaser:
+
+* Skapa nya moduler och publicera nya versioner av befintliga moduler
+* Föråldrade befintliga versioner
+* Markera versioner inaktiverade för att förhindra att konsumenter använder den versionen
+* Ange standard versioner
+* Hämta moduler efter version från arbets ytan, för att se till att team använder samma kod
+
+Se [antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) för kod exempel för hur du skapar, ansluter och använder moduler i Azure Machine Learning pipeliner.
 
 ## <a name="next-steps"></a>Nästa steg
 

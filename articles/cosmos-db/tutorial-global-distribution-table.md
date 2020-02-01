@@ -6,14 +6,14 @@ ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 148e17edbb8be566db611216f444fedad514e638
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 627086bdb13acdd29821af399f90fee8deaae432
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76770596"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900177"
 ---
 # <a name="set-up-azure-cosmos-db-global-distribution-using-the-table-api"></a>Konfigurera global distribution i Azure Cosmos DB med tabell-API
 
@@ -28,19 +28,17 @@ I den här artikeln beskrivs följande uppgifter:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Ansluta till en önskad region med hjälp av tabell-API
 
-I syfte att dra nytta av den [globala distributionen](distribute-data-globally.md) kan klientprogrammen ange den beställda listan med inställningar för regioner som ska användas för att utföra dokumentåtgärder. Detta kan göras genom att ange egenskapen [TableConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet). Tabell-API:ns SDK i Azure Cosmos DB väljer den bästa slutpunkten för kommunikationen baserat på kontokonfiguration, aktuell regional tillgänglighet och listan med inställningar.
+För att kunna dra nytta av den [globala distributionen](distribute-data-globally.md)bör klient programmen ange den aktuella platsen där programmet körs. Detta görs genom att ställa in egenskapen `CosmosExecutorConfiguration.CurrentRegion`. Egenskapen `CurrentRegion` ska innehålla en enda plats. Varje klient instans kan ange sin egen region för läsningar med låg latens. Regionen måste namnges med hjälp av deras [visnings namn](https://msdn.microsoft.com/library/azure/gg441293.aspx) som "västra USA". 
 
-PreferredLocations ska innehålla en kommaavgränsad lista med önskade (flera värdar) platser för läsningar. Varje klientinstans kan ange en delmängd av dessa regioner i önskad ordning för läsningar med låg latens. Regionerna måste namnges med sina [visningsnamn](https://msdn.microsoft.com/library/azure/gg441293.aspx), till exempel `West US`.
+Azure Cosmos DB Tabell-API SDK väljer automatiskt den bästa slut punkten för att kommunicera med baserat på konto konfigurationen och den aktuella regionala tillgängligheten. Den prioriterar den närmaste regionen för att ge bättre svars tid till klienter. När du har angett den aktuella `CurrentRegion`-egenskapen dirigeras Läs-och skriv förfrågningar enligt följande:
 
-Alla läsningar skickas till den första tillgängliga regionen i PreferredLocations-listan. Om begäran misslyckas går klienten nedåt i listan till nästa region osv.
+* **Läs begär Anden:** Alla Läs begär Anden skickas till den konfigurerade `CurrentRegion`. Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
 
-SDK:erna försöker läsa från de regioner som anges i PreferredLocations. Det innebär att om databaskontot t.ex. är tillgängligt i tre regioner men klienten enbart anger två av de skrivskyddade regionerna för PreferredLocations, så hanteras inga läsningar från skrivregionen även om en redundans sker.
+* **Skriv begär Anden:** SDK: n skickar automatiskt alla Skriv förfrågningar till den aktuella Skriv regionen. I ett multi-master-konto kommer den aktuella regionen också att betjäna Skriv förfrågningarna. Baserat på närhet väljer SDK automatiskt en geo-replikerad reserv region för hög tillgänglighet.
 
-SDK:n skickar automatiskt alla skrivningar till den aktuella skrivregionen.
+Om du inte anger egenskapen `CurrentRegion` använder SDK den aktuella Skriv regionen för alla åtgärder.
 
-Om egenskapen PreferredLocations inte har angetts hanteras alla förfrågningar från den aktuella skrivregionen.
-
-Och med detta är den här självstudiekursen klar. Mer information om hur du kan hantera ditt globalt replikerade kontos konsekvens finns i [Konsekvensnivåer i Azure Cosmos DB](consistency-levels.md). Mer information om hur global databasreplikering fungerar i Azure Cosmos DB finns i [Distribuera data globalt med Azure Cosmos DB](distribute-data-globally.md).
+Till exempel om ett Azure Cosmos-konto finns i regionerna "västra USA" och "östra USA". Om "västra USA" är Skriv regionen och programmet finns i "USA, östra". Om egenskapen CurrentRegion inte har kon figurer ATS dirigeras alla Läs-och skriv förfrågningar alltid till regionen "västra USA". Om egenskapen CurrentRegion har kon figurer ATS betjänas alla Läs förfrågningar från regionen "USA, östra".
 
 ## <a name="next-steps"></a>Nästa steg
 

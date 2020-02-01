@@ -3,12 +3,12 @@ title: Ändra kluster inställningar för Azure Service Fabric
 description: I den här artikeln beskrivs de infrastruktur inställningar och de uppgraderings principer för infrastruktur resurser som du kan anpassa.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772133"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905197"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Anpassa Service Fabric kluster inställningar
 I den här artikeln beskrivs de olika infrastruktur inställningarna för ditt Service Fabric-kluster som du kan anpassa. För kluster som finns i Azure kan du anpassa inställningarna via [Azure Portal](https://portal.azure.com) eller genom att använda en Azure Resource Manager mall. Mer information finns i [Uppgradera konfigurationen av ett Azure-kluster](service-fabric-cluster-config-upgrade-azure.md). För fristående kluster anpassar du inställningarna genom att uppdatera filen *ClusterConfig. JSON* och utföra en konfigurations uppgradering i klustret. Mer information finns i [Uppgradera konfigurationen av ett fristående kluster](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -89,6 +89,7 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |TargetReplicaSetSize |int, standard är 7 |Tillåts inte|TargetReplicaSetSize för ClusterManager. |
 |UpgradeHealthCheckInterval |Tid i sekunder, standard är 60 |Dynamisk|Frekvensen hälso status kontroller under ett övervakat program uppgraderingar |
 |UpgradeStatusPollInterval |Tid i sekunder, standard är 60 |Dynamisk|Frekvensen för avsökningen av programmets uppgraderings status. Det här värdet avgör uppdaterings frekvensen för alla GetApplicationUpgradeProgress-anrop |
+|CompleteClientRequest | Bool, standard är falskt |Dynamisk| Slutför klientbegäran vid godkännande av CM. |
 
 ## <a name="common"></a>Common
 
@@ -568,6 +569,8 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |ValidatePlacementConstraint | Bool, standard är sant |Dynamisk| Anger om PlacementConstraint-uttrycket för en tjänst verifieras när en tjänsts ServiceDescription uppdateras. |
 |ValidatePrimaryPlacementConstraintOnPromote| bool, standard är sant |Dynamisk|Anger om PlacementConstraint-uttrycket för en tjänst utvärderas för primär preferens på redundansväxling. |
 |VerboseHealthReportLimit | Int, standard är 20 | Dynamisk|Definierar antalet gånger som en replik måste placeras innan en hälso varning rapporteras för den (om utförlig hälso rapportering har Aktiver ATS). |
+|NodeLoadsOperationalTracingEnabled | Bool, standard är sant |Dynamisk|Config som aktiverar strukturell spårning av operationella noder i händelse lagret. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (20) | Dynamisk|Ange TimeSpan i sekunder. Intervallet som noden läses in till i händelse arkivet för varje tjänst domän. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 
@@ -578,8 +581,8 @@ Följande är en lista över infrastruktur inställningar som du kan anpassa, or
 |GracefulReplicaShutdownMaxDuration|TimeSpan, standard är gemensamt:: TimeSpan:: FromSeconds (120)|Dynamisk|Ange TimeSpan i sekunder. Den tid som systemet väntar innan tjänst värdar som har repliker som fastnar i slutet avbryts. Om det här värdet är inställt på 0 uppmanas repliker inte att stängas.|
 |NodeDeactivationMaxReplicaCloseDuration | Tid i sekunder, standard är 900 |Dynamisk|Ange TimeSpan i sekunder. Den varaktighet som systemet väntar på innan tjänst värdar som har repliker som fastnar i slutet vid nod-inaktive ras avbryts. |
 |PeriodicApiSlowTraceInterval | Tid i sekunder, standard är 5 minuter |Dynamisk| Ange TimeSpan i sekunder. PeriodicApiSlowTraceInterval definierar intervallet över vilka långsamma API-anrop kommer att spåras av API-övervakaren. |
-|ReplicaChangeRoleFailureRestartThreshold|Int, standard är 10|Dynamisk| Heltal. Ange antalet API-avbrott under primär befordran efter vilken åtgärd för automatisk minskning (replik omstart) ska tillämpas. |
-|ReplicaChangeRoleFailureWarningReportThreshold|int, standard är 2147483647|Dynamisk| Heltal. Ange antalet API-fel under primär befordran efter vilken varnings hälso rapport som ska aktive ras.|
+|ReplicaChangeRoleFailureRestartThreshold|Int, standard är 10|Dynamisk| Talet. Ange antalet API-avbrott under primär befordran efter vilken åtgärd för automatisk minskning (replik omstart) ska tillämpas. |
+|ReplicaChangeRoleFailureWarningReportThreshold|int, standard är 2147483647|Dynamisk| Talet. Ange antalet API-fel under primär befordran efter vilken varnings hälso rapport som ska aktive ras.|
 |ServiceApiHealthDuration | Tid i sekunder, standardvärdet är 30 minuter |Dynamisk| Ange TimeSpan i sekunder. ServiceApiHealthDuration definierar hur lång tid det tar för ett tjänst-API att köras innan vi rapporterar att den inte är felfri. |
 |ServiceReconfigurationApiHealthDuration | Tid i sekunder, standard är 30 |Dynamisk| Ange TimeSpan i sekunder. ServiceReconfigurationApiHealthDuration definierar hur länge vi väntar på att ett tjänst-API ska köras innan vi rapporterar fel. Detta gäller för API-anrop som påverkar tillgänglighet.|
 

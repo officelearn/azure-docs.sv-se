@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973396"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909136"
 ---
-### <a name="portal"></a>Portalen
+### <a name="portal"></a>Portal
 
 Om du ställer in Kundhanterade nycklar för dina diskar måste du skapa resurser i en viss ordning, om du gör det för första gången. Först måste du skapa och konfigurera en Azure Key Vault.
 
@@ -77,6 +77,7 @@ Två meddelanden bör visas och lyckas. På så sätt kan du använda disk krypt
 Nu när du har skapat och konfigurerat nyckel valvet och disk krypterings uppsättningen kan du distribuera en virtuell dator med hjälp av krypteringen.
 Processen för distribution av virtuella datorer liknar standard distributions processen, de enda skillnaderna är att du måste distribuera den virtuella datorn i samma region som dina andra resurser och du väljer att använda en kundhanterad nyckel.
 
+1. Öppna [länken disk krypterings uppsättningar](https://aka.ms/diskencryptionsets).
 1. Sök efter **Virtual Machines** och välj **+ Lägg** till för att skapa en virtuell dator.
 1. På fliken **grundläggande** väljer du samma region som disk krypterings uppsättning och Azure Key Vault.
 1. Fyll i de andra värdena på fliken **grundläggande** som du vill.
@@ -96,6 +97,7 @@ Om du vill hantera och konfigurera disk kryptering på befintliga diskar måste 
 > [!CAUTION]
 > Att aktivera disk kryptering på alla diskar som är anslutna till en virtuell dator kräver att du stoppar den virtuella datorn.
 
+1. Öppna [länken disk krypterings uppsättningar](https://aka.ms/diskencryptionsets).
 1. Navigera till en virtuell dator som finns i samma region som en av disk krypterings uppsättningarna.
 1. Öppna den virtuella datorn och välj **stoppa**.
 

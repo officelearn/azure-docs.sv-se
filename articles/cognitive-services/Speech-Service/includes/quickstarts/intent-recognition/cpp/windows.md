@@ -1,28 +1,24 @@
 ---
-title: 'Snabb start: identifiera tal, avsikter och entiteter, C++ tal service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: IEvangelist
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 01/27/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b141fcdb2aacc8654999d023c4174c7eb9bc177f
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: a7245d97c4043a5e4b4e1555e899d3301fc36f3c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76761393"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900391"
 ---
 ## <a name="prerequisites"></a>Krav
 
 Innan du börjar:
 
-* Om det här är ditt C++ första projekt använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">skapa ett tomt exempel projekt</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Installera Speech SDK för din utvecklings miljö</a>.
+* Om det här är ditt C++ första projekt använder du den här guiden för att <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md?tabs=windows" target="_blank">skapa ett <span class="docon docon-navigate-external x-hidden-focus"> </span>tomt exempel projekt </a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?tabs=windows" target="_blank">Installera Speech SDK för din utvecklings miljö <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
 
 ## <a name="create-a-luis-app-for-intent-recognition"></a>Skapa en LUIS-app för avsikts igenkänning
 
@@ -97,7 +93,7 @@ Infoga den här koden nedan `auto result = recognizer->RecognizeOnceAsync().get(
 
 ## <a name="check-your-code"></a>Kontrol lera koden
 
-Nu bör din kod se ut så här:  
+Nu bör din kod se ut så här:
 
 > [!NOTE]
 > Vi har lagt till några kommentarer till den här versionen.
@@ -109,7 +105,7 @@ Nu bör din kod se ut så här:
 Nu är du redo att bygga din app och testa vår tal igenkänning med röst tjänsten.
 
 1. **Kompilera koden** – från meny raden i Visual Studio väljer du **Bygg** > build- **lösning**.
-2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på **F5**.
+2. **Starta din app** – från meny raden väljer du **Felsök** > **Starta fel sökning** eller tryck på <kbd>F5</kbd>.
 3. **Starta igenkänning** – du uppmanas att tala en fras på engelska. Ditt tal skickas till tal tjänsten, skrivs som text och återges i-konsolen.
 
 ## <a name="next-steps"></a>Nästa steg

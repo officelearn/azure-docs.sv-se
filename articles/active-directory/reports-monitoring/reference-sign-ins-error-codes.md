@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294107"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898887"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Felkoder för inloggnings aktivitet 
 
@@ -143,6 +143,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |53002|Det program som används är inte ett godkänt program för villkorlig åtkomst. Användaren måste använda en av apparna i listan över godkända program för att få åtkomst.|
 |53003|Åtkomsten har blockerats på grund av principer för villkorlig åtkomst.|
 |53004|Användaren måste slutföra registreringen för multifaktorautentisering innan personen får åtkomst till innehållet. Användaren bör registrera sig för multifaktorautentisering.|
+|53032|Kontot har blockerats på grund av Azure AD Identity Protection-principer.|
 |65001|Programmet X har inte behörighet att komma åt programmet Y eller behörigheten har återkallats. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en interaktiv auktoriseringsbegäran för den här användaren och resursen. Eller användaren eller administratören har inte godkänt att använda programmet med ID X. Skicka en auktoriseringsbegäran till din klientadministratör som gäller i appens ställe: Y för resursen: Z.|
 |65004|Användaren nekade samtycke till att komma åt appen. Låt användaren logga in igen och ge samtycke till appen|
 |65005|Resursåtkomstlistan som krävs av programmet innehåller inte program som kan upptäckas av resursen, eller så har klientprogrammet begärt åtkomst till en resurs som inte har angetts i listan över resurser med åtkomst, eller så returnerade diagramtjänsten en ogiltig begäran, eller så hittades inte resursen. Om programmet stöder SAML har du kanske konfigurerat programmet med fel identifierare (entitet). Testa lösningen för SAML via länken nedan: [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|
@@ -184,7 +185,7 @@ Du kan också program mässigt komma åt inloggnings data med hjälp av [rapport
 |90010|Begäran stöds inte av olika orsaker. Begäran görs till exempel med en begäran-metod som inte stöds (endast POST-metoden stöds) eller så stöds inte den token-Signeringsalgoritm som begärdes. Kontakta apputvecklaren.|
 |90014| Ett obligatoriskt fält för ett protokoll meddelande saknas, kontakta program ägaren. Om du är program ägaren ser du till att du har alla nödvändiga parametrar för inloggningsbegäran. |
 |90051| Ogiltig Delegerings-token. Ogiltigt nationellt moln-ID ({cloudId}) har angetts.|
-|90072| Kontot måste läggas till som en extern användare i klientorganisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
+|90072| Kontot måste läggas till som en extern användare i klient organisationen först. Logga ut och logga in igen med ett annat Azure AD-konto.|
 |90094| Appen har begärd behörighet som den inloggade användaren inte har behörighet att godkänna och användaren blockerades. |
 |90095| Appen har de behörigheter som den inloggade användaren inte har behörighet att godkänna, och användaren visade formuläret för [administrativt medgivande](../manage-apps/configure-admin-consent-workflow.md) . |
 |500011| Det gick inte att hitta resurs huvud namnet <site address> i klient organisationen med namnet <tenant ID>. Detta kan inträffa om programmet inte har installerats av administratören för klienten eller om någon användare i klient organisationen har godkänt detta. Du kanske har skickat din begäran om autentisering till fel klient.|

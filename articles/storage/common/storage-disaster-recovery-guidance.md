@@ -10,12 +10,12 @@ ms.date: 01/23/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: bca780eb31a16d3854a2e4dfac821d5a68e9ca43
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 40a7f49cbb2d74b55ccb85dce64eea936a20801e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719355"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905526"
 ---
 # <a name="disaster-recovery-and-account-failover-preview"></a>Haveri beredskap och konto redundans (för hands version)
 
@@ -126,21 +126,6 @@ Det finns ett konto för redundans för alla kunder som använder GRS eller RA-G
 - USA, västra 2
 
 För hands versionen är endast avsedd för användning utan produktion. Service nivå avtal (service avtal) för produktions tjänster är inte tillgängliga för närvarande.
-
-### <a name="register-for-the-preview"></a>Registrera dig för för hands versionen
-
-Om du vill registrera dig för för hands versionen kör du följande kommandon i PowerShell. Se till att ersätta plats hållaren med ett eget prenumerations-ID i hakparenteser:
-
-```powershell
-Connect-AzAccount -SubscriptionId <subscription-id>
-Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
-
-Det kan ta 5-7 dagar att ta emot godkännande för förhands granskningen. Kontrol lera att registreringen har godkänts genom att köra följande kommando:
-
-```powershell
-Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
-```
 
 ### <a name="additional-considerations"></a>Annat som är bra att tänka på
 

@@ -11,12 +11,12 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d51213402f852daee8fe4a6b5dbbd473afda659
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 917a698840850182d2d41ef780ba01d948e11c2f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122465"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896381"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Använd den version som identifierats för att bekräfta vilken version som har 
 | --- | --- |
 |**Hanteringsportal mått för arbets belastningen (för hands version)**|Med lanseringen av [arbets belastnings isolering](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) för för hands versionen tidigare oktober kan användare skapa egna [arbets belastnings grupper](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) för att effektivt hantera system resurser och se till att företags service avtal är uppfyllda.  Som en del av de övergripande förbättringarna av [arbets belastnings hanteringen](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) för Azure Synapse Analytics är nu nya [övervaknings mått för arbets belastnings hantering](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) tillgängliga.</br> </br> Övervakning av din arbets belastning har nu bättre insikter med följande mått: </br> – Effektiv tak resurs procent  </br> – Effektiv min resurs procent </br> – Aktiva frågor för arbets belastnings grupp </br> – Allokering av arbets belastnings grupper efter max resurs procent </br> – Allokering av arbets belastnings grupp efter system procent </br> – Timeout för arbets belastnings grupp </br> – Köade frågor i arbets belastnings gruppen </br></br> Använd dessa mått för att identifiera [Flask halsar i arbets belastnings](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) grupper eller arbets belastnings grupper som är konfigurerade med [underutnyttjad arbets belastnings isolering](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation).  Dessa mått kan användas i Azure-portalen som tillåter delning efter arbets belastnings grupp.  Filtrera och fäst dina favorit diagram på en instrument panel för snabb åtkomst till insikter.|
 |**Portal övervaknings mått**| Följande mått har lagts till i portalen för övervakning av övergripande fråge aktivitet: </br> -Aktiva frågor </br> -Köade frågor </br> </br>De här måtten beskrivs tillsammans med de befintliga måtten i dokumentationen för att [övervaka resursutnyttjande och fråga aktivitet](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity).|
+|**Produkt namn**|Från och med juni 2020 kommer produkt namnet som returneras av Välj @@VERSION att ändras från Microsoft Azure SQL Data Warehouse till Azure Synapse Analytics. Vi kommer att publicera schemat i vår versions information. Den här ändringen är relevant för kunder som tolkar produkt namn från resultatet av SELECT @@VERSION i sin program kod. Om du vill undvika program kod ändringar på grund av produkt anpassning, använder du dessa kommandon för att fråga SERVERPROPERTY efter databasens produkt namn och version. </br> Returnera DW versions nummer XX. X. XXXXX. X (utan produkt namn) Använd det här kommandot: SELECT SERVERPROPERTY (' ProductVersion ') </br> Om du vill returnera motor Edition använder du det här kommandot som returnerar 6 för Azure Synapse Analytics (tidigare SQL Data Warehouse): Välj SERVERPROPERTY (' EngineEdition ')|
 
 ## <a name="october-2019"></a>Oktober 2019
 

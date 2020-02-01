@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045577"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898844"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Översikt över Azure API Management Developer-portalen
 
@@ -213,6 +213,18 @@ Det här felet visas när ett `GET` anrop till `https://<management-endpoint-hos
 Om din API Management-tjänst finns i ett VNet – hänvisa till den VNet-anslutningens fråga ovan.
 
 Anrops felen kan också orsakas av ett SSL-certifikat, som är tilldelat en anpassad domän och som inte är betrodd av webbläsaren. Som en minskning kan du ta bort den anpassade domänen för hanterings slut punkten – API Management kommer att återgå till standard slut punkten med ett betrott certifikat.
+
+### <a name="whats-the-browser-support-for-the-portal"></a>Vad är webb läsar stöd för portalen?
+
+| Webbläsare                     | Stöds       |
+|-----------------------------|-----------------|
+| Apple Safari                | Ja<sup>1</sup> |
+| Google Chrome               | Ja<sup>1</sup> |
+| Microsoft Edge              | Ja<sup>1</sup> |
+| Microsoft Internet Explorer | Inga              |
+| Mozilla Firefox             | Ja<sup>1</sup> |
+
+ <small><sup>1</sup> stöds i de två senaste produktions versionerna.</small>
 
 ## <a name="next-steps"></a>Nästa steg
 

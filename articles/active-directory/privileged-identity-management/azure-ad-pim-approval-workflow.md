@@ -7,21 +7,21 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.subservice: pim
 ms.date: 11/12/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e69bad41391be5153eca0fb1930ffc59da453b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8bc4b518cd2400cf3826b31a590d499c1ad031e7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429900"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896528"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Godkänn eller neka begär Anden för Azure AD-roller i Privileged Identity Management
 
@@ -40,11 +40,11 @@ Följ stegen i den här artikeln för att godkänna eller neka begär Anden för
 
 # <a name="previous-versiontabprevious"></a>[Tidigare version](#tab/previous)
 
-## <a name="view-pending-requests"></a>Visa väntande begäranden
+## <a name="view-pending-requests"></a>Visa väntande begär Anden
 
 Som en delegerad god kännare får du ett e-postmeddelande när en begäran om Azure AD-roll väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 
@@ -66,7 +66,7 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
     ![Godkänn fönstret valda begär Anden med en Godkänn orsak](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
 
-1. Klicka på **godkänn**.
+1. Klicka på **Godkänn**.
 
     Status symbolen kommer att uppdateras med ditt godkännande.
 
@@ -88,11 +88,11 @@ Som en delegerad god kännare får du ett e-postmeddelande när en begäran om A
 
 # <a name="new-versiontabnew"></a>[Ny version](#tab/new)
 
-## <a name="view-pending-requests"></a>Visa väntande begäranden
+## <a name="view-pending-requests"></a>Visa väntande begär Anden
 
 Som en delegerad god kännare får du ett e-postmeddelande när en Azure Resource Role-begäran väntar på ditt godkännande. Du kan visa dessa väntande begär anden i Privileged Identity Management.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com/).
+1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Öppna **Azure AD Privileged Identity Management**.
 

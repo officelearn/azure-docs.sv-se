@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 03b40dea4949bb50c30f7755b56294ac53107403
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514246"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905246"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>Signalerar Timed metadata i Live Streaming 
 
@@ -249,7 +249,7 @@ I följande avsnitt visas en "enkel" läge "-nytto last som kan användas för a
  
 #### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Exempel på MPEG-datautdata-manifest när du använder enkel läge för Adobe RTMP
 
-Se exempel [3.3.2.1 för MPEG-streck. mpd EventStream med hjälp av Adobe Simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
+Se exempel [3.3.2.1 MPEG bindestreck. mpd EventStream med hjälp av Adobe Simple mode](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode)
 
 Se exempel [på 3.3.3.1-datastreck med enkel punkt och Adobe enkel läge](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals)
 
@@ -280,7 +280,7 @@ I det här scenariot måste följande nytto Last skickas från den lokala kodare
 Se [avsnittet 3.3.3.2-exempel på streck manifestet med SCTE-35](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling)
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>Exempel på HLS manifest. M3U8 med SCTE-35-läge
-Se [exempel på 3.3.1.1-exempel HLS manifest med SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
+Se [avsnittet 3.2.1.1 exempel HLS manifest med SCTE-35](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35)
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP AD signalerar med "onCuePoint" för grundämne Live
 
@@ -767,7 +767,7 @@ Taggen "Legacy" EXT-X-CUE definieras enligt nedan och kan också vara normativ s
 | UTLÖSARE                | Citerad sträng                 | Krävs                                  | Meddelandet kodas som en Base64-kodad sträng enligt beskrivningen i [RFC4648]. För [SCTE-35]-meddelanden är detta den base64-kodade splice_info_section ().                                                                                                                                      |
 | TYP               | Citerad sträng                 | Krävs                                  | En URN eller URL som identifierar meddelande schemat. För [SCTE-35]-meddelanden använder typen det särskilda värdet "scte35".                                                                                                                                                                          |
 | ID                 | Citerad sträng                 | Krävs                                  | En unik identifierare för händelsen. Om ID: t inte anges när meddelandet matas in kommer Azure Media Services att generera ett unikt ID.                                                                                                                                              |
-| VARAKTIGHET           | decimalt flytt ALS nummer | Krävs                                  | Händelsens varaktighet. Om detta är okänt **ska** värdet vara 0. Enheter är factional sekunder.                                                                                                                                                                                           |
+| GILTIGHET           | decimalt flytt ALS nummer | Krävs                                  | Händelsens varaktighet. Om detta är okänt **ska** värdet vara 0. Enheter är factional sekunder.                                                                                                                                                                                           |
 | Förfluten            | decimalt flytt ALS nummer | Valfritt, men krävs för glidande fönster | När signalen upprepas för att stödja ett glidande presentations fönster **måste** det här fältet vara den mängd av presentationen som har förflutit sedan händelsen började. Enheter är bråkiska sekunder. Det här värdet kan överskrida den ursprungliga angivna varaktigheten för en splice eller ett segment. |
 | TIME               | decimalt flytt ALS nummer | Krävs                                  | Händelsens presentations tid. Enheter är bråkiska sekunder.                                                                                                                                                                                                                        |
 
@@ -1170,7 +1170,7 @@ När du testar din implementering med Azure Media Services plattform börjar du 
 
 ---
 
-## <a name="change-history"></a>Ändra historik
+## <a name="change-history"></a>Ändrings historik
 
 | Datum     | Ändringar                                                                                                             |
 | -------- | ------------------------------------------------------------------------------------------------------------------- |

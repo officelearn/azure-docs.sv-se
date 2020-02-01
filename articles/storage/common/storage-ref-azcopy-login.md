@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034085"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905281"
 ---
 # <a name="azcopy-login"></a>azcopy inloggning
 
@@ -101,6 +101,8 @@ Se till att behandla/path/to/My/cert som en sökväg till en PEM-eller PKCS12-fi
 
 |Alternativ|Beskrivning|
 |--|--|
+|--AAD-slut punkt|Den Azure Active Directory slut punkt som ska användas. Standardvärdet (https://login.microsoftonline.com) är korrekt för det offentliga Azure-molnet. Ange den här parametern vid autentisering i ett nationellt moln. Se [Azure AD-autentiseringens slut punkter](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+Den här flaggan behövs inte för Hanterad tjänstidentitet.|
 |--program-ID-sträng|Program-ID för användardefinierad identitet. Krävs för tjänstens huvud namns autentisering.|
 |--certifikat Sök vägs sträng|Sökväg till certifikat för SPN-autentisering. Krävs för certifikatbaserad tjänstens huvud namns-auth.|
 |-h,--hjälp|Visa hjälp innehåll för inloggnings kommandot.|
@@ -118,6 +120,6 @@ Se till att behandla/path/to/My/cert som en sökväg till en PEM-eller PKCS12-fi
 |--Cap-Mbit/s UInt32|CAPS överföringshastigheten i megabit per sekund. Indata genom strömning kan variera något från höljet. Om det här alternativet är inställt på noll, eller utelämnas, är data flödet inte något tak.|
 |--typ sträng för utdata|Formatet på kommandots utdata. Alternativen är: text, JSON. Standardvärdet är "text".|
 
-## <a name="see-also"></a>Se även
+## <a name="see-also"></a>Se också
 
 - [AzCopy](storage-ref-azcopy.md)

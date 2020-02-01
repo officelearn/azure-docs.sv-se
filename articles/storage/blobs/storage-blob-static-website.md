@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708170"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906588"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statisk webbplats som är värd för i Azure Storage
 
@@ -81,22 +81,16 @@ Om du till exempel ändrar den offentliga åtkomst nivån för **$Web** containe
 
 Den offentliga åtkomsten till den primära BLOB-tjänstens slut punkt `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ändras dock från privat till offentlig. Nu kan användare öppna filen genom att använda någon av dessa två slut punkter.
 
-## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Stöd för Content Delivery Network (CDN) och SSL (Secure Socket Layer)
+## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>Mappa en anpassad domän till en statisk webbplats-URL
 
-Om du vill göra dina statiska webbplats-filer tillgängliga över din anpassade domän och HTTPS, se [använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över https](storage-https-custom-domain-cdn.md). Som en del av den här processen måste du peka ditt CDN till den primära *statiska webbplats* slut punkten i stället för den primära *BLOB-tjänstens* slut punkt. Du kan behöva vänta några minuter innan ditt innehåll visas eftersom CDN-konfigurationen inte körs direkt.
+Du kan göra din statiska webbplats tillgänglig via en anpassad domän. 
 
-När du uppdaterar din statiska webbplats måste du ta bort det cachelagrade innehållet på CDN Edge-servrarna genom att rensa CDN-slutpunkten. Mer information finns i [Purge an Azure CDN endpoint](../../cdn/cdn-purge-endpoint.md) (Rensa en Azure CDN-slutpunkt).
+Det är enklare att aktivera HTTP-åtkomst för din anpassade domän eftersom Azure Storage stöder det internt. Om du vill aktivera HTTPS måste du använda Azure CDN eftersom Azure Storage inte har inbyggt stöd för HTTPS med anpassade domäner. Se [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md) för steg-för-steg-anvisningar.
 
-> [!NOTE]
-> HTTPS stöds internt via kontots webb slut punkt, så att webb slut punkten kan nås via både HTTP och HTTPS. Om lagrings kontot har kon figurer ATS för att kräva säker överföring över HTTPS måste användarna dock använda HTTPS-slutpunkten. Mer information finns i [Kräv säker överföring i Azure Storage](../common/storage-require-secure-transfer.md).
->
-> Användning av anpassade domäner över HTTPS kräver att Azure CDN används just nu.
+Om lagrings kontot har kon figurer ATS för att [kräva säker överföring](../common/storage-require-secure-transfer.md) över HTTPS måste användarna använda https-slutpunkten. 
 
-## <a name="custom-domain-names"></a>Egna domännamn
-
-Du kan göra din statiska webbplats tillgänglig via en anpassad domän. Mer information finns i [Konfigurera ett anpassat domän namn för ditt Azure Storage-konto](storage-custom-domain-name.md).
-
-För en djupgående titt på att vara värd för din domän på Azure, se [värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+> [!TIP]
+> Överväg att vara värd för din domän på Azure. Mer information finns i vara [värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
 
 ## <a name="pricing"></a>Prissättning
 
@@ -111,8 +105,7 @@ Om du vill aktivera mått på dina statiska webbplats sidor, se [Aktivera mått 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Vara värd för en statisk webbplats i Azure Storage](storage-blob-static-website-how-to.md)
-* [Använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md)
-* [Konfigurera ett anpassat domän namn för din BLOB eller webb slut punkt](storage-custom-domain-name.md)
+* [Mappa en anpassad domän till en Azure Blob Storage-slutpunkt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

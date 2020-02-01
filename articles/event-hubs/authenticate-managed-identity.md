@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: cbd7de7d526e1954aaad60f7d71e5cdf202f6a29
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0c5d3eca4a01488f521f9a85fa129eb0ac72c363
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992840"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904546"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autentisera en hanterad identitet med Azure Active Directory för att få åtkomst till Event Hubs resurser
 Azure Event Hubs stöder Azure Active Directory (Azure AD)-autentisering med [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). Hanterade identiteter för Azure-resurser kan ge åtkomst till Event Hubs resurser med hjälp av Azure AD-autentiseringsuppgifter från program som körs i Azure Virtual Machines (VM), Function-appar, Virtual Machine Scale Sets och andra tjänster. Genom att använda hanterade identiteter för Azure-resurser tillsammans med Azure AD-autentisering kan du undvika att lagra autentiseringsuppgifter med dina program som körs i molnet.
@@ -24,7 +24,7 @@ Den här artikeln visar hur du auktoriserar åtkomst till en Event Hub genom att
 ## <a name="enable-managed-identities-on-a-vm"></a>Aktivera hanterade identiteter på en virtuell dator
 Innan du kan använda hanterade identiteter för Azure-resurser för att auktorisera Event Hubs resurser från din virtuella dator måste du först aktivera hanterade identiteter för Azure-resurser på den virtuella datorn. Information om hur du aktiverar hanterade identiteter för Azure-resurser finns i någon av följande artiklar:
 
-- [Azure Portal](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
+- [Azure-portalen](../active-directory/managed-service-identity/qs-configure-portal-windows-vm.md)
 - [Azure PowerShell](../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager-mall](../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -43,7 +43,7 @@ Här ska vi använda ett exempel på ett webb program som finns i [Azure App Ser
 Följ dessa steg när programmet har skapats: 
 
 1. Gå till **Inställningar** och välj **identitet**. 
-1. Välj den **status** som skaanvändas. 
+1. Välj den **status** som ska **användas.** 
 1. Spara inställningen genom att välja **Spara**. 
 
     ![Hanterad identitet för en webbapp](./media/authenticate-managed-identity/identity-web-app.png)
@@ -71,7 +71,63 @@ Om du vill tilldela en roll till Event Hubs resurser navigerar du till resursen 
 
 När du har tilldelat rollen får webb programmet åtkomst till Event Hubs resurser under det definierade omfånget. 
 
-### <a name="test-the-web-application"></a>Testa webb programmet
+### <a name="test-the-web-application"></a>Testa webbprogrammet
+1. Skapa ett Event Hubs-namnområde och en Event Hub. 
+2. Distribuera webbappen till Azure. Se följande flikade avsnitt för länkar till webb programmet på GitHub. 
+3. Se till att SendReceive. aspx har angetts som standard dokument för webbappen. 
+3. Aktivera **identitet** för webbappen. 
+4. Tilldela den här identiteten till rollen **Event Hubs data ägare** på namn områdes nivå eller händelse navnivå. 
+5. Kör webb programmet, ange namn på namnrymd och namn på händelsehubben, ett meddelande och välj **Skicka**. Om du vill ta emot händelsen väljer du **ta emot**. 
+
+#### <a name="azuremessagingeventhubs-latesttablatest"></a>[Azure. Messaging. EventHubs (senaste)](#tab/latest)
+Nu kan du starta ditt webb program och peka webbläsaren på exempel-aspx-sidan. Du kan hitta det exempel webb program som skickar och tar emot data från Event Hubs resurser i [GitHub-lagrings platsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp).
+
+Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)och börja skicka händelser till Event Hubs att använda **EventHubProducerClient** och ta emot händelser med hjälp av **EventHubConsumerClient**.  
+
+```csharp
+protected async void btnSend_Click(object sender, EventArgs e)
+{
+    await using (EventHubProducerClient producerClient = new EventHubProducerClient(txtNamespace.Text, txtEventHub.Text, new DefaultAzureCredential()))
+    {
+        // create a batch
+        using (EventDataBatch eventBatch = await producerClient.CreateBatchAsync())
+        {
+
+            // add events to the batch. only one in this case. 
+            eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(txtData.Text)));
+
+            // send the batch to the event hub
+            await producerClient.SendAsync(eventBatch);
+        }
+
+        txtOutput.Text = $"{DateTime.Now} - SENT{Environment.NewLine}{txtOutput.Text}";
+    }
+}
+protected async void btnReceive_Click(object sender, EventArgs e)
+{
+    await using (var consumerClient = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, $"{txtNamespace.Text}.servicebus.windows.net", txtEventHub.Text, new DefaultAzureCredential()))
+    {
+        int eventsRead = 0;
+        try
+        {
+            using CancellationTokenSource cancellationSource = new CancellationTokenSource();
+            cancellationSource.CancelAfter(TimeSpan.FromSeconds(5));
+
+            await foreach (PartitionEvent partitionEvent in consumerClient.ReadEventsAsync(cancellationSource.Token))
+            {
+                txtOutput.Text = $"Event Read: { Encoding.UTF8.GetString(partitionEvent.Data.Body.ToArray()) }{ Environment.NewLine}" + txtOutput.Text;
+                eventsRead++;
+            }
+        }
+        catch (TaskCanceledException ex)
+        {
+            txtOutput.Text = $"Number of events read: {eventsRead}{ Environment.NewLine}" + txtOutput.Text;
+        }
+    }
+}
+```
+
+#### <a name="microsoftazureeventhubs-legacytabold"></a>[Microsoft. Azure. EventHubs (bakåtkompatibelt)](#tab/old)
 Nu kan du starta ditt webb program och peka webbläsaren på exempel-aspx-sidan. Du kan hitta det exempel webb program som skickar och tar emot data från Event Hubs resurser i [GitHub-lagrings platsen](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp).
 
 Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)och börja skicka till och ta emot data från Event Hub med hjälp av EventHubClient som visas i följande kod: 
@@ -79,10 +135,10 @@ Installera det senaste paketet från [NuGet](https://www.nuget.org/packages/Micr
 ```csharp
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
+---
 
 ## <a name="next-steps"></a>Nästa steg
-- Hämta [exemplet](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp) från GitHub.
-- I följande artikel finns information om hanterade identiteter för Azure-resurser: [Vad är hanterade identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)
+- I följande artikel finns information om hanterade identiteter för Azure-resurser: [Vad är Managed identiteter för Azure-resurser?](../active-directory/managed-identities-azure-resources/overview.md)
 - Se följande relaterade artiklar:
     - [Autentisera begär anden till Azure Event Hubs från ett program med Azure Active Directory](authenticate-application.md)
     - [Autentisera begär anden till Azure Event Hubs med signaturer för delad åtkomst](authenticate-shared-access-signature.md)

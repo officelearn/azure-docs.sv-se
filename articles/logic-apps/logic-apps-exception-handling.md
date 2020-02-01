@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965941"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906692"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Hantera fel och undantag i Azure Logic Apps
 
@@ -360,9 +360,9 @@ För referens är här ett exempel på ett enda `@result()` objekt, som visar `n
 
 Om du vill utföra olika mönster för undantags hantering kan du använda de uttryck som tidigare beskrivits i den här artikeln. Du kan välja att köra en enskild undantags hanterings åtgärd utanför den omfattning som godkänner hela den filtrerade matrisen med fel och ta bort den `For_each` åtgärden. Du kan också inkludera andra användbara egenskaper från `\@result()` svaret enligt beskrivningen ovan.
 
-## <a name="azure-diagnostics-and-metrics"></a>Azure-diagnostik och mått
+## <a name="set-up-azure-monitor-logs"></a>Konfigurera Azure Monitor loggar
 
-De tidigare mönstren är ett bra sätt att hantera fel och undantag i en körning, men du kan också identifiera och svara på fel oberoende av själva körningen. [Azure-diagnostik](../logic-apps/logic-apps-monitor-your-logic-apps.md) är ett enkelt sätt att skicka alla arbets flödes händelser, inklusive körnings-och åtgärds status, till ett Azure Storage konto eller en Event Hub som skapats med [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+De tidigare mönstren är ett bra sätt att hantera fel och undantag i en körning, men du kan också identifiera och svara på fel oberoende av själva körningen. [Azure Monitor](../azure-monitor/overview.md) är ett enkelt sätt att skicka alla arbets flödes händelser, inklusive körnings-och åtgärds status, till en [Log Analytics arbets yta](../azure-monitor/platform/data-platform-logs.md), [Azure Storage-konto](../storage/blobs/storage-blobs-overview.md)eller [Azure-Event Hubs](../event-hubs/event-hubs-about.md).
 
 Om du vill utvärdera körnings status kan du övervaka loggarna och måtten eller publicera dem i alla övervaknings verktyg som du föredrar. Ett möjligt alternativ är att strömma alla händelser genom att Event Hubs i [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). I Stream Analytics kan du skriva Live-frågor baserat på eventuella avvikelser, genomsnitt eller fel från diagnostikloggar. Du kan använda Stream Analytics för att skicka information till andra data källor, till exempel köer, ämnen, SQL, Azure Cosmos DB eller Power BI.
 

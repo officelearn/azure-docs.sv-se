@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl rpm
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för tjänsten Repair Manager.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639096"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904939"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Fråga och skicka kommandon till tjänsten Repair Manager.
@@ -77,7 +77,7 @@ Detta API stöder Service Fabric plattform; den är inte avsedd att användas di
 |Argument|Beskrivning|
 | --- | --- |
 | --executor-filter | Namnet på den reparations-utförar vars begärda uppgifter ska tas med i listan. |
-| --state-filter | Ett bitvis-eller av följande värden som anger vilka uppgifts tillstånd som ska ingå i resultat listan. <br> 1 – skapad <br>2-begärd  <br>4 – förbereder  <br>8-godkänd  <br>16-körning  <br>32 – återställning  <br>64-slutförd |
+| --state-filter | Ett bitvis-eller av följande värden som anger vilka uppgifts tillstånd som ska ingå i resultat listan. <ul><li>1 – skapad</li><li>2-begärd</li><li>4 – förbereder</li><li>8-godkänd</li><li>16-körning</li><li>32 – återställning</li><li>64-slutförd</li></ul>
 | --task-id-filter | Det ID-prefix för reparations aktivitet som ska matchas. |
 
 ### <a name="global-arguments"></a>Globala argument

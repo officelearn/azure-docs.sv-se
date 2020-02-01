@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 349587063c528fef1cbdb09d84e61e82443d45d1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112129"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906729"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>Skala upp partitioner och repliker för att lägga till kapacitet för frågor och index-arbetsbelastningar i Azure Kognitiv sökning
 
@@ -24,7 +24,7 @@ Resurs konfigurationen är tillgänglig när du konfigurerar en tjänst på Basi
 Att använda färre SUs-resultat i en proportionellt lägre faktura. Faktureringen gäller så länge tjänsten har kon figurer ATS. Om du tillfälligt inte använder en tjänst är det enda sättet att undvika fakturering genom att ta bort tjänsten och sedan återskapa den när du behöver den.
 
 > [!Note]
-> När du tar bort en tjänst tas allt på den bort. Det finns ingen funktion i Azure Kognitiv sökning för säkerhets kopiering och återställning av sparade Sök data. Om du vill distribuera om ett befintligt index i en ny tjänst bör du köra programmet som används för att skapa och läsa in det ursprungligen. 
+> När en tjänst tas bort så tas allt i den bort. Det finns ingen funktion i Azure Cognitive Search för att säkerhetskopiera och återställa bevarade sökdata. Om du vill distribuera om ett befintligt index i en ny tjänst bör du köra programmet som används för att skapa och läsa in det ursprungligen. 
 
 ## <a name="terminology-replicas-and-partitions"></a>Terminologi: repliker och partitioner
 Repliker och partitioner är de primära resurser som återställer en Sök tjänst.
@@ -89,10 +89,10 @@ Alla standard-och Storage-optimerade Sök tjänster kan utgå från följande ko
 | **1 replik** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 repliker** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 repliker** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Saknas |
-| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Saknas |
-| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Saknas |
-| **12 repliker** |12 SU |24 SU |36 SU |Saknas |Saknas |Saknas |
+| **4 repliker** |4 SU |8 SU |12 SU |16 SU |24 SU |Gäller inte |
+| **5 repliker** |5 SU |10 SU |15 SU |20 SU |30 SU |Gäller inte |
+| **6 repliker** |6 SU |12 SU |18 SU |24 SU |36 SU |Gäller inte |
+| **12 repliker** |12 SU |24 SU |36 SU |Gäller inte |Gäller inte |Gäller inte |
 
 SUs, priser och kapacitet beskrivs i detalj på Azure-webbplatsen. Mer information finns i [pris information](https://azure.microsoft.com/pricing/details/search/).
 
@@ -123,7 +123,7 @@ Hög tillgänglighet för Azure Kognitiv sökning avser frågor och index uppdat
 > [!NOTE]
 > Du kan lägga till nya fält i ett Azure Kognitiv sökning-index utan att bygga om indexet. Värdet för det nya fältet kommer att vara null för alla dokument som redan finns i indexet.
 
-Du måste ha en kopia av indexet med ett annat namn på samma tjänst, eller en kopia av indexet med samma namn på en annan tjänst, och sedan ange omdirigering eller växlings logik i din kod för att bevara indexets tillgänglighet under en ny version.
+När du återskapar indexet kommer det att finnas en tids period när data läggs till i det nya indexet. Om du vill fortsätta att göra ditt gamla index tillgängligt under den här tiden måste du ha en kopia av det gamla indexet med ett annat namn på samma tjänst, eller en kopia av indexet med samma namn i en annan tjänst och ange omdirigering eller växlings logik i koden.
 
 ## <a name="disaster-recovery"></a>Haveriberedskap
 För närvarande finns det ingen inbyggd mekanism för haveri beredskap. Att lägga till partitioner eller repliker skulle vara fel strategi för att uppfylla återställnings mål för haveri beredskap. Den vanligaste metoden är att lägga till redundans på service nivå genom att konfigurera en andra Sök tjänst i en annan region. Som med tillgänglighet under ett index återuppbyggnad måste omdirigeringen eller växlings logiken komma från din kod.

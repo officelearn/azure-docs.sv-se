@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772616"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906795"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera en SQL Server-redundanskluster med Premium-filresurs på virtuella Azure-datorer
 
@@ -185,7 +185,7 @@ När du har skapat och konfigurerat de virtuella datorerna kan du konfigurera Pr
   > - Överväg att använda en separat fil resurs för säkerhets kopierings filer för att spara IOPS och utrymmes kapaciteten för den här resursen för data-och loggfiler. Du kan använda antingen en Premium-eller standard fil resurs för säkerhets kopierings filer.
   > - Om du använder Windows 2012 R2 och äldre följer du samma steg för att montera fil resursen som du kommer att använda som fil resurs vittne. 
 
-## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>Steg 3: Konfigurera redundansklustret med fil resursen
+## <a name="step-3-configure-the-failover-cluster"></a>Steg 3: Konfigurera redundansklustret
 
 Nästa steg är att konfigurera redundansklustret. I det här steget ska du utföra följande under steg:
 

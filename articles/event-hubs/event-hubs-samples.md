@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2020
+ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 1d8106b60433f8f9023c892a2cf0ab8044b4f22c
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: e70d2e07f74a48e1d99e04c5369a933cfd9cede1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939980"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905347"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Git-databaser med exempel för Azure Event Hubs 
 Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). De här exemplen visar viktiga funktioner i [Azure Event Hubs](/azure/event-hubs/). Den här artikeln kategoriserar och beskriver exempel som är tillgängliga med länkar till var och en.
@@ -29,29 +29,29 @@ Du kan hitta exempel för Event Hubs på [GitHub](https://github.com/Azure/azure
 
 | Version | Exempel plats |
 | ------- | ---------------- | 
-| 5.0.0 eller mer | [Event Hubs-exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs processor exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
-| 4.1.0 | [GitHub-plats](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
+| Azure. Messaging. EventHubs version 5 (senaste) | [Event Hubs-exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[Event Hubs processor exempel på GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
+| Microsoft. Azure. EventHubs version 4 (bakåtkompatibelt) | [GitHub-plats](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
 
 ## <a name="java-samples"></a>Java-exempel
 
 | Version | Exempel plats |
 | ------- | ---------------- | 
-| 5.0.0 eller mer | [GitHub-plats](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | 
-| 3.0.2 | [GitHub-plats](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
+| Azure-Messaging-eventhubs version 5 (senaste) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | 
+| Azure-eventhubs version 3 (bakåtkompatibelt) | [GitHub-plats](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
 
 ## <a name="python-samples"></a>Python-exempel
 
 | Version | Exempel plats |
 | ------- | ---------------- | 
-| 5.0.0 eller mer | [GitHub-plats](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
-| 1.3.3 | [GitHub-plats](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
+| Azure-eventhub version 5 (senaste) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
+| Azure-eventhub version 1 (bakåtkompatibelt) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
 
 ## <a name="nodejs-samples"></a>Node.js-exempel
 
 | Version | Exempel plats |
 | ------- | ---------------- | 
-| 5.0.0 eller mer | [GitHub-plats](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) | 
-| 2.1.0 | [GitHub-plats](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/eventhub/event-hubs/samples) |
+| Azure/Event-Hubs version 5 (senaste) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) | 
+| Azure/Event-Hub version 2 (bakåtkompatibelt) | [GitHub-plats](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/eventhub/event-hubs/samples) |
 
 
 ## <a name="go-samples"></a>Go-kodexempel

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719344"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901909"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Distribuera Azure Cosmos DB och Azure App Service Web Apps med en Azure Resource Manager-mall
 Den här självstudiekursen visar hur du använder en Azure Resource Manager-mall för att distribuera och integrera [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), en [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) webbapp och ett exempelwebbprogram.
@@ -69,7 +69,7 @@ Nu ska vi distribuera din första mall.
    ![Skärmbild av malldistributionen UI](./media/create-website/TemplateDeployment6.png)
 7. När distributionen är klar öppnas fönstret Resource group.
    ![Skärmbild av fönstret resource group](./media/create-website/TemplateDeployment7.png)  
-8. Om du vill använda programmet går du till webbappens URL (i exemplet ovan är URL: en skulle vara http://mydemodocdbwebapp.azurewebsites.net).  Webbprogrammet följande visas:
+8. Om du vill använda programmet navigerar du till webbappens webb adress (i exemplet ovan är URL: en `http://mydemodocdbwebapp.azurewebsites.net`).  Webbprogrammet följande visas:
    
    ![Exempelprogrammet för att göra](./media/create-website/image2.png)
 9. Gå vidare och skapa några uppgifter i webbapp och återgå sedan till fönstret resurs grupp i Azure-portalen. Klicka på resursen för Azure Cosmos DB-konto i listan över resurser och klickar sedan på **Datautforskaren**.
@@ -115,7 +115,7 @@ Nu ska vi distribuera andra mallen.  Den här mallen är användbar för att vis
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>Nästa steg
-Gratulerar! Du har distribuerat Azure Cosmos DB, App Service webbapp och ett exempelwebbprogram med hjälp av Azure Resource Manager-mallar.
+Grattis! Du har distribuerat Azure Cosmos DB, App Service webbapp och ett exempelwebbprogram med hjälp av Azure Resource Manager-mallar.
 
 * Om du vill veta mer om Azure Cosmos DB, klickar du på [här](https://azure.microsoft.com/services/cosmos-db/).
 * Om du vill veta mer om Azure App Service Web apps, klickar du på [här](https://go.microsoft.com/fwlink/?LinkId=325362).

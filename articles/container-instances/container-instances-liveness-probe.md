@@ -3,12 +3,12 @@ title: Konfigurera direktmigreringens avsökning på behållar instansen
 description: Lär dig hur du konfigurerar direktmigreringens avsökningar för att starta om felaktiga behållare i Azure Container Instances
 ms.topic: article
 ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481683"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901906"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurera liveavsökningar
 
@@ -17,6 +17,9 @@ Program i behållare kan köras under längre tids perioder, vilket resulterar i
 I den här artikeln förklaras hur du distribuerar en behållar grupp som innehåller en livemigrering, som demonstrerar den automatiska omstarten av en simulerad ej hälso behållar behållare.
 
 Azure Container Instances också stöd för [beredskaps avsökningar](container-instances-readiness-probe.md), som du kan konfigurera för att säkerställa att trafiken når en behållare endast när den är redo för den.
+
+> [!NOTE]
+> För närvarande kan du inte använda en direktmigreringens avsökning i en behållar grupp som distribuerats till ett virtuellt nätverk.
 
 ## <a name="yaml-deployment"></a>YAML-distribution
 

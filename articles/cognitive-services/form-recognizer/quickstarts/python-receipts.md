@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 6b6fa03337e857c6dda43f8c6ae41713d8c3dbe0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2b800cbc2f836d415afbb53a8415e9e400f40d0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774194"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901963"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>Snabb start: extrahera kvitto data med hjälp av formulär tolken REST API med python
 
 I den här snabb starten använder du Azures formulär igenkännings REST API med python för att extrahera och identifiera relevant information i amerikanska försäljnings kvitton.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-> [!IMPORTANT]
-> I den här snabb starten används formulär igenkänning v 2.0 API. Om din prenumeration inte finns i `West US 2` eller `West Europe` region måste du använda v 1.0-API: et. Följ snabb starten för [v 1.0](./curl-train-extract-v1.md) i stället.
 
 ## <a name="prerequisites"></a>Krav
 

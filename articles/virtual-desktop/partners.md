@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/30/2020
 ms.author: helohr
-ms.openlocfilehash: e525976edee08097d75605ea1921d0552ed02785
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841071"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906840"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -38,6 +38,14 @@ Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utö
 
 - [Registrera dig för den tekniska för hands versionen av Horisont moln på Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Gå till partner webbplatsen](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
+
+## <a name="10zig"></a>10ZiG
+
+![10ZiG-logotyp](./media/partners/10zig.png)
+
+10ZiG-teknik, med topp-och noll-klientens maskin vara och program vara, är en värnar sedan länge-partner med Microsoft och en dedikerad Microsoft Azure-och Windows-partner för virtuella skriv bord. 10ZiG Windows 10 IoT-baserade tunna klienter är kraftfulla, pålitliga och pris värda slut punkter för alla Windows-användare med virtuella skriv bord. 10ZiG Manager-programvara ger enastående hantering och distribution utan licens begränsningar utan extra kostnad. 10ZiG Tech-teamet, kostnads garanti programmet och inga problem med att gå vidare är en virtuell support lösning för Windows Virtual Desktop i molnet.
+
+10ZiG's världs marknads ledarskap i tunna och noll klient slut punkter och hanterings program för virtuella skriv bord är WINS av hur de fungerar för kunderna. Den tunna klient maskin varan har funktioner och alternativ som utformats för att säkerställa att kunderna får rätt klient enheter utifrån deras behov. 10ZiG anpassar sina enheter så att de passar kund miljöer med Windows-baserade och Linux-baserade klienter som ger bästa möjliga prestanda i virtuella skriv bord, både i och utanför molnet.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -133,6 +141,14 @@ Likviditets Essentials utökar värdet för virtuella Windows-datorer genom att 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Gå till partner webbplatsen](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="liquit"></a>Liquit
+
+![Liquit-logotyp](./media/partners/liquit.png)
+
+Liquit program agg regering och leverans program vara gör det möjligt för företag och tjänst leverantörer att ansluta till och kombinera med arbets ytans Server delar (Citrix, VMWare, Windows Virtual Desktop, RDP och Legacy) och leverera en anpassad och konsekvent kund upplevelse, oavsett var kundens program finns. När en kund publicerar den smarta ikonen bestämmer Liquit var du vill starta programmet baserat på kundens plats, enhet och profil rättigheter.
+
+Som certifierad integrations partner bidrar Liquit till att påskynda över gången till molnet utan en fördröjning för RIP och-ersättning. Windows Virtual Desktop kan enkelt ansluta till en befintlig miljö, skapa en arbets yta och leverera Skriv bordet. Du kan sedan ta din tid att migrera från gamla plattformar och göra ändringar i Server delen utan att användarna märker. Få en konsekvent slut användar upplevelse, flexibel infrastruktur och upprätthålla kontrollen över dina program oavsett var de befinner sig.
+
 ## <a name="login-vsi"></a>Logga in VSI
 
 ![Logo typ för inloggning VSI](./media/partners/loginvsi.png)
@@ -202,6 +218,16 @@ RDPSoft är en Windows-partner för virtuella datorer som tillhandahåller kraft
 RDPSoft för fjärr skrivbords tjänster förbättrar Windows-administrationen för virtuella skriv bord. Premium Management-funktioner fören klar delegering av Windows hanterings uppgifter för virtuella skriv bord till support personal genom att tillhandahålla Fjärrhjälp, användarsessionen och process hantering. Samtidigt samlar Remote Desktop Commander-sviten omfattande statistik om prestanda och belastning för varje användare, användar aktivitet och granskning, Windows anslutning för virtuella Skriv bords anslutningar (latens och bandbredd), licensiering och säkerhet till en central Azure SQL databas instans för granskning. Med RDPSoft är utförlig historisk rapportering och omfattande instrument paneler bara ett klick bort.
 
 - [Gå till partner webbplatsen](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
+## <a name="sepago"></a>sepago
+
+![sepago-logotyp](./media/partners/sepago.png)
+
+sepago grundades 2002 av fyra vänner i Cologne. Idag är sepago en IT-organisation som är ett ständigt ökande antal sepagists, med platser i Tyskland i Cologne, München och. sepago är experter på automatiserad applikations etablering, virtualisering, moln lösningar och IT-säkerhet. sepago stöder medel stora och stora företag på väg till en digital omvandling och säkerställer att användarna kan arbeta säkert och effektivt.
+
+sepagos innovations-och utvecklings labb bygger smarta lösningar med hjälp av Big data och AI-teknik. Dessa lösningar fokuserar på att förbättra verksamheten, användar upplevelsen och administrationerna av partner produkter som Windows Virtual Desktop.
+
+- [Gå till partner webbplatsen](https://www.sepago.de/wvd-value-add-tools/)
 
 ## <a name="thinprint"></a>ThinPrint
 

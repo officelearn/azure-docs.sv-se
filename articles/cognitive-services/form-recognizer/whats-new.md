@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: pafarley
-ms.openlocfilehash: cb5639dcf0e13ea03d34604816b3939085674c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456370"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901881"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Vad är nytt i Formigenkänning?
 
@@ -24,9 +24,6 @@ I den här artikeln beskrivs de viktigaste ändringarna som medföljer nya versi
 > Snabb starter och guider i den här dokument uppsättningen använder alltid den senaste versionen av API, om de inte anger något annat.
 
 ## <a name="form-recognizer-20-preview"></a>Formulär igenkänning 2,0 (för hands version)
-
-> [!IMPORTANT]
-> Formulär igenkänning 2,0 är för närvarande tillgängligt för prenumerationer i `West US 2` och `West Europe` regioner. Om din prenumeration inte finns i den här regionen använder du 1,0-API: et. Snabb starterna för utbildning och användning av en anpassad modell är tillgängliga för både v 1.0 och v 2.0.
 
 ### <a name="new-features"></a>Nya funktioner
 

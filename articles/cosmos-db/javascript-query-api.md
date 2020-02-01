@@ -1,5 +1,5 @@
 ---
-title: Arbeta med Java Script Integrated Query API i Azure Cosmos DB
+title: Arbeta med Java Script Integrated Query API i Azure Cosmos DB lagrade procedurer och utlösare
 description: Den här artikeln beskriver begreppen för JavaScript-språk – integrerat fråge-API för att skapa lagrade procedurer och utlösare i Azure Cosmos DB.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,20 +7,20 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445317"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901833"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Java Script-fråge-API i Azure Cosmos DB
 
-Förutom att skicka frågor med hjälp av SQL-API: et i Azure Cosmos DB kan du utföra optimerade frågor med hjälp av ett JavaScript-gränssnitt i [Cosmos DB server sidans SDK](https://azure.github.io/azure-cosmosdb-js-server/) . Du behöver inte vara medveten om SQL-språket för att kunna använda det här JavaScript-gränssnittet. Med Java Script-API: et kan du skapa frågor genom programmering genom att skicka predikat till sekvenser med funktions anrop, med en syntax som är välbekant för ECMAScript5's-matriser och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körningen och körs effektivt med Azure Cosmos DB index.
+Förutom att skicka frågor med hjälp av SQL-API: et i [Cosmos DB Azure Cosmos DB tillhandahåller SDK: n på Server sidan](https://azure.github.io/azure-cosmosdb-js-server/) ett JavaScript-gränssnitt för att utföra optimerade frågor i Cosmos DB lagrade procedurer och utlösare. Du behöver inte vara medveten om SQL-språket för att kunna använda det här JavaScript-gränssnittet. Med Java Script-API: et kan du skapa frågor genom programmering genom att skicka predikat till sekvenser med funktions anrop, med en syntax som är välbekant för ECMAScript5's-matriser och populära JavaScript-bibliotek som Lodash. Frågor parsas av JavaScript-körningen och körs effektivt med Azure Cosmos DB index.
 
 ## <a name="supported-javascript-functions"></a>JavaScript-funktioner som stöds
 
-| **Funktion** | **Beskrivning** |
+| **Funktioner** | **Beskrivning** |
 |---------|---------|
 |`chain() ... .value([callback] [, options])`|Startar ett länkat anrop som måste avslutas med value().|
 |`filter(predicateFunction [, options] [, callback])`|Filtrerar indata med hjälp av en predikat funktion som returnerar SANT/FALSKT för att filtrera inkommande dokument in/ut till den resulterande uppsättningen. Den här funktionen fungerar ungefär som en WHERE-satsen i SQL.|

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712534"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908861"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integrera din befintliga NPS-infrastruktur med Azure Multi-Factor Authentication
 
@@ -192,6 +192,23 @@ Om ditt tidigare dator certifikat har upphört att gälla och ett nytt certifika
 
 > [!NOTE]
 > Om du använder egna certifikat i stället för att skapa certifikat med PowerShell-skriptet ser du till att de överensstämmer med namngivnings konventionen för NPS. Ämnes namnet måste vara **CN =\<TenantID\>, OU = Microsoft NPS-tillägg**. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>Microsoft Azure Government ytterligare steg
+
+För kunder som använder Azure Government Cloud krävs följande ytterligare konfigurations steg på varje NPS-server:
+
+1. Öppna **Registereditorn** på NPS-servern.
+1. Navigera till `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`. Ange följande nyckel värden:
+
+    | Register nyckel       | Värde |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. Upprepa föregående två steg för att ange register nyckel värden för varje NPS-server.
+1. Starta om NPS-tjänsten för varje NPS-server.
+
+    För minimal påverkan tar du bort varje NPS-server från NLB-rotationen en i taget och väntar på att alla anslutningar ska tömmas.
 
 ### <a name="certificate-rollover"></a>Certifikat förnyelse
 

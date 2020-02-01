@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 399b63cab2594610260997f8e5ecef9c3c05318f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c6e48a663e4d1702851e11bc5124e56c52309d08
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712818"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908878"
 ---
 # <a name="cookies-definitions-for-azure-ad-b2c"></a>Cookies-definitioner för Azure AD B2C
 
@@ -30,7 +30,10 @@ För att skydda åtkomsten till webbplatser kommer webbläsare att införa en ny
 
 Utvecklare måste använda den nya cookie-inställningen `SameSite=None`för att ange cookies för åtkomst över platser. När attributet `SameSite=None` finns måste ett ytterligare `Secure`-attribut användas så att cookies från flera platser bara kan nås via HTTPS-anslutningar. Validera och testa alla dina program, inklusive de program som använder Azure AD B2C.
 
-Mer information finns i [gällande kund webbplatser och Microsoft-tjänster och produkter i Chrome version 80 eller senare](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome).
+Mer information finns här:
+
+* [Hantera SameSite cookie-ändringar i Chrome-webbläsaren](../active-directory/develop/howto-handle-samesite-cookie-changes-chrome-browser.md)
+* [Påverkan på kund webbplatser och Microsoft-tjänster och produkter i Chrome version 80 eller senare](https://support.microsoft.com/help/4522904/potential-disruption-to-customer-websites-in-latest-chrome)
 
 ## <a name="cookies"></a>Cookies
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841241"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908960"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Anpassa användar gränssnittet i Azure Active Directory B2C
 
@@ -31,6 +31,9 @@ Det finns flera sätt att anpassa användar gränssnittet för användaren som a
 Om du använder [användar flöden](user-flow-overview.md)kan du ändra utseendet på dina användar flödes sidor genom att använda inbyggda *mallar*för sidlayout, eller genom att använda din egen HTML och CSS. Båda metoderna beskrivs längre fram i den här artikeln.
 
 Du kan använda [Azure Portal](tutorial-customize-ui.md) för att konfigurera anpassningen av gränssnittet för användar flöden.
+
+> [!TIP]
+> Om du bara vill ändra banderollens banderoll, bakgrunds bild och bakgrunds färg för dina användar flödes sidor, kan du testa funktionen för för [hands versionen av företaget (förhands granskning)](#company-branding-preview) längre fram i den här artikeln.
 
 ### <a name="custom-policies"></a>Anpassade principer
 
@@ -149,6 +152,60 @@ I följande tabell visas de HTML-fragment som Azure AD B2C sammanfogas i det `<d
 | Enhetlig registrering eller inloggning | Hanterar både registrering och inloggning av kunder som kan använda sociala identitets leverantörer som Facebook, Google eller lokala konton. |
 | Multifaktorautentisering | Kunder kan verifiera sina telefonnummer (med text eller röst) under registreringen eller inloggningen. |
 | Fel | Tillhandahåller fel information till kunden. |
+
+## <a name="company-branding-preview"></a>Företags anpassning (för hands version)
+
+Du kan anpassa dina användar flödes sidor med en banderoll, bakgrunds bild och bakgrunds färg genom att använda Azure Active Directory [företags anpassning](../active-directory/fundamentals/customize-branding.md).
+
+Om du vill anpassa dina användar flödes sidor konfigurerar du först företags anpassning i Azure Active Directory. Därefter aktiverar du den i sidlayouten för dina användar flöden i Azure AD B2C.
+
+[!INCLUDE [preview note](../../includes/active-directory-b2c-public-preview.md)]
+
+### <a name="configure-company-branding"></a>Konfigurera varumärkesexponering
+
+Börja med att ange banderoll, bakgrunds bild och bakgrunds färg inom **företags anpassning**.
+
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Välj filtret **katalog + prenumeration** på den översta menyn och välj sedan den katalog som innehåller Azure AD B2C klienten.
+1. I Azure Portal söker du efter och väljer **Azure AD B2C**.
+1. Under **Hantera**väljer du **företags anpassning**.
+1. Följ stegen i [lägga till anpassning till din organisations Azure Active Directory inloggnings sida](../active-directory/fundamentals/customize-branding.md).
+
+Tänk på följande när du konfigurerar företags anpassning i Azure AD B2C:
+
+* Företags anpassning i Azure AD B2C är för närvarande begränsad till **bakgrunds bild**, **banderoll-logotyp**och **bakgrunds färg** anpassning. De andra egenskaperna i rutan företags anpassning, till exempel de i **Avancerade inställningar**, *stöds inte*.
+* Bakgrunds färgen visas i dina användar flödes sidor innan bakgrunds bilden läses in. Vi rekommenderar att du väljer en bakgrunds färg som nära matchar färgerna i bakgrunds bilden för en smidig inläsnings upplevelse.
+* Banderoll-logotypen visas i bekräftelse-e-postmeddelanden som skickas till användarna när de initierar ett registrerings användar flöde.
+
+### <a name="enable-branding-in-user-flow-pages"></a>Aktivera anpassning på användar flödes sidor
+
+När du har konfigurerat företags anpassning aktiverar du det i dina användar flöden.
+
+1. På den vänstra menyn i Azure Portal väljer du **Azure AD B2C**.
+1. Under **principer**väljer du **användar flöden (principer)** .
+1. Välj det användar flöde som du vill aktivera företags anpassning för. Företags anpassning **stöds inte** för användar flödes typerna *Logga in v1* och *profil redigering v1* .
+1. Under **Anpassa** **väljer du sidlayouter och**väljer sedan den layout som du vill anpassa. Välj till exempel **enhetlig registrering eller inloggnings sida**.
+1. För sidlayouten **(för hands version)** väljer du version **1.2.0** eller senare.
+1. Välj **Spara**.
+
+Om du vill anpassa alla sidor i användar flödet anger du sidlayouten för varje sidlayout i användar flödet.
+
+![Val av sidlayout i Azure AD B2C i Azure Portal](media/customize-ui-overview/portal-02-page-layout-select.png)
+
+Det här kommenterade exemplet visar en anpassad logo typ och bakgrunds bild på sidan *Registrera dig och logga* in på användar flöde som använder den blå mallen för Atlanten:
+
+![Anpassad registrerings-och inloggnings sida som hanteras av Azure AD B2C](media/customize-ui-overview/template-ocean-blue-branded.png)
+
+### <a name="use-company-branding-assets-in-custom-html"></a>Använda företags anpassnings till gångar i anpassad HTML
+
+Om du vill använda företagets anpassnings till gångar i anpassad HTML lägger du till följande Taggar utanför `<div id="api">`-taggen:
+
+```HTML
+<img data-tenant-branding-background="true" />
+<img data-tenant-branding-logo="true" alt="Company Logo" />
+```
+
+Bild källan ersätts med bakgrunds bildens och banderollens logo typ. Som beskrivs i avsnittet [komma igång med anpassad HTML och CSS](#get-started-with-custom-html-and-css) , använder du CSS-klasser för att formatera och placera till gångarna på sidan.
 
 ## <a name="localize-content"></a>Lokalisera innehåll
 

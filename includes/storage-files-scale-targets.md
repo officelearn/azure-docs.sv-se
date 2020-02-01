@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: d76338ccd4dcdf7a9a9a96baa1fb47ed5272d5ff
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822041"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901402"
 ---
 | Resurs | Standard fil resurser | Premium fil resurser |
 |----------|---------------|------------------------------------------|
@@ -27,4 +27,4 @@ ms.locfileid: "72822041"
 | Namn längd för maximalt objekt (kataloger och filer) | 2 048 tecken | 2 048 tecken |
 | Maximal Sök vägs komponent (i sökvägen \A\B\C\D är varje bokstav en komponent) | 255 tecken | 255 tecken |
 
-\* inte tillgänglig i alla regioner, se [regional tillgänglighet](../articles/storage/files/storage-files-planning.md#regional-availability) för en lista över tillgängliga regioner.
+\* tillgängliga i de flesta regioner, se [regional tillgänglighet](../articles/storage/files/storage-files-planning.md#regional-availability) för information om tillgängliga regioner.

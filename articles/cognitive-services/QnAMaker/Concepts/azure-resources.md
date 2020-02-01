@@ -3,12 +3,12 @@ title: Azure-resurser – QnA Maker
 description: QnA Maker använder flera Azure-källor, var och en med ett annat syfte. Om du förstår hur de används individuellt kan du planera för och välja rätt pris nivå eller veta när du ska ändra pris nivån. Om du förstår hur de används i kombinationen kan du hitta och åtgärda problem när de inträffar.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 2b3a06122ce6123cd8edcedf5dfbf38c3c12218a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77aced459c7731a2cac432538cfc66ed9ce83f9d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843519"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902077"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Azure-resurser för QnA Maker
 
@@ -111,6 +111,10 @@ Den första kunskaps basen som skapas i QnA Maker-resursen används för att fas
 QnA Maker-resursen ger till gång till API: erna för redigering och publicering samt det NLP-baserade (Natural Language Processing)-baserade andra rangordnings skiktet (Ranging #2) för QnA-uppsättningarna vid körning.
 
 Den andra rangordningen använder intelligenta filter som kan innehålla metadata och Uppföljnings-prompter.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker inställningar för resurs konfiguration
+
+När du skapar en ny kunskaps bas i [QNA Maker Portal](https://qnamaker.ai)är **språk** inställningen den enda inställning som tillämpas på resurs nivå. Du väljer språk när du skapar den första kunskaps basen för resursen. 
 
 ### <a name="app-service-and-app-service-plan"></a>App service-och App Service-plan
 

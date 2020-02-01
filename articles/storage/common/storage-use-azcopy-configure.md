@@ -4,16 +4,16 @@ description: Konfigurera, optimera och Felsök AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371402"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905272"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -41,6 +41,14 @@ För närvarande stöder AzCopy inte proxyservrar som kräver autentisering med 
 ## <a name="optimize-performance"></a>Optimera prestanda
 
 Du kan använda prestanda mätning och sedan använda kommandon och miljövariabler för att hitta en optimal kompromiss mellan prestanda och resursförbrukning.
+
+Det här avsnittet hjälper dig att utföra följande optimerings aktiviteter:
+
+> [!div class="checklist"]
+> * Kör benchmark-tester
+> * Optimera data flödet
+> * Optimera minnes användning 
+> * Optimera filsynkronisering
 
 ### <a name="run-benchmark-tests"></a>Kör benchmark-tester
 
@@ -97,6 +105,14 @@ Express detta värde i gigabyte (GB).
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+### <a name="optimize-file-synchronization"></a>Optimera filsynkronisering
+
+[Sync](storage-ref-azcopy-sync.md) -kommandot identifierar alla filer vid målet och jämför sedan fil namn och senast ändrade tidsstämplar innan synkroniseringen startades. Om du har ett stort antal filer kan du förbättra prestandan genom att ta bort klient bearbetningen. 
+
+Det gör du genom att använda kommandot [AzCopy Copy](storage-ref-azcopy-copy.md) i stället och ange `--overwrite` flagga till `ifSourceNewer`. AzCopy kommer att jämföra filer när de kopieras utan att utföra några startgenomsökningar och jämförelser. Detta ger en prestanda gräns i fall där det finns ett stort antal filer att jämföra.
+
+[AzCopy Copy](storage-ref-azcopy-copy.md) -kommandot tar inte bort filer från målet, så om du vill ta bort filer på målet när de inte längre finns på källan använder du kommandot [AzCopy sync](storage-ref-azcopy-sync.md) med flaggan `--delete-destination` inställd på värdet `true` eller `prompt`. 
 
 ## <a name="troubleshoot-issues"></a>Felsöka problem
 

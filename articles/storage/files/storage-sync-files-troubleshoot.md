@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 887c10097187f193f55c6e301be3e739a16d6bf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842724"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906918"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -1102,7 +1102,7 @@ Om filer inte kan Azure Files till nivån:
 | 0x80c83007 | – 2134364153 | ECS_E_STORAGE_ERROR | Filen kunde inte skiktas på grund av ett problem med Azure Storage. | Om felet kvarstår öppnar du en support förfrågan. |
 | 0x800703e3 | – 2147023901 | ERROR_OPERATION_ABORTED | Filen kunde inte skiktas på grund av att den har återkallats på samma tidpunkt. | Ingen åtgärd krävs. Filen kommer att skiktas när återställningen är klar och filen inte längre används. |
 | 0x80c80264 | – 2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | Filen kunde inte skiktas eftersom den inte har synkroniserats med Azure-filresursen. | Ingen åtgärd krävs. Filen kommer att-nivå när den har synkroniserats till Azure-filresursen. |
-| 0x80070001 | – 2147942401 | ERROR_INVALID_FUNCTION | Filen kunde inte skiktas eftersom moln nivå filter driv rutinen (storagesync. sys) inte körs. | Lös problemet genom att öppna en upphöjd kommando tolk och köra följande kommando: in FLTMC load storagesync <br>Om storagesync filter driv rutinen inte kan läsas in när du kör in FLTMC-kommandot avinstallerar du Azure File Sync agenten, startar om servern och installerar om Azure File Sync agenten. |
+| 0x80070001 | – 2147942401 | ERROR_INVALID_FUNCTION | Filen kunde inte skiktas eftersom moln nivå filter driv rutinen (storagesync. sys) inte körs. | Lös problemet genom att öppna en upphöjd kommando tolk och köra följande kommando: `fltmc load storagesync`<br>Om storagesync filter driv rutinen inte kan läsas in när du kör in FLTMC-kommandot avinstallerar du Azure File Sync agenten, startar om servern och installerar om Azure File Sync agenten. |
 | 0x80070070 | – 2147024784 | ERROR_DISK_FULL | Filen kunde inte skiktas på grund av otillräckligt disk utrymme på den volym där Server slut punkten finns. | Lös problemet genom att frigöra minst 100 MB disk utrymme på den volym där Server slut punkten finns. |
 | 0x80070490 | – 2147023728 | ERROR_NOT_FOUND | Filen kunde inte skiktas eftersom den inte har synkroniserats med Azure-filresursen. | Ingen åtgärd krävs. Filen kommer att-nivå när den har synkroniserats till Azure-filresursen. |
 | 0x80c80262 | – 2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | Filen kunde inte skiktas eftersom den är en referens punkt som inte stöds. | Om filen är en referens punkt för datadeduplicering följer du stegen i [planerings guiden](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) för att aktivera stöd för datadeduplicering. Filer med andra referens punkter än datadeduplicering stöds inte och kommer inte att skiktas.  |

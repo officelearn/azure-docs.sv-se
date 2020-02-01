@@ -3,19 +3,21 @@ title: Begränsningar och kvoter för Azure-prenumeration
 description: Innehåller en lista över vanliga gränser, kvoter och begränsningar för Azure-prenumerationer och tjänster. Den här artikeln innehåller information om hur du ökar gränserna tillsammans med högsta värden.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: c6661ce6d3e0f62c47b1f234898dbf47de36f3ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845999"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901415"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
 
 Mer information om priser för Azure finns i [Översikt över Azure-priser](https://azure.microsoft.com/pricing/). Där kan du beräkna dina kostnader med hjälp av [pris kalkylatorn](https://azure.microsoft.com/pricing/calculator/). Du kan också gå till sidan med pris information för en viss tjänst, till exempel [virtuella Windows-datorer](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows). Tips som hjälper dig att hantera dina kostnader finns i [förebygga oväntade kostnader med fakturering och kostnads hantering i Azure](../../billing/billing-getting-started.md).
+
+Begränsningar för resurs namn finns i [namngivnings regler och begränsningar för Azure-resurser](resource-name-rules.md).
 
 > [!NOTE]
 > Om du vill höja gränsen eller kvoten över standard gränsen kan du [öppna en kund support förfrågan online utan kostnad](../templates/error-resource-quota.md). Gränserna kan inte höjas över det maximala gräns värde som visas i följande tabeller. Om det inte finns någon övre gräns kolumn har inte resursen några justerbara gränser.
@@ -25,7 +27,7 @@ Mer information om priser för Azure finns i [Översikt över Azure-priser](http
 
 ## <a name="limits-and-azure-resource-manager"></a>Gränser och Azure Resource Manager
 
-Nu är det möjligt att kombinera flera Azure-resurser till en enda Azure-resurs grupp. När du använder resurs grupper, begränsar det att en gång har global hantering på regional nivå med Azure Resource Manager. Mer information om Azures resurs grupper finns i [Azure Resource Manager översikt](overview.md).
+Du kan kombinera flera Azure-resurser till en enda resurs grupp i Azure. När du använder resurs grupper, begränsar det att en gång har global hantering på regional nivå med Azure Resource Manager. Mer information om Azures resurs grupper finns i [Azure Resource Manager översikt](overview.md).
 
 I följande lista över gränser visar en ny tabell eventuella skillnader i gränser när du använder Azure Resource Manager. Det finns till exempel en **prenumerations begränsnings** tabell och en **prenumerations gräns – Azure Resource Manager** tabell. När en gräns gäller för båda scenarierna visas den bara i den första tabellen. Om inget annat anges är gränserna globalt i alla regioner.
 
@@ -484,3 +486,4 @@ SQL Data Warehouse gränser finns i [SQL Data Warehouse resurs gränser](../../s
 * [Förstå Azure-gränser och ökningar](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Virtuella datorer och moln tjänst storlekar för Azure](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Storlekar för Azure-Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
+* [Namngivnings regler och begränsningar för Azure-resurser](resource-name-rules.md)

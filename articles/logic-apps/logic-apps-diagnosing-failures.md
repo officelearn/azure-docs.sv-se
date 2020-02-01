@@ -5,108 +5,83 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 10/15/2017
-ms.openlocfilehash: 79cc9d1bf7aa9e8848197525646b0a3646a558d2
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 01/31/2020
+ms.openlocfilehash: 1f83f13564a64a0d9d8a5e0144ca95af6a769d6c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666813"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905096"
 ---
 # <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Felsöka och diagnostisera arbets flödes fel i Azure Logic Apps
 
 Din Logic app genererar information som kan hjälpa dig att diagnostisera och felsöka problem i din app. Du kan diagnostisera en Logic-app genom att granska varje steg i arbets flödet via Azure Portal. Du kan också lägga till några steg i ett arbets flöde för körnings fel sökning.
 
-## <a name="review-trigger-history"></a>Granska utlösarens historik
+<a name="check-trigger-history"></a>
 
-Varje Logic app börjar med utlösare. Om utlösaren inte utlöses ska du först kontrol lera utlösarens historik. Den här historiken visar alla utlösare försök som din Logi Kap par har gjort och information om indata och utdata för varje Utlös ande försök.
+## <a name="check-trigger-history"></a>Kontrol lera utlösarens historik
 
-1. Om du vill kontrol lera om utlösaren har startats väljer du **Översikt**på din Logic app-meny. Granska utlösarens status under **utlösarens historik**.
+Varje Logi Kap par körning börjar med ett Utlös ande försök, så om utlösaren inte utlöses följer du dessa steg:
 
-   > [!TIP]
-   > Om du inte ser logikappmenyn kan du försöka återgå till Azure-instrumentpanelen och öppna logikappen på nytt.
+1. Kontrol lera utlösarens status genom [att kontrol lera utlösarens historik](../logic-apps/monitor-logic-apps.md#review-trigger-history). Om du vill visa mer information om Utlösar-försöket väljer du den Utlös ande händelsen, till exempel:
 
-   ![Granska utlösarens historik](./media/logic-apps-diagnosing-failures/logic-app-trigger-history-overview.png)
+   ![Visa utlösarens status och historik](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
 
-   > [!TIP]
-   > * Om du inte hittar de data du förväntar dig kan du prova att välja **Uppdatera** i verktygsfältet.
-   > * Om listan visar många Utlös ande försök och du inte hittar den post som du vill använda kan du prova att filtrera listan.
+1. Kontrol lera utlösarens indata för att bekräfta att de visas som förväntat. Under **indata-länk**väljer du länken som visar fönstret **indata** .
 
-   Här följer möjliga status för ett utlösarnamn-försök:
+   Trigger Inputs innehåller de data som utlösaren förväntar sig och kräver för att starta arbets flödet. Att granska dessa indata kan hjälpa dig att avgöra om utlösarens indata är korrekta och om villkoret uppfylldes så att arbets flödet kan fortsätta.
 
-   | Status | Beskrivning | 
-   | ------ | ----------- | 
-   | **Lyckades** | Utlösaren kontrollerade slut punkten och hittade tillgängliga data. Normalt visas statusen "utlöst" även tillsammans med denna status. I så fall kan utlösnings definitionen ha ett villkor eller `SplitOn` kommando som inte uppfylldes. <p>Den här statusen kan gälla för en manuell utlösare, upprepnings utlösare eller avsöknings utlösare. En utlösare kan köras utan problem, men själva körningen kan fortfarande Miss lyckas när åtgärderna genererar ohanterade fel. | 
-   | **Överhoppad** | Utlösaren kontrollerade slut punkten men hittade inga data. | 
-   | **Misslyckades** | Ett fel inträffade. Om du vill granska eventuella genererade fel meddelanden för en misslyckad utlösare väljer du det Utlös ande försöket och väljer **utdata**. Du kan till exempel hitta indata som inte är giltiga. | 
-   ||| 
+   `feedUrl`-egenskapen här har till exempel ett felaktigt värde för RSS-flöde:
 
-   Du kan ha flera utlösnings poster med samma datum och tid, som inträffar när din Logi Kap par söker efter flera objekt. 
-   Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans för att köra arbets flödet. Som standard körs varje instans parallellt så att inget arbets flöde måste vänta innan en körning påbörjas.
+   ![Granska utlöser indata för fel](./media/logic-apps-diagnosing-failures/review-trigger-inputs-for-errors.png)
+
+1. Kontrol lera utlösare utdata, om det finns, för att bekräfta att de visas som förväntat. Under **länken utdata**väljer du länken som visar fönstret **utdata** .
+
+   Utlösa utdata inkluderar de data som utlösaren går vidare till nästa steg i arbets flödet. Att granska dessa utdata kan hjälpa dig att avgöra om rätt eller förväntade värden har överförts till nästa steg i arbets flödet, till exempel:
+
+   ![Granska utlöser utdata för fel](./media/logic-apps-diagnosing-failures/review-trigger-outputs-for-errors.png)
 
    > [!TIP]
-   > Du kan kontrol lera utlösaren igen utan att vänta på nästa upprepning. I verktygsfältet översikt väljer du **Kör utlösare**och väljer utlösaren, vilket tvingar en kontroll. Eller Välj **Kör** i Logic Apps designer-verktygsfältet.
+   > Om du hittar något innehåll som du inte känner igen kan du läsa mer om [olika innehålls typer](../logic-apps/logic-apps-content-type.md) i Azure Logic Apps.
 
-3. Välj det Utlös ande försöket under **utlösarens historik**för att granska informationen för ett Utlös ande försök. 
+<a name="check-runs-history"></a>
 
-   ![Välj ett Utlös ande försök](./media/logic-apps-diagnosing-failures/logic-app-trigger-history.png)
+## <a name="check-runs-history"></a>Check körnings historik
 
-4. Granska indata och eventuella utdata som genereras av utlösaren. Utlös utdata visar de data som kom från utlösaren. Dessa utdata kan hjälpa dig att avgöra om alla egenskaper returneras som förväntat.
+Varje gång utlösaren utlöses för ett objekt eller en händelse skapas och körs en separat arbets flödes instans för varje objekt eller händelse i Logic Appss motorn. Om körningen Miss lyckas följer du de här stegen för att granska vad som hände under körningen, inklusive status för varje steg i arbets flödet plus indata och utdata för varje steg.
 
-   > [!NOTE]
-   > Om du hittar något innehåll som du inte förstår kan du lära dig hur Azure Logic Apps [hanterar olika innehålls typer](../logic-apps/logic-apps-content-type.md).
+1. Kontrol lera arbets flödets körnings status genom [att kontrol lera körnings historiken](../logic-apps/monitor-logic-apps.md#review-runs-history). Om du vill visa mer information om en misslyckad körning, inklusive alla steg i som körs i deras status, väljer du den misslyckade körningen.
 
-   ![Utlös utdata](./media/logic-apps-diagnosing-failures/trigger-outputs.png)
+   ![Visa körnings historik och välj misslyckad körning](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
-## <a name="review-run-history"></a>Granska körningshistorik
+1. Expandera det första misslyckade steget när alla steg i körningen visas.
 
-Varje utlöst utlösare startar en arbets flödes körning. Du kan granska vad som hände under körningen, inklusive status för varje steg i arbets flödet, plus indata och utdata för varje steg.
+   ![Expandera första misslyckades steget](./media/logic-apps-diagnosing-failures/logic-app-run-pane.png)
 
-1. På logikappmenyn väljer du **Översikt**. Under **körnings historiken**granskar du körningen för den utlöst utlösaren.
+1. Kontrol lera indata för det misslyckade steget för att bekräfta om de visas som förväntat.
 
-   > [!TIP]
-   > Om du inte ser logikappmenyn kan du försöka återgå till Azure-instrumentpanelen och öppna logikappen på nytt.
+1. Granska informationen för varje steg i en speciell körning. Under **körnings historik**väljer du den körning som du vill undersöka.
 
-   ![Granska körnings historik](./media/logic-apps-diagnosing-failures/logic-app-runs-history-overview.png)
-
-   > [!TIP]
-   > * Om du inte hittar de data du förväntar dig kan du prova att välja **Uppdatera** i verktygsfältet.
-   > * Om listan visar många körningar och du inte hittar den post som du vill använda kan du prova att filtrera listan.
-
-   Här följer möjliga status värden för en körning:
-
-   | Status | Beskrivning | 
-   | ------ | ----------- | 
-   | **Lyckades** | Alla åtgärder har genomförts. <p>Om ett problem inträffar i en speciell åtgärd, hanterade en följande åtgärd i arbets flödet detta problem. | 
-   | **Misslyckades** | Minst en åtgärd misslyckades, och inga senare åtgärder i arbets flödet har kon figurer ATS för att hantera fel. | 
-   | **Avbröts** | Arbets flödet kördes men tog emot en Cancel-begäran. | 
-   | **Körs** | Arbets flödet körs för närvarande. <p>Den här statusen kan inträffa för begränsade arbets flöden eller på grund av den aktuella pris planen. Mer information finns i [Åtgärds gränserna på sidan med priser](https://azure.microsoft.com/pricing/details/logic-apps/). Om du konfigurerar [diagnostikloggning](../logic-apps/logic-apps-monitor-your-logic-apps.md)kan du också få information om eventuella begränsnings händelser som inträffar. | 
-   ||| 
-
-2. Granska informationen för varje steg i en speciell körning. Under **körnings historik**väljer du den körning som du vill undersöka.
-
-   ![Granska körnings historik](./media/logic-apps-diagnosing-failures/logic-app-run-history.png)
-
-   Oavsett om körningen lyckades eller inte fungerar visar vyn kör information varje steg och om de lyckades eller misslyckades.
+   ![Granska körnings historik](./media/logic-apps-diagnosing-failures/logic-app-runs-history.png)
 
    ![Visa information om en logikappkörning](./media/logic-apps-diagnosing-failures/logic-app-run-details.png)
 
-3. Om du vill undersöka indata, utdata och eventuella fel meddelanden för ett särskilt steg väljer du det steget så att formen expanderar och visar informationen. Ett exempel:
+1. Om du vill undersöka indata, utdata och eventuella fel meddelanden för ett särskilt steg väljer du det steget så att formen expanderar och visar informationen. Ett exempel:
 
    ![Visa information om steg](./media/logic-apps-diagnosing-failures/logic-app-run-details-expanded.png)
 
 ## <a name="perform-runtime-debugging"></a>Utför körnings fel sökning
 
-Om du vill ha hjälp med fel sökning kan du lägga till diagnostiska steg till ett arbets flöde, tillsammans med att granska utlösaren och köra historiken. Du kan till exempel lägga till steg som använder [webhook tester](https://webhook.site/) -tjänsten så att du kan kontrol lera HTTP-begäranden och bestämma exakt storlek, form och format.
+Om du vill ha hjälp med fel sökning kan du lägga till diagnostiska steg till ett Logic app-arbetsflöde, tillsammans med att granska utlösaren och köra historiken. Du kan till exempel lägga till steg som använder [webhook tester](https://webhook.site/) -tjänsten så att du kan kontrol lera HTTP-begäranden och bestämma exakt storlek, form och format.
 
-1. Besök [webhook-testaren](https://webhook.site/) och kopiera den unika URL: en som skapats
+1. Gå till webbplatsen för [webhook-testaren](https://webhook.site/) och kopiera den genererade unika URL: en.
 
-2. I din Logic app lägger du till en HTTP POST-åtgärd med det innehålls innehåll som du vill testa, till exempel ett uttryck eller en annan steg-utdata.
+1. I din Logic-app lägger du till en HTTP POST-åtgärd plus det innehåll som du vill testa, till exempel ett uttryck eller en annan steg-utdata.
 
-3. Klistra in URL: en för webhook-testaren i HTTP POST-åtgärden.
+1. Klistra in din URL från webhook-testaren i HTTP POST-åtgärden.
 
-4. Om du vill granska hur en begäran bildas när den genereras från Logic Apps-motorn kör du Logic-appen och läser webhook-testaren för mer information.
+1. Om du vill granska hur en begäran bildas när den genereras från Logic Apps-motorn kör du Logic-appen och går sedan tillbaka till webbplatsen webhook tester för mer information.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Övervaka din Logic app](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+* [Övervaka din Logic app](../logic-apps/monitor-logic-apps.md)

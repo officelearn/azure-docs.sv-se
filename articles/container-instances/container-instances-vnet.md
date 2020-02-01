@@ -4,12 +4,12 @@ description: Lär dig hur du distribuerar behållar grupper till ett nytt eller 
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845171"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901861"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuera behållar instanser i ett virtuellt Azure-nätverk
 
@@ -259,10 +259,6 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>Ta bort nätverks resurser
-
-
-> [!NOTE]
-> Om du får ett fel meddelande när du försöker ta bort nätverks profilen kan du med 3-4 dagar för plattformen automatiskt minimera problemet och försöka ta bort den igen. Om du behöver ta bort en nätverks profil direkt [öppnar du en supportbegäran som](https://azure.microsoft.com/support/create-ticket/) refererar till tjänsten Azure Container instances.
 
 Den här funktionen kräver för närvarande flera ytterligare kommandon för att ta bort nätverks resurserna som du skapade tidigare. Om du använde exempel kommandona i föregående avsnitt i den här artikeln för att skapa ditt virtuella nätverk och undernät kan du använda följande skript för att ta bort dessa nätverks resurser.
 

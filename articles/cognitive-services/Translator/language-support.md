@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 12/02/2019
 ms.author: swmachan
-ms.openlocfilehash: 62c101751e07d8ee31789191ad45fbdd33a1bc4b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2ec8d389c99ad96e59bf49d4345855fa44d6c7aa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707967"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901999"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Språk-och region stöd för Translator Text API
 
@@ -40,73 +40,81 @@ Translator Text API har stöd för följande språk för text till text översä
 > [!NOTE]
 > För närvarande är en delmängd av neurala-språken tillgängliga i en anpassad översättare och vi lägger gradvis till ytterligare. [Visa språk som för närvarande är tillgängliga i en anpassad översättare](#customization).
 
-|Språk|  Språkkod|  V2-API| V3-API|
-|:-----|:-----:|:-----|:-----|
-|Afrikaans| `af`    |Endast statistik|  Neural|
-|Arabiska|    `ar`    |Neurala tillgänglig|  Neural|
-|Bangla|    `bn`    |Neurala tillgänglig|  Neural|
-|Bosniska (latinsk)|   `bs`    |Neurala tillgänglig|  Neural|
-|Bulgariska| `bg`    |Neurala tillgänglig|  Neural|
-|Kantonesiska (traditionell)|   `yue`   |Endast statistik|  Statistikuppgifter|
-|Katalanska|   `ca`    |Endast statistik|  Statistikuppgifter|
-|Kinesiska, förenklad|    `zh-Hans`   |Neurala standard |Neural|
-|Kinesiska, traditionell|   `zh-Hant`   |Neurala standard |Neural|
-|Kroatiska|  `hr`    |Neurala tillgänglig|  Neural|
-|Tjeckiska| `cs`    |Neurala tillgänglig|  Neural|
-|Danska|    `da`    |Neurala tillgänglig   |Neural|
-|Nederländska| `nl`    |Neurala tillgänglig|  Neural|
-|Svenska|   `en`    |Neurala tillgänglig|  Neural|
-|Estniska|  `et`    |Neurala tillgänglig|  Neural|
-|Fijian|    `fj`    |Endast statistik|  Statistikuppgifter|
-|Filipino|  `fil`   |Endast statistik|  Statistikuppgifter|
-|Finska|   `fi`    |Neurala tillgänglig|  Neural|
-|Franska|    `fr`    |Neurala tillgänglig|  Neural|
-|Tyska|    `de`    |Neurala tillgänglig|  Neural|
-|Grekiska| `el`    |Neurala tillgänglig|  Neural|
-|Haitiska|    `ht`    |Endast statistik   |Statistikuppgifter|
-|Hebreiska |`he`   |Neurala tillgänglig   |Neural|
-|Hindi| `hi`    |Neurala standard|    Neural|
-|Hmong Daw| `mww`   |Endast statistik|  Statistikuppgifter|
-|Ungerska| `hu`    |Neurala tillgänglig|  Neural|
-|Isländska| `is`    |Endast neurala|   Neural|
-|Indonesiska|    `id`    |Endast statistik|  Statistikuppgifter|
-|Italienska|   `it`    |Neurala tillgänglig|  Neural|
-|Japanska|  `ja`    |Neurala tillgänglig|  Neural|
-|Swahili| `sw`    |Endast statistik|  Statistikuppgifter|
-|Klingon|   `tlh`   |Endast statistik|  Statistikuppgifter|
-|Klingon (plqaD)|   `tlh-Qaak`  |Endast statistik|  Statistikuppgifter|
-|Koreanska |`ko`   |Neurala tillgänglig|  Neural|
-|Lettiska|   `lv`    |Neurala tillgänglig|  Neural|
-|Litauiska|    `lt`    |Neurala tillgänglig|  Neural|
-|Madagaskisk|  `mg`    |Endast statistik|  Statistikuppgifter|
-|Malajiska| `ms`    |Endast statistik   |Statistikuppgifter|
-|Maltesiska|   `mt`    |Endast statistik|  Statistikuppgifter|
-|Maori| `mi`  |Endast neurala| Neural|
-|Norska| `nb`    |Neurala tillgänglig|  Neural|
-|Persiska|   `fa`    |Neurala tillgänglig|  Neural|
-|Polska|    `pl`    |Neurala tillgänglig|  Neural|
-|Portugisiska|    `pt`    |Neurala tillgänglig|  Neural|
-|Queretaro Otomi|   `otq`   |Endast statistik|  Statistikuppgifter|
-|Rumänska|  `ro`    |Neurala tillgänglig|  Neural|
-|Ryska|   `ru`    |Neurala tillgänglig|  Neural|
-|Samoan|    `sm`    |Endast statistik|  Statistikuppgifter|
-|Serbiska (kyrillisk)|    `sr-Cyrl`   |Endast statistik|  Statistikuppgifter|
-|Serbiska (latinsk)|   `sr-Latn`   |Endast statistik   |Statistikuppgifter|
-|Slovakiska|    `sk`    |Neurala tillgänglig|  Neural|
-|Slovenska| `sl`    |Neurala tillgänglig|  Neural|
-|Spanska|   `es`    |Neurala tillgänglig|  Neural|
-|Svenska|   `sv`    |Neurala tillgänglig   |Neural|
-|Tahitian|  `ty`    |Endast statistik|  Statistikuppgifter|
-|Tamilska| `ta`    |Neurala tillgänglig | Neural|
-|Telugu|    `te`    |Endast neurala|   Neural|
-|Thai|  `th`    |Neurala tillgänglig|  Neural|
-|Tonganska|    `to`    |Endast statistik|  Statistikuppgifter|
-|Turkiska|   `tr`    |Neurala tillgänglig   |Neural|
-|Ukrainska| `uk`    |Neurala tillgänglig|  Neural|
-|Urdu|  `ur`    |Endast statistik|  Statistikuppgifter|
-|Vietnamesiska|    `vi`    |Neurala tillgänglig|  Neural|
-|Walesiska| `cy`    |Neurala tillgänglig|  Neural|
-|Yucatec Maya|  `yua`   |Endast statistik|  Statistikuppgifter|
+|Språk|  Språkkod|  V3-API|
+|:-----|:-----:|:-----|
+|Afrikaans| `af`|   Neural|
+|Arabiska|    `ar`    |   Neural|
+|Bangla|    `bn`    |   Neural|
+|Bosniska (latinsk)|   `bs`    |   Neural|
+|Bulgariska| `bg`    |   Neural|
+|Kantonesiska (traditionell)|   `yue`|  Statistikuppgifter|
+|Katalanska|   `ca`    |   Statistikuppgifter|
+|Kinesiska, förenklad|    `zh-Hans`|Neural|
+|Kinesiska, traditionell|   `zh-Hant`       |Neural|
+|Kroatiska|  `hr`    |Neural|
+|Tjeckiska| `cs`    |   Neural|
+|Danska|    `da`        |Neural|
+|Nederländska| `nl`|   Neural|
+|Svenska|   `en`    |   Neural|
+|Estniska|  `et`    |   Neural|
+|Fijianska|    `fj`    |   Statistikuppgifter|
+|Filippinska|  `fil`   |   Statistikuppgifter|
+|Finska|   `fi`    |   Neural|
+|Franska|    `fr`    |   Neural|
+|Tyska|    `de`    |   Neural|
+|Grekiska| `el`    |   Neural|
+|Haitiska|    `ht`        |Statistikuppgifter|
+|Hebreiska |`he`   |Neural
+|Hindi| `hi`    |   Neural|
+|Hmong Daw| `mww`   |   Statistikuppgifter|
+|Ungerska| `hu`    |   Neural|
+|Isländska| `is`    |   Neural|
+|Indonesiska|    `id`    |   Statistikuppgifter|
+|Iriska | `ga`| Neural
+|Italienska|   `it`    |   Neural|
+|Japanska|  `ja`    |   Neural|
+|Kannada|`kn`| Neural
+|Kiswahili| `sw`    |   Statistikuppgifter|
+|Klingon|   `tlh`   |   Statistikuppgifter|
+|Klingon (plqaD)|   `tlh-Qaak`  |   Statistikuppgifter|
+|Koreanska |`ko`   |   Neural|
+|Lettiska|   `lv`    |   Neural|
+|Litauiska|    `lt`    |   Neural|
+|Madagaskisk|  `mg`    |   Statistikuppgifter|
+|Malajiska| `ms`        |Statistikuppgifter|
+|Malayalam| `ml` | Neural
+|Maltesiska|   `mt`    |   Statistikuppgifter|
+|Maori| `mi`  | Neural|
+|Norska| `nb`    |   Neural|
+|Persiska|   `fa`    |   Neural|
+|Polska|    `pl`    |   Neural|
+|Portugisiska (Brasilien)|   `pt-br` |   Neural|
+|Portugisiska (Portugal)| `pt-pt` | Neural
+|Punjabi|`pa`|Neural
+|Queretaro Otomi|   `otq`   |   Statistikuppgifter|
+|Rumänska|  `ro`    |   Neural|
+|Ryska|   `ru`    |   Neural|
+|Samoa|    `sm`    |   Statistikuppgifter|
+|Serbiska (kyrillisk)|    `sr-Cyrl`|  Statistikuppgifter|
+|Serbiska (latinsk)|   `sr-Latn`       |Statistikuppgifter|
+|Slovakiska|    `sk`    |   Neural|
+|Slovenska| `sl`    |   Neural|
+|Spanska|   `es`    |   Neural|
+|Svenska|   `sv`    |Neural|
+|Tahitian|  `ty`    |Statistikuppgifter|
+|Tamilska| `ta`    |   Neural|
+|Telugu|    `te`    |   Neural|
+|Thai|  `th`    |   Neural|
+|Tongan|    `to`    |   Statistikuppgifter|
+|Turkiska|   `tr`        |Neural|
+|Ukrainska| `uk`    |   Neural|
+|Urdu|  `ur`    |   Statistikuppgifter|
+|Vietnamesiska|    `vi`    |   Neural|
+|Walesiska| `cy`    |   Neural|
+|Yucatec Maya|  `yua`   |   Statistikuppgifter|
+
+> [!NOTE]
+> Språk koden `pt` används som standard `pt-br`, portugisiska (Brasilien).
 
 ## <a name="transliteration"></a>Translitteration
 
@@ -116,15 +124,15 @@ Metoden translittererad stöder följande språk. I "till/från", "<-->" anger a
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabiska | `ar` | Arabisk `Arab` | <--> | Latinska `Latn` |
 |Bangla  | `bn` | Bengali-`Beng` | <--> | Latinska `Latn` |
-| Kinesiska (förenklad) | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
-| Kinesiska (förenklad) | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
-| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
-| Kinesiska (traditionell) | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
+| Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Latinska `Latn` |
+| Förenklad kinesiska | `zh-Hans` | Förenklad kinesiska `Hans`| <--> | Traditionell kinesiska `Hant`|
+| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Latinska `Latn` |
+| Traditionell kinesiska | `zh-Hant` | Traditionell kinesiska `Hant`| <--> | Förenklad kinesiska `Hans` |
 | Gujarati | `gu`  | Gujarati-`Gujr` | --> | Latinska `Latn` |
 | Hebreiska | `he` | Hebreisk `Hebr` | <--> | Latinska `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latinska `Latn` |
 | Japanska | `ja` | Japansk `Jpan` | <--> | Latinska `Latn` |
-| Kannada | `kn` | Kannada-`Knda` | --> | Latinska `Latn` |
+| Kannada | `kn` | Kannada `Knda` | --> | Latinska `Latn` |
 | Malayalam | `ml` | Malayalam-`Mlym` | --> | Latinska `Latn` |
 | Marathi | `mr` | Devanagari `Deva` | --> | Latinska `Latn` |
 | Odia | `or` | Odia `Orya` | <--> | Latinska `Latn` |
@@ -166,7 +174,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Indonesiska      | `id`          |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-| Swahili      | `sw`          |
+| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
@@ -176,7 +184,7 @@ Ord listan har stöd för följande språk till eller från engelska med hjälp 
 | Norska      | `nb`          |
 | Persiska      | `fa`          |
 | Polska      | `pl`          |
-| Portugisiska      | `pt`          |
+| Portugisiska (Brasilien)     | `pt-br`          |
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
 | Serbiska (latinsk)      | `sr-Latn`          |
@@ -230,22 +238,22 @@ Följande språk är tillgängliga för anpassning till eller från engelska med
 | Ungerska      | `hu`          |
 | Isländska | `is` |
 | Indonesiska|   `id`    |
-| Irländska | `ga`  |
+| Iriska | `ga`  |
 | Italienska      | `it`          |
 | Japanska      | `ja`          |
-|Swahili| `sw`    |
+| Kiswahili|    `sw`    |
 | Koreanska      | `ko`          |
 | Lettiska      | `lv`          |
 | Litauiska      | `lt`          |
-|Madagaskisk|  `mg`    |
-|Maori| `mi`  |
+| Madagaskisk| `mg`    |
+| Maori| `mi`  |
 | Norska      | `nb`          |
 | Persiska      | `fa`          |
 | Polska      | `pl`          |
-| Portugisiska      | `pt`          |
+| Portugisiska (Brasilien) | `pt-br` |
 | Rumänska      | `ro`          |
 | Ryska      | `ru`          |
-|Samoan|    `sm`    |
+| Samoa|   `sm`    |
 | Serbiska (latinsk)      | `sr-Latn`          |
 | Slovakiska     | `sk`          |
 | Slovenska      | `sl`          |

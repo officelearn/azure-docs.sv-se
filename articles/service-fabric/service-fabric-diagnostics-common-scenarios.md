@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric diagnostisera vanliga scenarier
 description: Lär dig mer om fel sökning av vanliga övervaknings-och diagnostiska scenarier i Azure Service Fabric-program.
-author: srrengar
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645794"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906943"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnostisera vanliga scenarier med Service Fabric
 
@@ -134,6 +132,7 @@ Se dessa länkar för en fullständig lista över prestanda räknare för pålit
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Leta upp vanliga aktiverings fel för kod paket](./service-fabric-diagnostics-code-package-errors.md)
 * [Konfigurera aviseringar i AI](../azure-monitor/app/alerts.md) för att få meddelanden om förändringar i prestanda eller användning
 * [Smart identifiering i Application Insights](../azure-monitor/app/proactive-diagnostics.md) utför en proaktiv analys av telemetri som skickas till AI för att varna dig om potentiella prestanda problem
 * Läs mer om hur du Azure Monitor loggar [varningar](../log-analytics/log-analytics-alerts.md) till hjälp vid identifiering och diagnostik.

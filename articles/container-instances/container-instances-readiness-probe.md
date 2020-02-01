@@ -3,12 +3,12 @@ title: Konfigurera readiness PROBE på behållar instansen
 description: Lär dig hur du konfigurerar en avsökning för att se till att behållare i Azure Container Instances ta emot begär Anden endast när de är klara
 ms.topic: article
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533565"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901847"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurera beredskapsavsökning
 
@@ -17,6 +17,9 @@ För behållar program som hanterar trafik, kanske du vill kontrol lera att din 
 Den här artikeln beskriver hur du distribuerar en behållar grupp som innehåller en beredskaps avsökning, så att en behållare endast tar emot trafik när avsökningen lyckas.
 
 Azure Container Instances också stöd för [direktmigreringar](container-instances-liveness-probe.md), som du kan konfigurera för att orsaka att en behållare som inte är felfria startar om automatiskt.
+
+> [!NOTE]
+> För närvarande kan du inte använda en beredskaps avsökning i en behållar grupp som distribueras till ett virtuellt nätverk.
 
 ## <a name="yaml-configuration"></a>YAML-konfiguration
 

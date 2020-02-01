@@ -8,19 +8,17 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2a18cfabdecf930f45ca10ae25e9be44cf3f1a5c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 114946fa37ae161aeb2efd5b7cd50444c5df4c2b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953153"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906710"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Skapa och köra ett jobb i ditt Azure IoT Central-program
 
-Du kan använda Microsoft Azure IoT Central för att hantera dina anslutna enheter i skala med hjälp av jobb. Med jobb kan du göra Mass uppdateringar av enhets egenskaper, inställningar och kommandon. Den här artikeln vägleder dig genom hur du kommer igång med jobb i ditt eget program.
+Du kan använda Microsoft Azure IoT Central för att hantera dina anslutna enheter i skala med hjälp av jobb. Med jobb kan du göra Mass uppdateringar av enhets egenskaper och-kommandon. Den här artikeln vägleder dig genom hur du kommer igång med jobb i ditt eget program.
 
-> [!NOTE] 
-> Det finns för närvarande inte stöd för jobb för Azure IoT Edge enheter. 
 
 ## <a name="create-and-run-a-job"></a>Skapa och köra ett jobb
 
@@ -34,28 +32,26 @@ I det här avsnittet visas hur du skapar och kör ett jobb. Det visar hur du ök
 
 3. Ange ett namn och en beskrivning för att identifiera det jobb som du skapar.
 
-4. Välj den enhets uppsättning som du vill att jobbet ska tillämpas på. När du har valt enhets uppsättningen ser du den högra sidan som du fyller i med enheterna i enhets uppsättningen. Om du väljer en bruten enhets uppsättning visas inga enheter och du ser ett meddelande om att din enhets uppsättning är bruten.
+4. Välj den enhets grupp som du vill att jobbet ska gälla för. Du kan se hur många enheter din jobb konfiguration ska tillämpas på i avsnittet Sammanfattning. 
 
-5. Välj sedan den typ av jobb som du vill definiera (en inställning, egenskap eller kommando). Välj **+** bredvid den valda jobb typen och Lägg till dina åtgärder.
+5. Välj sedan den typ av jobb som du vill definiera (egenskap eller kommando). Konfigurera jobb konfigurationen genom att välja egenskapen och ange nya värden eller Välj ett kommando. Det går att lägga till flera egenskaper i taget.
 
     ![Konfigurera jobb](./media/howto-run-a-job/configurejob.png)
 
-6. På den högra sidan väljer du de enheter som du vill köra jobbet på. Genom att markera kryss rutan överst markeras alla enheter i hela enhets uppsättningen. Genom att markera kryss rutan nära **namn**, markeras alla enheter på den aktuella sidan.
-
-7. När du har valt enheter väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . I den här vyn kan du se jobbet som körs och historiken för tidigare körnings jobb. Jobbet som körs visas alltid överst i listan. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera eller köra.
+6. När du har valt enheter väljer du **Kör** eller **Spara**. Jobbet visas nu på sidan med huvud **jobb** . I den här vyn kan du se jobbet som körs och historiken för tidigare körnings jobb. Jobbet som körs visas alltid överst i listan. Du kan öppna ditt sparade jobb igen när som helst för att fortsätta redigera eller köra.
 
     ![Visa jobb](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > Du kan visa historiken för dina tidigare körnings jobb i upp till 30 dagar.
 
-8. Om du vill få en översikt över jobbet väljer du det jobb som ska visas i listan. Den här översikten innehåller värdena för jobb information, enheter och enhets status. I den här översikten kan du också välja **Hämta jobb information** för att ladda ned en. csv-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning.
+7. Om du vill få en översikt över jobbet väljer du det jobb som ska visas i listan. Den här översikten innehåller värdena för jobb information, enheter och enhets status. I den här översikten kan du också välja **Hämta jobb information** för att ladda ned en. csv-fil med jobb information, inklusive enheterna och deras status värden. Den här informationen kan vara användbar vid fel sökning.
 
     ![Visa enhetsstatus](./media/howto-run-a-job/downloaddetails.png)
 
 ### <a name="stop-a-running-job"></a>Stoppa ett pågående jobb
 
-Om du vill stoppa ett pågående jobb markerar du det och väljer **stoppa** i panelen. Jobbets status ändras för att visa att jobbet stoppas.
+Om du vill stoppa ett pågående jobb markerar du det och väljer **stoppa**. Jobbets status ändras för att visa att jobbet stoppas.
 
    ![Stoppa jobb](./media/howto-run-a-job/stopjob.png)
 
@@ -67,7 +63,7 @@ Om du vill köra ett jobb som är stoppat väljer du det stoppade jobbet. Välj 
 
 ## <a name="copy-a-job"></a>Kopiera ett jobb
 
-Om du vill kopiera ett befintligt jobb som du har skapat väljer du det på sidan huvud jobb och väljer **Kopiera**. En ny kopia av jobb konfigurationen öppnas så att du kan redigera den. Du kan spara eller köra det nya jobbet. Om du har gjort ändringar i den valda enhets uppsättningen, återspeglas de i det kopierade jobbet så att du kan redigera det.
+Om du vill kopiera ett befintligt jobb som du har skapat öppnar du ett jobb som har skapats och väljer **Kopiera**. En ny kopia av jobb konfigurationen öppnas så att du kan redigera den. Du kan spara eller köra det nya jobbet. 
 
    ![Kopiera jobb](./media/howto-run-a-job/copyjob.png)
 

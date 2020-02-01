@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 506c518e8bdd889c585feb92f2a6baee8ba0147c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 662f8c2a4184e858d33dc40effed363ef3ec17e5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979086"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904955"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Distribuera Azure Resource Manager mallar för Azure Logic Apps
 
@@ -41,7 +41,7 @@ Du uppmanas till exempel att ange följande information när du har loggat in p�
 * En test-URI
 * Godkännande av de angivna villkoren
 
-Mer information finns i de här ämnena:
+Mer information finns i följande avsnitt:
 
 * [Översikt: Automatisera distribution av Logic Apps med Azure Resource Manager mallar](logic-apps-azure-resource-manager-templates-overview.md)
 * [Distribuera resurser med Azure Resource Manager mallar och Azure Portal](../azure-resource-manager/templates/deploy-portal.md)
@@ -62,7 +62,7 @@ Använd följande kommando för att distribuera till en *Azure-resurs grupp*:
 New-AzResourceGroupDeployment -ResourceGroupName <Azure-resource-group-name> -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Mer information finns i de här ämnena:
+Mer information finns i följande avsnitt:
 
 * [Distribuera resurser med Resource Manager-mallar och Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy)
 * [`New-AzResourceGroupDeployment`](https://docs.microsoft.com/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment)
@@ -77,7 +77,7 @@ Använd följande kommando för att distribuera till en *Azure-resurs grupp*:
 az group deployment create -g <Azure-resource-group-name> --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-logic-app-create/azuredeploy.json
 ```
 
-Mer information finns i de här ämnena:
+Mer information finns i följande avsnitt:
 
 * [Distribuera resurser med Resource Manager-mallar och Azure CLI](../azure-resource-manager/templates/deploy-cli.md) 
 * [`az group deployment create`](https://docs.microsoft.com/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create)
@@ -128,4 +128,4 @@ Om du använder ett [huvud namn](../active-directory/develop/app-objects-and-ser
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Övervaka logikappar](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [Övervaka logikappar](../logic-apps/monitor-logic-apps.md)

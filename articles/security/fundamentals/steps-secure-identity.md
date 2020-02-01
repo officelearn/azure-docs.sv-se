@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973913"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903583"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Fem steg för att skydda din identitets infrastruktur
 
@@ -28,8 +28,8 @@ Den här check listan hjälper dig att snabbt distribuera kritiska rekommenderad
 * Förstärk dina autentiseringsuppgifter.
 * Minska attack ytan.
 * Automatisera hot svar.
-* Öka din medvetenhet om granskning och övervakning.
-* Aktivera mer förutsägbar och fullständig slut användar säkerhet med hjälp av självhjälp.
+* Använd Cloud Intelligence.
+* Aktivera självbetjäning för slutanvändare.
 
 Se till att du håller reda på vilka funktioner och steg som är slutförda när du läser den här check listan.
 
@@ -116,7 +116,7 @@ Genom att använda den ungefärliga kränkningen av intrång bör du minska effe
 
 Det är viktigt att förstå de olika [Azure AD-programmens medgivande upplevelser](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), vilka [typer av behörigheter och medgivande](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)och deras konsekvenser i din organisations säkerhets position. Som standard kan alla användare i Azure AD bevilja program som utnyttjar Microsofts identitets plattform för att komma åt din organisations data. Samtidigt som användare kan godkänna själva kan användarna enkelt förvärva användbara program som integrerar med Microsoft 365, Azure och andra tjänster, men det kan representera en risk om den inte används och övervakas noggrant.
 
-Microsoft rekommenderar att du [inaktiverar framtida användar medgivande åtgärder](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) för att minska din yta och minimera risken. Om slut användar medgivande är inaktiverat kommer tidigare medgivande bidrag fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Administratörs medgivande kan begäras av användare via ett integrerat [arbets flöde för administratörs medgivande](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) , eller genom egna support processer. Innan du inaktiverar den här funktionen rekommenderar vi att du granskar gransknings loggen för att ta reda på vilka program användarna godkänner och planerar ändringen därefter. För program som du vill att alla användare ska ha åtkomst till, kan du överväga att [bevilja medgivande åt alla användare](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), och se till att användare som ännu inte har samtyckt individuellt kommer att kunna komma åt appen. Om du inte vill att dessa program ska vara tillgängliga för alla användare i alla scenarier, använder du [program tilldelning](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) och [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) för att begränsa användar åtkomsten till appar.
+Microsoft rekommenderar att du [inaktiverar framtida användar medgivande åtgärder](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) för att minska din yta och minimera risken. Om slut användar medgivande är inaktiverat kommer tidigare medgivande bidrag fortfarande att bevaras, men alla framtida medgivande åtgärder måste utföras av en administratör. Administratörs medgivande kan begäras av användare via ett integrerat [arbets flöde för administratörs medgivande](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) , eller genom egna support processer. Innan du inaktiverar Slutanvändarens medgivande bör du använda våra [rekommendationer](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) för att planera den här ändringen i din organisation. För program som du vill att alla användare ska ha åtkomst till, kan du överväga att [bevilja medgivande åt alla användare](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent), och se till att användare som ännu inte har samtyckt individuellt kommer att kunna komma åt appen. Om du inte vill att dessa program ska vara tillgängliga för alla användare i alla scenarier, använder du [program tilldelning](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) och [villkorlig åtkomst](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) för att begränsa användar åtkomsten till appar.
 
 Se till att användarna kan begära administratörs godkännande för nya program för att minska användar friktionen, minimera support volymen och hindra användare från att registrera sig för program som använder autentiseringsuppgifter som inte är Azure AD. När du reglerar dina medgivande åtgärder bör administratörerna granska appen och godkända behörigheter regelbundet.
 
@@ -134,7 +134,7 @@ En annan effekt av "antagen intrång" är behovet av att minimera sannolikheten 
 
 Aktivera Azure AD PIM och Visa sedan de användare som har tilldelats administrativa roller och ta bort onödiga konton i dessa roller. För återstående privilegierade användare flyttar du dem från permanent till berättigade. Upprätta sedan lämpliga principer för att se till att när de behöver få åtkomst till dessa privilegierade roller, kan de göra detta på ett säkert sätt med nödvändig ändrings kontroll.
 
-Som en del av processen för att distribuera ditt privilegierat konto bör du följa [bästa praxis för att skapa minst två nöd konton](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) för att se till att du har åtkomst till Azure AD om du låser dig.
+Som en del av processen för att distribuera ditt privilegierat konto bör du följa [bästa praxis för att skapa minst två nöd konton](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) för att se till att du fortfarande har åtkomst till Azure AD om du låser dig.
 
 ## <a name="step-3---automate-threat-response"></a>Steg 3 – automatisera hot svar
 
@@ -152,7 +152,7 @@ Inloggnings risk är sannolikheten någon annan än konto ägaren försöker log
 
 ![Logga in från anonyma IP-adresser](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>Steg 4 – öka medvetenheten
+## <a name="step-4---utilize-cloud-intelligence"></a>Steg 4 – använda Cloud Intelligence
 
 Granskning och loggning av säkerhetsrelaterade händelser och relaterade aviseringar är viktiga komponenter i en effektiv skydds strategi. Säkerhets loggar och-rapporter ger dig en elektronisk post med misstänkta aktiviteter och hjälper dig att identifiera mönster som kan indikera försök till eller lyckad extern inträngande av nätverket och interna attacker. Du kan använda granskning för att övervaka användar aktivitet, dokumentera regelefterlevnad, utföra kriminal tekniska analys med mera. Aviseringar ger meddelanden om säkerhets händelser.
 
@@ -180,7 +180,7 @@ Azure AD Identity Protection ger två viktiga rapporter som du bör övervaka da
 
 Användare kan luras att navigera till en komprometterad webbplats eller appar som får åtkomst till profil information och användar data, t. ex. e-post. En skadlig aktör kan använda de behörigheter som den tagit emot för att kryptera sitt post låda innehåll och begära en utpressnings tro för att återställa data från din post låda. [Administratörer bör granska och granska](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) de behörigheter som anges av användarna eller inaktivera möjligheten för användare att ge sitt medgivande som standard.
 
-Förutom att granska de behörigheter som anges av användarna kan det hjälpa till att försöka [hitta riskfyllda eller oönskade OAuth-program](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth), vilket är en funktion som är tillgänglig för Premium-miljöer.
+Förutom att granska de behörigheter som användarna har givit kan du [hitta riskfyllda eller oönskade OAuth-program](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) i Premium miljöer.
 
 ## <a name="step-5---enable-end-user-self-service"></a>Steg 5 – aktivera självbetjäning för slutanvändare
 
@@ -192,11 +192,11 @@ Azure ADs självbetjäning för [återställning av lösen ord (SSPR)](../../act
 
 ### <a name="implement-self-service-group-and-application-access"></a>Implementera självbetjänings grupp-och program åtkomst
 
-Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, med hjälp av säkerhets grupper, Office 365-grupper, program roller och åtkomst paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/users-groups-roles/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Office 365-grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetare chefer och affärs partner sponsorer som god kännare.
+Azure AD ger möjlighet till icke-administratörer att hantera åtkomst till resurser, med hjälp av säkerhets grupper, Office 365-grupper, program roller och åtkomst till paket kataloger.  [Grupp hantering via självbetjäning](../../active-directory/users-groups-roles/groups-self-service-management.md) gör det möjligt för grupp ägare att hantera sina egna grupper, utan att behöva tilldelas en administrativ roll. Användare kan också skapa och hantera Office 365-grupper utan att behöva förlita sig på administratörer för att hantera sina förfrågningar, och oanvända grupper upphör automatiskt att gälla.  [Hantering av Azure AD](../../active-directory/governance/entitlement-management-overview.md) -behörighet ger ytterligare delegering och synlighet, med omfattande åtkomst begär ande arbets flöden och automatiskt upphör Ande.  Du kan delegera till icke-administratörer möjligheten att konfigurera sina egna åtkomst paket för grupper, grupper, program och SharePoint Online-webbplatser som de äger, med anpassade principer för vem som krävs för att godkänna åtkomst, inklusive konfiguration av medarbetare chefer och affärs partner sponsorer som god kännare.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Implementera åtkomst granskningar för Azure AD
 
-Med [åtkomst granskningar i Azure AD](../../active-directory/governance/access-reviews-overview.md)kan du hantera åtkomst paket och grupp medlemskap, åtkomst till företags program och privilegierade roll tilldelningar för att se till att du upprätthåller en säkerhets standard.  Regelbundna tillsyn av användarna själva, resurs ägare och andra granskare ser till att användarna inte behåller åtkomsten under längre tid när de inte längre behöver det.
+Med [åtkomst granskningar i Azure AD](../../active-directory/governance/access-reviews-overview.md)kan du hantera åtkomst paket och grupp medlemskap, åtkomst till företags program och privilegierade roll tilldelningar för att se till att du upprätthåller en säkerhets standard.  Regelbundna tillsyn av själva användarna, resurs ägare och andra granskare ser till att användarna inte behåller åtkomsten under längre tid när de inte längre behöver det.
 
 ## <a name="summary"></a>Sammanfattning
 
@@ -205,7 +205,7 @@ Det finns många aspekter av en säker identitets infrastruktur, men den här ch
 * Förstärk dina autentiseringsuppgifter.
 * Minska attack ytan.
 * Automatisera hot svar.
-* Öka din medvetenhet om granskning och övervakning.
+* Använd Cloud Intelligence.
 * Aktivera mer förutsägbar och fullständig slut användar säkerhet med hjälp av självhjälp.
 
 Vi uppskattar hur allvarligt du tar identitets säkerheten och hoppas att det här dokumentet är en bra översikt över en säkrare position för din organisation.
@@ -214,4 +214,4 @@ Vi uppskattar hur allvarligt du tar identitets säkerheten och hoppas att det h�
 
 Om du behöver hjälp med att planera och distribuera rekommendationerna läser du [distributions planerna för Azure AD-projekt](https://aka.ms/deploymentplans) för att få hjälp.
 
-Om du är säker på att alla dessa steg är fullständiga använder du Microsofts [identitet](../../active-directory/fundamentals/identity-secure-score.md)för att hålla dig uppdaterad, som håller dig uppdaterad med de [senaste bästa metoderna](identity-management-best-practices.md) och säkerhetshot.
+Om du är säker på att alla dessa steg är fullständiga, använder du Microsofts [identitet för säker](../../active-directory/fundamentals/identity-secure-score.md)användning, som håller dig uppdaterad med de [senaste bästa metoderna](identity-management-best-practices.md) och säkerhetshot.

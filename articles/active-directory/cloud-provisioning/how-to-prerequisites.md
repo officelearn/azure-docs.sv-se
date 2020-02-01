@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019c2f8a13a80de395803ca1782e578c049a7923
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549354"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909048"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Krav för Azure AD Connect Cloud-etablering
 Den här artikeln innehåller rikt linjer för hur du väljer och använder Azure Active Directory (Azure AD) Anslut moln etablering som din identitets lösning.
@@ -29,6 +29,9 @@ Du behöver följande för att kunna använda Azure AD Connect Cloud-etablering:
 - Ett globalt administratörs konto för din Azure AD-klient.
 - En lokal server för etablerings agenten med Windows 2012 R2 eller senare.
 - Konfigurationer för lokala brand väggar.
+
+>[!NOTE]
+>Etablerings agenten kan för närvarande bara installeras på engelska språk servrar. Att installera ett engelskt språk paket på en icke-engelsk server är inte en giltig lösning och leder till att agenten inte kan installeras. 
 
 Resten av dokumentet innehåller steg-för-steg-instruktioner för dessa krav.
 

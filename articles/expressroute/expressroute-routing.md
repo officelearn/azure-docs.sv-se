@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
-ms.openlocfilehash: 934dc94da9bbdfc38cc12e78eaa5b67fa9f786ca
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75a9e3e8422c0c59e00c290f1f360d61fce1eceb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083316"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901574"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -175,6 +175,12 @@ Du kan köpa mer än en ExpressRoute-krets per geopolitisk region. Att ha flera 
 | Storbritannien, västra | 12076:51025 | 12076:52025 | 12076:53025 | 12076:54025 |
 | Frankrike, centrala | 12076:51030 | 12076:52030 | 12076:53030 | 12076:54030 |
 | Frankrike, södra | 12076:51031 | 12076:52031 | 12076:53031 | 12076:54031 |
+| Schweiz, norra | 12076:51038 | 12076:52038 | 12076:53038 | 12076:54038 | 
+| Schweiz, västra | 12076:51039 | 12076:52039 | 12076:53039 | 12076:54039 | 
+| Tyskland, norra | 12076:51040 | 12076:52040 | 12076:53040 | 12076:54040 | 
+| Tyskland, västra centrala | 12076:51041 | 12076:52041 | 12076:53041 | 12076:54041 | 
+| Norge, östra | 12076:51042 | 12076:52042 | 12076:53042 | 12076:54042 | 
+| Norge, västra | 12076:51043 | 12076:52043 | 12076:53043 | 12076:54043 | 
 | **Asien och stillahavsområdet** | |
 | Asien, östra | 12076:51010 | 12076:52010 | 12076:53010 | 12076:54010 |
 | Sydostasien | 12076:51011 | 12076:52011 | 12076:53011 | 12076:54011 |
@@ -237,17 +243,17 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 | **Amerikanska myndigheter** |  |
 | US Gov, Arizona | 12076:51106 |
 | US Gov, Iowa | 12076:51109 |
-| US Gov, Virginia | 12076:51105 |
+| USA Gov Virginia | 12076:51105 |
 | US Gov, Texas | 12076:51108 |
 | US DoD, centrala | 12076:51209 |
-| US DoD, östra | 12076:51205 |
+| USA DoD, östra | 12076:51205 |
 
 
 | **Tjänst i nationella moln** | **BGP-community värde** |
 | --- | --- |
 | **Amerikanska myndigheter** |  |
 | exchange online |12076:5110 |
-| sharepoint online |12076:5120 |
+| SharePoint Online |12076:5120 |
 | Skype för företag – Online |12076:5130 |
 | Andra Office 365 Online-tjänster |12076:5200 |
 

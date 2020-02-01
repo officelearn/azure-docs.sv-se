@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl kaos
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera kaos.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b91c11dfb9b1249420429bee20f12439fffa4853
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646185"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906161"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starta, stoppa och rapportera om kaos test service.
@@ -26,7 +26,7 @@ Starta, stoppa och rapportera om kaos test service.
 | händelser | Hämtar nästa segment av kaos-händelserna baserat på fortsättnings-token eller tidsintervallet. |
 | Hämta | Hämta status för kaos. |
 | start | Startar kaos i klustret. |
-| stoppa | Stoppar kaos om den körs i klustret och sätter kaos-schemat i stoppat läge. |
+| Stanna | Stoppar kaos om den körs i klustret och sätter kaos-schemat i stoppat läge. |
 
 ## <a name="sfctl-chaos-events"></a>sfctl kaos-händelser
 Hämtar nästa segment av kaos-händelserna baserat på fortsättnings-token eller tidsintervallet.

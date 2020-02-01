@@ -7,13 +7,13 @@ ms.author: heidist
 manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/30/2019
-ms.openlocfilehash: cffd94459e3a18567f2ff2f6b8fca35598cb5eed
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.date: 01/29/2020
+ms.openlocfilehash: b75b760704511627c74301ae3fff82c24a262e17
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563483"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904899"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>Snabb start: skapa ett kunskaps lager för Azure Kognitiv sökning i Azure Portal
 
@@ -81,7 +81,7 @@ På översikts sidan för Search-tjänsten klickar du på **Importera data** i k
 I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Källdata består av kund granskningar på flera språk. Kunskaper som är relevanta för den här data uppsättningen inkluderar extrahering av nyckel fraser, sentiment identifiering och text översättning. I ett senare steg kommer dessa att bli "projiceras" i ett kunskaps lager som Azure-tabeller.
 
 1. Expandera **bifoga Cognitive Services**. **Kostnads fri (begränsade anrikninger)** är valt som standard. Du kan använda den här resursen eftersom antalet poster i HotelReviews-Free. csv är 19 och den här kostnads fria resursen tillåter upp till 20 transaktioner per dag.
-1. Expandera **Lägg till kognitiva kunskaper**.
+1. Expandera **Lägg till anrikninger**.
 1. Ange `hotel-reviews-ss`för **namn på färdigheter**.
 1. I **fältet käll data**väljer du **reviews_text**.
 1. Välj **sidor (5000-segment)** för **detaljerad granularitet nivå**
@@ -93,11 +93,11 @@ I den här guiden ska du skapa en färdigheter med kognitiva färdigheter. Käll
       ![Skapa en färdigheter](media/knowledge-store-create-portal/hotel-reviews-ss.png "Skapa en kunskapsuppsättning")
 
 1. Expandera **Spara berikade kunskaper i kunskaps lagret**.
-1. Ange **lagrings kontots anslutnings sträng** som du sparade i föregående steg.
 1. Välj följande **Azure Table-projektioner**:
     + **Dokument**
     + **Sidor**
     + **Nyckel fraser**
+1. Ange **lagrings kontots anslutnings sträng** som du sparade i föregående steg.
 
     ![Konfigurera kunskaps lager](media/knowledge-store-create-portal/hotel-reviews-ks.png "Konfigurera kunskaps lager")
 

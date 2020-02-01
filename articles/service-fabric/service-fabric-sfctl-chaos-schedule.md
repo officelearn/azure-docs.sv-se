@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl kaos schema
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för kaos-schemaläggning.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639181"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906180"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 Hämta och ange kaos-schemat.
@@ -71,9 +71,10 @@ Kaos schemalägger automatiskt körningar baserat på kaos-schemat. Kaos-schemat
 
 ### <a name="examples"></a>Exempel
 
-Följande kommando anger ett schema (förutsatt att det aktuella schemat har version 0) som börjar på 2016-01-01 och upphör att gälla 2038-01-01 som kör kaos 24 timmar på dagen, 7 dagar i veckan. Kaos kommer att schemaläggas för klustret för den tiden.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+Följande kommando anger ett schema (förutsatt att det aktuella schemat har version 0) som börjar på 2016-01-01 och upphör att gälla 2038-01-01 som kör kaos 24 timmar på dagen, 7 dagar i veckan.
+Kaos kommer att schemaläggas för klustret för den tiden.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -134,6 +135,8 @@ Följande kommando anger ett schema (förutsatt att det aktuella schemat har ver
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>Nästa steg

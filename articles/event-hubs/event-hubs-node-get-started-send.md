@@ -1,33 +1,30 @@
 ---
-title: 'Snabb start: skicka och ta emot händelser med hjälp av Node. js – Azure Event Hubs'
-description: 'Snabb start: den här artikeln innehåller en genom gång av hur du skapar ett Node. js-program som skickar händelser från Azure Event Hubs.'
+title: Skicka eller ta emot händelser från Azure Event Hubs med Node. js (bakåtkompatibelt)
+description: Den här artikeln innehåller en genom gång av hur du skapar ett Node. js-program som skickar/tar emot händelser till/från Azure Event Hubs med hjälp av det gamla Azure/Event-Hub version 2-paketet.
 services: event-hubs
 author: spelluru
-manager: kamalb
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.custom: seodec18
-ms.date: 01/08/2020
+ms.date: 01/15/2020
 ms.author: spelluru
-ms.openlocfilehash: 39087b189c424866fffcc3ea8723c712883f288c
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 9aa2418657c2d3bcab9ef8883e5bd57422ce5e29
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940713"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899891"
 ---
-# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med Node. js
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-nodejs-azureevent-hubs-version-2"></a>Snabb start: skicka händelser till eller ta emot händelser från Azure Event Hubs med Node. js (@azure/event-hubs version 2)
 
-Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadapter. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
 
 I den här självstudien beskrivs hur du skapar Node. js-program för att skicka händelser till eller ta emot händelser från en händelsehubben.
 
-> [!IMPORTANT]
-> I den här snabb starten används version 2 av Azure Event Hubs Java Script SDK. Om du är nybörjare på Azure Event Hubs använder du version 5 av Java Script SDK. En snabb start som använder version 5 av Java Script SDK finns i [den här artikeln](get-started-node-send-v2.md). Om du behöver migrera befintlig kod från version 2 till version 5, se [migreringsguiden](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md).
+> [!WARNING]
+> Den här snabb starten är för version 2 av Azure Event Hubs Java Script SDK. Vi rekommenderar att du [migrerar](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md) koden till [version 5 av Java Script SDK](get-started-node-send-v2.md). 
 
-> [!NOTE]
-> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
+
 
 ## <a name="prerequisites"></a>Krav
 
@@ -55,6 +52,9 @@ npm install @azure/event-processor-host
 ## <a name="send-events"></a>Skicka händelser
 
 Det här avsnittet visar hur du skapar ett Node. js-program som skickar händelser till en händelsehubben. 
+
+> [!NOTE]
+> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs-node/tree/master/client). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
 
 1. Öppna din favorit redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com). 
 2. Skapa en fil med namnet `send.js` och klistra in nedanstående kod i den. Hämta anslutningssträngen för händelsehubbens namnområde genom att följa anvisningarna i artikeln: [hämta anslutningssträngen](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). 

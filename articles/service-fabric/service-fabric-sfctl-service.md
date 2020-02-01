@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI – sfctl-tjänst
 description: Lär dig mer om sfctl, Azure Service Fabric Command Line Interface. Innehåller en lista med kommandon för att hantera tjänster, tjänst typer och service paket.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 24ba7fea2ed51ea57c0a44e3c1f26b5df6043e1e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639079"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906234"
 ---
 # <a name="sfctl-service"></a>sfctl service
 Skapa, ta bort och hantera tjänst, tjänst typer och service paket.
@@ -110,7 +110,7 @@ Skapar den angivna Service Fabrics tjänsten.
 | --int-scheme-low | Början av heltals intervallet för nyckeln, om ett enhetligt heltals-partitions schema används. |
 | --Load – Metrics | JSON-kodad lista över mått som används vid belastnings utjämning av tjänster mellan noder. |
 | --min-replica-set-size | Den minsta replik uppsättningens storlek som ett tal. Detta gäller endast för tillstånds känsliga tjänster. |
-| --flytta – kostnad | Anger flytt kostnaden för tjänsten. Möjliga värden är\: noll, Low, medium, High. |
+| --flytta – kostnad | Anger flytt kostnaden för tjänsten. Möjliga värden är\: ' Zero ', ' Low ', ' medium ', ' High ', ' VeryHigh '. |
 | --named-scheme | Anger att tjänsten ska ha flera namngivna partitioner. |
 | --named-scheme-list | JSON-kodad lista med namn för att partitionera tjänsten över, om du använder det namngivna partitionsnamnet. |
 | --inget beständigt tillstånd | Om värdet är true betyder det att tjänsten inte har något beständigt tillstånd lagrad på den lokala disken, eller att den bara lagrar tillstånd i minnet. |
@@ -118,6 +118,7 @@ Skapar den angivna Service Fabrics tjänsten.
 | --kvorum-förlust-vänta | Den längsta tid i sekunder som en partition kan vara i status för kvorum. Detta gäller endast för tillstånds känsliga tjänster. |
 | --replica-restart-wait | Tiden, i sekunder, mellan när en replik kraschar och när en ny replik skapas. Detta gäller endast för tillstånds känsliga tjänster. |
 | --scaling-policies | JSON-kodad lista över skalnings principer för den här tjänsten. |
+| --service-placement-Time | Varaktigheten för vilka repliker kan vara inbygga innan rapportering som skapas fastnar. Detta gäller endast för tillstånds känsliga tjänster. |
 | --Singleton-schema | Anger att tjänsten ska ha en enda partition eller vara en icke-partitionerad tjänst. |
 | --Behåll-för-replik-Behåll | Maximal varaktighet, i sekunder, för vilken StandBy-repliker ska behållas innan de tas bort. Detta gäller endast för tillstånds känsliga tjänster. |
 | --tillstånds känslig | Anger att tjänsten är en tillstånds känslig tjänst. |
@@ -562,11 +563,12 @@ Uppdaterar den angivna tjänsten med den angivna uppdaterings beskrivningen.
 | --antal instanser | Antalet instanser. Detta gäller endast för tillstånds lösa tjänster. |
 | --Load – Metrics | JSON-kodad lista över mått som används vid belastnings utjämning på noder. |
 | --min-replica-set-size | Den minsta replik uppsättningens storlek som ett tal. Detta gäller endast för tillstånds känsliga tjänster. |
-| --flytta – kostnad | Anger flytt kostnaden för tjänsten. Möjliga värden är\: noll, Low, medium, High. |
+| --flytta – kostnad | Anger flytt kostnaden för tjänsten. Möjliga värden är\: ' Zero ', ' Low ', ' medium ', ' High ', ' VeryHigh '. |
 | --placement-policy-list | JSON-kodad lista över placerings principer för tjänsten och alla associerade domän namn. Principer kan vara en eller flera av\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain`, `RequireDomainDistribution`. |
 | --kvorum-förlust-vänta | Den längsta tid i sekunder som en partition kan vara i status för kvorum. Detta gäller endast för tillstånds känsliga tjänster. |
 | --replica-restart-wait | Tiden, i sekunder, mellan när en replik kraschar och när en ny replik skapas. Detta gäller endast för tillstånds känsliga tjänster. |
 | --scaling-policies | JSON-kodad lista över skalnings principer för den här tjänsten. |
+| --service-placement-Time | Varaktigheten för vilka repliker kan vara inbygga innan rapportering som skapas fastnar. Detta gäller endast för tillstånds känsliga tjänster. |
 | --Behåll-för-replik-Behåll | Maximal varaktighet, i sekunder, för vilken StandBy-repliker ska behållas innan de tas bort. Detta gäller endast för tillstånds känsliga tjänster. |
 | --tillstånds känslig | Anger att mål tjänsten är en tillstånds känslig tjänst. |
 | --tillstånds lös | Anger att mål tjänsten är en tillstånds lös tjänst. |

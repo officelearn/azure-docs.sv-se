@@ -3,42 +3,34 @@ title: 'Snabb start: Azure Blob Storage-bibliotek V12-Java'
 description: I den här snabb starten får du lära dig hur du använder Azure Blob Storage klient bibliotek version 12 för Java för att skapa en behållare och en BLOB i blob-lagring (objekt). Du får lära dig hur du hämtar bloben till din lokala dator och hur du visar alla blobar i en container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: ffd91bbcc33ef313d496e793c8263126db81b685
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a76b1c8688a6458dc55a106525c77c5979e2e011
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863952"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906519"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>Snabb start: klient biblioteket för Azure Blob Storage-V12 för Java
+# <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Snabb start: hantera blobbar med Java V12 SDK
 
-Kom igång med Azure Blob Storage-V12 för Java. Azure Blob Storage är Microsofts objektlagringslösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
-
-> [!NOTE]
-> För att komma igång med den tidigare SDK-versionen, se [snabb start: Azure Blob Storage klient bibliotek för Java](storage-quickstart-blobs-java-legacy.md).
-
-Använd klient biblioteket för Azure Blob Storage-V12 för Java för att:
-
-* Skapa en container
-* Ladda upp en blob till Azure Storage
-* Lista alla blobar i en behållare
-* Ladda ned en blob till den lokala datorn
-* Ta bort en container
+I den här snabb starten lär du dig att hantera blobbar med hjälp av Java. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du laddar upp, laddar ned och listar blobbar och skapar och tar bort behållare.
 
 [API Reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html) | [Library Source Code](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob) | [Package (maven) | -](https://mvnrepository.com/artifact/com.azure/azure-storage-blob?repo=jcenter) [exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
-
 ## <a name="prerequisites"></a>Krav
 
-* [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 eller senare
-* [Apache Maven](https://maven.apache.org/download.cgi)
-* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Azure Storage-konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
+- [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable) version 8 eller senare.
+- [Apache Maven](https://maven.apache.org/download.cgi).
+
+> [!NOTE]
+> För att komma igång med den tidigare SDK-versionen, se [snabb start: hantera blobbar med Java V8 SDK](storage-quickstart-blobs-java-legacy.md).
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -48,7 +40,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt för att arbeta med 
 
 Skapa ett Java-program med namnet *BLOB-snabb start-V12*.
 
-1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du Maven för att skapa en ny konsol app med namnet *BLOB-snabb start-V12*. Skriv följande **mvn** -kommando för att skapa en enkel "Hello World!" Java-projekt.
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du Maven för att skapa en ny konsol app med namnet *BLOB-snabb start-V12*. Skriv följande **mvn** -kommando för att skapa en "Hello World!" Java-projekt.
 
    ```console
    mvn archetype:generate -DgroupId=com.blobs.quickstart \
@@ -170,7 +162,7 @@ Använd följande Java-klasser för att interagera med dessa resurser:
 * [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html): klassen `BlobClient` gör att du kan ändra Azure Storage blobbar.
 * [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): klassen `BlobItem` representerar enskilda blobbar som returneras från ett anrop till `listBlobsFlat`.
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 I de här exempel kods tycken visas hur du gör följande med klient biblioteket för Azure Blob Storage för java:
 
@@ -287,7 +279,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 Följande kod rensar resurserna som skapats av appen genom att ta bort hela behållaren med [Delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--) -metoden. Den tar också bort de lokala filer som skapats av appen.
 
-Appen pausar indata från användaren genom att anropa `System.console().readLine()` innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna faktiskt har skapats korrekt innan de tas bort.
+Appen pausar indata från användaren genom att anropa `System.console().readLine()` innan den tar bort BLOB, container och lokala filer. Det här är en bra chans att verifiera att resurserna har skapats korrekt innan de tas bort.
 
 Lägg till den här koden i slutet av `Main`-metoden:
 
@@ -363,4 +355,4 @@ Om du vill se exempel appar för Blob Storage fortsätter du till:
 > [Azure Blob Storage SDK V12 Java-exempel](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Läs mer i [Azure SDK för Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
-* För självstudier, exempel, snabb starter och annan dokumentation går du till [Azure för Java-utvecklare](/azure/java/).
+* För självstudier, exempel, snabb starter och annan dokumentation går du till [Azure för Java-moln utvecklare](/azure/java/).

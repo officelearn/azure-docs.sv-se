@@ -4,15 +4,15 @@ description: Lär dig hur du hanterar databas roller och användare på en Analy
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147005"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901486"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
 
@@ -44,10 +44,10 @@ När du skapar ett tabell modell projekt skapar du roller och lägger till anvä
   
     |Behörighet|Beskrivning|  
     |----------------|-----------------|  
-    |**Alternativet**|Medlemmar kan inte ändra modell schema och kan inte fråga efter data.|  
+    |**Inga**|Medlemmar kan inte läsa eller ändra modell schemat och kan inte fråga efter data.|  
     |**Läsa**|Medlemmar kan fråga data (baserat på rad filter) men inte ändra modell schema.|  
     |**Läsa och bearbeta**|Medlemmar kan fråga data (baserat på rad nivå filter) och köra process och bearbeta alla åtgärder, men kan inte ändra modell schemat.|  
-    |**Uppgraderingen**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att ändra modell schema och kan inte fråga efter data.|  
+    |**Uppgraderingen**|Medlemmar kan köra process och bearbeta alla åtgärder. Det går inte att läsa eller ändra modell schema och kan inte fråga efter data.|  
     |**Administratörstoken**|Medlemmar kan ändra modell schemat och fråga alla data.|   
   
 5.  Om rollen som du skapar har Läs-eller Läs-och process behörighet kan du lägga till rad filter med hjälp av en DAX-formel. Klicka på fliken **rad filter** , Välj en tabell och klicka sedan på fältet **DAX-filter** och skriv sedan en DAX-formel.

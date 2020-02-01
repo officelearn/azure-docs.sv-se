@@ -6,29 +6,29 @@ author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
 ms.author: mhopkins
-ms.date: 08/29/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 7d481b115650c72df95f7516bb3b39411201bf83
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 257af309ebdb9080c3cd60b8b89a2c992ecf5145
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75862908"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906499"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# <a name="quickstart-upload-list-and-delete-blobs-using-azure-storage-v10-sdk-for-javascripthtml-in-the-browser"></a>Snabb start: Ladda upp, lista och ta bort blobar med Azure Storage v10 SDK för Java Script/HTML i webbläsaren
+# <a name="quickstart-manage-blobs-with-javascript-v10-sdk-in-browser"></a>Snabb start: hantera blobbar med Java Script v10 SDK i webbläsare
 
-I den här snabb starten lär du dig att [Azure Storage använda v10 SDK-för Java Script-BLOB-](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) bibliotek för att hantera blobbar från JavaScript-kod som körs helt i webbläsaren. Den metod som används här visar hur du tillämpar de säkerhetsåtgärder som krävs för att garantera säker åtkomst till bloblagringskontot.
+I den här snabb starten lär du dig att hantera blobbar med hjälp av JavaScript-kod som körs helt i webbläsaren. Blobbar är objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Du använder nödvändiga säkerhets åtgärder för att säkerställa skyddad åtkomst till ditt Blob Storage-konto.
 
 ## <a name="prerequisites"></a>Krav
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
-
-Klient biblioteken för Azure Storage Java Script fungerar inte direkt från fil systemet och måste hanteras från en webb server. I det här avsnittet används [Node. js](https://nodejs.org) för att starta en grundläggande Server. Om du föredrar att inte installera noden kan du använda andra sätt att köra en lokal webb server.
-
-Om du vill följa stegen för fel sökning behöver du [Visual Studio Code](https://code.visualstudio.com) och antingen [fel söknings programmet för Chrome](vscode:extension/msjsdiag.debugger-for-chrome) eller [fel sökning för Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) -tillägg.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Ett Azure Storage-konto. [Skapa ett lagringskonto](../common/storage-account-create.md).
+- En lokal webb server. Den här artikeln använder [Node. js](https://nodejs.org) för att öppna en grundläggande Server.
+- [Visual Studio Code](https://code.visualstudio.com).
+- Ett VS Code-tillägg för fel sökning av webbläsare, till exempel [fel sökning för Chrome](vscode:extension/msjsdiag.debugger-for-chrome) eller [fel sökning för Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge).
 
 ## <a name="setting-up-storage-account-cors-rules"></a>Ställa in CORS-regler för lagringskonto
 

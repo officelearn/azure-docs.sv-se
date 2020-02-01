@@ -382,6 +382,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
     - name: Cookie-definitioner
       href: cookie-definitions.md
+      displayName: 'cookies, SameSite'
     - name: Felkoder
       href: error-codes.md
     - name: Regionstillgänglighet och dataplacering

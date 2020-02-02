@@ -2,17 +2,17 @@
 title: Vad är Azure Privat DNS?
 description: I den här artikeln kom igång med en översikt över den privata DNS-värdservern på Microsoft Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
-ms.author: allensu
-ms.openlocfilehash: 2e457dcccfd89d2dcf94a0cc3728cfee9bb1a611
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 97b266398b3ea46d09b04524dad34922f21b1a95
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210639"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939287"
 ---
 # <a name="what-is-azure-private-dns"></a>Vad är Azure Privat DNS?
 
@@ -27,7 +27,7 @@ Om du vill matcha poster i en privat DNS-zon från det virtuella nätverket mås
 > [!NOTE]
 > Vi rekommenderar att du inte använder en *. lokal* domän för din privata DNS-zon. Det är inte alla operativ system som har stöd för detta.
 
-## <a name="benefits"></a>Fördelar
+## <a name="benefits"></a>Erbjudande
 
 Azure Privat DNS ger följande fördelar:
 
@@ -45,7 +45,7 @@ Azure Privat DNS ger följande fördelar:
 
 * **Tillgängligt i alla Azure-regioner**. Funktionen Azure DNS privata zoner är tillgänglig i alla Azure-regioner i det offentliga Azure-molnet.
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>Kapacitet
 
 Azure DNS tillhandahåller följande funktioner:
 
@@ -64,7 +64,7 @@ Azure DNS har följande begränsningar:
 * Omvänd DNS för en privat IP-adress för ett länkat virtuellt nätverk returnerar *Internal.cloudapp.net* som standard suffix för den virtuella datorn. För virtuella nätverk som är länkade till en privat zon med autoregistrering aktive rad returnerar omvänd DNS för en privat IP-adress två FQDN: en med standard suffixet *Internal.cloudapp.net* och ett annat med suffixet för den privata zonen.
 * Villkorlig vidarebefordran stöds inte för närvarande. För att aktivera matchning mellan Azure och lokala nätverk. Se [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
-## <a name="pricing"></a>Priser
+## <a name="pricing"></a>Prissättning
 
 Information om priser finns i [Azure DNS priser](https://azure.microsoft.com/pricing/details/dns/).
 

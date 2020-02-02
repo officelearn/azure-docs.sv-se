@@ -7,12 +7,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 58dd53d9380448f177da48659b4f48c261bcfc14
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f5d98ecdac3acacda2b592f88e7db45dc181e8da
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745431"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934465"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -26,14 +26,16 @@ Några exempel på vad du kan göra med Azure Monitor är:
 - Stöd åtgärder i stor skala med [smarta aviseringar](platform/alerts-smartgroups-overview.md) och [automatiserade åtgärder](platform/alerts-action-rules.md).
 - Skapa visualiseringar med Azure- [instrumentpaneler](learn/tutorial-logs-dashboards.md) och [arbets böcker](app/usage-workbooks.md).
 
-## <a name="overview"></a>Översikt
-I följande diagram ges en översikt över Azure Monitor på hög nivå. I diagrammets centrum finns data lager för mått och loggar, som är de två grundläggande data typerna som används av Azure Monitor. Till vänster visas [källorna till de övervaknings data](platform/data-sources.md) som finns i dessa [data lager](platform/data-platform.md). Till höger finns olika funktioner som Azure Monitor utför med dessa insamlade data, till exempel analys, aviseringar och strömning i externa system.
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
+## <a name="overview"></a>Översikt
+
+Följande diagram ger en överblick på hög nivå av Azure Monitor. I diagrammets centrum finns data lager för mått och loggar, som är de två grundläggande data typerna som används av Azure Monitor. Till vänster visas [källorna till de övervaknings data](platform/data-sources.md) som finns i dessa [data lager](platform/data-platform.md). Till höger finns olika funktioner som Azure Monitor utför med dessa insamlade data, till exempel analys, aviseringar och strömning i externa system.
 
 ![Översikt över Azure Monitor](media/overview/overview.png)
 
-
 ## <a name="monitoring-data-platform"></a>Övervaknings data plattform
+
 Alla data som samlas in av Azure Monitor passar in i en av två grundläggande typer, [mått och loggar](platform/data-platform.md). [Mått](platform/data-platform-metrics.md) är numeriska värden som beskriver någon aspekt av ett system vid en viss tidpunkt. De är enkel och kan stödja scenarier i nästan realtid. [Loggar](platform/data-platform-logs.md) innehåller olika typer av data som är ordnade i poster med olika uppsättningar egenskaper för varje typ. Telemetri, till exempel händelser och spårningar lagras som loggar dessutom till prestandadata så att den kan alla kombineras för analys.
 
 För många Azure-resurser kommer du att se data som samlas in av Azure Monitor direkt på sidan Översikt i Azure Portal. Ta en titt på vilken virtuell dator som helst, så ser du till exempel flera diagram som visar prestanda mått. Klicka på något av diagrammen för att öppna data i [mått Utforskaren](platform/metrics-charts.md) i Azure Portal, vilket gör att du kan skapa diagram över värdena för flera mått över tid.  Du kan visa diagrammen interaktivt eller fästa dem på en instrumentpanel för att visa dem med andra visualiseringar.
@@ -46,11 +48,12 @@ Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/
 
 ![Loggar](media/overview/logs.png)
 
-## <a name="what-data-does-azure-monitor-collect"></a>Vilka data samlar Azure Monitor in?
-Azure Monitor kan samla in data från olika källor. Övervakningen av data för dina program sker i nivåer – från ditt program, operativsystemet och de tjänster som det använder, till själva plattformen. Azure Monitor samlar in data från var och en av följande nivåer:
+## <a name="what-data-does-azure-monitor-collect"></a>Vilka data Azure Monitor samlas in?
+
+Azure Monitor kan samla in data från olika källor. Du kan tänka på att övervaka data för dina program på nivåer som sträcker sig från ditt program, vilket operativ system och vilka tjänster den förlitar sig på, ned till själva plattformen. Azure Monitor samlar in data från var och en av följande nivåer:
 
 - **Program övervaknings data**: data om prestanda och funktioner i den kod som du har skrivit, oavsett plattform.
-- **Övervaknings data för gäst operativ**system: data om det operativ system som programmet körs på. Det kan köras i Azure, i ett annat moln eller lokalt. 
+- **Övervaknings data för gäst operativ**system: data om det operativ system som programmet körs på. Detta kan köras i Azure, ett annat moln eller lokalt. 
 - **Azure-resurs övervaknings data**: data om driften av en Azure-resurs.
 - **Övervaknings data för Azure-prenumeration**: data om drift och hantering av en Azure-prenumeration, samt data om hälso tillståndet och driften av Azure. 
 - **Azure-klient övervaknings data**: data om driften av Azure-tjänster på klient nivå, till exempel Azure Active Directory.
@@ -62,9 +65,8 @@ Utöka de data som du samlar in i den faktiska åtgärden för resurserna genom 
 Aktivera övervakning för ditt [app Services program](app/azure-web-apps.md) eller en [virtuell dator och ett program för skalnings uppsättning för virtuella datorer](app/azure-vm-vmss-apps.md), så att Application Insights kan samla in detaljerad information om ditt program, inklusive sid visningar, program begär Anden och undantag. Kontrol lera att programmet är tillgängligt genom att konfigurera ett [tillgänglighets test](app/monitor-web-app-availability.md) för att simulera användar trafik.
 
 ### <a name="custom-sources"></a>Anpassade källor
+
 Azure Monitor kan samla in loggdata från alla REST-klienter med hjälp av [API: et för data insamling](platform/data-collector-api.md). På så sätt kan du skapa anpassade övervaknings scenarier och utöka övervakningen till resurser som inte visar telemetri via andra källor.
-
-
 
 ## <a name="insights"></a>Insikter
 Övervaknings data är bara användbara om det kan öka din insyn i driften av din dator miljö. Azure Monitor innehåller flera funktioner och verktyg som ger värdefulla insikter om dina program och andra resurser som de är beroende av. [Övervakning av lösningar](insights/solutions.md) och funktioner som [Application Insights](app/app-insights-overview.md) och [Azure Monitor för behållare](insights/container-insights-overview.md) ger djupgående insikter om olika aspekter av programmet och specifika Azure-tjänster. 

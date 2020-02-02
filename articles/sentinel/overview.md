@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: 964ba16fb7421c58f43d8b7d0d0d96f5cd377579
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5f3a8fa7b9619958db1d7213236e27d00b417c54
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261865"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939121"
 ---
 # <a name="what-is-azure-sentinel"></a>Vad är Azure Sentinel?
 
@@ -37,17 +37,17 @@ Azure Sentinel är din fåglar – ögon visning i hela företaget, vilket minsk
 
 - **Svara på incidenter snabbt** med inbyggd samordning och automatisering av vanliga uppgifter.
 
-
 ![Azure Sentinel Core-funktioner](./media/overview/core-capabilities.png)
 
 Genom att skapa ett fullständigt utbud av befintliga Azure-tjänster, har Azure Sentinel inbyggd inblandning som är beprövad som Log Analytics och Logic Apps. Azure Sentinel berikar undersökningen och identifieringen med AI och tillhandahåller Microsofts hot informations ström och gör att du kan ta med din egen Hot information. 
 
- 
 ## <a name="connect-to-all-your-data"></a>Anslut till alla dina data
 
 För att kunna använda Azure Sentinel måste du först [ansluta till dina säkerhets källor](connect-data-sources.md). Azure Sentinel levereras med ett antal anslutningar för Microsoft-lösningar, som är tillgängliga direkt och ger real tids integrering, inklusive Microsoft Threat Protection-lösningar och Microsoft 365 källor, inklusive Office 365, Azure AD, Azure ATP och Microsoft Cloud App Security med mera. Dessutom finns det inbyggda anslutnings program till det bredare säkerhets eko systemet för lösningar som inte kommer från Microsoft. Du kan också använda vanliga händelse format, syslog eller REST-API för att ansluta dina data källor med Azure Sentinel.  
 
 ![Data insamlare](./media/collect-data/collect-data-page.png)
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="workbooks"></a>Arbetsböcker
 
@@ -55,7 +55,7 @@ När du har [anslutit data källorna](quickstart-onboard.md) till Azure Sentin
 
 ![Instrumentpaneler](./media/tutorial-monitor-data/access-workbooks.png)
 
-## <a name="analytics"></a>Analys
+## <a name="analytics"></a>Analyser
 
 För att hjälpa dig att minska bruset och minimera antalet aviseringar som du måste granska och undersöka, använder Azure Sentinel [analyser för att korrelera aviseringar till incidenter](tutorial-detect-threats-built-in.md). **Incidenter** är grupper med relaterade aviseringar som tillsammans skapar ett åtgärds möjligt hot som du kan undersöka och lösa. Använd de inbyggda korrelations reglerna som de är, eller Använd dem som start punkt för att skapa en egen. Azure Sentinel tillhandahåller också maskin inlärnings regler som mappar ditt nätverks beteende och letar efter avvikelser i dina resurser. Dessa analyser ansluter punkterna, genom att kombinera aviseringar med låg kvalitet på olika enheter i potentiella säkerhets incidenter med hög kvalitet.
 
@@ -92,5 +92,5 @@ Azure Sentinel community är en kraftfull resurs för hot identifiering och auto
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att komma igång med Azure Sentinel behöver du en prenumeration på Microsoft Azure. Om du inte har någon prenumeration kan du registrera dig för en [kostnadsfri utvärderingsversion](https://azure.microsoft.com/free/).
+- För att komma igång med Azure Sentinel behöver du en prenumeration på Microsoft Azure. Om du inte har en prenumeration kan du registrera dig för en [gratis provversion](https://azure.microsoft.com/free/).
 - Lär dig hur du kan [publicera dina data till Azure Sentinel](quickstart-onboard.md)och [få insyn i dina data och potentiella hot](quickstart-get-visibility.md).

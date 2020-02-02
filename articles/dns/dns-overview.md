@@ -1,17 +1,17 @@
 ---
 title: Vad är Azure DNS?
 description: Översikt över DNS-värdtjänst på Microsoft Azure. Värd för din domän på Microsoft Azure.
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
-ms.author: allensu
-ms.openlocfilehash: 6abdc48187950d9605bdc47b1c5d4f00e4e181f0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 1543c0daae7d637730a5f8f9da2305423ba7f84e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211331"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932408"
 ---
 # <a name="what-is-azure-dns"></a>Vad är Azure DNS?
 
@@ -41,7 +41,7 @@ Mer information finns i [Så skyddar du DNS-zoner och -poster](dns-protect-zones
 
 Azure DNS stöder för närvarande inte DNSSEC. I de flesta fall kan du minska behovet av DNSSEC genom att konsekvent använda HTTPS/TLS i dina program. Om DNSSEC är ett kritiskt krav för dina DNS-zoner kan du vara värd för dessa zoner med DNS-leverantörer från tredje part.
 
-## <a name="ease-of-use"></a>Användarvänlighet
+## <a name="ease-of-use"></a>Enkel användning
 
  Azure DNS kan hantera DNS-poster för dina Azure-tjänster och tillhandahåller DNS för dina externa resurser. Azure DNS är integrerat i Azure-portalen och använder samma autentiseringsuppgifter, supportkontrakt och fakturering som dina andra Azure-tjänster. 
 

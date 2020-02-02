@@ -2,17 +2,17 @@
 title: Snabb start – skapa en privat Azure-DNS-zon med hjälp av Azure Portal
 description: I den här snabb starten skapar och testar du en privat DNS-zon och-post i Azure DNS. Det här är en steg-för-steg-guide om hur du skapar och hanterar din första privata DNS-zon och-post med hjälp av Azure Portal.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
-ms.author: allensu
-ms.openlocfilehash: 48c5684dd491a91b6da212f78c535433ac2aecf7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8391d92a2e2970378c11c043ca9f5d4f6dc44696
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210758"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939370"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure Portal
 
@@ -181,5 +181,5 @@ När de inte längre behövs tar du bort resurs gruppen **MyAzureResourceGroup**
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Scenarier med Azure DNS Private Zones](private-dns-scenarios.md)
+> [Azure DNS Private Zones scenarier](private-dns-scenarios.md)
 

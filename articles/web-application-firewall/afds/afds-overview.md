@@ -5,20 +5,22 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 11/23/2019
+ms.date: 02/01/2020
 ms.author: victorh
-ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 925b859de28b8878412ee99402ffd727edcc4e7c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406219"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934728"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Web Application-brandvägg i Azures front dörr
 
-Azure brand vägg för webbaserade program (WAF) i Azures front dörr tillhandahåller centraliserat skydd för dina webb program som levereras globalt med Azures front dörr. Den är utformad och drivs för att skydda dina webbtjänster mot vanliga kryphål och säkerhetsproblem och se till att din tjänst har hög tillgänglighet för dina användare förutom att den hjälper dig att uppfylla efterlevnadskrav.
+Azure Web Application Firewall (WAF) på Azure-frontend tillhandahåller centraliserat skydd för dina webb program. WAF skyddar dina webb tjänster mot vanliga sårbarheter och sårbarheter. Tjänsten håller din tjänst hög tillgänglig för dina användare och hjälper dig att uppfylla kraven för efterlevnad.
 
-WAF på front dörren är en global och centraliserad lösning. Den distribueras på Azures nätverks gräns platser över hela världen och varje inkommande begäran för ett WAF-aktiverat webb program som levereras av front dörren inspekteras i nätverks kanten. Detta gör att WAF förhindrar skadliga attacker nära angrepps källorna innan de går in i ditt virtuella nätverk och erbjuder globalt skydd i skala utan att offra prestanda. En WAF-princip kan enkelt länkas till en profil för en front dörr i din prenumeration och nya regler kan distribueras på några minuter, så att du snabbt kan svara på att ändra hot mönster.
+WAF på front dörren är en global och centraliserad lösning. Den distribueras på Azures nätverks gräns platser runtom i världen. WAF-aktiverade webb program inspekterar varje inkommande begäran som levererats av front dörren vid nätverks kanten. 
+
+WAF förhindrar skadliga attacker nära angrepps källorna innan de anger ditt virtuella nätverk. Du får globalt skydd i skala utan att offra prestanda. En WAF-princip länkar enkelt till en profil för klient del dörren i din prenumeration. Nya regler kan distribueras inom några minuter, så du kan snabbt svara på att ändra hot mönster.
 
 ![Brand vägg för Azure-webbprogram](../media/overview/wafoverview.png)
 
@@ -32,7 +34,7 @@ Du kan konfigurera en WAF-princip och associera principen till en eller flera fr
 
 När båda finns bearbetas anpassade regler innan reglerna bearbetas i en hanterad regel uppsättning. En regel består av ett matchnings villkor, en prioritet och en åtgärd. De åtgärds typer som stöds är: Tillåt, blockera, logga och OMDIRIGERA. Du kan skapa en helt anpassad princip som uppfyller dina specifika krav för program skydd genom att kombinera de hanterade och anpassade reglerna.
 
-Regler i en princip bearbetas i en prioriterad ordning där prioritet är ett unikt heltal som definierar ordningen för regler som bearbetas. Mindre heltals värde anger högre prioritet och de utvärderas före regler med ett högre heltals värde. När en regel har matchats tillämpas motsvarande åtgärd som definierats i regeln för begäran. När en sådan matchning bearbetas bearbetas inte regler med lägre prioritet ytterligare.
+Regler i en princip bearbetas i en prioritetsordning. Prioritet är ett unikt heltal som definierar ordningen på regler som ska bearbetas. Mindre heltal anger en högre prioritet och dessa regler utvärderas innan regler med ett högre heltals värde. När en regel har matchats tillämpas motsvarande åtgärd som definierats i regeln för begäran. När en sådan matchning bearbetas bearbetas inte regler med lägre prioritet ytterligare.
 
 Ett webb program som levereras av front dörren kan bara ha en WAF-princip kopplad till sig i taget. Du kan dock ha en konfiguration för en front dörr utan några WAF-principer. Om det finns en WAF-princip replikeras den till alla våra gräns platser för att säkerställa konsekventa säkerhets principer över hela världen.
 
@@ -40,9 +42,9 @@ Ett webb program som levereras av front dörren kan bara ha en WAF-princip koppl
 
 WAF-principen kan konfigureras att köras i följande två lägen:
 
-- **Identifierings läge:** Vid körning i identifierings läge vidtar WAF inga andra åtgärder än övervakare och loggar begäran och dess matchade WAF-regel till WAF-loggar. Du kan aktivera Logging Diagnostics för front dörr (när du använder portalen kan du göra det genom att gå till avsnittet **diagnostik** i Azure Portal).
+- **Identifierings läge:** Vid körning i identifierings läge tar WAF inte med andra åtgärder än övervakare och loggar begäran och dess matchade WAF-regel till WAF-loggar. Du kan aktivera loggning av diagnostik för front dörren. När du använder portalen går du till avsnittet **diagnostik** .
 
-- **Skydds läge:** När WAF har kon figurer ATS för att köras i förebyggande läge, tar den angivna åtgärden om en begäran matchar en regel och om en matchning hittas utvärderas inga ytterligare regler med lägre prioritet. Alla matchade begär Anden loggas också i WAF-loggarna.
+- **Skydds läge:** I förebyggande läge tar WAF den angivna åtgärden om en begäran matchar en regel. Om en matchning hittas utvärderas inga ytterligare regler med lägre prioritet. Alla matchade begär Anden loggas också i WAF-loggarna.
 
 ## <a name="waf-actions"></a>WAF-åtgärder
 
@@ -61,17 +63,17 @@ En WAF-princip kan bestå av två typer av säkerhets regler – anpassade regle
 
 Du kan konfigurera anpassade regler WAF på följande sätt:
 
-- Lista **över tillåtna IP-listor och blockerade listor:** Du kan konfigurera anpassade regler för att styra åtkomsten till dina webb program baserat på en lista över klient-IP-adresser eller IP-adressintervall. Både IPv4-och IPv6-adress typer stöds. Den här listan kan konfigureras för att antingen blockera eller tillåta de förfrågningar där käll-IP: en motsvarar en IP-adress i listan.
+- Lista **över tillåtna IP-listor och blockerade listor:** Du kan styra åtkomsten till dina webb program baserat på en lista över klient-IP-adresser eller IP-adressintervall. Både IPv4-och IPv6-adress typer stöds. Den här listan kan konfigureras för att antingen blockera eller tillåta de förfrågningar där käll-IP: en motsvarar en IP-adress i listan.
 
-- **Geografisk baserad åtkomst kontroll:** Du kan konfigurera anpassade regler för att styra åtkomsten till dina webb program baserat på den landskod som är kopplad till en klients IP-adress.
+- **Geografisk baserad åtkomst kontroll:** Du kan styra åtkomsten till dina webb program baserat på den landskod som är associerad med klientens IP-adress.
 
-- **Http-parameter-baserad åtkomst kontroll:** Du kan konfigurera anpassade regler baserat på sträng matchnings parametrar för HTTP/HTTPS, till exempel frågesträngar, POST argument, begär ande-URI, begär ande huvud och brödtext.
+- **Http-parameter-baserad åtkomst kontroll:** Du kan basera regler på sträng matchningar i parametrarna för HTTP/HTTPS-begäran.  Till exempel frågesträngar, POST-argument, begär ande-URI, begär ande rubrik och brödtext för begäran.
 
-- **Begär metod baserad åtkomst kontroll:** Du kan konfigurera anpassade regler baserat på HTTP-begärans metod för begäran, till exempel GET, tag eller HEAD.
+- **Begär metod baserad åtkomst kontroll:** Du baserade regler för HTTP-begäran i begäran. Till exempel GET, tag eller HEAD.
 
-- **Storleks begränsning:** Du kan konfigurera anpassade regler baserat på längden på vissa delar av en begäran, till exempel frågesträng, URI eller brödtext i begäran.
+- **Storleks begränsning:** Du kan basera regler på längden på vissa delar av en begäran, till exempel frågesträng, URI eller brödtext i begäran.
 
-- **Hastighets begränsnings regler:** En hastighets kontroll regel är att begränsa onormal hög trafik från alla klient-IP-adresser. Du kan konfigurera ett tröskelvärde för antalet webb förfrågningar som tillåts från en klient-IP under en minuts varaktighet. Detta skiljer sig från en anpassad regel för att tillåta/blockera en IP-lista som antingen tillåter alla eller blockerar all begäran från en klient-IP. Hastighets begränsning kan kombineras med ytterligare matchnings villkor, till exempel HTTP (S) parametrar som matchar en detaljerad hastighets kontroll.
+- **Hastighets begränsnings regler:** En hastighets kontroll regel är att begränsa onormal hög trafik från alla klient-IP-adresser. Du kan konfigurera ett tröskelvärde för antalet webb förfrågningar som tillåts från en klient-IP under en minuts varaktighet. Den här regeln är distinkt från en lista över tillåtna/blockerade IP-adresser som antingen tillåter alla eller blockerar all begäran från en klient-IP. Hastighets begränsningar kan kombineras med ytterligare matchnings villkor, t. ex. HTTP (S)-parameter matchningar för detaljerad hastighets kontroll.
 
 ### <a name="azure-managed-rule-sets"></a>Azure-hanterade regel uppsättningar
 
@@ -87,14 +89,24 @@ Azure-hanterade regel uppsättningar ger ett enkelt sätt att distribuera skydd 
 - Skydd mot SQL-inmatning
 - Protokoll angripare
 
-Versions numret för standard regel uppsättningen kommer att öka när nya angrepps signaturer läggs till i regel uppsättningen.
-Standard regel uppsättningen är aktive rad som standard i identifierings läge i dina WAF-principer. Du kan inaktivera eller aktivera enskilda regler inom standard regel uppsättningen för att uppfylla dina program krav. Du kan också ange specifika åtgärder (Tillåt/blockera/OMDIRIGERA/logga) per regel. Standard åtgärd är att blockera. Dessutom kan anpassade regler konfigureras i samma WAF-princip om du vill kringgå någon av de förkonfigurerade reglerna i standard regel uppsättningen.
-Anpassade regler tillämpas alltid innan regler i standard regel uppsättningen utvärderas. Om en begäran matchar en anpassad regel tillämpas motsvarande regel åtgärd och begäran blockeras eller skickas vidare till Server del, utan att några ytterligare anpassade regler eller regler anges i standard regel uppsättningen. Dessutom kan du välja att ta bort standard regel uppsättningen från dina WAF-principer.
+Versions numret för standard regel uppsättningen ökar när nya angrepps signaturer läggs till i regel uppsättningen.
+Standard regel uppsättningen är aktive rad som standard i identifierings läge i dina WAF-principer. Du kan inaktivera eller aktivera enskilda regler inom standard regel uppsättningen för att uppfylla dina program krav. Du kan också ange specifika åtgärder (Tillåt/blockera/OMDIRIGERA/logga) per regel.
 
+Standard åtgärden är att blockera. Dessutom kan anpassade regler konfigureras i samma WAF-princip om du vill kringgå någon av de förkonfigurerade reglerna i standard regel uppsättningen.
+
+Anpassade regler tillämpas alltid innan regler i standard regel uppsättningen utvärderas. Om en begäran matchar en anpassad regel tillämpas motsvarande regel åtgärd. Begäran är antingen blockerad eller passerad till Server delen. Inga andra anpassade regler eller reglerna i standard regel uppsättningen bearbetas. Du kan också ta bort standard regel uppsättningen från dina WAF-principer.
 
 ### <a name="bot-protection-rule-set-preview"></a>Regel uppsättning för bot skydd (för hands version)
 
-En regel uppsättning för hanterad bot-skydd kan aktive ras för din WAF för att vidta anpassade åtgärder för förfrågningar från kända robot kategorier. Det finns tre robot kategorier som stöds: felaktig robotar, bra robotar och okänd robotar. Robot-signaturer hanteras och uppdateras dynamiskt av WAF-plattformen. Skadliga IP-adresser för dåliga robotar har en källa från Microsoft Threat Intelligence-flödet. [Intelligent Security graphs](https://www.microsoft.com/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center. Robotar är godkända sökmotorer. Okända kategorier innehåller ytterligare bot-grupper. Du kan ange anpassade åtgärder för att blockera, tillåta, logga eller omdirigera för olika typer av robotar.
+Du kan aktivera en skydds regel för hanterad bot för att vidta anpassade åtgärder för förfrågningar från kända robot kategorier. 
+
+Det finns tre robot kategorier som stöds: dåligt, bra och okänd. Robot-signaturer hanteras och uppdateras dynamiskt av WAF-plattformen.
+
+Felaktiga robotar omfattar robotar från skadliga IP-adresser och robotar som har förfalskat sina identiteter. Skadliga IP-adresser skickas från Microsoft Threat Intelligence-flödet och uppdateras varje timme. [Intelligent Security graphs](https://www.microsoft.com/security/operations/intelligence) befogenheter Microsoft Threat intelligence och används av flera tjänster, inklusive Azure Security Center.
+
+Robotar är godkända sökmotorer. Okända kategorier innehåller ytterligare bot-grupper som har identifierats som robotar. Till exempel marknads analys, flödes hämtning och data insamlings agenter. 
+
+Okända robotar klassificeras via publicerade användar agenter utan ytterligare verifiering. Du kan ange anpassade åtgärder för att blockera, tillåta, logga eller omdirigera för olika typer av robotar.
 
 ![Regel uppsättning för bot-skydd](../media/afds-overview/botprotect2.png)
 
@@ -105,7 +117,7 @@ Om bot-skydd är aktiverat loggas inkommande begär Anden som matchar bot-regler
 
 ## <a name="configuration"></a>Konfiguration
 
-Att konfigurera och distribuera alla WAF regel typer stöds fullt ut med Azure Portal, REST API: er, Azure Resource Manager mallar och Azure PowerShell.
+Du kan konfigurera och distribuera alla typer av WAF med hjälp av Azure Portal, REST-API: er, Azure Resource Manager mallar och Azure PowerShell.
 
 ## <a name="monitoring"></a>Övervakning
 

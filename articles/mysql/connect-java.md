@@ -8,29 +8,33 @@ ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 12/02/2019
-ms.openlocfilehash: 5f463434261dd782bb180f55986cc0f05c71cbe9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18a61c215f6c10bb399beaa83ec53ad2ebc62970
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770755"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938973"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>Snabb start: Använd Java för att ansluta till och fråga efter data i Azure Database for MySQL
 
-Den här snabb starten visar hur du ansluter till en Azure Database for MySQL med hjälp av ett Java-program och JDBC [-drivrutinen MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Den här artikeln förutsätter att du är van att utveckla i Java och att du saknar erfarenhet av Azure Database for MySQL.
+I den här snabb starten ansluter du till en Azure Database for MySQL med hjälp av ett Java-program och JDBC-drivrutinen MariaDB Connector/J. Sedan använder du SQL-uttryck för att fråga, infoga, uppdatera och ta bort data i databasen från Mac, Ubuntu Linux och Windows-plattformar. 
+
+Det här avsnittet förutsätter att du är bekant med att utveckla med Java, men du är inte nybörjare på att arbeta med Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav
-1. I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
-   - [Skapa en Azure Database för MySQL med Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md)
-   - [Skapa en Azure Database för MySQL-server med Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-2. Se till att säkerhetsinställningarna för Azure Database för MySQL-anslutning konfigureras med brandväggen öppen och att SSL-inställningarna justeras så att programmet kan ansluta.
+- Ett Azure-konto med en aktiv prenumeration. [Skapa ett konto kostnads fritt](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- En Azure Database for MySQL-server. [Skapa en Azure Database for MySQL-server med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md) eller [skapa en Azure Database for MySQL-server med Azure CLI](quickstart-create-mysql-server-database-using-azure-cli.md).
+- Azure Database for MySQL anslutnings säkerhet konfigureras med brand väggen öppnad och SSL-anslutnings inställningar som kon figurer ATS för programmet.
 
-3. Hämta MariaDB Connector/J-anslutningen med någon av följande metoder:
+## <a name="obtain-the-mariadb-connector"></a>Hämta MariaDB-anslutningen
+
+Hämta [MariaDB Connector/J-](https://mariadb.com/kb/en/library/mariadb-connector-j/) anslutningen med någon av följande metoder:
    - Använd Maven-paketet [MariaDB-Java-client](https://search.maven.org/search?q=a:mariadb-java-client) för att inkludera [MariaDB-Java-client-beroendet](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) i Pom-filen för projektet.
-   - Hämta JDBC-drivrutinen [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) och ta med JDBC jar-filen (till exempel MariaDB-Java-client-2.4.3. jar) till din program-classpath. Om du har problem med klassökvägar kan du läsa dokumentationen för miljön för information om klassens sökväg, till exempel [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) eller [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
+   - Hämta JDBC-drivrutinen [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) och ta med JDBC jar-filen (till exempel MariaDB-Java-client-2.4.3. jar) i sökvägen till program klassen. Se din miljös dokumentation för information om klass Sök vägar, till exempel [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) eller [Java se](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
 ## <a name="get-connection-information"></a>Hämta anslutningsinformation
+
 Skaffa den information som du behöver för att ansluta till Azure Database för MySQL. Du behöver det fullständiga servernamnet och inloggningsuppgifter.
 
 1. Logga in på [Azure-portalen](https://portal.azure.com/).
@@ -40,7 +44,8 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
  ![Azure Database för MySQL-servernamn](./media/connect-java/azure-database-mysql-server-name.png)
 
 ## <a name="connect-create-table-and-insert-data"></a>Ansluta, skapa tabell och infoga data
-Använd följande kod för att ansluta och läsa in data med hjälp av en funktion med SQL-instruktionen **INFOGA**. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL. Metoderna [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) och execute() används för att släppa och skapa tabellen. Objektet prepareStatement används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden executeUpdate() infogar värdena genom att kommandot körs för varje uppsättning parametrar. 
+
+Använd följande kod för att ansluta och läsa in data med hjälp av en funktion med en **INSERT**-SQL-instruktion. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL. Metoderna [createStatement()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) och execute() används för att släppa och skapa tabellen. Objektet prepareStatement används för att skapa infogningskommandon och setString() och setInt() används för att binda parametervärdena. Metoden executeUpdate() infogar värdena genom att kommandot körs för varje uppsättning parametrar. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
 
@@ -142,6 +147,7 @@ public class CreateTableInsertRows {
 ```
 
 ## <a name="read-data"></a>Läsa data
+
 Använd följande kod för att läsa in data med en **SELECT**-SQL-instruktion. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL. Metoderna [createStatement ()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#creating-a-table-on-a-mariadb-or-mysql-server) och executeQuery () används för att ansluta och köra SELECT-instruktionen. Resultaten bearbetas med ett ResultSet-objekt. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
@@ -229,6 +235,7 @@ public class ReadTable {
 ```
 
 ## <a name="update-data"></a>Uppdatera data
+
 Använd följande kod för att ändra data med en **UPDATE**-SQL-instruktion. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL. Metoderna [prepareStatement()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) och executeUpdate() används för att förbereda och köra update-instruktionen. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.
@@ -311,6 +318,7 @@ public class UpdateTable {
 ```
 
 ## <a name="delete-data"></a>Ta bort data
+
 Använd följande kod för att ta bort data med en **DELETE**-SQL-instruktion. Metoden [getConnection()](https://mariadb.com/kb/en/library/about-mariadb-connector-j/#using-drivermanager) används för att ansluta till MySQL.  Metoderna [prepareStatement ()](https://docs.oracle.com/javase/tutorial/jdbc/basics/prepared.html) och executeUpdate () används för att förbereda och köra Delete-instruktionen. 
 
 Ersätt parametrarna host, database, user och password med de värden som du angav när du skapade din server och databas.

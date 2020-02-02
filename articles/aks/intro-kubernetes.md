@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 05/06/2019
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5515951a9bde596935f4c603ffd9e088f74dee45
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: c98e67d174c3c8b7fc426e1dd2c5ebafd6760969
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615168"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932615"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -24,6 +24,8 @@ Du kan skapa ett AKS-kluster i Azure-portalen med Azure CLI eller ett malldrivet
 Mer information om grunderna i Kubernetes finns i [Kubernetes Core Concepts for AKS][concepts-clusters-workloads].
 
 Kom igång genom att slutföra snabb starten av AKS [i Azure Portal][aks-portal] eller [med Azure CLI][aks-cli].
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="access-security-and-monitoring"></a>Åtkomst, säkerhet och övervakning
 
@@ -39,7 +41,7 @@ Om du vill skydda dina AKS-kluster kan du läsa [integrera Azure Active Director
 
 ### <a name="integrated-logging-and-monitoring"></a>Integrerad loggning och övervakning
 
-Azure Monitor för hälsotillstånd för behållare samlar in minne och mått från behållare, noder och styrenheter för att förstå hur dina AKS-kluster och distribuerade program fungerar. Behållar loggar är tillgängliga och du kan också [Granska Kubernetes huvud loggar][aks-master-logs]. Övervakningsdata lagras i Azure Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
+Azure Monitor för hälsotillstånd för containrar samlar in minne och mått från containrar, noder och styrenheter för att förstå hur dina AKS-kluster och distribuerade program fungerar. Behållar loggar är tillgängliga och du kan också [Granska Kubernetes huvud loggar][aks-master-logs]. Övervakningsdata lagras i Azure Log Analytics-arbetsytan och är tillgänglig via Azure Portal, Azure CLI eller en REST-slutpunkt.
 
 Mer information finns i [övervaka Azure Kubernetes service container Health][container-health].
 
@@ -97,7 +99,7 @@ Azure DevOps-projektet tillhandahåller en enkel lösning för att ta befintlig 
 
 Mer information finns i [Azure DevOps Project][azure-devops].
 
-## <a name="docker-image-support-and-private-container-registry"></a>Stöd för docker-avbildning och privat behållarregister
+## <a name="docker-image-support-and-private-container-registry"></a>Stöd för docker-avbildning och privat containerregister
 
 AKS har stöd för Docker-avbildningsformatet. Integrera AKS med Azure Container Registry (ACR) för privat lagring av Docker-avbildningar.
 

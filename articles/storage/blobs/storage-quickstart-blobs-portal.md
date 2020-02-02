@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 7336260d7565697b0559419ae502848bcff9424c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1e5ccc9d427755ea4274e836e81e3e324fffa39d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892863"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937791"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure-portalen
 
@@ -45,13 +45,14 @@ Följ de här stegen för att ladda upp en blockblob till den nya containern i A
 
 1. Navigera till den container som du skapade i föregående avsnitt i Azure Portal.
 2. Välj containern för att visa en lista över blobar som den innehåller. Eftersom den här containern är ny har den ännu inga blobar.
-3. Välja knappen **Ladda upp** för att ladda upp en blob till containern.
-4. Bläddra i det lokala filsystemet för att hitta en fil att ladda upp som en blockblob, och välj **Ladda upp**.
+3. Välj knappen **överför** för att öppna bladet överför
+4. Bläddra i det lokala fil systemet för att hitta en fil som ska laddas upp som en Block-Blob
      
     ![Skärmbild som visar uppladdning av en blob från den lokala disken](media/storage-quickstart-blobs-portal/upload-blob.png)
 
-5. Välj **autentiseringstyp**. Standardinställningen är **SAS**.
-6. Ladda upp så många blobar du vill på det här sättet. Du kan se att de nya blobarna nu visas i listan i containern.
+5. Du kan också expandera avsnittet Avancerat för att definiera andra inställningar, till exempel autentiseringstyp, åtkomst nivå eller sökväg för virtuell mapp.
+6. Välj knappen **överför** för att genomföra uppladdningen
+7. Ladda upp så många blobar du vill på det här sättet. Du kan se att de nya blobarna nu visas i listan i containern.
 
 ## <a name="download-a-block-blob"></a>Ladda ned en blockblob
 

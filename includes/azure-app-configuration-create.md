@@ -3,13 +3,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 12/03/2019
-ms.openlocfilehash: 21811041a25c63bb7542b101812222a9430c20fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 1/31/2020
+ms.openlocfilehash: 017833403beca6fb8689bd6f90cc8f460d56c65e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887631"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961480"
 ---
 1. Om du vill skapa ett nytt konfigurations Arkiv för appen loggar du in på [Azure Portal](https://portal.azure.com). I det övre vänstra hörnet på Start sidan väljer du **skapa en resurs**. I rutan **Sök på Marketplace anger du** **app-konfiguration** och väljer RETUR.
 

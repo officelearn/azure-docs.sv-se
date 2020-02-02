@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
-ms.reviewer: brahmnes
-ms.openlocfilehash: 681190a23fd09402ae96c328b7d98044baf3444e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.reviewer: cweining
+ms.openlocfilehash: 44b4a7bb5910f7f2d89a9f76e21ccfcacda667fb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406397"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932578"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Felsök ögonblicksbilder på undantag i .NET-appar
-Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Felsökning av ögonblicksbild (förhandsversion) i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantagstelemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights portalen.
+Om ett undantag inträffar, kan du automatiskt samla in en felsökning för ögonblicksbilder från ditt webbprogram. Ögonblicksbilden visar tillståndet för källkoden och variabler för tillfället som undantaget uppstod. Snapshot Debugger i [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) övervakar undantags telemetri från din webbapp. Den samlar in ögonblicksbilder i din upp utlöser undantag så att du har den information du behöver att diagnostisera problem i produktionsmiljön. Ta med [Snapshot Collector NuGet-paketet](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) i ditt program och konfigurera sedan samlings parametrar i [ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Ögonblicks bilder visas på [undantag](../../azure-monitor/app/asp-net-exceptions.md) i Application Insights portalen.
 
 Du kan visa de här ögonblicksbilderna i portalen, se anropsstacken och inspektera variablerna på varje nivå av stacken. För att få en mer kraftfull fel söknings upplevelse med källkod öppnar du ögonblicks bilder med Visual Studio 2019 Enterprise. I Visual Studio kan du också [ange Snappoints att interaktivt ta ögonblicksbilder](https://aka.ms/snappoint) utan att behöva vänta ett undantag.
 
@@ -33,7 +33,7 @@ Följande miljöer stöds:
 * [Azure Cloud Services](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som kör OS-familjen 4 eller senare
 * [Azure Service Fabric-tjänster](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som körs på Windows Server 2012 R2 eller senare
 * [Azure-Virtual Machines och skalnings uppsättningar för virtuella datorer som](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) kör Windows Server 2012 R2 eller senare
-* [Lokala virtuella eller fysiska datorer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som kör Windows Server 2012 R2 eller senare
+* [Lokala virtuella eller fysiska datorer](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) som kör Windows Server 2012 R2 eller senare eller Windows 8,1 eller senare
 
 > [!NOTE]
 > Klientprogram (till exempel WPF, Windows-formulär eller UWP) stöds inte.

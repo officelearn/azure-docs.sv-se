@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225289"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934558"
 ---
 # <a name="outbound-connections-in-azure"></a>Utgående anslutningar i Azure
 
@@ -237,7 +237,7 @@ Om du skalar ut till nästa större storleks nivå för backend-poolen finns det
 
 ### <a name="idletimeout"></a>Använd keepalive för att återställa tids gränsen för utgående inaktivitet
 
-Utgående anslutningar har en tids gräns på 4 minuter. Denna timeout är inte justerbar. Du kan dock använda transport (till exempel TCP keepalive) eller keepalive för program lager för att uppdatera ett inaktivt flöde och återställa denna tids gräns vid behov.  
+Utgående anslutningar har en tids gräns på 4 minuter. Denna timeout är justerbar via [utgående regler](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout). Du kan också använda transport (till exempel TCP keepalive) eller keepalive för program lager för att uppdatera ett inaktivt flöde och återställa denna tids gräns vid behov.  
 
 När du använder TCP keepalive-åtgärder räcker det att aktivera dem på ena sidan av anslutningen. Det räcker till exempel att aktivera dem på Server sidan för att återställa flödets inaktivitet och det är inte nödvändigt för båda sidorna att initiera TCP keepalive.  Det finns liknande koncept för program lager, inklusive databas klient server konfiguration.  Kontrol lera Server sidan för vilka alternativ som finns för programspecifika keepalive-objekt.
 

@@ -1,6 +1,6 @@
 ---
-title: Arbets belastningar för behållare – Azure Batch | Microsoft Docs
-description: Lär dig hur du kör program från behållar avbildningar på Azure Batch.
+title: Arbets belastningar för behållare – Azure Batch
+description: Lär dig hur du kör och skalar appar från behållar avbildningar på Azure Batch. Skapa en pool av datornoder som stöder körning av container aktiviteter.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 08/09/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 097ab13ad64477274e756d8e8e93e3614dd1a4e8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 493c9b30f6c7f735d69e113f3f1efe26ca6c1576
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029722"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935051"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Kör behållar program på Azure Batch
 
@@ -23,7 +23,7 @@ Med Azure Batch kan du köra och skala ett stort antal batch-databearbetnings jo
 
 Du bör känna till behållar koncept och hur du skapar en batch-pool och ett jobb. I kod exemplen används batch .NET-och python SDK: er. Du kan också använda andra batch-SDK: er och verktyg, inklusive Azure Portal, för att skapa behållar aktiverade batch-pooler och köra behållar aktiviteter.
 
-## <a name="why-use-containers"></a>Varför använda containrar?
+## <a name="why-use-containers"></a>Varför ska jag använda behållare?
 
 Att använda behållare är ett enkelt sätt att köra batch-uppgifter utan att behöva hantera en miljö och beroenden för att köra program. Behållare distribuerar program som enkla, portabla, självpresterande enheter som kan köras i flera olika miljöer. Du kan till exempel bygga och testa en behållare lokalt och sedan ladda upp behållar avbildningen till ett register i Azure eller någon annan stans. Distributions modellen för behållare säkerställer att körnings miljön för ditt program alltid är korrekt installerad och konfigurerad oavsett var du är värd för programmet. Containerbaserade uppgifter i batch kan också dra nytta av funktioner i icke-container-aktiviteter, inklusive programpaket och hantering av resursfiler och utdatafiler. 
 

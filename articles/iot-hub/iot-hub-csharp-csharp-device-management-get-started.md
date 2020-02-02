@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147838"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939315"
 ---
 # <a name="get-started-with-device-management-net"></a>Kom igång med enhets hantering (.NET)
 
@@ -34,7 +34,7 @@ I slutet av den här självstudiekursen har du två .NET-konsolappar:
 
 * **TriggerReboot**. Den här appen anropar en direkt metod i den simulerade Device-appen, visar svaret och visar uppdaterade egenskaper som rapporteras.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Visual Studio.
 
@@ -68,7 +68,7 @@ I det här avsnittet skapar du en .NET-konsol app med C#, som initierar en fjär
 
 1. I **Solution Explorer**högerklickar du på projektet **TriggerReboot** och väljer sedan **Hantera NuGet-paket**.
 
-1. Välj **Bläddra**och Sök sedan efter och välj **Microsoft. Azure.** Devices. Välj **Installera** för att installera **Microsoft. Azure.** Devices-paketet.
+1. Välj **Bläddra**och Sök sedan efter och välj **Microsoft. Azure. Devices**. Välj **Installera** för att installera **Microsoft. Azure. Devices** -paketet.
 
     ![Fönstret för NuGet-pakethanteraren](./media/iot-hub-csharp-csharp-device-management-get-started/create-trigger-reboot-nuget-devices.png)
 
@@ -81,7 +81,7 @@ I det här avsnittet skapar du en .NET-konsol app med C#, som initierar en fjär
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med IoT Hub anslutnings strängen som du kopierade tidigare i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen. `{iot hub connection string}`
+1. Lägg till följande fält i klassen **Program**. Ersätt `{iot hub connection string}` placeholder-värdet med den IoT Hub anslutnings sträng som du tidigare kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string).
 
    ```csharp
    static RegistryManager registryManager;
@@ -126,7 +126,7 @@ I det här avsnittet skapar du en .NET-konsol app med C#, som initierar en fjär
    Console.ReadLine();
    ```
 
-1. Välj **bygge** > **build-lösning**.
+1. Välj **build** > **build-lösning**.
 
 > [!NOTE]
 > Den här självstudien utför bara en fråga för enhetens rapporterade egenskaper. I produktions kod rekommenderar vi att du avsöker för att identifiera ändringar i de rapporterade egenskaperna.
@@ -164,7 +164,7 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. Lägg till följande fält i klassen **Program**. Ersätt placeholder-värdet med enhets anslutnings strängen som du noterade tidigare i [Registrera en ny enhet i IoT Hub.](#register-a-new-device-in-the-iot-hub) `{device connection string}`
+1. Lägg till följande fält i klassen **Program**. Ersätt `{device connection string}` placeholder-värdet med enhets anslutnings strängen som du noterade tidigare i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```csharp
     static string DeviceConnectionString = "{device connection string}";
@@ -200,7 +200,7 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
            Console.WriteLine("Error in sample: {0}", ex.Message);
        }
 
-       string result = "'Reboot started.'";
+       string result = @"{""result"":""Reboot started.""}";
        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
    }
    ```
@@ -234,9 +234,9 @@ Följ dessa steg om du vill skapa en simulerad enhets app:
 
 1. Högerklicka på din lösning i Solution Explorer och välj **Ange start projekt**.
 
-1. För **vanliga egenskaper** > **Start projekt**väljer du **enstaka start projekt**och väljer sedan **SimulateManagedDevice** -projektet. Spara ändringarna genom att välja **OK**.
+1. För **vanliga egenskaper** > **Start projekt**väljer du **enstaka start projekt**och väljer sedan projektet **SimulateManagedDevice** . Spara ändringarna genom att välja **OK**.
 
-1. Välj **bygge** > **build-lösning**.
+1. Välj **build** > **build-lösning**.
 
 > [!NOTE]
 > För att göra det så enkelt som möjligt implementerar vi ingen princip för omförsök i den här självstudiekursen. I produktions koden bör du implementera principer för omförsök (till exempel en exponentiell backoff), vilket rekommenderas vid [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).

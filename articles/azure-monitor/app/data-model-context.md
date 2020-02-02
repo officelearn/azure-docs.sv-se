@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 0351f4fe65745242da58d3c3fb2f9fbe5c722d06
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 893e1c3a58f4a62a1e0e9b734cc156b3d75d8779
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677444"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933068"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Telemetri-kontext: Application Insights data modell
 
@@ -55,7 +55,7 @@ Den unika identifieraren för telemetri-objektets direkta överordnade objekt. S
 Max längd: 128
 
 
-## <a name="operation-name"></a>Åtgärds namn
+## <a name="operation-name"></a>Åtgärdens namn
 
 Åtgärdens namn (grupp). Åtgärds namnet skapas antingen av en begäran eller en sidvy. Alla andra telemetridata ställer in det här fältet till värdet för den som innehåller begäran eller sid visningen. Åtgärds namnet används för att hitta alla telemetri-objekt för en grupp med åtgärder (till exempel "GET Home/index"). Den här kontext egenskapen används för att besvara frågor som "vilka är de vanligaste undantagen som utlösts på den här sidan".
 
@@ -96,7 +96,7 @@ Max längd: 1024
 
 ## <a name="account-id"></a>Konto-ID
 
-I program med flera klient organisationer är detta det konto-ID eller namn som användaren agerar med. Exempel kan vara prenumerations-ID för Azure Portal eller blogg plattform för blogg namn.
+I program med flera klient organisationer är detta det konto-ID eller namn som användaren agerar med. Exempel kan vara prenumerations-ID för Azure Portal eller blogg namn för en blogg plattform.
 
 Max längd: 1024
 

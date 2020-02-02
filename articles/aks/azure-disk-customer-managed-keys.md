@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 831a867d1084f7396db0f8aa4c2e2e665eb98732
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1852ba059d13a8886b739cac439798b4d031a531
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898815"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932625"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Ta med dina egna nycklar (BYOK) med Azure-diskar i Azure Kubernetes service (AKS)
 
-Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha mer kontroll över krypterings nycklar kan du ange [Kundhanterade nycklar][customer-managed-keys] som ska användas för kryptering av både operativ system och data diskar för dina AKS-kluster.
+Azure Storage krypterar alla data i ett lagrings konto i vila. Som standard krypteras data med Microsoft-hanterade nycklar. Om du vill ha ytterligare kontroll över krypterings nycklar kan du ange [Kundhanterade nycklar][customer-managed-keys] som ska användas för kryptering i vila för både operativ systemet och data diskarna för dina AKS-kluster.
 
 > [!NOTE]
 > BYOK Linux-och Windows-baserade AKS-kluster är tillgängliga i [Azure-regioner][supported-regions] som stöder kryptering på Server sidan av Azure Managed disks.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965922"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935319"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor loggar för offentliga grundläggande Load Balancer
 
@@ -38,7 +38,7 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka grun
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
 
-Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
+Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
 
 1. I portalen klickar du på **resurs grupper**.
 2. Välj **\<resurs-grupp-namn >** där belastningsutjämnaren är.
@@ -51,7 +51,7 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
    * **Strömma till en Event Hub**
    * **Skicka till Log Analytics**
 
-    ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagringskonto
+    ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagrings konto
     Du behöver ett lagrings konto som redan har skapats för den här processen.  Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
     1. Markera kryss rutan bredvid **arkivera till ett lagrings konto**.
@@ -60,7 +60,7 @@ Logga in på [Azure-portalen](https://portal.azure.com). Om du inte redan har en
     4. Välj namnet på ditt lagrings konto under **lagrings konto** i den nedrullningsbara List rutan.
     5. Välj OK.
 
-    ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
+    ### <a name="stream-to-an-event-hub"></a>Strömma till en Event Hub
     Du behöver en Event Hub som redan har skapats för den här processen.  Information om hur du skapar en Event Hub finns i [snabb start: skapa en Event Hub med Azure Portal](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
 
     1. Markera kryss rutan bredvid **strömma till en Event Hub**
@@ -156,11 +156,11 @@ Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare 
 
 JSON-utdata visas i fältet egenskaper grundläggande information om avsökningens hälso status. Egenskapen *dipDownCount* visar det totala antalet instanser på Server delen, som inte tar emot nätverks trafik på grund av misslyckade avsöknings svar.
 
-### <a name="view-and-analyze-the-audit-log"></a>Visa och analysera gransknings loggen
+### <a name="view-and-analyze-the-activity-log"></a>Visa och analysera aktivitetsloggar
 
-Du kan visa och analysera Gransknings logg data med någon av följande metoder:
+Du kan visa och analysera aktivitets logg data med någon av följande metoder:
 
-* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, kommando rads gränssnittet för Azure (CLI), Azure-REST API eller Azure Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
+* **Azure-verktyg:** Hämta information från aktivitets loggen via Azure PowerShell, kommando rads gränssnittet för Azure (CLI), Azure-REST API eller Azure Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/management/view-activity-logs.md) .
 * **Power BI:** Om du inte redan har ett [Power BI](https:// .microsoft.com/pricing) konto kan du prova det kostnads fritt. Med [innehålls paketet för Azure audit-loggar för Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)kan du analysera dina data med förkonfigurerade instrument paneler, eller så kan du anpassa vyer så att de passar dina behov.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälso avsökningen och händelse loggen
@@ -170,7 +170,7 @@ Anslut till ditt lagrings konto och hämta JSON-logg poster för händelse-och h
 > [!TIP]
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
-## <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
+## <a name="stream-to-an-event-hub"></a>Strömma till en Event Hub
 När diagnostikinformation strömmas till en Event Hub, kan den användas för centraliserad logg analys i ett SIEM-verktyg från tredje part med Azure Monitor-integrering. Mer information finns i [Stream Azure Monitoring data to Event Hub](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Skicka till Log Analytics

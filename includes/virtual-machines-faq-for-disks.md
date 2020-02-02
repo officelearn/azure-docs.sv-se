@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887580"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961607"
 ---
 Den här artikeln ger svar på några vanliga frågor om Azure Managed Disks och Azure Premium SSD-diskar.
 
@@ -429,7 +429,7 @@ Ja.
 
 **Vilka är de största disk storlekarna som stöds av Azure Backup-och Azure Site Recovery-tjänsten?**
 
-Den största disk storleken som stöds av Azure Backup-och Azure Site Recovery-tjänsten är 4 TiB. Stöd för de större diskarna på upp till 32 TiB är ännu inte tillgängligt.
+Den största disk storleken som stöds av Azure Backup är 32 TiB (4 TiB för krypterade diskar). Den största disk storleken som stöds av Azure Site Recovery är 8 TiB. Stöd för de större diskarna på upp till 32 TiB är ännu inte tillgängligt i Azure Site Recovery.
 
 **Vilka är de rekommenderade VM-storlekarna för större disk storlekar (> 4 TiB) för Standard SSD och Standard HDD diskar för att åstadkomma optimerad disk-IOPS och bandbredd?**
 

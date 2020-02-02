@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: c4395628ac31dd69a4978f7f68ecc24ca1e15cfb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 225ae9d07cc6df2fa809e250083ee6007ab2f945
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453112"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932088"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Skapa en privat länk-tjänst med hjälp av Azure PowerShell
 Den här artikeln visar hur du skapar en privat länk-tjänst i Azure med hjälp av Azure PowerShell.
@@ -109,7 +109,7 @@ Hämta information om din privata länk tjänst med [Get-AzPrivateLinkService](/
 $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName 
 ```
 
-I det här skedet har din privata länk tjänst skapats och är redo att ta emot trafiken. Observera att exemplet ovan bara visar hur du skapar en privat länk tjänst med hjälp av PowerShell.  Vi har inte konfigurerat backend-poolerna för belastningsutjämnare eller något program på backend-poolerna för att lyssna på trafiken. Om du vill se trafik flöden från slut punkt till slut punkt kan du starkt uppmanas att konfigurera ditt program bakom din standard belastningsutjämnare. 
+I det här skedet har din privata länk tjänst skapats och är redo att ta emot trafiken. Observera att exemplet ovan bara visar hur du skapar en privat länk tjänst med hjälp av PowerShell.  Vi har inte konfigurerat backend-poolerna för belastningsutjämnare eller något program på backend-poolerna för att lyssna på trafiken. Om du vill se trafik flöden från slut punkt till slut punkt, rekommenderar vi starkt att du konfigurerar ditt program bakom din standard belastnings utjämning. 
 
 Härnäst ska vi visa hur tjänsten mappas till en privat slut punkt i ett annat virtuellt nätverk med hjälp av PowerShell. Återigen är exemplet begränsat till att skapa den privata slut punkten och ansluta till en privat länk-tjänst som skapats ovan. Du kan skapa Virtual Machines i Virtual Network för att skicka/ta emot trafik till den privata slut punkten för att skapa ditt scenario. 
 
@@ -134,7 +134,7 @@ $vnetPE = New-AzVirtualNetwork `
 -Subnet $peSubnet 
 ```
 
-### <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
+### <a name="create-a-private-endpoint"></a>Skapa en privat slutpunkt
 Skapa en privat slut punkt för att konsumera privat länk tjänst som skapats ovan i det virtuella nätverket:
  
 ```azurepowershell

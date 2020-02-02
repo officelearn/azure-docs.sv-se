@@ -1,5 +1,5 @@
 ---
-title: Använd Azure-pipelines för att bygga och distribuera HPC-lösningar – Azure Batch | Microsoft Docs
+title: Använd Azure-pipelines för att bygga & distribuera HPC-lösningar – Azure Batch
 description: Lär dig hur du distribuerar en pipeline för att bygga/släppa för ett HPC-program som körs på Azure Batch.
 author: christianreddington
 ms.author: chredd
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
 ms.service: batch
-ms.openlocfilehash: 03e383e43cbe90ae2f59766a235f167cff623b6a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: ee87cd7d80d4b24e8c52fb3c7dbb780d39071066
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982699"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935142"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Använd Azure-pipelines för att bygga och distribuera HPC-lösningar
 

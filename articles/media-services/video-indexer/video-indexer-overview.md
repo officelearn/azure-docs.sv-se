@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: a942277b5616f3e8220e7fc0fd00f7d660d76d3e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 6d03e66d125c4234a95e5a79f212bc81e7cea560
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892710"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933382"
 ---
 # <a name="what-is-video-indexer"></a>Vad är Video Indexer?
 
@@ -26,6 +26,10 @@ Om du vill börja extrahera insikter med Video Indexer måste du skapa ett konto
 Följande diagram är en illustration och inte en teknisk förklaring av hur Video Indexer fungerar i Server delen.
 
 ![Flödes diagram för Azure Media Services Video Indexer](./media/video-indexer-overview/model-chart.png)
+
+## <a name="compliance-privacy-and-security"></a>Efterlevnad, sekretess och säkerhet
+ 
+Som en viktig påminnelse måste du följa alla tillämpliga lagar i din användning av Video Indexer och du får inte använda Video Indexer eller andra Azure-tjänster på ett sätt som strider mot andras rättigheter eller som kan vara skadliga för andra. Innan du laddar upp videor, inklusive bio metriska data, till den Video Indexer tjänsten för bearbetning och lagring, måste du ha alla lämpliga rättigheter, inklusive alla lämpliga medgivanden, från enskilda eller enskilda i videon. För att lära dig om efterlevnad, sekretess och säkerhet i Video Indexer, [villkoren](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)för Microsoft Cognitive Services. Information om Microsofts sekretess avtal och hantering av dina data finns i Microsofts [sekretess policy](https://privacy.microsoft.com/PrivacyStatement), [Online Services-villkoren ("ost")](https://www.microsoft.com/licensing/product-licensing/products) och tillägget för [data bearbetning](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ytterligare sekretess information, inklusive information om datakvarhållning, borttagning/förstörelse, finns i OST-filen och [här](faq.md). Genom att använda Video Indexer samtycker du till att vara kopplad till Cognitive Services villkor, OST, DPA och sekretess policyn.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Vad kan jag göra med Video Indexer?
 

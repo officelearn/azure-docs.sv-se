@@ -8,18 +8,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 11/04/2019
-ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: c7a21bb3f086257b7f6a5edde5cbfdf835645a70
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720202"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934052"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Självstudie: förutsäga Automobile-priset med designer (för hands version)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-I den här självstudien får du lära dig hur du använder Azure Machine Learning designer för att utveckla och distribuera en förutsägelse analys som förutsäger priset på en bil.
+I den här självstudien får du lära dig hur du använder Azure Machine Learning designer för att träna och distribuera en maskin inlärnings modell som förutsäger priset på en bil. Designern är ett dra-och-släpp-verktyg som gör att du kan skapa maskin inlärnings modeller utan en enda rad kod.
 
 I del ett av självstudien får du lära dig att:
 
@@ -45,13 +45,15 @@ Om du vill skapa en Azure Machine Learning pipeline behöver du en Azure Machine
 
 ### <a name="create-a-new-workspace"></a>Skapa en ny arbetsyta
 
+För att kunna använda designern behöver du först en Azure Machine Learning-arbetsyta. Arbets ytan är den översta resursen för Azure Machine Learning, den innehåller en central plats där du kan arbeta med alla artefakter som du skapar i Azure Machine Learning.
+
 Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du [vidare till nästa avsnitt](#create-the-pipeline).
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Skapa pipelinen
 
-1. Logga in på [ml.Azure.com](https://ml.azure.com)och välj den arbets yta som du vill arbeta med.
+1. Logga in på <a href="https://ml.azure.com?tabs=jre" target="_blank">ml.Azure.com</a>och välj den arbets yta som du vill arbeta med.
 
 1. Välj **Designer**.
 
@@ -60,6 +62,30 @@ Om du har en Azure Machine Learning-arbetsyta med en Enterprise-utgåva går du 
 1. Välj **lättanvända inbyggda moduler**.
 
 1. Längst upp på arbets ytan väljer du standard pipelinen för pipelinen **– skapad – på**. Byt namn på den till *bil förutsägelser*. Namnet behöver inte vara unikt.
+
+## <a name="set-the-default-compute-target"></a>Ange standard beräknings mål
+
+En pipeline körs på ett beräknings mål, som är en beräknings resurs som är kopplad till din arbets yta. När du har skapat ett beräknings mål kan du återanvända det för framtida körningar.
+
+Du kan ange ett **standard beräknings mål** för hela pipelinen, vilket anger att varje modul ska använda samma beräknings mål som standard. Du kan dock ange beräknings mål per modul.
+
+1. Bredvid pipelinens namn väljer du **kugg hjuls ikonen** ![skärm bild av kugg hjuls ikonen](./media/tutorial-designer-automobile-price-train-score/gear-icon.png) överst på arbets ytan för att öppna fönstret **Inställningar** .
+
+1. I fönstret **Inställningar** till höger om arbets ytan väljer du **Välj Compute Target (Välj Compute Target**).
+
+    Om du redan har ett tillgängligt beräknings mål kan du välja att köra denna pipeline.
+
+    > [!NOTE]
+    > Designern kan bara köra experiment på Azure Machine Learning Compute-mål. Andra beräknings mål visas inte.
+
+1. Ange ett namn för beräknings resursen.
+
+1. Välj **Spara**.
+
+    > [!NOTE]
+    > Det tar cirka fem minuter att skapa en beräknings resurs. När resursen har skapats kan du återanvända den och hoppa över vänte tiden för framtida körningar.
+    >
+    > Beräknings resursen skalar automatiskt till noll noder när den är inaktiv för att spara pengar. När du använder den igen efter en fördröjning kan du uppleva ungefär fem minuters vänte tid medan den skalas upp.
 
 ## <a name="import-data"></a>Importera data
 
@@ -77,7 +103,7 @@ Du kan visualisera data för att förstå den data uppsättning som du kommer at
 
 1. Välj modulen **Automobile Price data (RAW)** .
 
-1. Välj **utdata**i fönstret Egenskaper till höger om arbets ytan.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata**.
 
 1. Välj diagram ikonen för att visualisera data.
 
@@ -93,9 +119,9 @@ Data uppsättningar kräver vanligt vis lite för bearbetning före analys. Du k
 
 ### <a name="remove-a-column"></a>Ta bort en kolumn
 
-När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen saknar kolumnen **normaliserade förluster** många värden, så du utesluter den kolumnen från modellen helt och hållet.
+När du tränar en modell måste du göra något om de data som saknas. I den här data uppsättningen saknar kolumnen **normaliserade förluster** många värden, så du kommer att utesluta den kolumnen från modellen helt och hållet.
 
-1. Ange **Välj** i rutan Sök högst upp på paletten för att hitta modulen **Välj kolumner i data uppsättning** .
+1. I paletten modul till vänster om arbets ytan, expanderar du avsnittet **datatransformering** och letar upp modulen **Välj kolumner i data uppsättning** .
 
 1. Dra modulen **Välj kolumner i data uppsättning** till arbets ytan. Släpp modulen under data uppsättnings modulen.
 
@@ -109,7 +135,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Välj modulen **Välj kolumner i data uppsättning** .
 
-1. I fönstret Egenskaper till höger om arbets ytan väljer du **alla kolumner**.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **alla kolumner**.
 
 1. Välj **+** för att lägga till en ny regel.
 
@@ -123,7 +149,7 @@ När du tränar en modell måste du göra något om de data som saknas. I den h�
 
 1. Välj modulen **Välj kolumner i data uppsättning** . 
 
-1. I fönstret Egenskaper markerar du text rutan **kommentar** och anger *exkludera normaliserade förluster*.
+1. I informations fönstret för moduler till höger om arbets ytan markerar du text rutan **kommentar** och anger *exkludera normaliserade förluster*.
 
     Kommentarerna visas i grafen för att hjälpa dig att organisera din pipeline.
 
@@ -134,13 +160,15 @@ Din data uppsättning har fortfarande värden som saknas efter att du tagit bort
 > [!TIP]
 > Att rensa saknade värden från indata är ett krav för att använda de flesta moduler i designern.
 
-1. Skriv **Rensa** i sökrutan för att hitta modulen **Rensa data som saknas** .
+1. I paletten modul till vänster om arbets ytan, expanderar du avsnittet **data omvandling**och letar reda på modulen **Rensa data som saknas** .
 
 1. Dra modulen **Rensa data som saknas** till pipeline-arbetsytan. Anslut den till modulen **Välj kolumner i data uppsättning** . 
 
-1. I fönstret Egenskaper väljer du **ta bort hela raden** under **rensnings läge**.
+1. Välj modulen **Rensa data som saknas** .
 
-1. I rutan Egenskaper **kommentar** anger du *ta bort saknade värde rader*. 
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **ta bort hela raden** under **rensnings läge**.
+
+1. I informations fönstret för moduler till höger om arbets ytan markerar du rutan **kommentar** och anger *ta bort saknade värde rader*. 
 
     Din pipeline bör nu se ut ungefär så här:
     
@@ -156,26 +184,28 @@ Eftersom du vill förutsäga pris, vilket är ett tal, kan du använda en Regres
 
 Att dela data är en vanlig uppgift i Machine Learning. Du kommer att dela upp dina data i två separata data uppsättningar. En data uppsättning kommer att träna modellen och den andra kommer att testa hur väl modellen utförs.
 
-1. Ange **dela data** i sökrutan för att hitta modulen **dela data** . Anslut den vänstra porten för modulen **Rensa data som saknas** till modulen **dela data** .
+1. I modulen modul expanderar du avsnittet **data omvandling** och letar reda på modulen **dela data** .
+
+1. Dra modulen **dela data** till pipeline-arbetsytan.
+
+1. Anslut den vänstra porten för modulen **Rensa data som saknas** till modulen **dela data** .
 
     > [!IMPORTANT]
     > Se till att de vänstra Utdataportarna av **rensa saknade data** ansluter till **delade data**. Den vänstra porten innehåller de rensade data. Rätt port innehåller discarted-data.
 
 1. Välj modulen **dela data** .
 
-1. I fönstret Egenskaper ställer du in **bråk talet i den första data uppsättningen för utdata** till 0,7.
+1. I informations fönstret för moduler till höger om arbets ytan, ställer du in **del av raderna i den första data uppsättningen för utdata** till 0,7.
 
     Det här alternativet delar upp 70 procent av data för att träna modellen och 30 procent för att testa den. Data uppsättningen 70 procent kan nås via den vänstra utdataporten. Återstående data kommer att vara tillgängliga via den högra utdataporten.
 
-1. I rutan Egenskaper **kommentar** anger du *dela in data uppsättningen i Training set (0,7) och test uppsättning (0,3)* .
+1. I informations fönstret för moduler till höger om arbets ytan markerar du rutan **kommentar** och anger *dela in data uppsättningen i Training set (0,7) och test uppsättning (0,3)* .
 
 ### <a name="train-the-model"></a>Träna modellen
 
 Träna modellen genom att ge den en data uppsättning som inkluderar priset. Algoritmen skapar en modell som förklarar förhållandet mellan funktionerna och priset som presenteras av tränings data.
 
-1. Om du vill välja Learning-algoritmen rensar du sökrutan för modulens palett.
-
-1. Expandera **Machine Learning algoritmer**.
+1. I paletten modul expanderar du **Machine Learning algoritmer**.
     
     Med det här alternativet visas flera kategorier av moduler som du kan använda för att initiera Learning-algoritmer.
 
@@ -192,9 +222,11 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
     ![Skärm bild som visar korrekt konfiguration av modulen träna modell. Modulen linjär regression ansluter till den vänstra porten för modulen träna modell och modulen dela data ansluts till rätt port för träna modell](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
+1. I modulen modul expanderar du **träna modul-modul**och drar modulen **träna modell** till arbets ytan.
+
 1. Välj modulen **träna modell** .
 
-1. I fönstret Egenskaper väljer du **Redigera kolumn** väljare.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **Redigera kolumn** väljare.
 
 1. I dialog rutan **etikett kolumn** expanderar du den nedrullningsbara menyn och väljer **kolumn namn**. 
 
@@ -204,7 +236,7 @@ Träna modellen genom att ge den en data uppsättning som inkluderar priset. Alg
 
     ![Skärm bild som visar korrekt konfiguration av pipelinen efter att du lagt till modulen träna modell.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="score-a-machine-learning-model"></a>Score en Machine Learning-modell
+### <a name="add-the-score-model-module"></a>Lägg till modulen Poäng modell
 
 När du har tränat din modell genom att använda 70 procent av data kan du använda den för att se hur väl modellen fungerar.
 
@@ -212,7 +244,7 @@ När du har tränat din modell genom att använda 70 procent av data kan du anv�
 
 1. Anslut utdata från modulen **träna modell** till den vänstra Indataporten för **Poäng modell**. Anslut test data utmatningen (höger port) för modulen **dela data** till den högra Indataporten för **Poäng modellen**.
 
-## <a name="evaluate-a-machine-learning-model"></a>Utvärdera en Machine Learning-modell
+### <a name="add-the-evaluate-model-module"></a>Lägga till modulen Utvärdera modell
 
 Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bevisar test data uppsättningen.
 
@@ -226,7 +258,20 @@ Använd modulen **utvärdera modell** för att utvärdera hur bra din modell bev
 
 ## <a name="run-the-pipeline"></a>Köra en pipeline
 
-[!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
+Nu när din pipeline är konfigurerad kan du skicka en pipeline-körning.
+
+1. Välj **Kör**längst upp på arbets ytan.
+
+1. I dialog rutan **Konfigurera pipeline-körning** väljer du **+ nytt experiment** för **experimentet**.
+
+    > [!NOTE]
+    > Experiment grupp liknande pipeliner körs tillsammans. Om du kör en pipeline flera gånger kan du välja samma experiment för efterföljande körningar.
+
+    1. Ange ett beskrivande namn för **experimentets namn**.
+
+    1. Välj **Kör**.
+    
+    Du kan visa körnings status och information överst till höger på arbets ytan.
 
 ### <a name="view-scored-labels"></a>Visa Poäng etiketter
 
@@ -234,7 +279,7 @@ När körningen är klar kan du visa resultatet av pipeline-körningen. Börja m
 
 1. Välj modulen **Poäng modell** för att visa dess utdata.
 
-1. I fönstret Egenskaper väljer du **utdata** > diagram ikon ![visualisera ikon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata** > diagram ikon ![visualisera ikon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
 
     Här kan du se de förutsagda priser och de faktiska priserna från test data.
 
@@ -246,7 +291,7 @@ Använd **utvärdera modell** för att se hur väl den tränade modellen utfört
 
 1. Välj modulen **utvärdera modell** för att visa dess utdata.
 
-1. I fönstret Egenskaper väljer du **utdata** > diagram ikon ![visualisera ikon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
+1. I informations fönstret för moduler till höger om arbets ytan väljer du **utdata** > diagram ikon ![visualisera ikon](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) för att visa resultat.
 
 Följande statistik visas för din modell:
 
@@ -260,16 +305,11 @@ För all felstatistik gäller att mindre är bättre. Ett mindre värde anger at
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
+Hoppa över det här avsnittet om du vill fortsätta med del 2 av självstudien, [Distribuera modeller](tutorial-designer-automobile-price-deploy.md).
+
 [!INCLUDE [aml-ui-cleanup](../../includes/aml-ui-cleanup.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-
-I en del av den här självstudien har du slutfört följande uppgifter:
-
-* Skapa en pipeline
-* Förbereda data
-* Träna modellen
-* Poäng och utvärdera modellen
 
 I del två får du lära dig hur du distribuerar din modell som en slut punkt i real tid.
 

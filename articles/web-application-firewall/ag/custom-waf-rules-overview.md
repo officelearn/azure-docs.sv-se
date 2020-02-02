@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 01/30/2020
 ms.author: victorh
-ms.openlocfilehash: 323f01e08007260d4fb6d651b20937c5d5d5e357
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9d9deca0365e13a0a8ad7404a476b05d0afef077
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645097"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935005"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Anpassade regler för WebApplication-brandväggen v2 på Azure Application Gateway
 
@@ -22,7 +22,7 @@ Med anpassade regler kan du skapa egna regler som utvärderas för varje begära
 
 Du kan till exempel blockera alla förfrågningar från en IP-adress i intervallet 192.168.5.4/24. I den här regeln är operatören *IPMatch*, MATCHVALUES är IP-adressintervallet (192.168.5.4/24) och åtgärden är att blockera trafiken. Du anger också regelns namn och prioritet.
 
-Anpassade regler stöder användning av sammansatt logik för att skapa mer avancerade regler som åtgärdar dina säkerhets behov. Till exempel (villkor 1 **och** villkor 2) **eller** villkor 3).  Det här exemplet innebär att om villkor 1 **och** villkor 2 är uppfyllda, **eller** om villkoret 3 är uppfyllt, bör WAF vidta den åtgärd som anges i den anpassade regeln.
+Anpassade regler stöder användning av sammansatt logik för att skapa mer avancerade regler som åtgärdar dina säkerhets behov. Till exempel (villkor 1 **och** villkor 2) **eller** villkor 3). Det innebär att om villkoret 1 **och** villkor 2 är uppfyllda, **eller** om villkoret 3 är uppfyllt, bör WAF vidta den åtgärd som anges i den anpassade regeln.
 
 Olika matchnings villkor i samma regel är alltid sammansatta med **och**. Du kan till exempel blockera trafik från en specifik IP-adress och endast om de använder en viss webbläsare.
 
@@ -31,7 +31,7 @@ Om du vill **eller** två olika villkor måste de två villkoren finnas i olika 
 > [!NOTE]
 > Det maximala antalet anpassade WAF-regler är 100. Mer information om Application Gateway gränser finns i [Azure-prenumerationer och tjänst begränsningar, kvoter och begränsningar](../../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
-Reguljära uttryck stöds också i anpassade regler, precis som i det datoriserade boknings systemet rulesets. Exempel på dessa finns i exempel 3 och 5 i [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
+Reguljära uttryck stöds också i anpassade regler, precis som i det datoriserade boknings systemet rulesets. Exempel finns i exempel 3 och 5 i [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
 
 ## <a name="allowing-vs-blocking"></a>Tillåta kontra blockera
 
@@ -92,7 +92,7 @@ Den här anpassade regeln innehåller ett namn, en prioritet, en åtgärd och ma
 
 ### <a name="name-optional"></a>Namn [valfritt]
 
-Detta är namnet på regeln. Det här namnet visas i loggarna.
+Regelns namn.  Den visas i loggarna.
 
 ### <a name="priority-required"></a>Prioritet [krävs]
 
@@ -145,7 +145,7 @@ Negerar det aktuella villkoret.
 En lista med strängar med namn på omvandlingar som ska utföras innan matchningen görs. Dessa omvandlingar kan vara följande:
 
 - Gemener
-- Trim
+- reducera
 - UrlDecode
 - UrlEncode 
 - RemoveNulls
@@ -157,198 +157,13 @@ Lista med värden som ska matchas mot, som kan betraktas som *eller*' ed '. Det 
 
 ### <a name="action-required"></a>Åtgärd [krävs]
 
-- Allow – auktoriserar transaktionen och hoppar över alla efterföljande regler. Det innebär att den angivna begäran läggs till i listan över tillåtna och när den matchas avbryts begäran ytterligare utvärdering och skickas till backend-poolen. Regler som finns på listan över tillåtna utvärderas inte för några ytterligare anpassade regler eller hanterade regler.
-- Blockera – blockerar transaktionen baserat på *SecDefaultAction* (identifiering/skydds läge). Precis som med åtgärden Tillåt stoppas utvärderings versionen och begäran blockeras när begäran utvärderas och läggs till i blockeringslistan. Alla begär Anden som uppfyller samma villkor kommer inte att utvärderas och kommer bara att blockeras. 
-- Log – tillåter att regeln skriver till loggen, men låter resten av reglerna köras för utvärdering. Efterföljande anpassade regler utvärderas i prioritetsordning, följt av de hanterade reglerna.
+- Allow – auktoriserar transaktionen och hoppar över alla andra regler. Den angivna begäran läggs till i listan över tillåtna och när den har matchats avbryts begäran ytterligare utvärdering och skickas till backend-poolen. Regler som finns på listan över tillåtna utvärderas inte för några ytterligare anpassade regler eller hanterade regler.
+- Blockera – blockerar transaktionen baserat på *SecDefaultAction* (identifiering/skydds läge). Precis som med åtgärden Tillåt stoppas utvärderings versionen och begäran blockeras när begäran utvärderas och läggs till i blockeringslistan. Alla begär Anden som uppfyller samma villkor utvärderas inte och kommer bara att blockeras. 
+- Log – tillåter att regeln skriver till loggen, men låter resten av reglerna köras för utvärdering. De andra anpassade reglerna utvärderas i prioritetsordning, följt av de hanterade reglerna.
 
 ## <a name="geomatch-custom-rules-preview"></a>Ommatchnings anpassade regler (förhands granskning)
 
-Anpassade regler gör det möjligt att skapa skräddarsydda regler som passar de exakta behoven för dina program och dina säkerhets principer. Nu kan du begränsa åtkomsten till dina webb program efter land/region, som finns tillgänglig i offentlig för hands version. Precis som med alla anpassade regler kan den här logiken sammanställas med andra regler som passar ditt programs behov. 
-
-   > [!NOTE]
-   > Ommatchnings anpassade regler är tillgängliga i södra centrala USA och Europa, norra. Om du vill komma åt dem i portalen använder du [den här länken](https://aka.ms/AppGWWAFGeoMatch) tills den går live för alla. 
-
-Om du använder en kors matchnings operator kan väljare vara någon av följande tvåsiffriga lands koder. 
-
-|Landskod | Lands namn |
-| ----- | ----- |
-| AD | Andorra |
-| AE | Förenade Arabemiraten|
-| AF | Afghanistan|
-| AG | Antigua och Barbuda|
-| AL | Albanien|
-| AM | Armenien|
-| AO | Angola|
-| AR | Argentina|
-| AS | Amerikanska Samoa|
-| AT | Österrike|
-| Australien | Australien|
-| AZ | Azerbajdzjan|
-| BA | Bosnien och Hercegovina|
-| BB | Barbados|
-| BD | Bangladesh|
-| BE | Belgien|
-| BF | Burkina Faso|
-| BG | Bulgarien|
-| BH | Bahrain|
-| BI | Burundi|
-| BJ | Benin|
-| BL | Sankt Barthélemy|
-| BN | Brunei|
-| BO | Bolivia|
-| BR | Brasilien|
-| BS | Bahamas|
-| BT | Bhutan|
-| BW | Botswana|
-| BY | Vitryssland|
-| BZ | Belize|
-| CA | Kanada|
-| CD | Demokratiska republiken Kongo|
-| CF | Centralafrikanska republiken|
-| CH | Schweiz|
-| CI | Cote d'Ivoire|
-| CL | Chile|
-| CM | Kamerun|
-| CN | Kina|
-| CO | Colombia|
-| CR | Costa Rica|
-| CU | Kuba|
-| CV | Cabo Verde|
-| CY | Cypern|
-| CZ | Tjeckien|
-| DE | Tyskland|
-| DK | Danmark|
-| DO | Dominikanska republiken|
-| DZ | Algeriet|
-| EC | Ecuador|
-| EE | Estland|
-| EG | Egypten|
-| ES | Spanien|
-| ET | Etiopien|
-| FI | Finland|
-| FJ | Fiji|
-| FM | Mikronesien|
-| FR | Frankrike|
-| GB | Storbritannien|
-| GE | Georgien|
-| GF | Franska Guyana|
-| GH | Ghana|
-| GN | Guinea|
-| GP | Guadeloupe|
-| GR | Grekland|
-| GT | Guatemala|
-| GY | Guyana|
-| HK | Hongkong SAR|
-| HN | Honduras|
-| Personal | Kroatien|
-| HT | Haiti|
-| HU | Ungern|
-| ID | Indonesien|
-| IE | Irland|
-| IL | Israel|
-| IN | Indien|
-| IQ | Irak|
-| IR | Islamiska republiken Iran|
-| IS | Island|
-| IT | Italien|
-| JM | Jamaica|
-| JO | Jordanien|
-| JP | Japan|
-| KE | Kenya|
-| KG | Kirgizistan|
-| KH | Kambodja|
-| KI | Kiribati|
-| KN | Saint Kitts och Nevis|
-| KP | Nordkorea|
-| KR | Sydkorea|
-| KW | Kuwait|
-| KY | Caymanöarna|
-| KZ | Kazakstan|
-| Latinamerika | Demokratiska folkrepubliken Laos|
-| LB | Libanon|
-| LI | Liechtenstein|
-| LK | Sri Lanka|
-| LR | Liberia|
-| LS | Lesotho|
-| LT | Litauen|
-| LU | Luxemburg|
-| LV | Lettland|
-| LY | Libyen |
-| MA | Marocko|
-| MD | Moldavien|
-| MG | Madagaskar|
-| MK | Nordmakedonien|
-| ML | Mali|
-| MM | Myanmar|
-| MN | Mongoliet|
-| MO | Macao SAR|
-| MQ | Martinique|
-| MR | Mauretanien|
-| MT | Malta|
-| MV | Maldiverna|
-| MW | Malawi|
-| MX | Mexiko|
-| MY | Malaysia|
-| MZ | Moçambique|
-| Ej tillämpligt | Namibia|
-| NE | Niger|
-| NG | Nigeria|
-| NI | Nicaragua|
-| NL | Nederländerna|
-| NO | Norge|
-| NP | Nepal|
-| NR | Nauru|
-| NZ | Nya Zeeland|
-| OM | Oman|
-| PA | Panama|
-| PE | Peru|
-| PH | Filippinerna|
-| PK | Pakistan|
-| PL | Polen|
-| PR | Puerto Rico|
-| PT | Portugal|
-| PW | Palau|
-| PY | Paraguay|
-| QA | Qatar|
-| RE | Réunion|
-| RO | Rumänien|
-| RS | Serbien|
-| RU | Ryska federationen|
-| RW | Rwanda|
-| SA | Saudiarabien|
-| SD | Sudan|
-| SE | Sverige|
-| SG | Singapore|
-| SI | Slovenien|
-| SK | Slovakien|
-| SN | Senegal|
-| SO | Somalia|
-| SR | Surinam|
-| SS | Sydsudan|
-| SV | El Salvador|
-| SY | Arabrepubliken Syrien|
-| SZ | Swaziland|
-| TC | Turks- och Caicosöarna|
-| TG | Togo|
-| TH | Thailand|
-| TN | Tunisien|
-| TR | Turkiet|
-| TT | Trinidad och Tobago|
-| TW | Taiwan|
-| TZ | Tanzania|
-| UA | Ukraina|
-| UG | Uganda|
-| USA | USA|
-| UY | Uruguay|
-| UZ | Uzbekistan|
-| VC | Saint Vincent och Grenadinerna|
-| VE | Venezuela|
-| VG | Jungfruöarna, Storbritannien|
-| VI | Jungfruöarna, USA|
-| VN | Vietnam|
-| ZA | Sydafrika|
-| ZM | Zambia|
-| ZW | Zimbabwe|
+Med anpassade regler kan du skapa skräddarsydda regler som passar de exakta behoven för dina program och säkerhets principer. Du kan begränsa åtkomsten till dina webb program efter land/region. Mer information finns i [överensstämmelse med egna regler (för hands version)](geomatch-custom-rules.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

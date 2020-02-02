@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 46764fdae89d5af4c9dedf4037d07dc48d1cda83
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703682"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931615"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services-instans med avancerade konfigurations alternativ
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Du kan [skapa en hanterad domän med hjälp av standard konfigurations alternativ][tutorial-create-instance] för nätverk och synkronisering, eller definiera inställningarna manuellt. Den här självstudien visar hur du definierar de avancerade konfigurations alternativen för att skapa och konfigurera en Azure AD DS-instans med hjälp av Azure Portal.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Konfigurera inställningar för DNS och virtuellt nätverk för en hanterad domän
@@ -94,6 +94,9 @@ Fyll i fälten i fönstret *Basics* i Azure Portal för att skapa en Azure AD DS
 
     Det finns inget som du kan konfigurera för att Azure AD DS ska distribueras mellan zoner. Azure-plattformen hanterar automatiskt zon distributionen av resurser. Mer information och mer information om regions tillgänglighet finns i [Vad är Tillgänglighetszoner i Azure?][availability-zones]
 
+1. **SKU: n** bestämmer prestanda, säkerhets kopierings frekvens och maximalt antal skogs förtroenden som du kan skapa. Du kan ändra SKU efter att den hanterade domänen har skapats om din verksamhet kräver eller att kraven förändras. Mer information finns i [Azure AD DS SKU-koncept][concepts-sku].
+
+    I den här självstudien väljer du *standard* -SKU.
 1. En *skog* är en logisk konstruktion som används av Active Directory Domain Services för att gruppera en eller flera domäner. Som standard skapas en Azure AD DS-hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Resurs skogar är för närvarande i för hands version. Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].
 
     I den här självstudien väljer du att skapa en *användar* skog.
@@ -102,9 +105,9 @@ Fyll i fälten i fönstret *Basics* i Azure Portal för att skapa en Azure AD DS
 
 1. Välj **Nästa nätverk**om du vill konfigurera ytterligare alternativ manuellt. Annars väljer du **Granska + skapa** för att acceptera standard konfigurations alternativen och fortsätter sedan till avsnittet för att [distribuera den hanterade domänen](#deploy-the-managed-domain). Följande standardinställningar konfigureras när du väljer det här alternativet för att skapa:
 
-* Skapar ett virtuellt nätverk med namnet *aadds-VNet* som använder IP-adressintervallet *10.0.1.0/24*.
-* Skapar ett undernät med namnet *aadds-Subnet* med IP-adressintervallet *10.0.1.0/24*.
-* Synkroniserar *alla* användare från Azure AD till den hanterade Azure AD DS-domänen.
+    * Skapar ett virtuellt nätverk med namnet *aadds-VNet* som använder IP-adressintervallet *10.0.1.0/24*.
+    * Skapar ett undernät med namnet *aadds-Subnet* med IP-adressintervallet *10.0.1.0/24*.
+    * Synkroniserar *alla* användare från Azure AD till den hanterade Azure AD DS-domänen.
 
 ## <a name="create-and-configure-the-virtual-network"></a>Skapa och konfigurera det virtuella nätverket
 
@@ -125,7 +128,7 @@ Fyll i fälten i fönstret *nätverk* enligt följande:
     1. Om du väljer att skapa ett virtuellt nätverk anger du ett namn för det virtuella nätverket, till exempel *myVnet*, och anger sedan ett adress intervall, t. ex. *10.0.1.0/24*.
     1. Skapa ett dedikerat undernät med ett tydligt namn, till exempel *DomainServices*. Ange ett adress intervall, t. ex. *10.0.1.0/24*.
 
-    ![Skapa ett virtuellt nätverk och undernät som ska användas med Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)
+    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Se till att välja ett adress intervall som ligger inom ditt privata IP-adressintervall. IP-adressintervall som du inte äger som finns i det offentliga adress utrymmet orsakar fel i Azure AD DS.
 
@@ -248,5 +251,6 @@ Om du vill se den här hanterade domänen i praktiken skapar du och ansluter en 
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->

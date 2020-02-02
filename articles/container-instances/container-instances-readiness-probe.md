@@ -2,13 +2,13 @@
 title: Konfigurera readiness PROBE på behållar instansen
 description: Lär dig hur du konfigurerar en avsökning för att se till att behållare i Azure Container Instances ta emot begär Anden endast när de är klara
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901847"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935681"
 ---
 # <a name="configure-readiness-probes"></a>Konfigurera beredskapsavsökning
 
@@ -23,7 +23,7 @@ Azure Container Instances också stöd för [direktmigreringar](container-instan
 
 ## <a name="yaml-configuration"></a>YAML-konfiguration
 
-Skapa till exempel en `readiness-probe.yaml`-fil med följande kodfragment som innehåller en beredskaps avsökning. Den här filen definierar en behållar grupp som består av en behållare som kör en liten webbapp. Appen distribueras från den offentliga `mcr.microsoft.com/azuredocs/aci-helloworld` avbildningen. Den här behållar appen visas också i snabb starter som [att distribuera en behållar instans i Azure med hjälp av Azure CLI](container-instances-quickstart.md).
+Skapa till exempel en `readiness-probe.yaml`-fil med följande kodfragment som innehåller en beredskaps avsökning. Den här filen definierar en behållar grupp som består av en behållare som kör en liten webbapp. Appen distribueras från den offentliga `mcr.microsoft.com/azuredocs/aci-helloworld` avbildningen. Den här appen med behållare visas också i [distribuera en behållar instans i Azure med hjälp av Azure CLI](container-instances-quickstart.md) och andra snabb starter.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>Start kommando
 
-YAML-filen innehåller ett start kommando som ska köras när behållaren startar, som definieras av egenskapen `command` som accepterar en sträng mat ris. Det här kommandot simulerar en tidpunkt då webbappen körs men behållaren inte är klar. Först startar den en Shell-session och kör ett `node`-kommando för att starta webbappen. Det startar också ett kommando till vilo läge i 240 sekunder, och det skapar en fil med namnet `ready` i `/tmp` katalogen:
+Distributionen innehåller en `command`-egenskap som definierar ett start kommando som körs när behållaren först börjar köras. Den här egenskapen accepterar en sträng mat ris. Det här kommandot simulerar en tidpunkt då webbappen körs men behållaren inte är klar. 
+
+Först startar den en Shell-session och kör ett `node`-kommando för att starta webbappen. Det startar också ett kommando till vilo läge i 240 sekunder, och det skapar en fil med namnet `ready` i `/tmp` katalogen:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

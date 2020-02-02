@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514563"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935210"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Vad är Azure SQL Database Hanterad instans?
 
@@ -147,7 +147,7 @@ Dessutom kan hantering av instanser också innehålla en av åtgärderna på vä
 
 I följande tabell sammanfattas åtgärder och typiska övergripande varaktigheter:
 
-|Kategori  |Åtgärd  |Tids krävande segment  |Uppskattad varaktighet  |
+|Kategori  |Åtgärd  |Tids krävande segment  |Beräknad varaktighet  |
 |---------|---------|---------|---------|
 |**Distribution** |Första instansen i ett tomt undernät|Skapa virtuellt kluster|90% av åtgärderna har slutförts på 4 timmar|
 |Distribution |Första instansen av en annan maskin varu generation i ett undernät som inte är tomt (till exempel första generation 5-instansen i ett undernät med generation 4 instanser)|Skapa virtuellt kluster *|90% av åtgärderna har slutförts på 4 timmar|
@@ -299,11 +299,11 @@ Distributions alternativet för hanterade instanser stöder bakåtkompatibilitet
   
 Följande diagram visar kompatibiliteten för Surface Area i den hanterade instansen:  
 
-![migrering](./media/sql-database-managed-instance/migration.png)
+![migreringsarkivet](./media/sql-database-managed-instance/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>Viktiga skillnader mellan SQL Server lokalt och i en hanterad instans
 
-Distributions alternativet för hanterade instanser är inte alltid uppdaterat i molnet, vilket innebär att vissa funktioner i lokala SQL Server kan vara antingen föråldrade, föråldrade eller ha alternativ. Det finns särskilda fall när verktyg måste identifiera att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten inte körs i en miljö som du inte har fullständig kontroll över:
+Distributions alternativet för hanterade instanser är inte alltid uppdaterat i molnet, vilket innebär att vissa funktioner i lokala SQL Server kan vara antingen föråldrade, föråldrade eller ha alternativ. Det finns särskilda fall när verktyg måste identifiera att en viss funktion fungerar på ett något annorlunda sätt eller att tjänsten körs i en miljö som du inte har fullständig kontroll över:
 
 - Hög tillgänglighet är inbyggd och förkonfigurerad med teknik som liknar [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server).
 - Automatiserade säkerhets kopieringar och tidpunkts återställning. Kunden kan initiera `copy-only` säkerhets kopieringar som inte stör automatisk säkerhets kopierings kedja.

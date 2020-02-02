@@ -1,5 +1,5 @@
 ---
-title: REST API version 2019-05-06 – för hands version
+title: Förhands gransknings funktioner i REST API
 titleSuffix: Azure Cognitive Search
 description: Azure Kognitiv sökning service REST API version 2019-05-06 – för hands version innehåller experimentella funktioner som kunskaps lager och indexerare-cachelagring för stegvis berikning.
 manager: nitinme
@@ -7,26 +7,28 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: 71c6879f467823ab01f4c60ac4d9f26cffcd4eea
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 9985e7ac70c5851699839a95d1e23af4dcca35e7
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896113"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935105"
 ---
-# <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Kognitiv sökning service REST API-version 2019-05-06-för hands version
+# <a name="preview-features-in-azure-cognitive-search"></a>Förhands gransknings funktioner i Azure Kognitiv sökning
 
-I den här artikeln beskrivs `api-version=2019-05-06-Preview` versionen av search service REST API, som erbjuder experimentella funktioner som ännu inte är allmänt tillgängliga.
+Den här artikeln innehåller funktioner som för närvarande finns i för hands version. Funktioner som övergår från förhands granskning till allmän tillgänglighet tas bort från listan. Du kan kontrol lera [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=search) eller [Nyheter](whats-new.md) för meddelanden om allmän tillgänglighet.
 
-> [!NOTE]
-> För hands versions funktionerna är tillgängliga för testning och experimentering med målet att samla in feedback och kan komma att ändras. Vi rekommenderar starkt att du använder för hands versioner av API: er i produktions program.
+Vissa för hands versions funktioner kan vara tillgängliga i portalen och .NET SDK, men REST API alltid har för hands versions funktioner. Den aktuella för hands versionen av API är `2019-05-06-Preview`.
 
-## <a name="features-in-2019-05-06-preview"></a>Funktioner i 2019-05-06 – för hands version
+> [!IMPORTANT]
+> För hands versions funktionerna tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-I det här avsnittet visas funktioner som har för hands versions status. De flesta lades till i den aktuella 2019-05-06-för hands versions-API: et, men en del som `moreLikeThis` är från tidigare för hands versioner som har samlats in i det senaste för 
+## <a name="features-in-public-preview"></a>Funktioner i offentlig för hands version
 
-När en förhands gransknings funktion blir allmänt tillgänglig tas den bort från listan. Du kan kontrol lera [tjänst uppdateringar](https://azure.microsoft.com/updates/?product=search) eller [Nyheter](whats-new.md) för meddelanden om allmän tillgänglighet.
++ [Anpassad sökning efter entitet (för hands version)](cognitive-search-skill-custom-entity-lookup.md ) söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer. 
+
++ [PII-identifiering (för hands version)](cognitive-search-skill-pii-detection.md) är en kognitiv färdighet som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt.
 
 + [Stegvis anrikning (för hands version)](cognitive-search-incremental-indexing-conceptual.md) lägger till cachelagring i en pipeline för berikning, som gör att du kan återanvända befintliga utdata om en viss ändring, till exempel en uppdatering av en färdigheter eller ett annat objekt, inte ändrar innehållet. Cachelagring gäller endast för berikade dokument som produceras av en färdigheter.
 
@@ -34,9 +36,9 @@ När en förhands gransknings funktion blir allmänt tillgänglig tas den bort f
 
 + [Azure Data Lake Storage Gen2 indexerare (för hands version)](search-howto-index-azure-data-lake-storage.md) kan indexera innehåll och metadata från data Lake Storage Gen2.
 
-+ [Kunskaps lager](knowledge-store-concept-intro.md) är ett nytt mål för en AI-baserad pipeline för anrikning. Den fysiska data strukturen finns i Azure Blob Storage och Azure Table Storage, och den skapas och fylls i när du kör en indexerare som har en bifogad kognitiv färdigheter. Definitionen av ett kunskaps lager anges i en färdigheter-definition. I kunskaps lager definitionen styr du de fysiska strukturerna för dina data genom *projektions* element som avgör hur data är formade, om data lagras i Table Storage eller Blob Storage, samt om det finns flera vyer.
++ [Kunskaps lagret (för hands version)](knowledge-store-concept-intro.md) är ett nytt mål för en AI-baserad pipeline för anrikning. Den fysiska data strukturen finns i Azure Blob Storage och Azure Table Storage, och den skapas och fylls i när du kör en indexerare som har en bifogad kognitiv färdigheter. Definitionen av ett kunskaps lager anges i en färdigheter-definition. I kunskaps lager definitionen styr du de fysiska strukturerna för dina data genom *projektions* element som avgör hur data är formade, om data lagras i Table Storage eller Blob Storage, samt om det finns flera vyer.
 
-+ [moreLikeThis Query-parameter](search-more-like-this.md) hittar dokument som är relevanta för ett speciellt dokument. Den här funktionen finns i tidigare för hands versioner. 
++ [moreLikeThis (för hands version)](search-more-like-this.md) hittar dokument som är relevanta för ett enskilt dokument. Den här funktionen finns i tidigare för hands versioner. 
 
 ## <a name="earlier-preview-features"></a>Tidigare för hands versions funktioner
 

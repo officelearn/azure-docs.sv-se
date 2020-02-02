@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911152"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933358"
 ---
 # <a name="add-a-popup-to-the-map"></a>Lägg till en popup till kartan
 
@@ -22,7 +22,7 @@ Den här artikeln visar hur du lägger till en popup-meny till en plats på en k
 
 ## <a name="understand-the-code"></a>Förstå koden
 
-Följande kod lägger till en punkt funktion som har `name` och `description` egenskaper till kartan med ett symbol lager. En instans av [klassen pop](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) skapas men visas inte. Mus händelser läggs till i symbol lagret för att utlösa öppning och stängning när musen hovrar över och ut från symbol markören. När markör symbolen har hovrat, uppdateras popup `name`-fönstrets `position`-egenskap med markörernas position och alternativet `content` uppdateras med HTML-kod och `description` egenskaperna för punkt funktionen har hovras. Popup-fönstret visas sedan på kartan med dess `open`-funktion.
+Följande kod lägger till en punkt funktion som har `name` och `description` egenskaper till kartan med ett symbol lager. En instans av [klassen pop](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) skapas men visas inte. Mus händelser läggs till i symbol lagret för att utlösa öppning och stängning av popup-fönstret. När markör symbolen har hovrat, uppdateras popup-fönstrets `position`-egenskap med markörens position och alternativet `content` uppdateras med HTML-`name` kod och `description` egenskaperna för punkt funktionen har hovras. Popup-fönstret visas sedan på kartan med dess `open`-funktion.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -85,7 +85,7 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>Återanvända en popup med flera punkter
 
-När du har ett stort antal punkter och bara vill visa en popup i taget, är det bästa sättet att skapa ett popup-fönster och återanvända det i stället för att skapa en popup för varje punkt funktion. Genom att återanvända popup-fönstret minskar antalet DOM-element som skapats av programmet avsevärt vilket kan ge bättre prestanda. I följande exempel skapas tre-punkt-funktioner. Om du klickar på någon av dem visas en popup med innehållet för den punkt funktionen.
+När du har ett stort antal punkter och bara vill visa en popup i taget, är det bästa sättet att skapa en popup och återanvända. Genom att återanvända popup-fönstret minskar antalet DOM-element som skapats av programmet avsevärt vilket kan ge bättre prestanda. I följande exempel skapas tre-punkt-funktioner. Om du klickar på någon av dem visas en popup med innehållet för den punkt funktionen.
 
 <br/>
 
@@ -94,7 +94,7 @@ När du har ett stort antal punkter och bara vill visa en popup i taget, är det
 
 ## <a name="customizing-a-popup"></a>Anpassa en popup
 
-Som standard har popup-fönstret en vit bakgrund, en pekare längst ned och en stängnings knapp i det övre högra hörnet. Följande exempel ändrar bakgrunds färgen till svart med alternativet `fillColor` i popup-fönstret. Knappen Stäng tas bort genom att ange alternativet `shoCloseButton` till falskt. HTML-innehållet i popup-fönstret använder utfyllda 10 pixlar från kanten på popup-fönstret och texten blir vit så att den visas snyggt på den svarta bakgrunden.  
+Som standard har popup-fönstret en vit bakgrund, en pekare längst ned och en stängnings knapp i det övre högra hörnet. Följande exempel ändrar bakgrunds färgen till svart med alternativet `fillColor` i popup-fönstret. Knappen Stäng tas bort genom att ange alternativet `CloseButton` till falskt. HTML-innehållet i popup-fönstret använder utfyllt med 10 pixlar från kanten på popup-fönstret. Texten blir vit, så den visas snyggt på den svarta bakgrunden.  
 
 <br/>
 
@@ -104,7 +104,7 @@ Se popup-fönstret för <a href='https://codepen.io/azuremaps/pen/ymKgdg/'>anpas
 
 ## <a name="popup-events"></a>Popup-händelser
 
-Popup-fönster kan öppnas, stängas och dras. Popup-klassen innehåller händelser för hjälp utvecklare som reagerar på dessa åtgärder. I följande exempel markeras vilka händelser som ska utlösas när du öppnar, stänger eller drar i popup-fönstret. 
+Popup-fönster kan öppnas, stängas och dras. Popup-klassen innehåller händelser som hjälper utvecklare att reagera på dessa händelser. I följande exempel visas vilka händelser som utlöses när användaren öppnar, stänger eller drar popup-fönstret. 
 
 <br/>
 
@@ -117,7 +117,7 @@ Se popup- <a href='https://codepen.io/azuremaps/pen/BXrpvB/'>händelser</a> för
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Motta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popupoptions?view=azure-iot-typescript-latest)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 150927ac05cba058d1d152ce568d7a462043d076
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890446"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937749"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Kommunicera med IoT-hubben med MQTT-protokollet
 
@@ -44,11 +44,29 @@ Följande tabell innehåller länkar till kod exempel för varje språk som stö
 
 | Språk | Protokoll parameter |
 | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |Azure-IoT-Device-MQTT |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol. MQTT |
+| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType. MQTT |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |Stöder alltid MQTT som standard |
+
+### <a name="default-keep-alive-timeout"></a>Standard timeout för Keep-Alive 
+
+För att säkerställa att en klient-IoT Hub anslutning förblir aktiv skickar både tjänsten och klienten regelbundet en *Keep-Alive-* ping till varandra. Klienten som använder IoT SDK skickar en Keep-Alive enligt intervallet som definieras i den här tabellen nedan:
+
+|Språk  |Standard intervall för Keep-Alive  |Konfigurerbara  |
+|---------|---------|---------|
+|Node.js     |   180 sekunder      |     Inga    |
+|Java     |    230 sekunder     |     Inga    |
+|C     | 240 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|C#     | 300 sekunder |  [Ja](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|Python (v2)   | 60 sekunder |  Inga   |
+
+I följande [MQTT-spec](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)är IoT Hub Keep-Alive-intervallet 1,5 gånger klienten Keep-Alive-värde. IoT Hub begränsar dock den maximala tids gränsen på Server sidan till 29,45 minuter (1767 sekunder) eftersom alla Azure-tjänster är kopplade till Azure Load Balancer TCP timeout för inaktivitet, som är 29,45 minuter. 
+
+En enhet som använder Java SDK skickar exempelvis Keep-Alive-ping och förlorar sedan nätverks anslutningen. 230 sekunder senare, enheten saknar Keep-Alive-ping eftersom den är offline. IoT Hub stänger dock inte anslutningen omedelbart – den väntar en annan `(230 * 1.5) - 230 = 115` sekunder innan enheten kopplas från med fel [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md). 
+
+Det maximala värdet för kvarhållning av klienten som du kan ange är `1767 / 1.5 = 1177` sekunder. All trafik kommer att återställa Keep-Alive. En lyckad uppdatering av SAS-token återställer till exempel Keep-Alive.
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>Migrera en enhets app från AMQP till MQTT
 
@@ -230,10 +248,6 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-Följande är installations anvisningarna för kraven.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 Om du vill autentisera med ett enhets certifikat uppdaterar du kodfragmentet ovan med följande ändringar (se [så här hämtar du ett X. 509 CA-certifikat](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) om hur du förbereder för certifikatbaserad autentisering):
 
 ```python
@@ -256,7 +270,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>Skicka meddelanden från enhet till moln
 
-När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Till exempel:
+När anslutningen har upprättats kan en enhet skicka meddelanden till IoT Hub med hjälp av `devices/{device_id}/messages/events/` eller `devices/{device_id}/messages/events/{property_bag}` som **ämnes namn**. Med `{property_bag}`-elementet kan enheten skicka meddelanden med ytterligare egenskaper i ett URL-kodat format. Ett exempel:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -313,7 +327,7 @@ Möjliga status koder är:
 | ----- | ----------- |
 | 204 | Lyckades (inget innehåll returneras) |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
-| 5 * * | Server fel |
+| 5** | Server fel |
 
 Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-twins.md).
 
@@ -329,7 +343,7 @@ I följande sekvens beskrivs hur en enhet uppdaterar de rapporter som rapportera
 
 3. Tjänsten skickar sedan ett svarsmeddelande som innehåller det nya ETag-värdet för den rapporterade egenskaps samlingen i avsnittet `$iothub/twin/res/{status}/?$rid={request id}`. Det här svarsmeddelandet använder samma **ID för begäran** som begäran.
 
-Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Till exempel:
+Meddelande texten innehåller ett JSON-dokument som innehåller nya värden för rapporterade egenskaper. Varje medlem i JSON-dokumentet uppdaterar eller lägger till motsvarande medlem i enhetens dubbla dokument. En medlems uppsättning som `null`, tar bort medlemmen från objektet som innehåller. Ett exempel:
 
 ```json
 {
@@ -345,7 +359,7 @@ Möjliga status koder är:
 | 200 | Lyckades |
 | 400 | Felaktig begäran. Felaktig JSON |
 | 429 | För många begär Anden (begränsas) enligt [IoT Hub begränsning](iot-hub-devguide-quotas-throttling.md) |
-| 5 * * | Server fel |
+| 5** | Server fel |
 
 I python-kodfragmentet nedan visas de dubbla rapporterade egenskaperna för uppdaterings processen över MQTT (med PAHO MQTT-klienten):
 
@@ -367,7 +381,7 @@ Mer information finns i [enhets guide för utvecklare](iot-hub-devguide-device-t
 
 ## <a name="receiving-desired-properties-update-notifications"></a>Tar emot önskade egenskaper uppdatera meddelanden
 
-När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Till exempel:
+När en enhet är ansluten skickar IoT Hub meddelanden till avsnittet `$iothub/twin/PATCH/properties/desired/?$version={new version}`, som innehåller innehållet i uppdateringen som utförs av lösningens Server del. Ett exempel:
 
 ```json
 {

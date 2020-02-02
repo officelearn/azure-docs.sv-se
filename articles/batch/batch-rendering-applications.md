@@ -1,18 +1,18 @@
 ---
 title: Återge program – Azure Batch
-description: Förinstallerade batch rendering-program
+description: Det är möjligt att använda alla åter givnings program med Azure Batch. VIRTUELLA Azure Marketplace-avbildningar är dock tillgängliga med vanliga program för installation.
 services: batch
 ms.service: batch
 author: ju-shim
 ms.author: jushiman
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: 367f7655c32c30f11b37c86c098d76e146fec69c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e47d05594142de87fabd2d61faeb40d25fdc1873
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026583"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934593"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Förinstallerade program på att återge VM-avbildningar
 

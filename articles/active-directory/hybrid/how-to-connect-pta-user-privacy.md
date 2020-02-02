@@ -1,6 +1,6 @@
 ---
-title: Användarsekretess och Azure Active Directory-direktautentisering | Microsoft Docs
-description: Den här artikeln behandlar Azure Active Directory (Azure AD)-direktautentisering och GDPR-efterlevnad.
+title: Användar sekretess och Azure Active Directory direktautentisering | Microsoft Docs
+description: Den här artikeln behandlar Azure Active Directory (Azure AD) genom strömnings-och GDPR-kompatibilitet.
 services: active-directory
 keywords: Azure AD Connect direktautentisering, GDPR, nödvändiga komponenter för Azure AD, SSO, enkel inloggning
 documentationcenter: ''
@@ -17,41 +17,41 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1a7b740a6b248a12fa3d95f85f602ef7a8b2fa5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0af1c42e7e2c163e7f9e7407d0236e35bfacf8e8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60242384"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931014"
 ---
-# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användarsekretess och Azure Active Directory-direktautentisering
+# <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Användar sekretess och Azure Active Directory direktautentisering
 
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="overview"></a>Översikt
 
-Azure AD-direktautentisering skapar följande loggtyp som kan innehålla personuppgifter:
+Genom strömnings autentisering i Azure AD skapas följande loggtyp, som kan innehålla personliga data:
 
-- Azure AD Connect-spårningsloggfilerna.
-- Autentisering-agenten spårningsloggfilerna.
-- Windows Event log-filer.
+- Azure AD Connect spåra loggfiler.
+- Spåra loggfiler för Authentication agent.
+- Windows-händelseloggar.
 
-Förbättra användarnas integritet för direktautentisering på två sätt:
+Förbättra användar sekretessen för direktautentisering på två sätt:
 
-1.  Extrahera data för en person och ta bort data från den personen från installationerna på begäran.
-2.  Se till att inga data inte returneras efter 48 timmar.
+1.  På begäran extraherar du data för en person och tar bort data från den personen från installationerna.
+2.  Se till att inga data behålls efter 48 timmar.
 
-Vi rekommenderar starkt det andra alternativet eftersom det är enklare att implementera och underhålla. Nedan följer anvisningarna för varje loggtyp:
+Vi rekommenderar starkt det andra alternativet eftersom det är enklare att implementera och underhålla. Nedan följer anvisningar för varje loggtyp:
 
-### <a name="delete-azure-ad-connect-trace-log-files"></a>Ta bort loggfiler för Azure AD Connect-spårning
+### <a name="delete-azure-ad-connect-trace-log-files"></a>Ta bort Azure AD Connect spåra loggfiler
 
-Kontrollera innehållet i **%ProgramData%\AADConnect** mapp och ta bort spårningen logga innehållet (**trace -\*.log** filer) på den här mappen inom 48 timmar efter installation eller uppgradering av Azure AD Connect eller ändra konfigurationen av direktautentisering, som den här åtgärden kan skapa data som omfattas av GDPR.
+Kontrol lera innehållet i **%programdata%\AADConnect** -mappen och ta bort spårnings logg innehållet (**trace-\*. log** -filer) för den här mappen inom 48 timmar efter installation eller uppgradering av Azure AD Connect eller genom att ändra konfigurationen för direktautentisering, eftersom den här åtgärden kan skapa data som omfattas av GDPR.
 
 >[!IMPORTANT]
->Ta inte bort den **PersistedState.xml** fil i den här mappen eftersom den här filen används för att underhålla tillståndet för den tidigare installationen av Azure AD Connect och används när en uppgraderingen är klar. Den här filen innehåller aldrig några data om en person och bör aldrig tas bort.
+>Ta inte bort filen **PersistedState. XML** i den här mappen, eftersom den här filen används för att underhålla status för den tidigare installationen av Azure AD Connect och används när en uppgraderings installation görs. Den här filen kommer aldrig att innehålla data om en person och ska aldrig tas bort.
 
-Du kan granska och ta bort dessa loggfiler över spårning med hjälp av Windows Explorer eller du kan använda följande PowerShell-skript för att utföra åtgärderna som krävs:
+Du kan antingen granska och ta bort dessa spårnings loggar med hjälp av Utforskaren i Windows, eller så kan du använda följande PowerShell-skript för att utföra nödvändiga åtgärder:
 
 ```
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
@@ -61,24 +61,24 @@ Foreach ($file in $Files) {
 }
 ```
 
-Spara skriptet i en fil med det ”. Ps1 ”tillägget. Kör skriptet efter behov.
+Spara skriptet i en fil med ". PS1 "Extension. Kör det här skriptet efter behov.
 
-Mer information om relaterade Azure AD Connect GDPR krav, se [i den här artikeln](reference-connect-user-privacy.md).
+Mer information om relaterade Azure AD Connect GDPR-krav finns i [den här artikeln](reference-connect-user-privacy.md).
 
-### <a name="delete-authentication-agent-event-logs"></a>Ta bort autentiseringsagent händelseloggar
+### <a name="delete-authentication-agent-event-logs"></a>Ta bort händelse loggar för autentiserings agent
 
-Den här produkten kan också skapa **Windows-händelseloggar**. Om du vill veta mer kan du läsa [i den här artikeln](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Den här produkten kan också skapa **händelse loggar i Windows**. Läs [den här artikeln](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx)om du vill veta mer.
 
-Om du vill visa relaterade till Autentiseringsagenten för direktautentisering, öppna den **Loggboken** på servern och kontrollera under **program och tjänsten Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin** .
+Om du vill visa loggar som är relaterade till genom strömnings agenten öppnar du **Loggboken** programmet på-servern och kontrollerar under **program-och tjänst Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
-### <a name="delete-authentication-agent-trace-log-files"></a>Ta bort autentiseringsagent spårningsloggfilerna
+### <a name="delete-authentication-agent-trace-log-files"></a>Ta bort loggfiler för autentiseringsprinciper
 
-Du bör regelbundet kontrollera innehållet i <strong>%ProgramData%\Microsoft\Azure AD ansluta autentisering Agent\Trace\</ strong > och ta bort innehållet i den här mappen varje 48 timmar. 
+Du bör regelbundet kontrol lera innehållet i **%programdata%\MICROSOFT\AZURE AD Connect Authentication Agent\Trace** och ta bort innehållet i den här mappen var 48: e timme. 
 
 >[!IMPORTANT]
->Om autentiseringsagent-tjänsten körs, kommer det inte att ta bort den aktuella loggfilen i mappen. Stoppa tjänsten innan du försöker igen. Om du vill undvika användaren inloggningar, du bör redan ha konfigurerat direktautentisering för [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+>Om tjänsten Authentication Agent körs kan du inte ta bort den aktuella logg filen i mappen. Stoppa tjänsten innan du försöker igen. För att undvika användar inloggnings problem bör du redan ha konfigurerat direktautentisering för [hög tillgänglighet](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
-Du kan granska och ta bort dessa filer med hjälp av Windows Explorer eller du kan använda följande skript för att utföra åtgärderna som krävs:
+Du kan antingen granska och ta bort dessa filer med hjälp av Utforskaren i Windows, eller så kan du använda följande skript för att utföra de åtgärder som krävs:
 
 ```
 $Files = ((Get-childitem -Path "$env:programdata\microsoft\azure ad connect authentication agent\trace" -Recurse).VersionInfo).FileName 
@@ -88,23 +88,23 @@ Foreach ($file in $files) {
 }
 ```
 
-Om du vill schemalägga det här skriptet ska köras så varje 48 timmar här:
+Följ dessa steg om du vill schemalägga att skriptet ska köras var 48: e timme:
 
-1.  Spara skriptet i en fil med det ”. Ps1 ”tillägget.
-2.  Öppna **Kontrollpanelen** och klicka på **System och säkerhet**.
-3.  Under den **Administrationsverktyg** klickar du på ”**schema aktiviteter**”.
-4.  I **Schemaläggaren**, högerklickar du på ”**schema Uppgiftsbibliotek**” och klicka på ”**skapa grundläggande uppgift...** ”.
-5.  Ange namnet på den nya aktiviteten och klicka på **nästa**.
-6.  Välj ”**dagliga**” för den **aktivitetsutlösare** och klicka på **nästa**.
-7.  Ställa in återkommande till två dagar och klickar på **nästa**.
-8.  Välj ”**programstart**” som åtgärd och klicka på **nästa**.
-9.  Typen ”**PowerShell**” i rutan för Program eller skript och i rutan med texten ”**lägga till argument (valfritt)** ”, ange den fullständiga sökvägen till det skript som du skapade tidigare och sedan på **nästa**.
-10. Nästa skärm visar en sammanfattning av uppgiften som du håller på att skapa. Kontrollera värdena och klicka på **Slutför** att skapa aktiviteten:
+1.  Spara skriptet i en fil med ". PS1 "Extension.
+2.  Öppna **kontroll panelen** och klicka på **system och säkerhet**.
+3.  Klicka på**Schemalägg aktiviteter**under **administrations verktyg** .
+4.  I **Schemaläggaren**högerklickar du på "**aktivitets schema bibliotek**" och klickar på "**skapa grundläggande aktivitet...** ".
+5.  Ange namnet på den nya aktiviteten och klicka på **Nästa**.
+6.  Välj "**dagligen**" för **aktivitets utlösaren** och klicka på **Nästa**.
+7.  Ställ in upprepningen på två dagar och klicka på **Nästa**.
+8.  Välj "**starta ett program**" som åtgärd och klicka på **Nästa**.
+9.  Skriv "**PowerShell**" i rutan för programmet/skriptet och i rutan "**Lägg till argument (valfritt)** ", ange den fullständiga sökvägen till skriptet som du skapade tidigare och klicka sedan på **Nästa**.
+10. Nästa skärm visar en sammanfattning av den uppgift som du håller på att skapa. Verifiera värdena och klicka på **Slutför** för att skapa uppgiften:
  
-### <a name="note-about-domain-controller-logs"></a>Observera om Domain controller loggar
+### <a name="note-about-domain-controller-logs"></a>Observera om domänkontrollanter loggar
 
-Om granskningsloggning aktiveras kan den här produkten generera säkerhetsloggar för domänkontrollanterna. Mer information om hur du konfigurerar granskningsprinciper kan du läsa följande [artikeln](https://technet.microsoft.com/library/dd277403.aspx).
+Om gransknings loggning har Aktiver ATS kan den här produkten generera säkerhets loggar för dina domänkontrollanter. Läs den här [artikeln](https://technet.microsoft.com/library/dd277403.aspx)om du vill veta mer om hur du konfigurerar gransknings principer.
 
 ## <a name="next-steps"></a>Nästa steg
-* [Granska Microsoft Privacy principen på Säkerhetscenter](https://www.microsoft.com/trustcenter)
-* [**Felsöka** ](tshoot-connect-pass-through-authentication.md) – Lär dig att lösa vanliga problem med funktionen.
+* [Läs sekretess policyn för Microsoft på säkerhets Center](https://www.microsoft.com/trustcenter)
+* [**Felsök**](tshoot-connect-pass-through-authentication.md) – lär dig hur du löser vanliga problem med funktionen.

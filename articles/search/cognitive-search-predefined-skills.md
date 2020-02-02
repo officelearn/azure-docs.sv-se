@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f0975aceeb55c8f184ebe4e6a44d819b4a8bf38
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9e1f62dcdb122726fc1c08b7bea4e4c214ce7906
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837868"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933373"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Inbyggda kognitiva färdigheter för text-och bild bearbetning under indexering (Azure Kognitiv sökning)
 
@@ -31,6 +31,7 @@ Flera färdigheter är flexibla i vad de använder eller producerar. I allmänhe
 
 | Kvalifikation | Beskrivning |
 |-------|-------------|
+|[Microsoft. färdigheter. text. CustomEntityLookupSkill](cognitive-search-skill-custom-entity-lookup.md)| Söker efter text från en anpassad, användardefinierad lista med ord och fraser.|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Den här kunskapen använder en förtränad modell för att identifiera viktiga fraser baserade på placering av termer, språk regler, närhet till andra villkor och hur ovanlig termen är i käll data. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Den här kunskapen använder en förtränad modell för att identifiera vilket språk som används (ett språk-ID per dokument). När flera språk används i samma text segment, är utdata LCID för det mest använda språket.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | Konsoliderar text från en samling fält till ett enda fält.  |

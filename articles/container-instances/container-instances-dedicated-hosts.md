@@ -1,15 +1,16 @@
 ---
-title: Distribuera på dedikerade värdar
-description: Använd dedikerade värdar för att uppnå sann isolering på värdnivå för dina arbets belastningar
+title: Distribuera på dedikerad värd
+description: Använd en dedikerad värd för att uppnå sann isolering på värdnivå för dina Azure Container Instances arbets belastningar
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 619a39f4d08a4308cb0f566bc50860e9562bf9e4
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: adad0ddfc78530b3a3a7c139d9a95ec4790c8053
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903761"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934153"
 ---
 # <a name="deploy-on-dedicated-hosts"></a>Distribuera på dedikerade värdar
 
@@ -17,22 +18,49 @@ ms.locfileid: "75903761"
 
 Den dedikerade SKU: n är lämplig för behållar arbets belastningar som kräver arbets belastnings isolering från ett fysiskt Server perspektiv.
 
-## <a name="using-the-dedicated-sku"></a>Använda dedikerad SKU
+## <a name="prerequisites"></a>Krav
+
+* Standard gränsen för alla prenumerationer som ska använda den dedikerade SKU: n är 0. Om du vill använda den här SKU: n för distributioner av produktions behållare skapar du ett [Azure-supportbegäran][azure-support] för att öka gränsen.
+
+## <a name="use-the-dedicated-sku"></a>Använd dedikerad SKU
 
 > [!IMPORTANT]
-> Användning av dedikerade SKU är bara tillgänglig i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len. Dessutom är standard gränsen för alla prenumerationer som använder den dedikerade SKU: n 0. Om du vill använda den här SKU: n för distributioner av produktions behållare skapar du ett [Azure-supportbegäran][azure-support]
+> Användning av dedikerade SKU är bara tillgänglig i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len.
+>
 
-Från och med API version 2019-12-01 finns en "SKU"-egenskap under avsnittet Egenskaper för container grupp i en distributionsmall som krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Du kan lära dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Från och med API version 2019-12-01 finns det en `sku`-egenskap under avsnittet Egenskaper för behållar grupp i en distributions mall, vilket krävs för en ACI-distribution. För närvarande kan du använda den här egenskapen som en del av en mall för Azure Resource Manager distribution för ACI. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
 
-SKU-egenskapen kan ha ett av följande värden:
-* Standard – standard alternativet för ACI distribution, som fortfarande garanterar säkerhet på hypervisor-nivå 
-* Dedikerad – används för isolering av arbets belastnings nivåer med dedikerade fysiska värdar för behållar gruppen
+Egenskapen `sku` kan ha ett av följande värden:
+* `Standard` – standard distributions valet för ACI, som fortfarande garanterar säkerhet på hypervisor-nivå 
+* `Dedicated` – används för isolering av arbets belastnings nivåer med dedikerade fysiska värdar för behållar gruppen
 
 ## <a name="modify-your-json-deployment-template"></a>Ändra mallen för JSON-distribution
 
-I distributions mal len där behållar grupp resursen har angetts kontrollerar du att `"apiVersion": "2019-12-01",`. Ange `"sku": "Dedicated",`i avsnittet Egenskaper i behållar grupps resursen.
+Ändra eller Lägg till följande egenskaper i distributions mal len:
+* Under `resources`anger `apiVersion` till `2012-12-01`.
+* Under egenskaperna behållar grupp, lägger du till en `sku` egenskap med värde `Dedicated`.
 
 Här är ett exempel-kodfragment för avsnittet resurser i en distributions mall för container grupper som använder den dedikerade SKU: n:
+
+```json
+[...]
+"resources": [
+    {
+        "name": "[parameters('containerGroupName')]",
+        "type": "Microsoft.ContainerInstance/containerGroups",
+        "apiVersion": "2019-12-01",
+        "location": "[resourceGroup().location]",    
+        "properties": {
+            "sku": "Dedicated",
+            "containers": {
+                [...]
+            }
+        }
+    }
+]
+```
+
+Följande är en komplett mall som distribuerar en exempel behållar grupp som kör en enda behållar instans:
 
 ```json
 {
@@ -91,9 +119,8 @@ Här är ett exempel-kodfragment för avsnittet resurser i en distributions mall
                     ],
                     "type": "Public"
                 },
-                "osType": "Linux",
+                "osType": "Linux"
             },
-            "location": "eastus2euap",
             "tags": {}
         }
     ]
@@ -116,7 +143,7 @@ Distribuera mallen med kommandot [AZ Group Deployment Create][az-group-deploymen
 az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
-Inom några sekunder bör du få ett första svar från Azure. När distributionen är klar krypteras alla data som är relaterade till den bestående av ACI-tjänsten med den nyckel du angav.
+Inom några sekunder bör du få ett första svar från Azure. En lyckad distribution sker på en dedikerad värd.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create

@@ -2,17 +2,17 @@
 title: Skydda DNS-zoner och poster – Azure DNS
 description: I den här utbildnings vägen ska du komma igång med att skydda DNS-zoner och post uppsättningar i Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
-ms.author: allensu
-ms.openlocfilehash: c87f9d51c69c4f4d330862e83e5cc8e8e849a988
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: rohink
+ms.openlocfilehash: 64c71047c60482ff198dbba833d4d0a35c80c60d
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969009"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932422"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>Skydda DNS-zoner och-poster
 
@@ -156,7 +156,7 @@ Rollen kan sedan tilldelas på samma sätt som inbyggda roller, enligt beskrivni
 
 Mer information om hur du skapar, hanterar och tilldelar anpassade roller finns i [anpassade roller i Azure RBAC](../role-based-access-control/custom-roles.md).
 
-## <a name="resource-locks"></a>Resurslås
+## <a name="resource-locks"></a>Resurs lås
 
 Förutom RBAC har Azure Resource Manager stöd för en annan typ av säkerhets kontroll, nämligen möjligheten att låsa resurser. Om RBAC-regler tillåter att du styr åtgärderna för vissa användare och grupper, tillämpas resurs lås på resursen och gäller för alla användare och roller. Mer information finns i [Låsa resurser med Azure Resource Manager](../azure-resource-manager/management/lock-resources.md).
 

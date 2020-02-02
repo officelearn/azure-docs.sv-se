@@ -3,20 +3,20 @@ title: Vanliga frågor och svar om Azure Traffic Manager
 description: Den här artikeln innehåller svar på vanliga frågor om Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
-ms.author: allensu
-ms.openlocfilehash: d7feb0f7c32ab544df2b9de08daaf8cd007318b5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.author: rohink
+ms.openlocfilehash: bc318aff0dad7d7fdff16df549c013927ef0e799
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045307"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938805"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Traffic Manager
 
@@ -406,7 +406,7 @@ För profiler med routningsmetod inställd på multivärde:
 
 Ja, du kan med undantaget att en profil av typen multivärde inte kan vara en överordnad profil i en kapslad profil uppsättning.
 
-### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Jag har stoppat en slut punkt för ett webb program i Traffic Manager profil, men jag får ingen trafik även när jag har startat om den. Hur kan jag åtgärda det?
+### <a name="i-stopped-an-web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Jag har stoppat en slut punkt för ett webb program i Traffic Manager profil, men jag får ingen trafik även när jag har startat om den. Hur kan jag åtgärda detta?
 
 När en slut punkt för Azure-webbprogram stoppas Traffic Manager slutar att kontrol lera hälso tillståndet och startar om hälso kontrollerna först efter det att den har identifierat att slut punkten har startats om. Om du vill förhindra den här fördröjningen inaktiverar du och aktiverar sedan slut punkten i Traffic Manager profilen igen när du har startat om slut punkten.
 
@@ -499,9 +499,9 @@ I följande tabell beskrivs beteendet för Traffic Manager hälso kontroller fö
 
 | Status för Övervakare för underordnad profil | Status för övervakaren för överordnad slut punkt | Anteckningar |
 | --- | --- | --- |
-| Inaktiverade. Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
+| Inaktiverats. Den underordnade profilen har inaktiverats. |Stoppad |Status för överordnad slut punkt har stoppats, inte inaktiverats. Inaktiverat tillstånd är reserverat för att indikera att du har inaktiverat slut punkten i den överordnade profilen. |
 | Försämrad. Minst en underordnad profil slut punkt är i ett degraderat tillstånd. |Online: antalet Online-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>CheckingEndpoint: antalet online-och CheckingEndpoint-slutpunkter i den underordnade profilen är minst värdet för MinChildEndpoints.<BR>Degraderad: annars. |Trafiken dirigeras till en slut punkt med status CheckingEndpoint. Om MinChildEndpoints har angetts för hög försämras slut punkten alltid. |
-| Online. Minst en underordnad profil slut punkt är ett online-tillstånd. Ingen slut punkt har statusen degraderat. |Se ovan. | |
+| Onlinemallar. Minst en underordnad profil slut punkt är ett online-tillstånd. Ingen slut punkt har statusen degraderat. |Se ovan. | |
 | CheckingEndpoints. Minst en underordnad profil slut punkt är ' CheckingEndpoint '. Inga slut punkter är "online" eller "degraderade" |Samma som ovan. | |
 | Inaktivera. Alla underordnade profil slut punkter är antingen inaktiverade eller stoppade, eller så har den här profilen inga slut punkter. |Stoppad | |
 

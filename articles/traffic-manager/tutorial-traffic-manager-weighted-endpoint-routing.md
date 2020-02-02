@@ -2,24 +2,24 @@
 title: 'Självstudie: dirigera trafik till viktade slut punkter – Azure Traffic Manager'
 description: Den här artikeln beskriver hur du dirigerar trafik till viktade slutpunkter med Traffic Manager.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 Customer intent: As an IT Admin, I want to distribute traffic based on the weight assigned to a website endpoint so that I can control the user traffic to a given website.
 ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
-ms.author: allensu
-ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: a4738b2e36786cd627f53af3e36bd8f1e3fbc375
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037919"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939484"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>Självstudie: Styr trafikroutning med viktade slutpunkter med hjälp av Traffic Manager
 
 Den här självstudien beskriver hur du använder Azure Traffic Manager till att styra routningen av användartrafik mellan slutpunkter med hjälp av routningsmetoden Viktat. I den här routningsmetoden tilldelar du vikter till varje slutpunkt i Traffic Manager-profilkonfigurationen. Sedan dirigeras användartrafiken baserat på vikt som tilldelats varje slutpunkt. Vikten är ett heltal mellan 1 och 1000. Ju högre viktningsvärde som tilldelas till en slutpunkt desto högre prioritet har det.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa två virtuella datorer som kör en grundläggande webbplats i IIS.

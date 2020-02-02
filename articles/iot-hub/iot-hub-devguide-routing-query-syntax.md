@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890503"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934625"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub frågesyntaxen för meddelanderoutning
 
@@ -55,7 +55,7 @@ System egenskaper hjälper till att identifiera innehåll och källa för meddel
 | Innehålls | sträng | Användaren anger meddelandets innehålls typ. Om du vill tillåta frågan på meddelande texten ska det här värdet ställas in Application/JSON. |
 | contentEncoding | sträng | Användaren anger meddelandets kodnings typ. Tillåtna värden är UTF-8, UTF-16, UTF-32 om contentType är inställt på Application/JSON. |
 | iothub-Connection-Device-ID | sträng | Det här värdet anges av IoT Hub och identifierar enhetens ID. Använd `$connectionDeviceId`för att fråga. |
-| iothub – enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Använd `enqueuedTime`för att fråga. |
+| iothub-enqueuedtime | sträng | Det här värdet anges av IoT Hub och representerar den faktiska tiden för att köa meddelandet i UTC. Använd `enqueuedTime`för att fråga. |
 | iothub-gränssnitt-namn | sträng | Det här värdet anges av användaren och representerar namnet på det digitala dubbla gränssnitt som implementerar telemetri-meddelandet. Använd `$interfaceName`för att fråga. Den här funktionen är tillgänglig som en del av [IoT plug and Play offentlig för hands version](../iot-pnp/overview-iot-plug-and-play.md). |
 
 Som det beskrivs i [IoT Hub-meddelanden](iot-hub-devguide-messages-construct.md)finns det ytterligare system egenskaper i ett meddelande. Förutom **ContentType**, **contentEncoding**och **enqueuedTime**kan **connectionDeviceId** och **connectionModuleId** också frågas.
@@ -66,7 +66,7 @@ Program egenskaperna är användardefinierade strängar som kan läggas till i m
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Till exempel: 
+En fråga om meddelande system egenskaper måste föregås av `$` symbolen. Frågor om program egenskaper används med sitt namn och ska inte föregås av den `$`symbolen. Om ett program egenskaps namn börjar med `$`, kommer IoT Hub söka efter det i System egenskaperna, och det går inte att hitta det. därefter kommer det att se ut i program egenskaperna. Ett exempel: 
 
 Så här frågar du efter system egenskapen contentEncoding 
 
@@ -163,7 +163,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Meddelande cirkulations fråga baserat på enhet, dubbla 
 
-Med meddelanderoutning kan du fråga på [enhetens dubbla](iot-hub-devguide-device-twins.md) Taggar och egenskaper, som är JSON-objekt. Det finns inte stöd för att skicka frågor till modul "delad". Ett exempel på enhets dubbla Taggar och egenskaper visas nedan.
+Med meddelanderoutning kan du fråga på [enhetens dubbla](iot-hub-devguide-device-twins.md) Taggar och egenskaper, som är JSON-objekt. Det finns även stöd för frågor i modulerna "delad". Ett exempel på enhets dubbla Taggar och egenskaper visas nedan.
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Med meddelanderoutning kan du fråga på [enhetens dubbla](iot-hub-devguide-devi
 
 ### <a name="query-expressions"></a>Frågeuttryck
 
-En fråga om meddelande text måste ha prefixet `$twin`. Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Du kan också avstå från att använda `twin`, `$twin`, `body`eller `$body`, som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
+En fråga om meddelande text måste ha prefixet `$twin`. Frågeuttrycket kan också kombinera en kombinations-eller egenskaps referens med en innehålls referens, meddelande system egenskaper och referens för meddelande program egenskaper. Vi rekommenderar att du använder unika namn i taggar och egenskaper eftersom frågan inte är Skift läges känslig. Detta gäller för både enhetens dubbla och modul. Du kan också avstå från att använda `twin`, `$twin`, `body`eller `$body`, som egenskaps namn. Till exempel är följande giltiga frågeuttryck: 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

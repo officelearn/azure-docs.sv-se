@@ -12,23 +12,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/19/2019
 ms.author: memildin
-ms.openlocfilehash: 2d588d2707c267097e25176997e58f9573017582
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: bb004d536d30d62116866581daeef9b42c23d470
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780053"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936368"
 ---
 # <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry integration med Security Center (förhands granskning)
 
 Azure Container Registry (ACR) är en hanterad privat Docker-registerpost som lagrar och hanterar behållar avbildningar för Azure-distributioner i ett centralt register. Den är baserad på Docker-registret 2,0 med öppen källkod.
 
-Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, inte per genomsökning som visas på [sidan med priser](security-center-pricing.md). 
+Om du är på Azure Security Center standard nivån kan du lägga till behållar register paketet. Den här valfria funktionen ger djupare insyn i säkerhets riskerna för avbildningarna i dina ARM-baserade register. Aktivera eller inaktivera paketet på prenumerations nivå för att ta med alla register i en prenumeration. Den här funktionen debiteras per avbildning, inte per genomsökning som visas på [sidan med priser](security-center-pricing.md). 
 
 Genom att aktivera paket för behållar register ser du till att Security Center är redo att skanna bilder som skickas till registret. Genomsökningarna finns på avbildnings nivån: Security Center inte skannar registret, skannar bilderna som lagras i registret. 
 
 När en bild skickas till ditt register, Security Center skannar automatiskt avbildningen. Om du vill utlösa en genomsökning av en avbildning kan du skicka den till din lagrings plats.
-
 
 När genomsökningen är klar (vanligt vis efter cirka 10 minuter), är avgöranden tillgängliga i Security Center rekommendationer som detta:
 
@@ -36,7 +35,7 @@ När genomsökningen är klar (vanligt vis efter cirka 10 minuter), är avgöran
 
 ## <a name="benefits-of-integration"></a>Fördelar med integrering
 
-Security Center identifierar ACR-register i din prenumeration och erbjuder sömlöst:
+Security Center identifierar ARM-baserade ACR-register i din prenumeration och ger sömlös:
 
 * **Azure – ursprunglig sårbarhets sökning** för alla publicerade Linux-avbildningar. Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys. Den här interna lösningen integreras sömlöst som standard.
 

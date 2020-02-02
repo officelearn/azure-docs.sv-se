@@ -2,17 +2,17 @@
 title: Självstudie – Skapa anpassade Azure DNS-poster för en webbapp
 description: I den här självstudien skapar du DNS-poster för anpassade domäner för webbappar med hjälp av Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211209"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939103"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>Självstudie: Skapa DNS-poster i en anpassad domän för en webbapp 
 
@@ -29,7 +29,7 @@ Om du vill göra detta måste du skapa tre poster:
 
 Tänk på att om du skapar en A-post för en webbapp i Azure måste A-posten uppdateras manuellt om den underliggande IP-adressen för webbappen ändras.
 
-I den här självstudiekursen får du lära du dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en A- och TXT-post för den anpassade domänen
@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > Se till att du tar med `http://`-prefixet, annars kan webbläsaren försöka förutsäga en URL åt dig!
 
-Du bör se samma sida för båda URL:er. Till exempel:
+Du bör se samma sida för båda URL:er. Ett exempel:
 
 ![Contoso-apptjänst](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

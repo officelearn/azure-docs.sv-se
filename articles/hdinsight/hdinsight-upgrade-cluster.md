@@ -1,28 +1,29 @@
 ---
-title: Uppgradera HDInsight-kluster till en nyare version – Azure
-description: Läs rikt linjerna för att uppgradera ditt Azure HDInsight-kluster till en nyare version.
-author: omidm1
-ms.author: omidm
+title: Migrera kluster till en nyare version
+titleSuffix: Azure HDInsight
+description: Läs rikt linjerna för att migrera ditt Azure HDInsight-kluster till en nyare version.
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/06/2019
-ms.openlocfilehash: 1a1d4a71786ebb1e68f59084086b3256a1c1ea40
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.date: 01/31/2020
+ms.openlocfilehash: 95892bba1b3152dda718a4af3c5f45072054fdae
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951164"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935492"
 ---
-# <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>Uppgradera HDInsight-kluster till en nyare version
+# <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>Migrera HDInsight-kluster till en nyare version
 
-För att kunna dra nytta av de senaste HDInsight-funktionerna rekommenderar vi att HDInsight-kluster uppgraderas till den senaste versionen. Följ rikt linjerna nedan för att uppgradera dina HDInsight-kluster versioner.
+För att kunna dra nytta av de senaste HDInsight-funktionerna rekommenderar vi att HDInsight-kluster regelbundet migreras till den senaste versionen. HDInsight stöder inte uppgraderingar på plats där ett befintligt kluster uppgraderas till en nyare komponent version. Du måste skapa ett nytt kluster med önskad komponent och plattforms version och sedan migrera dina program till att använda det nya klustret. Följ rikt linjerna nedan för att migrera dina HDInsight-kluster versioner.
 
 > [!NOTE]  
 > Information om vilka versioner av HDInsight som stöds finns i [versioner av HDInsight-komponenter](hdinsight-component-versioning.md#supported-hdinsight-versions).
 
-## <a name="upgrade-tasks"></a>Uppgraderings uppgifter
+## <a name="migration-tasks"></a>Migrera uppgifter
 
 Arbets flödet för att uppgradera HDInsight-kluster är följande.
 arbets flödes diagram för ![HDInsight-uppgradering](./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png)
@@ -39,6 +40,18 @@ När du har kontrollerat att allt fungerar som förväntat schemalägger du stil
 1. Skapa ett kluster i samma VNET-undernät med den senaste (eller stödda) HDI-versionen med samma standard data lager som det tidigare klustret använde. Detta gör att det nya klustret kan fortsätta att arbeta med dina befintliga produktions data.
 1. Importera alla övergående data som du säkerhetskopierar.
 1. Starta jobb/Fortsätt bearbeta med det nya klustret.
+
+## <a name="workload-specific-guidance"></a>Vägledning för arbets belastnings information
+
+Följande dokument ger vägledning om hur du migrerar vissa arbets belastningar:
+
+* [Migrera HBase](/hbase/apache-hbase-migrate-new-version.md)
+* [Migrera Kafka](/kafka/migrate-versions.md)
+* [Migrera Hive/interaktiv fråga](/interactive-query/apache-hive-migrate-workloads.md)
+
+## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
+
+Mer information om säkerhets kopiering och återställning av databaser finns i [återställa en Azure SQL-databas med hjälp av automatiska databas säkerhets kopieringar](../sql-database/sql-database-recovery-using-backups.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 093bfbd976ace41f635976ff27fa4292e5c4df3c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905151"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937909"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Felsöka kluster skapande fel med Azure HDInsight
 
@@ -64,7 +64,7 @@ Om du använder en Express-väg eller din egen anpassade DNS-server kan du läsa
 
 ## <a name="resources-locks"></a>Resurs lås  
 
-Se till att det inte finns några [Lås på det virtuella nätverket och resurs gruppen](../../azure-resource-manager/management/lock-resources.md).  
+Se till att det inte finns några [Lås på det virtuella nätverket och resurs gruppen](../../azure-resource-manager/management/lock-resources.md). Det går inte att skapa eller ta bort kluster om resurs gruppen är låst. 
 
 ## <a name="unsupported-component-versions"></a>Komponent versioner som inte stöds
 

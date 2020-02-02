@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5a15b3b9e51772d8c7e5312968fecb180069e2a7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4cc3b1789ef2f7ef44e5421cbacb5a93c2a0a1ff
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911256"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933614"
 ---
 # <a name="add-html-markers-to-the-map"></a>Lägg till HTML-markörer i kartan
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du lägger till en anpassad HTML-fil, till exempel e
 > HTML-markörer ansluter inte till data källor. I stället läggs information till direkt till markören och markören läggs till i Maps `markers`-egenskapen som är en [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest).
 
 > [!IMPORTANT]
-> Till skillnad från de flesta skikt i Azure Maps-webbkontroll som använder WebGL för rendering använder HTML-markeringar traditionella DOM-element för rendering. Därför är det fler HTML-märken som har lagt till en sida, desto fler DOM-element. Prestanda kan försämras efter att några hundra HTML-markörer har lagts till. För större data uppsättningar kan du antingen klustra dina data eller använda ett symbol-eller bubbeldiagram.
+> Till skillnad från de flesta skikt i Azure Maps-webbkontroll som använder WebGL för rendering använder HTML-markeringar traditionella DOM-element för rendering. Det gör att fler HTML-markörer som läggs till på en sida, desto fler DOM-element finns. Prestanda kan försämras efter att några hundra HTML-markörer har lagts till. För större data uppsättningar kan du antingen klustra dina data eller använda ett symbol-eller bubbeldiagram.
 
 ## <a name="add-an-html-marker"></a>Lägg till en HTML-markör
 
@@ -33,7 +33,7 @@ Den här artikeln visar hur du lägger till en anpassad HTML-fil, till exempel e
 Följande kod skapar en HTML-markör och anger egenskapen Color till "DodgerBlue" och egenskapen text till "10". En popup-meny är kopplad till markören och `click` händelsen används för att visa popup-fönstrets synlighet.
 
 ```javascript
-//Create a HTML marker and add it to the map.
+//Create an HTML marker and add it to the map.
 var marker = new atlas.HtmlMarker({
     color: 'DodgerBlue',
     text: '10',

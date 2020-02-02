@@ -8,16 +8,16 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 10152087b45a4048f30f382b237017efbbb63787
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 71344f954990952856f031829f13273e062b62c5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769888"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933174"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Felsöka fel med Runbooks
 
-När du har problem med att köra Runbooks i Azure Automation kan du använda följande steg för att diagnostisera problemet.
+När du har problem med att köra Runbooks i Azure Automation kan du använda följande steg för att diagnostisera problemen.
 
 1. **Se till att Runbook-skriptet körs på den lokala datorn:**  Se PowerShell- [dokumenten](/powershell/scripting/overview) eller [python-dokumenten](https://docs.python.org/3/) för språk referens-och inlärnings moduler.
 
@@ -29,7 +29,7 @@ När du har problem med att köra Runbooks i Azure Automation kan du använda f�
 
 2. **Undersök** [fel strömmar](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) för Runbook för vissa meddelanden och jämför dem med felen nedan.
 
-3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Om din Runbook importerar några moduler, se till att de är tillgängliga i ditt Automation-konto med hjälp av stegen som anges i [importera moduler](../shared-resources/modules.md#import-modules). Uppdatera dina moduler till den senaste versionen genom att följa anvisningarna under [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsöknings information finns i [Felsöka moduler](shared-resources.md#modules).
+3. **Se till att noderna och automation-arbetsytan har de moduler som krävs:** Om din Runbook importerar några moduler, se till att de är tillgängliga för ditt Automation-konto med hjälp av stegen som anges i [importera moduler](../shared-resources/modules.md#import-modules). Uppdatera dina moduler till den senaste versionen genom att följa anvisningarna i [Uppdatera Azure-moduler i Azure Automation](..//automation-update-azure-modules.md). Mer felsöknings information finns i [Felsöka moduler](shared-resources.md#modules).
 
 Om din Runbook är inaktive rad eller om oväntad oväntad fel:
 
@@ -37,7 +37,7 @@ Om din Runbook är inaktive rad eller om oväntad oväntad fel:
 * [Lägg till ytterligare utdata](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#message-streams) till runbooken för att identifiera vad som händer innan runbooken pausas.
 * [Hantera eventuella undantag](https://docs.microsoft.com/azure/automation/automation-runbook-execution#handling-exceptions) som genereras av ditt jobb.
 
-## <a name="login-azurerm"></a>Scenario: kör login-AzureRMAccount för inloggning
+## <a name="login-azurerm"></a>Scenario: kör login-AzureRMAccount för att logga in
 
 ### <a name="issue"></a>Problem
 
@@ -49,7 +49,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>Orsak
 
-Det här felet kan inträffa när du inte använder ett RunAs-konto eller om RunAs-kontot har upphört att gälla. Se [hantera Azure Automation runas-konton](https://docs.microsoft.com/azure/automation/manage-runas-account).
+Det här felet kan inträffa om du inte använder ett Kör som-konto eller om kör som-kontot har upphört att gälla. Se [hantera Azure Automation kör som-konton](https://docs.microsoft.com/azure/automation/manage-runas-account).
 
 Det här felet har två primära orsaker:
 
@@ -62,7 +62,7 @@ Om du får det här felet när du har uppdaterat en AzureRM-modul bör du uppdat
 
 Om du försöker komma åt resurser i en annan prenumeration kan du följa stegen nedan för att konfigurera behörigheter.
 
-1. Gå till Automation-kontots kör som-konto och kopiera program-ID och tumavtryck.
+1. Gå till kör som-kontot för Automation och kopiera program-ID och tumavtryck.
   ![kopiera program-ID och tumavtryck](../media/troubleshoot-runbooks/collect-app-id.png)
 1. Gå till prenumerationens Access Control där Automation-kontot inte finns och Lägg till en ny roll tilldelning.
   ![Åtkomstkontroll](../media/troubleshoot-runbooks/access-control.png)
@@ -142,7 +142,7 @@ Om du har Multi-Factor Authentication på ditt Azure-konto kan du inte använda 
 
 ### <a name="resolution"></a>Upplösning
 
-Om du vill använda ett certifikat med de klassiska cmdletarna för distributions modellen i Azure, se [skapa och lägga till ett certifikat för att hantera Azure-tjänster.](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Om du vill använda ett huvud namn för tjänsten med Azure Resource Manager-cmdletar, se [skapa tjänstens huvud namn med Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera ett huvud namn för tjänsten med Azure Resource Manager.](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+Om du vill använda ett certifikat med de klassiska cmdletarna för distributions modellen i Azure, se [skapa och lägga till ett certifikat för att hantera Azure-tjänster](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx). Om du vill använda ett huvud namn för tjänsten med Azure Resource Manager-cmdletar, se [skapa tjänstens huvud namn med Azure Portal](../../active-directory/develop/howto-create-service-principal-portal.md) och [autentisera ett huvud namn för tjänsten med Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="get-serializationsettings"></a>Scenario: du ser ett fel i jobb strömmar om metoden get_SerializationSettings
 
@@ -168,7 +168,7 @@ Det här felet orsakas av både AzureRM-och AZ-cmdletar i en Runbook. Det inträ
 
 ### <a name="resolution"></a>Upplösning
 
-AZ-och AzureRM-cmdletar kan inte importeras och används i samma Runbook, för att lära dig mer om AZ-stöd i Azure Automation finns [stöd för AZ-modulen i Azure Automation](../az-modules.md).
+AZ-och AzureRM-cmdletar kan inte importeras och används i samma Runbook. Mer information om AZ-cmdletar i Azure Automation finns i [AZ-modulens stöd i Azure Automation](../az-modules.md).
 
 ## <a name="task-was-cancelled"></a>Scenario: runbooken Miss lyckas med felet: en aktivitet avbröts
 
@@ -208,7 +208,7 @@ När du arbetar med flera prenumerationer kan prenumerations kontexten försvinn
 # Ensures that any credentials apply only to the execution of this runbook
 Disable-AzureRmContextAutosave –Scope Process
 
-# Connect to Azure with RunAs account
+# Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
 Add-AzureRmAccount `
@@ -243,10 +243,10 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 ### <a name="cause"></a>Orsak
 
-Detta fel kan inträffa baserat på någon av följande orsaker:
+Detta fel kan bero på följande orsaker:
 
-* Modulen som innehåller cmdleten har inte importer ATS till Automation-kontot
-* Modulen som innehåller cmdleten importeras men är inaktuell
+* Modulen som innehåller cmdleten importeras inte till Automation-kontot.
+* Modulen som innehåller cmdleten importeras men är inaktuell.
 
 ### <a name="resolution"></a>Upplösning
 
@@ -256,11 +256,11 @@ Om modulen är en Azure-modul läser [du så här uppdaterar du Azure PowerShell
 
 Om det är en separat modul kontrollerar du att modulen har importer ATS till ditt Automation-konto.
 
-## <a name="job-attempted-3-times"></a>Scenario: ett försök gjordes att starta Runbook-jobbet tre gånger, men det kunde inte startas varje gång
+## <a name="job-attempted-3-times"></a>Scenario: ett försök gjordes att starta Runbook-jobbet tre gånger, men det gick inte att starta varje gång
 
 ### <a name="issue"></a>Problem
 
-Din Runbook Miss lyckas med felet:
+Din Runbook Miss lyckas med följande fel.
 
 ```error
 The job was tried three times but it failed
@@ -268,31 +268,29 @@ The job was tried three times but it failed
 
 ### <a name="cause"></a>Orsak
 
-Det här felet uppstår på grund av något av följande problem:
+Det här felet uppstår på grund av något av följande problem.
 
-* Minnes gräns. Dokumenterade gränser för hur mycket minne som allokeras till en sandbox finns i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). Ett jobb kan Miss lyckas om det använder mer än 400 MB minne.
+* Minnes gräns. Ett jobb kan Miss förorsakat om det använder mer än 400 MB minne. De dokumenterade gränserna för minne som allokerats till en sandbox finns i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
 
-* Nätverks platser. Azure-sand lådor är begränsade till 1000 samtidiga nätverks platser enligt beskrivningen i [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+* Nätverks platser. Azure-sand lådor är begränsade till 1000 samtidiga nätverks platser. Se [begränsningar för Automation-tjänster](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
 
-* Modulen är inkompatibel. Det här felet kan inträffa om beroenden i en modul inte är korrekt och om de inte är det returnerar runbooken normalt meddelandet "kommandot hittades inte" eller "det går inte att binda parameter".
+* Modulen är inkompatibel. Beroenden för modulen kan vara felaktiga. I det här fallet returnerar runbooken normalt meddelandet "kommandot hittades inte" eller "det går inte att binda parameter".
 
-* Din Runbook försökte anropa en körbar fil eller under process i en Runbook som körs i en Azure-sandbox. Det här scenariot stöds inte i sand boxar i Azure.
+* Ingen autentisering med Active Directory för sandbox. Din Runbook försökte anropa en körbar fil eller under process som körs i en Azure-sandbox. Det finns inte stöd för att konfigurera Runbooks för autentisering med Azure AD med hjälp av Azure Active Directory Authentication Library (ADAL).
 
-* Din Runbook försökte skriva för mycket undantags data till utdataströmmen.
+* För mycket undantags data. Din Runbook försökte skriva för mycket undantags data till utdataströmmen.
 
 ### <a name="resolution"></a>Upplösning
 
-Någon av följande lösningar löser problemet:
+* Minnes gräns, nätverks platser. Föreslagna sätt att arbeta inom minnes gränserna är att dela arbets belastningen mellan flera Runbooks, bearbeta mindre data i minnet, undvika att skriva onödiga utdata från dina runbooks och fundera över hur många kontroll punkter som skrivs in i ditt PowerShell-arbetsflöde Runbooks. Använd Clear-metoden, till exempel `$myVar.clear`, för att rensa variabler och använda `[GC]::Collect` för att köra skräp insamling direkt. De här åtgärderna minskar din Runbooks minnes storlek under körning.
 
-* Föreslagna metoder för att arbeta inom minnes gränsen är att dela upp arbets belastningen mellan flera Runbooks, inte att bearbeta lika mycket data i minnet, inte skriva onödiga utdata från dina runbooks eller fundera över hur många kontroll punkter du skriver till ditt PowerShell-arbetsflöde Runbooks. Du kan använda metoden clear, till exempel `$myVar.clear()` för att rensa variabeln och använda `[GC]::Collect()` för att köra skräp insamling direkt. De här åtgärderna minskar din Runbooks minnes storlek under körning.
+* Modulen är inkompatibel. Uppdatera dina Azure-moduler genom att följa stegen i [så här uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
 
-* Uppdatera dina Azure-moduler genom att följa stegen så här [uppdaterar du Azure PowerShell moduler i Azure Automation](../automation-update-azure-modules.md).
+* Ingen autentisering med ADAL för sandbox. När du autentiserar till Azure AD med en Runbook kontrollerar du att Azure AD-modulen är tillgänglig i ditt Automation-konto. Se till att ge kör som-kontot de behörigheter som krävs för att utföra de uppgifter som Runbook automatiserar.
 
-* En annan lösning är att köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker begränsas inte av de minnes-och nätverks gränser som Azure-sand lådorna är.
+  Om din Runbook inte kan anropa en körbar fil eller under process som körs i en Azure-sandbox, använder du runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Worker begränsas inte av de minnes-och nätverks gränser som Azure-sandbox har.
 
-* Om du behöver anropa en process (till exempel. exe eller under process. Call) i en Runbook måste du köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
-
-* Det finns en gräns på jobbets utgående data ström. Se till att du omger anrop till en körbar fil eller under process i ett try/catch-block. Om de genererar ett undantag skriver du meddelandet från det undantaget till en Automation-variabel. Detta gör att det inte kan skrivas till utdataström för jobb.
+* För mycket undantags data. Det finns en gräns på jobbets utgående data ström. Se till att din Runbook innesluter anrop till en körbar fil eller under process i ett try/catch-block. Om åtgärderna genererar ett undantag ska koden skriva meddelandet från undantaget till en Automation-variabel. Den här tekniken förhindrar att meddelandet skrivs in i utdataströmmen för jobb.
 
 ## <a name="sign-in-failed"></a>Scenario: det gick inte att logga in på Azure-kontot
 
@@ -353,7 +351,7 @@ Ta reda på vad som är fel genom att följa stegen nedan:
    }
    ```
 
-## <a name="child-runbook-object"></a>Objekt referensen har inte angetts till en instans av objektet
+## <a name="child-runbook-object"></a>Scenario: objekt referensen har inte angetts till en instans av ett objekt
 
 ### <a name="issue"></a>Problem
 
@@ -365,11 +363,11 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>Orsak
 
-Det finns ett känt problem där [Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) inte hanterar utdataströmmen korrekt om den innehåller objekt.
+Det finns ett känt problem där start-AzureRmAutomationRunbook inte hanterar utdataströmmen korrekt om den innehåller objekt.
 
 ### <a name="resolution"></a>Upplösning
 
-För att lösa detta rekommenderas att du i stället implementerar en avsöknings logik och använder [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) -cmdlet: en för att hämta utdata. Ett exempel på den här logiken definieras i följande exempel.
+För att lösa det här problemet rekommenderar vi att du implementerar en avsöknings logik och använder cmdleten [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) för att hämta utdata. Ett exempel på den här logiken definieras i följande exempel.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -417,7 +415,7 @@ Följande tre lösningar löser problemet:
 * Skicka det namn eller värde som du behöver från det komplexa objektet i stället för att skicka hela objektet.
 * Använd en PowerShell-Runbook i stället för en PowerShell Workflow-Runbook.
 
-## <a name="quota-exceeded"></a>Scenario: Runbook-jobbet misslyckades eftersom den tilldelade kvoten överskreds
+## <a name="quota-exceeded"></a>Scenario: Runbook-jobbet fungerar inte eftersom allokerad kvot har överskridits
 
 ### <a name="issue"></a>Problem
 
@@ -435,9 +433,9 @@ Felet uppstår när jobb körningen överskrider den kostnads fria kvoten på 50
 
 Om du vill använda mer än 500 minuters bearbetning per månad måste du ändra din prenumeration från den kostnads fria nivån till Basic-nivån. Du kan uppgradera till nivån Basic genom att utföra följande steg:
 
-1. Logga in till din Azure-prenumeration
-2. Välj det Automation-konto som du vill uppgradera
-3. Klicka på **inställningar** > **prissättning**.
+1. Logga in på din Azure-prenumeration.
+2. Välj det Automation-konto som ska uppgraderas.
+3. Klicka på **Inställningar**och sedan på **priser**.
 4. Klicka på **Aktivera** på sidan längst ned för att uppgradera ditt konto till **Basic** -nivån.
 
 ## <a name="cmdlet-not-recognized"></a>Scenario: cmdleten känns inte igen när en Runbook kördes
@@ -477,13 +475,13 @@ Det här beteendet är avsiktligt i Azure-sand lådor på grund av "god resurs" 
 
 ### <a name="cause"></a>Orsak
 
-Runbooken kördes över den 3 timmars gräns som tillåts av rättvis resurs i en Azure-sandbox.
+Runbooken kördes över den gräns på 3 timmar som tillåts av rättvis resurs i en Azure-sandbox.
 
 ### <a name="resolution"></a>Upplösning
 
 En rekommenderad lösning är att köra runbooken på en [hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
 
-Hybrid Worker begränsas inte av den [verkliga resursen](../automation-runbook-execution.md#fair-share) 3 timmes Runbook-begränsningen som Azure-Sandbox är. Runbooks som körs i hybrid Runbook Worker bör utvecklas för att stödja omstarts beteenden om det uppstår oväntade problem med lokal infrastruktur.
+Hybrid Worker begränsas inte av den [verkliga delningen](../automation-runbook-execution.md#fair-share) på 3 timmar som Azure-sandbox har. Runbooks som körs på Hybrid Runbook Worker bör utvecklas för att stödja omstarts beteenden om det uppstår oväntade problem med lokal infrastruktur.
 
 Ett annat alternativ är att optimera runbooken genom att skapa [underordnade Runbooks](../automation-child-runbooks.md). Om din Runbook upprepas genom samma funktion på flera resurser, till exempel en databas åtgärd på flera databaser, kan du flytta den funktionen till en underordnad Runbook. Var och en av dessa underordnade Runbooks körs parallellt i separata processer. Det här beteendet minskar den totala tiden som den överordnade runbooken slutförs.
 
@@ -511,7 +509,7 @@ Webhooken som du försöker anropa är antingen inaktive rad eller har upphört 
 
 Om webhooken är inaktive rad kan du återaktivera webhooken via Azure Portal. När en webhook har upphört att gälla måste webhooken tas bort och återskapas. Du kan bara [förnya en webhook](../automation-webhooks.md#renew-webhook) om den inte redan har gått ut.
 
-## <a name="429"></a>Scenario: 429: den begärda frekvensen är för stor. Försök igen
+## <a name="429"></a>Scenario: 429: den begärda frekvensen är för stor...
 
 ### <a name="issue"></a>Problem
 
@@ -544,7 +542,7 @@ Exception was thrown - Cannot invoke method. Method invocation is supported only
 
 ### <a name="cause"></a>Orsak
 
-Det här felet kan inträffa när du startar ett PowerShell-jobb i en Runbook som körs i Azure. Detta kan inträffa på grund av att Runbooks kördes i en Azure-sandbox kanske inte körs i det [fullständiga språk läget](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+Det här felet kan inträffa när du startar ett PowerShell-jobb i en Runbook som körs i Azure. Det här problemet kan uppstå eftersom Runbooks som körs i en Azure-sandbox kanske inte körs i det [fullständiga språk läget](/powershell/module/microsoft.powershell.core/about/about_language_modes).
 
 ### <a name="resolution"></a>Upplösning
 
@@ -565,16 +563,16 @@ Om du kör jobb med en hybrid Worker i stället för i Azure Automation kan du b
 
 ## <a name="runbook-fails-with-no-permission-or-some-variation"></a>Runbook misslyckas med ”Ingen behörighet” eller liknande
 
-RunAs-konton kan inte ha samma behörigheter mot Azure-resurser som ditt aktuella konto. Kontrollera att RunAs-kontot [har behörighet att komma åt alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i ditt skript.
+Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt aktuella konto. Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
 
 ## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
 
-* Om Runbooks kördes tidigare men stoppades, [Se till att runas-kontot inte har upphört att gälla](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
-* Om du använder webhooks för att starta runbooks [kontrollerar du att webhooken inte har upphört](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
+* Om Runbooks har körts tidigare men stoppats kontrollerar du att [Kör som-kontot](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) inte har upphört att gälla.
+* Om du använder Webhooks för att starta Runbooks, se till att en [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) inte har upphört att gälla.
 
 ## <a name="issues-passing-parameters-into-webhooks"></a>Problem med att skicka parametrar till Webhooks
 
-Information om hur du skickar parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
 ## <a name="issues-using-az-modules"></a>Problem med AZ-moduler
 
@@ -582,28 +580,28 @@ Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds in
 
 ## <a name="inconsistent-behavior-in-runbooks"></a>Inkonsekvent beteende i runbooks
 
-Följ riktlinjerna i [Runbook-körning](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) för att undvika problem med samtidiga jobb, resurser som skapas flera gånger eller annan logik i runbooks som kräver tidsprecision.
+Följ anvisningarna i [Runbook-körningen](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) för att undvika problem med samtidiga jobb, resurser som skapas flera gånger eller annan tids känslig logik i Runbooks.
 
-## <a name="runbook-fails-with-the-errors-no-permission-forbidden-403-or-some-variation"></a>Runbook Miss lyckas med felen: ingen behörighet, förbjuden, 403 eller viss variation
+## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook Miss lyckas med fel meddelandet ingen behörighet, förbjuden (403) eller viss variation
 
-RunAs-konton kan inte ha samma behörigheter mot Azure-resurser som ditt aktuella konto. Se till att ditt RunAs-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
+Kör som-konton kanske inte har samma behörigheter för Azure-resurser som ditt aktuella konto. Se till att ditt kör som-konto har [åtkomst behörighet till alla resurser](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) som används i skriptet.
 
 ## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbooks fungerade men stoppades plötsligt
 
-* Om Runbooks kördes tidigare men stoppades, se till att RunAs-kontot [inte har upphört att gälla](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
+* Om Runbooks har körts tidigare men stoppats kontrollerar du att kör som-kontot inte har upphört att gälla. Se [certifierings förnyelse](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal).
 * Om du använder Webhooks för att starta Runbooks kontrollerar du att webhooken [inte har upphört att gälla](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook).
 
 ## <a name="passing-parameters-into-webhooks"></a>Skicka parametrar till webhooks
 
-Information om hur du skickar parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
+Hjälp med att skicka parametrar till Webhooks finns i [starta en Runbook från en webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters).
 
 ## <a name="using-az-modules"></a>Använda Az-moduler
 
-Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds inte. Mer information finns i [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules) .
+Användning av Az-moduler och AzureRM-moduler i samma Automation-konto stöds inte. Se [AZ-moduler i Runbooks](https://docs.microsoft.com/azure/automation/az-modules).
 
 ## <a name="using-self-signed-certificates"></a>Använda självsignerade certifikat
 
-Om du vill använda självsignerade certifikat måste du följa guiden när du [skapar ett nytt certifikat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
+Information om hur du använder självsignerade certifikat finns i [skapa ett nytt certifikat](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate).
 
 ## <a name="recommended-documents"></a>Rekommenderade dokument
 

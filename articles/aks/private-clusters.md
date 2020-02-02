@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713322"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932584"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>Skapa ett privat Azure Kubernetes service-kluster (för hands version)
 
@@ -131,7 +131,7 @@ API-serverns slut punkt har ingen offentlig IP-adress. Därför måste du skapa 
 * Om du vill använda en anpassad DNS-Server distribuerar du en AD-server med DNS för att vidarebefordra till den här IP-168.63.129.16
 
 ## <a name="limitations"></a>Begränsningar 
-* Tillgänglighetszoner stöds inte för närvarande
+* Tillgänglighetszoner stöds för närvarande endast för regionerna USA, östra 2 och västra USA 2
 * [Begränsningar för Azure Private Link service][private-link-service] gäller för privata kluster, Azures privata slut punkter och virtuella nätverks tjänst slut punkter som för närvarande inte stöds i samma virtuella nätverk.
 * Inget stöd för virtuella noder i ett privat kluster för att snurra privat Azure Container Instances (ACI) i ett privat virtuellt Azure-nätverk
 * Inget stöd för integrering av Azure DevOps-integreringen med privata kluster

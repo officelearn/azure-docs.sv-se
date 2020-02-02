@@ -3,20 +3,20 @@ title: Använda PowerShell för att hantera Traffic Manager i Azure
 description: Med den här utbildnings vägen börjar du använda Azure PowerShell för Traffic Manager.
 services: traffic-manager
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 7886764a69eefa68be071a801bea65ae995fbdc3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038126"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938502"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Använda PowerShell för att hantera Traffic Manager
 
@@ -115,7 +115,7 @@ I alla tre fall kan slut punkter läggas till på två sätt:
 
 Azure slut punkts referens tjänster som finns i Azure. Två typer av Azure-slutpunkter stöds:
 
-1. Azure App Service
+1. Azure Apptjänst
 2. Azure PublicIpAddress-resurser (som kan kopplas till en belastningsutjämnare eller en virtuell dator NIC). PublicIpAddress måste ha ett angivet DNS-namn för att kunna användas i Traffic Manager.
 
 I varje fall:

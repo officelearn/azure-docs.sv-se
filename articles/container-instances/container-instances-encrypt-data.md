@@ -1,17 +1,18 @@
 ---
-title: Kryptera distributions data
+title: Kryptera distributionsdata
 description: Lär dig mer om kryptering av data bestående för dina behållar instans resurser och hur du krypterar data med en kundhanterad nyckel
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 146effd7f1a7ad1ddd94886d1a79e2914bd1c94b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904216"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934310"
 ---
-# <a name="encrypt-deployment-data"></a>Kryptera distributions data
+# <a name="encrypt-deployment-data"></a>Kryptera distributionsdata
 
 När du kör Azure Container Instances-resurser (ACI) i molnet samlar ACI-tjänsten samman och behåller data som är relaterade till dina behållare. ACI krypterar automatiskt dessa data när de sparas i molnet. Den här krypteringen skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. ACI ger dig också möjlighet att kryptera dessa data med din egen nyckel, vilket ger dig större kontroll över data som är relaterade till dina ACI-distributioner.
 
@@ -87,15 +88,18 @@ Skapa en ny åtkomst princip som gör att ACI-tjänsten kan komma åt din nyckel
 > [!IMPORTANT]
 > Kryptering av distributions data med en kundhanterad nyckel är tillgängligt i den senaste API-versionen (2019-12-01) som för närvarande är distribuerad. Ange den här API-versionen i distributions mal len. Om du har problem med detta kan du kontakta Azure-supporten.
 
-När nyckel valvets nyckel och åtkomst princip har kon figurer ATS lägger du till följande egenskap i ACI-distributions mal len. Du kan lära dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+När nyckel valvets nyckel och åtkomst princip har kon figurer ATS lägger du till följande egenskaper i ACI-distributions mal len. Lär dig mer om att distribuera ACI-resurser med en mall i [självstudien: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+* Under `resources`anger `apiVersion` till `2012-12-01`.
+* Under avsnittet Egenskaper för container grupp i distributions mal len lägger du till en `encryptionProperties`som innehåller följande värden:
+  * `vaultBaseUrl`: DNS-namnet på ditt nyckel valv går att hitta på bladet översikt i Key Vault-resursen i portalen
+  * `keyName`: namnet på nyckeln som genererades tidigare
+  * `keyVersion`: den aktuella versionen av nyckeln. Du hittar detta genom att klicka på själva nyckeln (under "nycklar" i avsnittet Inställningar i din Key Vault-resurs)
+* Under egenskaperna behållar grupp, lägger du till en `sku` egenskap med värde `Standard`. Egenskapen `sku` måste anges i API-version 2019-12-01.
 
-Mer specifikt, under avsnittet Egenskaper för behållar grupp i distributions mal len, lägger du till en "encryptionProperties" som innehåller följande värden:
-* vaultBaseUrl: DNS-namnet på ditt nyckel valv finns på bladet översikt i Key Vault-resursen i portalen
-* nyckel namn: namnet på nyckeln som genererades tidigare
-* nyckel version: den aktuella versionen av nyckeln. Du hittar detta genom att klicka på själva nyckeln (under "nycklar" i avsnittet Inställningar i din Key Vault-resurs)
-
+Följande mall visar de här ytterligare egenskaperna för att kryptera distributions data:
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -108,12 +112,107 @@ Mer specifikt, under avsnittet Egenskaper för behållar grupp i distributions m
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+Följande är en fullständig mall, som är anpassad från mallen i [Självstudier: Distribuera en grupp med flera behållare med hjälp av en Resource Manager-mall](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### <a name="deploy-your-resources"></a>Distribuera dina resurser

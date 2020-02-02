@@ -1,6 +1,6 @@
 ---
-title: Kör uppgifter under användar konton – Azure Batch | Microsoft Docs
-description: Konfigurera användar konton för att köra aktiviteter i Azure Batch
+title: Kör uppgifter under användar konton – Azure Batch
+description: Det är praktiskt att kunna konfigurera det användar konto som du vill att en aktivitet ska köras under. Lär dig olika typer av användar konton och hur du konfigurerar dem.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/18/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: d4975935c872f059dde6b08bcd7a4f06540c2dfd
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 01342c8fcd0d2d3c603762b06350a9fcf7c12d03
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029597"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937968"
 ---
 > [!NOTE] 
 > Användar kontona som beskrivs i den här artikeln skiljer sig från användar konton som används för Remote Desktop Protocol (RDP) eller Secure Shell (SSH) av säkerhets skäl. 

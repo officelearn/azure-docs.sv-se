@@ -10,15 +10,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
-ms.date: 06/19/2019
+ms.date: 01/30/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: f803bcafb1966e32e894b4caeaa8fafb5f73e8e7
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7497e226589689497ce572193017dc7fc31042b1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186288"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934530"
 ---
 # <a name="tutorial-analyze-videos-with-media-services-v3"></a>Självstudie: analysera videor med Media Services v3
 
@@ -37,6 +37,10 @@ I den här självstudiekursen lär du dig att:
 > * Rensa resurser.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="compliance-privacy-and-security"></a>Efterlevnad, sekretess och säkerhet
+ 
+Som en viktig påminnelse måste du följa alla tillämpliga lagar i din användning av Video Indexer och du får inte använda Video Indexer eller andra Azure-tjänster på ett sätt som strider mot andras rättigheter eller som kan vara skadliga för andra. Innan du laddar upp videor, inklusive bio metriska data, till den Video Indexer tjänsten för bearbetning och lagring, måste du ha alla lämpliga rättigheter, inklusive alla lämpliga medgivanden, från enskilda eller enskilda i videon. För att lära dig om efterlevnad, sekretess och säkerhet i Video Indexer, [villkoren](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)för Microsoft Cognitive Services. Information om Microsofts sekretess avtal och hantering av dina data finns i Microsofts [sekretess policy](https://privacy.microsoft.com/PrivacyStatement), [Online Services-villkoren ("ost")](https://www.microsoft.com/licensing/product-licensing/products) och tillägget för [data bearbetning](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Ytterligare sekretess information, inklusive information om datakvarhållning, borttagning/förstörelse, finns i OST-filen och [här](../video-indexer/faq.md). Genom att använda Video Indexer samtycker du till att vara kopplad till Cognitive Services villkor, OST, DPA och sekretess policyn.
 
 ## <a name="prerequisites"></a>Krav
 
@@ -64,7 +68,7 @@ Exemplet utför följande åtgärder:
 
 1. Skapa en **transformering** och ett **jobb** som analyserar dina videor.
 2. Skapar en inkommande **tillgång** och överför videon till den. TIllgången används som jobbets indata.
-3. Skapar en utgående tillgång som lagrar utdata för jobbet.
+3. Skapar en utdatatillgång som lagrar jobbets utdata.
 4. Skickar jobbet.
 5. Kontrollerar jobbets status.
 6. Laddar ned filer som härrör från körningen av jobbet.
@@ -102,7 +106,7 @@ Följande funktion utför följande åtgärder:
 
 När du kodar eller bearbetar innehåll i Media Services, är det ett vanligt mönster för att ställa in kodnings inställningar som ett recept. Du skickar sedan ett **Jobb** som tillämpar receptet på en video. Genom att skicka nya jobb för varje ny video använder du det receptet på alla videor i biblioteket. Ett recept i Media Services kallas för en **transformering**. Mer information finns i [Transformeringar och jobb](transform-concept.md). Det exempel som beskrivs i självstudien definierar ett recept som analyserar den angivna videon.
 
-#### <a name="transform"></a>Transformering
+#### <a name="transform"></a>Transformera
 
 När du skapar en ny instans för en [Transformering](https://docs.microsoft.com/rest/api/media/transforms), måste du ange vilken utdata du vill att den ska skapa. **TransformOutput** är en obligatorisk parameter. Varje **TransformOutput** innehåller en **Förinställning**. I **Förinställning** finns stegvisa anvisningar för den video- och/eller ljudbearbetning som ska användas för att generera önskad **TransformOutput**. I det här exemplet används **VideoAnalyzerPreset** för för inställning och språket ("en-US") skickas till konstruktorn (`new VideoAnalyzerPreset("en-US")`). Med denna förinställning kan du extrahera flera ljud- och videoinsikter från en video. Du kan använda förinställningen **AudioAnalyzerPreset** om du vill extrahera flera ljudinsikter från en video.
 
@@ -124,7 +128,7 @@ Det tar lite tid att slutföra jobbet. När du gör det, vill du bli meddelad. D
 
 Avsökningen är inte en rekommenderad metod för produktion av appar på grund av potentiell latens. Avsökningen kan begränsas om den överanvänds på ett konto. Utvecklare bör i stället använda Event Grid.
 
-Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt även från anpassade källor. Med enkel och HTTP-baserad reaktiv händelsehantering blir det lättare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser. Mer information finns i [dirigera händelser till en anpassad webb slut punkt](job-state-events-cli-how-to.md).
+Event Grid är utformat för hög tillgänglighet, konsekvent prestanda och dynamisk skalning. Med Event Grid kan dina appar lyssna efter och reagera på händelser från i princip alla Azure-tjänster, samt anpassade källor. Enkel, HTTP-baserad reaktiv händelsehantering gör det enklare att skapa effektiva lösningar med hjälp av intelligent filtrering och dirigering av händelser. Mer information finns i [dirigera händelser till en anpassad webb slut punkt](job-state-events-cli-how-to.md).
 
 **Jobb** har vanligtvis följande tillstånd: **Schemalagd**, **I kö**, **Bearbetas**, **Slutförd** (slutlig status). Om jobbet har kommit över ett fel visas **fel** tillstånd. Om jobbet håller på att avbrytas **avbryts du och** **avbryts** när det är färdigt.
 
@@ -177,4 +181,4 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudie: Ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)
+> [Självstudie: ladda upp, koda och strömma filer](stream-files-tutorial-with-api.md)

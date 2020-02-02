@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 598bf677b06c5ec1f431144e7e76deee55d23f33
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 982e80f4c47a6f59b65edb06461a9d592248cc61
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435469"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76929886"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Hanterings-IP-adresser för HDInsight
 
 > [!Important]
-> Använd funktionen [service tag](hdinsight-service-tags.md) för nätverks säkerhets grupper. Nya regioner läggs bara till för service märken och de statiska IP-adresserna kommer slutligen att bli föråldrade.
+> I de flesta fall kan du nu använda funktionen [service tag](hdinsight-service-tags.md) för nätverks säkerhets grupper, i stället för att manuellt lägga till IP-adresser. Nya regioner läggs bara till för service märken och de statiska IP-adresserna kommer slutligen att bli föråldrade.
 
 Om du använder nätverks säkerhets grupper (NSG: er) eller användardefinierade vägar (UDR) för att styra inkommande trafik till ditt HDInsight-kluster, måste du se till att klustret kan kommunicera med viktiga Azure-tjänster för hälso tillstånd och hantering.  Några av IP-adresserna för dessa tjänster är regions information och vissa av dem gäller för alla Azure-regioner. Du kan också behöva tillåta trafik från Azure DNS-tjänsten om du inte använder anpassad DNS.
 

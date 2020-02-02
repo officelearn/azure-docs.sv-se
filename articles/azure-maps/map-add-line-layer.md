@@ -9,21 +9,21 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911176"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933465"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>Lägg till ett linje skikt i kartan
 
-Ett linje lager kan användas för att återge `LineString`-och `MultiLineString` funktioner som sökvägar eller vägar på kartan. Ett linje lager kan också användas för att återge dispositionen för `Polygon` och `MultiPolygon` funktioner. En data källa är ansluten till ett linje lager för att tillhandahålla IT-data att återge. 
+Ett linje lager kan användas för att återge `LineString`-och `MultiLineString` funktioner som sökvägar eller vägar på kartan. Ett linje lager kan också användas för att återge dispositionen för `Polygon` och `MultiPolygon` funktioner. En data källa är ansluten till ett linje lager för att ge den data som ska återges. 
 
 > [!TIP]
 > Linje lager som standard återger koordinaterna för polygoner och linjer i en data källa. Om du vill begränsa lagret så att det bara återger lin Est ring-funktioner ställer du in lagrets `filter`-egenskap till `['==', ['geometry-type'], 'LineString']` eller `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` om du även vill inkludera MultiLineString-funktioner.
 
-Följande kod visar hur du skapar en rad, lägger till den i en data källa och återger den med ett linje lager med hjälp av klassen [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
+Följande kod visar hur du skapar en rad. Lägg till raden i en data källa och återge den sedan med ett linje lager med klassen [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) .
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ Linje lager kan skrivas med [LineLayerOptions](/javascript/api/azure-maps-contro
 
 ## <a name="add-symbols-along-a-line"></a>Lägg till symboler längs en linje
 
-Det här exemplet visar hur du lägger till pil-ikoner längs en linje på kartan. När du använder ett symbol lager ställer du in alternativet "placering" på "linje". då återges symbolerna längs linjen och ikonerna roteras (0 grader = höger).
+Det här exemplet visar hur du lägger till pil-ikoner längs en linje på kartan. När du använder ett symbol lager ställer du in alternativet "placering" på "linje". Med det här alternativet återges symbolerna längs linjen och ikonerna roteras (0 grader = höger).
 
 <br/>
 
@@ -66,7 +66,7 @@ Se pilen för Penn <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Visa utmed
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>Lägg till en linje toning till en linje
 
-Förutom att kunna använda en enda linje färg på en linje kan du också fylla en linje med en toning av färger som visar över gången från ett linje segment till nästa. Till exempel kan rad övertoningar användas för att representera ändringar över tid och avstånd, eller olika temperaturer över en ansluten linje med objekt. För att kunna använda den här funktionen på en rad måste data källan ha `lineMetrics` alternativet inställt på sant och ett färg tonings uttryck kan skickas till alternativet `strokeColor` på raden. Uttrycket linje toning måste referera till `['line-progress']`-datauttrycket som visar de beräknade linje måtten för uttrycket.
+Du kan använda en enda linje färg för en linje. Du kan också fylla en linje med en toning av färger för att visa över gången från ett linje segment till nästa rad segment. Till exempel kan rad övertoningar användas för att representera ändringar över tid och avstånd, eller olika temperaturer över en ansluten linje med objekt. För att kunna använda den här funktionen på en rad måste data källan ha `lineMetrics` alternativet inställt på sant och ett färg tonings uttryck kan skickas till alternativet `strokeColor` på raden. Uttrycket linje toning måste referera till `['line-progress']`-datauttrycket som visar de beräknade linje måtten för uttrycket.
 
 <br/>
 

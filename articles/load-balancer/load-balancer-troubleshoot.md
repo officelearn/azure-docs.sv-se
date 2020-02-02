@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ca9b70bd71a618f8e3d5f4fe9504ba66a9f14c6f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843930"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935484"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Felsök Azure Load Balancer
 
-Den här sidan innehåller felsöknings information för vanliga Azure Load Balancer frågor. När Load Balancer anslutningen inte är tillgänglig är de vanligaste symptomen följande: 
+Den här sidan innehåller felsöknings information för grundläggande och vanliga Azure Load Balancer frågor. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics).
+
+När Load Balancer anslutningen inte är tillgänglig är de vanligaste symptomen följande: 
+
 - Virtuella datorer bakom Load Balancer svarar inte på hälso avsökningar 
 - Virtuella datorer bakom Load Balancer svarar inte på trafiken på den konfigurerade porten
 
@@ -124,6 +127,10 @@ Om programmet som finns på den virtuella server delen av en Load Balancer förs
 Om ett internt Load Balancer har kon figurer ATS i ett virtuellt nätverk och en av de virtuella datorerna för en deltagar Server försöker komma åt den interna Load Balancer-frontend, kan fel uppstå när flödet mappas till den ursprungliga virtuella datorn. Det här scenariot stöds inte. Granska [begränsningar](concepts-limitations.md#limitations) för en detaljerad diskussion.
 
 **Lösning** Det finns flera sätt att avblockera det här scenariot, inklusive att använda en proxy. Utvärdera Application Gateway eller andra tredjeparts-proxyservrar (till exempel nginx eller haproxy). Mer information om Application Gateway finns i [Översikt över Application Gateway](../application-gateway/application-gateway-introduction.md)
+
+## <a name="symptom-cannot-change-backend-port-for-existing-lb-rule-of-a-load-balancer-which-has-vm-scale-set-deployed-in-the-backend-pool"></a>Symptom: det går inte att ändra backend-porten för en befintlig LB-regel för en belastningsutjämnare vars VM Scale Set har distribuerats i backend-poolen. 
+### <a name="cause--the-backend-port-cannot-be-modified-for-a-load-balancing-rule-thats-used-by-a-health-probe-for-load-balancer-referenced-by-vm-scale-set"></a>Orsak: Server dels porten kan inte ändras för en belastnings Utjämnings regel som används av en hälso avsökning för belastningsutjämnaren som refereras till av en skalnings uppsättning för virtuella datorer.
+**Lösning** För att kunna ändra porten kan du ta bort hälso avsökningen genom att uppdatera den virtuella datorns skalnings uppsättning, uppdatera porten och sedan konfigurera hälso avsökningen igen.
 
 ## <a name="additional-network-captures"></a>Ytterligare nätverks avbildningar
 Om du väljer att öppna ett support ärende samlar du in följande information för en snabbare lösning. Välj en enskild virtuell dator för att utföra följande tester:

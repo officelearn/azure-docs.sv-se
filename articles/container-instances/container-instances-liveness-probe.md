@@ -2,13 +2,13 @@
 title: Konfigurera direktmigreringens avsökning på behållar instansen
 description: Lär dig hur du konfigurerar direktmigreringens avsökningar för att starta om felaktiga behållare i Azure Container Instances
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901906"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934167"
 ---
 # <a name="configure-liveness-probes"></a>Konfigurera liveavsökningar
 
@@ -63,37 +63,37 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>Start kommando
 
-Distributionen definierar ett start kommando som ska köras när behållaren först börjar köras, som definieras av egenskapen `command`, som accepterar en sträng mat ris. I det här exemplet startar en bash-session och skapar en fil med namnet `healthy` i katalogen `/tmp` genom att skicka det här kommandot:
+Distributionen innehåller en `command`-egenskap som definierar ett start kommando som körs när behållaren först börjar köras. Den här egenskapen accepterar en sträng mat ris. Det här kommandot simulerar att behållaren inträder i ett ohälsosamt tillstånd.
+
+Först startar den en bash-session och skapar en fil med namnet `healthy` i katalogen `/tmp`. Sedan försätts den i 30 sekunder innan filen tas bort, och sedan anges en 10 minuters vilo läge:
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- Den kommer sedan att gå i vilo läge i 30 sekunder innan filen tas bort, och anger sedan en 10 minuters vilo läge.
-
 ### <a name="liveness-command"></a>Lives-kommandot
 
-Den här distributionen definierar ett `livenessProbe` som stöder ett `exec` Live-kommando som fungerar som en Live-kontroll. Om det här kommandot avslutas med ett värde som inte är noll stoppas behållaren och startas om, vilket innebär att det inte gick att hitta den `healthy` filen. Om kommandot avslutas med slut koden 0 utförs ingen åtgärd.
+Den här distributionen definierar ett `livenessProbe` som stöder ett `exec` Live-kommando som fungerar som en Live-kontroll. Om det här kommandot avslutas med ett värde som inte är noll stoppas behållaren och startas om, vilket innebär att det inte gick att hitta den `healthy` filen. Om kommandot avslutas med slut koden 0 vidtas ingen åtgärd.
 
 Egenskapen `periodSeconds` anger att kommandot Lives ska köras var femte sekund.
 
 ## <a name="verify-liveness-output"></a>Verifiera Live-utdata
 
-Under de första 30 sekunderna finns `healthy`-filen som skapats av Start kommandot. När Live-kommandot söker efter `healthy` filens existens returnerar status koden noll, vilket signalerar att det lyckades, så att ingen omstart sker.
+Under de första 30 sekunderna finns `healthy`-filen som skapats av Start kommandot. När Live-kommandot söker efter den `healthy` filen returnerar status koden 0, signalering lyckades, så att ingen omstart sker.
 
-Efter 30 sekunder börjar `cat /tmp/healthy` att Miss lyckas, vilket orsakar att det uppstår fel i händelse av fel och avlivning.
+Efter 30 sekunder börjar `cat /tmp/healthy` kommandot att fungera, vilket orsakar att det uppstår fel och att dödande händelser inträffar.
 
 Dessa händelser kan visas från Azure Portal eller Azure CLI.
 
 ![Felaktig händelse för portalen][portal-unhealthy]
 
-Genom att visa händelserna i Azure Portal utlöses händelser av typen `Unhealthy` när Live-kommandot Miss Missing. Den efterföljande händelsen är av typen `Killing`, vilket indikerar en container borttagning så att en omstart kan påbörjas. Antalet omstarter för containern ökar varje tidpunkt som den här händelsen inträffar.
+Genom att visa händelserna i Azure Portal utlöses händelser av typen `Unhealthy` när Live-kommandot avbryts. Den efterföljande händelsen är av typen `Killing`och betecknar en behållar borttagning så att en omstart kan påbörjas. Antalet omstarter för containern ökar varje tidpunkt som den här händelsen inträffar.
 
 Omstarter slutförs på plats så att resurser som offentliga IP-adresser och Node-/regionsspecifika innehåll bevaras.
 
 ![Räknare för att starta om portalen][portal-restart]
 
-Om den kontinuerliga avsökningen Miss lyckas och utlöser för många omstarter, kommer din behållare att ange en exponentiell säkerhets fördröjning.
+Om den kontinuerliga avsökningen Miss lyckas och utlöser för många omstarter, kommer din behållare att övergå till en exponentiell säkerhets fördröjning.
 
 ## <a name="liveness-probes-and-restart-policies"></a>Direktmigreringar och principer för omstart
 

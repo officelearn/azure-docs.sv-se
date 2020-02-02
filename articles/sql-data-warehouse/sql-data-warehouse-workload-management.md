@@ -11,12 +11,12 @@ ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940586"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935414"
 ---
 # <a name="what-is-workload-management"></a>Vad är arbets belastnings hantering?
 
@@ -31,7 +31,7 @@ Ett informations lager arbets belastning avser alla åtgärder som utförs i fö
 - Exportera data från data lagret
 
 Prestanda kapaciteten för ett informations lager bestäms av [data lager enheterna](what-is-a-data-warehouse-unit-dwu-cdwu.md).
-- Om du vill visa de resurser som har allokerats för alla prestanda profiler, se [minnes-och samtidiga gränser] minnes-samtidighets-limits.md).
+- Om du vill visa de resurser som har allokerats för alla prestanda profiler, se [minnes-och samtidiga gränser](memory-concurrency-limits.md).
 - För att justera kapaciteten kan du [skala upp eller ned](quickstart-scale-compute-portal.md).
 
 

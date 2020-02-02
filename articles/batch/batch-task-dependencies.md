@@ -1,5 +1,5 @@
 ---
-title: Använd aktivitets beroenden för att köra uppgifter baserat på slut för ande av andra aktiviteter – Azure Batch | Microsoft Docs
+title: Skapa aktivitets beroenden för att köra uppgifter – Azure Batch
 description: Skapa uppgifter som är beroende av slut för ande av andra uppgifter för att bearbeta MapReduce-format och liknande stor data arbets belastningar i Azure Batch.
 services: batch
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 875e0314c41a6bb277769361b6faa0345312db2b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 733c6e0fb178ed246ac77e0783225ddd642a5fed
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026244"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937775"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>Skapa aktivitets beroenden för att köra uppgifter som är beroende av andra aktiviteter
 
@@ -210,7 +210,7 @@ new CloudTask("B", "cmd.exe /c echo B")
 - Så här kör du dessa uppgifter i en pool med datornoder.
 
 ## <a name="next-steps"></a>Nästa steg
-### <a name="application-deployment"></a>Appdistribution
+### <a name="application-deployment"></a>Program distribution
 Funktionen [programpaket](batch-application-packages.md) i batch ger ett enkelt sätt att både distribuera och version av programmen som dina aktiviteter kör på Compute-noder.
 
 ### <a name="installing-applications-and-staging-data"></a>Installera program och mellanlagrings data

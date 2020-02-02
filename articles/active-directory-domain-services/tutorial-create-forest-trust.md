@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425424"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931237"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Självstudie: skapa en utgående skogs förtroende till en lokal domän i Azure Active Directory Domain Services (för hands version)
 
@@ -45,7 +45,7 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > Se till att du skapar en Azure AD DS-hanterad domän med hjälp av en *resurs* skog. Standard alternativet skapar en *användar* skog. Endast resurs skogar kan skapa förtroenden till lokal AD DS-miljöer.
+    > Se till att du skapar en Azure AD DS-hanterad domän med hjälp av en *resurs* skog. Standard alternativet skapar en *användar* skog. Endast resurs skogar kan skapa förtroenden till lokal AD DS-miljöer. Du måste också använda minst *företags* -SKU: er för din hanterade domän. Om det behövs [ändrar du SKU: n för en hanterad Azure AD DS-domän][howto-change-sku].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -188,7 +188,7 @@ Med hjälp av den virtuella Windows Server-datorn som är ansluten till Azure AD
 1. Välj *FileServerAccess* i listan **grupper eller användar namn** . I listan **behörigheter för FileServerAccess** väljer du *Tillåt* för behörigheterna **ändra** och **Skriv** och väljer sedan **OK**.
 1. Välj fliken **delning** och välj sedan **Avancerad delning...**
 1. Välj **dela den här mappen**och ange ett minnes minnes namn för fil resursen i **resurs namn** , till exempel *CrossForestShare*.
-1. Välj **Behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
+1. Välj **behörigheter**. I listan **behörigheter för alla** väljer du **Tillåt** för behörigheten **ändra** .
 1. Välj **OK** två gånger och **Stäng**sedan.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Verifiera autentisering mellan skogar till en resurs
@@ -220,3 +220,4 @@ Mer konceptuell information om skogs typer i Azure AD DS finns i [Vad är resurs
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md

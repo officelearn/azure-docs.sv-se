@@ -3,7 +3,7 @@ title: Omvänd DNS för Azure-tjänster – Azure DNS
 description: Med den här utbildnings vägen kan du komma igång med att konfigurera omvänd DNS-sökning för tjänster som finns i Azure.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: KumudD
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: allensu
-ms.openlocfilehash: 550ba617dec0359fd7d4e0bc309e411095de0d1e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 073e84ece11f6817bfe2c5a94735ec6e16dac4fe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211234"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932377"
 ---
 # <a name="configure-reverse-dns-for-services-hosted-in-azure"></a>Konfigurera omvänd DNS för tjänster som finns i Azure
 
@@ -212,7 +212,7 @@ Så här tar du bort en omvänd DNS-egenskap från en befintlig moln tjänst:
 Set-AzureService –ServiceName "contosoapp1" –Description "App1 with Reverse DNS" –ReverseDnsFqdn ""
 ```
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 ### <a name="how-much-do-reverse-dns-records-cost"></a>Hur mycket kostar det att omvända DNS-poster?
 

@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 01/07/2020
 ms.author: juliako
-ms.openlocfilehash: 88effd58e807d39e5915aa41425ecf2e8ca8e3cc
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f1387273f9736fea70682177d5d48dc2f141bbad
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75832313"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933862"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -29,6 +29,24 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Kända problem
 * Felkorrigeringar
 * Inaktuell funktion
+
+## <a name="january-2020"></a>Januari 2020
+ 
+### <a name="custom-language-support-for-additional-languages"></a>Anpassat språk stöd för ytterligare språk
+
+Video Indexer stöder nu anpassade språk modeller för `ar-SY`, `en-UK`och `en-AU` (endast API).
+ 
+### <a name="delete-account-timeframe-action-update"></a>Ta bort åtgärds uppdatering för kontots tidsram
+
+Ta bort konto åtgärd tar nu bort kontot inom 90 dagar i stället för 48 timmar.
+ 
+### <a name="new-video-indexer-github-repository"></a>Ny Video Indexer GitHub-lagringsplats
+
+En ny Video Indexer GitHub med olika projekt, kom igång guider och kod exempel är nu tillgängliga: https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### <a name="swagger-update"></a>Swagger-uppdatering
+
+Video Indexer enhetlig **autentisering** och **åtgärder** i en enda [video Indexer openapi-specifikation (Swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Develpers hittar API: erna i [video Indexer Developer-portalen](https://api-portal.videoindexer.ai/).
 
 ## <a name="december-2019"></a>December 2019
 

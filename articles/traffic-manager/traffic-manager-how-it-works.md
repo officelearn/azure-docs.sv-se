@@ -3,7 +3,7 @@ title: Så här fungerar Azure Traffic Manager | Microsoft Docs
 description: Den här artikeln hjälper dig att förstå hur Traffic Manager dirigerar trafik för hög prestanda och tillgänglighet för dina webb program
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
-ms.author: allensu
-ms.openlocfilehash: 281e1e591d7c3cc31b77a116fb42af49dc27798c
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.author: rohink
+ms.openlocfilehash: 709e89b94ba10db954aa5cf3f70aeffb0d239edb
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68312154"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938627"
 ---
 # <a name="how-traffic-manager-works"></a>Så här fungerar Traffic Manager
 
@@ -34,7 +34,7 @@ När en klient försöker ansluta till en tjänst måste den först matcha DNS-n
 
 ## <a name="traffic-manager-example"></a>Traffic Manager exempel
 
-Contoso Corp har utvecklat en ny partner Portal. URL: en för den här https://partners.contoso.com/login.aspx portalen är. Programmet finns i tre regioner i Azure. För att förbättra tillgängligheten och maximera globala prestanda använder de Traffic Manager för att distribuera klient trafik till den närmast tillgängliga slut punkten.
+Contoso Corp har utvecklat en ny partner Portal. URL: en för den här portalen är https://partners.contoso.com/login.aspx. Programmet finns i tre regioner i Azure. För att förbättra tillgängligheten och maximera globala prestanda använder de Traffic Manager för att distribuera klient trafik till den närmast tillgängliga slut punkten.
 
 För att uppnå den här konfigurationen slutförs följande steg:
 
@@ -49,7 +49,7 @@ För att uppnå den här konfigurationen slutförs följande steg:
 
 ### <a name="how-clients-connect-using-traffic-manager"></a>Hur klienter ansluter med hjälp av Traffic Manager
 
-När en klient begär sidan https://partners.contoso.com/login.aspx från föregående exempel utför klienten följande steg för att lösa DNS-namnet och upprätta en anslutning:
+När en klient begär sidan https://partners.contoso.com/login.aspx fortsätter klienten att utföra följande steg för att lösa DNS-namnet och upprätta en anslutning i föregående exempel:
 
 ![Anslutnings etablering med hjälp av Traffic Manager][2]
 

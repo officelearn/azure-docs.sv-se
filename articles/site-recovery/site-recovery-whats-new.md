@@ -2,13 +2,13 @@
 title: Vad är nytt i Azure Site Recovery
 description: Innehåller en sammanfattning av nya funktioner och de senaste uppdateringarna i Azure Site Recoverys tjänsten.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: ecd42c624cf1fe62c8041a0b8798585c8870cabc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/31/2020
+ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896029"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934927"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -36,6 +36,18 @@ För Site Recovery-komponenter stöder vi N-4-versioner, där N är den senaste 
 
 ## <a name="updates-january-2020"></a>Uppdateringar (januari 2020)
 
+### <a name="update-rollup-44"></a>Samlad uppdatering 44
+Samlad [uppdatering 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) innehåller följande uppdateringar.
+
+**Uppdatering** | **Detaljer**
+--- | ---
+**Problem korrigeringar/förbättringar** | Ett antal uppdateringar av Site Recovery agenter och providrar (enligt beskrivningen i den samlade uppdateringen).
+
+### <a name="azure-vmware-disaster-recovery"></a>Katastrof återställning i Azure VMware
+
+Azure Virtual Machines stöder nu VM-aktivering för kryptering i vila med Kundhanterade nycklar. [Läs mer](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+
+
 ### <a name="update-rollup-43"></a>Samlad uppdatering 43
 
 Samlad [uppdatering 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) innehåller följande uppdateringar.
@@ -58,7 +70,7 @@ Samlad [uppdatering 42](https://support.microsoft.com/help/4531426/update-rollup
 **Problem korrigeringar/förbättringar** | Ett antal korrigeringar och förbättringar (enligt beskrivningen i den samlade uppdateringen)
 
 
-## <a name="azure-vm-disaster-recovery"></a>Haveri beredskap för Azure VM
+### <a name="azure-vm-disaster-recovery"></a>Haveri beredskap för Azure VM
 
 Nya funktioner för haveri beredskap för virtuella Azure-datorer sammanfattas i tabellen.
 

@@ -1,6 +1,6 @@
 ---
-title: Använd Azure Active Directory för att autentisera lösningar för batch-hantering | Microsoft Docs
-description: Program som skapats med Azure Resource Manager och batch-resurs-providern autentiseras med Azure AD.
+title: Använd Azure Active Directory för att autentisera hanterings lösningar för batch
+description: Utforska med Azure Active Directory för att autentisera från program som använder .NET-biblioteket för batch Management.
 services: batch
 documentationcenter: .net
 author: ju-shim
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
 ms.author: jushiman
-ms.openlocfilehash: 19aac0e25f9a036ce52d72a51e1ab7270eaaf3e5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1dce5118040e6164a468b0d5470d28e5cd06d8c5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029846"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938265"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Autentisera lösningar för batch-hantering med Active Directory
 
@@ -47,7 +47,7 @@ När du har slutfört registrerings processen ser du program-ID: t och det ID f�
 
 Därefter måste du delegera åtkomst till ditt program till Azure Resource Manager API. Azure AD-identifieraren för Resource Manager API är **Windows Azure Service Management-API**.
 
-Följ dessa steg i Azure-portalen:
+Följ de här stegen i Azure Portal:
 
 1. I det vänstra navigerings fönstret i Azure Portal väljer du **alla tjänster**, klickar på app- **registreringar**och klickar på **Lägg till**.
 2. Sök efter namnet på ditt program i listan med app-registreringar:

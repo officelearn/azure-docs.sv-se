@@ -1,20 +1,19 @@
 ---
 title: Azure Service Fabric – konfigurera autentiseringsuppgifter för container-lagringsplatsen
 description: Konfigurera autentiseringsuppgifter för lagrings plats för att ladda ned bilder från container Registry
-author: arya
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: arya
-ms.openlocfilehash: 25fe3c69b19d397137d1e1802e941e0433a1b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351662"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934981"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Konfigurera autentiseringsuppgifter för databasen för ditt program för att ladda ned behållar avbildningar
 
-Konfigurera autentisering av containerregister genom att lägga till `RepositoryCredentials` i `ContainerHostPolicies` filen ApplicationManifest.xml. Lägg till kontot och lösenordet för containerregistret myregistry.azurecr.io, så att tjänsten kan ladda ned containeravbildningen från centrallagret.
+Konfigurera autentisering av behållar registret genom att lägga till `RepositoryCredentials` i avsnittet `ContainerHostPolicies` i program manifestet. Lägg till kontot och lösen ordet för behållar registret (*myregistry.azurecr.io* i exemplet nedan), vilket gör att tjänsten kan ladda ned behållar avbildningen från lagrings platsen.
 
 ```xml
 <ServiceManifestImport>
@@ -55,7 +54,7 @@ Service Fabric använder sedan standard-autentiseringsuppgifterna för lagring s
 * DefaultContainerRepositoryAccountName (sträng)
 * DefaultContainerRepositoryPassword (sträng)
 * IsDefaultContainerRepositoryPasswordEncrypted (bool)
-* DefaultContainerRepositoryPasswordType (sträng)---som stöds från och med 6,4-körningen
+* DefaultContainerRepositoryPasswordType (sträng)
 
 Här är ett exempel på vad som kan läggas till i `Hosting` avsnittet i filen ClusterManifestTemplate. JSON. Avsnittet `Hosting` kan läggas till vid skapande av kluster eller senare i en konfigurations uppgradering. Mer information finns i [Ändra kluster inställningar för azure Service Fabric](service-fabric-cluster-fabric-settings.md) och [Hantera Azure Service Fabric program hemligheter](service-fabric-application-secret-management.md)
 
@@ -90,19 +89,19 @@ Här är ett exempel på vad som kan läggas till i `Hosting` avsnittet i filen 
 ]
 ```
 
-## <a name="leveraging-the-managed-identity-of-the-virtual-machine-scale-set-by-using-managed-identity-service-msi"></a>Dra nytta av den hanterade identiteten för den virtuella datorns skalnings uppsättning med hjälp av hanterad identitets tjänst (MSI)
+## <a name="use-tokens-as-registry-credentials"></a>Använd tokens som autentiseringsuppgifter för registret
 
-Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bilder för dina behållare.  Den här funktionen utnyttjar den hanterade identiteten för den underliggande skalnings uppsättningen för virtuella datorer för att autentisera till registret, vilket eliminerar behovet av att hantera användarautentiseringsuppgifter.  Mer information om MSI finns i [hanterad tjänstidentitet](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) .  Följande steg krävs för att använda den här funktionen:
+Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bilder för dina behållare.  Den här funktionen utnyttjar den *hanterade identiteten* för den underliggande skalnings uppsättningen för virtuella datorer för att autentisera till registret, vilket eliminerar behovet av att hantera användarautentiseringsuppgifter.  Mer information finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) .  Följande steg krävs för att använda den här funktionen:
 
-1.  Se till att systemtilldelad hanterad identitet har Aktiver ATS för den virtuella datorn (se skärm bild nedan)
+1. Se till att *systemtilldelad hanterad identitet* är aktive rad för den virtuella datorn.
 
-    ![Skapa identitet för skalnings uppsättning för virtuell dator](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+    ![Azure Portal: skapa identitets alternativ för skal uppsättning för virtuell dator](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
-2.  Därefter beviljar du behörigheter till den virtuella datorn (SS) för att hämta/läsa avbildningar från registret.  Gå till Access Control (IAM) för din ACR via Azure-bladet och ge din virtuella dator (SS) rätt behörigheter enligt nedan:
+2. Ge behörigheter till skalnings uppsättningen för den virtuella datorn för att hämta/läsa avbildningar från registret. Lägg till en *roll tilldelning* för din virtuella dator från bladet Access Control (IAM) i Azure Container Registry i Azure Portal:
 
     ![Lägg till VM-huvudobjekt i ACR](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3.  När ovanstående steg har slutförts ändrar du filen applicationmanifest. xml.  Hitta taggen som heter "ContainerHostPolicies" och Lägg till attributet `‘UseTokenAuthenticationCredentials=”true”`.
+3. Ändra sedan applikations manifestet. I avsnittet `ContainerHostPolicies` lägger du till attributet `‘UseTokenAuthenticationCredentials=”true”`.
 
     ```xml
       <ServiceManifestImport>
@@ -121,4 +120,4 @@ Service Fabric stöder token som autentiseringsuppgifter för att ladda ned bild
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om [behållar registrets autentisering](/azure/container-registry/container-registry-authentication).
+* Läs mer om [behållar registrets autentisering](../container-registry/container-registry-authentication.md).

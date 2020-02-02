@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 7bd097885d629a6c8541b57195f2a2996e45ffaf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 9886f41b25e7c1b34f9805a2c16b716c642ae90e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552669"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936297"
 ---
 # <a name="container-security-in-security-center"></a>Behållar säkerhet i Security Center
 
@@ -32,7 +32,7 @@ Den här artikeln beskriver hur du kan förbättra, övervaka och upprätthålla
 [fliken behållar säkerhet för ![Azure Security Center](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>Sårbarhets hantering – Skanna behållar avbildningar (för hands version)
-Kontrol lera att du är på Security Center standard nivå (se [prissättning](/azure/security-center/security-center-pricing)) för att övervaka dina Azure Container Registry. Aktivera sedan de valfria paketen för behållar register. När en ny avbildning överförs, Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys.
+Kontrol lera att du är på Security Center standard nivå (se [prissättning](/azure/security-center/security-center-pricing)) för att övervaka ARM-baserade Azure Container Registry. Aktivera sedan de valfria paketen för behållar register. När en ny avbildning överförs, Security Center skannar avbildningen med hjälp av en skanner från den branschledande sårbara sårbarheten hos leverantören, Qualys.
 
 När problem påträffas – av Qualys eller Security Center – får du ett meddelande i Security Center instrument panel. För varje sårbarhet ger Security Center rekommendationer som kan åtgärdas, tillsammans med en allvarlighets grad och vägledning för hur du kan åtgärda problemet. Information om Security Centers rekommendationer finns i [referens listan för rekommendationer](recommendations-reference.md).
 

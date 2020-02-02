@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: e305a5634aa0c065342e1873c413039eb734b972
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: a9fb77ea30aa101653d50e7833876dbec6362093
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165873"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930151"
 ---
 # <a name="quickstart-face-client-library-for-net"></a>Snabb start: ansikts klient bibliotek för .NET
 
@@ -22,7 +22,6 @@ Kom igång med ansikts klient biblioteket för .NET. Följ de här stegen för a
 
 Använd ansikts klient biblioteket för .NET för att:
 
-* [Autentisera klienten](#authenticate-the-client)
 * [Identifiera ansikten i en bild](#detect-faces-in-an-image)
 * [Hitta liknande ansikten](#find-similar-faces)
 * [Skapa och träna en person grupp](#create-and-train-a-person-group)
@@ -105,7 +104,7 @@ Följande klasser och gränssnitt hanterar några av de viktigaste funktionerna 
 |[PersonGroupOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet)| Den här klassen hanterar de **PersonGroup** -konstruktioner i molnet som lagrar en uppsättning med utvalda **person** objekt. |
 |[ShapshotOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations?view=azure-dotnet)|Den här klassen hanterar ögonblicks bild funktionen. Du kan använda den för att tillfälligt Spara alla dina molnbaserade ansikts data och migrera dessa data till en ny Azure-prenumeration. |
 
-## <a name="code-examples"></a>Kodexempel
+## <a name="code-examples"></a>Kod exempel
 
 Kodfragmenten nedan visar hur du gör följande uppgifter med ansikts klient biblioteket för .NET:
 
@@ -122,7 +121,7 @@ Kodfragmenten nedan visar hur du gör följande uppgifter med ansikts klient bib
 > [!NOTE]
 > Den här snabb starten förutsätter att du har [skapat miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för din ansikts nyckel och slut punkt med namnet `FACE_SUBSCRIPTION_KEY` och `FACE_ENDPOINT`.
 
-I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -objekt.
+I en ny metod instansierar du en klient med din slut punkt och nyckel. Skapa ett **[ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.apikeyserviceclientcredentials?view=azure-dotnet)** -objekt med din nyckel och Använd den med slut punkten för att skapa ett **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** -objekt.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_auth)]
 
@@ -140,19 +139,19 @@ Alternativt kan du välja vilken AI-modell som ska användas för att extrahera 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_models)]
 
-Den sista identifiera-åtgärden tar ett [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) -objekt, en bild-URL och en igenkännings modell.
+Den sista identifiera-åtgärden tar ett **[FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)** -objekt, en bild-URL och en igenkännings modell.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_call)]
 
 ### <a name="get-detected-face-objects"></a>Hämta identifierade ansikts objekt
 
-I nästa kodblock identifierar `DetectFaceExtract`-metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över [DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet) -objekt i program minnet. Listan med [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) -värden anger vilka funktioner som ska extraheras. 
+I nästa kodblock identifierar `DetectFaceExtract`-metoden ansikten i tre av bilderna på den angivna URL: en och skapar en lista över **[DetectedFace](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.detectedface?view=azure-dotnet)** -objekt i program minnet. Listan med **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** -värden anger vilka funktioner som ska extraheras. 
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect)]
 
 ### <a name="display-detected-face-data"></a>Visa identifierade ansikts data
 
-Resten av metoden `DetectFaceExtract` tolkar och skriver ut attributets data för varje identifierad ansikts. Varje attribut måste anges separat i det ursprungliga API-anropet för ansikts igenkänning (i [FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet) -listan). Följande kod bearbetar alla attribut, men du behöver troligen bara använda ett eller några få.
+Resten av metoden `DetectFaceExtract` tolkar och skriver ut attributets data för varje identifierad ansikts. Varje attribut måste anges separat i det ursprungliga API-anropet för ansikts igenkänning (i **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** -listan). Följande kod bearbetar alla attribut, men du behöver troligen bara använda ett eller några få.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/Face/Program.cs?name=snippet_detect_parse)]
 

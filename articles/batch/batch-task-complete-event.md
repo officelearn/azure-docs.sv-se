@@ -1,6 +1,6 @@
 ---
-title: Händelse för Azure Batch aktivitet slutförd | Microsoft Docs
-description: Referens för slut händelse för batch-aktivitet.
+title: Händelse för att Azure Batch aktivitet slutförd
+description: Referens för slut händelse för batch-aktivitet. Den här händelsen genereras när en uppgift har slutförts, oavsett slut koden.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: 0a325060097f11b38e3b35d032c572b9dfbe0cc7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2f591330df4a3757ba1f5c6be1a34955c4cc2fa6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026110"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937742"
 ---
 # <a name="task-complete-event"></a>Sluthändelse för uppgift
 

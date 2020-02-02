@@ -1,18 +1,18 @@
 ---
 title: Värd zoner för omvänd DNS-sökning i Azure DNS
 description: Lär dig hur du använder Azure DNS för att vara värd för zoner för omvänd DNS-sökning för dina IP-intervall
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: allensu
-ms.openlocfilehash: 6052934e15d6975265c9eded459eea4446c9eee1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.author: rohink
+ms.openlocfilehash: 97390ab3dbaeff4d6c8cc6648692efd62fc121df
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277958"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932511"
 ---
 # <a name="host-reverse-dns-lookup-zones-in-azure-dns"></a>Värd zoner för omvänd DNS-sökning i Azure DNS
 
@@ -28,7 +28,7 @@ Den här artikeln vägleder dig genom stegen för att skapa din första DNS-zon 
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>Skapa en DNS-zon för omvänd sökning
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. På menyn **hubb** väljer du **nytt** > **nätverk**och väljer sedan **DNS-zon**.
 
    ![Val av DNS-zon](./media/dns-reverse-dns-hosting/figure1.png)

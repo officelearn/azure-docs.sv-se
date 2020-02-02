@@ -2,17 +2,17 @@
 title: Integrera Azure DNS med Azure-resurser – Azure DNS
 description: I den här artikeln lär du dig hur du använder Azure DNS tillsammans för att tillhandahålla DNS för dina Azure-resurser.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 7/13/2019
-ms.author: allensu
-ms.openlocfilehash: b005cb9e0611d18c24e2b77abf493292d47f44b4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: d84a7a908bd3bb5cfb2958a617be437f3b6b154e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212421"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934892"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Använd Azure DNS för att tillhandahålla anpassade domän inställningar för en Azure-tjänst
 
@@ -115,7 +115,7 @@ Information om hur du migrerar ett aktivt DNS-namn finns i [Migrera ett aktivt D
 
 Om du behöver köpa en anpassad domän går du till [köpa ett anpassat domän namn för Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) för att lära dig mer om App Service-domäner.
 
-## <a name="blob-storage"></a>Blob Storage
+## <a name="blob-storage"></a>Blobb-lagring
 
 Följande steg tar dig igenom hur du konfigurerar en CNAME-post för ett Blob Storage-konto med hjälp av metoden för att verifiera. Den här metoden säkerställer att det inte finns någon stillestånds tid.
 

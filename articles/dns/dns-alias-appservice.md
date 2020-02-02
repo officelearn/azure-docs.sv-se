@@ -2,17 +2,17 @@
 title: Värd belastnings utjämning av Azure-Webbappar i zon Apex
 description: Använd en Azure DNS Ali Aset för att vara värd för belastningsutjämnade webbappar i zonen Apex
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: allensu
-ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212369"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937372"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>Värd belastnings utjämning av Azure-Webbappar i zon Apex
 
@@ -43,7 +43,7 @@ Skapa en resurs grupp som innehåller alla resurser som används i den här arti
 Skapa två Webb App Services planer i resurs gruppen med hjälp av följande tabell för konfigurations information. Mer information om hur du skapar en App Service plan finns i [hantera ett App Service plan i Azure](../app-service/app-service-plan-manage.md).
 
 
-|Namn  |Operativsystem  |Plats  |Prisnivå  |
+|Namn  |Operativsystem  |Location  |Prisnivå  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|USA, östra|Dev/test D1 – delad|
 |ASP-02     |Windows|USA, centrala|Dev/test D1 – delad|
@@ -87,7 +87,7 @@ Nu kan du skapa slut punkter för de två webbapparna.
 3. Välj **Lägg till**.
 4. Använd följande tabell för att konfigurera slut punkterna:
 
-   |Typ  |Namn  |Mål  |Plats  |Anpassade huvud inställningar|
+   |Typ  |Namn  |Målinrikta  |Location  |Anpassade huvud inställningar|
    |---------|---------|---------|---------|---------|
    |Extern slut punkt     |Slut – 01|IP-adress som du har spelat in för app-01|USA, östra|värd:\<den URL som du registrerade för app-01-\><br>Exempel: **värd: app-01.azurewebsites.net**|
    |Extern slut punkt     |End-02|IP-adress som du har spelat in för app-02|USA, centrala|värd:\<den URL som du registrerade för app-02-\><br>Exempel: **värd: app-02.azurewebsites.net**

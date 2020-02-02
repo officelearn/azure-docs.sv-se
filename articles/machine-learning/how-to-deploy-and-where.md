@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543570"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932382"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Distribuera modeller med Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,8 +26,8 @@ Lär dig hur du distribuerar din Machine Learning-modell som en webb tjänst i A
 Arbets flödet är ungefär oavsett [var du distribuerar](#target) din modell:
 
 1. Registrera modellen.
-1. Förbered distributionen. (Ange tillgångar, användning och beräkningsmål.)
-1. Distribuera modellen till beräkningsmålet.
+1. Förbered för distribution. (Ange till gångar, användning, Compute-mål.)
+1. Distribuera modellen till Compute-målet.
 1. Testa den distribuerade modellen, även kallad en webb tjänst.
 
 Mer information om de begrepp som ingår i distributions arbets flödet finns i [Hantera, distribuera och övervaka modeller med Azure Machine Learning](concept-model-management-and-deployment.md).
@@ -40,7 +40,7 @@ Mer information om de begrepp som ingår i distributions arbets flödet finns i 
 
 - [Azure CLI-tillägget för Machine Learning-tjänsten](reference-azure-machine-learning-cli.md), [Azure Machine Learning SDK för python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)eller [Azure Machine Learning Visual Studio Code-tillägget](tutorial-setup-vscode-extension.md).
 
-## <a name="connect-to-your-workspace"></a>Anslut till arbetsytan
+## <a name="connect-to-your-workspace"></a>Anslut till din arbets yta
 
 Följande kod visar hur du ansluter till en Azure Machine Learning-arbetsyta med hjälp av information som cachelagras i den lokala utvecklings miljön:
 
@@ -174,12 +174,12 @@ Ett E2E-exempel som visar hur du använder flera modeller bakom en enda behålla
 
 ## <a name="prepare-to-deploy"></a>Förbered distributionen
 
-För att distribuera modellen behöver du följande:
+För att distribuera modellen behöver du följande objekt:
 
-* **Ett startskript**. Det här skriptet accepterar begär Anden, visar förfrågningarna med hjälp av modellen och returnerar resultatet.
+* **Ett Entry-skript**. Det här skriptet accepterar begär Anden, visar förfrågningarna med hjälp av modellen och returnerar resultatet.
 
     > [!IMPORTANT]
-    > * Startskriptet är specifikt för din modell. Den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
+    > * Start skriptet är bara för din modell. Den måste förstå formatet på inkommande begär ande data, formatet på de data som förväntas av din modell och formatet på de data som returneras till klienter.
     >
     >   Om begär ande data har ett format som inte kan användas av din modell kan skriptet omvandla det till ett acceptabelt format. Det kan också transformera svaret innan det returneras till klienten.
     >
@@ -187,21 +187,21 @@ För att distribuera modellen behöver du följande:
     >
     >   Ett alternativ som kan fungera för ditt scenario är [batch-förutsägelse](how-to-use-parallel-run-step.md), vilket ger åtkomst till data lager under poängsättningen.
 
-* **Beroenden**, t.ex. hjälpskript eller Python/Conda-paket som krävs för att köra startskriptet eller modellen.
+* **Beroenden**, t. ex. hjälp skript eller python/Conda-paket som krävs för att köra start skriptet eller modellen.
 
-* **Distributionskonfigurationen** för beräkningsmålet som är värd för den distribuerade modellen. Den här konfigurationen beskriver exempelvis minnes- och processorkrav som krävs för att köra modellen.
+* **Distributions konfigurationen** för det beräknings mål som är värd för den distribuerade modellen. Den här konfigurationen beskriver saker som minnes-och processor krav som krävs för att köra modellen.
 
-Dessa objekt kapslas in i en *inferenskonfiguration* och en *distributionskonfiguration*. Inferenskonfigurationen refererar till startskriptet och andra beroenden. Du definierar dessa konfigurationer programmatisk när du distribuerar med hjälp av SDK:n. Du definierar dem i JSON-filer när du använder CLI.
+Dessa objekt kapslas in i en *konfiguration* för konfiguration och *distribution*. Konfigurations konfigurationen refererar till Start skriptet och andra beroenden. Du definierar dessa konfigurationer program mässigt när du använder SDK: n för att utföra distributionen. Du definierar dem i JSON-filer när du använder CLI.
 
 ### <a id="script"></a>1. definiera ditt post skript och beroenden
 
-Startskriptet tar emot data som skickas till en distribuerad webbtjänst och skickar dem vidare till modellen. Skriptet tar sedan emot svaret som returneras av modellen och returnerar det till klienten. *Skriptet är bara för din modell*. Den måste förstå de data som modellen förväntar sig och returnerar.
+Inmatnings skriptet tar emot data som skickats till en distribuerad webb tjänst och skickar dem till modellen. Det tar sedan svaret som returneras av modellen och returnerar klienten. *Skriptet är bara för din modell*. Den måste förstå de data som modellen förväntar sig och returnerar.
 
 Skriptet innehåller två funktioner som läser in och kör modellen:
 
 * `init()`: den här funktionen laddar normalt modellen till ett globalt objekt. Den här funktionen körs bara en gång, när Docker-behållaren för webb tjänsten startas.
 
-* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Körningens in- och utdata använder vanligtvis JSON för serialisering och deserialisering. Du kan också arbeta med binärdata i råformat. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar dem till klienten.
+* `run(input_data)`: Den här funktionen använder modellen för att förutsäga ett värde baserat på indata. Indata och utdata för körningen använder vanligt vis JSON för serialisering och deserialisering. Du kan också arbeta med rå data för rå data. Du kan transformera data innan du skickar dem till modellen eller innan du returnerar den till klienten.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>Hitta modell filer i ditt post skript
 
@@ -220,17 +220,23 @@ I följande tabell beskrivs värdet för AZUREML_MODEL_DIR beroende på hur mån
 | Enskild modell | Sökvägen till mappen som innehåller modellen. |
 | Flera modeller | Sökvägen till mappen som innehåller alla modeller. Modeller finns efter namn och version i den här mappen (`$MODEL_NAME/$VERSION`) |
 
-Om du vill hämta sökvägen till en fil i en modell kombinerar du miljövariabeln med det fil namn som du letar efter.
-Fil namnen för modellens filer bevaras vid registrering och distribution. 
+Under modell registrering och distribution placeras modeller i AZUREML_MODEL_DIR Sök väg och deras ursprungliga fil namn bevaras.
+
+Om du vill hämta sökvägen till en modell fil i ditt Entry-skript kombinerar du miljövariabeln med den fil Sök väg som du letar efter.
 
 **Exempel på en modell**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **Exempel på flera modeller**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path

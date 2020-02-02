@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481025"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931573"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Hanterings begrepp för användar konton, lösen ord och administration i Azure Active Directory Domain Services
 
@@ -34,7 +34,7 @@ Användar konton kan skapas i Azure AD DS på flera olika sätt. De flesta anvä
 * Användar kontot kan synkroniseras i från Azure AD. Detta inkluderar endast molnbaserade användar konton som skapas direkt i Azure AD och hybrid användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect.
     * Majoriteten av användar kontona i Azure AD DS skapas genom synkroniseringsprocessen från Azure AD.
 * Användar kontot kan skapas manuellt i en Azure AD DS-hanterad domän och finns inte i Azure AD.
-    * Om du behöver skapa tjänst konton för program som bara körs i Azure AD DS kan du skapa dem manuellt i den hanterade domänen. Eftersom synkroniseringen är enkelriktad från Azure AD, synkroniseras inte användar konton som skapats i Azure AD DS tillbaka till Azure AD.
+    * Om du behöver skapa tjänst konton för program som bara körs i Azure AD DS kan du skapa dem manuellt i den hanterade domänen. Eftersom synkronisering är ett sätt från Azure AD, synkroniseras inte användar konton som skapats i Azure AD DS tillbaka till Azure AD.
 
 ## <a name="password-policy"></a>Lösen ords princip
 
@@ -74,6 +74,36 @@ I en Azure AD DS- *resurs* kan användare autentiseras över ett enkelriktat sko
 
 Mer information om skogs typer i Azure AD DS finns i [Vad är resurs skogar?][concepts-forest] och [Hur fungerar skogs förtroenden i Azure AD DS?][concepts-trust]
 
+## <a name="azure-ad-ds-skus"></a>Azure AD DS-SKU: er
+
+I Azure AD DS baseras tillgängliga prestanda och funktioner på SKU: n. Du väljer en SKU när du skapar den hanterade domänen och du kan byta SKU när dina affärs behov ändras efter att den hanterade domänen har distribuerats. I följande tabell beskrivs tillgängliga SKU: er och skillnaderna mellan dem:
+
+| SKU-namn   | Maximalt antal objekt | Säkerhetskopieringsfrekvens | Maximalt antal utgående skogs förtroenden |
+|------------|----------------------|------------------|----|
+| Standard   | Unlimited            | Var sjunde dag     | 0  |
+| Företag | Unlimited            | Var 3 dag     | 5  |
+| Premium    | Unlimited            | Dagligen            | 10 |
+
+Innan dessa Azure AD DS-SKU: er användes en fakturerings modell baserat på antalet objekt (användar-och dator konton) i den hanterade Azure AD DS-domänen. Det finns inte längre någon varierande prissättning baserat på antalet objekt i den hanterade domänen.
+
+Mer information finns på sidan med [priser för Azure AD DS][pricing].
+
+### <a name="managed-domain-performance"></a>Prestanda för hanterade domäner
+
+Domänens prestanda varierar beroende på hur autentisering implementeras för ett program. Ytterligare beräknings resurser kan hjälpa till att förbättra svars tiden för frågor och minska tids åtgången för synkronisering. När SKU-nivån ökar ökas de beräknings resurser som är tillgängliga för den hanterade domänen. Övervaka programmets prestanda och planera för de resurser som krävs.
+
+Om ditt företags-eller program kräver ändringar och du behöver ytterligare beräknings kraft för din Azure AD DS-hanterade domän, kan du byta till en annan SKU.
+
+### <a name="backup-frequency"></a>Säkerhetskopieringsfrekvens
+
+Säkerhets kopierings frekvensen avgör hur ofta en ögonblicks bild av den hanterade domänen tas. Säkerhets kopieringar är en automatiserad process som hanteras av Azure-plattformen. I händelse av ett problem med din hanterade domän kan Azure-supporten hjälpa dig att återställa från en säkerhets kopia. Eftersom synkronisering bara sker ett sätt *från* Azure AD påverkar alla problem i en hanterad Azure AD DS-domän inte Azure AD eller lokala AD DS-miljöer och-funktioner.
+
+När SKU-nivån ökar ökar frekvensen för dessa ögonblicks bilder av säkerhets kopior. Granska dina verksamhets krav och återställnings punkt mål för att fastställa den säkerhets kopierings frekvens som krävs för din hanterade domän. Om ditt företags-eller program krav ändras och du behöver mer frekventa säkerhets kopieringar kan du byta till en annan SKU.
+
+### <a name="outbound-forests"></a>Utgående skogar
+
+I föregående avsnitt beskrivs enkelriktade utgående skogs förtroenden från en Azure AD DS-hanterad domän till en lokal AD DS-miljö (för närvarande i för hands version). SKU: n bestämmer det högsta antalet skogs förtroenden som du kan skapa för en hanterad Azure AD DS-domän. Granska ditt företags-och program krav för att avgöra hur många förtroenden du faktiskt behöver och välj lämplig Azure AD DS-SKU. Om ditt företags behov ändras och du behöver skapa ytterligare skogs förtroenden kan du byta till en annan SKU.
+
 ## <a name="next-steps"></a>Nästa steg
 
 Kom igång genom att [skapa en Azure AD DS-hanterad domän][create-instance].
@@ -87,3 +117,6 @@ Kom igång genom att [skapa en Azure AD DS-hanterad domän][create-instance].
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
+
+<!-- EXTERNAL LINKS -->
+[pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/

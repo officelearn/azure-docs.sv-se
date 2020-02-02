@@ -3,7 +3,7 @@ title: Använda belastnings Utjämnings tjänster i Azure | Microsoft Docs
 description: 'Den här självstudien visar hur du skapar ett scenario med hjälp av Azures belastnings Utjämnings portfölj: Traffic Manager, Application Gateway och Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
-ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227778"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939211"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Använda belastningsutjämningstjänster i Azure
 

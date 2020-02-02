@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 553dffd14182c93a52ed076e742830c68130551b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4c89765a3bc59a37a182a2dfabf0727f95b575b8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911225"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933228"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>Lägga till ett verktygsfält för rit verktyg i en karta
 
@@ -68,7 +68,7 @@ Se rit <a href='https://codepen.io/azuremaps/pen/OJLWWMy/'>verktyget Lägg till 
 
 ## <a name="change-drawing-rendering-style"></a>Ändra ritnings åter givnings format
 
-Följande kod hämtar åter givnings skikten från Drawing Manager och ändrar åter givnings formatet för ritningen genom att ändra deras alternativ. I det här fallet kommer punkter att återges med en blå markör ikon, linjerna är röda och fyra bild punkter breda, polygoner har en grön fyllnings färg och en orange kontur.
+Följande kod hämtar åter givnings skikten från Drawing Manager och ändrar åter givnings formatet för ritningen genom att ändra deras alternativ. I det här fallet kommer punkter att återges med en blå markör ikon. Linjerna blir röda och fyra bild punkter breda. Polygoner får en grön fyllnings färg och en orange kontur.
 
 ```Javascript
 var layers = drawingManager.getLayers();
@@ -114,7 +114,7 @@ Lär dig hur du använder ytterligare funktioner i modulen rit verktyg:
 Läs mer om de klasser och metoder som används i den här artikeln:
 
 > [!div class="nextstepaction"]
-> [Karta](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
 > [Verktygsfältet Rita](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)

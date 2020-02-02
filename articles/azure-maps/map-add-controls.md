@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911259"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933287"
 ---
 # <a name="add-controls-to-a-map"></a>Lägga till kontroller till en karta
 
-Den här artikeln visar hur du lägger till kontroller till en karta. Du får också lära dig hur du skapar en karta med alla kontroller och en [format väljare](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
+Den här artikeln visar hur du lägger till kontroller till en karta. Du lär dig också hur du skapar en karta med alla kontroller och en [format väljare](https://docs.microsoft.com/azure/azure-maps/choose-map-style).
 
 ## <a name="add-zoom-control"></a>Lägg till zoomkontrollen
 
@@ -39,7 +39,7 @@ Nedan visas det fullständiga kod exemplet för ovanstående funktioner.
 
 ## <a name="add-pitch-control"></a>Lägg till vinkel kontroll
 
-En lutnings kontroll lägger till knappar för att luta bredden för att mappa i förhållande till horisonten. Följande kod exempel skapar en instans av klassen [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) och lägger till det övre högra hörnet på kartan.
+En lutnings kontroll lägger till knappar för att luta bredden för att mappa i förhållande till horisonten. Följande kod exempel skapar en instans av klassen [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) . Den lägger till PitchControl i det övre högra hörnet på kartan.
 
 ```javascript
 //Construct a pitch control and add it to the map.

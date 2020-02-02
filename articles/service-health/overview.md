@@ -3,12 +3,12 @@ title: Vad är Azure Service Health?
 description: Anpassad information om hur dina Azure-appar påverkas av aktuella och framtida problem och underhåll av Azure-tjänsten.
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d9d9dcb4db483b524cb7be8e006ba12edcc8442
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 039583d9243f8ce76b33afcee098e71a670b5285
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463963"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939202"
 ---
 # <a name="what-is-azure-service-health"></a>Vad är Azure Service Health?
 
@@ -27,3 +27,5 @@ Sammantaget ger dessa upplevelser dig en heltäckande översikt över hälsotill
 **Titta på en översikt över sidan Azure-status, Azure Service Health och Azure Resource Health**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]

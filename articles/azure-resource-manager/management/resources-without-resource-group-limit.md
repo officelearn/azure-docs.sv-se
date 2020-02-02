@@ -2,13 +2,13 @@
 title: Resurser utan gräns för 800
 description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 instanser i en resurs grupp.
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: 42e8ddeebcd1dda4fc67e4e7be137c5e01decdf4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: 735cad0bfa936c41f603e42bdb9be77a1562cc1f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715620"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937943"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
@@ -90,6 +90,10 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * softwareUpdateProfile
 * softwareUpdates
 
+## <a name="microsoftinsights"></a>Microsoft.Insights
+
+* metricalerts
+
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 * integrationAccounts
@@ -168,7 +172,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 * containerGroups
 * gatewayer
 * nätet
-* secrets
+* hemligheter
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -179,10 +183,6 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * apiManagementAccounts/apis
 * stationer
-
-## <a name="microsoftinsights"></a>microsoft.insights
-
-* metricalerts
 
 ## <a name="next-steps"></a>Nästa steg
 

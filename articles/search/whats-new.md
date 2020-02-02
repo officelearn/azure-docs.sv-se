@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: d0e0e8a5aa3a3e43997e3f9512525be9f51d2018
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844980"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934872"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Vad är nytt i Azure Kognitiv sökning
 
@@ -29,13 +29,15 @@ Azure Search har nu bytt namn till **Azure kognitiv sökning** för att återspe
 
 ### <a name="february-2020"></a>Februari 2020
 
-+ [Identifiering av PII](cognitive-search-skill-pii-detection.md) är en kognitiv kunskap som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt.
++ [PII-identifiering (för hands version)](cognitive-search-skill-pii-detection.md) är en kognitiv färdighet som används vid indexering som extraherar personligt identifierbar information från en indata-text och ger dig möjlighet att maskera den från den texten på olika sätt.
+
++ [Anpassad sökning efter entitet (för hands version)](cognitive-search-skill-custom-entity-lookup.md ) söker efter text från en anpassad, användardefinierad lista med ord och fraser. Med den här listan etiketteras alla dokument med matchande entiteter. Kompetensen har även stöd för en viss fuzzy-matchning som kan användas för att söka efter matchningar som liknar varandra, men som inte exakt stämmer. 
 
 ### <a name="january-2020"></a>Januari 2020
 
 + [Kundhanterade krypterings nycklar](search-security-manage-encryption-keys.md) är nu allmänt tillgängliga. Om du använder REST kan du komma åt funktionen med hjälp av `api-version=2019-05-06`. För hanterad kod är rätt paket fortfarande [.NET SDK version 8,0 – förhands granskning](search-dotnet-sdk-migration-version-9.md) trots att funktionen inte är i förhands granskning. 
 
-+ Privat åtkomst till en Sök tjänst är tillgänglig via två mekanismer:
++ Privat åtkomst till en Sök tjänst är tillgänglig via två mekanismer, både för närvarande i för hands version:
 
   + Du kan begränsa åtkomsten till vissa IP-adresser med hjälp av hanterings REST API `api-version=2019-10-01-Preview` för att skapa tjänsten. För hands versions-API: et har nya egenskaper för **IpRule** och **NETWORKRULESET** i [CreateOrUpdate API](https://docs.microsoft.com/rest/api/searchmanagement/services/createorupdate). Den här förhands gransknings funktionen är tillgänglig i valda regioner. Mer information finns i [så här använder du hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
 

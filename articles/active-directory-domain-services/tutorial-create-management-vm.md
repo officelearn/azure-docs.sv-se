@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703638"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931587"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>Självstudie: skapa en virtuell hanterings dator för att konfigurera och administrera en Azure Active Directory Domain Services hanterad domän
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (AD DS) tillhandahåller hanterade domän
 
 Den här självstudien visar hur du skapar en virtuell Windows Server-dator i Azure och installerar de verktyg som krävs för att administrera en hanterad Azure AD DS-domän.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förstå de tillgängliga administrativa uppgifterna i en Azure AD DS-hanterad domän
@@ -40,9 +40,9 @@ För att slutföra den här självstudien behöver du följande resurser och beh
 * En Azure Active Directory klient som är associerad med din prenumeration, antingen synkroniserad med en lokal katalog eller en katalog som endast är moln.
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * En Azure Active Directory Domain Services hanterad domän aktive rad och konfigurerad i Azure AD-klienten.
-    * Vid behov [skapar och konfigurerar][create-azure-ad-ds-instance]den första självstudien en Azure Active Directory Domain Services-instans.
+    * Om det behövs kan du läsa den första självstudien för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 * En virtuell Windows Server-dator som är ansluten till den hanterade Azure AD DS-domänen.
-    * Vid behov skapar den tidigare själv studie kursen [en virtuell Windows Server-dator och kopplar den till en hanterad domän][create-join-windows-vm].
+    * Om det behövs, se föregående självstudie för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal

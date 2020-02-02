@@ -4,16 +4,16 @@ description: Så här exporterar du data från ditt Azure IoT Central-program ti
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/06/2019
+ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 1aac5af916e414178676a1caf42fead41109de68
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 612db9963b02e905c3a48d61a4f7a7ed6f832fba
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974469"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939021"
 ---
 # <a name="export-your-azure-iot-central-data-preview-features"></a>Exportera dina Azure IoT Central-data (för hands versions funktioner)
 
@@ -31,13 +31,13 @@ Den här artikeln beskriver hur du använder funktionen för kontinuerlig data e
 
 ## <a name="prerequisites"></a>Krav
 
-Du måste vara administratör i IoT Centrals programmet
+Du måste vara administratör i IoT Central programmet eller ha behörighet för data export.
 
 ## <a name="set-up-export-destination"></a>Konfigurera export mål
 
 Export målet måste finnas innan du konfigurerar din kontinuerliga data export.
 
-### <a name="create-event-hubs-namespace"></a>Skapa en namnrymd för Event Hubs
+### <a name="create-event-hubs-namespace"></a>Skapa Event Hubs namn område
 
 Följ dessa steg om du inte har ett befintligt Event Hubs namn område att exportera till:
 
@@ -78,7 +78,7 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
 2. Välj **data export**i det vänstra fönstret.
 
     > [!Note]
-    > Om du inte ser data export i det vänstra fönstret är du inte administratör i din app. Prata med en administratör för att konfigurera data export.
+    > Om du inte ser data export i det vänstra fönstret har du inte behörighet att konfigurera data export i din app. Prata med en administratör för att konfigurera data export.
 
 3. Välj knappen **+ ny** längst upp till höger. Välj en **Azure-Event Hubs**, **Azure Service Bus**eller **Azure Blob Storage** som mål för exporten. Det maximala antalet exporter per program är fem.
 
@@ -104,7 +104,7 @@ Nu när du har ett mål att exportera data till, följer du dessa steg för att 
 
 7. Under **data som ska exporteras**väljer du de typer av data som ska exporteras genom att ange typen till **på**.
 
-8. Om du vill aktivera kontinuerlig data export kontrollerar du att aktivera **data export** är **aktiverat**. Välj **Spara**.
+8. Om du vill aktivera kontinuerlig data export kontrollerar du att aktivera **växling är** **aktiverat** . Välj **Spara**.
 
 9. Efter några minuter visas dina data i det valda målet.
 
@@ -189,15 +189,16 @@ Det här är en exempel post som exporteras till Blob Storage:
 
 ## <a name="devices"></a>Enheter
 
-Varje meddelande eller post i en ögonblicks bild representerar en eller flera ändringar av en enhet och dess egenskaper sedan det senaste exporterade meddelandet. Det här omfattar:
+Varje meddelande eller post i en ögonblicks bild representerar en eller flera ändringar av en enhet och dess enhets-och moln egenskaper sedan det senaste exporterade meddelandet. Det här omfattar:
 
-- enhetens `@id` i IoT Central
-- enhetens `name`
-- `deviceId` från [enhets etablerings tjänsten](../core/howto-connect-nodejs.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)
-- Information om enhets mal len
+- enhetens `id` i IoT Central
+- enhetens `displayName`
+- Mall-ID för enhet i `instanceOf`
+- `simulated` flagga, sant om enheten är en simulerad enhet
+- `provisioned` flagga, sant om enheten har etablerats
+- `approved` flagga, sant om enheten har godkänts för att skicka data
 - Egenskapsvärden
-
-Enhets mal len som varje enhet tillhör representeras av `instanceOf`. För att hämta namn och ytterligare information om enhets mal len, se till att exportera enhetens mall data också.
+- `properties` inklusive värden för enhets-och moln egenskaper
 
 Borttagna enheter exporteras inte. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enheter.
 
@@ -210,46 +211,41 @@ Detta är ett exempel på ett meddelande om enheter och egenskaps data i händel
 ```json
 {
   "body":{
-    "@id":"<id>",
-    "@type":"Device",
-    "displayName":"Airbox - 266d30aedn5",
-    "data":{
-      "$cloudProperties":{
-        "Color":"blue"
-      },
-      "EnvironmentalSensor":{
-        "thsensormodel":{
-          "reported":{
-            "value":"A1",
-            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
-          }
-        },
-        "pm25sensormodel":{
-          "reported":{
-            "value":"P1",
-            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
-          }
+    "id": "<device Id>",
+    "etag": "<etag>",
+    "displayName": "Sensor 1",
+    "instanceOf": "<device template Id>",
+    "simulated": false,
+    "provisioned": true,
+    "approved": true,
+    "properties": {
+        "sensorComponent": {
+            "setTemp": "30",
+            "fwVersion": "2.0.1",
+            "status": { "first": "first", "second": "second" },
+            "$metadata": {
+                "setTemp": {
+                    "desiredValue": "30",
+                    "desiredVersion": 3,
+                    "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
+                    "ackVersion": 3
+                },
+                "fwVersion": { "ackVersion": 3 },
+                "status": {
+                    "desiredValue": {
+                        "first": "first",
+                        "second": "second"
+                    },
+                    "desiredVersion": 2,
+                    "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
+                    "ackVersion": 2
+                }
+            },
+            
         }
-      },
-      "urn_azureiot_DeviceManagement_DeviceInformation":{
-        "totalStorage":{
-          "reported":{
-            "value":3088.1959855710156,
-            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
-          }
-        },
-        "totalMemory":{
-          "reported":{
-            "value":16005.703586477555,
-            "$lastUpdatedTimestamp":"2019-10-02T18:14:49.3820326Z"
-          }
-        }
-      }
     },
-    "instanceOf":"<templateId>",
-    "deviceId":"<deviceId>",
-    "simulated":true
-  },
+    "installDate": { "installDate": "2020-02-01" }
+},
   "annotations":{
     "iotcentral-message-source":"devices",
     "x-opt-partition-key":"<partitionKey>",
@@ -259,13 +255,324 @@ Detta är ett exempel på ett meddelande om enheter och egenskaps data i händel
   },
   "partitionKey":"<partitionKey>",
   "sequenceNumber":39740,
-  "enqueuedTimeUtc":"2019-10-02T18:14:49.3820326Z",
+  "enqueuedTimeUtc":"2020-02-01T18:14:49.3820326Z",
   "offset":"<offset>"
 }
 ```
 
 Det här är ett exempel på en ögonblicks bild som innehåller enheter och egenskaps data i Blob Storage. Exporterade filer innehåller en enskild rad per post.
 
+```json
+{
+  "id": "<device Id>",
+  "etag": "<etag>",
+  "displayName": "Sensor 1",
+  "instanceOf": "<device template Id>",
+  "simulated": false,
+  "provisioned": true,
+  "approved": true,
+  "properties": {
+      "sensorComponent": {
+          "setTemp": "30",
+          "fwVersion": "2.0.1",
+          "status": { "first": "first", "second": "second" },
+          "$metadata": {
+              "setTemp": {
+                  "desiredValue": "30",
+                  "desiredVersion": 3,
+                  "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
+                  "ackVersion": 3
+              },
+              "fwVersion": { "ackVersion": 3 },
+              "status": {
+                  "desiredValue": {
+                      "first": "first",
+                      "second": "second"
+                  },
+                  "desiredVersion": 2,
+                  "desiredTimestamp": "2020-02-01T17:15:08.9284049Z",
+                  "ackVersion": 2
+              }
+          },
+          
+      }
+  },
+  "installDate": { "installDate": "2020-02-01" }
+}
+```
+
+## <a name="device-templates"></a>Enhets mallar
+
+Varje meddelande-eller ögonblicks bild post representerar en eller flera ändringar i en publicerad enhets mall sedan det senaste exporterade meddelandet. Information som skickas i varje meddelande eller post innehåller:
+
+- `id` av enhets mal len som matchar `instanceOf` för enhets strömmen ovan
+- `displayName` av enhets mal len
+- Enheten `capabilityModel` inklusive dess `interfaces`, och definitioner för telemetri, egenskaper och kommandon
+- `cloudProperties` definitioner
+- Åsidosättningar och initiala värden, infogade i `capabilityModel`
+
+Borttagna enhetsspecifika mappar exporteras inte. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enhets mallar.
+
+För Event Hubs och Service Bus skickas meddelanden som innehåller enhetsspecifika data till händelsehubben eller Service Bus kö eller ämne i nära real tid, så som det visas i IoT Central. 
+
+För Blob Storage exporteras en ny ögonblicks bild som innehåller alla ändringar sedan den senaste skrevs en gång per minut.
+
+Detta är ett exempel på ett meddelande om Device templates-data i händelsehubben eller Service Bus kö eller ämne:
+
+```json
+{
+  "body":{
+      "id": "<device template id>",
+      "etag": "<etag>",
+      "types": ["DeviceModel"],
+      "displayName": "Sensor template",
+      "capabilityModel": {
+          "@id": "<capability model id>",
+          "@type": ["CapabilityModel"],
+          "contents": [],
+          "implements": [
+              {
+                  "@id": "<component Id>",
+                  "@type": ["InterfaceInstance"],
+                  "name": "sensorComponent",
+                  "schema": {
+                      "@id": "<interface Id>",
+                      "@type": ["Interface"],
+                      "displayName": "Sensor interface",
+                      "contents": [
+                          {
+                              "@id": "<id>",
+                              "@type": ["Telemetry"],
+                              "displayName": "Humidity",
+                              "name": "humidity",
+                              "schema": "double"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Telemetry", "SemanticType/Event"],
+                              "displayName": "Error event",
+                              "name": "error",
+                              "schema": "integer"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Property"],
+                              "displayName": "Set temperature",
+                              "name": "setTemp",
+                              "writable": true,
+                              "schema": "integer",
+                              "unit": "Units/Temperature/fahrenheit",
+                              "initialValue": "30"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Property"],
+                              "displayName": "Firmware version read only",
+                              "name": "fwversion",
+                              "schema": "string"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Property"],
+                              "displayName": "Display status",
+                              "name": "status",
+                              "writable": true,
+                              "schema": {
+                                  "@id": "urn:testInterface:status:obj:ka8iw8wka:1",
+                                  "@type": ["Object"]
+                              }
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Command"],
+                              "commandType": "synchronous",
+                              "request": {
+                                  "@id": "<id>",
+                                  "@type": ["SchemaField"],
+                                  "displayName": "Configuration",
+                                  "name": "config",
+                                  "schema": "string"
+                              },
+                              "response": {
+                                  "@id": "<id>",
+                                  "@type": ["SchemaField"],
+                                  "displayName": "Response",
+                                  "name": "response",
+                                  "schema": "string"
+                              },
+                              "displayName": "Configure sensor",
+                              "name": "sensorConfig"
+                          }
+                      ]
+                  }
+              }
+          ],
+          "displayName": "Sensor capability model"
+      },
+      "solutionModel": {
+          "@id": "<id>",
+          "@type": ["SolutionModel"],
+          "cloudProperties": [
+              {
+                  "@id": "<id>",
+                  "@type": ["CloudProperty"],
+                  "displayName": "Install date",
+                  "name": "installDate",
+                  "schema": "dateTime",
+                  "valueDetail": {
+                      "@id": "<id>",
+                      "@type": ["ValueDetail/DateTimeValueDetail"]
+                  }
+              }
+          ]
+      }
+  },
+    "annotations":{
+      "iotcentral-message-source":"deviceTemplates",
+      "x-opt-partition-key":"<partitionKey>",
+      "x-opt-sequence-number":25315,
+      "x-opt-offset":"<offset>",
+      "x-opt-enqueued-time":1539274985085
+    },
+    "partitionKey":"<partitionKey>",
+    "sequenceNumber":25315,
+    "enqueuedTimeUtc":"2019-10-02T16:23:05.085Z",
+    "offset":"<offset>"
+  }
+}
+```
+
+Det här är ett exempel på en ögonblicks bild som innehåller enheter och egenskaps data i Blob Storage. Exporterade filer innehåller en enskild rad per post.
+
+```json
+{
+      "id": "<device template id>",
+      "etag": "<etag>",
+      "types": ["DeviceModel"],
+      "displayName": "Sensor template",
+      "capabilityModel": {
+          "@id": "<capability model id>",
+          "@type": ["CapabilityModel"],
+          "contents": [],
+          "implements": [
+              {
+                  "@id": "<component Id>",
+                  "@type": ["InterfaceInstance"],
+                  "name": "Sensor component",
+                  "schema": {
+                      "@id": "<interface Id>",
+                      "@type": ["Interface"],
+                      "displayName": "Sensor interface",
+                      "contents": [
+                          {
+                              "@id": "<id>",
+                              "@type": ["Telemetry"],
+                              "displayName": "Humidity",
+                              "name": "humidity",
+                              "schema": "double"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Telemetry", "SemanticType/Event"],
+                              "displayName": "Error event",
+                              "name": "error",
+                              "schema": "integer"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Property"],
+                              "displayName": "Set temperature",
+                              "name": "setTemp",
+                              "writable": true,
+                              "schema": "integer",
+                              "unit": "Units/Temperature/fahrenheit",
+                              "initialValue": "30"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Property"],
+                              "displayName": "Firmware version read only",
+                              "name": "fwversion",
+                              "schema": "string"
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Property"],
+                              "displayName": "Display status",
+                              "name": "status",
+                              "writable": true,
+                              "schema": {
+                                  "@id": "urn:testInterface:status:obj:ka8iw8wka:1",
+                                  "@type": ["Object"]
+                              }
+                          },
+                          {
+                              "@id": "<id>",
+                              "@type": ["Command"],
+                              "commandType": "synchronous",
+                              "request": {
+                                  "@id": "<id>",
+                                  "@type": ["SchemaField"],
+                                  "displayName": "Configuration",
+                                  "name": "config",
+                                  "schema": "string"
+                              },
+                              "response": {
+                                  "@id": "<id>",
+                                  "@type": ["SchemaField"],
+                                  "displayName": "Response",
+                                  "name": "response",
+                                  "schema": "string"
+                              },
+                              "displayName": "Configure sensor",
+                              "name": "sensorconfig"
+                          }
+                      ]
+                  }
+              }
+          ],
+          "displayName": "Sensor capability model"
+      },
+      "solutionModel": {
+          "@id": "<id>",
+          "@type": ["SolutionModel"],
+          "cloudProperties": [
+              {
+                  "@id": "<id>",
+                  "@type": ["CloudProperty"],
+                  "displayName": "Install date",
+                  "name": "installDate",
+                  "schema": "dateTime",
+                  "valueDetail": {
+                      "@id": "<id>",
+                      "@type": ["ValueDetail/DateTimeValueDetail"]
+                  }
+              }
+          ]
+      }
+  }
+```
+## <a name="data-format-change-notice"></a>Ändrings meddelande för data format
+
+> [!Note]
+> Data formatet för telemetri påverkas inte av den här ändringen. Endast data strömmar för enheter och enheter påverkas.
+
+Om du har en befintlig data export i ditt för hands versions program där strömmarna *enheter* och *enhets mallar* är aktiverade måste du uppdatera exporten senast **30 juni 2020**. Detta gäller för export till Azure Blob Storage, Azure Event Hubs och Azure Service Bus.
+
+Från och med 3 februari 2020 kommer data formatet som beskrivs ovan att visas i alla nya exporter i program med enheter och enhetsspecifika aktiverade. Alla exporter som skapats före detta kommer att finnas kvar på det gamla data formatet fram till den 30 juni 2020, efter den tidpunkt då denna export automatiskt migreras till det nya data formatet. Det nya data formatet matchar [enheten](https://docs.microsoft.com/rest/api/iotcentral/devices/get), [enhets egenskapen](https://docs.microsoft.com/rest/api/iotcentral/devices/getproperties), [enhetens moln egenskap](https://docs.microsoft.com/rest/api/iotcentral/devices/getcloudproperties) och [enhets mal len](https://docs.microsoft.com/rest/api/iotcentral/devicetemplates/get) objekt i IoT Central offentliga API: et. 
+ 
+För **enheter**är viktiga skillnader mellan det gamla data formatet och det nya data formatet:
+- `@id` för enheten tas bort, `deviceId` byter namn till `id` 
+- `provisioned` flagga läggs till för att beskriva enhetens etablerings status
+- `approved` flagga läggs till för att beskriva enhetens godkännande tillstånd
+- `properties` inklusive egenskaper för enhet och moln matchar entiteter i det offentliga API: et
+
+Viktiga skillnader mellan det gamla data formatet och det nya data **formatet är:**
+
+- `@id` för enhets mal len byter namn till `id`
+- `@type` för enhets mal len byter namn till `types`och är nu en matris
+
+### <a name="devices-format-deprecated-as-of-3-february-2020"></a>Enheter (format föråldrat från och med 3 februari 2020)
 ```json
 {
   "@id":"<id-value>",
@@ -310,172 +617,7 @@ Det här är ett exempel på en ögonblicks bild som innehåller enheter och ege
 }
 ```
 
-## <a name="device-templates"></a>Enhetsmallar
-
-Varje meddelande-eller ögonblicks bild post representerar en eller flera ändringar i en enhets mall sedan det senaste exporterade meddelandet. Information som skickas i varje meddelande eller post innehåller:
-
-- `@id` av enhets mal len som matchar `instanceOf` för enhets strömmen ovan
-- `name` av enhets mal len
-- `version` av enhets mal len
-- Enheten `capabilityModel` inklusive dess `interfaces`, och definitioner för telemetri, egenskaper och kommandon
-- `cloudProperties` definitioner
-- Åsidosättningar och initiala värden, infogade i `capabilityModel`
-
-Borttagna enhetsspecifika mappar exporteras inte. För närvarande finns det inga indikatorer i exporterade meddelanden för borttagna enhets mallar.
-
-För Event Hubs och Service Bus skickas meddelanden som innehåller enhetsspecifika data till händelsehubben eller Service Bus kö eller ämne i nära real tid, så som det visas i IoT Central. 
-
-För Blob Storage exporteras en ny ögonblicks bild som innehåller alla ändringar sedan den senaste skrevs en gång per minut.
-
-Detta är ett exempel på ett meddelande om Device templates-data i händelsehubben eller Service Bus kö eller ämne:
-
-```json
-{
-  "body":{
-    "@id":"<template-id>",
-    "@type":"DeviceModelDefinition",
-    "displayName":"Airbox",
-    "capabilityModel":{
-      "@id":"<id>",
-      "@type":"CapabilityModel",
-      "implements":[
-        {
-          "@id":"<id>",
-          "@type":"InterfaceInstance",
-          "name":"EnvironmentalSensor",
-          "schema":{
-            "@id":"<id>",
-            "@type":"Interface",
-            "comment":"Requires temperature and humidity sensors.",
-            "description":"Provides functionality to report temperature, humidity. Provides telemetry, commands and read-write properties",
-            "displayName":"Environmental Sensor",
-            "contents":[
-              {
-                "@id":"<id>",
-                "@type":"Telemetry",
-                "description":"Current temperature on the device",
-                "displayName":"Temperature",
-                "name":"temp",
-                "schema":"double",
-                "unit":"Units/Temperature/celsius",
-                "valueDetail":{
-                  "@id":"<id>",
-                  "@type":"ValueDetail/NumberValueDetail",
-                  "minValue":{
-                    "@value":"50"
-                  }
-                },
-                "visualizationDetail":{
-                  "@id":"<id>",
-                  "@type":"VisualizationDetail"
-                }
-              },
-              {
-                "@id":"<id>",
-                "@type":"Telemetry",
-                "description":"Current humidity on the device",
-                "displayName":"Humidity",
-                "name":"humid",
-                "schema":"integer"
-              },
-              {
-                "@id":"<id>",
-                "@type":"Telemetry",
-                "description":"Current PM2.5 on the device",
-                "displayName":"PM2.5",
-                "name":"pm25",
-                "schema":"integer"
-              },
-              {
-                "@id":"<id>",
-                "@type":"Property",
-                "description":"T&H Sensor Model Name",
-                "displayName":"T&H Sensor Model",
-                "name":"thsensormodel",
-                "schema":"string"
-              },
-              {
-                "@id":"<id>",
-                "@type":"Property",
-                "description":"PM2.5 Sensor Model Name",
-                "displayName":"PM2.5 Sensor Model",
-                "name":"pm25sensormodel",
-                "schema":"string"
-              }
-            ]
-          }
-        },
-        {
-          "@id":"<id>",
-          "@type":"InterfaceInstance",
-          "name":"urn_azureiot_DeviceManagement_DeviceInformation",
-          "schema":{
-            "@id":"<id>",
-            "@type":"Interface",
-            "displayName":"Device information",
-            "contents":[
-              {
-                "@id":"<id>",
-                "@type":"Property",
-                "comment":"Total available storage on the device in kilobytes. Ex. 20480000 kilobytes.",
-                "displayName":"Total storage",
-                "name":"totalStorage",
-                "displayUnit":"kilobytes",
-                "schema":"long"
-              },
-              {
-                "@id":"<id>",
-                "@type":"Property",
-                "comment":"Total available memory on the device in kilobytes. Ex. 256000 kilobytes.",
-                "displayName":"Total memory",
-                "name":"totalMemory",
-                "displayUnit":"kilobytes",
-                "schema":"long"
-              }
-            ]
-          }
-        }
-      ],
-      "displayName":"AAEONAirbox52"
-    },
-    "solutionModel":{
-      "@id":"<id>",
-      "@type":"SolutionModel",
-      "cloudProperties":[
-        {
-          "@id":"<id>",
-          "@type":"CloudProperty",
-          "displayName":"Color",
-          "name":"Color",
-          "schema":"string",
-          "valueDetail":{
-            "@id":"<id>",
-            "@type":"ValueDetail/StringValueDetail"
-          },
-          "visualizationDetail":{
-            "@id":"<id>",
-            "@type":"VisualizationDetail"
-          }
-        }
-      ]
-    },
-    "annotations":{
-      "iotcentral-message-source":"deviceTemplates",
-      "x-opt-partition-key":"<partitionKey>",
-      "x-opt-sequence-number":25315,
-      "x-opt-offset":"<offset>",
-      "x-opt-enqueued-time":1539274985085
-    },
-    "partitionKey":"<partitionKey>",
-    "sequenceNumber":25315,
-    "enqueuedTimeUtc":"2019-10-02T16:23:05.085Z",
-    "offset":"<offset>"
-  }
-}
-```
-
-Det här är ett exempel på en ögonblicks bild som innehåller enheter och egenskaps data i Blob Storage. Exporterade filer innehåller en enskild rad per post.
-
+### <a name="device-templates-format-deprecated-as-of-3-february-2020"></a>Enhets mallar (format föråldras från och med 3 februari 2020)
 ```json
 {
   "@id":"<template-id>",
@@ -607,7 +749,6 @@ Det här är ett exempel på en ögonblicks bild som innehåller enheter och ege
   }
 }
 ```
-
 ## <a name="next-steps"></a>Nästa steg
 
 Nu när du vet hur du exporterar dina data till Azure Event Hubs, Azure Service Bus och Azure Blob Storage fortsätter du till nästa steg:

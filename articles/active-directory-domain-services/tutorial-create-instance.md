@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 01/15/2020
 ms.author: iainfou
-ms.openlocfilehash: ef203eec1398e9f23fb162845b9d570316083ecf
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8905f2a0a306ec4c9c6e19479c6adb96a6ed39ca
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74703697"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931279"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudie: skapa och konfigurera en Azure Active Directory Domain Services-instans
 
@@ -22,7 +22,7 @@ Azure Active Directory Domain Services (Azure AD DS) tillhandahåller hanterade 
 
 Du kan skapa en hanterad domän med hjälp av standard konfigurations alternativ för nätverk och synkronisering, eller [definiera inställningarna manuellt][tutorial-create-instance-advanced]. Den här självstudien visar hur du använder standard alternativ för att skapa och konfigurera en Azure AD DS-instans med hjälp av Azure Portal.
 
-I den här guiden får du lära dig att:
+I den här guiden får du lära dig hur man:
 
 > [!div class="checklist"]
 > * Förstå DNS-krav för en hanterad domän
@@ -93,6 +93,9 @@ Fyll i fälten i fönstret *Basics* i Azure Portal för att skapa en Azure AD DS
 
     Det finns inget som du kan konfigurera för att Azure AD DS ska distribueras mellan zoner. Azure-plattformen hanterar automatiskt zon distributionen av resurser. Mer information och mer information om regions tillgänglighet finns i [Vad är Tillgänglighetszoner i Azure?][availability-zones]
 
+1. **SKU: n** bestämmer prestanda, säkerhets kopierings frekvens och maximalt antal skogs förtroenden som du kan skapa. Du kan ändra SKU efter att den hanterade domänen har skapats om din verksamhet kräver eller att kraven förändras. Mer information finns i [Azure AD DS SKU-koncept][concepts-sku].
+
+    I den här självstudien väljer du *standard* -SKU.
 1. En *skog* är en logisk konstruktion som används av Active Directory Domain Services för att gruppera en eller flera domäner. Som standard skapas en Azure AD DS-hanterad domän som en *användar* skog. Den här typen av skog synkroniserar alla objekt från Azure AD, inklusive alla användar konton som skapats i en lokal AD DS-miljö. En *resurs* skog synkroniserar bara användare och grupper som skapats direkt i Azure AD. Resurs skogar är för närvarande i för hands version. Mer information om *resurs* skogar, inklusive varför du kan använda en och hur du skapar skogs förtroenden med lokala AD DS-domäner finns i [Översikt över Azure AD DS resurs skogar][resource-forests].
 
     I den här självstudien väljer du att skapa en *användar* skog.
@@ -105,7 +108,7 @@ Om du snabbt vill skapa en Azure AD DS-hanterad domän kan du välja **Granska +
 * Skapar ett undernät med namnet *aadds-Subnet* med IP-adressintervallet *10.0.1.0/24*.
 * Synkroniserar *alla* användare från Azure AD till den hanterade Azure AD DS-domänen.
 
-1. Välj **Granska + skapa** för att godkänna standard konfigurations alternativen.
+Välj **Granska + skapa** för att godkänna standard konfigurations alternativen.
 
 ## <a name="deploy-the-managed-domain"></a>Distribuera den hanterade domänen
 
@@ -200,6 +203,7 @@ Innan du ansluter till virtuella datorer och distribuerar program som använder 
 [skus]: overview.md
 [resource-forests]: concepts-resource-forest.md
 [availability-zones]: ../availability-zones/az-overview.md
+[concepts-sku]: administration-concepts.md#azure-ad-ds-skus
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

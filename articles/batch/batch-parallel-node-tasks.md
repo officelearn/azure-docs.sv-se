@@ -1,5 +1,5 @@
 ---
-title: Kör aktiviteter parallellt för att använda beräknings resurser effektivt – Azure Batch | Microsoft Docs
+title: Kör aktiviteter parallellt för att optimera beräknings resurser – Azure Batch
 description: Öka effektiviteten och sänk kostnaderna genom att använda färre Compute-noder och köra samtidiga aktiviteter på varje nod i en Azure Batch pool
 services: batch
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 04/17/2019
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2a47cbbf11117197d6d00d532fb0321d284c56b7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 1ee0db85818349938fcf5248e10e5eaac546bae5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026822"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930442"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Kör uppgifter samtidigt för att maximera användningen av batch Compute-noder 
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 058099ceca886f375e6add07033174bf80d5b647
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156547"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934921"
 ---
 # <a name="custom-script-extension-for-windows"></a>Anpassat skript tillägg för Windows
 
@@ -115,7 +115,7 @@ De här objekten ska behandlas som känsliga data och anges i konfigurationerna 
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.Compute | sträng |
 | typ | CustomScriptExtension | sträng |
-| typeHandlerVersion | 1.10 | int |
+| typeHandlerVersion | 1,10 | int |
 | fileUris (t. ex.) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | matris |
 | timestamp (t.ex.) | 123456789 | 32-bitars heltal |
 | commandToExecute (t. ex.) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | sträng |
@@ -268,6 +268,9 @@ Om du använder [Invoke-WebRequest](/powershell/module/microsoft.powershell.util
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
 ```
+## <a name="virtual-machine-scale-sets"></a>Skalningsuppsättningar för virtuell dator
+
+Om du vill distribuera tillägget för anpassat skript i en skalnings uppsättning, se [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0)
 
 ## <a name="classic-vms"></a>Klassiska virtuella datorer
 

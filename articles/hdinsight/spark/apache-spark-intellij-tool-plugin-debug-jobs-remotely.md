@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 2624f9fafd82aad9613d6940eca69486d897aa08
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393356bd8604f6e7622acd778817681aad31f1f9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905342"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935024"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i HDInsight via VPN
 
@@ -35,7 +35,7 @@ Den här artikeln innehåller stegvisa instruktioner om hur du använder HDInsig
 * **INTELLIJ idé**. Den här artikeln använder version 2017,1. Du kan installera det från [JetBrains-webbplatsen](https://www.jetbrains.com/idea/download/).
 * **HDInsight-verktyg i Azure Toolkit for IntelliJ**. HDInsight Tools för IntelliJ är tillgängliga som en del av Azure Toolkit for IntelliJ. Anvisningar om hur du installerar Azure Toolkit finns i [installera Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation).
 * **Logga in på din Azure-prenumeration från IntelliJ-idén**. Följ anvisningarna i [använda Azure Toolkit for IntelliJ för att skapa Apache Spark-program för ett HDInsight-kluster](apache-spark-intellij-tool-plugin.md).
-* **Undantags lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator kan du få ett undantag. Detta undantag beskrivs i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en WinUtils. exe-fil som saknas i Windows. För att undvika det här felet måste du ladda ned `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe` till en plats, till exempel **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** miljö variabel och ange sedan värdet för variabeln till **C\WinUtils**.
+* **Undantags lösning**. När du kör Spark Scala-programmet för fjärrfelsökning på en Windows-dator kan du få ett undantag. Detta undantag beskrivs i [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356) och inträffar på grund av en WinUtils. exe-fil som saknas i Windows. För att undvika det här felet måste du ladda ned [Winutils. exe](https://github.com/steveloughran/winutils) till en plats, till exempel **C:\WinUtils\bin**. Lägg till en **HADOOP_HOME** miljö variabel och ange sedan värdet för variabeln till **C\WinUtils**.
 
 ## <a name="step-1-create-an-azure-virtual-network"></a>Steg 1: skapa ett virtuellt Azure-nätverk
 

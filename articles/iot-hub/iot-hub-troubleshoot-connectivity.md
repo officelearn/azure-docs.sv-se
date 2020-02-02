@@ -1,31 +1,31 @@
 ---
-title: Diagnostisera och Felsök från kopplingar med Azure IoT Hub
-description: Lär dig att diagnostisera och felsöka vanliga fel med enhets anslutning för Azure IoT Hub
+title: Övervaka och Felsök från kopplingar med Azure IoT Hub
+description: Lär dig att övervaka och felsöka vanliga fel med enhets anslutning för Azure IoT Hub
 author: jlian
 manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 01/30/2020
 ms.author: jlian
-ms.openlocfilehash: 3904c6390cfe8de197bae470c4ae32d22605ae6a
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: ed1abe3565805810a6a3fe383e1ddfa209950469
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801424"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935376"
 ---
-# <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Identifiera och Felsök från kopplingar med Azure IoT Hub
+# <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Övervaka, diagnostisera och Felsök från koppling med Azure IoT Hub
 
-Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter. Program logik på enhets sidan, fysiska nätverk, protokoll, maskin vara och Azure IoT Hub kan alla orsaka problem. Den här artikeln innehåller rekommendationer om hur du identifierar och felsöker problem med enhets anslutningar från molnet (till skillnad från enhets sidan).
+Anslutnings problem för IoT-enheter kan vara svåra att felsöka eftersom det finns många möjliga fel punkter. Program logik, fysiska nätverk, protokoll, maskin vara, IoT Hub och andra moln tjänster kan orsaka problem. Det är viktigt att kunna identifiera och hitta källan till ett problem. En IoT-lösning i skala kan dock ha tusentals enheter, så det är inte praktiskt att kontrol lera enskilda enheter manuellt. För att hjälpa dig att identifiera, diagnostisera och felsöka problemen i stor skala, använder du övervaknings funktionerna IoT Hub tillhandahåller Azure Monitor. Dessa funktioner är begränsade till vad IoT Hub kan se, så vi rekommenderar också att du följer de rekommenderade metoderna för att övervaka dina enheter och andra Azure-tjänster.
 
 ## <a name="get-alerts-and-error-logs"></a>Hämta aviseringar och fel loggar
 
-Använd Azure Monitor för att hämta aviseringar och skriva loggar när enhets anslutningar släpps.
+Använd Azure Monitor för att få aviseringar och skriva loggar när enheter kopplas från.
 
 ### <a name="turn-on-diagnostic-logs"></a>Aktivera diagnostikloggar
 
-Om du vill logga händelser och fel i enhets anslutningen aktiverar du diagnostik för IoT Hub.
+Om du vill logga händelser och fel i enhets anslutningen aktiverar du diagnostik för IoT Hub. Vi rekommenderar att du aktiverar dessa loggar så tidigt som möjligt, eftersom om diagnostikloggar inte är aktive rad och det inte går att koppla från enheten, kommer du inte att ha någon information för att felsöka problemet med.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
@@ -43,7 +43,7 @@ Om du vill logga händelser och fel i enhets anslutningen aktiverar du diagnosti
 
 Mer information finns i [övervaka hälso tillståndet för Azure IoT Hub och diagnostisera problem snabbt](iot-hub-monitor-resource-health.md).
 
-### <a name="set-up-alerts-for-the-_connected-devices_-count-metric"></a>Konfigurera aviseringar för måttet antal _anslutna enheter_
+### <a name="set-up-alerts-for-device-disconnect-at-scale"></a>Konfigurera aviseringar för enhets anslutning i skala
 
 Konfigurera aviseringar på måttet **anslutna enheter (förhands granskning)** om du vill få aviseringar när enheter kopplas från.
 
@@ -57,41 +57,44 @@ Konfigurera aviseringar på måttet **anslutna enheter (förhands granskning)** 
 
 5. Välj **Lägg till villkor**och välj sedan "anslutna enheter (förhands granskning)".
 
-6. Slutför konfigurationen av önskade tröskelvärden och aviserings alternativ genom att följa instruktionerna.
+6. Konfigurera tröskelvärde och aviseringar genom att följa instruktionerna nedan.
 
-Mer information finns i [Vad är klassiska varningar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
+Mer information finns i [Vad är aviseringar i Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
+
+#### <a name="detecting-individual-device-disconnects"></a>Identifiera enskilda enheter från kopplingar
+
+Om du vill identifiera koppling *per enhet* , till exempel när du behöver veta att en fabrik precis gick offline, [konfigurerar du enhets kopplings händelser med event Grid](iot-hub-event-grid.md).
 
 ## <a name="resolve-connectivity-errors"></a>Lösa anslutnings fel
 
-När du aktiverar diagnostikloggar och aviseringar för anslutna enheter får du aviseringar när fel inträffar. I det här avsnittet beskrivs hur du löser vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Monitor loggar för dina diagnostikloggar.
+När du aktiverar diagnostikloggar och aviseringar för anslutna enheter får du aviseringar när fel inträffar. I det här avsnittet beskrivs hur du söker efter vanliga problem när du får en avisering. Stegen nedan förutsätter att du har konfigurerat Azure Monitor loggar för dina diagnostikloggar.
 
-1. Gå till arbets ytan för **Log Analytics** i Azure Portal.
+1. Logga in på [Azure Portal](https://portal.azure.com).
 
-2. Välj **loggs ökning**.
+1. Bläddra till din IoT-hubb.
 
-3. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga och väljer sedan **Kör**:
+1. Välj **Loggar**.
+
+1. Om du vill isolera anslutnings fel loggar för IoT Hub anger du följande fråga och väljer sedan **Kör**:
 
     ```kusto
-    search *
-    | where ( Type == "AzureDiagnostics" and ResourceType == "IOTHUBS")
-    | where ( Category == "Connections" and Level == "Error")
+    AzureDiagnostics
+    | where ( ResourceType == "IOTHUBS" and Category == "Connections" and Level == "Error")
     ```
 
-1. Om det finns resultat kan du söka `OperationName`efter `ResultType` , (felkod) och `ResultDescription` (fel meddelande) för att få mer information om felet.
+1. Om det finns resultat kan du leta efter `OperationName`, `ResultType` (felkod) och `ResultDescription` (fel meddelande) för att få mer information om felet.
 
    ![Exempel på fel logg](./media/iot-hub-troubleshoot-connectivity/diag-logs.png)
 
-2. Använd den här tabellen för att förstå och lösa vanliga fel.
+1. Följ rikt linjerna för problemlösning för de vanligaste felen:
 
-    | Fel | Rotorsak | Lösning |
-    |-------|------------|------------|
-    | 404104 DeviceConnectionClosedRemotely | Anslutningen stängdes av enheten, men IoT Hub inte veta varför. Vanliga orsaker är MQTT/AMQP-tidsgräns och förlust av Internet anslutning. | Kontrol lera att enheten kan ansluta till IoT Hub genom att [testa anslutningen](tutorial-connectivity.md). Om anslutningen är korrekt, men enheten kopplas från period vis, så se till att implementera korrekt Keep Alive-enhets logik för ditt val av protokoll (MQTT/AMPQ). |
-    | 401003 IoTHubUnauthorized | IoT Hub inte att autentisera anslutningen. | Se till att den SAS eller andra säkerhetstoken som du använder inte har upphört att gälla. [Azure IoT SDK](iot-hub-devguide-sdks.md) : er genererar automatiskt tokens utan att kräva särskild konfiguration. |
-    | 409002 LinkCreationConflict | En enhet har mer än en anslutning. När en ny anslutningsbegäran kommer till en enhet stänger IoT Hub den tidigare filen med det här felet. | I det vanligaste fallet identifierar en enhet en från koppling och försöker återupprätta anslutningen, men IoT Hub fortfarande anser att enheten är ansluten. IoT Hub stänger den tidigare anslutningen och loggar det här felet. Det här felet visas vanligt vis som en sido effekt av ett annat, tillfälligt problem. Leta efter andra fel i loggarna för att felsöka. Annars, se till att utfärda en ny anslutningsbegäran endast om anslutningen tappas. |
-    | 500001 ServerError | IoT Hub stötte på ett problem på Server sidan. Förmodligen är problemet tillfälligt. Medan IoT Hub team arbetar hårt för att underhålla [service avtalet](https://azure.microsoft.com/support/legal/sla/iot-hub/)kan små del mängder av IoT Hub-noder ibland uppleva tillfälliga fel. När enheten försöker ansluta till en nod som har problem får du det här felet. | Om du vill minimera det tillfälliga felet utfärdar du ett nytt försök från enheten. Kontrol lera att du använder den senaste versionen av [Azure IoT SDK](iot-hub-devguide-sdks.md): er för att [automatiskt hantera återförsök](iot-hub-reliability-features-in-sdks.md#connection-and-retry).<br><br>Bästa praxis vid hantering av tillfälliga fel och återförsök finns i [hantering av tillfälliga fel](/azure/architecture/best-practices/transient-faults).  <br><br>Om problemet kvarstår efter återförsök kan du kontrol lera [Resource Health](iot-hub-monitor-resource-health.md#use-azure-resource-health) och [Azure-status](https://azure.microsoft.com/status/history/) för att se om IoT Hub har ett känt problem. Om det inte finns några kända problem och problemet kvarstår kan du [kontakta supporten](https://azure.microsoft.com/support/options/) för ytterligare undersökning. |
-    | 500008 GenericTimeout | Det gick inte att slutföra anslutningsbegäran innan tids gränsen nåddes för IoT Hub. Precis som en 500001-ServerError är det här felet troligt vis tillfälligt. | Följ fel söknings stegen för en 500001-ServerError till rotor saken och Lös det här felet.|
+    - **[404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)**
+    - **[401003 IoTHubUnauthorized](iot-hub-troubleshoot-error-401003-iothubunauthorized.md)**
+    - **[409002 LinkCreationConflict](iot-hub-troubleshoot-error-409002-linkcreationconflict.md)**
+    - **[500001 ServerError](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
+    - **[500008 GenericTimeout](iot-hub-troubleshoot-error-500xxx-internal-errors.md)**
 
-## <a name="other-steps-to-try"></a>Andra steg att prova
+## <a name="i-tried-the-steps-but-they-didnt-work"></a>Jag försökte utföra stegen, men de fungerade inte
 
 Om föregående steg inte hjälper kan du prova:
 

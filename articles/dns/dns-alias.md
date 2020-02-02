@@ -2,17 +2,17 @@
 title: Översikt över alias-poster – Azure DNS
 description: I den här artikeln får du lära dig mer om stöd för Ali Asets poster i Microsoft Azure DNS.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/09/2019
-ms.author: allensu
-ms.openlocfilehash: da396d3e3db4acd1a9843977b8b3e3d51c33f021
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 085e5fc20a6b5356e012eb2f674fafc00cef828f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212332"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937328"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Översikt över Azure DNS-aliasposter
 
@@ -27,7 +27,7 @@ En post uppsättning för Ali Aset stöds för följande post typer i en Azure D
 > [!NOTE]
 > Om du tänker använda en aliasresurspost för post typerna A eller AAAA för att peka på en [Azure Traffic Manager-profil](../traffic-manager/quickstart-create-traffic-manager-profile.md) måste du kontrol lera att Traffic Managers profilen bara har [externa slut punkter](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Du måste ange IPv4-eller IPv6-adressen för externa slut punkter i Traffic Manager. Du kan inte använda fullständigt kvalificerade domän namn (FQDN) i slut punkter. Vi rekommenderar att du använder statiska IP-adresser.
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>Kapacitet
 
 - **Peka på en offentlig IP-resurs från en DNS A/AAAA-postuppsättning.** Du kan skapa en A/AAAA-postuppsättning och göra den till en angiven aliasresurspost som pekar på en offentlig IP-resurs (standard eller Basic). DNS-postuppsättningen ändras automatiskt om den offentliga IP-adressen ändras eller tas bort. Dangling DNS-poster som pekar på felaktiga IP-adresser undviks.
 

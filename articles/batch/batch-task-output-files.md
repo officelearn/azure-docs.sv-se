@@ -1,6 +1,6 @@
 ---
-title: Spara jobb-och Uppgiftsutdata till Azure Storage med batch-tjänstens API-Azure Batch | Microsoft Docs
-description: Lär dig hur du använder batch-tjänstens API för att spara batch-aktivitet och jobbets utdata till Azure Storage.
+title: Spara utdata som ska Azure Storage med batch service API-Azure Batch
+description: Lär dig hur du använder batch-tjänstens API för att spara batch-aktivitet och utskrifts data till Azure Storage.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -12,12 +12,12 @@ ms.workload: big-compute
 ms.date: 03/05/2019
 ms.author: jushiman
 ms.custom: seodec18
-ms.openlocfilehash: 8d77da2a0298758dad3eff1a61aff45796bfb6c5
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a7ac927ccc27af10999310fde9a5dede7b4539e0
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029630"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939083"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Spara uppgifts data till Azure Storage med batch-tjänstens API
 

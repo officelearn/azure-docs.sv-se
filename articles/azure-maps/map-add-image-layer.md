@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d2260e5c9e4125be1c4b0fa5e9d7c39a8e03d43f
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: cfdf7dfd4c16f70065e338f8983d2124d3f6f0ef
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911197"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933204"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>Lägga till ett bild lager till en karta
 
@@ -32,8 +32,8 @@ Den här artikeln visar hur du kan täcka en bild till en fast uppsättning koor
 Bild lagret stöder följande bild format:
 
 - -
-- PNG
-- BMP
+- KÄLLFIL
+- BITMAPPSBILD
 - GIF (inga animeringar)
 
 ## <a name="add-an-image-layer"></a>Lägga till ett avbildningsskikt
@@ -60,7 +60,7 @@ Här är det fullständiga kod exemplet i föregående kod.
 <iframe height='500' scrolling='no' title='Enkelt bild lager' src='//codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Se det <a href='https://codepen.io/azuremaps/pen/eQodRo/'>enkla bild skiktet</a> för pennan genom att Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) på <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-## <a name="import-a-kml-ground-overlay"></a>Importera ett KMLt bas överlägg
+## <a name="import-a-kml-file-as-ground-overlay"></a>Importera en KML-fil som mark överlägg
 
 I nästa exempel visas hur du lägger till KML-information för mark överlägg som ett bild lager på kartan. KML-överlägg ger norr, syd, öst och västra koordinater och en rotations medsols, medan bild lagret förväntar sig koordinater för varje hörn i bilden. KML-markplanet i det här exemplet är av Chartres-Cathedral och kommer från [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml).
 

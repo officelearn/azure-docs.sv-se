@@ -3,7 +3,7 @@ title: Felsöka försämrad status på Azure Traffic Manager
 description: Så här felsöker du Traffic Manager profiler när de visas som degraderad status.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: allensu
-ms.openlocfilehash: 8b8fbdf55e408874f6a6e83d6333583238865b5c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: c398763405472c9018a5c30d34fbd3963ecb93b7
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227721"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938370"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Felsöka degraderat tillstånd på Azure Traffic Manager
 
@@ -38,7 +38,7 @@ Om hälso tillståndet för Traffic Manager visar **inaktiv** status kan båda s
 * Ett bra tips är att ställa in avsöknings Sök vägen till något som har tillräckligt med logik för att avgöra om platsen är aktiv eller inte. I föregående exempel, genom att ange sökvägen till "/favicon.ico", testar du bara att W3wp. exe svarar. Den här avsökningen kanske inte indikerar att webb programmet är felfritt. Ett bättre alternativ är att ange en sökväg till något som "/PROBE.aspx" som har logik för att fastställa webbplatsens hälso tillstånd. Du kan till exempel använda prestanda räknare för processor användning eller mäta antalet misslyckade förfrågningar. Eller så kan du försöka få åtkomst till databas resurser eller sessionstillstånd för att kontrol lera att webb programmet fungerar.
 * Om alla slut punkter i en profil är degraderade Traffic Manager behandlar alla slut punkter som felfria och dirigerar trafik till alla slut punkter. Det här beteendet säkerställer att problem med avsöknings mekanismen inte resulterar i ett fullständigt avbrott i tjänsten.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du vill felsöka ett avsöknings fel behöver du ett verktyg som visar HTTP-statuskoden från avsöknings-URL: en. Det finns många tillgängliga verktyg som visar RAW HTTP-svaret.
 
@@ -79,7 +79,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 [System.Net.ServicePointManager]::CertificatePolicy = New-Object TrustAllCertsPolicy
 ```
 
-## <a name="next-steps"></a>Nästa steg
+## <a name="next-steps"></a>Efterföljande moment
 
 [Om Traffic Manager Traffic routing-metoder](traffic-manager-routing-methods.md)
 
@@ -87,7 +87,7 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 [Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
-[Azure Apptjänst](https://azure.microsoft.com/documentation/services/app-service/web/)
+[Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
 [Åtgärder för Traffic Manager (REST API-referens)](https://go.microsoft.com/fwlink/?LinkId=313584)
 

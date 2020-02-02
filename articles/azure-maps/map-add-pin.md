@@ -9,31 +9,31 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 744d5ecd3aab02071f7c3aaff7dd760fc14a2a62
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8c39c7b57167d65dfa639d41665f5d5b38110183
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911166"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933128"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Lägga till ett symbol lager till en karta
 
-En symbol kan vara ansluten till en data källa och används för att återge en ikon och/eller text vid en viss tidpunkt. Symbol lager återges med WebGL och kan användas för att återge stora samlingar av punkter på kartan. Det här lagret kan återge mycket mer punkt data på kartan med bra prestanda, än vad som kan nås med HTML-markörer. Symbol lagret stöder dock inte traditionella CSS-och HTML-element för formatering.  
+En symbol som är kopplad till en data källa och som används för att återge en ikon och/eller en text vid en viss tidpunkt. Symbol lager återges med WebGL och används för att återge stora samlingar av punkter på kartan. Jämfört med HTML-markör återger symbol lagret ett stort antal punkt data på kartan med bättre prestanda. Symbol lagret stöder dock inte traditionella CSS-och HTML-element för formatering.  
 
 > [!TIP]
-> Symbol lager som standard återger koordinaterna för alla Geometries i en data källa. Om du vill begränsa lagret så att det bara återger punkt geometri funktioner ställer du in `filter` egenskapen för lagret på `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du även vill inkludera MultiPoint-funktioner.
+> Symbol lager som standard återger koordinaterna för alla Geometries i en data källa. Om du vill begränsa lagret så att det bara återger punkt geometri funktioner anger du `filter` egenskapen för lagret som `['==', ['geometry-type'], 'Point']` eller `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` om du vill kan du även inkludera MultiPoint-funktioner.
 
-Kart hanteraren Maps bild Sprite, som används för att läsa in anpassade bilder som används av symbol skiktet, stöder följande bild format:
+Maps bild Sprite Manager läser in anpassade bilder som används av symbol skiktet. Det stöder följande bild format:
 
 - -
-- PNG
+- KÄLLFIL
 - SVG
-- BMP
+- BITMAPPSBILD
 - GIF (inga animeringar)
 
 ## <a name="add-a-symbol-layer"></a>Lägga till ett symbolskikt
 
-Om du vill lägga till ett symbol lager i kartan och återge data måste du först skapa en data källa och lägga till kartan. Ett symbol lager kan sedan skapas och skickas i data källan för att hämta data från. Slutligen måste data läggas till i data källan så att det finns något som ska återges. Följande kod visar den kod som ska läggas till i kartan när den har lästs in för att återge en enskild punkt på kartan med ett symbol lager. 
+Innan du kan lägga till ett symbol lager till kartan måste du utföra några steg. Börja med att skapa en data källa och Lägg till den på kartan. Ett symbol lager kan sedan skapas och skickas i data källan för att hämta data från data källan. Slutligen måste data läggas till i data källan så att det finns något som ska återges. Följande kod visar den kod som ska läggas till i kartan när den har lästs in. Koden återger en enda punkt på kartan med ett symbol lager. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -53,11 +53,11 @@ dataSource.add(new atlas.data.Point([0, 0]));
 Det finns fyra olika typer av punkt data som kan läggas till i kartan:
 
 - Geometrisk punkt geometri – det här objektet innehåller bara en koordinat för en punkt och inget annat. `atlas.data.Point` Helper-klassen kan användas för att enkelt skapa dessa objekt.
-- Real JSON MultiPoint-geometri – det här objektet innehåller koordinaterna för flera punkter men inget annat. `atlas.data.MultiPoint` Helper-klassen kan användas för att enkelt skapa dessa objekt.
+- Real JSON MultiPoint-geometri – det här objektet innehåller koordinaterna för flera punkter och inget annat. `atlas.data.MultiPoint` Helper-klassen kan användas för att enkelt skapa dessa objekt.
 - Funktionen för geometriskt JSON – det här objektet består av valfri geometrisk geometri och en uppsättning egenskaper som innehåller metadata som är kopplade till geometrin. `atlas.data.Feature` Helper-klassen kan användas för att enkelt skapa dessa objekt.
-- `atlas.Shape`-klassen liknar funktionen för geometriska JSON-funktioner i att den består av en geometrisk geometri och en uppsättning egenskaper som innehåller metadata som är kopplade till geometrin. Om ett interjson-objekt läggs till i en data källa kan det enkelt återges i ett lager, men om egenskapen koordinater för det här interjson-objektet uppdateras, ändras inte data källan och kartan eftersom det inte finns någon mekanism i JSON-objektet för att utlösa en uppdatering. Klassen Shape innehåller funktioner för att uppdatera data som den innehåller, och när en ändring görs meddelas data källan och-mappningen automatiskt och uppdateras. 
+- `atlas.Shape`-klassen liknar funktionen för polyjson. Båda består av en geometrisk geometri och en uppsättning egenskaper som innehåller metadata som är kopplade till geometrin. Om ett interjson-objekt läggs till i en data källa kan det enkelt återges i ett lager. Men om egenskapen koordinater för det här interjson-objektet uppdateras, ändras inte data källan och kartan. Det beror på att det inte finns någon mekanism i JSON-objektet för att utlösa en uppdatering. Klassen Shape innehåller funktioner för att uppdatera data som den innehåller. När en ändring görs, meddelas data källan och-mappningen automatiskt och uppdateras. 
 
-Följande kod exempel skapar en geometrisk punkt-geometri och skickar den till `atlas.Shape`-klassen så att den blir lätt att uppdatera. Mitten av kartan används inlednings vis för att återge en symbol. En klick händelse läggs till i kartan, till exempel när den utlöses, används koordinaterna där musen klickas med formen `setCoordinates` funktion som uppdaterar symbolens placering på kartan.
+Följande kod exempel skapar en geometrisk punkt-geometri och skickar den till `atlas.Shape`-klassen så att den blir lätt att uppdatera. Mitten av kartan används ursprungligen för att återge en symbol. En klick händelse läggs till i kartan, så att koordinaterna för musen används med formerna `setCoordinates` funktion när den utlöses. Mus koordinaterna registreras vid tidpunkten för klicknings händelsen. Sedan uppdaterar `setCoordinates` platsen för symbolen på kartan.
 
 <br/>
 
@@ -65,11 +65,11 @@ Följande kod exempel skapar en geometrisk punkt-geometri och skickar den till `
 </iframe>
 
 > [!TIP]
-> Som standard optimerar symbol lager åter givningen av symboler genom att dölja symboler som överlappar varandra för prestanda. När du zoomar in dolda symboler blir de synliga. Om du vill inaktivera den här funktionen och återge alla symboler hela tiden, anger du `allowOverlap` egenskapen för de `iconOptions` alternativen till `true`.
+> Som standard optimerar symbol lager åter givningen av symboler genom att dölja symboler som överlappar varandra. När du zoomar in blir de dolda symbolerna synliga. Om du vill inaktivera den här funktionen och återge alla symboler hela tiden, anger du `allowOverlap` egenskapen för de `iconOptions` alternativen till `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Lägga till en anpassad ikon i ett symbol lager
 
-Symbol lager återges med WebGL. Alla resurser, till exempel ikon bilder, måste läsas in i WebGL-kontexten. Det här exemplet visar hur du lägger till en anpassad ikon i kart resurserna och sedan använder den för att återge punkt data med en anpassad symbol på kartan. Ett uttryck måste anges för egenskapen `textField` för symbol lagret. I det här fallet vill vi återge temperatur egenskapen men eftersom den är ett tal måste den konverteras till en sträng. Dessutom vill vi lägga till "°F". Ett uttryck kan användas för detta. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+Symbol lager återges med WebGL. Alla resurser, till exempel ikon bilder, måste läsas in i WebGL-kontexten. Det här exemplet visar hur du lägger till en anpassad ikon i kart resurserna. Den här ikonen används sedan för att återge punkt data med en anpassad symbol på kartan. Ett uttryck måste anges för egenskapen `textField` för symbol lagret. I det här fallet vill vi återge temperatur egenskapen. Eftersom temperatur är ett tal måste det konverteras till en sträng. Dessutom vill vi lägga till "°F". Ett uttryck kan användas för att utföra den här sammanfogningen. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 

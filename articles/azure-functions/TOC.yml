@@ -130,6 +130,9 @@
     - name: Saker att tänka på gällande prestanda
       href: functions-best-practices.md
       displayName: best practice
+    - name: Överväganden för lagring
+      href: storage-considerations.md
+      displayName: 'encryption, keys'
     - name: Functions-proxyservrar
       href: functions-proxies.md
     - name: Nätverksalternativ
